@@ -1,6 +1,6 @@
 ---
-title: Správa video rámečků v prezentacích pomocí C++
-linktitle: Video rámeček
+title: Správa video snímků v prezentacích pomocí C++
+linktitle: Video snímek
 type: docs
 weight: 10
 url: /cs/cpp/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - vložit video
 - extrahovat video
 - získat video
-- video rámeček
+- video snímek
 - webový zdroj
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video rámečky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro C++. Rychlý návod krok za krokem."
+description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro C++. Rychlý návod krok za krokem."
 ---
 ## **Úvod**
 
-Videa mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides pro C++ vám umožňuje přidávat video rámečky do snímků, upravovat nastavení přehrávání, spravovat popisky a získávat vložená video data.  
+Videá mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides pro C++ vám umožňuje přidávat video snímky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
-PowerPoint podporuje místní videa i odkazy na online videa, například videa z YouTube.  
+PowerPoint podporuje místní videa i odkazy na online videa, například videa na YouTube.
 
-Pro reprezentaci video dat a video rámečků poskytuje Aspose.Slides rozhraní [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , rozhraní [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) a další relevantní typy.
+Pro reprezentaci video dat a video snímků poskytuje Aspose.Slides rozhraní [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/), rozhraní [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/), a další relevantní typy.
 
-## **Vytvoření vloženého video rámečku**
+## **Vytvořit vložený video snímek**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámeček pro vložení videa do vaší prezentace.  
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video snímek k vložení videa do vaší prezentace.
 
-Tento příklad vloží místní video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry rámečku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) jej drží zamčený, dokud jej prezentace používá.
+Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) jej udržuje uzamčený, dokud jej prezentace používá.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Můžete také předat cestu k místnímu videu přímo metodě [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
+Můžete také předat cestu k lokálnímu videu přímo metodě [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Vytvoření video rámečku s videem z webového zdroje**
+## **Vytvořit video snímek s videem z webového zdroje**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video rámeček, který odkazuje na online video, například video z YouTube.  
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video snímek, který odkazuje na online video, například video z YouTube.
 
-Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) požaduje automatické přehrávání. Stažení miniatury a přehrání videa vyžadují internetové připojení. Prohlížeč prezentací musí také podporovat přehrávání online videí.
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) požaduje automatické přehrávání. Stahování miniatury a přehrávání videa vyžaduje přístup k internetu. Prohlížeč prezentací také musí podporovat online přehrávání videa.
 
 ```cpp
 #include <net/web_client.h>
@@ -129,9 +129,9 @@ presentation->Dispose();
 
 ## **Přehrát video v režimu celé obrazovky**
 
-V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) přijímá `true` pro povolení tohoto chování během přehrávání.  
+V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) přijímá `true` pro povolení tohoto chování během přehrávání.
 
-Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) na prvním snímku a povolí přehrávání na celou obrazovku. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujím video rámečkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) na první snímku a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Režim celé obrazovky určuje, jak je video zobrazováno. Nezávisle, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) určuje, zda se spustí automaticky nebo na kliknutí, a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) určuje, zda se opakuje. Pro výběr chování při startu nastavte režim přehrávání na [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení startu a smyčky.
+Přehrávání v režimu celé obrazovky řídí, jak je video zobrazeno. Samostatně [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) určuje, zda se spustí automaticky nebo na kliknutí, a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) určuje, zda se opakuje. Pro výběr chování při startu nastavte režim přehrávání na [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení startu a smyčky.
 
 ## **Přetočit video po přehrání**
 
-V tréninkové prezentaci vrácení demonstračního videa na začátek ho připraví pro opětovné přehrání prezentátorem. Zavolejte [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) s `true`, aby se video po skončení přehrávání vrátilo na začátek.  
+V tréninkové prezentaci vrácení demonstračního videa na jeho začátek připraví video pro opětovné přehrání prezentujícím. Zavolejte [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) s `true`, aby se video po dokončení přehrávání vrátilo na začátek.
 
-Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) na prvním snímku a povolí přetáčení. Zakáže smyčku, aby přehrávání mohlo skončit, a nastaví start přehrávání na kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujím video rámečkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) na první snímku a povolí přetočení. Zakáže smyčku, aby se přehrávání mohlo dokončit, a nastaví přehrávání na start na kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Přetáčení vrací video na začátek, aniž by ho znovu spouštělo. Naopak povolení [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) opakovaně přehrává automaticky. Udržujte smyčku zakázanou, pokud chcete, aby video skončilo a zůstalo připravené k opětovnému přehrání. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) samostatně řídí automatické nebo klikací spuštění; tento příklad používá [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/), takže prezentátor řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Přetáčení funguje nezávisle na [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Přetočení vrací video na jeho začátek, aniž by ho spustilo znovu. Naopak povolení [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) opakuje přehrávání automaticky. Nechte smyčku zakázanou, když chcete, aby video skončilo a bylo připraveno k opětovnému přehrání. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) nezávisle řídí automatické nebo na‑kliknutí spuštění; tento příklad používá [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/), takže prezentující řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Přetočení funguje nezávisle na [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
-## **Oříznutí video rámečku**
+## **Oříznout video snímek**
 
-Použijte [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) a [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) k přeskočení části na začátku nebo na konci videa během přehrávání. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by měnilo vložená video data.
+Použijte [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) a [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/), abyste během přehrávání přeskočili část na začátku nebo na konci videa. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by měnilo vložená video data.
 
-**Nastavení ořezu**
+**Nastavit nastavení ořezu**
 
-Tento příklad vloží místní video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstala přehratelná část.
+Tento příklad vloží lokální video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstal přehratelný úsek.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Čtení nastavení ořezu**
+**Přečíst nastavení ořezu**
 
-Tento příklad vypíše hodnoty ořezu prvního video rámečku na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tato snímek nemá video rámeček, nic se nevypíše. Předchozí příklad vrací hodnoty 2500 a 1000.
+Tento příklad vytiskne hodnoty ořezu prvního video snímku na první snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video snímek, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -279,13 +279,13 @@ for (auto&& shape : IterateOver(slide->get_Shapes()))
 presentation->Dispose();
 ```
 
-## **Správa titulků videa**
+## **Spravovat titulky videa**
 
-Aspose.Slides vám umožňuje spravovat skryté titulky pro video rámečky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné prostřednictvím metody [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video snímky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny prostřednictvím metody [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
-**Přidání titulků do video rámečku**
+### **Přidat titulky k video snímku**
 
-Tento příklad vloží místní video a přidá WebVTT stopu titulků označenou English. Časové značky titulků by měly odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
+Tento příklad vloží lokální video a přidá WebVTT stopu titulků označenou English. Časová razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) také poskytuje přetížení, které vám umožňuje přidat titulky ze streamu.
+Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) také poskytuje přetížení, které vám umožní přidat titulky ze streamu.
 
-**Extrahování titulků z video rámečku**
+### **Extrahovat titulky z video snímku**
 
-Tento příklad uloží všechny stopy titulků z video rámečků na prvním snímku jako samostatné WebVTT soubory. Postupné čísla udržují výstupní soubory odlišné. Konzole udává počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad uloží všechny stopy titulků z video snímků na první snímek jako samostatné WebVTT soubory. Pořadová čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Každý objekt [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) poskytuje identifikátor titulku, popisek, binární data a text titulku jako řetězec UTF-8.
+Každý objekt [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) odhaluje identifikátor titulku, popisek, binární data a text titulku jako řetězec UTF‑8.
 
-**Odstranění titulků z video rámečku**
+### **Odstranit titulky z video snímku**
 
-Tento příklad odstraní všechny titulky z video rámečku na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video rámeček.
+Tento příklad odstraní všechny titulky z video snímku na první pozici tvaru na první snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video snímek.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pokud potřebujete odstranit jen jednu stopu titulků, použijte metody [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) místo [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metody [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/), místo [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
 
-## **Extrahování videa ze snímku**
+### **Prohledat titulky videa**
 
-Kromě přidávání videí do snímků umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.  
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) vrací kompletní WebVTT stopu, včetně hlavičky, časových řádků a textu titulků. Pro nalezení řečené fráze a jejího časového razítka si přečtěte cue v paměti. Například anglická stopa na snímku 2 může obsahovat následující text:
 
-Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Propojená videa jsou přeskočena, protože nemají vložená data. Konzole vypisuje MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; podle potřeby ji změňte, aby odpovídala hlášenému typu média.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Příklad otevře `captioned_media.pptx` a načte stopy titulků každého video snímku nejvyšší úrovně na každém snímku pomocí [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). V plain‑textové cue časový řádek obsahuje `-->` a prázdný řádek cue ukončuje. Když titulky obsahují „café“, příklad vytiskne číslo snímku, popisek stopy, původní časový řádek a celý titul. Vyhledávání ignoruje velikost písmen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Vyhledávání „café“ vytvoří jednu shodu pro vzorovou stopu. Vyhledávání přeskočí hlavičku a zachová nastavení časování ve výstupu.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Extrahovat video ze snímku**
+
+Kromě přidávání videí do snímků umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.
+
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože nemají vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; změňte ji podle požadovaného typu média, pokud je to nutné.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,18 +525,18 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Které parametry přehrávání videa lze změnit u video rámečku?**
+**Které parametry přehrávání videa lze změnit pro video snímek?**
 
-Můžete řídit [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (automaticky nebo na kliknutí) a [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
+Můžete ovládat [režim přehrávání](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/), (auto nebo na kliknutí) a [opakováním](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Tyto možnosti jsou dostupné přes metody objektu [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
-**Ovlivňuje přidání videa velikost souboru PPTX?**
+**Zvětšuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže se velikost prezentace zvětší úměrně k velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
+Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím video rámečku bez změny jeho pozice a velikosti?**
+**Mohu nahradit video v existujícím video snímku, aniž bych změnil jeho polohu a velikost?**
 
-Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) uvnitř rámečku a zároveň zachovat geometrii tvaru; to je běžný scénář pro aktualizaci médií v existujícím rozložení.
+Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) v rámci snímku při zachování geometrie tvaru; to je běžný scénář pro aktualizaci médií v existujícím rozložení.
 
-**Lze zjistit typ obsahu (MIME) vloženého videa?**
+**Lze určit typ obsahu (MIME) vloženého videa?**
 
-Ano. Vložené video má [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), který můžete přečíst a použít, například při ukládání na disk.
+Ano. Vložené video má [typ obsahu](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), který můžete přečíst a použít, například při ukládání na disk.

@@ -1,5 +1,5 @@
 ---
-title: Gestire l'audio nelle presentazioni su Android
+title: Gestisci i fotogrammi audio nelle presentazioni su Android
 linktitle: Fotogramma audio
 type: docs
 weight: 10
@@ -15,217 +15,179 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Crea e controlla i fotogrammi audio in Aspose.Slides per Android—esempi Java per incorporare, ritagliare, ripetere e configurare la riproduzione in presentazioni PPT, PPTX e ODP."
+description: "Incorpora audio nelle diapositive, cambia l'icona audio, configura la riproduzione, gestisci i sottotitoli WebVTT ed estrai i suoni di transizione delle diapositive con Aspose.Slides per Android tramite Java."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i fotogrammi audio in Aspose.Slides. Mostra come aggiungere audio incorporato alle diapositive, personalizzare la miniatura del fotogramma audio, configurare le opzioni di riproduzione come volume, ripetizione, nascondere, ritaglio e durata delle dissolvenze, ed estrarre l’audio utilizzato nelle transizioni della presentazione.
+Un fotogramma audio consente di riprodurre un suono su una diapositiva. Con Aspose.Slides per Android tramite Java, è possibile incorporare una clip audio, scegliere l'immagine che lo rappresenta, regolare la riproduzione e allegare i sottotitoli. È anche possibile recuperare un suono assegnato a una transizione della diapositiva.
 
 ## **Crea fotogrammi audio**
-Aspose.Slides per Android via Java consente di aggiungere file audio alle diapositive. I file audio sono incorporati nelle diapositive come fotogrammi audio.
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Presentation).
-2. Ottenere il riferimento di una diapositiva tramite il suo indice.
-3. Caricare lo stream del file audio che si desidera incorporare nella diapositiva.
-4. Aggiungere il fotogramma audio incorporato (contenente il file audio) alla diapositiva.
-5. Impostare [PlayMode](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioPlayModePreset) e `Volume` esposti dall'oggetto [IAudioFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IAudioFrame).
-6. Salvare la presentazione modificata.
-
-Questo codice Java mostra come aggiungere un fotogramma audio incorporato a una diapositiva:
+Usa [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-java.io.InputStream-) per incorporare una clip audio locale nella prima diapositiva. Le prime due coordinate posizionano il fotogramma sulla diapositiva, e i successivi due valori impostano la sua larghezza e altezza, tutti in punti. Questo esempio chiama [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) per avviare automaticamente la clip e chiama [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) per selezionare il preset alto.
 
 ```java
-// Instanzia una classe Presentation che rappresenta un file di presentazione
-Presentation pres = new Presentation();
-try {
-    // Ottiene la prima diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Carica il file audio wav nello stream
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Aggiunge il fotogramma audio
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // Imposta la modalità di riproduzione e il volume dell'audio
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // Scrive il file PowerPoint su disco
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Modifica la miniatura del fotogramma audio**
 
-Quando si aggiunge un file audio a una presentazione, l’audio appare come un fotogramma con un'immagine predefinita standard (vedi l’immagine nella sezione seguente). È possibile modificare l’immagine di anteprima del fotogramma audio (impostare l’immagine preferita).
-
-Questo codice Java mostra come modificare la miniatura o l’immagine di anteprima di un fotogramma audio:
+Per impostazione predefinita, un fotogramma audio mostra un'icona dell'altoparlante. Per visualizzare una miniatura personalizzata, aggiungi un'immagine alla presentazione con [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-java.io.InputStream-) e impostala sull'immagine del fotogramma con [setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#setImage-com.aspose.slides.IPPImage-). L'esempio utilizza un JPEG come miniatura per una clip audio incorporata.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Aggiunge un fotogramma audio alla diapositiva con una posizione e dimensione specificate.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
+try (FileInputStream audioStream = new FileInputStream("audio.wav");
+     FileInputStream imageStream = new FileInputStream("eagle.jpeg")) {
+    IPPImage thumbnail = presentation.getImages().addImage(imageStream);
+
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
+    audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
 
-    // Aggiunge un'immagine alle risorse della presentazione.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Imposta l'immagine per il fotogramma audio.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-//Salva la presentazione modificata su disco
     presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Modifica le opzioni di riproduzione audio**
 
-Aspose.Slides per Android via Java consente di modificare le opzioni che controllano la riproduzione o le proprietà di un audio. Ad esempio, è possibile regolare il volume di un audio, impostare la riproduzione in loop o persino nascondere l’icona audio.
+I controlli delle **Opzioni audio** di PowerPoint determinano quando inizia una clip, quanto è forte e come si comporta durante la presentazione.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![Controlli delle Opzioni audio di PowerPoint per un fotogramma audio](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Controllo PowerPoint | Metodo Aspose.Slides per Android tramite Java |
+| --- | --- |
+| Avvia | [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) |
+| Preset volume | [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) |
+| Riproduci su più diapositive | [setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayAcrossSlides-boolean-) |
+| Ripeti fino all'arresto | [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayLoopMode-boolean-) |
+| Nascondi durante la presentazione | [setHideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setHideAtShowing-boolean-) |
+| Riavvolgi dopo la riproduzione | [setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setRewindAudio-boolean-) |
+| Dissolvenza in ingresso | [setFadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeInDuration-float-) |
+| Dissolvenza in uscita | [setFadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeOutDuration-float-) |
+| Taglia inizio audio | [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) |
+| Taglia fine audio | [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) |
+| Slider volume | [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) |
 
-Le **Opzioni audio** di PowerPoint corrispondenti alle proprietà di Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame) :
+L'esempio trova il primo fotogramma audio nella prima diapositiva, chiama [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) per avviare la riproduzione al clic e seleziona il preset volume basso. La clip continua su più diapositive con il looping disabilitato. L'icona rimane nascosta durante la presentazione e la clip si riavvolge dopo la riproduzione.
 
-- L’elenco a discesa **Start** corrisponde alla proprietà [AudioFrame.PlayMode](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) .
-- Il **Volume** corrisponde alla proprietà [AudioFrame.Volume](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getVolume--) .
-- L’opzione **Play Across Slides** corrisponde alla proprietà [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) .
-- **Loop until Stopped** corrisponde alla proprietà [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) .
-- **Hide During Show** corrisponde alla proprietà [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) .
-- **Rewind after Playing** corrisponde alla proprietà [AudioFrame.RewindAudio](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) .
+```java
+import com.aspose.slides.*;
 
-Le opzioni **Modifica** di PowerPoint che corrispondono alle proprietà di Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/) :
-
-- **Fade In** corrisponde alla proprietà [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) .
-- **Fade Out** corrisponde alla proprietà [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) .
-- **Trim Audio Start Time** corrisponde alla proprietà [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) .
-- **Trim Audio End Time** valore è uguale alla durata dell’audio meno il valore della proprietà [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) .
-
-Il **controllo Volume** di PowerPoint nel pannello di controllo audio corrisponde alla proprietà [AudioFrame.VolumeValue](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) . Consente di modificare il volume dell’audio in percentuale.
-
-Ecco come modificare le opzioni di riproduzione audio:
-
-1. [Crea](#create-audio-frame) o ottieni il Fotogramma audio.
-2. Imposta nuovi valori per le proprietà del Fotogramma audio che desideri modificare.
-3. Salva il file PowerPoint modificato.
-
-Questo codice Java dimostra un'operazione in cui le opzioni di un audio vengono regolate:
-
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    // Ottiene la forma AudioFrame
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Imposta la modalità di riproduzione su clic
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // Imposta il volume su Basso
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // Imposta l'audio per riprodursi su più diapositive
-    audioFrame.setPlayAcrossSlides(true);
-
-    // Disabilita il loop per l'audio
-    audioFrame.setPlayLoopMode(false);
-
-    // Nasconde il fotogramma audio durante la presentazione
-    audioFrame.setHideAtShowing(true);
-
-    // Riavvolge l'audio all'inizio dopo la riproduzione
-    audioFrame.setRewindAudio(true);
-
-    // Salva il file PowerPoint su disco
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Questo esempio Java mostra come aggiungere un nuovo fotogramma audio con audio incorporato, ritagliarlo e impostare le durate delle dissolvenze:
+Per una clip più lunga di 3,5 secondi, questo esempio salta i primi 1,5 secondi e gli ultimi 2 secondi. [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) indica la durata da omettere dalla fine della clip. Per ottenere il tempo di fine mostrato in PowerPoint, sottrai quell'offset dalla durata totale della clip. La clip ritagliata sfuma in ingresso in 200 millisecondi e sfuma in uscita in 500 millisecondi. Tutti e quattro i metodi accettano valori in millisecondi.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
-    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Imposta l'offset iniziale del ritaglio a 1,5 secondi
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
     audioFrame.setTrimFromStart(1500f);
-    // Imposta l'offset finale del ritaglio a 2 secondi
     audioFrame.setTrimFromEnd(2000f);
-
-    // Imposta la durata della dissolvenza in ingresso a 200 ms
     audioFrame.setFadeInDuration(200f);
-    // Imposta la durata della dissolvenza in uscita a 500 ms
     audioFrame.setFadeOutDuration(500f);
 
-    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+    presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Il seguente esempio di codice mostra come recuperare un fotogramma audio con audio incorporato e impostarne il volume all'85%:
+Per impostare il volume di riproduzione a una percentuale specifica, usa [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-). Questo esempio imposta il primo fotogramma audio nella prima diapositiva all'85%.
 
 ```java
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ottiene la forma di un fotogramma audio
-    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // Imposta il volume audio all'85%
-    audioFrame.setVolumeValue(85f);
-
-    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
+    if (audioFrame != null) {
+        audioFrame.setVolumeValue(85f);
+        presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Gestisci i sottotitoli audio**
 
-Aspose.Slides consente di aggiungere sottotitoli chiusi a un fotogramma audio tramite il metodo [getCaptionTracks](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) . Questo metodo restituisce una [ICaptionsCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icaptionscollection/) , che permette di aggiungere tracce di sottotitoli WebVTT, iterare le tracce esistenti e rimuoverle quando necessario.
+Ogni fotogramma audio fornisce l'accesso alle sue tracce di sottotitoli mediante [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--). Usa la collezione per allegare sottotitoli WebVTT alla clip, esportare le tracce esistenti o rimuoverle.
 
-**Aggiungi sottotitoli audio**
+### **Aggiungi sottotitoli audio**
 
-Utilizza il metodo [getCaptionTracks](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) per collegare una o più tracce di sottotitoli a un fotogramma audio. Nell'esempio seguente, un file audio viene aggiunto a una diapositiva, quindi viene caricata una nuova traccia di sottotitoli da un file `.vtt` .
+L'esempio incorpora una clip audio nella prima diapositiva e utilizza [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#add-java.lang.String-java.lang.String-) per allegare una traccia WebVTT locale. Il primo argomento fornisce l'etichetta della traccia, e il secondo identifica il file contenente i sottotitoli temporizzati.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
-    IAudio audio = presentation.getAudios().addAudio(audioData);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Aggiungi una nuova traccia di sottotitoli da un file WebVTT.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+    audioFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
 } finally {
@@ -233,45 +195,95 @@ try {
 }
 ```
 
-**Estrai i sottotitoli audio**
+### **Estrai i sottotitoli audio**
 
-È possibile iterare le tracce di sottotitoli associate a un fotogramma audio e salvarle come file `.vtt`. Ogni traccia di sottotitoli espone i dati binari e l'identificatore unico, utili durante l'esportazione dei sottotitoli.
+Questo esempio esporta ogni traccia di sottotitoli allegata a un fotogramma audio nella prima diapositiva. Scrive i byte restituiti da [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getBinaryData--) in un file WebVTT e utilizza l'identificatore restituito da [getCaptionId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getCaptionId--) come nome del file, così ogni traccia ha un output separato.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame) {
-            IAudioFrame audioFrame = (IAudioFrame) shape;
-            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
-                // Salva la traccia di sottotitoli come file .vtt.
-                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                fos.write(captionTrack.getBinaryData());
-                fos.close();
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            try (FileOutputStream output = new FileOutputStream(track.getCaptionId() + ".vtt")) {
+                output.write(track.getBinaryData());
             }
         }
     }
-} catch (IOException e){
 } finally {
     presentation.dispose();
 }
 ```
 
-**Rimuovi i sottotitoli audio**
+### **Rimuovi i sottotitoli audio**
 
-Per rimuovere i sottotitoli da un fotogramma audio, utilizza i metodi forniti da [ICaptionsCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icaptionscollection/) , come [clear](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icaptionscollection/#clear--) , [remove](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) o [removeAt](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) . L'esempio seguente rimuove tutte le tracce di sottotitoli da un fotogramma audio.
+Usa [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) o [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) per eliminare una singola traccia. L'esempio utilizza [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#clear--) per rimuovere tutti i sottotitoli dal primo fotogramma audio nella prima diapositiva mantenendo la clip.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
 
-    // Rimuovi tutte le tracce di sottotitoli dal fotogramma audio.
-    audioFrame.getCaptionTracks().clear();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Trova una riga nei sottotitoli audio**
+
+Per trovare una riga nei sottotitoli audio nella prima diapositiva, cerca il testo restituito da [getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) in memoria. In un cue WebVTT di testo semplice, la riga temporale contiene `-->`, le righe di sottotitolo la seguono e una riga vuota termina il cue. Questo esempio stampa l'etichetta della traccia e ogni riga di sottotitolo contenente “café”.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            boolean inCue = false;
+            String captions = track.getDataAsString();
+            for (String line : captions.split("\\r\\n|\\r|\\n")) {
+                if (line.isEmpty()) {
+                    inCue = false;
+                } else if (line.contains("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase(Locale.ROOT).contains("café")) {
+                    System.out.println(track.getLabel() + ": " + line);
+                }
+            }
+        }
+    }
 } finally {
     presentation.dispose();
 }
@@ -279,43 +291,37 @@ try {
 
 ## **Estrai audio**
 
-Aspose.Slides per Android via Java consente di estrarre il suono utilizzato nelle transizioni della presentazione. Ad esempio, è possibile estrarre il suono utilizzato in una diapositiva specifica.
-
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Presentation) e caricare la presentazione contenente l’audio.
-2. Ottenere il riferimento della diapositiva pertinente tramite il suo indice.
-3. Accedere alle [slideshow transitions](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) della diapositiva.
-4. Estrarre il suono come dati byte.
-
-Questo codice Java mostra come estrarre l’audio usato in una diapositiva:
+Una transizione di diapositiva può avere un suono proprio. Per recuperarlo, chiama [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSound--) sulla transizione della diapositiva. L'esempio accede ai byte restituiti da [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) e stampa il numero di byte. Se la prima diapositiva non ha suono di transizione, stampa invece un messaggio.
 
 ```java
-// Crea un'istanza della classe Presentation che rappresenta un file di presentazione
-Presentation pres = new Presentation("AudioSlide.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioSlide.pptx");
 try {
-    // Accede alla diapositiva desiderata
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Ottiene gli effetti di transizione della presentazione per la diapositiva
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //Estrae il suono in un array di byte
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAudio sound = slide.getSlideShowTransition().getSound();
+    if (sound != null) {
+        byte[] audioData = sound.getBinaryData();
+        System.out.println("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        System.out.println("The first slide has no transition sound.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Posso riutilizzare lo stesso asset audio in più diapositive senza aumentare la dimensione del file?**
+**Posso riutilizzare la stessa clip audio su più diapositive senza duplicarla?**
 
-Sì. Aggiungi l’audio una sola volta alla [audio collection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/#getAudios--) condivisa della presentazione e crea fotogrammi audio aggiuntivi che fanno riferimento a quell’asset esistente. Questo evita la duplicazione dei dati multimediali e mantiene le dimensioni della presentazione sotto controllo.
+Sì. Aggiungi la clip una volta alla [collezione audio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) e passa lo stesso oggetto audio a [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-com.aspose.slides.IAudio-) per ogni diapositiva.
 
-**Posso sostituire il suono in un fotogramma audio esistente senza ricreare la forma?**
+**Posso sostituire il suono in un fotogramma audio esistente?**
 
-Sì. Per un suono collegato, aggiorna il [link path](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) per puntare al nuovo file. Per un suono incorporato, sostituisci l’oggetto [embedded audio](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) con un altro presente nella [audio collection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/#getAudios--) della presentazione. La formattazione del fotogramma e la maggior parte delle impostazioni di riproduzione rimangono invariate.
+Sì. Per un suono collegato, usa [setLinkPathLong](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) per puntare al file di sostituzione. Per un suono incorporato, seleziona un'altra clip dalla [collezione audio] della presentazione con [setEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-). Entrambi gli approcci preservano il fotogramma esistente.
 
-**Il ritaglio modifica i dati audio sottostanti memorizzati nella presentazione?**
+**Il ritaglio modifica i dati audio memorizzati nella presentazione?**
 
-No. Il ritaglio regola solo i limiti di riproduzione. I byte originali dell’audio rimangono intatti e accessibili tramite l’audio incorporato o la [audio collection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/#getAudios--) della presentazione.
+No. [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) e [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) impostano i limiti di riproduzione. È ancora possibile recuperare la clip completa da [getEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getEmbeddedAudio--).

@@ -1,6 +1,6 @@
 ---
-title: Gestionar fotogramas de video en presentaciones usando PHP
-linktitle: Fotograma de video
+title: Gestionar marcos de video en presentaciones usando PHP
+linktitle: Marco de video
 type: docs
 weight: 10
 url: /es/php-java/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - incrustar video
 - extraer video
 - recuperar video
-- fotograma de video
+- marco de video
 - fuente web
 - PowerPoint
 - OpenDocument
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda a añadir y extraer programáticamente fotogramas de video en diapositivas PowerPoint y OpenDocument usando Aspose.Slides para PHP a través de Java. Guía rápida paso a paso."
+description: "Aprenda a añadir y extraer programáticamente marcos de video en diapositivas PowerPoint y OpenDocument usando Aspose.Slides para PHP vía Java. Guía práctica rápida."
 ---
 ## **Introducción**
 
-Los videos pueden ayudar a explicar ideas y captar la atención de la audiencia. Aspose.Slides para PHP a través de Java le permite añadir fotogramas de video a las diapositivas, ajustar la configuración de reproducción, gestionar subtítulos y extraer datos de video incrustados.
+Los videos pueden ayudar a explicar ideas y captar a la audiencia. Aspose.Slides for PHP via Java le permite añadir marcos de video a las diapositivas, ajustar la configuración de reproducción, gestionar subtítulos y extraer los datos de video incrustados.
 
 PowerPoint admite videos locales y enlaces a videos en línea, como videos de YouTube.
 
-Para representar datos de video y fotogramas de video, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/), la clase [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) y otros tipos relevantes.
+Para representar datos de video y marcos de video, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) , la clase [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) y otros tipos relevantes.
 
-## **Crear un fotograma de video incrustado**
+## **Crear un Marco de Video Incrustado**
 
-Si el archivo de video que desea añadir a su diapositiva está almacenado localmente, puede crear un fotograma de video para incrustar el video en su presentación.
+Si el archivo de video que desea añadir a su diapositiva está almacenado localmente, puede crear un marco de video para incrustar el video en su presentación.
 
-Este ejemplo incrusta un video local en la primera diapositiva de una presentación existente y guarda el resultado. Las coordenadas y dimensiones del fotograma están en puntos. El flujo permanece abierto hasta que se finaliza la guardado porque [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) lo mantiene bloqueado mientras la presentación lo utiliza.
+Este ejemplo incrusta un video local en la primera diapositiva de una presentación existente y guarda el resultado. Las coordenadas y dimensiones del marco están en puntos. El flujo permanece abierto hasta que finaliza el guardado porque [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) lo mantiene bloqueado mientras la presentación lo usa.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-También puede pasar la ruta de un video local directamente a [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Este ejemplo incrusta el video en la primera diapositiva de una nueva presentación. El video debe permanecer accesible hasta que la presentación se guarde.
+También puede pasar una ruta de video local directamente a [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Este ejemplo incrusta el video en la primera diapositiva de una nueva presentación. El video debe permanecer accesible hasta que la presentación se guarde.
 
 ```php
 use aspose\slides\Presentation;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **Crear un fotograma de video con video de una fuente web**
+## **Crear un Marco de Video con Video de una Fuente Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) admite videos en línea en las presentaciones. Puede crear un fotograma de video que enlace a un video en línea, como un video de YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) admite videos en línea en las presentaciones. Puede crear un marco de video que enlace a un video en línea, como un video de YouTube.
 
-Este ejemplo añade un enlace a un video de YouTube y su miniatura en la primera diapositiva. Reemplace el identificador del video para usar otro video. El método [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) solicita la reproducción automática. Descargar la miniatura y reproducir el video requieren acceso a internet. El visor de la presentación también debe admitir la reproducción de videos en línea.
+Este ejemplo añade un enlace de video de YouTube y una miniatura a la primera diapositiva. Reemplace el identificador del video para usar otro video. El método [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) solicita la reproducción automática. Descargar la miniatura y reproducir el video requieren acceso a Internet. El visor de la presentación también debe admitir la reproducción de video en línea.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **Reproducir un video en modo pantalla completa**
+## **Reproducir un Video en Modo Pantalla Completa**
 
-En una presentación de formación, puede reproducir una demostración de software en modo pantalla completa para que la audiencia vea los detalles. Llame a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) con `true` para habilitar este comportamiento durante la reproducción.
+En una presentación de entrenamiento, puede reproducir una demostración de software en modo pantalla completa para que la audiencia vea los detalles. Llame a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) con `true` para habilitar este comportamiento durante la reproducción.
 
-Este ejemplo abre una presentación, encuentra el primer [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) en la primera diapositiva y habilita la reproducción en pantalla completa. La presentación de entrada debe contener al menos una diapositiva con un fotograma de video existente en la primera diapositiva.
+Este ejemplo abre una presentación, busca el primer [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) en la primera diapositiva y habilita la reproducción en pantalla completa. La presentación de entrada debe contener al menos una diapositiva con un marco de video existente en la primera diapositiva.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-La reproducción en pantalla completa controla cómo se muestra el video. De forma independiente, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) controla si se inicia automáticamente o al hacer clic, y [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) controla si se repite. Para elegir el comportamiento de inicio, establezca el modo de reproducción a [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). El ejemplo conserva los ajustes de inicio y bucle existentes.
+La reproducción en pantalla completa controla cómo se muestra el video. De forma independiente, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) controla si se inicia automáticamente o al hacer clic, y [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) controla si se repite. Para elegir el comportamiento de inicio, establezca el modo de reproducción a [VideoPlayModePreset::Auto o VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). El ejemplo conserva la configuración de inicio y bucle existente.
 
-## **Rebobinar un video después de la reproducción**
+## **Retroceder un Video Tras la Reproducción**
 
-En una presentación de formación, devolver un video de demostración a su comienzo lo deja listo para que el presentador lo reproduzca de nuevo. Llame a [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) con `true` para devolver el video al principio después de que la reproducción finalice.
+En una presentación de entrenamiento, devolver un video de demostración a su principio lo deja listo para que el presentador lo reproduzca de nuevo. Llame a [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) con `true` para devolver el video al principio después de que la reproducción finalice.
 
-Este ejemplo abre una presentación, encuentra el primer [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) en la primera diapositiva y habilita el rebobinado. Desactiva el bucle para que la reproducción pueda finalizar y establece la reproducción para que comience al hacer clic. La presentación de entrada debe contener al menos una diapositiva con un fotograma de video existente en la primera diapositiva.
+Este ejemplo abre una presentación, busca el primer [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) en la primera diapositiva y habilita el rebobinado. Desactiva el bucle para que la reproducción pueda terminar y configura la reproducción para iniciar al hacer clic. La presentación de entrada debe contener al menos una diapositiva con un marco de video existente en la primera diapositiva.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,11 +175,11 @@ try {
 }
 ```
 
-El rebobinado devuelve el video a su comienzo sin iniciarlo de nuevo. En cambio, llamar a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) con `true` repite la reproducción automáticamente. Mantenga el bucle desactivado cuando desee que el video finalice y quede listo para reproducirse nuevamente. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) controla de forma independiente el inicio automático o al hacer clic; este ejemplo usa [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) para que el presentador controle cuándo comienza la reproducción. Establezca el modo de reproducción después del ajuste de bucle, como se muestra en el ejemplo. El rebobinado funciona de manera independiente de [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+Retroceder devuelve el video a su principio sin iniciarlo de nuevo. En contraste, llamar a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) con `true` repite la reproducción automáticamente. Mantenga el bucle desactivado cuando quiera que el video termine y quede listo para reproducirlo de nuevo. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) controla de forma independiente el inicio automático o al hacer clic; este ejemplo usa [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) para que el presentador controle cuándo comienza la reproducción. Establezca el modo de reproducción después de la configuración del bucle, como se muestra en el ejemplo. Retroceder funciona de forma independiente de [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Recortar un fotograma de video**
+## **Recortar un Marco de Video**
 
-Utilice [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) y [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) para omitir parte del principio o del final de un video durante la reproducción. Ambos valores están en milisegundos. El recorte modifica la configuración de reproducción sin alterar los datos del video incrustado.
+Utilice [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) y [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) para omitir parte del inicio o del final de un video durante la reproducción. Ambos valores están en milisegundos. Recortar cambia la configuración de reproducción sin modificar los datos del video incrustado.
 
 **Establecer ajustes de recorte**
 
@@ -210,7 +210,7 @@ try {
 
 **Leer ajustes de recorte**
 
-Este ejemplo muestra los valores de recorte del primer fotograma de video en la primera diapositiva en milisegundos. La presentación debe contener al menos una diapositiva. Si esa diapositiva no tiene fotograma de video, no se muestra nada. El ejemplo anterior genera valores de 2500 y 1000.
+Este ejemplo muestra los valores de recorte del primer marco de video en la primera diapositiva en milisegundos. La presentación debe contener al menos una diapositiva. Si esa diapositiva no tiene marco de video, no se muestra nada. El ejemplo anterior produce valores de 2500 y 1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -234,13 +234,13 @@ try {
 }
 ```
 
-## **Gestionar subtítulos de video**
+## **Gestionar Subtítulos de Video**
 
-Aspose.Slides le permite gestionar subtítulos cerrados para los fotogramas de video en presentaciones de PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante el método [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides le permite gestionar subtítulos cerrados para los marcos de video en presentaciones de PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante el método [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Añadir subtítulos a un fotograma de video**
+### **Añadir subtítulos a un marco de video**
 
-Este ejemplo incrusta un video local y añade una pista de subtítulos WebVTT etiquetada como English. Las marcas de tiempo de los subtítulos deben coincidir con el video. La presentación guardada incluye tanto el video como sus subtítulos.
+Este ejemplo incrusta un video local y añade una pista de subtítulos WebVTT etiquetada English. Las marcas de tiempo de los subtítulos deben coincidir con el video. La presentación guardada incluye tanto el video como sus subtítulos.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-La clase [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) también ofrece una sobrecarga que le permite añadir subtítulos desde un flujo.
+La clase [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) también proporciona una sobrecarga que le permite añadir subtítulos desde un flujo.
 
-**Extraer subtítulos de un fotograma de video**
+### **Extraer subtítulos de un marco de video**
 
-Este ejemplo guarda todas las pistas de subtítulos de los fotogramas de video en la primera diapositiva como archivos WebVTT separados. Los números secuenciales mantienen los archivos de salida distintos. La consola informa del número de pistas extraídas. La presentación debe contener al menos una diapositiva.
+Este ejemplo guarda todas las pistas de subtítulos de los marcos de video en la primera diapositiva como archivos WebVTT separados. Los números secuenciales mantienen los archivos de salida distintos. La consola informa del número de pistas extraídas. La presentación debe contener al menos una diapositiva.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-Cada objeto [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) expone el identificador del subtítulo, la etiqueta, los datos binarios y el texto del subtítulo como una cadena UTF‑8.
+Cada objeto [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) expone el identificador del subtítulo, la etiqueta, los datos binarios y el texto del subtítulo como una cadena UTF-8.
 
-**Eliminar subtítulos de un fotograma de video**
+### **Eliminar subtítulos de un marco de video**
 
-Este ejemplo elimina todos los subtítulos del fotograma de video en la primera posición de forma de la primera diapositiva y guarda el resultado. Se asume que la diapositiva y la forma existen y que la forma es un fotograma de video.
+Este ejemplo elimina todos los subtítulos del marco de video en la primera posición de forma de la primera diapositiva y guarda el resultado. Se asume que la diapositiva y la forma existen y que la forma es un marco de video.
 
 ```php
 use aspose\slides\Presentation;
@@ -328,11 +328,75 @@ try {
 
 Si necesita eliminar solo una pista de subtítulos, use los métodos [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) o [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) en lugar de [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
+### **Buscar subtítulos de video**
+
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) devuelve la pista completa WebVTT, incluyendo su encabezado, líneas de tiempo y texto del subtítulo. Puede buscar los indicadores en memoria para encontrar una frase pronunciada y su marca de tiempo. Por ejemplo, una pista en inglés en la diapositiva 2 podría contener el siguiente texto.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+El ejemplo abre `captioned_media.pptx` y usa [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) para leer las pistas de cada marco de video de nivel superior en cada diapositiva. En una señal de texto plano, la línea de tiempo contiene `-->` y una línea en blanco finaliza la señal. Cuando el subtítulo contiene “café” en cualquier combinación de mayúsculas y minúsculas, el ejemplo muestra el número de diapositiva, la etiqueta de la pista, la línea de tiempo original y el subtítulo completo.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Buscar “café” produce una coincidencia para la pista de ejemplo. La búsqueda excluye el encabezado de la pista y conserva la configuración de tiempo en la salida.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
 ## **Extraer video de una diapositiva**
 
-Además de añadir videos a las diapositivas, Aspose.Slides permite extraer videos incrustados en las presentaciones.
+Además de añadir videos a las diapositivas, Aspose.Slides le permite extraer videos incrustados en presentaciones.
 
-Este ejemplo extrae los videos incrustados de cada diapositiva en archivos binarios numerados y separados. Los videos vinculados se omiten porque no tienen datos incrustados. La consola muestra el tipo MIME de cada video y el recuento total. La salida utiliza la extensión genérica `.bin`; cámbiela para que coincida con el tipo de medio reportado cuando sea necesario.
+Este ejemplo extrae los videos incrustados de cada diapositiva en archivos binarios separados y numerados. Los videos enlazados se omiten porque no tienen datos incrustados. La consola muestra el tipo MIME de cada video y el recuento total. La salida usa la extensión genérica `.bin`; cámbiela para que coincida con el tipo de medio informado cuando sea necesario.
 
 ```php
 use aspose\slides\Presentation;
@@ -372,20 +436,20 @@ try {
 }
 ```
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Qué parámetros de reproducción de video se pueden cambiar en un fotograma de video?**
+**¿Qué parámetros de reproducción de video pueden cambiarse para un marco de video?**
 
 Puede controlar el [modo de reproducción](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Estas opciones están disponibles a través de los métodos del objeto [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
-**¿Afecta la adición de un video al tamaño del archivo PPTX?**
+**¿Afecta la incorporación de un video al tamaño del archivo PPTX?**
 
 Sí. Cuando incrusta un video local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando enlaza a un video en línea y añade una miniatura, la presentación almacena el enlace y la imagen de vista previa en lugar de los datos del video, por lo que el aumento de tamaño suele ser menor.
 
-**¿Puedo sustituir el video en un fotograma de video existente sin cambiar su posición ni su tamaño?**
+**¿Puedo reemplazar el video en un marco de video existente sin cambiar su posición y tamaño?**
 
-Sí. Puede intercambiar el [contenido del video](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) dentro del fotograma sin alterar la geometría de la forma; este es un escenario habitual para actualizar medios en un diseño existente.
+Sí. Puede intercambiar el [contenido del video](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) dentro del marco manteniendo la geometría de la forma; este es un escenario común para actualizar medios en un diseño existente.
 
 **¿Se puede determinar el tipo de contenido (MIME) de un video incrustado?**
 
-Sí. Un video incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) que puede leer y utilizar, por ejemplo al guardarlo en disco.
+Sí. Un video incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) que puede leer y usar, por ejemplo al guardarlo en disco.

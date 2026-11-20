@@ -7,7 +7,7 @@ url: /sv/net/audio-frame/
 keywords:
 - ljud
 - ljudram
-- miniatyrbild
+- miniatyr
 - lägg till ljud
 - ljudegenskaper
 - ljudalternativ
@@ -15,281 +15,278 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Skapa och kontrollera ljudramar i Aspose.Slides för .NET—C#-exempel för att bädda in, beskära, loopa och konfigurera uppspelning i PPT-, PPTX- och ODP-presentationer."
+description: "Bädda in ljud i bilder, ändra ljudikonen, konfigurera uppspelning, hantera WebVTT-undertexter och extrahera bildövergångsljud med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med ljudramar i Aspose.Slides. Den visar hur man lägger till inbäddat ljud i bilder, anpassar ljudramens miniatyr, konfigurerar uppspelningsalternativ såsom volym, loopning, gömning, beskärning och toningsvaraktigheter, samt extraherar ljud som används i bildspelsövergångar.
+En ljudram låter dig spela ett ljud på en bild. Med Aspose.Slides för .NET kan du bädda in ett ljudklipp, välja bilden som representerar det, justera uppspelning och bifoga bildtexter. Du kan även hämta ett ljud som tilldelats en bildövergång.
 
 ## **Skapa ljudramar**
 
-Aspose.Slides för .NET låter dig lägga till ljudfiler i bilder. Ljudfilerna bäddas in i bilder som ljudramar. 
+Använd [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) för att bädda in ett lokalt ljudklipp på den första bilden. De två första koordinaterna placerar ramen på bilden, och de nästa två värdena anger dess bredd och höjd, alla i punkter. Detta exempel sätter [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) för att starta klippet automatiskt och [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) till det höga förinställningen.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation)klassen.  
-2. Hämta en bilds referens via dess index.  
-3. Läs in ljudfilströmmen som du vill bädda in i bilden.  
-4. Lägg till den inbäddade ljudramen (som innehåller ljudfilen) till bilden.  
-5. Ställ in [PlayMode](https://reference.aspose.com/slides/sv/net/aspose.slides/audioplaymodepreset) och `Volume` som exponeras av [IAudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe)-objektet.  
-6. Spara den ändrade presentationen.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Den här C#-koden visar hur du lägger till en inbäddad ljudram i en bild:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Skapar en presentationsklass som representerar en presentationsfil
-using (Presentation pres = new Presentation())
-{
-    // Hämtar den första bilden
-    ISlide sld = pres.Slides[0];
-    
-    // Laddar wav-ljudfilen till en ström
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // Lägger till ljudramen
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
-
-    // Ställer in uppspelningsläget och volymen för ljudet
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // Skriver PowerPoint-filen till disk
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ändra ljudramens miniatyr**
+## **Ändra ljudramens miniatyrbild**
 
-När du lägger till en ljudfil i en presentation visas ljudet som en ram med en standardstandardbild (se bilden i avsnittet nedan). Du kan ändra ljudramens miniatyr (ange din föredragna bild).
+Som standard visar en ljudram en högtalarikon. För att visa en anpassad miniatyr, lägg till en bild i presentationen med [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) och tilldela den till ramens [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/) egenskap. Exemplet använder en JPEG som miniatyr för ett inbäddat ljudklipp.
 
-Den här C#-koden visar hur du ändrar en ljudramens miniatyr eller förhandsgranskningsbild:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Lägger till en ljudram på bilden med en angiven position och storlek.
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // Lägger till en bild i presentationens resurser.
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
 
-    // Ställer in bilden för ljudramen.
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-    
-	//Sparar den ändrade presentationen till disk
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Ändra ljuduppspelningsalternativ**
 
-Aspose.Slides för .NET låter dig ändra alternativ som styr ett ljuds uppspelning eller egenskaper. Till exempel kan du justera ett ljuds volym, ställa in att ljudet spelas i loop, eller till och med dölja ljudikonen.
+PowerPoints **Audio Options**-kontroller bestämmer när ett klipp startar, hur högt det låter och hur det beter sig under en bildspelsvisning.
 
-Audio Options-fönstret i Microsoft PowerPoint:
+![PowerPoint Audio Options-kontroller för en ljudram](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint-kontroll | Aspose.Slides-egenskap |
+| --- | --- |
+| Start | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| Volymförinställning | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| Spela över bilder | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| Loopa tills stoppad | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| Dölj under visning | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| Spola tillbaka efter uppspelning | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| Tona in | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| Tona ut | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| Trimma ljudets starttid | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| Trimma ljudets sluttid | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| Volymreglage | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options** som motsvarar Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe) egenskaper:
+Exemplet hittar den första ljudramen på den första bilden, sätter [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) för att starta uppspelning vid ett klick och väljer den låga volymförinställningen. Klippet fortsätter över bilder med loopning inaktiverad. Ikonen förblir dold under visningen, och klippet spolar tillbaka efter uppspelning.
 
-- **Start**‑rullgardinsmenyn motsvarar egenskapen [AudioFrame.PlayMode](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/playmode).  
-- **Volume** motsvarar egenskapen [AudioFrame.Volume](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/volume).  
-- **Play Across Slides** motsvarar egenskapen [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/playacrossslides).  
-- **Loop until Stopped** motsvarar egenskapen [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/playloopmode).  
-- **Hide During Show** motsvarar egenskapen [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/hideatshowing).  
-- **Rewind after Playing** motsvarar egenskapen [AudioFrame.RewindAudio](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/properties/rewindaudio).
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-PowerPoint **Editing**-alternativ som motsvarar Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe) egenskaper:
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-- **Fade In** motsvarar egenskapen [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/fadeinduration/).  
-- **Fade Out** motsvarar egenskapen [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/fadeoutduration/).  
-- **Trim Audio Start Time** motsvarar egenskapen [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/trimfromstart/).  
-- **Trim Audio End Time** värdet är ljudets varaktighet minus värdet för [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/trimfromend/).
-
-PowerPoint **Volume control** på ljudkontrollpanelen motsvarar egenskapen [AudioFrame.VolumeValue](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/volumevalue/). Den låter dig ändra ljudvolymen i procent.
-
-Så här ändrar du ljuduppspelningsalternativen:
-
-1. [Skapa](#create-audio-frame) eller hämta ljudramen.  
-2. Ställ in nya värden för de Audio Frame‑egenskaper du vill justera.  
-3. Spara den ändrade PowerPoint‑filen.
-
-Den här C#-koden demonstrerar en operation där ett ljuds alternativ justeras:
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Hämtar AudioFrame-formen
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // Ställer in uppspelningsläget till att spela vid klick
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // Ställer in volymen till Låg
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // Ställer in ljudet att spela över bildspel
-    audioFrame.PlayAcrossSlides = true;
-
-    // Inaktiverar loop för ljudet
-    audioFrame.PlayLoopMode = false;
-
-    // Dölj AudioFrame under bildspelet
-    audioFrame.HideAtShowing = true;
-
-    // Spolar tillbaka ljudet till start efter uppspelning
-    audioFrame.RewindAudio = true;
-
-    // Sparar PowerPoint-filen till disk
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-Detta C#‑exempel visar hur man lägger till en ny ljudram med inbäddat ljud, beskär den och ställer in toningsvaraktigheterna:
+För ett klipp längre än 3,5 sekunder hoppar detta exempel över de första 1,5 sekunderna och de sista 2 sekunderna. [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) mäter varaktigheten som ska utelämnas från klippets slut. För att få sluttiden som visas i PowerPoint, subtrahera den förskjutningen från hela klippets varaktighet. Det trimmade klippet tonar in över 200 millisekunder och tonar ut över 500 millisekunder. Alla fyra egenskaper tar värden i millisekunder.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Ställer in beskärningens startoffset till 1,5 sekunder
-    audioFrame.TrimFromStart = 1500f;
-    // Ställer in beskärningens slutoffset till 2 sekunder
-    audioFrame.TrimFromEnd = 2000f;
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    // Ställer in fade-in-varaktigheten till 200 ms
-    audioFrame.FadeInDuration = 200f;
-    // Ställer in fade-out-varaktigheten till 500 ms
-    audioFrame.FadeOutDuration = 500f;
-
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-Följande kodexempel visar hur du hämtar en ljudram med inbäddat ljud och sätter dess volym till 85 %:
+För att sätta uppspelningsvolymen till en specifik procentandel, använd [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/). Detta exempel sätter den första ljudramen på den första bilden till 85%.
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Hämtar en ljudram-form
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // Ställer in ljudvolymen till 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Hantera ljudundertexter**
+## **Hantera ljudtextning**
 
-Aspose.Slides låter dig lägga till stängda undertexter till en ljudram via egenskapen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudioframe/captiontracks/). Denna egenskap returnerar en [ICaptionsCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/), som låter dig lägga till WebVTT‑undertextspår, iterera genom befintliga spår och ta bort dem vid behov.
+Varje ljudram har en [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) samling. Använd den för att bifoga WebVTT-textning till klippet, exportera befintliga spår eller ta bort dem.
 
-### **Lägg till ljudundertexter**
+### **Lägg till ljudtextning**
 
-Använd egenskapen [CaptionTracks](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudioframe/captiontracks/) för att bifoga ett eller flera undertextspår till en ljudram. I följande exempel läggs en ljudfil till en bild och sedan laddas ett nytt undertextspår från en `.vtt`‑fil.
+Exemplet bäddar in ett ljudklipp på den första bilden och använder [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) för att bifoga ett lokalt WebVTT-spår. Det första argumentet anger spårens etikett, och det andra identifierar filen som innehåller de tidsstämplade undertexterna.
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Lägg till ett nytt undertextspår från en WebVTT-fil.
-    audioFrame.CaptionTracks.Add("New track", "track.vtt");
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
 
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-### **Extrahera ljudundertexter**
+### **Extrahera ljudtextning**
 
-Du kan iterera genom undertextspåren som är kopplade till en ljudram och spara dem som `.vtt`‑filer. Varje undertextspår exponerar sin binära data och unika identifierare, som kan användas vid export av undertexter.
+Detta exempel exporterar varje undertextspår som är bifogat en ljudram på den första bilden. Det skriver spårets [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) till en WebVTT‑fil och använder dess [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) som filnamn så att varje spår får en separat utdata.
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    foreach (var track in audioFrame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
+}
+```
+
+### **Ta bort ljudtextning**
+
+Använd [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/) för att ta bort ett enskilt spår. Exemplet använder [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) för att ta bort alla undertexter från den första ljudramen på den första bilden samtidigt som klippet bevaras.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
+{
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **Hitta en rad i ljudtextning**
+
+För att hitta en rad i ljudtextning på den första bilden, läs varje spårs [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) i minnet. I en vanlig text WebVTT-cue innehåller tidslinjen `-->`, följt av undertextlinjerna, och en tom rad avslutar cue:n. Detta exempel skriver ut spårens etikett och varje undertextrad som innehåller “café”.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // Spara undertextspåret som en .vtt-fil.
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-### **Ta bort ljudundertexter**
-
-För att ta bort undertexter från en ljudram, använd metoderna som tillhandahålls av [ICaptionsCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/), såsom [Clear](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/remove/), eller [RemoveAt](https://reference.aspose.com/slides/sv/net/aspose.slides/icaptionscollection/removeat/). Följande exempel tar bort alla undertextspår från en ljudram.
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // Ta bort alla undertextspår från ljudramen.
-    audioFrame.CaptionTracks.Clear();
-
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **Extrahera ljud**
 
-Aspose.Slides för .NET låter dig extrahera ljudet som används i bildspelsövergångar. Till exempel kan du extrahera ljudet som används i en specifik bild.
+En bildövergång kan ha ett eget ljud. För att hämta det, läs övergångens [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) egenskap. Exemplet får åtkomst till ljudets [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) och skriver ut dess storlek i byte. Om den första bilden saknar övergångsljud, skriver det ut ett meddelande istället.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) och läs in presentationen som innehåller ljudet.  
-2. Hämta den aktuella bildens referens via dess index.  
-3. Åtkomst till bildspelsövergångarna för bilden.  
-4. Extrahera ljudet som byte‑data.
+```csharp
+using System;
+using Aspose.Slides;
 
-Den här C#‑koden visar hur du extraherar ljudet som används i en bild:
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-string presName = "AudioSlide.pptx";
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// Skapar en Presentation-klass som representerar en presentationsfil
-Presentation pres = new Presentation(presName);
-
-// Åtkomst till bilden
-ISlide slide = pres.Slides[0];
-
-// Hämtar bildspelsövergångseffekterna för bilden
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//Extraherar ljudet i en byte-array
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag återanvända samma ljudresurs i flera bilder utan att öka filstorleken?**
+**Kan jag återanvända samma ljudklipp på flera bilder utan att duplicera det?**
 
-Ja. Lägg till ljudet en gång i presentationens delade [audio collection](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/audios/) och skapa ytterligare ljudramar som refererar till den befintliga resursen. Detta undviker duplicering av mediadata och håller presentationens storlek under kontroll.
+Ja. Lägg till klippet en gång i presentationens [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) och skicka samma ljudobjekt till [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) för varje bild.
 
-**Kan jag ersätta ljudet i en befintlig ljudram utan att återskapa formen?**
+**Kan jag ersätta ljudet i en befintlig ljudram?**
 
-Ja. För ett länkat ljud, uppdatera [link path](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/linkpathlong/) så att det pekar på den nya filen. För ett inbäddat ljud, byt ut objektet [embedded audio](https://reference.aspose.com/slides/sv/net/aspose.slides/audioframe/embeddedaudio/) mot ett annat från presentationens [audio collection](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/audios/). Ramens formatering och de flesta uppspelningsinställningar förblir intakta.
+Ja. För ett länkat ljud, uppdatera [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/) så att det pekar på ersättningsfilen. För ett inbäddat ljud, tilldela ett annat klipp från presentationens ljudsamling till [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/). Båda tillvägagångssätten bevarar den befintliga ramen.
 
-**Ändrar beskärning den underliggande ljuddata som lagras i presentationen?**
+**Ändrar trimning ljuddata som lagras i presentationen?**
 
-Nej. Beskärning justerar bara uppspelningsgränserna. De ursprungliga ljudbytena förblir orörda och är åtkomliga via det inbäddade ljudet eller presentationens ljudsamling.
+Nej. [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) och [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) sätter uppspelningsgränser. Du kan fortfarande hämta hela klippet från [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/).

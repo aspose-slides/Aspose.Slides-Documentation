@@ -1,37 +1,37 @@
 ---
-title: Mengelola Frame Video dalam Presentasi Menggunakan C++
-linktitle: Frame Video
+title: Kelola Bingkai Video dalam Presentasi Menggunakan C++
+linktitle: Bingkai Video
 type: docs
 weight: 10
 url: /id/cpp/video-frame/
 keywords:
-- menambahkan video
+- menambah video
 - membuat video
-- menanamkan video
+- menyematkan video
 - mengekstrak video
 - mengambil video
-- frame video
+- bingkai video
 - sumber web
 - PowerPoint
 - OpenDocument
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan mengekstrak frame video secara programatis dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Panduan cepat."
+description: "Pelajari cara menambahkan dan mengekstrak bingkai video secara programatis dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++. Panduan cepat cara melakukannya."
 ---
 ## **Pendahuluan**
 
-Video dapat membantu menjelaskan ide dan menarik perhatian audiens. Aspose.Slides untuk C++ memungkinkan Anda menambahkan frame video ke slide, mengatur pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang tertanam.
+Video dapat membantu menjelaskan ide dan melibatkan audiens. Aspose.Slides untuk C++ memungkinkan Anda menambahkan bingkai video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang tertanam.
 
 PowerPoint mendukung video lokal dan tautan ke video daring, seperti video YouTube.
 
-Untuk merepresentasikan data video dan frame video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/), antarmuka [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) , dan tipe relevan lainnya.
+Untuk merepresentasikan data video dan bingkai video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/), antarmuka [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/), dan tipe relevan lainnya.
 
-## **Membuat Frame Video Tertanam**
+## **Buat Bingkai Video Tertanam**
 
-Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat frame video untuk menanamkan video dalam presentasi Anda.
+Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat bingkai video untuk menyematkan video dalam presentasi Anda.
 
-Contoh ini menanamkan video lokal pada slide pertama dari presentasi yang sudah ada dan menyimpan hasilnya. Koordinat dan dimensi frame dalam satuan point. Stream tetap terbuka hingga proses penyimpanan selesai karena [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) menguncinya selama presentasi menggunakannya.
+Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang ada dan menyimpan hasilnya. Koordinat dan dimensi bingkai dalam poin. Stream tetap terbuka hingga penyimpanan selesai karena [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) menjaga stream tetap terkunci saat presentasi menggunakannya.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Anda juga dapat memberikan jalur video lokal langsung ke [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Contoh ini menanamkan video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses sampai presentasi disimpan.
+Anda juga dapat memberikan path video lokal secara langsung ke [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Contoh ini menyematkan video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses hingga presentasi disimpan.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,9 +84,9 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Membuat Frame Video dengan Video dari Sumber Web**
+## **Buat Bingkai Video dengan Video dari Sumber Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat frame video yang menautkan ke video daring, seperti video YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat bingkai video yang menautkan ke video daring, seperti video YouTube.
 
 Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti identifier video untuk menggunakan video lain. Metode [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
 
@@ -127,11 +127,11 @@ presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Memutar Video dalam Mode Layar Penuh**
+## **Putar Video dalam Mode Layar Penuh**
 
-Dalam presentasi pelatihan, Anda dapat memutar demo perangkat lunak dalam mode layar penuh sehingga audiens dapat melihat detailnya. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) menerima `true` untuk mengaktifkan perilaku ini selama pemutaran.
+Dalam presentasi pelatihan, Anda dapat memutar demonstrasi perangkat lunak dalam mode layar penuh agar audiens dapat melihat detailnya. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) menerima `true` untuk mengaktifkan perilaku ini selama pemutaran.
 
-Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi input harus berisi setidaknya satu slide dengan frame video yang ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi masukan harus berisi setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) mengontrol apakah video dimulai secara otomatis atau dengan klik, dan [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) mengontrol apakah video berulang. Untuk memilih perilaku awal, setel mode pemutaran ke [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan awal dan loop yang ada.
+Pemutaran layar penuh mengontrol bagaimana video ditampilkan. Secara terpisah, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) mengontrol apakah video mulai otomatis atau saat diklik, dan [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) mengontrol apakah video berulang. Untuk memilih perilaku mulai, setel mode pemutaran ke [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Contoh mempertahankan pengaturan mulai dan looping yang ada.
 
-## **Memutar Ulang Video Setelah Pemutaran**
+## **Kembalikan Video ke Awal Setelah Pemutaran**
 
-Dalam presentasi pelatihan, mengembalikan video demo ke awalnya membuatnya siap untuk diputar lagi oleh presenter. Panggil [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) dengan `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
+Dalam presentasi pelatihan, mengembalikan video demonstrasi ke awal membuatnya siap diputar lagi oleh presenter. Panggil [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) dengan `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
 
-Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran ulang. Ia menonaktifkan pengulangan sehingga pemutaran dapat selesai dan mengatur pemutaran untuk dimulai dengan klik. Presentasi input harus berisi setidaknya satu slide dengan frame video yang ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan rewind. Ini menonaktifkan looping sehingga pemutaran dapat selesai dan mengatur pemutaran untuk mulai saat diklik. Presentasi masukan harus berisi setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pemutaran ulang mengembalikan video ke awalnya tanpa memulai lagi. Sebaliknya, mengaktifkan [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) membuat pemutaran berulang secara otomatis. Jaga agar pengulangan tetap nonaktif ketika Anda menginginkan video selesai dan siap diputar ulang. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) secara terpisah mengontrol pemutaran otomatis atau pada klik; contoh ini menggunakan [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) sehingga presenter mengontrol kapan pemutaran dimulai. Tetapkan mode pemutaran setelah pengaturan loop, seperti yang ditunjukkan dalam contoh. Pemutaran ulang bekerja terpisah dari [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Mengembalikan video mengembalikannya ke awal tanpa memulai lagi. Sebaliknya, mengaktifkan [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) mengulang pemutaran secara otomatis. Jaga looping tetap dinonaktifkan ketika Anda menginginkan video selesai dan siap diputar ulang. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) secara terpisah mengontrol start otomatis atau pada klik; contoh ini menggunakan [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) sehingga presenter mengontrol kapan pemutaran dimulai. Setel mode pemutaran setelah mengatur looping, seperti yang ditunjukkan dalam contoh. Rewind bekerja secara independen dari [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
-## **Memangkas Frame Video**
+## **Potong Bingkai Video**
 
-Gunakan [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) dan [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) untuk melewati bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemangkasan mengubah pengaturan pemutaran tanpa memodifikasi data video yang tertanam.
+Gunakan [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) dan [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) untuk melewatkan bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemotongan mengubah pengaturan pemutaran tanpa mengubah data video yang tertanam.
 
-**Atur Pengaturan Pemangkasan**
+**Atur Pengaturan Pemotongan**
 
-Contoh ini menanamkan video lokal dan melewati 2,5 detik pertama serta 1 detik terakhir selama pemutaran. Gunakan video yang lebih lama dari 3,5 detik agar segmen yang dapat diputar tetap ada.
+Contoh ini menyematkan video lokal dan melewatkan 2,5 detik pertama serta 1 detik terakhir selama pemutaran. Gunakan video yang lebih panjang dari 3,5 detik agar segmen yang dapat dimainkan tetap ada.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Baca Pengaturan Pemangkasan**
+**Baca Pengaturan Pemotongan**
 
-Contoh ini mencetak nilai pemangkasan dari frame video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki frame video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
+Contoh ini mencetak nilai pemotongan dari bingkai video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki bingkai video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -279,13 +279,13 @@ for (auto&& shape : IterateOver(slide->get_Shapes()))
 presentation->Dispose();
 ```
 
-## **Mengelola Caption Video**
+## **Kelola Caption Video**
 
-Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk frame video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk bingkai video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
-**Menambahkan Caption ke Frame Video**
+### **Tambahkan Caption ke Bingkai Video**
 
-Contoh ini menanamkan video lokal dan menambahkan track caption WebVTT berlabel English. Stempel waktu caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan captionnya.
+Contoh ini menyematkan video lokal dan menambahkan trek caption WebVTT berlabel English. Timestamp caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan captionnya.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -318,9 +318,9 @@ presentation->Dispose();
 
 Antarmuka [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari stream.
 
-**Mengekstrak Caption dari Frame Video**
+### **Ekstrak Caption dari Bingkai Video**
 
-Contoh ini menyimpan semua track caption dari frame video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga file output tetap unik. Konsol melaporkan jumlah track yang diekstrak. Presentasi harus berisi setidaknya satu slide.
+Contoh ini menyimpan semua trek caption dari bingkai video pada slide pertama sebagai file WebVTT terpisah. Nomor urut menjaga file output tetap berbeda. Konsol melaporkan jumlah trek yang diekstrak. Presentasi harus berisi setidaknya satu slide.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -364,9 +364,9 @@ presentation->Dispose();
 
 Setiap objek [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF-8.
 
-**Menghapus Caption dari Frame Video**
+### **Hapus Caption dari Bingkai Video**
 
-Contoh ini menghapus semua caption dari frame video pada posisi shape pertama di slide pertama dan menyimpan hasilnya. Asumsinya slide dan shape ada serta shape tersebut merupakan frame video.
+Contoh ini menghapus semua caption dari bingkai video pada posisi shape pertama pada slide pertama dan menyimpan hasilnya. Diasumsikan slide dan shape ada serta shape tersebut adalah bingkai video.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Jika Anda hanya perlu menghapus satu track caption, gunakan metode [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) atau [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) alih-alih [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+Jika Anda perlu menghapus hanya satu trek caption, gunakan metode [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) atau [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) alih-alih [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
 
-## **Mengekstrak Video dari Slide**
+### **Cari Caption Video**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) mengembalikan trek WebVTT lengkap, termasuk header, baris waktu, dan teks caption. Untuk menemukan frasa yang diucapkan dan timestamp‑nya, baca cue di memori. Misalnya, trek bahasa Inggris pada slide 2 mungkin berisi teks berikut:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Contoh membuka `captioned_media.pptx` dan membaca trek caption setiap bingkai video tingkat atas pada setiap slide menggunakan [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). Dalam cue teks biasa, baris waktu berisi `-->` dan baris kosong mengakhiri cue. Ketika caption berisi “café”, contoh mencetak nomor slide, label trek, baris waktu asli, dan caption lengkap. Pencarian tidak memperhatikan huruf besar/kecil.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Mencari “café” menghasilkan satu kecocokan untuk trek contoh. Pencarian melewati header dan mempertahankan pengaturan timing dalam output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Ekstrak Video dari Slide**
 
 Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang tertanam dalam presentasi.
 
-Contoh ini mengekstrak video tertanam dari setiap slide ke dalam file biner terpisah yang diberi nomor. Video yang ditautkan dilewati karena tidak memiliki data tertanam. Konsol mencetak tipe MIME setiap video dan total jumlahnya. Output menggunakan ekstensi umum `.bin`; ubah sesuai tipe media yang dilaporkan bila diperlukan.
+Contoh ini mengekstrak video tertanam dari setiap slide ke file biner terpisah dengan nomor. Video yang ditautkan dilewati karena tidak memiliki data tertanam. Konsol mencetak jenis MIME setiap video serta total jumlahnya. Output menggunakan ekstensi generik `.bin`; ubah sesuai tipe media yang dilaporkan bila diperlukan.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -446,20 +523,20 @@ Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount)
 presentation->Dispose();
 ```
 
-## **Tanya Jawab**
+## **FAQ**
 
-**Parameter pemutaran video apa yang dapat diubah untuk frame video?**
+**Parameter pemutaran video apa yang dapat diubah untuk sebuah bingkai video?**
 
-Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (otomatis atau pada klik) dan [pengulangan](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
+Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto atau saat diklik) dan [pengulangan](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Opsi-opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
 **Apakah menambahkan video memengaruhi ukuran file PPTX?**
 
-Ya. Saat Anda menanamkan video lokal, data biner disertakan dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Saat Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
+Ya. Ketika Anda menyematkan video lokal, data biner termasuk dalam dokumen, sehingga ukuran presentasi meningkat sebanding dengan ukuran file. Ketika Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
 
-**Bisakah saya mengganti video dalam frame video yang ada tanpa mengubah posisi dan ukurannya?**
+**Bisakah saya mengganti video dalam bingkai video yang ada tanpa mengubah posisi dan ukurannya?**
 
-Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) di dalam frame sambil mempertahankan geometri shape; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang ada.
+Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) dalam bingkai sambil mempertahankan geometri shape; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang ada.
 
-**Dapatkah tipe konten (MIME) dari video tertanam ditentukan?**
+**Apakah tipe konten (MIME) dari video yang tertanam dapat ditentukan?**
 
-Ya. Video tertanam memiliki [tipe konten](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.
+Ya. Video yang tertanam memiliki [tipe konten](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.

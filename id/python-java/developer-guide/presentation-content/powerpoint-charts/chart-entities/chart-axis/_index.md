@@ -1,5 +1,5 @@
 ---
-title: Sesuaikan Sumbu Diagram dalam Presentasi Menggunakan Python
+title: Sesuaikan Sumbu Diagram pada Presentasi dengan Python
 linktitle: Sumbu Diagram
 type: docs
 url: /id/python-java/chart-axis/
@@ -21,17 +21,17 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Temukan cara menggunakan Aspose.Slides untuk Python via Java untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
+description: "Temukan cara menggunakan Aspose.Slides untuk Python melalui Java untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan sumbu diagram dengan Aspose.Slides untuk Python via Java. Ini mencakup nilai sumbu yang dihitung, menukar baris dan kolom diagram, visibilitas sumbu, interval label kategori dan tanda centang, kategori tanggal dan pemformatannya, rotasi judul, penempatan sumbu, satuan tampilan, dan skala logaritmik.
+Artikel ini menjelaskan cara menyesuaikan sumbu diagram dengan Aspose.Slides for Python via Java. Artikel ini mencakup nilai sumbu yang dihitung, menukar baris dan kolom diagram, visibilitas sumbu, interval label kategori dan tick‑mark, kategori tanggal dan pemformatannya, rotasi judul, penempatan sumbu, satuan tampilan, dan skala logaritmik.
 
 ## **Dapatkan Nilai Maksimum pada Sumbu Vertikal Diagram**
 
-Buat sebuah [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) dan tambahkan diagram area dengan data default. Panggil [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) sebelum membaca nilai sumbu yang dihitung sehingga tata letak diagram diperbarui.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) dan tambahkan diagram area dengan data default. Panggil [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) sebelum membaca nilai sumbu yang dihitung sehingga tata letak diagram terbaru.
 
-Baca [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) dan [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) untuk batas sumbu, serta [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) dan [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) untuk interval tanda. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) dan [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) menyediakan skala satuan waktu, yang relevan untuk sumbu tanggal. Contoh menyimpan nilai-nilai ini dalam variabel lokal dan menyimpan diagram.
+Baca [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) dan [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) untuk batas sumbu, serta [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) dan [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) untuk interval tick. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) dan [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) menyediakan skala satuan waktu, yang relevan untuk sumbu tanggal. Contoh menyimpan nilai‑nilai ini dalam variabel lokal dan menyimpan diagram.
 
 ```python
 import jpype
@@ -63,7 +63,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Tukar Data antar Sumbu**
+## **Tukar Data Antara Sumbu**
 
 Gunakan [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) untuk menukar peran seri dan kategori dalam data diagram. Setiap kategori sebelumnya menjadi seri, dan setiap seri sebelumnya menjadi kategori. Ini mengubah cara data dikelompokkan; tidak menukar sumbu horizontal dan vertikal. Contoh menggunakan [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) untuk mengikat data default ke `Sheet1!A1:D5`, termasuk baris header dan kolom kategori, sebelum menukar baris dan kolom. Ini menyimpan diagram dengan empat seri dan tiga kategori.
 
@@ -89,11 +89,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Balikkan Urutan Plotting pada Sumbu**
+## **Balik Urutan Plot Sumbu**
 
-Gunakan [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) untuk membalikkan sumbu kategori atau nilai. Misalnya, diagram batang horizontal dapat menampilkan tahap proyek dari atas ke bawah dengan urutan yang sama seperti lembar kerja: Planning, Development, Testing. Membalikkan sumbu mengubah arah plotting; tidak mengurutkan atau menyusun ulang data buku kerja. Sebagai perbandingan, [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) menukar peran seri dan kategori.
+Gunakan [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) untuk membalikkan sumbu kategori atau nilai. Misalnya, diagram batang horizontal dapat menampilkan tahapan proyek dari atas ke bawah dalam urutan yang sama dengan lembar kerja: Perencanaan, Pengembangan, Pengujian. Membalikkan sumbu mengubah arah plot; tidak mengurutkan atau menyusun ulang data workbook. Sebagai perbandingan, [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) menukar peran seri dan kategori.
 
-Contoh berikut membuat diagram batang horizontal dengan tiga tahap dan satu seri. Ini menyimpan presentasi dengan tiga slide: urutan normal, kategori terbalik, dan nilai terbalik. Setiap salinan menggunakan dataset yang sama, dan hanya satu sumbu yang dibalik pada setiap salinan.
+Contoh berikut membuat diagram batang horizontal dengan tiga tahapan dan satu seri. Ini menyimpan presentasi dengan tiga slide: urutan normal, kategori dibalik, dan nilai dibalik. Setiap salinan menggunakan dataset yang sama, dan hanya satu sumbu yang dibalik pada setiap salinan.
 
 ```python
 import jpype
@@ -143,16 +143,16 @@ finally:
     presentation.dispose()
 ```
 
-Membalikkan sumbu juga dapat memindahkan sumbu tegak lurus ke sisi berlawanan dari plot. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) mengontrol di mana sumbu lain memotong sumbu yang sedang dikonfigurasi. Pada slide 2, memanggilnya dengan [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) pada sumbu kategori yang dibalik menjaga sumbu nilai horizontal tetap di bagian bawah. Untuk titik potong tertentu, gunakan [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Periksa pengaturan perpotongan saat mengubah arah, terutama jika diagram sudah memiliki titik potong khusus. Panggil [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) dengan `False` untuk mengembalikan arah plotting normal; pengaturan perpotongan terpisah.
+Membalikkan sumbu juga dapat memindahkan sumbu tegak lurus ke sisi berlawanan dari plot. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) mengontrol di mana sumbu lain menyeberang sumbu yang dikonfigurasi. Pada slide 2, memanggilnya dengan [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) pada sumbu kategori yang dibalik menjaga sumbu nilai horizontal di bagian bawah. Untuk titik silang khusus, gunakan [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Periksa pengaturan cross saat mengubah arah, terutama jika diagram sudah memiliki titik silang khusus. Panggil [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) dengan `False` untuk mengembalikan arah plot normal; pengaturan cross bersifat terpisah.
 
-| Urutan normal (slide 1) | Kategori terbalik (slide 2) | Nilai terbalik (slide 3) |
+| Urutan normal (slide 1) | Kategori dibalik (slide 2) | Nilai dibalik (slide 3) |
 | --- | --- | --- |
-| ![Diagram batang horizontal dengan urutan sumbu kategori dan nilai normal](axis-order-normal.png) | ![Diagram batang horizontal dengan kategori ditampilkan dari atas ke bawah](axis-order-categories-reversed.png) | ![Diagram batang horizontal dengan sumbu nilai terbalik dan nol di sebelah kanan](axis-order-values-reversed.png) |
-| Kategori berjalan dari bawah ke atas; nilai meningkat dari kiri ke kanan. | Planning, Development, dan Testing berjalan dari atas ke bawah. Nilai dan urutan baris buku kerja tidak berubah. | Kategori mempertahankan urutan normal; nilai meningkat dari kanan ke kiri. Sumbu kategori memotong pada nol di sebelah kanan. |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| Kategori berjalan dari bawah ke atas; nilai meningkat dari kiri ke kanan. | Perencanaan, Pengembangan, dan Pengujian berjalan dari atas ke bawah. Nilai dan urutan baris workbook tidak berubah. | Kategori mempertahankan urutan normal; nilai meningkat dari kanan ke kiri. Sumbu kategori menyeberang pada nol di kanan. |
 
 ## **Nonaktifkan Sumbu Vertikal untuk Diagram Garis**
 
-Panggil [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) dengan `False` pada sumbu vertikal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu vertikal disembunyikan.
+Panggil [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) dengan `False` pada sumbu vertikal untuk menyembunyikannya. Contoh ini membuat diagram garis dengan data default dan menyimpannya dengan sumbu vertikal tersembunyi.
 
 ```python
 import jpype
@@ -177,7 +177,7 @@ finally:
 
 ## **Nonaktifkan Sumbu Horizontal untuk Diagram Garis**
 
-Panggil [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) dengan `False` pada sumbu horizontal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu horizontal disembunyikan.
+Panggil [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) dengan `False` pada sumbu horizontal untuk menyembunyikannya. Contoh ini membuat diagram garis dengan data default dan menyimpannya dengan sumbu horizontal tersembunyi.
 
 ```python
 import jpype
@@ -200,9 +200,51 @@ finally:
     presentation.dispose()
 ```
 
+## **Tampilkan atau Sembunyikan Garis Kisi Diagram**
+
+Panggil [getShowMajorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMajorGridLines) dan [getShowMinorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMinorGridLines) untuk memeriksa garis kisi mana yang ditampilkan oleh sumbu. Untuk menampilkan garis kisi minor, gunakan [getMinorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMinorGridLinesFormat) dan atur isi garis menjadi warna solid yang terlihat. Untuk menyembunyikannya, atur isi menjadi [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/#NoFill). Gunakan [getMajorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMajorGridLinesFormat) untuk mengubah isi garis bagi garis kisi mayor dengan cara yang sama. Mengubah isi mempertahankan visibilitas sumbu dan tanda tick.
+
+Sumbu vertikal diagram kolom terkelompok ini awalnya hanya menampilkan garis kisi mayor. Contoh menampilkan garis kisi minor berwarna oranye gelap, lalu menyembunyikannya kembali sebelum menyimpan presentasi. Ia mencetak visibilitas garis kisi pada setiap langkah.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 30, 660, 230)
+    axis = chart.getAxes().getVerticalAxis()
+    print(f"Initial: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    minor_fill = axis.getMinorGridLinesFormat().getLine().getFillFormat()
+    minor_fill.setFillType(FillType.Solid)
+    minor_fill.getSolidFillColor().setColor(Color(255, 140, 0))
+    print(f"Enabled: minor={axis.getShowMinorGridLines()}")
+
+    minor_fill.setFillType(FillType.NoFill)
+    print(f"Hidden: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    presentation.save("ChartGridlines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Garis kisi minor diaktifkan | Garis kisi minor disembunyikan |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Ubah Sumbu Kategori**
 
-Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) untuk memilih sumbu kategori tanggal atau teks. Contoh ini memerlukan `ExistingChart.pptx`, dengan diagram sebagai bentuk pertama pada slide pertama dan sel kategori berisi nilai tanggal Excel numerik. Ini mengubah sumbu horizontal menjadi sumbu tanggal. Memanggil [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) dengan `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) dengan `1`, dan [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) dengan [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) menempatkan tanda utama pada interval satu bulan.
+Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) untuk memilih sumbu kategori tanggal atau teks. Contoh ini memerlukan `ExistingChart.pptx`, dengan diagram sebagai bentuk pertama pada slide pertama dan sel kategori berisi nilai tanggal Excel numerik. Ia mengubah sumbu horizontal menjadi sumbu tanggal. Memanggil [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) dengan `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) dengan `1`, dan [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) dengan [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) menempatkan tick mayor pada interval satu bulan.
 
 ```python
 import jpype
@@ -228,28 +270,90 @@ finally:
     presentation.dispose()
 ```
 
+### **Tentukan Jenis Sumbu Kategori dari Data**
+
+Panggil [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisTypeAutomatically) setelah mengisi kategori, kemudian baca [getCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getCategoryAxisType) untuk memeriksa pilihan. Ini berguna ketika diagram yang sama menerima baik label teks maupun nilai tanggal numerik. Metode menentukan jenis ketika dipanggil; tidak mengaktifkan mode persisten yang mengevaluasi ulang perubahan data selanjutnya. Panggil lagi setelah mengganti kategori.
+
+Contoh berikut membuat diagram dengan kategori teks dan mencetak `True` ketika jenis yang dipilih adalah [CategoryAxisType.Text](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Text). Kemudian ia mengganti nilai sel kategori dengan tanggal dan memanggil metode lagi, mencetak `True` ketika jenis yang dipilih adalah [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date). Tanggal disimpan sebagai nilai numerik OLE Automation, dihitung sebagai jumlah hari sejak 30 Desember 1899, bukan sebagai string tanggal. [setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) mengontrol bagaimana nilai tersebut ditampilkan; tidak mengkonversi teks menjadi tanggal numerik. Untuk info lebih lanjut tentang sel kategori, lihat [Chart Workbook](/slides/id/python-java/chart-workbook/).
+
+Gunakan penentuan otomatis ketika input diketahui berisi kategori teks atau tanggal numerik, seperti pada contoh ini. Untuk label numerik biasa, kategori campuran, atau data kosong, panggil secara eksplisit [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) untuk mencocokkan makna yang dimaksud. Nilai numerik saja tidak menetapkan bahwa kategori mewakili tanggal.
+
+```python
+from datetime import date
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CategoryAxisType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series_name = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.getCell(0, i + 1, 0, label)
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Text)  # Benar
+
+    base_date = date(1899, 12, 30)
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.getCell(0, i + 1, 0)
+        category_cell.setValue(float((category_date - base_date).days))
+        category_cell.setCustomNumberFormat("yyyy-mm-dd")
+
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Date)  # Benar
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ## **Kontrol Interval Label Sumbu Kategori**
 
-Ketika diagram memiliki banyak kategori, kurangi jumlah label sumbu yang terlihat tanpa menghapus kategori atau titik data. Panggil [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) dengan `False`, kemudian berikan interval kategori yang diinginkan ke [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). Untuk kategori teks dalam urutan normal, penghitungan dimulai pada kategori pertama:
+Ketika diagram memiliki banyak kategori, kurangi jumlah label sumbu yang terlihat tanpa menghapus kategori atau titik data. Panggil [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) dengan `False`, lalu berikan interval kategori yang diinginkan ke [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). Untuk kategori teks dalam urutan normal, penghitungan dimulai dari kategori pertama:
 
 | Interval | Label yang ditampilkan dalam contoh |
 | --- | --- |
-| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
-| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
-| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Interval `3` menampilkan setiap label ketiga, menyisakan dua label tersembunyi di antara label yang ditampilkan. Ini tidak menghapus kolom yang bersangkutan. Penempatan otomatis memilih interval berdasarkan ruang yang tersedia; tidak selalu menampilkan setiap label.
+Interval `3` menampilkan setiap label ketiga, meninggalkan dua label tersembunyi di antara label yang ditampilkan. Ini tidak menghapus kolom yang bersesuaian. Penataan otomatis memilih interval berdasarkan ruang yang tersedia; tidak selalu menampilkan setiap label.
 
-Tanda centang memiliki kontrol terpisah. Panggil [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) dengan `False` dan gunakan [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) untuk mengatur intervalnya. Misalnya, `1` menjaga tanda centang pada setiap interval kategori sementara label muncul hanya setiap kategori ketiga. Gunakan [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) dengan gaya yang terlihat sehingga Anda dapat melihat hasilnya. Memanggil salah satu pengatur penempatan otomatis dengan `True` lagi memungkinkan diagram memilih interval itu lagi.
+Tanda tick memiliki kontrol terpisah. Panggil [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) dengan `False` dan gunakan [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) untuk mengatur intervalnya. Misalnya, `1` mempertahankan tanda tick pada setiap interval kategori sementara label hanya muncul setiap tiga kategori. Gunakan [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) dengan gaya yang terlihat agar Anda dapat melihat hasilnya. Memanggil kembali pengatur otomatis‑spacing dengan `True` membiarkan diagram memilih interval itu lagi.
 
-Contoh mandiri berikut membuat 24 kategori dan satu seri, lalu menyimpan tiga slide dalam `CategoryAxisIntervals.pptx`: penempatan otomatis, penempatan label manual dengan tanda centang independen, dan penempatan otomatis yang dipulihkan. Dua salinan mempertahankan data diagram asli. Tidak diperlukan presentasi masukan. Teks label horizontal memudahkan melihat perbedaan kepadatan.
+Contoh mandiri berikut membuat 24 kategori dan satu seri, lalu menyimpan tiga slide dalam `CategoryAxisIntervals.pptx`: penataan otomatis, penataan label manual dengan tanda tick independen, dan pemulihan penataan otomatis. Kedua salinan mempertahankan data diagram asli. Presentasi masukan tidak diperlukan. Teks label horizontal mempermudah melihat perbedaan kepadatan.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpapi.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, ChartType, SaveFormat, CategoryAxisType, TickMarkType
 
@@ -281,7 +385,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # Slide 2: tampilkan setiap label ketiga, tetapi pertahankan tanda centang untuk setiap kategori.
+    # Slide 2: tampilkan setiap label ketiga, tetapi pertahankan tanda tick untuk setiap kategori.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -301,23 +405,23 @@ finally:
     presentation.dispose()
 ```
 
-**Penempatan otomatis (slide 1):** Dalam rendering ini, setiap label kategori kedua ditampilkan dan membungkus menjadi dua baris. Hasil otomatis dapat bervariasi dengan ukuran diagram, font, dan renderer.
+**Penataan otomatis (slide 1):** Pada render ini, setiap label kategori kedua ditampilkan dan dibungkus menjadi dua baris. Hasil otomatis dapat bervariasi tergantung ukuran diagram, font, dan renderer.
 
-![Penempatan label kategori otomatis dengan semua 24 kolom terlihat](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
-**Penempatan manual (slide 2):** Setiap label ketiga ditampilkan pada satu baris, sementara tanda centang tetap pada setiap interval kategori. Semua 24 kolom, termasuk yang tanpa label, tetap terlihat dengan nilai yang sama. Slide 3 memulihkan tampilan otomatis yang ditunjukkan di atas.
+**Penataan manual (slide 2):** Setiap label ketiga ditampilkan pada satu baris, sementara tanda tick tetap pada setiap interval kategori. Semua 24 kolom, termasuk yang tanpa label, tetap terlihat dengan nilai yang sama. Slide 3 mengembalikan tampilan otomatis yang ditunjukkan di atas.
 
-![Interval label kategori manual tiga dengan semua 24 kolom terlihat](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
 ### **Pilih Sumbu dan Interval yang Tepat**
 
-Gunakan interval hitungan kategori ini untuk sumbu kategori teks, seperti sumbu kategori pada diagram kolom, garis, area, atau batang. Pada diagram kolom, ini adalah sumbu horizontal. Pada diagram batang horizontal, sumbu kategori bersifat vertikal, jadi terapkan pengaturan ini pada sumbu yang dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Penempatan tanda centang juga berlaku pada sumbu seri dalam diagram yang memilikinya.
+Gunakan interval hitungan‑kategori ini untuk sumbu kategori teks, seperti sumbu kategori pada diagram kolom, garis, area, atau batang. Pada diagram kolom, ini adalah sumbu horizontal. Pada diagram batang horizontal, sumbu kategori berada vertikal, jadi terapkan pengaturan ini pada sumbu yang dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Penataan interval tick juga berlaku pada sumbu seri pada diagram yang memilikinya.
 
-Jangan gunakan penempatan label kategori untuk mengatur skala numerik pada sumbu nilai. Pada sumbu nilai, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) menentukan selisih nilai: misalnya, unit utama `10` menghasilkan tanda pada 0, 10, 20, dan seterusnya ketika sumbu dimulai dari nol. Interval label kategori `3` menghitung posisi kategori, terlepas dari nilai data mereka. Diagram sebar dan gelembung menggunakan sumbu nilai bukan sumbu kategori teks. Untuk sumbu tanggal, gunakan unit utama berbasis waktu dan skala seperti dijelaskan di [Change a Category Axis](#change-a-category-axis).
+Jangan gunakan penataan interval label kategori untuk mengatur skala numerik sumbu nilai. Pada sumbu nilai, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) menentukan selisih nilai: misalnya, satuan mayor `10` menghasilkan tick pada 0, 10, 20, dan seterusnya ketika sumbu dimulai dari nol. Interval label kategori `3` menghitung posisi kategori, terlepas dari nilai datanya. Diagram sebar dan gelembung menggunakan sumbu nilai, bukan sumbu kategori teks. Untuk sumbu tanggal, gunakan satuan mayor berbasis waktu dan skala sebagaimana dijelaskan pada [Ubah Sumbu Kategori](#ubah-sumbu-kategori).
 
 ## **Atur Format Tanggal untuk Nilai Sumbu Kategori**
 
-Contoh mengganti data diagram default dengan empat nilai tahunan. Tanggal disimpan sebagai nomor seri OLE Automation di lembar kerja pertama (indeks `0`), dihitung sebagai jumlah hari sejak 30 Desember 1899, untuk tanggal tersebut. Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) dengan [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), panggil [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) dengan `False`, dan berikan `yyyy` ke [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) sehingga label kategori menampilkan tahun empat digit secara terpisah dari format sel.
+Contoh ini mengganti data diagram default dengan empat nilai tahunan. Tanggal disimpan sebagai nomor seri OLE Automation pada lembar kerja pertama (indeks `0`), dihitung sebagai jumlah hari sejak 30 Desember 1899 untuk tanggal‑tanggal tersebut. Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) dengan [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), panggil [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) dengan `False`, dan berikan `yyyy` ke [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) sehingga label kategori menampilkan tahun empat digit secara independen dari pemformatan sel.
 
 ```python
 from datetime import date
@@ -365,7 +469,7 @@ finally:
 
 ## **Atur Sudut Rotasi untuk Judul Sumbu Diagram**
 
-Panggil [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) dengan `True` pada sumbu vertikal, berikan teks judul, dan atur sudut rotasi dalam format blok teks judul. Sudut diukur dalam derajat; contoh ini menyimpan diagram kolom dengan judul sumbu nilai diputar 90 derajat.
+Panggil [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) dengan `True` pada sumbu vertikal, berikan teks judul, dan atur sudut rotasi pada pemformatan blok teks judul. Sudut diukur dalam derajat; contoh ini menyimpan diagram kolom dengan judul sumbu nilai diputar 90 derajat.
 
 ```python
 import jpype
@@ -392,7 +496,7 @@ finally:
 
 ## **Atur Posisi Sumbu pada Sumbu Kategori atau Nilai**
 
-Gunakan [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) untuk mengontrol apakah sumbu nilai memotong sumbu kategori di antara kategori atau pada tanda kategori. Pengaturan ini berlaku untuk sumbu kategori. Contoh mengatur nilai `True` pada sumbu kategori horizontal diagram kolom dan menyimpan hasilnya.
+Gunakan [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) untuk mengontrol apakah sumbu nilai menyeberang sumbu kategori di antara kategori atau pada tanda tick kategori. Pengaturan ini berlaku untuk sumbu kategori. Contoh mengaturnya menjadi `True` pada sumbu kategori horizontal diagram kolom dan menyimpan hasilnya.
 
 ```python
 import jpype
@@ -415,9 +519,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Atur Unit Tampilan pada Sumbu Nilai Diagram**
+## **Atur Satuan Tampilan pada Sumbu Nilai Diagram**
 
-Gunakan [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) untuk mengubah skala label pada sumbu nilai tanpa mengubah data yang mendasarinya. Dengan [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) diatur ke `Millions`, nilai 60.000.000 ditampilkan sebagai 60. Contoh membuat diagram kolom dan menerapkan unit tampilan jutaan pada sumbu vertikalnya.
+Gunakan [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) untuk menskala label pada sumbu nilai tanpa mengubah data yang mendasarinya. Dengan [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) diatur ke `Millions`, nilai 60.000.000 ditampilkan sebagai 60. Contoh ini membuat diagram kolom dan menerapkan satuan tampilan jutaan pada sumbu vertikalnya.
 
 ```python
 import jpype
@@ -440,28 +544,28 @@ finally:
     presentation.dispose()
 ```
 
-## **Konfigurasikan Sumbu Nilai Logaritmik**
+## **Konfigurasi Sumbu Nilai Logaritmik**
 
-Sumbu nilai logaritmik berguna ketika nilai positif mencakup beberapa orde besaran. Misalnya, sebuah layanan mungkin menerima 10, 100, 1.000, 10.000, dan 100.000 permintaan selama lima periode. Pada skala linear, nilai yang lebih kecil tampak berdekatan di dekat nol. Skala logaritmik mempermudah perbandingan pertumbuhan relatif mereka: jarak yang sama mewakili rasio yang sama, bukan selisih yang sama.
+Sumbu nilai logaritmik berguna ketika nilai positif mencakup beberapa urutan besaran. Misalnya, sebuah layanan mungkin menerima 10, 100, 1.000, 10.000, dan 100.000 permintaan dalam lima periode. Pada skala linear, nilai‑nilai kecil muncul berdekatan di dekat nol. Skala logaritmik membuat pertumbuhan relatif mereka lebih mudah dibandingkan: jarak yang sama merepresentasikan rasio yang sama, bukan selisih yang sama.
 
-Panggil [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) dengan `True` pada sumbu nilai dan gunakan [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) untuk memilih basis. Ini mengubah cara nilai yang ada ditampilkan; tidak mengubah data atau menambahkan garis tren logaritmik. Garis tren mewakili hubungan yang dipasangkan pada data dan merupakan fitur terpisah.
+Panggil [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) dengan `True` pada sumbu nilai dan gunakan [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) untuk memilih basis. Ini mengubah cara nilai yang ada ditampilkan; tidak mengubah data atau menambah garis tren logaritmik. Garis tren adalah fitur terpisah yang merepresentasikan hubungan yang dipasang pada data.
 
 ### **Pilih Sumbu Nilai dan Basis**
 
-Untuk diagram garis atau kolom, sumbu nilai dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Untuk diagram batang horizontal, dikembalikan oleh [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). Diagram sebar dan gelembung memiliki dua sumbu nilai, jadi pilih sumbu horizontal untuk nilai X, sumbu vertikal untuk nilai Y, atau keduanya. Jangan terapkan skala logaritmik pada sumbu kategori.
+Untuk diagram garis atau kolom, sumbu nilai dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis). Untuk diagram batang horizontal, sumbu nilai dikembalikan oleh [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). Diagram sebar dan gelembung memiliki dua sumbu nilai, jadi pilih sumbu horizontal untuk nilai X, sumbu vertikal untuk nilai Y, atau keduanya. Jangan terapkan skala logaritmik pada sumbu kategori.
 
-Basis logaritmik default adalah `10`. Untuk diagram PPTX, gunakan basis antara `2` hingga `1000`, termasuk; basis pecahan seperti `2.5` juga didukung. Dengan basis `10`, pangkat berurutan seperti 10, 100, 1.000, dan 10.000 memiliki jarak yang sama.
+Basis logaritmik default adalah `10`. Untuk diagram PPTX, gunakan basis dari `2` hingga `1000`, inklusif; basis pecahan seperti `2.5` juga didukung. Dengan basis `10`, pangkat berurutan seperti 10, 100, 1.000, dan 10.000 memiliki jarak yang sama.
 
 ### **Bandingkan Skala Linear dan Logaritmik**
 
-Contoh mandiri berikut membuat diagram garis dengan lima jumlah permintaan pada slide pertama, kemudian menggandakan slide tersebut dan mengaktifkan sumbu nilai logaritmik basis-10 pada slide kedua. Kedua slide mempertahankan data yang sama.
+Contoh mandiri berikut membuat diagram garis dengan lima hitungan permintaan pada slide pertama, lalu menggandakan slide tersebut dan mengaktifkan sumbu nilai logaritmik berbasis 10 pada slide kedua. Kedua slide mempertahankan data yang sama.
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpide.isJVMStarted():
+    jpide.startJVM()
 
 from asposeslides.api import Presentation, ChartType, SaveFormat
 
@@ -489,7 +593,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Pertahankan slide pertama tetap linear dan ubah hanya skala sumbu nilai pada salinan.
+    # Pertahankan slide pertama linear dan ubah hanya skala sumbu nilai pada salinan.
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -501,24 +605,24 @@ finally:
     presentation.dispose()
 ```
 
-**Skala linear (slide 1):** Jarak vertikal yang sama mewakili perbedaan yang sama dalam jumlah permintaan. Nilai terbesar mendominasi diagram, membuat nilai yang lebih kecil sulit dibedakan.
+**Skala linear (slide 1):** Jarak vertikal yang sama merepresentasikan selisih permintaan yang sama. Nilai terbesar mendominasi diagram, membuat nilai‑nilai kecil sulit dibedakan.
 
-![Diagram garis di PowerPoint menampilkan lima jumlah permintaan pada sumbu nilai linear](value-axis-linear.png)
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
 
-**Skala logaritmik (slide 2):** Jarak vertikal yang sama mewakili rasio yang sama. Setiap periode memiliki sepuluh kali lebih banyak permintaan daripada periode sebelumnya, sehingga titik-titik membentuk garis lurus naik pada skala basis-10. Label sumbu masih menampilkan jumlah permintaan asli.
+**Skala logaritmik (slide 2):** Jarak vertikal yang sama merepresentasikan rasio yang sama. Setiap periode memiliki sepuluh kali lebih banyak permintaan daripada periode sebelumnya, sehingga titik‑titik membentuk garis naik lurus pada skala berbasis 10. Label sumbu tetap menampilkan hitungan permintaan asli.
 
-![Lima jumlah permintaan yang sama di PowerPoint pada sumbu nilai logaritmik basis-10](value-axis-logarithmic.png)
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
 
 ### **Tangani Nilai Nol dan Negatif**
 
-Skala logaritmik hanya dapat menampilkan nilai yang benar-benar positif. Periksa data sebelum mengaktifkannya. Jika nilai nol atau negatif memiliki makna, pertahankan skala linear atau tampilkan secara terpisah. Jika mengecualikan nilai tersebut tepat untuk analisis, jelaskan pengabaian tersebut. Jangan diam-diam menggantinya dengan angka positif kecil, karena ini mengubah makna data. Setiap minimum atau maksimum yang dikonfigurasi secara manual untuk sumbu logaritmik juga harus positif.
+Skala logaritmik hanya dapat menampilkan nilai yang benar‑benar positif. Periksa data sebelum mengaktifkannya. Jika nilai nol atau negatif memiliki makna, pertahankan skala linear atau tampilkan secara terpisah. Jika mengecualikan nilai‑nilai tersebut tepat untuk analisis, jelaskan penghapusan tersebut. Jangan diam‑diam menggantinya dengan angka positif kecil karena hal itu mengubah arti data. Setiap nilai minimum atau maksimum yang dikonfigurasi secara manual untuk sumbu logaritmik juga harus positif.
 
 ## **FAQ**
 
-**Bagaimana cara saya mengatur nilai di mana satu sumbu memotong sumbu lainnya (perpotongan sumbu)?**
+**Bagaimana cara mengatur nilai di mana satu sumbu menyeberang sumbu lainnya (crossing sumbu)?**
 
-Gunakan [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) untuk memilih perilaku perpotongan. Untuk menentukan nilai perpotongan numerik, gunakan [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Pengaturan ini memungkinkan Anda memindahkan perpotongan sumbu ke garis dasar yang sesuai.
+Gunakan [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) untuk memilih perilaku crossing. Untuk menentukan nilai crossing numerik, gunakan [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Pengaturan ini memungkinkan Anda memindahkan crossing sumbu ke garis dasar yang sesuai.
 
-**Bagaimana saya dapat memposisikan label tanda relatif terhadap sumbu?**
+**Bagaimana saya dapat memposisikan label tick relatif terhadap sumbu?**
 
-Panggil [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) menggunakan [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, atau `None`. Untuk mengontrol tanda centang itu sendiri, gunakan [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) atau [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); ini terpisah dari posisi label.
+Panggil [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) menggunakan [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, atau `None`. Untuk mengontrol tanda tick itu sendiri, gunakan [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) atau [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); keduanya terpisah dari penempatan label.

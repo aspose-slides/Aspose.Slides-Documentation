@@ -1,37 +1,37 @@
 ---
-title: Beheer video-frames in presentaties met Java
-linktitle: Video-frame
+title: Beheer videoframes in presentaties met Java
+linktitle: Videoframe
 type: docs
 weight: 10
 url: /nl/java/video-frame/
 keywords:
 - video toevoegen
-- video aanmaken
+- video maken
 - video insluiten
 - video extraheren
 - video ophalen
-- video-frame
+- videoframe
 - webbron
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u programmatisch video-frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument-slides met Aspose.Slides voor Java. Snelle how-to gids."
+description: "Leer hoe u programmatig video-frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument-slides met Aspose.Slides for Java. Snelle stapsgewijze handleiding."
 ---
-## **Introductie**
+## **Inleiding**
 
-Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides for Java stelt u in staat videoframes aan dia's toe te voegen, afspeelinstellingen aan te passen, ondertitels te beheren en ingebedde videogedata te extraheren.
+Video's kunnen helpen ideeën uit te leggen en een publiek te betrekken. Aspose.Slides voor Java stelt u in staat videoframes aan dia's toe te voegen, afspeelinstellingen aan te passen, ondertitels te beheren en ingesloten videogegevens te extraheren.
 
-PowerPoint ondersteunt lokale videos en koppelingen naar online videos, zoals YouTube videos.
+PowerPoint ondersteunt lokale video's en koppelingen naar online video's, zoals YouTube‑video's.
 
-Om videogegevens en videoframes weer te geven, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) interface, de [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) interface en andere relevante typen.
+Om videogegevens en videoframes weer te geven, biedt Aspose.Slides de interface [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , de interface [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) en andere relevante typen.
 
-## **Maak een ingebed videoframe**
+## **Een ingesloten videoframe maken**
 
 Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een videoframe maken om de video in uw presentatie in te sluiten.
 
-Dit voorbeeld embedde een lokale video op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en -afmetingen zijn in points. De stream blijft open tot het opslaan voltooid is omdat [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) deze vergrendeld houdt zolang de presentatie het gebruikt.
+Dit voorbeeld legt een lokale video in op de eerste dia van een bestaande presentatie en slaat het resultaat op. De coördinaten en afmetingen van het frame zijn in punten. De stream blijft open tot het opslaan voltooid is, omdat [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie er gebruik van maakt.
 
 ```java
 import com.aspose.slides.*;
@@ -50,7 +50,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Dit voorbeeld embedde de video op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
+U kunt ook een lokaal videopad rechtstreeks doorgeven aan [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Dit voorbeeld legt de video in op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-## **Maak een videoframe met video van een webbron**
+## **Een videoframe maken met video van een webbron**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een videoframe maken dat linkt naar een online video, zoals een YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video's in presentaties. U kunt een videoframe maken dat naar een online video linkt, zoals een YouTube‑video.
 
-Dit voorbeeld voegt een YouTube‑videolink en thumbnail toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) vraagt om automatische weergave. Het downloaden van de thumbnail en het afspelen van de video vereisen internettoegang. De presentatieweergave moet ook online video‑afspelen ondersteunen.
+Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuurafbeelding toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) vraagt om automatische afspelen. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatie‑viewer moet ook online video‑afspelen ondersteunen.
 
 ```java
 import com.aspose.slides.*;
@@ -100,11 +100,11 @@ try {
 }
 ```
 
-## **Afspelen van een video in volledig‑schermmodus**
+## **Een video afspelen in volledig‑schermmodus**
 
-In een trainingspresentatie kunt u een software‑demo in volledig‑schermmodus afspelen zodat het publiek de details kan zien. Roep [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) aan met `true` om dit gedrag tijdens het afspelen in te schakelen.
+In een trainingspresentatie kunt u een software‑demonstratie in volledig‑schermmodus afspelen zodat het publiek de details kan zien. Roep [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) aan met `true` om dit gedrag tijdens het afspelen in te schakelen.
 
-Dit voorbeeld opent een presentatie, vindt de eerste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) op de eerste dia, en schakelt volledig‑schermafspelen in. De invoerpresentatie moet minimaal één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, zoekt het eerste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt afspelen in volledig scherm in. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```java
 import com.aspose.slides.*;
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-Volledig‑schermafspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) of de video automatisch of bij een klik start, en [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) of deze herhaalt. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lusinstellingen.
+Volledig‑scherm afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) of de video automatisch of bij klikken start, en [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) of deze herhaalt. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.Auto of VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lussinstellingen.
 
-## **Spoel een video terug na het afspelen**
+## **Een video terugspoelen na afspelen**
 
-In een trainingspresentatie maakt het terugplaatsen van een demonstratievideo naar het begin de video klaar voor de presentator om opnieuw af te spelen. Roep [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) aan met `true` om de video na het afspelen naar het begin te laten terugkeren.
+In een trainingspresentatie maakt het terugbrengen van een demonstratievideo naar het begin de video klaar om opnieuw afgespeeld te worden. Roep [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) aan met `true` om de video na afloop van het afspelen naar het begin terug te laten gaan.
 
-Dit voorbeeld opent een presentatie, vindt de eerste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) op de eerste dia, en schakelt terugspoelen in. Het schakelt lus uit zodat het afspelen kan eindigen en stelt het afspelen in om bij een klik te starten. De invoerpresentatie moet minimaal één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, zoekt het eerste [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt terugspoelen in. Het schakelt herhalen uit zodat het afspelen kan eindigen en stelt het afspelen in om bij klik te starten. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-Terugspoelen brengt de video naar het begin zonder deze opnieuw te starten. Daarentegen zorgt een aanroep van [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) met `true` voor automatische herhaling van de weergave. Houd lus uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) regelt onafhankelijk of de weergave automatisch of bij een klik start; dit voorbeeld gebruikt [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen begint. Stel de afspeelmodus in na de lusinstelling, zoals in het voorbeeld wordt getoond. Terugspoelen werkt onafhankelijk van [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Terugspoelen brengt de video terug naar het begin zonder deze opnieuw te starten. Daarentegen zorgt het aanroepen van [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) met `true` voor automatische herhaling van het afspelen. Laat herhalen uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) regelt onafhankelijk of de video automatisch of bij klikken start; dit voorbeeld gebruikt [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) zodat de presentator beslist wanneer het afspelen begint. Stel de afspeelmodus in na de lussinstelling, zoals in het voorbeeld wordt getoond. Terugspoelen werkt onafhankelijk van [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Trim een videoframe**
+## **Een videoframe bijsnijden**
 
-Gebruik [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) om aan het begin of einde van een video tijdens het afspelen een deel over te slaan. Beide waarden zijn in milliseconden. Trimmen wijzigt de afspeelinstellingen zonder de ingebedde videogedata te wijzigen.
+Gebruik [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) om het begin‑ of einddeel van een video tijdens het afspelen over te slaan. Beide waarden worden in milliseconden opgegeven. Bijsnijden wijzigt de afspeelinstellingen zonder de ingebedde videogegevens te wijzigen.
 
-**Stel triminstellingen in**
+**Instellingen voor bijsnijden**
 
-Dit voorbeeld embedde een lokale video en slaat de eerste 2,5 seconden en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconden zodat er een afspeelbaar segment overblijft.
+Dit voorbeeld legt een lokale video in en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**Lees triminstellingen**
+**Lees bijsnijdinstellingen**
 
-Dit voorbeeld drukt de trimwaarden van het eerste videoframe op de eerste dia af in milliseconden. De presentatie moet minimaal één dia bevatten. Als die dia geen videoframe heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert waarden van 2500 en 1000.
+Dit voorbeeld print de bijsnijdwaarden van het eerste videoframe op de eerste dia in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen videoframe heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert de waarden 2500 en 1000 op.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ try {
 }
 ```
 
-## **Beheer video‑ondertitels**
+## **Videobijschriften beheren**
 
-Aspose.Slides stelt u in staat gesloten ondertitels voor videoframes in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides stelt u in staat ondertitels voor videoframes in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 
-**Voeg ondertitels toe aan een videoframe**
+### **Ondertitels toevoegen aan een videoframe**
 
-Dit voorbeeld embedde een lokale video en voegt een WebVTT‑ondertiteltrack met het label Engels toe. De tijdstempels van de ondertitels moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de ondertitels.
+Dit voorbeeld legt een lokale video in en voegt een WebVTT‑ondertiteltrack toe met het label English. De tijdstempels van de ondertitels moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de ondertitels.
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-De interface [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) biedt ook een overload waarmee u ondertitels uit een stream kunt toevoegen.
+De interface [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
 
-**Extraheer ondertitels uit een videoframe**
+### **Ondertitels extraheren uit een videoframe**
 
-Dit voorbeeld slaat alle ondertiteltracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Sequentiële nummers houden de uitvoerbestanden uniek. De console geeft het aantal geëxtraheerde tracks weer. De presentatie moet minimaal één dia bevatten.
+Dit voorbeeld slaat alle ondertiteltracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Opeenvolgende nummers houden de uitvoerbestanden gescheiden. De console geeft het aantal geëxtraheerde tracks weer. De presentatie moet minstens één dia bevatten.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-Elk [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) object geeft de ondertitel‑identifier, het label, binaire gegevens en de ondertiteltekst weer als een UTF‑8‑string.
+Elk [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) object biedt de ondertitel‑identifier, het label, binaire gegevens en de ondertiteltekst als een UTF‑8‑string.
 
-**Verwijder ondertitels uit een videoframe**
+### **Ondertitels verwijderen uit een videoframe**
 
-Dit voorbeeld verwijdert alle ondertitels van het videoframe op de eerste shape‑positie op de eerste dia en slaat het resultaat op. Er wordt aangenomen dat de dia en shape bestaan en dat de shape een videoframe is.
+Dit voorbeeld verwijdert alle ondertitels van het videoframe op de eerste vormpositie op de eerste dia en slaat het resultaat op. Er wordt aangenomen dat de dia en vorm bestaan en dat de vorm een videoframe is.
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) methoden in plaats van [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
+Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) in plaats van [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
 
-## **Extraheer video van een dia**
+### **Videobijschriften doorzoeken**
 
-Naast het toevoegen van videos aan dia’s, maakt Aspose.Slides het mogelijk videos die in presentaties zijn ingebed te extraheren.
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) retourneert de volledige WebVTT‑track, inclusief header, timing‑regels en ondertiteltekst. U kunt de cues in het geheugen doorzoeken om een gesproken zin en de bijbehorende tijdstempel te vinden. Bijvoorbeeld, een Engelse track op dia 2 kan de volgende tekst bevatten.
 
-Dit voorbeeld extraheert ingebedde videos van elke dia naar afzonderlijke, genummerde binaire bestanden. Gelinkte videos worden overgeslagen omdat ze geen ingebedde gegevens hebben. De console drukt het MIME‑type van elke video en het totale aantal af. De output gebruikt de generieke extensie `.bin`; wijzig deze om overeen te stemmen met het gerapporteerde mediatype indien nodig.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Het voorbeeld opent `captioned_media.pptx` en gebruikt [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) om de tracks van elk videoframe op hoogste niveau op elke dia te lezen. In een platte‑tekst cue bevat de timing‑regel `-->` en een lege regel beëindigt de cue. Wanneer de ondertitel “café” bevat, ongeacht hoofd‑ of kleine letters, print het voorbeeld het dia‑nummer, track‑label, originele timing‑regel en volledige ondertitel.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Zoeken naar “café” levert één overeenkomst op voor de voorbeeldtrack. De zoekopdracht sluit de track‑header uit en behoudt de timing‑instelling in de uitvoer.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Video extraheren van een dia**
+
+Naast het toevoegen van video's aan dia's, stelt Aspose.Slides u in staat video's die in presentaties zijn ingesloten te extraheren.
+
+Dit voorbeeld haalt ingesloten video's van elke dia op en slaat ze op als afzonderlijke genummerde binaire bestanden. Gelinkte video's worden overgeslagen omdat ze geen ingesloten gegevens hebben. De console print het MIME‑type van elke video en het totale aantal. De uitvoer gebruikt de algemene extensie `.bin`; pas deze aan om overeen te komen met het gerapporteerde mediatype indien nodig.
 
 ```java
 import com.aspose.slides.*;
@@ -346,18 +411,18 @@ try {
 
 ## **FAQ**
 
-**Welke video‑afspeelparameters kunnen voor een videoframe aangepast worden?**
+**Welke video‑afspeelparameters kunnen worden aangepast voor een videoframe?**
 
-U kunt de [afspeelmodus](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (auto of bij een klik) en [herhaling](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de methoden van het [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) object.
+U kunt de [afspeelmodus](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatisch of bij klikken) en de [herhaling](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de methoden van het object [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
 
-**Heeft het toevoegen van een video invloed op de grootte van het PPTX‑bestand?**
+**Heeft het toevoegen van een video invloed op de bestandsgrootte van de PPTX?**
 
-Ja. Wanneer u een lokale video embedt, wordt de binaire data in het document opgenomen, waardoor de presentatiegrootte evenredig groeit met de bestandsgrootte. Wanneer u linkt naar een online video en een thumbnail toevoegt, slaat de presentatie de koppeling en voorbeeldafbeelding op in plaats van de videocontent, waardoor de grootte‑toename doorgaans kleiner is.
+Ja. Wanneer u een lokale video insluit, worden de binaire gegevens in het document opgenomen, waardoor de presentatie‑grootte evenredig toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuurafbeelding toevoegt, slaat de presentatie de koppeling en het voorbeeldbeeld op in plaats van de videogegevens, waardoor de toename van de grootte meestal kleiner is.
 
 **Kan ik de video in een bestaand videoframe vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame verwisselen terwijl u de vormgeometrie behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay‑out.
+Ja. U kunt de [videoinhoud](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario om media in een bestaande lay-out bij te werken.
 
-**Kan het contenttype (MIME) van een ingebedde video worden bepaald?**
+**Kan het content‑type (MIME) van een ingesloten video worden vastgesteld?**
 
-Ja. Een ingebedde video heeft een [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) die u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.
+Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) die u kunt uitlezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.

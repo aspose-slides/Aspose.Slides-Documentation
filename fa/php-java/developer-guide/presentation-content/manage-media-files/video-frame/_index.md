@@ -1,37 +1,37 @@
 ---
-title: مدیریت فریم‌های ویدئویی در ارائه‌ها با استفاده از PHP
-linktitle: فریم ویدئویی
+title: مدیریت قاب‌های ویدیو در ارائه‌ها با استفاده از PHP
+linktitle: قاب ویدیو
 type: docs
 weight: 10
 url: /fa/php-java/video-frame/
 keywords:
-- افزودن ویدئو
-- ایجاد ویدئو
-- جاسازی ویدئو
-- استخراج ویدئو
-- دریافت ویدئو
-- فریم ویدئویی
+- افزودن ویدیو
+- ایجاد ویدیو
+- تعبیه ویدیو
+- استخراج ویدیو
+- بازیابی ویدیو
+- قاب ویدیو
 - منبع وب
 - PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید به‌صورت برنامه‌نویسی فریم‌های ویدئویی را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و استخراج کنید. راهنمای سریع نحوه انجام."
+description: "یاد بگیرید چگونه به‌صورت برنامه‌نویسی قاب‌های ویدیو را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و استخراج کنید. راهنمای سریع گام‌به‌گام."
 ---
-## **مقدمه**
+## **معرفی**
 
-ویدیوها می‌توانند به توضیح ایده‌ها و جلب توجه مخاطبان کمک کنند. Aspose.Slides برای PHP از طریق Java به شما امکان می‌دهد فریم‌های ویدئویی را به اسلایدها اضافه کنید، تنظیمات پخش را تنظیم کنید، زیرنویس‌ها را مدیریت کنید و داده‌های ویدئوی جاسازی‌شده را استخراج کنید.
+ویدیوها می‌توانند به توضیح ایده‌ها و جلب توجه مخاطب کمک کنند. Aspose.Slides برای PHP از طریق Java به شما امکان اضافه کردن قاب‌های ویدیو به اسلایدها، تنظیم تنظیمات پخش، مدیریت زیرنویس‌ها و استخراج داده‌های ویدیو تعبیه‌شده را می‌دهد.
 
-PowerPoint از ویدیوهای محلی و لینک‌های به ویدیوهای آنلاین، مانند ویدیوهای YouTube، پشتیبانی می‌کند.
+PowerPoint از ویدیوهای محلی و پیوندهای به ویدیوهای آنلاین، مانند ویدیوهای YouTube، پشتیبانی می‌کند.
 
-برای نمایش داده‌های ویدئویی و فریم‌های ویدئویی، Aspose.Slides کلاس [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/)، کلاس [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) و سایر انواع مرتبط را فراهم می‌کند.
+برای نمایش داده‌های ویدیو و قاب‌های ویدیو، Aspose.Slides کلاس [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) ، کلاس [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) و سایر انواع مرتبط را ارائه می‌دهد.
 
-## **ایجاد یک فریم ویدئوی جاسازی‌شده**
+## **ایجاد یک قاب ویدیو تعبیه‌شده**
 
-اگر فایل ویدیویی که می‌خواهید به اسلاید اضافه کنید به صورت محلی ذخیره شده باشد، می‌توانید یک فریم ویدئویی ایجاد کنید تا ویدیو را در ارائه خود جاسازی کنید.
+اگر فایل ویدیویی که می‌خواهید به اسلاید اضافه کنید به‌صورت محلی ذخیره شده باشد، می‌توانید یک قاب ویدیو ایجاد کنید تا ویدیو را در ارائه خود تعبیه کنید.
 
-این مثال ویدیوی محلی را در اولین اسلاید یک ارائه موجود جاسازی می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم بر حسب پوینت هستند. جریان (stream) تا پایان ذخیره‌سازی باز می‌ماند زیرا [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) آن را در زمانی که ارائه از آن استفاده می‌کند، قفل می‌دارد.
+این مثال یک ویدیو محلی را در اسلاید اول یک ارائه موجود تعبیه می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد قاب بر حسب پوینت هستند. جریان (stream) تا پایان ذخیره‌سازی باز می‌ماند زیرا [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) در حین استفاده ارائه، آن را قفل نگه می‌دارد.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-همچنین می‌توانید مسیر ویدئوی محلی را مستقیماً به [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) پاس دهید. این مثال ویدیو را در اولین اسلاید یک ارائه جدید جاسازی می‌کند. ویدیو باید تا زمان ذخیره‌سازی ارائه در دسترس باقی بماند.
+همچنین می‌توانید مسیر ویدیو محلی را به‌صورت مستقیم به متد [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) پاس بدهید. این مثال ویدیو را در اسلاید اول یک ارائه جدید تعبیه می‌کند. ویدیو باید تا زمان ذخیره‌سازی ارائه در دسترس بماند.
 
 ```php
 use aspose\slides\Presentation;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **ایجاد یک فریم ویدئویی با ویدئوی منبع وب**
+## **ایجاد یک قاب ویدیو با ویدیو از منبع وب**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریمی ایجاد کنید که به ویدئوی آنلاین، مانند ویدئوی YouTube، لینک داشته باشد.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید یک قاب ویدیو ایجاد کنید که به یک ویدیو آنلاین، مانند یک ویدیو YouTube، پیوند دارد.
 
-این مثال لینک ویدئوی YouTube و تصویر بندانگشتی آن را به اولین اسلاید اضافه می‌کند. شناسه ویدیو را تغییر دهید تا از ویدئوی دیگری استفاده کنید. روش [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) پخش خودکار را درخواست می‌کند. دانلود تصویر بندانگشتی و پخش ویدیو به اتصال اینترنتی نیاز دارد. نمایشگر ارائه نیز باید از پخش ویدیوهای آنلاین پشتیبانی کند.
+این مثال یک پیوند ویدیو YouTube و تصویر بندانگشتی آن را به اسلاید اول اضافه می‌کند. شناسه ویدیو را تغییر دهید تا از ویدیوی دیگری استفاده کنید. متد [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) درخواست پخش خودکار را می‌دهد. دانلود تصویر بندانگشتی و پخش ویدیو نیاز به دسترسی به اینترنت دارد. مشاهده‌کننده ارائه نیز باید از پخش ویدیو آنلاین پشتیبانی کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **پخش یک ویدیو در حالت تمام‌صفحه**
+## **پخش ویدیو در حالت تمام‌صفحه**
 
-در یک ارائه آموزشی، می‌توانید یک نمایش نرم‌افزار را در حالت تمام‌صفحه پخش کنید تا مخاطبان جزئیات را ببینند. برای فعال‌سازی این رفتار در حین پخش، [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) را با مقدار `true` صدا بزنید.
+در یک ارائه آموزشی، می‌توانید یک نمایش نرم‌افزاری را در حالت تمام‌صفحه پخش کنید تا مخاطب جزئیات را ببیند. با صدا زدن [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) با مقدار `true` این رفتار در زمان پخش فعال می‌شود.
 
-این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) را در اولین اسلاید پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائه ورودی باید حداقل یک اسلاید با فریم ویدئویی موجود در اولین اسلاید داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائه ورودی باید حداقل یک اسلاید با یک قاب ویدیو موجود در اسلاید اول داشته باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-پخش تمام‌صفحه نحوه نمایش ویدیو را کنترل می‌کند. به صورت مستقل، [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) تعیین می‌کند که آیا ویدیو به‌صورت خودکار یا با کلیک شروع شود و [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) تعیین می‌کند که آیا تکرار شود یا نه. برای انتخاب رفتار شروع، حالت پخش را به [VideoPlayModePreset::Auto یا VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) تنظیم کنید. این مثال تنظیمات شروع و حلقه موجود را حفظ می‌کند.
+پخش تمام‌صفحه تصمیم می‌گیرد ویدیو چگونه نمایش داده شود. به‌صورت مستقل، [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) تعیین می‌کند که آیا به‌صورت خودکار یا با کلیک شروع شود و [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) تعیین می‌کند که آیا تکرار شود یا نه. برای انتخاب رفتار شروع، حالت پخش را به یکی از [VideoPlayModePreset::Auto یا VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) تنظیم کنید. این مثال تنظیمات شروع و حلقه موجود را حفظ می‌کند.
 
-## **بازگشت ویدیو به ابتدا پس از پخش**
+## **بازگرداندن ویدیو به ابتدا پس از پخش**
 
-در یک ارائه آموزشی، بازگشت یک ویدئوی نمایش به ابتدا باعث می‌شود که برای ارائه‌دهنده آمادهٔ پخش مجدد باشد. برای بازگرداندن ویدیو به ابتدا پس از پایان پخش، [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) را با مقدار `true` صدا بزنید.
+در یک ارائه آموزشی، بازگرداندن یک ویدیو نمایش به آغاز آن باعث می‌شود برای ارائه‌دهنده آماده پخش دوباره باشد. با صدا زدن [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) با مقدار `true` پس از پایان پخش، ویدیو به ابتدا باز می‌گردد.
 
-این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) را در اولین اسلاید پیدا می‌کند و بازگشت به ابتدا را فعال می‌سازد. حلقه‌گذاری غیرفعال می‌شود تا پخش بتواند به پایان برسد و پخش روی کلیک تنظیم می‌شود. ارائه ورودی باید حداقل یک اسلاید با فریم ویدئویی موجود در اولین اسلاید داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و بازگرداندن به ابتدا را فعال می‌سازد. حلقه‌پذیری را غیرفعال می‌کند تا پخش بتواند به پایان برسد و حالت پخش را روی شروع با کلیک تنظیم می‌کند. ارائه ورودی باید حداقل یک اسلاید با یک قاب ویدیو موجود در اسلاید اول داشته باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-بازگشت به ابتدا ویدیو را به ابتدای آن برمی‌گرداند بدون اینکه دوباره شروع شود. در مقابل، فراخوانی [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) با مقدار `true` باعث تکرار خودکار پخش می‌شود. وقتی می‌خواهید ویدیو به پایان برسد و آمادهٔ پخش مجدد بماند، حلقه را غیرفعال نگه دارید. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) به‌صورت مستقل کنترل شروع خودکار یا با کلیک را بر عهده دارد؛ این مثال از [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌دهنده زمان شروع پخش را کنترل کند. تنظیم حالت پخش پس از تنظیم حلقه انجام می‌شود، همان‌گونه که در مثال نشان داده شده است. بازگشت به ابتدا به‌صورت مستقل از [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) عمل می‌کند.
+بازگرداندن ویدیو را بدون شروع مجدد آن به ابتدا می‌برد. در مقابل، صدا زدن [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) با مقدار `true` پخش را به‌صورت خودکار تکرار می‌کند. وقتی می‌خواهید ویدیو به پایان برسد و آماده بازپخش بماند، حلقه‌پذیری را غیرفعال کنید. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) به‌طور مستقل کنترل می‌کند که آیا پخش به‌صورت خودکار یا با کلیک شروع شود؛ این مثال از [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌دهنده زمان شروع پخش را کنترل کند. حالت پخش را پس از تنظیم حلقه تنظیم کنید، همان‌طور که در مثال نشان داده شده است. بازگرداندن به‌صورت مستقل از [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) عمل می‌کند.
 
-## **برش فریم ویدئویی**
+## **قاطع کردن (Trim) یک قاب ویدیو**
 
-از [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) و [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) برای صرف‌نظر کردن از بخشی از ابتدای یا انتهای ویدیو هنگام پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. برش تنظیمات پخش را بدون تغییر داده‌های ویدئوی جاسازی‌شده تغییر می‌دهد.
+از [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) و [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) برای حذف بخشی از آغاز یا انتهای ویدیو در زمان پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. قاطع کردن تنظیمات پخش را بدون تغییر داده‌های ویدیو تعبیه‌شده تغییر می‌دهد.
 
-**تنظیمات برش**
+**تنظیمات قاطع کردن**
 
-این مثال ویدئوی محلی را جاسازی می‌کند و دو ثانیه و نیم اول و یک ثانیه انتهای آن را هنگام پخش نادیده می‌گیرد. از ویدیویی طولانی‌تر از 3.5 ثانیه استفاده کنید تا بخشی قابل پخش باقی بماند.
+این مثال یک ویدیو محلی را تعبیه می‌کند و در زمان پخش، اولین ۲٫۵ ثانیه و آخرین یک ثانیه را حذف می‌کند. از ویدیویی که طول آن بیش از ۳٫۵ ثانیه باشد استفاده کنید تا بخشی قابل پخش باقی بماند.
 
 ```php
 use aspose\slides\Presentation;
@@ -208,9 +208,9 @@ try {
 }
 ```
 
-**خواندن تنظیمات برش**
+**خواندن تنظیمات قاطع کردن**
 
-این مثال مقادیر برش فریم ویدئویی اول در اولین اسلاید را به میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدئویی نداشته باشد، چیزی چاپ نمی‌شود. مثال قبلی مقادیر 2500 و 1000 را تولید می‌کند.
+این مثال مقادیر قاطع‌کردن اولین قاب ویدیو در اسلاید اول را به میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید هیچ قاب ویدیو نداشته باشد، هیچ چیزی چاپ نمی‌شود. مثال قبلی مقادیر ۲۵۰۰ و ۱۰۰۰ را تولید می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **مدیریت زیرنویس‌های ویدیو**
 
-Aspose.Slides به شما اجازه می‌دهد زیرنویس‌های بسته برای فریم‌های ویدئویی در ارائه‌های PowerPoint را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) در دسترس قرار می‌گیرند.
+Aspose.Slides به شما اجازه می‌دهد زیرنویس‌های بسته (closed captions) برای قاب‌های ویدیو در ارائه‌های PowerPoint را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) در دسترس هستند.
 
-**افزودن زیرنویس به فریم ویدئویی**
+### **افزودن زیرنویس به یک قاب ویدیو**
 
-این مثال ویدئوی محلی را جاسازی می‌کند و یک مسیر زیرنویس WebVTT با برچسب English اضافه می‌نماید. زمان‌بندی زیرنویس‌ها باید با ویدیو مطابقت داشته باشد. ارائه ذخیره‌شده شامل هر دو ویدیو و زیرنویس‌های آن می‌شود.
+این مثال یک ویدیو محلی را تعبیه می‌کند و یک ردیف زیرنویس WebVTT با برچسب English اضافه می‌کند. زمان‌بندی زیرنویس باید با ویدیو مطابقت داشته باشد. ارائه ذخیره‌شده شامل هر دو ویدیو و زیرنویس آن می‌شود.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-کلاس [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) همچنین یک overload فراهم می‌کند که به شما امکان می‌دهد زیرنویس‌ها را از یک جریان (stream) اضافه کنید.
+کلاس [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) نیز یک بارگذاری (overload) دارد که اجازه می‌دهد زیرنویس‌ها را از یک جریان (stream) اضافه کنید.
 
-**استخراج زیرنویس‌ها از فریم ویدئویی**
+### **استخراج زیرنویس‌ها از یک قاب ویدیو**
 
-این مثال تمام مسیرهای زیرنویس را از فریم‌های ویدئویی در اولین اسلاید به‌صورت فایل‌های جداگانهٔ WebVTT ذخیره می‌کند. اعداد ترتیبی فایل‌های خروجی را متمایز نگه می‌دارند. کنسول تعداد مسیرهای استخراج‌شده را گزارش می‌دهد. ارائه باید حداقل یک اسلاید داشته باشد.
+این مثال تمام ردیف‌های زیرنویس را از قاب‌های ویدیو در اسلاید اول به‌صورت فایل‌های جداگانه WebVTT ذخیره می‌کند. اعداد متوالی باعث می‌شود فایل‌های خروجی متمایز بمانند. کنسول تعداد ردیف‌های استخراج‌شده را گزارش می‌دهد. ارائه باید حداقل یک اسلاید داشته باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-هر شیء [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) شناسهٔ زیرنویس، برچسب، دادهٔ باینری و متن زیرنویس را به‌صورت رشتهٔ UTF-8 عرضه می‌کند.
+هر شیء [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) شناسه زیرنویس، برچسب، داده‌های باینری و متن زیرنویس را به‌عنوان رشته UTF‑8 باز می‌کند.
 
-**حذف زیرنویس‌ها از فریم ویدئویی**
+### **حذف زیرنویس‌ها از یک قاب ویدیو**
 
-این مثال تمام زیرنویس‌ها را از فریم ویدئویی در اولین موقعیت شکل در اولین اسلاید حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌شود اسلاید و شکل وجود داشته باشند و شکل یک فریم ویدئویی باشد.
+این مثال تمام زیرنویس‌ها را از قاب ویدیو در اولین موقعیت شکل در اسلاید اول حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌شود اسلاید و شکل موجود بوده و شکل یک قاب ویدیو باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-اگر نیاز به حذف تنها یک مسیر زیرنویس داشته باشید، به جای [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) از متدهای [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) استفاده کنید.
+اگر فقط می‌خواهید یک ردیف زیرنویس را حذف کنید، به جای [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) از متدهای [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) استفاده کنید.
 
-## **استخراج ویدیو از اسلاید**
+### **جستجوی زیرنویس‌های ویدیو**
 
-علاوه بر افزودن ویدیو به اسلایدها، Aspose.Slides به شما اجازه می‌دهد ویدیوهای جاسازی‌شده در ارائه‌ها را استخراج کنید.
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) کل ردیف WebVTT را شامل سرآیند، خطوط زمان‌بندی و متن زیرنویس باز می‌گرداند. می‌توانید کدهای (cues) را در حافظه جستجو کنید تا عبارت گفتاری و زمان‌بندی آن را پیدا کنید. برای مثال، یک ردیف انگلیسی در اسلاید ۲ ممکن است شامل متن زیر باشد.
 
-این مثال ویدیوهای جاسازی‌شده را از هر اسلاید به‌صورت فایل‌های باینری شماره‌گذاری‌شده استخراج می‌کند. ویدیوهای لینک‌شده به دلیل نداشتن دادهٔ جاسازی‌شده نادیده گرفته می‌شوند. کنسول نوع MIME هر ویدیو و مجموع شمارش را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز می‌توانید آن را به‌گونه‌ای تغییر دهید که با نوع رسانه گزارش‌شده تطابق داشته باشد.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+مثال فایل `captioned_media.pptx` را باز می‌کند و با استفاده از [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) ردیف‌های هر قاب ویدیو سطح بالای هر اسلاید را می‌خواند. در یک cue متنی ساده، خط زمان‌بندی شامل `-->` است و یک خط خالی پایان cue را نشان می‌دهد. هنگامی که زیرنویس شامل کلمه “café” در هر ترکیب حروفی باشد، مثال شماره اسلاید، برچسب ردیف، خط زمان‌بندی اصلی و کل زیرنویس را چاپ می‌کند.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+جستجو برای “café” یک مطابقت برای ردیف نمونه تولید می‌کند. جستجو سرآیند ردیف را مستثنی می‌کند و تنظیم زمان‌بندی را در خروجی حفظ می‌نماید.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **استخراج ویدیو از یک اسلاید**
+
+علاوه بر افزودن ویدیوها به اسلایدها، Aspose.Slides به شما امکان استخراج ویدیوهای تعبیه‌شده در ارائه‌ها را می‌دهد.
+
+این مثال ویدیوهای تعبیه‌شده را از هر اسلاید استخراج می‌کند و در فایل‌های باینری شماره‌دار جداگانه ذخیره می‌سازد. ویدیوهای پیوندی (linked) نادیده گرفته می‌شوند زیرا داده تعبیه‌شده‌ای ندارند. کنسول نوع MIME هر ویدیو و تعداد کل آن‌ها را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز می‌توانید آن را با نوع رسانه گزارش‌شده تغییر دهید.
 
 ```php
 use aspose\slides\Presentation;
@@ -372,20 +436,20 @@ try {
 }
 ```
 
-## **سؤال‌های متداول**
+## **سؤالات متداول**
 
-**کدام پارامترهای پخش ویدیو برای یک فریم ویدئویی قابل تغییر هستند؟**
+**کدام پارامترهای پخش ویدیو می‌توانند برای یک قاب ویدیو تغییر یابند؟**
 
-شما می‌توانید [حالت پخش](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (خودکار یا با کلیک) و [حلقه](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) را کنترل کنید. این گزینه‌ها از طریق متدهای شیء [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) در دسترس هستند.
+می‌توانید [mode پخش](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto یا on click) و [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) را کنترل کنید. این گزینه‌ها از طریق متدهای شیء [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) در دسترس هستند.
 
-**آیا افزودن ویدیو حجم فایل PPTX را افزایش می‌دهد؟**
+**آیا افزودن یک ویدیو بر حجم فایل PPTX تأثیر می‌گذارد؟**
 
-بله. وقتی ویدئوی محلی را جاسازی می‌کنید، داده‌های باینری در سند گنجانده می‌شود، بنابراین اندازهٔ ارائه به‌تناسب با اندازهٔ فایل افزایش می‌یابد. وقتی به یک ویدئوی آنلاین لینک می‌دهید و تصویر بندانگشتی اضافه می‌کنید، ارائه فقط لینک و تصویر پیش‌نمایش را ذخیره می‌کند نه دادهٔ ویدئو، بنابراین افزایش حجم معمولاً کمتر است.
+بله. وقتی یک ویدیو محلی را تعبیه می‌کنید، داده‌های باینری در سند گنجانده می‌شود، بنابراین اندازه ارائه به نسبت حجم فایل افزایش می‌یابد. وقتی به یک ویدیو آنلاین پیوند می‌دهید و یک تصویر بندانگشتی اضافه می‌کنید، ارائه فقط پیوند و تصویر پیش‌نمایش را ذخیره می‌کند، بنابراین افزایش حجم معمولاً کمتر است.
 
-**آیا می‌توان ویدیو در یک فریم ویدئویی موجود را بدون تغییر موقعیت و اندازه آن جایگزین کرد؟**
+**آیا می‌توانید ویدیو را در یک قاب ویدیو موجود بدون تغییر موقعیت و اندازه آن جایگزین کنید؟**
 
-بله. می‌توانید محتوای [ویدئو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) را داخل فریم تعویض کنید در حالی که شکل هندسی آن حفظ می‌شود؛ این سناریوی رایجی برای به‌روزرسانی رسانه در یک طرح موجود است.
+بله. می‌توانید محتوای [ویدیو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) را درون قاب تعویض کنید در حالی که هندسهٔ شکل حفظ می‌شود؛ این سناریوی رایج برای به‌روزرسانی رسانه در یک قالب موجود است.
 
-**آیا می‌توان نوع محتوا (MIME) یک ویدئوی جاسازی‌شده را تعیین کرد؟**
+**آیا می‌توان نوع محتوا (MIME) یک ویدیو تعبیه‌شده را مشخص کرد؟**
 
-بله. یک ویدئوی جاسازی‌شده دارای [نوع محتوا](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی روی دیسک.
+بله. یک ویدیو تعبیه‌شده دارای [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی بر روی دیسک.

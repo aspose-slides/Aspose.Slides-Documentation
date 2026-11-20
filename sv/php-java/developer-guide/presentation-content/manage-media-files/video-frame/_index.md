@@ -1,37 +1,37 @@
 ---
-title: Hantera videoram i presentationer med PHP
-linktitle: Videoram
+title: Hantera video-ramar i presentationer med PHP
+linktitle: Video-ram
 type: docs
 weight: 10
 url: /sv/php-java/video-frame/
 keywords:
-- lägg till video
+- lägga till video
 - skapa video
 - bädda in video
 - extrahera video
 - hämta video
-- videoram
+- video-ram
 - webbkälla
 - PowerPoint
 - OpenDocument
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig att programatiskt lägga till och extrahera videoram i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för PHP via Java. Snabb handledning."
+description: "Lär dig programatiskt lägga till och extrahera video-ramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för PHP via Java. Snabb steg-för-steg-guide."
 ---
 ## **Introduktion**
 
-Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides for PHP via Java låter dig lägga till videoram i bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
+Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides för PHP via Java låter dig lägga till video‑ramar på bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddad videodata.
 
-PowerPoint stöder lokala videor och länkar till online‑videor, såsom YouTube‑videor.
+PowerPoint stöder lokala videor och länkar till online‑videor, till exempel YouTube‑videor.
 
-För att representera videodata och videoram tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) klassen [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) och andra relevanta typer.
+För att representera videodata och video‑ramar tillhandahåller Aspose.Slides klasserna [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/), [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) och andra relevanta typer.
 
-## **Skapa en inbäddad videoram**
+## **Skapa en inbäddad video‑ram**
 
-Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoram för att bädda in videon i din presentation.
+Om videofilen du vill lägga till på bilden finns lokalt kan du skapa en video‑ram för att bädda in videon i presentationen.
 
-Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen förblir öppen tills sparandet slutförs eftersom [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
+Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner anges i punkter. Strömmen förblir öppen tills sparandet är klart eftersom [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) håller den låst medan presentationen använder den.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Du kan också skicka en lokal videostig direkt till [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli åtkomlig tills presentationen sparas.
+Du kan också skicka en lokal videoväg direkt till [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli åtkomlig tills presentationen sparas.
 
 ```php
 use aspose\slides\Presentation;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **Skapa en videoram med video från en webbkälla**
+## **Skapa en video‑ram med video från en webbkälla**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Du kan skapa en videoram som länkar till en online‑video, såsom en YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Du kan skapa en video‑ram som länkar till en online‑video, till exempel en YouTube‑video.
 
-Detta exempel lägger till en YouTube‑videolänk och miniatyrbild på den första bilden. Ersätt video‑identifieraren för att använda en annan video. Metoden [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) begär automatisk uppspelning. Nedladdning av miniatyrbilden och uppspelning av videon kräver internetåtkomst. Presentationsvisaren måste också stödja online‑videouppspelning.
+Detta exempel lägger till en YouTube‑videolänk och miniatyr på den första bilden. Ersätt video‑identifikatorn för att använda en annan video. Metoden [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) begär automatisk uppspelning. Nedladdning av miniatyren och uppspelning av videon kräver internetåtkomst. Visningsprogrammet för presentationen måste också stödja online‑uppspelning.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **Spela upp en video i helskärmsläge**
+## **Spela en video i helskärmsläge**
 
-I en utbildningspresentation kan du spela upp en mjukvarudemonstration i helskärmsläge så att publiken kan se detaljerna. Anropa [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) med `true` för att aktivera detta beteende under uppspelning.
+I en träningspresentation kan du spela en mjukvarudemonstration i helskärmsläge så publiken kan se detaljerna. Anropa [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) med `true` för att aktivera detta beteende under uppspelning.
 
-Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) på den första bilden och aktiverar helskärmsuppspelning. Inmatningspresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) på den första bilden och aktiverar helskärm. Inmatningspresentationen måste innehålla minst en bild med en befintlig video‑ram på den första bilden.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-Helskärmsuppspelning styr hur videon visas. Självständigt styr [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) om den startar automatiskt eller på klick, och [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) styr om den upprepas. För att välja startbeteende, ange uppspelningsläget till [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start- och loop‑inställningarna.
+Helskärmsuppspelning styr hur videon visas. Oberoende styr [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) om den startas automatiskt eller vid klick, och [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) om den upprepas. För att välja startbeteende, ange uppspelningsläget till [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start‑ och loop‑inställningarna.
 
 ## **Spola tillbaka en video efter uppspelning**
 
-I en utbildningspresentation gör att återföra en demonstrationsvideo till början den redo för presentatören att spela igen. Anropa [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) med `true` för att återföra videon till början efter att uppspelningen avslutats.
+I en träningspresentation gör det att spola tillbaka en demonstrationsvideo till början så den är redo för presentatören att spela igen. Anropa [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) med `true` för att återställa videon till början efter att uppspelningen är klar.
 
-Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar looping så att uppspelningen kan slutföras och anger att uppspelning ska starta på klick. Inmatningspresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) på den första bilden och aktiverar återspolning. Det inaktiverar loopning så att uppspelningen kan avslutas och sätter uppspelning att starta vid klick. Inmatningspresentationen måste innehålla minst en bild med en befintlig video‑ram på den första bilden.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-Spolning tillbaka återför videon till dess början utan att starta den igen. I motsats till detta upprepar ett anrop av [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) med `true` uppspelning automatiskt. Håll looping inaktiverat när du vill att videon ska slutföras och vara redo att spelas igen. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) styr oberoende automatisk eller klick‑start; detta exempel använder [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) så att presentatören styr när uppspelning startar. Ställ in uppspelningsläget efter loop‑inställningen, som visas i exemplet. Spolning tillbaka fungerar oberoende av [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+Att spola tillbaka återställer videon till början utan att starta den igen. Däremot gör ett anrop till [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) med `true` att uppspelningen repeteras automatiskt. Ha loopning inaktiverad när du vill att videon ska avslutas och förbli redo för uppspelning igen. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) styr oberoende automatisk eller klick‑uppstart; detta exempel använder [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) så att presentatören kontrollerar när uppspelningen startar. Ställ in uppspelningsläget efter loop‑inställningen, som i exemplet. Återspolning fungerar oberoende av [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Trimma en videoram**
+## **Trimma en video‑ram**
 
-Använd [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) för att hoppa över en del av början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att modifiera den inbäddade videodatan.
+Använd [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) för att hoppa över början eller slutet av en video under uppspelning. Båda värdena anges i millisekunder. Trimning ändrar uppspelningsinställningarna utan att modifiera den inbäddade videodatan.
 
-**Ange triminställningar**
+**Ange trim‑inställningar**
 
-Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video som är längre än 3,5 sekunder så att ett spelbart segment återstår.
+Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna samt den sista sekunden under uppspelning. Använd en video som är längre än 3,5 sekunder så att ett spelbart segment återstår.
 
 ```php
 use aspose\slides\Presentation;
@@ -208,9 +208,9 @@ try {
 }
 ```
 
-**Läs triminställningar**
+**Läs trim‑inställningar**
 
-Detta exempel skriver ut trimvärdena för den första videoramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden inte har någon videoram skrivs inget ut. Det föregående exemplet ger värdena 2500 och 1000.
+Detta exempel skriver ut trim‑värdena för den första video‑ramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden saknar video‑ram skrivs inget ut. Föregående exempel ger värdena 2500 och 1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -234,13 +234,13 @@ try {
 }
 ```
 
-## **Hantera video-undertexter**
+## **Hantera video‑undertexter**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoram i PowerPoint‑presentationer. Undertexterna lagras i WebVTT‑format och exponeras via metoden [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides låter dig hantera stängda undertexter för video‑ramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras via metoden [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Lägg till undertexter till en videoram**
+### **Lägg till undertexter i en video‑ram**
 
-Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår märkt English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både videon och dess undertexter.
+Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår med etiketten English. Undertexternas tidsstämplar ska matcha videon. Den sparade presentationen innehåller både video och dess undertexter.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-Klassen [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) erbjuder även en överlagring som låter dig lägga till undertexter från en ström.
+Klassen [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) erbjuder också en overload som låter dig lägga till undertexter från en ström.
 
-**Extrahera undertexter från en videoram**
+### **Extrahera undertexter från en video‑ram**
 
-Detta exempel sparar alla undertextspår från videoram på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdata‑filerna tydliga. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
+Detta exempel sparar alla undertextspår från video‑ramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilernas namn unika. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-Varje [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/)‑objekt exponerar undertextens identifierare, etikett, binärdata och undertextens text som en UTF‑8‑sträng.
+Varje [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/)‑objekt exponerar undertextens identifierare, etikett, binära data och undertext som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en videoram**
+### **Ta bort undertexter från en video‑ram**
 
-Detta exempel tar bort alla undertexter från videoramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns samt att formen är en videoram.
+Detta exempel tar bort alla undertexter från video‑ramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns samt att formen är en video‑ram.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-Om du bara behöver ta bort ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+Om du bara behöver ta bort ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) i stället för [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+
+### **Sök i video‑undertexter**
+
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) returnerar hela WebVTT‑spåret, inklusive rubrik, tidlinjer och undertext. Du kan söka i cue‑erna i minnet för att hitta en talad fras och dess tidsstämpel. Till exempel kan ett engelskt spår på bild 2 innehålla följande text.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Exemplet öppnar `captioned_media.pptx` och använder [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) för att läsa spåren för varje överordnad video‑ram på alla bilder. I en ren‑text‑cue innehåller tidlinjen `-->`, och en tom rad avslutar cue‑en. När undertexten innehåller “café” i någon bokstavsstorlek skriver exemplet ut bildnumret, spårets etikett, original‑tidlinje och fullständig undertext.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sökning efter “café” ger en matchning för exempelspåret. Söket exkluderar spår‑rubriken och bevarar tidsinställningen i utdata.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extrahera video från en bild**
 
-Förutom att lägga till videor i bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
+Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
-Detta exempel extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddad data. Konsolen skriver ut varje videos MIME‑typ och totala antal. Utdata använder den generiska filändelsen `.bin`; ändra den för att matcha den rapporterade mediatypen vid behov.
+Detta exempel extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddad data. Konsolen skriver ut varje videos MIME‑typ och det totala antalet. Utdata använder den generiska `.bin`‑ändelsen; ändra den för att matcha den rapporterade mediatypen vid behov.
 
 ```php
 use aspose\slides\Presentation;
@@ -374,18 +438,18 @@ try {
 
 ## **FAQ**
 
-**Vilka videouppspelningsparametrar kan ändras för en videoram?**
+**Vilka uppspelningsparametrar kan ändras för en video‑ram?**
 
-Du kan styra [uppspelningsläget](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto eller på klick) och [loopning](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Dessa alternativ är tillgängliga via [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)‑objektets metoder.
+Du kan kontrollera [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto eller on click) och [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Dessa alternativ är tillgängliga via [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)‑objektets metoder.
 
-**Påverkar tillägg av en video PPTX‑filens storlek?**
+**Påverkar tillägget av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till filstorleken. När du länkar till en online‑video och lägger till en miniatyrbild lagrar presentationen länken och förhandsvisningsbilden istället för video‑datan, vilket vanligtvis ger en mindre storleksökning.
+Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du länkar till en online‑video och lägger till en miniatyr lagrar presentationen länken och förhandsbilden i stället för videodata, så storleksökningen är vanligtvis mindre.
 
-**Kan jag ersätta videon i en befintlig videoram utan att ändra dess position och storlek?**
+**Kan jag ersätta videon i en befintlig video‑ram utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) inom ramen samtidigt som du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) inom ramen medan du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
-**Kan mediatypen (MIME) för en inbäddad video bestämmas?**
+**Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 
-Ja. En inbäddad video har en [innehållstyp](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) som du kan läsa och använda, till exempel när du sparar den till disk.
+Ja. En inbäddad video har en [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) som du kan läsa och använda, till exempel när du sparar den till disk.

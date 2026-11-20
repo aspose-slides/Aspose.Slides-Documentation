@@ -1,5 +1,5 @@
 ---
-title: PHP ile Sunumlarda Video Çerçevelerini Yönetme
+title: PHP Kullanarak Sunumlarda Video Çerçevelerini Yönetme
 linktitle: Video Çerçevesi
 type: docs
 weight: 10
@@ -9,7 +9,7 @@ keywords:
 - video oluştur
 - video gömme
 - video çıkar
-- video getir
+- video al
 - video çerçevesi
 - web kaynağı
 - PowerPoint
@@ -17,21 +17,21 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument slaytlarında programlı olarak video çerçevelerini eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument slaytlarında programlı olarak video çerçevelerini eklemeyi ve çıkarmayı öğrenin. Hızlı nasıl yapılır rehberi."
 ---
 ## **Giriş**
 
-Videolar fikirleri açıklamaya ve izleyiciyi etkilemeye yardımcı olabilir. Aspose.Slides for PHP via Java, slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını düzenlemenizi, altyazıları yönetmenizi ve gömülü video verilerini çıkarmanızı sağlar.
+Videolar fikirleri açıklamaya ve izleyiciyi etkilemeye yardımcı olabilir. Aspose.Slides for PHP via Java, slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını düzenlemenizi, altyazıları yönetmenizi ve yerleştirilmiş video verilerini çıkarmanızı sağlar.
 
-PowerPoint, yerel videoları ve YouTube gibi çevrimiçi videoların bağlantılarını destekler.
+PowerPoint, yerel videoları ve YouTube videoları gibi çevrimiçi video bağlantılarını destekler.
 
-Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides, [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) sınıfı, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) sınıfı ve diğer ilgili türleri sunar.
+Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides, [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) sınıfını, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) sınıfını ve diğer ilgili türleri sağlar.
 
 ## **Gömülü Bir Video Çerçevesi Oluşturma**
 
-Slayda eklemek istediğiniz video dosyası yerel olarak depolanıyorsa, sunumda videoyu gömmek için bir video çerçevesi oluşturabilirsiniz.
+Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanıyorsa, videoyu sunumunuza gömmek için bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek, mevcut bir sunumun ilk slaytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme tamamlanana kadar açık kalır çünkü [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) sunum onu kullandığı sürece kilitli tutar.
+Bu örnek, mevcut bir sunumun ilk slaytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme bitene kadar açık kalır çünkü [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) sunum onu kullandığı sürece kilitli tutar.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Ayrıca yerel video yolunu doğrudan [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) metoduna geçirebilirsiniz. Bu örnek, yeni bir sunumun ilk slaytına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
+Yerel bir video yolunu doğrudan [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) metoduna da geçirebilirsiniz. Bu örnek, yeni bir sunumun ilk slaytına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
 
 ```php
 use aspose\slides\Presentation;
@@ -76,9 +76,9 @@ try {
 
 ## **Web Kaynağından Video ile Bir Video Çerçevesi Oluşturma**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) çevrimiçi videoları sunumlarda destekler. YouTube gibi bir çevrimiçi videoya bağlanan bir video çerçevesi oluşturabilirsiniz.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) sunumlarda çevrimiçi videoları destekler. YouTube videosu gibi bir çevrimiçi videoya bağlanan bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek, ilk slayta bir YouTube video bağlantısı ve önizleme resmi ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) metodu otomatik oynatmayı talep eder. Önizleme resmini indirmek ve videoyu oynatmak internet erişimi gerektirir. Sunum görüntüleyicisinin de çevrimiçi video oynatımını desteklemesi gerekir.
+Bu örnek, ilk slayta bir YouTube video bağlantısı ve küçük resim ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) yöntemi otomatik oynatmayı talep eder. Küçük resmin indirilmesi ve videonun oynatılması internet erişimi gerektirir. Sunum görüntüleyicisi de çevrimiçi video oynatımını desteklemelidir.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **Videoyu Tam Ekran Modunda Oynatma**
+## **Tam Ekran Modunda Video Oynatma**
 
-Eğitim sunumunda, izleyicilerin ayrıntıları görebilmesi için bir yazılım demo‑sunuunu tam ekran modunda oynatabilirsiniz. Oynatma sırasında bu davranışı etkinleştirmek için `true` ile [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) çağırın.
+Bir eğitim sunumunda, izleyicilerin detayları görebilmesi için bir yazılım demosunu tam ekran modunda oynatabilirsiniz. Oynatma sırasında bu davranışı etkinleştirmek için [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) metodunu `true` ile çağırın.
 
-Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Girdi sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
+Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi bulunan en az bir slayt içermelidir.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-Tam ekran oynatma, videonun nasıl görüntüleneceğini denetler. Bağımsız olarak, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) otomatik mi yoksa tıklamayla mı başlayacağını, [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) ise tekrar edip etmeyeceğini kontrol eder. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek, mevcut başlangıç ve döngü ayarlarını korur.
+Tam ekran oynatma, videonun nasıl görüntüleneceğini kontrol eder. Bağımsız olarak, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) otomatik mi yoksa tıklamayla mı başlayacağını, [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) ise tekrarlayıp tekrarlamayacağını kontrol eder. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset::Auto veya VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek, mevcut başlangıç ve döngü ayarlarını korur.
 
 ## **Oynatmadan Sonra Videoyu Geri Sarma**
 
-Eğitim sunumunda, bir demo videosunu başa döndürmek, sunumcunun videoyu tekrar oynatmasını hazır hâle getirir. Oynatma bittiğinde videoyu başa döndürmek için `true` ile [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) çağırın.
+Bir eğitim sunumunda, bir demo videosunu başına döndürmek, sunumcunun videoyu tekrar oynatmaya hazır hale getirir. Oynatma tamamlandıktan sonra videoyu başa döndürmek için [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) metodunu `true` ile çağırın.
 
-Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Döngüyü devre dışı bırakır, böylece oynatma tamamlanabilir ve oynatmayı tıklamayla başlatır. Girdi sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
+Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Oynatmanın bitmesi için döngüyü devre dışı bırakır ve oynatmayı tıklamayla başlaması için ayarlar. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi bulunan en az bir slayt içermelidir.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-Geri sarma, videoyu başa döndürür ancak tekrar başlatmaz. Buna karşılık, `true` ile [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) çağırmak, oynatmayı otomatik olarak tekrar eder. Videonun bitmesini ve tekrar oynatılmaya hazır kalmasını istediğinizde döngüyü devre dışı bırakın. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) bağımsız olarak otomatik ya da tıklamayla başlangıcı kontrol eder; bu örnek, sunumcunun oynatmayı ne zaman başlatacağını belirlemesi için [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) kullanır. Döngü ayarından sonra oynatma modunu ayarlayın, örnekte gösterildiği gibi. Geri sarma, [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) ile bağımsız çalışır.
+Geri sarma, videoyu tekrar başlatmadan başına döndürür. Buna karşılık, [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) metodunu `true` ile çağırmak, oynatmayı otomatik olarak tekrar eder. Videonun bitmesini ve tekrar oynatılmaya hazır kalmasını istediğinizde döngüyü devre dışı bırakın. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) bağımsız olarak otomatik ya da tıklamayla başlatmayı kontrol eder; bu örnek, sunumcunun oynatmayı ne zaman başlatacağını kontrol etmesi için [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) kullanır. Örnekte gösterildiği gibi, döngü ayarından sonra oynatma modunu ayarlayın. Geri sarma, [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) 'den bağımsız çalışır.
 
 ## **Bir Video Çerçevesini Kırpma**
 
-Oynatma sırasında bir videonun başlangıç veya son kısmını atlamak için [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) ve [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) kullanın. Her iki değer de milisaniye cinsindendir. Kırpma, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
+[VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) ve [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) metodlarını, oynatma sırasında bir videonun başından veya sonundan bir bölümü atlamak için kullanın. Her iki değer de milisaniye cinsindendir. Kırpma, yerleştirilmiş video verisini değiştirmeden oynatma ayarlarını değiştirir.
 
 **Kırpma Ayarlarını Belirleme**
 
-Bu örnek, yerel bir video gömer ve oynatma sırasında ilk 2,5 saniye ile son bir saniyeyi atlar. Oynanabilir bir segment kalması için videonun 3,5 saniyeden uzun olması gerekir.
+Bu örnek, yerel bir video gömer ve oynatma sırasında ilk 2,5 saniyeyi ve son bir saniyeyi atlar. Oynatılabilir bir bölüm kalması için videonun 3,5 saniyeden uzun olmasını kullanın.
 
 ```php
 use aspose\slides\Presentation;
@@ -210,7 +210,7 @@ try {
 
 **Kırpma Ayarlarını Okuma**
 
-Bu örnek, ilk slayttaki ilk video çerçevesinin kırpma değerlerini milisaniye olarak yazdırır. Sunum en az bir slayt içermelidir. Eğer bu slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
+Bu örnek, ilk slayttaki ilk video çerçevesinin kırpma değerlerini milisaniye cinsinden yazdırır. Sunum en az bir slayt içermelidir. Eğer o slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **Video Altyazılarını Yönetme**
 
-Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenize olanak tanır. Altyazılar WebVTT formatında saklanır ve [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) yöntemi aracılığıyla sunulur.
+Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında saklanır ve [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) metodu aracılığıyla sunulur.
 
-**Bir Video Çerçevesine Altyazı Ekleme**
+### **Bir Video Çerçevesine Altyazı Ekleme**
 
-Bu örnek, yerel bir video gömer ve İngilizce etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları videoyla eşleşmelidir. Kaydedilen sunum hem videoyu hem de altyazılarını içerir.
+Bu örnek, yerel bir video gömer ve İngilizce adlı bir WebVTT altyazı izini ekler. Altyazı zaman damgaları videoyla eşleşmelidir. Kaydedilen sunum, videoyu ve altyazılarını içerir.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) sınıfı ayrıca bir akıştan altyazı eklemenize izin veren bir aşırı yükleme sağlar.
+[CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) sınıfı ayrıca altyazıları bir akıştan eklemenizi sağlayan bir aşırı yükleme sunar.
 
-**Bir Video Çerçevesinden Altyazı Çıkarma**
+### **Bir Video Çerçevesinden Altyazı Çıkarma**
 
-Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Ardışık numaralar çıktı dosyalarının farklı olmasını sağlar. Konsol, çıkarılan iz sayısını raporlar. Sunum en az bir slayt içermelidir.
+Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Sıralı sayılar, çıktı dosyalarını birbirinden ayırır. Konsol, çıkarılan iz sayısını raporlar. Sunum en az bir slayt içermelidir.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,9 +303,9 @@ try {
 }
 ```
 
-Her [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketi, ikili veriyi ve UTF‑8 dizesi olarak altyazı metnini ortaya koyar.
+Her [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketi, ikili veriyi ve altyazı metnini UTF-8 dizesi olarak gösterir.
 
-**Bir Video Çerçevesinden Altyazı Kaldırma**
+### **Bir Video Çerçevesinden Altyazıları Kaldırma**
 
 Bu örnek, ilk slayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Slayt ve şeklin mevcut olduğunu ve şeklin bir video çerçevesi olduğunu varsayar.
 
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-Yalnızca tek bir altyazı izini kaldırmanız gerekiyorsa, [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) yerine [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) metodlarını kullanın.
+Sadece tek bir altyazı izini kaldırmanız gerekiyorsa, [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) yerine [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) metodlarını kullanın.
+
+### **Video Altyazılarını Arama**
+
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) tam WebVTT izini, başlığı, zaman çizgilerini ve altyazı metnini döndürür. Bellekteki cue'ları arayarak söylem bir ifadeyi ve zaman damgasını bulabilirsiniz. Örneğin, 2. slaydaki İngilizce bir iz aşağıdaki metni içerebilir.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Örnek, `captioned_media.pptx` dosyasını açar ve her slayttaki üst düzey video çerçevelerinin izlerini okumak için [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) metodunu kullanır. Düz metin cue'unda zaman çizgisi `-->` içerir ve boş bir satır cue'yu sonlandırır. Altyazı herhangi bir harf durumunda “café” içerdiğinde, örnek slayt numarasını, iz etiketini, orijinal zaman çizgisini ve tam altyazıyı yazdırır.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+“café” aranması, örnek iz için bir eşleşme üretir. Arama, iz başlığını dışlar ve zaman ayarını çıktıda korur.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Bir Slayttan Video Çıkarma**
 
-Videoları slaytlara eklemenin yanı sıra, Aspose.Slides gömülü videoları sunumlardan çıkarmanıza da olanak tanır.
+Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda yerleştirilmiş videoları çıkarmanıza da olanak tanır.
 
-Bu örnek, her slayttan gömülü videoları ayrı, numaralı ikili dosyalara çıkarır. Bağlantılı videolar, gömülü veri içermediği için atlanır. Konsol, her bir videonun MIME tipini ve toplam sayısını yazdırır. Çıktı, genel `.bin` uzantısını kullanır; gerektiğinde bildirilen medya tipine göre değiştirilebilir.
+Bu örnek, yerleştirilmiş videoları her slayttan ayrı, numaralı ikili dosyalara çıkarır. Bağlantılı videolar, yerleşik veri olmadığından atlanır. Konsol, her videonun MIME türünü ve toplam sayıyı yazdırır. Çıktı genel `.bin` uzantısını kullanır; gerektiğinde bildirilen medya türüne göre değiştirin.
 
 ```php
 use aspose\slides\Presentation;
@@ -376,16 +440,16 @@ try {
 
 **Bir video çerçevesi için hangi video oynatma parametreleri değiştirilebilir?**
 
-[playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (otomatik ya da tıklamayla) ve [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) kontrol edilebilir. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) nesnesinin metodları aracılığıyla kullanılabilir.
+Oynatma modunu ([playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode), otomatik veya tıklamayla) ve döngüyü ([looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode)) kontrol edebilirsiniz. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) nesnesinin yöntemleri aracılığıyla mevcuttur.
 
-**Bir video eklemek PPTX dosya boyutunu etkiler mi?**
+**Video eklemek PPTX dosya boyutunu etkiler mi?**
 
-Evet. Yerel bir video gömdüğünüzde ikili veri belgeye dahil edilir, bu yüzden sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir videoya bağlanıp önizleme resmi eklediğinizde, sunum video verisi yerine bağlantıyı ve ön izleme resmini saklar; bu yüzden boyut artışı genellikle daha küçüktür.
+Evet. Yerel bir video gömdüğünüzde, ikili veri belgeye dahil edilir, bu nedenle sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir video bağlantısı ekleyip bir küçük resim eklediğinizde, sunum video verisi yerine bağlantıyı ve önizleme görüntüsünü saklar, bu nedenle boyut artışı genellikle daha küçüktür.
 
-**Mevcut bir video çerçevesindeki videoyu konumunu ve boyutunu değiştirmeden değiştirebilir miyim?**
+**Mevcut bir video çerçevesindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**
 
-Evet. Çerçeve içindeki [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) değiştirilebilir, şeklin geometrisi korunur; bu, mevcut bir yerleşimde medyayı güncellemek için yaygın bir senaryodur.
+Evet. Çerçeve içindeki [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) öğesini, şeklin geometrisini koruyarak değiştirebilirsiniz; bu, mevcut bir yerleşimde medyayı güncellemek için yaygın bir senaryodur.
 
-**Gömülü bir videonun içerik tipi (MIME) belirlenebilir mi?**
+**Yerleştirilmiş bir videonun içerik türü (MIME) belirlenebilir mi?**
 
-Evet. Gömülü bir videonun [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) okunabilir ve örneğin diske kaydederken kullanılabilir.
+Evet. Yerleştirilmiş bir video, [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) özelliğine sahiptir; bunu okuyabilir ve örneğin diske kaydederken kullanabilirsiniz.

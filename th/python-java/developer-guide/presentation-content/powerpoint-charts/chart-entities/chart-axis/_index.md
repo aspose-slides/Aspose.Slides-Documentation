@@ -1,37 +1,37 @@
 ---
-title: ปรับแต่งแกนแผนภูมิในงานนำเสนอด้วย Python
-linktitle: แกนแผนภูมิ
+title: "ปรับแต่งแกนของแผนภูมิในงานนำเสนอโดยใช้ Python"
+linktitle: "แกนแผนภูมิ"
 type: docs
 url: /th/python-java/chart-axis/
 keywords:
-- แกนแผนภูมิ
-- แกนแนวตั้ง
-- แกนแนวนอน
-- ปรับแต่งแกน
-- จัดการแกน
-- ควบคุมแกน
-- คุณสมบัติของแกน
-- ค่าสูงสุด
-- ค่าต่ำสุด
-- เส้นแกน
-- รูปแบบวันที่
-- ชื่อแกน
-- ตำแหน่งแกน
-- PowerPoint
-- งานนำเสนอ
-- Python
-- Aspose.Slides
-description: "ค้นพบวิธีการใช้ Aspose.Slides สำหรับ Python ผ่าน Java เพื่อปรับแต่งแกนแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการสร้างภาพ."
+- "แกนแผนภูมิ"
+- "แกนแนวตั้ง"
+- "แกนแนวนอน"
+- "ปรับแต่งแกน"
+- "จัดการแกน"
+- "ควบคุมแกน"
+- "คุณสมบัติของแกน"
+- "ค่าสูงสุด"
+- "ค่าต่ำสุด"
+- "เส้นแกน"
+- "รูปแบบวันที่"
+- "ชื่อแกน"
+- "ตำแหน่งแกน"
+- "PowerPoint"
+- "งานนำเสนอ"
+- "Python"
+- "Aspose.Slides"
+description: "ค้นพบวิธีใช้ Aspose.Slides สำหรับ Python ผ่าน Java เพื่อปรับแต่งแกนของแผนภูมิในงานนำเสนอ PowerPoint สำหรับรายงานและการสร้างภาพ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีปรับแต่งแกนแผนภูมิด้วย Aspose.Slides สำหรับ Python ผ่าน Java โดยครอบคลุมค่าที่คำนวณของแกน, การสลับแถวและคอลัมน์ของแผนภูมิ, การแสดงหรือซ่อนแกน, ระยะห่างของป้ายชื่อหมวดหมู่และติ๊ก‑มาร์ก, หมวดหมู่วันที่และการจัดรูปแบบ, การหมุนชื่อแกน, การตำแหน่งแกน, หน่วยแสดงผล, และการสเกลแบบลอการิทึม
+บทความนี้อธิบายวิธีปรับแต่งแกนของแผนภูมิด้วย Aspose.Slides สำหรับ Python ผ่าน Java รวมถึงค่าที่คำนวณได้ของแกน การสลับแถวและคอลัมน์ของแผนภูมิ การแสดงหรือซ่อนแกน ป้ายชื่อประเภทและระยะห่างของเครื่องหมายติ๊ก วันที่และการจัดรูปแบบ แกนหมุนหัวเรื่อง การกำหนดตำแหน่งแกน หน่วยการแสดงผล และการสเกลแบบลอการิทมิก
 
-## **รับค่ามากสุดบนแกนแนวตั้งของแผนภูมิ**
+## **รับค่าสูงสุดบนแกนแนวตั้งของแผนภูมิ**
 
-สร้าง [การนำเสนอ](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) และเพิ่มแผนภูมิพื้นที่ด้วยข้อมูลค่าเริ่มต้น เรียกใช้ [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้เค้าโครงแผนภูมิเป็นปัจจุบัน
+สร้าง [การนำเสนอ](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) และเพิ่มแผนภูมิแบบพื้นที่พร้อมข้อมูลเริ่มต้น เรียกใช้ [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) ก่อนอ่านค่าที่คำนวณของแกนเพื่อให้เลย์เอาต์ของแผนภูมิเป็นปัจจุบัน
 
-อ่าน [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) และ [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) เพื่อรับขอบเขตของแกน และอ่าน [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) และ [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) เพื่อรับช่วงระยะของติ๊ก [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) ให้สเกลหน่วยเวลา ซึ่งเกี่ยวข้องกับแกนวันที่ ตัวอย่างจะเก็บค่าต่าง ๆ นี้ในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
+อ่าน [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) และ [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) เพื่อกำหนดขอบเขตของแกน และ [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) และ [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) เพื่อรับระยะห่างของเครื่องหมายติ๊ก [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) และ [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) ให้สเกลหน่วยเวลา ซึ่งสำคัญกับแกนวันที่ ตัวอย่างจะเก็บค่าต่าง ๆ ไว้ในตัวแปรท้องถิ่นและบันทึกแผนภูมิ
 
 ```python
 import jpype
@@ -65,7 +65,7 @@ finally:
 
 ## **สลับข้อมูลระหว่างแกน**
 
-ใช้ [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) เพื่อสลับบทบาทของซีรีส์และหมวดหมู่ในข้อมูลแผนภูมิ แต่ละหมวดหมู่เดิมจะกลายเป็นซีรีส์ และแต่ละซีรีส์เดิมจะกลายเป็นหมวดหมู่ การเปลี่ยนแปลงนี้ทำให้การจัดกลุ่มข้อมูลเปลี่ยนแปลง; ไม่ได้สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อผูกข้อมูลค่าเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงแถวหัวเรื่องและคอลัมน์หมวดหมู่ ก่อนทำการสลับแถวและคอลัมน์ จะบันทึกแผนภูมิที่มีสี่ซีรีส์และสามหมวดหมู่
+ใช้ [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) เพื่อสลับบทบาทของซีรีส์และประเภทในข้อมูลแผนภูมิ ประเภทที่เคยเป็นเดิมจะกลายเป็นซีรีส์ และซีรีส์ที่เคยเป็นเดิมจะกลายเป็นประเภท สิ่งนี้เปลี่ยนวิธีการจัดกลุ่มข้อมูล แต่ไม่สลับแกนแนวนอนและแนวตั้ง ตัวอย่างใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อผูกข้อมูลเริ่มต้นกับ `Sheet1!A1:D5` รวมถึงแถวหัวเรื่องและคอลัมน์ประเภท ก่อนสลับแถวและคอลัมน์ แล้วบันทึกแผนภูมิที่มีซีรีส์สี่ชุดและประเภทสามชุด
 
 ```python
 import jpype
@@ -89,18 +89,18 @@ finally:
     presentation.dispose()
 ```
 
-## **กลับลำดับการพล็อตของแกน**
+## **กลับทิศทางการวาดของแกน**
 
-ใช้ [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) เพื่อย้อนกลับลำดับของแกนหมวดหมู่หรือค่า ตัวอย่างเช่น แผนภูมิบาร์แนวนอนสามารถแสดงขั้นตอนของโครงการจากบนลงล่างตามลำดับเดียวกับในแผ่นงาน: Planning, Development, Testing การย้อนกลับแกนจะเปลี่ยนทิศทางการพล็อต; ไม่ได้ทำการเรียงลำดับหรือจัดเรียงข้อมูลในเวิร์กบุ๊ก ในการเปรียบเทียบ [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) จะสลับบทบาทของซีรีส์และหมวดหมู่
+ใช้ [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) เพื่อกลับทิศทางของแกนประเภทหรือค่า ตัวอย่างเช่น แผนภูมิแท่งแนวนอนอาจแสดงขั้นตอนของโครงการจากบนลงล่างในลำดับเดียวกับใน worksheet: Planning, Development, Testing การกลับแกนเปลี่ยนทิศทางการวาด ไม่ได้จัดเรียงหรือย้ายข้อมูลใน workbook การเปรียบเทียบกับ [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) ที่สลับบทบาทของซีรีส์และประเภท
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิบาร์แนวนอนที่มีสามขั้นตอนและหนึ่งซีรีส์ จะบันทึกการนำเสนอที่มีสามสไลด์: ลำดับปกติ, หมวดหมู่ย้อนกลับ, และค่าย้อนกลับ แต่ละสำเนาใช้ชุดข้อมูลเดียวกัน และแต่ละสำเนาจะย้อนกลับเพียงแกนเดียว
+ตัวอย่างต่อไปนี้สร้างแผนภูมิแท่งแนวนอนที่มีสามขั้นตอนและหนึ่งซีรีส์ บันทึกงานนำเสนอที่มีสไลด์สามสไลด์: ลำดับปกติ, ประเภทย้อนกลับ, ค่าย้อนกลับ แต่ละสำเนาใช้ชุดข้อมูลเดียวกันและมีการกลับแกนเพียงหนึ่งแกนต่อสำเนา
 
 ```python
-import jpype
+import jpase
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpipe.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, ChartType, CrossesType, SaveFormat
 
@@ -126,14 +126,14 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
         series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # สไลด์ 2: แสดงหมวดหมู่แรกที่ด้านบน.
+    # สไลด์ 2: แสดงประเภทแรกที่ด้านบน.
     category_slide = presentation.getSlides().addClone(slide)
     category_chart = category_slide.getShapes().get_Item(0)
     category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
-    # คงแกนค่าทางแนวนอนไว้ที่ด้านล่าง.
+    # คงแกนค่าตอนแนวนอนไว้ที่ด้านล่าง.
     category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
 
-    # สไลด์ 3: ย้อนกลับเฉพาะสเกลตัวเลขแนวนอนเท่านั้น.
+    # สไลด์ 3: กลับทิศทางเพียงสเกลเชิงเลขแนวนอน.
     value_slide = presentation.getSlides().addClone(slide)
     value_chart = value_slide.getShapes().get_Item(0)
     value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
@@ -143,16 +143,16 @@ finally:
     presentation.dispose()
 ```
 
-การย้อนกลับแกนอาจทำให้แกนตั้งฉากย้ายไปด้านตรงข้ามของพล็อต [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) ควบคุมตำแหน่งที่แกนอื่นตัดแกนที่กำลังตั้งค่า ในสไลด์ที่ 2 การเรียกใช้ด้วย [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) บนแกนหมวดหมู่ที่ย้อนกลับจะทำให้แกนค่ามแนวนอนอยู่ที่ด้านล่าง สำหรับจุดตัดที่ระบุเฉพาะ ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) ตรวจสอบการตั้งค่าตัดเมื่อเปลี่ยนทิศทาง โดยเฉพาะอย่างยิ่งหากแผนภูมิมีจุดตัดกำหนดเองแล้ว เรียก [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) กับ `False` เพื่อคืนทิศทางการพล็อตปกติ; การตั้งค่าตัดเป็นค่าแยกจากกัน
+การกลับแกนยังสามารถย้ายแกนตั้งฉากไปอีกด้านของพื้นที่แผนภูมิได้ [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) ควบคุมว่าตำแหน่งที่แกนอื่นทำการตัดผ่านแกนที่กำลังกำหนดคือที่ไหน ในสไลด์ที่ 2 การเรียกด้วย [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) บนแกนประเภทที่กลับแล้วทำให้แกนค่าตั้งแนวนอนอยู่ที่ด้านล่าง สำหรับตำแหน่งตัดเฉพาะ ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) ตรวจสอบการตั้งค่าการตัดเมื่อเปลี่ยนทิศทาง โดยเฉพาะอย่างยิ่งหากแผนภูมิมีจุดตัดกำหนดเองแล้ว เรียก [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) ด้วย `False` เพื่อคืนทิศทางการวาดปกติ การตั้งค่าการตัดเป็นการตั้งค่าแยกต่างหาก
 
-| ลำดับปกติ (สไลด์ 1) | หมวดหมู่ย้อนกลับ (สไลด์ 2) | ค่าที่ย้อนกลับ (สไลด์ 3) |
+| ลำดับปกติ (สไลด์ 1) | หมวดหมู่ย้อนกลับ (สไลด์ 2) | ค่าย้อนกลับ (สไลด์ 3) |
 | --- | --- | --- |
-| ![แผนภูบาร์แนวนอนกับลำดับหมวดหมู่และแกนค่าปกติ](axis-order-normal.png) | ![แผนภูบาร์แนวนอนกับหมวดหมู่แสดงจากบนลงล่าง](axis-order-categories-reversed.png) | ![แผนภูบาร์แนวนอนกับแกนค่าที่ย้อนกลับและศูนย์ที่ด้านขวา](axis-order-values-reversed.png) |
-| หมวดหมู่เรียงจากล่างขึ้นบน; ค่าจะเพิ่มจากซ้ายไปขวา. | Planning, Development, และ Testing เรียงจากบนลงล่าง ค่และลำดับแถวในเวิร์กบุ๊กยังคงไม่เปลี่ยน. | หมวดหมู่คงลำดับปกติ; ค่าจะเพิ่มจากขวาไปซ้าย แกนหมวดหมู่ตัดที่ศูนย์ด้านขวา. |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| ประเภทวิ่งจากล่างขึ้นบน; ค่ามากขึ้นจากซ้ายไปขวา. | Planning, Development, และ Testing วิ่งจากบนลงล่าง. ค่และลำดับแถวใน workbook ไม่เปลี่ยน. | ประเภทคงลำดับปกติ; ค่ามากขึ้นจากขวาไปซ้าย. แกนประเภทตัดที่ศูนย์ทางขวา. |
 
-## **ปิดการแสดงแกนแนวตั้งสำหรับแผนภูมิเส้น**
+## **ซ่อนแกนแนวตั้งสำหรับแผนภูมิเส้น**
 
-เรียกใช้ [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) กับ `False` บนแกนแนวตั้งเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยที่แกนแนวตั้งถูกซ่อน
+เรียก [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) ด้วย `False` บนแกนแนวตั้งเพื่อซ่อน ตัวอย่างสร้างแผนภูมิเส้นพร้อมข้อมูลเริ่มต้นและบันทึกโดยที่แกนแนวตั้งถูกซ่อน
 
 ```python
 import jpype
@@ -175,9 +175,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ปิดการแสดงแกนแนวนอนสำหรับแผนภูมิเส้น**
+## **ซ่อนแกนแนวนอนสำหรับแผนภูมิเส้น**
 
-เรียกใช้ [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) กับ `False` บนแกนแนวนอนเพื่อซ่อนมัน ตัวอย่างสร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้นและบันทึกโดยที่แกนแนวนอนถูกซ่อน
+เรียก [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) ด้วย `False` บนแกนแนวนอนเพื่อซ่อน ตัวอย่างสร้างแผนภูมิเส้นพร้อมข้อมูลเริ่มต้นและบันทึกโดยที่แกนแนวนอนถูกซ่อน
 
 ```python
 import jpype
@@ -200,9 +200,51 @@ finally:
     presentation.dispose()
 ```
 
-## **เปลี่ยนแกนหมวดหมู่**
+## **แสดงหรือซ่อนเส้นตารางของแผนภูมิ**
 
-ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) เพื่อเลือกแกนหมวดหมู่แบบวันที่หรือข้อความ ตัวอย่างนี้ต้องใช้ไฟล์ `ExistingChart.pptx` โดยที่แผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและเซลล์หมวดหมู่มีค่าตัวเลขวันที่ของ Excel จะเปลี่ยนแกนแนวนอนเป็นแกนวันที่ การเรียก [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) กับ `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) กับ `1`, และ [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) กับ [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) จะตั้งติ๊กหลักให้เป็นช่วงหนึ่งเดือน
+ใช้ [getShowMajorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMajorGridLines) และ [getShowMinorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMinorGridLines) เพื่อตรวจสอบว่าแกนแสดงเส้นตารางใดบ้าง หากต้องการแสดงเส้นตารางย่อย ให้ใช้ [getMinorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMinorGridLinesFormat) และตั้งการเติมเส้นเป็นสีทึบที่มองเห็นได้ หากต้องการซ่อน ให้ตั้งการเติมเป็น [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/#NoFill) ใช้ [getMajorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMajorGridLinesFormat) เพื่อเปลี่ยนการเติมเส้นสำหรับเส้นตารางหลักในลักษณะเดียวกัน การเปลี่ยนการเติมจะคงการแสดงแกนและเครื่องหมายติ๊กไว้
+
+แกนแนวตั้งของแผนภูมิคอลัมน์แบบกลุ่มนี้เริ่มต้นจะแสดงเส้นตารางหลักเท่านั้น ตัวอย่างแสดงเส้นตารางย่อยเป็นสีส้มเข้ม แล้วซ่อนอีกครั้งก่อนบันทึกงานนำเสนอ และพิมพ์สถานะการแสดงเส้นตารางในแต่ละขั้นตอน
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 30, 660, 230)
+    axis = chart.getAxes().getVerticalAxis()
+    print(f"Initial: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    minor_fill = axis.getMinorGridLinesFormat().getLine().getFillFormat()
+    minor_fill.setFillType(FillType.Solid)
+    minor_fill.getSolidFillColor().setColor(Color(255, 140, 0))
+    print(f"Enabled: minor={axis.getShowMinorGridLines()}")
+
+    minor_fill.setFillType(FillType.NoFill)
+    print(f"Hidden: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    presentation.save("ChartGridlines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| เส้นตารางย่อยเปิดใช้งาน | เส้นตารางย่อยซ่อน |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
+## **เปลี่ยนแกนประเภท**
+
+ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) เพื่อเลือกแกนประเภทวันที่หรือข้อความ ตัวอย่างนี้ต้องการไฟล์ `ExistingChart.pptx` โดยที่แผนภูมิเป็นรูปทรงแรกบนสไลด์แรกและเซลล์ประเภทมีค่าที่เป็นวันที่แบบเลขของ Excel จะเปลี่ยนแกนแนวนอนไปเป็นแกนวันที่ การเรียก [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) ด้วย `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) ด้วย `1` และ [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) ด้วย [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) จะวางเครื่องหมายหลักที่ช่วงเดือนละหนึ่ง
 
 ```python
 import jpype
@@ -228,26 +270,90 @@ finally:
     presentation.dispose()
 ```
 
-## **ควบคุมช่วงป้ายชื่อแกนหมวดหมู่**
+### **กำหนดประเภทแกนประเภทจากข้อมูล**
 
-เมื่อแผนภูมิมีหลายหมวดหมู่ ให้ลดจำนวนป้ายชื่อแกนที่มองเห็นได้โดยไม่ลบหมวดหมู่หรือจุดข้อมูล เรียก [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) กับ `False` แล้วส่งช่วงหมวดหมู่ที่ต้องการไปยัง [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) สำหรับหมวดหมู่ข้อความในลำดับปกติ การนับเริ่มจากหมวดหมู่แรก:
+หลังจากใส่ค่าประเภทแล้วเรียก [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisTypeAutomatically) แล้วอ่าน [getCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getCategoryAxisType) เพื่อตรวจสอบการเลือก วิธีนี้มีประโยชน์เมื่อแผนภูมิเ�เดียวกันอาจรับป้ายข้อความหรือค่าที่เป็นวันที่เป็นตัวเลข วิธีการจะกำหนดประเภทเมื่อเรียกใช้ ไม่ได้เปิดโหมดคงที่ที่ประเมินข้อมูลใหม่ในภายหลัง เรียกอีกครั้งหลังจากเปลี่ยนประเภท
 
-| ช่วง | ป้ายชื่อที่แสดงในตัวอย่าง |
+ตัวอย่างต่อไปสร้างแผนภูมิที่มีประเภทข้อความและพิมพ์ `True` เมื่อตรวจพบประเภทเป็น [CategoryAxisType.Text](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Text) จากนั้นแทนค่าของเซลล์ประเภทด้วยวันที่และเรียกวิธีอีกครั้ง พิมพ์ `True` เมื่อตรวจพบประเภทเป็น [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date) วันที่ถูกเก็บเป็นค่าตัวเลข OLE Automation คิดเป็นจำนวนวันตั้งแต่ 30 ธันวาคม 1899 ไม่ใช่ข้อความวันที่ [setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) ควบคุมการแสดงค่าดังกล่าว ไม่ได้แปลงข้อความเป็นวันที่ตัวเลข สำหรับรายละเอียดเกี่ยวกับเซลล์ประเภท ดู [Chart Workbook](/slides/th/python-java/chart-workbook/)
+
+ใช้การกำหนดอัตโนมัติเมื่ออินพุตมีป้ายข้อความหรือวันที่ตัวเลขตามตัวอย่าง สำหรับป้ายตัวเลขปกติ, ประเภทผสม, หรือข้อมูลว่าง ให้เรียก [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) อย่างชัดเจนเพื่อให้ตรงกับความหมายที่ต้องการ ค่าตัวเลขเพียงอย่างเดียวไม่ทำให้บ่งชี้ว่าประเภทเป็นวันที่
+
+```python
+from datetime import date
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CategoryAxisType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series_name = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.getCell(0, i + 1, 0, label)
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Text)  # จริง
+
+    base_date = date(1899, 12, 30)
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.getCell(0, i + 1, 0)
+        category_cell.setValue(float((category_date - base_date).days))
+        category_cell.setCustomNumberFormat("yyyy-mm-dd")
+
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Date)  # จริง
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **ควบคุมระยะห่างของป้ายแกนประเภท**
+
+เมื่อแผนภูมิมีประเภทจำนวนมาก ให้ลดจำนวนป้ายแกนที่มองเห็นได้โดยไม่ลบประเภทหรือจุดข้อมูล เรียก [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) ด้วย `False` แล้วส่งระยะห่างประเภทที่ต้องการไปยัง [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing) สำหรับประเภทข้อความในลำดับปกติ การนับเริ่มจากประเภทแรก:
+
+| ระยะห่าง | ป้ายที่แสดงในตัวอย่าง |
 | --- | --- |
-| `1` | หมวดหมู่ 1, หมวดหมู่ 2, หมวดหมู่ 3, ... หมวดหมู่ 24 |
-| `2` | หมวดหมู่ 1, หมวดหมู่ 3, หมวดหมู่ 5, ... หมวดหมู่ 23 |
-| `3` | หมวดหมู่ 1, หมวดหมู่ 4, หมวดหมู่ 7, ... หมวดหมู่ 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-ช่วง `3` จะแสดงทุกป้ายที่สาม โดยซ่อนสองป้ายระหว่างที่แสดง ไม่ได้ลบคอลัมน์ที่สอดคล้องกัน การเว้นช่วงอัตโนมัติจะเลือกช่วงตามพื้นที่ที่มีอยู่; ไม่ได้จำเป็นต้องแสดงทุกป้าย
+ระยะห่าง `3` จะแสดงป้ายทุกสามรายการโดยให้ป้ายสองรายการซ่อนอยู่ระหว่างที่แสดง ไม่ลบคอลัมน์ที่สอดคล้องกัน การจัดระยะห่างอัตโนมัติจะเลือกระยะห่างตามพื้นที่ที่ใช้ไม่ได้หมายความว่าจะต้องแสดงทุกป้าย
 
-ติ๊ก‑มาร์กมีการควบคุมแยกต่างหาก เรียก [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) กับ `False` และใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) เพื่อกำหนดช่วงของมัน ตัวอย่างเช่น `1` จะคงติ๊ก‑มาร์กที่ทุกช่วงหมวดหมู่ในขณะที่ป้ายชื่อปรากฏเฉพาะทุกหมวดหมู่ที่สาม ใช้ [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) กับสไตล์ที่มองเห็นได้เพื่อให้เห็นผล หากเรียกตัวตั้งค่าเว้นช่วงอัตโนมัติกับ `True` อีกครั้ง แผนภูมิจะเลือกช่วงนั้นใหม่
+เครื่องหมายติ๊กมีการควบคุมแยกกัน เรียก [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) ด้วย `False` และใช้ [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) เพื่อตั้งระยะห่างของเครื่องหมายติ๊ก ตัวอย่างเช่น `1` จะทำให้มีเครื่องหมายติ๊กที่ทุกระยะห่างของประเภท แม้ว่าป้ายจะแสดงเพียงทุกสามประเภท ใช้ [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) พร้อมสไตล์ที่มองเห็นได้เพื่อดูผล การตั้งค่าอัตโนมัติด้วย `True` อีกครั้งจะให้แผนภูมิเ�เลือกระยะห่างใหม่
+
+ตัวอย่างต่อไปนี้สร้างประเภท 24 รายการและซีรีส์หนึ่งชุด แล้วบันทึกสไลด์สามสไลด์ในไฟล์ `CategoryAxisIntervals.pptx`: การจัดระยะห่างอัตโนมัติ, การจัดระยะห่างของป้ายแบบกำหนดเองพร้อมเครื่องหมายติ๊กแยกจากกัน, และการคืนค่าอัตโนมัติสำเนาทั้งสองคงข้อมูลแผนภูมิดั้งเดิม ไม่จำเป็นต้องมีงานนำเข้าก่อนหน้า ข้อความป้ายแนวนอนทำให้ความหนาแน่นที่แตกต่างกันง่ายต่อการมองเห็น
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpave.startJVM()
 
 from asposeslides.api import Presentation, ChartType, SaveFormat, CategoryAxisType, TickMarkType
 
@@ -279,7 +385,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # สไลด์ 2: แสดงป้ายทุกสามรายการ แต่คงติ๊ก‑มาร์กสำหรับทุกหมวดหมู่.
+    # สไลด์ 2: แสดงทุกป้ายที่สาม แต่คงเครื่องหมายติ๊กไว้สำหรับทุกประเภท.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -288,7 +394,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # สไลด์ 3: ให้แผนภูมิเลือกช่วงทั้งสองอย่างใหม่.
+    # สไลด์ 3: ให้แผนภูมเลือกช่วงทั้งสองอีกครั้ง.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -299,23 +405,23 @@ finally:
     presentation.dispose()
 ```
 
-**การเว้นช่วงอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้ ป้ายชื่อหมวดหมู่ทุกๆ สองรายการจะแสดงและขึ้นบรรทัดใหม่ ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, แบบอักษร, และเครื่องมือเรนเดอร์
+**การจัดระยะห่างอัตโนมัติ (สไลด์ 1):** ในการแสดงผลนี้ ป้ายประเภทที่สองจะแสดงและตัดบรรทัดเป็นสองบรรทัด ผลลัพธ์อัตโนมัติอาจแตกต่างตามขนาดแผนภูมิ, ฟอนต์และตัวเรนเดอร์
 
-![การเว้นช่วงป้ายชื่อหมวดหมู่อัตโนมัติพร้อมคอลัมน์ทั้งหมด 24 คอลัมน์แสดง](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
-**การเว้นช่วงด้วยตนเอง (สไลด์ 2):** ป้ายชื่อทุกสามรายการจะแสดงในหนึ่งบรรทัด ในขณะที่ติ๊ก‑มาร์กยังคงอยู่ที่ทุกช่วงหมวดหมู่ คอลัมน์ทั้งหมด 24 คอลัมน์รวมถึงที่ไม่มีป้ายชื่อยังคงแสดงพร้อมค่าที่เหมือนกัน สไลด์ 3 จะคืนสภาพการแสดงอัตโนมัติที่แสดงข้างต้น
+**การจัดระยะห่างกำหนดเอง (สไลด์ 2):** ทุกป้ายที่สามจะแสดงบนบรรทัดเดียว ขณะที่เครื่องหมายติ๊กยังคงอยู่ที่ทุกระยะห่างของประเภท ทั้ง 24 คอลัมน์รวมถึงที่ไม่มีป้ายยังคงมองเห็นได้ด้วยค่าเดียวกัน สไลด์ที่ 3 คืนค่าการแสดงอัตโนมัติตามที่แสดงด้านบน
 
-![ช่วงป้ายชื่อหมวดหมู่แบบมือด้วยสามรายการ พร้อมคอลัมน์ทั้งหมด 24 คอลัมน์แสดง](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
-### **เลือกแกนและช่วงที่ถูกต้อง**
+### **เลือกแกนและระยะห่างที่ถูกต้อง**
 
-ใช้ช่วงจำนวนหมวดหมู่นี้สำหรับแกนหมวดหมู่แบบข้อความ เช่น แกนหมวดหมู่ของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือบาร์ ในแผนภูมิคอลัมน์เป็นแกนแนวนอน ในแผนภูมิบาร์แนวนอนแกนหมวดหมู่เป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่านี้กับแกนที่ได้จาก [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) การเว้นช่วงติ๊ก‑มาร์กยังใช้ได้กับแกนซีรีส์ในแผนภูมิที่มี
+ใช้ระยะห่างประเภทนี้กับแกนประเภทข้อความ เช่น แกนประเภทของแผนภูมิคอลัมน์, เส้น, พื้นที่ หรือแท่ง ในแผนภูมิคอลัมน์เป็นแกนแนวนอน ในแผนภูมิแท่งแนวนอนแกนประเภทเป็นแนวตั้ง ดังนั้นให้ใช้การตั้งค่าเหล่านี้กับแกนที่ได้จาก [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) ระยะห่างของเครื่องหมายติ๊กยังใช้ได้กับแกนซีรีส์ในแผนภูมิที่มีแกนซีรีส์
 
-ห้ามใช้การเว้นช่วงป้ายชื่อหมวดหมู่เพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) ระบุความแตกต่างของค่า: ตัวอย่างเช่น หน่วยหลัก `10` จะสร้างติ๊กที่ 0, 10, 20 ฯลฯ เมื่อแกนเริ่มจากศูนย์ ช่วงป้ายชื่อหมวดหมู่ `3` จะนับตำแหน่งหมวดหมู่โดยไม่คำนึงถึงค่าข้อมูล แผนภูมิกระจายและฟองใช้แกนค่าแทนแกนหมวดหมู่แบบข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลา [เปลี่ยนแกนหมวดหมู่](#change-a-category-axis)
+ห้ามใช้การจัดระยะห่างของป้ายประเภทเพื่อกำหนดสเกลเชิงตัวเลขของแกนค่า บนแกนค่า [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) ระบุความแตกต่างของค่า เช่น หน่วยหลัก `10` จะสร้างเครื่องหมายที่ 0, 10, 20 เป็นต้นเมือแกนเริ่มที่ศูนย์ ระยะห่างป้ายประเภท `3` นับตำแหน่งประเภทโดยไม่สนใจค่าข้อมูล แผนภูมิกระจายและฟองใช้แกนค่าแทนแกนประเภทข้อความ สำหรับแกนวันที่ ให้ใช้หน่วยหลักและสเกลตามเวลาตามที่อธิบายในหัวข้อ [Change a Category Axis](#change-a-category-axis)
 
-## **ตั้งรูปแบบวันที่สำหรับค่าของแกนหมวดหมู่**
+## **ตั้งค่ารูปแบบวันที่สำหรับค่าของแกนประเภท**
 
-ตัวอย่างนี้แทนที่ข้อมูลแผนภูมิปริยายด้วยค่าปีละสี่ค่า วันที่ถูกเก็บเป็นหมายเลขซีเรียล OLE Automation ในแผ่นงานแรก (ดัชนี `0`) ซึ่งคำนวณเป็นจำนวนวันตั้งแต่ 30 ธันวาคม 1899 สำหรับวันที่เหล่านั้น ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) กับ [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) กับ `False`, และส่ง `yyyy` ไปยัง [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) เพื่อให้ป้ายชื่อหมวดหมู่แสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบของเซลล์
+ตัวอย่างนี้เปลี่ยนข้อมูลแผนภูมิดั้งเดิมเป็นค่าประจำปีสี่ค่า วันที่ถูกเก็บเป็นเลขซีเรียล OLE Automation ในเวิร์กชีตแรก (ดัชนี `0`) คำนวณเป็นจำนวนวันตั้งแต่ 30 ธันวาคม 1899 ใช้ [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) กับ [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date) เรียก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) ด้วย `False` แล้วส่ง `yyyy` ไปยัง [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) เพื่อให้ป้ายประเภทแสดงปีสี่หลักโดยอิสระจากการจัดรูปแบบของเซลล์
 
 ```python
 from datetime import date
@@ -361,9 +467,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ตั้งค่ามุมการหมุนสำหรับชื่อแกนแผนภูมิ**
+## **ตั้งค่ามุมการหมุนสำหรับหัวเรื่องแกนแผนภูมิ**
 
-เรียกใช้ [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) กับ `True` บนแกนแนวตั้ง, ให้ข้อความชื่อแกน, และตั้งค่ามุมหมุนในการจัดรูปแบบบล็อกข้อความของชื่อมุมจะวัดด้วยหน่วยองศา ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่ชื่อแกนค่าถูกหมุน 90 องศา
+เรียก [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) ด้วย `True` บนแกนแนวตั้ง ให้ข้อความหัวเรื่องและตั้งมุมการหมุนในรูปแบบบล็อกข้อความของหัวเรื่อง มุมวัดเป็นอองศา ตัวอย่างนี้บันทึกแผนภูมิคอลัมน์ที่หัวเรื่องแกนค่าถูกหมุน 90 องศา
 
 ```python
 import jpype
@@ -388,9 +494,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ตั้งตำแหน่งแกนบนแกนหมวดหมู่หรือค่า**
+## **ตั้งตำแหน่งแกนบนแกนประเภทหรือค่า**
 
-ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) เพื่อควบคุมว่าแกนค่าตัดแกนหมวดหมู่ระหว่างหมวดหมู่หรือที่ติ๊ก‑มาร์กของหมวดหมู่ การตั้งค่านี้ใช้กับแกนหมวดหมู่ ตัวอย่างตั้งค่าเป็น `True` บนแกนหมวดหมู่แนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
+ใช้ [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories) เพื่อควบคุมว่าผ่านแกนค่าที่ตำแหน่งระหว่างประเภทหรือที่เครื่องหมายติ๊กของประเภท การตั้งค่านี้ใช้กับแกนประเภท ตัวอย่างตั้งค่าเป็น `True` บนแกนประเภทแนวนอนของแผนภูมิคอลัมน์และบันทึกผลลัพธ์
 
 ```python
 import jpype
@@ -413,9 +519,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ตั้งหน่วยแสดงผลบนแกนค่าของแผนภูมิ**
+## **ตั้งค่าหน่วยการแสดงผลบนแกนค่าของแผนภูมิ**
 
-ใช้ [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) เพื่อปรับสเกลป้ายบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน ด้วยการตั้งค่า [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) เป็น `Millions` ค่าที่ 60,000,000 จะแสดงเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และใช้หน่วยแสดงผลเป็นล้านบนแกนแนวตั้งของมัน
+ใช้ [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) เพื่อปรับสเกลป้ายบนแกนค่าโดยไม่เปลี่ยนข้อมูลพื้นฐาน ด้วย [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) ตั้งเป็น `Millions` ค่า 60,000,000 จะปรากฏเป็น 60 ตัวอย่างสร้างแผนภูมิคอลัมน์และกำหนดหน่วยแสดงผลเป็นล้านบนแกนแนวตั้ง
 
 ```python
 import jpype
@@ -438,21 +544,21 @@ finally:
     presentation.dispose()
 ```
 
-## **กำหนดค่าแกนค่าลอการิทึม**
+## **กำหนดค่าแกนค่าลอการิทมิก**
 
-แกนค่าลอการิทึมเป็นประโยชน์เมื่อค่าบวกกระจายอยู่หลายลำดับขนาด ตัวอย่าง บริการอาจได้รับคำขอ 10, 100, 1,000, 10,000, และ 100,000 ครั้งในห้าช่วง เวลาในสเกลเชิงเส้นค่าต่ำจะอยู่ใกล้ศูนย์กัน การสเกลลอการิทึมทำให้การเปรียบเทียการเติบโตสัมพันธ์ง่ายขึ้น: ระยะเท่ากันแทนอัตราส่วนเท่ากัน ไม่ใช่ความแตกต่างเท่าเดิม
+แกนค่าลอการิทมิกมีประโยชน์เมื่อค่าบวกกระจายหลายระดับตัวอย่างเช่น บริการอาจรับคำขอ 10, 100, 1,000, 10,000, และ 100,000 ครั้งในห้าช่วง บนสเกลเชิงเส้นค่าต่ำจะอยู่ใกล้ศูนย์ ลอการิทมิกทำให้การเติบโตสัมพัทธ์เปรียบเทียบได้ง่ายขึ้น: ระยะห่างเท่ากันแทนอัตราส่วนที่เท่ากันไม่ใช่ความแตกต่างที่เท่ากัน
 
-เรียกใช้ [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) กับ `True` บนแกนค่าและใช้ [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) เพื่อเลือกฐาน การเปลี่ยนแปลงนี้ทำให้การแสดงค่าที่มีอยู่เปลี่ยนไป; ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทึม เส้นแนวโน้มเป็นการแทนความสัมพันธ์ที่เหมาะสมกับข้อมูลและเป็นฟีเจอร์แยกจากกัน
+เรียก [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) ด้วย `True` บนแกนค่าและใช้ [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase) เพื่อเลือกฐาน การทำเช่นนี้เปลี่ยนวิธีการแสดงค่าที่มีอยู่ ไม่ได้เปลี่ยนข้อมูลหรือเพิ่มเส้นแนวโน้มลอการิทมิก เส้นแนวโน้มเป็นคุณลักษณะแยกต่างหากที่แสดงความสัมพันธ์ที่ฟิตกับข้อมูล
 
 ### **เลือกแกนค่าและฐาน**
 
-สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าจะได้จาก [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) สำหรับแผนภูมิบาร์แนวนอน จะได้จาก [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) แผนภูมิกระจายและฟองมีแกนค่าสองแกน ดังนั้นเลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y หรือทั้งสองแกน อย่าใช้การสเกลลอการิทึมกับแกนหมวดหมู่
+สำหรับแผนภูมิเส้นหรือคอลัมน์ แกนค่าถูกคืนจาก [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) สำหรับแผนภูมิแท่งแนวนอน จะได้จาก [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) แผนภูมิกระจายและฟองมีแกนค่าสองแกน ดังนั้นเลือกแกนแนวนอนสำหรับค่า X, แกนแนวตั้งสำหรับค่า Y หรือทั้งสองแกน อย่าใช้การสเกลลอการิทมิกกับแกนประเภท
 
-ฐานลอการิทึมเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมถึงฐานเศษส่วนเช่น `2.5` ด้วยฐาน `10` พลังยกกำลังต่อเนื่องเช่น 10, 100, 1,000, และ 10,000 จะถูกจัดระยะอย่างเท่าเทียม
+ฐานลอการิทมิกเริ่มต้นคือ `10` สำหรับแผนภูมิ PPTX ให้ใช้ฐานตั้งแต่ `2` ถึง `1000` รวมทั้งฐานเศษส่วนเช่น `2.5` ก็รองรับ ด้วยฐาน `10` พลังต่อเนื่องเช่น 10, 100, 1,000, 10,000 จะมีระยะห่างเท่า ๆ กัน
 
-### **เปรียบเทียบการสเกลเชิงเส้นและลอการิทึม**
+### **เปรียบเทียบการสเกลเชิงเส้นและลอการิทมิก**
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีจำนวนคำขอห้าช่วงบนสไลด์แรก แล้วคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทึมฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์รักษาข้อมูลเดียวกัน
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีการนับคำขอห้าครั้งบนสไลด์แรก จากนั้นคัดลอกสไลด์นั้นและเปิดใช้งานแกนค่าลอการิทมิกฐาน 10 บนสไลด์ที่สอง ทั้งสองสไลด์คงข้อมูลเดียวกัน
 
 ```python
 import jpype
@@ -487,7 +593,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # คงสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น.
+    # รักษาสไลด์แรกเป็นเชิงเส้นและเปลี่ยนสเกลแกนค่าของสำเนาเท่านั้น
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -499,22 +605,24 @@ finally:
     presentation.dispose()
 ```
 
-**สเกลเชิงเส้น (สไลด์ 1):** ระยะแนวดิ่งเท่ากันแทนความแตกต่างเท่ากันของจำนวนคำขอ ค่าง่ายที่สุดครอบงำแผนภูมิ ทำให้ค่าต่ำดูยากต่อการแยกแยะ
+**สเกลเชิงเส้น (สไลด์ 1):** ระยะห่างแนวตั้งที่เท่ากันแทนความแตกต่างของจำนวนคำขอ ค่าใหญ่สุดครอบคลุมแผนภูมิโดยทำให้ค่าต่ำสุดมองเห็นได้ยาก
 
-![แผนภูมิเส้นใน PowerPoint แสดงห้าจำนวนคำขอบนแกนค่าที่เป็นเชิงเส้น](value-axis-linear.png)
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
 
-**สเกลลอการิทึม (สไลด์ 2):** ระยะแนวดิ่งเท่ากันแทนอัตราส่วนเท่าเทียม แต่ละช่วงมีจำนวนคำขอเป็นสิบเท่าของช่วงก่อนหน้า ดังนั้นจุดข้อมูลจะแสดงเป็นเส้นตรงที่เพิ่มขึ้นบนสเกลฐาน 10 ป้ายแกนยังคงแสดงจำนวนคำขอเดิม
+**สเกลลอการิทมิก (สไลด์ 2):** ระยะแนวตั้งเท่ากันแทนอัตราส่วน คำขอทุกช่วงมีจำนวนเป็นสิบเท่าของช่วงก่อนหน้า ดังนั้นจุดข้อมูลจะแสดงเป็นเส้นตรงที่ขึ้นบนสเกลฐาน 10 ป้ายแกนยังคงแสดงจำนวนคำขอต้นฉบับ
 
-![จำนวนคำขอห้าข้อเดียวกันใน PowerPoint บนแกนค่าลอการิทึมฐาน 10](value-axis-logarithmic.png)
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
 
 ### **จัดการค่าศูนย์และค่าติดลบ**
 
-สเกลลอการิทึมสามารถแสดงได้เฉพาะค่าบวกอย่างเคร่งครัด ตรวจสอบข้อมูลก่อนเปิดใช้ หากค่าศูนย์หรือค่าติดลบมีความหมาย ควรใช้สเกลเชิงเส้นหรือแสดงแยกออก หากการยกเว้นค่าดังกล่าวเหมาะกับการวิเคราะห์ ให้ชี้แจงเหตุผล ไม่ควรแทนที่ค่าดังกล่าวด้วยจำนวนบวกเล็ก ๆ อย่างเงียบ ๆ เพราะจะเปลี่ยนความหมายของข้อมูล ค่าอย่างต่ำหรือสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทึมต้องเป็นค่าบวกเช่นกัน
+สเกลลอการิทมิกสามารถแสดงค่าบวกอย่างเคร่งครัดเท่านั้น ตรวจสอบข้อมูลก่อนเปิดใช้งาน หากค่าศูนย์หรือค่าติดลบมีความหมาย ให้คงสเกลเชิงเส้นหรือแสดงแยกต่างหาก หากการตัดค่าติดลบออกเป็นทางเลือกที่เหมาะสมสำหรับการวิเคราะห์ ให้อธิบายสาเหตุ ไม่ควรแทนที่ค่าติดลบด้วยจำนวนบวกเล็ก ๆ อย่างเงียบ ๆ เนื่องจากจะเปลี่ยนความหมายของข้อมูล ค่าต่ำสุดหรือสูงสุดที่กำหนดด้วยตนเองสำหรับแกนลอการิทมิกต้องเป็นค่าบวกเช่นกัน
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตั้งค่าที่แกนหนึ่งตัดแกนอีก (การตัดของแกน) อย่างไร?**  
-ใช้ [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) เพื่อเลือกพฤติกรรมการตัด หากต้องการระบุค่าตัดเชิงตัวเลข ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) การตั้งค่าเหล่านี้ช่วยให้คุณย้ายจุดตัดของแกนไปยังระดับฐานที่เหมาะสม
+**ฉันจะตั้งค่าค่าที่แกนหนึ่งตัดกับอีกแกนได้อย่างไร (การตัดแกน)?**
 
-**ฉันจะตำแหน่งป้ายติ๊กสัมพันธ์กับแกนได้อย่างไร?**  
-เรียก [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) โดยใช้ [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None` เพื่อกำหนดตำแหน่งป้ายติ๊ก หากต้องการควบคุมติ๊ก‑มาร์กเอง ให้ใช้ [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) หรือ [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) ซึ่งแยกจากการจัดตำแหน่งป้ายชื่ออย่างอิสระ
+ใช้ [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) เพื่อเลือกพฤติกรรมการตัด หากต้องการระบุค่าตัดเชิงตัวเลข ให้ใช้ [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt) การตั้งค่าเหล่านี้ช่วยให้คุณย้ายจุดตัดแกนไปยังฐานที่เหมาะสม
+
+**ฉันจะวางตำแหน่งป้ายเครื่องหมายติ๊กสัมพันธ์กับแกนได้อย่างไร?**
+
+เรียก [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) ด้วย [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, หรือ `None` เพื่อควบคุมตำแหน่งป้าย สำหรับการควบคุมเครื่องหมายติ๊กเอง ให้ใช้ [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) หรือ [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark) ซึ่งแยกจากการกำหนดตำแหน่งป้าย.

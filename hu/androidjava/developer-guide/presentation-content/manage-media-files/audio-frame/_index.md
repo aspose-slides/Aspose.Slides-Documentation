@@ -1,12 +1,12 @@
 ---
-title: Hang kezelése a prezentációkban Androidon
-linktitle: Hangkeret
+title: Audio keretek kezelése prezentációkban Androidon
+linktitle: Audio keret
 type: docs
 weight: 10
 url: /hu/androidjava/audio-frame/
 keywords:
 - hang
-- hangkeret
+- audio keret
 - bélyegkép
 - hang hozzáadása
 - hang tulajdonságok
@@ -15,217 +15,179 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Hangkeretek létrehozása és vezérlése az Aspose.Slides for Androidban – Java példák beágyazásra, vágásra, ismétlésre és lejátszás konfigurálására PPT, PPTX és ODP prezentációkban."
+description: "Beágyazza a hangot a diáknak, megváltoztatja a hang ikont, konfigurálja a lejátszást, kezeli a WebVTT feliratokat, és kinyeri a diák áttűnési hangjait az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk ismerteti, hogyan kell dolgozni hangkeretekkel az Aspose.Slides-ban. Bemutatja, hogyan lehet beágyazott hangot hozzáadni a diákhoz, testreszabni a hangkeret bélyegképét, konfigurálni a lejátszási beállításokat, például hangerőt, ismétlést, elrejtést, vágást és elhalványulási időtartamokat, valamint kinyerni a diavetítés-átmenetekben használt hangot.
+Az audio keret lehetővé teszi, hogy hangot játsszon le egy dián. Az Aspose.Slides for Android via Java segítségével beágyazhat egy hangklipet, kiválaszthatja azt ábrázoló képet, szabályozhatja a lejátszást, és feliratokat csatolhat. Szintén lekérdezhet egy diánkénti áttűnéshez rendelt hangot.
 
-## **Hangkeretek létrehozása**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy hangfájlokat adjunk a diákhoz. A hangfájlok beágyazott hangkeretekként kerülnek a diákba.
+## **Audio keretek létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-2. Szerezze meg egy dia hivatkozását az indexe alapján.
-3. Töltse be a hangfájl adatfolyamát, amelyet be akar ágyazni a diába.
-4. Adja hozzá a beágyazott hangkeretet (amely a hangfájlt tartalmazza) a diához.
-5. Állítsa be a [PlayMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioPlayModePreset) és a `Volume` értékeket a [IAudioFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IAudioFrame) objektumon.
-6. Mentse el a módosított prezentációt.
-
-Ez a Java‑kód megmutatja, hogyan lehet beágyazott hangkeretet hozzáadni egy diához:
+Használja a [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-java.io.InputStream-) metódust, hogy beágyazzon egy helyi hangklipet az első diára. Az első két koordináta a keret pozícióját határozza meg a dián, a következő két érték a szélességét és magasságát állítja be, mind pontban. Ez a példa meghívja a [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) metódust a klip automatikus indításához, és meghívja a [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) metódust a hangos előre beállított érték kiválasztásához.
 
 ```java
-// Létrehozza a Presentation osztály példányát, amely egy prezentációs fájlt képvisel
-Presentation pres = new Presentation();
-try {
-    // Lekéri az első diát
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Betölti a wav hangfájlt adatfolyamra
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáadja a Hangkeretet
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // Beállítja a Hang lejátszási módját és hangerőjét
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // A PowerPoint fájlt leírja a lemezre
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **A hangkeret bélyegképének módosítása**
+## **Az audio keret bélyegképének módosítása**
 
-Amikor hangfájlt adunk egy prezentációhoz, a hang egy alapértelmezett képpel rendelkező keretként jelenik meg (lásd az alábbi ábrát). A hangkeret előnézeti képét (a kívánt képet) módosíthatja.
-
-Ez a Java‑kód megmutatja, hogyan lehet megváltoztatni egy hangkeret bélyegképét vagy előnézeti képét:
+Alapértelmezés szerint egy audio keret a hangszóró ikont jeleníti meg. Egy egyéni bélyegkép megjelenítéséhez adjon hozzá egy képet a prezentációhoz a [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-java.io.InputStream-) metódussal, és állítsa be a keret képére a [setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#setImage-com.aspose.slides.IPPImage-) metódussal. A példa egy JPEG-et használ bélyegképként a beágyazott hangkliphez.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav");
+     FileInputStream imageStream = new FileInputStream("eagle.jpeg")) {
+    IPPImage thumbnail = presentation.getImages().addImage(imageStream);
+
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+    audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Az audio lejátszási beállítások módosítása**
+
+A PowerPoint **Audio Options** vezérlői határozzák meg, mikor indul a klip, milyen hangos, és hogyan viselkedik a diavetítés során.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| PowerPoint vezérlő | Aspose.Slides for Android via Java metódus |
+| --- | --- |
+| Indítás | [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) |
+| Hangerő előbeállítás | [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) |
+| Lejátszás diákon át | [setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayAcrossSlides-boolean-) |
+| Ismétlés leállásig | [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayLoopMode-boolean-) |
+| Elrejtés a bemutató alatt | [setHideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setHideAtShowing-boolean-) |
+| Visszatekerés lejátszás után | [setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setRewindAudio-boolean-) |
+| Fokozatos beúszás | [setFadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeInDuration-float-) |
+| Fokozatos elhalás | [setFadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeOutDuration-float-) |
+| Hang levágása a kezdeti időtől | [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) |
+| Hang levágása a végső időtől | [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) |
+| Hangerő csúszka | [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) |
+
+A példa megtalálja az első audio keretet az első dián, meghívja a [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) metódust a lejátszás kattintásra történő indításához, és kiválasztja az alacsony hangerő előbeállítást. A klip a diákon át folytatódik, a ciklus le van tiltva. Az ikon a bemutató során rejtve marad, és a klip lejátszás után visszatekeredik.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hozzáad egy hangkeretet a diához megadott pozícióval és mérettel.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-
-    // Hozzáad egy képet a prezentáció erőforrásaihoz.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
     }
 
-    // Beállítja a képet a hangkerethez.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-    //Mentés a módosított prezentáció lemezre
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    if (audioFrame != null) {
+        audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Hanglejátszási beállítások módosítása**
-
-Az Aspose.Slides for Android via Java lehetővé teszi a hang lejátszását vagy tulajdonságait befolyásoló beállítások módosítását. Például beállíthatja a hangerőt, a folyamatos lejátszást, vagy elrejtheti a hang ikont.
-
-A **Hangbeállítások** panel a Microsoft PowerPointben:
-
-![example1_image](audio_frame_0.png)
-
-A PowerPoint **Hangbeállítások**, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame) tulajdonságainak felelnek meg:
-
-- **Start** legördülő lista a [AudioFrame.PlayMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) tulajdonságnak megfelelő
-- **Volume** a [AudioFrame.Volume](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getVolume--) tulajdonságnak megfelelő
-- **Play Across Slides** a [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) tulajdonságnak megfelelő
-- **Loop until Stopped** a [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) tulajdonságnak megfelelő
-- **Hide During Show** a [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) tulajdonságnak megfelelő
-- **Rewind after Playing** a [AudioFrame.RewindAudio](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) tulajdonságnak megfelelő
-
-A PowerPoint **Szerkesztés** beállításai, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-
-- **Fade In** a [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) tulajdonságnak megfelelő 
-- **Fade Out** a [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) tulajdonságnak megfelelő 
-- **Trim Audio Start Time** a [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) tulajdonságnak megfelelő 
-- **Trim Audio End Time** értéke megegyezik a hang teljes időtartamával mínusz a [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) tulajdonság értékével
-
-A PowerPoint **Volume controll** a hangvezérlő panelen a [AudioFrame.VolumeValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) tulajdonságnak megfelelő. Ez lehetővé teszi a hangerő százalékos változtatását.
-
-Így módosíthatja a hang lejátszási beállításait:
-
-1. [Сreate](#create-audio-frame) vagy szerezze be a Hangkeretet.
-2. Állítson be új értékeket a módosítani kívánt Hangkeret‑tulajdonságoknál.
-3. Mentse el a módosított PowerPoint‑fájlt.
-
-Ez a Java‑kód bemutat egy műveletet, amelyben a hang beállításait állítják át:
-
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Lekéri az AudioFrame alakzatot
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Beállítja a lejátszási módot kattintásra
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
-
-    // Beállítja a hangerőt alacsonyra
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // Beállítja, hogy a hang a diákon át lejátszódjon
-    audioFrame.setPlayAcrossSlides(true);
-
-    // Kikapcsolja a hang ismétlését
-    audioFrame.setPlayLoopMode(false);
-
-    // Elrejti az AudioFrame-et a diavetítés során
-    audioFrame.setHideAtShowing(true);
-
-    // Visszatekeri a hangot az elejére a lejátszás után
-    audioFrame.setRewindAudio(true);
-
-    // Mentés a PowerPoint fájl lemezre
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Ez a Java‑példa megmutatja, hogyan lehet új hangkeretet hozzáadni beágyazott hanggal, vágni, és beállítani a be- és kimenet időtartamát:
+3,5 másodpercnél hosszabb klip esetén ez a példa kihagyja az első 1,5 másodpercet és az utolsó 2 másodpercet. A [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) a végéről elhagyandó időtartamot veszi. A PowerPoint-ban látható befejezési idő eléréséhez vonja ki ezt az eltolást a teljes klip időtartamából. A levágott klip 200 ms alatt fokozatosan beúszik és 500 ms alatt fokozatosan elhal. Mind a négy metódus értékét milliszekundumban várja.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
-    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Beállítja a vágás kezdőeltolását 1,5 másodpercre
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
     audioFrame.setTrimFromStart(1500f);
-    // Beállítja a vágás befejező eltérését 2 másodpercre
     audioFrame.setTrimFromEnd(2000f);
-
-    // Beállítja a beolvadás időtartamát 200 ms-re
     audioFrame.setFadeInDuration(200f);
-    // Beállítja a kikapcsolás időtartamát 500 ms-re
     audioFrame.setFadeOutDuration(500f);
 
-    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+    presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Az alábbi kódrészlet bemutatja, hogyan lehet egy beágyazott hangot tartalmazó hangkeretet lekérni, és a hangerőt 85 %‑ra állítani:
+A lejátszási hangerő adott százalékra állításához használja a [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) metódust. Ez a példa az első dián lévő első audio keretet 85 %-ra állítja be.
 
 ```java
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Lekéri a hangkeret alakzatot
-    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
-
-    // Beállítja a hang hangerőjét 85%-ra
-    audioFrame.setVolumeValue(85f);
-
-    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Hangfeliratok kezelése**
-
-Az Aspose.Slides lehetővé teszi, hogy zárt feliratokat adjunk egy hangkerethez a [getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) metóduson keresztül. Ez a metódus egy [ICaptionsCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/)‑t ad vissza, amely lehetővé teszi WebVTT feliratok hozzáadását, létező sávok bejárását és azok eltávolítását szükség esetén.
-
-**Hangfeliratok hozzáadása**
-
-Használja a [getCaptionTracks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) metódust, hogy egy vagy több feliratsávot csatoljon egy hangkerethez. Az alábbi példában egy hangfájl kerül a diára, majd egy új feliratsávot tölt be egy `.vtt` fájlból.
-
-```java
-Presentation presentation = new Presentation();
-try {
-    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
-    IAudio audio = presentation.getAudios().addAudio(audioData);
-
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-    // Új feliratsáv hozzáadása egy WebVTT fájlból.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
+
+    if (audioFrame != null) {
+        audioFrame.setVolumeValue(85f);
+        presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Audio feliratok kezelése**
+
+Minden audio keret hozzáférést biztosít a feliratpályáihoz a [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) metóduson keresztül. A gyűjteményt használhatja WebVTT feliratok csatolására a kliphez, meglévő pályák exportálására vagy eltávolítására.
+
+### **Audio feliratok hozzáadása**
+
+A példa beágyaz egy audio klipet az első diára, és a [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#add-java.lang.String-java.lang.String-) metódust használja egy helyi WebVTT pálya csatolásához. Az első argumentum adja a pálya címkéjét, a második pedig a időzített feliratokat tartalmazó fájlt határozza meg.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+    audioFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
 } finally {
@@ -233,89 +195,133 @@ try {
 }
 ```
 
-**Hangfeliratok kinyerése**
+### **Audio feliratok kinyerése**
 
-Bejárhatja a hangkerethez tartozó feliratsávokat, és `.vtt` fájlokként mentheti őket. Minden feliratsáv bináris adatot és egyedi azonosítót biztosít, amely a feliratok exportálásához használható.
+Ez a példa exportálja az első dián lévő audio kerethez csatolt minden feliratpályát. A [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getBinaryData--) által visszaadott bájtokat egy WebVTT fájlba írja, és a [getCaptionId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getCaptionId--) által visszaadott azonosítót használja fájlnéven, hogy minden pálya külön kimenettel rendelkezzen.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame) {
-            IAudioFrame audioFrame = (IAudioFrame) shape;
-            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
-                // Mentse a feliratsávot .vtt fájlként.
-                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                fos.write(captionTrack.getBinaryData());
-                fos.close();
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            try (FileOutputStream output = new FileOutputStream(track.getCaptionId() + ".vtt")) {
+                output.write(track.getBinaryData());
             }
         }
     }
-} catch (IOException e){
 } finally {
     presentation.dispose();
 }
 ```
 
-**Hangfeliratok eltávolítása**
+### **Audio feliratok eltávolítása**
 
-A feliratok eltávolításához egy hangkeretből használja az [ICaptionsCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/) által biztosított módszereket, például a [clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#clear--) , a [remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) metódusokat. Az alábbi példa eltávolítja az összes feliratsávot egy hangkeretből.
+Használja a [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) metódust egyedi pálya törléséhez. A példa a [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#clear--) metódust használja az első dián lévő első audio keret összes feliratának eltávolításához, miközben a klipet megőrzi.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
 
-    // Eltávolítja az összes feliratsávot a hangkeretből.
-    audioFrame.getCaptionTracks().clear();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Hang kinyerése**
+### **Sor keresése az audio feliratokban**
 
-Az Aspose.Slides for Android via Java lehetővé teszi a diavetítés-átmenetekben használt hangok kinyerését. Például egy adott dián használt hangot is kinyerhet.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból, és töltse be a hangot tartalmazó prezentációt.
-2. Szerezze meg a megfelelő dia hivatkozását az indexe alapján.
-3. Érje el a [slideshow transitions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) objektumot a dián.
-4. Kinyerje a hangot bájt adatként.
-
-Ez a Java‑kód megmutatja, hogyan lehet kinyerni egy dián használt hangot:
+Az első dián lévő audio feliratok sorának megtalálásához keresse meg a memóriában a [getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) által visszaadott szöveget. Egy egyszerű szöveges WebVTT jelben az idővonal `-->` karaktereket tartalmaz, a feliratsorok ezt követik, és egy üres sor zárja a jelzést. Ez a példa kiírja a pálya címkét és minden feliratsort, amely a “café” szót tartalmazza.
 
 ```java
-// Létrehozza a Presentation osztály példányát, amely egy prezentációs fájlt képvisel
-Presentation pres = new Presentation("AudioSlide.pptx");
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
-    // Hozzáfér a kívánt diához
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Lekéri a diavetítési átmeneti effektusokat a diához
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //Kinyeri a hangot bájt tömbként
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            boolean inCue = false;
+            String captions = track.getDataAsString();
+            for (String line : captions.split("\\r\\n|\\r|\\n")) {
+                if (line.isEmpty()) {
+                    inCue = false;
+                } else if (line.contains("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase(Locale.ROOT).contains("café")) {
+                    System.out.println(track.getLabel() + ": " + line);
+                }
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+## **Audio kinyerése**
+
+Egy diátmenetnek saját hangja lehet. Ennek lekérdezéséhez hívja meg a [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSound--) metódust a diátmeneten. A példa a [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) által visszaadott bájtokat használja, és kiírja a bájtok számát. Ha az első diához nincs áttűnési hang, akkor helyette egy üzenetet ír ki.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioSlide.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAudio sound = slide.getSlideShowTransition().getSound();
+    if (sound != null) {
+        byte[] audioData = sound.getBinaryData();
+        System.out.println("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        System.out.println("The first slide has no transition sound.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Újra felhasználhatom ugyanazt a hangfájlt több dián anélkül, hogy megnövelném a fájlméretet?**
+**Újra felhasználhatom ugyanazt a hangklipet több dián anélkül, hogy duplikálnám?**
 
-Igen. Adja hozzá a hangot egyszer a prezentáció közös [audio collection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getAudios--)‑hez, majd hozzon létre további hangkereteket, amelyek erre a meglévő eszközre hivatkoznak. Így elkerülhető a média adat duplikálása, és a prezentáció mérete kontrollált marad.
+Igen. Adja hozzá a klipet egyszer a prezentáció [audio collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) gyűjteményéhez, és minden dián adja át ugyanazt az audio objektumot az [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-com.aspose.slides.IAudio-) metódusnak.
 
-**Lecserélhetem a hangot egy meglévő hangkeretben anélkül, hogy újból létrehoznám az alakzatot?**
+**Lecserélhetem egy meglévő audio keret hangját?**
 
-Igen. Egy hivatkozott hang esetén frissítse a [link path](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) értékét az új fájlra mutatva. Egy beágyazott hang esetén cserélje ki a [embedded audio](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) objektumot a prezentáció [audio collection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getAudios--)‑ből származó másik hangra. A keret formázása és a legtöbb lejátszási beállítás megmarad.
+Igen. Hivatkozott hang esetén használja a [setLinkPathLong](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) metódust a helyettesítő fájlra mutatáshoz. Beágyazott hang esetén válasszon egy másik klipet a prezentáció audio gyűjteményéből a [setEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) metódussal. Mindkét megközelítés megőrzi a meglévő keretet.
 
-**A vágás módosítja a prezentációban tárolt alaphang adatot?**
+**A vágás megváltoztatja a prezentációban tárolt audio adatot?**
 
-Nem. A vágás csak a lejátszási határokat állítja be. Az eredeti hangbájtok változatlanok maradnak, és elérhetők a beágyazott hang vagy a prezentáció hanggyűjteménye révén.
+Nem. A [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) és a [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) a lejátszási határokat állítják be. A teljes klipet továbbra is lekérheti a [getEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getEmbeddedAudio--) metódussal.

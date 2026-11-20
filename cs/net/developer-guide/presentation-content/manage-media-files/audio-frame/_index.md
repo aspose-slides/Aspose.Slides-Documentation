@@ -1,5 +1,5 @@
 ---
-title: Správa audio rámců v prezentacích v .NET
+title: Spravovat audio rámečky v prezentacích v .NET
 linktitle: Audio rámec
 type: docs
 weight: 10
@@ -8,285 +8,285 @@ keywords:
 - zvuk
 - audio rámec
 - náhled
-- přidat zvuk
+- přidat audio
 - vlastnosti audia
 - možnosti audia
-- extrahovat zvuk
+- extrahovat audio
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvořte a ovládejte audio rámy v Aspose.Slides pro .NET—příklady v C# pro vkládání, ořezávání, smyčkování a konfiguraci přehrávání v prezentacích PPT, PPTX a ODP."
+description: "Vložte audio do snímků, změňte ikonu audia, nakonfigurujte přehrávání, spravujte titulky WebVTT a extrahujte zvuky přechodů snímků pomocí Aspose.Slides pro .NET."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s audio rámci v Aspose.Slides. Ukazuje, jak přidat vložený zvuk do snímků, přizpůsobit miniaturu audio rámce, nakonfigurovat možnosti přehrávání, jako je hlasitost, smyčkování, skrývání, ořezávání a dobu setrvačnosti, a extrahovat zvuk použité v přechodech prezentace.
+Audio rámeček vám umožní přehrát zvuk na snímku. S Aspose.Slides pro .NET můžete vložit zvukový klip, vybrat obrázek, který jej představuje, upravit přehrávání a připojit titulky. Také můžete získat zvuk přiřazený k přechodu snímku.
 
-## **Vytvoření audio rámců**
+## **Vytvoření audio rámečků**
 
-Aspose.Slides pro .NET vám umožňuje přidávat audio soubory do snímků. Audio soubory jsou do snímků vloženy jako audio rámy. 
+Použijte [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) k vložení lokálního audio klipu na první snímek. První dvě souřadnice umístí rámeček na snímek a další dvě hodnoty nastaví jeho šířku a výšku, vše v bodech. Tento příklad nastavuje [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) tak, aby klip startoval automaticky, a [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) na předvolbu hlasité.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Načtěte stream audio souboru, který chcete vložit do snímku.
-4. Přidejte vložený audio rám (obsahující audio soubor) do snímku.
-5. Nastavte [PlayMode](https://reference.aspose.com/slides/cs/net/aspose.slides/audioplaymodepreset) a `Volume` zveřejněné objektem [IAudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe).
-6. Uložte upravenou prezentaci.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Tento C# kód vám ukazuje, jak přidat vložený audio rám do snímku:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Vytvoří instanci třídy prezentace, která představuje soubor prezentace
-using (Presentation pres = new Presentation())
-{
-    // Získá první snímek
-    ISlide sld = pres.Slides[0];
-    
-    // Načte WAV zvukový soubor do proudu
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // Přidá audio rám
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
-
-    // Nastaví režim přehrávání a hlasitost audia
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // Zapíše soubor PowerPoint na disk
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Změna miniatury audio rámce**
 
-Když přidáte audio soubor do prezentace, zvuk se zobrazí jako rám s výchozím standardním obrázkem (viz obrázek v následující sekci). Můžete změnit miniaturu audio rámce (nastavit svůj preferovaný obrázek).
+Ve výchozím nastavení audio rámec zobrazuje ikonu reproduktoru. Chcete-li zobrazit vlastní miniaturu, přidejte obrázek do prezentace pomocí [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) a přiřaďte jej k vlastnosti [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/) rámce. Příklad používá JPEG jako miniaturu pro vložený audio klip.
 
-Tento C# kód vám ukazuje, jak změnit miniaturu nebo náhledový obrázek audio rámce:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Přidá audio rám do snímku se zadanou polohou a velikostí.
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // Přidá obrázek do zdrojů prezentace.
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
 
-    // Nastaví obrázek pro audio rám.
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-
-	//Uloží upravenou prezentaci na disk
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Změna možností přehrávání audia**
 
-Aspose.Slides pro .NET vám umožňuje měnit možnosti, které řídí přehrávání nebo vlastnosti audia. Například můžete upravit hlasitost audia, nastavit přehrávání v smyčce nebo dokonce skrýt ikonu audia.
+Ovládací prvky **Audio Options** v PowerPointu určují, kdy klip začne, jak hlasitý je a jak se chová během prezentace.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![Ovládací prvky Audio Options v PowerPointu pro audio rámec](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Ovládací prvek PowerPointu | Vlastnost Aspose.Slides |
+| --- | --- |
+| Start | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| Volume preset | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| Play Across Slides | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| Loop until Stopped | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| Hide During Show | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| Rewind after Playing | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| Fade In | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| Fade Out | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| Trim Audio start time | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| Trim Audio end time | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| Volume slider | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe) properties:
-- **Start** rozbalovací nabídka odpovídá vlastnosti [AudioFrame.PlayMode](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/playmode).
-- **Volume** odpovídá vlastnosti [AudioFrame.Volume](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/volume).
-- **Play Across Slides** odpovídá vlastnosti [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/playacrossslides).
-- **Loop until Stopped** odpovídá vlastnosti [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/playloopmode).
-- **Hide During Show** odpovídá vlastnosti [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/hideatshowing).
-- **Rewind after Playing** odpovídá vlastnosti [AudioFrame.RewindAudio](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/properties/rewindaudio).
+Příklad najde první audio rámec na prvním snímku, nastaví [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) tak, aby přehrávání začalo po kliknutí, a vybere předvolbu nízké hlasitosti. Klip pokračuje napříč snímky s vypnutým opakováním. Ikona zůstane během prezentace skrytá a klip se po přehrání přehraje zpět.
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe) properties:
-- **Fade In** odpovídá vlastnosti [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/fadeinduration/).
-- **Fade Out** odpovídá vlastnosti [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/fadeoutduration/).
-- **Trim Audio Start Time** odpovídá vlastnosti [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/trimfromstart/).
-- **Trim Audio End Time** hodnota se rovná délce audia minus hodnota [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/trimfromend/).
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Ovládací prvek **Volume** v PowerPointu na panelu pro audio odpovídá vlastnosti [AudioFrame.VolumeValue](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/volumevalue/). Umožňuje změnit hlasitost audia v procentech.
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-Takto měníte možnosti přehrávání audia:
-1. [Vytvořte](#create-audio-frame) nebo získejte Audio Frame.
-2. Nastavte nové hodnoty vlastností Audio Frame, které chcete upravit.
-3. Uložte upravený soubor PowerPoint.
-
-Tento C# kód demonstruje operaci, při níž jsou upraveny možnosti audia:
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Získá tvar AudioFrame
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // Nastaví režim přehrávání na přehrání po kliknutí
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // Nastaví hlasitost na Nízkou
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // Nastaví audio tak, aby se přehrávalo napříč snímky
-    audioFrame.PlayAcrossSlides = true;
-
-    // Zakáže smyčku pro audio
-    audioFrame.PlayLoopMode = false;
-
-    // Skryje AudioFrame během prezentace
-    audioFrame.HideAtShowing = true;
-
-    // Přetočí audio zpět na start po přehrání
-    audioFrame.RewindAudio = true;
-
-    // Uloží soubor PowerPoint na disk
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-Tento C# příklad ukazuje, jak přidat nový audio rám s vloženým audiem, oříznout jej a nastavit doby setrvačnosti:
+Pro klip delší než 3,5 sekundy tento příklad přeskočí první 1,5 sekundy a poslední 2 sekundy. [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) měří dobu, kterou je třeba vynechat na konci klipu. Pro získání koncového času zobrazeného v PowerPointu odečtěte tento posun od celkové délky klipu. Ořezaný klip se postupně zesílí během 200 milisekund a zeslábne během 500 milisekund. Všechny čtyři vlastnosti přijímají hodnoty v milisekundách.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Nastaví počáteční offset ořezu na 1,5 sekundy
-    audioFrame.TrimFromStart = 1500f;
-    // Nastaví koncový offset ořezu na 2 sekundy
-    audioFrame.TrimFromEnd = 2000f;
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    // Nastaví dobu fade-in na 200 ms
-    audioFrame.FadeInDuration = 200f;
-    // Nastaví dobu fade-out na 500 ms
-    audioFrame.FadeOutDuration = 500f;
-
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-Následující ukázka kódu ukazuje, jak získat audio rám s vloženým audiem a nastavit jeho hlasitost na 85 %:
+Pro nastavení hlasitosti přehrávání na konkrétní procento použijte [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/). Tento příklad nastaví první audio rámec na prvním snímku na 85 %.
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Získá tvar audio rámu
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // Nastaví hlasitost audia na 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Správa titulků audia**
+## **Správa audio titulků**
 
-Aspose.Slides vám umožňuje přidávat uzavřené titulky k audio rámu pomocí vlastnosti [CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/captiontracks/). Tato vlastnost vrací [ICaptionsCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/), která vám umožňuje přidávat WebVTT stopy titulků, procházet existující stopy a odstraňovat je podle potřeby.
+Každý audio rámec má kolekci [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/). Použijte ji k připojení WebVTT titulků ke klipu, exportu existujících stop nebo jejich odstranění.
 
-**Přidání titulků audia**
+### **Přidání audio titulků**
 
-Použijte vlastnost [CaptionTracks](https://reference.aspose.com/slides/cs/net/aspose.slides/iaudioframe/captiontracks/) k připojení jedné nebo více stop titulků k audio rámu. V následujícím příkladu je audio soubor přidán do snímku a poté je nová stopa titulků načtena ze souboru `.vtt`.
+Příklad vloží audio klip na první snímek a použije [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) k připojení lokální WebVTT stopy. První argument poskytuje štítek stopy a druhý určuje soubor obsahující časované titulky.
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Přidá novou stopu titulků z WebVTT souboru.
-    audioFrame.CaptionTracks.Add("New track", "track.vtt");
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
 
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
-}
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-**Extrahování titulků audia**
+### **Extrahování audio titulků**
 
-Můžete procházet stopy titulků spojené s audio rámem a uložit je jako soubory `.vtt`. Každá stopa titulků poskytuje svá binární data a jedinečný identifikátor, který lze použít při exportu titulků.
+Tento příklad exportuje každou stopu titulků připojenou k audio rámci na prvním snímku. Zapíše [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) stopy do souboru WebVTT a použije její [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) jako název souboru, aby každá stopa měla samostatný výstup.
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    foreach (var track in audioFrame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
+}
+```
+
+### **Odstranění audio titulků**
+
+Použijte [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/) k odstranění jednotlivé stopy. Příklad použije [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) k odebrání všech titulků z prvního audio rámce na prvním snímku při zachování klipu.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
+{
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **Vyhledání řádku v audio titulcích**
+
+Pro vyhledání řádku v audio titulcích na prvním snímku načtěte každou stopu pomocí [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) v paměti. V čistě textovém cue WebVTT obsahuje časová řádka `-->`, řádky titulků následují a prázdná řádka ukončuje cue. Tento příklad vypíše štítek stopy a každou řádku titulků obsahující „café“.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // Uloží stopu titulků jako .vtt soubor.
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-**Odstranění titulků audia**
-
-Chcete-li odstranit titulky z audio rámu, použijte metody poskytované rozhraním [ICaptionsCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/), jako jsou [Clear](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/remove/), nebo [RemoveAt](https://reference.aspose.com/slides/cs/net/aspose.slides/icaptionscollection/removeat/). Následující příklad odstraňuje všechny stopy titulků z audio rámu.
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // Odstraní všechny stopy titulků z audio rámu.
-    audioFrame.CaptionTracks.Clear();
-
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **Extrahování audia**
 
-Aspose.Slides pro .NET vám umožňuje extrahovat zvuk použitý v přechodech prezentace. Například můžete extrahovat zvuk použitý v konkrétním snímku.
+Přechod mezi snímky může mít vlastní zvuk. Pro jeho získání přečtěte vlastnost [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) přechodu. Příklad získá [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) zvuku a vypíše jeho velikost v bajtech. Pokud první snímek nemá žádný zvuk přechodu, vypíše místo toho zprávu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) a načtěte prezentaci obsahující audio.
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přistupte k přechodům prezentace pro daný snímek.
-4. Extrahujte zvuk jako bajtová data.
+```csharp
+using System;
+using Aspose.Slides;
 
-Tento C# kód vám ukazuje, jak extrahovat audio použité v snímku:
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-string presName = "AudioSlide.pptx";
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// Vytvoří instanci třídy Presentation, která představuje soubor prezentace
-Presentation pres = new Presentation(presName);
-
-// Získá snímek
-ISlide slide = pres.Slides[0];
-
-// Získá přechodové efekty prezentace pro snímek
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//Extrahuje zvuk do pole bajtů
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
 ## **Často kladené otázky**
 
-**Mohu opakovaně použít stejný audio soubor na více snímcích, aniž by se zvětšila velikost souboru?**
+**Mohu znovu použít stejný audio klip na více snímcích bez jeho duplikace?**
 
-Ano. Přidejte audio jednou do sdílené [audio collection](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/audios/) prezentace a vytvořte další audio rámy, které odkazují na tento existující soubor. Tím se zabrání duplikaci mediálních dat a velikost prezentace zůstane pod kontrolou.
+Ano. Přidejte klip jednou do [audio kolekce](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) prezentace a předávejte stejný audio objekt do [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) pro každý snímek.
 
-**Mohu nahradit zvuk v existujícím audio rámu, aniž bych znovu vytvářel tvar?**
+**Mohu nahradit zvuk v existujícím audio rámci?**
 
-Ano. Pro propojený zvuk aktualizujte [link path](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/linkpathlong/) tak, aby ukazoval na nový soubor. Pro vložený zvuk vyměňte objekt [embedded audio](https://reference.aspose.com/slides/cs/net/aspose.slides/audioframe/embeddedaudio/) za jiný z [audio collection](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/audios/) prezentace. Formátování rámu a většina nastavení přehrávání zůstane beze změny.
+Ano. Pro propojený zvuk aktualizujte [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/) tak, aby ukazoval na náhradní soubor. Pro vložený zvuk přiřaďte jiný klip z audio kolekce prezentace do [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/). Obě přístupy zachovají existující rámec.
 
-**Mění ořezávání podkladová audio data uložená v prezentaci?**
+**Mění ořezávání audio data uložená v prezentaci?**
 
-Ne. Ořezávání upravuje pouze hranice přehrávání. Původní audio bajty zůstávají nedotčeny a jsou přístupné prostřednictvím vloženého audia nebo audio kolekce prezentace.
+Ne. [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) a [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) nastavují hranice přehrávání. Stále můžete získat celý klip z [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/).

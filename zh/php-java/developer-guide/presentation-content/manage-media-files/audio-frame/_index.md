@@ -1,5 +1,5 @@
 ---
-title: 使用 PHP 管理演示文稿中的音频
+title: 使用 PHP 在演示文稿中管理音频帧
 linktitle: 音频帧
 type: docs
 weight: 10
@@ -14,206 +14,218 @@ keywords:
 - 提取音频
 - PHP
 - Aspose.Slides
-description: "在 Aspose.Slides for PHP 中创建和控制音频帧——示例代码演示如何嵌入、修剪、循环以及在 PPT、PPTX 和 ODP 演示文稿中配置播放。"
+description: "使用 Aspose.Slides for PHP via Java 在幻灯片中嵌入音频、更改音频图标、配置播放、管理 WebVTT 字幕，并提取幻灯片切换声音。"
 ---
+## **概述**
+
+音频帧可让您在幻灯片上播放声音。使用 Aspose.Slides for PHP via Java，您可以嵌入音频剪辑、选择代表该音频的图像、调整播放并附加字幕。您还可以检索分配给幻灯片切换的声音。
+
 ## **创建音频帧**
 
-Aspose.Slides for PHP via Java 允许您向幻灯片添加音频文件。这些音频文件作为音频帧嵌入到幻灯片中。
-
-1. 创建[Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/Presentation)类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 加载要嵌入到幻灯片中的音频文件流。
-4. 将嵌入的音频帧（包含音频文件）添加到幻灯片中。
-5. 设置由[AudioFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/)对象公开的[PlayMode](https://reference.aspose.com/slides/zh/php-java/aspose.slides/AudioPlayModePreset)和 `Volume`。
-6. 保存修改后的演示文稿。
-
-以下 PHP 代码演示如何向幻灯片添加嵌入的音频帧：
+使用 [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/) 将本地音频剪辑嵌入第一张幻灯片。前两个坐标决定帧在幻灯片上的位置，后两个数值设置其宽度和高度，单位均为点。本例调用 [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) 使剪辑自动开始播放，并调用 [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) 选择大声预设。
 
 ```php
-// 实例化一个表示演示文稿文件的 Presentation 类
-$pres = new Presentation();
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
-    # 获取第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 将 wav 声音文件加载为流
-    $fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
-    # 添加音频帧
-    $audioFrame = $sld->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $fstr);
-    $fstr->close();
-    # 设置音频的播放模式和音量
-    $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
-    $audioFrame->setVolume(AudioVolumeMode->Loud);
-    # 将 PowerPoint 文件写入磁盘
-    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
-} catch(JavaException e) {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->setPlayMode(AudioPlayModePreset::Auto);
+    $audioFrame->setVolume(AudioVolumeMode::Loud);
+
+    $presentation->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
 ## **更改音频帧缩略图**
 
-当您向演示文稿中添加音频文件时，音频会显示为带有标准默认图像的帧（请参见下节中的图像）。您可以更改音频帧的预览图像（设置您喜欢的图像）。
-
-以下 PHP 代码演示如何更改音频帧的缩略图或预览图像：
+默认情况下，音频帧显示扬声器图标。若要显示自定义缩略图，可使用 [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) 将图像添加到演示文稿，并使用 [setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/setimage/) 将其设置为帧的图片。本例使用 JPEG 作为嵌入音频剪辑的缩略图。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-	$slide = $presentation->getSlides()->get_Item(0);
-	# 向幻灯片添加音频帧，指定位置和大小。
-	$audioStream = new Java("java.io.FileInputStream", "sample2.mp3");
-	$audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
-	$audioStream->close();
-	# 将图像添加到演示文稿资源。
-	$picture;
-	$image = Images->fromFile("eagle.jpeg");
-	try {
-		$picture = $presentation->getImages()->addImage($image);
-	} finally {
-		if (!java_is_null($image)) {
-			$image->dispose();
-		}
-	}
-	# 为音频帧设置图像。
-	$audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
+    $slide = $presentation->getSlides()->get_Item(0);
 
-	# 将修改后的演示文稿保存到磁盘
-	$presentation->save("example_out.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+
+    $imageStream = new Java("java.io.FileInputStream", "eagle.jpeg");
+    try {
+        $thumbnail = $presentation->getImages()->addImage($imageStream);
+    } finally {
+        $imageStream->close();
+    }
+    $audioFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
-	if (!java_is_null($presentation)) {
-		$presentation->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
 ## **更改音频播放选项**
 
-Aspose.Slides for PHP via Java 允许您更改控制音频播放或属性的选项。例如，您可以调节音频音量、设置音频循环播放，甚至隐藏音频图标。
+PowerPoint 的 **音频选项** 控件决定剪辑何时开始、音量大小以及在幻灯片放映期间的行为。
 
-Microsoft PowerPoint 中的 **Audio Options** 窗格：
+![PowerPoint 音频选项控件（用于音频帧）](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控件 | Aspose.Slides for PHP via Java 方法 |
+| --- | --- |
+| 开始 | [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) |
+| 音量预设 | [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) |
+| 跨幻灯片播放 | [setPlayAcrossSlides](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayacrossslides/) |
+| 循环直到停止 | [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayloopmode/) |
+| 放映期间隐藏 | [setHideAtShowing](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/sethideatshowing/) |
+| 播放后倒回 | [setRewindAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setrewindaudio/) |
+| 淡入 | [setFadeInDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeInDuration) |
+| 淡出 | [setFadeOutDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| 修剪音频开始时间 | [setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) |
+| 修剪音频结束时间 | [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| 音量滑块 | [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) |
 
-PowerPoint **Audio Options** 对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/) 属性：
-
-- **Start** 下拉列表对应 [AudioFrame::setPlayMode](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setPlayMode) 方法
-- **Volume** 对应 [AudioFrame::setVolume](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setVolume) 方法
-- **Play Across Slides** 对应 [AudioFrame::setPlayAcrossSlides](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setPlayAcrossSlides) 方法
-- **Loop until Stopped** 对应 [AudioFrame::setPlayLoopMode](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setPlayLoopMode) 方法
-- **Hide During Show** 对应 [AudioFrame::setHideAtShowing](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setHideAtShowing) 方法
-- **Rewind after Playing** 对应 [AudioFrame::setRewindAudio](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setRewindAudio) 方法
-
-PowerPoint **Editing** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/) 属性：
-
-- **Fade In** 对应 [AudioFrame::setFadeInDuration](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setFadeInDuration) 方法
-- **Fade Out** 对应 [AudioFrame::setFadeOutDuration](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setFadeOutDuration) 方法
-- **Trim Audio Start Time** 对应 [AudioFrame::setTrimFromStart](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setTrimFromStart) 方法
-- **Trim Audio End Time** 的值等于音频时长减去 [AudioFrame::setTrimFromEnd](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setTrimFromEnd) 方法的值
-
-PowerPoint 音频控制面板上的 **Volume controll** 对应 [AudioFrame::setVolumeValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#setVolumeValue) 方法。它允许您以百分比方式更改音频音量。
-
-以下是更改音频播放选项的方法：
-
-1. [创建](#create-audio-frame)或获取音频帧。
-2. 为要调整的音频帧属性设置新值。
-3. 保存修改后的 PowerPoint 文件。
-
-以下 PHP 代码演示如何调整音频的选项：
+示例在第一张幻灯片上找到第一个音频帧，调用 [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) 以点击后开始播放，并选择低音量预设。剪辑在跨幻灯片播放时循环已禁用。图标在放映期间保持隐藏，剪辑在播放后会倒回。
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    # 获取 AudioFrame 形状
-    $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # 将播放模式设置为点击播放
-    $audioFrame->setPlayMode(AudioPlayModePreset->OnClick);
-    # 将音量设置为低
-    $audioFrame->setVolume(AudioVolumeMode->Low);
-    # 将音频设置为跨幻灯片播放
-    $audioFrame->setPlayAcrossSlides(true);
-    # 禁用音频循环
-    $audioFrame->setPlayLoopMode(false);
-    # 在幻灯片放映期间隐藏 AudioFrame
-    $audioFrame->setHideAtShowing(true);
-    # 播放结束后将音频倒回到开始
-    $audioFrame->setRewindAudio(true);
-    # 将 PowerPoint 文件保存到磁盘
-    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
+
+    if ($audioFrame !== null) {
+        $audioFrame->setPlayAcrossSlides(true);
+        $audioFrame->setPlayLoopMode(false);
+        $audioFrame->setPlayMode(AudioPlayModePreset::OnClick);
+        $audioFrame->setVolume(AudioVolumeMode::Low);
+        $audioFrame->setHideAtShowing(true);
+        $audioFrame->setRewindAudio(true);
+
+        $presentation->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
-以下 PHP 示例展示如何添加带嵌入音频的新音频帧、对其进行修剪并设置淡入淡出持续时间：
+对于时长超过 3.5 秒的剪辑，本示例跳过前 1.5 秒和后 2 秒。[setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) 接受要从剪辑末尾省略的时长。要获取 PowerPoint 中显示的结束时间，需要用完整剪辑时长减去该偏移量。修剪后的剪辑在 200 毫秒内淡入，在 500 毫秒内淡出。所有四个方法的参数均以毫秒为单位。
 
 ```php
-$pres = new Presentation();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $audioData = file_get_contents("sampleaudio.mp3");
-    $audio = $pres->getAudios()->addAudio($audioData);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audio);
-
-    // 设置修剪起始偏移为 1.5 秒
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
     $audioFrame->setTrimFromStart(1500);
-    // 设置修剪结束偏移为 2 秒
     $audioFrame->setTrimFromEnd(2000);
-
-    // 设置淡入持续时间为 200 毫秒
     $audioFrame->setFadeInDuration(200);
-    // 设置淡出持续时间为 500 毫秒
     $audioFrame->setFadeOutDuration(500);
 
-    $pres->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
+    $presentation->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-以下代码示例展示如何检索带嵌入音频的音频帧并将其音量设置为 85%：
+要将播放音量设置为特定百分比，请使用 [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue)。本例将第一张幻灯片上的第一个音频帧音量设置为 85%。
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // 获取音频帧形状
-    $audioFrame = $slide->getShapes()->get_Item(0);
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    // 将音频音量设置为 85%
-    $audioFrame->setVolumeValue(85);
-
-    $pres->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
-}
-finally {
-    $pres->dispose();
+    if ($audioFrame !== null) {
+        $audioFrame->setVolumeValue(85);
+        $presentation->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
 }
 ```
 
 ## **管理音频字幕**
 
-Aspose.Slides 允许您通过 [getCaptionTracks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#getCaptionTracks) 方法为音频帧添加隐藏字幕。此方法返回一个 [CaptionsCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/captionscollection/)，您可以使用它添加 WebVTT 字幕轨道、遍历现有轨道，并在需要时将其删除。
+每个音频帧可通过 [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#getCaptionTracks) 访问其字幕轨道。使用该集合可为剪辑附加 WebVTT 字幕、导出现有轨道或将其删除。
 
-**添加音频字幕**
+### **添加音频字幕**
 
-使用 [getCaptionTracks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/#getCaptionTracks) 方法将一个或多个字幕轨道附加到音频帧。以下示例中，先向幻灯片添加音频文件，然后从 `.vtt` 文件加载新的字幕轨道。
+示例在第一张幻灯片上嵌入音频剪辑，并使用 [add](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#add) 附加本地 WebVTT 轨道。第一个参数提供轨道标签，第二个参数指定包含时间字幕的文件。
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $audioData = file_get_contents("audio.mp3");
-    $audio = $presentation->getAudios()->addAudio($audioData);
-
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audio);
 
-    // 从 WebVTT 文件添加新字幕轨道。
-    $audioFrame->getCaptionTracks()->add("New track", "track.vtt");
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("audio_with_captions.pptx", SaveFormat::Pptx);
 } finally {
@@ -221,25 +233,36 @@ try {
 }
 ```
 
-**提取音频字幕**
+### **提取音频字幕**
 
-您可以遍历与音频帧关联的字幕轨道，并将其保存为 `.vtt` 文件。每个字幕轨道都公开其二进制数据和唯一标识符，可在导出字幕时使用。
+本示例导出附加在第一张幻灯片的音频帧上的每个字幕轨道。它将 [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getBinaryData) 返回的字节写入 WebVTT 文件，并使用 [getCaptionId](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getCaptionId) 返回的标识符作为文件名，使每个轨道拥有单独的输出。
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shapeCount = java_values($slide->getShapes()->size());
-    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
-        $shape = $slide->getShapes()->get_Item($shapeIndex);
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
-            $audioFrame = $shape;
-            $trackCount = java_values($audioFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
-                $captionTrack = $audioFrame->getCaptionTracks()->get_Item($trackIndex);
-                // 将每个字幕轨道保存为 .vtt 文件。
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $fileName = $track->getCaptionId() . ".vtt";
+            $audioCaptions = $track->getBinaryData();
+            $output = new Java("java.io.FileOutputStream", $fileName);
+            try {
+                $output->write($audioCaptions);
+            } finally {
+                $output->close();
             }
         }
     }
@@ -248,20 +271,77 @@ try {
 }
 ```
 
-**删除音频字幕**
+### **移除音频字幕**
 
-要从音频帧中删除字幕，请使用 [CaptionsCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/captionscollection/) 提供的方法，例如 [clear](https://reference.aspose.com/slides/zh/php-java/aspose.slides/captionscollection/#clear)、[remove](https://reference.aspose.com/slides/zh/php-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh/php-java/aspose.slides/captionscollection/#removeAt)。以下示例从音频帧中删除所有字幕轨道。
+使用 [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) 删除单个轨道。示例使用 [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) 从第一张幻灯片的第一个音频帧中移除所有字幕，同时保留剪辑。
 
 ```php
-$presentation = new Presentation($folderPath . "audio_with_captions.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->get_Item(0); // 类型: AudioFrame
 
-    // 删除音频帧的所有字幕轨道。
-    $audioFrame->getCaptionTracks()->clear();
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save($folderPath . "audio_without_captions.pptx", SaveFormat::Pptx);
+    if ($audioFrame !== null) {
+        $audioFrame->getCaptionTracks()->clear();
+        $presentation->save("audio_without_captions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **在音频字幕中查找行**
+
+要在第一张幻灯片的音频字幕中查找某行，可在内存中搜索 [getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) 返回的文本。在纯文本 WebVTT 提示中，时间行包含 `-->`，字幕行随后出现，空行标志提示结束。本示例打印轨道标签以及包含 “café” 的每条字幕行。
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("audio_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $inCue = false;
+            $captions = (string) $track->getDataAsString();
+            foreach (preg_split('/\R/u', $captions) as $line) {
+                if ($line === "") {
+                    $inCue = false;
+                } elseif (strpos($line, "-->") !== false) {
+                    $inCue = true;
+                } elseif ($inCue && preg_match('/café/iu', $line)) {
+                    echo $track->getLabel() . ": " . $line . "\n";
+                }
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
@@ -269,44 +349,38 @@ try {
 
 ## **提取音频**
 
-Aspose.Slides for PHP via Java 允许您提取幻灯片放映过渡时使用的声音。例如，您可以提取特定幻灯片使用的声音。
-
-1. 创建[Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/Presentation)类的实例并加载包含音频的演示文稿。
-2. 通过索引获取相关幻灯片的引用。
-3. 访问该幻灯片的 [slideshow transitions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/baseslide/#getSlideShowTransition)。
-4. 以字节数据形式提取声音。
-
-以下代码演示如何提取幻灯片中使用的音频：
+幻灯片切换可以拥有其自己的声音。要检索它，请在幻灯片切换上调用 [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/getsound/)。示例访问 [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) 返回的字节并打印字节数。如果第一张幻灯片没有切换声音，则会打印一条提示信息。
 
 ```php
-# 实例化一个表示演示文稿文件的 Presentation 类
-$pres = new Presentation("AudioSlide.pptx");
-$Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("AudioSlide.pptx");
 try {
-	# 访问所需的幻灯片
-	$slide = $pres->getSlides()->get_Item(0);
-	# 获取幻灯片的放映过渡效果
-	$transition = $slide->getSlideShowTransition();
-	# 以字节数组提取声音
-	$audio = $transition->getSound()->getBinaryData();
-	echo("Length: " . $Array->getLength($audio));
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $sound = $slide->getSlideShowTransition()->getSound();
+    if (java_is_null($sound)) {
+        echo "The first slide has no transition sound.\n";
+    } else {
+        $audioData = $sound->getBinaryData();
+        $array = new JavaClass("java.lang.reflect.Array");
+        echo "Transition sound: " . $array->getLength($audioData) . " bytes.\n";
+    }
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
 ## **常见问题**
 
-**我可以在多个幻灯片之间重复使用同一音频资源而不增加文件大小吗？**
+**我可以在多个幻灯片之间复用相同的音频剪辑而不进行复制吗？**
 
-可以。将音频一次添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getaudios/) 中，然后创建引用该已有资源的其他音频帧。这可避免媒体数据重复，保持演示文稿尺寸可控。
+可以。先将剪辑一次添加到演示文稿的 [audio collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getaudios/)，然后在每张幻灯片上将同一音频对象传递给 [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/)。
 
-**我可以在不重新创建形状的情况下替换现有音频帧中的声音吗？**
+**我可以替换已有音频帧中的声音吗？**
 
-可以。对于链接的声音，更新 [link path](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/setlinkpathlong/) 以指向新文件。对于嵌入的声音，则将 [embedded audio](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audioframe/setembeddedaudio/) 对象换成演示文稿 [audio collection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getaudios/) 中的其他音频。帧的格式和大多数播放设置保持不变。
+可以。对于链接的声音，使用 [setLinkPathLong](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setlinkpathlong/) 指向替换文件。对于嵌入的声音，使用 [setEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setembeddedaudio/) 从演示文稿的音频集合中选择另一个剪辑。两种方式均保留原有帧。
 
-**修剪会更改演示文稿中存储的底层音频数据吗？**
+**修剪会改变演示文稿中存储的音频数据吗？**
 
-不会。修剪仅调整播放边界。原始音频字节保持不变，可通过嵌入的音频或演示文稿的音频集合继续访问。
+不会。[setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) 和 [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) 仅设置播放边界。仍然可以通过 [getEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/getembeddedaudio/) 获取完整剪辑。

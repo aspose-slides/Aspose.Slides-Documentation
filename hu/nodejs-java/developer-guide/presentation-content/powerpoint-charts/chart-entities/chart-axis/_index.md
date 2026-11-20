@@ -1,38 +1,38 @@
 ---
-title: "Diagram tengelyek testreszabása prezentációkban JavaScript használatával"
-linktitle: "Diagram tengely"
+title: Diagram tengelyek testreszabása prezentációkban JavaScript használatával
+linktitle: Diagramtengely
 type: docs
 url: /hu/nodejs-java/chart-axis/
 keywords:
-- "diagram tengely"
-- "függőleges tengely"
-- "vízszintes tengely"
-- "tengely testreszabása"
-- "tengely manipulálása"
-- "tengely kezelése"
-- "tengely tulajdonságok"
-- "maximális érték"
-- "minimális érték"
-- "tengelyvonal"
-- "dátumformátum"
-- "tengelycím"
-- "tengelypozíció"
-- "PowerPoint"
-- "prezentáció"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Fedezze fel, hogyan használhatja a JavaScriptet az Aspose.Slides for Node.js Java-on keresztül a diagramtengelyek testreszabásához PowerPoint prezentációkban jelentésekhez és vizualizációkhoz."
+- diagramtengely
+- függőleges tengely
+- vízszintes tengely
+- tengely testreszabása
+- tengely manipulálása
+- tengely kezelése
+- tengely tulajdonságai
+- maximális érték
+- minimális érték
+- tengely vonal
+- dátumformátum
+- tengely cím
+- tengely pozíció
+- PowerPoint
+- prezentáció
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Fedezze fel, hogyan használhat JavaScriptet az Aspose.Slides for Node.js Java-n keresztül a diagramtengelyek testreszabásához PowerPoint prezentációkban jelentések és vizualizációk céljából."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan lehet testreszabni a diagramtengelyeket az Aspose.Slides for Node.js Java segítségével. Tárgyalja a számított tengelyértékeket, a diagram sorok és oszlopok cseréjét, a tengely láthatóságát, a kategória címke- és jelölőintervallumokat, a dátumkategóriákat és formázást, a cím forgatását, a tengely elhelyezését, a megjelenítési egységeket és a logaritmikus skálázást.
+Ez a cikk elmagyarázza, hogyan lehet testreszabni a diagram tengelyeit az Aspose.Slides for Node.js Java segítségével. Bemutatja a kiszámolt tengelyértékeket, a diagram sorok és oszlopok cseréjét, a tengely láthatóságát, a kategória címkék és a jelölőjel intervallumait, a dátum kategóriákat és formázást, a cím forgását, a tengely pozicionálását, a megjelenítési egységeket, valamint a logaritmikus skálázást.
 
-## **A legnagyobb értékek lekérése a függőleges tengelyen a diagramokon**
+## **A maximális értékek lekérése a függőleges tengelyen a diagramokban**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) függvényt a számított tengelyértékek kiolvasása előtt, hogy a diagram elrendezése naprakész legyen.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) elemet, és adjon hozzá egy területdiagramot az alapértelmezett adatokkal. Hívja meg a [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) metódust a kiszámolt tengelyértékek olvasása előtt, hogy a diagram elrendezése naprakész legyen.
 
-Olvassa a [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) és a [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) függvényeket a tengelyhatárokért, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) és a [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) függvényeket a jelölőintervallumokért. A [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) időegység-skálákat biztosítanak, amelyek a dátumtengelyekhez relevánsak. A példában ezek az értékek helyi változókba kerülnek, és a diagram mentésre kerül.
+Olvassa a [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) és a [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) metódusokat a tengely határokhoz, valamint a [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) és a [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) metódusokat a jelölőjelek intervallumához. A [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) és a [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) időegység-skálákat biztosít, amelyek a dátumtengelyek esetén relevánsak. A példa ezeket az értékeket helyi változókba menti, és elmenti a diagramot.
 
 ```javascript
 var aspose = aspose || {};
@@ -59,9 +59,10 @@ try {
     presentation.dispose();
 }
 ```
-## **Adatok felcserélése a tengelyek között**
 
-Használja a [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) függvényt a diagramadatokban a sorozatok és kategóriák szerepének cseréjére. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává alakul. Ez megváltoztatja az adatok csoportosítását, de nem cseréli fel a vízszintes és függőleges tengelyeket. A példában a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) függvényt használják az alapértelmezett adatok `Sheet1!A1:D5` tartományhoz kötésére, beleértve a fejlécsort és a kategóriaoszlopot, mielőtt felcserélnék a sorokat és oszlopokat. Egy olyan diagramot ment, amely négy sorozatot és három kategóriát tartalmaz.
+## **Az adatok cseréje a tengelyek között**
+
+Használja a [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) metódust a sorozatok és kategóriák szerepének felcserélésére a diagram adatainál. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává válik. Ez megváltoztatja az adatcsoportosítást; nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) metódust használja az alapértelmezett adatok `Sheet1!A1:D5` tartományra kötéséhez, beleértve a fejlécsort és a kategóriaoszlopot, a sorok és oszlopok cseréje előtt. Egy négy sorozatú és három kategóriás diagramot ment.
 
 ```javascript
 var aspose = aspose || {};
@@ -80,11 +81,12 @@ try {
     presentation.dispose();
 }
 ```
-## **Tengely ábrázolási sorrendjének megfordítása**
 
-Használja a [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) függvényt egy kategória- vagy értéktengely megfordításához. Például egy vízszintes oszlopdiagram ugyanabban a sorrendben mutathatja a projekt szakaszait felülről lefelé, mint a munkalapon: Tervezés, Fejlesztés, Tesztelés. A tengely megfordítása megváltoztatja az ábrázolás irányát; nem rendezi vagy átrendezi a munkafüzet adatokat. Összehasonlítva, a [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) cseréli a sorozatok és kategóriák szerepét.
+## **Egy tengely ábrázolási sorrendjének megfordítása**
 
-Az alábbi példa egy három szakaszból és egy sorozatból álló vízszintes oszlopdiagramot hoz létre. Egy prezentációt ment három diával: normál sorrend, megfordított kategóriák és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és minden másolaton csak egy tengely van megfordítva.
+Használja a [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) metódust egy kategória vagy értéktengely megfordításához. Például egy vízszintes oszlopdiagram a projekt szakaszait felülről lefelé jelenítheti meg ugyanabban a sorrendben, mint a munkalapon: Tervezés, Fejlesztés, Tesztelés. Egy tengely megfordítása megváltoztatja az ábrázolási irányt; nem rendezi újra vagy átrendezi a munkafüzet adatait. Ezzel szemben a [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) felcseréli a sorozatok és kategóriák szerepét.
+
+A következő példa egy három szakaszos és egy sorozatú vízszintes oszlopdiagramot hoz létre. Egy három diával rendelkező prezentációt ment: normál sorrend, megfordított kategóriák és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és minden másolaton csak egy tengely van megfordítva.
 
 ```javascript
 var aspose = aspose || {};
@@ -113,14 +115,14 @@ try {
         series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // 2. dia: az első kategória megjelenítése felül.
+    // Dia 2: jelenítse meg az első kategóriát a tetején.
     var categorySlide = presentation.getSlides().addClone(slide);
     var categoryChart = categorySlide.getShapes().get_Item(0);
     categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
-    // Tartsa a vízszintes értéktengelyt alul.
+    // A vízszintes értéktengelyt alul tartsa.
     categoryChart.getAxes().getVerticalAxis().setCrossType(aspose.slides.CrossesType.Maximum);
 
-    // 3. dia: csak a vízszintes numerikus skálát fordítsa meg.
+    // Dia 3: csak a vízszintes numerikus skálát fordítsa meg.
     var valueSlide = presentation.getSlides().addClone(slide);
     var valueChart = valueSlide.getShapes().get_Item(0);
     valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
@@ -130,12 +132,17 @@ try {
     presentation.dispose();
 }
 ```
-Az tengely megfordítása a merőleges tengelyt a diagram ellenkező oldalára is mozgathatja. A [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) szabályozza, hogy a másik tengely hol metszi a beállított tengelyt. A 2. dián a `aspose.slides.CrossesType.Maximum` értékkel a megfordított kategóriatengelyen hívva a vízszintes értéktengely alul marad. Egy konkrét keresztezési ponthoz használja a [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Ellenőrizze a keresztezési beállításokat irányváltáskor, különösen ha a diagram már rendelkezik egyedi keresztezési ponttal. Hívja a `setPlotOrderReversed`-t `false`-val a normál ábrázolási irány visszaállításához; a keresztezési beállítások különállóak.
+
+Egy tengely megfordítása áthelyezheti a merőleges tengelyt a diagram másik oldalára is. A [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) szabályozza, hogy a másik tengely hol metszze a konfigurált tengelyt. A 2. dián a `aspose.slides.CrossesType.Maximum` értékkel való hívás a megfordított kategóriatengelyen a vízszintes értéktengelyt alul tartja. Egy konkrét metszéspont meghatározásához használja a [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) metódust. Ellenőrizze a metszési beállításokat az irány módosításakor, különösen ha a diagram már rendelkezik egy egyéni metszésponttal. A `setPlotOrderReversed` metódus `false` értékkel való hívása visszaállítja a normál ábrázolási irányt; a metszési beállítások különállóak.
 
 | Normál sorrend (1. dia) | Megfordított kategóriák (2. dia) | Megfordított értékek (3. dia) |
 | --- | --- | --- |
-| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
-| A kategóriák alulról felfelé vannak; az értékek balról jobbra nőnek. | Tervezés, Fejlesztés és Tesztelés felülről lefelé vannak. Az értékek és a munkafüzet sor sorrendje változatlan. | A kategóriák megtartják a normál sorrendjüket; az értékek jobbról balra nőnek. A kategóriatengely a jobb oldalon, nullánál metsződik. |
+| ![Vízszintes oszlopdiagram normál kategória- és értéktengely sorrenddel](axis-order-normal.png) | ![Vízszintes oszlopdiagram, ahol a kategóriák felülről lefelé jelennek meg](axis-order-categories-reversed.png) | ![Vízszintes oszlopdiagram megfordított értéktengellyel és a nulla a jobb oldalon](axis-order-values-reversed.png) |
+| A kategóriák alulról felfelé futnak; az értékek balról jobbra növekednek. | A Tervezés, Fejlesztés és Tesztelés felülről lefelé halad. Az értékek és a munkafüzet sor sorrendje változatlan. | A kategóriák megtartják a normál sorrendjüket; az értékek jobbról balra növekednek. A kategóriatengely a jobb oldali nullánál metszi. |
+
+## **A függőleges tengely letiltása vonaldiagramoknál**
+
+Hívja meg a [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a függőleges tengelyen a rejtéséhez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, és elmenti a függőleges tengely elrejtésével.
 
 ```javascript
 var aspose = aspose || {};
@@ -153,9 +160,10 @@ try {
     presentation.dispose();
 }
 ```
-## **A függőleges tengely letiltása vonaldiagramoknál**
 
-Hívja a [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) függvényt `false` értékkel a függőleges tengelyen a rejtéshez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, és a függőleges tengely rejtve menti.
+## **A vízszintes tengely letiltása vonaldiagramoknál**
+
+Hívja meg a [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) metódust `false` értékkel a vízszintes tengelyen a rejtéséhez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, és elmenti a vízszintes tengely elrejtésével.
 
 ```javascript
 var aspose = aspose || {};
@@ -173,31 +181,48 @@ try {
     presentation.dispose();
 }
 ```
-## **A vízszintes tengely letiltása vonaldiagramoknál**
 
-Hívja a [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) függvényt `false` értékkel a vízszintes tengelyen a rejtéshez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, és a vízszintes tengely rejtve menti.
+## **Diagramrácsvonalak megjelenítése vagy elrejtése**
+
+Hívja meg a [getShowMajorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowmajorgridlines/) és a [getShowMinorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowminorgridlines/) metódusokat, hogy ellenőrizze, mely rácsvonalakat jeleníti meg egy tengely. A kisebb rácsvonalak megjelenítéséhez használja a [getMinorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getminorgridlinesformat/) metódust, és állítsa be a vonalfeltöltést egy szilárd, látható színre. Elrejtésükhöz állítsa a kitöltést a [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) értékre. A [getMajorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getmajorgridlinesformat/) metódust használja a fő rácsvonalak vonalfeltöltésének ugyanígy történő módosításához. A kitöltés módosítása megőrzi a tengely láthatóságát és a jelölőket.
+
+Ennek a csoportosított oszlopdiagramnak a függőleges tengelye kezdetben csak a fő rácsvonalakat mutatja. A példa a kisebb rácsvonalakat sötét narancssárgában jeleníti meg, majd a mentés előtt újra elrejti őket. Minden lépésnél kiírja a rácsvonalak láthatóságát.
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
 
 var presentation = new aspose.slides.Presentation();
 try {
     var slide = presentation.getSlides().get_Item(0);
+    
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 30, 660, 230);
+    var axis = chart.getAxes().getVerticalAxis();
+    console.log("Initial: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
 
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
-    chart.getAxes().getVerticalAxis().setTitle(true);
-    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
-    chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
+    var minorFill = axis.getMinorGridLinesFormat().getLine().getFillFormat();
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    minorFill.getSolidFillColor().setColor(darkOrange);
+    console.log("Enabled: minor=%s", axis.getShowMinorGridLines());
 
-    presentation.save("RotatedAxisTitle.pptx", aspose.slides.SaveFormat.Pptx);
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    console.log("Hidden: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    presentation.save("ChartGridlines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+
+| Kisebb rácsvonalak engedélyezve | Kisebb rácsvonalak elrejtve |
+| --- | --- |
+| ![Narancssárga kisebb rácsvonalak a fő rácsvonalak között a függőleges tengelyen](minor-gridlines-enabled.png) | ![Ugyanaz a oszlopdiagram, csak a fő rácsvonalak láthatók](minor-gridlines-hidden.png) |
+
 ## **Kategóriatengely módosítása**
 
-Használja a [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) függvényt, hogy dátum vagy szöveg kategóriatengelyt válasszon. Ez a példa a `ExistingChart.pptx` fájlt igényli, ahol az első dián az első alakzat egy diagram, és a kategóriacellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengelyre változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) `false`, a [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) `1`, és a [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) `TimeUnitType.Months` beállításával a fő jelölők egyhónapos intervallumokban jelennek meg.
+Használja a [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) metódust dátum vagy szöveges kategóriatengely kiválasztásához. Ez a példa a `ExistingChart.pptx` fájlt igényli, amelynek az első diáján az első alakzat egy diagram, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengellyé változtatja. A [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) `false`, a [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) `1`, és a [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) `TimeUnitType.Months` használatával a fő jelölőket egyhónapos intervallumra állítja.
 
 ```javascript
 var aspose = aspose || {};
@@ -218,21 +243,82 @@ try {
     presentation.dispose();
 }
 ```
-## **Kategóriatengely címkeintervallumok vezérlése**
 
-Ha egy diagramnak sok kategóriája van, csökkentse a látható tengelycímkék számát a kategóriák vagy adatpontok eltávolítása nélkül. Hívja a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) `false` értékkel, majd adja meg a kívánt kategóriaintervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Szöveges kategóriák esetén a normál sorrendben a számozás az első kategóriától indul:
+### **A kategóriatengely típusának meghatározása adat alapján**
 
-| Intervallum | A példában megjelenített címkék |
+Olvassa a [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistypeautomatically/) metódust a kategóriák feltöltése után, majd a [getCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getcategoryaxistype/) segítségével ellenőrizze a kiválasztást. Ez hasznos, ha ugyanaz a diagram szöveges címkéket vagy numerikus dátumértékeket kap. A metódus a meghíváskor határozza meg a típust; nem engedélyez állandó módot, amely később újraértékeli az adatváltozásokat. Hívja meg újra a kategóriák cseréje után.
+
+Az alábbi példa egy szöveges kategóriákkal rendelkező diagramot hoz létre, és `true` értéket ír ki, ha a kiválasztott típus `CategoryAxisType.Text`. Ezután a kategória cellaértékeket dátumokká cseréli, és újból meghívja a metódust, `true`-t írva ki, ha a kiválasztott típus `CategoryAxisType.Date`. A dátumok numerikus OLE Automation értékekként vannak tárolva, ezeket a dátumokat a 1899. december 30. óta eltelt napok számaként számítják, nem dátum karakterláncként. A JavaScript számítás UTC időbélyegeket használ és az eltérést 86 400 000 milliszekundummal osztja per nap; a hónap indexek nullától indulnak. A `java.newDouble` segítségével minden dátumértéket double típusúként ad át a Java-nak. A [setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) szabályozza, hogy ezek az értékek hogyan jelennek meg; nem alakítja át a szöveget numerikus dátummá. További információk a kategória cellákról a [Chart Workbook](/slides/hu/nodejs-java/chart-workbook/) oldalon.
+
+Használja az automatikus meghatározást, ha a bemenet szöveges kategóriákat vagy numerikus dátumokat tartalmaz, mint ebben a példában. Általános numerikus címkék, vegyes kategóriák vagy üres adatok esetén hívja explicit módon a [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) metódust, hogy a kívánt jelentést tükrözze. Csak numerikus értékek önmagukban nem bizonyítják, hogy a kategóriák dátumot jelentenek.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var seriesName = workbook.getCell(0, 0, 1, "Sales");
+    var series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    var labels = ["First", "Second", "Third"];
+
+    for (var i = 0; i < labels.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Text); // igaz
+
+    var baseDate = Date.UTC(1899, 11, 30);
+    var dates = [Date.UTC(2026, 0, 1), Date.UTC(2026, 0, 2), Date.UTC(2026, 1, 1)];
+
+    for (var i = 0; i < dates.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0);
+        var dateValue = java.newDouble((dates[i] - baseDate) / 86400000);
+        categoryCell.setValue(dateValue);
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Date); // igaz
+
+    presentation.save("AutomaticCategoryAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **A kategóriatengely címkeintervallumok szabályozása**
+
+A diagram sok kategóriával rendelkezik esetén csökkentse a látható tengelycímkék számát a kategóriák vagy adatpontok eltávolítása nélkül. Hívja a [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) metódust `false` értékkel, majd adja meg a kívánt kategória intervallumot a [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) segítségével. Szöveges kategóriák esetén a normál sorrendben a számlálás az első kategóriától kezdődik:
+
+| Intervallum | Példában megjelenített címkék |
 | --- | --- |
-| `1` | Kategória 1, Kategória 2, Kategória 3, ... Kategória 24 |
-| `2` | Kategória 1, Kategória 3, Kategória 5, ... Kategória 23 |
-| `3` | Kategória 1, Kategória 4, Kategória 7, ... Kategória 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Egy `3` intervallum minden harmadik címkét jelenít meg, két címkét hagyva rejtve a megjelenített címkék között. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
+A `3` intervallum minden harmadik címkét jelenít meg, két címkét rejtve hagyva a megjelenített címkék között. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
 
-Az jelölőcsíkoknak külön vezérlése van. Hívja a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) `false` értékkel, és használja a [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/)‑t az intervallum beállításához. Például a `1` minden kategóriaintervallumra egy jelölőcsíkot tart, míg a címkék csak minden harmadik kategórián jelennek meg. Használja a [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) látható stílussal a végeredmény megtekintéséhez. Bármelyik automatikus beállítás `true`-ra történő visszaállítása újból engedi, hogy a diagram kiválassza az intervallumot.
+A jelölőjeleknek külön vezérlése van. Hívja a [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) metódust `false`-tal, és használja a [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) metódust az intervallum beállításához. Például a `1` minden kategória intervallumban egy jelölőjelet tart, míg a címkék csak minden harmadik kategórián jelennek meg. Használja a [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) metódust látható stílusra, hogy látható legyen az eredmény. Bármelyik automatikus beállítót `true`-ra állítva a diagram újra kiválasztja az intervallumot.
 
-A következő önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment a `CategoryAxisIntervals.pptx` fájlba: automatikus távolság, manuális címke‑távolság független jelölőcsíkokkal, és visszaállított automatikus távolság. A két másolat az eredeti diagramadatokat tartja meg. Bemutató bemenet nem szükséges. A vízszintes címke szöveg teszi a sűrűséget könnyen észrevehetővé.
+A következő önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment `CategoryAxisIntervals.pptx` néven: automatikus távolság, manuális címkeintervallum független jelölőkkel, és visszaállított automatikus távolság. A két másolat az eredeti diagramadatokat tartja. Bemutató bemenet nem szükséges. A vízszintes címkeszöveg teszi könnyen láthatóvá a sűrűségkülönbséget.
 
 ```javascript
 var aspose = aspose || {};
@@ -267,7 +353,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // 2. dia: minden harmadik címkét jelenítse meg, de tartsa a jelölőcsíkot minden kategóriához.
+    // Dia 2: mutassa minden harmadik címkét, de minden kategóriához tartson egy jelölőjelet.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -276,7 +362,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // 3. dia: engedje, hogy a diagram újra kiválassza mindkét intervallumot.
+    // Dia 3: engedje a diagramnak, hogy újra kiválassza a két intervallumot.
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -287,23 +373,24 @@ try {
     presentation.dispose();
 }
 ```
-**Automatikus távolság (1. dia):** Ebben a megjelenítésben minden második kategóriacímke látható, és két sorra törik. Az automatikus eredmény a diagram méretétől, betűtípusoktól és a renderertől függően változhat.
 
-![Automatikus kategória címke távolság minden 24 oszlop láthatóval](category-axis-automatic.png)
+**Automatikus távolság (1. dia):** Ebben a megjelenítésben minden második kategóriacímke látható és két sorra törik. Az automatikus eredmény változhat a diagram méretétől, betűtípusaitól és a renderertől.
 
-**Manuális távolság (2. dia):** Minden harmadik címke egy sorban jelenik meg, míg a jelölőcsíkok minden kategóriaintervallumnál maradnak. Az összes 24 oszlop, beleértve a címke nélküli oszlopokat is, látható marad ugyanazzal az értékkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
+![Automatikus kategória címke távolság, minden 24 oszlop látható](category-axis-automatic.png)
 
-![Manuális három kategóriás címkeintervallum minden 24 oszloppal látható](category-axis-manual.png)
+**Manuális távolság (2. dia):** Minden harmadik címke jelenik meg egy sorban, miközben a jelölőjelek minden kategória intervallumban maradnak. Az összes 24 oszlop, köztük a címke nélküli oszlopok is, láthatók ugyanazzal az értékkel. A 3. dia visszaállítja a fent bemutatott automatikus megjelenést.
 
-### **Válassza ki a megfelelő tengelyt és intervallumot**
+![Manuális háromas kategória címke intervallum, minden 24 oszlop látható](category-axis-manual.png)
 
-Használja ezt a kategóriaszám‑intervallumot szöveges kategóriatengelyhez, például oszlop-, vonal-, terület- vagy sávdiagram kategóriatengelyéhez. Oszlopdiagram esetén ez a vízszintes tengely. Vízeletsszintű sávdiagramnál a kategóriatengely függőleges, ezért alkalmazza ezeket a beállításokat a [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) által visszaadott tengelyre. A jelölőcsík távolság az olyan diagramok sorozat tengelyén is alkalmazható, amelyek rendelkeznek ilyennel.
+### **A megfelelő tengely és intervallum kiválasztása**
 
-Ne használja a kategóriacímke‑távolságot értéktengely numerikus skálájának beállításához. Az értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) határozza meg az értékek közti különbséget: például egy `10` főegység 0, 10, 20, stb. értékeket ad, ha a tengely nulláról indul. A `3` kategóriacímke‑intervallum ezzel szemben a kategóriahelyek számát számolja, függetlenül az adatértékektől. Szórt és buborékképekkel értéktengelyek használatosak, nem szöveges kategóriatengely. Dátumtengely esetén használjon időalapú főegységeket és skálákat, ahogy a [Kategóriatengely módosítása](#kategóriatengely‑módosítása) részben leírt.
+Használja ezt a kategória-számlálás intervallumot szöveges kategóriatengely esetén, például oszlop-, vonal-, terület- vagy oszlopdiagram kategóriatengelyénél. Oszlopdiagram esetén ez a vízszintes tengely. Vízszintes oszlopdiagram esetén a kategóriatengely függőleges, így ezeket a beállításokat alkalmazza a [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) által visszaadott tengelyre. A jelölőjelek távolsága sorozattengelyre is vonatkozik, ha a diagram rendelkezik ilyennel.
 
-## **A kategóriatengely értékek dátumformátumának beállítása**
+Ne használja a kategória címke távolságot az értéktengely numerikus skálájának beállítására. Értéktengelyen a [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) határozza meg az értékek közti különbséget: például egy `10` fő egység 0, 10, 20, … pontokat hoz létre, ha a tengely nullánál kezdődik. A `3` kategória címke intervallum a kategória pozíciókat számolja, függetlenül azok adatértékétől. Szórt- és buborékdiagramok értéktengelyeket használnak, nem szöveges kategóriatengelyt. Dátumtengely esetén használjon időalapú fő egységeket és skálákat, ahogy azt a [Change a Category Axis](#change-a-category-axis) szakaszban leírják.
 
-A példa négy éves értékkel cseréli le az alapértelmezett diagramadatokat. A dátumok OLE Automation sorozatszámokként vannak tárolva az első munkalapon (index `0`), a 1899. december 30. óta eltelt napok számaként. A JavaScript számítás UTC időbélyeget használ, és a különbséget 86 400 000 millisekundummal osztja napra. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) `CategoryAxisType.Date` értékkel, hívja a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false`‑val, és adja át a `yyyy` értéket a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/)‑nek, hogy a kategóriacímkék a négy számjegyű éveket mutassák a cellaformázástól függetlenül.
+## **Kategóriatengely értékek dátumformátumának beállítása**
+
+A példa a alapértelmezett diagramadatokat négy éves értékkel helyettesíti. A dátumok az első munkalapon (index `0`) OLE Automation sorozatszámként vannak tárolva, ami a 1899. december 30. óta eltelt napok számát jelenti. A JavaScript számítás UTC időbélyeget használ, és a különbséget 86 400 000 milliszekundummal osztja napra. Használja a [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) metódust `CategoryAxisType.Date` értékkel, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false`-tal, és adja meg a `yyyy` értéket a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) metódusnak, hogy a kategória címkék négyjegyű évet jelenítsenek meg a cellaformázástól függetlenül.
 
 ```javascript
 var aspose = aspose || {};
@@ -342,9 +429,33 @@ try {
     presentation.dispose();
 }
 ```
-## **A diagramtengely címének forgatási szögének beállítása**
 
-Hívja a [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) `true` értékkel a függőleges tengelyen, adja meg a címszöveget, és használja a [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) függvényt a cím forgatásához. A szög fokban van megadva; ez a példa egy oszlopdiagramot ment, amelynek az értéktengely címe 90 fokkal van elforgatva.
+## **Diagramtengely címének forgatási szögének beállítása**
+
+Hívja meg a [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) metódust `true` értékkel a függőleges tengelyen, adja meg a cím szövegét, és használja a [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) metódust a cím forgatásához. A szög fokban van mérve; ez a példa egy oszlopdiagramot ment, amelynek az értéktengely címe 90 fokra van elfordítva.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
+    chart.getAxes().getVerticalAxis().setTitle(true);
+    chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("Value");
+    chart.getAxes().getVerticalAxis().getTitle().getTextFormat().getTextBlockFormat().setRotationAngle(90);
+
+    presentation.save("RotatedAxisTitle.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **A tengely pozíciójának beállítása kategória vagy értéktengelyen**
+
+Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) metódust annak szabályozására, hogy az értéktengely a kategóriák között vagy a kategória jelölőpontoknál metszze a kategóriatengelyt. Ez a beállítás a kategóriatengelyekre vonatkozik. A példa a `true` értéket állítja be a oszlopdiagram vízszintes kategóriatengelyén, és elmenti az eredményt.
 
 ```javascript
 var aspose = aspose || {};
@@ -362,9 +473,10 @@ try {
     presentation.dispose();
 }
 ```
-## **A tengely pozíciójának beállítása kategória vagy értéktengelyen**
 
-Használja a [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) függvényt annak szabályozására, hogy az értéktengely a kategóriatengelyt kategóriák között vagy a kategória jelölőpontokon keresztül metszze. Ez a beállítás a kategóriatengelyekre vonatkozik. A példa `true` értékkel állítja be a vízszintes kategóriatengelyen egy oszlopdiagram esetén, és elmenti az eredményt.
+## **Megjelenítési egység beállítása diagram értéktengelyen**
+
+Használja a [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) metódust az értéktengely címkéinek skálázásához az alapadatok módosítása nélkül. A [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) `Millions` értékre állításakor a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a függőleges tengelyen alkalmazza a milliók megjelenítési egységét.
 
 ```javascript
 var aspose = aspose || {};
@@ -382,9 +494,22 @@ try {
     presentation.dispose();
 }
 ```
-## **Megjelenítési egység beállítása diagram értéktengelyen**
 
-Használja a [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) függvényt az értéktengely címkéinek skálázásához anélkül, hogy a mögöttes adatokat módosítaná. A [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) `Millions` értékre állítva a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a milliók megjelenítési egységet alkalmazza a függőleges tengelyére.
+## **Logaritmikus értéktengely konfigurálása**
+
+Egy logaritmikus értéktengely akkor hasznos, ha a pozitív értékek több nagyságrendi rendet fednek le. Például egy szolgáltatás öt időszakban 10, 100, 1 000, 10 000 és 100 000 kérést kap. Lineáris skálán a kisebb értékek közel egymáshoz jelennek meg a nullához közel. A logaritmikus skála könnyebbé teszi a relatív növekedés összehasonlítását: az egyenlő távolságok egyenlő arányokat jelentenek, nem egyenlő különbségeket.
+
+Hívja a [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) metódust `true` értékkel az értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) metódust az alap kiválasztásához. Ez megváltoztatja a meglévő értékek megjelenítését; nem módosítja az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal egy illesztett kapcsolatot képvisel az adatokban, és külön funkció.
+
+### **Az értéktengely és az alap kiválasztása**
+
+Egy vonal- vagy oszlopdiagram esetén az értéktengely a [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) metódus által visszaadott. Vízszintes oszlopdiagram esetén a [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) metódus adja vissza. Szórt- és buborékdiagramok két értéktengellyel rendelkeznek, így az X értékekhez a vízszintes tengelyt, az Y értékekhez a függőleges tengelyt vagy mindkettőt válassza. Ne alkalmazzon logaritmikus skálázást kategóriatengelyen.
+
+Az alapértelmezett logaritmikus alap `10`. PPTX diagramoknál válasszon `2` és `1000` közötti (beszámítva) alapot; a törtalapú értékek, például `2.5` is támogatottak. A `10` alappal a sorozatos hatványok, mint 10, 100, 1 000 és 10 000 egyenlő távolságra vannak.
+
+### **Lineáris és logaritmikus skálázás összehasonlítása**
+
+A következő önálló példa egy vonaldiagramot hoz létre az öt kérés számával az első dián, majd lemásolja azt a slide-ot, és a másodikon 10-es alapú logaritmikus értéktengelyt engedélyez. Mindkét dia ugyanazt az adatot tartja.
 
 ```javascript
 var aspose = aspose || {};
@@ -415,7 +540,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Tartsd az első diát lineárisnak, és csak a másolat értéktengely skáláját változtasd meg.
+    // Az első diát lineárisnak hagyja, és csak a másolat értéktengelyének skáláját módosítsa.
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -427,38 +552,25 @@ try {
     presentation.dispose();
 }
 ```
-## **Logaritmikus értéktengely konfigurálása**
 
-Egy logaritmikus értéktengely akkor hasznos, ha a pozitív értékek több nagyságrendi egységet fednek le. Például egy szolgáltatás 10, 100, 1 000, 10 000 és 100 000 kérést kaphat öt időszakban. Lineáris skálán a kisebb értékek közel a nullához csoportosulnak. A logaritmikus skála a relatív növekedést könnyebben összehasonlíthatóvá teszi: az egyenlő távolságok egyenlő arányokat jelentenek, nem egyenlő különbségeket.
+**Lineáris skála (1. dia):** Azonos függőleges távolságok azonos kérés számú különbséget jelentik. A legnagyobb érték uralja a diagramot, a kisebb értékeket nehéz megkülönböztetni.
 
-Hívja a [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) `true` értékkel az értéktengelyen, és használja a [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/)‑t az alap kiválasztásához. Ez megváltoztatja a meglévő értékek megjelenítését; nem módosítja az adatokat, és nem ad hozzá logaritmikus trendvonalat. A trendvonal az adatokra illesztett kapcsolatot jelöli, és külön funkció.
+![Vonaldiagram PowerPointban, amely öt kérés számát mutatja lineáris értéktengelyen](value-axis-linear.png)
 
-### **Az értéktengely és az alap kiválasztása**
+**Logaritmikus skála (2. dia):** Azonos függőleges távolságok azonos arányt jelentenek. Minden periódus tízszer több kérést tartalmaz, mint az előző, ezért a pontok egy egyenes emelkedő vonalat alkotnak a 10-es alapú skálán. A tengelycímkék továbbra is az eredeti kérés számot mutatják.
 
-Vonal- vagy oszlopdiagram esetén az értéktengely a [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) függvény által visszaadott. Vízeletsszintű sávdiagramnál a [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) adja vissza. Szórt és buborékképeknél két értéktengely van, így válassza a vízszintes tengelyt az X értékekhez, a függőleges tengelyt az Y értékekhez, vagy mindkettőt. Ne alkalmazzon logaritmikus skálázást kategóriatengelyre.
-
-Az alapértelmezett logaritmikus alap `10`. PPTX diagramok esetén használjon `2` és `1000` közötti alapot, a határok beleértve; a törtközös alapok, például `2.5`, szintén támogatottak. `10` alap esetén a sorozatos hatványok, mint 10, 100, 1 000 és 10 000 egyenlő távolságra vannak.
-
-### **Lineáris és logaritmikus skálázás összehasonlítása**
-
-Az alábbi önálló példa egy vonaldiagramot hoz létre, amely az első dián az öt kérés számát tartalmazza, majd lemásolja azt a diát, és a második dián bekapcsol egy tízes alapú logaritmikus értéktengelyt. Mindkét dia ugyanazt az adatot tartja.
-
-**Lineáris skála (1. dia):** Az egyenlő függőleges távolságok egyenlő különbségeket jelentenek a kérés számában. A legnagyobb érték uralja a diagramot, így a kisebb értékek nehezen megkülönböztethetők.
-
-![Vonaldiagram PowerPointban, amely öt kérés számát mutatja lineáris értéktengellyel](value-axis-linear.png)
-
-**Logaritmikus skála (2. dia):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden időszak a előzőhöz képest tízszer több kérést tartalmaz, így a pontok egy egyenes, emelkedő vonalat alkotnak a tízes alapú skálán. A tengelycímkék továbbra is az eredeti kérés számát mutatják.
-
-![Ugyanaz az öt kérés szám PowerPointban tízes alapú logaritmikus értéktengellyel](value-axis-logarithmic.png)
+![Ugyanaz az öt kérés száma PowerPointban, 10-es alapú logaritmikus értéktengelyen](value-axis-logarithmic.png)
 
 ### **Nulla és negatív értékek kezelése**
 
-A logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat, mielőtt bekapcsolná. Ha a nulla vagy negatív értékek jelentősek, tartsa a lineáris skálát vagy mutassa őket külön. Ha ezeknek az értékeknek a kizárása megfelelő a elemzéshez, magyarázza el a kihagyást. Ne cserélje ki őket hallgatólagosan kis pozitív számokra, mert ez megváltoztatja az adatok jelentését. Bármely manuálisan konfigurált minimum vagy maximum logaritmikus tengelyhez szintén pozitív kell legyen.
+Egy logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat a bekapcsolás előtt. Ha a nulla vagy negatív értékek jelentősek, tartsa meg a lineáris skálát vagy jelenítse meg őket külön. Ha az értékek kizárása megfelelő az elemzéshez, magyarázza el a kihagyást. Ne cserélje őket hallgatólagosan kis pozitív számokra, mivel ez megváltoztatja az adatok jelentését. Bármely manuálisan beállított minimum vagy maximum egy logaritmikus tengelyen szintén pozitívnak kell legyen.
 
 ## **GYIK**
 
-**Hogyan állíthatom be, hogy egy tengely hol metszze a másikat (tengelymetszés)?**  
-Használja a [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) függvényt a metszési viselkedés kiválasztásához. Numerikus metszési érték megadásához használja a [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/)‑t. Ezek a beállítások lehetővé teszik, hogy a tengelymetszést egy megfelelő alapvonalra helyezzék.
+**Hogyan állítható be az a érték, ahol az egyik tengely a másikra metszi (tengelykereszteződés)?**
 
-**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez képest?**  
-Hívja a [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) függvényt a [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) értékével: `Low`, `High`, `NextTo` vagy `None`. A jelölőcsíkok magának a vezérléséhez használja a [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) vagy a [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) függvényt; ezek különállóak a címke pozícionálástól.
+Használja a [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) metódust a metszési viselkedés kiválasztásához. Numerikus metszési érték megadásához használja a [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) metódust. Ezek a beállítások lehetővé teszik a tengelykereszteződés elhelyezését egy megfelelő alapvonalra.
+
+**Hogyan helyezhetők el a jelölőcímkék a tengelyhez viszonylag?**
+
+Hívja a [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) metódust a [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) egyike: `Low`, `High`, `NextTo` vagy `None` használatával. A jelölőjelek saját beállításához használja a [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) vagy a [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) metódusokat; ezek különállóak a címkepozicionálástól.

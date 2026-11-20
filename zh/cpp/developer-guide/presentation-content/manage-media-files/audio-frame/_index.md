@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 管理演示文稿中的音频
+title: 使用 C++ 管理演示文稿中的音频帧
 linktitle: 音频帧
 type: docs
 weight: 10
@@ -14,276 +14,416 @@ keywords:
 - 提取音频
 - C++
 - Aspose.Slides
-description: "在 Aspose.Slides for C++ 中创建和控制音频帧——提供嵌入、裁剪、循环以及在 PPT、PPTX 和 ODP 演示文稿中配置播放的代码示例。"
+description: "使用 Aspose.Slides for C++ 在幻灯片中嵌入音频、更改音频图标、配置播放、管理 WebVTT 字幕，并提取幻灯片切换声音。"
 ---
+## **概述**
+
+音频帧允许您在幻灯片上播放声音。使用 Aspose.Slides for C++，您可以嵌入音频剪辑，选择其代表图像，调整播放方式，并附加字幕。您还可以检索分配给幻灯片切换的声音。
+
 ## **创建音频帧**
 
-Aspose.Slides for C++ 允许您向幻灯片添加音频文件。这些音频文件以音频帧的形式嵌入到幻灯片中。
+使用[AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/)在第一张幻灯片上嵌入本地音频剪辑。前两个坐标决定帧在幻灯片上的位置，后两个值设置宽度和高度，单位为点。此示例调用[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/)使剪辑自动开始播放，并调用[set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/)选择响亮的预设。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 加载您希望嵌入到幻灯片中的音频文件流。
-4. 将嵌入的音频帧（包含音频文件）添加到幻灯片中。
-5. 设置 [PlayMode](https://reference.aspose.com/slides/zh/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) 和由 [IAudioFrame](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.i_audio_frame) 对象公开的 `Volume`。
-6. 保存修改后的演示文稿。
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-以下 C++ 代码演示如何向幻灯片添加嵌入的音频帧：
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// 实例化一个表示演示文稿文件的 Presentation 类
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// 获取第一张幻灯片
-auto sld = pres->get_Slides()->idx_get(0);
-
-// 加载 wav 音频文件到流
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// 添加音频帧
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// 设置音频的播放模式和音量
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// 将 PowerPoint 文件写入磁盘
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **更改音频帧缩略图**
 
-当您向演示文稿添加音频文件时，音频会以带有标准默认图像的帧形式显示（请参阅下节中的图像）。您可以更改音频帧的缩略图（设置您喜欢的图像）。
-
-以下 C++ 代码演示如何更改音频帧的缩略图或预览图像：
+默认情况下，音频帧显示扬声器图标。若要显示自定义缩略图，请使用[AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/)将图像添加到演示文稿，然后使用[set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/)将其设为帧的图片。示例使用 JPEG 作为嵌入音频剪辑的缩略图。
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// 向幻灯片添加音频帧，并指定位置和大小。
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// 向演示文稿资源添加图像。
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// 为音频帧设置图像。
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-// 将修改后的演示文稿保存到磁盘
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **更改音频播放选项**
 
-Aspose.Slides for C++ 允许您更改控制音频播放或属性的选项。例如，您可以调整音频的音量、将音频设为循环播放，甚至隐藏音频图标。
+PowerPoint 的**音频选项**控件决定剪辑何时开始、音量大小以及在幻灯片放映过程中的行为。
 
-Microsoft PowerPoint 中的 **音频选项** 窗格：
+![音频帧的 PowerPoint 音频选项控件](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控件 | Aspose.Slides for C++ 方法 |
+| --- | --- |
+| 开始 | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| 音量预设 | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| 跨幻灯片播放 | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| 循环直到停止 | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| 演示期间隐藏 | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| 播放后倒回 | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| 淡入 | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| 淡出 | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| 修剪音频开始时间 | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| 修剪音频结束时间 | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| 音量滑块 | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-与 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/) 方法对应的 PowerPoint **音频选项**：
-
-- **开始** 下拉列表对应 [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_playmode/) 方法
-- **音量** 对应 [AudioFrame::set_Volume](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_volume/) 方法
-- **跨幻灯片播放** 对应 [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_playacrossslides/) 方法
-- **循环直到停止** 对应 [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_playloopmode/) 方法
-- **演示时隐藏** 对应 [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_hideatshowing/) 方法
-- **播放后倒带** 对应 [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_rewindaudio/) 方法
-
-PowerPoint **编辑** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/) 的属性：
-
-- **淡入** 对应 [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_fadeinduration/) 方法
-- **淡出** 对应 [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_fadeoutduration/) 方法
-- **裁剪音频开始时间** 对应 [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_trimfromstart/) 方法
-- **裁剪音频结束时间** 的值等于音频时长减去 [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_trimfromend/) 方法的值
-
-PowerPoint 音频控制面板上的 **音量控制** 对应 [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_volumevalue/) 方法。它允许您以百分比方式更改音频音量。
-
-以下是更改音频播放选项的方法：
-
-1. [创建](#creating-audio-frame) 或获取音频帧。
-2. 为您想要调整的音频帧属性设置新值。
-3. 保存修改后的 PowerPoint 文件。
-
-以下 C++ 代码演示如何调整音频选项的操作：
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// 获取一个形状
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// 将形状转换为 AudioFrame 形状
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// 将播放模式设置为单击播放
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// 将音量设置为低
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// 设置音频跨幻灯片播放
-audioFrame->set_PlayAcrossSlides(true);
-
-// 禁用音频循环
-audioFrame->set_PlayLoopMode(false);
-
-// 在放映期间隐藏 AudioFrame
-audioFrame->set_HideAtShowing(true);
-
-// 播放后将音频倒带至开始
-audioFrame->set_RewindAudio(true);
-
-// 将 PowerPoint 文件保存到磁盘
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-以下 C++ 示例展示如何添加带嵌入音频的新音频帧、对其进行裁剪并设置淡入淡出时长：
+示例查找第一张幻灯片上的第一个音频帧，调用[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/)使其在点击时开始播放，并选择低音量预设。剪辑跨幻灯片连续播放，且未启用循环。图标在演示期间保持隐藏，剪辑在播放完毕后倒回。
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+对于时长超过 3.5 秒的剪辑，示例跳过前 1.5 秒和后 2 秒。[set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) 的参数指定要从剪辑末尾省略的时长。要获取 PowerPoint 中显示的结束时间，只需从完整剪辑时长中减去该偏移量。修剪后的剪辑在 200 毫秒内淡入，在 500 毫秒内淡出。所有四个 setter 的单位均为毫秒。
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-以下代码示例展示如何检索带嵌入音频的音频帧并将其音量设置为 85%：
+要将播放音量设置为特定百分比，请使用[set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/)。此示例将第一张幻灯片上第一个音频帧的音量设置为 85%。
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// 获取音频帧形状
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// 将音频音量设置为 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
 ```
 
 ## **管理音频字幕**
 
-Aspose.Slides 允许您通过 [get_CaptionTracks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iaudioframe/get_captiontracks/) 方法向音频帧添加闭合字幕。此方法返回一个 [ICaptionsCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icaptionscollection/)，您可以使用它添加 WebVTT 字幕轨道、遍历现有轨道，并在需要时将其移除。
+每个音频帧通过[get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/)暴露其字幕集合。您可以使用它为剪辑附加 WebVTT 字幕，导出现有轨道，或将其移除。
 
 ### **添加音频字幕**
 
-使用 [get_CaptionTracks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iaudioframe/get_captiontracks/) 方法将一个或多个字幕轨道附加到音频帧。以下示例中，先向幻灯片添加音频文件，然后从 `.vtt` 文件加载新的字幕轨道。
+示例在第一张幻灯片上嵌入音频剪辑，并使用[ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/)附加本地 WebVTT 轨道。第一个参数提供轨道标签，第二个参数标识包含时间字幕的文件。
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ### **提取音频字幕**
 
-您可以遍历与音频帧关联的字幕轨道并将其保存为 `.vtt` 文件。每个字幕轨道都暴露其二进制数据和唯一标识符，可在导出字幕时使用。
+此示例导出第一张幻灯片上音频帧的每个字幕轨道。它将[get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/)返回的字节写入 WebVTT 文件，并使用[get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/)返回的值作为文件名，以便每个轨道拥有单独的输出。
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **删除音频字幕**
+
+使用[Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/)或[RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/)删除单个轨道。示例使用[Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/)在保留剪辑的前提下，移除第一张幻灯片上第一个音频帧的所有字幕。
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **在音频字幕中查找行**
+
+要在第一张幻灯片的音频字幕中查找某行，请对每个轨道调用[get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/)读取其 WebVTT 文本。对于纯文本的 WebVTT 提示，时间行包含`-->`，字幕行跟随其后，空行结束提示。示例打印轨道标签及每个包含“café”的字幕行。
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // 将每个字幕轨道保存为 .vtt 文件。
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-### **移除音频字幕**
-
-要从音频帧中移除字幕，请使用 [ICaptionsCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icaptionscollection/) 提供的方法，例如 [Clear](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icaptionscollection/clear/)、[Remove](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icaptionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icaptionscollection/removeat/)。下面的示例移除音频帧中的所有字幕轨道。
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// 删除音频帧中的所有字幕轨道。
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **提取音频**
 
-Aspose.Slides 允许您提取幻灯片放映转场使用的声音。例如，您可以提取特定幻灯片使用的声音。
+幻灯片切换可以拥有独立的声音。要检索它，请在切换上调用[get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/)。示例使用[get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/)获取音频字节并打印字节数。如果第一张幻灯片没有切换声音，则打印相应提示。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例并加载包含音频的演示文稿。
-2. 通过索引获取相关幻灯片的引用。
-3. 访问该幻灯片的放映转场。
-4. 提取音频的字节数据。
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-以下 C++ 代码演示如何提取幻灯片中使用的音频：
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// 实例化一个表示演示文稿文件的 Presentation 类
-auto pres = System::MakeObject<Presentation>(presName);
-
-// 访问所需的幻灯片
-auto slide = pres->get_Slides()->idx_get(0);
-
-// 获取幻灯片的放映过渡效果
-auto transition = slide->get_SlideShowTransition();
-
-// 将声音提取为字节数组
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **常见问题**
+## **FAQ**
 
-**我可以在多个幻灯片中复用同一音频资源而不会增大文件大小吗？**
+**我可以在多张幻灯片上重复使用同一个音频剪辑而不进行复制吗？**
 
-可以。将音频一次性添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_audios/) 中，然后创建引用该资产的其他音频帧。这样可避免媒体数据重复，保持演示文稿大小受控。
+可以。先将剪辑添加到演示文稿的[audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/)，然后在每张幻灯片上将同一音频对象传递给[AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/)。
 
-**我可以在不重新创建形状的情况下替换现有音频帧中的声音吗？**
+**我可以替换现有音频帧中的声音吗？**
 
-可以。对于链接的声音，更新 [link path](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_linkpathlong/) 以指向新文件。对于嵌入的声音，将 [embedded audio](https://reference.aspose.com/slides/zh/cpp/aspose.slides/audioframe/set_embeddedaudio/) 对象替换为演示文稿的另一个 [audio collection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_audios/) 中的音频。帧的格式和大多数播放设置保持不变。
+可以。对于链接声音，使用[set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/)并提供替换文件的路径。对于嵌入声音，向[set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/)传入演示文稿音频集合中的另一剪辑。两种方式都会保留已有帧。
 
-**裁剪会改变演示文稿中存储的底层音频数据吗？**
+**修剪会改变演示文稿中存储的音频数据吗？**
 
-不会。裁剪仅调整播放范围。原始音频字节保持不变，可通过嵌入音频或演示文稿的音频集合访问。
+不会。[set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/)和[set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/)仅设置播放边界。您仍然可以通过[get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/)检索完整剪辑。

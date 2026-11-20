@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理簡報的音訊框架
+title: 管理 .NET 簡報中的音訊框架
 linktitle: 音訊框架
 type: docs
 weight: 10
@@ -15,281 +15,278 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中建立與控制音訊框架——提供 C# 範例，示範嵌入、修剪、迴圈以及在 PPT、PPTX 與 ODP 簡報中設定播放。"
+description: "在投影片中嵌入音訊、更改音訊圖示、設定播放、管理 WebVTT 字幕，並使用 Aspose.Slides for .NET 擷取投影片轉場聲音。"
 ---
-## **概觀**
+## **概述**
 
-本文說明了如何在 Aspose.Slides 中使用音訊框架。它展示了如何將嵌入式音訊新增至投影片、自訂音訊框架的縮圖、設定播放選項（例如音量、迴圈、隱藏、修剪與淡入淡出時間），以及如何擷取在投影片放映過程中使用的音訊。
+音訊框架讓您在投影片上播放聲音。使用 Aspose.Slides for .NET，您可以嵌入音訊剪輯、選擇代表它的圖像、調整播放方式，並附加字幕。您也可以取得指派給投影片轉場的聲音。
 
 ## **建立音訊框架**
 
-Aspose.Slides for .NET 允許您將音訊檔案新增至投影片。音訊檔案會以音訊框架的形式嵌入於投影片中。
+使用 [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) 在第一張投影片上嵌入本機音訊剪輯。前兩個座標定位框架於投影片上，接下來的兩個值以點為單位設定寬度與高度。本範例將 [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) 設為自動開始剪輯，並將 [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) 設為大聲預設。
 
-1. 建立 [Presentation ](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation)類別的實例。
-2. 透過索引取得投影片的參照。
-3. 載入您想要嵌入至投影片的音訊檔案資料流。
-4. 將嵌入式音訊框架（包含音訊檔案）新增至投影片。
-5. 設定由 [IAudioFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe) 物件公開的 [PlayMode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioplaymodepreset) 與 `Volume`。
-6. 儲存已修改的簡報。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-以下 C# 程式碼示範如何將嵌入式音訊框架新增至投影片：
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// 實例化一個代表簡報檔案的 Presentation 類別
-using (Presentation pres = new Presentation())
-{
-    // 取得第一張投影片
-    ISlide sld = pres.Slides[0];
-    
-    // 將 wav 音訊檔載入為資料流
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // 加入音訊框架
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
-
-    // 設定音訊的播放模式與音量
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // 將 PowerPoint 檔案寫入磁碟
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **變更音訊框架縮圖**
 
-當您將音訊檔案新增至簡報時，音訊會以帶有預設標準圖像的框架顯示（請參見下方圖片）。您可以變更音訊框架的縮圖（設定您偏好的圖像）。
+預設情況下，音訊框架會顯示揚聲器圖示。若要顯示自訂縮圖，請使用 [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) 將影像加入簡報，並將其指派給框架的 [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/) 屬性。此範例使用 JPEG 作為嵌入音訊剪輯的縮圖。
 
-以下 C# 程式碼示範如何變更音訊框架的縮圖或預覽圖像：
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 在投影片上加入音訊框架，並指定位置和大小。
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // 將影像加入簡報資源。
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
 
-    // 設定音訊框架的影像。
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-	
-	//將已修改的簡報儲存到磁碟
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **變更音訊播放選項**
 
-Aspose.Slides for .NET 允許您變更控制音訊播放或屬性的選項。例如，您可以調整音訊音量、將音訊設定為循環播放，甚至隱藏音訊圖示。
+PowerPoint 的 **Audio Options** 控制項決定剪輯何時開始、音量多大，以及在投影片放映期間的行為。
 
-Microsoft PowerPoint 中的 **Audio Options** 面板：
+![PowerPoint 音訊選項控制項（音訊框架）](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控制項 | Aspose.Slides 屬性 |
+| --- | --- |
+| 開始 | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| 音量預設 | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| 跨投影片播放 | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| 持續迴圈直到停止 | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| 在放映期間隱藏 | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| 播放後倒帶 | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| 淡入 | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| 淡出 | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| 剪輯音訊開始時間 | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| 剪輯音訊結束時間 | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| 音量滑桿 | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options** 對應 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe) 屬性：
+此範例在第一張投影片上找到第一個音訊框架，將 [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) 設為點擊時開始播放，並選取低音量預設。剪輯在投影片間持續播放，且未啟用迴圈。圖示在放映期間保持隱藏，且剪輯在播放後倒帶。
 
-- **Start** 下拉選單對應 [AudioFrame.PlayMode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/playmode) 屬性
-- **Volume** 對應 [AudioFrame.Volume](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/volume) 屬性
-- **Play Across Slides** 對應 [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/playacrossslides) 屬性
-- **Loop until Stopped** 對應 [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/playloopmode) 屬性
-- **Hide During Show** 對應 [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/hideatshowing) 屬性
-- **Rewind after Playing** 對應 [AudioFrame.RewindAudio](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/properties/rewindaudio) 屬性
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-PowerPoint **Editing** 選項對應 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe) 屬性：
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-- **Fade In** 對應 [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/fadeinduration/) 屬性
-- **Fade Out** 對應 [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/fadeoutduration/) 屬性
-- **Trim Audio Start Time** 對應 [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/trimfromstart/) 屬性
-- **Trim Audio End Time** 值等於音訊總長度減去 [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/trimfromend/) 屬性的值
-
-PowerPoint 音訊控制面板上的 **Volume controll**（音量控制）對應 [AudioFrame.VolumeValue](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/volumevalue/) 屬性。它允許您以百分比調整音訊音量。
-
-以下說明如何變更音訊播放選項：
-
-1. [Сreate](#create-audio-frame) 或取得音訊框架。
-2. 為您想調整的音訊框架屬性設定新值。
-3. 儲存已修改的 PowerPoint 檔案。
-
-以下 C# 程式碼示範調整音訊選項的操作：
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // 取得 AudioFrame 形狀
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // 將播放模式設定為點擊時播放
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // 將音量設定為低
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // 將音訊設定為跨投影片播放
-    audioFrame.PlayAcrossSlides = true;
-
-    // 停用音訊的迴圈
-    audioFrame.PlayLoopMode = false;
-
-    // 在投影片放映時隱藏 AudioFrame
-    audioFrame.HideAtShowing = true;
-
-    // 播放後將音訊倒回至開始位置
-    audioFrame.RewindAudio = true;
-
-    // 將 PowerPoint 檔案儲存至磁碟
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-以下 C# 範例展示如何新增帶嵌入式音訊的音訊框架、修剪它，並設定淡入淡出時間：
+對於長度超過 3.5 秒的剪輯，此範例會跳過前 1.5 秒與最後 2 秒。[TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) 量測要從剪輯結尾省略的時間長度。要取得 PowerPoint 顯示的結束時間，請將該偏移量從完整剪輯時長中減去。修剪後的剪輯在 200 毫秒內淡入，並在 500 毫秒內淡出。所有四個屬性的值皆以毫秒為單位。
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 設定修剪開始偏移為 1.5 秒
-    audioFrame.TrimFromStart = 1500f;
-    // 設定修剪結束偏移為 2 秒
-    audioFrame.TrimFromEnd = 2000f;
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    // 設定淡入持續時間為 200 毫秒
-    audioFrame.FadeInDuration = 200f;
-    // 設定淡出持續時間為 500 毫秒
-    audioFrame.FadeOutDuration = 500f;
-
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-以下程式碼範例說明如何取得帶嵌入式音訊的音訊框架，並將其音量設為 85%：
+若要將播放音量設定為特定百分比，請使用 [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/)。此範例將第一張投影片上的第一個音訊框架設定為 85%。
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // 取得音訊框架形狀
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // 設定音訊音量為 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **管理音訊字幕**
 
-Aspose.Slides 允許您透過 [CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iaudioframe/captiontracks/) 屬性為音訊框架新增閉合字幕。此屬性會回傳一個 [ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/)，讓您新增 WebVTT 字幕軌、遍歷現有軌道，並在需要時將其移除。
+每個音訊框架都有一個 [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) 集合。可使用它將 WebVTT 字幕附加到剪輯、匯出現有軌道，或將其移除。
 
-**新增音訊字幕**
+### **新增音訊字幕**
 
-使用 [CaptionTracks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iaudioframe/captiontracks/) 屬性將一條或多條字幕軌附加到音訊框架。以下範例先將音訊檔案新增至投影片，接著從 `.vtt` 檔案載入新的字幕軌。
+此範例在第一張投影片嵌入音訊剪輯，並使用 [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) 附加本機 WebVTT 軌道。第一個參數提供軌道標籤，第二個參數指定包含時間字幕的檔案。
 
-```cs
-using (Presentation presentation = new Presentation())
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
+
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+```
+
+### **擷取音訊字幕**
+
+此範例匯出附加於第一張投影片音訊框架的每個字幕軌道。它將軌道的 [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) 寫入 WebVTT 檔案，並以其 [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) 作為檔名，使每個軌道都有單獨的輸出。
+
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
-
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // 從 WebVTT 檔案新增一條字幕軌道。
-    audioFrame.CaptionTracks.Add("New track", "track.vtt");
-
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+    foreach (var track in audioFrame.CaptionTracks)
+    {
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
 }
 ```
 
-**擷取音訊字幕**
+### **移除音訊字幕**
 
-您可以遍歷與音訊框架關聯的字幕軌，並將其儲存為 `.vtt` 檔案。每條字幕軌會公開其二進位資料與唯一識別碼，可於匯出字幕時使用。
+使用 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/) 刪除個別軌道。此範例使用 [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) 移除第一張投影片上第一個音訊框架的所有字幕，同時保留剪輯。
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **在音訊字幕中尋找行**
+
+若要在第一張投影片的音訊字幕中尋找行，請於記憶體中讀取每個軌道的 [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/)。在純文字 WebVTT 提示中，時間行包含 `-->`，字幕行跟在其後，空白行則結束提示。此範例輸出軌道標籤以及每一行包含 “café” 的字幕。
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // 將字幕軌道儲存為 .vtt 檔案。
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-**移除音訊字幕**
-
-若要從音訊框架移除字幕，可使用 [ICaptionsCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/) 提供的方法，例如 [Clear](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/clear/)、[Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/remove/)，或 [RemoveAt](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icaptionscollection/removeat/)。以下範例會移除音訊框架中的所有字幕軌。
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // 移除音訊框架中的所有字幕軌道。
-    audioFrame.CaptionTracks.Clear();
-
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **擷取音訊**
 
-Aspose.Slides for .NET 允許您擷取投影片放映過渡時使用的音效。例如，您可以擷取特定投影片所使用的音效。
+投影片轉場可以有自己的聲音。若要取得它，請讀取轉場的 [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) 屬性。此範例存取聲音的 [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) 並輸出其位元組大小。若第一張投影片沒有轉場聲音，則會改為輸出訊息。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation)類別的實例，並載入包含音訊的簡報。
-2. 透過索引取得相關投影片的參照。
-3. 存取該投影片的投影片放映過渡設定。
-4. 以位元組資料形式擷取音效。
+```csharp
+using System;
+using Aspose.Slides;
 
-以下 C# 程式碼示範如何擷取投影片中使用的音訊：
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-string presName = "AudioSlide.pptx";
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// 實例化一個代表簡報檔案的 Presentation 類別
-Presentation pres = new Presentation(presName);
-
-// 取得投影片
-ISlide slide = pres.Slides[0];
-
-// 取得投影片的投影片放映過渡效果
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//Extracts the sound in byte array
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
 ## **常見問題**
 
-**我可以在多張投影片重複使用相同的音訊資產而不會增大檔案大小嗎？**
+**我可以在多張投影片之間重複使用相同的音訊剪輯而不會重複嗎？**
 
-是的。只需將音訊一次加入簡報的共用 [audio collection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/audios/)，然後建立其他參考該現有資產的音訊框架。這樣可避免重複媒體資料，保持簡報大小可控。
+是的。將剪輯一次加入簡報的 [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) ，然後對每張投影片呼叫 [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) 並傳入相同的音訊物件。
 
-**我可以在不重新建立形狀的情況下替換現有音訊框架中的音效嗎？**
+**我可以取代現有音訊框架中的聲音嗎？**
 
-是的。對於連結音訊，更新 [link path](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/linkpathlong/) 以指向新檔案。對於嵌入式音訊，將 [embedded audio](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/audioframe/embeddedaudio/) 物件替換為簡報的 [audio collection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/audios/) 中的其他音訊。框架的格式與大多數播放設定將保持不變。
+是的。對於連結的聲音，更新 [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/) 以指向取代的檔案。對於嵌入的聲音，將簡報音訊集合中的另一個剪輯指派給 [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/)。兩種方式皆保留現有框架。
 
-**修剪會改變簡報中儲存的底層音訊資料嗎？**
+**剪輯會改變簡報中存儲的音訊資料嗎？**
 
-不會。修剪僅調整播放範圍，原始音訊位元不會被修改，仍可透過嵌入式音訊或簡報的 audio collection 存取。
+不會。[TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) 與 [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) 設定播放邊界。您仍可從 [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/) 取得完整剪輯。

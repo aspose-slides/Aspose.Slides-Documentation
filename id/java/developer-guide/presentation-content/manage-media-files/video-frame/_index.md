@@ -1,37 +1,37 @@
 ---
-title: "Kelola Bingkai Video dalam Presentasi Menggunakan Java"
-linktitle: "Bingkai Video"
+title: Kelola Frame Video dalam Presentasi Menggunakan Java
+linktitle: Frame Video
 type: docs
 weight: 10
 url: /id/java/video-frame/
 keywords:
-- "menambahkan video"
-- "membuat video"
-- "menyematkan video"
-- "mengekstrak video"
-- "mengambil video"
-- "bingkai video"
-- "sumber web"
-- "PowerPoint"
-- "OpenDocument"
-- "presentasi"
-- "Java"
-- "Aspose.Slides"
-description: "Pelajari cara menambahkan dan mengekstrak bingkai video secara programatik pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java. Panduan cepat cara melakukannya."
+- menambahkan video
+- membuat video
+- menyematkan video
+- mengekstrak video
+- mengambil video
+- frame video
+- sumber web
+- PowerPoint
+- OpenDocument
+- presentasi
+- Java
+- Aspose.Slides
+description: "Pelajari cara menambahkan dan mengekstrak frame video secara programatik dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java. Panduan cepat cara melakukan."
 ---
 ## **Pendahuluan**
 
-Video dapat membantu menjelaskan ide dan melibatkan audiens. Aspose.Slides untuk Java memungkinkan Anda menambahkan bingkai video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang disematkan.
+Video dapat membantu menjelaskan ide dan menarik perhatian audiens. Aspose.Slides untuk Java memungkinkan Anda menambahkan frame video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang disematkan.
 
 PowerPoint mendukung video lokal dan tautan ke video daring, seperti video YouTube.
 
-Untuk merepresentasikan data video dan bingkai video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) antarmuka [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) dan tipe relevan lainnya.
+Untuk merepresentasikan data video dan frame video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , antarmuka [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) , dan tipe relevan lainnya.
 
-## **Buat Bingkai Video yang Disematkan**
+## **Buat Frame Video Tersemat**
 
-Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat bingkai video untuk menyematkan video ke dalam presentasi Anda.
+Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat frame video untuk menyematkan video dalam presentasi Anda.
 
-Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang ada dan menyimpan hasilnya. Koordinat dan dimensi bingkai dalam satuan poin. Aliran tetap terbuka sampai penyimpanan selesai karena [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) menjaga aliran tetap terkunci saat presentasi menggunakannya.
+Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang ada dan menyimpan hasilnya. Koordinat dan dimensi frame dalam satuan point. Stream tetap terbuka sampai proses penyimpanan selesai karena [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) menguncinya selama presentasi menggunakannya.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-## **Buat Bingkai Video dengan Video dari Sumber Web**
+## **Buat Frame Video dengan Video dari Sumber Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat bingkai video yang menautkan ke video daring, seperti video YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat frame video yang terhubung ke video daring, seperti video YouTube.
 
-Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti pengidentifikasi video untuk menggunakan video lain. Metode [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
+Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti identifier video untuk menggunakan video lain. Metode [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
 
 ```java
 import com.aspose.slides.*;
@@ -102,9 +102,9 @@ try {
 
 ## **Putar Video dalam Mode Layar Penuh**
 
-Dalam presentasi pelatihan, Anda dapat memutar demonstrasi perangkat lunak dalam mode layar penuh agar audiens dapat melihat detailnya. Panggil [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) dengan `true` untuk mengaktifkan perilaku ini selama pemutaran.
+Dalam presentasi pelatihan, Anda dapat memutar demonstrasi perangkat lunak dalam mode layar penuh sehingga audiens dapat melihat detailnya. Panggil [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) dengan `true` untuk mengaktifkan perilaku ini selama pemutaran.
 
-Contoh ini membuka sebuah presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi masukan harus berisi setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi input harus berisi setidaknya satu slide dengan frame video yang ada pada slide pertama.
 
 ```java
 import com.aspose.slides.*;
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-Pemutaran layar penuh mengontrol bagaimana video ditampilkan. Secara terpisah, [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) mengontrol apakah video dimulai secara otomatis atau saat diklik, dan [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) mengontrol apakah video berulang. Untuk memilih perilaku awal, atur mode pemutaran ke [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan start dan loop yang ada.
+Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) mengontrol apakah video dimulai otomatis atau pada klik, dan [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) mengontrol apakah video mengulang. Untuk memilih perilaku awal, atur mode pemutaran ke [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan awal dan pengulangan yang ada.
 
 ## **Mundurkan Video Setelah Pemutaran**
 
-Dalam presentasi pelatihan, mengembalikan video demonstrasi ke awalnya membuatnya siap bagi presenter untuk memutar lagi. Panggil [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) dengan `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
+Dalam presentasi pelatihan, mengembalikan video demonstrasi ke awal membuatnya siap untuk diputar lagi oleh presenter. Panggil [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) dengan `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
 
-Contoh ini membuka sebuah presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan mundur. Ia menonaktifkan looping sehingga pemutaran dapat selesai dan mengatur pemutaran untuk dimulai saat diklik. Presentasi masukan harus berisi setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemunduran. Ia menonaktifkan pengulangan sehingga pemutaran dapat selesai dan mengatur pemutaran untuk dimulai pada klik. Presentasi input harus berisi setidaknya satu slide dengan frame video yang ada pada slide pertama.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-Munduran mengembalikan video ke awalnya tanpa memulai lagi. Sebaliknya, memanggil [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) dengan `true` akan mengulang pemutaran secara otomatis. Biarkan looping dinonaktifkan ketika Anda menginginkan video selesai dan tetap siap diputar ulang. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) secara terpisah mengontrol pemutaran otomatis atau saat diklik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) sehingga presenter mengontrol kapan pemutaran dimulai. Atur mode pemutaran setelah pengaturan loop, seperti yang ditunjukkan dalam contoh. Munduran bekerja secara independen dari [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Pemunduran mengembalikan video ke awal tanpa memulai kembali. Sebaliknya, memanggil [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) dengan `true` mengulang pemutaran secara otomatis. Biarkan pengulangan nonaktif ketika Anda menginginkan video selesai dan tetap siap diputar kembali. [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) secara terpisah mengontrol pemutaran otomatis atau pada klik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) sehingga presenter yang mengontrol kapan pemutaran dimulai. Atur mode pemutaran setelah pengaturan pengulangan, seperti yang ditunjukkan dalam contoh. Pemunduran berfungsi terpisah dari [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Potong Bingkai Video**
+## **Potong Frame Video**
 
-Gunakan [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) dan [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) untuk melewati bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemotongan mengubah pengaturan pemutaran tanpa memodifikasi data video yang disematkan.
+Gunakan [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) dan [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) untuk melewatkan bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemotongan mengubah pengaturan pemutaran tanpa memodifikasi data video yang disematkan.
 
 **Atur Pengaturan Pemotongan**
 
-Contoh ini menyematkan video lokal dan melewati 2,5 detik pertama serta satu detik terakhir selama pemutaran. Gunakan video yang lebih lama dari 3,5 detik agar segmen yang dapat diputar tetap ada.
+Contoh ini menyematkan video lokal dan melewatkan 2,5 detik pertama serta 1 detik terakhir selama pemutaran. Gunakan video yang lebih panjang dari 3,5 detik agar segmen yang dapat diputar tetap ada.
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **Baca Pengaturan Pemotongan**
 
-Contoh ini mencetak nilai pemotongan dari bingkai video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki bingkai video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
+Contoh ini mencetak nilai pemotongan dari frame video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki frame video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **Kelola Caption Video**
 
-Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk bingkai video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk frame video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Tambahkan Caption ke Bingkai Video**
+### **Tambahkan Caption ke Frame Video**
 
-Contoh ini menyematkan video lokal dan menambahkan trek caption WebVTT berlabel English. Stempel waktu caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan caption-nya.
+Contoh ini menyematkan video lokal dan menambahkan track caption WebVTT berlabel English. Timestamp caption harus cocok dengan video. Presentasi yang disimpan mencakup video beserta captionnya.
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-Antarmuka [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari aliran.
+Antarmuka [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari stream.
 
-**Ekstrak Caption dari Bingkai Video**
+### **Ekstrak Caption dari Frame Video**
 
-Contoh ini menyimpan semua trek caption dari bingkai video pada slide pertama sebagai file WebVTT terpisah. Nomor urut menjaga file output tetap berbeda. Konsol melaporkan jumlah trek yang diekstrak. Presentasi harus berisi setidaknya satu slide.
+Contoh ini menyimpan semua track caption dari frame video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga file output tetap berbeda. Konsol melaporkan jumlah track yang diekstrak. Presentasi harus berisi setidaknya satu slide.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-Setiap objek [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) mengekspos pengidentifikasi caption, label, data biner, dan teks caption sebagai string UTF-8.
+Setiap objek [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF-8.
 
-**Hapus Caption dari Bingkai Video**
+### **Hapus Caption dari Frame Video**
 
-Contoh ini menghapus semua caption dari bingkai video pada posisi shape pertama di slide pertama dan menyimpan hasilnya. Contoh mengasumsikan slide dan shape ada serta shape tersebut merupakan bingkai video.
+Contoh ini menghapus semua caption dari frame video pada posisi shape pertama di slide pertama dan menyimpan hasilnya. Asumsinya slide dan shape ada serta shape tersebut adalah frame video.
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-Jika Anda perlu menghapus hanya satu trek caption, gunakan metode [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) atau [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) alih-alih [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
+Jika Anda hanya perlu menghapus satu track caption, gunakan metode [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) atau [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) alih-alih [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) .
+
+### **Cari Caption Video**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) mengembalikan track WebVTT lengkap, termasuk header, baris waktu, dan teks caption. Anda dapat mencari cue dalam memori untuk menemukan frasa yang diucapkan beserta timestampnya. Misalnya, track bahasa Inggris pada slide 2 mungkin berisi teks berikut.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Contoh ini membuka `captioned_media.pptx` dan menggunakan [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) untuk membaca track dari setiap frame video tingkat atas pada setiap slide. Pada cue teks biasa, baris waktu berisi `-->`, dan baris kosong mengakhiri cue. Ketika caption berisi “café” dalam huruf apa pun, contoh ini mencetak nomor slide, label track, baris waktu asli, dan caption lengkap.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Mencari “café” menghasilkan satu kecocokan untuk track contoh. Pencarian mengecualikan header track dan mempertahankan pengaturan waktu dalam output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Ekstrak Video dari Slide**
 
 Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang disematkan dalam presentasi.
 
-Contoh ini mengekstrak video yang disematkan dari setiap slide menjadi file biner terpisah dengan nomor. Video yang ditautkan dilewati karena tidak memiliki data yang disematkan. Konsol mencetak tipe MIME tiap video dan total jumlahnya. Output menggunakan ekstensi umum `.bin`; ubah sesuai tipe media yang dilaporkan bila diperlukan.
+Contoh ini mengekstrak video yang disematkan dari setiap slide ke dalam file biner terpisah yang bernomor. Video yang ditautkan dilewati karena tidak memiliki data tersemat. Konsol mencetak tipe MIME setiap video dan total jumlahnya. Output menggunakan ekstensi `.bin` generik; ubah sesuai tipe media yang dilaporkan bila diperlukan.
 
 ```java
 import com.aspose.slides.*;
@@ -344,19 +409,19 @@ try {
 }
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Parameter pemutaran video apa yang dapat diubah untuk bingkai video?**
+**Parameter pemutaran video apa yang dapat diubah untuk sebuah frame video?**
 
-Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (otomatis atau saat klik) dan [pengulangan](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Opsi-opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) .
+Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (otomatis atau pada klik) dan [pengulangan](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Opsi-opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) .
 
 **Apakah menambahkan video memengaruhi ukuran file PPTX?**
 
-Ya. Ketika Anda menyematkan video lokal, data biner disertakan dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Ketika Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
+Ya. Saat Anda menyematkan video lokal, data biner dimasukkan ke dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Saat Anda menautkan ke video daring dan menambahkan thumbnail, presentasi hanya menyimpan tautan dan gambar pratinjau, bukan data video, sehingga peningkatan ukuran biasanya lebih kecil.
 
-**Bisakah saya mengganti video dalam bingkai video yang ada tanpa mengubah posisi dan ukurannya?**
+**Bisakah saya mengganti video dalam frame video yang ada tanpa mengubah posisi dan ukurannya?**
 
-Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) dalam bingkai sambil mempertahankan geometri shape; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang ada.
+Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) di dalam frame sambil mempertahankan geometri shape; ini adalah skenario umum untuk memperbarui media dalam tata letak yang sudah ada.
 
 **Apakah tipe konten (MIME) dari video yang disematkan dapat ditentukan?**
 

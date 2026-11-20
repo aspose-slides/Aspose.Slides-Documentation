@@ -1,5 +1,5 @@
 ---
-title: Hantera ljud i presentationer med JavaScript
+title: Hantera ljudramar i presentationer med JavaScript
 linktitle: Ljudram
 type: docs
 weight: 10
@@ -15,236 +15,308 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Skapa och kontrollera ljudramar i Aspose.Slides för Node.js—exempel för att bädda in, trimma, loopa och konfigurera uppspelning i PPT-, PPTX- och ODP-presentationer."
+description: "Bädda in ljud i bilder, ändra ljudikonen, konfigurera uppspelning, hantera WebVTT-textning och extrahera ljud för bildövergångar med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du arbetar med ljudramar i Aspose.Slides. Den visar hur du lägger till inbäddat ljud i bilder, anpassar miniatyrbilden för ljudramen, konfigurerar uppspelningsalternativ såsom volym, loopning, döljande, trimning och fade‑varaktigheter, samt extraherar ljud som används i bildspelsövergångar.
+En ljudram gör att du kan spela upp ett ljud på en bild. Med Aspose.Slides för Node.js via Java kan du bädda in ett ljudklipp, välja bilden som representerar det, justera uppspelning och bifoga bildtexter. Du kan också hämta ett ljud som är tilldelat en bildövergång.
 
 ## **Skapa ljudramar**
 
-Aspose.Slides för Node.js via Java låter dig lägga till ljudfiler i bilder. Ljudfilerna bäddas in i bilder som ljudramar.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Läs in ljudfilens ström som du vill bädda in i bilden.
-4. Lägg till den inbäddade ljudramen (innehållande ljudfilen) till bilden.
-5. Ställ in [PlayMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AudioPlayModePreset) och `Volume` som exponeras av objektet [AudioFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AudioFrame).
-6. Spara den ändrade presentationen.
-
-Den här JavaScript-koden visar hur du lägger till en inbäddad ljudram i en bild:
+Använd [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) för att bädda in ett lokalt ljudklipp på den första bilden. De två första koordinaterna placerar ramen på bilden, och de nästa två värdena anger dess bredd och höjd, alla i punkter. Detta exempel anropar [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) för att starta klippet automatiskt och anropar [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) för att välja det höga volympresetet.
 
 ```javascript
-// Instansierar en Presentation-klass som representerar en presentationsfil
-const pres = new aspose.slides.Presentation();
-try {
-    // Hämtar den första bilden
-    const sld = pres.getSlides().get_Item(0);
-    // Laddar wav-ljudfilen till en ström
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Lägger till ljudramen
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Ställer in uppspelningsläge och volym för ljudet
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // Skriver PowerPoint-filen till disk
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Ändra miniatyrbild för ljudram**
-
-När du lägger till en ljudfil i en presentation visas ljudet som en ram med en standardstandardbild (se bilden i avsnittet nedan). Du kan ändra ramens förhandsgranskningsbild (ange din föredragna bild).
-
-Den här JavaScript-koden visar hur du ändrar en ljudramens miniatyr eller förhandsgranskningsbild:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Lägger till en ljudram på bilden med specificerad position och storlek.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Lägger till en bild i presentationens resurser.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Ställer in bilden för ljudramen.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // Sparar den ändrade presentationen till disk
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Ändra ljuduppspelningsalternativ**
-
-Aspose.Slides för Node.js via Java låter dig ändra alternativ som styr ett ljuds uppspelning eller egenskaper. Till exempel kan du justera ett ljuds volym, ställa in att ljudet spelas i loop, eller till och med dölja ljudikonen.
-
-Rutan **Audio Options** i Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-PowerPoint **Audio Options** som motsvarar Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/) egenskaper:
-- **Start**-rullgardinslistan motsvarar metoden [AudioFrame.setPlayMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** motsvarar metoden [AudioFrame.setVolume](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides** motsvarar metoden [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped** motsvarar metoden [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show** motsvarar metoden [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing** motsvarar metoden [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setRewindAudio)
-
-PowerPoint **Editing**-alternativ som motsvarar Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/) egenskaper:
-- **Fade In** motsvarar metoden [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** motsvarar metoden [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** motsvarar metoden [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** värdet motsvarar ljudets varaktighet minus värdet från metoden [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-PowerPoint **Volume control** på ljudkontrollpanelen motsvarar metoden [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Den låter dig ändra ljudvolymen i procent.
-
-Så här ändrar du ljuduppspelningsalternativen:
-1. [Create](#create-audio-frame) eller hämta ljudramen.
-2. Ställ in nya värden för de Audio Frame‑egenskaper du vill justera.
-3. Spara den ändrade PowerPoint-filen.
-
-Den här JavaScript-koden demonstrerar en operation där ett ljuds alternativ justeras:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Hämtar AudioFrame-formen
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Ställer in uppspelningsläge till att spela på klick
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Ställer in volymen till Låg
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Ställer in att ljudet spelas över bilder
-    audioFrame.setPlayAcrossSlides(true);
-    // Inaktiverar loopning för ljudet
-    audioFrame.setPlayLoopMode(false);
-    // Döljer AudioFrame under bildspelet
-    audioFrame.setHideAtShowing(true);
-    // Spolar tillbaka ljudet till början efter uppspelning
-    audioFrame.setRewindAudio(true);
-    // Sparar PowerPoint-filen till disk
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Det här JavaScript‑exemplet visar hur du lägger till en ny ljudram med inbäddat ljud, trimmar den och anger fade‑varaktigheterna:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Ställer in trimningsstartoffset till 1,5 sekunder
-    audioFrame.setTrimFromStart(1500);
-    // Ställer in trimningsslutoffset till 2 sekunder
-    audioFrame.setTrimFromEnd(2000);
-
-    // Ställer in fade-in-varaktighet till 200 ms
-    audioFrame.setFadeInDuration(200);
-    // Ställer in fade-out-varaktighet till 500 ms
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-Följande kodexempel visar hur du hämtar en ljudram med inbäddat ljud och sätter dess volym till 85 %:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Hämtar en ljudram-form
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Ställer in ljudvolymen till 85%
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Hantera ljudundertexter**
-
-Aspose.Slides låter dig lägga till stängda undertexter till en ljudram via metoden [getCaptionTracks](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Denna metod returnerar en [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/), som låter dig lägga till WebVTT‑undertextspår, iterera igenom befintliga spår och ta bort dem vid behov.
-
-**Lägg till ljudundertexter**
-
-Använd metoden [getCaptionTracks](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) för att bifoga ett eller flera undertextspår till en ljudram. I följande exempel läggs en ljudfil till en bild och därefter laddas ett nytt undertextspår från en `.vtt`‑fil.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Lägg till ett nytt undertextspår från en WebVTT-fil.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Extrahera ljudundertexter**
+## **Ändra ljudramens miniatyrbild**
 
-Du kan iterera igenom de undertextspår som är knutna till en ljudram och spara dem som `.vtt`‑filer. Varje undertextspår avslöjar sin binära data och unika identifierare, vilket kan användas vid export av undertexter.
+Som standard visar en ljudram en högtalarikon. För att visa en anpassad miniatyr, lägg till en bild i presentationen med [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) och sätt den på ramens bild med [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage). Exemplet använder `eagle.jpeg` som miniatyr för ett inbäddat ljudklipp.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ändra ljuduppspelningsalternativ**
+
+PowerPoints **Audioalternativ**‑kontroller bestämmer när ett klipp startar, hur högt det låter och hur det beter sig under en bildspelsvisning.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| PowerPoint‑kontroll | Aspose.Slides för Node.js via Java‑metod |
+| --- | --- |
+| Start | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Volym‑preset | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Spela över bilder | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Loopa tills stoppad | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Dölj under visning | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Spola tillbaka efter uppspelning | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| Tona in | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Tona ut | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Beskär ljud starttid | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Beskär ljud sluttid | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Volym‑reglage | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+Exemplet hittar den första ljudramen på den första bilden, anropar [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) för att starta uppspelning vid ett klick och väljer det låga volympresetet. Klippet fortsätter över bilder med loopning inaktiverad. Ikonen hålls dold under visningen, och klippet spolas tillbaka efter uppspelning.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Spara undertextspåret som en .vtt-fil.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+För ett klipp som är längre än 3,5 sekunder hoppar detta exempel över de första 1,5 sekunderna och de sista 2 sekunderna. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) tar den varaktighet som ska tas bort från klippets slut. För att få sluttiden som visas i PowerPoint, subtrahera detta offset från hela klippets varaktighet. Det beskurna klippet tonar in under 200 ms och tonar ut under 500 ms. Alla fyra metoder tar värden i millisekunder.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+För att sätta uppspelningsvolymen till en specifik procent, använd [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Detta exempel sätter den första ljudramen på den första bilden till 85 %.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hantera ljudtextning**
+
+Varje ljudram ger åtkomst till sina bildspår via [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Använd samlingen för att bifoga WebVTT‑textning till klippet, exportera befintliga spår eller ta bort dem.
+
+### **Lägg till ljudtextning**
+
+Exemplet bäddar in ett ljudklipp på den första bilden och använder [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) för att fästa ett lokalt WebVTT‑spår. Det första argumentet anger spår‑etiketten, och det andra identifierar filen som innehåller de tidsbestämda undertexterna.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Extrahera ljudtextning**
+
+Detta exempel exporterar varje bildspår som är fäst vid en ljudram på den första bilden. Det skriver de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) till en WebVTT‑fil och använder identifieraren som returneras av [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) som filnamn så att varje spår får en separat output.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ta bort ljudtextning**
+
+Använd [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) för att radera ett enskilt spår. Exemplet använder [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) för att ta bort all bildtextning från den första ljudramen på den första bilden samtidigt som klippet bevaras.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Hitta en rad i ljudtextning**
+
+För att hitta en rad i ljudtextningen på den första bilden, sök i texten som returneras av [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) i minnet. I ett ren‑text WebVTT‑cues innehåller tidsraden `-->`, bildtextraderna följer den, och en tom rad avslutar cue:n. Detta exempel skriver ut spår‑etiketten och varje bildtextrad som innehåller “café”.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -253,64 +325,39 @@ try {
 }
 ```
 
-**Ta bort ljudundertexter**
+## **Extrahera ljud**
 
-För att ta bort undertexter från en ljudram, använd metoderna som tillhandahålls av [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/), såsom [clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#remove), eller [removeAt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#removeAt). Följande exempel tar bort alla undertextspår från en ljudram.
+En bildövergång kan ha sitt eget ljud. För att hämta det, anropa [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) på bildövergången. Exemplet får tillgång till de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) och skriver ut antalet byte. Om den första bilden saknar övergångsljud skriver den ut ett meddelande istället.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // typ: aspose.slides.AudioFrame
-
-    // Ta bort alla undertextspår från ljudramen.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extrahera ljud**
-
-Aspose.Slides för Node.js via Java låter dig extrahera ljudet som används i bildspelsövergångar. Till exempel kan du extrahera ljudet som används i en specifik bild.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) och läs in presentationen som innehåller ljudet.
-2. Hämta den relevanta bildens referens via dess index.
-3. Få åtkomst till bildspels­övergångarna [slideshow transitions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) för bilden.
-4. Extrahera ljudet som byte‑data.
-
-Den här koden i JavaScript visar hur du extraherar ljudet som används i en bild:
-
-```javascript
-// Instansierar en Presentation-klass som representerar en presentationsfil
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // Kommer åt den önskade bilden
-    const slide = pres.getSlides().get_Item(0);
-    // Hämtar bildspelets övergångseffekter för bilden
-    const transition = slide.getSlideShowTransition();
-    // Extraherar ljudet i byte-array
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 ## **FAQ**
 
-**Kan jag återanvända samma ljudresurs på flera bilder utan att öka filstorleken?**
+**Kan jag återanvända samma ljudklipp på flera bilder utan att duplicera det?**
 
-Ja. Lägg till ljudet en gång i presentationens delade [audio collection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getaudios/) och skapa ytterligare ljudramar som refererar till den befintliga resursen. Detta förhindrar duplicering av mediedata och håller presentationens storlek under kontroll.
+Ja. Lägg till klippet en gång i presentationens [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) och skicka samma ljudobjekt till [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) för varje bild.
 
-**Kan jag ersätta ljudet i en befintlig ljudram utan att återskapa formen?**
+**Kan jag ersätta ljudet i en befintlig ljudram?**
 
-Ja. För ett länkat ljud, uppdatera [link path](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) så att den pekar på den nya filen. För ett inbäddat ljud, byt ut objektet [embedded audio](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) mot ett annat från presentationens [audio collection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getaudios/). Ramens formatering och de flesta uppspelningsinställningar förblir intakta.
+Ja. För ett länkat ljud, använd [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) för att peka på ersättningsfilen. För ett inbäddat ljud, välj ett annat klipp från presentationens ljudsamling med [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio). Båda metoderna bevarar den befintliga ramen.
 
-**Ändrar trimning den underliggande ljuddata som lagras i presentationen?**
+**Ändrar trimming ljuddata som lagras i presentationen?**
 
-Nej. Trimning justerar endast uppspelningsgränserna. De ursprungliga ljudbyten förblir orörda och är tillgängliga via det inbäddade ljudet eller presentationens ljudsamling.
+Nej. [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) och [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) sätter uppspelningsgränser. Du kan fortfarande hämta hela klippet via [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio).

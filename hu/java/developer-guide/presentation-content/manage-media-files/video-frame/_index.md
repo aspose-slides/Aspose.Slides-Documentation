@@ -1,5 +1,5 @@
 ---
-title: Prezentációk videókeretének kezelése Java használatával
+title: Java használatával videókeretek kezelése prezentációkban
 linktitle: Videókeret
 type: docs
 weight: 10
@@ -17,21 +17,21 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tanulja meg programozottan videókeretek hozzáadását és kinyerését PowerPoint és OpenDocument diákon az Aspose.Slides for Java használatával. Gyors útmutató."
+description: "Tanulja meg, hogyan adhat hozzá és nyerhet ki programozottan videókereteket PowerPoint és OpenDocument diákban az Aspose.Slides for Java segítségével. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-A videók segíthetnek a gondolatok magyarázatában és a közönség bevonásában. Az Aspose.Slides for Java lehetővé teszi, hogy videókereteket adjunk a diákhoz, módosítsuk a lejátszási beállításokat, kezeljük a feliratokat, és kinyerjük a beágyazott videó adatokat.
+A videók segíthetnek ötletek magyarázatában és a közönség bevonásában. Az Aspose.Slides for Java lehetővé teszi videókeretek hozzáadását a diákhoz, a lejátszási beállítások módosítását, a feliratok kezelését és a beágyazott videóadatok kinyerését.
 
 A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube videókat.
 
-Az Aspose.Slides a [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) és a [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) interfész, valamint más releváns típusok segítségével képviseli a videó adatokat és videókereteket.
+A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja az [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) interfészt, az [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) interfészt és más releváns típusokat.
 
 ## **Beágyazott videókeret létrehozása**
 
 Ha a diára felvenni kívánt videófájl helyileg van tárolva, létrehozhat egy videókeretet a videó beágyazásához a prezentációba.
 
-Ez a példa egy helyi videót ágyaz be egy meglévő prezentáció első diájára, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A stream nyitva marad, amíg a mentés be nem fejeződik, mivel a [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a prezentáció használja.
+Ez a példa egy helyi videót ágyaz be az első diára egy meglévő prezentációban, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A folyam (stream) addig nyitva marad, amíg a mentés be nem fejeződik, mert a [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a prezentáció használja.
 
 ```java
 import com.aspose.slides.*;
@@ -50,7 +50,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-Közvetlenül is megadhatja a helyi videó elérési útját az [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) metódusnak. Ez a példa egy új prezentáció első diájára ágyazza be a videót. A videónak elérhetőnek kell maradnia, amíg a prezentáció mentésre kerül.
+Átadhatja közvetlenül egy helyi videó elérési útját is a [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) metódusnak. Ez a példa a videót az új prezentáció első diájára ágyazza be. A videónak elérhetőnek kell maradnia, amíg a prezentáció mentésre kerül.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-## **Videókeret létrehozása webes forrásból származó videóval**
+## **Webes forrásból származó videóval ellátott videókeret létrehozása**
 
-A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a prezentációkban. Létrehozhat egy videókeretet, amely egy online videóra, például egy YouTube videóra hivatkozik.
+A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a prezentációkban. Létrehozhat egy videókeretet, amely egy online videóhoz, például egy YouTube videóhoz kapcsolódik.
 
-Ez a példa egy YouTube videó hivatkozást és bélyegképet ad hozzá az első diához. Cserélje le a videóazonosítót egy másik videó használatához. A [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) metódus automatikus lejátszást kér. A bélyegkép letöltése és a videó lejátszása internetkapcsolatot igényel. A prezentáció megjelenítőnek is támogatnia kell az online videó lejátszást.
+Ez a példa egy YouTube videó hivatkozást és bélyegképet ad hozzá az első diára. Cserélje ki a videóazonosítót egy másik videó használatához. A [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) metódus automatikus lejátszást kér. A bélyegkép letöltése és a videó lejátszása internetkapcsolatot igényel. A prezentáció megjelenítőnek szintén támogatnia kell az online videó lejátszását.
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +100,9 @@ try {
 }
 ```
 
-## **Videó lejátszása teljes képernyős módban**
+## **Videó lejátszása teljes képernyő módban**
 
-Egy képzési prezentációban szoftverbemutatót játszhat le teljes képernyős módban, hogy a közönség lássa a részleteket. Hívja meg a [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) metódust `true` értékkel, hogy a lejátszás során ez a viselkedés legyen engedélyezve.
+Képzési prezentációban egy szoftverbemutatót teljes képernyő módban játszhat le, hogy a közönség lássa a részleteket. Hívja meg a [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) metódust `true` értékkel a viselkedés engedélyezéséhez a lejátszás során.
 
 Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
 
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Függetlenül a [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) beállítja, automatikusan vagy kattintásra indul-e, a [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) pedig azt szabályozza, ismétlődik-e. A kezdési viselkedés kiválasztásához állítsa be a lejátszási módot a [VideoPlayModePreset.Auto vagy VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) egyikére. A példa megőrzi a meglévő kezdő- és ismétlődésbeállításokat.
+A teljes képernyős lejátszás irányítja, hogyan jelenik meg a videó. Különállóan a [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) szabályozza, hogy automatikusan vagy kattintásra induljon, és a [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) határozza meg, hogy ismétlődjön-e. A kezdési viselkedés kiválasztásához állítsa a lejátszási módot a [VideoPlayModePreset.Auto vagy VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) értékre. A példa megőrzi a meglévő kezdési és ciklusbeállításokat.
 
 ## **Videó visszatekerése lejátszás után**
 
-Egy képzési prezentációban a bemutatóvideó visszaállítása az elejére azt teszi lehetővé, hogy a előadó újra lejátszhassa. Hívja meg a [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) metódust `true` értékkel, hogy a lejátszás befejeződése után a videó az elejére térjen vissza.
+Képzési prezentációban egy bemutatóvideó visszaállítása az elejére lehetővé teszi a prezentáló számára, hogy azt újra lejátszhassa. Hívja meg a [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) metódust `true` értékkel, hogy a lejátszás befejezése után a videó visszatérjen a kiindulópontra.
 
-Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a visszatekerést. Letiltja a hurkot, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
+Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a visszatekerést. Kikapcsolja a ciklusítást, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-A visszatekerés a videót az elejére helyezi anélkül, hogy újra elindulna. Ezzel szemben a [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) `true` értékkel hívása automatikusan ismétli a lejátszást. Tartsa letiltva a hurkot, ha azt szeretné, hogy a videó befejeződjön és készen álljon az újrajátszásra. A [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) önállóan szabályozza az automatikus vagy kattintásos indítást; ez a példa a [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) beállítást használja, így a bemondó dönt a lejátszás indításáról. Állítsa be a lejátszási módot a hurkolás beállítása után, ahogy a példában látható. A visszatekerés független a [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) működésétől.
+A visszatekerés a videót a kezdetére viszi anélkül, hogy újra elindulna. Ezzel szemben a [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) `true` értékkel automatikusan ismétli a lejátszást. Tartsa a ciklusítást letiltva, ha azt szeretné, hogy a videó befejeződjön, és készen álljon a újrajátszásra. A [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) önállóan szabályozza az automatikus vagy kattintásos indítást; ez a példa a [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) módot használja, hogy a prezentáló döntse el, mikor indul a lejátszás. Állítsa be a lejátszási módot a ciklusbeállítás után, ahogy a példában látható. A visszatekerés független a [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) működésétől.
 
 ## **Videókeret vágása**
 
-Használja a [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) és a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) metódusokat a videó elejéről vagy végéről egy rész kihagyásához a lejátszás során. Mindkét érték ezredmásodpercben van megadva. A vágás a lejátszási beállításokat módosítja anélkül, hogy a beágyazott videó adatot megváltoztatná.
+Használja a [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) és a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) metódusokat a videó elejének vagy végének egy részének kihagyásához a lejátszás során. Mindkét érték ezredmásodpercben van megadva. A vágás megváltoztatja a lejátszási beállításokat anélkül, hogy a beágyazott videóadatot módosítaná.
 
-**Trim beállítások**
+**Vágási beállítások megadása**
 
-Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon 3,5 másodpercnél hosszabb videót, hogy maradjon lejátszható szegmens.
+Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon 3,5 másodpercnél hosszabb videót, hogy lejátszható szegmens maradjon.
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**Trim beállítások lekérdezése**
+**Vágási beállítások olvasása**
 
-Ez a példa kiírja az első videókeret trimértékeit az első dián ezredmásodpercben. A prezentációnak legalább egy diát kell tartalmaznia. Ha az adott dián nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket eredményez.
+Ez a példa a első videókeret vágási értékeit írja ki az első dián ezredmásodpercben. A prezentációnak legalább egy diát kell tartalmaznia. Ha az adott diához nem tartozik videókeret, nem íródik ki semmi. Az előző példa 2500 és 1000 értékeket eredményez.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi a videókeretekhez tartozó zárt feliratok kezelését a PowerPoint prezentációkban. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) metódussal érhetők el.
+Az Aspose.Slides lehetővé teszi a videókeretekhez tartozó zárt feliratok kezelését PowerPoint prezentációkban. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) metóduson keresztül érhetők el.
 
-**Feliratok hozzáadása egy videókerethez**
+### **Feliratok hozzáadása videókerethez**
 
-Ez a példa egy helyi videót ágyaz be, és egy "English" címkével ellátott WebVTT feliratsávot ad hozzá. A felirat időbélyegének meg kell egyeznie a videóéval. A mentett prezentáció tartalmazza mind a videót, mind a feliratokat.
+Ez a példa egy helyi videót ágyaz be, és egy „angol” címkével ellátott WebVTT feliratnyomot ad hozzá. A felirat időbélyegzőinek meg kell egyezniük a videóval. A mentett prezentáció tartalmazza mind a videót, mind a feliratokat.
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-Az [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) interfész további túlterhelést is biztosít, amely lehetővé teszi feliratok hozzáadását egy streamből.
+Az [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) interfész további túlterhelést is biztosít, amely lehetővé teszi a feliratok adatfolyamból való hozzáadását.
 
-**Feliratok kinyerése egy videókeretből**
+### **Feliratok kinyerése videókeretből**
 
-Ez a példa az első dián lévő videókeretek összes feliratsávját különálló WebVTT fájlokként menti. A sorozatszámok biztosítják a kimeneti fájlok egyediségét. A konzol jelzi a kinyert sávok számát. A prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa az első dián található videókeretek összes feliratnyomát különálló WebVTT fájlokként menti. A sorozatszámok biztosítják a kimeneti fájlok egyediségét. A konzol jelzi a kinyert nyomok számát. A prezentációnak legalább egy diát kell tartalmaznia.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-Minden [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) objektum ki mutatja a felirat azonosítóját, címkéjét, bináris adatát és a feliratszöveget UTF‑8 karakterláncként.
+Minden [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) objektum tartalmazza a feliratazonosítót, a címkét, a bináris adatot és a felirat szövegét UTF‑8 karakterláncként.
 
-**Feliratok eltávolítása egy videókeretből**
+### **Feliratok eltávolítása videókeretből**
 
-Ez a példa eltávolítja az összes feliratot az első dián az első alakzat pozíciójában lévő videókeretről, és elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
+Ez a példa az első dián az első alakzat pozíciójában lévő videókeret összes feliratát eltávolítja, majd elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, valamint hogy az alakzat egy videókeret.
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-Ha csak egy feliratsávot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) metódust a [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) helyett.
+Ha csak egyetlen feliratnyomot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) vagy a [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) metódust a [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) helyett.
+
+### **Videó feliratok keresése**
+
+Az [ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) visszaadja a teljes WebVTT nyomot, beleértve a fejléceket, idővonallapokat és a felirat szövegét. Memóriában kereshet a cue‑k között, hogy megtalálja a kimondott kifejezést és annak időbélyegét. Például a 2. dián lévő angol nyom tartalmazhatja a következő szöveget.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+A példa megnyitja a `captioned_media.pptx` fájlt, és a [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) metódussal olvassa be minden felső szintű videókeret nyomait az összes dián. Egy egyszerű szöveges cue‑ban az idővonal `-->` karakterláncot tartalmaz, és egy üres sor zárja a cue‑t. Ha a feliratban bármilyen nagybetű/kisbetű változatban szerepel a „café”, a példa kiírja a dia számát, a nyom címkét, az eredeti idővonalat és a teljes feliratot.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A „café” keresése egy egyezést eredményez a mintanyomból. A keresés kizárja a nyom fejlécét, és megőrzi az időbeállítást a kimenetben.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Videó kinyerése diáról**
 
-A videók diákhoz adása mellett az Aspose.Slides lehetővé teszi a prezentációkba ágyazott videók kinyerését is.
+A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a prezentációkba beágyazott videók kinyerését is.
 
-Ez a példa minden diáról kinyeri a beágyazott videókat külön, számozott bináris fájlokba. A hivatkozott videók ki vannak hagyva, mivel nincs beágyazott adatuk. A konzol kiírja minden videó MIME‑típusát és az összes számát. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén módosítsa a jelentett médiatípusnak megfelelően.
+Ez a példa minden diáról kinyert beágyazott videót külön, számozott bináris fájlba ment. A hivatkozott (linked) videók ki vannak hagyva, mivel nincs beágyazott adatuk. A konzol kiírja minden videó MIME‑típusát és a teljes darabszámot. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén módosítsa, hogy a jelentett média típusnak megfelelő legyen.
 
 ```java
 import com.aspose.slides.*;
@@ -346,14 +411,18 @@ try {
 
 ## **GYIK**
 
-**Mely videó lejátszási paraméterek módosíthatók egy videókereten?**  
-A [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) vezérelhető. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) objektum metódusaiban érhetők el.
+**Mely videólejátszási paraméterek módosíthatók egy videókeretnél?**
 
-**A videó hozzáadása befolyásolja a PPTX fájlméretet?**  
-Igen. Ha beágyaz egy helyi videót, a bináris adat a dokumentumba kerül, így a prezentáció mérete azonos arányban növekszik a fájlmérettel. Ha online videóra hivatkozik, és bélyegképet ad hozzá, a prezentáció csak a hivatkozást és a preview képet tárolja, így a méretnövekedés általában kisebb.
+A [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) szabályozható. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) objektum metódusaiban érhetők el.
 
-**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozícióját és méretét?**  
-Igen. A [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) cseréjével a keretben megőrizhető az alakzat geometriai adatainak változatlansága; ez egy gyakori forgatókönyv a média frissítésére egy meglévő elrendezésben.
+**A videó hozzáadása befolyásolja a PPTX fájl méretét?**
 
-**Megállapítható a beágyazott videó tartalomtípusa (MIME)?**  
-Igen. A beágyazott videónak van egy [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) attribútuma, amely kiolvasható és felhasználható, például fájlba mentéskor.
+Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a prezentáció mérete arányosan nő a fájlmérettel. Ha online videóra hivatkozik és bélyegképet ad hozzá, a prezentáció csak a hivatkozást és a előnézeti képet tárolja, a videó adatát nem, ezért a méretnövekedés általában kisebb.
+
+**Cserélhetem a videót egy meglévő videókeretben a pozíció és méret megváltoztatása nélkül?**
+
+Igen. A [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) cseréjével a keretben megőrizhető a forma geometriai mérete; ez gyakori forgatókönyv a média frissítéséhez meglévő elrendezésben.
+
+**Meg lehet határozni a beágyazott videó tartalomtípusát (MIME)?**
+
+Igen. Egy beágyazott videó rendelkezik [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) attribútummal, amely kiolvasható és felhasználható, például a lemezre mentéskor.

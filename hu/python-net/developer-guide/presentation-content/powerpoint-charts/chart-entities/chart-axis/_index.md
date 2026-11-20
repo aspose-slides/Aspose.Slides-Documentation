@@ -1,10 +1,10 @@
 ---
-title: Diagramtengelyek testreszabása bemutatókban Python segítségével
+title: Diagram tengelyek testreszabása prezentációkban Python segítségével
 linktitle: Diagramtengely
 type: docs
 url: /hu/python-net/chart-axis/
 keywords:
-- diagramtengely
+- diagram tengely
 - függőleges tengely
 - vízszintes tengely
 - tengely testreszabása
@@ -13,26 +13,26 @@ keywords:
 - tengely tulajdonságok
 - maximális érték
 - minimális érték
-- tengelyvonal
-- dátumformátum
-- tengelycím
-- tengelypozíció
+- tengely vonala
+- dátum formátum
+- tengely címe
+- tengely pozíció
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan használhatja az Aspose.Slides for Python via .NET-et a diagramtengelyek testreszabásához PowerPoint és OpenDocument bemutatókban jelentések és vizualizációk készítéséhez."
+description: "Fedezze fel, hogyan használhatja az Aspose.Slides for Python via .NET-et a diagram tengelyek testreszabásához PowerPoint és OpenDocument prezentációkban jelentések és vizualizációk készítéséhez."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testre szabni a diagram tengelyeket az Aspose.Slides for Python via .NET segítségével. Tárgyalja a kiszámított tengelyértékeket, a diagram sorok és oszlopok cseréjét, a tengely láthatóságát, a kategória címke- és jelölő távolságokat, a dátumkategóriákat és formázást, a cím forgatását, a tengely elhelyezését, a megjelenítési egységeket és a logaritmikus skálázást.
+Ez a cikk bemutatja, hogyan lehet testreszabni a diagram tengelyeket az Aspose.Slides for Python via .NET segítségével. Kitér a számított tengelyértékekre, a diagram sorok és oszlopok cseréjére, a tengely láthatóságára, a kategória címke és jelölő‑intervallumokra, a dátumkategóriákra és azok formázására, a cím forgatására, a tengely elhelyezésére, a megjelenítő egységekre és a logaritmikus méretezésre.
 
-## **A függőleges tengely legnagyobb értékeinek lekérése diagramokon**
+## **A függőleges tengely legnagyobb értékeinek lekérése diagramokban**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) és adjon hozzá egy területdiagramot az alapértelmezett adatokkal. Hívja meg a [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) metódust a kiszámított tengelyértékek olvasása előtt, hogy a diagram elrendezése naprakész legyen.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) és adjon hozzá egy területdiagramot alapértelmezett adatokkal. Hívja meg a [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) mielőtt a számított tengelyértékeket olvasná, hogy a diagram elrendezése naprakész legyen.
 
-Olvassa ki a [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) és a [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) a tengelykorlátokhoz, valamint a [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) és a [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) a jelölő távolságokhoz. A [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) és a [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) időegység skálákat adnak, amelyek a dátumtengelyek esetén relevánsak. A példában ezek az értékek helyi változókba kerülnek, majd a diagram mentésre kerül.
+Olvassa a [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) és a [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) értékeket a tengelykorlátokhoz, illetve a [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) és a [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) értékeket a jelölő‑intervallumokhoz. A [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) és a [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) időegység‑skálákat adnak, amelyek a dátumtengelyeknél relevánsak. A példa ezeket az értékeket helyi változókba menti, majd elmenti a diagramot.
 
 ```python
 import aspose.slides as slides
@@ -56,9 +56,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisValues_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Adatok cseréje tengelyek között**
+## **Az adatok cseréje a tengelyek között**
 
-Használja a [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) metódust a sorok és oszlopok cseréjéhez a diagram adatában, ezzel megcserélve a sorozatok és a kategóriák szerepét. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává válik. Ez a csoportosítás módját változtatja; nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) metódust használja az alapértelmezett adatok a `Sheet1!A1:D5` tartományra kötéséhez, beleértve a fejlécsort és a kategóriaoszlopot, mielőtt sorokat és oszlopokat cserélne. Egy négy sorozatból és három kategóriából álló diagramot ment.
+Használja a [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) metódust a sorozatok és kategóriák szerepének felcseréléséhez a diagram adataiban. Minden korábbi kategória sorozattá, minden korábbi sorozat pedig kategóriává válik. Ez az adatcsoportosítást változtatja meg; nem cseréli fel a vízszintes és függőleges tengelyeket. A példa a [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) metódust használja, hogy az alapértelmezett adatot a `Sheet1!A1:D5` tartományra kötse, beleértve a fejlécsort és a kategóriaoszlopot, mielőtt a sorokat és oszlopokat felcserélné. Négy sorozattal és három kategóriával ment egy diagramot.
 
 ```python
 import aspose.slides as slides
@@ -75,11 +75,11 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **A tengely rajzolási sorrendjének megfordítása**
+## **A tengely ábrázolási sorrendjének megfordítása**
 
-Használja a [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) metódust egy kategória- vagy értéktengely megfordításához. Például egy vízszintes oszlopdiagram a projekt szakaszait felülről lefelé ugyanabban a sorrendben mutathatja, mint a munkalap: Tervezés, Fejlesztés, Tesztelés. Egy tengely megfordítása megváltoztatja a rajzolás irányát; nem rendezi vagy átrendezi a munkafüzet adatait. Összehasonlításként a [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) metódus megcseréli a sorozatok és a kategóriák szerepét.
+Használja a [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) tulajdonságot egy kategória vagy érték tengely megfordításához. Például egy vízszintes oszlopdiagram a projektszakaszokat felülről lefelé ugyanabban a sorrendben mutathatja, mint a munkalapon: Planning, Development, Testing. A tengely megfordítása megváltoztatja a rajzolási irányt; nem rendezi át a munkafüzet adatokat. Ezzel szemben a [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) felcseréli a sorozatok és kategóriák szerepét.
 
-A következő példa egy vízszintes oszlopdiagramot hoz létre három szakaszzal és egy sorozattal. Három diát ment: normál sorrend, megfordított kategóriák és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és minden másolaton csak egy tengely van megfordítva.
+Az alábbi példa egy vízszintes oszlopdiagramot hoz létre három szakaszzal és egy sorozattal. Három diát ment el: normál sorrend, megfordított kategóriák és megfordított értékek. Minden másolat ugyanazt az adatkészletet használja, és egyetlen tengely fordul meg minden másolaton.
 
 ```python
 import aspose.slides as slides
@@ -106,14 +106,14 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, values[i])
         series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # Dia 2: az első kategóriát felülre jeleníti meg.
+    # 2. dia: az első kategóriát felül jeleníti meg.
     category_slide = presentation.slides.add_clone(slide)
     category_chart = category_slide.shapes[0]
     category_chart.axes.vertical_axis.is_plot_order_reversed = True
-    # A vízszintes értéktengelyt alul hagyja.
+    # A vízszintes értéktengelyt alul tartja.
     category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
 
-    # Dia 3: csak a vízszintes numerikus skálát fordítja meg.
+    # 3. dia: csak a vízszintes numerikus skálát fordítja meg.
     value_slide = presentation.slides.add_clone(slide)
     value_chart = value_slide.shapes[0]
     value_chart.axes.horizontal_axis.is_plot_order_reversed = True
@@ -121,16 +121,16 @@ with slides.Presentation() as presentation:
     presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A tengely megfordítása a merőleges tengelyt is áthelyezheti a diagram másik oldalára. A [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) határozza meg, hol keresztezi a másik tengely a konfigurált tengelyt. A 2. dián a `MAXIMUM` érték beállítása a megfordított kategóriatengelyen a vízszintes értéktengelyt alul tartja. Egy adott metszésponthoz használja a [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Ellenőrizze a metszési beállításokat az irányváltáskor, különösen ha a diagram már rendelkezik egy egyéni metszésponttal. Állítsa vissza az `is_plot_order_reversed` értéket `False`-ra a normál rajzolási irány visszaállításához; a metszési beállítások külön kezelendők.
+A tengely megfordítása a merőleges tengelyt a diagram másik oldalára is átmozgathatja. A [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) szabályozza, hogy a másik tengely hol metszze a konfigurált tengelyt. A 2. dia esetében a `MAXIMUM` érték beállítása a megfordított kategória tengelyen megtartja a vízszintes érték tengelyt alul. Egy konkrét metszésponthoz használja a [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Ellenőrizze a metszési beállításokat irányváltáskor, különösen ha a diagram már egyedi metszésponttal rendelkezik. Állítsa vissza az `is_plot_order_reversed` értéket `False`‑ra a normál ábrázolási irány visszaállításához; a metszési beállítások különállóak.
 
-| Normál sorrend (dia 1) | Megfordított kategóriák (dia 2) | Megfordított értékek (dia 3) |
+| Normál sorrend (1. dia) | Megfordított kategóriák (2. dia) | Megfordított értékek (3. dia) |
 | --- | --- | --- |
 | ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
-| A kategóriák alulról felfelé futnak; az értékek balról jobbra nőnek. | Tervezés, Fejlesztés és Tesztelés felülről lefelé fut. Az értékek és a munkafüzet sorok sorrendje változatlan. | A kategóriák megtartják a normál sorrendjüket; az értékek jobbról balra nőnek. A kategóriatengely a jobb oldalon, nullánál metsződik. |
+| A kategóriák alulról felfelé haladnak; az értékek balról jobbra nőnek. | Planning, Development, és Testing felülről lefelé halad. Az értékek és a munkafüzet sor sorrendje változatlan. | A kategóriák megtartják normál sorrendjüket; az értékek jobbról balra nőnek. A kategória tengely a jobb oldalon, nullánál metszi. |
 
 ## **A függőleges tengely letiltása vonaldiagramoknál**
 
-Állítsa a [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) értékét `False`-ra a függőleges tengelyen a elrejtéshez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, amelyben a függőleges tengely rejtve van.
+Állítsa az [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) tulajdonságot `False`‑ra a függőleges tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a függőleges tengely elrejtésével menti el.
 
 ```python
 import aspose.slides as slides
@@ -147,7 +147,7 @@ with slides.Presentation() as presentation:
 
 ## **A vízszintes tengely letiltása vonaldiagramoknál**
 
-Állítsa a [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) értékét `False`-ra a vízszintes tengelyen a elrejtéshez. A példa egy alapértelmezett adatokkal rendelkező vonaldiagramot hoz létre, amelyben a vízszintes tengely rejtve van.
+Állítsa az [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) tulajdonságot `False`‑ra a vízszintes tengelyen, hogy elrejtse azt. A példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, és a vízszintes tengely elrejtésével menti el.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +162,41 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kategóriatengely módosítása**
+## **Diagram rácsvonalak megjelenítése vagy elrejtése**
 
-Állítsa a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) értékét egy dátum- vagy szöveges kategóriatengely kiválasztásához. Ez a példa az `ExistingChart.pptx` fájlt igényli, amelynek első diáján első alakzatként szerepel egy diagram, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátumtengelyre állítja. A [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) `False`, a [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) `1`, és a [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) a hónapokra állítva, a fő jelölőket egy hónapos intervallumra helyezi.
+Olvassa a [show_major_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_major_grid_lines/) és a [show_minor_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_minor_grid_lines/) tulajdonságokat, hogy megtudja, mely rácsvonalakat jeleníti meg egy tengely. Mindkét tulajdonság csak olvasható. A kisebb rácsvonalak megjelenítéséhez állítsa a [minor_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_grid_lines_format/) kitöltését szilárd színre, és válasszon látható színt. Elrejtéshez állítsa a kitöltést `FillType.NO_FILL`‑ra. A fő rácsvonalakhoz használja a [major_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_grid_lines_format/)`.line.fill_format`. A kitöltés módosítása megőrzi a tengely láthatóságát és jelölőit.
+
+A csoportosított oszlopdiagram függőleges tengelye eleve látható fő rácsvonalakkal és rejtett kisebb rácsvonalakkal indul. A példa először narancssárga színnel jeleníti meg a kisebb rácsvonalakat, majd újból elrejti őket, mielőtt a prezentációt mentené.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 30, 660, 230)
+    axis = chart.axes.vertical_axis
+    print(f"Initial: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    minor_fill = axis.minor_grid_lines_format.line.fill_format
+    minor_fill.fill_type = slides.FillType.SOLID
+    minor_fill.solid_fill_color.color = slides.Color.dark_orange
+    print(f"Enabled: minor={axis.show_minor_grid_lines}")
+
+    minor_fill.fill_type = slides.FillType.NO_FILL
+    print(f"Hidden: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    presentation.save("ChartGridlines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Kisebb rácsvonalak engedélyezve | Kisebb rácsvonalak elrejtve |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
+## **Kategória tengely módosítása**
+
+Állítsa a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) tulajdonságot, hogy dátum vagy szöveg kategória tengelyt válasszon. Ez a példa az `ExistingChart.pptx` fájlt igényli, amelynek első diáján az első alakzat egy diagram, és a kategória cellák numerikus Excel dátumértékeket tartalmaznak. A vízszintes tengelyt dátum tengelyre állítja. Az [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) `False`, a [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) `1`, és a [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) `months` beállítása egyhónapos fő jelölőket eredményez.
 
 ```python
 import aspose.slides as slides
@@ -182,21 +214,74 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kategóriatengely címke intervallumok vezérlése**
+### **A kategória tengely típusának meghatározása adatok alapján**
 
-Amikor egy diagram sok kategóriát tartalmaz, csökkentse a látható tengelycímkék számát a kategóriák vagy adatpontok eltávolítása nélkül. Állítsa a [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) `False` értékre, majd a [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) értékét a kívánt kategória intervallumra. Szöveges kategóriák esetén a normál sorrendben a számozás az első kategóriától indul:
+Hívja meg a [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) metódust a kategóriák feltöltése után, majd olvassa a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) értékét a kiválasztás ellenőrzéséhez. Hasznos, ha ugyanaz a diagram szöveges címkéket vagy numerikus dátumértékeket kap. A metódus a meghíváskor határozza meg a típust; nem kapcsol be egy állandó módot, amely későbbi adatváltozásokat újraértékelne. Hívja meg újra a kategóriák cseréje után.
 
-| Intervallum | A példában megjelenített címkék |
+A következő példa egy szöveges kategóriákkal rendelkező diagramot hoz létre, és a `TEXT` szöveget írja ki. Ezután a kategória cellaértékeket dátumokra cseréli, újra meghívja a metódust, amely a `DATE` értéket adja. A dátumok numerikus OLE Automation értékekként vannak tárolva, a 1899. december 30-i nap óta eltelt napok számaként, nem dátumkénti karakterláncokként. A [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) szabályozza, hogyan jelennek meg ezek az értékek; nem konvertálja a szöveget numerikus dátummá. További információért lásd a [Chart Workbook](/slides/hu/python-net/chart-workbook/).
+
+Használja az automatikus meghatározást, ha a bemenet szöveges kategóriákat vagy numerikus dátumokat tartalmaz, ahogy ez a példa is mutatja. Általános numerikus címkék, vegyes kategóriák vagy üres adatok esetén állítsa be kézzel a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) értékét a kívánt jelentésnek megfelelően. Csak numerikus értékek önmagukban nem határozzák meg, hogy a kategóriák dátumot jelentenek.
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # SZÖVEG
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # DÁTUM
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Kategória tengely címkeintervallumok szabályozása**
+
+Amikor egy diagram sok kategóriát tartalmaz, csökkentheti a látható tengelycímkék számát anélkül, hogy a kategóriákat vagy adatpontokat eltávolítaná. Állítsa az [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) tulajdonságot `False`‑ra, majd adja meg a [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) értékét a kívánt kategória intervallumnak. Szöveges kategóriák esetén, normál sorrendben, a számolás az első kategóriától indul:
+
+| Intervallum | Példában megjelenített címkék |
 | --- | --- |
-| `1` | Kategória 1, Kategória 2, Kategória 3, ... Kategória 24 |
-| `2` | Kategória 1, Kategória 3, Kategória 5, ... Kategória 23 |
-| `3` | Kategória 1, Kategória 4, Kategória 7, ... Kategória 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-A `3` intervallum minden harmadik címkét jelenít meg, a megjelenített címkék között két címke rejtve marad. Nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
+A `3` intervallum minden harmadik címkét jelenít meg, a megjelenő címkék között két címke rejtve marad. Ez nem távolítja el a megfelelő oszlopokat. Az automatikus távolság a rendelkezésre álló hely alapján választ intervallumot; nem feltétlenül jeleníti meg az összes címkét.
 
-A jelölő vonalaknak külön vezérlése van. Állítsa a [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) `False` értékre, és használja a [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) a távolság beállításához. Például az `1` minden kategória intervallumban megtart egy jelölőt, míg a címkék csak minden harmadik kategórián jelennek meg. Állítsa a [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) egy látható stílusra, hogy láthassa a végeredményt. Bármely automatikus-távolság tulajdonság `True`-ra állítása lehetővé teszi, hogy a diagram újra a megfelelő intervallumot válassza.
+A jelölő‑pontoknak külön vezérlése van. Állítsa az [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) tulajdonságot `False`‑ra, és használja a [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) értékét az intervallum beállításához. Például az `1` minden kategória‑intervallumban elhelyez egy jelölő‑pontot, miközben a címkék csak minden harmadik kategóriánál jelennek meg. Állítsa a [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) látható stílusra, hogy látható legyen az eredmény. Bármely automatikus‑távolság‑tulajdonság visszaállítása `True`‑ra hagyja, hogy a diagram újra kiválassza az intervallumot.
 
-A következő önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment a `CategoryAxisIntervals.pptx` fájlba: automatikus távolság, kézi címke távolság független jelölőkkel, és visszaállított automatikus távolság. A két másolat az eredeti diagram adatot tartja meg. Bemutató bemeneti fájlra nincs szükség. A vízszintes címkeszöveg könnyen láthatóvá teszi a sűrűség különbségét.
+Az alábbi önálló példa 24 kategóriát és egy sorozatot hoz létre, majd három diát ment el a `CategoryAxisIntervals.pptx` fájlba: automatikus távolság, kézi címke‑távolság független jelölőpontokkal, és a visszaállított automatikus távolság. A két másolat az eredeti diagram adatokat tartja. Input prezentációra nincs szükség. A vízszintes címke‑szöveg megkönnyíti a sűrűség vizuális összehasonlítását.
 
 ```python
 import aspose.slides as slides
@@ -229,7 +314,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # Dia 2: minden harmadik címkét mutassa, de minden kategóriához tartson meg egy jelölőt.
+    # 2. dia: minden harmadik címkét jelenítse meg, de minden kategóriához legyen egy jelölőpont.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -238,7 +323,7 @@ with slides.Presentation() as presentation:
     manual_axis.is_automatic_tick_marks_spacing = False
     manual_axis.tick_marks_spacing = 1
 
-    # Dia 3: engedje a diagramnak, hogy újra mindkét intervallumot válassza.
+    # 3. dia: engedje, hogy a diagram újra kiválassza mindkét intervallumot.
     restored_slide = presentation.slides.add_clone(manual_slide)
     restored_chart = restored_slide.shapes[0]
     restored_chart.axes.horizontal_axis.is_automatic_tick_label_spacing = True
@@ -247,23 +332,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Automatikus távolság (dia 1):** Ebben a megjelenítésben minden második kategória címke látható és két sorba törik. Az automatikus eredmény a diagram méretétől, betűtípusától és a renderelőtől függően változhat.
+**Automatikus távolság (1. dia):** Ebben a megjelenítésben minden második kategória címke látható, és két sorba törik. Az automatikus eredmény a diagram méretétől, betűtípusától és a renderelőtől függően változhat.
 
-![Automatikus kategória címke távolság, 24 oszlop látható](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
-**Kézi távolság (dia 2):** Minden harmadik címke egy sorban jelenik meg, míg a jelölő vonalak minden kategória intervallumban maradnak. Az összes 24 oszlop, beleértve a címke nélküli oszlopokat is, látható ugyanazzal az értékkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
+**Kézi távolság (2. dia):** Minden harmadik címke jelenik meg egy sorban, míg a jelölő‑pontok minden kategória‑intervallumban megmaradnak. Az összes 24 oszlop, beleértve azokat is, amelyekhez nincs címke, látható, azonos értékekkel. A 3. dia visszaállítja a fenti automatikus megjelenést.
 
-![Kézi kategória címke intervallum hárommal, 24 oszlop látható](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
-### **A megfelelő tengely és intervallum választása**
+### **A megfelelő tengely és intervallum kiválasztása**
 
-Ezt a kategória-szám intervallumot szöveges kategóriatengelyhez használja, például egy oszlop-, vonal-, terület- vagy sávdiagram kategóriatengelyéhez. Oszlopdiagram esetén ez a vízszintes tengely. Horizontális sávdiagram esetén a kategóriatengely függőleges, így ezeket a beállításokat a [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) -ra alkalmazza. A jelölő távolság a sorozattengelyre is vonatkozik azokban a diagramokban, ahol van ilyen.
+Használja ezt a kategória‑szám intervallumot szöveges kategória tengely esetén, például oszlop, vonal, terület vagy oszlopdiagram esetén. Oszlopdiagram esetén ez a vízszintes tengely. Vízi­szintes oszlopdiagram esetén a kategória tengely függőleges, ezért ezeket a beállításokat a [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) tulajdonságra alkalmazza. A jelölő‑pont távolság a sorozat‑tengelyre is vonatkozik, ha a diagram rendelkezik ilyen‑vel.
 
-Ne használja a kategória címke távolságot az értéktengely numerikus skálájának beállításához. Értéktengelyen a [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) egy értékkülönbséget határoz meg: például a `10` fő egység 0, 10, 20 stb. jelölőket eredményez, ha a tengely nulláról indul. A `3` kategória címke intervallum a kategória helyeket számolja, függetlenül azok adatértékétől. Szórás- és buborékdiagramok értéktengelyt használnak a szöveges kategóriatengely helyett. Dátumtengely esetén használjon időalapú fő egységeket és skálákat, ahogy a [Change a Category Axis](#change-a-category-axis) szakaszban leírták.
+Ne használja a kategória címke‑intervallumot a numerikus skála beállítására érték­tengelyen. Érték­tengelyen a [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) egy értékkülönbséget határoz meg: például a `10` fő egység 0, 10, 20… értékeket hoz létre, ha a tengely nulláról indul. A `3` kategória címke‑intervallum csak a kategória‑pozíciókat számolja, függetlenül az adatértékektől. Szórt‑ és buborékdiagramok érték­tengelyeket használnak, nem szöveges kategória tengelyt. Dátum‑tengelyhez használjon időalapú fő egységeket és skálákat, ahogy a [Kategória tengely módosítása](#kategória-tengely-módosítása) szekcióban le van írva.
 
-## **Dátumformátum beállítása a kategóriatengely értékeihez**
+## **A kategória tengely értékek dátumformátumának beállítása**
 
-A példa az alapértelmezett diagramadatokat négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámokként tárolódnak az első munkalapon (index `0`). Állítsa a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) dátumtengelyre, kapcsolja ki a [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/), és adja meg a `yyyy` értéket a [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) számára, hogy a kategória címkék a négyjegyű éveket a cellaformázástól függetlenül jelenítsék meg.
+A példa az alapértelmezett diagram adatokat négy éves értékkel helyettesíti. A dátumok OLE Automation sorozatszámként vannak tárolva az első munkalapon (index `0`). Állítsa a [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) értékét dátum‑tengelyre, tiltsa le a [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) kapcsolatot, és adja a [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) értéknek a `yyyy`‑et, hogy a kategória címkék négy számjegyű éveket jelenítsenek meg a cella formázásától függetlenül.
 
 ```python
 from datetime import date
@@ -301,7 +386,7 @@ with slides.Presentation() as presentation:
 
 ## **Forgatási szög beállítása a diagram tengely címéhez**
 
-A [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) engedélyezése a függőleges tengelyen, a cím szövegének megadása, majd a [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) beállítása a cím forgatásához. A szög fokban mérhető; ez a példa egy oszlopdiagramot ment, amelynek az értéktengely címe 90 fokkal van elfordítva.
+Engedélyezze a [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) tulajdonságot a függőleges tengelyen, adja meg a címszöveget, és állítsa a [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) értékét a cím elforgatásához. A szöget fokban mérik; ez a példa egy oszlopdiagramot ment el, amelynek érték‑tengely címkéje 90 fokban van elforgatva.
 
 ```python
 import aspose.slides as slides
@@ -318,9 +403,9 @@ with slides.Presentation() as presentation:
     presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **A tengely pozíciójának beállítása kategória- vagy értéktengelyen**
+## **A tengely pozíciójának beállítása kategória vagy érték tengelyen**
 
-Használja a [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) tulajdonságot annak szabályozásához, hogy az értéktengely a kategóriatengelyt kategóriák között vagy a kategória jelölőknél keresztezi-e. Ez a tulajdonság a kategóriatengelyekre vonatkozik. A példa a `True` értéket állítja be egy oszlopdiagram vízszintes kategóriatengelyén, és elmenti az eredményt.
+Használja a [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) tulajdonságot, hogy szabályozza, az érték‑tengely a kategória‑tengelyet kategóriák között vagy a kategória‑jelölő‑pontoknál metszze. Ez a tulajdonság a kategória‑tengelyekre vonatkozik. A példa a vízszintes kategória‑tengelyen `True`‑ra állítja egy oszlopdiagramon, és elmenti az eredményt.
 
 ```python
 import aspose.slides as slides
@@ -335,9 +420,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Megjelenítési egység beállítása a diagram értéktengelyén**
+## **Megjelenítő egység beállítása diagram érték‑tengelyen**
 
-Állítsa a [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) értékét a értéktengely címkéinek skálázásához az alapadatok módosítása nélkül. A [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) `MILLIONS` értékre állításakor a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a milliók megjelenítési egységet alkalmazza a függőleges tengelyre.
+Állítsa a [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) tulajdonságot, hogy a címkéket az érték‑tengelyen átskálázzák anélkül, hogy az alapadat változna. A [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) `MILLIONS` értékével a 60 000 000 érték 60‑ként jelenik meg. A példa egy oszlopdiagramot hoz létre, és a függőleges tengelyére a milliók megjelenítő egységét alkalmazza.
 
 ```python
 import aspose.slides as slides
@@ -352,21 +437,21 @@ with slides.Presentation() as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Logaritmikus értéktengely beállítása**
+## **Logaritmikus érték‑tengely beállítása**
 
-Egy logaritmikus értéktengely hasznos, ha a pozitív értékek több nagyságrendet fednek le. Például egy szolgáltatás 10, 100, 1 000, 10 000 és 100 000 kérést kaphat öt időszakban. Lineáris skálán a kisebb értékek közel a nullához helyezkednek el. A logaritmikus skála a relatív növekedést könnyebbé teszi összehasonlítani: az egyenlő távolságok egyenlő arányokat jelentenek a különbségek helyett.
+A logaritmikus érték‑tengely hasznos, ha a pozitív értékek több nagyságrendben is eltérnek. Például egy szolgáltatás 10, 100, 1 000, 10 000 és 100 000 kérést kaphat öt időszakban. Lineáris skálán a kisebb értékek közel a nullához helyezkednek. A logaritmikus skála a relatív növekedést könnyebben összevethetővé teszi: az egyenlő távolságok egyenlő arányokat jelentenek, nem egyenlő különbségeket.
 
-Állítsa a [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) értékét `True`-ra az értéktengelyen, és a [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) segítségével válassza ki az alapot. Ez módosítja a meglévő értékek megjelenítését; nem változtatja meg az adatot, és nem ad hozzá logaritmikus trendvonalat. A trendvonal az adatokhoz illesztett kapcsolatot jelenti, és külön funkció.
+Állítsa az [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) tulajdonságot `True`‑ra az érték‑tengelyen, és a [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) segítségével válassza ki az alapot. Ez megváltoztatja, hogyan jelennek meg a meglévő értékek; nem módosítja az adatot, és nem ad hozzá logaritmikus trendvonalat. A trendvonal egy külön funkció, amely az adatokhoz illesztett összefüggést ábrázolja.
 
-### **Az értéktengely és az alap kiválasztása**
+### **Az érték‑tengely és az alap kiválasztása**
 
-Vonal- vagy oszlopdiagram esetén az értéktengely a [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Horizontális sávdiagram esetén a [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Szórás- és buborékdiagramok két értéktengellyel rendelkeznek, ezért X‑értékekhez a horizontális, Y‑értékekhez a függőleges tengelyt, vagy akár mindkettőt válassza. Ne alkalmazzon logaritmikus skálázást kategóriatengelyre.
+Vonal‑ vagy oszlopdiagram esetén az érték‑tengely a [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Vízszintes oszlopdiagram esetén a [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/) a megfelelő. Szórt‑ és buborékdiagramoknak két érték‑tengelye van, így a horizontális tengely az X‑értékekhez, a vertikális a Y‑értékekhez, vagy mindkettőhöz használható. Ne alkalmazzon logaritmikus skálázást kategória‑tengelyre.
 
-Az alapértelmezett logaritmikus alap a `10`. PPTX diagramok esetén a `2` és `1000` közötti (beleértve) bázist használhat; a tört alapok, például a `2.5`, szintén támogatottak. A `10` alap esetén a sorrendben következő hatványok (10, 100, 1 000, 10 000) egyenlő távolságra vannak.
+Az alapértelmezett logaritmikus alap `10`. PPTX diagramoknál az `2`‑tól `1000`‑ig terjedő értékek megengedettek; törtalapú értékek, például `2.5`, szintén támogatottak. A `10`‑es alap esetén a 10, 100, 1 000, 10 000 hatványok egyenlő távolságra helyezkednek el.
 
-### **Lineáris és logaritmikus skálázás összehasonlítása**
+### **Lineáris és logaritmikus skála összehasonlítása**
 
-A következő önálló példa egy vonaldiagramot hoz létre az öt kérési számmal az első dián, majd lemásolja azt, és a második dián bekapcsolja a 10‑es alapú logaritmikus értéktengelyt. Mindkét dia ugyanazt az adatot tartja meg.
+Az alábbi önálló példa egy vonaldiagramot hoz létre az első dián az öt kérés‑számot tartalmazva, majd a második diát klónozza, és a másodikon engedélyezi a 10‑es alapú logaritmikus érték‑tengelyt. Mindkét dia ugyanazokat az adatokat tartja.
 
 ```python
 import aspose.slides as slides
@@ -395,7 +480,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Tartsa az első diát lineárisnak, és csak a másolat értéktengely skáláját változtassa meg.
+    # Az első diát lineárisnak hagyja, és csak a másolat érték‑tengely skáláját változtassa meg.
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -405,24 +490,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Lineáris skála (dia 1):** Az egyenlő függőleges távolságok egyenlő különbségeket jelentenek a kérési számokban. A legnagyobb érték uralja a diagramot, így a kisebb értékek nehezen megkülönböztethetők.
+**Lineáris skála (1. dia):** Az egyenlő függőleges távolságok egyenlő kérés‑szám‑különbségeket jelentik. A legnagyobb érték elnyomja a diagramot, így a kisebb értékek nehezen láthatók.
 
-![Vonaldiagram PowerPointban, amely öt kérési számot mutat lineáris értéktengelyen](value-axis-linear.png)
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
 
-**Logaritmikus skála (dia 2):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden időszak tízszer több kérést tartalmaz, mint az előző, ezért a pontok egy egyenes, emelkedő vonalat alkotnak a 10‑es alapú skálán. A tengelycímkék továbbra is az eredeti kérési számokat mutatják.
+**Logaritmikus skála (2. dia):** Az egyenlő függőleges távolságok egyenlő arányokat jelentenek. Minden időszak tízszer annyi kérést tartalmaz, mint az előző, ezért a pontok egy egyenes vonalat alkotnak a 10‑es alapon. A tengelycímkék továbbra is az eredeti kérés‑számokat mutatják.
 
-![Ugyanaz az öt kérési szám PowerPointban, 10‑es alapú logaritmikus értéktengelyen](value-axis-logarithmic.png)
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
 
 ### **Nulla és negatív értékek kezelése**
 
-A logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat a bekapcsolás előtt. Ha a nulla vagy a negatív értékek jelentősek, használjon lineáris skálát vagy jelenítse meg őket külön. Ha az értékek kizárása megfelelő az elemzéshez, magyarázza meg a hiányt. Ne cserélje le őket hallgatólagosan kis pozitív számokra, mivel ez megváltoztatja az adatok jelentését. Bármely kézzel beállított minimum vagy maximum a logaritmikus tengelyen szintén pozitív kell legyen.
+A logaritmikus skála csak szigorúan pozitív értékeket jeleníthet meg. Ellenőrizze az adatokat, mielőtt engedélyezi. Ha a nulla vagy negatív értékek jelentősek, tartsa meg a lineáris skálát vagy jelenítse meg őket külön. Ha az értékek kizárása megfelelő az elemzéshez, magyarázza meg az elhagyást. Ne cserélje őket hallgatólagosan kis pozitív számokra, mivel ez megváltoztatja az adatok jelentését. Bármely manuálisan beállított minimum vagy maximum a logaritmikus tengelyen is pozitív kell legyen.
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan állíthatom be azt az értéket, ahol egy tengely a másikat metszik (tengelykereszteződés)?**
+**Hogyan állíthatom be, hogy egy tengely hol metszi a másikat (tengelykereszteződés)?**
 
-A [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) használatával választhatja ki a metszés viselkedését. Numerikus metszési érték megadásához állítsa be a [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) értékét. Ezek a beállítások lehetővé teszik a tengelykereszteződés áthelyezését egy megfelelő alapvonalra.
+Használja a [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) beállítást a metszési viselkedés kiválasztásához. Numerikus metszési érték megadásához állítsa a [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) értékét. Ezek a beállítások lehetővé teszik a tengely keresztezésének mozgatását egy megfelelő alapvonalra.
 
-**Hogyan pozícionálhatom a jelölőcímkéket a tengelyhez képest?**
+**Hogyan helyezhetem el a jelölőcímkéket a tengelyhez viszonyítva?**
 
-Állítsa a [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) értékét a [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/)‑t használva: `LOW`, `HIGH`, `NEXT_TO` vagy `NONE`. A jelölő vonalak szabályozásához használja a [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) vagy a [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) beállítást; ezek külön állnak a címke pozicionálásától.
+Állítsa a [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) tulajdonságot a [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/) segítségével: `LOW`, `HIGH`, `NEXT_TO` vagy `NONE`. A jelölő‑pontok szabályozásához használja a [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) vagy a [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) beállításokat; ezek különállóak a címke‑pozicionálástól.

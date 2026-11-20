@@ -1,5 +1,5 @@
 ---
-title: प्रेजेंटेशनों में PHP का उपयोग करके वीडियो फ्रेम प्रबंधित करें
+title: प्रस्तुतियों में PHP का उपयोग करके वीडियो फ्रेम प्रबंधित करें
 linktitle: वीडियो फ्रेम
 type: docs
 weight: 10
@@ -7,31 +7,31 @@ url: /hi/php-java/video-frame/
 keywords:
 - वीडियो जोड़ें
 - वीडियो बनाएं
-- वीडियो एम्बेड करें
+- वीडियो एंबेड करें
 - वीडियो निकालें
-- वीडियो पुनः प्राप्त करें
+- वीडियो प्राप्त करें
 - वीडियो फ्रेम
 - वेब स्रोत
-- पावरपॉइंट
-- ओपनडॉक्युमेंट
-- प्रेजेंटेशन
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ने और निकालने के लिए तेज़ गाइड सीखें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ने और निकालने के लिए सीखें। तेज़ कैसे‑करें गाइड।"
 ---
 ## **परिचय**
 
-वीडियो विचारों को समझाने और दर्शकों को आकर्षित करने में मदद कर सकते हैं। Aspose.Slides for PHP via Java आपको स्लाइड्स में वीडियो फ्रेम जोड़ने, प्लेबैक सेटिंग्स को समायोजित करने, कैप्शन प्रबंधित करने, और एम्बेडेड वीडियो डेटा निकालने की सुविधा देता है।
+वीडियो विचारों को समझाने और दर्शकों को जोड़ने में मदद कर सकते हैं। Aspose.Slides for PHP via Java आपको स्लाइड्स में वीडियो फ्रेम जोड़ने, प्लेबैक सेटिंग्स समायोजित करने, कैप्शन प्रबंधित करने और एंबेडेड वीडियो डेटा निकालने की सुविधा देता है।
 
-PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो के लिंक, जैसे YouTube वीडियो, को सपोर्ट करता है।
+PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो, जैसे YouTube वीडियो, के लिंक का समर्थन करता है।
 
-वीडियो डेटा और वीडियो फ्रेम को दर्शाने के लिए, Aspose.Slides [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) क्लास, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) क्लास, और अन्य संबंधित प्रकार प्रदान करता है।
+वीडियो डेटा और वीडियो फ्रेम का प्रतिनिधित्व करने के लिए, Aspose.Slides [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) क्लास, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) क्लास, और अन्य संबंधित प्रकार प्रदान करता है।
 
-## **एक एम्बेडेड वीडियो फ्रेम बनाना**
+## **एंबेडेड वीडियो फ्रेम बनाएं**
 
-यदि आप अपनी स्लाइड में जोड़ने के लिए वीडियो फ़ाइल स्थानीय रूप से संग्रहीत है, तो आप प्रस्तुति में वीडियो एम्बेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
+यदि आप जिस वीडियो फ़ाइल को अपनी स्लाइड में जोड़ना चाहते हैं वह स्थानीय रूप से संग्रहीत है, तो आप प्रस्तुति में वीडियो एंबेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एम्बेड करता है और परिणाम को सहेजता है। फ्रेम के निर्देशांक और आकार पॉइंट्स में होते हैं। स्ट्रीम तब तक खुला रहता है जब तक सहेजना समाप्त नहीं हो जाता, क्योंकि [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) प्रस्तुति के उपयोग के दौरान इसे लॉक रखता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एंबेड करता है और परिणाम सहेजता है। फ्रेम के निर्देशांक और आयाम पॉइंट में हैं। स्ट्रीम तब तक खुला रहता है जब तक सहेजना समाप्त नहीं हो जाता क्योंकि [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) प्रस्तुति द्वारा उपयोग किए जाने पर इसे लॉक रखता है।
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-आप स्थानीय वीडियो पथ को सीधे [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) में पास भी कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो एम्बेड करता है। प्रस्तुति सहेजी जाने तक वीडियो सुलभ रहना चाहिए।
+आप स्थानीय वीडियो पथ को सीधे [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) को पास भी कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो एंबेड करता है। प्रस्तुति सहेजे जाने तक वीडियो सुलभ रहना चाहिए।
 
 ```php
 use aspose\slides\Presentation;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **वेब स्रोत से वीडियो के साथ एक वीडियो फ्रेम बनाना**
+## **वेब स्रोत से वीडियो के साथ वीडियो फ्रेम बनाएं**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो को सपोर्ट करता है। आप एक वीडियो फ्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो का समर्थन करता है। आप एक वीडियो फ्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
 
-यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) मेथड स्वचालित प्लेबैक का अनुरोध करता है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रस्तुति व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन करना चाहिए।
+यह उदाहरण पहली स्लाइड पर एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) मेथड स्वचालित प्लेबैक का अनुरोध करता है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रस्तुति व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन करना चाहिए।
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **फ़ुल‑स्क्रीन मोड में वीडियो चलाएँ**
+## **फ़ुल-स्क्रीन मोड में वीडियो चलाएँ**
 
-एक प्रशिक्षण प्रस्तुति में, आप सॉफ़्टवेयर डेमोंस्ट्रेशन को फ़ुल‑स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) को `true` के साथ कॉल करें।
+एक प्रशिक्षण प्रस्तुति में आप सॉफ़्टवेयर डेमॉन्स्ट्रेशन को फ़ुल-स्क्रीन मोड में चलाकर दर्शकों को विवरण दिखा सकते हैं। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए `true` के साथ [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) को कॉल करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) खोजता है, और फ़ुल‑स्क्रीन प्लेबैक सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ्रेम होना चाहिए।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) खोजता है, और फ़ुल-स्क्रीन प्लेबैक को सक्षम करता है। इनपुट प्रस्तुति में पहली स्लाइड पर कम से कम एक मौजूदा वीडियो फ्रेम वाला स्लाइड होना आवश्यक है।
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-फ़ुल‑स्क्रीन प्लेबैक नियंत्रित करता है कि वीडियो कैसे प्रदर्शित होता है। स्वतंत्र रूप से, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) यह निर्धारित करता है कि यह स्वचालित रूप से शुरू होता है या क्लिक पर, और [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) यह नियंत्रित करता है कि यह दोहराता है या नहीं। प्रारंभ व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा प्रारंभ और लूप सेटिंग्स को बनाए रखता है।
+फ़ुल-स्क्रीन प्लेबैक नियंत्रित करता है कि वीडियो कैसे प्रदर्शित हो। स्वतंत्र रूप से, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) निर्धारित करता है कि यह स्वचालित रूप से शुरू हो या क्लिक पर, और [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) नियंत्रित करता है कि यह दोहराए या नहीं। प्रारंभ व्यवहार चुनने के लिए प्लेबैक मोड को [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा प्रारंभ और लूप सेटिंग्स को संरक्षित रखता है।
 
-## **प्लेबैक के बाद वीडियो को रीवाइंड करें**
+## **प्लेबैक के बाद वीडियो रिवाइंड करें**
 
-एक प्रशिक्षण प्रस्तुति में, डेमॉन्स्ट्रेशन वीडियो को उसकी शुरुआत में लौटाना प्रस्तोता को फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लौटाने के लिए [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) को `true` के साथ कॉल करें।
+एक प्रशिक्षण प्रस्तुति में डेमॉन्स्ट्रेशन वीडियो को उसकी शुरुआत में वापस लाने से प्रस्तुतकर्ता इसे फिर से चलाने के लिए तैयार कर सकता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लाने के लिए `true` के साथ [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) को कॉल करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) खोजता है, और रीवाइंड सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू होने के लिए सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ्रेम होना चाहिए।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) खोजता है, और रिवाइंडिंग सक्षम करता है। यह लूपिंग को अक्षम करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू करने के लिए सेट करता है। इनपुट प्रस्तुति में पहली स्लाइड पर कम से कम एक मौजूदा वीडियो फ्रेम वाला स्लाइड होना आवश्यक है।
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-रीवाइंड करने से वीडियो उसकी शुरुआत में लौट आता है बिना फिर से शुरू किए। इसके विपरीत, [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) को `true` के साथ कॉल करने से प्लेबैक स्वचालित रूप से दोहराता है। जब आप चाहते हैं कि वीडियो समाप्त हो और पुनः चलाने के लिए तैयार रहे तो लूपिंग को निष्क्रिय रखें। [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) स्वतंत्र रूप से स्वचालित या क्लिक पर स्टार्टअप को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तोता तय कर सके कि प्लेबैक कब शुरू हो। जैसा कि उदाहरण में दिखाया गया है, लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) से स्वतंत्र रूप से काम करता है।
+रिवाइंडिंग वीडियो को उसकी शुरुआत में लौटाता है बिना फिर से शुरू किए। इसके विपरीत, `true` के साथ [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) को कॉल करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और फिर पुन: चलाने के लिए तैयार रहे, तो लूपिंग को अक्षम रखें। [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) स्वतंत्र रूप से स्वचालित या क्लिक पर शुरूआत को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुतकर्ता प्लेबैक शुरू होने का नियंत्रण रखे। लूप सेटिंग के बाद प्लेबैक मोड सेट करें, जैसा कि उदाहरण में दिखाया गया है। रिवाइंडिंग [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) से स्वतंत्र रूप से कार्य करता है।
 
 ## **वीडियो फ्रेम को ट्रिम करें**
 
-प्लेबैक के दौरान वीडियो की शुरुआत या अंत के भाग को छोड़ने के लिए आप [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) और [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) का उपयोग कर सकते हैं। दोनों मान मिलिसेकेंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स को बदलता है।
+प्लेबैक के दौरान वीडियो की शुरुआत या अंत के भाग को छोड़ने के लिए [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) और [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) का उपयोग करें। दोनों मान मिलीसेकंड में होते हैं। ट्रिमिंग एंबेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स बदलती है।
 
-**ट्रिम सेटिंग्स निर्धारित करें**
+**ट्रिम सेटिंग्स सेट करें**
 
-यह उदाहरण स्थानीय वीडियो एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम एक सेकंड को छोड़ देता है। एक प्ले करने योग्य भाग बचाने के लिए 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें।
+यह उदाहरण एक स्थानीय वीडियो एंबेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और आखिरी एक सेकंड को छोड़ता है। 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें ताकि एक चलने योग्य भाग बना रहे।
 
 ```php
 use aspose\slides\Presentation;
@@ -210,7 +210,7 @@ try {
 
 **ट्रिम सेटिंग्स पढ़ें**
 
-यह उदाहरण पहली स्लाइड पर पहले वीडियो फ्रेम के ट्रिम मानों को मिलिसेकेंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में कोई वीडियो फ्रेम नहीं है, तो कुछ भी प्रिंट नहीं होगा। पूर्ववर्ती उदाहरण 2500 और 1000 मान उत्पन्न करता है।
+यह उदाहरण पहली स्लाइड पर पहले वीडियो फ्रेम के ट्रिम मानों को मिलीसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होना चाहिए। यदि उस स्लाइड में कोई वीडियो फ्रेम नहीं है तो कुछ भी प्रिंट नहीं होगा। पिछले उदाहरण में मान 2500 और 1000 उत्पन्न होते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **वीडियो कैप्शन प्रबंधित करें**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए बंद कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) मेथड के माध्यम से उपलब्ध होते हैं।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए क्लोज्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT प्रारूप में संग्रहीत होते हैं और [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) मेथड के माध्यम से उपलब्ध होते हैं।
 
-**वीडियो फ्रेम में कैप्शन जोड़ें**
+### **वीडियो फ्रेम में कैप्शन जोड़ें**
 
-यह उदाहरण स्थानीय वीडियो एम्बेड करता है और English लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो से मिलना चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल होते हैं।
+यह उदाहरण एक स्थानीय वीडियो एंबेड करता है और अंग्रेजी लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो से मेल खाने चाहिए। सहेजी गई प्रस्तुति में दोनों, वीडियो और उसके कैप्शन शामिल होते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) क्लास भी एक ओवरलोड प्रदान करता है जो आपको स्ट्रीम से कैप्शन जोड़ने की अनुमति देता है।
+[CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) क्लास एक ओवरलोड भी प्रदान करती है जो आपको स्ट्रीम से कैप्शन जोड़ने की अनुमति देती है।
 
-**वीडियो फ्रेम से कैप्शन निकालें**
+### **वीडियो फ्रेम से कैप्शन निकालें**
 
-यह उदाहरण पहली स्लाइड पर वीडियो फ्रेम से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक नंबर आउटपुट फ़ाइलों को विशिष्ट रखते हैं। कंसोल निकाले गए ट्रैकों की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+यह उदाहरण पहली स्लाइड पर वीडियो फ्रेम से सभी कैप्शन ट्रैकों को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक संख्याएँ आउटपुट फ़ाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैकों की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-प्रत्येक [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और UTF-8 स्ट्रिंग के रूप में कैप्शन टेक्स्ट को उजागर करता है।
+प्रत्येक [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में उजागर करता है।
 
-**वीडियो फ्रेम से कैप्शन हटाएँ**
+### **वीडियो फ्रेम से कैप्शन हटाएँ**
 
-यह उदाहरण पहली स्लाइड पर पहले शेप पोजीशन पर वीडियो फ्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और शेप मौजूद हैं और वह शेप एक वीडियो फ्रेम है।
+यह उदाहरण पहली स्लाइड पर पहले आकार की स्थिति वाले वीडियो फ्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार एक वीडियो फ्रेम है।
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) के बजाय [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) या [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) मेथड का प्रयोग करें।
+यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) के बजाय [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) या [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) मेथड का उपयोग करें।
+
+### **वीडियो कैप्शन खोजें**
+
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) पूरी WebVTT ट्रैक लौटाता है, जिसमें हेडर, टाइमिंग लाइन्स और कैप्शन टेक्स्ट शामिल हैं। आप मेमोरी में क्यूज़ को खोजकर बोले गये वाक्यांश और उसका टाइमस्टैंप पा सकते हैं। उदाहरण के लिए, स्लाइड 2 पर एक अंग्रेजी ट्रैक में निम्नलिखित टेक्स्ट हो सकता है।
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+उदाहरण `captioned_media.pptx` खोलता है और प्रत्येक स्लाइड में प्रत्येक शीर्ष-स्तरीय वीडियो फ्रेम की ट्रैक पढ़ने के लिए [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) का उपयोग करता है। एक साधारण टेक्स्ट क्यू में टाइमिंग लाइन में `-->` होता है, और एक खाली लाइन क्यू को समाप्त करती है। जब कैप्शन में किसी भी केस में “café” होता है, तो उदाहरण स्लाइड नंबर, ट्रैक लेबल, मूल टाइमिंग लाइन और पूर्ण कैप्शन को प्रिंट करता है।
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+“café” की खोज एक मिलान उत्पन्न करती है। खोज ट्रैक हेडर को छोड़ती है और आउटपुट में टाइमिंग सेटिंग को संरक्षित रखती है।
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **स्लाइड से वीडियो निकालें**
 
-स्लाइड में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो निकालने की सुविधा देता है।
+स्लाइड में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एंबेडेड वीडियो निकालने की अनुमति देता है।
 
-यह उदाहरण प्रत्येक स्लाइड से एम्बेडेड वीडियो को अलग-अलग क्रमांकित बाइनरी फ़ाइलों में निकालता है। लिंक्ड वीडियो को छोड़ा जाता है क्योंकि उनमें एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME प्रकार और कुल गिनती प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता पर रिपोर्टेड मीडिया प्रकार से मेल खाने के लिए इसे बदलें।
+यह उदाहरण हर स्लाइड से एंबेडेड वीडियो को अलग-अलग, क्रमांकित बाइनरी फ़ाइलों में निकालता है। लिंक्ड वीडियो को छोड़ दिया जाता है क्योंकि उनमें कोई एंबेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME टाइप और कुल गिनती प्रिंट करता है। आउटपुट जेनरिक `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता अनुसार रिपोर्टेड मीडिया टाइप से मेल खाने के लिए इसे बदलें।
 
 ```php
 use aspose\slides\Presentation;
@@ -374,18 +438,18 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**एक वीडियो फ्रेम के लिए कौन से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
+**एक वीडियो फ्रेम के लिए किन वीडियो प्लेबैक पैरामीटर को बदला जा सकता है?**
 
-आप [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (स्वचालित या क्लिक पर) और [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) ऑब्जेक्ट की मेथड्स के माध्यम से उपलब्ध हैं।
+आप [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) ऑब्जेक्ट की मेथड्स के माध्यम से उपलब्ध हैं।
 
-**क्या वीडियो जोड़ने से PPTX फ़ाइल का आकार प्रभावित होता है?**
+**क्या वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है?**
 
-हां। जब आप स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो का लिंक जोड़ते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को वीडियो डेटा के बजाय संग्रहीत करती है, इसलिए आकार वृद्धि आमतौर पर कम होती है।
+हां। जब आप स्थानीय वीडियो एंबेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को संग्रहीत करती है न कि वीडियो डेटा, इसलिए आकार वृद्धि आमतौर पर कम होती है।
 
-**क्या मैं मौजूदा वीडियो फ्रेम में वीडियो को बिना उसकी स्थिति और आकार बदले बदल सकता हूँ?**
+**क्या मैं मौजूदा वीडियो फ्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
 
-हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) को बदल सकते हैं जबकि शेप की ज्यामिति को संरक्षित रखते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने का एक सामान्य परिदृश्य है।
+हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) को बदल सकते हैं जबकि आकार और ज्यामिति को बरकरार रख सकते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने का सामान्य परिदृश्य है।
 
-**क्या एम्बेडेड वीडियो के कंटेंट टाइप (MIME) का पता लगाया जा सकता है?**
+**क्या एंबेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
 
-हां। एक एम्बेडेड वीडियो में एक [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) होता है जिसे आप पढ़ और उपयोग कर सकते हैं, उदाहरण के लिए इसे डिस्क पर सहेजते समय।
+हां। एक एंबेडेड वीडियो का [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) होता है जिसे आप पढ़ सकते हैं और उपयोग कर सकते हैं, उदाहरण के लिए जब आप इसे डिस्क पर सहेजते हैं।

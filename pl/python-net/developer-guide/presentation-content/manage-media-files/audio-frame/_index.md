@@ -1,76 +1,29 @@
 ---
-title: Zarządzanie dźwiękiem w prezentacjach przy użyciu Pythona
-linktitle: Ramka audio
+title: Zarządzanie ramkami audio w prezentacjach przy użyciu Pythona
+linktitle: Rama audio
 type: docs
 weight: 10
 url: /pl/python-net/audio-frame/
 keywords:
-- dodaj audio
-- osadź audio
+- dźwięk
 - ramka audio
-- plik audio
+- miniatura
+- dodaj audio
 - właściwości audio
+- opcje audio
 - wyodrębnij audio
-- pobierz audio
-- zmień audio
-- opcje odtwarzania
-- tryb odtwarzania
-- odtwarzaj na wszystkich slajdach
-- pętla do zatrzymania
-- ukryj podczas pokazu
-- przewiń po odtworzeniu
-- głośność audio
-- domyślny obraz
-- PowerPoint
-- OpenDocument
-- prezentacja
+- WebVTT
 - Python
 - Aspose.Slides
-description: "Łatwo dodawaj, wyodrębniaj i zarządzaj ramkami audio w PPT, PPTX i ODP za pomocą Aspose.Slides for Python via .NET. Odkryj przykłady kodu i ulepsz swoje prezentacje już dziś."
+description: "Osadź dźwięk w slajdach, zmień ikonę audio, skonfiguruj odtwarzanie, zarządzaj napisami WebVTT i wyodrębnij dźwięki przejść slajdów przy użyciu Aspose.Slides for Python via .NET."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z ramkami audio w Aspose.Slides. Pokazuje, jak dodać osadzone audio do slajdów, dostosować miniaturę ramki audio, skonfigurować opcje odtwarzania, takie jak głośność, pętla, ukrywanie, przycinanie i czasy zanikania, oraz wyodrębnić dźwięk używany w przejściach pokazu slajdów.
+Rama dźwiękowa umożliwia odtworzenie dźwięku na slajdzie. Dzięki Aspose.Slides for Python via .NET możesz wstawić klip audio, wybrać obraz go reprezentujący, dostosować odtwarzanie i dodać napisy. Możesz także pobrać dźwięk przypisany do przejścia slajdu.
 
-## **Tworzenie ramek audio**
+## **Utwórz ramki audio**
 
-Aspose.Slides for Python via .NET umożliwia dodawanie plików audio do slajdów. Pliki audio są osadzane w slajdach jako ramki audio.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-3. Wczytaj strumień pliku audio, który chcesz osadzić w slajdzie.
-4. Dodaj osadzoną ramkę audio (zawierającą plik audio) do slajdu.
-5. Ustaw [PlayMode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioplaymodepreset) oraz `Volume` udostępniane przez obiekt [IAudioFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/).
-6. Zapisz zmodyfikowaną prezentację.
-
-Ten kod w Pythonie pokazuje, jak dodać osadzoną ramkę audio do slajdu:
-
-```python
-import aspose.slides as slides
-
-# Utwórz klasę prezentacji reprezentującą plik prezentacji
-with slides.Presentation() as pres:
-    # Pobiera pierwszy slajd
-    sld = pres.slides[0]
-
-    # Wczytuje plik wav do strumienia
-    with open(path + "sampleaudio.wav", "rb") as in_file:
-        # Dodaje ramkę audio
-        audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
-
-        # Ustawia tryb odtwarzania i głośność audio
-        audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
-        audio_frame.volume = slides.AudioVolumeMode.LOUD
-
-        # Zapisuje plik PowerPoint na dysku
-        pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Zmienianie miniatury ramki audio**
-
-Gdy dodajesz plik audio do prezentacji, audio pojawia się jako ramka z domyślnym standardowym obrazem (zobacz obraz w sekcji poniżej). Możesz zmienić miniaturę ramki audio (ustawić wybrany obraz).
-
-Ten kod w Pythonie pokazuje, jak zmienić miniaturę lub podglądowy obraz ramki audio:
+Użyj [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) aby osadzić lokalny klip audio na pierwszym slajdzie. Pierwsze dwa współrzędne określają pozycję ramki na slajdzie, a kolejne dwie wartości ustawiają jej szerokość i wysokość, wszystkie w punktach. Ten przykład ustawia [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) na automatyczne uruchomienie klipu oraz [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) na głośny preset.
 
 ```python
 import aspose.slides as slides
@@ -78,215 +31,217 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Dodaje ramkę audio do slajdu z określonym położeniem i rozmiarem.
-    with open("sample2.mp3", "rb") as audio_fs:
-        audioFrame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_fs)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 150, 100, 100, audio_stream)
+    audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
+    audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-        # Dodaje obraz do zasobów prezentacji.
-        with open("eagle.jpeg", "rb") as image_fs:
-            data = image_fs.read()
-        
-        audioImage = presentation.images.add_image(data)
-
-        # Ustawia obraz dla ramki audio.
-        audioFrame.picture_format.picture.image = audioImage
-        
-        #Zapisuje zmodyfikowaną prezentację na dysku
-        presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Zmiana opcji odtwarzania audio**
+## **Zmień miniaturkę ramki audio**
 
-Aspose.Slides for Python via .NET umożliwia zmianę opcji kontrolujących odtwarzanie lub właściwości audio. Na przykład możesz dostosować głośność audio, ustawić odtwarzanie w pętli lub nawet ukryć ikonę audio.
-
-Panel **Audio Options** w Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-Opcje **Audio** w PowerPoint, które odpowiadają właściwościom Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/) :
-
-- **Start** lista rozwijana odpowiada właściwości [AudioFrame.play_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/play_mode/) 
-- **Volume** odpowiada właściwości [AudioFrame.volume](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/volume/) 
-- **Play Across Slides** odpowiada właściwości [AudioFrame.play_across_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/play_across_slides/) 
-- **Loop until Stopped** odpowiada właściwości [AudioFrame.play_loop_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/play_loop_mode/) 
-- **Hide During Show** odpowiada właściwości [AudioFrame.hide_at_showing](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/hide_at_showing/) 
-- **Rewind after Playing** odpowiada właściwości [AudioFrame.rewind_audio](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/rewind_audio/) 
-
-Opcje **Editing** w PowerPoint, które odpowiadają właściwościom Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/) :
-
-- **Fade In** odpowiada właściwości [AudioFrame.fade_in_duration](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/fade_in_duration/) 
-- **Fade Out** odpowiada właściwości [AudioFrame.fade_out_duration](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/fade_out_duration/) 
-- **Trim Audio Start Time** odpowiada właściwości [AudioFrame.trim_from_start](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/trim_from_start/) 
-- **Trim Audio End Time** wartość równa jest długości audio minus wartość właściwości [AudioFrame.trim_from_end](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/trim_from_end/) 
-
-Kontrolka **Volume** w panelu sterowania audio w PowerPoint odpowiada właściwości [AudioFrame.volume_value](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/volume_value/). Umożliwia zmianę głośności audio w procentach.
-
-Tak zmieniasz opcje odtwarzania audio:
-
-1. [Utwórz](#create-audio-frame) lub uzyskaj ramkę audio.
-2. Ustaw nowe wartości właściwości ramki audio, które chcesz zmienić.
-3. Zapisz zmodyfikowany plik PowerPoint.
-
-Ten kod w Pythonie demonstruje operację, w której zmieniane są opcje audio:
+Domyślnie rama audio wyświetla ikonę głośnika. Aby wyświetlić własną miniaturkę, dodaj obraz do prezentacji za pomocą [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) i przypisz go do własności [picture_format.picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/). Przykład używa pliku JPEG jako miniaturki dla osadzonego klipu audio.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # Pobiera kształt AudioFrame
-    audioFrame = pres.slides[0].shapes[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Ustawia tryb odtwarzania na odtwarzanie po kliknięciu
-    audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
+    with open("eagle.jpeg", "rb") as image_stream:
+        thumbnail = presentation.images.add_image(image_stream)
 
-    # Ustawia głośność na niski poziom
-    audioFrame.volume = slides.AudioVolumeMode.LOW
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_stream)
+    audio_frame.picture_format.picture.image = thumbnail
 
-    # Ustawia odtwarzanie audio na wszystkich slajdach
-    audioFrame.play_across_slides = True
-
-    # Wyłącza pętlę dla audio
-    audioFrame.play_loop_mode = False
-
-    # Ukrywa AudioFrame podczas pokazu slajdów
-    audioFrame.hide_at_showing = True
-
-    # Przewija audio do początku po odtworzeniu
-    audioFrame.rewind_audio = True
-
-    # Zapisuje plik PowerPoint na dysku
-    pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ten przykład w Pythonie pokazuje, jak dodać nową ramkę audio z osadzonym dźwiękiem, przyciąć ją i ustawić czasy zanikania:
+## **Zmień opcje odtwarzania audio**
 
-```py
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+Kontrole **Audio Options** w PowerPoint określają, kiedy klip się rozpoczyna, jak głośno brzmi i jak zachowuje się podczas pokazu slajdów.
 
-    with open("sampleaudio.mp3", "rb") as audio_stream:
-        audio_data = audio_stream.read()
+![Kontrole Audio Options w PowerPoint dla ramki audio](audio_frame_0.png)
 
-    audio = pres.audios.add_audio(audio_data)
-    audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio)
+| Kontrola PowerPoint | Właściwość Aspose.Slides |
+| --- | --- |
+| Rozpocznij | [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) |
+| Ustawienie głośności | [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) |
+| Odtwarzaj na wielu slajdach | [play_across_slides](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_across_slides/) |
+| Pętla aż do zatrzymania | [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_loop_mode/) |
+| Ukryj podczas pokazu | [hide_at_showing](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/hide_at_showing/) |
+| Przewiń po odtworzeniu | [rewind_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/rewind_audio/) |
+| Płynne pojawienie | [fade_in_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_in_duration/) |
+| Płynne zniknięcie | [fade_out_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_out_duration/) |
+| Przytnij początek audio | [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) |
+| Przytnij koniec audio | [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) |
+| Suwak głośności | [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) |
 
-    # Ustawia początkowy offset przycinania na 1,5 sekundy
+Przykład znajduje pierwszą ramkę audio na pierwszym slajdzie, ustawia [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) na rozpoczęcie odtwarzania po kliknięciu i wybiera niskie ustawienie głośności. Klip kontynuuje odtwarzanie na kolejnych slajdach przy wyłączonej pętli. Ikona pozostaje ukryta podczas pokazu, a klip przewija się po odtworzeniu.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.play_mode = slides.AudioPlayModePreset.ON_CLICK
+        audio_frame.volume = slides.AudioVolumeMode.LOW
+        audio_frame.play_across_slides = True
+        audio_frame.play_loop_mode = False
+        audio_frame.hide_at_showing = True
+        audio_frame.rewind_audio = True
+        
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Dla klipu dłuższego niż 3,5 sekundy, ten przykład pomija pierwsze 1,5 sekundy i ostatnie 2 sekundy. [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) mierzy czas do pominięcia na końcu klipu. Aby uzyskać czas końcowy wyświetlany w PowerPoint, odejmij tę wartość od całkowitej długości klipu. Przycięty klip płynnie wchodzi w ciągu 200 milisekund i płynnie wychodzi w ciągu 500 milisekund. Wszystkie cztery właściwości przyjmują wartości w milisekundach.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio_stream)
     audio_frame.trim_from_start = 1500.0
-    # Ustawia końcowy offset przycinania na 2 sekundy
     audio_frame.trim_from_end = 2000.0
-
-    # Ustawia czas trwania fade-in na 200 ms
     audio_frame.fade_in_duration = 200.0
-    # Ustawia czas trwania fade-out na 500 ms
     audio_frame.fade_out_duration = 500.0
 
-    pres.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Poniższy fragment kodu pokazuje, jak pobrać ramkę audio z osadzonym dźwiękiem i ustawić jej głośność na 85%:
+Aby ustawić głośność odtwarzania na określony odsetek, użyj [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/). Ten przykład ustawia pierwszą ramkę audio na pierwszym slajdzie na 85%.
 
-```py
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # Pobiera kształt ramki audio
-    audio_frame = pres.slides[0].shapes[0]
+```python
+import aspose.slides as slides
 
-    # Ustawia głośność audio na 85%
-    audio_frame.volume_value = 85.0
-
-    pres.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Zarządzanie napisami audio**
-
-Aspose.Slides umożliwia dodawanie napisów zamkniętych do ramki audio za pomocą właściwości [caption_tracks](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/caption_tracks/). Właściwość ta zwraca [CaptionsCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/captionscollection/), co pozwala dodawać ścieżki napisów WebVTT, iterować po istniejących ścieżkach i usuwać je w razie potrzeby.
-
-**Dodaj napisy audio**
-
-Użyj właściwości [caption_tracks](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/caption_tracks/) , aby dołączyć jedną lub więcej ścieżek napisów do ramki audio. W poniższym przykładzie plik audio jest dodawany do slajdu, a następnie nowa ścieżka napisów jest wczytywana z pliku `.vtt`.
-
-```py
-with slides.Presentation() as presentation:
-    with open("audio.mp3", "rb") as audio_stream:
-        audio = presentation.audios.add_audio(audio_stream.read())
-
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
     slide = presentation.slides[0]
-    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio)
 
-    # Dodaj nową ścieżkę napisów z pliku WebVTT.
-    audio_frame.caption_tracks.add("New track", "track.vtt")
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.volume_value = 85.0
+        presentation.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Zarządzaj napisami audio**
+
+Każda rama audio posiada kolekcję [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/caption_tracks/) . Użyj jej, aby dołączyć napisy WebVTT do klipu, wyeksportować istniejące ścieżki lub je usunąć.
+
+### **Dodaj napisy audio**
+
+Przykład osadza klip audio na pierwszym slajdzie i używa [CaptionsCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/add/) aby dołączyć lokalną ścieżkę WebVTT. Pierwszy argument podaje etykietę ścieżki, a drugi identyfikuje plik zawierający napisy czasowe.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio_stream)
+    audio_frame.caption_tracks.add("English", "track.vtt")
 
     presentation.save("audio_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Wyodrębnij napisy audio**
+### **Wyodrębnij napisy audio**
 
-Możesz iterować po ścieżkach napisów powiązanych z ramką audio i zapisywać je jako pliki `.vtt`. Każda ścieżka napisów udostępnia swoje dane binarne oraz unikalny identyfikator, które mogą być użyte przy eksportowaniu napisów.
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    for shape in slide.shapes:
-        if isinstance(shape, slides.AudioFrame):
-            audio_frame = shape
-            for caption_track in audio_frame.caption_tracks:
-                # Zapisz ścieżkę napisów jako plik .vtt.
-                with open(f"{caption_track.caption_id}.vtt", "wb") as track_stream:
-                    track_stream.write(caption_track.binary_data)
-```
-
-**Usuń napisy audio**
-
-Aby usunąć napisy z ramki audio, użyj metod dostępnych w [CaptionsCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/captionscollection/), takich jak [clear](https://reference.aspose.com/slides/pl/python-net/aspose.slides/captionscollection/clear/), [remove](https://reference.aspose.com/slides/pl/python-net/aspose.slides/captionscollection/remove/), lub [remove_at](https://reference.aspose.com/slides/pl/python-net/aspose.slides/captionscollection/remove_at/). Poniższy przykład usuwa wszystkie ścieżki napisów z ramki audio.
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    audio_frame = slide.shapes[0]  # type: slides.AudioFrame
-
-    # Usuń wszystkie ścieżki napisów z ramki audio.
-    audio_frame.caption_tracks.clear()
-
-    presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Wyodrębnianie audio**
-
-Aspose.Slides for Python via .NET umożliwia wyodrębnienie dźwięku używanego w przejściach pokazu slajdów. Na przykład możesz wyodrębnić dźwięk używany w konkretnym slajdzie.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i wczytaj prezentację zawierającą audio.
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Uzyskaj dostęp do przejść pokazu slajdów dla slajdu.
-4. Wyodrębnij dźwięk w postaci danych bajtowych.
-
-Ten kod w Pythonie pokazuje, jak wyodrębnić audio używane w slajdzie:
+Ten przykład eksportuje każdą ścieżkę napisów dołączoną do ramki audio na pierwszym slajdzie. Zapisuje [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/captions/binary_data/) ścieżki do pliku WebVTT i używa jej [caption_id](https://reference.aspose.com/slides/python-net/aspose.slides/captions/caption_id/) jako nazwy pliku, aby każda ścieżka miała osobny wynik.
 
 ```python
 import aspose.slides as slides
 
-#with slides.Presentation("AudioSlide.pptx") as pres:
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
-    # Uzyskuje dostęp do wybranego slajdu
-    slide = pres.slides[0]  
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Pobiera efekty przejścia pokazu slajdów dla slajdu
-    transition = slide.slide_show_transition
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                with open(f"{track.caption_id}.vtt", "wb") as output:
+                    output.write(track.binary_data)
+```
 
-    #Wyodrębnia dźwięk w tablicy bajtów
-    audio = transition.sound.binary_data
+### **Usuń napisy audio**
 
-    print("Length: " + str(len(audio)))
+Użyj [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) lub [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) aby usunąć pojedynczą ścieżkę. Przykład używa [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) aby usunąć wszystkie napisy z pierwszej ramki audio na pierwszym slajdzie, zachowując klip.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.caption_tracks.clear()
+        presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Znajdź wiersz w napisach audio**
+
+Aby znaleźć wiersz w napisach audio na pierwszym slajdzie, odczytaj w pamięci [data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) każdej ścieżki. W zwykłej wskazówce WebVTT linia z czasem zawiera `-->`, po niej następują linie napisów, a pusty wiersz kończy wskazówkę. Ten przykład wypisuje etykietę ścieżki oraz każdą linię napisu zawierającą „café”.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                in_cue = False
+                for line in track.data_as_string.splitlines():
+                    if not line:
+                        in_cue = False
+                    elif "-->" in line:
+                        in_cue = True
+                    elif in_cue and "café" in line.casefold():
+                        print(f"{track.label}: {line}")
+```
+
+## **Wyodrębnij audio**
+
+Przejście slajdu może mieć własny dźwięk. Aby go pobrać, odczytaj własność [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/) przejścia. Przykład uzyskuje dostęp do [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/) dźwięku i wypisuje jego rozmiar w bajtach. Jeśli pierwszy slajd nie ma dźwięku przejścia, wypisuje komunikat.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("AudioSlide.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    sound = slide.slide_show_transition.sound
+    if sound is None:
+        print("The first slide has no transition sound.")
+    else:
+        audio_data = sound.binary_data
+        print(f"Transition sound: {len(audio_data)} bytes.")
 ```
 
 ## **FAQ**
 
-**Czy mogę ponownie używać tego samego zasobu audio na wielu slajdach bez zwiększania rozmiaru pliku?**
+**Czy mogę ponownie używać tego samego klipu audio na wielu slajdach bez jego duplikowania?**
 
-Tak. Dodaj audio raz do współdzielonej [audio collection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/audios/) prezentacji i utwórz dodatkowe ramki audio, które odwołują się do istniejącego zasobu. Dzięki temu unika się duplikowania danych medialnych i rozmiar prezentacji pozostaje pod kontrolą.
+Tak. Dodaj klip raz do [kolekcja audio](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/audios/) i przekaż ten sam obiekt audio do [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) dla każdego slajdu.
 
-**Czy mogę wymienić dźwięk w istniejącej ramce audio bez ponownego tworzenia kształtu?**
+**Czy mogę zamienić dźwięk w istniejącej ramce audio?**
 
-Tak. W przypadku dźwięku powiązanego, zaktualizuj [link path](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/link_path_long/) , aby wskazywał na nowy plik. W przypadku dźwięku osadzonego, zamień obiekt [embedded audio](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audioframe/embedded_audio/) na inny z [audio collection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/audios/) prezentacji. Formatowanie ramki i większość ustawień odtwarzania pozostają niezmienione.
+Tak. Dla dźwięku połączonego, zaktualizuj [link_path_long](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/link_path_long/) aby wskazywał na plik zastępczy. Dla dźwięku osadzonego, przypisz inny klip z [kolekcja audio] prezentacji do [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/). Oba podejścia zachowują istniejącą ramkę.
 
-**Czy przycinanie zmienia podstawowe dane audio przechowywane w prezentacji?**
+**Czy przycinanie zmienia dane audio przechowywane w prezentacji?**
 
-Nie. Przycinanie zmienia tylko granice odtwarzania. Oryginalne bajty audio pozostają niezmienione i dostępne poprzez osadzony audio lub kolekcję audio prezentacji.
+Nie. [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) i [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) ustalają granice odtwarzania. Nadal możesz pobrać pełny klip z [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/).

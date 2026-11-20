@@ -1,5 +1,5 @@
 ---
-title: Videókeretek kezelése prezentációkban C++ használatával
+title: Videókeretek kezelése bemutatókban C++ használatával
 linktitle: Videókeret
 type: docs
 weight: 10
@@ -11,27 +11,27 @@ keywords:
 - videó kinyerése
 - videó lekérése
 - videókeret
-- webes forrás
+- webforrás
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - C++
 - Aspose.Slides
-description: "Tanulja meg, hogyan adhat hozzá és nyerhet ki programozottan videókereteket PowerPoint és OpenDocument diákba az Aspose.Slides for C++ segítségével. Gyors útmutató."
+description: "Tanulja meg programozottan hozzáadni és kinyerni a videókereteket PowerPoint és OpenDocument diákba az Aspose.Slides for C++ segítségével. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-A videók segíthetnek az ötletek megmagyarázásában és a közönség bevonásában. Az Aspose.Slides for C++ lehetővé teszi, hogy videókereteket adjon a diákhoz, módosítsa a lejátszási beállításokat, kezelje a feliratokat, és kinyerje a beágyazott videó adatokat.
+A videók segíthetnek az ötletek magyarázatában és a közönség bevonásában. Az Aspose.Slides for C++ lehetővé teszi, hogy videókereteket adjunk a diákkhoz, beállítsuk a lejátszási beállításokat, kezeljük a feliratokat, és kinyerjük a beágyazott videó adatokat.
 
-A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube‑videókat.
+A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube videókat.
 
-A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja az [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) interfészt, az [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) interfészt és egyéb releváns típusokat.
+A videoadatok és videókeretek ábrázolásához az Aspose.Slides a [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) interfészt, a [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) interfészt és egyéb releváns típusokat biztosít.
 
 ## **Beágyazott videókeret létrehozása**
 
-Ha a diára hozzáadni kívánt videofájl helyi tárolású, létrehozhat egy videókeretet a videó prezentációba való beágyazásához.
+Ha a diára feltenni kívánt videofájl helyileg van tárolva, létrehozhat egy videókeretet a videó beágyazásához a bemutatóba.
 
-Ez a példa egy helyi videót ágyaz be egy meglévő prezentáció első diájára, majd elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A stream nyitva marad a mentés befejezéséig, mivel a [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a prezentáció használja.
+Ez a példa egy helyi videót ágyaz be a meglévő bemutató első diájára, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A folyam nyitva marad a mentés befejezéséig, mivel a [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a bemutató használja.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-A helyi videó elérési útját közvetlenül is átadhatja a [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) metódusnak. Ez a példa a videót egy új prezentáció első diájára ágyazza be. A videónak a prezentáció mentéséig elérhetőnek kell maradnia.
+A helyi videó útvonalát közvetlenül is átadhatja a [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) metódusnak. Ez a példa egy új bemutató első diájára ágyaz be videót. A videónak a mentés befejezéséig elérhetőnek kell maradnia.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Videókeret létrehozása webes forrásból származó videóval**
+## **Webforrásból származó videóval ellátott videókeret létrehozása**
 
-A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a prezentációkban. Létrehozhat egy videókeretet, amely online videóra, például egy YouTube‑videóra mutat.
+A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a bemutatókban. Létrehozhat egy videókeretet, amely egy online videóra mutató hivatkozást tartalmaz, például egy YouTube videóra.
 
-Ez a példa egy YouTube‑videó hivatkozást és miniatűr képet ad hozzá az első diához. Cserélje le a videóazonosítót egy másik videó használatához. A [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) metódus automatikus lejátszást kér. A miniatűr letöltése és a videó lejátszása internetkapcsolatot igényel. A prezentáció megjelenítőnek szintén támogatnia kell az online videó lejátszását.
+Ez a példa egy YouTube videó hivatkozást és bélyegképet ad az első diához. Cserélje le a videó azonosítóját, ha másik videót szeretne használni. A [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) metódus automatikus lejátszást kér. A bélyegkép letöltése és a videó lejátszása internetkapcsolatot igényel. A bemutató megjelenítőnek szintén támogatnia kell az online videó lejátszást.
 
 ```cpp
 #include <net/web_client.h>
@@ -129,9 +129,9 @@ presentation->Dispose();
 
 ## **Videó lejátszása teljes képernyős módban**
 
-Egy képzési prezentációban a szoftverbemutatót teljes képernyős módban játszhatja, így a közönség láthatja a részleteket. A [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) `true` értéket fogad, hogy ezt a viselkedést a lejátszás során engedélyezze.
+Képzési bemutatóban szoftverbemutatót játszhat le teljes képernyőn, hogy a közönség lássa a részleteket. A [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) `true` értékkel engedélyezi ezt a viselkedést lejátszás közben.
 
-Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik egy videókeret.
+Ez a példa megnyit egy bemutatót, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Függetlenül ettől a [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) határozza meg, automatikusan vagy kattintásra indul-e, és a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) szabályozza, ismétlődik‑e. A kezdési viselkedés kiválasztásához állítsa be a lejátszási módot a [VideoPlayModePreset::Auto vagy VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) értékre. A példa megőrzi a meglévő indítási és ismétlési beállításokat.
+A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Különállóan a [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) vezérli, hogy automatikusan vagy kattintásra indítson, és a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) szabályozza, hogy ismétlődjön-e. A kezdési viselkedés kiválasztásához állítsa a lejátszási módot a [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) értékre. A példa megtartja a meglévő kezdő- és ismétlődési beállításokat.
 
-## **Videó visszatekerése a lejátszás után**
+## **Videó visszatekerése lejátszás után**
 
-Egy képzési prezentációban a bemutató videó elejére való visszatekerése azt teszi lehetővé, hogy a bemondó újra le tudja játszani. Hívja a [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) metódust `true` értékkel, hogy a lejátszás befejezése után a videó a kezdetére kerüljön.
+Képzési bemutatóban egy demonstrációs videó elejére visszatekerése után újra lejátszhatóvá teszi azt a prezentátornak. Hívja a [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) metódust `true` értékkel, hogy a lejátszás befejezésekor a videó visszatérjen a kezdetéhez.
 
-Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a visszatekerést. Letiltja az ismétlést, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik egy videókeret.
+Ez a példa megnyit egy bemutatót, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) elemet az első dián, és engedélyezi a visszatekerést. Kikapcsolja a hurkot, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A visszatekerés a videót a kezdetére helyezi újraindítás nélkül. Ezzel szemben a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) engedélyezése automatikusan ismétli a lejátszást. Tartsa letiltva az ismétlést, ha azt szeretné, hogy a videó befejeződjön, és készen álljon az újbóli lejátszásra. A [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) függetlenül szabályozza az automatikus vagy kattintásra történő indítást; ez a példa a [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) értéket használja, így a bemondó szabályozza, mikor indul a lejátszás. Állítsa be a lejátszási módot az ismétlési beállítás után, ahogyan a példában látható. A visszatekerés független a [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) beállítástól.
+A visszatekerés a videót a kezdetére hozza anélkül, hogy újra elindulna. Ezzel szemben a [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) engedélyezése automatikusan ismétli a lejátszást. Tartsa a hurkot letiltva, amikor azt akarja, hogy a videó befejeződjön, és készen álljon az újbóli lejátszásra. A [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) önállóan szabályozza az automatikus vagy kattintásra történő indítást; ez a példa a [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) értéket használja, így a prezentátor dönt a lejátszás kezdeteiről. Állítsa be a lejátszási módot a hurok beállítása után, ahogyan a példában is látható. A visszatekerés független a [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) működésétől.
 
 ## **Videókeret vágása**
 
-Használja az [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) és az [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) metódusokat a videó elejének vagy végének egy részének kihagyásához lejátszás közben. Mindkét érték ezredmásodpercben van megadva. A vágás megváltoztatja a lejátszási beállításokat anélkül, hogy módosítaná a beágyazott videó adatokat.
+Használja a [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) és a [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) metódusokat a videó elejének vagy végének kihagyásához lejátszás közben. Mindkét érték ezredmásodpercben van megadva. A vágás megváltoztatja a lejátszási beállításokat anélkül, hogy a beágyazott videó adatát módosítaná.
 
-**Vágási beállítások beállítása**
+**Trim beállítások beállítása**
 
-Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon 3,5 másodpercnél hosszabb videót, hogy lejátszható szegmens maradjon.
+Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon legalább 3,5 másodperc hosszú videót, hogy egy lejátszható szegmens megmaradjon.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Vágási beállítások olvasása**
+**Trim beállítások olvasása**
 
-Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A prezentációnak legalább egy diasornak kell lennie. Ha az a dia nem tartalmaz videókeretet, nem kerül kiírásra semmi. Az előző példa 2500 és 1000 értékeket ad.
+Ez a példa kiírja az első videókeret trim értékeit az első dián ezredmásodpercben. A bemutatónak legalább egy diát kell tartalmaznia. Ha az adott dián nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket ad.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -281,11 +281,11 @@ presentation->Dispose();
 
 ## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi, hogy a PowerPoint prezentációkban lévő videókeretekhez zárt feliratokat kezeljen. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) metóduson keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi a videókeretekhez tartozó zárt feliratok kezelését a PowerPoint bemutatókban. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) metóduson keresztül érhetők el.
 
-**Feliratok hozzáadása videókerethez**
+### **Feliratok hozzáadása videókerethez**
 
-Ez a példa egy helyi videót ágyaz be, és hozzáad egy „English” címkéjű WebVTT feliratspTracket. A feliratok időbélyegzőinek meg kell egyezniük a videóval. A mentett prezentáció tartalmazza a videót és a feliratokat is.
+Ez a példa egy helyi videót ágyaz be, és egy „English” feliratnyomot (WebVTT) ad hozzá. A felirat időbélyegeinek egyezniük kell a videóval. A mentett bemutató tartalmazza mind a videót, mind a feliratokat.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) interfész szintén biztosít egy túlterhelést, amely lehetővé teszi a feliratok streamből való hozzáadását.
+Az [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) interfész egy túlterhelést is biztosít, amely lehetővé teszi feliratok hozzáadását egy folyamról.
 
-**Feliratok kinyerése videókeretből**
+### **Feliratok kinyerése videókeretből**
 
-Ez a példa az első dián lévő videókeretek összes feliratsávját különálló WebVTT fájlokként menti. A sorszámok megkülönböztetik a kimeneti fájlokat. A konzol jelzi a kinyert sávok számát. A prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa az első dián lévő videókeretek összes feliratnyomát különálló WebVTT fájlokba menti. A sorrendben növekvő számok biztosítják, hogy a kimeneti fájlok megkülönböztethetők legyenek. A konzol jelzi a kinyert nyomok számát. A bemutatónak legalább egy diát kell tartalmaznia.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Minden [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) objektum elérhetővé teszi a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF‑8 karakterláncként.
+Minden [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) objektum kiírja a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF‑8 karakterláncként.
 
-**Feliratok eltávolítása videókeretből**
+### **Feliratok eltávolítása videókeretből**
 
-Ez a példa az első dia első alakzat pozíciójában lévő videókeretből eltávolítja az összes feliratot, és elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
+Ez a példa az első dián az első alakzat pozíciójában lévő videókeret összes feliratát eltávolítja, majd elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ha csak egy feliratsávot szeretne eltávolítani, használja a [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) vagy a [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) metódust a [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) helyett.
+Ha csak egy feliratnyomot szeretne eltávolítani, használja a [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) vagy a [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) metódust a [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) helyett.
 
-## **Videó kinyerése diáról**
+### **Videó feliratok keresése**
 
-A videók diákra való hozzáadása mellett az Aspose.Slides lehetővé teszi a prezentációkba beágyazott videók kinyerését.
+Az [ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) visszaadja a teljes WebVTT nyomot, beleértve a fejlécet, az idővonalakat és a felirat szövegét. Egy kimondott kifejezés és annak időbélyegének megtalálásához olvassa be a jelzéseket a memóriában. Például egy angol nyom a 2. dián a következő szöveget tartalmazhatja:
 
-Ez a példa minden diáról kinyeri a beágyazott videókat, és különálló, számozott bináris fájlokba menti őket. A hivatkozott videókat kihagyja, mert nem tartalmaznak beágyazott adatot. A konzol kiírja minden videó MIME‑típusát és a teljes számot. A kimenet általános `.bin` kiterjesztést használ; szükség esetén módosítsa a jelentett médiatípusnak megfelelően.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+A példa megnyitja a `captioned_media.pptx` fájlt, és minden felső‑szintű videókeret feliratnyomait minden dián a [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) használatával olvassa. Egy egyszerű szöveges jelzésnél az idővonal `-->` karaktert tartalmaz, és egy üres sor zárja a jelzést. Amikor a felirat tartalmazza a „café” szót, a példa kiírja a diaszámot, a nyom címkéjét, az eredeti idővonalat és a teljes feliratot. A keresés nem érzékeny a kis-/nagybetűkre.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+A „café” keresése egy egyezést ad a mintanyomra. A keresés kihagyja a fejlécet, és megőrzi az időbeállítást a kimenetben.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Videó kinyerése diából**
+
+A videók diákhoz adása mellett az Aspose.Slides lehetővé teszi a bemutatókba beágyazott videók kinyerését is.
+
+Ez a példa minden diáról kinyeri a beágyazott videókat, és külön‑számozott bináris fájlokba menti őket. A hivatkozott (linked) videókat kihagyja, mivel azok nem tartalmaznak beágyazott adatot. A konzol kiírja minden videó MIME‑típusát és az összes darabszámot. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén cserélje le a jelentett média típusnak megfelelő kiterjesztésre.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -450,16 +527,16 @@ presentation->Dispose();
 
 **Mely videó lejátszási paraméterek módosíthatók egy videókeretnél?**
 
-A [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) vezérelhető. Ezek az opciók a [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) objektum metódusain keresztül érhetők el.
+A [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) vezérelhető. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) objektum metódusaiban érhetők el.
 
-**Az videó hozzáadása befolyásolja a PPTX fájl méretét?**
+**A videó hozzáadása befolyásolja a PPTX fájlméretet?**
 
-Igen. Ha egy helyi videót ágyaz be, a bináris adat bekerül a dokumentumba, így a prezentáció mérete arányosan nő a fájl méretével. Ha online videóra hivatkozik és miniatűr képet ad hozzá, a prezentáció a hivatkozást és a előnézeti képet tárolja a videó adat helyett, így a méretnövekedés általában kisebb.
+Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a bemutató mérete arányosan nő a fájl méretével. Ha online videóra hivatkozik, és bélyegképet ad hozzá, a bemutató csak a hivatkozást és az előnézeti képet tárolja, nem a videó adatot, ezért a méretnövekedés általában kisebb.
 
-**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám annak helyzetét és méretét?**
+**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
 
-Igen. A [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) cserélhető a kereten belül a forma geometriai adatait megőrizve; ez gyakori eset a meglévő elrendezésben lévő média frissítésére.
+Igen. A [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) cseréjével a keret geometriáját változatlanul hagyhatja; ez gyakori szituáció a médiatartalom frissítésére egy meglévő elrendezésben.
 
-**Meghatározható-e egy beágyazott videó tartalom típusa (MIME)?**
+**Megállapítható-e a beágyazott videó tartalom típusa (MIME)?**
 
-Igen. Egy beágyazott videónak van [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) attribútuma, amelyet kiolvashat és felhasználhat, például a lemezre mentéskor.
+Igen. Egy beágyazott videó rendelkezik [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) információval, amelyet leolvashat és felhasználhat, például mentéskor lemezre.

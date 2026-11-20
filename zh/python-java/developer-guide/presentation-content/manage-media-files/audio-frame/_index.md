@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 管理演示文稿中的音频
+title: 使用 Python 管理演示文稿中的音频帧
 linktitle: 音频帧
 type: docs
 weight: 10
@@ -14,24 +14,15 @@ keywords:
 - 提取音频
 - Python
 - Aspose.Slides
-description: "在 Aspose.Slides for Python via Java 中创建和控制音频帧——提供嵌入、修剪、循环以及在 PPT、PPTX 和 ODP 演示文稿中配置播放的代码示例。"
+description: "使用 Aspose.Slides for Python via Java 将音频嵌入幻灯片、更改音频图标、配置播放、管理 WebVTT 字幕，并提取幻灯片切换声音。"
 ---
 ## **概述**
 
-本文介绍了如何在 Aspose.Slides 中使用音频帧。它展示了如何将嵌入式音频添加到幻灯片、定制音频帧缩略图、配置播放选项（例如音量、循环、隐藏、修剪和淡入淡出时长），以及提取幻灯片放映过渡中使用的音频。
+音频帧可让您在幻灯片上播放声音。使用 Aspose.Slides for Python via Java，您可以嵌入音频剪辑，选择代表它的图像，调整播放，并附加字幕。您还可以检索分配给幻灯片切换的声音。
 
 ## **创建音频帧**
 
-Aspose.Slides for Python via Java 允许您向幻灯片添加音频文件。音频文件以音频帧的形式嵌入幻灯片中。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 读取要嵌入到幻灯片的音频文件。
-4. 将嵌入式音频帧（包含音频文件）添加到幻灯片。
-5. 使用由 [AudioFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/) 对象公开的 [setPlayMode](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setPlayMode) 和 [setVolume](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setVolume)。
-6. 保存修改后的演示文稿。
-
-以下 Python 代码演示了如何向幻灯片添加嵌入式音频帧：
+将 `audio.wav` 的字节添加到演示文稿的音频集合中，然后使用 [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) 在第一张幻灯片上嵌入本地音频剪辑。前两个坐标定位帧在幻灯片上的位置，接下来的两个值设置其宽度和高度，单位均为点。此示例调用 [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) 以自动开始剪辑，并调用 [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) 选择响亮的预设。
 
 ```python
 from pathlib import Path
@@ -47,6 +38,7 @@ from asposeslides.api import AudioPlayModePreset, AudioVolumeMode, Presentation,
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
@@ -54,6 +46,7 @@ try:
 
     audio_frame.setPlayMode(AudioPlayModePreset.Auto)
     audio_frame.setVolume(AudioVolumeMode.Loud)
+
     presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -61,9 +54,7 @@ finally:
 
 ## **更改音频帧缩略图**
 
-向演示文稿添加音频文件后，音频会以带有默认标准图像的帧形式显示（见下节图片）。您可以将音频帧的预览图像更改为自定义图像。
-
-以下 Python 代码演示了如何更改音频帧的缩略图或预览图像：
+默认情况下，音频帧显示扬声器图标。要显示自定义缩略图，请使用 [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) 将图像添加到演示文稿中，并使用 [setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage) 将其设置到帧的图片上。示例使用 JPEG 作为嵌入音频剪辑的缩略图。
 
 ```python
 from pathlib import Path
@@ -79,7 +70,8 @@ from asposeslides.api import Images, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sample2.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audio)
@@ -91,6 +83,7 @@ try:
         image.dispose()
 
     audio_frame.getPictureFormat().getPicture().setImage(picture)
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,67 +91,58 @@ finally:
 
 ## **更改音频播放选项**
 
-Aspose.Slides for Python via Java 允许您更改控制音频播放的选项或属性。例如，您可以调节音量、设置循环播放，甚至隐藏音频图标。
+PowerPoint 的 **音频选项** 控件决定剪辑何时开始、音量大小以及在幻灯片放映期间的行为。
 
-Microsoft PowerPoint 中的 **Audio Options** 面板：
+![PowerPoint 音频选项控件（音频帧）](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控件 | Aspose.Slides for Python via Java 方法 |
+| --- | --- |
+| 开始 | [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) |
+| 音量预设 | [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) |
+| 跨幻灯片播放 | [setPlayAcrossSlides](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| 循环直到停止 | [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| 放映期间隐藏 | [setHideAtShowing](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setHideAtShowing) |
+| 播放后倒回 | [setRewindAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setRewindAudio) |
+| 淡入 | [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) |
+| 淡出 | [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| 剪辑音频开始时间 | [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) |
+| 剪辑音频结束时间 | [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| 音量滑块 | [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) |
 
-PowerPoint **Audio Options** 对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/) 属性：
-
-- **Start** 下拉列表对应 [setPlayMode](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setPlayMode) 方法
-- **Volume** 对应 [setVolume](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setVolume) 方法
-- **Play Across Slides** 对应 [setPlayAcrossSlides](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) 方法
-- **Loop until Stopped** 对应 [setPlayLoopMode](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setPlayLoopMode) 方法
-- **Hide During Show** 对应 [setHideAtShowing](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setHideAtShowing) 方法
-- **Rewind after Playing** 对应 [setRewindAudio](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setRewindAudio) 方法
-
-PowerPoint **Editing** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/) 属性：
-
-- **Fade In** 对应 [setFadeInDuration](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setFadeInDuration) 方法
-- **Fade Out** 对应 [setFadeOutDuration](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setFadeOutDuration) 方法
-- **Trim Audio Start Time** 对应 [setTrimFromStart](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setTrimFromStart) 方法
-- **Trim Audio End Time** 的数值等于音频时长减去由 [setTrimFromEnd](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setTrimFromEnd) 方法设置的值
-
-PowerPoint 音频控制面板上的 **Volume control** 对应 [setVolumeValue](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setVolumeValue) 方法，可将音量按百分比进行调节。
-
-以下是更改音频播放选项的步骤：
-
-1. 【创建】(#create-audio-frames) 或获取音频帧。
-2. 为需要调整的音频帧属性设置新值。
-3. 保存修改后的 PowerPoint 文件。
-
-下面的 Python 代码演示了调整音频选项的操作：
+此示例在第一张幻灯片上查找第一个音频帧，调用 [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) 以在点击时启动播放，并选择低音量预设。剪辑在幻灯片之间继续播放，且循环已禁用。图标在放映期间保持隐藏，剪辑在播放后倒回。
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import AudioFrame, AudioPlayModePreset, AudioVolumeMode, Presentation, SaveFormat
 
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
-    audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
-        # 单击播放，音量低，跨幻灯片播放，不循环。
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
+        # 单击播放，低音量，跨幻灯片，未循环。
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # 在放映期间隐藏帧，播放后倒回。
+        # 在放映期间隐藏帧，并在播放后倒回。
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
+
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-以下 Python 示例展示了如何添加带嵌入式音频的新音频帧、修剪它并设置淡入淡出时长：
+对于时长超过 3.5 秒的剪辑，此示例跳过前 1.5 秒和后 2 秒。 [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) 接收要从剪辑末尾省略的时长。要获取 PowerPoint 中显示的结束时间，请将该偏移量从完整剪辑时长中减去。剪辑在 200 毫秒内淡入，500 毫秒内淡出。所有四个方法的参数单位均为毫秒。
 
 ```python
 from pathlib import Path
@@ -166,31 +150,33 @@ from pathlib import Path
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
-    jpime.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sampleaudio.mp3").read_bytes()
-    java_audio_data = jpime.JArray(jpime.JByte)(audio_data)
+
+    audio_data = Path("audio.wav").read_bytes()
+    java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # 从开头修剪 1.5 秒，末尾修剪 2 秒。
+    # 从开头裁剪 1.5 秒，末尾裁剪 2 秒。
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
     # 将淡入设置为 200 毫秒，淡出设置为 500 毫秒。
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
+
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-下面的代码示例展示了如何获取带嵌入式音频的音频帧并将其音量设置为 85%：
+要将播放音量设置为特定百分比，请使用 [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue)。此示例将第一张幻灯片上的第一个音频帧的音量设置为 85%。
 
 ```python
 import jpype
@@ -204,53 +190,56 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.setVolumeValue(85.0)
         presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
 ## **管理音频字幕**
 
-Aspose.Slides 允许您通过 [getCaptionTracks](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#getCaptionTracks) 方法为音频帧添加闭合字幕。该方法返回一个 [CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/)，您可以向其中添加 WebVTT 字幕轨道、遍历已有轨道，并在需要时将其移除。
+每个音频帧可通过 [getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getCaptionTracks) 访问其字幕轨道。使用该集合可将 WebVTT 字幕附加到剪辑、导出现有轨道或将其删除。
 
-**添加音频字幕**
+### **添加音频字幕**
 
-使用 [getCaptionTracks](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#getCaptionTracks) 方法将一个或多个字幕轨道附加到音频帧。下面的示例中，先向幻灯片添加音频文件，然后从 `.vtt` 文件加载新的字幕轨道。
+此示例在第一张幻灯片上嵌入音频剪辑，并使用 [add](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#add) 将本地 WebVTT 轨道附加。第一个参数提供轨道标签，第二个参数标识包含时间字幕的文件。
 
 ```python
 from pathlib import Path
 
-import jpype
+import jpile
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    audio_data = Path("audio.mp3").read_bytes()
-    java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
-    audio = presentation.getAudios().addAudio(java_audio_data)
     slide = presentation.getSlides().get_Item(0)
+
+    audio_data = Path("audio.wav").read_bytes()
+    java_audio_data = jpile.JArray(jpile.JByte)(audio_data)
+    audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
     # 从 WebVTT 文件添加新的字幕轨道。
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    audio_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**提取音频字幕**
+### **提取音频字幕**
 
-您可以遍历音频帧关联的字幕轨道并将其保存为 `.vtt` 文件。每个字幕轨道都会公开其二进制数据和唯一标识符，可在导出字幕时使用。
+此示例导出附加到第一张幻灯片上音频帧的每个字幕轨道。它将 [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getBinaryData) 返回的字节写入 WebVTT 文件，并使用 [getCaptionId](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getCaptionId) 返回的标识符作为文件名，以便每个轨道生成单独的输出。
 
 ```python
 from pathlib import Path
@@ -266,20 +255,21 @@ from asposeslides.api import AudioFrame, Presentation
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
                 # 将字幕轨道保存为 .vtt 文件。
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                file_path = Path(f"{caption_track.getCaptionId()}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
 finally:
     presentation.dispose()
 ```
 
-**移除音频字幕**
+### **删除音频字幕**
 
-要从音频帧中移除字幕，请使用 [CaptionsCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/) 提供的方法，如 [clear](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#clear)、[remove](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/captionscollection/#removeAt)。下面的示例演示了如何删除音频帧中的所有字幕轨道。
+使用 [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) 删除单个轨道。示例使用 [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) 删除第一张幻灯片上第一个音频帧的所有字幕，同时保留剪辑。
 
 ```python
 import jpype
@@ -293,26 +283,54 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.getCaptionTracks().clear()
         presentation.save("audio_without_captions.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
+finally:
+    presentation.dispose()
+```
+
+### **在音频字幕中查找行**
+
+要在第一张幻灯片的音频字幕中查找行，请在内存中搜索 [getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) 返回的文本。在纯文本 WebVTT 提示中，时间行包含 `-->`，字幕行随其之后，空行结束提示。此示例打印轨道标签以及包含 “café” 的每行字幕。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AudioFrame, Presentation
+
+presentation = Presentation("audio_with_captions.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, AudioFrame):
+            continue
+        for track in shape.getCaptionTracks():
+            in_cue = False
+            captions = str(track.getDataAsString())
+            for line in captions.splitlines():
+                if not line:
+                    in_cue = False
+                elif "-->" in line:
+                    in_cue = True
+                elif in_cue and "café" in line.casefold():
+                    print(f"{track.getLabel()}: {line}")
 finally:
     presentation.dispose()
 ```
 
 ## **提取音频**
 
-Aspose.Slides for Python via Java 允许您提取幻灯片放映过渡中使用的声音。例如，您可以提取特定幻灯片使用的声音。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例并加载包含音频的演示文稿。
-2. 通过索引获取相关幻灯片的引用。
-3. 访问该幻灯片的 [slideshow transitions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/baseslide/#getSlideShowTransition)。
-4. 将声音提取为字节数据。
-
-下面的 Python 代码演示了如何提取幻灯片中使用的音频：
+幻灯片切换可以拥有自己的声音。要检索它，请在幻灯片切换上调用 [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSound)。示例访问 [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) 返回的字节并打印字节数。如果第一张幻灯片没有切换声音，则打印相应的提示信息。
 
 ```python
 import jpype
@@ -326,11 +344,12 @@ from asposeslides.api import Presentation
 presentation = Presentation("AudioSlide.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     transition = slide.getSlideShowTransition()
     sound = transition.getSound()
     if sound is not None:
         audio_data = sound.getBinaryData()
-        print("Length:", len(audio_data))
+        print(f"Transition sound: {len(audio_data)} bytes.")
     else:
         print("The slide transition has no sound.")
 finally:
@@ -339,14 +358,14 @@ finally:
 
 ## **常见问题**
 
-**我可以在多个幻灯片之间重复使用同一音频资源而不会增大文件大小吗？**
+**我可以在多个幻灯片之间重复使用相同的音频剪辑而不复制它吗？**
 
-可以。将音频一次添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#getAudios)，然后创建引用该已有资源的额外音频帧。这样可以避免复制媒体数据，保持演示文稿大小在可控范围内。
+是的。将剪辑一次添加到演示文稿的 [音频集合](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getAudios) 中，并为每张幻灯片将相同的音频对象传递给 [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded)。
 
-**我可以在不重新创建形状的情况下替换已有音频帧中的声音吗？**
+**我可以替换现有音频帧中的声音吗？**
 
-可以。对于链接的声音，更新 [link path](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setLinkPathLong) 以指向新文件。对于嵌入式声音，将 [embedded audio](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audioframe/#setEmbeddedAudio) 对象替换为演示文稿的 [audio collection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#getAudios) 中的另一个对象。帧的格式和大多数播放设置保持不变。
+是的。对于链接的声音，使用 [setLinkPathLong](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setLinkPathLong) 指向替换文件。对于嵌入的声音，使用 [setEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setEmbeddedAudio) 从演示文稿的音频集合中选择另一个剪辑。这两种方法都保留现有的帧。
 
-**修剪会改变演示文稿中存储的底层音频数据吗？**
+**裁剪会更改存储在演示文稿中的音频数据吗？**
 
-不会。修剪仅调整播放边界。原始音频字节保持不变，仍可通过嵌入式音频或演示文稿的音频集合访问。
+不会。[setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) 和 [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) 仅设置播放边界。您仍然可以通过 [getEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getEmbeddedAudio) 检索完整的剪辑。

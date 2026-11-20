@@ -1,38 +1,38 @@
 ---
-title: Assen van diagrammen aanpassen in presentaties met Python
-linktitle: Grafiekas
+title: Diagramassen aanpassen in presentaties met Python
+linktitle: Diagramas
 type: docs
 url: /nl/python-net/chart-axis/
 keywords:
-- grafiekas
+- diagramas
 - verticale as
 - horizontale as
 - as aanpassen
 - as manipuleren
 - as beheren
-- as eigenschappen
+- as-eigenschappen
 - maximale waarde
 - minimale waarde
 - aslijn
 - datumnotatie
-- as titel
+- as-titel
 - aspositie
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Ontdek hoe u Aspose.Slides voor Python via .NET kunt gebruiken om grafiekassen aan te passen in PowerPoint- en OpenDocument-presentaties voor rapporten en visualisaties."
+description: "Ontdek hoe u Aspose.Slides voor Python via .NET kunt gebruiken om diagramassen aan te passen in PowerPoint- en OpenDocument-presentaties voor rapporten en visualisaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u de assen van diagrammen kunt aanpassen met Aspose.Slides voor Python via .NET. Het behandelt berekende aswaarden, het wisselen van rijen en kolommen in een diagram, zichtbaarheid van assen, intervallen voor categorielabels en tikmarkeringen, datumcategorieën en -opmaak, rotatie van de titel, positie van de as, weergave‑eenheden en logaritmische schaal.
+Dit artikel legt uit hoe u de assen van diagrammen kunt aanpassen met Aspose.Slides voor Python via .NET. Het behandelt berekende aswaarden, het wisselen van rijen en kolommen in diagrammen, aszichtbaarheid, categorie‑etiketten‑ en tick‑intervallen, datum‑categorieën en opmaak, rotatie van titels, aspositionering, weergave‑eenheden en logaritmische schaling.
 
-## **De maximale waarden op de verticale as ophalen in diagrammen**
+## **Maximale waarden op de verticale as van diagrammen ophalen**
 
-Maak een [Presentatie](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) aan en voeg een gebiedsdiagram toe met standaardgegevens. Roep [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) aan voordat u berekende aswaarden uitleest, zodat de diagramindeling up-to-date is.
+Maak een [Presentatie](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) aan en voeg een gebiedsdiagram toe met standaardgegevens. Roep [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) aan voordat u berekende aswaarden leest, zodat de diagramlay-out up‑to‑date is.
 
-Lees [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) en [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) voor de aslimieten, en [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) en [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) voor de tik‑intervallen. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) en [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) bieden tijdseenheidsschaal, wat relevant is voor datumassen. Het voorbeeld slaat deze waarden op in locale variabelen en slaat het diagram op.
+Lees [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) en [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) voor de aslimieten, en [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) en [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) voor de tick‑intervallen. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) en [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) geven tijd‑eenheidschalen, die relevant zijn voor datumassen. Het voorbeeld slaat deze waarden op in lokale variabelen en slaat het diagram op.
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **Gegevens tussen assen uitwisselen**
 
-Gebruik [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) om de rollen van reeksen en categorieën in de diagramgegevens om te wisselen. Elke voormalige categorie wordt een reeks, en elke voormalige reeks wordt een categorie. Dit verandert hoe de gegevens gegroepeerd zijn; het wisselt niet de horizontale en verticale assen uit. Het voorbeeld gebruikt [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) om de standaardgegevens te binden aan `Sheet1!A1:D5`, inclusief de koprij en categoriekolom, vóór het wisselen van rijen en kolommen. Het slaat een diagram op met vier reeksen en drie categorieën.
+Gebruik [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) om de rollen van reeksen en categorieën in diagramgegevens om te wisselen. Elke voormalige categorie wordt een reeks, en elke voormalige reeks wordt een categorie. Dit verandert hoe de gegevens worden gegroepeerd; het wisselt niet de horizontale en verticale assen. Het voorbeeld gebruikt [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) om de standaardgegevens te koppelen aan `Sheet1!A1:D5`, inclusief de koprij en categorie‑kolom, voordat rijen en kolommen worden gewisseld. Het slaat een diagram op met vier reeksen en drie categorieën.
 
 ```python
 import aspose.slides as slides
@@ -75,11 +75,11 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Volgorde van tekenen van een as omkeren**
+## **Volgorde van plotten van een as omkeren**
 
-Gebruik [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) om een categorie‑ of waardas om te keren. Bijvoorbeeld, een horizontale staafdiagram kan projectfasen van boven naar beneden tonen in dezelfde volgorde als het werkblad: Planning, Ontwikkeling, Testen. Het omkeren van een as verandert de tekenrichting; het sorteert of herschikt de werkboekgegevens niet. Ter vergelijking wisselt [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) de rollen van reeksen en categorieën.
+Gebruik [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) om een categorie‑ of waardenas om te keren. Bijvoorbeeld, een horizontaal staafdiagram kan projectfasen van boven naar beneden weergeven in dezelfde volgorde als het werkblad: Planning, Ontwikkeling, Testen. Het omkeren van een as verandert de plot­richting; het sorteert of herschikt de werkboek‑gegevens niet. Ter vergelijking wisselt [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) de rollen van reeksen en categorieën.
 
-Het volgende voorbeeld maakt een horizontale staafdiagram met drie fasen en één reeks. Het slaat een presentie op met drie dia’s: normale volgorde, omgekeerde categorieën en omgekeerde waarden. Elke kopie gebruikt dezelfde dataset, en slechts één as wordt per kopie omgekeerd.
+Het volgende voorbeeld maakt een horizontaal staafdiagram met drie fasen en één reeks. Het slaat een presentatie op met drie dia’s: normale volgorde, omgekeerde categorieën en omgekeerde waarden. Elke kopie gebruikt dezelfde dataset, en op elke kopie wordt slechts één as omgekeerd.
 
 ```python
 import aspose.slides as slides
@@ -106,14 +106,14 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, values[i])
         series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # Dia 2: toon de eerste categorie bovenaan.
+    # Dia 2: de eerste categorie bovenaan weergeven.
     category_slide = presentation.slides.add_clone(slide)
     category_chart = category_slide.shapes[0]
     category_chart.axes.vertical_axis.is_plot_order_reversed = True
-    # Houd de horizontale waardas onderaan.
+    # Houd de horizontale waardenas onderaan.
     category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
 
-    # Dia 3: keer alleen de horizontale numerieke schaal om.
+    # Dia 3: alleen de horizontale numerieke schaal omkeren.
     value_slide = presentation.slides.add_clone(slide)
     value_chart = value_slide.shapes[0]
     value_chart.axes.horizontal_axis.is_plot_order_reversed = True
@@ -121,14 +121,14 @@ with slides.Presentation() as presentation:
     presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het omkeren van een as kan de loodrechte as ook naar de tegenoverliggende kant van het diagram verplaatsen. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) bepaalt waar de andere as de geconfigureerde as kruist. In dia 2 houdt de instelling op `MAXIMUM` op de omgekeerde categorias de horizontale waardas onderaan. Voor een specifiek kruispunt, gebruik [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Controleer de kruisinginstellingen bij het wijzigen van de richting, zeker als het diagram al een aangepast kruispunt heeft. Zet `is_plot_order_reversed` terug naar `False` om de normale tekenrichting te herstellen; kruisinginstellingen zijn afzonderlijk.
+Het omkeren van een as kan ook de loodrechte as naar de andere kant van het diagram verplaatsen. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) bepaalt waar de andere as de geconfigureerde as kruist. In dia 2 wordt deze ingesteld op `MAXIMUM` op de omgekeerde categorie‑as, waardoor de horizontale waardenas onderaan blijft. Voor een specifiek kruispunt gebruik je [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Controleer de kruisinginstellingen bij het wijzigen van de richting, vooral als het diagram al een aangepast kruispunt heeft. Stel `is_plot_order_reversed` terug in op `False` om de normale plot­richting te herstellen; kruisinginstellingen zijn gescheiden.
 
 | Normale volgorde (dia 1) | Omgekeerde categorieën (dia 2) | Omgekeerde waarden (dia 3) |
 | --- | --- | --- |
-| ![Horizontale staafdiagram met normale volgorde van categorie- en waardas](axis-order-normal.png) | ![Horizontale staafdiagram met categorieën weergegeven van boven naar beneden](axis-order-categories-reversed.png) | ![Horizontale staafdiagram met een omgekeerde waardas en nul aan de rechterkant](axis-order-values-reversed.png) |
-| Categorieën lopen van onder naar boven; waarden stijgen van links naar rechts. | Planning, Ontwikkeling en Testen lopen van boven naar beneden. Waarden en de rijvolgorde van het werkboek blijven ongewijzigd. | Categorieën behouden hun normale volgorde; waarden stijgen van rechts naar links. De categorieas kruist bij nul aan de rechterkant. |
+| ![Horizontaal staafdiagram met normale categorie‑ en waardenas volgorde](axis-order-normal.png) | ![Horizontaal staafdiagram met categorieën weergegeven van boven naar beneden](axis-order-categories-reversed.png) | ![Horizontaal staafdiagram met een omgekeerde waardenas en nul aan de rechterkant](axis-order-values-reversed.png) |
+| Categorieën lopen van onder naar boven; waarden nemen toe van links naar rechts. | Planning, Ontwikkeling en Testen lopen van boven naar beneden. Waarden en werkboek‑rijvolgorde blijven ongewijzigd. | Categorieën behouden hun normale volgorde; waarden nemen toe van rechts naar links. De categorie‑as kruist bij nul aan de rechterkant. |
 
-## **Verticale as uitschakelen voor lijndiagrammen**
+## **De verticale as uitschakelen voor lijndiagrammen**
 
 Stel [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) in op `False` voor de verticale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de verticale as verborgen.
 
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Horizontale as uitschakelen voor lijndiagrammen**
+## **De horizontale as uitschakelen voor lijndiagrammen**
 
 Stel [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) in op `False` voor de horizontale as om deze te verbergen. Het voorbeeld maakt een lijndiagram met standaardgegevens en slaat het op met de horizontale as verborgen.
 
@@ -162,9 +162,41 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Een categorieas wijzigen**
+## **Rasterlijnen van diagrammen weergeven of verbergen**
 
-Stel [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) in om een datum‑ of tekst‑categorieas te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een diagram als het eerste object op de eerste dia en categoriecellen die numerieke Excel‑datumnummers bevatten. Het verandert de horizontale as in een datumas. Instellen van [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) op `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) op `1` en [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) op maanden plaatst hoofd‑tikstippen op een‑maandintervallen.
+Lees [show_major_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_major_grid_lines/) en [show_minor_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_minor_grid_lines/) om te controleren welke rasterlijnen een as weergeeft. Beide eigenschappen zijn alleen‑lezen. Om minder belangrijke rasterlijnen weer te geven, stel je de lijnvulling in [minor_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_grid_lines_format/) in op een effen vulling en kies je een zichtbare kleur. Om ze te verbergen, stel je het vultype in op `FillType.NO_FILL`. Voor hoofd‑rasterlijnen gebruik je [major_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_grid_lines_format/)`.line.fill_format`. Het wijzigen van de vulling behoudt de as‑zichtbaarheid en tick‑marks.
+
+De verticale as van dit gegroepeerde kolomdiagram begint met hoofd‑rasterlijnen zichtbaar en minder belangrijke rasterlijnen verborgen. Het voorbeeld toont de minder belangrijke rasterlijnen in oranje, waarna deze weer worden verborgen voordat de presentatie wordt opgeslagen.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 30, 660, 230)
+    axis = chart.axes.vertical_axis
+    print(f"Initial: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    minor_fill = axis.minor_grid_lines_format.line.fill_format
+    minor_fill.fill_type = slides.FillType.SOLID
+    minor_fill.solid_fill_color.color = slides.Color.dark_orange
+    print(f"Enabled: minor={axis.show_minor_grid_lines}")
+
+    minor_fill.fill_type = slides.FillType.NO_FILL
+    print(f"Hidden: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    presentation.save("ChartGridlines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Minder belangrijke rasterlijnen ingeschakeld | Minder belangrijke rasterlijnen verborgen |
+| --- | --- |
+| ![Oranje minder belangrijke rasterlijnen tussen de hoofd‑rasterlijnen op de verticale as](minor-gridlines-enabled.png) | ![Hetzelfde kolomdiagram met alleen hoofd‑rasterlijnen zichtbaar](minor-gridlines-hidden.png) |
+
+## **Een categorie‑as wijzigen**
+
+Stel [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) in om een datum‑ of tekst‑categorie‑as te kiezen. Dit voorbeeld vereist `ExistingChart.pptx`, met een diagram als het eerste object op de eerste dia en categorie‑cellen die numerieke Excel‑datumnummers bevatten. Het wijzigt de horizontale as naar een datum‑as. Door [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) op `False` te zetten, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) op `1`, en [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) op maanden, worden grote tick‑marks geplaatst met tussenpozen van één maand.
 
 ```python
 import aspose.slides as slides
@@ -182,19 +214,74 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Interval voor categorieas‑labels beheren**
+### **Het type categorie‑as bepalen vanuit de gegevens**
 
-Wanneer een diagram veel categorieën heeft, kunt u het aantal zichtbare as‑labels verminderen zonder categorieën of datapunten te verwijderen. Stel [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) in op `False`, en stel vervolgens [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) in op het gewenste categorie‑interval. Voor tekstcategorieën in hun normale volgorde begint de telling bij de eerste categorie:
+Roep [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) aan na het vullen van de categorieën, en lees vervolgens [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) om de selectie te inspecteren. Dit is handig wanneer hetzelfde diagram ofwel tekst‑labels ofwel numerieke datumwaarden krijgt. De methode bepaalt het type op het moment van aanroep; hij activeert geen permanente modus die later gegevenswijzigingen opnieuw evalueert. Roep hem opnieuw aan na het vervangen van de categorieën.
 
-| Interval | Weergegeven labels in het voorbeeld |
+Het volgende voorbeeld maakt een diagram met tekst‑categorieën en drukt `TEXT` af. Vervolgens vervangt het de categorie‑celwaarden door datums en roept de methode opnieuw aan, waardoor `DATE` wordt afgedrukt. Datums worden opgeslagen als numerieke OLE‑Automation‑waarden, hier berekend als het aantal dagen sinds 30 december 1899, in plaats van datum‑strings. [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) bepaalt hoe die waarden worden weergegeven; hij converteert geen tekst naar numerieke datums. Voor meer over categorie‑cellen, zie [Chart Workbook](/slides/nl/python-net/chart-workbook/).
+
+Gebruik automatische bepaling wanneer bekend is dat de invoer tekst‑categorieën of numerieke datums bevat, zoals in dit voorbeeld. Voor gewone numerieke labels, gecombineerde categorieën of lege gegevens, stel expliciet [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) in op de gewenste betekenis. Alleen numerieke waarden bewijzen niet dat de categorieën datum­representaties zijn.
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # TEKST
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # DATUM
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Intervallen van categorie‑as‑etiketten regelen**
+
+Wanneer een diagram veel categorieën bevat, kunt u het aantal zichtbare as‑etiketten verminderen zonder categorieën of datapunten te verwijderen. Stel [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) in op `False`, en zet vervolgens [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) op het gewenste categorie‑interval. Voor tekst‑categorieën in hun normale volgorde start de telling bij de eerste categorie:
+
+| Interval | Labels die in het voorbeeld worden weergegeven |
 | --- | --- |
-| `1` | Categorie 1, Categorie 2, Categorie 3, ... Categorie 24 |
-| `2` | Categorie 1, Categorie 3, Categorie 5, ... Categorie 23 |
-| `3` | Categorie 1, Categorie 4, Categorie 7, ... Categorie 22 |
+| `1` | Categorie 1, Categorie 2, Categorie 3, … Categorie 24 |
+| `2` | Categorie 1, Categorie 3, Categorie 5, … Categorie 23 |
+| `3` | Categorie 1, Categorie 4, Categorie 7, … Categorie 22 |
 
-Een interval van `3` toont elke derde label, met twee verborgen labels tussen de getoonde. Het verwijdert niet de bijbehorende kolommen. Automatische spatiëring kiest een interval op basis van de beschikbare ruimte; het toont niet per se elk label.
+Een interval van `3` toont elk derde label, waarbij twee labels verborgen blijven tussen de weergegeven labels. Het verwijdert de overeenkomstige kolommen niet. Automatische spatiëring kiest een interval op basis van de beschikbare ruimte; hij toont niet noodzakelijk elk label.
 
-Tik‑markeringen hebben aparte instellingen. Stel [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) in op `False` en gebruik [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) om hun interval te bepalen. Bijvoorbeeld, `1` houdt een tikstreep bij elk categorie‑interval terwijl labels alleen elke derde categorie verschijnen. Stel [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) in op een zichtbaar type zodat u het resultaat kunt zien. Het terugzetten van een automatische‑spatiëringseigenschap naar `True` laat het diagram dat interval opnieuw kiezen.
+Tick‑marks hebben aparte instellingen. Stel [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) in op `False` en gebruik [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) om hun interval te bepalen. Bijvoorbeeld, `1` houdt een tick‑mark bij elk categorie‑interval terwijl de labels slechts om de derde categorie verschijnen. Stel [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) in op een zichtbaar teken om het resultaat te zien. Het terugzetten van beide automatische‑spacing‑eigenschappen naar `True` laat het diagram het interval opnieuw kiezen.
+
+Het volgende zelf‑standende voorbeeld maakt 24 categorieën en één reeks, en slaat drie dia’s op in `CategoryAxisIntervals.pptx`: automatische spatiëring, handmatige labelspatiëring met onafhankelijke tick‑marks, en herstelde automatische spatiëring. De twee kopieën behouden de oorspronkelijke diagramgegevens. Er is geen invoerpresentatie nodig. Horizontale labeltekst maakt het verschil in dichtheid duidelijk zichtbaar.
 
 ```python
 import aspose.slides as slides
@@ -227,7 +314,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # Dia 2: toon elk derde label, maar behoud een tikstreep voor elke categorie.
+    # Dia 2: elke derde label weergeven, maar een tick-mark behouden voor elke categorie.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -245,23 +332,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Automatische spatiëring (dia 1):** In deze weergave wordt elke tweede categorielabel getoond en worden ze op twee regels afgebroken. Het automatische resultaat kan variëren met diagramgrootte, lettertypen en de renderer.
+**Automatische spatiëring (dia 1):** In deze weergave wordt elk tweede categorie‑label weergegeven en wordt het op twee regels afgebroken. Het automatische resultaat kan variëren afhankelijk van diagramgrootte, lettertypen en de renderer.
 
-![Automatische categorie‑labelspatiëring met alle 24 kolommen zichtbaar](category-axis-automatic.png)
+![Automatische categorie‑etiket‑spatiëring met alle 24 kolommen zichtbaar](category-axis-automatic.png)
 
-**Handmatige spatiëring (dia 2):** Elke derde label wordt op één regel getoond, terwijl tik‑markeringen behouden blijven bij elk categorie‑interval. Alle 24 kolommen, inclusief die zonder label, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de automatische weergave zoals hierboven getoond.
+**Handmatige spatiëring (dia 2):** Elk derde label wordt op één regel weergegeven, terwijl tick‑marks behouden blijven bij elk categorie‑interval. Alle 24 kolommen, inclusief die zonder labels, blijven zichtbaar met dezelfde waarden. Dia 3 herstelt de automatische weergave zoals hierboven weergegeven.
 
-![Handmatig categorie‑labelinterval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
+![Handmatige categorie‑etiket‑interval van drie met alle 24 kolommen zichtbaar](category-axis-manual.png)
 
-### **Kies de juiste as en interval**
+### **De juiste as en het juiste interval kiezen**
 
-Gebruik dit categorie‑aantal‑interval voor een tekst‑categorieas, zoals de categorieas van een kolom‑, lijn‑, gebieds‑ of staafdiagram. In een kolomdiagram is dit de horizontale as. In een horizontale staafdiagram is de categorieas verticaal, dus pas deze instellingen toe op [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Tik‑markering‑spatiëring geldt ook voor een seriële as in diagrammen die er een hebben.
+Gebruik dit categorie‑aantal‑interval voor een tekst‑categorie‑as, zoals de categorie‑as van een kolom‑, lijn‑, gebied‑ of staafdiagram. In een kolomdiagram is dit de horizontale as. In een horizontaal staafdiagram is de categorie‑as verticaal, dus pas deze instellingen toe op [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Tick‑mark‑spatiëring is ook van toepassing op een reeks‑as in diagrammen die er één hebben.
 
-Gebruik geen categorie‑labelspatiëring om de numerieke schaal van een waardas in te stellen. Op een waardas bepaalt [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) een waardedifferentie: bijvoorbeeld, een hoofd‑eenheid van `10` geeft tikken bij 0, 10, 20, enzovoort wanneer de as bij nul start. Een categorie‑labelinterval van `3` telt in plaats daarvan categorieposities, ongeacht hun waardes. Spreidings‑ en bubbel‑diagrammen gebruiken waardassen in plaats van een tekst‑categorieas. Voor een datumas gebruikt u tijd‑gebaseerde hoofd‑eenheden en schalen zoals beschreven in [Een categorieas wijzigen](#een-categorieas-wijzigen).
+Gebruik geen categorie‑etiket‑spatiëring om de numerieke schaal van een waardenas te bepalen. Op een waardenas bepaalt [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) een waardeverschil: bijvoorbeeld, een grote eenheid van `10` levert ticks op 0, 10, 20, enz. wanneer de as bij nul start. Een categorie‑etiket‑interval van `3` telt echter categorie‑posities, ongeacht hun gegevenswaarden. Spreidings‑ en bubbel‑diagrammen gebruiken waardenasen in plaats van een tekst‑categorie‑as. Voor een datum‑as gebruikt u tijd‑gebaseerde grote eenheden en schalen zoals beschreven in [Een categorie‑as wijzigen](#een-categorie-as-wijzigen).
 
-## **Datumformaat voor categorieas‑waarden instellen**
+## **Datumopmaak voor categorie‑as‑waarden instellen**
 
-Het voorbeeld vervangt de standaard diagramgegevens door vier jaarlijkse waarden. Data worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`). Stel [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) in op een datumas, schakel [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) uit, en ken `yyyy` toe aan [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) zodat de categorie‑labels viercijferige jaartallen weergeven, onafhankelijk van de celopmaak.
+Het voorbeeld vervangt de standaarddiagramgegevens door vier jaarlijkse waarden. Datums worden opgeslagen als OLE‑Automation‑serienummers in het eerste werkblad (index `0`). Stel [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) in op een datum‑as, schakel [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) uit, en wijs `yyyy` toe aan [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) zodat de categorie‑labels viercijferige jaren tonen, onafhankelijk van de celopmaak.
 
 ```python
 from datetime import date
@@ -299,7 +386,7 @@ with slides.Presentation() as presentation:
 
 ## **Rotatiehoek voor een diagramas‑titel instellen**
 
-Schakel [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) in op de verticale as, voorzie de titel van tekst, en stel [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) in om de titel te draaien. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomdiagram op met zijn waardas‑titel gedraaid met 90 graden.
+Activeer [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) op de verticale as, geef titeltekst op, en stel [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) in om de titel te roteren. De hoek wordt gemeten in graden; dit voorbeeld slaat een kolomdiagram op met de waardenas‑titel geroteerd met 90 graden.
 
 ```python
 import aspose.slides as slides
@@ -316,9 +403,9 @@ with slides.Presentation() as presentation:
     presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Positie van de as op een categorie‑ of waardas instellen**
+## **De as‑positie op een categorie‑ of waardenas instellen**
 
-Gebruik [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) om te bepalen of de waardas de categorieas kruist tussen categorieën of op de tik‑markeringen van de categorie. Deze eigenschap geldt voor categorieassen. Het voorbeeld stelt dit in op `True` voor de horizontale categorieas van een kolomdiagram en slaat het resultaat op.
+Gebruik [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) om te bepalen of de waardenas de categorie‑as tussen de categorieën of op de tick‑marks kruist. Deze eigenschap is van toepassing op categorie‑assen. Het voorbeeld zet deze op `True` op de horizontale categorie‑as van een kolomdiagram en slaat het resultaat op.
 
 ```python
 import aspose.slides as slides
@@ -333,9 +420,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Weergave‑eenheid op een waardas van een diagram instellen**
+## **Weergave‑eenheid op een diagramwaardenas instellen**
 
-Stel [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) in om de labels op een waardas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) ingesteld op `MILLIONS` wordt een waarde van 60 000 000 weergegeven als 60. Het voorbeeld maakt een kolomdiagram en past de miljoenen‑weergave‑eenheid toe op de verticale as.
+Stel [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) in om de labels op een waardenas te schalen zonder de onderliggende gegevens te wijzigen. Met [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) ingesteld op `MILLIONS`, wordt een waarde van 60 000 000 weergegeven als 60. Het voorbeeld maakt een kolomdiagram en past de miljoenen‑weergave‑eenheid toe op de verticale as.
 
 ```python
 import aspose.slides as slides
@@ -350,21 +437,21 @@ with slides.Presentation() as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Logaritmische waardas configureren**
+## **Een logaritmische waardenas configureren**
 
-Een logaritmische waardas is nuttig wanneer positieve waarden zich over meerdere ordes van grootte uitstrekken. Bijvoorbeeld, een service kan 10, 100, 1 000, 10 000 en 100 000 verzoeken ontvangen over vijf perioden. Op een lineaire schaal verschijnen de kleinere waarden dicht bij nul. Een logaritmische schaal maakt hun relatieve groei makkelijker vergelijkbaar: gelijke afstanden staan voor gelijke verhoudingen in plaats van gelijke verschillen.
+Een logaritmische waardenas is nuttig wanneer positieve waarden meerdere orders van grootte beslaan. Bijvoorbeeld, een dienst kan 10, 100, 1 000, 10 000 en 100 000 verzoeken ontvangen over vijf perioden. Op een lineaire schaal lijken de kleinere waarden dicht bij nul bijeen. Een logaritmische schaal maakt hun relatieve groei makkelijker te vergelijken: gelijke afstanden staan voor gelijke verhoudingen in plaats van gelijke verschillen.
 
-Stel [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) in op `True` voor de waardas en gebruik [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) om de basis te kiezen. Dit verandert hoe de bestaande waarden worden weergegeven; het wijzigt de gegevens niet en voegt geen logaritmische trendlijn toe. Een trendlijn is een afzonderlijke functie die een aangepaste relatie in de data representeert.
+Stel [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) in op `True` op de waardenas en gebruik [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) om de basis te kiezen. Dit wijzigt alleen hoe de bestaande waarden worden weergegeven; het verandert de gegevens niet en voegt geen logaritmische trendlijn toe. Een trendlijn is een aparte functionaliteit die een passende relatie in de gegevens modelleert.
 
-### **Kies de waardas en basis**
+### **De waardenas en de basis kiezen**
 
-Voor een lijn‑ of kolomdiagram is de waardas [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Voor een horizontale staafdiagram is het [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Spreidings‑ en bubbel‑diagrammen hebben twee waardassen, dus kies de horizontale as voor X‑waarden, de verticale as voor Y‑waarden, of beide. Pas geen logaritmische schaal toe op een categorieas.
+Voor een lijn‑ of kolomdiagram is de waardenas [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Voor een horizontaal staafdiagram is het [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Spreidings‑ en bubbel‑diagrammen hebben twee waardenasen, dus kies je de horizontale as voor X‑waarden, de verticale as voor Y‑waarden, of beide. Pas geen logaritmische schaling toe op een categorie‑as.
 
-De standaard logaritmische basis is `10`. Voor PPTX‑diagrammen kunt u een basis gebruiken van `2` tot en met `1000`, inclusief; fractionele bases zoals `2.5` worden ook ondersteund. Met basis `10` zijn opeenvolgende machten zoals 10, 100, 1 000 en 10 000 gelijkmatig gespreid.
+De standaard logaritmische basis is `10`. Voor PPTX‑diagrammen mag de basis liggen tussen `2` en `1000`, inclusief; fractionele bases zoals `2.5` worden ook ondersteund. Met basis `10` zijn opeenvolgende machten zoals 10, 100, 1 000 en 10 000 gelijkmatig gespreid.
 
-### **Lineaire en logaritmische schaal vergelijken**
+### **Lineaire en logaritmische schaling vergelijken**
 
-Het volgende zelf‑standaard voorbeeld maakt een lijndiagram met de vijf aanvraagcijfers op de eerste dia, kloont vervolgens die dia en activeert een logaritmische waardas met basis 10 op de tweede. Beide dia’s behouden dezelfde data.
+Het volgende zelf‑standende voorbeeld maakt een lijndiagram met de vijf verzoek‑aantallen op de eerste dia, dupliceert die dia en schakelt een base‑10 logaritmische waardenas in op de tweede. Beide dia’s behouden dezelfde gegevens.
 
 ```python
 import aspose.slides as slides
@@ -393,7 +480,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Houd de eerste dia lineair en wijzig alleen de schaal van de waardas van de kopie.
+    # Houd de eerste dia lineair en wijzig alleen de schaal van de waardenas in de kopie.
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -403,24 +490,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Lineaire schaal (dia 1):** Gelijke verticale afstanden staan voor gelijke verschillen in het aantal aanvragen. De grootste waarde domineert het diagram, waardoor de kleinere waarden moeilijk te onderscheiden zijn.
+**Lineaire schaal (dia 1):** Gelijke verticale afstanden staan voor gelijke verschillen in verzoek‑aantallen. De grootste waarde domineert het diagram, waardoor de kleinere waarden moeilijk te onderscheiden zijn.
 
-![Lijndiagram in PowerPoint dat vijf aanvraagcijfers toont op een lineaire waardas](value-axis-linear.png)
+![Lijndiagram in PowerPoint met vijf verzoek‑aantallen op een lineaire waardenas](value-axis-linear.png)
 
-**Logaritmische schaal (dia 2):** Gelijke verticale afstanden staan voor gelijke verhoudingen. Elke periode heeft tien keer zoveel aanvragen als de vorige, waardoor de punten een rechte stijgende lijn vormen op de basis‑10‑schaal. De as‑labels blijven de oorspronkelijke aanvraagcijfers tonen.
+**Logaritmische schaal (dia 2):** Gelijke verticale afstanden staan voor gelijke verhoudingen. Elke periode heeft tien keer zoveel verzoeken als de vorige, waardoor de punten een rechte stijgende lijn vormen op de base‑10 schaal. De as‑labels tonen nog steeds de oorspronkelijke verzoek‑aantallen.
 
-![Dezelfde vijf aanvraagcijfers in PowerPoint op een logaritmische waardas met basis 10](value-axis-logarithmic.png)
+![Dezelfde vijf verzoek‑aantallen in PowerPoint op een base‑10 logaritmische waardenas](value-axis-logarithmic.png)
 
-### **Omgaan met nul- en negatieve waarden**
+### **Omgaan met nul‑ en negatieve waarden**
 
-Een logaritmische schaal kan alleen strikt positieve waarden weergeven. Controleer de data voordat u deze inschakelt. Als nul‑ of negatieve waarden betekenisvol zijn, behoud dan een lineaire schaal of toon ze apart. Indien het weglaten van die waarden passend is voor de analyse, leg dan de reden uit. Vervang ze niet stilletjes door kleine positieve getallen, want dat wijzigt de betekenis van de data. Elke handmatig geconfigureerde minimum‑ of maximumwaarde voor een logaritmische as moet ook positief zijn.
+Een logaritmische schaal kan alleen strikt positieve waarden weergeven. Controleer de gegevens voordat u deze activeert. Als nul‑ of negatieve waarden betekenisvol zijn, behoud dan een lineaire schaal of toon ze apart. Als het weglaten van die waarden passend is voor de analyse, leg dan de reden uit. Vervang ze niet stilzwijgend door kleine positieve getallen, want dat verandert de betekenis van de gegevens. Elke handmatig ingestelde minimum‑ of maximumwaarde voor een logaritmische as moet eveneens positief zijn.
 
 ## **FAQ**
 
-**Hoe stel ik de waarde in waarop de ene as de andere kruist (as‑kruising)?**
+**Hoe stel ik de waarde in waarop één as de andere kruist (as‑kruising)?**
 
-Gebruik [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) om het kruismaatschapp gedrag te selecteren. Om een numerieke kruiswaarde op te geven, stel [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) in. Deze instellingen laten u de as‑kruising naar een geschikte basislijn verplaatsen.
+Gebruik [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) om het kruispuntgedrag te kiezen. Om een numerieke kruispuntwaarde op te geven, stel je [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) in. Deze instellingen laten u de as‑kruising naar een geschikte basislijn verplaatsen.
 
-**Hoe kan ik tik‑labels positioneren ten opzichte van de as?**
+**Hoe kan ik tick‑labels ten opzichte van de as positioneren?**
 
-Stel [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) in met behulp van [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO` of `NONE`. Om de tik‑markeringen zelf te regelen, gebruik [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) of [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); deze staan los van de label‑positionering.
+Stel [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) in met [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO` of `NONE`. Om de tick‑marks zelf te regelen, gebruik je [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) of [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); deze staan los van de label‑positionering.

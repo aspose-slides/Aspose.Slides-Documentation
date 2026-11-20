@@ -1,5 +1,5 @@
 ---
-title: Hantera ljud i presentationer med C++
+title: Hantera ljudramar i presentationer med C++
 linktitle: Ljudram
 type: docs
 weight: 10
@@ -14,280 +14,416 @@ keywords:
 - extrahera ljud
 - C++
 - Aspose.Slides
-description: "Skapa och kontrollera ljudramar i Aspose.Slides för C++—kodexempel för att bädda in, trimma, loopa och konfigurera uppspelning i PPT-, PPTX- och ODP-presentationer."
+description: "Bädda in ljud i bilder, ändra ljudikonen, konfigurera uppspelning, hantera WebVTT-undertexter och extrahera ljud för bildövergångar med Aspose.Slides för C++."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med ljudramar i Aspose.Slides. Den visar hur man lägger till inbäddat ljud i bilder, anpassar ljudramens miniatyrbild, konfigurerar uppspelningsalternativ såsom volym, upprepning, dölja, trimning och toningsvaraktigheter, och extraherar ljud som används i bildspelsövergångar.
+En ljudram låter dig spela ett ljud på en bild. Med Aspose.Slides för C++ kan du bädda in ett ljudklipp, välja bilden som representerar det, justera uppspelning och bifoga undertexter. Du kan även hämta ett ljud som är tilldelat en bildspelsövergång.
 
 ## **Skapa ljudramar**
 
-Aspose.Slides för C++ låter dig lägga till ljudfiler i bilder. Ljudfilerna bäddas in i bilder som ljudramar. 
+Använd [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) för att bädda in ett lokalt ljudklipp på den första bilden. De två första koordinaterna placerar ramen på bilden, och de två följande värdena sätter dess bredd och höjd, alla i punkter. Detta exempel anropar [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) för att starta klippet automatiskt och anropar [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) för att välja den höga förinställningen.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation).
-2. Hämta en bilds referens via dess index.
-3. Läs in ljudfilströmmen du vill bädda in i bilden.
-4. Lägg till den inbäddade ljudramen (som innehåller ljudfilen) till bilden.
-5. Ställ in [PlayMode](https://reference.aspose.com/slides/sv/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) och `Volume` som exponeras av objektet [IAudioFrame](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_audio_frame).
-6. Spara den modifierade presentationen.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-Den här C++-koden visar hur du lägger till en inbäddad ljudram i en bild:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// Instansierar en Presentation-klass som representerar en presentationsfil
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Hämtar den första bilden
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Läser in wav-ljudfilen till en ström
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// Lägger till ljudramen
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Ställer in uppspelningsläge och volym för ljudet
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Skriver PowerPoint-filen till disk
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ändra ljudramens miniatyrbild**
 
-När du lägger till en ljudfil i en presentation visas ljudet som en ram med en standardstandardbild (se bilden i avsnittet nedan). Du kan ändra ljudramens miniatyrbild (ange din föredragna bild).
-
-Den här C++-koden visar hur du ändrar en ljudramens miniatyrbild eller förhandsgranskningsbild:
+Som standard visar en ljudram en högtalarikon. För att visa en anpassad miniatyrbild, lägg till en bild i presentationen med [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) och sätt den som ramens bild med [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). Exemplet använder en JPEG som miniatyrbild för ett inbäddat ljudklipp.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Lägger till en ljudram på bilden med en specifik position och storlek.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Lägger till en bild i presentationens resurser.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Ställer in bilden för ljudramen.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//Sparar den modifierade presentationen till disk
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ändra ljuduppspelningsalternativ**
 
-Aspose.Slides för C++ låter dig ändra alternativ som styr ett ljuds uppspelning eller egenskaper. Till exempel kan du justera ett ljuds volym, ställa in ljudet att spelas i loop, eller till och med dölja ljudikonen.
+PowerPoints **Audio Options**-kontroller bestämmer när ett klipp startar, hur högt det låter och hur det beter sig under en bildspelsvisning.
 
-The **Audio Options** panel i Microsoft PowerPoint:
+![PowerPoint Audio Options-kontroller för en ljudram](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint‑kontroll | Aspose.Slides för C++‑metod |
+| --- | --- |
+| Start | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Volymförinställning | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Spela över bilder | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Upprepa tills stoppas | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Dölj under visning | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Spola tillbaka efter uppspelning | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Tona in | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Tona ut | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Trimma ljud starttid | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Trimma ljud sluttid | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Volymskjurreglage | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-PowerPoint **Audio Options** som motsvarar metoder i Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/) methods:
-
-- **Start**-rullgardinsmenyn motsvarar metoden [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_playmode/) 
-- **Volume** motsvarar metoden [AudioFrame::set_Volume](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_volume/) 
-- **Play Across Slides** motsvarar metoden [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_playacrossslides/) 
-- **Loop until Stopped** motsvarar metoden [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_playloopmode/) 
-- **Hide During Show** motsvarar metoden [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_hideatshowing/) 
-- **Rewind after Playing** motsvarar metoden [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_rewindaudio/) method 
-
-PowerPoint **Editing**-alternativ som motsvarar egenskaper i Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/) properties:
-
-- **Fade In** motsvarar metoden [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_fadeinduration/) 
-- **Fade Out** motsvarar metoden [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_fadeoutduration/) 
-- **Trim Audio Start Time** motsvarar metoden [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_trimfromstart/) 
-- **Trim Audio End Time** värdet är ljudets varaktighet minus värdet från metoden [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_trimfromend/) method
-
-PowerPoint **Volume controll** på ljudkontrollpanelen motsvarar metoden [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_volumevalue/) method. Den låter dig ändra ljudvolymen i procent.
-
-Så här ändrar du Audio Play options:
-
-1. [Сreate](#creating-audio-frame) eller hämta Audio Frame.
-2. Ställ in nya värden för de Audio Frame-egenskaper du vill justera.
-3. Spara den modifierade PowerPoint-filen.
-
-Den här C++-koden demonstrerar en operation där ett ljuds alternativ justeras:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Hämta en form
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Kastar om formen till en AudioFrame-form
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Ställer in uppspelningsläget till att spela vid klick
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Ställer in volymen till Låg
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Ställer in ljudet att spela över flera bilder
-audioFrame->set_PlayAcrossSlides(true);
-
-// Inaktiverar loop för ljudet
-audioFrame->set_PlayLoopMode(false);
-
-// Döljer AudioFrame under bildspelet
-audioFrame->set_HideAtShowing(true);
-
-// Spolar tillbaka ljudet till början efter uppspelning
-audioFrame->set_RewindAudio(true);
-
-// Sparar PowerPoint-filen till disk
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-Detta C++-exempel visar hur du lägger till en ny ljudram med inbäddat ljud, trimmar den och anger toningsvaraktigheterna:
+Exemplet hittar den första ljudramen på den första bilden, anropar [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) för att starta uppspelning vid ett klick, och väljer den låga volymförinställningen. Klippet fortsätter över bilder med looping inaktiverad. Ikonen förblir dold under visningen, och klippet spolas tillbaka efter uppspelning.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ställer in trimningsstartoffset till 1,5 sekunder
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+För ett klipp som är längre än 3,5 sekunder hoppar detta exempel över de första 1,5 sekunderna och de sista 2 sekunderna. Argumentet till [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) anger hur lång del som ska uteslutas från klippets slut. För att få sluttiden som visas i PowerPoint, subtrahera detta offset från hela klippets varaktighet. Det trimmade klippet tonar in under 200 millisekunder och tonar ut under 500 millisekunder. Alla fyra metoderna tar värden i millisekunder.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Ställer in trimningsslutoffset till 2 sekunder
 audioFrame->set_TrimFromEnd(2000);
-
-// Ställer in toningsinslagningsvaraktigheten till 200 ms
 audioFrame->set_FadeInDuration(200);
-// Ställer in toningsutslagningsvaraktigheten till 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-Följande kodexempel visar hur du hämtar en ljudram med inbäddat ljud och ställer in dess volym till 85 %:
+För att sätta uppspelningsvolymen till en specifik procent, använd [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). Detta exempel sätter den första ljudramen på den första bilden till 85 %.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Hämtar en ljudramform
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Ställer in ljudvolymen till 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
-```
-
-## **Hantera ljudtextning**
-
-Aspose.Slides låter dig lägga till stängda undertexter till en ljudram via metoden [get_CaptionTracks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudioframe/get_captiontracks/). Denna metod returnerar en [ICaptionsCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icaptionscollection/), som låter dig lägga till WebVTT-undertextspår, iterera genom befintliga spår och ta bort dem vid behov.
-
-**Lägg till ljudtextning**
-
-Använd metoden [get_CaptionTracks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudioframe/get_captiontracks/) för att fästa ett eller flera undertextspår till en ljudram. I följande exempel läggs en ljudfil till en bild, och sedan laddas ett nytt undertextspår från en `.vtt`‑fil.
-
-```cpp
-auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+## **Hantera ljudundertexter**
+
+Varje ljudram exponerar sin undertextsamling via [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). Använd den för att bifoga WebVTT-undertexter till klippet, exportera befintliga spår eller ta bort dem.
+
+### **Lägg till ljudundertexter**
+
+Exemplet bäddar in ett ljudklipp på den första bilden och använder [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) för att bifoga ett lokalt WebVTT-spår. Det första argumentet anger spårets etikett, och det andra identifierar filen som innehåller de tidsbestämda undertexterna.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Extrahera ljudtextning**
+### **Extrahera ljudundertexter**
 
-Du kan iterera genom undertextspåren som är associerade med en ljudram och spara dem som `.vtt`‑filer. Varje undertextspår exponerar sina binära data och unika identifierare, vilket kan användas vid export av undertexter.
+Detta exempel exporterar varje undertextspår som är bifogat en ljudram på den första bilden. Det skriver de byte som returneras av [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) till en WebVTT‑fil och använder värdet som returneras av [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) som filnamn så att varje spår får en separat utdata.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Ta bort ljudundertexter**
+
+Använd [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) för att radera ett enskilt spår. Exemplet använder [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) för att ta bort alla undertexter från den första ljudramen på den första bilden samtidigt som klippet bevaras.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Hitta en rad i ljudundertexter**
+
+För att hitta en rad i ljudundertexterna på den första bilden, anropa [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) på varje spår för att läsa dess WebVTT‑text i minnet. I ett vanligt WebVTT‑cue innehåller tidslinjen `-->`, följt av undertextraderna, och en tom rad avslutar cue:n. Detta exempel skriver ut spårets etikett och varje undertextrad som innehåller “café”.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Spara varje undertextspår som en .vtt fil.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-**Ta bort ljudtextning**
-
-För att ta bort undertexter från en ljudram, använd metoderna som tillhandahålls av [ICaptionsCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icaptionscollection/), såsom [Clear](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icaptionscollection/remove/), eller [RemoveAt](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icaptionscollection/removeat/). Följande exempel tar bort alla undertextspår från en ljudram.
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// Ta bort alla undertextspår från ljudramen.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **Extrahera ljud**
 
-Aspose.Slides låter dig extrahera ljudet som används i bildspelsövergångar. Till exempel kan du extrahera ljudet som används i en specifik bild.
+En bildspelsövergång kan ha ett eget ljud. För att hämta det, anropa [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) på övergången. Exemplet hämtar ljudbytena med [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) och skriver ut antalet byte. Om den första bilden saknar övergångsljud, skriver den ut ett meddelande istället.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.presentation) och läs in presentationen som innehåller ljudet.
-2. Hämta den relevanta bildens referens via dess index.
-3. Åtkomst till bildspelsövergångarna för bilden.
-4. Extrahera ljudet som byte‑data.
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-Den här C++-koden visar hur du extraherar ljudet som används i en bild:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Instansierar en Presentation-klass som representerar en presentationsfil
-auto pres = System::MakeObject<Presentation>(presName);
-
-// Hämtar den önskade bilden
-auto slide = pres->get_Slides()->idx_get(0);
-
-// Hämtar bildspelsövergångseffekterna för bilden
-auto transition = slide->get_SlideShowTransition();
-
-// Extraherar ljudet i en bytearray
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag återanvända samma ljudresurs på flera bilder utan att öka filstorleken?**
+**Kan jag återanvända samma ljudklipp på flera bilder utan att duplicera det?**
 
-Ja. Lägg till ljudet en gång i presentationens delade [audio collection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_audios/) och skapa ytterligare ljudramar som refererar till den befintliga resursen. Detta undviker duplicering av mediedata och håller presentationens storlek under kontroll.
+Ja. Lägg till klippet en gång i presentationens [audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) och skicka samma ljudobjekt till [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) för varje bild.
 
-**Kan jag ersätta ljudet i en befintlig ljudram utan att återskapa formen?**
+**Kan jag ersätta ljudet i en befintlig ljudram?**
 
-Ja. För ett länkat ljud, uppdatera [link path](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_linkpathlong/) så att det pekar på den nya filen. För ett inbäddat ljud, byt ut objektet [embedded audio](https://reference.aspose.com/slides/sv/cpp/aspose.slides/audioframe/set_embeddedaudio/) mot ett annat från presentationens [audio collection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_audios/). Ramens formatering och de flesta uppspelningsinställningar förblir intakta.
+Ja. För ett länkat ljud, anropa [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) med sökvägen till ersättningsfilen. För ett inbäddat ljud, skicka ett annat klipp från presentationens ljudsamling till [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). Båda metoderna bevarar den befintliga ramen.
 
-**Ändrar trimning den underliggande ljuddata som lagras i presentationen?**
+**Ändrar trimning ljuddata som lagras i presentationen?**
 
-Nej. Trimning justerar endast uppspelningsgränserna. De ursprungliga ljudbytena förblir orörda och åtkomliga via det inbäddade ljudet eller presentationens ljudsamling.
+Nej. [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) och [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) anger uppspelningsgränser. Du kan fortfarande hämta hela klippet från [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

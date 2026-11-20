@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie klatkami wideo w prezentacjach w .NET
-linktitle: Klatka wideo
+title: Zarządzanie ramkami wideo w prezentacjach w .NET
+linktitle: Ramka wideo
 type: docs
 weight: 10
 url: /pl/net/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - osadź wideo
 - wyodrębnij wideo
 - pobierz wideo
-- klatka wideo
+- ramka wideo
 - źródło internetowe
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Naucz się programowo dodawać i wyodrębniać klatki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Szybki przewodnik instruktażowy."
+description: "Dowiedz się, jak programowo dodawać i wyodrębniać ramki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Szybki przewodnik krok po kroku."
 ---
 ## **Wprowadzenie**
 
-Filmy mogą pomóc wyjaśnić pomysły i zaangażować publiczność. Aspose.Slides dla .NET umożliwia dodawanie klatek wideo do slajdów, dostosowywanie ustawień odtwarzania, zarządzanie napisami oraz wyodrębnianie osadzonych danych wideo.
+Filmy mogą pomóc wyjaśnić pomysły i przyciągnąć uwagę publiczności. Aspose.Slides dla .NET umożliwia dodawanie ramek wideo do slajdów, dostosowywanie ustawień odtwarzania, zarządzanie napisami oraz wyodrębnianie osadzonych danych wideo.
 
-PowerPoint obsługuje lokalne filmy oraz odnośniki do filmów online, takich jak filmy z YouTube.
+PowerPoint obsługuje lokalne filmy oraz linki do filmów online, takich jak filmy z YouTube.
 
-Aby reprezentować dane wideo i klatki wideo, Aspose.Slides udostępnia interfejs [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , interfejs [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) , oraz inne odpowiednie typy.
+Aby reprezentować dane wideo i ramki wideo, Aspose.Slides udostępnia interfejs [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , interfejs [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) oraz inne istotne typy.
 
-## **Utworzenie osadzonej klatki wideo**
+## **Utwórz osadzoną ramkę wideo**
 
-Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć klatkę wideo, aby osadzić wideo w swojej prezentacji.
+Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć ramkę wideo, aby osadzić wideo w prezentacji.
 
-Ten przykład osadza lokalny film na pierwszym slajdzie istniejącej prezentacji i zapisuje wynik. Współrzędne i wymiary klatki podawane są w punktach. Strumień pozostaje otwarty do zakończenia zapisu, ponieważ [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) utrzymuje go zablokowanym, gdy prezentacja go używa.
+Ten przykład osadza lokalny film na pierwszym slajdzie istniejącej prezentacji i zapisuje wynik. Współrzędne i wymiary ramki są podane w punktach. Strumień pozostaje otwarty, dopóki nie zakończy się zapisywanie, ponieważ [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) utrzymuje go zablokowanym, gdy prezentacja go używa.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Możesz również przekazać ścieżkę do lokalnego filmu bezpośrednio do [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Ten przykład osadza wideo na pierwszym slajdzie nowej prezentacji. Film musi pozostać dostępny do momentu zapisania prezentacji.
+Możesz także przekazać lokalną ścieżkę do wideo bezpośrednio do [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Ten przykład osadza wideo na pierwszym slajdzie nowej prezentacji. Wideo musi pozostać dostępne, dopóki prezentacja nie zostanie zapisana.
 
 ```csharp
 using Aspose.Slides;
@@ -65,9 +65,9 @@ presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 
 ## **Ustaw precyzyjnie głośność wideo**
 
-W Aspose.Slides dla .NET 26.11 i późniejszych, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ustawia wartość zmiennoprzecinkową procentową od 0 do 100. Używaj jej, gdy ustawienia [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) są zbyt ogólne. Na przykład `75.5f` oznacza 75,5% głośności.
+W Aspose.Slides dla .NET 26.11 lub nowszym, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ustawia wartość procentową zmiennoprzecinkową od 0 do 100. Użyj jej, gdy ustawienia wstępne [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) są zbyt mało precyzyjne. Na przykład `75.5f` oznacza głośność 75,5%.
 
-Ten przykład wymaga [Aspose.Slides dla .NET](/slides/pl/net/installation/) w wersji 26.11 lub późniejszej oraz lokalnego pliku `video.mp4`. Osadza wideo, wyraźnie inicjalizuje odtwarzanie, zapisuje prezentację i odczytuje zapisany procent.
+Ten przykład wymaga [Aspose.Slides for .NET](/slides/pl/net/installation/) 26.11 lub nowszej oraz lokalnego pliku `video.mp4`. Osadza wideo, wyraźnie inicjuje odtwarzanie, zapisuje prezentację i odczytuje zapisaną wartość procentową.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Sprawdź poprawność danych samodzielnie; nie polegaj na metodzie set, aby odrzuciła wartości poza udokumentowanym zakresem. Ustawienia Low, Medium i Loud odpowiadają 20, 50 i 80 w wersji 26.11. Ustawienie predefiniowanego poziomu może nadpisać wcześniejszy procent, więc przypisz wartość procentową jako ostatnią, gdy potrzebna jest dokładna wartość. Użyj [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) dla wyraźnego wyciszenia; zero numeryczne i predefiniowana wartość enum nie są wymienne.
+Sprawdzaj poprawność danych samodzielnie; nie polegaj na setterze, aby odrzucił wartości spoza udokumentowanego zakresu. Ustawienia wstępne Low, Medium i Loud odpowiadają 20, 50 i 80 w wersji 26.11. Ustawienie wstępne może zastąpić wcześniejszy procent, więc przypisz wartość procentową jako ostatnią, gdy potrzebna jest dokładna wartość. Użyj [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) do wyraźnego wyciszenia; zerowa wartość numeryczna i enum wstępny nie są wymiennymi stanami.
 
-Wyraźnie ustaw [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) również przy konfigurowaniu połączonego wideo, i zachowaj jego plik multimedialny dostępny dla odbiorcy. Zapis i ponowne otwarcie weryfikują zapisane ustawienie; rzeczywiste odtwarzanie i głośność zależą od odtwarzacza prezentacji oraz jego ustawień audio.
+Wyraźnie ustaw [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) również przy konfigurowaniu wideo z linkiem i zapewnij dostępność pliku multimedialnego dla odbiorcy. Zapis i ponowne otwarcie weryfikują zapisane ustawienie; rzeczywiste odtwarzanie i głośność zależą od odtwarzacza prezentacji oraz jego ustawień audio.
 
-## **Utworzenie klatki wideo z wideo ze źródła internetowego**
+## **Utwórz ramkę wideo z wideo z źródła internetowego**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) obsługuje filmy online w prezentacjach. Możesz utworzyć klatkę wideo, która odwołuje się do filmu online, takiego jak film z YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) obsługuje filmy online w prezentacjach. Możesz utworzyć ramkę wideo, która odwołuje się do filmu online, takiego jak film z YouTube.
 
-Ten przykład dodaje odnośnik do filmu YouTube oraz miniaturę na pierwszy slajd. Zastąp identyfikator filmu, aby użyć innego filmu. Ustawienie [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) żąda automatycznego odtwarzania. Pobranie miniatury i odtwarzanie filmu wymaga dostępu do internetu. Odtwarzacz prezentacji musi również obsługiwać odtwarzanie wideo online.
+Ten przykład dodaje link do filmu z YouTube oraz miniaturkę na pierwszy slajd. Zamień identyfikator wideo, aby użyć innego filmu. Ustawienie [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) żąda automatycznego odtwarzania. Pobieranie miniaturki i odtwarzanie filmu wymaga dostępu do Internetu. Odtwarzacz prezentacji musi również obsługiwać odtwarzanie wideo online.
 
 ```csharp
 using System.Net.Http;
@@ -131,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Odtwarzanie wideo w trybie pełnoekranowym**
+## **Odtwórz wideo w trybie pełnoekranowym**
 
 W prezentacji szkoleniowej możesz odtworzyć demonstrację oprogramowania w trybie pełnoekranowym, aby publiczność mogła zobaczyć szczegóły. Ustaw [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) na `true`, aby włączyć to zachowanie podczas odtwarzania.
 
-Ten przykład otwiera prezentację, znajduje pierwszą [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na pierwszym slajdzie i włącza odtwarzanie pełnoekranowe. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą klatką wideo na pierwszym slajdzie.
+Ten przykład otwiera prezentację, znajduje pierwszą [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na pierwszym slajdzie i włącza odtwarzanie w trybie pełnoekranowym. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Odtwarzanie pełnoekranowe kontroluje sposób wyświetlania wideo. Oddzielnie, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) decyduje, czy rozpoczyna się automatycznie czy po kliknięciu, a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) określa, czy się powtarza. Aby wybrać zachowanie przy uruchamianiu, ustaw tryb odtwarzania na [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Przykład zachowuje istniejące ustawienia startu i pętli.
+Odtwarzanie w trybie pełnoekranowym kontroluje sposób wyświetlania wideo. Niezależnie od tego, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) określa, czy odtwarzanie zaczyna się automatycznie czy po kliknięciu, a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) kontroluje, czy się powtarza. Aby wybrać zachowanie startu, ustaw tryb odtwarzania na [VideoPlayModePreset.Auto lub VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Przykład zachowuje istniejące ustawienia startu i pętli.
 
-## **Przewijanie wideo po odtworzeniu**
+## **Przewiń wideo po odtworzeniu**
 
-W prezentacji szkoleniowej przywrócenie filmu demonstracyjnego do początku sprawia, że jest gotowy do ponownego odtworzenia przez prezentera. Ustaw [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) na `true`, aby po zakończeniu odtwarzania przewinąć wideo do początku.
+W prezentacji szkoleniowej przywrócenie filmu demonstracyjnego do początku sprawia, że jest gotowy do ponownego odtworzenia przez prowadzącego. Ustaw [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) na `true`, aby po zakończeniu odtwarzania przewinąć wideo do początku.
 
-Ten przykład otwiera prezentację, znajduje pierwszą [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na pierwszym slajdzie i włącza przewijanie. Wyłącza pętlę, aby odtwarzanie mogło się zakończyć, i ustawia odtwarzanie na start po kliknięciu. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą klatką wideo na pierwszym slajdzie.
+Ten przykład otwiera prezentację, znajduje pierwszą [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) na pierwszym slajdzie i włącza przewijanie. Wyłącza pętlę, aby odtwarzanie mogło się zakończyć, i ustawia odtwarzanie na start po kliknięciu. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
 
 ```csharp
 using Aspose.Slides;
@@ -185,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Przewijanie przywraca wideo do początku bez ponownego uruchamiania. W przeciwieństwie do tego, włączenie [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) powoduje automatyczne powtarzanie odtwarzania. Utrzymuj pętlę wyłączoną, gdy chcesz, aby wideo zakończyło się i było gotowe do ponownego odtworzenia. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) niezależnie kontroluje automatyczny lub kliknięciowy start; ten przykład używa [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) , aby prezenter decydował o rozpoczęciu odtwarzania. Ustaw tryb odtwarzania po ustawieniu pętli, jak pokazano w przykładzie. Przewijanie działa niezależnie od [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Przewijanie przywraca wideo do początku bez ponownego uruchamiania. Natomiast włączenie [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) automatycznie powtarza odtwarzanie. Trzymaj pętlę wyłączoną, gdy chcesz, aby wideo zakończyło się i było gotowe do ponownego odtworzenia. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) niezależnie kontroluje automatyczny lub ręczny start; w tym przykładzie użyto [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) , aby prowadzący decydował o rozpoczęciu odtwarzania. Ustaw tryb odtwarzania po ustawieniu pętli, jak pokazano w przykładzie. Przewijanie działa niezależnie od [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Przycinanie klatki wideo**
+## **Przytnij ramkę wideo**
 
-Użyj [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) i [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) , aby pominąć część początku lub końca filmu podczas odtwarzania. Obie wartości podawane są w milisekundach. Przycinanie zmienia ustawienia odtwarzania bez modyfikacji osadzonych danych wideo.
+Użyj [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) i [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) , aby pominąć część początku lub końca wideo podczas odtwarzania. Obie wartości podawane są w milisekundach. Przycinanie zmienia ustawienia odtwarzania bez modyfikacji osadzonych danych wideo.
 
 **Ustawienia przycinania**
 
-Ten przykład osadza lokalny film i pomija pierwsze 2,5 sekundy oraz ostatnią sekundę podczas odtwarzania. Użyj filmu dłuższego niż 3,5 sekundy, aby pozostał odtwarzalny segment.
+Ten przykład osadza lokalny film i pomija pierwsze 2,5 sekundy oraz ostatnią sekundę podczas odtwarzania. Użyj wideo dłuższego niż 3,5 sekundy, aby pozostał odtwarzalny segment.
 
 ```csharp
 using System.IO;
@@ -213,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Odczyt ustawień przycinania**
+**Odczytaj ustawienia przycinania**
 
-Ten przykład wypisuje wartości przycięć pierwszej klatki wideo na pierwszym slajdzie w milisekundach. Prezentacja musi zawierać co najmniej jeden slajd. Jeśli ten slajd nie ma klatki wideo, nic nie zostanie wypisane. Poprzedni przykład generuje wartości 2500 i 1000.
+Ten przykład wypisuje wartości przycięcia pierwszej ramki wideo na pierwszym slajdzie w milisekundach. Prezentacja musi zawierać co najmniej jeden slajd. Jeśli ten slajd nie ma ramki wideo, nic nie zostanie wypisane. Poprzedni przykład generuje wartości 2500 i 1000.
 
 ```csharp
 using System;
@@ -235,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Zarządzanie napisami wideo**
+## **Zarządzaj napisami wideo**
 
-Aspose.Slides umożliwia zarządzanie zamkniętymi napisami dla klatek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane poprzez właściwość [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) .
+Aspose.Slides umożliwia zarządzanie zamkniętymi napisami dla ramek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane za pośrednictwem właściwości [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) .
 
-**Dodawanie napisów do klatki wideo**
+### **Dodaj napisy do ramki wideo**
 
-Ten przykład osadza lokalny film i dodaje ścieżkę napisów WebVTT oznaczoną jako English. Znaczniki czasowe napisów powinny odpowiadać wideo. Zapisana prezentacja zawiera zarówno film, jak i jego napisy.
+Ten przykład osadza lokalny film i dodaje ścieżkę napisów WebVTT oznaczoną jako English. Znaczniki czasu napisów powinny pasować do wideo. Zapisana prezentacja zawiera zarówno wideo, jak i jego napisy.
 
 ```csharp
 using System.IO;
@@ -260,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Interfejs [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) oferuje również przeciążenie umożliwiające dodawanie napisów ze strumienia.
+Interfejs [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) oferuje również przeciążenie, które pozwala dodać napisy ze strumienia.
 
-**Wyodrębnianie napisów z klatki wideo**
+### **Wyodrębnij napisy z ramki wideo**
 
-Ten przykład zapisuje wszystkie ścieżki napisów z klatek wideo na pierwszym slajdzie jako osobne pliki WebVTT. Kolejne numery utrzymują pliki wyjściowe odrębne. Konsola zgłasza liczbę wyodrębnionych ścieżek. Prezentacja musi zawierać co najmniej jeden slajd.
+Ten przykład zapisuje wszystkie ścieżki napisów z ramek wideo na pierwszym slajdzie jako osobne pliki WebVTT. Kolejne numery utrzymują odrębność plików wyjściowych. Konsola zgłasza liczbę wyodrębnionych ścieżek. Prezentacja musi zawierać co najmniej jeden slajd.
 
 ```csharp
 using System;
@@ -293,9 +293,9 @@ Console.WriteLine($"Caption tracks extracted: {trackCount}");
 
 Każdy obiekt [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF‑8.
 
-**Usuwanie napisów z klatki wideo**
+### **Usuń napisy z ramki wideo**
 
-Ten przykład usuwa wszystkie napisy z klatki wideo znajdującej się na pierwszej pozycji kształtu na pierwszym slajdzie i zapisuje wynik. Zakłada, że slajd i kształt istnieją oraz że kształt jest klatką wideo.
+Ten przykład usuwa wszystkie napisy z ramki wideo znajdującej się w pierwszej pozycji kształtu na pierwszym slajdzie i zapisuje wynik. Zakłada, że slajd i kształt istnieją oraz że kształt jest ramką wideo.
 
 ```csharp
 using System;
@@ -311,13 +311,68 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) lub [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) , zamiast [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) .
+Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) lub [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) zamiast [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) .
 
-## **Wyodrębnianie wideo ze slajdu**
+### **Wyszukaj napisy wideo**
 
-Oprócz dodawania filmów do slajdów, Aspose.Slides umożliwia wyodrębnianie filmów osadzonych w prezentacjach.
+[ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) zwraca kompletną ścieżkę WebVTT, w tym nagłówek, linie czasowe i tekst napisów. Aby znaleźć wypowiedzianą frazę i jej znacznik czasu, odczytaj wskazówki w pamięci. Na przykład angielska ścieżka na slajdzie 2 może zawierać następujący tekst:
 
-Ten przykład wyodrębnia osadzone filmy ze wszystkich slajdów do osobnych, numerowanych plików binarnych. Filmy połączone są pomijane, ponieważ nie mają osadzonych danych. Konsola wypisuje typ MIME każdego filmu oraz łączną liczbę. Wyjście używa ogólnego rozszerzenia `.bin`; w razie potrzeby zmień je, aby odpowiadało raportowanemu typowi mediów.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Przykład odwiedza każdy slajd i odczytuje ścieżki jego głównych ramek wideo za pośrednictwem [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). W wskazówce w zwykłym tekście linia czasowa zawiera `-->`, a pusty wiersz kończy wskazówkę. Gdy tekst napisu zawiera “café”, przykład wypisuje numer slajdu, etykietę ścieżki, oryginalną linię czasową i pełny napis.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Wyszukiwanie “café” zwraca jedno dopasowanie dla przykładowej ścieżki. Nagłówek i ustawienie czasu znajdują się poza tekstem wskazówki.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Wyodrębnij wideo ze slajdu**
+
+Oprócz dodawania wideo do slajdów, Aspose.Slides umożliwia wyodrębnianie wideo osadzonego w prezentacjach.
+
+Ten przykład wyodrębnia osadzone wideo z każdego slajdu do osobnych, ponumerowanych plików binarnych. Wideo z linkiem jest pomijane, ponieważ nie ma osadzonych danych. Konsola wypisuje typ MIME każdego wideo oraz łączną liczbę. Wyjście używa ogólnego rozszerzenia `.bin`; w razie potrzeby zmień je, aby odpowiadało zgłoszonemu typowi mediów.
 
 ```csharp
 using System;
@@ -353,18 +408,18 @@ Console.WriteLine($"Embedded videos extracted: {videoCount}");
 
 ## **FAQ**
 
-**Jakie parametry odtwarzania wideo można zmienić w klatce wideo?**
+**Jakie parametry odtwarzania wideo można zmienić dla ramki wideo?**
 
-Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatyczny lub po kliknięciu) oraz [pętlę](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) . Opcje te są dostępne poprzez właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) .
+Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatyczny lub po kliknięciu) oraz [pętlę](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Opcje te są dostępne za pośrednictwem właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) .
 
 **Czy dodanie wideo wpływa na rozmiar pliku PPTX?**
 
-Tak. Gdy osadzasz lokalny film, dane binarne są dołączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy łączysz się z filmem online i dodajesz miniaturę, prezentacja przechowuje odnośnik i obraz podglądu zamiast danych wideo, więc przyrost rozmiaru jest zwykle mniejszy.
+Tak. Gdy osadzasz lokalny film, dane binarne są włączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do wielkości pliku. Gdy linkujesz do filmu online i dodajesz miniaturkę, prezentacja przechowuje link i obraz podglądu zamiast danych wideo, więc przyrost rozmiaru jest zazwyczaj mniejszy.
 
-**Czy mogę wymienić wideo w istniejącej klatce wideo bez zmiany jej pozycji i rozmiaru?**
+**Czy mogę wymienić wideo w istniejącej ramce wideo bez zmiany jej pozycji i rozmiaru?**
 
-Tak. Możesz wymienić [zawartość wideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) w klatce, zachowując geometrię kształtu; jest to częsty scenariusz aktualizacji mediów w istniejącym układzie.
+Tak. Możesz wymienić [zawartość wideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) w ramce, zachowując jednocześnie geometrię kształtu; jest to typowy scenariusz aktualizacji mediów w istniejącym układzie.
 
-**Czy można określić typ zawartości (MIME) osadzonego wideo?**
+**Czy można określić typ treści (MIME) osadzonego wideo?**
 
-Tak. Osadzone wideo posiada [typ zawartości](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) , który możesz odczytać i wykorzystać, na przykład przy zapisywaniu go na dysk.
+Tak. Osadzone wideo posiada [typ treści](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/), który możesz odczytać i użyć, na przykład przy zapisywaniu go na dysk.

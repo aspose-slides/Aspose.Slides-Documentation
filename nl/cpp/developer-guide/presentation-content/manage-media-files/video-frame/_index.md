@@ -1,6 +1,6 @@
 ---
-title: Beheer videoframes in presentaties met C++
-linktitle: Videoframe
+title: Video‑frames beheren in presentaties met C++
+linktitle: Video‑frame
 type: docs
 weight: 10
 url: /nl/cpp/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - video insluiten
 - video extraheren
 - video ophalen
-- videoframe
+- video‑frame
 - webbron
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe je programmatisch videoframes kunt toevoegen en extraheren in PowerPoint- en OpenDocument-dia's met Aspose.Slides voor C++. Snelle handleiding."
+description: "Leer hoe u programmatisch video‑frames kunt toevoegen en extraheren in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor C++. Snelle how‑to gids."
 ---
 ## **Inleiding**
 
-Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides voor C++ stelt je in staat videoframes aan dia's toe te voegen, afspeelinstellingen aan te passen, bijschriften te beheren en ingebedde video‑gegevens te extraheren.
+Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides for C++ stelt u in staat video‑frames aan dia's toe te voegen, afspeelinstellingen aan te passen, ondertitels te beheren en ingesloten videogegevens te extraheren.
 
 PowerPoint ondersteunt lokale video’s en koppelingen naar online video’s, zoals YouTube‑video’s.
 
-Om video‑gegevens en videoframes te vertegenwoordigen, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/)-interface, de [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)-interface en andere relevante types.
+Om video‑gegevens en video‑frames weer te geven, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) interface, en andere relevante typen.
 
-## **Maak een ingebedde videoframe**
+## **Maak een ingebed video‑frame**
 
-Als het videobestand dat je aan je dia wilt toevoegen lokaal is opgeslagen, kun je een videoframe maken om de video in je presentatie in te sluiten.
+Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie in te sluiten.
 
-Dit voorbeeld insluit een lokale video op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in punten. De stream blijft open tot het opslaan voltooid is omdat [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) deze vergrendelt terwijl de presentatie hem gebruikt.
+Dit voorbeeld voegt een lokale video in op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in points. De stream blijft open tot het opslaan is voltooid omdat [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie deze gebruikt.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Je kunt ook een lokaal videopath rechtstreeks doorgeven aan [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Dit voorbeeld insluit de video op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven totdat de presentatie wordt opgeslagen.
+U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Dit voorbeeld voegt de video in op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Maak een videoframe met video van een webbron**
+## **Maak een video‑frame met video van een webbron**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. Je kunt een videoframe maken dat koppelt naar een online video, zoals een YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een video‑frame maken dat naar een online video koppelt, zoals een YouTube‑video.
 
-Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) vraagt om automatische weergave. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatieweergave moet ook online video‑afspelen ondersteunen.
+Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/)‑methode vraagt om automatische afspelen. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatieweergave moet ook online video‑afspelen ondersteunen.
 
 ```cpp
 #include <net/web_client.h>
@@ -127,11 +127,11 @@ presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Speel een video af in volledig scherm-modus**
+## **Speel een video af in volledig‑scherm modus**
 
-In een trainingspresentatie kun je een software‑demo in volledig scherm afspelen zodat het publiek de details kan zien. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) accepteert `true` om dit gedrag tijdens het afspelen in te schakelen.
+In een trainingspresentatie kunt u een software‑demo afspelen in volledig‑scherm modus zodat het publiek de details kan zien. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) accepteert `true` om dit gedrag tijdens het afspelen in te schakelen.
 
-Dit voorbeeld opent een presentatie, zoekt de eerste [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) op de eerste dia en schakelt volledig scherm‑afspelen in. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, zoekt het eerste [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) op de eerste dia, en schakelt volledig‑scherm afspelen in. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Volledig scherm‑afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) of deze automatisch of bij klik start, en [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) of deze herhaalt. Om het startgedrag te kiezen, stel je de afspeelmodus in op [VideoPlayModePreset::Auto of VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lusinstellingen.
+Volledig‑scherm afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) of deze automatisch of bij klik start, en [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) of deze herhaalt. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset::Auto of VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lussinstellingen.
 
-## **Hervind een video na afspelen**
+## **Terugspoelen van een video na afspelen**
 
-In een trainingspresentatie, het terugbrengen van een demonstratievideo naar het begin maakt deze klaar voor de presentator om opnieuw af te spelen. Roep [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) aan met `true` om de video na voltooid afspelen naar het begin te brengen.
+In een trainingspresentatie maakt het terugspoelen van een demonstratie‑video naar het begin deze weer klaar voor de presentator om opnieuw af te spelen. Roep [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) aan met `true` om de video na afloop van het afspelen naar het begin te retourneren.
 
-Dit voorbeeld opent een presentatie, zoekt de eerste [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) op de eerste dia en schakelt het terugspoelen in. Het schakelt looping uit zodat het afspelen kan eindigen en stelt het afspelen in om bij klik te starten. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, zoekt het eerste [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) op de eerste dia, en schakelt terugspoelen in. Het schakelt lussen uit zodat het afspelen kan eindigen en stelt afspelen in om op klik te starten. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het terugspoelen brengt de video terug naar het begin zonder deze opnieuw te starten. Daarentegen zorgt het inschakelen van [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) voor automatisch herhalen van het afspelen. Houd looping uitgeschakeld wanneer je wilt dat de video eindigt en klaar blijft om opnieuw af te spelen. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) regelt onafhankelijk automatisch of bij‑klik starten; dit voorbeeld gebruikt [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen start. Stel de afspeelmodus in na de lusinstelling, zoals getoond in het voorbeeld. Het terugspoelen werkt onafhankelijk van [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Terugspoelen zet de video terug naar het begin zonder deze opnieuw te starten. Daarentegen laat het inschakelen van [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) de afspeelcyclus automatisch herhalen. Houd lussen uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) regelt onafhankelijk of het automatisch of bij klik start; dit voorbeeld gebruikt [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen begint. Stel de afspeelmodus in na de lusinstelling, zoals in het voorbeeld getoond. Terugspoelen werkt onafhankelijk van [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
-## **Trim een videoframe**
+## **Trimmen van een video‑frame**
 
-Gebruik [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) en [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) om een deel van het begin of einde van een video over te slaan tijdens het afspelen. Beide waarden zijn in milliseconden. Trimmen wijzigt de afspeelinstellingen zonder de ingebedde video‑gegevens te wijzigen.
+Gebruik [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) en [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) om bij het afspelen een deel aan het begin of einde van een video over te slaan. Beide waarden zijn in milliseconden. Trimmen wijzigt afspeelinstellingen zonder de ingesloten videogegevens te wijzigen.
 
 **Triminstellingen instellen**
 
-Dit voorbeeld insluit een lokale video en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
+Dit voorbeeld voegt een lokale video in en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video die langer is dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -247,7 +247,7 @@ presentation->Dispose();
 
 **Triminstellingen lezen**
 
-Dit voorbeeld drukt de trimwaarden van het eerste videoframe op de eerste dia af in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen videoframe heeft, wordt er niets afgedrukt. Het vorige voorbeeld levert waarden van 2500 en 1000 op.
+Dit voorbeeld print de trim‑waarden van het eerste video‑frame op de eerste dia in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen video‑frame heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert waarden van 2500 en 1000 op.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -279,13 +279,13 @@ for (auto&& shape : IterateOver(slide->get_Shapes()))
 presentation->Dispose();
 ```
 
-## **Beheer video‑bijschriften**
+## **Beheer video‑ondertitels**
 
-Aspose.Slides stelt je in staat gesloten ondertitels voor videoframes in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de methode [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Aspose.Slides stelt u in staat gesloten ondertitels voor video‑frames in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en toegankelijk gemaakt via de [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/)‑methode.
 
-**Ondertitels toevoegen aan een videoframe**
+### **Ondertitels toevoegen aan een video‑frame**
 
-Dit voorbeeld insluit een lokale video en voegt een WebVTT‑ondertiteltrack toe met het label English. De tijdstempels van de ondertitels moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de ondertitels.
+Dit voorbeeld voegt een lokale video in en voegt een WebVTT‑ondertiteltrack met het label English toe. De tijdstempels van de ondertitels moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de ondertitels.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-De interface [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) biedt ook een overload die je in staat stelt ondertitels vanaf een stream toe te voegen.
+De [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) interface biedt ook een overload die u toestaat ondertitels vanuit een stream toe te voegen.
 
-**Ondertitels extraheren uit een videoframe**
+### **Ondertitels extraheren uit een video‑frame**
 
-Dit voorbeeld slaat alle ondertiteltracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Opeenvolgende nummers houden de uitvoerbestanden onderscheiden. De console rapporteert het aantal geëxtraheerde tracks. De presentatie moet minstens één dia bevatten.
+Dit voorbeeld slaat alle ondertiteltracks van video‑frames op de eerste dia op als afzonderlijke WebVTT‑bestanden. Sequentiële nummers houden de uitvoerbestanden verschillend. De console meldt het aantal geëxtraheerde tracks. De presentatie moet minstens één dia bevatten.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Elk [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/)‑object exposeert de ondertitel‑identifier, het label, binaire gegevens en de ondertiteltekst als een UTF‑8‑string.
+Elk [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) object geeft de ondertitel‑identifier, het label, binaire data en ondertiteltekst weer als een UTF‑8‑string.
 
-**Ondertitels verwijderen uit een videoframe**
+### **Ondertitels verwijderen uit een video‑frame**
 
-Dit voorbeeld verwijdert alle ondertitels uit het videoframe op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een videoframe is.
+Dit voorbeeld verwijdert alle ondertitels van het video‑frame op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een video‑frame is.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Als je slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) of [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) in plaats van [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+Als u slechts één ondertiteltrack moet verwijderen, gebruik dan de [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) of [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) methoden in plaats van [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) .
 
-## **Video extraheren van een dia**
+### **Zoek video‑ondertitels**
 
-Naast het toevoegen van video’s aan dia's, maakt Aspose.Slides het mogelijk om ingesloten video’s uit presentaties te extraheren.
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) retourneert de volledige WebVTT‑track, inclusief de header, tijdsregels en ondertiteltekst. Om een uitgesproken frase en de bijbehorende tijdstempel te vinden, leest u de cues in het geheugen. Bijvoorbeeld, een Engelse track op dia 2 kan de volgende tekst bevatten:
 
-Dit voorbeeld extrahert ingesloten video’s van elke dia naar afzonderlijke, genummerde binaire bestanden. Gelinkte video’s worden overgeslagen omdat ze geen ingesloten gegevens hebben. De console toont het MIME‑type van elke video en het totale aantal. De output gebruikt de generieke extensie `.bin`; wijzig deze om overeen te komen met het gerapporteerde mediatype indien nodig.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Het voorbeeld opent `captioned_media.pptx` en leest de ondertiteltracks van elk top‑level video‑frame op elke dia met behulp van [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). In een platte‑tekst cue bevat de tijdslijn `-->` en een lege regel beëindigt de cue. Wanneer de ondertitel “café” bevat, print het voorbeeld het dia‑nummer, track‑label, originele tijdslijn en volledige ondertitel. De zoekopdracht negeert hoofdlettergebruik.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Zoeken naar “café” levert één overeenkomst op voor de voorbeeldtrack. De zoekopdracht slaat de header over en behoudt de tijdinstelling in de uitvoer.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Video extraheren uit een dia**
+
+Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingesloten te extraheren.
+
+Dit voorbeeld extraheert ingesloten video’s van elke dia naar afzonderlijke, genummerde binaire bestanden. Gelinkte video’s worden overgeslagen omdat ze geen ingesloten data hebben. De console drukt het MIME‑type van elke video en het totale aantal af. Output gebruikt de generieke `.bin` extensie; wijzig deze om overeen te komen met het gerapporteerde mediatype indien nodig.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -446,20 +523,20 @@ Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount)
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Welke video‑afspeelparameters kunnen voor een videoframe worden gewijzigd?**
+**Welke videoweergave‑parameters kunnen voor een video‑frame worden aangepast?**
 
-Je kunt de [afspeelmodus](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto of bij klik) en de [lusinstelling](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) controleren. Deze opties zijn beschikbaar via de methoden van het [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)‑object.
+U kunt de [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto of bij klik) en [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) regelen. Deze opties zijn beschikbaar via de methoden van het [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)‑object.
 
-**Heeft het toevoegen van een video invloed op de PPTX‑bestandsgrootte?**
+**Heeft het toevoegen van een video invloed op de grootte van het PPTX‑bestand?**
 
-Ja. Wanneer je een lokale video insluit, worden de binaire gegevens opgenomen in het document, waardoor de presentatiegrootte evenredig met de bestandsgrootte toeneemt. Wanneer je naar een online video linkt en een miniatuur toevoegt, slaat de presentatie de koppeling en voorbeeldafbeelding op in plaats van de video‑gegevens, waardoor de grootte‑toename doorgaans kleiner is.
+Ja. Wanneer u een lokale video insluit, wordt de binaire data opgenomen in het document, waardoor de presentatiegrootte evenredig met de bestandsgrootte toeneemt. Wanneer u koppelt naar een online video en een miniatuur toevoegt, slaat de presentatie de koppeling en het voorbeeldbeeld op in plaats van de videogegevens, waardoor de omvangstoename doorgaans kleiner is.
 
-**Kan ik de video in een bestaand videoframe vervangen zonder de positie en grootte te wijzigen?**
+**Kan ik de video in een bestaand video‑frame vervangen zonder positie en grootte te wijzigen?**
 
-Ja. Je kunt de [video‑inhoud](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) binnen het frame verwisselen terwijl je de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario om media in een bestaande lay-out bij te werken.
+Ja. U kunt de [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) in het frame uitwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario om media in een bestaande lay‑out bij te werken.
 
 **Kan het contenttype (MIME) van een ingesloten video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [contenttype](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) dat je kunt lezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.
+Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.

@@ -1,248 +1,322 @@
 ---
-title: "JavaScript を使用してプレゼンテーションのオーディオを管理"
-linktitle: "オーディオ フレーム"
+title: "JavaScript を使用してプレゼンテーションでオーディオフレームを管理する"
+linktitle: "オーディオフレーム"
 type: docs
 weight: 10
 url: /ja/nodejs-java/audio-frame/
 keywords:
 - "オーディオ"
-- "オーディオ フレーム"
+- "オーディオフレーム"
 - "サムネイル"
-- "オーディオの追加"
-- "オーディオ プロパティ"
-- "オーディオ オプション"
-- "オーディオの抽出"
+- "オーディオ追加"
+- "オーディオプロパティ"
+- "オーディオオプション"
+- "オーディオ抽出"
 - "Node.js"
 - "JavaScript"
 - "Aspose.Slides"
-description: "Aspose.Slides for Node.js でオーディオ フレームを作成・制御します—埋め込み、トリミング、ループ、再生設定を PPT、PPTX、ODP プレゼンテーションで行う例です。"
+description: "Aspose.Slides for Node.js via Java を使用して、スライドにオーディオを埋め込み、オーディオアイコンを変更し、再生を構成し、WebVTT キャプションを管理し、スライド遷移のサウンドを抽出します。"
 ---
-## **オーディオ フレームの作成**
+## **概要**
 
-Aspose.Slides for Node.js via Java を使用すると、スライドにオーディオ ファイルを追加できます。オーディオ ファイルはオーディオ フレームとしてスライドに埋め込まれます。
+オーディオフレームを使用すると、スライド上でサウンドを再生できます。Aspose.Slides for Node.js via Java を使用すると、オーディオクリップを埋め込み、それを表す画像を選択し、再生を調整し、キャプションを添付できます。また、スライド遷移に割り当てられたサウンドを取得することもできます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライドの参照を取得します。
-3. スライドに埋め込むオーディオ ファイル ストリームをロードします。
-4. 埋め込まれたオーディオ フレーム（オーディオ ファイルを含む）をスライドに追加します。
-5. [AudioFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/AudioFrame) オブジェクトで公開されている [PlayMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/AudioPlayModePreset) と `Volume` を設定します。
-6. 変更されたプレゼンテーションを保存します。
+## **オーディオフレームの作成**
 
-この JavaScript コードは、スライドに埋め込みオーディオ フレームを追加する方法を示しています:
+最初のスライドにローカルオーディオクリップを埋め込むには、[addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) を使用します。最初の 2 つの座標はフレームの位置をスライド上で指定し、次の 2 つの値は幅と高さをポイント単位で設定します。この例では、クリップを自動的に開始するために [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) を呼び出し、音量の大きいプリセットを選択するために [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) を呼び出します。
 
 ```javascript
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
-const pres = new aspose.slides.Presentation();
-try {
-    // 最初のスライドを取得
-    const sld = pres.getSlides().get_Item(0);
-    // wav サウンド ファイルをストリームにロード
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // オーディオ フレームを追加
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // オーディオの再生モードと音量を設定
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // PowerPoint ファイルをディスクに書き込む
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **オーディオ フレーム サムネイルの変更**
-
-プレゼンテーションにオーディオ ファイルを追加すると、標準のデフォルト画像が付いたフレームとして表示されます（以下の画像を参照）。オーディオ フレームのプレビュー画像（好みの画像）に変更できます。
-
-この JavaScript コードは、オーディオ フレームのサムネイルまたはプレビュー画像を変更する方法を示しています:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // 指定された位置とサイズでスライドにオーディオ フレームを追加します。
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // プレゼンテーションのリソースに画像を追加します。
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // オーディオ フレームの画像を設定します。
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // 変更されたプレゼンテーションをディスクに保存します
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **オーディオ 再生オプションの変更**
-
-Aspose.Slides for Node.js via Java を使用すると、オーディオの再生やプロパティを制御するオプションを変更できます。たとえば、音量を調整したり、ループ再生に設定したり、オーディオ アイコンを非表示にしたりできます。
-
-Microsoft PowerPoint の **オーディオ オプション** パネル:
-
-![example1_image](audio_frame_0.png)
-
-PowerPoint の **オーディオ オプション** は Aspose.Slides の [AudioFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/) プロパティに対応しています:
-- **Start** ドロップダウン リストは [AudioFrame.setPlayMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setPlayMode) メソッドと一致します
-- **Volume** は [AudioFrame.setVolume](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setVolume) メソッドと一致します
-- **Play Across Slides** は [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) メソッドと一致します
-- **Loop until Stopped** は [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) メソッドと一致します
-- **Hide During Show** は [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) メソッドと一致します
-- **Rewind after Playing** は [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setRewindAudio) メソッドと一致します
-
-PowerPoint の **編集** オプションは Aspose.Slides の [AudioFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/) プロパティに対応しています:
-
-- **Fade In** は [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) メソッドと一致します
-- **Fade Out** は [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) メソッドと一致します
-- **Trim Audio Start Time** は [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) メソッドと一致します
-- **Trim Audio End Time** の値は、オーディオの全体長から [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) メソッドの値を差し引いたものに相当します
-
-PowerPoint のオーディオ コントロール パネル上の **ボリューム コントロール** は [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#setVolumeValue) メソッドに対応しており、パーセンテージで音量を変更できます。
-
-オーディオ 再生オプションを変更する手順は次のとおりです:
-
-1. [Create](#create-audio-frame) または Audio Frame を取得します。
-2. 調整したい Audio Frame プロパティに新しい値を設定します。
-3. 変更された PowerPoint ファイルを保存します。
-
-この JavaScript コードは、オーディオのオプションを調整する操作を示しています:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // AudioFrame シェイプを取得
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // 再生モードをクリック時に設定
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // 音量を Low に設定
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // オーディオをスライド全体で再生するよう設定
-    audioFrame.setPlayAcrossSlides(true);
-    // オーディオのループを無効化
-    audioFrame.setPlayLoopMode(false);
-    // スライドショー中に AudioFrame を非表示にする
-    audioFrame.setHideAtShowing(true);
-    // 再生後にオーディオを先頭に巻き戻す
-    audioFrame.setRewindAudio(true);
-    // PowerPoint ファイルをディスクに保存
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-この JavaScript の例は、埋め込みオーディオを持つ新しいオーディオ フレームを追加し、トリミングとフェード時間を設定する方法を示しています:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // トリミング開始オフセットを 1.5 秒に設定
-    audioFrame.setTrimFromStart(1500);
-    // トリミング終了オフセットを 2 秒に設定
-    audioFrame.setTrimFromEnd(2000);
-
-    // フェードイン時間を 200 ミリ秒に設定
-    audioFrame.setFadeInDuration(200);
-    // フェードアウト時間を 500 ミリ秒に設定
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-以下のコード サンプルは、埋め込みオーディオを持つオーディオ フレームを取得し、音量を 85% に設定する方法を示しています:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // オーディオ フレーム シェイプを取得
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // オーディオの音量を 85% に設定
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **オーディオ キャプションの管理**
-
-Aspose.Slides を使用すると、[getCaptionTracks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) メソッドを通じてオーディオ フレームにクローズド キャプションを追加できます。このメソッドは [CaptionsCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/captionscollection/) を返し、WebVTT キャプション トラックの追加、既存トラックの反復、必要に応じた削除が可能です。
-
-**オーディオ キャプションの追加**
-
-[ getCaptionTracks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) メソッドを使用して、1 つまたは複数のキャプション トラックをオーディオ フレームに添付します。以下の例では、スライドにオーディオ ファイルを追加し、`.vtt` ファイルから新しいキャプション トラックを読み込みます。
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // WebVTT ファイルから新しいキャプション トラックを追加。
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**オーディオ キャプションの抽出**
+## **オーディオフレームのサムネイル変更**
 
-オーディオ フレームに関連付けられたキャプション トラックを反復処理し、`.vtt` ファイルとして保存できます。各キャプション トラックはバイナリ データと一意の識別子を公開しており、キャプションのエクスポート時に使用できます。
+デフォルトでは、オーディオフレームはスピーカーアイコンを表示します。カスタムサムネイルを表示するには、[addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) でプレゼンテーションに画像を追加し、[setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage) でフレームの画像として設定します。この例では、埋め込みオーディオクリップのサムネイルとして `eagle.jpeg` を使用しています。
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **オーディオ再生オプションの変更**
+
+PowerPoint の **Audio Options** コントロールは、クリップの開始タイミング、音量、スライドショー中の動作を決定します。
+
+![オーディオフレーム用 PowerPoint Audio Options コントロール](audio_frame_0.png)
+
+| PowerPoint コントロール | Aspose.Slides for Node.js via Java メソッド |
+| --- | --- |
+| 開始 | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| 音量プリセット | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| スライドをまたいで再生 | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| 停止までループ | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| ショー中に非表示 | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| 再生後に巻き戻し | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| フェードイン | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| フェードアウト | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| オーディオ開始時刻のトリム | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| オーディオ終了時刻のトリム | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| 音量スライダー | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+この例では、最初のスライド上の最初のオーディオフレームを検索し、クリック時に再生を開始するために [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) を呼び出し、低音量プリセットを選択します。ループを無効にした状態でクリップはスライドをまたいで再生されます。ショー中はアイコンが非表示になり、再生後にクリップが巻き戻されます。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // キャプション トラックを .vtt ファイルとして保存します。
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+3.5 秒より長いクリップの場合、この例は最初の 1.5 秒と最後の 2 秒をスキップします。[setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) はクリップの末尾から除外する期間を指定します。PowerPoint に表示される終了時刻を取得するには、全体のクリップ長さからこのオフセットを引きます。トリムされたクリップは 200 ミリ秒でフェードインし、500 ミリ秒でフェードアウトします。4 つのメソッドはすべてミリ秒単位の値を受け取ります。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+再生音量を特定のパーセンテージに設定するには、[setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) を使用します。この例では、最初のスライド上の最初のオーディオフレームを 85% に設定しています。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **オーディオキャプションの管理**
+
+各オーディオフレームは [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) を介してキャプショントラックへのアクセスを提供します。コレクションを使用して WebVTT キャプションをクリップに添付したり、既存のトラックをエクスポートしたり、削除したりできます。
+
+### **オーディオキャプションの追加**
+
+この例では、最初のスライドにオーディオクリップを埋め込み、[add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) を使用してローカル WebVTT トラックを添付します。最初の引数はトラックラベルを指定し、2 番目の引数はタイムコード付きキャプションが含まれるファイルを指定します。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **オーディオキャプションの抽出**
+
+この例では、最初のスライド上のオーディオフレームに添付された各キャプショントラックをエクスポートします。[getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) が返すバイト列を WebVTT ファイルに書き込み、[getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) が返す識別子をファイル名として使用することで、各トラックが個別の出力になります。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **オーディオキャプションの削除**
+
+[remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) または [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) を使用して個々のトラックを削除できます。この例では、[clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) を使用して、クリップを保持したまま最初のスライド上の最初のオーディオフレームからすべてのキャプションを削除します。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **オーディオキャプション内の行を検索**
+
+最初のスライド上のオーディオキャプション内の行を検索するには、メモリ内の [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) が返すテキストを検索します。プレーンテキストの WebVTT キューでは、タイミング行に `-->` が含まれ、キャプション行がそれに続き、空行でキューが終了します。この例では、トラックラベルと “café” を含む各キャプション行を出力します。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -251,64 +325,39 @@ try {
 }
 ```
 
-**オーディオ キャプションの削除**
+## **オーディオの抽出**
 
-オーディオ フレームからキャプションを削除するには、[CaptionsCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/captionscollection/) が提供する [clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/captionscollection/#clear)、[remove](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/captionscollection/#remove)、または [removeAt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/captionscollection/#removeAt) メソッドを使用します。以下の例は、オーディオ フレームからすべてのキャプション トラックを削除します。
+スライド遷移には独自のサウンドを設定できる場合があります。それを取得するには、スライド遷移で [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) を呼び出します。この例では、[getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) が返すバイト数にアクセスし、バイト数を出力します。最初のスライドに遷移サウンドがない場合は、代わりにメッセージを出力します。
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // 型: aspose.slides.AudioFrame
-
-    // オーディオ フレームからすべてのキャプション トラックを削除します。
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **オーディオ の抽出**
+## **よくある質問**
 
-Aspose.Slides for Node.js via Java を使用すると、スライド ショーの遷移で使用されるサウンドを抽出できます。たとえば、特定のスライドで使用されているサウンドを抽出できます。
+**同じオーディオクリップを複数のスライドで再利用し、重複させずに使用できますか？**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成し、オーディオを含むプレゼンテーションをロードします。
-2. インデックスで対象スライドの参照を取得します。
-3. スライドの [slideshow transitions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) にアクセスします。
-4. サウンドをバイト データとして抽出します。
+はい。プレゼンテーションの [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) にクリップを一度追加し、各スライドで同じオーディオオブジェクトを [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) に渡すだけです。
 
-この JavaScript コードは、スライドで使用されているオーディオを抽出する方法を示しています:
+**既存のオーディオフレームのサウンドを置き換えることはできますか？**
 
-```javascript
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // 目的のスライドにアクセス
-    const slide = pres.getSlides().get_Item(0);
-    // スライドのスライドショー遷移エフェクトを取得
-    const transition = slide.getSlideShowTransition();
-    // サウンドをバイト配列として抽出
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+はい。リンクされたサウンドの場合は、置換ファイルを指すように [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) を使用します。埋め込みサウンドの場合は、[setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio) を使用してプレゼンテーションのオーディオコレクションから別のクリップを選択します。どちらの方法でも既存のフレームは保持されます。
 
-## **FAQ**
+**トリミングはプレゼンテーションに保存されているオーディオデータを変更しますか？**
 
-**同じオーディオ アセットを複数のスライドで再利用して、ファイル サイズを増やさずにすみますか？**
-
-はい。プレゼンテーションの共有 [audio collection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getaudios/) にオーディオを 1 回追加し、その既存アセットを参照する追加のオーディオ フレームを作成します。これによりメディア データの重複が防がれ、プレゼンテーション サイズを抑制できます。
-
-**既存のオーディオ フレームのサウンドをシェイプを作り直さずに置き換えることはできますか？**
-
-はい。リンクされたサウンドの場合は、[link path](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) を新しいファイルに更新します。埋め込みサウンドの場合は、プレゼンテーションの [audio collection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getaudios/) から別の埋め込みオーディオ オブジェクトに差し替えます。フレームの書式設定やほとんどの再生設定はそのまま保持されます。
-
-**トリミングはプレゼンテーションに保存されている基礎オーディオ データを変更しますか？**
-
-いいえ。トリミングは再生範囲のみを調整します。元のオーディオ バイトは変更されず、埋め込みオーディオまたはプレゼンテーションのオーディオ コレクションを通じて引き続きアクセス可能です。
+いいえ。[setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) と [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) は再生範囲を設定するだけです。[getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio) からは依然としてフルクリップを取得できます。

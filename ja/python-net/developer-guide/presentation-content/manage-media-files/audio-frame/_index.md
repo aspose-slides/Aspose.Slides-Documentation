@@ -1,72 +1,29 @@
 ---
-title: Python を使用したプレゼンテーションのオーディオ管理
-linktitle: オーディオ フレーム
+title: PresentationsでPythonを使用してオーディオフレームを管理
+linktitle: オーディオフレーム
 type: docs
 weight: 10
 url: /ja/python-net/audio-frame/
 keywords:
-- オーディオを追加
-- オーディオを埋め込む
-- オーディオ フレーム
-- オーディオ ファイル
-- オーディオ プロパティ
-- オーディオを抽出
-- オーディオを取得
-- オーディオを変更
-- 再生オプション
-- 再生モード
-- スライド全体で再生
-- 停止までループ
-- 再生中に非表示
-- 再生後に巻き戻し
-- オーディオ ボリューム
-- デフォルト画像
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
+- オーディオ
+- オーディオフレーム
+- サムネイル
+- オーディオ追加
+- オーディオプロパティ
+- オーディオオプション
+- オーディオ抽出
+- WebVTT
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PPT、PPTX、ODP のオーディオ フレームを簡単に追加、抽出、管理できます。コード例を確認し、プレゼンテーションを今すぐ強化しましょう。"
+description: "Aspose.Slides for Python via .NET を使用して、スライドにオーディオを埋め込み、オーディオアイコンを変更し、再生設定を構成し、WebVTT キャプションを管理し、スライド遷移サウンドを抽出します。"
 ---
+## **概要**
+
+オーディオフレームを使用すると、スライド上でサウンドを再生できます。Aspose.Slides for Python via .NET を使用すると、オーディオクリップを埋め込み、それを表す画像を選択し、再生を調整し、キャプションを添付できます。また、スライド遷移に割り当てられたサウンドを取得することもできます。
+
 ## **オーディオフレームの作成**
 
-Aspose.Slides for Python via .NET を使用すると、スライドにオーディオ ファイルを追加できます。オーディオ ファイルはオーディオ フレームとしてスライドに埋め込まれます。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. スライドに埋め込むオーディオ ファイル ストリームをロードします。
-4. 埋め込みオーディオ フレーム（オーディオ ファイルを含む）をスライドに追加します。
-5. [IAudioFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/) オブジェクトが提供する [PlayMode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioplaymodepreset) と `Volume` を設定します。
-6. 変更されたプレゼンテーションを保存します。
-
-この Python コードは、スライドに埋め込みオーディオ フレームを追加する方法を示します：
-
-```python
-import aspose.slides as slides
-
-# プレゼンテーション ファイルを表すプレゼンテーションクラスのインスタンス化
-with slides.Presentation() as pres:
-    # 最初のスライドを取得
-    sld = pres.slides[0]
-
-    # wav サウンド ファイルをストリームにロード
-    with open(path + "sampleaudio.wav", "rb") as in_file:
-        # オーディオ フレームを追加
-        audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
-
-        # オーディオの再生モードと音量を設定
-        audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
-        audio_frame.volume = slides.AudioVolumeMode.LOUD
-
-        # PowerPoint ファイルをディスクに保存
-        pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **オーディオ フレームのサムネイルの変更**
-
-プレゼンテーションにオーディオ ファイルを追加すると、オーディオは標準のデフォルト画像を持つフレームとして表示されます（下のセクションの画像を参照）。オーディオ フレームのサムネイルを変更できます（好みの画像を設定）。
-
-この Python コードは、オーディオ フレームのサムネイルまたはプレビュー画像を変更する方法を示します：
+最初のスライドにローカルオーディオクリップを埋め込むには、[add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) を使用します。最初の 2 つの座標はフレームをスライド上に配置し、次の 2 つの値は幅と高さをポイント単位で設定します。この例では、[play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) をクリップの自動開始に、[volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) を大音量のプリセットに設定しています。
 
 ```python
 import aspose.slides as slides
@@ -74,213 +31,217 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 指定された位置とサイズでスライドにオーディオ フレームを追加します。
-    with open("sample2.mp3", "rb") as audio_fs:
-        audioFrame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_fs)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 150, 100, 100, audio_stream)
+    audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
+    audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-        # プレゼンテーションのリソースに画像を追加します。
-        with open("eagle.jpeg", "rb") as image_fs:
-            data = image_fs.read()
-        
-        audioImage = presentation.images.add_image(data)
+    presentation.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+```
 
-        # オーディオ フレームの画像を設定します。
-        audioFrame.picture_format.picture.image = audioImage
-        
-        #変更されたプレゼンテーションをディスクに保存します
-        presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
+## **オーディオフレームのサムネイルの変更**
+
+デフォルトでは、オーディオフレームはスピーカーアイコンを表示します。カスタムサムネイルを表示するには、[add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) でプレゼンテーションに画像を追加し、フレームの [picture_format.picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/) プロパティに割り当てます。この例では、埋め込みオーディオクリップのサムネイルとして JPEG を使用しています。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("eagle.jpeg", "rb") as image_stream:
+        thumbnail = presentation.images.add_image(image_stream)
+
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_stream)
+    audio_frame.picture_format.picture.image = thumbnail
+
+    presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **オーディオ再生オプションの変更**
 
-Aspose.Slides for Python via .NET を使用すると、オーディオの再生やプロパティを制御するオプションを変更できます。たとえば、オーディオの音量を調整したり、ループ再生に設定したり、オーディオ アイコンを非表示にしたりできます。
+PowerPoint の **Audio Options** コントロールは、クリップの開始タイミング、音量、およびスライドショー中の動作を決定します。
 
-Microsoft PowerPoint の **Audio Options** パネル:
+![オーディオフレーム用 PowerPoint オーディオ オプション コントロール](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint コントロール | Aspose.Slides プロパティ |
+| --- | --- |
+| 開始 | [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) |
+| 音量プリセット | [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) |
+| スライド間で再生 | [play_across_slides](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_across_slides/) |
+| 停止までループ | [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_loop_mode/) |
+| 表示中に非表示 | [hide_at_showing](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/hide_at_showing/) |
+| 再生後に巻き戻し | [rewind_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/rewind_audio/) |
+| フェードイン | [fade_in_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_in_duration/) |
+| フェードアウト | [fade_out_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_out_duration/) |
+| オーディオ開始位置のトリム | [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) |
+| オーディオ終了位置のトリム | [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) |
+| 音量スライダー | [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) |
 
-PowerPoint の **Audio Options** は、Aspose.Slides の [AudioFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/) プロパティに対応しています:
-
-- **Start** ドロップダウン リストは [AudioFrame.play_mode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/play_mode/) プロパティと一致します
-- **Volume** は [AudioFrame.volume](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/volume/) プロパティと一致します
-- **Play Across Slides** は [AudioFrame.play_across_slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/play_across_slides/) プロパティと一致します
-- **Loop until Stopped** は [AudioFrame.play_loop_mode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/play_loop_mode/) プロパティと一致します
-- **Hide During Show** は [AudioFrame.hide_at_showing](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/hide_at_showing/) プロパティと一致します
-- **Rewind after Playing** は [AudioFrame.rewind_audio](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/rewind_audio/) プロパティと一致します
-
-PowerPoint の **Editing** オプションは、Aspose.Slides の [AudioFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/) プロパティに対応しています:
-
-- **Fade In** は [AudioFrame.fade_in_duration](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/fade_in_duration/) プロパティと一致します
-- **Fade Out** は [AudioFrame.fade_out_duration](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/fade_out_duration/) プロパティと一致します
-- **Trim Audio Start Time** は [AudioFrame.trim_from_start](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/trim_from_start/) プロパティと一致します
-- **Trim Audio End Time** の値は、オーディオの長さから [AudioFrame.trim_from_end](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/trim_from_end/) プロパティの値を引いたものに等しいです
-
-PowerPoint のオーディオ コントロール パネル上の **Volume controll** は [AudioFrame.volume_value](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/volume_value/) プロパティに対応しています。音量をパーセンテージで変更できます。
-
-オーディオ再生オプションを変更する方法は次のとおりです：
-
-1. [Сreate](#create-audio-frame) または Audio Frame を取得します。
-2. 調整したい Audio Frame プロパティに新しい値を設定します。
-3. 変更された PowerPoint ファイルを保存します。
-
-この Python コードは、オーディオのオプションを調整する操作を示します：
+この例では、最初のスライド上の最初のオーディオフレームを取得し、[play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) をクリックで再生開始に設定し、低音量プリセットを選択します。クリップはスライド間で再生を続けますが、ループは無効化されています。アイコンは表示中に隠れ、再生後にクリップは巻き戻されます。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # AudioFrame シェイプを取得します
-    audioFrame = pres.slides[0].shapes[0]
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # 再生モードをクリック時再生に設定
-    audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
-
-    # ボリュームを低に設定
-    audioFrame.volume = slides.AudioVolumeMode.LOW
-
-    # オーディオをスライド全体で再生するように設定
-    audioFrame.play_across_slides = True
-
-    # オーディオのループ再生を無効化
-    audioFrame.play_loop_mode = False
-
-    # スライドショー中に AudioFrame を非表示にする
-    audioFrame.hide_at_showing = True
-
-    # 再生後にオーディオを開始位置に巻き戻す
-    audioFrame.rewind_audio = True
-
-    # PowerPoint ファイルをディスクに保存
-    pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.play_mode = slides.AudioPlayModePreset.ON_CLICK
+        audio_frame.volume = slides.AudioVolumeMode.LOW
+        audio_frame.play_across_slides = True
+        audio_frame.play_loop_mode = False
+        audio_frame.hide_at_showing = True
+        audio_frame.rewind_audio = True
+        
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-この Python の例は、埋め込みオーディオを持つ新しいオーディオ フレームを追加し、トリムし、フェード時間を設定する方法を示します：
+クリップの長さが 3.5 秒を超える場合、この例は最初の 1.5 秒と最後の 2 秒をスキップします。[trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) はクリップの末尾から除外する長さを測定します。PowerPoint に表示される終了時刻を取得するには、そのオフセットをクリップ全体の長さから引きます。トリミングされたクリップは 200 ミリ秒でフェードインし、500 ミリ秒でフェードアウトします。4 つのプロパティはすべてミリ秒単位の値を取ります。
 
-```py
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+```python
+import aspose.slides as slides
 
-    with open("sampleaudio.mp3", "rb") as audio_stream:
-        audio_data = audio_stream.read()
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    audio = pres.audios.add_audio(audio_data)
-    audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio)
-
-    # トリミング開始オフセットを 1.5 秒に設定
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio_stream)
     audio_frame.trim_from_start = 1500.0
-    # トリミング終了オフセットを 2 秒に設定
     audio_frame.trim_from_end = 2000.0
-
-    # フェードイン時間を 200 ミリ秒に設定
     audio_frame.fade_in_duration = 200.0
-    # フェードアウト時間を 500 ミリ秒に設定
     audio_frame.fade_out_duration = 500.0
 
-    pres.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-次のコード サンプルは、埋め込みオーディオを持つオーディオ フレームを取得し、音量を 85% に設定する方法を示します：
+再生音量を特定のパーセンテージに設定するには、[volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) を使用します。この例は、最初のスライド上の最初のオーディオフレームを 85% に設定しています。
 
-```py
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # オーディオ フレーム シェイプを取得します
-    audio_frame = pres.slides[0].shapes[0]
+```python
+import aspose.slides as slides
 
-    # オーディオ ボリュームを 85% に設定します
-    audio_frame.volume_value = 85.0
-
-    pres.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **オーディオ キャプションの管理**
-
-Aspose.Slides を使用すると、[caption_tracks](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/caption_tracks/) プロパティを介してオーディオ フレームにクローズド キャプションを追加できます。このプロパティは [CaptionsCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/captionscollection/) を返し、WebVTT キャプショントラックの追加、既存トラックの列挙、必要に応じた削除が可能です。
-
-**オーディオ キャプションの追加**
-
-[caption_tracks](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/caption_tracks/) プロパティを使用して、1 つまたは複数のキャプショントラックをオーディオ フレームに添付します。以下の例では、スライドにオーディオ ファイルを追加し、次に `.vtt` ファイルから新しいキャプショントラックをロードします。
-
-```py
-with slides.Presentation() as presentation:
-    with open("audio.mp3", "rb") as audio_stream:
-        audio = presentation.audios.add_audio(audio_stream.read())
-
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
     slide = presentation.slides[0]
-    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio)
 
-    # WebVTT ファイルから新しいキャプショントラックを追加します。
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.volume_value = 85.0
+        presentation.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **オーディオキャプションの管理**
+
+各オーディオフレームには [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/caption_tracks/) コレクションがあります。これを使用して WebVTT キャプションをクリップに添付したり、既存のトラックをエクスポートしたり、削除したりできます。
+
+### **オーディオキャプションの追加**
+
+この例は最初のスライドにオーディオクリップを埋め込み、[CaptionsCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/add/) を使用してローカルの WebVTT トラックを添付します。最初の引数はトラックラベルを提供し、2 番目の引数はタイムスタンプ付きキャプションが含まれるファイルを指定します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio_stream)
+    audio_frame.caption_tracks.add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**オーディオ キャプションの抽出**
+### **オーディオキャプションの抽出**
 
-オーディオ フレームに関連付けられたキャプショントラックを列挙し、`.vtt` ファイルとして保存できます。各キャプショントラックはバイナリ データと一意の識別子を公開し、キャプションのエクスポート時に使用できます。
+この例は最初のスライド上のオーディオフレームに添付された各キャプショントラックをエクスポートします。トラックの [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/captions/binary_data/) を WebVTT ファイルに書き込み、[caption_id](https://reference.aspose.com/slides/python-net/aspose.slides/captions/caption_id/) をファイル名として使用するため、各トラックは個別の出力になります。
 
-```py
+```python
+import aspose.slides as slides
+
 with slides.Presentation("audio_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
+
     for shape in slide.shapes:
         if isinstance(shape, slides.AudioFrame):
-            audio_frame = shape
-            for caption_track in audio_frame.caption_tracks:
-                # キャプショントラックを .vtt ファイルとして保存します。
-                with open(f"{caption_track.caption_id}.vtt", "wb") as track_stream:
-                    track_stream.write(caption_track.binary_data)
+            for track in shape.caption_tracks:
+                with open(f"{track.caption_id}.vtt", "wb") as output:
+                    output.write(track.binary_data)
 ```
 
-**オーディオ キャプションの削除**
+### **オーディオキャプションの削除**
 
-オーディオ フレームからキャプションを削除するには、[CaptionsCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/captionscollection/) が提供するメソッド（[clear](https://reference.aspose.com/slides/ja/python-net/aspose.slides/captionscollection/clear/)、[remove](https://reference.aspose.com/slides/ja/python-net/aspose.slides/captionscollection/remove/)、[remove_at](https://reference.aspose.com/slides/ja/python-net/aspose.slides/captionscollection/remove_at/) など）を使用します。以下の例は、オーディオ フレームからすべてのキャプショントラックを削除します。
+[remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) または [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) を使用して個別のトラックを削除します。この例は [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) を使用して、クリップを保持しながら最初のスライド上の最初のオーディオフレームからすべてのキャプションを削除しています。
 
-```py
+```python
+import aspose.slides as slides
+
 with slides.Presentation("audio_with_captions.pptx") as presentation:
     slide = presentation.slides[0]
-    audio_frame = slide.shapes[0]  # type: slides.AudioFrame
 
-    # audio_frame からすべてのキャプショントラックを削除します。
-    audio_frame.caption_tracks.clear()
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.caption_tracks.clear()
+        presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
+```
 
-    presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
+### **オーディオキャプション内の行の検索**
+
+最初のスライド上のオーディオキャプションから行を検索するには、各トラックの [data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) をメモリ内で読み取ります。プレーンテキストの WebVTT キューでは、タイミング行に `-->` が含まれ、次にキャプション行が続き、空行でキューが終了します。この例はトラックラベルと “café” を含む各キャプション行を出力します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                in_cue = False
+                for line in track.data_as_string.splitlines():
+                    if not line:
+                        in_cue = False
+                    elif "-->" in line:
+                        in_cue = True
+                    elif in_cue and "café" in line.casefold():
+                        print(f"{track.label}: {line}")
 ```
 
 ## **オーディオの抽出**
 
-Aspose.Slides for Python via .NET を使用すると、スライドショーの遷移で使用されるサウンドを抽出できます。たとえば、特定のスライドで使用されるサウンドを抽出できます。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、オーディオを含むプレゼンテーションをロードします。
-2. インデックスを使用して対象スライドの参照を取得します。
-3. スライドのスライドショー遷移にアクセスします。
-4. サウンドをバイト データとして抽出します。
-
-この Python コードは、スライドで使用されるオーディオを抽出する方法を示します：
+スライド遷移は独自のサウンドを持つことができます。それを取得するには、遷移の [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/) プロパティを読み取ります。この例はサウンドの [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/) にアクセスし、バイト数でサイズを出力します。最初のスライドに遷移サウンドがない場合は、代わりにメッセージを出力します。
 
 ```python
 import aspose.slides as slides
 
-#slides.Presentation("AudioSlide.pptx") を使用
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
-    # 対象スライドにアクセス
-    slide = pres.slides[0]  
+with slides.Presentation("AudioSlide.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # スライドのスライドショー遷移効果を取得
-    transition = slide.slide_show_transition
-
-    #サウンドをバイト配列で抽出
-    audio = transition.sound.binary_data
-
-    print("Length: " + str(len(audio)))
+    sound = slide.slide_show_transition.sound
+    if sound is None:
+        print("The first slide has no transition sound.")
+    else:
+        audio_data = sound.binary_data
+        print(f"Transition sound: {len(audio_data)} bytes.")
 ```
 
 ## **FAQ**
 
-**同じオーディオ資産を複数のスライドで再利用して、ファイルサイズを増大させずに済みますか？**
+**同じオーディオクリップを複数のスライドで重複させずに再利用できますか？**
 
-はい。オーディオをプレゼンテーションの共有 [audio collection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/audios/) に一度追加し、その既存資産を参照する追加のオーディオ フレームを作成します。これによりメディア データの重複が防止され、プレゼンテーションのサイズが抑制されます。
+はい。クリップをプレゼンテーションの [audio collection](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/audios/) に一度追加し、各スライドで同じオーディオオブジェクトを [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) に渡すだけです。
 
-**既存のオーディオ フレームのサウンドを、シェイプを再作成せずに置き換えられますか？**
+**既存のオーディオフレームのサウンドを差し替えることはできますか？**
 
-はい。リンクされたサウンドの場合は、[link path](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/link_path_long/) を新しいファイルを指すように更新します。埋め込みサウンドの場合は、[embedded audio](https://reference.aspose.com/slides/ja/python-net/aspose.slides/audioframe/embedded_audio/) オブジェクトをプレゼンテーションの [audio collection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/audios/) から別のオブジェクトに入れ替えます。フレームの書式設定やほとんどの再生設定はそのまま保持されます。
+はい。リンクされたサウンドの場合は、[link_path_long](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/link_path_long/) を置換ファイルにポイントするよう更新します。埋め込みサウンドの場合は、プレゼンテーションのオーディオコレクションから別のクリップを [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) に割り当てます。どちらの方法でも既存のフレームは保持されます。
 
-**トリミングは、プレゼンテーションに保存されている基礎となるオーディオ データを変更しますか？**
+**トリミングはプレゼンテーションに保存されているオーディオデータを変更しますか？**
 
-いいえ。トリミングは再生範囲のみを調整します。元のオーディオ バイトは変更されず、埋め込みオーディオまたはプレゼンテーションの audio collection を通じてアクセス可能です。
+いいえ。[trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) と [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) は再生範囲の境界を設定します。全クリップは依然として [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) から取得可能です。

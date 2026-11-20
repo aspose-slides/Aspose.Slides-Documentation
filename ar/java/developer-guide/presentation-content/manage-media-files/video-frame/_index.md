@@ -7,7 +7,7 @@ url: /ar/java/video-frame/
 keywords:
 - إضافة فيديو
 - إنشاء فيديو
-- دمج فيديو
+- تضمين فيديو
 - استخراج فيديو
 - استرجاع فيديو
 - إطار فيديو
@@ -17,21 +17,21 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Java. دليل سريع خطوة بخطوة."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides for Java. دليل سريع عملي."
 ---
-## **المقدمة**
+## **مقدمة**
 
-يمكن للفيديوهات أن تساعد في شرح الأفكار وجذب الجمهور. يسمح Aspose.Slides for Java لك بإضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المضمنة.
+يمكن للمقاطع الفيديو أن تساعد في شرح الأفكار وجذب الجمهور. تتيح لك Aspose.Slides for Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المضمنة.
 
-يدعم PowerPoint الفيديوهات المحلية وروابط الفيديوهات على الإنترنت، مثل فيديوهات YouTube.
+يدعم PowerPoint مقاطع الفيديو المحلية والروابط إلى مقاطع الفيديو على الإنترنت، مثل مقاطع YouTube.
 
-لتمثيل بيانات الفيديو وإطارات الفيديو، يوفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) الواجهة [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
+لتمثيل بيانات الفيديو وإطارات الفيديو، توفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) والواجهة [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
 
-## **إنشاء إطار فيديو مدمج**
+## **إنشاء إطار فيديو مضمّن**
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لدمج الفيديو في عرضك التقديمي.
+إذا كان ملف الفيديو الذي تريد إضافته إلى الشريحة مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في العرض التقديمي الخاص بك.
 
-هذا المثال يدمج فيديو محليًا في الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدات النقاط. يبقى التدفق مفتوحًا حتى انتهاء الحفظ لأن [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) يبقيه مقفلًا أثناء استخدام العرض التقديمي له.
+يضمّن هذا المثال فيديوًا محليًا على الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدة النقاط. يبقى التدفق مفتوحًا حتى ينتهي الحفظ لأن [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) يحتفظ به مقفلًا أثناء استخدام العرض التقديمي له.
 
 ```java
 import com.aspose.slides.*;
@@ -50,7 +50,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-يمكنك أيضًا تمرير مسار فيديو محلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). هذا المثال يدمج الفيديو في الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
+يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرةً إلى [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). يضمّن هذا المثال الفيديو على الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -69,9 +69,9 @@ try {
 
 ## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
 
-يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) الفيديوهات عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط إلى فيديو عبر الإنترنت، مثل فيديو YouTube.
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط إلى فيديو على الإنترنت، مثل فيديو YouTube.
 
-هذا المثال يضيف رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرّف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) تطلب التشغيل التلقائي. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلبان اتصالاً بالإنترنت. يجب أن يدعم عارض العروض التقديمية تشغيل الفيديو عبر الإنترنت أيضًا.
+يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. تطلب الطريقة [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) تشغيلًا تلقائيًا. يتطلب تنزيل الصورة المصغرة وتشغيل الفيديو اتصالًا بالإنترنت. يجب أن يدعم عارض العروض التقديمية أيضًا تشغيل الفيديو عبر الإنترنت.
 
 ```java
 import com.aspose.slides.*;
@@ -102,9 +102,9 @@ try {
 
 ## **تشغيل فيديو في وضع ملء الشاشة**
 
-في عرض تقديمي تعليمي، يمكنك تشغيل عرض توضيحي للبرمجيات في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) مع `true` لتفعيل هذا السلوك أثناء التشغيل.
+في عرض تدريبي، يمكنك تشغيل عرض توضيحي للبرنامج في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) مع `true` لتمكين هذا السلوك أثناء التشغيل.
 
-هذا المثال يفتح عرضًا تقديميًا، يجد أول [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويفعل التشغيل بملء الشاشة. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+يفتح هذا المثال عرضًا تقديميًا، يجد أول [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) على الشريحة الأولى، ويفعّل تشغيل ملء الشاشة. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل بها إطار فيديو موجود على الشريحة الأولى.
 
 ```java
 import com.aspose.slides.*;
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-التحكم في تشغيل ملء الشاشة يحدد كيفية عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) فيما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) فيما إذا كان يتكرر. لاختيار سلوك البدء، اضبط وضع التشغيل إلى [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). المثال يحافظ على إعدادات البدء والحلقة الحالية.
+تتحكم تشغيل ملء الشاشة في طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) في ما إذا كان يتكرر. لاختيار سلوك البدء، اضبط وضع التشغيل إلى [VideoPlayModePreset.Auto أو VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
 
-## **إرجاع الفيديو بعد التشغيل**
+## **إرجاع الفيديو إلى البداية بعد التشغيل**
 
-في عرض تقديمي تعليمي، إرجاع فيديو العرض إلى بدايته يجعله جاهزًا للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) مع `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
+في عرض تدريبي، إرجاع فيديو العرض التوضيحي إلى بدايته يجعله جاهزًا للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) مع `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
 
-هذا المثال يفتح عرضًا تقديميًا، finds the first [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويفعل الإرجاع. يقوم بتعطيل الحلقة حتى يمكن للعرض الانتهاء ويضبط التشغيل للبدء عند النقر. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
+يفتح هذا المثال عرضًا تقديميًا، يجد أول [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) على الشريحة الأولى، ويفعّل الإرجاع. يعطل التكرار حتى يمكن لإنهاء التشغيل، ويضبط التشغيل للبدء عند النقر. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل بها إطار فيديو موجود على الشريحة الأولى.
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-الإرجاع يعيد الفيديو إلى بدايته دون تشغيله مرة أخرى. بالمقابل، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) مع `true` يكرر التشغيل تلقائيًا. أبقِ الحلقة معطلة عندما تريد أن ينتهي الفيديو ويظل جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) بشكل مستقل في البدء التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) بحيث يتحكم المقدم متى يبدأ التشغيل. اضبط وضع التشغيل بعد إعداد الحلقة، كما هو موضح في المثال. الإرجاع يعمل بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+يرجع الإرجاع الفيديو إلى بدايته دون تشغيله مرة أخرى. بالمقابل، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) مع `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويظل جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) بصورة مستقلة في التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) حتى يتحكم المقدم في وقت بدء التشغيل. اضبط وضع التشغيل بعد ضبط إعداد التكرار، كما هو موضح في المثال. يعمل الإرجاع بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **تقليم إطار فيديو**
+## **تقليم إطار الفيديو**
 
-استخدم [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و[IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. القيم بوحدات المليثانية. يغيّر التقليم إعدادات التشغيل دون تعديل بيانات الفيديو المضمّن.
+استخدم [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و[IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) لتجاوز جزء من بداية أو نهاية الفيديو أثناء التشغيل. كلا القيمتين بالمللي ثانية. يغيّر التقليم إعدادات التشغيل دون تعديل بيانات الفيديو المضمّن.
 
-**إعدادات التقليم**
+**ضبط إعدادات التقليم**
 
-هذا المثال يدمج فيديو محليًا ويتخطى الثانيتين والنصف الأولى والثانية الأخيرة أثناء التشغيل. استخدم فيديو أطول من 3.5 ثوانٍ ليبقى جزء قابل للتشغيل.
+يضمّن هذا المثال فيديوًا محليًا ويتخطى أول 2.5 ثانية والثانية الأخيرة أثناء التشغيل. استخدم فيديوًا أطول من 3.5 ثانية لضمان بقاء جزء قابل للتشغيل.
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **قراءة إعدادات التقليم**
 
-هذا المثال يطبع قيم التقليم لإطار الفيديو الأول في الشريحة الأولى بالمليثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لن يُطبع شيء. المثال السابق ينتج القيم 2500 و1000.
+يطبع هذا المثال قيم التقليم لإطار الفيديو الأول على الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لن يُطبع شيء. ينتج المثال السابق القيم 2500 و1000.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **إدارة ترجمات الفيديو**
 
-يسمح Aspose.Slides لك بإدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُحفظ الترجمات بصيغة WebVTT وتُتاح عبر طريقة [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+تتيح لك Aspose.Slides إدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُحفظ الترجمات بصيغة WebVTT وتُعرض عبر طريقة [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**إضافة ترجمات إلى إطار فيديو**
+### **إضافة ترجمات إلى إطار فيديو**
 
-هذا المثال يدمج فيديو محليًا ويضيف مسار ترجمة WebVTT معلقًا بـ "English". يجب أن تتطابق طوابع الوقت للترجمة مع الفيديو. يشمل العرض المحفوظ كلًا من الفيديو وترجماته.
+يضمّن هذا المثال فيديوًا محليًا ويضيف مسار ترجمات WebVTT بعنوان English. يجب أن تتطابق طوابع التوقيت مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وترجماته.
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-واجهة [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) توفر أيضًا تحميلًا إضافيًا يتيح لك إضافة ترجمات من تدفق.
+توفر الواجهة [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) أيضًا نسخة زائدة تسمح لك بإضافة ترجمات من تدفق.
 
-**استخراج ترجمات من إطار فيديو**
+### **استخراج ترجمات من إطار فيديو**
 
-هذا المثال يحفظ جميع مسارات الترجمات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. تحافظ الأرقام المتسلسلة على تمييز ملفات الإخراج. يعلن وحدة التحكم عن عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
+يحفظ هذا المثال جميع مسارات الترجمات من إطارات الفيديو على الشريحة الأولى كملفات WebVTT منفصلة. تُحافظ الأرقام المتسلسلة على تمييز ملفات الإخراج. يُبلغ الطرفية عن عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-كل كائن [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) يكشف عن معرّف الترجمة، والملصق، والبيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
+كل كائن [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) يُظهر معرف الترجمة، التسمية، البيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
 
-**إزالة ترجمات من إطار فيديو**
+### **إزالة ترجمات من إطار فيديو**
 
-هذا المثال يزيل جميع الترجمات من إطار الفيديو في الموضع الأول للشكل في الشريحة الأولى ويحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
+يزيل هذا المثال جميع الترجمات من إطار الفيديو في الموضع الأول للشكل على الشريحة الأولى ويحفظ النتيجة. يفترض أن الشريحة والشكل موجودان وأن الشكل هو إطار فيديو.
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-إذا احتجت إلى إزالة مسار ترجمة واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) أو [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) بدلاً من [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
+إذا احتجت لإزالة مسار ترجمة واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) أو [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) بدلاً من [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
+
+### **البحث في ترجمات الفيديو**
+
+تُرجع الطريقة [ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) مسار WebVTT الكامل، بما في ذلك الرأس، أسطر التوقيت، ونص الترجمة. يمكنك البحث في الإشارات في الذاكرة للعثور على عبارة منطوقة وتوقيتها. على سبيل المثال، قد يحتوي مسار إنجليزي على الشريحة 2 على النص التالي.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+يفتح المثال الملف `captioned_media.pptx` ويستخدم [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) لقراءة مسارات كل إطار فيديو من المستوى الأعلى على كل شريحة. في إشارة نصية عادية، يحتوي سطر التوقيت على `-->`، ويسطر فارغ ينهي الإشارة. عندما تحتوي الترجمة على كلمة “café” بأي حالة حرفية، يطبع المثال رقم الشريحة، تسمية المسار، سطر التوقيت الأصلي، والترجمة الكاملة.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+يُنتج البحث عن “café” تطابقًا واحدًا للمسار النموذجي. يستبعد البحث رأس المسار ويحافظ على إعداد التوقيت في الإخراج.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **استخراج فيديو من شريحة**
 
-إلى جانب إضافة الفيديوهات إلى الشرائح، يتيح Aspose.Slides لك استخراج الفيديوهات المضمنة في العروض التقديمية.
+بالإضافة إلى إضافة مقاطع الفيديو إلى الشرائح، تسمح لك Aspose.Slides باستخراج مقاطع الفيديو المضمّنة في العروض التقديمية.
 
-هذا المثال يستخرج الفيديوهات المضمّنة من كل شريحة إلى ملفات ثنائية منفصلة مرقّمة. تُتخطى الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمنة. يطبع وحدة التحكم نوع MIME لكل فيديو والعدد الإجمالي. يستخدم الناتج الامتداد العام `.bin`؛ غيّره ليتطابق مع نوع الوسائط المبلغ عنه عند الحاجة.
+يستخرج هذا المثال مقاطع الفيديو المضمّنة من كل شريحة إلى ملفات ثنائية مرقمة منفصلة. يتم تخطي الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمّنة. تُظهر الطرفية نوع MIME لكل فيديو والإجمالي. يستخدم الإخراج الامتداد العام `.bin`؛ غيّره ليتوافق مع نوع الوسائط المعلن عند الحاجة.
 
 ```java
 import com.aspose.slides.*;
@@ -344,20 +409,20 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
 
-يمكنك التحكم في [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (تلقائي أو عند النقر) و[looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/).
 
-**هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
+**هل يؤدي إضافة فيديو إلى زيادة حجم ملف PPTX؟**
 
-نعم. عندما تدمج فيديو محلي، تُضمّن البيانات الثنائية في المستند، فيزداد حجم العرض التقديمي بما يتناسب مع حجم الملف. عندما ترتبط بفيديو على الإنترنت وتضيف صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة في الحجم أصغر عادةً.
+نعم. عندما تقوم بتضمين فيديو محلي، تُضمّن البيانات الثنائية في المستند، لذلك يزداد حجم العرض التقديمي proportionally لحجم الملف. عندما تربط بفيديو على الإنترنت وتضيف صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة في الحجم عادة أصغر.
 
-**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
+**هل يمكن استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
 
-نعم. يمكنك تبديل [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) داخل الإطار مع الحفاظ على أبعاد الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمن؟**
+**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**
 
-نعم. يمتلك الفيديو المدمج [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.
+نعم. للفيديو المضمّن [نوع محتوى](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.

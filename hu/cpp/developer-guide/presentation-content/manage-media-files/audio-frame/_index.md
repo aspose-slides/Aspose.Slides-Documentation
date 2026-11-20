@@ -1,293 +1,429 @@
 ---
-title: Hang kezelése prezentációkban C++-vel
-linktitle: Audio keret
+title: Hangkeretek kezelése prezentációkban C++ segítségével
+linktitle: Hangkeret
 type: docs
 weight: 10
 url: /hu/cpp/audio-frame/
 keywords:
 - hang
-- audio keret
+- hangkeret
 - bélyegkép
 - hang hozzáadása
-- hang tulajdonságok
-- hang beállítások
+- hangjellemzők
+- hangbeállítások
 - hang kinyerése
 - C++
 - Aspose.Slides
-description: "Audio keretek létrehozása és vezérlése az Aspose.Slides for C++-ban – példakódok beágyazásra, vágásra, ismétlésre és lejátszás beállítására PPT, PPTX és ODP prezentációkban."
+description: "Ágyazz be hangot a diákba, módosítsd a hang ikont, konfiguráld a lejátszást, kezeld a WebVTT feliratokat, és nyerd ki a diákátmenet hangjait az Aspose.Slides for C++ segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan dolgozhat az audio képkockákkal az Aspose.Slides-ban. Bemutatja, hogyan adhat beágyazott hangot a diákhoz, testreszabhatja az audio keret bélyegképét, konfigurálhatja a lejátszási beállításokat, például hangerőt, ismétlést, elrejtést, vágást és elhalványulási időket, valamint hogyan nyerheti ki a diavetítés átmeneteihez használt hangot.
+Egy hangkeret lehetővé teszi, hogy hangot játsszon le egy dián. Az Aspose.Slides for C++ segítségével beágyazhatsz egy hangklipet, kiválaszthatod az azt ábrázoló képet, szabályozhatod a lejátszást, és felveheted a feliratokat. A diáátmenethez rendelt hangot is lekérdezheted.
 
-## **Audio Képkockák Létrehozása**
+## **Hangkeretek létrehozása**
 
-Aspose.Slides for C++ lehetővé teszi hangfájlok hozzáadását a diákhoz. A hangfájlok beágyazott audio képkockaként jelennek meg a diákban. 
+Használd az [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) metódust a helyi hangklip beágyazásához az első diára. Az első két koordináta helyezi el a keretet a dián, a következő két érték a szélességét és magasságát állítja be, mind pontban. Ez a példa meghívja a [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) metódust, hogy a klipe automatikusan induljon, és meghívja a [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) metódust, hogy a hangos előre beállított értéket válassza.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezze meg egy dia referenciaját az indexe alapján.
-3. Töltse be azt az audio fájl adatfolyamot, amelyet a diába kíván beágyazni.
-4. Adja hozzá a beágyazott audio képkockát (amely tartalmazza az audio fájlt) a diához.
-5. Állítsa be a [PlayMode](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) és a `Volume` értékeket, amelyeket az [IAudioFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_audio_frame) objektum biztosít.
-6. Mentse el a módosított prezentációt.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-Ez a C++ kód bemutatja, hogyan adjon beágyazott audio képkockát egy diára:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// Létrehozza a Presentation osztályt, amely egy prezentációfájlt képvisel
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Lekéri az első diát
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Betölti a wav hangfájlt adatfolyamba
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// Hozzáadja az Audio keretet
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Beállítja az audio lejátszási módját és hangerőjét
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Kiírja a PowerPoint fájlt a lemezre
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Az Audio Képkocka Bélyegképének Módosítása**
+## **A hangkeret bélyegképének módosítása**
 
-Amikor egy audio fájlt ad hozzá egy prezentációhoz, az audio egy standard alapértelmezett képpel megjelenő keretként jelenik meg (lásd az alábbi képet). Megváltoztathatja az audio keret bélyegképét (beállíthatja a kívánt képet).
-
-Ez a C++ kód bemutatja, hogyan változtassa meg egy audio képkocka bélyegképét vagy előnézeti képét:
+Alapértelmezés szerint egy hangkeret egy hangszóró ikont jelenít meg. Egy egyéni bélyegkép megjelenítéséhez adj egy képet a prezentációhoz a [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) metódussal, és állítsd be a keret képeként a [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) metódussal. A példa egy JPEG-et használ bélyegképként a beágyazott hangkliphez.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Egy audio keretet ad a diára a megadott pozícióval és mérettel.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Képet ad a prezentáció erőforrásaihoz.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Beállítja a képet az audio kerethez.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//Menti a módosított prezentációt a lemezre
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Az Audio Lejátszási Beállítások Módosítása**
+## **A hang lejátszási beállításainak módosítása**
 
-Aspose.Slides for C++ lehetővé teszi a hang lejátszását vagy tulajdonságait szabályozó opciók módosítását. Például beállíthatja a hangerőt, ismétlést vagy akár elrejtheti az audio ikont.
+A PowerPoint **Audio Options** vezérlői határozzák meg, hogy mikor kezdődik a klip, milyen hangos, és hogyan viselkedik a diavetítés során.
 
-A **Audio Options** panel a Microsoft PowerPoint programban:
+![PowerPoint Audio Options vezérlők egy hangkerethez](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint vezérlő | Aspose.Slides for C++ metódus |
+| --- | --- |
+| Indítás | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Hangerő előbeállítás | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Lejátszás diákon át | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Ismétlés amíg leáll | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Elrejtés a bemutató során | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Visszatekerés lejátszás után | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Beolvadás | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Kiolvadás | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Hang vágása kezdési idő | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Hang vágása befejezési idő | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Hangerő csúszka | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-PowerPoint **Audio Options**, amely az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/) metódusainak felel meg:
-
-- **Start** legördülő lista megfelel a [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_playmode/) metódusnak
-- **Volume** megfelel a [AudioFrame::set_Volume](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_volume/) metódusnak
-- **Play Across Slides** megfelel a [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_playacrossslides/) metódusnak
-- **Loop until Stopped** megfelel a [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_playloopmode/) metódusnak
-- **Hide During Show** megfelel a [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_hideatshowing/) metódusnak
-- **Rewind after Playing** megfelel a [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_rewindaudio/) metódusnak
-
-PowerPoint **Editing** opciók, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-
-- **Fade In** megfelel a [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_fadeinduration/) metódusnak
-- **Fade Out** megfelel a [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_fadeoutduration/) metódusnak
-- **Trim Audio Start Time** megfelel a [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_trimfromstart/) metódusnak
-- **Trim Audio End Time** értéke megegyezik az audio időtartamával mínusz a [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_trimfromend/) metódus értéke
-
-A PowerPoint **Volume control** a [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_volumevalue/) metódusnak felel meg. Lehetővé teszi a hangerő százalékos módon történő módosítását.
-
-Így módosíthatja az Audio lejátszási beállításokat:
-
-1. [Létrehozás](#creating-audio-frame) vagy szerezze meg az Audio képkockát.
-2. Állítson be új értékeket azokhoz az Audio képkocka tulajdonságokhoz, amelyeket módosítani kíván.
-3. Mentse el a módosított PowerPoint fájlt.
-
-Ez a C++ kód bemutatja, hogyan állíthatja be egy audio opcióit:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Lekéri egy alakzatot
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Átalakítja az alakzatot AudioFrame alakzattá
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Beállítja a lejátszási módot kattintásra
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Beállítja a hangerőt alacsonyra
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Beállítja, hogy a hang diákon át lejátszódjon
-audioFrame->set_PlayAcrossSlides(true);
-
-// Kikapcsolja a hang ismétlését
-audioFrame->set_PlayLoopMode(false);
-
-// Elrejti az AudioFrame-et a diavetítés során
-audioFrame->set_HideAtShowing(true);
-
-// Visszatekinti a hangot a lejátszás után a kiinduló pozícióba
-audioFrame->set_RewindAudio(true);
-
-// Elmenti a PowerPoint fájlt a lemezre
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-Ez a C++ példa bemutatja, hogyan adjon új audio képkockát beágyazott hanggal, vágja le, és állítsa be az elhalványulási időket:
+A példa az első dián megtalálja az első hangkeretet, meghívja a [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) metódust, hogy kattintásra kezdje a lejátszást, és az alacsony hangerő előbeállítást választja. A klip a diákon át folytatódik, a ciklus le van tiltva. Az ikon rejtve marad a bemutató során, és a klip visszatekeredik a lejátszás után.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Beállítja a vágás kezdőeltolását 1,5 másodpercre
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+3,5 másodpercnél hosszabb klipeknél ez a példa kihagyja az első 1,5 másodpercet és az utolsó 2 másodpercet. A [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) argumentuma megadja a klipe végéről kihagyandó időtartamot. Ahhoz, hogy megkapjuk a PowerPointban látható befejezési időt, vonjuk le ezt az eltolást a teljes klipe hosszából. A vágott klip 200 ezredmásodperc alatt olvad be és 500 ezredmásodperc alatt olvad ki. Mind a négy setter ezredmásodpercben várja az értékeket.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Beállítja a vágás befejező eltolását 2 másodpercre
 audioFrame->set_TrimFromEnd(2000);
-
-// Beállítja a fade-in időtartamot 200 ms-re
 audioFrame->set_FadeInDuration(200);
-// Beállítja a fade-out időtartamot 500 ms-re
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-A következő kódrészlet megmutatja, hogyan kérje le egy beágyazott audioval rendelkező audio képkockát, és állítsa be a hangerőt 85%-ra:
+A lejátszási hangerő beállításához egy meghatározott százalékra, használd a [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) metódust. Ez a példa az első dián az első hangkeretet 85%-ra állítja.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Lekér egy audio keret alakzatot
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Beállítja a hanghangerőt 85%-ra
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
-```
-
-## **Audio Feliratok Kezelése**
-
-Az Aspose.Slides lehetővé teszi, hogy zárt feliratokat adjunk egy audio képkockához a [get_CaptionTracks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudioframe/get_captiontracks/) metódus segítségével. Ez a metódus egy [ICaptionsCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icaptionscollection/) objektumot ad vissza, amely lehetővé teszi WebVTT felirat sávok hozzáadását, a meglévő sávok bejárását és szükség esetén azok eltávolítását.
-
-**Audio Feliratok Hozzáadása**
-
-Használja a [get_CaptionTracks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudioframe/get_captiontracks/) metódust, hogy egy vagy több feliratsávot csatoljon egy audio képkockához. Az alábbi példában egy audio fájlt adunk hozzá egy diához, majd egy új feliratsávot töltünk be egy `.vtt` fájlból.
-
-```cpp
-auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+## **Hangfeliratok kezelése**
+
+Minden hangkeret a [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/) metóduson keresztül elérhetővé teszi a feliratgyűjteményét. Használd fel a WebVTT feliratok csatolására a kliphez, a meglévő sávok exportálására vagy eltávolítására.
+
+### **Hangfeliratok hozzáadása**
+
+A példa egy hangklipet ágyaz be az első diára, és a [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) metódust használja egy helyi WebVTT sáv csatolásához. Az első argumentum a sáv címkéjét adja meg, a második a felirat időzítését tartalmazó fájlt jelöli.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Audio Feliratok Kinyerése**
+### **Hangfeliratok kinyerése**
 
-Bejárhatja az audio képkockához kapcsolódó feliratsávokat, és elmentheti őket `.vtt` fájlokként. Minden feliratsáv kiadja a bináris adatot és egyedi azonosítóját, amelyet a feliratok exportálásakor felhasználhat.
+Ez a példa az első dián egy hangkerethez csatolt minden feliratsávot exportál. A [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) által visszaadott bájtokat egy WebVTT fájlba írja, és a [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) által visszaadott értéket használja fájlnévként, hogy minden sáv külön kimenettel rendelkezzen.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Hangfeliratok eltávolítása**
+
+Használd a [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) vagy [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) metódust egy adott sáv törléséhez. A példa a [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) metódust használja, hogy az első dián az első hangkeretből az összes feliratot eltávolítsa, miközben a klipet megőrzi.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Sor keresése a hangfeliratokban**
+
+Az első dián a hangfeliratok egy sorának megtalálásához hívd meg a [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) metódust minden sávon, hogy a WebVTT szövegét memóriában olvassa. Egy egyszerű szöveges WebVTT cue-ban az időzítő sor tartalmazza a `-->` jelet, ezt követik a feliratsorok, és egy üres sor zárja a cue-t. Ez a példa kiírja a sáv címkéjét és minden olyan feliratsort, amely a „café” szót tartalmazza.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Mentse minden feliratsávot .vtt fájlként.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
 ```
 
-**Audio Feliratok Eltávolítása**
+## **Hang kinyerése**
 
-A feliratok egy audio képkockáról való eltávolításához használja az [ICaptionsCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icaptionscollection/) által biztosított metódusokat, például a [Clear](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icaptionscollection/remove/), vagy a [RemoveAt](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icaptionscollection/removeat/) metódust. Az alábbi példa eltávolítja az összes feliratsávot egy audio képkockáról.
+Egy diákátmenetnek saját hangja is lehet. A lekéréshez hívd meg a [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) metódust az átmeneten. A példa a [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) segítségével lekéri a hangbájtokat, és kiírja a bájtok számát. Ha az első diáknak nincs átmeneti hangja, akkor egy üzenetet ír ki.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
 
-// Eltávolítja az összes feliratsávot az audio keretből.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Audio Kinyerése**
-
-Az Aspose.Slides lehetővé teszi a diavetítés átmeneteihez használt hang kinyerését. Például kinyerheti egy adott dia hangját.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, és töltse be a hangot tartalmazó prezentációt.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Hozzáférés a dia diavetítés átmeneteihez.
-4. Kinyerés a hangot bájt adatként.
-
-Ez a C++ kód megmutatja, hogyan nyerje ki egy dia által használt audiot:
-
-``` cpp
-String presName = u"AudioSlide.pptx";
-
-// Létrehozza a Presentation osztályt, amely egy prezentációfájlt képvisel
-auto pres = System::MakeObject<Presentation>(presName);
-
-// Accesses the desired slide
-auto slide = pres->get_Slides()->idx_get(0);
-
-// Gets the slideshow transition effects for the slide
-auto transition = slide->get_SlideShowTransition();
-
-// Extracts the sound in byte array
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
 ## **GYIK**
 
-**Újra felhasználhatom ugyanazt a hangfájlt több dián anélkül, hogy megnövelném a fájlméretet?**
+**Újra felhasználhatom ugyanazt a hangklipet több dián anélkül, hogy megdupláznám?**
 
-Igen. Adja hozzá a hangot egyszer a prezentáció megosztott [audio collection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_audios/) gyűjteményéhez, és hozzon létre további audio képkockákat, amelyek erre a meglévő eszközre hivatkoznak. Ez megakadályozza a médiaadatok duplikálását, és a prezentáció méretét kordában tartja.
+Igen. A klipet egyszer add hozzá a prezentáció [hanggyűjtemény](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) gyűjteményéhez, és ugyanazt az audio objektumot adod át a [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) minden diához.
 
-**Lecserélhetem a hangot egy meglévő audio képkockában anélkül, hogy újra létrehoznám az alakzatot?**
+**Lecserélhetem egy meglévő hangkeret hangját?**
 
-Igen. Kapcsolt hang esetén frissítse a [link path](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_linkpathlong/) útvonalát, hogy az új fájlra mutasson. Beágyazott hang esetén cserélje ki a [embedded audio](https://reference.aspose.com/slides/hu/cpp/aspose.slides/audioframe/set_embeddedaudio/) objektumot egy másikra a prezentáció [audio collection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_audios/) gyűjteményéből. A keret formázása és a legtöbb lejátszási beállítás változatlan marad.
+Igen. Egy hivatkozott hang esetén hívd meg a [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) metódust a csere fájl elérési útjával. Egy beágyazott hang esetén egy másik klipet adj át a prezentáció audio gyűjteményéből a [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/) metódusnak. Mindkét megközelítés megőrzi a meglévő keretet.
 
-**A vágás módosítja a prezentációban tárolt audio adatot?**
+**A vágás módosítja a prezentációban tárolt hangadatokat?**
 
-Nem. A vágás csak a lejátszási határokat állítja be. Az eredeti audio bájtok érintetlenek maradnak, és a beágyazott audio vagy a prezentáció audio gyűjteménye révén hozzáférhetők.
+Nem. A [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) és a [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) a lejátszási határokat állítják be. A teljes klipet továbbra is lekérheted a [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/) segítségével.

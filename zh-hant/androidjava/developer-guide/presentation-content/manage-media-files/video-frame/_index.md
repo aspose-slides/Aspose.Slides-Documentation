@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /zh-hant/androidjava/video-frame/
 keywords:
-- 新增影片
+- 加入影片
 - 建立影片
 - 嵌入影片
 - 擷取影片
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "學習使用 Aspose.Slides for Android via Java，在 PowerPoint 與 OpenDocument 投影片中以程式方式新增與擷取影片框格。快速使用指南。"
+description: "學習如何使用 Aspose.Slides for Android via Java，以程式方式在 PowerPoint 與 OpenDocument 投影片中加入與擷取影片框格。快速教學指南。"
 ---
 ## **簡介**
 
-影片可以協助說明概念並吸引觀眾。Aspose.Slides for Android via Java 讓您能將影片框格新增至投影片、調整播放設定、管理字幕，並擷取內嵌影片資料。
+影片可以協助說明概念並吸引觀眾。Aspose.Slides for Android via Java 允許您向投影片新增影片框格、調整播放設定、管理字幕，並擷取嵌入的影片資料。
 
-PowerPoint 支援本機影片以及指向線上影片（例如 YouTube 影片）的連結。
+PowerPoint 支援本機影片和指向線上影片的連結，例如 YouTube 影片。
 
 為了表示影片資料與影片框格，Aspose.Slides 提供了 [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) 介面、[IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) 介面，以及其他相關型別。
 
-## **建立內嵌影片框格**
+## **建立嵌入式影片框格**
 
-如果要新增至投影片的影片檔案儲存在本機，您可以建立影片框格將影片內嵌於簡報中。
+如果您要加入投影片的影片檔案儲存在本機，您可以建立影片框格將影片嵌入到簡報中。
 
-此範例會將本機影片嵌入現有簡報的第一張投影片，並儲存結果。框格座標與尺寸的單位為點。因為 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) 在簡報使用期間會鎖定串流，所以串流會保持開啟直到儲存完成。
+此範例將本機影片嵌入現有簡報的第一張投影片，並儲存結果。框格的座標與尺寸以點為單位。由於 [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) 在簡報使用期間保持鎖定，資料流會保持開啟直至儲存完成。
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-您也可以直接將本機影片路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-)。此範例會將影片嵌入新簡報的第一張投影片。影片必須在簡報儲存前保持可存取。
+您也可以直接將本機影片路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-)。此範例將影片嵌入新簡報的第一張投影片。影片必須在簡報儲存之前保持可存取。
 
 ```java
 import com.aspose.slides.*;
@@ -68,11 +68,11 @@ try {
 }
 ```
 
-## **建立來自網路來源的影片框格**
+## **使用來自網路來源的影片建立影片框格**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支援簡報中的線上影片。您可以建立指向線上影片（例如 YouTube 影片）的影片框格。
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 在簡報中支援線上影片。您可以建立一個連結至線上影片（例如 YouTube 影片）的影片框格。
 
-此範例會在第一張投影片加入 YouTube 影片連結與縮圖。請更換影片識別碼以使用其他影片。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) 方法會要求自動播放。下載縮圖與播放影片需要網際網路連線，簡報檢視器也必須支援線上影片播放。
+此範例將 YouTube 影片連結與縮圖加入第一張投影片。請替換影片識別碼以使用其他影片。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) 方法請求自動播放。下載縮圖與播放影片皆需要網路存取。簡報檢視器也必須支援線上影片播放。
 
 ```java
 import com.aspose.slides.*;
@@ -103,9 +103,9 @@ try {
 
 ## **全螢幕播放影片**
 
-在培訓簡報中，您可以全螢幕播放軟體示範，讓觀眾清楚看到細節。將 `true` 傳入 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 即可在播放期間啟用此行為。
+在培訓簡報中，您可以以全螢幕模式播放軟體示範，讓觀眾看到細節。呼叫 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 並傳入 `true` 可在播放期間啟用此行為。
 
-此範例開啟簡報，尋找第一張投影片上的第一個 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，並啟用全螢幕播放。輸入簡報必須至少包含一張投影片，且第一張投影片上已有影片框格。
+此範例開啟簡報，於第一張投影片找到第一個 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，並啟用全螢幕播放。輸入簡報必須至少包含一張投影片，其第一張投影片上已有影片框格。
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-全螢幕播放會決定影片的顯示方式。除此之外，[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 會控制是否自動或點擊開始播放，而 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 會控制是否重複播放。若要選擇開始行為，請將播放模式設定為 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/)。此範例會保留既有的開始與迴圈設定。
+全螢幕播放會控制影片的顯示方式。與此獨立的是，[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 決定影片是自動開始還是點擊開始，且 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 決定是否重複播放。若要選擇開始行為，請將播放模式設定為 [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/)。此範例保留了既有的開始與循環設定。
 
 ## **播放後倒帶影片**
 
-在培訓簡報中，將示範影片倒回起點可讓主持人再次播放。將 `true` 傳入 [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) 即可在播放結束後把影片倒回起點。
+在培訓簡報中，將示範影片倒回起點可讓簡報者再次播放。呼叫 [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) 並傳入 `true`，即可在播放結束後將影片返回起點。
 
-此範例開啟簡報，尋找第一張投影片上的第一個 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，並啟用倒帶。它會停用迴圈，使播放可以結束，並將播放設定為點擊開始。輸入簡報必須至少包含一張投影片，且第一張投影片上已有影片框格。
+此範例開啟簡報，於第一張投影片找到第一個 [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/)，並啟用倒帶。它會停用循環以讓播放結束，並設定播放在點擊時開始。輸入簡報必須至少包含一張投影片，其第一張投影片已有影片框格。
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-倒帶會將影片返回起點而不會重新開始播放。相較之下，將 `true` 傳入 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 會自動重複播放。當您希望影片結束後保持可重播狀態時，請停用迴圈。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 仍可獨立控制自動或點擊啟動；此範例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) 讓主持人自行決定何時開始播放。請在設定迴圈之後再設定播放模式，如範例所示。倒帶與 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 無關。
+倒帶會將影片返回起點而不重新開始。相反地，將 [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 設為 `true` 會自動重複播放。當您希望影片播放結束且保持可重播狀態時，請保持循環停用。[setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) 獨立控制自動或點擊啟動；此範例使用 [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) 讓簡報者決定何時開始播放。正如範例所示，請在設定循環後再設定播放模式。倒帶與 [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) 的設定互不相干。
 
-## **剪輯影片框格**
+## **剪裁影片框格**
 
-使用 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 與 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 可在播放時跳過影片開頭或結尾的部分。兩個參數的單位為毫秒。剪輯會變更播放設定，但不會修改內嵌影片資料。
+使用 [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) 與 [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) 可在播放時略過影片的開頭或結尾部分。兩個值的單位皆為毫秒。剪裁會變更播放設定，但不會修改嵌入的影片資料。
 
-**設定剪輯參數**
+**設定剪裁參數**
 
-此範例會嵌入本機影片，並在播放時跳過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以確保仍有可播放的片段。
+此範例將本機影片嵌入，並在播放時略過前 2.5 秒與最後 1 秒。請使用長度超過 3.5 秒的影片，以確保仍有可播放的片段。
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**讀取剪輯參數**
+**讀取剪裁參數**
 
-此範例會以毫秒為單位列印第一張投影片上第一個影片框格的剪輯值。簡報必須至少包含一張投影片。若該投影片沒有影片框格，則不會輸出任何內容。前述範例會產生 2500 與 1000 兩個值。
+此範例以毫秒為單位印出第一張投影片上第一個影片框格的剪裁值。簡報必須至少包含一張投影片；若該投影片沒有影片框格，則不會印出任何內容。前述範例會產生 2500 與 1000 的值。
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您在 PowerPoint 簡報的影片框格中管理隱藏字幕。字幕以 WebVTT 格式儲存，並可透過 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法取得。
+Aspose.Slides 允許您管理 PowerPoint 簡報中影片框格的隱藏字幕。字幕以 WebVTT 格式儲存，並透過 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 方法取得。
 
-**為影片框格新增字幕**
+### **為影片框格新增字幕**
 
-此範例會嵌入本機影片，並加入標示為 English 的 WebVTT 字幕軌。字幕時間戳必須與影片相符。儲存的簡報會同時包含影片與其字幕。
+此範例將本機影片嵌入，並加入標示為 English 的 WebVTT 字幕軌。字幕的時間戳記應與影片相符。儲存的簡報同時包含影片與其字幕。
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) 介面也提供可從串流新增字幕的多載。
+[ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) 介面亦提供一個重載，可讓您從資料流新增字幕。
 
-**從影片框格擷取字幕**
+### **從影片框格擷取字幕**
 
-此範例會將第一張投影片上所有影片框格的字幕軌儲存為個別的 WebVTT 檔案。使用遞增編號以保持檔案名稱唯一。主控台會報告擷取到的軌道數量。簡報必須至少包含一張投影片。
+此範例將第一張投影片上所有影片框格的字幕軌保存為個別的 WebVTT 檔案。依序編號可使輸出檔案保持唯一。主控台會報告擷取的軌道數量。簡報必須至少包含一張投影片。
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-每個 [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) 物件會公開字幕識別碼、標籤、二進位資料，以及 UTF-8 字串形式的字幕文字。
+每個 [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) 物件皆會公開字幕識別碼、標籤、二進位資料，以及作為 UTF-8 字串的字幕文字。
 
-**從影片框格移除字幕**
+### **從影片框格移除字幕**
 
-此範例會移除第一張投影片上第一個形狀位置的影片框格中的所有字幕，並儲存結果。它假設該投影片與形狀均已存在且形狀為影片框格。
+此範例從第一張投影片第一個圖形位置的影片框格移除所有字幕，並儲存結果。它假設投影片與圖形皆存在，且該圖形為影片框格。
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-如果只需要移除單一字幕軌，請改用 [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) 方法，而非 [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--)。
+若您只需要移除單一字幕軌，請使用 [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) 或 [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) 方法，而非 [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--)。
+
+### **搜尋影片字幕**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) 會回傳完整的 WebVTT 軌道，包括其標頭、時間線與字幕文字。您可以在記憶體中搜尋提示，以找到特定口語片段及其時間戳記。例如，投影片 2 上的英語軌道可能包含以下文字。
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+此範例開啟 `captioned_media.pptx`，並使用 [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) 讀取每張投影片上所有頂層影片框格的軌道。純文字提示的時間線包含 `-->`，且空白行會結束提示。當字幕中以任何大小寫形式出現「café」時，範例會印出投影片編號、軌道標籤、原始時間線與完整字幕。
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+搜尋「café」會在範例軌道中產生一次匹配。搜尋會排除軌道標頭，並在輸出中保留時間設定。
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **從投影片擷取影片**
 
-除了將影片加入投影片外，Aspose.Slides 也允許您從簡報中擷取內嵌影片。
+除了向投影片加入影片外，Aspose.Slides 也允許您擷取簡報中嵌入的影片。
 
-此範例會將每張投影片的內嵌影片擷取為獨立、編號的二進位檔案。連結影片會被略過，因為它們沒有內嵌資料。主控台會列印每個影片的 MIME 類型與總計數量。輸出使用通用的 `.bin` 副檔名；如有需要，請依報告的媒體類型更改副檔名。
+此範例將每張投影片中的嵌入影片抽出為單獨的、編號的二進位檔案。因連結影片沒有嵌入資料，會被略過。主控台會印出每支影片的 MIME 類型與總數量。輸出使用通用的 `.bin` 副檔名；必要時可依回報的媒體類型更改副檔名。
 
 ```java
 import com.aspose.slides.*;
@@ -343,18 +410,18 @@ try {
 
 ## **常見問題**
 
-**可以變更影片框格的哪些播放參數？**
+**可以為影片框格變更哪些影片播放參數？**
 
-您可以透過 [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) 物件的方法控制 [playback mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)（自動或點擊）以及 [looping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-)。這些選項皆可使用相關方法設定。
+您可以透過 [playback mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-)（自動或點擊）與 [looping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) 來控制。這些選項可透過 [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) 物件的方法取得。
 
-**新增影片會影響 PPTX 檔案大小嗎？**
+**加入影片會影響 PPTX 檔案大小嗎？**
 
-會。當您內嵌本機影片時，二進位資料會寫入文件，簡報大小會隨影片檔案大小成比例增加。若您連結線上影片並加入縮圖，簡報只會儲存連結與預覽圖像，而非影片本身，通常會減少大小增幅。
+會。當您嵌入本機影片時，二進位資料會被寫入文件，簡報大小會隨影片檔案大小等比例增長。若您連結到線上影片並加入縮圖，簡報只會儲存連結與預覽圖像，而非影片資料，因而大小的增加通常較小。
 
-**是否能在不變更位置與尺寸的前提下，取代已有影片框格中的影片？**
+**我可以在不改變影片框格位置與尺寸的情況下，替換現有影片框格中的影片嗎？**
 
-可以。您可以在框格內部交換 [video content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)，同時保留形狀的幾何屬性；這是更新既有版面媒體的常見情境。
+可以。您可以在框格內交換 [video content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-)，同時保留圖形的幾何形狀；這是更新既有版面媒體的常見情境。
 
-**能否判斷內嵌影片的內容類型 (MIME)？**
+**可以判斷嵌入影片的內容類型（MIME）嗎？**
 
-能。內嵌影片具有可讀取的 [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--)，您可以取得後在儲存至磁碟等情況下使用。
+可以。嵌入的影片具有可讀取的 [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--)，您可以使用它，例如在儲存至磁碟時。

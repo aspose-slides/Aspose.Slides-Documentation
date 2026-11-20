@@ -1,76 +1,46 @@
 ---
-title: Python ile Sunumlarda Ses Yönetimi
+title: Python Kullanarak Sunumlarda Ses Çerçevelerini Yönetme
 linktitle: Ses Çerçevesi
 type: docs
 weight: 10
 url: /tr/python-net/audio-frame/
 keywords:
-- ses ekleme
-- ses gömme
+- ses
 - ses çerçevesi
-- ses dosyası
+- küçük resim
+- ses ekle
 - ses özellikleri
+- ses seçenekleri
 - ses çıkarma
-- ses alma
-- ses değiştirme
-- oynatma seçenekleri
-- oynatma modu
-- slaytlar arasında oynatma
-- durdurulana kadar döngü
-- gösterim sırasında gizle
-- çalma sonrası geri sar
-- ses seviyesi
-- varsayılan görüntü
-- PowerPoint
-- OpenDocument
-- sunum
+- WebVTT
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PPT, PPTX ve ODP dosyalarında ses çerçevelerini kolayca ekleyin, çıkarın ve yönetin. Kod örneklerini keşfedin ve sunumlarınızı bugün güçlendirin."
+description: "Sesleri slaytlara yerleştirin, ses simgesini değiştirin, oynatmayı yapılandırın, WebVTT altyazılarını yönetin ve Aspose.Slides for Python via .NET ile slayt geçiş seslerini çıkarın."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides içinde ses çerçeveleriyle nasıl çalışılacağını açıklar. Kaydırmalara gömülü ses ekleme, ses çerçevesi küçük resmini özelleştirme, ses seviyesini, döngüyü, gizlemeyi, kırpmayı ve solma sürelerini içeren oynatma seçeneklerini yapılandırma ve slayt gösterisi geçişlerinde kullanılan sesi çıkarma işlemlerini gösterir.
+Bir ses çerçevesi, bir slaytta ses çalmanızı sağlar. Aspose.Slides for Python via .NET ile bir ses klibini yerleştirebilir, onu temsil eden görüntüyü seçebilir, oynatmayı ayarlayabilir ve altyazılar ekleyebilirsiniz. Ayrıca bir slayt geçişine atanmış sesi de alabilirsiniz.
 
 ## **Ses Çerçeveleri Oluşturma**
 
-Aspose.Slides for Python via .NET, slaytlara ses dosyaları eklemenizi sağlar. Ses dosyaları slaytlara ses çerçeveleri olarak gömülür. 
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını dizini aracılığıyla alın.
-3. Slayta gömmek istediğiniz ses dosyası akışını yükleyin.
-4. Gömülü ses çerçevesini (ses dosyasını içeren) slayta ekleyin.
-5. [PlayMode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioplaymodepreset) ve [IAudioFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/) nesnesinin sunduğu `Volume` değerini ayarlayın.
-6. Değiştirilmiş sunumu kaydedin.
-
-Bu Python kodu, bir slayta gömülü ses çerçevesi eklemenin nasıl yapılacağını gösterir:
+Yerel bir ses klibini ilk slayta yerleştirmek için [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) kullanın. İlk iki koordinat çerçeveyi slaytta konumlandırır, sonraki iki değer ise genişlik ve yüksekliğini, hepsi puan cinsinden, ayarlar. Bu örnek, klibi otomatik olarak başlatmak için [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) ve yüksek ses ön ayarını seçmek için [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) ayarlar.
 
 ```python
 import aspose.slides as slides
 
-# Bir sunum dosyasını temsil eden bir sunum sınıfı örnekleyin
-with slides.Presentation() as pres:
-    # İlk slaytı alır
-    sld = pres.slides[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # wav ses dosyasını akışa yükler
-    with open(path + "sampleaudio.wav", "rb") as in_file:
-        # Ses Çerçevesi ekler
-        audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 150, 100, 100, audio_stream)
+    audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
+    audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-        # Sesin Oynatma Modunu ve Ses Seviyesini ayarlar
-        audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
-        audio_frame.volume = slides.AudioVolumeMode.LOUD
-
-        # PowerPoint dosyasını diske yazar
-        pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 ## **Ses Çerçevesi Küçük Resmini Değiştirme**
 
-Bir sunuma ses dosyası eklediğinizde, ses standart bir varsayılan görüntüyle bir çerçeve olarak görünür (aşağıdaki bölümdeki görsele bakın). Ses çerçevesinin küçük resmini (tercih ettiğiniz resmi ayarlayarak) değiştirebilirsiniz.
-
-Bu Python kodu, bir ses çerçevesinin küçük resmini veya ön izleme resmini nasıl değiştireceğinizi gösterir:
+Varsayılan olarak, bir ses çerçevesi bir hoparlör simgesi gösterir. Özel bir küçük resim göstermek için sunuma [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) ile bir görüntü ekleyin ve bunu çerçevenin [picture_format.picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/) özelliğine atayın. Örnek, yerleştirilmiş bir ses klibi için küçük resim olarak bir JPEG kullanır.
 
 ```python
 import aspose.slides as slides
@@ -78,211 +48,190 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Belirtilen konum ve boyutta slayta ses çerçevesi ekler.
-    with open("sample2.mp3", "rb") as audio_fs:
-        audioFrame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_fs)
+    with open("eagle.jpeg", "rb") as image_stream:
+        thumbnail = presentation.images.add_image(image_stream)
 
-        # Sunum kaynaklarına bir resim ekler.
-        with open("eagle.jpeg", "rb") as image_fs:
-            data = image_fs.read()
-        
-        audioImage = presentation.images.add_image(data)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_stream)
+    audio_frame.picture_format.picture.image = thumbnail
 
-        # Ses çerçevesi için resmi ayarlar.
-        audioFrame.picture_format.picture.image = audioImage
-        
-        #Değiştirilmiş sunumu diske kaydeder
-        presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 ## **Ses Oynatma Seçeneklerini Değiştirme**
 
-Aspose.Slides for Python via .NET, sesin oynatımını veya özelliklerini kontrol eden seçenekleri değiştirmenizi sağlar. Örneğin, sesin seviyesini ayarlayabilir, sesin döngü halinde çalmasını belirleyebilir ya da ses simgesini gizleyebilirsiniz.
+PowerPoint’in **Audio Options** kontrolleri, bir klibin ne zaman başlayacağını, ses seviyesini ve slayt gösterisi sırasında nasıl davranacağını belirler.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint kontrolü | Aspose.Slides özelliği |
+| --- | --- |
+| Başlat | [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) |
+| Ses ön ayarı | [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) |
+| Slaytlar Arasında Oynat | [play_across_slides](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_across_slides/) |
+| Durdurulana Kadar Döngü | [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_loop_mode/) |
+| Gösterim Sırasında Gizle | [hide_at_showing](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/hide_at_showing/) |
+| Çalma Sonrası Geri Sar | [rewind_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/rewind_audio/) |
+| Yavaşça Giriş | [fade_in_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_in_duration/) |
+| Yavaşça Çıkış | [fade_out_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_out_duration/) |
+| Ses Başlangıç Zamanını Kırp | [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) |
+| Ses Bitiş Zamanını Kırp | [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) |
+| Ses Kaydırıcısı | [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) |
 
-PowerPoint **Audio Options** bölümü, Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/) özelliklerine karşılık gelir:
-
-- **Start** açılır listesi, [AudioFrame.play_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/play_mode/) özelliğiyle eşleşir 
-- **Volume** özelliği, [AudioFrame.volume](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/volume/) ile eşleşir 
-- **Play Across Slides** özelliği, [AudioFrame.play_across_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/play_across_slides/) ile eşleşir 
-- **Loop until Stopped** özelliği, [AudioFrame.play_loop_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/play_loop_mode/) ile eşleşir 
-- **Hide During Show** özelliği, [AudioFrame.hide_at_showing](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/hide_at_showing/) ile eşleşir 
-- **Rewind after Playing** özelliği, [AudioFrame.rewind_audio](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/rewind_audio/) ile eşleşir 
-
-PowerPoint **Editing** seçenekleri, Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/) özelliklerine karşılık gelir:
-
-- **Fade In** özelliği, [AudioFrame.fade_in_duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/fade_in_duration/) ile eşleşir 
-- **Fade Out** özelliği, [AudioFrame.fade_out_duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/fade_out_duration/) ile eşleşir 
-- **Trim Audio Start Time** özelliği, [AudioFrame.trim_from_start](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/trim_from_start/) ile eşleşir 
-- **Trim Audio End Time** değeri, ses süresinden [AudioFrame.trim_from_end](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/trim_from_end/) değerinin çıkarılmasıyla elde edilir
-
-PowerPoint ses kontrol panelindeki **Volume control** seçeneği, [AudioFrame.volume_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/volume_value/) özelliğine karşılık gelir. Ses seviyesini yüzde olarak değiştirmenizi sağlar.
-
-Ses Oynatma seçeneklerini değiştirme adımları şunlardır:
-
-1. [Create](#create-audio-frame) veya Audio Frame'i alın.
-2. Ayarlamak istediğiniz Audio Frame özellikleri için yeni değerler belirleyin.
-3. Değiştirilmiş PowerPoint dosyasını kaydedin.
-
-Bu Python kodu, bir sesin seçeneklerinin ayarlandığı bir işlemi gösterir:
+Örnek, ilk slayttaki ilk ses çerçevesini bulur, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) ayarını tıklamayla çalmaya başlatacak şekilde belirler ve düşük ses ön ayarını seçer. Klib, döngü devre dışı bırakılarak slaytlar arasında devam eder. Simge gösterim sırasında gizli kalır ve klip çalma sonrasında tekrar oynatılır.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # AudioFrame şekilini alır
-    audioFrame = pres.slides[0].shapes[0]
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Oynatma modunu tıklanınca çalacak şekilde ayarlar
-    audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
-
-    # Ses seviyesini Düşük olarak ayarlar
-    audioFrame.volume = slides.AudioVolumeMode.LOW
-
-    # Sesin slaytlar arasında çalmasını ayarlar
-    audioFrame.play_across_slides = True
-
-    # Ses için döngüyü devre dışı bırakır
-    audioFrame.play_loop_mode = False
-
-    # Ses çerçevesini sunum sırasında gizler
-    audioFrame.hide_at_showing = True
-
-    # Ses çalındıktan sonra başa sarar
-    audioFrame.rewind_audio = True
-
-    # PowerPoint dosyasını diske kaydeder
-    pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.play_mode = slides.AudioPlayModePreset.ON_CLICK
+        audio_frame.volume = slides.AudioVolumeMode.LOW
+        audio_frame.play_across_slides = True
+        audio_frame.play_loop_mode = False
+        audio_frame.hide_at_showing = True
+        audio_frame.rewind_audio = True
+        
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
+3,5 saniyeden uzun bir klip için bu örnek ilk 1,5 saniyeyi ve son 2 saniyeyi atlar. [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) klibin sonundan çıkarılacak süreyi ölçer. PowerPoint’te gösterilen bitiş zamanını elde etmek için bu ofseti tam klip süresinden çıkarın. Kırpılan klip 200 milisaniye içinde yavaşça girer ve 500 milisaniye içinde yavaşça çıkar. Tüm dört özellik milisaniye cinsinden değer alır.
 
-Bu Python örneği, gömülü sesli yeni bir ses çerçevesi eklemeyi, kırpmayı ve solma sürelerini ayarlamayı gösterir:
+```python
+import aspose.slides as slides
 
-```py
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    with open("sampleaudio.mp3", "rb") as audio_stream:
-        audio_data = audio_stream.read()
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio_stream)
+    audio_frame.trim_from_start = 1500.0
+    audio_frame.trim_from_end = 2000.0
+    audio_frame.fade_in_duration = 200.0
+    audio_frame.fade_out_duration = 500.0
 
-    audio = pres.audios.add_audio(audio_data)
-    audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio)
-
-    # Kırpma başlangıç ofsetini 1.5 saniye olarak ayarlar
-    # Kırpma bitiş ofsetini 2 saniye olarak ayarlar
-
-    # Fade-in süresini 200 ms olarak ayarlar
-    # Fade-out süresini 500 ms olarak ayarlar
-
-    pres.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+Oynatma ses seviyesini belirli bir yüzdeye ayarlamak için [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) kullanın. Bu örnek, ilk slayttaki ilk ses çerçevesini %85 olarak ayarlar.
 
-Aşağıdaki kod örneği, gömülü sesli bir ses çerçevesini alıp ses seviyesini %85 olarak ayarlamayı gösterir:
+```python
+import aspose.slides as slides
 
-```py
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # Ses çerçevesi şekli alır
-    audio_frame = pres.slides[0].shapes[0]
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Ses seviyesini %85 olarak ayarlar
-    audio_frame.volume_value = 85.0
-
-    pres.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.volume_value = 85.0
+        presentation.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 ## **Ses Altyazılarını Yönetme**
 
-Aspose.Slides, bir ses çerçevesine kapalı altyazı eklemenizi [caption_tracks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/caption_tracks/) özelliği aracılığıyla sağlar. Bu özellik bir [CaptionsCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/captionscollection/) döndürür; böylece WebVTT altyazı izlerini ekleyebilir, mevcut izler arasında dolaşabilir ve gerektiğinde kaldırabilirsiniz.
+Her ses çerçevesinin bir [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/caption_tracks/) koleksiyonu vardır. Bu koleksiyonu klibe WebVTT altyazıları eklemek, mevcut izleri dışa aktarmak veya silmek için kullanın.
 
-### **Ses Altyazılarını Ekleme**
+### **Ses Altyazısı Ekle**
 
-[caption_tracks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/caption_tracks/) özelliğini kullanarak bir ses çerçevesine bir veya daha fazla altyazı izi ekleyin. Aşağıdaki örnekte, bir ses dosyası slayta eklenir ve ardından yeni bir altyazı izi `.vtt` dosyasından yüklenir.
+Örnek, ilk slayta bir ses klibi yerleştirir ve yerel bir WebVTT izini eklemek için [CaptionsCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/add/) kullanır. İlk argüman iz etiketini verir, ikinci argüman zamanlı altyazıları içeren dosyayı belirtir.
 
-```py
+```python
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
-    with open("audio.mp3", "rb") as audio_stream:
-        audio = presentation.audios.add_audio(audio_stream.read())
-
     slide = presentation.slides[0]
-    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio)
 
-    # WebVTT dosyasından yeni bir altyazı izi ekle.
-    audio_frame.caption_tracks.add("New track", "track.vtt")
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio_stream)
+    audio_frame.caption_tracks.add("English", "track.vtt")
 
     presentation.save("audio_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
+### **Ses Altyazılarını Dışa Aktarma**
 
-### **Ses Altyazılarını Çıkarma**
-
-Bir ses çerçevesine bağlı altyazı izleri arasında dolaşabilir ve bunları `.vtt` dosyaları olarak kaydedebilirsiniz. Her altyazı izi ikili verisini ve benzersiz kimliğini ortaya koyar; bu, altyazıları dışa aktarırken kullanılabilir.
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    for shape in slide.shapes:
-        if isinstance(shape, slides.AudioFrame):
-            audio_frame = shape
-            for caption_track in audio_frame.caption_tracks:
-                # Altyazı izini .vtt dosyası olarak kaydet.
-                with open(f"{caption_track.caption_id}.vtt", "wb") as track_stream:
-                    track_stream.write(caption_track.binary_data)
-```
-
-### **Ses Altyazılarını Kaldırma**
-
-Bir ses çerçevesinden altyazıları kaldırmak için [CaptionsCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/captionscollection/) tarafından sağlanan [clear](https://reference.aspose.com/slides/tr/python-net/aspose.slides/captionscollection/clear/), [remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/captionscollection/remove/), veya [remove_at](https://reference.aspose.com/slides/tr/python-net/aspose.slides/captionscollection/remove_at/) gibi yöntemleri kullanın. Aşağıdaki örnek, bir ses çerçevesinden tüm altyazı izlerini kaldırır.
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    audio_frame = slide.shapes[0]  # type: slides.AudioFrame
-
-    # Ses çerçevesinden tüm altyazı izlerini kaldır.
-    audio_frame.caption_tracks.clear()
-
-    presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ses Çıkarma**
-
-Aspose.Slides for Python via .NET, slayt gösterisi geçişlerinde kullanılan sesi çıkarmanıza olanak tanır. Örneğin, belirli bir slaytta kullanılan sesi çıkarabilirsiniz.
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturup ses içeren sunumu yükleyin.
-2. İlgili slaydın referansını dizini aracılığıyla alın.
-3. Slaydın slayt gösterisi geçişlerine erişin.
-4. Sesi bayt verisi olarak çıkarın.
-
-Bu Python kodu, bir slaytta kullanılan sesi çıkarmanın nasıl yapılacağını gösterir:
+Bu örnek, ilk slayttaki bir ses çerçevesine eklenmiş her altyazı izini dışa aktarır. İz’in [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/captions/binary_data/) değerini bir WebVTT dosyasına yazar ve dosya adını [caption_id](https://reference.aspose.com/slides/python-net/aspose.slides/captions/caption_id/) değerine göre belirler, böylece her iz ayrı bir çıktı elde eder.
 
 ```python
 import aspose.slides as slides
 
-#with slides.Presentation("AudioSlide.pptx") as pres:
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
-    # İstenen slayta erişir
-    slide = pres.slides[0]  
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # Slayt için slayt gösterisi geçiş efektlerini alır
-    transition = slide.slide_show_transition
-
-    #Ses verisini bayt dizisi olarak çıkarır
-    audio = transition.sound.binary_data
-
-    print("Length: " + str(len(audio)))
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                with open(f"{track.caption_id}.vtt", "wb") as output:
+                    output.write(track.binary_data)
 ```
+### **Ses Altyazılarını Kaldırma**
 
+Bireysel bir iz silmek için [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) veya [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) kullanın. Örnek, klibi korurken ilk slayttaki ilk ses çerçevesinden tüm altyazıları kaldırmak için [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) yöntemini kullanır.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.caption_tracks.clear()
+        presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
+```
+### **Ses Altyazılarında Bir Satır Bulma**
+
+İlk slayttaki ses altyazılarında bir satır bulmak için, her izin [data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) değerini bellekte okuyun. Düz metin bir WebVTT ipucunda zaman satırı `-->` içerir, alttaki satırlar altyazı satırlarıdır ve boş bir satır ipucunu sonlandırır. Bu örnek, iz etiketini ve “café” içeren her altyazı satırını yazdırır.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                in_cue = False
+                for line in track.data_as_string.splitlines():
+                    if not line:
+                        in_cue = False
+                    elif "-->" in line:
+                        in_cue = True
+                    elif in_cue and "café" in line.casefold():
+                        print(f"{track.label}: {line}")
+```
+## **Ses Çıkarma**
+
+Bir slayt geçişinin kendi sesi olabilir. Onu almak için geçişin [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/) özelliğini okuyun. Örnek, sesin [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/) değerine erişir ve bayt cinsinden boyutunu yazdırır. İlk slaytta geçiş sesi yoksa, bunun yerine bir mesaj yazdırır.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("AudioSlide.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    sound = slide.slide_show_transition.sound
+    if sound is None:
+        print("The first slide has no transition sound.")
+    else:
+        audio_data = sound.binary_data
+        print(f"Transition sound: {len(audio_data)} bytes.")
+```
 ## **SSS**
 
-**Aynı ses varlığını birden fazla slaytta dosya boyutunu artırmadan yeniden kullanabilir miyim?**
+**Aynı ses klibini birden fazla slaytta tekrarlamadan kullanabilir miyim?**
 
-Evet. Sesi bir kez sunumun ortak [audio collection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/audios/)ine ekleyin ve mevcut varlığı referans alan ek ses çerçeveleri oluşturun. Bu, medya verisinin çoğaltılmasını önler ve sunum boyutunu kontrol altında tutar.
+Evet. Klibi sunumun [audio collection](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/audios/) içine bir kez ekleyin ve aynı ses nesnesini her slayt için [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) metoduna iletin.
 
-**Mevcut bir ses çerçevesindeki sesi şekli yeniden oluşturmadan değiştirebilir miyim?**
+**Mevcut bir ses çerçevesindeki sesi değiştirebilir miyim?**
 
-Evet. Bağlantılı bir ses için, [link path](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/link_path_long/)i yeni dosyaya yönlendirin. Gömülü bir ses için, [embedded audio](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audioframe/embedded_audio/) nesnesini sunumun [audio collection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/audios/)inden başka bir sesle değiştirin. Çerçevenin biçimlendirmesi ve çoğu oynatma ayarı aynı kalır.
+Evet. Bağlantılı bir ses için, [link_path_long](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/link_path_long/) değerini değiştirilmek istenen dosyayı gösterecek şekilde güncelleyin. Yerleştirilmiş bir ses için, sunumun ses koleksiyonundan başka bir klibi [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) özelliğine atayın. Her iki yaklaşım da mevcut çerçeveyi korur.
 
-**Kırpma, sunumda depolanan temel ses verisini değiştirir mi?**
+**Kırpma, sunumda depolanan ses verisini değiştirir mi?**
 
-Hayır. Kırpma sadece oynatma sınırlarını ayarlar. Orijinal ses baytları dokunulmadan kalır ve gömülü ses veya sunumun ses koleksiyonu aracılığıyla erişilebilir.
+Hayır. [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) ve [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) çalma sınırlarını belirler. Tam klibi hâlâ [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) üzerinden alabilirsiniz.

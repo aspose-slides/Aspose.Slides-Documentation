@@ -1,5 +1,5 @@
 ---
-title: Quản lý các khung video trong bản trình bày trên Android
+title: Quản lý Khung Video trong Bản trình bày trên Android
 linktitle: Khung Video
 type: docs
 weight: 10
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Học cách thêm và trích xuất các khung video trong slide PowerPoint và OpenDocument một cách lập trình bằng Aspose.Slides cho Android qua Java. Hướng dẫn nhanh chóng."
+description: "Học cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho Android thông qua Java. Hướng dẫn nhanh chóng."
 ---
-## **Introduction**
+## **Giới thiệu**
 
-Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides for Android qua Java cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát lại, quản lý phụ đề và trích xuất dữ liệu video được nhúng.
+Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose.Slides for Android via Java cho phép bạn thêm khung video vào các slide, điều chỉnh cài đặt phát, quản lý phụ đề và trích xuất dữ liệu video nhúng.
 
-PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn video trên YouTube.
+PowerPoint hỗ trợ video nội bộ và liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) và các kiểu liên quan khác.
+Để đại diện cho dữ liệu video và khung video, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/), giao diện [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) và các kiểu liên quan khác.
 
-## **Create an Embedded Video Frame**
+## **Tạo Khung Video Nhúng**
 
 Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày của mình.
 
-Ví dụ này nhúng một video cục bộ vào slide đầu tiên của bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước của khung được tính bằng điểm. Luồng dữ liệu vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) giữ nó khóa trong khi bản trình bày sử dụng nó.
+Ví dụ này nhúng video nội bộ vào slide đầu tiên của bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Luồng vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) giữ nó bị khóa trong khi bản trình bày sử dụng.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp vào [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập được cho đến khi bản trình bày được lưu.
+Bạn cũng có thể truyền trực tiếp đường dẫn video nội bộ tới [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập cho đến khi bản trình bày được lưu.
 
 ```java
 import com.aspose.slides.*;
@@ -68,11 +68,11 @@ try {
 }
 ```
 
-## **Create a Video Frame with Video from a Web Source**
+## **Tạo Khung Video với Video Từ Nguồn Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn video trên YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Ví dụ này thêm liên kết video YouTube và hình thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) yêu cầu phát tự động. Tải hình thu nhỏ và phát video yêu cầu có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
+Ví dụ này thêm liên kết và ảnh thu nhỏ của video YouTube vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) yêu cầu tự động phát. Tải ảnh thu nhỏ và phát video yêu cầu có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
 
 ```java
 import com.aspose.slides.*;
@@ -101,11 +101,11 @@ try {
 }
 ```
 
-## **Play a Video in Full-Screen Mode**
+## **Phát Video ở Chế Độ Toàn Màn Hình**
 
-Trong bản trình bày đào tạo, bạn có thể phát bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn thấy chi tiết. Gọi [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) với `true` để bật hành vi này trong quá trình phát.
+Trong một bản trình bày đào tạo, bạn có thể phát bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn thấy chi tiết. Gọi [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) với `true` để bật hành vi này trong quá trình phát.
 
-Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên và bật phát toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video tồn tại trên slide đầu tiên.
+Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video tồn tại trên slide đầu tiên.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-Phát toàn màn hình kiểm soát cách video được hiển thị. Riêng biệt, [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) kiểm soát việc video bắt đầu tự động hay khi nhấp, và [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) kiểm soát việc lặp lại. Để chọn hành vi bắt đầu, đặt chế độ phát thành [VideoPlayModePreset.Auto hoặc VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Ví dụ này giữ nguyên các cài đặt bắt đầu và lặp lại hiện có.
+Phát toàn màn hình điều khiển cách video được hiển thị. Độc lập với đó, [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) kiểm soát việc video bắt đầu tự động hay khi người dùng nhấn, và [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) kiểm soát việc lặp lại. Để chọn hành vi khởi động, đặt chế độ phát thành [VideoPlayModePreset.Auto hoặc VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Ví dụ này giữ nguyên các cài đặt khởi động và vòng lặp hiện có.
 
-## **Rewind a Video After Playback**
+## **Quay Lại Video Sau Khi Phát Xong**
 
-Trong bản trình bày đào tạo, đưa video demo trở lại đầu video giúp người thuyết trình có thể phát lại. Gọi [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) với `true` để đưa video về đầu sau khi phát xong.
+Trong một bản trình bày đào tạo, việc quay lại video demo tới đầu giúp người thuyết trình có thể phát lại dễ dàng. Gọi [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) với `true` để trả video về đầu sau khi phát xong.
 
-Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên và bật tính năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt chế độ phát bắt đầu khi nhấp. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video tồn tại trên slide đầu tiên.
+Ví dụ này mở một bản trình bày, tìm khung [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) đầu tiên trên slide đầu tiên, và bật tính năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt phát bắt đầu khi nhấn. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video tồn tại trên slide đầu tiên.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Quay lại đưa video về đầu mà không khởi động lại. Ngược lại, gọi [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) với `true` sẽ tự động lặp lại phát. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) độc lập kiểm soát khởi động tự động hoặc khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau khi cài đặt vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Quay lại trả video về đầu mà không khởi động lại. Ngược lại, gọi [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) với `true` sẽ tự động lặp lại phát. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng để phát lại. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) độc lập điều khiển việc khởi động tự động hay khi nhấn; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau khi thiết lập vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Trim a Video Frame**
+## **Cắt Bớt Khung Video**
 
-Sử dụng [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) và [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) để bỏ qua một phần đầu hoặc cuối của video trong khi phát. Cả hai giá trị đều tính bằng mili giây. Việc cắt bớt thay đổi cài đặt phát mà không sửa đổi dữ liệu video được nhúng.
+Sử dụng [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) và [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) để bỏ qua phần đầu hoặc cuối của video khi phát. Cả hai giá trị đều tính bằng mili giây. Việc cắt bớt thay đổi cài đặt phát mà không thay đổi dữ liệu video nhúng.
 
 **Đặt Cài Đặt Cắt**
 
-Ví dụ này nhúng một video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối trong khi phát. Sử dụng video dài hơn 3,5 giây để còn lại đoạn có thể phát.
+Ví dụ này nhúng video nội bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Sử dụng video dài hơn 3,5 giây để còn lại đoạn có thể phát.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ try {
 }
 ```
 
-## **Manage Video Captions**
+## **Quản Lý Phụ Đề Video**
 
-Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập qua phương thức [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides cho phép bạn quản lý phụ đề đóng (closed captions) cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu dưới định dạng WebVTT và được truy cập thông qua phương thức [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Thêm Phụ Đề vào Khung Video**
+### **Thêm Phụ Đề Vào Khung Video**
 
-Ví dụ này nhúng một video cục bộ và thêm một track phụ đề WebVTT mang nhãn English. Các dấu thời gian phụ đề cần khớp với video. Bản trình bày đã lưu sẽ bao gồm cả video và phụ đề.
+Ví dụ này nhúng video nội bộ và thêm một track phụ đề WebVTT có nhãn English. Thời gian phụ đề phải khớp với video. Bản trình bày đã lưu bao gồm cả video và phụ đề của nó.
 
 ```java
 import com.aspose.slides.*;
@@ -248,9 +248,9 @@ try {
 
 Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng.
 
-**Trích Xuất Phụ Đề từ Khung Video**
+### **Trích Xuất Phụ Đề Từ Khung Video**
 
-Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự giữ cho các tệp đầu ra khác nhau. Console báo cáo số lượng track đã trích xuất. Bản trình bày phải chứa ít nhất một slide.
+Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên dưới dạng các tệp WebVTT riêng biệt. Các số thứ tự liên tiếp giữ cho các tệp đầu ra không trùng nhau. Bảng điều khiển console báo số lượng track đã trích xuất. Bản trình bày phải chứa ít nhất một slide.
 
 ```java
 import com.aspose.slides.*;
@@ -281,9 +281,9 @@ try {
 
 Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
 
-**Xóa Phụ Đề khỏi Khung Video**
+### **Xóa Phụ Đề Khỏi Khung Video**
 
-Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí shape đầu tiên trên slide đầu tiên và lưu kết quả. Nó giả định slide và shape tồn tại và shape là một khung video.
+Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí hình dạng đầu tiên trên slide đầu tiên và lưu kết quả. Nó giả định rằng slide và hình dạng tồn tại và rằng hình dạng là một khung video.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-Nếu bạn cần xóa chỉ một track phụ đề, hãy sử dụng các phương thức [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) hoặc [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) thay vì [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+Nếu bạn chỉ cần xóa một track phụ đề, sử dụng các phương thức [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) hoặc [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) thay vì [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
 
-## **Extract Video from a Slide**
+### **Tìm Kiếm Phụ Đề Video**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) trả về toàn bộ track WebVTT, bao gồm tiêu đề, các dòng thời gian và văn bản phụ đề. Bạn có thể tìm kiếm các cue trong bộ nhớ để tìm một cụm từ đã nói và thời gian của nó. Ví dụ, một track tiếng Anh trên slide 2 có thể chứa đoạn văn bản sau.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Ví dụ này mở `captioned_media.pptx` và sử dụng [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) để đọc các track của mỗi khung video cấp cao nhất trên mọi slide. Trong một cue dạng văn bản thuần, dòng thời gian chứa `-->`, và một dòng trống kết thúc cue. Khi phụ đề chứa “café” bất kỳ kiểu chữ nào, ví dụ in ra số slide, nhãn track, dòng thời gian gốc và toàn bộ phụ đề.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tìm kiếm “café” tạo ra một kết quả khớp cho track mẫu. Tìm kiếm không bao gồm tiêu đề track và giữ nguyên cài đặt thời gian trong đầu ra.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Trích Xuất Video Từ Slide**
 
 Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình bày.
 
-Ví dụ này trích xuất các video được nhúng từ mọi slide thành các tệp nhị phân riêng, được đánh số. Các video liên kết bị bỏ qua vì chúng không có dữ liệu nhúng. Console in ra MIME type của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng `.bin` chung; thay đổi nó để phù hợp với loại phương tiện được báo cáo khi cần.
+Ví dụ này trích xuất các video nhúng từ mọi slide thành các tệp nhị phân đánh số riêng biệt. Các video được liên kết sẽ bị bỏ qua vì chúng không có dữ liệu nhúng. Console in ra loại MIME của mỗi video và tổng số lượng. Đầu ra sử dụng phần mở rộng chung `.bin`; thay đổi nó để phù hợp với loại phương tiện đã báo cáo khi cần.
 
 ```java
 import com.aspose.slides.*;
@@ -343,18 +410,18 @@ try {
 
 ## **Câu Hỏi Thường Gặp**
 
-**Các tham số phát lại video nào có thể thay đổi cho một khung video?**
+**Các tham số phát video nào có thể thay đổi cho một khung video?**
 
-Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (tự động hoặc khi nhấp) và [việc lặp lại](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Các tùy chọn này có sẵn thông qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
+Bạn có thể điều khiển [chế độ phát](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (tự động hoặc khi nhấn) và [vòng lặp](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Các tùy chọn này có sẵn qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
 
-**Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
+**Việc thêm video có làm tăng kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng một video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, do đó kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm hình thu nhỏ, bản trình bày chỉ lưu liên kết và hình ảnh preview thay vì dữ liệu video, vì vậy mức tăng kích thước thường nhỏ hơn.
+Có. Khi bạn nhúng video nội bộ, dữ liệu nhị phân được đưa vào tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình bày chỉ lưu liên kết và hình ảnh preview thay vì dữ liệu video, vì vậy mức tăng kích thước thường ít hơn.
 
-**Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
+**Tôi có thể thay thế video trong khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể thay đổi [nội dung video](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) bên trong khung trong khi giữ nguyên hình học của shape; đây là tình huống phổ biến để cập nhật phương tiện trong bố cục hiện có.
+Có. Bạn có thể hoán đổi [nội dung video](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) bên trong khung trong khi giữ nguyên hình dạng; đây là kịch bản phổ biến để cập nhật phương tiện trong bố cục đã có.
 
-**Có thể xác định loại nội dung (MIME) của video được nhúng không?**
+**Có thể xác định loại nội dung (MIME) của video nhúng không?**
 
-Có. Video được nhúng có một [loại nội dung](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó vào đĩa.
+Có. Video nhúng có một [loại nội dung](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó vào đĩa.

@@ -1,76 +1,47 @@
 ---
-title: 用 Python 管理簡報中的音訊
-linktitle: 音訊框
+title: 使用 Python 管理簡報中的音訊框架
+linktitle: 音訊框架
 type: docs
 weight: 10
 url: /zh-hant/python-net/audio-frame/
 keywords:
+- 音訊
+- 音訊框架
+- 縮圖
 - 新增音訊
-- 嵌入音訊
-- 音訊框
-- 音訊檔案
 - 音訊屬性
-- 抽取音訊
-- 取得音訊
-- 變更音訊
-- 播放選項
-- 播放模式
-- 跨投影片播放
-- 直至停止循環
-- 放映時隱藏
-- 播放後倒帶
-- 音量
-- 預設影像
-- PowerPoint
-- OpenDocument
-- 簡報
+- 音訊選項
+- 擷取音訊
+- WebVTT
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 輕鬆在 PPT、PPTX 與 ODP 中新增、抽取與管理音訊框。探索程式碼範例，即刻提升您的簡報。"
+description: "使用 Aspose.Slides for Python via .NET 在投影片中嵌入音訊、更改音訊圖示、設定播放、管理 WebVTT 字幕，並擷取投影片轉場聲音。"
 ---
 ## **概述**
 
-本文說明如何在 Aspose.Slides 中使用音訊框架。它展示了如何將嵌入式音訊加入投影片、客製化音訊框視覺縮圖、設定播放選項（例如音量、循環、隱藏、修剪與淡入淡出時間），以及如何擷取投影片放映過程中使用的音訊。
+音訊框架讓您可以在投影片上播放聲音。使用 Aspose.Slides for Python via .NET，您可以嵌入音訊剪輯、選擇表示它的影像、調整播放設定，並附加字幕。您也可以取得指派給投影片轉場的聲音。
 
 ## **建立音訊框架**
 
-Aspose.Slides for Python via .NET 允許您將音訊檔案加入投影片。音訊檔案會以音訊框的形式嵌入投影片中。 
-
-1. 建立 [Presentation] 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 載入您想嵌入投影片的音訊檔案串流。  
-4. 將嵌入式音訊框（包含音訊檔案）加入投影片。  
-5. 設定由 [IAudioFrame] 物件公開的 [PlayMode] 與 `Volume`。  
-6. 儲存已修改的簡報。
-
-以下 Python 程式碼示範如何將嵌入式音訊框加入投影片：
+使用 [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) 在第一張投影片上嵌入本機音訊剪輯。前兩個座標決定框架在投影片上的位置，接下來的兩個數值以點為單位設定其寬度與高度。此範例將 [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) 設為自動開始剪輯，並將 [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) 設為大音量預設。
 
 ```python
 import aspose.slides as slides
 
-# 實例化一個代表簡報檔的 Presentation 類別
-with slides.Presentation() as pres:
-    # 取得第一張投影片
-    sld = pres.slides[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # 載入 wav 聲音檔案為串流
-    with open(path + "sampleaudio.wav", "rb") as in_file:
-        # 新增音訊框
-        audio_frame = sld.shapes.add_audio_frame_embedded(50, 150, 100, 100, in_file)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 150, 100, 100, audio_stream)
+    audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
+    audio_frame.volume = slides.AudioVolumeMode.LOUD
 
-        # 設定音訊的播放模式與音量
-        audio_frame.play_mode = slides.AudioPlayModePreset.AUTO
-        audio_frame.volume = slides.AudioVolumeMode.LOUD
-
-        # 將 PowerPoint 檔寫入磁碟
-        pres.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameEmbed_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **變更音訊框縮圖**
 
-當您將音訊檔案加入簡報時，音訊會以具有預設標準影像的框架顯示（請參見下方圖片）。您可以變更音訊框的縮圖（設定您偏好的影像）。
-
-以下 Python 程式碼示範如何變更音訊框的縮圖或預覽影像：
+預設情況下，音訊框會顯示揚聲器圖示。若要顯示自訂縮圖，請使用 [add_image](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/add_image/) 將圖像加入簡報，並指派給框架的 [picture_format.picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/) 屬性。此範例使用 JPEG 作為嵌入音訊剪輯的縮圖。
 
 ```python
 import aspose.slides as slides
@@ -78,214 +49,199 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # 在投影片上新增音訊框，指定位置與大小。
-    with open("sample2.mp3", "rb") as audio_fs:
-        audioFrame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_fs)
+    with open("eagle.jpeg", "rb") as image_stream:
+        thumbnail = presentation.images.add_image(image_stream)
 
-        # 將影像新增至簡報資源。
-        with open("eagle.jpeg", "rb") as image_fs:
-            data = image_fs.read()
-        
-        audioImage = presentation.images.add_image(data)
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(150, 100, 50, 50, audio_stream)
+    audio_frame.picture_format.picture.image = thumbnail
 
-        # 設定音訊框的影像。
-        audioFrame.picture_format.picture.image = audioImage
-        
-        #儲存修改後的簡報至磁碟
-        presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **變更音訊播放選項**
 
-Aspose.Slides for Python via .NET 允許您變更控制音訊播放或屬性的選項。例如，您可以調整音訊的音量、設定音訊循環播放，甚至隱藏音訊圖示。
+PowerPoint 的 **Audio Options** 控制項決定剪輯何時開始、音量大小以及於投影片播放期間的行為。
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint 音訊選項控制項 (針對音訊框)](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控制項 | Aspose.Slides property |
+| --- | --- |
+| 開始 | [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) |
+| 音量預設 | [volume](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume/) |
+| 跨投影片播放 | [play_across_slides](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_across_slides/) |
+| 循環直到停止 | [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_loop_mode/) |
+| 播放時隱藏 | [hide_at_showing](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/hide_at_showing/) |
+| 播放後倒退 | [rewind_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/rewind_audio/) |
+| 淡入 | [fade_in_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_in_duration/) |
+| 淡出 | [fade_out_duration](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/fade_out_duration/) |
+| 修剪音訊開始時間 | [trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) |
+| 修剪音訊結束時間 | [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) |
+| 音量滑桿 | [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/) |
 
-PowerPoint **Audio Options** 與 Aspose.Slides [AudioFrame] 屬性對應如下：
-
-- **Start** 下拉式清單對應 [AudioFrame.play_mode] 屬性 
-- **Volume** 對應 [AudioFrame.volume] 屬性 
-- **Play Across Slides** 對應 [AudioFrame.play_across_slides] 屬性 
-- **Loop until Stopped** 對應 [AudioFrame.play_loop_mode] 屬性 
-- **Hide During Show** 對應 [AudioFrame.hide_at_showing] 屬性 
-- **Rewind after Playing** 對應 [AudioFrame.rewind_audio] 屬性 
-
-PowerPoint **Editing** options 與 Aspose.Slides [AudioFrame] 屬性對應如下：
-
-- **Fade In** 對應 [AudioFrame.fade_in_duration] 屬性 
-- **Fade Out** 對應 [AudioFrame.fade_out_duration] 屬性 
-- **Trim Audio Start Time** 對應 [AudioFrame.trim_from_start] 屬性 
-- **Trim Audio End Time** 的值等於音訊總時長減去 [AudioFrame.trim_from_end] 屬性的值
-
-PowerPoint 音訊控制面板上的 **Volume controll**（音量控制）對應 [AudioFrame.volume_value] 屬性，可讓您以百分比調整音訊音量。
-
-以下說明如何變更音訊播放選項：
-
-1. [Create](#create-audio-frame) 或取得音訊框。  
-2. 設定您想調整的音訊框屬性之新值。  
-3. 儲存已修改的 PowerPoint 檔案。
-
-以下 Python 程式碼示範調整音訊選項的操作：
+此範例在第一張投影片上尋找第一個音訊框，將 [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/play_mode/) 設為點擊時開始播放，並選擇低音量預設。剪輯在投影片間持續播放，且未啟用循環。圖示在播放期間保持隱藏，且剪輯在播放完畢後會倒退。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # 取得 AudioFrame 形狀
-    audioFrame = pres.slides[0].shapes[0]
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    # 設定播放模式為點擊時播放
-    audioFrame.play_mode = slides.AudioPlayModePreset.ON_CLICK
-
-    # 設定音量為低
-    audioFrame.volume = slides.AudioVolumeMode.LOW
-
-    # 設定音訊跨投影片播放
-    audioFrame.play_across_slides = True
-
-    # 停用音訊循環
-    audioFrame.play_loop_mode = False
-
-    # 在投影片放映期間隱藏 AudioFrame
-    audioFrame.hide_at_showing = True
-
-    # 播放結束後將音訊倒帶至開始
-    audioFrame.rewind_audio = True
-
-    # 將 PowerPoint 檔儲存至磁碟
-    pres.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.play_mode = slides.AudioPlayModePreset.ON_CLICK
+        audio_frame.volume = slides.AudioVolumeMode.LOW
+        audio_frame.play_across_slides = True
+        audio_frame.play_loop_mode = False
+        audio_frame.hide_at_showing = True
+        audio_frame.rewind_audio = True
+        
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-以下 Python 範例示範如何新增帶嵌入式音訊的音訊框、修剪它，並設定淡入淡出時間：
+對於長於 3.5 秒的剪輯，此範例會跳過前 1.5 秒與最後 2 秒。[trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) 用於測量要從剪輯結尾省略的時間長度。若要取得 PowerPoint 中顯示的結束時間，請將此偏移量從完整剪輯長度中減去。修剪後的剪輯在 200 毫秒內淡入，並在 500 毫秒內淡出。所有四個屬性皆以毫秒為單位。
 
-```py
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+```python
+import aspose.slides as slides
 
-    with open("sampleaudio.mp3", "rb") as audio_stream:
-        audio_data = audio_stream.read()
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    audio = pres.audios.add_audio(audio_data)
-    audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio)
-
-    # 設定剪裁起始偏移為 1.5 秒
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(50, 50, 100, 100, audio_stream)
     audio_frame.trim_from_start = 1500.0
-    # 設定剪裁結束偏移為 2 秒
     audio_frame.trim_from_end = 2000.0
-
-    # 設定淡入持續時間為 200 毫秒
     audio_frame.fade_in_duration = 200.0
-    # 設定淡出持續時間為 500 毫秒
     audio_frame.fade_out_duration = 500.0
 
-    pres.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-以下程式碼範例示範如何取得帶嵌入式音訊的音訊框，並將音量設定為 85%：
+若要將播放音量設定為特定百分比，可使用 [volume_value](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/volume_value/)。此範例將第一張投影片上的第一個音訊框音量設定為 85%。
 
-```py
-with slides.Presentation("AudioFrameEmbed_out.pptx") as pres:
-    # 取得音訊框形狀
-    audio_frame = pres.slides[0].shapes[0]
+```python
+import aspose.slides as slides
 
-    # 設定音訊音量為 85%
-    audio_frame.volume_value = 85.0
+with slides.Presentation("AudioFrameEmbed_out.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    pres.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.volume_value = 85.0
+        presentation.save("AudioFrameValue_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **管理音訊字幕**
 
-Aspose.Slides 允許您透過 [caption_tracks] 屬性為音訊框新增閉合式字幕。此屬性會回傳一個 [CaptionsCollection]，讓您可以加入 WebVTT 字幕軌、遍歷現有軌道，並在需要時將其移除。
+每個音訊框都有一個 [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/caption_tracks/) 集合。可使用它為剪輯附加 WebVTT 字幕、匯出現有軌道，或將其移除。
 
 ### **新增音訊字幕**
 
-使用 [caption_tracks] 屬性將一個或多個字幕軌附加至音訊框。以下範例中，先將音訊檔案加入投影片，然後從 `.vtt` 檔案載入新的字幕軌。
-
-```py
-with slides.Presentation() as presentation:
-    with open("audio.mp3", "rb") as audio_stream:
-        audio = presentation.audios.add_audio(audio_stream.read())
-
-    slide = presentation.slides[0]
-    audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio)
-
-    # 新增來自 WebVTT 檔案的字幕軌道。
-    audio_frame.caption_tracks.add("New track", "track.vtt")
-
-    presentation.save("audio_with_captions.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **抽取音訊字幕**
-
-您可以遍歷與音訊框關聯的字幕軌，並將它們儲存為 `.vtt` 檔案。每個字幕軌都會公開其二進位資料與唯一識別碼，可在匯出字幕時使用。
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    for shape in slide.shapes:
-        if isinstance(shape, slides.AudioFrame):
-            audio_frame = shape
-            for caption_track in audio_frame.caption_tracks:
-                # 將字幕軌保存為 .vtt 檔案。
-                with open(f"{caption_track.caption_id}.vtt", "wb") as track_stream:
-                    track_stream.write(caption_track.binary_data)
-```
-
-### **移除音訊字幕**
-
-若要從音訊框移除字幕，請使用 [CaptionsCollection] 提供的方法，例如 [clear]、[remove] 或 [remove_at]。以下範例會移除音訊框的所有字幕軌。
-
-```py
-with slides.Presentation("audio_with_captions.pptx") as presentation:
-    slide = presentation.slides[0]
-    audio_frame = slide.shapes[0]  # 類型: slides.AudioFrame
-
-    # 從音訊框中移除所有字幕軌道。
-    audio_frame.caption_tracks.clear()
-
-    presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **抽取音訊**
-Aspose.Slides for Python via .NET 允許您抽取投影片放映過程中使用的音效。例如，您可以抽取特定投影片使用的音效。
-
-1. 建立 [Presentation] 類別的實例，並載入包含音訊的簡報。  
-2. 透過索引取得相關投影片的參考。  
-3. 取得該投影片的投影片放映轉場。  
-4. 將音效以位元組資料抽取出來。
-
-以下 Python 程式碼示範如何抽取投影片中使用的音訊：
+此範例在第一張投影片上嵌入音訊剪輯，並使用 [CaptionsCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/add/) 附加本機 WebVTT 軌道。第一個參數提供軌道標籤，第二個參數指定包含時間字幕的檔案。
 
 ```python
 import aspose.slides as slides
 
-#with slides.Presentation("AudioSlide.pptx") as pres:
-with slides.Presentation("AudioFrameEmbed_changed.pptx") as pres:
-    # 存取所需的投影片
-    slide = pres.slides[0]  
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # 取得投影片的投影片放映過渡效果
-    transition = slide.slide_show_transition
+    with open("audio.wav", "rb") as audio_stream:
+        audio_frame = slide.shapes.add_audio_frame_embedded(10, 10, 50, 50, audio_stream)
+    audio_frame.caption_tracks.add("English", "track.vtt")
 
-    #提取聲音的位元組陣列
-    audio = transition.sound.binary_data
+    presentation.save("audio_with_captions.pptx", slides.export.SaveFormat.PPTX)
+```
 
-    print("Length: " + str(len(audio)))
+### **擷取音訊字幕**
+
+此範例匯出附加於第一張投影片音訊框的每個字幕軌道。它將軌道的 [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/captions/binary_data/) 寫入 WebVTT 檔案，並以其 [caption_id](https://reference.aspose.com/slides/python-net/aspose.slides/captions/caption_id/) 作為檔名，使每個軌道產生獨立的輸出。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                with open(f"{track.caption_id}.vtt", "wb") as output:
+                    output.write(track.binary_data)
+```
+
+### **移除音訊字幕**
+
+使用 [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) 或 [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) 可刪除單一軌道。此範例使用 [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) 從第一張投影片的第一個音訊框中移除所有字幕，同時保留剪輯。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    audio_frame = next((shape for shape in slide.shapes if isinstance(shape, slides.AudioFrame)), None)
+    if audio_frame is None:
+        print("The first slide has no audio frame.")
+    else:
+        audio_frame.caption_tracks.clear()
+        presentation.save("audio_without_captions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **在音訊字幕中尋找行**
+
+若要在第一張投影片的音訊字幕中尋找特定行，請於記憶體中讀取每個軌道的 [data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/)。在純文字的 WebVTT 提示中，時間線包含 `-->`，字幕行緊隨其後，空白行則結束此提示。此範例列印出軌道標籤以及包含「café」的每一字幕行。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("audio_with_captions.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.AudioFrame):
+            for track in shape.caption_tracks:
+                in_cue = False
+                for line in track.data_as_string.splitlines():
+                    if not line:
+                        in_cue = False
+                    elif "-->" in line:
+                        in_cue = True
+                    elif in_cue and "café" in line.casefold():
+                        print(f"{track.label}: {line}")
+```
+
+## **擷取音訊**
+
+投影片轉場可以有自己的聲音。若要取得它，請讀取轉場的 [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/) 屬性。此範例存取聲音的 [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/)，並列印其位元組大小。若第一張投影片沒有轉場聲音，則會列印訊息。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("AudioSlide.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    sound = slide.slide_show_transition.sound
+    if sound is None:
+        print("The first slide has no transition sound.")
+    else:
+        audio_data = sound.binary_data
+        print(f"Transition sound: {len(audio_data)} bytes.")
 ```
 
 ## **常見問題**
 
-**我可以在多張投影片間重複使用相同的音訊資產而不增加檔案大小嗎？**
+**我可以在多張投影片中重複使用相同的音訊剪輯而不產生重複嗎？**
 
-可以。只需將音訊一次加入簡報的共享 [audio collection]，然後建立額外的音訊框以參照該現有資產。這樣可避免複製媒體資料，保持簡報檔案大小受控。
+可以。將剪輯一次加入簡報的 [audio collection](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/audios/)，然後於每張投影片呼叫 [add_audio_frame_embedded](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_audio_frame_embedded/) 時傳遞相同的音訊物件。
 
-**我能在不重新建立形狀的情況下替換現有音訊框的音效嗎？**
+**我可以替換現有音訊框中的聲音嗎？**
 
-可以。若為連結式音效，只需更新 [link path] 以指向新檔案。若為嵌入式音效，將 [embedded audio] 物件替換為簡報的 [audio collection] 中的其他音訊。框架的格式與大部分播放設定會保持不變。
+可以。對於連結聲音，請更新 [link_path_long](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/link_path_long/) 指向替換檔案。對於嵌入聲音，將簡報音訊集合中的其他剪輯指派給 [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/)。兩種方式皆保留現有框架。
 
-**修剪會更改簡報中儲存的底層音訊資料嗎？**
+**修剪會改變儲存在簡報中的音訊資料嗎？**
 
-不會。修剪僅調整播放範圍，原始音訊位元組保持不變，仍可透過嵌入式音訊或簡報的音訊集合取得。
+不會。[trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_start/) 與 [trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/trim_from_end/) 只設定播放範圍。仍可從 [embedded_audio](https://reference.aspose.com/slides/python-net/aspose.slides/audioframe/embedded_audio/) 取得完整剪輯。

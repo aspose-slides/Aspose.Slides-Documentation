@@ -16,22 +16,22 @@ keywords:
 - линия оси
 - формат даты
 - заголовок оси
-- положение оси
+- позиция оси
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как использовать Aspose.Slides for Java для настройки осей диаграмм в PowerPoint‑презентациях для отчетов и визуализаций."
+description: "Узнайте, как использовать Aspose.Slides для Java, чтобы настраивать оси диаграмм в презентациях PowerPoint для отчетов и визуализаций."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как настроить оси диаграмм с помощью Aspose.Slides for Java. Описываются рассчитанные значения осей, переключение строк и столбцов диаграммы, видимость осей, интервалы подположений меток категорий и делений, даты категорий и их форматирование, вращение заголовка, позиционирование осей, единицы отображения и логарифмическое масштабирование.
+В этой статье объясняется, как настраивать оси диаграмм с помощью Aspose.Slides для Java. Она охватывает вычисленные значения осей, переключение строк и столбцов диаграммы, видимость осей, интервалы подписей категорий и делений, датированные категории и их форматирование, поворот заголовка, позиционирование осей, единицы измерения и логарифмическое масштабирование.
 
-## **Получить максимальные значения на вертикальной оси в диаграммах**
+## **Получение максимальных значений на вертикальной оси диаграмм**
 
-Создайте [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и добавьте областную диаграмму с данными по умолчанию. Вызовите [validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#validateChartLayout--) перед чтением рассчитанных значений осей, чтобы макет диаграммы был актуален.
+Создайте [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и добавьте линейчатую диаграмму с данными по умолчанию. Вызовите [validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#validateChartLayout--) перед чтением вычисленных значений осей, чтобы макет диаграммы был актуален.
 
-Прочитайте [getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMaxValue--) и [getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinValue--) для пределов оси, а также [getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnit--) и [getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnit--) для интервалов делений. [getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnitScale--) и [getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnitScale--) предоставляют масштабы единиц времени, которые актуальны для датовых осей. Пример сохраняет эти значения в локальные переменные и сохраняет диаграмму.
+Считайте [getActualMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMaxValue--) и [getActualMinValue](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinValue--) для пределов оси, а также [getActualMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnit--) и [getActualMinorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnit--) для интервалов делений. [getActualMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMajorUnitScale--) и [getActualMinorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#getActualMinorUnitScale--) предоставляют шкалы единиц времени, которые актуальны для датированных осей. В примере эти значения сохраняются в локальные переменные и диаграмма сохраняется.
 
 ```java
 import com.aspose.slides.*;
@@ -58,9 +58,9 @@ try {
 }
 ```
 
-## **Обмен данными между осями**
+## **Перестановка данных между осями**
 
-Используйте [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) чтобы поменять роли серий и категорий в данных диаграммы. Каждая прежняя категория становится серией, а каждая прежняя серия — категорией. Это изменяет способ группировки данных; оси горизонтальная и вертикальная не меняются местами. В примере используется [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setRange-java.lang.String-) для привязки данных по умолчанию к `Sheet1!A1:D5`, включая строку заголовка и столбец категорий, перед переключением строк и столбцов. Сохраняется диаграмма с четырьмя сериями и тремя категориями.
+Используйте [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) для обмена ролями рядов и категорий в данных диаграммы. Каждая бывшая категория становится рядом, а каждый бывший ряд становится категорией. Это меняет способ группировки данных; оси горизонтальная и вертикальная не меняются местами. В примере применяется [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#setRange-java.lang.String-) для привязки данных по умолчанию к `Sheet1!A1:D5`, включая строку заголовка и столбец категорий, перед перестановкой строк и столбцов. Сохраняется диаграмма с четырьмя рядами и тремя категориями.
 
 ```java
 import com.aspose.slides.*;
@@ -81,9 +81,9 @@ try {
 
 ## **Обратный порядок построения оси**
 
-Используйте [setPlotOrderReversed](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) чтобы обратить категориальную или значимую ось. Например, горизонтальная гистограмма может показывать стадии проекта сверху вниз в том же порядке, что и лист: Планирование, Разработка, Тестирование. Обратный порядок оси меняет направление построения; он не сортирует и не перестраивает данные книги. Для сравнения [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) меняет роли серий и категорий.
+Используйте [setPlotOrderReversed](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setPlotOrderReversed-boolean-) для обратного порядка построения категориальной или значения оси. Например, горизонтальная гистограмма может показывать стадии проекта сверху вниз в том же порядке, что и в листе: Планирование, Разработка, Тестирование. Обратный порядок оси меняет направление построения; он не сортирует и не перестраивает данные книги. Для сравнения, [switchRowColumn](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#switchRowColumn--) меняет роли рядов и категорий.
 
-Следующий пример создает горизонтальную гистограмму с тремя стадиями и одной серией. Он сохраняет презентацию из трёх слайдов: обычный порядок, обратные категории и обратные значения. Каждая копия использует один и тот же набор данных, и только одна ось обращена в каждой копии.
+Следующий пример создает горизонтальную гистограмму с тремя стадиями и одним рядом. Он сохраняет презентацию из трех слайдов: обычный порядок, обратные категории и обратные значения. Каждая копия использует один и тот же набор данных, и на каждой копии инвертирована только одна оси.
 
 ```java
 import com.aspose.slides.*;
@@ -111,11 +111,11 @@ try {
         series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // Слайд 2: отобразить первую категорию вверху.
+    // Слайд 2: отображать первую категорию наверху.
     ISlide categorySlide = presentation.getSlides().addClone(slide);
     IChart categoryChart = (IChart)categorySlide.getShapes().get_Item(0);
     categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
-    // Сохранить горизонтальную ось значений внизу.
+    // Оставить горизонтальную ось значений внизу.
     categoryChart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum);
 
     // Слайд 3: обратить только горизонтальную числовую шкалу.
@@ -129,16 +129,16 @@ try {
 }
 ```
 
-Обратный порядок оси может также переместить перпендикулярную ось на противоположную сторону графика. [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) управляет тем, где другая ось пересекает настраиваемую ось. На слайде 2 вызов с `CrossesType.Maximum` для обратной категориальной оси сохраняет горизонтальную значимую ось внизу. Для указания конкретной точки пересечения используйте [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-). Проверяйте настройки пересечения при изменении направления, особенно если у диаграммы уже задана пользовательская точка пересечения. Вызов `setPlotOrderReversed` с `false` восстанавливает обычное направление построения; настройки пересечения остаются отдельными.
+Обратный порядок оси может также переместить перпендикулярную ось на противоположную сторону графика. [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) управляет тем, где другая ось пересекает конфигурируемую ось. На слайде 2 вызов с `CrossesType.Maximum` на обратной оси категории сохраняет горизонтальную ось значений внизу. Для конкретной точки пересечения используйте [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-). Проверьте настройки пересечения при изменении направления, особенно если диаграмма уже имеет пользовательскую точку пересечения. Вызов `setPlotOrderReversed` с `false` восстанавливает обычное направление построения; настройки пересечения остаются отдельными.
 
 | Обычный порядок (слайд 1) | Обратные категории (слайд 2) | Обратные значения (слайд 3) |
 | --- | --- | --- |
-| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
-| Категории идут снизу вверх; значения растут слева направо. | Этапы Планирование, Разработка и Тестирование идут сверху вниз. Значения и порядок строк в книге не изменяются. | Категории сохраняют обычный порядок; значения растут справа налево. Ось категорий пересекает ноль справа. |
+| ![Горизонтальная гистограмма с обычным порядком категориальной и оси значений](axis-order-normal.png) | ![Горизонтальная гистограмма с категориями, отображаемыми сверху вниз](axis-order-categories-reversed.png) | ![Горизонтальная гистограмма с обратной осью значений и нулем справа](axis-order-values-reversed.png) |
+| Категории идут снизу вверх; значения увеличиваются слева направо. | Планирование, Разработка и Тестирование идут сверху вниз. Значения и порядок строк книги остаются без изменений. | Категории сохраняют обычный порядок; значения увеличиваются справа налево. Ось категорий пересекает ноль справа. |
 
-## **Отключить вертикальную ось для линейных диаграмм**
+## **Отключение вертикальной оси для линейных диаграмм**
 
-Вызовите [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) с `false` для вертикальной оси, чтобы скрыть её. Пример создает линейную диаграмму с данными по умолчанию и сохраняет её с скрытой вертикальной осью.
+Вызовите [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) с `false` для вертикальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой вертикальной осью.
 
 ```java
 import com.aspose.slides.*;
@@ -156,9 +156,9 @@ try {
 }
 ```
 
-## **Отключить горизонтальную ось для линейных диаграмм**
+## **Отключение горизонтальной оси для линейных диаграмм**
 
-Вызовите [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) с `false` для горизонтальной оси, чтобы скрыть её. Пример создает линейную диаграмму с данными по умолчанию и сохраняет её с скрытой горизонтальной осью.
+Вызовите [setVisible](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setVisible-boolean-) с `false` для горизонтальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой горизонтальной осью.
 
 ```java
 import com.aspose.slides.*;
@@ -176,9 +176,45 @@ try {
 }
 ```
 
-## **Изменить ось категорий**
+## **Показать или скрыть линии сетки диаграммы**
 
-Используйте [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-), чтобы выбрать датовую или текстовую ось категорий. В примере требуется `ExistingChart.pptx`, где диаграмма является первой фигурой на первом слайде, а ячейки категорий содержат числовые даты Excel. Ось X меняется на датовую. Вызов [setAutomaticMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) с `false`, [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnit-double-) с `1` и [setMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnitScale-int-) с `TimeUnitType.Months` размещает основные деления с интервалом в один месяц.
+Вызовите [getShowMajorGridLines](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getShowMajorGridLines--) и [getShowMinorGridLines](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getShowMinorGridLines--) чтобы проверить, какие линии сетки отображает ось. Эти методы сообщают текущую видимость. Чтобы показать мелкие линии сетки, используйте [getMinorGridLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getMinorGridLinesFormat--) и задайте её заливку линии сплошным, видимым цветом. Чтобы скрыть их, установите заливку в [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/#NoFill). Используйте [getMajorGridLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getMajorGridLinesFormat--) для изменения заливки линий сетки главных делений тем же способом. Изменение заливки сохраняет видимость оси и деления.
+
+Вертикальная ось этой сгруппированной столбчатой диаграммы изначально показывает только главные линии сетки. В примере мелкие линии сетки отображаются тёмно-оранжевым цветом, затем снова скрываются перед сохранением презентации. На каждом этапе выводится видимость линий сетки.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 30, 660, 230);
+    IAxis axis = chart.getAxes().getVerticalAxis();
+    System.out.printf("Initial: major=%b, minor=%b%n", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    ILineFillFormat minorFill = axis.getMinorGridLinesFormat().getLine().getFillFormat();
+    minorFill.setFillType(FillType.Solid);
+    minorFill.getSolidFillColor().setColor(new Color(255, 140, 0));
+    System.out.printf("Enabled: minor=%b%n", axis.getShowMinorGridLines());
+
+    minorFill.setFillType(FillType.NoFill);
+    System.out.printf("Hidden: major=%b, minor=%b%n", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    presentation.save("ChartGridlines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Включены мелкие линии сетки | Скрыты мелкие линии сетки |
+| --- | --- |
+| ![Оранжевые мелкие линии сетки между главными линиями сетки на вертикальной оси](minor-gridlines-enabled.png) | ![Та же столбчатая диаграмма, где видны только главные линии сетки](minor-gridlines-hidden.png) |
+
+## **Изменение оси категорий**
+
+Используйте [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) для выбора датированной или текстовой оси категорий. Этот пример требует `ExistingChart.pptx`, где диаграмма является первой фигурой на первом слайде, а ячейки категорий содержат числовые значения дат Excel. Он меняет горизонтальную ось на датированную. Вызов [setAutomaticMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAutomaticMajorUnit-boolean-) с `false`, [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnit-double-) с `1` и [setMajorUnitScale](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorUnitScale-int-) с `TimeUnitType.Months` размещает главные деления с интервалом в один месяц.
 
 ```java
 import com.aspose.slides.*;
@@ -199,21 +235,79 @@ try {
 }
 ```
 
-## **Управление интервалами меток оси категорий**
+### **Определение типа оси категорий из данных**
 
-Когда в диаграмме много категорий, уменьшите количество видимых меток оси, не удаляя категории и точки данных. Вызовите [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) с `false`, затем передайте желаемый интервал категорий в [setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). Для текстовых категорий в обычном порядке отсчёт начинается с первой категории:
+Вызовите [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setCategoryAxisTypeAutomatically--) после заполнения категорий, затем прочитайте [getCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getCategoryAxisType--) для проверки выбора. Это полезно, когда одна и та же диаграмма получает либо текстовые метки, либо числовые значения дат. Метод определяет тип в момент вызова; он не включает постоянный режим, переоценивающий изменения данных позже. Вызовите его снова после замены категорий.
 
-| Интервал | Отображаемые метки в примере |
+В следующем примере создаётся диаграмма с текстовыми категориями и выводится `true`, когда выбранный тип — `CategoryAxisType.Text`. Затем значения ячеек категорий заменяются датами и метод вызывается повторно, выводя `true`, когда выбранный тип — `CategoryAxisType.Date`. Даты хранятся как числовые значения OLE Automation, рассчитываемые как количество дней, прошедших с 30‑го декабря 1899 г., а не как строки дат. [setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) управляет тем, как эти значения отображаются; он не преобразует текст в числовые даты. Подробнее о ячейках категорий см. в разделе [Chart Workbook](/slides/ru/java/chart-workbook/).
+
+Используйте автоматическое определение, когда известно, что ввод содержит текстовые категории или числовые даты, как в этом примере. Для обычных числовых меток, смешанных категорий или пустых данных явно вызывайте [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setCategoryAxisType-int-) для соответствия предполагаемому смыслу. Одни лишь числовые значения не устанавливают, что категории представляют даты.
+
+```java
+import com.aspose.slides.*;
+import java.time.LocalDate;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    String[] labels = { "First", "Second", "Third" };
+
+    for (int i = 0; i < labels.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    System.out.println(axis.getCategoryAxisType() == CategoryAxisType.Text); // истина
+
+    LocalDate baseDate = LocalDate.of(1899, 12, 30);
+    LocalDate[] dates = { LocalDate.of(2026, 1, 1), LocalDate.of(2026, 1, 2), LocalDate.of(2026, 2, 1) };
+
+    for (int i = 0; i < dates.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0);
+        categoryCell.setValue((double)(dates[i].toEpochDay() - baseDate.toEpochDay()));
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    System.out.println(axis.getCategoryAxisType() == CategoryAxisType.Date); // истина
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Управление интервалами подписей оси категорий**
+
+Когда в диаграмме много категорий, уменьшите количество видимых подписей оси, не удаляя категории или точки данных. Вызовите [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) с `false`, затем передайте желаемый интервал категорий в [setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). Для текстовых категорий в их обычном порядке отсчёт начинается с первой категории:
+
+| Интервал | Подписи, отображаемые в примере |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Категория 1, Категория 2, Категория 3, ... Категория 24 |
+| `2` | Категория 1, Категория 3, Категория 5, ... Категория 23 |
+| `3` | Категория 1, Категория 4, Категория 7, ... Категория 22 |
 
-Интервал `3` отображает каждую третью метку, скрывая две метки между отображаемыми. Он не удаляет соответствующие столбцы. Автоматический подбор выбирает интервал исходя из доступного пространства; он не обязательно отображает каждую метку.
+Интервал `3` отображает каждую третью подпись, скрывая две подписи между отображаемыми. Он не удаляет соответствующие столбцы. Автоматический подбор выбирает интервал исходя из доступного места; он не обязательно отображает каждую подпись.
 
-Деления имеют отдельные настройки. Вызовите [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) с `false` и используйте [setTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) для задания их интервала. Например, `1` сохраняет деление на каждом интервале категории, тогда как метки появляются только каждые три категории. Используйте [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorTickMark-int-) с видимым стилем, чтобы увидеть результат. Повторный вызов любого из автоматических сеттеров с `true` позволяет диаграмме вновь подобрать интервал автоматически.
+Деления имеют отдельные настройки. Вызовите [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickMarksSpacing-boolean-) с `false` и используйте [setTickMarksSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickMarksSpacing-long-) для установки их интервала. Например, `1` оставляет деление на каждом интервале категории, в то время как подписи появляются только каждые три категории. Используйте [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorTickMark-int-) с видимым стилем, чтобы увидеть результат. Вызов любого из автоматических наборов с `true` снова позволяет диаграмме выбрать этот интервал.
 
-Следующий автономный пример создаёт 24 категории и одну серию, затем сохраняет три слайда в `CategoryAxisIntervals.pptx`: автоматический подбор, ручной подбор меток с независимыми делениями и восстановление автоматического подбора. Обе копии сохраняют исходные данные диаграммы. Входная презентация не требуется. Горизонтальный текст меток делает разницу в плотности легко различимой.
+Следующий автономный пример создаёт 24 категории и один ряд, затем сохраняет три слайда в `CategoryAxisIntervals.pptx`: автоматический подбор, ручной подбор подписей с независимыми делениями и восстановленный автоматический подбор. Обе копии сохраняют исходные данные диаграммы. Входная презентация не требуется. Горизонтальный текст подписей облегчает визуальное различие плотности.
 
 ```java
 import com.aspose.slides.*;
@@ -247,7 +341,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // Слайд 2: показывать каждую третью метку, но оставлять деление для каждой категории.
+    // Слайд 2: показывать каждую третью подпись, но оставлять деление для каждой категории.
     ISlide manualSlide = presentation.getSlides().addClone(slide);
     IChart manualChart = (IChart)manualSlide.getShapes().get_Item(0);
     IAxis manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -268,23 +362,23 @@ try {
 }
 ```
 
-**Automatic spacing (slide 1):** В этом отображении каждая вторая метка категории показывается и переносится на две строки. Автоматический результат может различаться в зависимости от размера диаграммы, шрифтов и рендерера.
+**Автоматический подбор (слайд 1):** В этом отображении каждая вторая подпись категории отображается и переносится на две строки. Автоматический результат может различаться в зависимости от размера диаграммы, шрифтов и средств визуализации.
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![Автоматический интервал подписей категорий при отображении всех 24 столбцов](category-axis-automatic.png)
 
-**Manual spacing (slide 2):** Каждая третья метка отображается в одну строку, тогда как деления остаются на каждом интервале категории. Все 24 столбца, включая те, у которых нет меток, остаются видимыми с теми же значениями. Слайд 3 восстанавливает автоматический вид, показанный выше.
+**Ручной подбор (слайд 2):** Каждая третья подпись отображается на одной строке, при этом деления остаются на каждом интервале категории. Все 24 столбца, включая те, у которых нет подписи, остаются видимыми с теми же значениями. Слайд 3 восстанавливает автоматический вид, показанный выше.
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![Ручной интервал подписей категорий в три при отображении всех 24 столбцов](category-axis-manual.png)
 
-### **Выберите правильную ось и интервал**
+### **Выбор правильной оси и интервала**
 
-Используйте этот интервал количества категорий для текстовой оси категорий, например оси категорий столбчатой, линейной, площадной или гистограммы. В столбчатой диаграмме это горизонтальная ось. В горизонтальной гистограмме ось категорий вертикальная, поэтому применяйте эти настройки к оси, возвращаемой [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Настройка интервала делений также применяется к оси серии в диаграммах, где она присутствует.
+Используйте данный интервал подсчёта категорий для текстовой оси категорий, например оси категорий столбчатой, линейной, областной или гистограммы. В столбчатой диаграмме это горизонтальная ось. В горизонтальной гистограмме ось категорий вертикальная, поэтому применяйте эти настройки к оси, возвращаемой [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Интервалы делений также применимы к оси рядов в диаграммах, где она присутствует.
 
-Не используйте интервал меток категорий для задания числовой шкалы оси значений. На оси значений [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorUnit-double-) задаёт разницу в значениях: например, основной шаг `10` создаёт деления 0, 10, 20 и т.д., если ось начинается с нуля. Интервал меток категорий `3` считает позиции категорий, независимо от их значений. Диаграммы разброса и пузырьковые используют оси значений, а не текстовую ось категорий. Для датовой оси используйте временные основные единицы и масштабы, описанные в разделе [Change a Category Axis](#change-a-category-axis).
+Не используйте интервал подписей категорий для задания числовой шкалы оси значений. На оси значений [setMajorUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMajorUnit-double-) задаёт разницу в значениях: например, основной единицей `10` создаёт деления 0, 10, 20 и т.д., когда ось начинается с нуля. Интервал подписи категории `3` считает позиции категорий, независимо от их значений данных. Диаграммы разброса и пузырьковые используют оси значений, а не текстовую ось категорий. Для датированной оси используйте единицы времени и шкалы, описанные в разделе [Change a Category Axis](#change-a-category-axis).
 
-## **Задать формат даты для значений оси категорий**
+## **Установка формата даты для значений оси категорий**
 
-В примере заменяются исходные данные диаграммы четырьмя годовыми значениями. Даты хранятся как серийные номера OLE Automation в первом листе (индекс `0`), вычисляемые как количество дней, прошедших с 30 декабря 1899 для этих дат. Используйте [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) с `CategoryAxisType.Date`, вызовите [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) с `false` и передайте `yyyy` в [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormat-java.lang.String-), чтобы метки категорий отображали четырёхзначные года независимо от формата ячеек.
+В примере заменяются данные диаграммы по умолчанию четырьмя годовыми значениями. Даты хранятся как серийные номера OLE Automation в первом листе (индекс `0`), рассчитываемые как количество дней, прошедших с 30‑го декабря 1899 г. Для этого используйте [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCategoryAxisType-int-) с `CategoryAxisType.Date`, вызовите [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormatLinkedToSource-boolean-) с `false` и передайте `yyyy` в [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setNumberFormat-java.lang.String-), чтобы подписи категорий отображали четырёхзначные годы независимо от форматирования ячейки.
 
 ```java
 import com.aspose.slides.*;
@@ -324,9 +418,9 @@ try {
 }
 ```
 
-## **Задать угол вращения заголовка оси диаграммы**
+## **Установка угла вращения заголовка оси диаграммы**
 
-Вызовите [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTitle-boolean-) с `true` для вертикальной оси, укажите текст заголовка и используйте [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) для его вращения. Угол измеряется в градусах; в примере сохраняется столбчатая диаграмма с заголовком оси значений, повернутым на 90 градусов.
+Вызовите [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTitle-boolean-) с `true` для вертикальной оси, задайте текст заголовка и используйте [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) для вращения заголовка. Угол измеряется в градусах; в этом примере сохраняется столбчатая диаграмма с заголовком оси значений, повернутым на 90 градусов.
 
 ```java
 import com.aspose.slides.*;
@@ -346,9 +440,9 @@ try {
 }
 ```
 
-## **Задать положение оси на категориальной или значимой оси**
+## **Установка положения оси на оси категорий или значений**
 
-Используйте [setAxisBetweenCategories](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-), чтобы контролировать, пересекает ли значимая ось категориальную ось между категориями или на делениях категорий. Эта настройка применяется к категориальным осям. В примере она установлена в `true` для горизонтальной категориальной оси столбчатой диаграммы и результат сохраняется.
+Используйте [setAxisBetweenCategories](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setAxisBetweenCategories-boolean-) для управления тем, пересекает ли ось значений ось категорий между категориями или на делениях категорий. Эта настройка применяется к осям категорий. В примере она устанавливается в `true` для горизонтальной оси категорий столбчатой диаграммы и результат сохраняется.
 
 ```java
 import com.aspose.slides.*;
@@ -366,9 +460,9 @@ try {
 }
 ```
 
-## **Задать единицу отображения на оси значений диаграммы**
+## **Установка единицы отображения на оси значений диаграммы**
 
-Используйте [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setDisplayUnit-int-), чтобы масштабировать подписи оси значений без изменения базовых данных. При установленном [DisplayUnitType](https://reference.aspose.com/slides/java/com.aspose.slides/displayunittype/) `Millions` значение 60 000 000 отображается как 60. Пример создаёт столбчатую диаграмму и применяет единицу отображения «миллионы» к её вертикальной оси.
+Используйте [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setDisplayUnit-int-) для масштабирования подписей оси значений без изменения исходных данных. При значении [DisplayUnitType](https://reference.aspose.com/slides/java/com.aspose.slides/displayunittype/) `Millions` значение 60 000 000 отображается как 60. В примере создаётся столбчатая диаграмма и к её вертикальной оси применяется единица отображения «миллионы».
 
 ```java
 import com.aspose.slides.*;
@@ -386,21 +480,21 @@ try {
 }
 ```
 
-## **Настроить логарифмическую ось значений**
+## **Настройка логарифмической оси значений**
 
-Логарифмическая ось значений полезна, когда положительные значения охватывают несколько порядков magnitude. Например, сервис может получать 10, 100, 1 000, 10 000 и 100 000 запросов за пять периодов. На линейной шкале меньшие значения располагаются близко друг к другу у нуля. Логарифмическая шкала упрощает сравнение их относительного роста: равные расстояния представляют равные отношения, а не равные разницы.
+Логарифмическая ось значений полезна, когда положительные значения охватывают несколько порядков величины. Например, сервис может получать 10, 100, 1 000, 10 000 и 100 000 запросов за пять периодов. На линейной шкале небольшие значения находятся близко друг к другу около нуля. Логарифмическая шкала упрощает сравнение их относительного роста: одинаковые расстояния представляют одинаковые отношения, а не одинаковые различия.
 
-Вызовите [setLogarithmic](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogarithmic-boolean-) с `true` для оси значений и используйте [setLogBase](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogBase-double-) для выбора основания. Это меняет только отображение существующих значений; данные не меняются и не добавляется логарифмическая тренд‑линия. Тренд‑линия представляет подгонку данных и является отдельной функцией.
+Вызовите [setLogarithmic](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogarithmic-boolean-) с `true` для оси значений и используйте [setLogBase](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setLogBase-double-) для выбора основания. Это меняет способ отображения существующих значений; данные не меняются и не добавляется логарифмическая тренд‑линия. Тренд‑линия представляет собой построенную модель зависимости в данных и является отдельной функцией.
 
-### **Выберите ось значений и основание**
+### **Выбор оси значений и основания**
 
-Для линейной или столбчатой диаграммы ось значений возвращается методом [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Для горизонтальной гистограммы — методом [getHorizontalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getHorizontalAxis--). Диаграммы разброса и пузырьковые имеют две оси значений, поэтому выбирайте горизонтальную ось для X, вертикальную для Y или обе. Не применяйте логарифмическое масштабирование к категориальной оси.
+Для линейных или столбчатых диаграмм ось значений возвращается методом [getVerticalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getVerticalAxis--). Для горизонтальной гистограммы — методом [getHorizontalAxis](https://reference.aspose.com/slides/java/com.aspose.slides/iaxesmanager/#getHorizontalAxis--). Диаграммы разброса и пузырьковые имеют две оси значений, поэтому выбирайте горизонтальную ось для значений X, вертикальную — для Y, либо обе. Не применяйте логарифмическое масштабирование к оси категорий.
 
-Исходное логарифмическое основание — `10`. Для PPTX‑диаграмм используйте основание от `2` до `1000` включительно; также поддерживаются дробные основания, такие как `2.5`. При основании `10` последовательные степени 10, 100, 1 000 и 10 000 располагаются на одинаковом расстоянии.
+Основание логарифма по умолчанию — `10`. Для PPTX‑диаграмм используйте основание от `2` до `1000` включительно; также поддерживаются дробные основания, такие как `2.5`. При основании `10` последовательные степени 10, 100, 1 000 и 10 000 расположены на одинаковом расстоянии.
 
 ### **Сравнение линейного и логарифмического масштабирования**
 
-Следующий автономный пример создаёт линейную диаграмму с пятью подсчётами запросов на первом слайде, затем клонирует этот слайд и включает логарифмическую ось значений с основанием 10 на втором. Оба слайда сохраняют одни и те же данные.
+Следующий автономный пример создаёт линейную диаграмму с пятью счётчиками запросов на первом слайде, затем клонирует этот слайд и включает логарифмическую ось значений с основанием 10 на втором. Оба слайда сохраняют одинаковые данные.
 
 ```java
 import com.aspose.slides.*;
@@ -430,7 +524,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Сохранить первый слайд линейным и изменить только масштаб оси значений копии.
+    // Оставить первый слайд линейным и изменить только масштаб оси значений копии.
     ISlide logarithmicSlide = presentation.getSlides().addClone(slide);
     IChart logarithmicChart = (IChart)logarithmicSlide.getShapes().get_Item(0);
     IAxis valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -443,24 +537,24 @@ try {
 }
 ```
 
-**Linear scale (slide 1):** Равные вертикальные расстояния представляют равные различия в количестве запросов. Наибольшее значение доминирует в диаграмме, делая меньшие значения трудно различимыми.
+**Линейный масштаб (слайд 1):** Одинаковые вертикальные расстояния представляют равные различия в количестве запросов. Наибольшее значение доминирует в диаграмме, делая меньшие значения трудно различимыми.
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![Линейная диаграмма в PowerPoint, показывающая пять количеств запросов на линейной оси значений](value-axis-linear.png)
 
-**Logarithmic scale (slide 2):** Равные вертикальные расстояния представляют равные отношения. Каждый период содержит в десять раз больше запросов, чем предыдущий, поэтому точки образуют прямую восходящую линию на шкале с основанием 10. Метки оси всё равно показывают исходные количества запросов.
+**Логарифмический масштаб (слайд 2):** Одинаковые вертикальные расстояния представляют одинаковые отношения. Каждый период имеет в десять раз больше запросов, чем предыдущий, поэтому точки образуют прямую восходящую линию на шкале с основанием 10. Метки оси всё равно отображают исходные количества запросов.
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![Те же пять количеств запросов в PowerPoint на логарифмической оси значений с основанием 10](value-axis-logarithmic.png)
 
 ### **Обработка нулевых и отрицательных значений**
 
-Логарифмическая шкала может отображать только строго положительные значения. Проверьте данные перед включением её. Если нулевые или отрицательные значения имеют смысл, оставьте линейную шкалу или показывайте их отдельно. Если исключение этих значений уместно для анализа, объясните причину. Не заменяйте их «тихо» небольшими положительными числами, так как это меняет смысл данных. Любой вручную заданный минимум или максимум для логарифмической оси также должен быть положительным.
+Логарифмическая шкала может отображать только строго положительные значения. Проверьте данные перед включением её. Если нулевые или отрицательные значения имеют смысл, сохраните линейную шкалу или отображайте их отдельно. Если исключение этих значений уместно для анализа, объясните причину. Не заменяйте их тихо на небольшие положительные числа, так как это меняет смысл данных. Любой вручную установленный минимум или максимум для логарифмической оси также должен быть положительным.
 
 ## **FAQ**
 
 **Как задать значение, в котором одна ось пересекает другую (пересечение осей)?**
 
-Используйте [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) для выбора поведения пересечения. Чтобы указать числовое значение пересечения, используйте [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-). Эти настройки позволяют переместить пересечение осей к подходящей базовой линии.
+Используйте [setCrossType](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossType-int-) для выбора поведения пересечения. Чтобы задать числовое значение пересечения, используйте [setCrossAt](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setCrossAt-float-). Эти настройки позволяют переместить пересечение осей к подходящей базовой линии.
 
-**Как позиционировать метки делений относительно оси?**
+**Как позиционировать подписи делений относительно оси?**
 
-Вызовите [setTickLabelPosition](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTickLabelPosition-int-) с использованием [TickLabelPositionType](https://reference.aspose.com/slides/java/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` или `None`. Чтобы управлять самими делениями, используйте [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) или [setMinorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMinorTickMark-int-); они отдельны от позиционирования меток.
+Вызовите [setTickLabelPosition](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setTickLabelPosition-int-) используя [TickLabelPositionType](https://reference.aspose.com/slides/java/com.aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` или `None`. Чтобы управлять самими делениями, используйте [setMajorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMajorTickMark-int-) или [setMinorTickMark](https://reference.aspose.com/slides/java/com.aspose.slides/axis/#setMinorTickMark-int-); они независимы от позиционирования подписей.

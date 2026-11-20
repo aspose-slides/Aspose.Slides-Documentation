@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις χρησιμοποιώντας C++
-linktitle: Πλαίσιο Βίντεο
+title: Διαχείριση πλαισίων βίντεο σε παρουσιάσεις χρησιμοποιώντας C++
+linktitle: Πλαίσιο βίντεο
 type: docs
 weight: 10
 url: /el/cpp/video-frame/
@@ -17,21 +17,21 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Γρήγορος οδηγός πρακτικών."
+description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Γρήγορος οδηγός βήμα-βήμα."
 ---
 ## **Εισαγωγή**
 
-Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην εμπλοκή του κοινού. Το Aspose.Slides για C++ σάς επιτρέπει να προσθέτετε πλαίσια βίντεο στις διαφάνειες, να ρυθμίζετε τις ρυθμίσεις αναπαραγωγής, να διαχειρίζεστε υπότιτλους και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
+Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην εμπλοκή του κοινού. Το Aspose.Slides για C++ σας επιτρέπει να προσθέτετε πλαίσια βίντεο στις διαφάνειες, να ρυθμίζετε τις ρυθμίσεις αναπαραγωγής, να διαχειρίζεστε υπότιτλους και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
 
-Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε βίντεο στο διαδίκτυο, όπως βίντεο YouTube.
+Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε διαδικτυακά βίντεο, όπως βίντεο του YouTube.
 
-Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους.
+Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) , και άλλους σχετικούς τύπους.
 
-## **Δημιουργία Ενσωματωμένου Πλαισίου Βίντεο**
+## **Δημιουργία ενσωματωμένου πλαισίου βίντεο**
 
-Αν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
+Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνεια σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε μονάδες point. Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση επειδή το [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) το διατηρεί κλειδωμένο ενώ η παρουσίαση το χρησιμοποιεί.
+Αυτό το παράδειγμα ενσωματώνει τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου δίνονται σε σημεία. Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση επειδή το [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) το διατηρεί κλειδωμένο ενώ η παρουσίαση το χρησιμοποιεί.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Μπορείτε επίσης να περάσετε μια διαδρομή τοπικού βίντεο απευθείας στη μέθοδο [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμένει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
+Μπορείτε επίσης να περάσετε μια διαδρομή τοπικού βίντεο απευθείας στο [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμείνει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Δημιουργία Πλαισίου Βίντεο με Βίντεο από Πηγή στο Διαδίκτυο**
+## **Δημιουργία πλαισίου βίντεο με βίντεο από διαδικτυακή πηγή**
 
-Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει βίντεο στο διαδίκτυο στις παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται με ένα βίντεο στο διαδίκτυο, όπως ένα βίντεο YouTube.
+Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει διαδικτυακά βίντεο σε παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται σε διαδικτυακό βίντεο, όπως ένα βίντεο του YouTube.
 
-Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μια μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό του βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η μέθοδος [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο προβολέας της παρουσίασης πρέπει επίσης να υποστηρίζει την αναπαραγωγή βίντεο στο διαδίκτυο.
+Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η μέθοδος [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο προβολέας της παρουσίασης πρέπει επίσης να υποστηρίζει διαδικτυακή αναπαραγωγή βίντεο.
 
 ```cpp
 #include <net/web_client.h>
@@ -127,11 +127,11 @@ presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Αναπαραγωγή Βίντεο σε Λειτουργία Πλήρους Οθόνης**
+## **Αναπαραγωγή βίντεο σε λειτουργία πλήρους οθόνης**
 
-Σε μια παρουσίαση εκπαίδευσης, μπορείτε να προβάλετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να βλέπει τις λεπτομέρειες. Η [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) δέχεται `true` για να ενεργοποιήσει αυτήν τη συμπεριφορά κατά την αναπαραγωγή.
+Σε μια εκπαιδευτική παρουσίαση, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να δει τις λεπτομέρειες. Το [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) δέχεται την τιμή `true` για να ενεργοποιήσει αυτή τη συμπεριφορά κατά την αναπαραγωγή.
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή σε πλήρη οθόνη. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή σε πλήρη οθόνη. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η αναπαραγωγή σε πλήρη οθόνη ελέγχει πώς εμφανίζεται το βίντεο. Ξεχωριστά, η [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ελέγχει αν ξεκινά αυτόματα ή με κλικ, και η [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και επανάληψης.
+Η αναπαραγωγή σε πλήρη οθόνη ελέγχει πώς εμφανίζεται το βίντεο. Ανεξάρτητα, το [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ελέγχει αν ξεκινά αυτόματα ή με κλικ, και το [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και βρόχου.
 
-## **Επιστροφή του Βίντεο στην Αρχή μετά την Αναπαραγωγή**
+## **Επιστροφή βίντεο στην αρχή μετά την αναπαραγωγή**
 
-Σε μια παρουσίαση εκπαίδευσης, η επιστροφή ενός βίντεο επίδειξης στην αρχή το καθιστά έτοιμο για τον παρουσιαστή να το ξαναπροβάλλει. Καλέστε τη [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) με `true` για να επιστρέψετε το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
+Σε μια εκπαιδευτική παρουσίαση, η επιστροφή ενός βίντεο επίδειξης στην αρχή το καθιστά έτοιμο για τον παρουσιαστή να το ξαναπαίξει. Καλέστε το [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) με `true` για να επιστρέψετε το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επιστροφή. Απενεργοποιεί την επανάληψη ώστε η αναπαραγωγή να μπορεί να ολοκληρωθεί και ορίζει την εκκίνηση στην αναπαραγωγή με κλικ. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επιστροφή. Απενεργοποιεί τον βρόχο ώστε η αναπαραγωγή να ολοκληρωθεί και ορίζει την εκκίνηση με κλικ. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η επιστροφή επαναφέρει το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντίθετα, η ενεργοποίηση της [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) επαναλαμβάνει την αναπαραγωγή αυτόματα. Διατηρήστε την επανάληψη απενεργοποιημένη όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανάληψη. Η [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ελέγχει αυτόνομα την αυτόματη ή με κλικ εκκίνηση· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) έτσι ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση επανάληψης, όπως φαίνεται στο παράδειγμα. Η επιστροφή λειτουργεί αυτόνομα από τη [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Η επιστροφή επαναφέρει το βίντεο στην αρχή χωρίς να το ξαναξεκινήσει. Αντίθετα, η ενεργοποίηση του [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) επαναλαμβάνει την αναπαραγωγή αυτόματα. Κρατήστε τον βρόχο απενεργοποιημένο όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανάληψη. Το [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ελέγχει ανεξάρτητα την αυτόματη ή με κλικ εκκίνηση· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση του βρόχου, όπως φαίνεται στο παράδειγμα. Η επιστροφή λειτουργεί ανεξάρτητα από το [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
-## **Περικοπή Πλαισίου Βίντεο**
+## **Περικοπή πλαισίου βίντεο**
 
-Χρησιμοποιήστε τις [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) και [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά του δευτερολέπτου. Η περικοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
+Χρησιμοποιήστε τις μεθόδους [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) και [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές δίνεται σε χιλιοστά του δευτερολέπτου. Η περικοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
 
-**Ορισμός Ρυθμίσεων Περικοπής**
+**Ορισμός ρυθμίσεων περικοπής**
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμείνει ένα αναγνώσιμο τμήμα.
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο των 3,5 δευτερολέπτων ώστε να παραμείνει ένα αναπαραγώσιμο τμήμα.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Ανάγνωση Ρυθμίσεων Περικοπής**
+**Ανάγνωση ρυθμίσεων περικοπής**
 
-Αυτό το παράδειγμα εμφανίζει τις τιμές περικοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια. Αν αυτή η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εμφανίζεται κανένα αποτέλεσμα. Το προηγούμενο παράδειγμα παράγει τιμές 2500 και 1000.
+Αυτό το παράδειγμα εκτυπώνει τις τιμές περικοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια. Εάν αυτή η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εκτυπώνεται τίποτα. Το προηγούμενο παράδειγμα παράγει τιμές 2500 και 1000.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -279,13 +279,13 @@ for (auto&& shape : IterateOver(slide->get_Shapes()))
 presentation->Dispose();
 ```
 
-## **Διαχείριση Υπότιτλων Βίντεο**
+## **Διαχείριση υποτίτλων βίντεο**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της μεθόδου [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
+Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της μεθόδου [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
-**Πρόσθεση Υπότιτλων σε Πλαίσιο Βίντεο**
+### **Προσθήκη υποτίτλων σε πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα WebVTT track υπότιτλων με ετικέτα English. Τα χρονικά σημεία των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλούς του.
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα κομμάτι υποτίτλου WebVTT με ετικέτα English. Τα χρονικά σήματα των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλούς του.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από μια ροή.
+Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που επιτρέπει την προσθήκη υποτίτλων από μια ροή.
 
-**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
+### **Εξαγωγή υποτίτλων από πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα αποθηκεύει όλα τα tracks υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Οι διαδοχικοί αριθμοί κρατούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων tracks. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
+Αυτό το παράδειγμα αποθηκεύει όλα τα κομμάτια υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Διαδοχικοί αριθμοί κρατούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγμένων κομματιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -364,9 +364,9 @@ presentation->Dispose();
 
 Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) εκθέτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF-8.
 
-**Κατάργηση Υπότιτλων από Πλαίσιο Βίντεο**
+### **Αφαίρεση υποτίτλων από πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα καταργεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος της πρώτης διαφάνειας και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι ένα πλαίσιο βίντεο.
+Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι ένα πλαίσιο βίντεο.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Εάν χρειάζεται να αφαιρέσετε μόνο ένα track υπότιτλου, χρησιμοποιήστε τις μεθόδους [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) ή [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) αντί για τη [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+Εάν χρειάζεται να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) ή [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) αντί για το [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
 
-## **Εξαγωγή Βίντεο από Διαφάνεια**
+### **Αναζήτηση υποτίτλων βίντεο**
+
+Η μέθοδος [ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) επιστρέφει το πλήρες κομμάτι WebVTT, συμπεριλαμβανομένου του κεφαλίδας, των γραμμών χρονοσήμανσης και του κειμένου υποτίτλου. Για να βρείτε μια προφορική φράση και το χρονικό της σήμα, διαβάζετε τα cues στη μνήμη. Για παράδειγμα, ένα αγγλικό κομμάτι στην διαφάνεια 2 μπορεί να περιέχει το παρακάτω κείμενο:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Το παράδειγμα ανοίγει το `captioned_media.pptx` και διαβάζει τα κομμάτια υποτίτλων κάθε κορυφαίου πλαισίου βίντεο σε κάθε διαφάνεια χρησιμοποιώντας το [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). Σε ένα cue απλού κειμένου, η γραμμή χρονοσήμανσης περιέχει `-->` και μια κενή γραμμή τερματίζει το cue. Όταν ο υπότιτλος περιέχει τη λέξη “café”, το παράδειγμα εκτυπώνει τον αριθμό διαφάνειας, την ετικέτα του κομματιού, την αρχική γραμμή χρονοσήμανσης και τον πλήρη υπότιτλο. Η αναζήτηση αγνοεί τη διαφορά πεζών-κεφαλαίων.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Η αναζήτηση για “café” παράγει ένα αντιστοίχηση για το δείγμα κομματιού. Η αναζήτηση παραλείπει την κεφαλίδα και διατηρεί τη ρύθμιση χρονοσήμανσης στην έξοδο.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Εξαγωγή βίντεο από διαφάνεια**
 
 Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
 
-Αυτό το παράδειγμα εξάγει ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εμφανίζει τον τύπο MIME κάθε βίντεο και τον συνολικό αριθμό. Η έξοδος χρησιμοποιεί την γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον αναφερόμενο τύπο μέσου όταν χρειάζεται.
+Αυτό το παράδειγμα εξάγει τα ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά, αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εκτυπώνει τον τύπο MIME κάθε βίντεο και το συνολικό πλήθος. Η έξοδος χρησιμοποιεί την γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον αναφερθέν τύπο media όταν χρειάζεται.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,18 +525,18 @@ presentation->Dispose();
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποια παραμέτρα αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
+**Ποιοι παράμετροι αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
 
 Μπορείτε να ελέγξετε τη [λειτουργία αναπαραγωγής](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (αυτόματη ή με κλικ) και την [επανάληψη](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Αυτές οι επιλογές είναι διαθέσιμες μέσω των μεθόδων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
 **Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέεστε με ένα βίντεο στο διαδίκτυο και προσθέτετε μια μικρογραφία, η παρουσίαση αποθηκεύει τον σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα του βίντεο, επομένως η αύξηση του μεγέθους είναι συνήθως μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, επομένως το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέεστε σε διαδικτυακό βίντεο και προσθέτετε μια μικρογραφία, η παρουσίαση αποθηκεύει τον σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα βίντεο, έτσι η αύξηση του μεγέθους είναι συνήθως μικρότερη.
 
-**Μπορώ να αντικαταστήσω το βίντεο σε υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
+**Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να ανταλλάξετε το [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) εντός του πλαισίου διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι ένα κοινό σενάριο για την ενημέρωση μέσων σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να ανταλλάξετε το [περιεχόμενο βίντεο](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι ένα συνηθισμένο σενάριο για την ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στο δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [τύπο περιεχομένου](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε στο δίσκο.

@@ -1,5 +1,5 @@
 ---
-title: Java を使用したプレゼンテーションでオーディオを管理する
+title: Java を使用したプレゼンテーションでのオーディオ フレームの管理
 linktitle: オーディオ フレーム
 type: docs
 weight: 10
@@ -8,220 +8,185 @@ keywords:
 - オーディオ
 - オーディオ フレーム
 - サムネイル
-- オーディオの追加
+- オーディオ の追加
 - オーディオ プロパティ
 - オーディオ オプション
-- オーディオの抽出
+- オーディオ の抽出
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でオーディオ フレームを作成および制御します—PPT、PPTX、ODP プレゼンテーション向けの埋め込み、トリム、ループ、再生設定のコード例。"
+description: "Aspose.Slides for Java を使用して、スライドにオーディオを埋め込み、オーディオ アイコンを変更し、再生設定を構成し、WebVTT キャプションを管理し、スライド遷移音を抽出します。"
 ---
-## **オーディオフレームの作成**
+## **概要**
 
-Aspose.Slides for Java を使用すると、スライドにオーディオ ファイルを追加できます。オーディオ ファイルはスライドにオーディオ フレームとして埋め込まれます。
+オーディオ フレームを使用すると、スライド上でサウンドを再生できます。Aspose.Slides for Java を使用すると、オーディオ クリップを埋め込み、その画像を選択し、再生を調整し、キャプションを添付できます。また、スライド遷移に割り当てられたサウンドを取得することもできます。
 
-1. Presentation クラスのインスタンスを作成します。
-2. インデックスを使用してスライドの参照を取得します。
-3. スライドに埋め込むオーディオ ファイルのストリームをロードします。
-4. 埋め込まれたオーディオ フレーム（オーディオ ファイルを含む）をスライドに追加します。
-5. IAudioFrame オブジェクトが提供する PlayMode と Volume を設定します。
-6. 変更したプレゼンテーションを保存します。
+## **オーディオ フレームの作成**
 
-この Java コードは、スライドに埋め込みオーディオ フレームを追加する方法を示しています:
+最初のスライドにローカル オーディオ クリップを埋め込むには、[addAudioFrameEmbedded](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-java.io.InputStream-) を使用します。最初の 2 つの座標はフレームの位置を決め、次の 2 つは幅と高さをポイント単位で設定します。この例では、クリップを自動的に開始するために [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setPlayMode-int-) を呼び出し、音量のプリセットを選択するために [setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setVolume-int-) を呼び出しています。
 
 ```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
-Presentation pres = new Presentation();
-try {
-    // 最初のスライドを取得します
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // wav サウンド ファイルをストリームにロードします
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // オーディオ フレームを追加します
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // オーディオの再生モードと音量を設定します
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // PowerPoint ファイルをディスクに書き込みます
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **オーディオ フレーム サムネイルの変更**
+## **オーディオ フレームのサムネイルの変更**
 
-プレゼンテーションにオーディオ ファイルを追加すると、オーディオは標準のデフォルト画像を持つフレームとして表示されます（以下の画像を参照）。オーディオ フレームのプレビュー画像（好みの画像）に変更できます。
-
-この Java コードは、オーディオ フレームのサムネイルまたはプレビュー画像を変更する方法を示しています:
+デフォルトでは、オーディオ フレームはスピーカー アイコンを表示します。カスタム サムネイルを表示するには、[addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-java.io.InputStream-) でプレゼンテーションに画像を追加し、[setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/#setImage-com.aspose.slides.IPPImage-) でフレームの画像として設定します。この例では、埋め込みオーディオ クリップのサムネイルとして JPEG を使用しています。
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // スライドに指定された位置とサイズでオーディオ フレームを追加します。
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
+try (FileInputStream audioStream = new FileInputStream("audio.wav");
+     FileInputStream imageStream = new FileInputStream("eagle.jpeg")) {
+    IPPImage thumbnail = presentation.getImages().addImage(imageStream);
+
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
+    audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
 
-    // プレゼンテーションのリソースに画像を追加します。
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // オーディオ フレームの画像を設定します。
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-    // 変更したプレゼンテーションをディスクに保存します
     presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **オーディオ 再生オプションの変更**
 
-Aspose.Slides for Java を使用すると、オーディオの再生やプロパティを制御するオプションを変更できます。たとえば、音量を調整したり、ループ再生に設定したり、オーディオ アイコンを非表示にしたりできます。
+PowerPoint の **Audio Options** コントロールは、クリップの開始タイミング、音量、およびスライドショー中の動作を決定します。
 
-Microsoft PowerPoint の **Audio Options** パネル:
+![オーディオ フレームの PowerPoint Audio Options コントロール](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint コントロール | Aspose.Slides for Java メソッド |
+| --- | --- |
+| 開始 | [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setPlayMode-int-) |
+| 音量プリセット | [setVolume](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setVolume-int-) |
+| スライド全体で再生 | [setPlayAcrossSlides](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setPlayAcrossSlides-boolean-) |
+| 停止までループ | [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setPlayLoopMode-boolean-) |
+| 表示中に非表示 | [setHideAtShowing](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setHideAtShowing-boolean-) |
+| 再生後に巻き戻し | [setRewindAudio](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setRewindAudio-boolean-) |
+| フェードイン | [setFadeInDuration](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setFadeInDuration-float-) |
+| フェードアウト | [setFadeOutDuration](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setFadeOutDuration-float-) |
+| オーディオ開始時間のトリム | [setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) |
+| オーディオ終了時間のトリム | [setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) |
+| 音量スライダー | [setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setVolumeValue-float-) |
 
-PowerPoint の **Audio Options**（Aspose.Slides の [AudioFrame] プロパティに対応）:
+この例では、最初のスライドの最初のオーディオ フレームを見つけ、クリック時に再生を開始するために [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setPlayMode-int-) を呼び出し、低音量プリセットを選択しています。ループを無効にした状態で、クリップはスライドをまたいで再生されます。アイコンはショー中に非表示のままで、再生後にクリップは巻き戻されます。
 
-- **Start** ドロップダウン リストは [AudioFrame.setPlayMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setPlayMode-int-) メソッドに対応します
-- **Volume** は [AudioFrame.setVolume](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setVolume-int-) メソッドに対応します
-- **Play Across Slides** は [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setPlayAcrossSlides-boolean-) メソッドに対応します
-- **Loop until Stopped** は [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setPlayLoopMode-boolean-) メソッドに対応します
-- **Hide During Show** は [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setHideAtShowing-boolean-) メソッドに対応します
-- **Rewind after Playing** は [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setRewindAudio-boolean-) メソッドに対応します
+```java
+import com.aspose.slides.*;
 
-PowerPoint の **Editing** オプション（Aspose.Slides の [AudioFrame] プロパティに対応）:
-
-- **Fade In** は [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setFadeInDuration-float-) メソッドに対応します
-- **Fade Out** は [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setFadeOutDuration-float-) メソッドに対応します
-- **Trim Audio Start Time** は [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setTrimFromStart-float-) メソッドに対応します
-- **Trim Audio End Time** の値は、オーディオの長さから [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setTrimFromEnd-float-) メソッドの値を差し引いたものに等しくなります
-
-PowerPoint のオーディオ コントロール パネルの **Volume** コントロールは [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/audioframe/#setVolumeValue-float-) メソッドに対応します。音量をパーセンテージで変更できます。
-
-オーディオ 再生オプションを変更する手順:
-
-1. [作成](#create-audio-frame) または取得した Audio Frame。
-2. 調整したい Audio Frame のプロパティに新しい値を設定します。
-3. 変更した PowerPoint ファイルを保存します。
-
-この Java コードは、オーディオのオプションを調整する操作を示しています:
-
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    // AudioFrame シェイプを取得します
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 再生モードをクリック時に再生するように設定します
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // 音量を Low に設定します
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // オーディオをスライド全体で再生するように設定します
-    audioFrame.setPlayAcrossSlides(true);
-
-    // オーディオのループを無効にします
-    audioFrame.setPlayLoopMode(false);
-
-    // スライドショー中に AudioFrame を非表示にします
-    audioFrame.setHideAtShowing(true);
-
-    // 再生後にオーディオを開始位置に巻き戻します
-    audioFrame.setRewindAudio(true);
-
-    // PowerPoint ファイルをディスクに保存します
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-この Java 例は、埋め込みオーディオを持つ新しいオーディオ フレームを追加し、トリムし、フェード時間を設定する方法を示しています:
+長さが 3.5 秒を超えるクリップの場合、この例では最初の 1.5 秒と最後の 2 秒をスキップします。[setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) はクリップの末尾から除外する時間を指定します。PowerPoint に表示される終了時刻を取得するには、全体のクリップ長さからそのオフセットを差し引きます。トリミングされたクリップは 200 ミリ秒でフェードインし、500 ミリ秒でフェードアウトします。これら 4 つのメソッドはすべてミリ秒単位の値を受け取ります。
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    byte[] audioData = Files.readAllBytes(Paths.get("sampleaudio.mp3"));
-    IAudio audio = pres.getAudios().addAudio(audioData);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // トリミング開始オフセットを 1.5 秒に設定します
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
     audioFrame.setTrimFromStart(1500f);
-    // トリミング終了オフセットを 2 秒に設定します
     audioFrame.setTrimFromEnd(2000f);
-
-    // フェードインの長さを 200 ミリ秒に設定します
     audioFrame.setFadeInDuration(200f);
-    // フェードアウトの長さを 500 ミリ秒に設定します
     audioFrame.setFadeOutDuration(500f);
 
-    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+    presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-以下のコード サンプルは、埋め込みオーディオを持つオーディオ フレームを取得し、音量を 85% に設定する方法を示しています:
+再生音量を特定のパーセンテージに設定するには、[setVolumeValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setVolumeValue-float-) を使用します。この例では、最初のスライドの最初のオーディオ フレームの音量を 85% に設定しています。
 
 ```java
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // オーディオ フレーム シェイプを取得します
-    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // オーディオの音量を 85% に設定します
-    audioFrame.setVolumeValue(85f);
-
-    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
+    if (audioFrame != null) {
+        audioFrame.setVolumeValue(85f);
+        presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **オーディオ キャプションの管理**
 
-Aspose.Slides は、[getCaptionTracks](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) メソッドを使用してオーディオ フレームにクローズド キャプションを追加できるようにします。このメソッドは [ICaptionsCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icaptionscollection/) を返し、WebVTT キャプション トラックの追加、既存トラックの反復、必要に応じた削除が可能です。
+各オーディオ フレームは、[getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) を通じてキャプション トラックにアクセスできます。コレクションを使用してクリップに WebVTT キャプションを添付したり、既存のトラックをエクスポートしたり、削除したりできます。
 
-**オーディオ キャプションの追加**
+### **オーディオ キャプションの追加**
 
-[getCaptionTracks](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaudioframe/#getCaptionTracks--) メソッドを使用して、1 つまたは複数のキャプション トラックをオーディオ フレームに添付します。以下の例では、スライドにオーディオ ファイルを追加し、`.vtt` ファイルから新しいキャプション トラックをロードしています。
+この例では、最初のスライドにオーディオ クリップを埋め込み、[add](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#add-java.lang.String-java.lang.String-) を使用してローカル WebVTT トラックを添付しています。第1引数はトラックのラベルを提供し、第2引数はタイミング付きキャプションを含むファイルを指定します。
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
-    IAudio audio = presentation.getAudios().addAudio(audioData);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // WebVTT ファイルから新しいキャプション トラックを追加します。
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+    audioFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
 } finally {
@@ -229,21 +194,93 @@ try {
 }
 ```
 
-**オーディオ キャプションの抽出**
+### **オーディオ キャプションの抽出**
 
-オーディオ フレームに関連付けられたキャプション トラックを反復処理し、`.vtt` ファイルとして保存できます。各キャプション トラックはバイナリ データと一意の識別子を公開しており、キャプションのエクスポート時に使用できます。
+この例では、最初のスライドのオーディオ フレームに添付された各キャプション トラックをエクスポートします。[getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getBinaryData--) が返すバイト列を WebVTT ファイルに書き込み、[getCaptionId](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getCaptionId--) が返す識別子をファイル名として使用することで、各トラックが個別の出力となります。
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame ) {
-            IAudioFrame audioFrame = (IAudioFrame) shape;
-            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
-                // キャプショントラックを .vtt ファイルとして保存します。
-                Path filePath = Paths.get(captionTrack.getCaptionId() + ".vtt");
-                Files.write(filePath, captionTrack.getBinaryData());
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            Path output = Paths.get(track.getCaptionId() + ".vtt");
+            Files.write(output, track.getBinaryData());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **オーディオ キャプションの削除**
+
+個々のトラックを削除するには、[remove](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) または [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#removeAt-int-) を使用します。この例では、[clear](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/#clear--) を使用してクリップを保持したまま、最初のスライドの最初のオーディオ フレームからすべてのキャプションを削除しています。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
+
+    if (audioFrame != null) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **オーディオ キャプション内の行の検索**
+
+最初のスライドのオーディオ キャプションで行を検索するには、メモリ内で [getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) が返すテキストを検索します。プレーンテキストの WebVTT キューでは、タイミング行に `-->` が含まれ、続いてキャプション行があり、空行でキューが終了します。この例では、トラック ラベルと “café” を含む各キャプション行を出力しています。
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            boolean inCue = false;
+            String captions = track.getDataAsString();
+            for (String line : captions.split("\\R")) {
+                if (line.isEmpty()) {
+                    inCue = false;
+                } else if (line.contains("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase(Locale.ROOT).contains("café")) {
+                    System.out.println(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -252,64 +289,39 @@ try {
 }
 ```
 
-**オーディオ キャプションの削除**
+## **オーディオの抽出**
 
-キャプションをオーディオ フレームから削除するには、[ICaptionsCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icaptionscollection/) が提供する [clear](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icaptionscollection/#clear--)、[remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-)、または [removeAt](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icaptionscollection/#removeAt-int-) メソッドを使用します。以下の例は、オーディオ フレームからすべてのキャプション トラックを削除します。
+スライド遷移には独自のサウンドを設定できます。これを取得するには、遷移オブジェクトで [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSound--) を呼び出します。この例では、[getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--) が返すバイト列にアクセスし、バイト数を表示しています。最初のスライドに遷移サウンドがない場合は、代わりにメッセージを表示します。
 
 ```java
-Presentation presentation = new Presentation("audio_with_captions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioSlide.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
 
-    // オーディオ フレームからすべてのキャプショントラックを削除します。
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    IAudio sound = slide.getSlideShowTransition().getSound();
+    if (sound != null) {
+        byte[] audioData = sound.getBinaryData();
+        System.out.println("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        System.out.println("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **オーディオの抽出**
-
-Aspose.Slides for Java を使用すると、スライドショーの遷移で使用されるサウンドを抽出できます。たとえば、特定のスライドで使用されるサウンドを抽出できます。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/Presentation) クラスのインスタンスを作成し、オーディオを含むプレゼンテーションをロードします。
-2. インデックスを使用して対象スライドの参照を取得します。
-3. スライドの [slideshow transitions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IBaseSlide#getSlideShowTransition--) にアクセスします。
-4. サウンドをバイト データとして抽出します。
-
-この Java コードは、スライドで使用されているオーディオを抽出する方法を示しています:
-
-```java
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
-Presentation pres = new Presentation("AudioSlide.pptx");
-try {
-    // 指定したスライドにアクセスします
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // スライドのスライドショー遷移効果を取得します
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //バイト配列としてサウンドを抽出します
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
 ## **FAQ**
 
-**同じオーディオ アセットを複数のスライドで再利用して、ファイル サイズが増大しないようにできますか？**
+**同じオーディオ クリップを複数のスライドで重複させずに再利用できますか？**
 
-はい。プレゼンテーションの共有 **audio collection** にオーディオを 1 回だけ追加し、その既存アセットを参照する追加のオーディオ フレームを作成します。これによりメディア データの重複が回避され、プレゼンテーション サイズを抑制できます。
+はい。クリップはプレゼンテーションの [audio collection](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getAudios--) に一度だけ追加し、各スライドで同じオーディオ オブジェクトを [addAudioFrameEmbedded](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-com.aspose.slides.IAudio-) に渡すだけです。
 
-**既存のオーディオ フレームのサウンドを、シェイプを再作成せずに置き換えることはできますか？**
+**既存のオーディオ フレームのサウンドを置き換えることはできますか？**
 
-はい。リンクされたサウンドの場合は、[link path](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) を新しいファイルに更新します。埋め込みサウンドの場合は、プレゼンテーションの **audio collection** から別の [embedded audio](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) オブジェクトに差し替えます。フレームの書式設定や多くの再生設定はそのまま保持されます。
+はい。リンクされたサウンドの場合は、[setLinkPathLong](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) を使用して置き換えるファイルを指定します。埋め込みサウンドの場合は、プレゼンテーションのオーディオ コレクションから別のクリップを [setEmbeddedAudio](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) で選択します。どちらの方法でも既存のフレームは保持されます。
 
-**トリミングは、プレゼンテーションに保存されている基礎のオーディオ データを変更しますか？**
+**トリミングはプレゼンテーションに保存されているオーディオ データを変更しますか？**
 
-いいえ。トリミングは再生範囲のみを調整します。元のオーディオ バイトは変更されず、埋め込みオーディオまたはプレゼンテーションのオーディオ コレクションを介して引き続きアクセス可能です。
+いいえ。[setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) と [setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) は再生範囲を設定するだけです。完全なクリップは依然として [getEmbeddedAudio](https://reference.aspose.com/slides/java/com.aspose.slides/iaudioframe/#getEmbeddedAudio--) から取得できます。

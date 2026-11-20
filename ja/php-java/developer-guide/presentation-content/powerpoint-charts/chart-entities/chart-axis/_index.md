@@ -1,5 +1,5 @@
 ---
-title: "PHP を使用したプレゼンテーションでのチャート軸のカスタマイズ"
+title: "PHP を使用したプレゼンテーションのチャート軸のカスタマイズ"
 linktitle: "チャート軸"
 type: docs
 url: /ja/php-java/chart-axis/
@@ -21,17 +21,17 @@ keywords:
 - "プレゼンテーション"
 - "PHP"
 - "Aspose.Slides"
-description: "レポートや可視化のために、Java 経由で PHP 用 Aspose.Slides を使用して PowerPoint プレゼンテーションのチャート軸をカスタマイズする方法を学びましょう。"
+description: "レポートや可視化のために、Java を介した Aspose.Slides for PHP を使用して PowerPoint プレゼンテーションのチャート軸をカスタマイズする方法をご紹介します。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for PHP via Java を使用してチャート軸をカスタマイズする方法を説明します。計算された軸の値、チャートの行と列の切り替え、軸の表示/非表示、カテゴリ ラベルと目盛り間隔、日付カテゴリと書式設定、タイトルの回転、軸の位置、表示単位、対数スケーリングについて取り上げます。
+本記事では、Aspose.Slides for PHP via Java を使用してチャート軸をカスタマイズする方法を説明します。計算された軸の値、チャートの行と列の入れ替え、軸の表示/非表示、カテゴリラベルと目盛り間隔、日付カテゴリと書式設定、タイトルの回転、軸の位置設定、表示単位、対数スケーリングについて取り上げます。
 
 ## **チャートの縦軸の最大値を取得する**
 
-Create a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and add an area chart with default data. Call [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) before reading calculated axis values so that the chart layout is up to date.
+[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) を作成し、既定データのエリアチャートを追加します。計算された軸の値を取得する前に、チャートのレイアウトを最新に保つために [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) を呼び出します。
 
-Read [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) and [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) for the axis limits, and [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) and [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) for the tick intervals. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) and [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
+軸の上限と下限を取得するには [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) と [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) を読み取り、目盛り間隔は [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) と [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) で取得します。[getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) と [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) は日付軸に関連する時間単位スケールを提供します。この例ではこれらの値をローカル変数に保存し、チャートを保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -62,7 +62,7 @@ try {
 
 ## **軸間のデータを入れ替える**
 
-Use [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
+[swapRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) を使用して、チャートデータ内の系列とカテゴリの役割を交換します。各元のカテゴリが系列になり、各元の系列がカテゴリになります。データのグループ化方法が変わりますが、水平軸と垂直軸自体は入れ替わりません。この例では [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) を使用してデフォルトデータを `Sheet1!A1:D5`（ヘッダー行とカテゴリ列を含む）にバインドし、行と列を入れ替える前に設定します。4 系列と 3 カテゴリのチャートを保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -85,9 +85,9 @@ try {
 
 ## **軸のプロット順序を逆にする**
 
-Use [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) exchanges the roles of series and categories.
+[setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) を使用してカテゴリ軸または値軸のプロット順序を逆にします。たとえば、水平棒グラフで「計画、開発、テスト」の順に上から下へ表示できます。軸を逆にすると描画方向が変わりますが、ワークブックのデータは並び替えられません。対照的に、[switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) は系列とカテゴリの役割を交換します。
 
-The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+以下の例は、3 つのステージと 1 系列の水平棒グラフを作成します。3 枚のスライド（通常順序、カテゴリ逆順、値逆順）を保存します。各コピーは同じデータセットを使用し、各コピーで逆にする軸が 1 つだけです。
 
 ```php
 use aspose\slides\ChartType;
@@ -118,14 +118,14 @@ try {
         $series->getDataPoints()->addDataPointForBarSeries($valueCell);
     }
 
-    // スライド2: 最初のカテゴリを上部に表示します。
+    // スライド 2: 最初のカテゴリを上部に表示します。
     $categorySlide = $presentation->getSlides()->addClone($slide);
     $categoryChart = $categorySlide->getShapes()->get_Item(0);
     $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
-    // 水平値軸を下部に保ちます。
+    // 水平値軸を下部に保持します。
     $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
 
-    // スライド3: 水平数値スケールのみを逆にします。
+    // スライド 3: 水平の数値スケールだけを逆にします。
     $valueSlide = $presentation->getSlides()->addClone($slide);
     $valueChart = $valueSlide->getShapes()->get_Item(0);
     $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
@@ -136,16 +136,16 @@ try {
 }
 ```
 
-Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) controls where the other axis crosses the axis being configured. In slide 2, calling it with `CrossesType::Maximum` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Call `setPlotOrderReversed` with `false` to restore the normal plotting direction; crossing settings are separate.
+軸を逆にすると、直交軸をプロットの反対側に移動できることもあります。[setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) は、構成中の軸が他の軸と交差する位置を制御します。スライド 2 では、逆にしたカテゴリ軸に対して `CrossesType::Maximum` を設定すると、水平値軸が下部に残ります。特定の交差点を指定する場合は [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) を使用します。方向を変更する際は、特にカスタム交差点が設定されている場合に交差設定を確認してください。`setPlotOrderReversed` に `false` を渡すと通常の描画方向に戻ります。交差設定は別個です。
 
-| 通常順序 (スライド 1) | カテゴリ逆順 (スライド 2) | 値逆順 (スライド 3) |
+| 通常順序（スライド1） | カテゴリ逆順（スライド2） | 値逆順（スライド3） |
 | --- | --- | --- |
-| ![通常のカテゴリと値軸順序の横棒グラフ](axis-order-normal.png) | ![上から下へ表示されたカテゴリの横棒グラフ](axis-order-categories-reversed.png) | ![値軸が逆で右側がゼロの横棒グラフ](axis-order-values-reversed.png) |
-| カテゴリは下から上へ、値は左から右へ増加します。 | 計画、開発、テストは上から下へ。値とワークブックの行順序は変わりません。 | カテゴリは通常順序のまま、値は右から左へ増加します。カテゴリ軸は右側のゼロで交差します。 |
+| ![通常のカテゴリと値軸順序の水平棒グラフ](axis-order-normal.png) | ![上から下へカテゴリが表示される水平棒グラフ](axis-order-categories-reversed.png) | ![右側がゼロの逆向き値軸を持つ水平棒グラフ](axis-order-values-reversed.png) |
+| カテゴリは下から上へ、値は左から右へ増加します。 | 計画、開発、テストが上から下へ表示されます。値とワークブック行の順序は変わりません。 | カテゴリは通常順序のまま、値は右から左へ増加します。カテゴリ軸は右側のゼロで交差します。 |
 
-## **折れ線グラフの縦軸を無効にする**
+## **折れ線グラフの縦軸を非表示にする**
 
-Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
+縦軸に対して `false` を指定して [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) を呼び出し、軸を非表示にします。この例では既定データの折れ線グラフを作成し、縦軸を非表示にして保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-## **折れ線グラフの横軸を無効にする**
+## **折れ線グラフの横軸を非表示にする**
 
-Call [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) with `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
+横軸に対して `false` を指定して [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) を呼び出し、軸を非表示にします。この例では既定データの折れ線グラフを作成し、横軸を非表示にして保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -187,9 +187,48 @@ try {
 }
 ```
 
+## **チャートのグリッド線を表示または非表示にする**
+
+[getShowMajorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowmajorgridlines/) と [getShowMinorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowminorgridlines/) を呼び出して、軸が表示するグリッド線を確認します。小さいグリッド線を表示するには [getMinorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getminorgridlinesformat/) を使用し、線の塗りつぶしを実線で可視色に設定します。非表示にするには塗りつぶしを [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) に設定します。主要グリッド線の塗りつぶしを変更するには [getMajorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getmajorgridlinesformat/) を使用します。塗りつぶしを変更しても軸の可視性や目盛りは保持されます。
+
+このクラスター化縦棒グラフの縦軸は最初、主要グリッド線のみが表示されています。例では小さいオレンジ色のグリッド線を表示し、保存前に再び非表示にします。各ステップでグリッド線の可視性を出力します。
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 30, 660, 230);
+    $axis = $chart->getAxes()->getVerticalAxis();
+    printf("Initial: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill = $axis->getMinorGridLinesFormat()->getLine()->getFillFormat();
+    $minorFill->setFillType(FillType::Solid);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $minorFill->getSolidFillColor()->setColor($darkOrange);
+    printf("Enabled: minor=%s\n", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill->setFillType(FillType::NoFill);
+    printf("Hidden: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $presentation->save("ChartGridlines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| 小さいグリッド線を有効化 | 小さいグリッド線を非表示 |
+| --- | --- |
+| ![主要グリッド線の間にオレンジの小さいグリッド線がある縦軸](minor-gridlines-enabled.png) | ![主要グリッド線のみが表示されている同じ縦棒グラフ](minor-gridlines-hidden.png) |
+
 ## **カテゴリ軸を変更する**
 
-Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) with `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) with `TimeUnitType::Months` places major ticks at one-month intervals.
+[setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) を使用して、日付軸またはテキスト軸を選択します。この例は `ExistingChart.pptx`（最初のスライドの最初のシェイプがチャート、カテゴリセルに数値の Excel 日付が入っている）を必要とします。水平軸を日付軸に変更します。[setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) に `false`、[setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) に `1`、[setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) に `TimeUnitType::Months` を指定すると、主要目盛りが 1 ヶ月間隔になります。
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -213,21 +252,81 @@ try {
 }
 ```
 
+### **データからカテゴリ軸のタイプを判定する**
+
+カテゴリを設定した後に [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistypeautomatically/) を呼び出し、続いて [getCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getcategoryaxistype/) で選択結果を確認します。テキストラベルまたは数値の日付が同じチャートに与えられる場合に便利です。このメソッドは呼び出された時点でタイプを決定し、後からデータが変わっても再評価は行いません。カテゴリを置き換えた後に再度呼び出してください。
+
+以下の例はテキストカテゴリのチャートを作成し、選択されたタイプが `CategoryAxisType::Text` のときに `true` を出力します。その後、カテゴリセルの値を日付に置き換え、再度メソッドを呼び出し、選択されたタイプが `CategoryAxisType::Date` のときに `true` を出力します。日付は数値の OLE Automation 値として保存され、1899 年 12 月 30 日からの経過日数として計算されます。[setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) は表示形式を制御しますが、テキストを数値日付に変換するわけではありません。カテゴリセルの詳細は [Chart Workbook](/slides/ja/php-java/chart-workbook/) を参照してください。
+
+自動判定はテキストカテゴリまたは数値日付が混在しない入力で使用してください。通常の数値ラベルや混在カテゴリ、空データの場合は、意図した意味に合わせて明示的に [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) を呼び出してください。数値だけでもカテゴリが日付であることは自動的には判断されません。
+
+```php
+use aspose\slides\CategoryAxisType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+    $labels = ["First", "Second", "Third"];
+
+    for ($i = 0; $i < count($labels); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $labels[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Text ? "true" : "false") . PHP_EOL;
+
+    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
+    $dates = [gmmktime(0, 0, 0, 1, 1, 2026), gmmktime(0, 0, 0, 1, 2, 2026), gmmktime(0, 0, 0, 2, 1, 2026)];
+
+    for ($i = 0; $i < count($dates); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0);
+        $categoryCell->setValue((float)(($dates[$i] - $baseDate) / 86400));
+        $categoryCell->setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Date ? "true" : "false") . PHP_EOL;
+
+    $presentation->save("AutomaticCategoryAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **カテゴリ軸ラベル間隔を制御する**
 
-When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). For text categories in their normal order, counting starts at the first category:
+カテゴリが多数ある場合、カテゴリやデータポイントを削除せずに表示ラベルの数を減らすことができます。まず [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) に `false` を設定し、続いて希望するカテゴリ間隔を [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/) に渡します。テキストカテゴリが通常順序の場合、カウントは最初のカテゴリから開始されます。
 
 | 間隔 | 例で表示されるラベル |
 | --- | --- |
-| `1` | カテゴリ 1, カテゴリ 2, カテゴリ 3, … カテゴリ 24 |
-| `2` | カテゴリ 1, カテゴリ 3, カテゴリ 5, … カテゴリ 23 |
-| `3` | カテゴリ 1, カテゴリ 4, カテゴリ 7, … カテゴリ 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-`3` の間隔は 3 番目ごとのラベルを表示し、表示されたラベル間に 2 つのラベルが非表示になります。対応する列は削除されません。自動間隔は利用可能なスペースに基づいて決定され、必ずしもすべてのラベルを表示するわけではありません。
+間隔 `3` は 3 番目ごとのラベルだけを表示し、表示ラベル間に 2 つのラベルが非表示になります。対応する列は削除されません。自動間隔は利用可能なスペースに基づいて決定され、必ずしもすべてのラベルを表示するわけではありません。
 
-Tick marks have separate controls. Call [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) with `false` and use [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) with a visible style so you can see the result. Calling either automatic-spacing setter with `true` again lets the chart choose that interval again.
+目盛りには別の制御があります。[setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) に `false` を設定し、[setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) で間隔を指定します。たとえば `1` は各カテゴリ間隔に目盛りを残し、ラベルは 3 カテゴリごとに表示されます。目立つスタイルの目盛りを表示するには [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) を使用します。自動設定に戻すには、再び `true` を渡します。
 
-The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
+以下の自己完結型サンプルは 24 カテゴリと 1 系列を作成し、`CategoryAxisIntervals.pptx` に 3 枚のスライドを保存します：自動間隔、ラベル間隔手動設定（目盛りは独立）、自動間隔に復元。2 つのコピーは元のチャートデータを保持します。入力プレゼンテーションは不要です。水平ラベルテキストが密度の違いを分かりやすく示します。
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -265,7 +364,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // スライド2: 3番目ごとのラベルを表示しますが、各カテゴリに目盛りを残します。
+    // スライド 2: 3つごとにラベルを表示し、しかし各カテゴリに目盛りは残します。
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -274,7 +373,7 @@ try {
     $manualAxis->setAutomaticTickMarksSpacing(false);
     $manualAxis->setTickMarksSpacing(1);
 
-    // スライド3: チャートに両方の間隔を再度選択させます。
+    // スライド 3: チャートに両方の間隔を再び選択させます。
     $restoredSlide = $presentation->getSlides()->addClone($manualSlide);
     $restoredChart = $restoredSlide->getShapes()->get_Item(0);
     $restoredChart->getAxes()->getHorizontalAxis()->setAutomaticTickLabelSpacing(true);
@@ -286,23 +385,23 @@ try {
 }
 ```
 
-**自動間隔 (スライド 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
+**自動間隔（スライド 1）:** このレンダリングでは 2 番目のカテゴリラベルが表示され、2 行に折り返されます。自動結果はチャートサイズ、フォント、レンダラにより変わります。
 
 ![すべての 24 列が表示された自動カテゴリラベル間隔](category-axis-automatic.png)
 
-**手動間隔 (スライド 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+**手動間隔（スライド 2）:** 3 番目のラベルだけが 1 行に表示され、目盛りは各カテゴリ間隔に残ります。ラベルがない列も含め、すべての 24 列が同じ値で表示されます。スライド 3 は上記の自動表示に戻します。
 
-![3 の手動カテゴリラベル間隔で 24 列すべてが表示された状態](category-axis-manual.png)
+![すべての 24 列が表示された 3 つ間隔の手動カテゴリラベル](category-axis-manual.png)
 
 ### **正しい軸と間隔を選択する**
 
-Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to the axis returned by [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
+テキストカテゴリ軸（列、折れ線、エリア、棒グラフのカテゴリ軸）に対してこのカテゴリ間隔を使用します。列グラフでは水平軸、水平棒グラフでは垂直軸が対象になるため、[getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) が返す軸に適用してください。目盛り間隔は系列軸があるチャートでも適用できます。
 
-Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+カテゴリラベル間隔を値軸の数値スケールとして使用しないでください。値軸では [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) が値の差を指定します（例: `10` は 0,10,20,…）。カテゴリラベル間隔 `3` はデータ値に関係なくカテゴリ位置を数えるだけです。散布図やバブルチャートはテキストカテゴリ軸ではなく値軸を使用します。日付軸の場合は、[Change a Category Axis](#change-a-category-axis) で説明した時間ベースの主要単位とスケールを使用してください。
 
-## **カテゴリ軸値の日付形式を設定する**
+## **カテゴリ軸値の日時形式を設定する**
 
-The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`), calculated as the number of days since December 30, 1899, for these dates. Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) with `CategoryAxisType::Date`, call [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) with `false`, and pass `yyyy` to [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) so the category labels display four-digit years independently of the cell formatting.
+例ではデフォルトのチャートデータを 4 つの年次値に置き換えます。日時は最初のワークシート（インデックス `0`）に OLE Automation 連番として保存され、1899 年 12 月 30 日からの日数で計算されます。[setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) に `CategoryAxisType::Date`、[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) に `false`、[setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) に `yyyy` を渡すことで、セル書式に関係なくカテゴリラベルが 4 桁の西暦で表示されます。
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -345,9 +444,9 @@ try {
 }
 ```
 
-## **チャート軸タイトルの回転角度を設定する**
+## **チャート軸タイトルに回転角度を設定する**
 
-Call [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) with `true` on the vertical axis, provide title text, and use [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
+縦軸に対して `true` を指定して [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) を呼び出し、タイトルテキストを設定したうえで [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) で回転させます。角度は度で指定され、例では値軸タイトルを 90 度回転させた列グラフを保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -369,9 +468,9 @@ try {
 }
 ```
 
-## **カテゴリ軸または値軸の位置を設定する**
+## **カテゴリ軸または値軸の軸位置を設定する**
 
-Use [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This setting applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
+[setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) を使用して、値軸がカテゴリ軸とカテゴリ目盛りの間で交差するか、目盛り上で交差するかを制御します。この設定はカテゴリ軸に適用されます。例では列グラフの水平カテゴリ軸に対して `true` を設定し、結果を保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -391,9 +490,9 @@ try {
 }
 ```
 
-## **チャート値軸の表示単位を設定する**
+## **チャート値軸に表示単位を設定する**
 
-Use [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
+[setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) を使用して、基になるデータを変更せずに値軸ラベルをスケーリングします。[DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) を `Millions` に設定すると、60,000,000 が 60 と表示されます。例では列グラフを作成し、縦軸にミリオン表示単位を適用します。
 
 ```php
 use aspose\slides\ChartType;
@@ -416,19 +515,19 @@ try {
 
 ## **対数値軸を構成する**
 
-A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+正の値が何桁にも及ぶ場合、対数値軸が有用です。たとえば、あるサービスが 5 期間で 10、100、1,000、10,000、100,000 件のリクエストを受け取ったとします。線形スケールでは小さい値がゼロ付近に密集して見えます。対数スケールは等距離が等比率を表すため、相対的な増加を比較しやすくなります。
 
-Call [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) with `true` on the value axis and use [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+値軸に対して `true` を指定して [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) を呼び出し、[setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) で基数を選びます。既存の値の表示方法が変わりますが、データ自体や対数トレンドラインは変更されません。トレンドラインはデータにフィットした別機能です。
 
-### **値軸とベースを選択する**
+### **値軸と基数を選択する**
 
-For a line or column chart, the value axis is returned by [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). For a horizontal bar chart, it is returned by [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+折れ線または列グラフの場合、値軸は [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/) が返します。水平棒グラフの場合は [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/) が返します。散布図やバブルチャートは 2 つの値軸を持つため、X 値は水平軸、Y 値は垂直軸、または両方を選択してください。カテゴリ軸には対数スケールを適用しないでください。
 
-The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
+デフォルトの対数基数は `10` です。PPTX チャートでは `2` から `1000` まで（整数・小数両方可）の基数が使用できます。基数 `10` の場合、10、100、1,000、10,000 といった連続したべき乗が等間隔になります。
 
-### **線形と対数スケーリングを比較する**
+### **線形スケールと対数スケールの比較**
 
-The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+以下の自己完結型サンプルは、最初のスライドに 5 つのリクエスト数を持つ折れ線グラフを作成し、そのスライドを複製して 2 枚目のスライドで基数 10 の対数値軸を有効にします。両スライドは同じデータを保持します。
 
 ```php
 use aspose\slides\ChartType;
@@ -460,7 +559,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // 最初のスライドは線形のままにし、コピーの値軸スケールだけを変更します。
+    // 最初のスライドは線形のままにして、コピーの値軸スケールだけを変更します。
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -473,24 +572,24 @@ try {
 }
 ```
 
-**線形スケール (スライド 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+**線形スケール（スライド 1）:** 等しい垂直距離がリクエスト数の等しい差を表します。最大値がチャートを支配し、比較的小さい値が見えにくくなります。
 
-![線形値軸上で 5 つのリクエスト数を示す PowerPoint の折れ線グラフ](value-axis-linear.png)
+![線形値軸で 5 つのリクエスト数を示す PowerPoint の折れ線グラフ](value-axis-linear.png)
 
-**対数スケール (スライド 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+**対数スケール（スライド 2）:** 等しい垂直距離が等しい比率を表します。各期間は前の期間の 10 倍のリクエスト数になるため、基数 10 のスケール上では点が一直線に上昇します。軸ラベルは元のリクエスト数のままです。
 
-![同じ 5 つのリクエスト数を基数 10 の対数値軸で示す PowerPoint のグラフ](value-axis-logarithmic.png)
+![PowerPoint で基数 10 の対数値軸上に同じ 5 つのリクエスト数を示すグラフ](value-axis-logarithmic.png)
 
-### **ゼロと負の値を扱う**
+### **ゼロおよび負の値の取り扱い**
 
-A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
+対数スケールは正の値しか表示できません。有効化する前にデータを確認してください。ゼロや負の値が意味を持つ場合は、線形スケールを維持するか、別途表示してください。分析上除外できる場合は、その旨を説明します。小さい正の数に置き換えるようなサイレントな処理は避け、データの意味を変えないようにしてください。対数軸の最小値・最大値を手動で設定する場合も、正の値である必要があります。
 
 ## **FAQ**
 
-**How do I set the value at which one axis crosses the other (axis crossing)?**
+**軸が他の軸と交差する位置（軸交差点）を設定するにはどうすればよいですか？**
 
-Use [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) to select the crossing behavior. To specify a numeric crossing value, use [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). These settings let you move the axis crossing to a suitable baseline.
+[setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) を使用して交差動作を選択します。数値の交差位置を指定するには [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/) を使用します。これらの設定により、軸交差点を適切な基準線に移動できます。
 
-**How can I position tick labels relative to the axis?**
+**目盛りラベルの位置を軸に対してどう調整できますか？**
 
-Call [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) using [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) or [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); these are separate from label positioning.
+[setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) を使用し、[TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/) の `Low`、`High`、`NextTo`、`None` のいずれかを指定します。目盛りそのものを制御するには、[setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) または [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/) を使用します。これらはラベル位置設定とは別です。

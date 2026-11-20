@@ -1,16 +1,16 @@
 ---
-title: Video‑frames beheren in presentaties op Android
-linktitle: Video‑frame
+title: Beheer videoframes in presentaties op Android
+linktitle: Videoframe
 type: docs
 weight: 10
 url: /nl/androidjava/video-frame/
 keywords:
 - video toevoegen
-- video aanmaken
+- video maken
 - video insluiten
 - video extraheren
 - video ophalen
-- video‑frame
+- videoframe
 - webbron
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u programmatic video‑frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument‑dia's met Aspose.Slides voor Android via Java. Snelle stapsgewijze gids."
+description: "Leer hoe u programmaal video‑frames kunt toevoegen en extraheren in PowerPoint‑ en OpenDocument‑dia’s met Aspose.Slides voor Android via Java. Snelle stap‑voor‑stap‑gids."
 ---
 ## **Inleiding**
 
-Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides voor Android via Java stelt u in staat video‑frames toe te voegen aan dia's, afspeelinstellingen aan te passen, bijschriften te beheren en ingesloten video‑gegevens te extraheren.
+Video's kunnen helpen om ideeën uit te leggen en een publiek te betrekken. Aspose.Slides for Android via Java stelt u in staat videoframes aan dia's toe te voegen, afspeelinstellingen aan te passen, bijschriften te beheren en ingebedde videogegevens te extraheren.
 
 PowerPoint ondersteunt lokale video’s en koppelingen naar online video’s, zoals YouTube‑video’s.
 
-Om video‑gegevens en video‑frames weer te geven, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) interface, de [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) interface en andere relevante types.
+Om video‑gegevens en videoframes weer te geven, biedt Aspose.Slides de [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) interface, de [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) interface, en andere relevante types.
 
-## **Een ingebed video‑frame maken**
+## **Maak een ingebedde videoframe**
 
-Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie in te sluiten.
+Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een videoframe maken om de video in uw presentatie in te sluiten.
 
-Dit voorbeeld integreert een lokale video op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in punten. De stream blijft open tot het opslaan voltooid is omdat [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie hem gebruikt.
+Dit voorbeeld voegt een lokale video in op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in punten. De stream blijft open tot het opslaan voltooid is omdat [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie deze gebruikt.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Dit voorbeeld integreert de video op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven totdat de presentatie is opgeslagen.
+U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Dit voorbeeld voegt de video in op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -68,11 +68,11 @@ try {
 }
 ```
 
-## **Video‑frame maken met video van een webbron**
+## **Maak een videoframe met video vanaf een webbron**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een video‑frame maken dat naar een online video koppelt, zoals een YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een videoframe maken dat koppelt aan een online video, zoals een YouTube‑video.
 
-Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) vraagt om automatische weergave. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatie‑viewer moet ook online video‑afspelen ondersteunen.
+Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De methode [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) vraagt om automatische weergave. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatie‑viewer moet ook online videoweergave ondersteunen.
 
 ```java
 import com.aspose.slides.*;
@@ -101,11 +101,11 @@ try {
 }
 ```
 
-## **Een video afspelen in volledig scherm-modus**
+## **Speel een video af in volledig‑schermmodus**
 
-In een trainingspresentatie kunt u een software‑demonstratie in volledig scherm-modus afspelen zodat het publiek de details kan zien. Roep [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) aan met `true` om dit gedrag tijdens het afspelen in te schakelen.
+In een trainingspresentatie kunt u een software‑demo afspelen in volledig‑schermmodus zodat het publiek de details kan zien. Roep [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) aan met `true` om dit gedrag tijdens het afspelen in te schakelen.
 
-Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt volledig‑scherm‑afspelen in. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
+Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia, en schakelt volledig‑schermweergave in. De invoer‑presentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-Volledig‑scherm‑afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan bepaalt [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) of deze automatisch of bij klikken start, en [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) of deze wordt herhaald. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.Auto of VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en loop‑instellingen.
+Volledig‑schermweergave bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) of deze automatisch of bij klik start, en [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) of deze herhaalt. Om het startgedrag te kiezen, stel de afspeelmodus in op [VideoPlayModePreset.Auto of VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lusinstellingen.
 
-## **Een video terugspoelen na afspelen**
+## **Spoel een video terug na het afspelen**
 
-In een trainingspresentatie maakt het terugzetten van een demonstratie‑video naar het begin deze opnieuw klaar voor de presentator. Roep [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) aan met `true` om de video na afloop van het afspelen naar het begin te laten terugkeren.
+In een trainingspresentatie maakt het terugzetten van een demonstratievideo naar het begin deze klaar voor de presentator om opnieuw af te spelen. Roep [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) aan met `true` om de video na afloop van het afspelen naar het begin terug te keren.
 
-Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia en schakelt terugspoelen in. Het schakelt looping uit zodat het afspelen kan eindigen en stelt de afspeelmodus in op starten bij klikken. De invoerpresentatie moet minstens één dia bevatten met een bestaand video‑frame op de eerste dia.
+Dit voorbeeld opent een presentatie, vindt het eerste [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) op de eerste dia, en schakelt terugspoelen in. Het schakelt lus uit zodat het afspelen kan eindigen en stelt afspelen in om bij klik te starten. De invoer‑presentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Terugspoelen zet de video terug naar het begin zonder deze opnieuw te starten. Daarentegen zorgt het aanroepen van [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) met `true` voor automatische herhaling van het afspelen. Houd looping uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) bestuurt onafhankelijk automatisch of bij klikken starten; dit voorbeeld gebruikt [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen start. Stel de afspeelmodus in na de loop‑instelling, zoals in het voorbeeld getoond. Terugspoelen werkt onafhankelijk van [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Terugspoelen brengt de video naar het begin zonder deze opnieuw te starten. In tegenstelling tot het aanroepen van [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) met `true`, die het afspelen automatisch herhaalt. Houd lus uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw afgespeeld te worden. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) regelt onafhankelijk automatisch of bij‑klik opstarten; dit voorbeeld gebruikt [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen start. Stel de afspeelmodus in na de lusinstelling, zoals in het voorbeeld wordt getoond. Terugspoelen werkt onafhankelijk van [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Een video‑frame trimmen**
+## **Trim een videoframe**
 
-Gebruik [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) om het begin of het einde van een video tijdens het afspelen over te slaan. Beide waarden zijn in milliseconden. Trimmen wijzigt de afspeelinstellingen zonder de ingesloten video‑gegevens te wijzigen.
+Gebruik [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) en [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) om een deel van het begin of einde van een video over te slaan tijdens het afspelen. Beide waarden zijn in milliseconden. Bijsnijden wijzigt de afspeelinstellingen zonder de ingebedde videogegevens te wijzigen.
 
-**Trim‑instellingen instellen**
+**Triminstellingen instellen**
 
-Dit voorbeeld integreert een lokale video en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
+Dit voorbeeld voegt een lokale video in en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**Trim‑instellingen lezen**
+**Triminstellingen lezen**
 
-Dit voorbeeld drukt de trim‑waarden van het eerste video‑frame op de eerste dia af in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen video‑frame heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert waarden van 2500 en 1000 op.
+Dit voorbeeld drukt de trimwaarden van het eerste videoframe op de eerste dia af in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen videoframe heeft, wordt er niets afgedrukt. Het voorgaande voorbeeld levert waarden van 2500 en 1000 op.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ try {
 }
 ```
 
-## **Video‑bijschriften beheren**
+## **Beheer video‑bijschriften**
 
-Aspose.Slides stelt u in staat gesloten bijschriften voor video‑frames in PowerPoint‑presentaties te beheren. Bijschriften worden opgeslagen in WebVTT‑formaat en toegankelijk gemaakt via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides stelt u in staat gesloten bijschriften voor videoframes in PowerPoint‑presentaties te beheren. Bijschriften worden opgeslagen in WebVTT‑formaat en worden toegankelijk gemaakt via de methode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Bijschriften aan een video‑frame toevoegen**
+### **Bijschriften toevoegen aan een videoframe**
 
-Dit voorbeeld integreert een lokale video en voegt een WebVTT‑bijschrifttrack met het label English toe. De tijdstempels van het bijschrift moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de bijschriften.
+Dit voorbeeld voegt een lokale video in en voegt een WebVTT‑bijschrifttrack met het label English toe. De tijdstempels van het bijschrift moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de bijschriften.
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-De interface [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) biedt ook een overload waarmee u bijschriften vanuit een stream kunt toevoegen.
+De [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) interface biedt ook een overload waarmee u bijschriften vanuit een stream kunt toevoegen.
 
-**Bijschriften uit een video‑frame extraheren**
+### **Bijschriften extraheren uit een videoframe**
 
-Dit voorbeeld slaat alle bijschrift‑tracks van video‑frames op de eerste dia op als afzonderlijke WebVTT‑bestanden. Sequentiële nummers houden de uitvoerbestanden onderscheidend. De console meldt het aantal geëxtraheerde tracks. De presentatie moet minstens één dia bevatten.
+Dit voorbeeld slaat alle bijschrift‑tracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Opeenvolgende nummers houden de uitvoerbestanden gescheiden. De console geeft het aantal geëxtraheerde tracks weer. De presentatie moet minstens één dia bevatten.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-Elk [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) object geeft de bijschrift‑identifier, label, binaire gegevens en de bijschrifttekst als een UTF‑8‑string weer.
+Elk [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) object onthult de bijschrift‑identifier, label, binaire gegevens en de bijschrift‑tekst als een UTF‑8‑string.
 
-**Bijschriften van een video‑frame verwijderen**
+### **Bijschriften verwijderen uit een videoframe**
 
-Dit voorbeeld verwijdert alle bijschriften van het video‑frame op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een video‑frame is.
+Dit voorbeeld verwijdert alle bijschriften van het videoframe op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een videoframe is.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-Als u slechts één bijschrifttrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) in plaats van [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+Als u slechts één bijschrifttrack wilt verwijderen, gebruik dan de [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) of [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) methoden in plaats van [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
 
-## **Video uit een dia extraheren**
+### **Zoeken in video‑bijschriften**
 
-Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingesloten te extraheren.
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) retourneert de volledige WebVTT‑track, inclusief header, timing‑regels en bijschrifttekst. U kunt de cues in het geheugen doorzoeken om een gesproken zin en bijbehorend tijdstempel te vinden. Bijvoorbeeld, een Engelse track op dia 2 kan de volgende tekst bevatten.
 
-Dit voorbeeld extrahiert ingesloten video’s van elke dia naar afzonderlijke genummerde binaire bestanden. Gekoppelde video’s worden overgeslagen omdat ze geen ingesloten gegevens hebben. De console drukt het MIME‑type van elke video en het totale aantal af. De output gebruikt de generieke extensie `.bin`; pas deze aan om overeen te komen met het gemelde mediatype indien nodig.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Het voorbeeld opent `captioned_media.pptx` en gebruikt [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) om de tracks van elk videoframe van het bovenste niveau op elke dia te lezen. In een platte‑tekst cue bevat de timing‑regel `-->`, en een lege regel beëindigt de cue. Wanneer het bijschrift “café” bevat in welke hoofd‑ of kleine‑letter dan ook, drukt het voorbeeld het dia‑nummer, track‑label, originele timing‑regel en volledige bijschrift af.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Zoeken naar “café” levert één overeenstemming op voor de voorbeeldtrack. De zoekopdracht sluit de track‑header uit en behoudt de timing‑instelling in de uitvoer.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Video extraheren van een dia**
+
+Naast het toevoegen van video’s aan dia's, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingebed te extraheren.
+
+Dit voorbeeld extrahert ingebedde video’s van elke dia naar afzonderlijke, genummerde binaire bestanden. Gelinkte video’s worden overgeslagen omdat ze geen ingebedde gegevens hebben. De console drukt het MIME‑type van elke video en het totale aantal af. De output gebruikt de generieke extensie `.bin`; wijzig deze om overeen te komen met het gerapporteerde mediatype indien nodig.
 
 ```java
 import com.aspose.slides.*;
@@ -341,20 +408,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Welke afspeelparameters kunnen voor een video‑frame gewijzigd worden?**
+**Welke video‑afspeelparameters kunnen worden aangepast voor een videoframe?**
 
-U kunt de [playback‑modus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto of bij klikken) en de [loop‑instelling](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de methoden van het object [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
+U kunt de [playback mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto of bij klik) en [looping](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) regelen. Deze opties zijn beschikbaar via de methoden van het [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) object.
 
 **Heeft het toevoegen van een video invloed op de grootte van het PPTX‑bestand?**
 
-Ja. Wanneer u een lokale video insluit, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte proportioneel toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuur toevoegt, slaat de presentatie de koppeling en preview‑afbeelding op in plaats van de video‑gegevens, waardoor de grootte‑toename meestal kleiner is.
+Ja. Wanneer u een lokale video inbedt, wordt de binaire data opgenomen in het document, waardoor de presentatiegrootte evenredig toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuur toevoegt, slaat de presentatie de koppeling en voorbeeldafbeelding op in plaats van de video‑data, waardoor de grootte‑toename meestal kleiner is.
 
-**Kan ik de video in een bestaand video‑frame vervangen zonder de positie en grootte te wijzigen?**
+**Kan ik de video in een bestaand videoframe vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video‑inhoud](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
+Ja. U kunt de [video content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) binnen het frame vervangen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
 
-**Kan het content‑type (MIME) van een ingesloten video bepaald worden?**
+**Kan het inhoudstype (MIME) van een ingebedde video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) dat u kunt uitlezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.
+Ja. Een ingebedde video heeft een [content type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) die u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.

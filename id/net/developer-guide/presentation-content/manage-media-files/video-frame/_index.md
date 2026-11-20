@@ -1,16 +1,16 @@
 ---
-title: Kelola Frame Video dalam Presentasi di .NET
-linktitle: Frame Video
+title: Kelola Bingkai Video dalam Presentasi di .NET
+linktitle: Bingkai Video
 type: docs
 weight: 10
 url: /id/net/video-frame/
 keywords:
-- menambah video
-- membuat video
-- menyematkan video
-- mengekstrak video
-- mengambil video
-- frame video
+- tambahkan video
+- buat video
+- sematkan video
+- ekstrak video
+- ambil video
+- bingkai video
 - sumber web
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan mengekstrak frame video secara terprogram dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Panduan singkat cara cepat."
+description: "Pelajari cara menambahkan dan mengekstrak bingkai video secara programatik dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Panduan singkat cara cepat."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Video dapat membantu menjelaskan ide dan menarik perhatian audiens. Aspose.Slides for .NET memungkinkan Anda menambahkan frame video ke slide, mengatur pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang tertanam.
+Video dapat membantu menjelaskan ide dan melibatkan audiens. Aspose.Slides untuk .NET memungkinkan Anda menambahkan bingkai video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang disematkan.
 
 PowerPoint mendukung video lokal dan tautan ke video daring, seperti video YouTube.
 
-Untuk merepresentasikan data video dan frame video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/), antarmuka [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/), dan tipe relevan lainnya.
+Untuk merepresentasikan data video dan bingkai video, Aspose.Slides menyediakan antarmuka [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) antarmuka [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) dan tipe relevan lainnya.
 
-## **Buat Frame Video Tertanam**
+## **Membuat Bingkai Video Tertanam**
 
-Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat frame video untuk menyematkan video dalam presentasi Anda.
+Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat bingkai video untuk menyematkan video dalam presentasi Anda.
 
-Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang ada dan menyimpan hasilnya. Koordinat dan dimensi frame dalam satuan poin. Stream tetap terbuka hingga proses penyimpanan selesai karena [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) menguncinya selama presentasi menggunakannya.
+Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang ada dan menyimpan hasilnya. Koordinat dan dimensi bingkai dalam satuan poin. Stream tetap terbuka sampai penyimpanan selesai karena [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) menguncinya selama presentasi menggunakannya.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Anda juga dapat memberikan jalur video lokal secara langsung ke [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Contoh ini menyematkan video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses hingga presentasi disimpan.
+Anda juga dapat memberikan jalur video lokal langsung ke [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Contoh ini menyematkan video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses sampai presentasi disimpan.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,11 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Volume Video Secara Tepat**
+## **Atur Volume Video Secara Presisi**
 
-Pada Aspose.Slides for .NET 26.11 atau yang lebih baru, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) menetapkan persentase floating-point dari 0 hingga 100. Gunakan ini ketika preset [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) terlalu kasar. Misalnya, `75.5f` meminta volume 75.5%.
+Pada Aspose.Slides untuk .NET 26.11 atau lebih baru, [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) menetapkan persentase floating-point dari 0 hingga 100. Gunakan ini ketika preset [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) terlalu kasar. Misalnya, `75.5f` meminta volume 75,5%.
 
-Contoh ini memerlukan [Aspose.Slides for .NET](/slides/id/net/installation/) 26.11 atau yang lebih baru serta file `video.mp4` lokal. Ia menyematkan video, secara eksplisit menginisialisasi pemutaran, menyimpan presentasi, dan membaca kembali persentase yang disimpan.
+Contoh ini membutuhkan [Aspose.Slides for .NET](/slides/id/net/installation/) 26.11 atau lebih baru dan video lokal `video.mp4`. Ia menyematkan video, secara eksplisit menginisialisasi pemutaran, menyimpan presentasi, dan membaca kembali persentase yang disimpan.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Validasi masukan sendiri; jangan bergantung pada setter untuk menolak nilai di luar rentang yang didokumentasikan. Preset Low, Medium, dan Loud sesuai dengan 20, 50, dan 80 pada versi 26.11. Menetapkan preset dapat menggantikan persentase sebelumnya, sehingga tetapkan persentase terakhir ketika Anda memerlukan nilai yang tepat. Gunakan [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) untuk pengaturan mute eksplisit; angka nol dan enum preset tidak dapat dipertukarkan.
+Validasi input secara manual; jangan bergantung pada setter untuk menolak nilai di luar rentang yang didokumentasikan. Preset Low, Medium, dan Loud sesuai dengan 20, 50, dan 80 pada versi 26.11. Menetapkan preset dapat menggantikan persentase sebelumnya, jadi tetapkan persentase terakhir bila Anda memerlukan nilai yang tepat. Gunakan [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) untuk pengaturan mute eksplisit; nol numerik dan enum preset bukan keadaan yang dapat dipertukarkan.
 
-Juga setel [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) secara eksplisit saat mengonfigurasi video yang ditautkan, dan pastikan berkas media tersedia bagi pemirsa. Menyimpan dan membuka kembali memverifikasi pengaturan yang tersimpan; pemutaran sebenarnya dan tingkat kebisingan tergantung pada pemutar presentasi serta pengaturan audio-nya.
+Secara eksplisit setel [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) saat mengonfigurasi video terhubung juga, dan pastikan berkas medianya tersedia bagi pemirsa. Menyimpan dan membuka kembali memverifikasi pengaturan yang disimpan; pemutaran nyata dan tingkat kebisingannya bergantung pada pemutar presentasi dan pengaturan audio.
 
-## **Buat Frame Video dengan Video dari Sumber Web**
+## **Membuat Bingkai Video dengan Video dari Sumber Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat frame video yang menautkan ke video daring, seperti video YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat bingkai video yang menautkan ke video daring, seperti video YouTube.
 
-Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti identifier video untuk menggunakan video lain. Pengaturan [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
+Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti pengenal video untuk menggunakan video lain. Pengaturan [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
 
 ```csharp
 using System.Net.Http;
@@ -133,9 +133,9 @@ presentation.Save("online_video.pptx", SaveFormat.Pptx);
 
 ## **Putar Video dalam Mode Layar Penuh**
 
-Dalam presentasi pelatihan, Anda dapat memutar demonstrasi perangkat lunak dalam mode layar penuh sehingga audiens dapat melihat detailnya. Setel [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) ke `true` untuk mengaktifkan perilaku ini selama pemutaran.
+Dalam presentasi pelatihan, Anda dapat memutar demo perangkat lunak dalam mode layar penuh sehingga audiens dapat melihat detailnya. Setel [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) ke `true` untuk mengaktifkan perilaku ini selama pemutaran.
 
-Contoh ini membuka sebuah presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi masukan harus memiliki setidaknya satu slide dengan frame video yang ada pada slide pertama.
+Contoh ini membuka sebuah presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi input harus memiliki setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) mengontrol apakah video dimulai secara otomatis atau saat diklik, dan [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) mengontrol apakah video berulang. Untuk memilih perilaku mulai, setel mode pemutaran ke [VideoPlayModePreset.Auto atau VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan mulai dan loop yang ada.
+Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) mengontrol apakah video mulai otomatis atau saat diklik, dan [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) mengontrol apakah video berulang. Untuk memilih perilaku mulai, setel mode pemutaran ke [VideoPlayModePreset.Auto atau VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan mulai dan loop yang ada.
 
 ## **Mundurkan Video Setelah Pemutaran**
 
-Dalam presentasi pelatihan, mengembalikan video demonstrasi ke awalnya membuatnya siap untuk diputar lagi oleh presenter. Setel [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) ke `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
+Dalam presentasi pelatihan, mengembalikan video demo ke awalnya membuatnya siap bagi presenter untuk memutar kembali. Setel [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) ke `true` untuk mengembalikan video ke awal setelah pemutaran selesai.
 
-Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pengembalian mundur. Ia menonaktifkan looping agar pemutaran dapat selesai dan mengatur pemutaran mulai saat klik. Presentasi masukan harus memiliki setidaknya satu slide dengan frame video yang ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) pertama pada slide pertama, dan mengaktifkan pemunduran. Ia menonaktifkan looping sehingga pemutaran dapat selesai dan mengatur pemutaran untuk mulai saat diklik. Presentasi input harus memiliki setidaknya satu slide dengan bingkai video yang ada pada slide pertama.
 
 ```csharp
 using Aspose.Slides;
@@ -185,11 +185,11 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Pengembalian mundur mengembalikan video ke awalnya tanpa memulai kembali. Sebaliknya, mengaktifkan [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) membuat pemutaran berulang secara otomatis. Biarkan looping nonaktif ketika Anda ingin video selesai dan siap diputar kembali. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) secara terpisah mengontrol pemutaran otomatis atau saat klik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) sehingga presenter mengontrol kapan pemutaran dimulai. Tetapkan mode pemutaran setelah pengaturan loop, seperti yang ditunjukkan dalam contoh. Pengembalian mundur berfungsi terpisah dari [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Mengembalikan video ke awal tidak memulai ulang video. Sebaliknya, mengaktifkan [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) membuat pemutaran berulang secara otomatis. Biarkan looping nonaktif ketika Anda ingin video selesai dan tetap siap untuk diputar ulang. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) secara terpisah mengontrol pemutaran otomatis atau saat diklik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) sehingga presenter yang mengontrol kapan pemutaran dimulai. Setel mode pemutaran setelah pengaturan loop, seperti yang ditunjukkan dalam contoh. Pemunduran bekerja terlepas dari [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Pangkas Frame Video**
+## **Memangkas Bingkai Video**
 
-Gunakan [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) dan [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) untuk melewatkan bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemangkasan mengubah pengaturan pemutaran tanpa memodifikasi data video yang tertanam.
+Gunakan [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) dan [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) untuk melewatkan bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemangkasan mengubah pengaturan pemutaran tanpa memodifikasi data video yang disematkan.
 
 **Atur Pengaturan Pemangkasan**
 
@@ -215,7 +215,7 @@ presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 
 **Baca Pengaturan Pemangkasan**
 
-Contoh ini mencetak nilai pemangkasan dari frame video pertama pada slide pertama dalam milidetik. Presentasi harus memiliki setidaknya satu slide. Jika slide tersebut tidak memiliki frame video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
+Contoh ini mencetak nilai pemangkasan dari bingkai video pertama pada slide pertama dalam milidetik. Presentasi harus memiliki setidaknya satu slide. Jika slide tersebut tidak memiliki bingkai video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
 
 ```csharp
 using System;
@@ -237,11 +237,11 @@ foreach (var shape in slide.Shapes)
 
 ## **Kelola Caption Video**
 
-Aspose.Slides memungkinkan Anda mengelola closed caption untuk frame video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui properti [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides memungkinkan Anda mengelola closed caption untuk bingkai video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan diakses melalui properti [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Tambahkan Caption ke Frame Video**
+### **Menambahkan Caption ke Bingkai Video**
 
-Contoh ini menyematkan video lokal dan menambahkan track caption WebVTT berlabel English. Stempel waktu caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan caption-nya.
+Contoh ini menyematkan video lokal dan menambahkan trek caption WebVTT dengan label English. Stempel waktu caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan captionnya.
 
 ```csharp
 using System.IO;
@@ -260,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Antarmuka [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari stream.
+Antarmuka [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari sebuah stream.
 
-**Ekstrak Caption dari Frame Video**
+### **Ekstrak Caption dari Bingkai Video**
 
-Contoh ini menyimpan semua track caption dari frame video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga file output tetap berbeda. Konsol melaporkan jumlah track yang diekstrak. Presentasi harus memiliki setidaknya satu slide.
+Contoh ini menyimpan semua trek caption dari bingkai video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga file output tetap berbeda. Konsol melaporkan jumlah trek yang diekstrak. Presentasi harus memiliki setidaknya satu slide.
 
 ```csharp
 using System;
@@ -291,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Setiap objek [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF-8.
+Setiap objek [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) menampilkan pengidentifikasi caption, label, data biner, dan teks caption sebagai string UTF-8.
 
-**Hapus Caption dari Frame Video**
+### **Hapus Caption dari Bingkai Video**
 
-Contoh ini menghapus semua caption dari frame video pada posisi shape pertama pada slide pertama dan menyimpan hasilnya. Ia mengasumsikan bahwa slide dan shape ada serta shape tersebut adalah frame video.
+Contoh ini menghapus semua caption dari bingkai video pada posisi shape pertama di slide pertama dan menyimpan hasilnya. Asumsinya slide dan shape ada serta shape tersebut adalah bingkai video.
 
 ```csharp
 using System;
@@ -311,13 +311,68 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Jika Anda perlu menghapus hanya satu track caption, gunakan metode [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) atau [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) alih-alih [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+Jika Anda perlu menghapus hanya satu trek caption, gunakan metode [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) atau [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) alih-alih [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+
+### **Cari Caption Video**
+
+[ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) mengembalikan trek WebVTT lengkap, termasuk header, baris timing, dan teks caption. Untuk menemukan frasa yang diucapkan dan stempel waktunya, baca cue dalam memori. Misalnya, trek English pada slide 2 mungkin berisi teks berikut:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Contoh ini mengunjungi setiap slide dan membaca trek bingkai video tingkat atas melalui [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). Pada cue teks biasa, baris timing berisi `-->` dan baris kosong mengakhiri cue. Ketika teks caption berisi “café”, contoh ini mencetak nomor slide, label trek, baris timing asli, dan caption lengkap.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Mencari “café” menghasilkan satu kecocokan untuk trek contoh. Header dan pengaturan timing berada di luar teks cue.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Ekstrak Video dari Slide**
 
-Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang tertanam dalam presentasi.
+Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang disematkan dalam presentasi.
 
-Contoh ini mengekstrak video yang tertanam dari setiap slide ke dalam file biner terpisah yang bernomor. Video yang ditautkan dilewati karena tidak memiliki data tertanam. Konsol mencetak tipe MIME setiap video dan total jumlahnya. Output menggunakan ekstensi umum `.bin`; ubah sesuai tipe media yang dilaporkan bila diperlukan.
+Contoh ini mengekstrak video yang disematkan dari setiap slide ke dalam file biner terpisah dan bernomor. Video yang ditautkan dilewati karena tidak memiliki data yang disematkan. Konsol mencetak tipe MIME tiap video dan total jumlahnya. Output menggunakan ekstensi umum `.bin`; ubah sesuai tipe media yang dilaporkan jika diperlukan.
 
 ```csharp
 using System;
@@ -353,18 +408,18 @@ Console.WriteLine($"Embedded videos extracted: {videoCount}");
 
 ## **FAQ**
 
-**Parameter pemutaran video apa yang dapat diubah untuk frame video?**
+**Parameter pemutaran video mana yang dapat diubah untuk sebuah bingkai video?**
 
-Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (otomatis atau saat klik) dan [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Opsi-opsi ini tersedia melalui properti objek [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Anda dapat mengontrol [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (otomatis atau saat diklik) dan [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Opsi-opsi ini tersedia melalui properti objek [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
 **Apakah menambahkan video memengaruhi ukuran file PPTX?**
 
-Ya. Ketika Anda menyematkan video lokal, data biner disertakan dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran berkas. Ketika Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
+Ya. Ketika Anda menyematkan video lokal, data biner disertakan dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Ketika Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
 
-**Apakah saya dapat mengganti video dalam frame video yang ada tanpa mengubah posisi dan ukurannya?**
+**Bisakah saya mengganti video dalam bingkai video yang ada tanpa mengubah posisi dan ukurannya?**
 
-Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) di dalam frame sambil mempertahankan geometri shape; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang ada.
+Ya. Anda dapat menukar [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) di dalam bingkai sambil mempertahankan geometri shape; ini adalah skenario umum untuk memperbarui media dalam tata letak yang ada.
 
-**Apakah tipe konten (MIME) dari video yang tertanam dapat diketahui?**
+**Apakah tipe konten (MIME) dari video yang disematkan dapat ditentukan?**
 
-Ya. Video yang tertanam memiliki [tipe konten](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.
+Ya. Video yang disematkan memiliki [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.

@@ -15,268 +15,278 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Audio-Frames in Aspose.Slides für .NET erstellen und steuern — C#-Beispiele zum Einbetten, Trimmen, Schleifen und Konfigurieren der Wiedergabe in PPT-, PPTX- und ODP-Präsentationen."
+description: "Audio in Folien einbetten, das Audiosymbol ändern, die Wiedergabe konfigurieren, WebVTT-Untertitel verwalten und Übergangs-Sounds von Folien extrahieren mit Aspose.Slides für .NET."
 ---
+## **Übersicht**
+
+Ein Audio-Frame ermöglicht es, einen Sound auf einer Folie abzuspielen. Mit Aspose.Slides für .NET können Sie einen Audioclip einbetten, das Bild auswählen, das ihn darstellt, die Wiedergabe anpassen und Untertitel anhängen. Sie können auch einen einem Folienübergang zugewiesenen Sound abrufen.
+
 ## **Audio-Frames erstellen**
 
-Aspose.Slides für .NET ermöglicht das Hinzufügen von Audiodateien zu Folien. Die Audiodateien werden in den Folien als Audio-Frames eingebettet. 
+Verwenden Sie [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) um einen lokalen Audioclip auf der ersten Folie einzubetten. Die ersten beiden Koordinaten positionieren den Frame auf der Folie, und die nächsten beiden Werte setzen Breite und Höhe, alles in Punkt. Dieses Beispiel setzt [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) so, dass der Clip automatisch startet, und [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) auf die laute Voreinstellung.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation).
-2. Holen Sie sich die Referenz einer Folie über deren Index.
-3. Laden Sie den Audiodateistream, den Sie in die Folie einbetten möchten.
-4. Fügen Sie den eingebetteten Audio-Frame (der die Audiodatei enthält) zur Folie hinzu.
-5. Setzen Sie [PlayMode](https://reference.aspose.com/slides/de/net/aspose.slides/audioplaymodepreset) und `Volume`, die vom [IAudioFrame](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe)-Objekt bereitgestellt werden.
-6. Speichern Sie die geänderte Präsentation.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Dieses C#‑Beispiel zeigt, wie ein eingebetteter Audio‑Frame zu einer Folie hinzugefügt wird:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Instanziiert eine Präsentationsklasse, die eine Präsentationsdatei darstellt
-using (Presentation pres = new Presentation())
-{
-    // Holt die erste Folie
-    ISlide sld = pres.Slides[0];
-    
-    // Lädt die wav-Sounddatei in einen Stream
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // Fügt den Audio-Frame hinzu
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
-
-    // Legt den Wiedergabemodus und die Lautstärke des Audios fest
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // Speichert die PowerPoint-Datei auf die Festplatte
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Audio‑Frame‑Vorschaubild ändern**
+## **Audio-Frame-Vorschaubild ändern**
 
-Wenn Sie einer Präsentation eine Audiodatei hinzufügen, erscheint das Audio als Frame mit einem standardmäßigen Standardbild (siehe das Bild im nachfolgenden Abschnitt). Sie können das Vorschaubild des Audio‑Frames ändern (ein bevorzugtes Bild festlegen).
+Standardmäßig zeigt ein Audio-Frame ein Lautsprechersymbol an. Um ein benutzerdefiniertes Vorschaubild anzuzeigen, fügen Sie ein Bild zur Präsentation mit [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) hinzu und weisen Sie es der [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/)-Eigenschaft des Frames zu. Das Beispiel verwendet ein JPEG als Vorschaubild für einen eingebetteten Audioclip.
 
-Dieses C#‑Beispiel zeigt, wie das Vorschaubild bzw. das Vorschau‑Bild eines Audio‑Frames geändert wird:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügt einen Audio-Frame zur Folie an einer angegebenen Position und Größe hinzu.
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // Fügt ein Bild zu den Präsentationsressourcen hinzu.
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
 
-    // Setzt das Bild für den Audio-Frame.
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-    
-	//Speichert die geänderte Präsentation auf die Festplatte
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Audio‑Wiedergabeoptionen ändern**
+## **Audio-Wiedergabeoptionen ändern**
 
-Aspose.Slides für .NET ermöglicht das Ändern von Optionen, die die Wiedergabe oder Eigenschaften eines Audios steuern. Zum Beispiel können Sie die Lautstärke eines Audios anpassen, das Audio in Schleife abspielen oder sogar das Audiosymbol ausblenden.
+Die **Audio‑Optionen** von PowerPoint bestimmen, wann ein Clip startet, wie laut er ist und wie er während einer Bildschirmpräsentation funktioniert.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint‑Steuerelement | Aspose.Slides‑Eigenschaft |
+| --- | --- |
+| Start | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| Volume preset | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| Play Across Slides | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| Loop until Stopped | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| Hide During Show | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| Rewind after Playing | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| Fade In | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| Fade Out | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| Trim Audio start time | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| Trim Audio end time | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| Volume slider | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe) properties:
+Das Beispiel findet den ersten Audio-Frame auf der ersten Folie, setzt [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) so, dass die Wiedergabe bei einem Klick startet, und wählt die niedrige Lautstärke‑Voreinstellung. Der Clip wird über Folien hinweg fortgesetzt, wobei die Wiederholung deaktiviert ist. Das Symbol bleibt während der Show ausgeblendet, und der Clip wird nach der Wiedergabe zurückgespult.
 
-- **Start**‑Dropdown-Menü entspricht der [AudioFrame.PlayMode](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/playmode)‑Eigenschaft 
-- **Volume** entspricht der [AudioFrame.Volume](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/volume)‑Eigenschaft 
-- **Play Across Slides** entspricht der [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/playacrossslides)‑Eigenschaft 
-- **Loop until Stopped** entspricht der [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/playloopmode)‑Eigenschaft 
-- **Hide During Show** entspricht der [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/hideatshowing)‑Eigenschaft 
-- **Rewind after Playing** entspricht der [AudioFrame.RewindAudio](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/properties/rewindaudio)‑Eigenschaft 
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe) properties:
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-- **Fade In** entspricht der [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/fadeinduration/)‑Eigenschaft 
-- **Fade Out** entspricht der [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/fadeoutduration/)‑Eigenschaft 
-- **Trim Audio Start Time** entspricht der [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/trimfromstart/)‑Eigenschaft 
-- **Trim Audio End Time**‑Wert entspricht der Audiodauer minus dem Wert der [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/trimfromend/)‑Eigenschaft
-
-Der **Volume‑Regler** in PowerPoint auf der Audiosteuerungsleiste entspricht der [AudioFrame.VolumeValue](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/volumevalue/)‑Eigenschaft. Er ermöglicht die Einstellung der Lautstärke als Prozentsatz.
-
-So ändern Sie die Audio‑Wiedergabeoptionen:
-
-1. [Erstellen](#create-audio-frame) oder erhalten Sie den Audio‑Frame.
-2. Setzen Sie neue Werte für die Audio‑Frame‑Eigenschaften, die Sie anpassen möchten.
-3. Speichern Sie die geänderte PowerPoint‑Datei.
-
-Dieses C#‑Beispiel demonstriert eine Operation, bei der die Optionen eines Audios angepasst werden:
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Holt die AudioFrame-Form
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // Setzt den Wiedergabemodus auf Beim Klick abspielen
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // Setzt die Lautstärke auf Leise
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // Setzt das Audio so, dass es über Folien hinweg spielt
-    audioFrame.PlayAcrossSlides = true;
-
-    // Deaktiviert die Schleife für das Audio
-    audioFrame.PlayLoopMode = false;
-
-    // Versteckt das AudioFrame während der Bildschirmanzeige
-    audioFrame.HideAtShowing = true;
-
-    // Spult das Audio nach dem Abspielen zum Anfang zurück
-    audioFrame.RewindAudio = true;
-
-    // Speichert die PowerPoint-Datei auf die Festplatte
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-Dieses C#‑Beispiel zeigt, wie ein neuer Audio‑Frame mit eingebettetem Audio hinzugefügt, zugeschnitten und die Fade‑Dauern festgelegt werden:
+Für einen Clip, der länger als 3,5 Sekunden ist, überspringt dieses Beispiel die ersten 1,5 Sekunden und die letzten 2 Sekunden. [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) misst die Dauer, die am Ende des Clips weggelassen wird. Um die in PowerPoint angezeigte Endzeit zu erhalten, subtrahieren Sie diesen Versatz von der Gesamtdauer des Clips. Der beschnittene Clip blendet über 200 Millisekunden ein und über 500 Millisekunden aus. Alle vier Eigenschaften akzeptieren Werte in Millisekunden.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Setzt den Trimm-Startversatz auf 1,5 Sekunden
-    // Setzt den Trimm-Endversatz auf 2 Sekunden
-    // Setzt die Einblendezeit auf 200 ms
-    // Setzt die Ausblendezeit auf 500 ms
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-Das folgende Codebeispiel zeigt, wie ein Audio‑Frame mit eingebettetem Audio abgerufen und die Lautstärke auf 85 % gesetzt wird:
+Um die Wiedergabelautstärke auf einen bestimmten Prozentsatz zu setzen, verwenden Sie [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/). Dieses Beispiel setzt den ersten Audio-Frame auf der ersten Folie auf 85 %.
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Holt ein Audio-Frame-Shape
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // Setzt die Audio-Lautstärke auf 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Audio‑Untertitel verwalten**
+## **Audio-Untertitel verwalten**
 
-Aspose.Slides ermöglicht das Hinzufügen von Untertiteln zu einem Audio‑Frame über die Eigenschaft [CaptionTracks](https://reference.aspose.com/slides/de/net/aspose.slides/iaudioframe/captiontracks/). Diese Eigenschaft gibt eine [ICaptionsCollection](https://reference.aspose.com/slides/de/net/aspose.slides/icaptionscollection/) zurück, mit der Sie WebVTT‑Untertitelspuren hinzufügen, vorhandene Spuren iterieren und bei Bedarf entfernen können.
+Jeder Audio-Frame verfügt über eine [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/)-Sammlung. Verwenden Sie diese, um WebVTT-Untertitel an den Clip anzuhängen, vorhandene Spuren zu exportieren oder zu entfernen.
 
-**Audio‑Untertitel hinzufügen**
+### **Audio-Untertitel hinzufügen**
 
-Verwenden Sie die Eigenschaft [CaptionTracks](https://reference.aspose.com/slides/de/net/aspose.slides/iaudioframe/captiontracks/), um einer oder mehreren Untertitelspuren an einen Audio‑Frame anzuhängen. Im folgenden Beispiel wird einer Folie eine Audiodatei hinzugefügt und anschließend eine neue Untertitelspur aus einer `.vtt`‑Datei geladen.
+Das Beispiel bettet einen Audioclip auf der ersten Folie ein und verwendet [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) , um eine lokale WebVTT‑Spur anzuhängen. Das erste Argument liefert die Spurbeschrift, und das zweite identifiziert die Datei mit den zeitlich gesteuerten Untertiteln.
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügt eine neue Untertitelspur aus einer WebVTT-Datei hinzu.
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
-}
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
+
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-**Audio‑Untertitel extrahieren**
+### **Audio-Untertitel extrahieren**
 
-Sie können über die mit einem Audio‑Frame verknüpften Untertitelspuren iterieren und sie als `.vtt`‑Dateien speichern. Jede Untertitelspur stellt ihre Binärdaten und eine eindeutige Kennung bereit, die beim Exportieren der Untertitel verwendet werden kann.
+Dieses Beispiel exportiert jede an einen Audio-Frame auf der ersten Folie angehängte Untertitelspur. Es schreibt die [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) der Spur in eine WebVTT‑Datei und verwendet deren [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) als Dateinamen, sodass jede Spur eine separate Ausgabe hat.
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    foreach (var track in audioFrame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
+}
+```
+
+### **Audio-Untertitel entfernen**
+
+Verwenden Sie [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) oder [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/) , um eine einzelne Spur zu löschen. Das Beispiel nutzt [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) , um alle Untertitel vom ersten Audio-Frame auf der ersten Folie zu entfernen, wobei der Clip erhalten bleibt.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
+{
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **Eine Zeile in Audio-Untertiteln finden**
+
+Um eine Zeile in den Audio-Untertiteln auf der ersten Folie zu finden, lesen Sie die [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) jeder Spur im Speicher. In einem Klartext‑WebVTT‑Cue enthält die Timing‑Zeile `-->`, die Untertitelzeilen folgen darauf, und eine leere Zeile beendet den Cue. Dieses Beispiel gibt die Spurbeschrift und jede Untertitelzeile aus, die „café“ enthält.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // Speichert die Untertitelspur als .vtt-Datei.
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-**Audio‑Untertitel entfernen**
-
-Um Untertitel von einem Audio‑Frame zu entfernen, verwenden Sie die Methoden der [ICaptionsCollection](https://reference.aspose.com/slides/de/net/aspose.slides/icaptionscollection/), wie [Clear](https://reference.aspose.com/slides/de/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/de/net/aspose.slides/icaptionscollection/remove/) oder [RemoveAt](https://reference.aspose.com/slides/de/net/aspose.slides/icaptionscollection/removeat/). Das folgende Beispiel entfernt alle Untertitelspuren von einem Audio‑Frame.
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // Entfernt alle Untertitelspuren aus dem Audio-Frame.
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **Audio extrahieren**
 
-Aspose.Slides für .NET ermöglicht das Extrahieren des in Folienübergängen verwendeten Sounds. Zum Beispiel können Sie den Sound einer bestimmten Folie extrahieren.
+Ein Folienübergang kann einen eigenen Sound haben. Um ihn abzurufen, lesen Sie die [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/)‑Eigenschaft des Übergangs. Das Beispiel greift auf die [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) des Sounds zu und gibt dessen Größe in Bytes aus. Wenn die erste Folie keinen Übergangs‑Sound hat, wird stattdessen eine Meldung ausgegeben.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) und laden Sie die Präsentation, die das Audio enthält.
-2. Holen Sie sich die Referenz der betreffenden Folie über deren Index.
-3. Greifen Sie auf die Folienübergänge der Folie zu.
-4. Extrahieren Sie den Sound als Byte‑Daten.
+```csharp
+using System;
+using Aspose.Slides;
 
-Dieses C#‑Beispiel zeigt, wie der in einer Folie verwendete Sound extrahiert wird:
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-string presName = "AudioSlide.pptx";
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// Instanziert eine Presentation-Klasse, die eine Präsentationsdatei darstellt
-Presentation pres = new Presentation(presName);
-
-// Greift auf die Folie zu
-ISlide slide = pres.Slides[0];
-
-// Holt die Folienübergangseffekte für die Folie
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//Extrahiert den Sound in ein Byte-Array
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
 ## **FAQ**
 
-**Kann ich dieselbe Audiodatei in mehreren Folien wiederverwenden, ohne die Dateigröße zu erhöhen?**
+**Kann ich denselben Audioclip über mehrere Folien hinweg wiederverwenden, ohne ihn zu duplizieren?**
 
-Ja. Fügen Sie das Audio einmal zur gemeinsamen [audio collection](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/audios/) der Präsentation hinzu und erstellen Sie weitere Audio‑Frames, die auf dieses vorhandene Asset verweisen. Dadurch wird das Medien‑Daten doppelt vermieden und die Präsentationsgröße bleibt kontrollierbar.
+Ja. Fügen Sie den Clip einmal zur [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) der Präsentation hinzu und übergeben Sie dasselbe Audio‑Objekt bei jedem Folie an [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) .
 
-**Kann ich den Sound in einem bestehenden Audio‑Frame ersetzen, ohne die Form neu zu erstellen?**
+**Kann ich den Sound in einem bestehenden Audio-Frame ersetzen?**
 
-Ja. Bei einem verknüpften Sound aktualisieren Sie den [link path](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/linkpathlong/) so, dass er auf die neue Datei verweist. Für einen eingebetteten Sound tauschen Sie das [embedded audio](https://reference.aspose.com/slides/de/net/aspose.slides/audioframe/embeddedaudio/)‑Objekt gegen ein anderes aus der [audio collection](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/audios/) der Präsentation aus. Die Formatierung des Frames und die meisten Wiedergabeeinstellungen bleiben erhalten.
+Ja. Bei einem verknüpften Sound aktualisieren Sie [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/), damit er auf die Ersatzdatei verweist. Bei einem eingebetteten Sound weisen Sie [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/) einen anderen Clip aus der Audio‑Sammlung der Präsentation zu. Beide Vorgehensweisen erhalten den bestehenden Frame.
 
-**Ändert das Trimmen die zugrunde liegenden Audiodaten, die in der Präsentation gespeichert sind?**
+**Verändert das Trimmen die im Dokument gespeicherten Audiodaten?**
 
-Nein. Das Trimmen passt nur die Wiedergabegrenzen an. Die ursprünglichen Audiodaten bleiben unverändert und über das eingebettete Audio bzw. die Audio‑Collection der Präsentation weiterhin zugänglich.
+Nein. [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) und [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) setzen nur die Wiedergabegrenzen. Sie können den vollständigen Clip weiterhin über [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/) abrufen.

@@ -1,11 +1,11 @@
 ---
-title: Hantera videoram i presentationer i .NET
+title: Hantera videoramar i presentationer i .NET
 linktitle: Videoram
 type: docs
 weight: 10
 url: /sv/net/video-frame/
 keywords:
-- lägga till video
+- lägg till video
 - skapa video
 - bädda in video
 - extrahera video
@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lär dig programatiskt lägga till och extrahera videoram i PowerPoint- och OpenDocument-bilder med Aspose.Slides för .NET. Snabb guide."
+description: "Lär dig programmera att lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för .NET. Snabb guide."
 ---
 ## **Introduktion**
 
-Video kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides för .NET låter dig lägga till video­ramar på bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
+Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides for .NET låter dig lägga till videoramar på bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
 
-PowerPoint stödjer lokala videor och länkar till online‑videor, såsom YouTube‑videor.
+PowerPoint stöder lokala videor och länkar till online‑videor, såsom YouTube‑videor.
 
-För att representera videodata och video­ramar tillhandahåller Aspose.Slides gränssnitten [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) och [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) samt andra relevanta typer.
+För att representera videodata och videoramar tillhandahåller Aspose.Slides gränssnitten [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) och [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) samt andra relevanta typer.
 
-## **Skapa en inbäddad video­ram**
+## **Skapa en inbäddad videoram**
 
-Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en video­ram för att bädda in videon i din presentation.
+Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoram för att bädda in videon i din presentation.
 
-Det här exemplet bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen förblir öppen tills sparandet är slutfört eftersom [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
+Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen förblir öppen tills sparandet är klart eftersom [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Du kan också skicka en lokal videoväg direkt till [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli åtkomlig tills presentationen har sparats.
+Du kan också skicka en lokal videoväg direkt till [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli tillgänglig tills presentationen sparas.
 
 ```csharp
 using Aspose.Slides;
@@ -65,9 +65,9 @@ presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 
 ## **Ställ in videovolym exakt**
 
-I Aspose.Slides för .NET 26.11 eller senare sätter [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) en flyttalspostpercentage från 0 till 100. Använd den när [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/)‑förinställningarna är för grova. Till exempel begär `75.5f` 75,5 % volym.
+I Aspose.Slides for .NET 26.11 eller senare sätter [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ett flyttal i procent från 0 till 100. Använd den när [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/)‑förinställningarna är för grova. Till exempel begär `75.5f` 75,5 % volym.
 
-Det här exemplet kräver [Aspose.Slides för .NET](/slides/sv/net/installation/) 26.11 eller senare samt en lokal `video.mp4`. Det bäddar in videon, initierar uppspelning explicit, sparar presentationen och läser tillbaka den lagrade procentsatsen.
+Detta exempel kräver [Aspose.Slides for .NET](/slides/sv/net/installation/) 26.11 eller senare samt en lokal `video.mp4`. Det bäddar in videon, initierar uppspelning explicit, sparar presentationen och läser tillbaka den lagrade procentsatsen.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Validera inmatningen själv; förlita dig inte på att settern förkastar värden utanför det dokumenterade intervallet. Förinställningarna Låg, Medium och Hög motsvarar 20, 50 respektive 80 i 26.11. Att ange en förinställning kan ersätta en tidigare procentsats, så tilldela procentsatsen sist när du behöver ett exakt värde. Använd [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) för den explicita tyst‑inställningen; ett numeriskt nollvärde och förinställnings‑enum är inte utbytbara tillstånd.
+Validera indata själv; förlita dig inte på att settern förkastar värden utanför det dokumenterade intervallet. Förinställningarna Låg, Medel och Hög motsvarar 20, 50 och 80 i 26.11. Att ange en förinställning kan ersätta en tidigare procentsats, så tilldela procentsatsen sist när du behöver ett exakt värde. Använd [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) för den explicita tyst‑inställningen; ett numeriskt nollvärde och förinställnings‑enum är inte utbytbara tillstånd.
 
-Ställ explicit in [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) när du även konfigurerar en länkad video, och håll dess mediafil tillgänglig för betraktaren. Att spara och öppna igen verifierar den lagrade inställningen; faktisk uppspelning och ljudnivå beror på presentationsspelaren och dess ljudinställningar.
+Ställ explicit in [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) även när du konfigurerar en länkad video och håll dess mediafil tillgänglig för betraktaren. Att spara och öppna igen verifierar den lagrade inställningen; faktisk uppspelning och ljudnivå beror på presentationsspelaren och dess ljudinställningar.
 
-## **Skapa en video­ram med video från en webbkälla**
+## **Skapa en videoram med video från en webbkälla**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stödjer online‑videor i presentationer. Du kan skapa en video­ram som länkar till en online‑video, till exempel en YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Du kan skapa en videoram som länkar till en online‑video, till exempel en YouTube‑video.
 
-Det här exemplet lägger till en YouTube‑videolänk och miniatyrbild på den första bilden. Byt ut video‑identifieraren för att använda en annan video. Inställningen [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) begär automatisk uppspelning. Nedladdning av miniatyren och uppspelning av videon kräver internetanslutning. presentationsvisaren måste också stödja online‑videouppspelning.
+Detta exempel lägger till en YouTube‑videolänk och miniatyrbild på den första bilden. Byt ut video‑identifieraren för att använda en annan video. Inställningen [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) begär automatiskt uppspelning. Nedladdning av miniatyrbilden och uppspelning av videon kräver internetuppkoppling. Presentationsvisaren måste också stödja online‑uppspelning av video.
 
 ```csharp
 using System.Net.Http;
@@ -133,9 +133,9 @@ presentation.Save("online_video.pptx", SaveFormat.Pptx);
 
 ## **Spela upp en video i helskärmsläge**
 
-I en tränings‑presentation kan du spela upp en mjukvarudemonstration i helskärmsläge så att publiken kan se detaljerna. Ställ in [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) till `true` för att aktivera detta beteende under uppspelning.
+I en träningspresentation kan du spela upp en mjukvarudemonstration i helskärmsläge så publiken kan se detaljerna. Ställ in [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) till `true` för att aktivera detta beteende under uppspelning.
 
-Det här exemplet öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) på den första bilden och aktiverar helskärmsuppspelning. Inmatnings‑presentationen måste innehålla minst en bild med en befintlig video­ram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) på den första bilden och aktiverar helskärm för uppspelning. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Helskärmsuppspelning styr hur videon visas. Oberoende styr [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) om den startar automatiskt eller vid klick, och [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) styr om den upprepas. För att välja startbeteendet, ställ in uppspelningsläget till [VideoPlayModePreset.Auto eller VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start‑ och loop‑inställningarna.
+Uppspelning i helskärm styr hur videon visas. Oberoende styr [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) om den startar automatiskt eller vid klick, och [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) styr om den upprepas. För att välja startbeteende, sätt uppspelningsläget till [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start- och loop‑inställningarna.
 
 ## **Spola tillbaka en video efter uppspelning**
 
-I en tränings‑presentation gör återgång av en demonstrationsvideo till dess början den redo för presentatören att spela upp igen. Ställ in [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) till `true` för att återföra videon till början efter att uppspelningen är klar.
+I en träningspresentation gör det att återföra en demonstrationsvideo till början att den är redo för presentatören att spela igen. Ställ in [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) till `true` för att återföra videon till början efter att uppspelningen är klar.
 
-Det här exemplet öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar loopning så att uppspelningen kan avslutas och ställer in uppspelning att starta vid klick. Inmatnings‑presentationen måste innehålla minst en bild med en befintlig video­ram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) på den första bilden och möjliggör spolning. Det inaktiverar loopning så att uppspelningen kan slutföras och sätter uppspelning att starta vid klick. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
 
 ```csharp
 using Aspose.Slides;
@@ -185,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Spolning tillbaka returnerar videon till början utan att starta den igen. Däremot gör aktivering av [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) att uppspelningen upprepas automatiskt. Håll loopning inaktiverad när du vill att videon ska färdigställas och vara redo att spelas igen. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) styr oberoende om den startar automatiskt eller vid klick; detta exempel använder [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) så presentatören kontrollerar när uppspelningen startar. Ställ in uppspelningsläget efter loop‑inställningen, enligt exemplet. Spolning tillbaka fungerar oberoende av [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Spolning återför videon till början utan att starta den igen. I kontrast gör aktivering av [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) att uppspelning upprepas automatiskt. Håll loopning inaktiverad när du vill att videon ska slutföras och vara redo att spelas igen. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) styr oberoende automatiskt eller vid‑klick-start; detta exempel använder [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) så presentatören kontrollerar när uppspelning startar. Ställ in uppspelningsläget efter loop‑inställningen, som visas i exemplet. Spolning fungerar oberoende av [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Beskär en video­ram**
+## **Trimma en videoram**
 
-Använd [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) och [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) för att hoppa över en del av början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Beskärning ändrar uppspelningsinställningarna utan att ändra den inbäddade videodata.
+Använd [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) och [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) för att hoppa över en del i början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att modifiera den inbäddade videodatan.
 
-**Ange triminställningar**
+**Ange trimningsinställningar**
 
-Det här exemplet bäddar in en lokal video och hoppar över de första 2,5 sekunderna samt den sista sekunden under uppspelning. Använd en video som är längre än 3,5 sekunder så att ett spelbart segment återstår.
+Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video som är längre än 3,5 sekunder så att ett spelbart segment återstår.
 
 ```csharp
 using System.IO;
@@ -213,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Läs triminställningar**
+**Läs trimningsinställningar**
 
-Det här exemplet skriver ut trimvärdena för den första video­ramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden saknar video­ram skrivs inget ut. Föregående exempel ger värdena 2500 och 1000.
+Detta exempel skriver ut trimvärdena för den första videoramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden saknar videoram skrivs inget ut. Det föregående exemplet ger värdena 2500 och 1000.
 
 ```csharp
 using System;
@@ -235,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Hantera video­texter**
+## **Hantera videokaptioner**
 
-Aspose.Slides låter dig hantera stängda undertexter för video­ramar i PowerPoint‑presentationer. Undertexterna lagras i WebVTT‑format och exponeras via egenskapen [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras via egenskapen [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Lägg till undertexter i en video­ram**
+### **Lägg till undertexter till en videoram**
 
-Det här exemplet bäddar in en lokal video och lägger till ett WebVTT‑undertextspår märkt English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både videon och dess undertexter.
+Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår med etiketten English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både videon och dess undertexter.
 
 ```csharp
 using System.IO;
@@ -260,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Gränssnittet [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) tillhandahåller också en överlagring som låter dig lägga till undertexter från en ström.
+Gränssnittet [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) ger också en överlagring som låter dig lägga till undertexter från en ström.
 
-**Extrahera undertexter från en video­ram**
+### **Extrahera undertexter från en videoram**
 
-Det här exemplet sparar alla undertextspår från video­ramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilerna unika. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
+Detta exempel sparar alla undertextspår från videoramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilerna unika. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
 
 ```csharp
 using System;
@@ -291,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Varje [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binära data och undertext som en UTF‑8‑sträng.
+Varje [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binära data och undertexten som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en video­ram**
+### **Ta bort undertexter från en videoram**
 
-Det här exemplet tar bort alla undertexter från video­ramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns samt att formen är en video­ram.
+Detta exempel tar bort alla undertexter från videoramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns samt att formen är en videoram.
 
 ```csharp
 using System;
@@ -313,11 +313,66 @@ presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 
 Om du bara behöver ta bort ett undertextspår, använd metoderna [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) istället för [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
+### **Sök videokaptioner**
+
+[ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) returnerar hela WebVTT‑spåret, inklusive dess huvud, tidslinjer och undertext. För att hitta en talad fras och dess tidsstämpel, läs cues i minnet. Till exempel kan ett engelskt spår på bild 2 innehålla följande text:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Exemplet besöker varje bild och läser spåren för dess top‑nivå videoramar via [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). I ett klartext‑cue innehåller tidslinjen `-->` och en tom rad avslutar cue:n. När undertexten innehåller “café” skriver exemplet ut bildnummer, spårets etikett, originaltidslinjen och hela undertexten.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Sökning efter “café” ger en träff för exempelspåret. Huvudet och tidsinställningen ligger utanför cue‑texten.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
 ## **Extrahera video från en bild**
 
 Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
-Det här exemplet extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddad data. Konsolen skriver ut varje videos MIME‑typ och det totala antalet. Utdata använder den generiska filändelsen `.bin`; ändra den för att matcha den rapporterade mediatypen om det behövs.
+Detta exempel extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddad data. Konsolen skriver ut varje videos MIME‑typ och det totala antalet. Utdata använder den generiska `.bin`‑ändelsen; ändra den för att matcha den rapporterade mediatypen vid behov.
 
 ```csharp
 using System;
@@ -353,18 +408,18 @@ Console.WriteLine($"Embedded videos extracted: {videoCount}");
 
 ## **Vanliga frågor**
 
-**Vilka videouppspelningsparametrar kan ändras för en video­ram?**
+**Vilka videouppspelningsparametrar kan ändras för en videoram?**
 
-Du kan styra [uppspelningsläget](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto eller vid klick) och [loopning](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Dessa alternativ finns tillgängliga via egenskaperna på objektet [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Du kan styra [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (auto eller vid klick) och [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Dessa alternativ är tillgängliga via objektets egenskaper på [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
 **Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas binärdata i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du länkar till en online‑video och lägger till en miniatyr sparar presentationen länken och förhandsbilden istället för videodata, så storleksökningen är vanligtvis mindre.
+Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek växer i proportion till filens storlek. När du länkar till en online‑video och lägger till en miniatyr sparar presentationen länken och förhandsbilden istället för videodata, så storleksökningen är vanligtvis mindre.
 
-**Kan jag ersätta videon i en befintlig video­ram utan att ändra dess position och storlek?**
+**Kan jag ersätta videon i en befintlig videoram utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [videoinnehållet](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) i ramen medan du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) inom ramen samtidigt som du bevarar figurens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 
-Ja. En inbäddad video har en [innehållstyp](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) som du kan läsa och använda, till exempel när du sparar den till disk.
+Ja. En inbäddad video har en [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) som du kan läsa och använda, till exempel när du sparar den till disk.

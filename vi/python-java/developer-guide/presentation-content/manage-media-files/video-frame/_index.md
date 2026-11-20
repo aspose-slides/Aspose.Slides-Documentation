@@ -1,6 +1,6 @@
 ---
-title: Quản lý khung video trong bài thuyết trình bằng Python
-linktitle: Khung video
+title: Quản lý các khung video trong bản trình bày bằng Python
+linktitle: Khung Video
 type: docs
 weight: 10
 url: /vi/python-java/video-frame/
@@ -14,10 +14,10 @@ keywords:
 - nguồn web
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và trích xuất khung video trong các slide PowerPoint và OpenDocument một cách lập trình bằng Aspose.Slides cho Python qua Java. Hướng dẫn nhanh chóng."
+description: "Học cách thêm và trích xuất các khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho Python qua Java. Hướng dẫn nhanh cách thực hiện."
 ---
 ## **Giới thiệu**
 
@@ -25,13 +25,13 @@ Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose
 
 PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Để mô tả dữ liệu video và khung video, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) và lớp [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) cùng các kiểu liên quan khác.
+Để đại diện cho dữ liệu video và khung video, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) lớp [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) và các kiểu liên quan khác.
 
-## **Tạo khung video được nhúng**
+## **Tạo Khung Video Nhúng**
 
 Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình bày của mình.
 
-Ví dụ này nhúng một video cục bộ vào slide đầu tiên của một bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Python đọc byte video từ đĩa, và JPype chuyển chúng thành mảng byte Java trước khi video được thêm vào bản trình bày.
+Ví dụ này nhúng video cục bộ vào slide đầu tiên của một bản trình bày hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Python đọc các byte video từ đĩa, và JPype chuyển đổi chúng thành mảng byte Java trước khi video được thêm vào bản trình bày.
 
 ```python
 from pathlib import Path
@@ -59,7 +59,7 @@ finally:
     presentation.dispose()
 ```
 
-Bạn cũng có thể truyền trực tiếp đường dẫn video cục bộ vào phương thức [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập được cho đến khi bản trình bày được lưu.
+Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp tới [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). Ví dụ này nhúng video vào slide đầu tiên của một bản trình bày mới. Video phải vẫn có thể truy cập được cho đến khi bản trình bày được lưu.
 
 ```python
 import jpype
@@ -81,11 +81,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Tạo khung video với video từ nguồn web**
+## **Tạo Khung Video với Video từ Nguồn Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong các bản trình bày. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Ví dụ này thêm liên kết video YouTube và ảnh thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) yêu cầu tự động phát. Tải ảnh thu nhỏ và phát video cần có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
+Ví dụ này thêm liên kết video YouTube và ảnh thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Phương thức [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) yêu cầu phát lại tự động. Tải ảnh thu nhỏ và phát video cần có kết nối internet. Trình xem bản trình bày cũng phải hỗ trợ phát video trực tuyến.
 
 ```python
 from urllib.request import urlopen
@@ -119,11 +119,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Phát video ở chế độ toàn màn hình**
+## **Phát Video ở Chế Độ Toàn Màn Hình**
 
-Trong bản trình bày đào tạo, bạn có thể phát một bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn thấy chi tiết. Gọi [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) với `True` để bật hành vi này khi phát.
+Trong một bản trình bày đào tạo, bạn có thể phát một bản trình diễn phần mềm ở chế độ toàn màn hình để khán giả xem chi tiết. Gọi [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) với `True` để bật hành vi này trong quá trình phát lại.
 
-Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) đầu tiên trên slide đầu và bật phát toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu.
+Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật phát lại toàn màn hình. Bản trình bày đầu vào phải chứa ít nhất một slide với một khung video hiện có trên slide đầu tiên.
 
 ```python
 import jpype
@@ -148,13 +148,13 @@ finally:
     presentation.dispose()
 ```
 
-Phát toàn màn hình quyết định cách video được hiển thị. Riêng biệt, [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) kiểm soát việc video tự động phát hay phát khi nhấn, và [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) kiểm soát việc lặp lại. Để chọn cách khởi động, đặt chế độ phát thành [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt khởi động và lặp lại hiện có.
+Phát lại toàn màn hình kiểm soát cách video được hiển thị. Riêng biệt, [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) kiểm soát việc video bắt đầu tự động hay khi nhấp, và [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) kiểm soát việc lặp lại. Để chọn hành vi khởi động, đặt chế độ phát lại thành [VideoPlayModePreset.Auto hoặc VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt khởi động và vòng lặp hiện có.
 
-## **Quay lại đầu video sau khi phát**
+## **Quay Lại Video Sau Khi Phát**
 
-Trong bản trình bày đào tạo, việc đưa video demo trở về đầu giúp người thuyết trình có thể phát lại nhanh chóng. Gọi [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) với `True` để video quay lại đầu sau khi phát xong.
+Trong một bản trình bày đào tạo, đưa video trình diễn về đầu lại giúp người thuyết trình có thể phát lại. Gọi [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) với `True` để đưa video về đầu sau khi phát xong.
 
-Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) đầu tiên trên slide đầu và bật chức năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt chế độ phát là khi nhấp. Bản trình bày đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu.
+Ví dụ này mở một bản trình bày, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật chức năng quay lại. Nó tắt vòng lặp để phát được hoàn thành và đặt phát lại bắt đầu khi nhấp. Bản trình bày đầu vào phải chứa ít nhất một slide với một khung video hiện có trên slide đầu tiên.
 
 ```python
 import jpype
@@ -181,15 +181,15 @@ finally:
     presentation.dispose()
 ```
 
-Quay lại đưa video về đầu mà không khởi động lại. Ngược lại, gọi [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) với `True` sẽ tự động lặp lại phát. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) độc lập kiểm soát khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau khi đã thiết lập vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
+Quay lại đưa video về đầu mà không khởi động lại. Ngược lại, gọi [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) với `True` sẽ lặp lại phát lại tự động. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) riêng biệt kiểm soát khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) nên người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát lại sau cài đặt vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Cắt ngắn khung video**
+## **Cắt Ngắn Khung Video**
 
-Sử dụng [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) và [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) để bỏ qua phần đầu hoặc phần cuối của video khi phát. Cả hai giá trị đều tính bằng mili giây. Việc cắt ngắn thay đổi cài đặt phát mà không sửa đổi dữ liệu video được nhúng.
+Sử dụng [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) và [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) để bỏ qua một phần đầu hoặc cuối của video trong quá trình phát lại. Cả hai giá trị đều tính bằng mili giây. Việc cắt ngắn thay đổi các cài đặt phát lại mà không sửa đổi dữ liệu video được nhúng.
 
-**Đặt cài đặt cắt ngắn**
+**Đặt Cài Đặt Cắt**
 
-Ví dụ này nhúng một video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Sử dụng video dài hơn 3,5 giây để còn lại một đoạn có thể phát được.
+Ví dụ này nhúng video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối trong quá trình phát lại. Sử dụng video dài hơn 3,5 giây để còn lại một đoạn có thể phát.
 
 ```python
 from pathlib import Path
@@ -220,9 +220,9 @@ finally:
     presentation.dispose()
 ```
 
-**Đọc cài đặt cắt ngắn**
+**Đọc Cài Đặt Cắt**
 
-Ví dụ này in ra các giá trị cắt ngắn của khung video đầu tiên trên slide đầu, tính bằng mili giây. Bản trình bày phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước tạo ra các giá trị 2500 và 1000.
+Ví dụ này in ra các giá trị cắt của khung video đầu tiên trên slide đầu tiên tính bằng mili giây. Bản trình bày phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước đưa ra giá trị 2500 và 1000.
 
 ```python
 import jpype
@@ -248,13 +248,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Quản lý phụ đề video**
+## **Quản Lý Phụ Đề Video**
 
 Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình bày PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập thông qua phương thức [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Thêm phụ đề vào khung video**
+### **Thêm Phụ Đề vào Khung Video**
 
-Ví dụ này nhúng một video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Các dấu thời gian phụ đề cần khớp với video. Bản trình bày đã lưu sẽ bao gồm cả video và phụ đề của nó.
+Ví dụ này nhúng video cục bộ và thêm một dải phụ đề WebVTT với nhãn English. Các dấu thời gian phụ đề cần khớp với video. Bản trình bày đã lưu bao gồm cả video và phụ đề của nó.
 
 ```python
 from pathlib import Path
@@ -277,7 +277,7 @@ try:
     video = presentation.getVideos().addVideo(java_video_data)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Thêm một track phụ đề mới từ tệp WebVTT.
+    # Thêm một dải phụ đề mới từ tệp WebVTT.
     video_frame.getCaptionTracks().add("English", "track.vtt")
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
@@ -285,11 +285,11 @@ finally:
     presentation.dispose()
 ```
 
-Lớp [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng dữ liệu.
+Lớp [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) cũng cung cấp một phương thức overload cho phép bạn thêm phụ đề từ một luồng.
 
-**Trích xuất phụ đề từ khung video**
+### **Trích Xuất Phụ Đề từ Khung Video**
 
-Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số tuần tự giữ cho các tệp đầu ra không trùng nhau. Console báo số lượng track đã trích xuất. Bản trình bày phải chứa ít nhất một slide.
+Ví dụ này lưu tất cả dải phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự giữ cho các tệp đầu ra khác nhau. Bảng điều khiển báo cáo số lượng dải đã trích xuất. Bản trình bày phải chứa ít nhất một slide.
 
 ```python
 from pathlib import Path
@@ -320,11 +320,11 @@ finally:
     presentation.dispose()
 ```
 
-Mỗi đối tượng [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
+Mỗi đối tượng [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) hiển thị định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
 
-**Xóa phụ đề khỏi khung video**
+### **Xóa Phụ Đề khỏi Khung Video**
 
-Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí shape đầu tiên trên slide đầu và lưu kết quả. Nó giả định slide và shape tồn tại và shape là một khung video.
+Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí hình dạng đầu tiên trên slide đầu tiên và lưu kết quả. Nó giả định rằng slide và hình dạng tồn tại và hình dạng là một khung video.
 
 ```python
 import jpype
@@ -351,13 +351,69 @@ finally:
     presentation.dispose()
 ```
 
-Nếu bạn chỉ cần xóa một track phụ đề, hãy sử dụng các phương thức [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) thay vì [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
+Nếu bạn cần xóa chỉ một dải phụ đề, sử dụng các phương thức [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) thay vì [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
 
-## **Trích xuất video từ slide**
+### **Tìm Kiếm Phụ Đề Video**
 
-Bên cạnh việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình bày.
+[Captions.getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) trả về toàn bộ dải WebVTT, bao gồm tiêu đề, các dòng thời gian và văn bản phụ đề. Bạn có thể tìm kiếm phụ đề trong bộ nhớ để tìm một cụm từ và dấu thời gian của nó. Ví dụ, một dải tiếng Anh trên slide 2 có thể chứa văn bản sau.
 
-Ví dụ này trích xuất các video được nhúng từ mọi slide thành các tệp nhị phân có số thứ tự riêng. Các video liên kết sẽ bị bỏ qua vì chúng không có dữ liệu được nhúng. Console in ra loại MIME của mỗi video và tổng số lượng. Đầu ra sử dụng phần mở rộng chung `.bin`; bạn có thể thay đổi thành phần mở rộng phù hợp với loại media được báo cáo khi cần.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Ví dụ này mở `captioned_media.pptx` và sử dụng [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) để đọc các dải của mỗi khung video cấp cao nhất trên mọi slide. Trong một cue dạng văn bản thuần, dòng thời gian chứa `-->`, và một dòng trống kết thúc cue. Đối với mỗi phụ đề chứa “café” bất kể chữ hoa hay thường, ví dụ này in ra số slide, nhãn dải, dòng thời gian gốc và toàn bộ phụ đề.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, VideoFrame
+
+presentation = Presentation("captioned_media.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if not isinstance(shape, VideoFrame):
+                continue
+            for track in shape.getCaptionTracks():
+                track_text = str(track.getDataAsString())
+                lines = iter(track_text.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.getSlideNumber()} | {track.getLabel()} | {timing}")
+                        print(caption)
+finally:
+    presentation.dispose()
+```
+
+Tìm kiếm “café” tạo ra một kết quả khớp cho dải mẫu. Việc tìm kiếm loại trừ tiêu đề dải và giữ nguyên cài đặt thời gian và xuống dòng trong kết quả.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Trích Xuất Video từ Slide**
+
+Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình bày.
+
+Ví dụ này trích xuất video nhúng từ mọi slide thành các tệp nhị phân riêng biệt, có số thứ tự. Video được liên kết bị bỏ qua vì không có dữ liệu nhúng. Bảng điều khiển in ra MIME type của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng chung `.bin`; thay đổi nó để phù hợp với loại phương tiện được báo cáo khi cần.
 
 ```python
 from pathlib import Path
@@ -392,20 +448,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Các tham số phát lại video nào có thể thay đổi cho một khung video?**
+**Tham số phát lại video nào có thể thay đổi cho khung video?**
 
-Bạn có thể điều khiển [playback mode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (tự động hoặc khi nhấp) và [looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). Các tùy chọn này có sẵn qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
+Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (tự động hoặc khi nhấp) và [vòng lặp](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). Các tùy chọn này có sẵn thông qua các phương thức của đối tượng [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
 
-**Việc thêm video có làm tăng kích thước tệp PPTX không?**
+**Thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng một video cục bộ, dữ liệu nhị phân sẽ được bao gồm trong tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp video. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình bày chỉ lưu link và ảnh preview thay vì dữ liệu video, do đó sự tăng kích thước thường nhỏ hơn.
+Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, vì vậy kích thước bản trình bày tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình bày lưu trữ liên kết và hình ảnh xem trước thay vì dữ liệu video, do đó tăng kích thước thường nhỏ hơn.
 
 **Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể thay đổi [video content](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) trong khung trong khi giữ nguyên hình học của shape; đây là kịch bản phổ biến để cập nhật media trong bố cục hiện có.
+Có. Bạn có thể thay đổi [nội dung video](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) trong khung mà vẫn giữ nguyên hình dạng; đây là kịch bản phổ biến để cập nhật phương tiện trong bố cục hiện có.
 
 **Có thể xác định loại nội dung (MIME) của video được nhúng không?**
 
-Có. Video được nhúng có một [loại nội dung](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.
+Có. Video được nhúng có một [loại nội dung](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó vào đĩa.

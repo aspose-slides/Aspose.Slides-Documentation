@@ -1,13 +1,13 @@
 ---
 title: إدارة إطارات الفيديو في العروض التقديمية على Android
-linktitle: إطار فيديو
+linktitle: إطار الفيديو
 type: docs
 weight: 10
 url: /ar/androidjava/video-frame/
 keywords:
 - إضافة فيديو
 - إنشاء فيديو
-- تضمين فيديو
+- دمج فيديو
 - استخراج فيديو
 - استرجاع فيديو
 - إطار فيديو
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Android عبر Java. دليل سريع خطوة بخطوة."
+description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجياً في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. دليل سريع خطوة بخطوة."
 ---
-## **المقدمة**
+## **مقدمة**
 
-يمكن للفيديوهات أن تساعد في توضيح الأفكار وجذب جمهور. يتيح Aspose.Slides for Android via Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المضمّن.
+يمكن للفيديوهات المساعدة في شرح الأفكار وجذب الجمهور. يتيح Aspose.Slides for Android عبر Java إمكانية إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المدمجة.
 
-يدعم PowerPoint مقاطع الفيديو المحلية وروابط الفيديوهات على الإنترنت، مثل مقاطع YouTube.
+يدعم PowerPoint الفيديوهات المحلية والروابط إلى الفيديوهات عبر الإنترنت، مثل فيديوهات YouTube.
 
-لتمثيل بيانات الفيديو وإطارات الفيديو، يوفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) والواجهة [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
+لتمثيل بيانات الفيديو وإطارات الفيديو، توفر Aspose.Slides الواجهة [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) والواجهة [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) وأنواع أخرى ذات صلة.
 
-## **إنشاء إطار فيديو مضمّن**
+## **إنشاء إطار فيديو مدمج**
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في العرض التقديمي.
+إذا كان ملف الفيديو الذي ترغب في إضافته إلى الشريحة مخزناً محلياً، يمكنك إنشاء إطار فيديو لدمج الفيديو في العرض التقديمي.
 
-يقوم هذا المثال بتضمين فيديو محلي في الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدة النقاط. يبقى التيار مفتوحًا حتى ينتهي الحفظ لأن [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) يبقيه مقفلاً أثناء استخدام العرض التقديمي له.
+هذا المثال يدمج فيديو محلي في الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدات النقاط. يبقى تدفق البيانات مفتوحاً حتى ينتهي الحفظ لأن [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) يبقيه مقفلاً أثناء استخدام العرض التقديمي له.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرةً إلى الدالة [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). يضمّن هذا المثال الفيديو في الشريحة الأولى من عرض تقديمي جديد. يجب أن يبقى الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
+يمكنك أيضاً تمرير مسار الفيديو المحلي مباشرةً إلى [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). يعمل هذا المثال على دمج الفيديو في الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو قابلاً للوصول حتى يتم حفظ العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -70,9 +70,9 @@ try {
 
 ## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
 
-يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يرتبط بفيديو على الإنترنت، مثل فيديو YouTube.
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) الفيديوهات عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط إلى فيديو عبر الإنترنت، مثل فيديو YouTube.
 
-يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. تطلب طريقة [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) تشغيلًا تلقائيًا. يتطلب تحميل الصورة المصغرة وتشغيل الفيديو اتصالًا بالإنترنت. يجب أن يدعم عارض العروض التقديمية تشغيل الفيديو عبر الإنترنت أيضًا.
+هذا المثال يضيف رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) تطلب تشغيل تلقائي. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلبان اتصالاً بالإنترنت. يجب أن يدعم عارض العرض التقديمي أيضاً تشغيل الفيديو عبر الإنترنت.
 
 ```java
 import com.aspose.slides.*;
@@ -103,9 +103,9 @@ try {
 
 ## **تشغيل فيديو في وضع ملء الشاشة**
 
-في عرض تدريبي، يمكنك تشغيل عرض توضيحي للبرمجيات في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ الدالة [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) مع القيمة `true` لتمكين هذا السلوك أثناء التشغيل.
+في عرض تدريبي، يمكنك تشغيل عرض توضيحي للبرمجيات في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) مع `true` لتفعيل هذا السلوك أثناء التشغيل.
 
-يفتح هذا المثال عرضًا تقديميًا، ويجد أول [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل بها إطار فيديو موجود في الشريحة الأولى.
+هذا المثال يفتح عرضاً تقديمياً، يجد أول [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويُفَعِّل التشغيل بملء الشاشة. يجب أن يحتوي العرض المُدخل على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-تتحكم عملية تشغيل ملء الشاشة في طريقة عرض الفيديو. بشكل مستقل، تتحكم طريقة [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم طريقة [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) في ما إذا كان يكرر التشغيل. لاختيار سلوك البدء، اضبط وضع التشغيل إلى [VideoPlayModePreset.Auto أو VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
+التحكم في التشغيل بملء الشاشة يحدد طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) في ما إذا كان يتكرر. لاختيار سلوك البداية، عيّن وضع التشغيل إلى [VideoPlayModePreset.Auto أو VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البداية والتكرار الحالية.
 
 ## **إرجاع الفيديو إلى البداية بعد التشغيل**
 
-في عرض تدريبي، إرجاع فيديو الشرح إلى بدايته يجعله جاهزًا للمقدم لتشغيله مرة أخرى. استدعِ الدالة [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) مع القيمة `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
+في عرض تدريبي، إرجاع فيديو العرض التوضيحي إلى بدايته يجعل الفيديو جاهزًا للمُقدِّم لإعادة تشغيله. استدعِ [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) مع `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
 
-يفتح هذا المثال عرضًا تقديميًا، يجد أول [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويفعل الإرجاع. يعطل التكرار بحيث يمكن أن ينتهي التشغيل ويضبط بدء التشغيل على النقر. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل بها إطار فيديو موجود في الشريحة الأولى.
+هذا المثال يفتح عرضاً تقديمياً، يجد أول [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) في الشريحة الأولى، ويُفَعِّل الإرجاع. يوقف التكرار حتى يكتمل التشغيل ويضبط التشغيل لتبدأ عند النقر. يجب أن يحتوي العرض المُدخل على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-تُعيد عملية الإرجاع الفيديو إلى بدايته دون تشغيله مرة أخرى. بالمقابل، استدعاء الطريقة [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) مع القيمة `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويظل جاهزًا لإعادة التشغيل. تتحكم الطريقة [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) بشكل مستقل في بدء التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) ليتم التحكم في بدء التشغيل من قبل المقدم. اضبط وضع التشغيل بعد إعداد التكرار، كما هو موضح في المثال. يعمل الإرجاع بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+الإرجاع يعيد الفيديو إلى بدايته دون تشغيله مرة أخرى. بالمقابل، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) مع `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويبقى جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) بشكل مستقل في بدء التشغيل تلقائيًا أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) بحيث يتحكم المُقدِّم في توقيت بدء التشغيل. اضبط وضع التشغيل بعد ضبط إعداد التكرار كما هو موضح في المثال. يعمل الإرجاع بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **قص إطار الفيديو**
+## **تقليم إطار فيديو**
 
-استخدم الطريقة [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) والطريقة [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. القيم بالمللي ثانية. يغيّر القص إعدادات التشغيل دون تعديل بيانات الفيديو المضمّن.
+استخدم [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) و[IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. القيم بوحدات المللي ثانية. يغيّر التقليم إعدادات التشغيل دون تعديل بيانات الفيديو المدمجة.
 
-**تعيين إعدادات القص**
+**تعيين إعدادات التقطيع**
 
-يضمّن هذا المثال فيديوًا محليًا ويتخطى أول 2.5 ثانية والثانية الأخيرة أثناء التشغيل. استخدم فيديوًا أطول من 3.5 ثوانٍ حتى يبقى جزء قابل للتشغيل.
+هذا المثال يدمج فيديو محلي ويتخطى أول 2.5 ثانية وآخر ثانية أثناء التشغيل. استخدم فيديوً أطول من 3.5 ثانية بحيث يبقى مقطع قابل للتشغيل.
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**قراءة إعدادات القص**
+**قراءة إعدادات التقطيع**
 
-يطبع هذا المثال قيم القص لإطار الفيديو الأول في الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا كانت تلك الشريحة لا تحتوي على إطار فيديو، لن يُطبع شيء. ينتج المثال القيم 2500 و 1000.
+هذا المثال يطبع قيم التقطيع للإطار الفيديو الأول في الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لا يُطبع شيء. ينتج المثال السابق القيم 2500 و1000.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **إدارة ترجمات الفيديو**
 
-يسمح Aspose.Slides لك بإدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن الترجمات بتنسيق WebVTT وتُتيح عبر الطريقة [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+يتيح Aspose.Slides لك إدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُحفظ الترجمات بصيغة WebVTT وتُعرض عبر طريقة [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**إضافة ترجمات إلى إطار فيديو**
+### **إضافة ترجمات إلى إطار فيديو**
 
-يضمّن هذا المثال فيديوًا محليًا ويضيف مسار ترجمة WebVTT مسمى English. يجب أن تتطابق طوابع الترجمة مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وترجماته.
+هذا المثال يدمج فيديو محلي ويضيف مسار ترجمة WebVTT مسمى English. يجب أن تتطابق طوابع الوقت للترجمة مع الفيديو. يتضمن العرض المحفوظ كلًا من الفيديو وترجماته.
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-توفر الواجهة [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) أيضًا نسخة محملة تسمح لك بإضافة ترجمات من تيار (stream).
+توفر الواجهة [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) طريقة تحميل تسمح لك بإضافة ترجمات من تدفق بيانات.
 
-**استخراج الترجمات من إطار فيديو**
+### **استخراج ترجمات من إطار فيديو**
 
-يحفظ هذا المثال جميع مسارات الترجمات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. الأرقام المتسلسلة تحافظ على تميز ملفات الإخراج. يُظهر سطر الأوامر عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
+هذا المثال يحفظ جميع مسارات الترجمات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. تحافظ الأرقام المتسلسلة على تمييز ملفات الإخراج. يُبلغ وحدة التحكم عن عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-كل كائن من نوع [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) يُظهر معرف الترجمة، التسمية، البيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
+كل كائن من [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) يُظهر معرف الترجمة، والملصق، والبيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
 
-**إزالة الترجمات من إطار فيديو**
+### **إزالة الترجمات من إطار فيديو**
 
-يُزيل هذا المثال جميع الترجمات من إطار الفيديو في الموضع الأول على الشريحة الأولى ويحفظ النتيجة. يُفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
+هذا المثال يزيل جميع الترجمات من إطار الفيديو الموجود في الموضع الأول للشكل في الشريحة الأولى ويحفظ النتيجة. يُفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-إذا كنت بحاجة إلى إزالة مسار ترجمة واحد فقط، استخدم الطريقة [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) أو الطريقة [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) بدلاً من الطريقة [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
+إذا احتجت إلى إزالة مسار ترجمة واحد فقط، استخدم طريقتي [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) أو [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) بدلاً من [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+
+### **بحث عن ترجمات الفيديو**
+
+طريقة [ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) تُعيد المسار الكامل لـ WebVTT بما فيه الرأس، وخطوط التوقيت، ونص الترجمة. يمكنك البحث في الإشارات في الذاكرة لتحديد عبارة منطوقة وطابعها الزمني. على سبيل المثال، قد يحتوي مسار إنجليزي على الشريحة 2 على النص التالي.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+يفتح المثال الملف `captioned_media.pptx` ويستخدم [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) لقراءة مسارات كل إطار فيديو من المستوى الأعلى في كل شريحة. في إشارة نصية عادية، يحتوي سطر التوقيت على `-->`، ويسطر فارغ ينهي الإشارة. عندما تحتوي الترجمة على كلمة “café” بأي حالة حرفية، يطبع المثال رقم الشريحة، وملصق المسار، وسطر التوقيت الأصلي، والترجمة الكاملة.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+البحث عن “café” يُنتج مطابقة واحدة للمسار النموذجي. يستبعد البحث رأس المسار ويحافظ على إعداد التوقيت في الناتج.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **استخراج فيديو من شريحة**
 
-بالإضافة إلى إضافة الفيديوهات إلى الشرائح، يتيح Aspose.Slides استخراج الفيديوهات المضمّنة في العروض التقديمية.
+بالإضافة إلى إضافة الفيديوهات إلى الشرائح، يتيح Aspose.Slides استخراج الفيديوهات المدمجة في العروض التقديمية.
 
-يستخرج هذا المثال الفيديوهات المضمّنة من كل شريحة إلى ملفات ثنائية مرقمة منفصلة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمّنة. يطبع سطر الأوامر نوع MIME لكل فيديو وإجمالي عدد الفيديوهات. يستخدم الإخراج الامتداد العام `.bin`؛ غيّره ليتطابق مع نوع الوسائط المذكور إذا لزم الأمر.
+هذا المثال يستخرج الفيديوهات المدمجة من كل شريحة إلى ملفات ثنائية رقمية منفصلة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مدمجة. تُظهر وحدة التحكم نوع MIME لكل فيديو وإجمالي عدد الفيديوهات. يستخدم الإخراج الامتداد العام `.bin`؛ يمكنك تغييره ليتطابق مع نوع الوسائط المبلغ عنه عند الضرورة.
 
 ```java
 import com.aspose.slides.*;
@@ -345,16 +412,16 @@ try {
 
 **ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). هذه الخيارات متاحة عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
 
-**هل يضيف إضافة فيديو حجمًا إلى ملف PPTX؟**
+**هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عندما تُضمّن فيديوًا محليًا، تُدرج البيانات الثنائية في المستند، فيزداد حجم العرض التقديمي بنسبة حجم الملف. عندما ترتبط بفيديو على الإنترنت وتضيف صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة عادةً أصغر.
+نعم. عند دمج فيديو محلي، تُضاف البيانات الثنائية إلى المستند، وبالتالي يزيد حجم العرض التقديمي بما يتناسب مع حجم الملف. عند ربط فيديو عبر الإنترنت وإضافة صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا عادةً ما يكون الارتفاع في الحجم أصغر.
 
-**هل يمكن استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) داخل الإطار مع الحفاظ على أبعاد الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) داخل الإطار مع الحفاظ على شكل الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
-**هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**
+**هل يمكن تحديد نوع المحتوى (MIME) لفيديو مدمج؟**
 
-نعم. يحتوي الفيديو المضمّن على [نوع محتوى](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.
+نعم. للفيديو المدمج نوع [محتوى](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.

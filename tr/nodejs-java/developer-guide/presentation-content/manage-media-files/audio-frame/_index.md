@@ -1,5 +1,5 @@
 ---
-title: Presentasyonlarda JavaScript Kullanarak Ses Yönetimi
+title: JavaScript Kullanarak Sunumlarda Ses Çerçevelerini Yönetme
 linktitle: Ses Çerçevesi
 type: docs
 weight: 10
@@ -11,240 +11,312 @@ keywords:
 - ses ekle
 - ses özellikleri
 - ses seçenekleri
-- sesi çıkar
+- ses çıkarma
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js'te ses çerçevelerini oluşturun ve yönetin—PPT, PPTX ve ODP sunumlarında gömme, kırpma, döngü ve oynatma ayarlarını yapılandırmaya yönelik örnekler."
+description: "Aspose.Slides for Node.js via Java ile slaytlara ses gömün, ses simgesini değiştirin, oynatmayı yapılandırın, WebVTT altyazılarını yönetin ve slayt geçiş seslerini çıkarın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde ses çerçeveleriyle nasıl çalışılacağını açıklar. Kaydırımlara gömülü ses ekleme, ses çerçevesi küçük resmini özelleştirme, ses seviyesi, döngü, gizleme, kırpma ve geçiş süreleri gibi oynatma seçeneklerini yapılandırma ve slayt gösterisi geçişlerinde kullanılan sesleri çıkarma yöntemlerini gösterir.
+Bir ses çerçevesi, bir slaytta ses çalmanızı sağlar. Aspose.Slides for Node.js via Java ile bir ses klibi gömebilir, onu temsil eden görseli seçebilir, oynatmayı ayarlayabilir ve altyazılar ekleyebilirsiniz. Ayrıca bir slayt geçişine atanmış sesi de alabilirsiniz.
 
 ## **Ses Çerçeveleri Oluşturma**
 
-Aspose.Slides for Node.js via Java, ses dosyalarını slaytlara eklemenizi sağlar. Ses dosyaları slaytlara ses çerçeveleri olarak gömülür.
-
-1. Sunum sınıfının bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) örneğini oluşturun.
-2. Slaytın referansını dizini aracılığıyla alın.
-3. Slayta gömmek istediğiniz ses dosyası akışını yükleyin.
-4. Gömülü ses çerçevesini (ses dosyasını içeren) slayta ekleyin.
-5. [PlayMode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AudioPlayModePreset) ve `Volume`'u [AudioFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AudioFrame) nesnesi tarafından sunulan şekilde ayarlayın.
-6. Değiştirilmiş sunumu kaydedin.
-
-Bu JavaScript kodu, bir kaydırıma gömülü ses çerçevesi eklemenin nasıl yapılacağını gösterir:
+[addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) kullanarak ilk slayta yerel bir ses klibi gömebilirsiniz. İlk iki koordinat çerçevenin slayttaki konumunu, sonraki iki değer ise genişlik ve yüksekliğini, tümü puan cinsinden ayarlar. Bu örnek, klibi otomatik olarak başlatmak için [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) ve yüksek ses ön ayarını seçmek için [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) çağırır.
 
 ```javascript
-// Bir sunum dosyasını temsil eden Presentation sınıfını örnekler
-const pres = new aspose.slides.Presentation();
-try {
-    // İlk slaytı alır
-    const sld = pres.getSlides().get_Item(0);
-    // wav ses dosyasını akışa yükler
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Ses Çerçevesini ekler
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Sesin Oynatma Modunu ve Ses Seviyesini ayarlar
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // PowerPoint dosyasını diske yazar
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Ses Çerçevesi Küçük Resmini Değiştirme**
-
-Bir sunuma ses dosyası eklediğinizde, ses standart bir varsayılan resimle çerçeve olarak görünür (aşağıdaki bölüme bakın). Ses çerçevesinin önizleme resmini (istediğiniz resmi ayarlayarak) değiştirebilirsiniz.
-
-Bu JavaScript kodu, bir ses çerçevesinin küçük resmi veya önizleme görüntüsünü nasıl değiştireceğinizi gösterir:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Belirtilen konum ve boyutla slayta bir ses çerçevesi ekler.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Sunum kaynaklarına bir resim ekler.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Ses çerçevesi için resmi ayarlar.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // Değiştirilmiş sunumu diske kaydeder
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Ses Oynatma Seçeneklerini Değiştirme**
-
-Aspose.Slides for Node.js via Java, bir sesin oynatma davranışını veya özelliklerini kontrol eden seçenekleri değiştirmenize olanak tanır. Örneğin, ses seviyesini ayarlayabilir, sesi döngü halinde çalacak şekilde ayarlayabilir veya ses simgesini bile gizleyebilirsiniz.
-
-Microsoft PowerPoint'teki **Audio Options** bölmesi:
-
-![example1_image](audio_frame_0.png)
-
-PowerPoint **Audio Options** bölmesi, Aspose.Slides [AudioFrame] özelliklerine karşılık gelir:
-- **Start** açılır listesi, [AudioFrame.setPlayMode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setPlayMode) metoduna karşılık gelir
-- **Volume** [AudioFrame.setVolume](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setVolume) metoduna karşılık gelir
-- **Play Across Slides** [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) metoduna karşılık gelir
-- **Loop until Stopped** [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) metoduna karşılık gelir
-- **Hide During Show** [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) metoduna karşılık gelir
-- **Rewind after Playing** [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setRewindAudio) metoduna karşılık gelir
-
-PowerPoint **Editing** seçenekleri, Aspose.Slides [AudioFrame] özelliklerine karşılık gelir:
-- **Fade In** [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) metoduna karşılık gelir 
-- **Fade Out** [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) metoduna karşılık gelir 
-- **Trim Audio Start Time** [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) metoduna karşılık gelir 
-- **Trim Audio End Time** değeri, ses süresinden [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) metodunun değeri çıkarılarak elde edilir
-
-PowerPoint **Volume control** ses kontrol panelindeki ses seviyesi, [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#setVolumeValue) metoduna karşılık gelir. Ses seviyesini yüzde olarak değiştirmenizi sağlar.
-
-Ses Oynatma seçeneklerini nasıl değiştireceğiniz aşağıda gösterilmiştir:
-1. [Create](#create-audio-frame) veya ses çerçevesini alın.
-2. Ayarlamak istediğiniz Audio Frame özellikleri için yeni değerler atayın.
-3. Değiştirilmiş PowerPoint dosyasını kaydedin.
-
-Bu JavaScript kodu, bir sesin seçeneklerinin ayarlandığı bir işlemi gösterir:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // AudioFrame şekilini alır
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Oynatma modunu tıklayınca çalacak şekilde ayarlar
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Ses seviyesini Düşük olarak ayarlar
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Sesin slaytlar arasında çalmasını ayarlar
-    audioFrame.setPlayAcrossSlides(true);
-    // Ses için döngüyü devre dışı bırakır
-    audioFrame.setPlayLoopMode(false);
-    // Ses çerçevesini slayt gösterisi sırasında gizler
-    audioFrame.setHideAtShowing(true);
-    // Sesin çaldıktan sonra başa sarılmasını ayarlar
-    audioFrame.setRewindAudio(true);
-    // PowerPoint dosyasını diske kaydeder
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Bu JavaScript örneği, gömülü ses içeren yeni bir ses çerçevesi eklemeyi, kırpmayı ve geçiş sürelerini ayarlamayı gösterir:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Kırpma başlangıç ofsetini 1.5 saniyeye ayarlar
-    audioFrame.setTrimFromStart(1500);
-    // Kırpma bitiş ofsetini 2 saniyeye ayarlar
-    audioFrame.setTrimFromEnd(2000);
-
-    // Fade-in süresini 200 ms olarak ayarlar
-    audioFrame.setFadeInDuration(200);
-    // Fade-out süresini 500 ms olarak ayarlar
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-Aşağıdaki kod örneği, gömülü ses içeren bir ses çerçevesini almayı ve ses seviyesini %85 olarak ayarlamayı gösterir:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Bir ses çerçevesi şekli alır
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Ses seviyesini %85 olarak ayarlar
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Ses Altyazılarını Yönetme**
-
-Aspose.Slides, bir ses çerçevesine kapalı altyazı eklemenizi [getCaptionTracks](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) metodu aracılığıyla sağlar. Bu metod, WebVTT altyazı izlerini eklemenize, mevcut izler arasında dolaşmanıza ve gerektiğinde kaldırmanıza olanak tanıyan bir [CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) döndürür.
-
-**Ses Altyazılarını Ekleme**
-
-[getCaptionTracks](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) metodunu kullanarak bir ses çerçevesine bir veya daha fazla altyazı izi ekleyin. Aşağıdaki örnekte, bir ses dosyası slayta eklenir ve ardından yeni bir altyazı izi `.vtt` dosyasından yüklenir.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // WebVTT dosyasından yeni bir altyazı izi ekle.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Ses Altyazılarını Çıkarma**
+## **Ses Çerçevesi Küçük Resmini Değiştir**
 
-Bir ses çerçevesine ilişkilendirilmiş altyazı izleri arasında dolaşabilir ve bunları `.vtt` dosyaları olarak kaydedebilirsiniz. Her altyazı izi ikili verisini ve benzersiz kimliğini ortaya çıkarır; bu, altyazıları dışa aktarırken kullanılabilir.
+Varsayılan olarak, bir ses çerçevesi hoparlör simgesi gösterir. Özel bir küçük resim göstermek için sunuma [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) ile bir görsel ekleyin ve çerçevenin resmine [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage) ile ayarlayın. Örnek, gömülü ses klibi için `eagle.jpeg` dosyasını küçük resim olarak kullanır.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ses Çalma Seçeneklerini Değiştir**
+
+PowerPoint'in **Ses Seçenekleri** denetimleri, bir klibin ne zaman başlayacağını, ses seviyesini ve slayt gösterisi sırasında nasıl davranacağını belirler.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| PowerPoint denetimi | Aspose.Slides for Node.js via Java yöntemi |
+| --- | --- |
+| Başlat | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Ses seviyesi ön ayarı | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Slaytlar Arasında Oynat | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Durdurulana Kadar Döngü | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Gösteri Sırasında Gizle | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Oynatmadan Sonra Geri Sar | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| İçeri Solma | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Dışarı Solma | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Ses Kesme başlangıç zamanı | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Ses Kesme bitiş zamanı | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Ses kaydırıcısı | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+Örnek, ilk slayttaki ilk ses çerçevesini bulur, tıklamayla oynatmayı başlatmak için [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) çağırır ve düşük ses ön ayarını seçer. Klib, döngü devre dışı bırakılarak slaytlar arasında devam eder. Simge gösteri sırasında gizli kalır ve oynatmadan sonra klip geri sarılır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Caption izini .vtt dosyası olarak kaydet.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+3,5 saniyeden uzun bir klip için bu örnek, ilk 1,5 saniyeyi ve son 2 saniyeyi atlar. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) klibin sonundan çıkarılacak süreyi alır. PowerPoint'te gösterilen bitiş zamanını elde etmek için bu offset’i tam klip süresinden çıkarın. Kesilen klip 200 milisaniye içinde içeri solma, 500 milisaniye içinde dışarı solma efektine sahiptir. Dört yöntem de değerleri milisaniye cinsinden alır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Oynatma ses seviyesini belirli bir yüzdeye ayarlamak için [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) kullanın. Bu örnek, ilk slayttaki ilk ses çerçevesini %85 olarak ayarlar.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ses Altyazılarını Yönet**
+
+Her ses çerçevesi, [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) aracılığıyla altyazı izlerine erişim sağlar. Koleksiyonu, WebVTT altyazılarını klibe eklemek, mevcut izleri dışa aktarmak veya silmek için kullanın.
+
+### **Ses Altyazıları Ekle**
+
+Örnek, ilk slayta bir ses klibi gömer ve [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) ile yerel bir WebVTT izini ekler. İlk argüman iz etiketini, ikinci argüman zamanlı altyazıları içeren dosyayı belirtir.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ses Altyazılarını Çıkar**
+
+Bu örnek, ilk slayttaki bir ses çerçevesine eklenmiş her altyazı izini dışa aktarır. [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) tarafından döndürülen baytları bir WebVTT dosyasına yazar ve [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) tarafından döndürülen tanımlayıcıyı dosya adı olarak kullanır; böylece her iz ayrı bir çıktı alır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ses Altyazılarını Kaldır**
+
+Bireysel bir izi silmek için [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) kullanın. Örnek, ilk slayttaki ilk ses çerçevesinden tüm altyazıları kaldırmak için [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) yöntemini çağırır; klip korunur.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ses Altyazılarında Satır Bul**
+
+İlk slayttaki ses altyazılarında bir satır bulmak için [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) tarafından döndürülen metni bellekte arayın. Düz metin bir WebVTT kodunda zaman satırı `-->` içerir, ardından altyazı satırları gelir ve boş bir satır kodu sonlandırır. Bu örnek, “café” içeren iz etiketi ve ilgili altyazı satırlarını yazdırır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -253,64 +325,39 @@ try {
 }
 ```
 
-**Ses Altyazılarını Kaldırma**
+## **Ses Çıkarma**
 
-Bir ses çerçevesinden altyazıları kaldırmak için [CaptionsCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/) tarafından sağlanan [clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/captionscollection/#removeAt) gibi metodları kullanın. Aşağıdaki örnek, bir ses çerçevesindeki tüm altyazı izlerini kaldırır.
+Bir slayt geçişinin kendi sesi olabilir. Bunu almak için geçiş üzerinde [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) çağırın. Örnek, [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) tarafından döndürülen baytları alır ve bayt sayısını yazdırır. İlk slaytta geçiş sesi yoksa, bunun yerine bir mesaj yazdırır.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // tür: aspose.slides.AudioFrame
-
-    // Ses çerçevesinden tüm altyazı izlerini kaldır.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ses Çıkarma**
-
-Aspose.Slides for Node.js via Java, slayt gösterisi geçişlerinde kullanılan sesi çıkarmanıza olanak tanır. Örneğin, belirli bir slaytta kullanılan sesi çıkarabilirsiniz.
-
-1. Ses içeren sunumu yüklemek için bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfı örneği oluşturun ve sunumu yükleyin.
-2. İlgili slaytın referansını dizini aracılığıyla alın.
-3. Slayt için [slideshow transitions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) erişin.
-4. Sesi bayt verisi olarak çıkarın.
-
-Bu JavaScript kodu, bir slaytta kullanılan sesi nasıl çıkaracağınızı gösterir:
-
-```javascript
-// Bir sunum dosyasını temsil eden Presentation sınıfını örnekler
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // İstenen slayta erişir
-    const slide = pres.getSlides().get_Item(0);
-    // Slayt için slayt gösterisi geçiş efekti alır
-    const transition = slide.getSlideShowTransition();
-    // Sesi bayt dizisi olarak çıkarır
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 ## **SSS**
 
-**Aynı ses varlığını birden fazla slaytta dosya boyutunu artırmadan yeniden kullanabilir miyim?**
+**Aynı ses klibini birden fazla slaytta tekrarlamadan kullanabilir miyim?**
 
-Evet. Sesi, sunumun paylaşılan [audio collection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getaudios/) koleksiyonuna bir kez ekleyin ve mevcut varlığı referans alan ek ses çerçeveleri oluşturun. Bu, medya verilerinin çoğaltılmasını önler ve sunum boyutunu kontrol altında tutar.
+Evet. Ses klibini sunumun [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) kısmına bir kez ekleyin ve her slayt için aynı ses nesnesini [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) metoduna geçirin.
 
-**Mevcut bir ses çerçevesindeki sesi şekli yeniden oluşturmadan değiştirebilir miyim?**
+**Mevcut bir ses çerçevesindeki sesi değiştirebilir miyim?**
 
-Evet. Bağlantılı bir ses için, [link path](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) değerini yeni dosyaya gösterecek şekilde güncelleyin. Gömülü bir ses için, [embedded audio](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) nesnesini sunumun [audio collection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getaudios/) koleksiyonundaki başka bir sesle değiştirin. Çerçevenin formatı ve çoğu oynatma ayarı aynı kalır.
+Evet. Bağlantılı bir ses için, değiştirilecek dosyayı işaret etmek üzere [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) kullanın. Gömülü bir ses için, [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio) ile sunumun ses koleksiyonundan başka bir klip seçin. Her iki yaklaşım da mevcut çerçeveyi korur.
 
-**Kırpma, sunumda saklanan temel ses verisini değiştirir mi?**
+**Kesme işlemi, sunumda saklanan ses verisini değiştirir mi?**
 
-Hayır. Kırpma yalnızca oynatma sınırlarını ayarlar. Orijinal ses baytları dokunulmamış olarak kalır ve gömülü ses ya da sunumun ses koleksiyonu aracılığıyla erişilebilir.
+Hayır. [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) ve [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) yalnızca oynatma sınırlarını ayarlar. Tam klibi hâlâ [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio) ile alabilirsiniz.

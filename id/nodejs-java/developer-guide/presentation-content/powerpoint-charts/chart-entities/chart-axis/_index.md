@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Temukan cara menggunakan JavaScript dengan Aspose.Slides untuk Node.js via Java untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
+description: "Temukan cara menggunakan JavaScript dengan Aspose.Slides untuk Node.js melalui Java untuk menyesuaikan sumbu diagram dalam presentasi PowerPoint untuk laporan dan visualisasi."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan sumbu diagram dengan Aspose.Slides untuk Node.js via Java. Artikel ini mencakup nilai sumbu yang dihitung, menukar baris dan kolom diagram, visibilitas sumbu, interval label kategori dan tanda centang, kategori tanggal dan pemformatannya, rotasi judul, posisi sumbu, satuan tampilan, serta skala logaritmik.
+Artikel ini menjelaskan cara menyesuaikan sumbu diagram dengan Aspose.Slides untuk Node.js melalui Java. Ini mencakup nilai sumbu yang dihitung, menukar baris dan kolom diagram, visibilitas sumbu, interval label kategori dan tanda centang, kategori tanggal dan pemformatannya, rotasi judul, penempatan sumbu, satuan tampilan, dan skala logaritmik.
 
 ## **Dapatkan Nilai Maksimum pada Sumbu Vertikal pada Diagram**
 
-Buat sebuah [Presentasi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) dan tambahkan diagram area dengan data default. Panggil [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) sebelum membaca nilai sumbu yang dihitung sehingga tata letak diagram terbaru.
+Buat sebuah [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) dan tambahkan diagram area dengan data default. Panggil [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) sebelum membaca nilai sumbu yang dihitung sehingga tata letak diagram terbaru.
 
-Baca [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) dan [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) untuk batas sumbu, serta [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) dan [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) untuk interval tanda centang. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) dan [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) menyediakan skala satuan waktu, yang relevan untuk sumbu tanggal. Contoh menyimpan nilai-nilai ini dalam variabel lokal dan menyimpan diagram.
+Baca [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) dan [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) untuk batas sumbu, serta [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) dan [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) untuk interval tanda centang. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) dan [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) menyediakan skala satuan waktu, yang relevan untuk sumbu tanggal. Contoh menyimpan nilai‑nilai ini dalam variabel lokal dan menyimpan diagram.
 
 ```javascript
 var aspose = aspose || {};
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Tukar Data antar Sumbu**
+## **Menukar Data antara Sumbu**
 
-Gunakan [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) untuk menukar peran seri dan kategori dalam data diagram. Setiap kategori sebelumnya menjadi seri, dan setiap seri sebelumnya menjadi kategori. Ini mengubah cara data dikelompokkan; tidak menukar sumbu horizontal dan vertikal. Contoh menggunakan [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) untuk mengikat data default ke `Sheet1!A1:D5`, termasuk baris header dan kolom kategori, sebelum menukar baris dan kolom. Ini menyimpan diagram dengan empat seri dan tiga kategori.
+Gunakan [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) untuk menukar peran seri dan kategori dalam data diagram. Setiap kategori sebelumnya menjadi seri, dan setiap seri sebelumnya menjadi kategori. Ini mengubah cara data dikelompokkan; tidak menukar sumbu horizontal dan vertikal. Contoh menggunakan [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) untuk mengikat data default ke `Sheet1!A1:D5`, termasuk baris header dan kolom kategori, sebelum menukar baris dan kolom. Diagram disimpan dengan empat seri dan tiga kategori.
 
 ```javascript
 var aspose = aspose || {};
@@ -82,11 +82,11 @@ try {
 }
 ```
 
-## **Balik Urutan Plot Sumbu**
+## **Membalik Urutan Plot pada Sumbu**
 
-Gunakan [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) untuk membalikkan sumbu kategori atau nilai. Misalnya, diagram batang horizontal dapat menampilkan tahap proyek dari atas ke bawah dalam urutan yang sama dengan lembar kerja: Perencanaan, Pengembangan, Pengujian. Membalikkan sumbu mengubah arah plotting; tidak mengurutkan atau menyusun ulang data workbook. Sebagai perbandingan, [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) menukar peran seri dan kategori.
+Gunakan [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) untuk membalik sumbu kategori atau nilai. Misalnya, diagram batang horizontal dapat menampilkan tahapan proyek dari atas ke bawah dalam urutan yang sama dengan lembar kerja: Planning, Development, Testing. Membalik sumbu mengubah arah plot; tidak mengurutkan atau menyusun ulang data buku kerja. Sebagai perbandingan, [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) menukar peran seri dan kategori.
 
-Contoh berikut membuat diagram batang horizontal dengan tiga tahap dan satu seri. Ini menyimpan presentasi dengan tiga slide: urutan normal, kategori terbalik, dan nilai terbalik. Setiap salinan menggunakan set data yang sama, dan hanya satu sumbu yang dibalik pada setiap salinan.
+Contoh berikut membuat diagram batang horizontal dengan tiga tahapan dan satu seri. Diagram disimpan dalam presentasi dengan tiga slide: urutan normal, kategori terbalik, dan nilai terbalik. Setiap salinan menggunakan set data yang sama, dan hanya satu sumbu yang dibalik pada setiap salinan.
 
 ```javascript
 var aspose = aspose || {};
@@ -115,7 +115,7 @@ try {
         series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    // Slide 2: tampilkan kategori pertama di atas.
+    // Slide 2: tampilkan kategori pertama di bagian atas.
     var categorySlide = presentation.getSlides().addClone(slide);
     var categoryChart = categorySlide.getShapes().get_Item(0);
     categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
@@ -133,16 +133,16 @@ try {
 }
 ```
 
-Membalikkan sumbu juga dapat memindahkan sumbu tegak lurus ke sisi berlawanan dari plot. [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) mengontrol di mana sumbu lain memotong sumbu yang dikonfigurasi. Pada slide 2, memanggilnya dengan `aspose.slides.CrossesType.Maximum` pada sumbu kategori yang dibalik menjaga sumbu nilai horizontal di bagian bawah. Untuk titik perpotongan tertentu, gunakan [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Periksa pengaturan perpotongan saat mengubah arah, terutama jika diagram sudah memiliki titik perpotongan khusus. Panggil `setPlotOrderReversed` dengan `false` untuk mengembalikan arah plotting normal; pengaturan perpotongan terpisah.
+Membalik sumbu juga dapat memindahkan sumbu tegak lurus ke sisi berlawanan dari plot. [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) mengontrol di mana sumbu lain menyeberang sumbu yang sedang dikonfigurasi. Pada slide 2, memanggilnya dengan `aspose.slides.CrossesType.Maximum` pada sumbu kategori yang dibalik menjaga sumbu nilai horizontal di bagian bawah. Untuk titik perpotongan tertentu, gunakan [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Periksa pengaturan perpotongan saat mengubah arah, terutama jika diagram sudah memiliki titik perpotongan khusus. Panggil `setPlotOrderReversed` dengan `false` untuk memulihkan arah plot normal; pengaturan perpotongan bersifat terpisah.
 
 | Urutan normal (slide 1) | Kategori terbalik (slide 2) | Nilai terbalik (slide 3) |
 | --- | --- | --- |
-| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
-| Kategori berjalan dari bawah ke atas; nilai meningkat dari kiri ke kanan. | Perencanaan, Pengembangan, dan Pengujian berjalan dari atas ke bawah. Nilai dan urutan baris workbook tidak berubah. | Kategori mempertahankan urutan normal; nilai meningkat dari kanan ke kiri. Sumbu kategori memotong pada nol di sebelah kanan. |
+| ![Diagram batang horizontal dengan urutan sumbu kategori dan nilai normal](axis-order-normal.png) | ![Diagram batang horizontal dengan kategori ditampilkan dari atas ke bawah](axis-order-categories-reversed.png) | ![Diagram batang horizontal dengan sumbu nilai terbalik dan nol di kanan](axis-order-values-reversed.png) |
+| Kategori berjalan dari bawah ke atas; nilai meningkat dari kiri ke kanan. | Planning, Development, dan Testing berjalan dari atas ke bawah. Nilai dan urutan baris buku kerja tidak berubah. | Kategori tetap pada urutan normal; nilai meningkat dari kanan ke kiri. Sumbu kategori menyeberang pada nol di kanan. |
 
 ## **Nonaktifkan Sumbu Vertikal untuk Diagram Garis**
 
-Panggil [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) dengan `false` pada sumbu vertikal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu vertikal disembunyikan.
+Panggil [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) dengan `false` pada sumbu vertikal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu vertikal tersembunyi.
 
 ```javascript
 var aspose = aspose || {};
@@ -163,7 +163,7 @@ try {
 
 ## **Nonaktifkan Sumbu Horizontal untuk Diagram Garis**
 
-Panggil [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) dengan `false` pada sumbu horizontal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu horizontal disembunyikan.
+Panggil [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) dengan `false` pada sumbu horizontal untuk menyembunyikannya. Contoh membuat diagram garis dengan data default dan menyimpannya dengan sumbu horizontal tersembunyi.
 
 ```javascript
 var aspose = aspose || {};
@@ -182,9 +182,47 @@ try {
 }
 ```
 
+## **Tampilkan atau Sembunyikan Garis Kisi Diagram**
+
+Panggil [getShowMajorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowmajorgridlines/) dan [getShowMinorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowminorgridlines/) untuk memeriksa garis kisi mana yang ditampilkan sumbu. Untuk menampilkan garis kisi minor, gunakan [getMinorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getminorgridlinesformat/) dan atur isian garis menjadi warna solid yang terlihat. Untuk menyembunyikannya, atur isian ke [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/). Gunakan [getMajorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getmajorgridlinesformat/) untuk mengubah isian garis bagi garis kisi mayor dengan cara yang sama. Mengubah isian mempertahankan visibilitas sumbu dan tanda centang.
+
+Sumbu vertikal diagram kolom terkelompok ini pada awalnya hanya menampilkan garis kisi mayor. Contoh menampilkan garis kisi minor berwarna oranye gelap, kemudian menyembunyikannya lagi sebelum menyimpan presentasi. Contoh mencetak visibilitas garis kisi pada setiap langkah.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 30, 660, 230);
+    var axis = chart.getAxes().getVerticalAxis();
+    console.log("Initial: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    var minorFill = axis.getMinorGridLinesFormat().getLine().getFillFormat();
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    minorFill.getSolidFillColor().setColor(darkOrange);
+    console.log("Enabled: minor=%s", axis.getShowMinorGridLines());
+
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    console.log("Hidden: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    presentation.save("ChartGridlines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Garis kisi minor diaktifkan | Garis kisi minor disembunyikan |
+| --- | --- |
+| ![Garis kisi minor oranye antara garis kisi mayor pada sumbu vertikal](minor-gridlines-enabled.png) | ![Diagram kolom yang sama dengan hanya garis kisi mayor yang terlihat](minor-gridlines-hidden.png) |
+
 ## **Ubah Sumbu Kategori**
 
-Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) untuk memilih sumbu kategori tanggal atau teks. Contoh ini membutuhkan `ExistingChart.pptx`, dengan diagram sebagai shape pertama pada slide pertama dan sel kategori berisi nilai tanggal Excel numerik. Ini mengubah sumbu horizontal menjadi sumbu tanggal. Memanggil [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) dengan `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) dengan `1`, dan [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) dengan `TimeUnitType.Months` menempatkan tanda utama pada interval satu bulan.
+Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) untuk memilih sumbu kategori tanggal atau teks. Contoh ini memerlukan `ExistingChart.pptx`, dengan diagram sebagai bentuk pertama pada slide pertama dan sel kategori berisi nilai tanggal numerik Excel. Itu mengubah sumbu horizontal menjadi sumbu tanggal. Memanggil [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) dengan `false`, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) dengan `1`, dan [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) dengan `TimeUnitType.Months` menempatkan tanda centang mayor pada interval satu bulan.
 
 ```javascript
 var aspose = aspose || {};
@@ -206,21 +244,81 @@ try {
 }
 ```
 
+### **Tentukan Tipe Sumbu Kategori dari Data**
+
+Panggil [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistypeautomatically/) setelah mengisi kategori, kemudian baca [getCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getcategoryaxistype/) untuk memeriksa pilihan. Ini berguna ketika diagram yang sama menerima baik label teks maupun nilai tanggal numerik. Metode menentukan tipe saat dipanggil; tidak mengaktifkan mode persisten yang menilai kembali perubahan data di kemudian hari. Panggil lagi setelah mengganti kategori.
+
+Contoh berikut membuat diagram dengan kategori teks dan mencetak `true` ketika tipe yang dipilih adalah `CategoryAxisType.Text`. Kemudian mengganti nilai sel kategori dengan tanggal dan memanggil metode lagi, mencetak `true` ketika tipe yang dipilih adalah `CategoryAxisType.Date`. Tanggal disimpan sebagai nilai numerik OLE Automation, dihitung sebagai jumlah hari sejak 30 Desember 1899, bukan sebagai string tanggal. Perhitungan JavaScript menggunakan timestamp UTC dan membagi selisihnya dengan 86 400 000 milidetik per hari; indeks bulan dimulai dari nol. Gunakan `java.newDouble` untuk mengirim setiap nilai tanggal ke Java sebagai double. [setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) mengontrol cara nilai tersebut ditampilkan; tidak mengonversi teks menjadi tanggal numerik. Untuk info lebih lanjut tentang sel kategori, lihat [Chart Workbook](/slides/id/nodejs-java/chart-workbook/).
+
+Gunakan penentuan otomatis ketika input diketahui berisi kategori teks atau tanggal numerik, seperti pada contoh ini. Untuk label numerik biasa, kategori campuran, atau data kosong, panggil secara eksplisit [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) untuk menyesuaikan makna yang diinginkan. Nilai numerik saja tidak menetapkan bahwa kategori mewakili tanggal.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var seriesName = workbook.getCell(0, 0, 1, "Sales");
+    var series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    var labels = ["First", "Second", "Third"];
+
+    for (var i = 0; i < labels.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Text); // true
+
+    var baseDate = Date.UTC(1899, 11, 30);
+    var dates = [Date.UTC(2026, 0, 1), Date.UTC(2026, 0, 2), Date.UTC(2026, 1, 1)];
+
+    for (var i = 0; i < dates.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0);
+        var dateValue = java.newDouble((dates[i] - baseDate) / 86400000);
+        categoryCell.setValue(dateValue);
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Date); // true
+
+    presentation.save("AutomaticCategoryAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Kontrol Interval Label Sumbu Kategori**
 
-Ketika sebuah diagram memiliki banyak kategori, kurangi jumlah label sumbu yang terlihat tanpa menghapus kategori atau titik data. Panggil [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) dengan `false`, kemudian berikan interval kategori yang diinginkan ke [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Untuk kategori teks dalam urutan normal, penghitungan dimulai dari kategori pertama:
+Ketika diagram memiliki banyak kategori, kurangi jumlah label sumbu yang terlihat tanpa menghapus kategori atau titik data. Panggil [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) dengan `false`, kemudian berikan interval kategori yang diinginkan ke [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). Untuk kategori teks dalam urutan normal, penghitungan dimulai dari kategori pertama:
 
 | Interval | Label yang ditampilkan dalam contoh |
 | --- | --- |
-| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
-| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
-| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Interval `3` menampilkan setiap label ketiga, menyisakan dua label tersembunyi di antara label yang ditampilkan. Ini tidak menghapus kolom yang bersesuaian. Jarak otomatis memilih interval berdasarkan ruang yang tersedia; tidak selalu menampilkan setiap label.
+Interval `3` menampilkan setiap label ketiga, meninggalkan dua label tersembunyi di antara label yang ditampilkan. Ini tidak menghapus kolom yang bersesuaian. Penempatan otomatis memilih interval berdasarkan ruang yang tersedia; tidak selalu menampilkan setiap label.
 
-Tanda centang memiliki kontrol terpisah. Panggil [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) dengan `false` dan gunakan [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) untuk mengatur intervalnya. Misalnya, `1` mempertahankan tanda centang pada setiap interval kategori sementara label muncul hanya setiap kategori ketiga. Gunakan [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) dengan gaya yang terlihat agar Anda dapat melihat hasilnya. Memanggil salah satu setter jarak otomatis dengan `true` lagi memungkinkan diagram memilih interval tersebut kembali.
+Tanda centang memiliki kontrol terpisah. Panggil [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) dengan `false` dan gunakan [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) untuk mengatur intervalnya. Misalnya, `1` menjaga tanda centang pada setiap interval kategori sementara label hanya muncul setiap kategori ketiga. Gunakan [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) dengan gaya yang terlihat agar Anda dapat melihat hasilnya. Memanggil kembali pengatur otomatis‑spacing dengan `true` memungkinkan diagram memilih interval itu lagi.
 
-Contoh mandiri berikut membuat 24 kategori dan satu seri, kemudian menyimpan tiga slide dalam `CategoryAxisIntervals.pptx`: jarak otomatis, jarak label manual dengan tanda centang independen, dan pemulihan jarak otomatis. Kedua salinan mempertahankan data diagram asli. Tidak diperlukan presentasi input. Teks label horizontal memudahkan melihat perbedaan kepadatan.
+Contoh mandiri berikut membuat 24 kategori dan satu seri, kemudian menyimpan tiga slide dalam `CategoryAxisIntervals.pptx`: penempatan otomatis, penempatan label manual dengan tanda centang independen, dan pemulihan penempatan otomatis. Kedua salinan mempertahankan data diagram asli. Presentasi input tidak diperlukan. Teks label horizontal membuat perbedaan kepadatan mudah terlihat.
 
 ```javascript
 var aspose = aspose || {};
@@ -276,23 +374,23 @@ try {
 }
 ```
 
-**Jarak otomatis (slide 1):** Dalam render ini, setiap label kategori kedua ditampilkan dan dibungkus menjadi dua baris. Hasil otomatis dapat bervariasi tergantung ukuran diagram, font, dan renderer.
+**Penempatan otomatis (slide 1):** Pada render ini, setiap label kategori kedua ditampilkan dan membungkus ke dua baris. Hasil otomatis dapat bervariasi tergantung pada ukuran diagram, font, dan renderer.
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![Jarak label kategori otomatis dengan semua 24 kolom terlihat](category-axis-automatic.png)
 
-**Jarak manual (slide 2):** Setiap label ketiga ditampilkan pada satu baris, sementara tanda centang tetap pada setiap interval kategori. Semua 24 kolom, termasuk yang tanpa label, tetap terlihat dengan nilai yang sama. Slide 3 mengembalikan tampilan otomatis yang ditunjukkan di atas.
+**Penempatan manual (slide 2):** Setiap label ketiga ditampilkan pada satu baris, sementara tanda centang tetap pada setiap interval kategori. Semua 24 kolom, termasuk yang tanpa label, tetap terlihat dengan nilai yang sama. Slide 3 memulihkan tampilan otomatis yang ditunjukkan di atas.
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![Interval label kategori manual tiga dengan semua 24 kolom terlihat](category-axis-manual.png)
 
 ### **Pilih Sumbu dan Interval yang Tepat**
 
-Gunakan interval hitungan kategori ini untuk sumbu kategori teks, seperti sumbu kategori pada diagram kolom, garis, area, atau batang. Pada diagram kolom, ini adalah sumbu horizontal. Pada diagram batang horizontal, sumbu kategori adalah vertikal, jadi terapkan pengaturan ini pada sumbu yang dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Jarak tanda centang juga berlaku untuk sumbu seri pada diagram yang memilikinya.
+Gunakan interval hitungan kategori ini untuk sumbu kategori teks, seperti sumbu kategori pada diagram kolom, garis, area, atau batang. Pada diagram kolom, itu adalah sumbu horizontal. Pada diagram batang horizontal, sumbu kategori berada secara vertikal, jadi terapkan pengaturan ini pada sumbu yang dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Penempatan interval tanda centang juga berlaku untuk sumbu seri pada diagram yang memilikinya.
 
-Jangan gunakan jarak label kategori untuk mengatur skala numerik sumbu nilai. Pada sumbu nilai, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) menentukan perbedaan nilai: misalnya, satuan utama `10` menghasilkan tanda pada 0, 10, 20, dan seterusnya ketika sumbu dimulai dari nol. Interval label kategori `3` menghitung posisi kategori, terlepas dari nilai datanya. Diagram sebar dan gelembung menggunakan sumbu nilai bukan sumbu kategori teks. Untuk sumbu tanggal, gunakan satuan utama berbasis waktu dan skala seperti yang dijelaskan pada [Change a Category Axis](#change-a-category-axis).
+Jangan gunakan penempatan label kategori untuk mengatur skala numerik sumbu nilai. Pada sumbu nilai, [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) menentukan perbedaan nilai: misalnya, unit mayor `10` menghasilkan tanda centang pada 0, 10, 20, dan seterusnya ketika sumbu dimulai dari nol. Interval label kategori `3` menghitung posisi kategori, terlepas dari nilai data mereka. Diagram pencar dan gelembung menggunakan sumbu nilai, bukan sumbu kategori teks. Untuk sumbu tanggal, gunakan unit mayor berbasis waktu dan skala sebagaimana dijelaskan pada [Ubah Sumbu Kategori](#ubah-sumbu-kategori).
 
 ## **Atur Format Tanggal untuk Nilai Sumbu Kategori**
 
-Contoh mengganti data diagram default dengan empat nilai tahunan. Tanggal disimpan sebagai nomor seri OLE Automation di lembar kerja pertama (indeks `0`), dihitung sebagai jumlah hari sejak 30 Desember 1899, untuk tanggal-tanggal ini. Perhitungan JavaScript menggunakan timestamp UTC dan membagi selisihnya dengan 86.400.000 milidetik per hari. Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) dengan `CategoryAxisType.Date`, panggil [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) dengan `false`, dan berikan `yyyy` ke [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) agar label kategori menampilkan tahun empat digit secara terpisah dari pemformatan sel.
+Contoh mengganti data diagram default dengan empat nilai tahunan. Tanggal disimpan sebagai nomor seri OLE Automation di lembar kerja pertama (indeks `0`), dihitung sebagai jumlah hari sejak 30 Desember 1899 untuk tanggal-tanggal ini. Perhitungan JavaScript menggunakan timestamp UTC dan membagi selisihnya dengan 86 400 000 milidetik per hari. Gunakan [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) dengan `CategoryAxisType.Date`, panggil [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) dengan `false`, dan berikan `yyyy` ke [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) sehingga label kategori menampilkan tahun empat digit secara independen dari pemformatan sel.
 
 ```javascript
 var aspose = aspose || {};
@@ -357,7 +455,7 @@ try {
 
 ## **Atur Posisi Sumbu pada Sumbu Kategori atau Nilai**
 
-Gunakan [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) untuk mengontrol apakah sumbu nilai memotong sumbu kategori di antara kategori atau pada tanda centang kategori. Pengaturan ini berlaku untuk sumbu kategori. Contoh mengaturnya ke `true` pada sumbu kategori horizontal pada diagram kolom dan menyimpan hasilnya.
+Gunakan [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) untuk mengontrol apakah sumbu nilai menyeberang sumbu kategori di antara kategori atau pada tanda centang kategori. Pengaturan ini berlaku untuk sumbu kategori. Contoh mengaturnya ke `true` pada sumbu kategori horizontal diagram kolom dan menyimpan hasilnya.
 
 ```javascript
 var aspose = aspose || {};
@@ -378,7 +476,7 @@ try {
 
 ## **Atur Satuan Tampilan pada Sumbu Nilai Diagram**
 
-Gunakan [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) untuk mengubah skala label pada sumbu nilai tanpa mengubah data yang mendasarinya. Dengan [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) diatur ke `Millions`, nilai 60.000.000 ditampilkan sebagai 60. Contoh membuat diagram kolom dan menerapkan satuan tampilan jutaan pada sumbu vertikalnya.
+Gunakan [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) untuk menskalakan label pada sumbu nilai tanpa mengubah data yang mendasarinya. Dengan [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) diatur ke `Millions`, nilai 60 000 000 ditampilkan sebagai 60. Contoh membuat diagram kolom dan menerapkan satuan tampilan jutaan pada sumbu vertikalnya.
 
 ```javascript
 var aspose = aspose || {};
@@ -397,21 +495,21 @@ try {
 }
 ```
 
-## **Konfigurasikan Sumbu Nilai Logaritmik**
+## **Konfigurasi Sumbu Nilai Logaritmik**
 
-Sumbu nilai logaritmik berguna ketika nilai positif mencakup beberapa orde besaran. Misalnya, sebuah layanan mungkin menerima 10, 100, 1.000, 10.000, dan 100.000 permintaan selama lima periode. Pada skala linier, nilai lebih kecil tampak berdekatan dekat nol. Skala logaritmik memudahkan perbandingan pertumbuhan relatif mereka: jarak yang sama mewakili rasio yang sama bukan perbedaan yang sama.
+Sumbu nilai logaritmik berguna ketika nilai positif mencakup beberapa urutan besaran. Misalnya, layanan dapat menerima 10, 100, 1 000, 10 000, dan 100 000 permintaan selama lima periode. Pada skala linear, nilai kecil muncul berdekatan di dekat nol. Skala logaritmik membuat pertumbuhan relatif mereka lebih mudah dibandingkan: jarak yang sama mewakili rasio yang sama, bukan perbedaan yang sama.
 
-Panggil [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) dengan `true` pada sumbu nilai dan gunakan [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) untuk memilih basisnya. Ini mengubah cara nilai yang ada ditampilkan; tidak mengubah data atau menambahkan garis tren logaritmik. Garis tren mewakili hubungan yang dipasang pada data dan merupakan fitur terpisah.
+Panggil [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) dengan `true` pada sumbu nilai dan gunakan [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) untuk memilih basis. Ini mengubah cara nilai yang ada ditampilkan; tidak mengubah data atau menambahkan garis tren logaritmik. Garis tren mewakili hubungan yang dipasang pada data dan merupakan fitur terpisah.
 
 ### **Pilih Sumbu Nilai dan Basis**
 
-Untuk diagram garis atau kolom, sumbu nilai dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Untuk diagram batang horizontal, sumbu nilai dikembalikan oleh [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). Diagram sebar dan gelembung memiliki dua sumbu nilai, jadi pilih sumbu horizontal untuk nilai X, sumbu vertikal untuk nilai Y, atau keduanya. Jangan terapkan skala logaritmik pada sumbu kategori.
+Untuk diagram garis atau kolom, sumbu nilai dikembalikan oleh [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/). Untuk diagram batang horizontal, sumbu nilai dikembalikan oleh [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/). Diagram pencar dan gelembung memiliki dua sumbu nilai, jadi pilih sumbu horizontal untuk nilai X, sumbu vertikal untuk nilai Y, atau keduanya. Jangan terapkan skala logaritmik pada sumbu kategori.
 
-Basis logaritmik default adalah `10`. Untuk diagram PPTX, gunakan basis dari `2` hingga `1000`, inklusif; basis pecahan seperti `2.5` juga didukung. Dengan basis `10`, pangkat berurutan seperti 10, 100, 1.000, dan 10.000 memiliki jarak yang sama.
+Basis logaritmik default adalah `10`. Untuk diagram PPTX, gunakan basis antara `2` hingga `1000`, inklusif; basis pecahan seperti `2.5` juga didukung. Dengan basis `10`, pangkat berurutan seperti 10, 100, 1 000, dan 10 000 berjarak sama.
 
 ### **Bandingkan Skala Linear dan Logaritmik**
 
-Contoh mandiri berikut membuat diagram garis dengan lima jumlah permintaan pada slide pertama, kemudian menggandakan slide itu dan mengaktifkan sumbu nilai logaritmik basis-10 pada slide kedua. Kedua slide mempertahankan data yang sama.
+Contoh mandiri berikut membuat diagram garis dengan lima hitungan permintaan pada slide pertama, kemudian menggandakan slide itu dan mengaktifkan sumbu nilai logaritmik basis‑10 pada slide kedua. Kedua slide mempertahankan data yang sama.
 
 ```javascript
 var aspose = aspose || {};
@@ -442,7 +540,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Pertahankan slide pertama linear dan ubah hanya skala sumbu nilai salinan.
+    // Pertahankan slide pertama linear dan ubah hanya skala sumbu nilai pada salinan.
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -455,17 +553,17 @@ try {
 }
 ```
 
-**Skala linear (slide 1):** Jarak vertikal yang sama mewakili perbedaan yang sama dalam jumlah permintaan. Nilai terbesar mendominasi diagram, membuat nilai yang lebih kecil sulit dibedakan.
+**Skala linear (slide 1):** Jarak vertikal yang sama mewakili perbedaan yang sama pada hitungan permintaan. Nilai terbesar mendominasi diagram, menyulitkan perbedaan nilai kecil.
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![Diagram garis di PowerPoint menampilkan lima hitungan permintaan pada sumbu nilai linear](value-axis-linear.png)
 
-**Skala logaritmik (slide 2):** Jarak vertikal yang sama mewakili rasio yang sama. Setiap periode memiliki sepuluh kali lebih banyak permintaan daripada periode sebelumnya, sehingga titik-titik membentuk garis naik lurus pada skala basis-10. Label sumbu masih menampilkan jumlah permintaan asli.
+**Skala logaritmik (slide 2):** Jarak vertikal yang sama mewakili rasio yang sama. Setiap periode memiliki sepuluh kali lebih banyak permintaan daripada periode sebelumnya, sehingga titik‑titik membentuk garis lurus naik pada skala basis‑10. Label sumbu tetap menunjukkan hitungan permintaan asli.
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![Lima hitungan permintaan yang sama di PowerPoint pada sumbu nilai logaritmik basis‑10](value-axis-logarithmic.png)
 
 ### **Tangani Nilai Nol dan Negatif**
 
-Skala logaritmik hanya dapat menampilkan nilai yang benar-benar positif. Periksa data sebelum mengaktifkannya. Jika nilai nol atau negatif memiliki makna, pertahankan skala linear atau tampilkan secara terpisah. Jika mengecualikan nilai tersebut cocok untuk analisis, jelaskan pengabaian tersebut. Jangan diam-diam menggantinya dengan angka positif kecil, karena hal itu mengubah makna data. Setiap minimum atau maksimum yang dikonfigurasi secara manual untuk sumbu logaritmik juga harus positif.
+Skala logaritmik hanya dapat menampilkan nilai yang benar‑benar positif. Periksa data sebelum mengaktifkannya. Jika nilai nol atau negatif memiliki arti, pertahankan skala linear atau tampilkan secara terpisah. Jika mengeluarkan nilai‑nilai tersebut sesuai untuk analisis, jelaskan penghilangan tersebut. Jangan diam‑diam menggantinya dengan angka positif kecil, karena hal itu mengubah makna data. Setiap nilai minimum atau maksimum yang dikonfigurasi secara manual untuk sumbu logaritmik juga harus positif.
 
 ## **FAQ**
 
@@ -473,6 +571,6 @@ Skala logaritmik hanya dapat menampilkan nilai yang benar-benar positif. Periksa
 
 Gunakan [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) untuk memilih perilaku perpotongan. Untuk menentukan nilai perpotongan numerik, gunakan [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/). Pengaturan ini memungkinkan Anda memindahkan perpotongan sumbu ke baseline yang sesuai.
 
-**Bagaimana saya dapat memposisikan label tanda centang relatif terhadap sumbu?**
+**Bagaimana saya dapat memposisikan label tick relatif terhadap sumbu?**
 
 Panggil [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) menggunakan [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo`, atau `None`. Untuk mengontrol tanda centang itu sendiri, gunakan [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) atau [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/); ini terpisah dari posisi label.

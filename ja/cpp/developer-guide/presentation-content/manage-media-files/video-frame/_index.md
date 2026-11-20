@@ -1,37 +1,37 @@
 ---
-title: "C++ を使用したプレゼンテーションでのビデオフレームの管理"
-linktitle: "ビデオフレーム"
+title: C++ を使用したプレゼンテーションでのビデオ フレームの管理
+linktitle: ビデオ フレーム
 type: docs
 weight: 10
 url: /ja/cpp/video-frame/
 keywords:
-- "ビデオを追加"
-- "ビデオを作成"
-- "ビデオを埋め込む"
-- "ビデオを抽出"
-- "ビデオを取得"
-- "ビデオフレーム"
-- "Web ソース"
-- "PowerPoint"
-- "OpenDocument"
-- "プレゼンテーション"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ を使用して、PowerPoint と OpenDocument スライドでビデオフレームをプログラム的に追加および抽出する方法を学びます。高速ハウツーガイド。"
+- ビデオの追加
+- ビデオの作成
+- ビデオの埋め込み
+- ビデオの抽出
+- ビデオの取得
+- ビデオ フレーム
+- ウェブ ソース
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument のスライドでビデオ フレームをプログラムで追加および抽出する方法を学びます。高速ハウツー ガイド。"
 ---
-## **導入**
+## **イントロダクション**
 
-ビデオは、アイデアを説明し、聴衆の関心を引くのに役立ちます。Aspose.Slides for C++ を使用すると、スライドにビデオフレームを追加し、再生設定を調整し、キャプションを管理し、埋め込みビデオデータを抽出できます。
+ビデオはアイデアを説明し、聴衆を引き付けるのに役立ちます。Aspose.Slides for C++ を使用すると、スライドにビデオフレームを追加し、再生設定を調整し、キャプションを管理し、埋め込まれたビデオデータを抽出できます。
 
-PowerPoint はローカルビデオと、YouTube ビデオなどのオンラインビデオへのリンクをサポートします。
+PowerPoint はローカルビデオと、YouTube ビデオなどのオンラインビデオへのリンクをサポートしています。
 
-ビデオデータおよびビデオフレームを表すために、Aspose.Slides は [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) インターフェイス、およびその他の関連型を提供します。
+ビデオデータとビデオフレームを表すために、Aspose.Slides は [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) インターフェイス、[IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) インターフェイス、およびその他の関連型を提供します。
 
 ## **埋め込みビデオフレームの作成**
 
-スライドに追加したいビデオファイルがローカルに保存されている場合、プレゼンテーションにビデオを埋め込むビデオフレームを作成できます。
+スライドに追加したいビデオ ファイルがローカルに保存されている場合、ビデオフレームを作成してプレゼンテーションにビデオを埋め込むことができます。
 
-この例は、既存のプレゼンテーションの最初のスライドにローカルビデオを埋め込み、結果を保存します。フレームの座標とサイズはポイント単位です。ストリームは、[LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) がプレゼンテーションで使用中にロックされたままになるため、保存が完了するまで開いたままです。
+この例は、既存のプレゼンテーションの最初のスライドにローカルビデオを埋め込み、結果を保存します。フレームの座標とサイズはポイント単位です。ストリームは保存が完了するまで開いたままになります。これは、[LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) がプレゼンテーションが使用している間ロックを保持するためです。
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-ローカルビデオのパスを直接 [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) に渡すこともできます。この例は、新しいプレゼンテーションの最初のスライドにビデオを埋め込みます。ビデオはプレゼンテーションが保存されるまでアクセス可能な状態である必要があります。
+ローカルビデオ パスを直接 [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) に渡すこともできます。この例は、新しいプレゼンテーションの最初のスライドにビデオを埋め込みます。ビデオはプレゼンテーションが保存されるまでアクセス可能である必要があります。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Web ソースからのビデオでビデオフレームを作成**
+## **Web ソースのビデオでビデオフレームを作成**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) はプレゼンテーションでオンラインビデオをサポートしています。YouTube ビデオなどのオンラインビデオへのリンクを持つビデオフレームを作成できます。
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) はプレゼンテーションでオンラインビデオをサポートしています。YouTube ビデオなどのオンラインビデオへのリンクを含むビデオフレームを作成できます。
 
-この例は、最初のスライドに YouTube ビデオのリンクとサムネイルを追加します。別のビデオを使用する場合はビデオ識別子を置き換えてください。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) メソッドは自動再生を要求します。サムネイルのダウンロードとビデオの再生にはインターネット接続が必要です。プレゼンテーションビューアもオンラインビデオの再生をサポートしている必要があります。
+この例は、YouTube ビデオのリンクとサムネイルを最初のスライドに追加します。別のビデオを使用するにはビデオ識別子を置き換えてください。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) メソッドは自動再生を要求します。サムネイルのダウンロードとビデオの再生にはインターネット接続が必要です。プレゼンテーションビューアーもオンラインビデオ再生をサポートしている必要があります。
 
 ```cpp
 #include <net/web_client.h>
@@ -129,9 +129,9 @@ presentation->Dispose();
 
 ## **全画面モードでビデオを再生**
 
-トレーニング用プレゼンテーションでは、ソフトウェアデモを全画面モードで再生することで、聴衆が詳細を見ることができます。[set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) は `true` を受け入れ、再生中にこの動作を有効にします。
+トレーニング用プレゼンテーションでは、ソフトウェア デモを全画面モードで再生して、観客が詳細を見ることができます。[set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) は `true` を受け取り、再生中にこの動作を有効にします。
 
-この例はプレゼンテーションを開き、最初のスライド上の最初の [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) を見つけ、全画面再生を有効にします。入力プレゼンテーションには、最初のスライドに既存のビデオフレームが少なくとも1つ含まれている必要があります。
+この例はプレゼンテーションを開き、最初のスライド上の最初の [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) を見つけて全画面再生を有効にします。入力プレゼンテーションは、最初のスライドに既存のビデオフレームが少なくとも 1 つ含まれている必要があります。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-全画面再生はビデオの表示方法を制御します。別個に、[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) は自動再生かクリック時再生かを制御し、[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) はループするかどうかを制御します。開始動作を選択するには、[VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) に再生モードを設定します。例は既存の開始およびループ設定を保持します。
+全画面再生はビデオの表示方法を制御します。別に、[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) は自動開始かクリック開始かを制御し、[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) は繰り返しの有無を制御します。開始動作を選択するには、[VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) に再生モードを設定します。この例は既存の開始設定とループ設定を保持します。
 
 ## **再生後にビデオを巻き戻す**
 
-トレーニング用プレゼンテーションでは、デモビデオを最初に戻すことで、プレゼンターが再度再生できるようにします。[set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) に `true` を指定すると、再生が終了した後にビデオを最初に戻します。
+トレーニング用プレゼンテーションでは、デモ ビデオを冒頭に戻すことで、プレゼンターが再び再生できるようにします。[set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) に `true` を渡すと、再生が終了した後にビデオを冒頭に戻します。
 
-この例はプレゼンテーションを開き、最初のスライド上の最初の [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) を見つけ、巻き戻しを有効にします。ループを無効にして再生が終了できるようにし、クリック時開始に設定します。入力プレゼンテーションには、最初のスライドに既存のビデオフレームが少なくとも1つ含まれている必要があります。
+この例はプレゼンテーションを開き、最初のスライド上の最初の [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) を見つけて巻き戻しを有効にします。ループを無効にして再生が完了できるようにし、クリック開始に設定します。入力プレゼンテーションは、最初のスライドに既存のビデオフレームが少なくとも 1 つ含まれている必要があります。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-巻き戻しはビデオを最初に戻しますが、再度開始はしません。[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) を有効にすると再生が自動的に繰り返されます。ビデオが終了し、再生待機状態を保ちたい場合はループを無効にしてください。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) は自動開始かクリック開始かを個別に制御します。この例では [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) を使用してプレゼンターが開始タイミングを制御できるようにしています。ループ設定の後に再生モードを設定してください。[set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) とは独立して機能します。
+巻き戻しはビデオを再び開始せずに冒頭に戻します。対照的に、[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) を有効にすると自動的に再生が繰り返されます。ビデオを最後まで再生させて再度再生できる状態にしたい場合はループを無効にしてください。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) は自動開始かクリック開始かを個別に制御します。この例では [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) を使用し、プレゼンターが再生開始を制御できるようにしています。ループ設定の後に再生モードを設定してください。巻き戻しは [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) とは独立して機能します。
 
-## **ビデオフレームのトリミング**
+## **ビデオフレームをトリムする**
 
-[IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) と [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) を使用して、再生時にビデオの開始部または終了部の一部をスキップできます。両方の値はミリ秒単位です。トリミングは埋め込みビデオデータを変更せずに再生設定を変更します。
+[IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) と [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) を使用して、再生時にビデオの開始部または終了部の一部をスキップできます。両方の値はミリ秒単位です。トリミングは埋め込まれたビデオデータを変更せずに再生設定を変更します。
 
-**トリム設定**
+**トリム設定の設定**
 
-この例はローカルビデオを埋め込み、再生時に最初の 2.5 秒と最後の 1 秒をスキップします。再生可能なセグメントが残るように、3.5 秒より長いビデオを使用してください。
+この例はローカルビデオを埋め込み、再生時に最初の 2.5 秒と最後の 1 秒をスキップします。再生可能なセグメントが残るように、ビデオは 3.5 秒以上の長さが必要です。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -247,7 +247,7 @@ presentation->Dispose();
 
 **トリム設定の取得**
 
-この例は最初のスライド上の最初のビデオフレームのトリム値をミリ秒で出力します。プレゼンテーションには少なくとも1枚のスライドが必要です。そのスライドにビデオフレームがない場合は何も出力されません。前の例は 2500 と 1000 の値を生成します。
+この例は最初のスライド上の最初のビデオフレームのトリム値（ミリ秒）を出力します。プレゼンテーションは少なくとも 1 つのスライドを含む必要があります。そのスライドにビデオフレームがない場合は何も出力されません。前の例は 2500 と 1000 の値を生成します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -281,11 +281,11 @@ presentation->Dispose();
 
 ## **ビデオキャプションの管理**
 
-Aspose.Slides は PowerPoint プレゼンテーション内のビデオフレームに対してクローズドキャプションを管理できるようにします。キャプションは WebVTT 形式で保存され、[IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) メソッドで取得できます。
+Aspose.Slides は PowerPoint プレゼンテーション内のビデオフレームに対してクローズドキャプションを管理できる機能を提供します。キャプションは WebVTT 形式で保存され、[IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) メソッドで取得できます。
 
-**ビデオフレームにキャプションを追加**
+### **ビデオフレームにキャプションを追加**
 
-この例はローカルビデオを埋め込み、英語というラベルの WebVTT キャプショントラックを追加します。キャプションのタイムスタンプはビデオに合わせる必要があります。保存されたプレゼンテーションにはビデオとキャプションの両方が含まれます。
+この例はローカルビデオを埋め込み、English というラベルの WebVTT キャプショントラックを追加します。キャプションのタイムスタンプはビデオに合わせる必要があります。保存されたプレゼンテーションにはビデオとキャプションの両方が含まれます。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -318,9 +318,9 @@ presentation->Dispose();
 
 [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) インターフェイスは、ストリームからキャプションを追加できるオーバーロードも提供します。
 
-**ビデオフレームからキャプションを抽出**
+### **ビデオフレームからキャプションを抽出**
 
-この例は最初のスライド上のビデオフレームからすべてのキャプショントラックを個別の WebVTT ファイルとして保存します。連番が出力ファイルを区別します。コンソールは抽出されたトラック数を報告します。プレゼンテーションには少なくとも1枚のスライドが必要です。
+この例は最初のスライド上のビデオフレームからすべてのキャプショントラックを個別の WebVTT ファイルとして保存します。連番が出力ファイルを区別します。コンソールには抽出されたトラック数が表示されます。プレゼンテーションは少なくとも 1 つのスライドを含む必要があります。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,9 +362,9 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-各 [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) オブジェクトはキャプション識別子、ラベル、バイナリデータ、および UTF-8 文字列としてのキャプションテキストを公開します。
+各 [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) オブジェクトは、キャプション ID、ラベル、バイナリ データ、UTF-8 文字列としてのキャプションテキストを公開します。
 
-**ビデオフレームからキャプションを削除**
+### **ビデオフレームからキャプションを削除**
 
 この例は最初のスライド上の最初のシェイプ位置にあるビデオフレームからすべてのキャプションを削除し、結果を保存します。スライドとシェイプが存在し、シェイプがビデオフレームであることを前提としています。
 
@@ -393,11 +393,88 @@ presentation->Dispose();
 
 1 つのキャプショントラックだけを削除したい場合は、[Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) の代わりに [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) または [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) メソッドを使用してください。
 
+### **ビデオキャプションを検索**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) はヘッダー、タイミング行、キャプションテキストを含む完全な WebVTT トラックを返します。話されたフレーズとそのタイムスタンプを見つけるには、メモリ内のキューを読み取ります。たとえば、スライド 2 の英語トラックは次のテキストを含む可能性があります:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+この例は `captioned_media.pptx` を開き、各スライド上のトップレベルビデオフレームのキャプショントラックを [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) で読み取ります。プレーンテキストのキューでは、タイミング行に `-->` が含まれ、空行でキューが終了します。キャプションに “café” が含まれる場合、例はスライド番号、トラックラベル、元のタイミング行、完全なキャプションを出力します。検索は大文字と小文字を区別しません。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+“café” を検索するとサンプルトラックで 1 件の一致が得られます。検索はヘッダーをスキップし、出力でタイミング設定を保持します。
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
 ## **スライドからビデオを抽出**
 
-ビデオをスライドに追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれたビデオを抽出することも可能です。
+ビデオをスライドに追加するだけでなく、Aspose.Slides はプレゼンテーションに埋め込まれたビデオを抽出する機能も提供します。
 
-この例はすべてのスライドから埋め込みビデオを個別の番号付きバイナリファイルに抽出します。リンクされたビデオは埋め込みデータがないためスキップされます。コンソールは各ビデオの MIME タイプと総数を出力します。出力は汎用的な `.bin` 拡張子を使用します。必要に応じてレポートされたメディアタイプに合わせて変更してください。
+この例は各スライドから埋め込まれたビデオを個別の番号付きバイナリ ファイルとして抽出します。埋め込みデータがないリンクビデオはスキップされます。コンソールには各ビデオの MIME タイプと総数が表示されます。出力は汎用的な `.bin` 拡張子を使用します。必要に応じて報告されたメディアタイプに合わせて変更してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -446,20 +523,20 @@ Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount)
 presentation->Dispose();
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**ビデオフレームの再生パラメーターで変更できるものは何ですか？**
+**ビデオフレームの再生パラメータで変更できるものは何ですか？**
 
 [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/)（自動またはクリック時）と [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) を制御できます。これらのオプションは [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) オブジェクトのメソッドで利用可能です。
 
-**ビデオを追加すると PPTX ファイルのサイズが増えますか？**
+**ビデオを追加すると PPTX ファイルのサイズは増えますか？**
 
-はい。ローカルビデオを埋め込むと、バイナリデータがドキュメントに含まれるため、プレゼンテーションのサイズはビデオファイルのサイズに比例して大きくなります。オンラインビデオへのリンクとサムネイルだけを追加する場合は、ビデオデータは保存されずリンクとプレビュー画像だけが保存されるため、サイズ増加は通常小さくなります。
+はい。ローカルビデオを埋め込むと、バイナリ データがドキュメントに含まれるため、プレゼンテーションのサイズはビデオ ファイルのサイズに比例して増加します。オンラインビデオへのリンクとサムネイルを追加する場合、プレゼンテーションはビデオデータではなくリンクとプレビュー画像を保存するため、サイズ増加は通常小さくなります。
 
-**既存のビデオフレームのビデオを、位置やサイズを変更せずに置き換えることはできますか？**
+**既存のビデオフレーム内のビデオを位置やサイズを変更せずに差し替えることはできますか？**
 
-はい。フレームのジオメトリを保持したまま、フレーム内の [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) を入れ替えることができます。これは既存のレイアウトでメディアを更新する一般的なシナリオです。
+はい。フレーム内の [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) を入れ替えることで、シェイプのジオメトリを保持したままビデオを更新できます。これは既存レイアウトのメディアを更新する一般的なシナリオです。
 
-**埋め込みビデオのコンテンツタイプ (MIME) を取得できますか？**
+**埋め込みビデオのコンテンツタイプ（MIME）を取得できますか？**
 
-はい。埋め込みビデオには [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) があり、取得してディスクに保存する際などに利用できます。
+はい。埋め込まれたビデオには [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) があり、これを読み取って例としてディスクに保存する際などに使用できます。

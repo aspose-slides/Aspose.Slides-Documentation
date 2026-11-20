@@ -1,12 +1,12 @@
 ---
-title: Audio in Präsentationen mit PHP verwalten
-linktitle: Audio-Frame
+title: Audio‑Frames in Präsentationen mit PHP verwalten
+linktitle: Audio‑Frame
 type: docs
 weight: 10
 url: /de/php-java/audio-frame/
 keywords:
 - Audio
-- Audio-Frame
+- Audio‑Frame
 - Vorschaubild
 - Audio hinzufügen
 - Audioeigenschaften
@@ -14,201 +14,218 @@ keywords:
 - Audio extrahieren
 - PHP
 - Aspose.Slides
-description: "Erstellen und steuern Sie Audio-Frames in Aspose.Slides für PHP — Codebeispiele zum Einbetten, Trimmen, Schleifen und Konfigurieren der Wiedergabe in PPT-, PPTX- und ODP-Präsentationen."
+description: "Audio in Folien einbetten, das Audiosymbol ändern, die Wiedergabe konfigurieren, WebVTT-Untertitel verwalten und Folienübergangstöne extrahieren mit Aspose.Slides für PHP via Java."
 ---
-## **Audio-Frames erstellen**
+## **Übersicht**
 
-Aspose.Slides für PHP via Java ermöglicht das Hinzufügen von Audiodateien zu Folien. Die Audiodateien werden in Folien als Audio-Frames eingebettet.
+Ein Audio‑Frame ermöglicht das Abspielen eines Sounds auf einer Folie. Mit Aspose.Slides für PHP via Java können Sie einen Audio‑Clip einbetten, das Bild auswählen, das ihn darstellt, die Wiedergabe anpassen und Untertitel hinzufügen. Sie können auch einen einem Folienübergang zugewiesenen Sound abrufen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/Presentation).
-2. Rufen Sie die Referenz einer Folie über deren Index ab.
-3. Laden Sie den Audio‑Dateistream, den Sie in die Folie einbetten möchten.
-4. Fügen Sie das eingebettete Audio‑Frame (das die Audiodatei enthält) zur Folie hinzu.
-5. Setzen Sie [PlayMode](https://reference.aspose.com/slides/de/php-java/aspose.slides/AudioPlayModePreset) und `Volume`, die vom [AudioFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/) Objekt bereitgestellt werden.
+## **Audio‑Frames erstellen**
 
-Speichern Sie die geänderte Präsentation.
+Verwenden Sie [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/) , um einen lokalen Audio‑Clip auf der ersten Folie einzubetten. Die ersten beiden Koordinaten positionieren den Frame auf der Folie, und die nächsten beiden Werte legen seine Breite und Höhe fest, alles in Punkten. Dieses Beispiel ruft [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) auf, um den Clip automatisch zu starten, und ruft [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) auf, um die laute Voreinstellung auszuwählen.
 
 ```php
-// Instanziiert eine Presentation‑Klasse, die eine Präsentationsdatei darstellt
-$pres = new Presentation();
-try {
-    # Holt die erste Folie
-    $sld = $pres->getSlides()->get_Item(0);
-    # Lädt die wav‑Sounddatei in einen Stream
-    $fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
-    # Fügt das Audio‑Frame hinzu
-    $audioFrame = $sld->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $fstr);
-    $fstr->close();
-    # Setzt den Wiedergabemodus und die Lautstärke des Audios
-    $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
-    $audioFrame->setVolume(AudioVolumeMode->Loud);
-    # Schreibt die PowerPoint‑Datei auf die Festplatte
-    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
-} catch(JavaException e) {
-} finally {
-    if (!java_is_null($pres)) $pres.dispose();
-}
-```
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Audio-Frame-Vorschaubild ändern**
-
-Wenn Sie einer Präsentation eine Audiodatei hinzufügen, erscheint das Audio als Frame mit einem standardmäßigen Standardbild (siehe das Bild im folgenden Abschnitt). Sie können das Vorschaubild des Audio‑Frames ändern (ein gewünschtes Bild festlegen).
-
-```php
 $presentation = new Presentation();
 try {
-	$slide = $presentation->getSlides()->get_Item(0);
-	# Fügt der Folie ein Audio-Frame mit einer angegebenen Position und Größe hinzu.
-	$audioStream = new Java("java.io.FileInputStream", "sample2.mp3");
-	$audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
-	$audioStream->close();
-	# Fügt ein Bild zu den Ressourcen der Präsentation hinzu.
-	$picture;
-	$image = Images->fromFile("eagle.jpeg");
-	try {
-		$picture = $presentation->getImages()->addImage($image);
-	} finally {
-		if (!java_is_null($image)) {
-			$image->dispose();
-		}
-	}
-	# Setzt das Bild für das Audio-Frame.
-	$audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
+    $slide = $presentation->getSlides()->get_Item(0);
 
-	# Speichert die geänderte Präsentation auf die Festplatte
-	$presentation->save("example_out.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->setPlayMode(AudioPlayModePreset::Auto);
+    $audioFrame->setVolume(AudioVolumeMode::Loud);
+
+    $presentation->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } finally {
-	if (!java_is_null($presentation)) {
-		$presentation->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
-## **Audio-Wiedergabeoptionen ändern**
+## **Thumbnail des Audio‑Frames ändern**
 
-Aspose.Slides für PHP via Java ermöglicht das Ändern von Optionen, die die Wiedergabe oder Eigenschaften eines Audios steuern. Beispielsweise können Sie die Lautstärke des Audios anpassen, das Audio in einer Schleife abspielen lassen oder sogar das Audiosymbol ausblenden.
-
-Das **Audio Options**‑Fenster in Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-PowerPoint **Audio Options**, die den Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/) Eigenschaften entsprechen:
-
-- **Start**‑Dropdown-Liste entspricht der Methode [AudioFrame::setPlayMode](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setPlayMode).
-- **Volume** entspricht der Methode [AudioFrame::setVolume](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setVolume).
-- **Play Across Slides** entspricht der Methode [AudioFrame::setPlayAcrossSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setPlayAcrossSlides).
-- **Loop until Stopped** entspricht der Methode [AudioFrame::setPlayLoopMode](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setPlayLoopMode).
-- **Hide During Show** entspricht der Methode [AudioFrame::setHideAtShowing](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setHideAtShowing).
-- **Rewind after Playing** entspricht der Methode [AudioFrame::setRewindAudio](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setRewindAudio).
-
-PowerPoint **Editing**‑Optionen, die den Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/) Eigenschaften entsprechen:
-
-- **Fade In** entspricht der Methode [AudioFrame::setFadeInDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setFadeInDuration).
-- **Fade Out** entspricht der Methode [AudioFrame::setFadeOutDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setFadeOutDuration).
-- **Trim Audio Start Time** entspricht der Methode [AudioFrame::setTrimFromStart](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setTrimFromStart).
-- **Trim Audio End Time**‑Wert entspricht der Audiodauer minus dem Wert der Methode [AudioFrame::setTrimFromEnd](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setTrimFromEnd).
-
-Der PowerPoint **Volume controll** im Audio‑Steuerfeld entspricht der Methode [AudioFrame::setVolumeValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#setVolumeValue). Er ermöglicht das Ändern der Lautstärke des Audios als Prozentsatz.
-
-So ändern Sie die Audio‑Wiedergabeoptionen:
-
-1. [Erstellen](#create-audio-frame) oder erhalten Sie das Audio‑Frame.
-2. Setzen Sie neue Werte für die Audio‑Frame‑Eigenschaften, die Sie anpassen möchten.
-3. Speichern Sie die geänderte PowerPoint‑Datei.
+Standardmäßig zeigt ein Audio‑Frame ein Lautsprechersymbol an. Um ein benutzerdefiniertes Thumbnail anzuzeigen, fügen Sie der Präsentation mit [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) ein Bild hinzu und setzen es mit [setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/setimage/) auf das Bild des Frames. Das Beispiel verwendet ein JPEG als Thumbnail für einen eingebetteten Audio‑Clip.
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
-    # Holt das AudioFrame-Shape
-    $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Setzt den Wiedergabemodus auf Beim Klick
-    $audioFrame->setPlayMode(AudioPlayModePreset->OnClick);
-    # Setzt die Lautstärke auf Niedrig
-    $audioFrame->setVolume(AudioVolumeMode->Low);
-    # Setzt das Audio so, dass es über Folien hinweg abgespielt wird
-    $audioFrame->setPlayAcrossSlides(true);
-    # Deaktiviert die Schleife für das Audio
-    $audioFrame->setPlayLoopMode(false);
-    # Blendet das AudioFrame während der Bildschirmanzeige aus
-    $audioFrame->setHideAtShowing(true);
-    # Spult das Audio nach dem Abspielen zum Start zurück
-    $audioFrame->setRewindAudio(true);
-    # Speichert die PowerPoint-Datei auf die Festplatte
-    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+
+    $imageStream = new Java("java.io.FileInputStream", "eagle.jpeg");
+    try {
+        $thumbnail = $presentation->getImages()->addImage($imageStream);
+    } finally {
+        $imageStream->close();
+    }
+    $audioFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
-Dieses PHP‑Beispiel zeigt, wie ein neues Audio‑Frame mit eingebettetem Audio hinzugefügt, beschnitten und die Fade‑Dauern gesetzt werden:
+## **Audio‑Wiedergabeoptionen ändern**
+
+Die **Audio‑Optionen** von PowerPoint bestimmen, wann ein Clip startet, wie laut er ist und wie er während einer Bildschirmpräsentation funktioniert.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| PowerPoint‑Steuerelement | Aspose.Slides für PHP via Java‑Methode |
+| --- | --- |
+| Start | [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) |
+| Lautstärke‑Voreinstellung | [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) |
+| Wiedergabe über Folien hinweg | [setPlayAcrossSlides](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayacrossslides/) |
+| Schleife bis gestoppt | [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayloopmode/) |
+| Während der Präsentation ausblenden | [setHideAtShowing](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/sethideatshowing/) |
+| Nach der Wiedergabe zurückspulen | [setRewindAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setrewindaudio/) |
+| Einblenden | [setFadeInDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Ausblenden | [setFadeOutDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Audio‑Startzeit zuschneiden | [setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Audio‑Endzeit zuschneiden | [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Lautstärkeregler | [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) |
+
+Das Beispiel findet den ersten Audio‑Frame auf der ersten Folie, ruft [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) auf, um die Wiedergabe bei einem Klick zu starten, und wählt die niedrige Lautstärke‑Voreinstellung aus. Der Clip wird über Folien hinweg fortgesetzt, wobei die Schleife deaktiviert ist. Das Symbol bleibt während der Präsentation ausgeblendet, und der Clip wird nach der Wiedergabe zurückgespult.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $audioData = file_get_contents("sampleaudio.mp3");
-    $audio = $pres->getAudios()->addAudio($audioData);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audio);
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    // Legt den Trimm-Startversatz auf 1,5 Sekunden fest
+    if ($audioFrame !== null) {
+        $audioFrame->setPlayAcrossSlides(true);
+        $audioFrame->setPlayLoopMode(false);
+        $audioFrame->setPlayMode(AudioPlayModePreset::OnClick);
+        $audioFrame->setVolume(AudioVolumeMode::Low);
+        $audioFrame->setHideAtShowing(true);
+        $audioFrame->setRewindAudio(true);
+
+        $presentation->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Für einen Clip, der länger als 3,5 Sekunden ist, überspringt dieses Beispiel die ersten 1,5 Sekunden und die letzten 2 Sekunden. [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) nimmt die Dauer, die am Ende des Clips weggelassen werden soll. Um die in PowerPoint angezeigte Endzeit zu erhalten, ziehen Sie diesen Versatz von der Gesamtdauer des Clips ab. Der zugeschnittene Clip blendet über 200 Millisekunden ein und über 500 Millisekunden aus. Alle vier Methoden erwarten Werte in Millisekunden.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
     $audioFrame->setTrimFromStart(1500);
-    // Legt den Trimm-Endversatz auf 2 Sekunden fest
     $audioFrame->setTrimFromEnd(2000);
-
-    // Legt die Einblenddauer (Fade-In) auf 200 ms fest
     $audioFrame->setFadeInDuration(200);
-    // Legt die Ausblenddauer (Fade-Out) auf 500 ms fest
     $audioFrame->setFadeOutDuration(500);
 
-    $pres->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
+    $presentation->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-Das folgende Codebeispiel zeigt, wie ein Audio‑Frame mit eingebettetem Audio abgerufen und die Lautstärke auf 85 % gesetzt wird:
+Um die Wiedergabelautstärke auf einen bestimmten Prozentsatz einzustellen, verwenden Sie [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue). Dieses Beispiel setzt den ersten Audio‑Frame auf der ersten Folie auf 85 %.
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Holt ein Audio-Frame-Shape
-    $audioFrame = $slide->getShapes()->get_Item(0);
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    // Setzt die Lautstärke des Audios auf 85%
-    $audioFrame->setVolumeValue(85);
-
-    $pres->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
-}
-finally {
-    $pres->dispose();
+    if ($audioFrame !== null) {
+        $audioFrame->setVolumeValue(85);
+        $presentation->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Audio-Untertitel verwalten**
+## **Audio‑Untertitel verwalten**
 
-Aspose.Slides ermöglicht das Hinzufügen von geschlossenen Untertiteln zu einem Audio‑Frame über die Methode [getCaptionTracks](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#getCaptionTracks). Diese Methode gibt eine [CaptionsCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/captionscollection/) zurück, mit der Sie WebVTT‑Untertitelspuren hinzufügen, vorhandene Spuren durchlaufen und bei Bedarf entfernen können.
+Jeder Audio‑Frame bietet über [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#getCaptionTracks) Zugriff auf seine Untertitelspuren. Verwenden Sie die Sammlung, um WebVTT‑Untertitel dem Clip hinzuzufügen, vorhandene Spuren zu exportieren oder zu entfernen.
 
-**Audio-Untertitel hinzufügen**
+### **Audio‑Untertitel hinzufügen**
 
-Verwenden Sie die Methode [getCaptionTracks](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/#getCaptionTracks), um einer Audio‑Frame‑Instanz eine oder mehrere Untertitelspuren anzuhängen. Im folgenden Beispiel wird einer Folie eine Audiodatei hinzugefügt und anschließend eine neue Untertitelspur aus einer `.vtt`‑Datei geladen.
+Das Beispiel bettet einen Audio‑Clip auf der ersten Folie ein und verwendet [add](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#add), um eine lokale WebVTT‑Spur hinzuzufügen. Das erste Argument liefert die Spurenbezeichnung, das zweite identifiziert die Datei mit den zeitlich abgestimmten Untertiteln.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $audioData = file_get_contents("audio.mp3");
-    $audio = $presentation->getAudios()->addAudio($audioData);
-
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audio);
 
-    // Fügt eine neue Untertitelspur aus einer WebVTT-Datei hinzu.
-    $audioFrame->getCaptionTracks()->add("New track", "track.vtt");
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("audio_with_captions.pptx", SaveFormat::Pptx);
 } finally {
@@ -216,25 +233,36 @@ try {
 }
 ```
 
-**Audio-Untertitel extrahieren**
+### **Audio‑Untertitel extrahieren**
 
-Sie können die mit einem Audio‑Frame verbundenen Untertitelspuren durchlaufen und als `.vtt`‑Dateien speichern. Jede Untertitelspur stellt ihre Binärdaten und eine eindeutige Kennung bereit, die beim Exportieren von Untertiteln verwendet werden kann.
+Dieses Beispiel exportiert jede Untertitelspur, die an einem Audio‑Frame auf der ersten Folie angehängt ist. Es schreibt die von [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getBinaryData) zurückgegebenen Bytes in eine WebVTT‑Datei und verwendet die von [getCaptionId](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getCaptionId) zurückgegebene Kennung als Dateinamen, sodass jede Spur eine separate Ausgabe hat.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shapeCount = java_values($slide->getShapes()->size());
-    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
-        $shape = $slide->getShapes()->get_Item($shapeIndex);
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
-            $audioFrame = $shape;
-            $trackCount = java_values($audioFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
-                $captionTrack = $audioFrame->getCaptionTracks()->get_Item($trackIndex);
-                // Speichert jede Untertitelspur als .vtt-Datei.
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $fileName = $track->getCaptionId() . ".vtt";
+            $audioCaptions = $track->getBinaryData();
+            $output = new Java("java.io.FileOutputStream", $fileName);
+            try {
+                $output->write($audioCaptions);
+            } finally {
+                $output->close();
             }
         }
     }
@@ -243,20 +271,77 @@ try {
 }
 ```
 
-**Audio-Untertitel entfernen**
+### **Audio‑Untertitel entfernen**
 
-Um Untertitel aus einem Audio‑Frame zu entfernen, nutzen Sie die von [CaptionsCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/captionscollection/) bereitgestellten Methoden, wie [clear](https://reference.aspose.com/slides/de/php-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/de/php-java/aspose.slides/captionscollection/#remove) oder [removeAt](https://reference.aspose.com/slides/de/php-java/aspose.slides/captionscollection/#removeAt). Das folgende Beispiel entfernt alle Untertitelspuren aus einem Audio‑Frame.
+Verwenden Sie [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) oder [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt), um eine einzelne Spur zu löschen. Das Beispiel verwendet [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear), um alle Untertitel vom ersten Audio‑Frame auf der ersten Folie zu entfernen, während der Clip erhalten bleibt.
 
 ```php
-$presentation = new Presentation($folderPath . "audio_with_captions.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->get_Item(0); // Typ: AudioFrame
 
-    // Entfernt alle Untertitelspuren aus dem Audio-Frame.
-    $audioFrame->getCaptionTracks()->clear();
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save($folderPath . "audio_without_captions.pptx", SaveFormat::Pptx);
+    if ($audioFrame !== null) {
+        $audioFrame->getCaptionTracks()->clear();
+        $presentation->save("audio_without_captions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Eine Zeile in Audio‑Untertiteln finden**
+
+Um eine Zeile in den Audio‑Untertiteln auf der ersten Folie zu finden, durchsuchen Sie den von [getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) zurückgegebenen Text im Speicher. In einem Klartext‑WebVTT‑Cue enthält die Zeitzeile `-->`, die Untertitelzeilen folgen darauf, und eine leere Zeile beendet den Cue. Dieses Beispiel gibt die Spurenbezeichnung und jede Untertitelzeile aus, die „café“ enthält.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("audio_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $inCue = false;
+            $captions = (string) $track->getDataAsString();
+            foreach (preg_split('/\R/u', $captions) as $line) {
+                if ($line === "") {
+                    $inCue = false;
+                } elseif (strpos($line, "-->") !== false) {
+                    $inCue = true;
+                } elseif ($inCue && preg_match('/café/iu', $line)) {
+                    echo $track->getLabel() . ": " . $line . "\n";
+                }
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
@@ -264,44 +349,38 @@ try {
 
 ## **Audio extrahieren**
 
-Aspose.Slides für PHP via Java ermöglicht das Extrahieren des in Folienübergängen verwendeten Sounds. Beispielsweise können Sie den Sound einer bestimmten Folie extrahieren.
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/Presentation) und laden Sie die Präsentation, die das Audio enthält.
-2. Rufen Sie die Referenz der entsprechenden Folie über deren Index ab.
-3. Greifen Sie auf die [slideshow transitions](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#getSlideShowTransition) der Folie zu.
-4. Extrahieren Sie den Sound als Byte‑Daten.
-
-Dieser Code zeigt, wie Sie den in einer Folie verwendeten Sound extrahieren:
+Ein Folienübergang kann einen eigenen Sound haben. Um ihn abzurufen, rufen Sie [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/getsound/) beim Folienübergang auf. Das Beispiel greift auf die von [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) zurückgegebenen Bytes zu und gibt die Anzahl der Bytes aus. Hat die erste Folie keinen Übergangssound, wird stattdessen eine Meldung ausgegeben.
 
 ```php
-# Instanziiert eine Presentation-Klasse, die eine Präsentationsdatei darstellt
-$pres = new Presentation("AudioSlide.pptx");
-$Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("AudioSlide.pptx");
 try {
-	# Greift auf die gewünschte Folie zu
-	$slide = $pres->getSlides()->get_Item(0);
-	# Holt die Folienübergangseffekte für die Folie
-	$transition = $slide->getSlideShowTransition();
-	# Extrahiert den Sound als Byte-Array
-	$audio = $transition->getSound()->getBinaryData();
-	echo("Length: " . $Array->getLength($audio));
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $sound = $slide->getSlideShowTransition()->getSound();
+    if (java_is_null($sound)) {
+        echo "The first slide has no transition sound.\n";
+    } else {
+        $audioData = $sound->getBinaryData();
+        $array = new JavaClass("java.lang.reflect.Array");
+        echo "Transition sound: " . $array->getLength($audioData) . " bytes.\n";
+    }
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
 ## **FAQ**
 
-**Kann ich dieselbe Audiodatei in mehreren Folien wiederverwenden, ohne die Dateigröße zu vergrößern?**
+**Kann ich denselben Audio‑Clip auf mehreren Folien wiederverwenden, ohne ihn zu duplizieren?**
 
-Ja. Fügen Sie das Audio einmal zur geteilten [audio collection](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getaudios/) der Präsentation hinzu und erstellen Sie weitere Audio‑Frames, die auf dieses vorhandene Asset verweisen. Dadurch wird das Duplizieren von Mediendaten vermieden und die Präsentationsgröße bleibt kontrollierbar.
+Ja. Fügen Sie den Clip einmal zur [audio collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getaudios/) der Präsentation hinzu und übergeben Sie dasselbe Audio‑Objekt bei jedem Aufruf von [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/) an die jeweilige Folie.
 
-**Kann ich den Sound in einem bestehenden Audio‑Frame ersetzen, ohne die Form neu zu erstellen?**
+**Kann ich den Sound in einem bestehenden Audio‑Frame ersetzen?**
 
-Ja. Für einen verlinkten Sound aktualisieren Sie den [link path](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/setlinkpathlong/) so, dass er auf die neue Datei zeigt. Für ein eingebettetes Audio ersetzen Sie das [embedded audio](https://reference.aspose.com/slides/de/php-java/aspose.slides/audioframe/setembeddedaudio/)‑Objekt durch ein anderes aus der [audio collection](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getaudios/) der Präsentation. Die Formatierung des Frames und die meisten Wiedergabeeinstellungen bleiben erhalten.
+Ja. Für einen verknüpften Sound verwenden Sie [setLinkPathLong](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setlinkpathlong/), um auf die Ersatzdatei zu verweisen. Für einen eingebetteten Sound wählen Sie einen anderen Clip aus der Audio‑Sammlung der Präsentation mit [setEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setembeddedaudio/). Beide Vorgehensweisen erhalten den bestehenden Frame.
 
-**Ändert das Trimmen die zugrunde liegenden Audiodaten, die in der Präsentation gespeichert sind?**
+**Verändert das Trimmen die in der Präsentation gespeicherten Audiodaten?**
 
-Nein. Trimmen ändert nur die Wiedergabegrenzen. Die ursprünglichen Audiodaten bleiben unverändert und sind über das eingebettete Audio oder die Audio‑Collection der Präsentation zugänglich.
+Nein. [setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) und [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) setzen nur die Wiedergabegrenzen. Sie können den vollständigen Clip weiterhin über [getEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/getembeddedaudio/) abrufen.

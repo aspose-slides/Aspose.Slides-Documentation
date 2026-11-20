@@ -1,5 +1,5 @@
 ---
-title: Tùy chỉnh trục biểu đồ trong bài thuyết trình bằng Python
+title: Tùy chỉnh trục biểu đồ trong bản trình bày bằng Python
 linktitle: Trục biểu đồ
 type: docs
 url: /vi/python-net/chart-axis/
@@ -8,7 +8,7 @@ keywords:
 - trục dọc
 - trục ngang
 - tùy chỉnh trục
-- điều chỉnh trục
+- thao tác trục
 - quản lý trục
 - thuộc tính trục
 - giá trị tối đa
@@ -19,20 +19,20 @@ keywords:
 - vị trí trục
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - Python
 - Aspose.Slides
-description: "Khám phá cách sử dụng Aspose.Slides cho Python qua .NET để tùy chỉnh trục biểu đồ trong các bài thuyết trình PowerPoint và OpenDocument cho báo cáo và trực quan hoá."
+description: "Khám phá cách sử dụng Aspose.Slides cho Python qua .NET để tùy chỉnh trục biểu đồ trong các bản trình bày PowerPoint và OpenDocument cho báo cáo và trực quan hoá."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides cho Python qua .NET. Nó bao gồm các giá trị trục đã tính toán, chuyển đổi hàng và cột biểu đồ, hiển thị trục, khoảng cách nhãn danh mục và dấu tick, danh mục ngày và định dạng, xoay tiêu đề, vị trí trục, đơn vị hiển thị và tỷ lệ logarit.
+Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides cho Python thông qua .NET. Nó bao gồm các giá trị trục đã tính toán, chuyển đổi hàng và cột biểu đồ, hiển thị trục, khoảng cách nhãn danh mục và đánh dấu tick, danh mục ngày và định dạng, xoay tiêu đề, vị trí trục, đơn vị hiển thị và tỷ lệ logarit.
 
 ## **Lấy Giá Trị Tối Đa Trên Trục Dọc Trong Biểu Đồ**
 
-Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and add an area chart with default data. Call [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) before reading calculated axis values so that the chart layout is up to date.
+Tạo một [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) và thêm một biểu đồ khu vực với dữ liệu mặc định. Gọi [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) trước khi đọc các giá trị trục đã tính toán để bố cục biểu đồ được cập nhật.
 
-Read [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) and [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) for the axis limits, and [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) and [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) for the tick intervals. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) and [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) provide time-unit scales, which are relevant to date axes. The example stores these values in local variables and saves the chart.
+Đọc [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) và [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) để lấy giới hạn trục, và [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) và [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) để lấy khoảng đánh dấu tick. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) và [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) cung cấp các thang thời gian, có liên quan đến trục ngày. Ví dụ lưu các giá trị này vào các biến cục bộ và lưu biểu đồ.
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **Hoán Đổi Dữ Liệu Giữa Các Trục**
 
-Use [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
+Sử dụng [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) để đổi vai trò của series và categories trong dữ liệu biểu đồ. Mỗi category cũ trở thành một series, và mỗi series cũ trở thành một category. Điều này thay đổi cách nhóm dữ liệu; nó không đổi vị trí các trục ngang và dọc. Ví dụ sử dụng [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) để gán dữ liệu mặc định vào `Sheet1!A1:D5`, bao gồm hàng tiêu đề và cột category, trước khi đổi hàng và cột. Nó lưu một biểu đồ với bốn series và ba category.
 
 ```python
 import aspose.slides as slides
@@ -77,9 +77,9 @@ with slides.Presentation() as presentation:
 
 ## **Đảo Ngược Thứ Tự Vẽ Của Một Trục**
 
-Use [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) exchanges the roles of series and categories.
+Sử dụng [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) để đảo ngược một trục category hoặc value. Ví dụ, một biểu đồ thanh ngang có thể hiển thị các giai đoạn dự án từ trên xuống dưới theo cùng thứ tự như trong bảng tính: Planning, Development, Testing. Đảo ngược trục thay đổi hướng vẽ; nó không sắp xếp hay thay đổi dữ liệu trong workbook. Để so sánh, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) đổi vai trò của series và category.
 
-The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
+Ví dụ sau tạo một biểu đồ thanh ngang với ba giai đoạn và một series. Nó lưu một bản trình bày với ba slide: thứ tự bình thường, category đảo ngược và value đảo ngược. Mỗi bản sao dùng cùng một bộ dữ liệu, và chỉ một trục được đảo ngược trên mỗi bản sao.
 
 ```python
 import aspose.slides as slides
@@ -121,16 +121,16 @@ with slides.Presentation() as presentation:
     presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) controls where the other axis crosses the axis being configured. In slide 2, setting it to `MAXIMUM` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Set `is_plot_order_reversed` back to `False` to restore the normal plotting direction; crossing settings are separate.
+Đảo ngược một trục cũng có thể di chuyển trục vuông góc sang phía đối diện của plot. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) kiểm soát nơi trục còn lại cắt trục đang cấu hình. Trong slide 2, đặt nó thành `MAXIMUM` trên trục category đã đảo ngược giữ trục value ngang ở phía dưới. Để chỉ định một điểm giao cắt cụ thể, sử dụng [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Kiểm tra các cài đặt giao cắt khi thay đổi hướng, đặc biệt nếu biểu đồ đã có một điểm giao cắt tùy chỉnh. Đặt `is_plot_order_reversed` lại `False` để khôi phục hướng vẽ bình thường; các cài đặt giao cắt là riêng biệt.
 
-| Trật tự bình thường (slide 1) | Danh mục đảo ngược (slide 2) | Giá trị đảo ngược (slide 3) |
+| Thứ tự bình thường (slide 1) | Danh mục đảo ngược (slide 2) | Giá trị đảo ngược (slide 3) |
 | --- | --- | --- |
-| ![Biểu đồ thanh ngang với trật tự trục danh mục và trục giá trị bình thường](axis-order-normal.png) | ![Biểu đồ thanh ngang với các danh mục hiển thị từ trên xuống dưới](axis-order-categories-reversed.png) | ![Biểu đồ thanh ngang với trục giá trị đảo ngược và giá trị zero ở bên phải](axis-order-values-reversed.png) |
-| Các danh mục chạy từ dưới lên trên; giá trị tăng từ trái sang phải. | Planning, Development và Testing chạy từ trên xuống dưới. Giá trị và thứ tự hàng trong workbook không thay đổi. | Các danh mục giữ thứ tự bình thường; giá trị tăng từ phải sang trái. Trục danh mục cắt tại giá trị zero ở bên phải. |
+| ![Biểu đồ thanh ngang với thứ tự trục danh mục và giá trị bình thường](axis-order-normal.png) | ![Biểu đồ thanh ngang với danh mục hiển thị từ trên xuống dưới](axis-order-categories-reversed.png) | ![Biểu đồ thanh ngang với trục giá trị đảo ngược và giá trị 0 ở bên phải](axis-order-values-reversed.png) |
+| Danh mục chạy từ dưới lên trên; giá trị tăng từ trái sang phải. | Planning, Development, và Testing chạy từ trên xuống dưới. Giá trị và thứ tự hàng workbook không thay đổi. | Danh mục giữ nguyên thứ tự bình thường; giá trị tăng từ phải sang trái. Trục category cắt tại zero ở bên phải. |
 
-## **Tắt Trục Dọc cho Biểu Đồ Đường**
+## **Vô Hiệu Hóa Trục Dọc cho Biểu Đồ Đường**
 
-Set [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) to `False` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
+Đặt [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) thành `False` trên trục dọc để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu với trục dọc bị ẩn.
 
 ```python
 import aspose.slides as slides
@@ -145,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tắt Trục Ngang cho Biểu Đồ Đường**
+## **Vô Hiệu Hóa Trục Ngang cho Biểu Đồ Đường**
 
-Set [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) to `False` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
+Đặt [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) thành `False` trên trục ngang để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu với trục ngang bị ẩn.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +162,41 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Hiển Thị hoặc Ẩn Lưới Biểu Đồ**
+
+Đọc [show_major_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_major_grid_lines/) và [show_minor_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_minor_grid_lines/) để kiểm tra lưới nào một trục hiển thị. Cả hai thuộc tính này chỉ đọc. Để hiển thị lưới phụ, đặt fill cho [minor_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_grid_lines_format/) thành một màu đặc và chọn màu hiển thị. Để ẩn chúng, đặt loại fill thành `FillType.NO_FILL`. Đối với lưới chính, sử dụng [major_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_grid_lines_format/)`.line.fill_format`. Thay đổi fill vẫn giữ nguyên khả năng hiển thị trục và các đánh dấu tick.
+
+Trục dọc của biểu đồ cột nhóm này bắt đầu với lưới chính hiển thị và lưới phụ ẩn. Ví dụ hiển thị lưới phụ màu cam, sau đó lại ẩn chúng trước khi lưu bản trình bày.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 30, 660, 230)
+    axis = chart.axes.vertical_axis
+    print(f"Initial: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    minor_fill = axis.minor_grid_lines_format.line.fill_format
+    minor_fill.fill_type = slides.FillType.SOLID
+    minor_fill.solid_fill_color.color = slides.Color.dark_orange
+    print(f"Enabled: minor={axis.show_minor_grid_lines}")
+
+    minor_fill.fill_type = slides.FillType.NO_FILL
+    print(f"Hidden: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    presentation.save("ChartGridlines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Lưới phụ được bật | Lưới phụ ẩn |
+| --- | --- |
+| ![Lưới phụ màu cam giữa các lưới chính trên trục dọc](minor-gridlines-enabled.png) | ![Cùng biểu đồ cột nhưng chỉ có lưới chính hiển thị](minor-gridlines-hidden.png) |
+
 ## **Thay Đổi Trục Danh Mục**
 
-Set [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Setting [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) to `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) to `1`, and [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) to months places major ticks at one-month intervals.
+Đặt [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) để chọn trục danh mục ngày hoặc văn bản. Ví dụ này yêu cầu `ExistingChart.pptx`, với một biểu đồ là hình dạng đầu tiên trên slide đầu và các ô danh mục chứa giá trị ngày Excel dạng số. Nó thay đổi trục ngang thành trục ngày. Đặt [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) thành `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) thành `1`, và [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) thành months để đặt các tick chính cách nhau một tháng.
 
 ```python
 import aspose.slides as slides
@@ -182,21 +214,74 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Xác Định Kiểu Trục Danh Mục từ Dữ Liệu**
+
+Gọi [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) sau khi điền các danh mục, sau đó đọc [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) để kiểm tra lựa chọn. Điều này hữu ích khi cùng một biểu đồ nhận hoặc nhãn văn bản hoặc giá trị ngày dạng số. Phương thức xác định kiểu khi được gọi; nó không bật chế độ cố định để đánh giá lại các thay đổi dữ liệu sau này. Gọi lại sau khi thay thế các danh mục.
+
+Ví dụ sau tạo một biểu đồ với danh mục dạng văn bản và in ra `TEXT`. Sau đó thay thế các giá trị ô danh mục bằng ngày và gọi lại phương thức, kết quả in ra `DATE`. Ngày được lưu dưới dạng giá trị số OLE Automation, được tính ở đây là số ngày kể từ ngày 30 tháng 12 năm 1899, không phải chuỗi ngày. [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) kiểm soát cách hiển thị các giá trị đó; nó không chuyển đổi văn bản thành ngày số. Để biết thêm về các ô danh mục, xem [Chart Workbook](/slides/vi/python-net/chart-workbook/).
+
+Sử dụng xác định tự động khi đầu vào biết chứa danh mục văn bản hoặc ngày dạng số, như trong ví dụ này. Đối với nhãn số thường, danh mục hỗn hợp, hoặc dữ liệu rỗng, hãy đặt rõ ràng [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) để phù hợp với ý nghĩa mong muốn. Chỉ có giá trị số không tự động xác định rằng danh mục đại diện cho ngày.
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # VĂN BẢN
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # NGÀY
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Kiểm Soát Khoảng Cách Nhãn Trục Danh Mục**
 
-When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Set [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) to `False`, then set [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) to the desired category interval. For text categories in their normal order, counting starts at the first category:
+Khi một biểu đồ có nhiều danh mục, giảm số lượng nhãn trục hiển thị mà không loại bỏ danh mục hoặc điểm dữ liệu. Đặt [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) thành `False`, rồi đặt [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) thành khoảng cách danh mục mong muốn. Đối với danh mục văn bản theo thứ tự bình thường, việc đếm bắt đầu từ danh mục đầu tiên:
 
 | Khoảng | Nhãn hiển thị trong ví dụ |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
+Khoảng `3` hiển thị mỗi nhãn thứ ba, để lại hai nhãn ẩn giữa các nhãn được hiển thị. Nó không loại bỏ các cột tương ứng. Khoảng cách tự động chọn khoảng dựa trên không gian có sẵn; nó không nhất thiết hiển thị mọi nhãn.
 
-Tick marks have separate controls. Set [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) to `False` and use [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Set [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) to a visible style so you can see the result. Setting either automatic-spacing property back to `True` lets the chart choose that interval again.
+Các đánh dấu tick có các điều khiển riêng. Đặt [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) thành `False` và dùng [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) để đặt khoảng cách của chúng. Ví dụ, `1` giữ một tick ở mỗi khoảng danh mục trong khi nhãn chỉ xuất hiện mỗi danh mục thứ ba. Đặt [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) thành kiểu hiển thị để bạn có thể thấy kết quả. Đặt lại thuộc tính tự động‑spacing nào đó về `True` cho phép biểu đồ chọn lại khoảng đó.
 
-The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
+Ví dụ tự chứa sau tạo 24 danh mục và một series, rồi lưu ba slide trong `CategoryAxisIntervals.pptx`: khoảng cách tự động, khoảng cách nhãn thủ công với các tick độc lập, và khôi phục khoảng cách tự động. Hai bản sao giữ dữ liệu biểu đồ gốc. Không cần bản trình bày đầu vào. Văn bản nhãn ngang làm cho mật độ dễ nhận thấy hơn.
 
 ```python
 import aspose.slides as slides
@@ -229,7 +314,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # Slide 2: hiển thị mỗi nhãn thứ ba, nhưng giữ dấu tick cho mỗi danh mục.
+    # Slide 2: hiển thị mỗi nhãn thứ ba, nhưng giữ một dấu tick cho mỗi danh mục.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -247,23 +332,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Định khoảng tự động (slide 1):** In this rendering, every second category label is displayed and wraps onto two lines. The automatic result can vary with chart size, fonts, and the renderer.
+**Automatic spacing (slide 1):** Trong bản render này, mỗi nhãn danh mục thứ hai được hiển thị và ngắt dòng thành hai dòng. Kết quả tự động có thể thay đổi tùy kích thước biểu đồ, phông chữ và bộ render.
 
 ![Khoảng cách nhãn danh mục tự động với tất cả 24 cột hiển thị](category-axis-automatic.png)
 
-**Định khoảng thủ công (slide 2):** Every third label is displayed on one line, while tick marks remain at every category interval. All 24 columns, including those without labels, remain visible with the same values. Slide 3 restores the automatic appearance shown above.
+**Manual spacing (slide 2):** Mỗi nhãn thứ ba được hiển thị trên một dòng, trong khi các tick vẫn ở mỗi khoảng danh mục. Tất cả 24 cột, bao gồm cả những cột không có nhãn, vẫn hiển thị với cùng các giá trị. Slide 3 khôi phục lại giao diện tự động như trên.
 
 ![Khoảng cách nhãn danh mục thủ công ba với tất cả 24 cột hiển thị](category-axis-manual.png)
 
-### **Chọn Trục và Khoảng Cách Phù Hợp**
+### **Chọn Trục và Khoảng Đúng**
 
-Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Tick-mark spacing also applies to a series axis in charts that have one.
+Sử dụng khoảng đếm danh mục này cho trục danh mục dạng văn bản, chẳng hạn trục danh mục của biểu đồ cột, đường, khu vực hoặc thanh. Trong biểu đồ cột, nó là trục ngang. Trong biểu đồ thanh ngang, trục danh mục là trục dọc, vì vậy áp dụng các cài đặt này cho [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Khoảng cách đánh dấu tick cũng áp dụng cho trục series trong các biểu đồ có trục series.
 
-Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
+Không dùng khoảng cách nhãn danh mục để đặt thang số cho trục giá trị. Trên trục giá trị, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) chỉ ra sự chênh lệch giá trị: ví dụ, một major unit là `10` tạo các tick tại 0, 10, 20, … khi trục bắt đầu từ zero. Một khoảng nhãn danh mục `3` đếm vị trí danh mục, bất kể giá trị dữ liệu của chúng. Các biểu đồ scatter và bubble dùng trục giá trị thay vì trục danh mục văn bản. Đối với trục ngày, dùng các unit và thang thời gian như mô tả trong [Change a Category Axis](#change-a-category-axis).
 
-## **Đặt Định Dạng Ngày cho Các Giá Trị Trục Danh Mục**
+## **Đặt Định Dạng Ngày cho Giá Trị Trục Danh Mục**
 
-The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`). Set [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) to a date axis, disable [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/), and assign `yyyy` to [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) so the category labels display four-digit years independently of the cell formatting.
+Ví dụ thay thế dữ liệu biểu đồ mặc định bằng bốn giá trị hàng năm. Ngày được lưu dưới dạng số serial OLE Automation trong bảng tính đầu tiên (chỉ mục `0`). Đặt [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) thành trục ngày, tắt [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/), và gán `yyyy` cho [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) để nhãn danh mục hiển thị năm bốn chữ số độc lập với định dạng ô.
 
 ```python
 from datetime import date
@@ -301,7 +386,7 @@ with slides.Presentation() as presentation:
 
 ## **Đặt Góc Xoay cho Tiêu Đề Trục Biểu Đồ**
 
-Enable [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) on the vertical axis, provide title text, and set [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
+Bật [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) trên trục dọc, cung cấp văn bản tiêu đề, và đặt [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) để xoay tiêu đề. Góc được đo bằng độ; ví dụ này lưu một biểu đồ cột với tiêu đề trục giá trị đã xoay 90 độ.
 
 ```python
 import aspose.slides as slides
@@ -320,7 +405,7 @@ with slides.Presentation() as presentation:
 
 ## **Đặt Vị Trí Trục trên Trục Danh Mục hoặc Trục Giá Trị**
 
-Use [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This property applies to category axes. The example sets it to `True` on the horizontal category axis of a column chart and saves the result.
+Sử dụng [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) để kiểm soát việc trục giá trị cắt trục danh mục giữa các danh mục hoặc tại các tick danh mục. Thuộc tính này áp dụng cho trục danh mục. Ví dụ đặt nó thành `True` trên trục danh mục ngang của biểu đồ cột và lưu kết quả.
 
 ```python
 import aspose.slides as slides
@@ -335,9 +420,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Đặt Đơn Vị Hiển Thị trên Trục Giá Trị Biểu Đồ**
+## **Đặt Đơn Vị Hiển Thị trên Trục Giá Trị của Biểu Đồ**
 
-Set [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) set to `MILLIONS`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
+Đặt [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) để thu nhỏ các nhãn trên trục giá trị mà không thay đổi dữ liệu nền. Với [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) được đặt thành `MILLIONS`, giá trị 60,000,000 sẽ hiển thị là 60. Ví dụ tạo một biểu đồ cột và áp dụng đơn vị hiển thị triệu cho trục dọc.
 
 ```python
 import aspose.slides as slides
@@ -354,19 +439,19 @@ with slides.Presentation() as presentation:
 
 ## **Cấu Hình Trục Giá Trị Logarit**
 
-A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
+Trục giá trị logarit hữu ích khi các giá trị dương trải rộng qua nhiều bậc. Ví dụ, một dịch vụ có thể nhận 10, 100, 1,000, 10,000 và 100,000 yêu cầu trong năm giai đoạn. Trên thang tuyến tính, các giá trị nhỏ hơn xuất hiện gần nhau ở gần zero. Thang logarit làm cho sự tăng trưởng tương đối dễ so sánh hơn: khoảng cách bằng nhau đại diện cho tỉ lệ bằng nhau thay vì chênh lệch bằng nhau.
 
-Set [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) to `True` on the value axis and use [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
+Đặt [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) thành `True` trên trục giá trị và dùng [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) để chọn cơ sở. Điều này thay đổi cách hiển thị các giá trị hiện có; nó không thay đổi dữ liệu hay thêm đường xu hướng logarit. Đường xu hướng là một tính năng riêng biệt biểu diễn mối quan hệ phù hợp trong dữ liệu.
 
 ### **Chọn Trục Giá Trị và Cơ Sở**
 
-For a line or column chart, the value axis is [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). For a horizontal bar chart, it is [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
+Đối với biểu đồ đường hoặc cột, trục giá trị là [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Đối với biểu đồ thanh ngang, nó là [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Các biểu đồ scatter và bubble có hai trục giá trị, vì vậy chọn trục ngang cho giá trị X, trục dọc cho giá trị Y, hoặc cả hai. Không áp dụng tỷ lệ logarit cho trục danh mục.
 
-The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced.
+Cơ sở logarit mặc định là `10`. Đối với biểu đồ PPTX, sử dụng cơ sở từ `2` đến `1000`, bao gồm; các cơ sở phân số như `2.5` cũng được hỗ trợ. Với cơ sở `10`, các lũy thừa liên tiếp như 10, 100, 1,000 và 10,000 có khoảng cách đều nhau.
 
-### **So Sánh Thang Đường Thẳng và Logarit**
+### **So Sánh Độ Phóng Đường Thẳng và Logarit**
 
-The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
+Ví dụ tự chứa sau tạo một biểu đồ đường với năm lượt yêu cầu trên slide đầu, sau đó sao chép slide đó và bật trục giá trị logarit cơ sở 10 trên slide thứ hai. Cả hai slide giữ cùng một dữ liệu.
 
 ```python
 import aspose.slides as slides
@@ -395,7 +480,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Giữ slide đầu tiên ở chế độ tuyến tính và chỉ thay đổi tỷ lệ trục giá trị của bản sao.
+    # Giữ slide đầu tiên ở dạng tuyến tính và chỉ thay đổi thang trục giá trị của bản sao.
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -405,24 +490,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
+**Linear scale (slide 1):** Khoảng cách dọc bằng nhau đại diện cho sự chênh lệch yêu cầu bằng nhau. Giá trị lớn nhất chi phối biểu đồ, khiến các giá trị nhỏ khó phân biệt.
 
 ![Biểu đồ đường trong PowerPoint hiển thị năm lượng yêu cầu trên trục giá trị tuyến tính](value-axis-linear.png)
 
-**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
+**Logarithmic scale (slide 2):** Khoảng cách dọc bằng nhau đại diện cho tỉ lệ bằng nhau. Mỗi giai đoạn có số yêu cầu gấp mười lần so với giai đoạn trước, vì vậy các điểm tạo thành một đường thẳng tăng trên thang logarit cơ sở 10. Nhãn trục vẫn hiển thị số lượng yêu cầu gốc.
 
-![Năm lượng yêu cầu tương tự trong PowerPoint trên trục giá trị logarit cơ số 10](value-axis-logarithmic.png)
+![Cùng năm lượng yêu cầu trong PowerPoint trên trục giá trị logarit cơ sở 10](value-axis-logarithmic.png)
 
 ### **Xử Lý Giá Trị Zero và Âm**
 
-A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
+Thang logarit chỉ hiển thị các giá trị dương tuyệt đối. Kiểm tra dữ liệu trước khi bật. Nếu zero hoặc giá trị âm có ý nghĩa, giữ thang tuyến tính hoặc hiển thị chúng riêng. Nếu việc loại bỏ các giá trị này phù hợp với phân tích, giải thích lý do. Không nên thay thế im lặng bằng các số dương nhỏ, vì điều này thay đổi ý nghĩa dữ liệu. Bất kỳ giá trị tối thiểu hoặc tối đa nào được cấu hình thủ công cho trục logarit cũng phải là dương.
 
 ## **Câu Hỏi Thường Gặp**
 
 **Làm thế nào để đặt giá trị mà một trục cắt qua trục kia (giao điểm trục)?**
 
-Use [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) to select the crossing behavior. To specify a numeric crossing value, set [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). These settings let you move the axis crossing to a suitable baseline.
+Sử dụng [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) để chọn hành vi giao cắt. Để chỉ định một giá trị giao cắt số, đặt [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Các cài đặt này cho phép bạn di chuyển giao điểm trục tới mức baseline phù hợp.
 
-**Làm thế nào để đặt vị trí nhãn tick so với trục?**
+**Làm thế nào để định vị nhãn tick tương đối với trục?**
 
-Set [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) using [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO`, or `NONE`. To control the tick marks themselves, use [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) or [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); these are separate from label positioning.
+Đặt [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) bằng cách sử dụng [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/): `LOW`, `HIGH`, `NEXT_TO`, hoặc `NONE`. Để kiểm soát các đánh dấu tick, sử dụng [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) hoặc [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); chúng tách biệt với vị trí nhãn.

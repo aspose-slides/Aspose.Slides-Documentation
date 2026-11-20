@@ -1,278 +1,429 @@
 ---
-title: Správa zvuku v prezentacích pomocí C++
-linktitle: Audio rámec
+title: Správa audio rámečků v prezentacích pomocí C++
+linktitle: Audio rámeček
 type: docs
 weight: 10
 url: /cs/cpp/audio-frame/
 keywords:
-- audio
-- audio rámec
-- náhled
+- zvuk
+- audio rámeček
+- miniatura
 - přidat audio
-- vlastnosti audio
-- možnosti audio
+- vlastnosti audia
+- možnosti audia
 - extrahovat audio
 - C++
 - Aspose.Slides
-description: "Vytvářejte a ovládejte audio rámečky v Aspose.Slides pro C++ — příklady kódu pro vložení, oříznutí, opakování a konfiguraci přehrávání v prezentacích PPT, PPTX a ODP."
+description: "Vložte audio do snímků, změňte ikonu audia, nakonfigurujte přehrávání, spravujte titulky WebVTT a extrahujte zvuky přechodů snímků pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s audio rámci v Aspose.Slides. Ukazuje, jak přidat vložený zvuk do snímků, přizpůsobit miniaturu audio rámce, nakonfigurovat možnosti přehrávání, jako je hlasitost, opakování, skrytí, oříznutí a dobu přechodů, a získat zvuk použitý v přechodech prezentace.
+Audio rámeček vám umožňuje přehrát zvuk na snímku. S Aspose.Slides pro C++ můžete vložit audio klip, vybrat obrázek, který jej představuje, upravit přehrávání a připojit titulky. Můžete také získat zvuk přiřazený k přechodu snímku.
 
-## **Vytvoření audio rámců**
+## **Vytvořit audio rámečky**
 
-Aspose.Slides pro C++ vám umožňuje přidávat zvukové soubory na snímky. Zvukové soubory jsou do snímků vloženy jako audio rámce. 
+Použijte [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) k vložení lokálního audio klipu na první snímek. První dvě souřadnice umístí rámeček na snímek a další dvě hodnoty nastaví jeho šířku a výšku, vše v bodech. Tento příklad volá [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) pro automatické spuštění klipu a volá [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) pro výběr hlasitého přednastavení.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
-2. Získejte odkaz na snímek přes jeho index.
-3. Načtěte stream zvukového souboru, který chcete do snímku vložit.
-4. Přidejte vložený audio rámec (obsahující zvukový soubor) na snímek.
-5. Nastavte [PlayMode](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) a `Volume` poskytované objektem [IAudioFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_audio_frame).
-6. Uložte upravenou prezentaci.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-// Vytvoří instanci třídy Presentation, která představuje soubor prezentace
-auto pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Získá první snímek
-auto sld = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Načte wav zvukový soubor do streamu
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// Přidá Audio Frame
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Nastaví režim přehrávání a hlasitost zvuku
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Zapíše soubor PowerPoint na disk
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Změna miniatury audio rámce**
+## **Změnit miniaturu audio rámečku**
 
-Když do prezentace přidáte zvukový soubor, zvuk se zobrazí jako rámec se standardním výchozím obrázkem (viz obrázek v následující sekci). Změníte miniaturu audio rámce (nastavíte svůj preferovaný obrázek).
+Ve výchozím nastavení audio rámeček zobrazuje ikonu reproduktoru. Pro zobrazení vlastní miniatury přidejte obrázek do prezentace pomocí [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) a nastavte jej jako obrázek rámečku pomocí [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). Příklad používá JPEG jako miniaturu pro vložený audio klip.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Přidá audio rámec do snímku s určenou polohou a velikostí.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Přidá obrázek do zdrojů prezentace.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Nastaví obrázek pro audio rámec.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//Uloží upravenou prezentaci na disk
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Změna možností přehrávání zvuku**
+## **Změnit možnosti přehrávání zvuku**
 
-Aspose.Slides pro C++ vám umožňuje měnit možnosti, které řídí přehrávání zvuku nebo jeho vlastnosti. Například můžete upravit hlasitost zvuku, nastavit přehrávání zvuku v cyklu nebo dokonce skrýt ikonu zvuku.
+PowerPointu **Audio Options** určují, kdy klip začne, jak hlasitě zní a jak se chová během prezentace.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![Ovládací prvky Audio Options v PowerPointu pro audio rámeček](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Ovládací prvek PowerPointu | Metoda Aspose.Slides pro C++ |
+| --- | --- |
+| Spustit | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Předvolba hlasitosti | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Přehrát napříč snímky | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Opakovat dokud není zastaveno | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Skrýt během prezentace | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Přetočit po přehrání | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Prolínání dovnitř | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Prolínání ven | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Upravit čas začátku zvuku | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Upravit čas konce zvuku | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Posuvník hlasitosti | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-Možnosti **Audio** v PowerPointu, které odpovídají metodám Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/):
-
-- **Spustit** rozbalovací seznam odpovídá metodě [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_playmode/) 
-- **Hlasitost** odpovídá metodě [AudioFrame::set_Volume](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_volume/) 
-- **Přehrát napříč snímky** odpovídá metodě [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_playacrossslides/) 
-- **Opakovat až do zastavení** odpovídá metodě [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_playloopmode/) 
-- **Skrýt během prezentace** odpovídá metodě [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_hideatshowing/) 
-- **Přetočit po přehrání** odpovídá metodě [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_rewindaudio/) method 
-
-Možnosti **Úpravy** v PowerPointu, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/):
-
-- **Plynulé zesílení** odpovídá metodě [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_fadeinduration/) 
-- **Postupné zeslabení** odpovídá metodě [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_fadeoutduration/) 
-- **Zkrátit čas začátku zvuku** odpovídá metodě [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_trimfromstart/) 
-- **Zkrátit čas konce zvuku** hodnota se rovná délce zvuku minus hodnota metody [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_trimfromend/) 
-
-Ovládání **hlasitosti** v panelu zvukové kontroly v PowerPointu odpovídá metodě [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_volumevalue/). Umožňuje vám změnit hlasitost zvuku v procentech.
-
-1. [Vytvořit](#creating-audio-frame) nebo získat Audio Frame.
-2. Nastavte nové hodnoty vlastností Audio Frame, které chcete upravit.
-3. Uložte upravený soubor PowerPoint.
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Získá tvar
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Přetypuje tvar na AudioFrame
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Nastaví režim přehrávání na přehrání při kliknutí
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Nastaví hlasitost na nízkou
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Nastaví, aby se zvuk přehrával napříč snímky
-audioFrame->set_PlayAcrossSlides(true);
-
-// Zakáže opakování pro zvuk
-audioFrame->set_PlayLoopMode(false);
-
-// Skryje AudioFrame během prezentace
-audioFrame->set_HideAtShowing(true);
-
-// Přetočí zvuk na začátek po přehrání
-audioFrame->set_RewindAudio(true);
-
-// Uloží soubor PowerPoint na disk
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
+Příklad najde první audio rámeček na prvním snímku, zavolá [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) pro spuštění přehrávání po kliknutí a vybere nízkou předvolbu hlasitosti. Klip pokračuje napříč snímky s vypnutým opakováním. Ikona zůstane skrytá během prezentace a klip se po přehrání přetočí zpět.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+Pro klip delší než 3,5 sekundy tento příklad přeskočí první 1,5 sekundy a poslední 2 sekundy. Argument pro [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) určuje dobu, která má být vynechána na konci klipu. Pro získání koncového času zobrazeného v PowerPointu odečtěte tento posun od celkové délky klipu. Oříznutý klip se během 200 milisekund postupně zesílí a během 500 milisekund postupně zeslábne. Všechny čtyři nastavení přijímají hodnoty v milisekundách.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Získá tvar audio rámce
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
-
-// Nastaví hlasitost zvuku na 85%
-audioFrame->set_VolumeValue(85);
-
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
-```
-
-## **Správa titulků zvuku**
-
-Aspose.Slides vám umožňuje přidat uzavřené titulky k audio rámci pomocí metody [get_CaptionTracks](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudioframe/get_captiontracks/). Tato metoda vrací [ICaptionsCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icaptionscollection/), což vám umožňuje přidávat WebVTT stopy titulků, procházet existující stopy a odstraňovat je podle potřeby.
-
-**Přidání titulků zvuku**
-
-Použijte metodu [get_CaptionTracks](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudioframe/get_captiontracks/) k připojení jedné nebo více stop titulků k audio rámci. V následujícím příkladu je zvukový soubor přidán na snímek a poté je načtena nová stopa titulků ze souboru `.vtt`.
+Pro nastavení hlasitosti přehrávání na konkrétní procento použijte [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). Tento příklad nastaví první audio rámeček na prvním snímku na 85 %.
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+## **Spravovat audio titulky**
+
+Každý audio rámeček zveřejňuje svou kolekci titulků prostřednictvím [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). Použijte ji k připojení WebVTT titulků ke klipu, exportu existujících stop nebo jejich odebrání.
+
+### **Přidat audio titulky**
+
+Příklad vloží audio klip na první snímek a použije [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) k připojení lokální WebVTT stopy. První argument poskytuje štítek stopy a druhý určuje soubor obsahující časované titulky.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Extrahování titulků zvuku**
+### **Extrahovat audio titulky**
 
-Můžete procházet stopy titulků přidružené k audio rámci a ukládat je jako soubory `.vtt`. Každá stopa titulků poskytuje své binární údaje a jedinečný identifikátor, který lze použít při exportu titulků.
+Tento příklad exportuje každou stopu titulků připojenou k audio rámečku na prvním snímku. Zapíše bajty vrácené metodou [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) do souboru WebVTT a použije hodnotu vrácenou metodou [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) jako název souboru, aby každá stopa měla samostatný výstup.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Odstranit audio titulky**
+
+Použijte [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) nebo [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) k odstranění jednotlivé stopy. Příklad používá [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) k odebrání všech titulků z prvního audio rámečku na prvním snímku při zachování klipu.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Najít řádek v audio titulcích**
+
+Pro nalezení řádku v audio titulcích na prvním snímku zavolejte [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) na každou stopu, aby se načetl její WebVTT text v paměti. V prostém textovém WebVTT cue obsahuje časová řádka `-->`, následují řádky titulků a prázdná řádka ukončuje cue. Tento příklad vytiskne štítek stopy a každou řádku titulků obsahující „café“.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Uložte každou stopu titulků jako soubor .vtt.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
 ```
 
-**Odstranění titulků zvuku**
+## **Extrahovat audio**
 
-Pro odstranění titulků z audio rámce použijte metody poskytované rozhraním [ICaptionsCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icaptionscollection/), jako jsou [Clear](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icaptionscollection/remove/), nebo [RemoveAt](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icaptionscollection/removeat/). Následující příklad odstraňuje všechny stopy titulků z audio rámce.
+Přechod snímku může mít vlastní zvuk. Pro jeho získání zavolejte [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) na přechod. Příklad získá audio bajty pomocí [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) a vytiskne počet bajtů. Pokud první snímek nemá žádný zvuk přechodu, vytiskne místo toho zprávu.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
 
-// Odstraní všechny stopy titulků z audio rámce.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **Extrahování zvuku**
-Aspose.Slides vám umožňuje extrahovat zvuk použitý v přechodech prezentace. Například můžete extrahovat zvuk použitý v konkrétním snímku.
+## **FAQ**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) a načtěte prezentaci obsahující zvuk.
-2. Získejte odkaz na příslušný snímek přes jeho index.
-3. Přistupte k přechodům prezentace pro daný snímek.
-4. Extrahujte zvuk jako sekvenci bajtů.
+**Mohu znovu použít stejný audio klip na více snímcích bez duplikace?**
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+Ano. Přidejte klip jednou do [audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) prezentace a předávejte stejný audio objekt metodě [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) pro každý snímek.
 
-// Vytvoří instanci třídy Presentation, která představuje soubor prezentace
-auto pres = System::MakeObject<Presentation>(presName);
+**Mohu nahradit zvuk v existujícím audio rámčku?**
 
-// Získá požadovaný snímek
-auto slide = pres->get_Slides()->idx_get(0);
+Ano. Pro odkazovaný zvuk zavolejte [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) s cestou k náhradnímu souboru. Pro vložený zvuk předávejte jiný klip z audio kolekce prezentace metodě [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). Oba přístupy zachovají existující rámeček.
 
-// Získá efekty přechodu prezentace pro snímek
-auto transition = slide->get_SlideShowTransition();
+**Mění ořezávání audio data uložená v prezentaci?**
 
-// Extrahuje zvuk do pole bajtů
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
-```
-
-## **Často kladené otázky**
-
-**Mohu znovu použít stejný zvukový soubor na více snímcích, aniž by se zvětšila velikost souboru?**
-
-Ano. Přidejte zvuk jednou do sdílené [audio kolekce](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_audios/) prezentace a vytvořte další audio rámce, které odkazují na tento existující objekt. Tím se zabrání duplikaci mediálních dat a velikost prezentace zůstane pod kontrolou.
-
-**Mohu nahradit zvuk v existujícím audio rámci, aniž bych musel znovu vytvářet tvar?**
-
-Ano. U propojeného zvuku aktualizujte [cestu odkazu](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_linkpathlong/) tak, aby ukazovala na nový soubor. U vloženého zvuku vyměňte objekt [embedded audio](https://reference.aspose.com/slides/cs/cpp/aspose.slides/audioframe/set_embeddedaudio/) za jiný z [audio kolekce](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_audios/) prezentace. Formátování rámce a většina nastavení přehrávání zůstane beze změny.
-
-**Mění ořezávání podkladová zvuková data uložená v prezentaci?**
-
-Ne. Ořezávání upravuje pouze hranice přehrávání. Původní bajty zvuku zůstávají nedotčeny a jsou přístupné přes vložený zvuk nebo audio kolekci prezentace.
+Ne. [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) a [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) nastavují hranice přehrávání. Stále můžete získat celý klip pomocí [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

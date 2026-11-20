@@ -1,16 +1,16 @@
 ---
-title: Gérer les cadres vidéo dans les présentations sur Android
-linktitle: Cadre vidéo
+title: Gérer les images vidéo dans les présentations sur Android
+linktitle: Image vidéo
 type: docs
 weight: 10
 url: /fr/androidjava/video-frame/
 keywords:
-- ajouter une vidéo
-- créer une vidéo
-- intégrer une vidéo
-- extraire une vidéo
-- récupérer une vidéo
-- cadre vidéo
+- ajouter vidéo
+- créer vidéo
+- intégrer vidéo
+- extraire vidéo
+- récupérer vidéo
+- image vidéo
 - source web
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez à ajouter et extraire des cadres vidéo de manière programmatique dans les diapositives PowerPoint et OpenDocument à l’aide d’Aspose.Slides pour Android via Java. Guide pratique rapide."
+description: "Apprenez à ajouter et extraire programmétiquement des images vidéo dans les diapositives PowerPoint et OpenDocument en utilisant Aspose.Slides pour Android via Java. Guide pratique rapide."
 ---
 ## **Introduction**
 
-Les vidéos peuvent aider à expliquer des idées et à capter l'attention du public. Aspose.Slides pour Android via Java vous permet d’ajouter des cadres vidéo aux diapositives, d’ajuster les paramètres de lecture, de gérer les sous‑titres et d’extraire les données vidéo intégrées.
+Les vidéos peuvent aider à expliquer des idées et à captiver un public. Aspose.Slides for Android via Java vous permet d’ajouter des images vidéo aux diapositives, de régler les paramètres de lecture, de gérer les sous‑titres et d’extraire les données vidéo incorporées.
 
 PowerPoint prend en charge les vidéos locales et les liens vers des vidéos en ligne, comme les vidéos YouTube.
 
-Pour représenter les données vidéo et les cadres vidéo, Aspose.Slides fournit l’interface [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) , l’interface [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) , ainsi que d’autres types pertinents.
+Pour représenter les données vidéo et les images vidéo, Aspose.Slides fournit l’interface [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/), l’interface [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) et d’autres types pertinents.
 
-## **Créer un cadre vidéo intégré**
+## **Créer une image vidéo intégrée**
 
-Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer un cadre vidéo pour intégrer la vidéo dans votre présentation.
+Si le fichier vidéo que vous souhaitez ajouter à votre diapositive est stocké localement, vous pouvez créer une image vidéo pour intégrer la vidéo dans votre présentation.
 
-Cet exemple intègre une vidéo locale sur la première diapositive d’une présentation existante et enregistre le résultat. Les coordonnées et les dimensions du cadre sont exprimées en points. Le flux reste ouvert jusqu’à la fin de l’enregistrement car [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) le verrouille pendant que la présentation l’utilise.
+Cet exemple intègre une vidéo locale sur la première diapositive d’une présentation existante et enregistre le résultat. Les coordonnées et dimensions de l’image sont exprimées en points. Le flux reste ouvert jusqu’à la fin de l’enregistrement parce que [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) le maintient verrouillé pendant que la présentation l’utilise.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-Vous pouvez également transmettre directement le chemin d’une vidéo locale à [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Cet exemple intègre la vidéo sur la première diapositive d’une nouvelle présentation. La vidéo doit rester accessible jusqu’à ce que la présentation soit enregistrée.
+Vous pouvez également transmettre un chemin vidéo local directement à [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Cet exemple intègre la vidéo sur la première diapositive d’une nouvelle présentation. La vidéo doit rester accessible jusqu’à ce que la présentation soit enregistrée.
 
 ```java
 import com.aspose.slides.*;
@@ -68,11 +68,11 @@ try {
 }
 ```
 
-## **Créer un cadre vidéo avec une vidéo provenant d’une source Web**
+## **Créer une image vidéo avec une vidéo provenant d’une source Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) prend en charge les vidéos en ligne dans les présentations. Vous pouvez créer un cadre vidéo qui pointe vers une vidéo en ligne, comme une vidéo YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) prend en charge les vidéos en ligne dans les présentations. Vous pouvez créer une image vidéo qui fait référence à une vidéo en ligne, comme une vidéo YouTube.
 
-Cet exemple ajoute un lien vidéo YouTube et une vignette sur la première diapositive. Remplacez l’identifiant vidéo pour utiliser une autre vidéo. La méthode [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) demande une lecture automatique. Le téléchargement de la vignette et la lecture de la vidéo nécessitent un accès Internet. Le visualiseur de présentation doit également prendre en charge la lecture de vidéos en ligne.
+Cet exemple ajoute un lien vidéo YouTube et une miniature à la première diapositive. Remplacez l’identifiant vidéo pour utiliser une autre vidéo. La méthode [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) demande la lecture automatique. Le téléchargement de la miniature et la lecture de la vidéo nécessitent un accès Internet. Le visualiseur de présentations doit également prendre en charge la lecture de vidéos en ligne.
 
 ```java
 import com.aspose.slides.*;
@@ -103,9 +103,9 @@ try {
 
 ## **Lire une vidéo en mode plein écran**
 
-Dans une présentation de formation, vous pouvez lire une démonstration logicielle en mode plein écran afin que le public puisse voir les détails. Appelez [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) avec `true` pour activer ce comportement pendant la lecture.
+Dans une présentation de formation, vous pouvez lire une démonstration logicielle en mode plein écran afin que le public voie les détails. Appelez [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) avec `true` pour activer ce comportement pendant la lecture.
 
-Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) sur la première diapositive et active la lecture en plein écran. La présentation d’entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
+Cet exemple ouvre une présentation, trouve la première [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) sur la première diapositive, et active la lecture en plein écran. La présentation d’entrée doit contenir au moins une diapositive avec une image vidéo existante sur la première diapositive.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-La lecture en plein écran détermine comment la vidéo est affichée. De manière indépendante, [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) contrôle si elle démarre automatiquement ou au clic, et [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) contrôle si elle se répète. Pour choisir le comportement de démarrage, définissez le mode de lecture sur [VideoPlayModePreset.Auto ou VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). L’exemple préserve les paramètres de démarrage et de boucle existants.
+La lecture en plein écran détermine la façon dont la vidéo est affichée. De façon indépendante, [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) contrôle si elle démarre automatiquement ou au clic, et [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) contrôle si elle se répète. Pour choisir le comportement de démarrage, définissez le mode de lecture sur [VideoPlayModePreset.Auto ou VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). L’exemple conserve les paramètres de démarrage et de boucle existants.
 
 ## **Rembobiner une vidéo après la lecture**
 
-Dans une présentation de formation, ramener une vidéo de démonstration au début la rend prête à être relancée par le présentateur. Appelez [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) avec `true` pour ramener la vidéo au début après la fin de la lecture.
+Dans une présentation de formation, ramener une vidéo de démonstration à son début la rend prête à être relancée par le présentateur. Appelez [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) avec `true` pour ramener la vidéo au début après la fin de la lecture.
 
-Cet exemple ouvre une présentation, trouve le premier [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) sur la première diapositive et active le rembobinage. Il désactive la boucle afin que la lecture puisse se terminer et définit le démarrage de la lecture au clic. La présentation d’entrée doit contenir au moins une diapositive avec un cadre vidéo existant sur la première diapositive.
+Cet exemple ouvre une présentation, trouve la première [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) sur la première diapositive, et active le rembobinage. Il désactive la boucle afin que la lecture puisse se terminer et définit la lecture pour démarrer au clic. La présentation d’entrée doit contenir au moins une diapositive avec une image vidéo existante sur la première diapositive.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Le rembobinage ramène la vidéo au début sans la redémarrer. En revanche, appeler [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) avec `true` répète la lecture automatiquement. Gardez la boucle désactivée lorsque vous voulez que la vidéo se termine et reste prête à être relancée. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) contrôle indépendamment le démarrage automatique ou au clic ; cet exemple utilise [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) afin que le présentateur contrôle le moment du démarrage de la lecture. Définissez le mode de lecture après le paramètre de boucle, comme le montre l’exemple. Le rembobinage fonctionne indépendamment de [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Le rembobinage ramène la vidéo à son début sans la relancer. En revanche, appeler [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) avec `true` répète la lecture automatiquement. Gardez la boucle désactivée lorsque vous voulez que la vidéo se termine et reste prête à être relancée. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) contrôle indépendamment le démarrage automatique ou au clic ; cet exemple utilise [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) afin que le présentateur décide du moment où la lecture commence. Définissez le mode de lecture après le paramètre de boucle, comme le montre l’exemple. Le rembobinage fonctionne indépendamment de [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Rogner un cadre vidéo**
+## **Rogner une image vidéo**
 
-Utilisez [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) et [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) pour ignorer une partie du début ou de la fin d’une vidéo pendant la lecture. Les deux valeurs sont en millisecondes. Le rognage modifie les paramètres de lecture sans altérer les données vidéo intégrées.
+Utilisez [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) et [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) pour ignorer une partie du début ou de la fin d’une vidéo pendant la lecture. Les deux valeurs sont exprimées en millisecondes. Le rognage modifie les paramètres de lecture sans modifier les données vidéo incorporées.
 
 **Définir les paramètres de rognage**
 
-Cet exemple intègre une vidéo locale et ignore les 2,5 secondes initiales ainsi que la dernière seconde pendant la lecture. Utilisez une vidéo de plus de 3,5 secondes afin qu’il reste un segment lisible.
+Cet exemple intègre une vidéo locale et saute les 2,5 premières secondes ainsi que la dernière seconde pendant la lecture. Utilisez une vidéo d’une durée supérieure à 3,5 secondes afin qu’il reste un segment lisible.
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **Lire les paramètres de rognage**
 
-Cet exemple affiche les valeurs de rognage du premier cadre vidéo sur la première diapositive en millisecondes. La présentation doit contenir au moins une diapositive. Si cette diapositive ne possède pas de cadre vidéo, rien n’est affiché. L’exemple précédent produit les valeurs 2500 et 1000.
+Cet exemple affiche les valeurs de rognage de la première image vidéo de la première diapositive en millisecondes. La présentation doit contenir au moins une diapositive. Si cette diapositive ne possède aucune image vidéo, rien n’est affiché. L’exemple précédent produit les valeurs 2500 et 1000.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **Gérer les sous‑titres vidéo**
 
-Aspose.Slides vous permet de gérer les sous‑titres fermés pour les cadres vidéo dans les présentations PowerPoint. Les sous‑titres sont stockés au format WebVTT et sont accessibles via la méthode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides vous permet de gérer les sous‑titres fermés pour les images vidéo dans les présentations PowerPoint. Les sous‑titres sont stockés au format WebVTT et sont accessibles via la méthode [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
 
-**Ajouter des sous‑titres à un cadre vidéo**
+### **Ajouter des sous‑titres à une image vidéo**
 
-Cet exemple intègre une vidéo locale et ajoute une piste de sous‑titres WebVTT intitulée English. Les horodatages des sous‑titres doivent correspondre à la vidéo. La présentation enregistrée contient à la fois la vidéo et ses sous‑titres.
+Cet exemple intègre une vidéo locale et ajoute une piste de sous‑titres WebVTT nommée English. Les horodatages des sous‑titres doivent correspondre à la vidéo. La présentation enregistrée inclut à la fois la vidéo et ses sous‑titres.
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-L’interface [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) offre également une surcharge qui vous permet d’ajouter des sous‑titres à partir d’un flux.
+L’interface [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) propose également une surcharge qui vous permet d’ajouter des sous‑titres depuis un flux.
 
-**Extraire les sous‑titres d’un cadre vidéo**
+### **Extraire les sous‑titres d’une image vidéo**
 
-Cet exemple enregistre toutes les pistes de sous‑titres des cadres vidéo sur la première diapositive en fichiers WebVTT séparés. Des numéros séquentiels permettent de différencier les fichiers de sortie. La console indique le nombre de pistes extraites. La présentation doit contenir au moins une diapositive.
+Cet exemple enregistre toutes les pistes de sous‑titres des images vidéo de la première diapositive sous forme de fichiers WebVTT séparés. Des numéros séquentiels permettent de distinguer les fichiers de sortie. La console indique le nombre de pistes extraites. La présentation doit contenir au moins une diapositive.
 
 ```java
 import com.aspose.slides.*;
@@ -281,9 +281,9 @@ try {
 
 Chaque objet [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) expose l’identifiant du sous‑titre, le libellé, les données binaires et le texte du sous‑titre sous forme de chaîne UTF‑8.
 
-**Supprimer les sous‑titres d’un cadre vidéo**
+### **Supprimer les sous‑titres d’une image vidéo**
 
-Cet exemple supprime tous les sous‑titres du cadre vidéo à la première position de forme sur la première diapositive et enregistre le résultat. Il part du principe que la diapositive et la forme existent et que la forme est un cadre vidéo.
+Cet exemple supprime tous les sous‑titres de l’image vidéo à la première position de forme sur la première diapositive et enregistre le résultat. Il suppose que la diapositive et la forme existent et que la forme est une image vidéo.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-Si vous devez supprimer une seule piste de sous‑titre, utilisez les méthodes [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) ou [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) au lieu de [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+Si vous devez supprimer uniquement une piste de sous‑titres, utilisez les méthodes [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) ou [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) au lieu de [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+
+### **Rechercher des sous‑titres vidéo**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) renvoie la piste complète WebVTT, incluant son en‑tête, ses lignes de synchronisation et le texte du sous‑titre. Vous pouvez rechercher les repères en mémoire pour trouver une phrase prononcée et son horodatage. Par exemple, une piste English sur la diapositive 2 pourrait contenir le texte suivant.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+L’exemple ouvre `captioned_media.pptx` et utilise [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) pour lire les pistes de chaque image vidéo de niveau supérieur sur chaque diapositive. Dans une piste texte simple, la ligne de synchronisation contient `-->`, et une ligne vide termine la piste. Lorsque le sous‑titre contient « café » quel que soit le casse, l’exemple affiche le numéro de diapositive, le libellé de la piste, la ligne de synchronisation originale et le sous‑titre complet.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La recherche de « café » produit une correspondance pour la piste d’exemple. La recherche exclut l’en‑tête de la piste et conserve le réglage de synchronisation dans la sortie.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extraire la vidéo d’une diapositive**
 
-En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos intégrées dans les présentations.
+En plus d’ajouter des vidéos aux diapositives, Aspose.Slides vous permet d’extraire les vidéos incorporées dans les présentations.
 
-Cet exemple extrait les vidéos intégrées de chaque diapositive dans des fichiers binaires séparés et numérotés. Les vidéos liées sont ignorées car elles ne contiennent pas de données intégrées. La console affiche le type MIME de chaque vidéo ainsi que le nombre total. La sortie utilise l’extension générique `.bin` ; modifiez‑la pour correspondre au type de média indiqué si nécessaire.
+Cet exemple extrait les vidéos incorporées de chaque diapositive dans des fichiers binaires séparés et numérotés. Les vidéos liées sont ignorées car elles ne possèdent aucune donnée incorporée. La console affiche le type MIME de chaque vidéo et le nombre total. La sortie utilise l’extension générique `.bin` ; modifiez‑la pour correspondre au type de média signalé si nécessaire.
 
 ```java
 import com.aspose.slides.*;
@@ -343,18 +410,18 @@ try {
 
 ## **FAQ**
 
-**Quels paramètres de lecture vidéo peuvent être modifiés pour un cadre vidéo ?**
+**Quels paramètres de lecture vidéo peuvent être modifiés pour une image vidéo ?**
 
 Vous pouvez contrôler le [mode de lecture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automatique ou au clic) et la [boucle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Ces options sont disponibles via les méthodes de l’objet [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
 
-**L’ajout d’une vidéo influence-t-il la taille du fichier PPTX ?**
+**L’ajout d’une vidéo affecte‑t‑il la taille du fichier PPTX ?**
 
-Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous créez un lien vers une vidéo en ligne et ajoutez une vignette, la présentation ne stocke que le lien et l’image de prévisualisation au lieu des données vidéo, de sorte que l’augmentation de taille est généralement moindre.
+Oui. Lorsque vous intégrez une vidéo locale, les données binaires sont incluses dans le document, ce qui augmente la taille de la présentation proportionnellement à la taille du fichier. Lorsque vous créez un lien vers une vidéo en ligne et ajoutez une miniature, la présentation enregistre le lien et l’image d’aperçu plutôt que les données vidéo, de sorte que l’augmentation de taille est généralement moindre.
 
-**Puis‑je remplacer la vidéo d’un cadre vidéo existant sans modifier sa position et sa taille ?**
+**Puis‑je remplacer la vidéo d’une image vidéo existante sans modifier sa position et sa taille ?**
 
-Oui. Vous pouvez remplacer le [contenu vidéo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) du cadre tout en conservant la géométrie de la forme ; c’est un scénario fréquent pour mettre à jour les médias dans une mise en page existante.
+Oui. Vous pouvez échanger le [contenu vidéo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) à l’intérieur de l’image tout en préservant la géométrie de la forme ; c’est un scénario courant pour mettre à jour les médias dans une mise en page existante.
 
-**Le type de contenu (MIME) d’une vidéo intégrée peut‑il être déterminé ?**
+**Peut‑on déterminer le type de contenu (MIME) d’une vidéo incorporée ?**
 
-Oui. Une vidéo intégrée possède un [type de contenu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) que vous pouvez lire et utiliser, par exemple lors de son enregistrement sur disque.
+Oui. Une vidéo incorporée possède un [type de contenu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) que vous pouvez lire et utiliser, par exemple lors de son enregistrement sur disque.

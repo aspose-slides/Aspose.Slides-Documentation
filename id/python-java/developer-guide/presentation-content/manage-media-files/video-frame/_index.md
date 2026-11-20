@@ -1,6 +1,6 @@
 ---
-title: Kelola Frame Video dalam Presentasi Menggunakan Python
-linktitle: Frame Video
+title: Mengelola Kerangka Video dalam Presentasi Menggunakan Python
+linktitle: Kerangka Video
 type: docs
 weight: 10
 url: /id/python-java/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - menyematkan video
 - mengekstrak video
 - mengambil video
-- frame video
+- kerangka video
 - sumber web
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan mengekstrak frame video secara programatik dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Panduan singkat cepat."
+description: "Pelajari cara menambahkan dan mengekstrak kerangka video secara programatis dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Panduan cepat cara melakukannya."
 ---
 ## **Pendahuluan**
 
-Video dapat membantu menjelaskan ide-ide dan menarik perhatian audiens. Aspose.Slides untuk Python via Java memungkinkan Anda menambahkan frame video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang tertanam.
+Video dapat membantu menjelaskan ide dan melibatkan audiens. Aspose.Slides untuk Python via Java memungkinkan Anda menambahkan kerangka video ke slide, menyesuaikan pengaturan pemutaran, mengelola caption, dan mengekstrak data video yang tersemat.
 
 PowerPoint mendukung video lokal dan tautan ke video daring, seperti video YouTube.
 
-Untuk merepresentasikan data video dan frame video, Aspose.Slides menyediakan kelas [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/) , kelas [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) , dan tipe relevan lainnya.
+Untuk merepresentasikan data video dan kerangka video, Aspose.Slides menyediakan kelas [Video](https://reference.aspose.com/slides/python-java/aspose.slides/video/), kelas [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) , dan tipe relevan lainnya.
 
-## **Membuat Frame Video yang Tertanam**
+## **Buat Kerangka Video Tersemat**
 
-Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat frame video untuk menanam video ke dalam presentasi.
+Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat kerangka video untuk menyematkan video dalam presentasi Anda.
 
-Contoh ini menanam video lokal pada slide pertama dari presentasi yang sudah ada dan menyimpan hasilnya. Koordinat dan dimensi frame dalam satuan poin. Python membaca byte video dari disk, dan JPype mengkonversinya menjadi array byte Java sebelum video ditambahkan ke presentasi.
+Contoh ini menyematkan video lokal pada slide pertama dari presentasi yang sudah ada dan menyimpan hasilnya. Koordinat dan dimensi kerangka dalam satuan poin. Python membaca byte video dari disk, dan JPype mengubahnya menjadi array byte Java sebelum video ditambahkan ke presentasi.
 
 ```python
 from pathlib import Path
@@ -59,7 +59,7 @@ finally:
     presentation.dispose()
 ```
 
-Anda juga dapat memberikan jalur video lokal langsung ke [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). Contoh ini menanam video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses hingga presentasi disimpan.
+Anda juga dapat langsung memberikan jalur video lokal ke [addVideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addVideoFrame). Contoh ini menyematkan video pada slide pertama dari presentasi baru. Video harus tetap dapat diakses hingga presentasi disimpan.
 
 ```python
 import jpype
@@ -81,11 +81,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Membuat Frame Video dengan Video dari Sumber Web**
+## **Buat Kerangka Video dengan Video dari Sumber Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat frame video yang menautkan ke video daring, seperti video YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) mendukung video daring dalam presentasi. Anda dapat membuat kerangka video yang menautkan ke video daring, seperti video YouTube.
 
-Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti pengidentifikasi video untuk menggunakan video lain. Metode [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
+Contoh ini menambahkan tautan video YouTube dan thumbnail ke slide pertama. Ganti identifier video untuk menggunakan video lain. Metode [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) meminta pemutaran otomatis. Mengunduh thumbnail dan memutar video memerlukan akses internet. Penampil presentasi juga harus mendukung pemutaran video daring.
 
 ```python
 from urllib.request import urlopen
@@ -119,11 +119,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Memutar Video dalam Mode Layar Penuh**
+## **Putar Video dalam Mode Layar Penuh**
 
 Dalam presentasi pelatihan, Anda dapat memutar demonstrasi perangkat lunak dalam mode layar penuh agar audiens dapat melihat detailnya. Panggil [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode) dengan `True` untuk mengaktifkan perilaku ini selama pemutaran.
 
-Contoh ini membuka presentasi, menemukan [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi input harus berisi setidaknya satu slide dengan frame video yang sudah ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) pertama pada slide pertama, dan mengaktifkan pemutaran layar penuh. Presentasi masukan harus berisi setidaknya satu slide dengan kerangka video yang ada pada slide pertama.
 
 ```python
 import jpype
@@ -148,13 +148,13 @@ finally:
     presentation.dispose()
 ```
 
-Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) mengontrol apakah video mulai otomatis atau saat diklik, dan [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) mengontrol apakah video berulang. Untuk memilih perilaku mulai, atur mode pemutaran ke [VideoPlayModePreset.Auto atau VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan mulai dan loop yang sudah ada.
+Pemutaran layar penuh mengontrol cara video ditampilkan. Secara terpisah, [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) mengontrol apakah video dimulai secara otomatis atau dengan klik, dan [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) mengontrol apakah video diulang. Untuk memilih perilaku mulai, atur mode pemutaran ke [VideoPlayModePreset.Auto atau VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/). Contoh ini mempertahankan pengaturan mulai dan pengulangan yang ada.
 
-## **Membalik Video Setelah Pemutaran**
+## **Mundurkan Video setelah Pemutaran**
 
 Dalam presentasi pelatihan, mengembalikan video demonstrasi ke awal membuatnya siap untuk diputar lagi oleh presenter. Panggil [setRewindVideo](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setRewindVideo) dengan `True` untuk mengembalikan video ke awal setelah pemutaran selesai.
 
-Contoh ini membuka presentasi, menemukan [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) pertama pada slide pertama, dan mengaktifkan pembalikan. Contoh ini menonaktifkan looping agar pemutaran dapat selesai dan mengatur pemutaran agar dimulai saat diklik. Presentasi input harus berisi setidaknya satu slide dengan frame video yang sudah ada pada slide pertama.
+Contoh ini membuka presentasi, menemukan [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/) pertama pada slide pertama, dan mengaktifkan pemunduran. Ia menonaktifkan pengulangan sehingga pemutaran dapat selesai dan mengatur pemutaran agar dimulai dengan klik. Presentasi masukan harus berisi setidaknya satu slide dengan kerangka video yang ada pada slide pertama.
 
 ```python
 import jpype
@@ -181,15 +181,15 @@ finally:
     presentation.dispose()
 ```
 
-Pembalikan mengembalikan video ke awal tanpa memulai ulang. Sebaliknya, memanggil [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) dengan `True` akan mengulang pemutaran secara otomatis. Biarkan looping dinonaktifkan ketika Anda ingin video selesai dan tetap siap diputar kembali. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) secara terpisah mengontrol mulai otomatis atau saat diklik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) sehingga presenter mengendalikan kapan pemutaran dimulai. Atur mode pemutaran setelah pengaturan loop, seperti yang ditunjukkan dalam contoh. Pembalikan berfungsi secara independen dari [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
+Pemunduran mengembalikan video ke awal tanpa memulai lagi. Sebaliknya, memanggil [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode) dengan `True` mengulang pemutaran secara otomatis. Biarkan pengulangan dinonaktifkan ketika Anda menginginkan video selesai dan siap diputar ulang. [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) secara terpisah mengontrol mulai otomatis atau dengan klik; contoh ini menggunakan [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/python-java/aspose.slides/videoplaymodepreset/) sehingga presenter yang mengontrol kapan pemutaran dimulai. Atur mode pemutaran setelah pengaturan pengulangan, seperti yang ditunjukkan dalam contoh. Pemunduran berfungsi secara terpisah dari [setFullScreenMode](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Memotong Frame Video**
+## **Potong Kerangka Video**
 
-Gunakan [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) dan [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) untuk melewatkan bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemotongan mengubah pengaturan pemutaran tanpa mengubah data video yang tertanam.
+Gunakan [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromStart) dan [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setTrimFromEnd) untuk melewati bagian awal atau akhir video selama pemutaran. Kedua nilai dalam milidetik. Pemotongan mengubah pengaturan pemutaran tanpa mengubah data video yang tersemat.
 
-**Mengatur Pengaturan Pemotongan**
+**Atur Pengaturan Pemotongan**
 
-Contoh ini menanam video lokal dan melewatkan 2,5 detik pertama serta satu detik terakhir selama pemutaran. Gunakan video yang lebih panjang dari 3,5 detik sehingga segmen yang dapat diputar tetap ada.
+Contoh ini menyematkan video lokal dan melewati 2,5 detik pertama serta 1 detik terakhir selama pemutaran. Gunakan video yang lebih panjang dari 3,5 detik agar segmen yang dapat diputar tetap ada.
 
 ```python
 from pathlib import Path
@@ -220,9 +220,9 @@ finally:
     presentation.dispose()
 ```
 
-**Membaca Pengaturan Pemotongan**
+**Baca Pengaturan Pemotongan**
 
-Contoh ini mencetak nilai pemotongan dari frame video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki frame video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
+Contoh ini mencetak nilai pemotongan dari kerangka video pertama pada slide pertama dalam milidetik. Presentasi harus berisi setidaknya satu slide. Jika slide tersebut tidak memiliki kerangka video, tidak ada yang dicetak. Contoh sebelumnya menghasilkan nilai 2500 dan 1000.
 
 ```python
 import jpype
@@ -248,18 +248,18 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengelola Caption Video**
+## **Kelola Caption Video**
 
-Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk frame video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides memungkinkan Anda mengelola caption tertutup untuk kerangka video dalam presentasi PowerPoint. Caption disimpan dalam format WebVTT dan dapat diakses melalui metode [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Menambahkan Caption ke Frame Video**
+### **Tambah Caption ke Kerangka Video**
 
-Contoh ini menanam video lokal dan menambahkan trek caption WebVTT dengan label English. Stempel waktu caption harus cocok dengan video. Presentasi yang disimpan mencakup video dan captionnya.
+Contoh ini menyematkan video lokal dan menambahkan track caption WebVTT berlabel English. Timestamp caption harus cocok dengan video. Presentasi yang disimpan mencakup baik video maupun captionnya.
 
 ```python
 from pathlib import Path
 
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -277,7 +277,7 @@ try:
     video = presentation.getVideos().addVideo(java_video_data)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Tambahkan trek caption baru dari file WebVTT.
+    # Tambahkan track caption baru dari file WebVTT.
     video_frame.getCaptionTracks().add("English", "track.vtt")
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
@@ -285,11 +285,11 @@ finally:
     presentation.dispose()
 ```
 
-Kelas [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari sebuah stream.
+Kelas [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari aliran data.
 
-**Mengekstrak Caption dari Frame Video**
+### **Ekstrak Caption dari Kerangka Video**
 
-Contoh ini menyimpan semua trek caption dari frame video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga file keluaran tetap berbeda. Konsol melaporkan jumlah trek yang diekstrak. Presentasi harus berisi setidaknya satu slide.
+Contoh ini menyimpan semua track caption dari kerangka video pada slide pertama sebagai file WebVTT terpisah. Nomor berurutan menjaga agar file keluaran tetap unik. Konsol melaporkan jumlah track yang diekstrak. Presentasi harus berisi setidaknya satu slide.
 
 ```python
 from pathlib import Path
@@ -320,11 +320,11 @@ finally:
     presentation.dispose()
 ```
 
-Setiap objek [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) menampilkan pengidentifikasi caption, label, data biner, dan teks caption sebagai string UTF-8.
+Setiap objek [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF-8.
 
-**Menghapus Caption dari Frame Video**
+### **Hapus Caption dari Kerangka Video**
 
-Contoh ini menghapus semua caption dari frame video pada posisi shape pertama pada slide pertama dan menyimpan hasilnya. Contoh ini mengasumsikan bahwa slide dan shape ada serta shape tersebut adalah frame video.
+Contoh ini menghapus semua caption dari kerangka video pada posisi shape pertama di slide pertama dan menyimpan hasilnya. Ia mengasumsikan bahwa slide dan shape ada serta shape tersebut merupakan kerangka video.
 
 ```python
 import jpype
@@ -341,7 +341,7 @@ try:
 
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Hapus semua caption dari frame video.
+        # Hapus semua caption dari kerangka video.
         video_frame.getCaptionTracks().clear()
         
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
@@ -351,13 +351,69 @@ finally:
     presentation.dispose()
 ```
 
-Jika Anda perlu menghapus hanya satu trek caption, gunakan metode [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) atau [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) alih-alih [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
+Jika Anda hanya perlu menghapus satu track caption, gunakan metode [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) atau [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) alih-alih [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
 
-## **Mengekstrak Video dari Slide**
+### **Cari Caption Video**
 
-Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang tertanam dalam presentasi.
+[Captions.getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) mengembalikan seluruh track WebVTT, termasuk header, baris timing, dan teks caption. Anda dapat mencari caption dalam memori untuk menemukan frasa dan timestamp-nya. Misalnya, track English pada slide 2 mungkin berisi teks berikut.
 
-Contoh ini mengekstrak video tertanam dari setiap slide ke dalam file biner bernomor terpisah. Video yang ditautkan dilewati karena tidak memiliki data tertanam. Konsol mencetak tipe MIME setiap video dan total jumlahnya. Output menggunakan ekstensi `.bin` generik; ubah sesuai tipe media yang dilaporkan bila diperlukan.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Contoh ini membuka `captioned_media.pptx` dan menggunakan [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) untuk membaca track dari setiap kerangka video tingkat atas pada setiap slide. Dalam cue teks biasa, baris timing berisi `-->`, dan baris kosong mengakhiri cue. Untuk setiap caption yang mengandung kata “café” dalam huruf apa pun, contoh mencetak nomor slide, label track, baris timing asli, dan caption lengkap.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, VideoFrame
+
+presentation = Presentation("captioned_media.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if not isinstance(shape, VideoFrame):
+                continue
+            for track in shape.getCaptionTracks():
+                track_text = str(track.getDataAsString())
+                lines = iter(track_text.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.getSlideNumber()} | {track.getLabel()} | {timing}")
+                        print(caption)
+finally:
+    presentation.dispose()
+```
+
+Mencari “café” menghasilkan satu kecocokan untuk track contoh. Pencarian mengecualikan header track dan mempertahankan pengaturan timing serta pemecahan baris dalam output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Ekstrak Video dari Slide**
+
+Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang tersemat dalam presentasi.
+
+Contoh ini mengekstrak video tersemat dari setiap slide ke file biner terpisah yang bernomor. Video yang ditautkan dilewati karena tidak memiliki data tersemat. Konsol mencetak tipe MIME setiap video dan total jumlahnya. Output menggunakan ekstensi umum `.bin`; ubah sesuai tipe media yang dilaporkan bila diperlukan.
 
 ```python
 from pathlib import Path
@@ -394,18 +450,18 @@ finally:
 
 ## **FAQ**
 
-**Parameter pemutaran video apa yang dapat diubah untuk sebuah frame video?**
+**Parameter pemutaran video apa yang dapat diubah untuk kerangka video?**
 
-Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (otomatis atau pada klik) dan [looping](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). Opsi-opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
+Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayMode) (otomatis atau dengan klik) dan [pengulangan](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setPlayLoopMode). Opsi-opsi ini tersedia melalui metode objek [VideoFrame](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/).
 
-**Apakah menambahkan video memengaruhi ukuran file PPTX?**
+**Apakah menambahkan video mempengaruhi ukuran file PPTX?**
 
-Ya. Ketika Anda menanam video lokal, data biner disertakan dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Ketika Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau alih-alih data video, sehingga peningkatan ukuran biasanya lebih kecil.
+Ya. Saat Anda menyematkan video lokal, data biner termasuk dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file video. Saat Anda menautkan ke video daring dan menambahkan thumbnail, presentasi menyimpan tautan dan gambar pratinjau, bukan data video, sehingga peningkatan ukuran biasanya lebih kecil.
 
-**Bisakah saya mengganti video dalam frame video yang sudah ada tanpa mengubah posisi dan ukuran?**
+**Bisakah saya mengganti video dalam kerangka video yang ada tanpa mengubah posisinya dan ukuran?**
 
-Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) di dalam frame sambil mempertahankan geometri shape; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang sudah ada.
+Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#setEmbeddedVideo) di dalam kerangka sambil mempertahankan geometri shape; ini adalah skenario umum untuk memperbarui media dalam tata letak yang ada.
 
-**Apakah tipe konten (MIME) video yang tertanam dapat ditentukan?**
+**Bisakah tipe konten (MIME) video tersemat ditentukan?**
 
-Ya. Video yang tertanam memiliki [tipe konten](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.
+Ya. Video tersemat memiliki [tipe konten](https://reference.aspose.com/slides/python-java/aspose.slides/video/#getContentType) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.

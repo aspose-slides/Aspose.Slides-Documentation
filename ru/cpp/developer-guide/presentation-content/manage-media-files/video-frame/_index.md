@@ -17,21 +17,21 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Быстрое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++. Быстрое пошаговое руководство."
 ---
 ## **Введение**
 
 Видео может помочь объяснить идеи и заинтересовать аудиторию. Aspose.Slides for C++ позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
 
-PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео с YouTube.
+PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео YouTube.
 
 Для представления видеоданных и видеокадров Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/), а также другие соответствующие типы.
 
 ## **Создание встроенного видеокадра**
 
-Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр для встраивания видео в презентацию.
 
-В этом примере локальное видео встраивается на первый слайд существующей презентации и сохраняется результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) удерживает его заблокированным, пока презентация использует его.
+Этот пример встраивает локальное видео на первый слайд существующей презентации и сохраняет результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) блокирует его, пока презентация использует его.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Вы также можете передать путь к локальному видео напрямую в [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). В этом примере видео встраивается на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
+Вы также можете передать путь к локальному видео напрямую в [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Этот пример встраивает видео на первый слайд новой презентации. Видео должно оставаться доступным до завершения сохранения презентации.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -86,9 +86,9 @@ presentation->Dispose();
 
 ## **Создание видеокадра с видео из веб‑источника**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например видео с YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например, видео YouTube.
 
-В этом примере добавляется ссылка на видео YouTube и миниатюра на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) запрашивает автоматическое воспроизведение. Загрузка миниатюры и воспроизведение видео требуют доступа к интернету. Средство просмотра презентаций также должно поддерживать онлайн‑воспроизведение видео.
+Этот пример добавляет ссылку на видео YouTube и миниатюру на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) запрашивает автоматическое воспроизведение. Загрузка миниатюры и воспроизведение видео требуют доступа к сети. Просмотрщик презентаций также должен поддерживать воспроизведение онлайн‑видео.
 
 ```cpp
 #include <net/web_client.h>
@@ -131,7 +131,7 @@ presentation->Dispose();
 
 В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория могла видеть детали. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) принимает `true`, чтобы включить это поведение во время воспроизведения.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включается полноэкранное воспроизведение. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, ищет первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включает полноэкранное воспроизведение. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Полноэкранное воспроизведение управляет тем, как отображается видео. Отдельно, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) определяет, будет ли оно запускаться автоматически или по щелчку, а [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) определяет, будет ли оно повторяться. Чтобы выбрать поведение запуска, установите режим воспроизведения в [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и зацикливания.
+Полноэкранное воспроизведение управляет способом отображения видео. Независимо от этого, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) определяет, начинается ли воспроизведение автоматически или по щелчку, а [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) определяет, повторяется ли оно. Чтобы выбрать режим запуска, задайте режим воспроизведения как [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и цикла.
 
 ## **Перемотка видео после воспроизведения**
 
-В учебной презентации возврат демонстрационного видео в начало делает его готовым к повторному воспроизведению. Вызовите [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) с `true`, чтобы вернуть видео в начало после завершения воспроизведения.
+В учебной презентации возвращение демонстрационного видео к началу делает его готовым к повторному воспроизведению. Вызовите [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) с `true`, чтобы после завершения воспроизведения перемотать видео к началу.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включается перемотка. Отключается зацикливание, чтобы воспроизведение могло завершиться, и устанавливается запуск воспроизведения по щелчку. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, ищет первый [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) на первом слайде и включает перемотку. Он отключает зацикливание, чтобы воспроизведение могло завершиться, и задаёт запуск воспроизведения по щелчку. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Перемотка возвращает видео в начало без повторного запуска. В отличие от этого, включение [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) повторяет воспроизведение автоматически. Оставляйте зацикливание отключённым, когда нужно, чтобы видео завершилось и было готово к повторному воспроизведению. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) независимо управляет автоматическим или щелчковым запуском; в этом примере используется [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/), чтобы ведущий контролировал момент начала воспроизведения. Устанавливайте режим воспроизведения после настройки зацикливания, как показано в примере. Перемотка работает независимо от [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Перемотка возвращает видео к началу без повторного запуска. В отличие от этого, включение [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) автоматически зацикливает воспроизведение. Оставляйте зацикливание отключённым, когда нужно, чтобы видео завершилось и было готово к повторному воспроизведению. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) независимо управляет автоматическим запуском или запуском по щелчку; в этом примере используется [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/), чтобы презентатор сам решал, когда начинать воспроизведение. Устанавливайте режим воспроизведения после настройки цикла, как показано в примере. Перемотка работает независимо от [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
 ## **Обрезка видеокадра**
 
-Используйте [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) и [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/), чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указаны в миллисекундах. Обрезка изменяет настройки воспроизведения без изменения встроенных видеоданных.
+Используйте [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) и [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/), чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указываются в миллисекундах. Обрезка изменяет параметры воспроизведения без изменения встроенных видеоданных.
 
-**Настройка обрезки**
+**Установить параметры обрезки**
 
-В этом примере встраивается локальное видео и при воспроизведении пропускаются первые 2,5 секунды и последняя секунда. Используйте видео длительностью более 3,5 секунды, чтобы оставался воспроизводимый фрагмент.
+Этот пример встраивает локальное видео и пропускает первые 2,5 секунды и последнюю секунду при воспроизведении. Используйте видео длительностью более 3,5 секунды, чтобы оставался воспроизводимый фрагмент.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Чтение настроек обрезки**
+**Чтение параметров обрезки**
 
-В этом примере выводятся значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать как минимум один слайд. Если на этом слайде нет видеокадра, ничего не выводится. Предыдущий пример выдаёт значения 2500 и 1000.
+Этот пример выводит значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать хотя бы один слайд. Если на этом слайде нет видеокадра, ничего не выводится. Предыдущий пример выдаёт значения 2500 и 1000.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -283,9 +283,9 @@ presentation->Dispose();
 
 Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
-**Добавление субтитров к видеокадру**
+### **Добавление субтитров к видеокадру**
 
-В этом примере встраивается локальное видео и добавляется дорожка субтитров WebVTT с меткой English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация содержит как видео, так и его субтитры.
+Этот пример встраивает локальное видео и добавляет дорожку субтитров WebVTT с меткой English. Временные метки субтитров должны соответствовать видео. Сохранённая презентация включает как видео, так и его субтитры.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавить субтитры из потока.
+Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
 
-**Извлечение субтитров из видеокадра**
+### **Извлечение субтитров из видеокадра**
 
-В этом примере сохраняются все дорожки субтитров из видеокадров на первом слайде как отдельные файлы WebVTT. Последовательные номера позволяют различать файлы вывода. Консоль сообщает количество извлечённых дорожек. Презентация должна содержать как минимум один слайд.
+Этот пример сохраняет все дорожки субтитров из видеокадров на первом слайде в отдельные файлы WebVTT. Последовательные номера позволяют различать выходные файлы. Консоль выводит количество извлечённых дорожек. Презентация должна содержать хотя бы один слайд.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Каждый объект [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров как строку UTF-8.
+Каждый объект [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF‑8.
 
-**Удаление субтитров из видеокадра**
+### **Удаление субтитров из видеокадра**
 
-В этом примере удаляются все субтитры из видеокадра, находящегося в первой позиции фигуры на первом слайде, и сохраняется результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
+Этот пример удаляет все субтитры из видеокадра, находящегося в первой позиции фигуры на первом слайде, и сохраняет результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Если необходимо удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/), вместо [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+Если необходимо удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) вместо [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+
+### **Поиск субтитров в видео**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) возвращает полную дорожку WebVTT, включая заголовок, строки таймингов и текст субтитров. Чтобы найти произнесённую фразу и её временную метку, прочитайте подсказки в памяти. Например, английская дорожка на слайде 2 может содержать следующий текст:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Пример открывает `captioned_media.pptx` и читает дорожки субтитров каждого видеокадра верхнего уровня на всех слайдах с помощью [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). В простом текстовом кью строка тайминга содержит `-->`, а пустая строка завершает кью. Когда субтитр содержит «café», пример выводит номер слайда, метку дорожки, оригинальную строку тайминга и полный текст субтитра. Поиск нечувствителен к регистру.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Поиск «café» даёт одно совпадение для примера дорожки. Поиск пропускает заголовок и сохраняет настройку тайминга в выводе.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Извлечение видео со слайда**
 
 Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
 
-В этом примере извлекаются встроенные видео со всех слайдов в отдельные нумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Вывод использует общее расширение `.bin`; при необходимости измените его в соответствие с указанным типом медиа.
+Этот пример извлекает встроенные видео со всех слайдов в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Вывод использует общее расширение `.bin`; при необходимости измените его в соответствии с обнаруженным типом медиа.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -450,16 +527,16 @@ presentation->Dispose();
 
 **Какие параметры воспроизведения видео можно изменить для видеокадра?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [зацикливанием](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Эти параметры доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
+Можно управлять [режимом воспроизведения](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (авто или по щелчку) и [зацикливанием](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Эти опции доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/).
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение превью, а не данные видео, поэтому увеличение размера обычно меньше.
+Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация хранит только ссылку и изображение‑превью, а не сами видеоданные, поэтому рост размера обычно меньше.
 
-**Можно ли заменить видео в существующем видеокадре без изменения его положения и размеров?**
+**Можно ли заменить видео в существующем видеокадре, не меняя его позицию и размер?**
 
-Да. Вы можете заменить [видео контент](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) внутри кадра, сохраняя геометрию фигуры; это распространённый сценарий обновления медиа в существующей раскладке.
+Да. Можно изменить [видеоконтент](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) внутри кадра, сохранив геометрию фигуры; это типичный сценарий обновления медиа в уже существующей раскладке.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), который можно прочитать и использовать, например при сохранении на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/), который можно прочитать и использовать, например, при сохранении файла на диск.

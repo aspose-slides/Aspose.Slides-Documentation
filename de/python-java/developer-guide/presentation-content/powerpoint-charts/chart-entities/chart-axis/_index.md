@@ -25,13 +25,13 @@ description: "Erfahren Sie, wie Sie Aspose.Slides für Python über Java verwend
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Sie Diagrammachsen mit Aspose.Slides für Python über Java anpassen. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagrammzeilen und -spalten, die Sichtbarkeit von Achsen, Kategorienbezeichnungs‑ und Tick‑Mark‑Intervalle, Datums‑kategorien und -Formatierung, die Drehung von Achsentiteln, die Positionierung von Achsen, Anzeige­einheiten und die logarithmische Skalierung.
+Dieser Artikel erklärt, wie Diagrammachsen mit Aspose.Slides für Python über Java angepasst werden können. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagrammzeilen und -spalten, Achsensichtbarkeit, Kategorien‑Beschriftungs‑ und Tick‑Mark‑Intervalle, Datums‑Kategorien und -Formatierung, Titelrotation, Achsenpositionierung, Anzeige­einheiten und logarithmische Skalierung.
 
 ## **Maximale Werte auf der vertikalen Achse eines Diagramms ermitteln**
 
-Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) auf, bevor Sie berechnete Achsenwerte lesen, damit das Diagrammlayout aktuell ist.
+Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) auf, bevor Sie berechnete Achsenwerte auslesen, damit das Diagrammlayout aktuell ist.
 
-Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) und [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) für die Achsen­grenzen sowie [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) und [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) für die Tick‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) und [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) liefern Zeit­einheits‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
+Lesen Sie [getActualMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMaxValue) und [getActualMinValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinValue) für die Achsengrenzen und [getActualMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnit) und [getActualMinorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnit) für die Tick‑Intervalle. [getActualMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMajorUnitScale) und [getActualMinorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getActualMinorUnitScale) liefern Zeiteinheiten‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
 
 ```python
 import jpype
@@ -65,7 +65,7 @@ finally:
 
 ## **Daten zwischen Achsen austauschen**
 
-Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn), um die Rollen von Reihen und Kategorien in Diagrammdaten zu vertauschen. Jede frühere Kategorie wird zu einer Reihe, und jede frühere Reihe wird zu einer Kategorie. Dadurch ändert sich die Gruppierung der Daten; die horizontalen und vertikalen Achsen werden nicht vertauscht. Das Beispiel verwendet [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange), um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategoriespalte, bevor Zeilen und Spalten getauscht werden. Es speichert ein Diagramm mit vier Reihen und drei Kategorien.
+Verwenden Sie [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) um die Rollen von Serien und Kategorien in den Diagrammdaten zu vertauschen. Jede frühere Kategorie wird zu einer Serie und jede frühere Serie zu einer Kategorie. Dies ändert die Gruppierung der Daten; die horizontale und vertikale Achse werden nicht vertauscht. Das Beispiel verwendet [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategorie‑Spalte, bevor Zeilen und Spalten gewechselt werden. Es speichert ein Diagramm mit vier Serien und drei Kategorien.
 
 ```python
 import jpype
@@ -89,14 +89,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Plot‑Reihenfolge einer Achse umkehren**
+## **Reihenfolge der Achsendarstellung umkehren**
 
-Verwenden Sie [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed), um eine Kategorien‑ oder Werteachse umzukehren. Beispielsweise kann ein horizontales Balkendiagramm Projektphasen von oben nach unten in derselben Reihenfolge wie das Arbeitsblatt anzeigen: Planung, Entwicklung, Testen. Das Umkehren einer Achse ändert die Plot‑Richtung; es sortiert oder ordnet die Arbeitsblattdaten nicht neu. Im Vergleich dazu tauscht [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) die Rollen von Reihen und Kategorien.
+Verwenden Sie [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) um eine Kategorie‑ oder Werteachse umzukehren. Zum Beispiel kann ein horizontales Balkendiagramm Projektphasen von oben nach unten in derselben Reihenfolge wie das Arbeitsblatt zeigen: Planung, Entwicklung, Testen. Das Umkehren einer Achse ändert die Darstellungs‑richtung; es sortiert oder ordnet die Arbeitsblattdaten nicht neu. Im Vergleich dazu vertauscht [switchRowColumn](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#switchRowColumn) die Rollen von Serien und Kategorien.
 
-Das folgende Beispiel erstellt ein horizontales Balkendiagramm mit drei Phasen und einer Reihe. Es speichert eine Präsentation mit drei Folien: normale Reihenfolge, umgekehrte Kategorien und umgekehrte Werte. Jede Kopie verwendet denselben Datensatz, und auf jeder Kopie ist nur eine Achse umgekehrt.
+Das folgende Beispiel erstellt ein horizontales Balkendiagramm mit drei Phasen und einer Serie. Es speichert eine Präsentation mit drei Folien: normale Reihenfolge, umgekehrte Kategorien und umgekehrte Werte. Jede Kopie verwendet dasselbe Datenset, und auf jeder Kopie ist nur eine Achse umgekehrt.
 
 ```python
-import jpype
+import jpway
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -126,14 +126,14 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(values[i]))
         series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Folie 2: die erste Kategorie oben anzeigen.
+    # Folie 2: zeige die erste Kategorie oben an.
     category_slide = presentation.getSlides().addClone(slide)
     category_chart = category_slide.getShapes().get_Item(0)
     category_chart.getAxes().getVerticalAxis().setPlotOrderReversed(True)
-    # Die horizontale Werteachse unten belassen.
+    # Halte die horizontale Werteachse unten.
     category_chart.getAxes().getVerticalAxis().setCrossType(CrossesType.Maximum)
 
-    # Folie 3: nur die horizontale numerische Skala umkehren.
+    # Folie 3: drehe nur die horizontale numerische Skala um.
     value_slide = presentation.getSlides().addClone(slide)
     value_chart = value_slide.getShapes().get_Item(0)
     value_chart.getAxes().getHorizontalAxis().setPlotOrderReversed(True)
@@ -143,16 +143,16 @@ finally:
     presentation.dispose()
 ```
 
-Das Umkehren einer Achse kann auch die senkrechte Achse auf die gegenüber­liegende Seite des Plots verschieben. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) steuert, wo die andere Achse die zu konfigurierende Achse kreuzt. In Folie 2 wird sie mit [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) auf der umgekehrten Kategorienachse aufgerufen, sodass die horizontale Werteachse unten bleibt. Für einen bestimmten Kreuzungspunkt verwenden Sie [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Überprüfen Sie die Kreuzungseinstellungen, wenn Sie die Richtung ändern, insbesondere wenn das Diagramm bereits einen benutzerdefinierten Kreuzungspunkt hat. Rufen Sie [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) mit `False` auf, um die normale Plot‑Richtung wiederherzustellen; Kreuzungseinstellungen sind separat.
+Das Umkehren einer Achse kann auch die senkrechte Achse auf die gegenüber­liegende Seite des Diagramms verschieben. [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType) steuert, wo die andere Achse die konfigurierte Achse schneidet. In Folie 2 hält ein Aufruf mit [CrossesType.Maximum](https://reference.aspose.com/slides/python-java/aspose.slides/crossestype/#Maximum) auf der umgekehrten Kategorien‑Achse die horizontale Werteachse unten. Für einen bestimmten Schnittpunkt verwenden Sie [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Überprüfen Sie die Schnitt‑Einstellungen beim Ändern der Richtung, insbesondere wenn das Diagramm bereits einen benutzerdefinierten Schnittpunkt hat. Rufen Sie [setPlotOrderReversed](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setPlotOrderReversed) mit `False` auf, um die normale Darstellungs‑richtung wiederherzustellen; die Schnitt‑Einstellungen sind separat.
 
 | Normale Reihenfolge (Folie 1) | Umgekehrte Kategorien (Folie 2) | Umgekehrte Werte (Folie 3) |
 | --- | --- | --- |
 | ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
-| Kategorien laufen von unten nach oben; Werte steigen von links nach rechts. | Planung, Entwicklung und Testen laufen von oben nach unten. Werte und Zeilenreihenfolge der Arbeitsmappe bleiben unverändert. | Kategorien behalten ihre normale Reihenfolge; Werte steigen von rechts nach links. Die Kategorienachse schneidet bei Null rechts. |
+| Kategorien verlaufen von unten nach oben; Werte steigen von links nach rechts. | Planung, Entwicklung und Testen verlaufen von oben nach unten. Werte und Zeilenreihenfolge im Arbeitsblatt bleiben unverändert. | Kategorien behalten ihre normale Reihenfolge; Werte steigen von rechts nach links. Die Kategorienachse schneidet bei Null rechts. |
 
 ## **Vertikale Achse für Liniendiagramme deaktivieren**
 
-Rufen Sie [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) mit `False` für die vertikale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
+Rufen Sie [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) mit `False` auf der vertikalen Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
 
 ```python
 import jpype
@@ -177,7 +177,7 @@ finally:
 
 ## **Horizontale Achse für Liniendiagramme deaktivieren**
 
-Rufen Sie [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) mit `False` für die horizontale Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
+Rufen Sie [setVisible](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setVisible) mit `False` auf der horizontalen Achse auf, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
 
 ```python
 import jpype
@@ -200,9 +200,51 @@ finally:
     presentation.dispose()
 ```
 
+## **Diagramm‑Gitternetzlinien ein‑ oder ausblenden**
+
+Rufen Sie [getShowMajorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMajorGridLines) und [getShowMinorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMinorGridLines) auf, um zu prüfen, welche Gitternetzlinien eine Achse anzeigt. Um Nebengitternetzlinien anzuzeigen, verwenden Sie [getMinorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMinorGridLinesFormat) und setzen die Linienfüllung auf eine feste, sichtbare Farbe. Um sie auszublenden, setzen Sie die Füllung auf [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/#NoFill). Verwenden Sie [getMajorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMajorGridLinesFormat) um die Linienfüllung für Hauptgitternetzlinien auf dieselbe Weise zu ändern. Das Ändern der Füllung bewahrt die Achsensichtbarkeit und Tick‑Marken.
+
+Die vertikale Achse dieses gruppierten Säulendiagramms zeigt zunächst nur Hauptgitternetzlinien. Das Beispiel zeigt die Nebengitternetzlinien in dunklem Orange an, blendet sie dann wieder aus, bevor die Präsentation gespeichert wird. Es gibt die Sichtbarkeit der Gitternetzlinien in jedem Schritt aus.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 30, 660, 230)
+    axis = chart.getAxes().getVerticalAxis()
+    print(f"Initial: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    minor_fill = axis.getMinorGridLinesFormat().getLine().getFillFormat()
+    minor_fill.setFillType(FillType.Solid)
+    minor_fill.getSolidFillColor().setColor(Color(255, 140, 0))
+    print(f"Enabled: minor={axis.getShowMinorGridLines()}")
+
+    minor_fill.setFillType(FillType.NoFill)
+    print(f"Hidden: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    presentation.save("ChartGridlines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Nebengitternetzlinien aktiviert | Nebengitternetzlinien ausgeblendet |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Kategorienachse ändern**
 
-Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType), um einen Datums‑ oder Text‑Kategorienachse zu wählen. Dieses Beispiel benötigt `ExistingChart.pptx`, wobei das Diagramm das erste Shape auf der ersten Folie ist und die Kategorienzellen numerische Excel‑Datumwerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Das Aufrufen von [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) mit `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) mit [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) legt Hauptticks im Abstand von einem Monat fest.
+Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType), um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm die erste Form auf der ersten Folie ist und die Kategoriespalten numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Der Aufruf von [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) mit `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) mit `1` und [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) mit [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) platziert Hauptticks in ein‑Monats‑Abständen.
 
 ```python
 import jpype
@@ -228,21 +270,83 @@ finally:
     presentation.dispose()
 ```
 
-## **Intervall der Kategorienachsen‑Beschriftungen steuern**
+### **Kategorienachsentyp aus Daten ermitteln**
 
-Wenn ein Diagramm viele Kategorien hat, reduzieren Sie die Anzahl der sichtbaren Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) mit `False` auf und übergeben Sie das gewünschte Kategorienintervall an [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung mit der ersten Kategorie:
+Rufen Sie [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisTypeAutomatically) nach dem Befüllen der Kategorien auf und lesen dann [getCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getCategoryAxisType) aus, um die Auswahl zu prüfen. Dies ist nützlich, wenn dasselbe Diagramm entweder Text‑Beschriftungen oder numerische Datumswerte erhält. Die Methode bestimmt den Typ beim Aufruf; sie aktiviert keinen beständigen Modus, der spätere Datenänderungen erneut bewertet. Rufen Sie sie erneut auf, nachdem die Kategorien ersetzt wurden.
+
+Das folgende Beispiel erstellt ein Diagramm mit Textkategorien und gibt `True` aus, wenn der ausgewählte Typ [CategoryAxisType.Text](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Text) ist. Es ersetzt dann die Kategorienzellenwerte durch Datumswerte und ruft die Methode erneut auf, wobei `True` ausgegeben wird, wenn der ausgewählte Typ [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date) ist. Daten werden als numerische OLE‑Automation‑Werte gespeichert, berechnet als die Anzahl der Tage seit dem 30. Dezember 1899, nicht als Datumszeichenketten. [setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) steuert, wie diese Werte angezeigt werden; sie konvertiert keinen Text in numerische Daten. Weitere Informationen zu Kategoriezellen finden Sie unter [Chart Workbook](/slides/de/python-java/chart-workbook/).
+
+Verwenden Sie die automatische Ermittlung, wenn die Eingabe Textkategorien oder numerische Datumswerte enthält, wie in diesem Beispiel. Für gewöhnliche numerische Beschriftungen, gemischte Kategorien oder leere Daten rufen Sie explizit [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) auf, um die beabsichtigte Bedeutung zuzuordnen. Numerische Werte allein begründen nicht, dass die Kategorien Datumsangaben darstellen.
+
+```python
+from datetime import date
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CategoryAxisType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series_name = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.getCell(0, i + 1, 0, label)
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Text)  # Wahr
+
+    base_date = date(1899, 12, 30)
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.getCell(0, i + 1, 0)
+        category_cell.setValue(float((category_date - base_date).days))
+        category_cell.setCustomNumberFormat("yyyy-mm-dd")
+
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Date)  # Wahr
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Abstände von Kategorienachsen‑Beschriftungen steuern**
+
+Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Rufen Sie [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) mit `False` auf und übergeben das gewünschte Kategorien‑Intervall an [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
 
 | Intervall | Im Beispiel angezeigte Beschriftungen |
 | --- | --- |
-| `1` | Kategorie 1, Kategorie 2, Kategorie 3, ... Kategorie 24 |
-| `2` | Kategorie 1, Kategorie 3, Kategorie 5, ... Kategorie 23 |
-| `3` | Kategorie 1, Kategorie 4, Kategorie 7, ... Kategorie 22 |
+| `1` | Category 1, Category 2, Category 3, ... Category 24 |
+| `2` | Category 1, Category 3, Category 5, ... Category 23 |
+| `3` | Category 1, Category 4, Category 7, ... Category 22 |
 
-Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten verborgen. Es entfernt nicht die entsprechenden Spalten. Automatisches Spacing wählt ein Intervall basierend auf dem verfügbaren Platz; es werden nicht zwingend alle Beschriftungen angezeigt.
+Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten verborgen. Es entfernt nicht die entsprechenden Spalten. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht unbedingt jede Beschriftung an.
 
-Tick‑Marks haben separate Einstellungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) mit `False` auf und verwenden Sie [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing) um ihr Intervall festzulegen. Zum Beispiel hält `1` einen Tick‑Mark bei jedem Kategorienintervall, während Beschriftungen nur alle dritten Kategorien erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen können. Das erneute Aufrufen eines automatischen Spacing‑Setters mit `True` lässt das Diagramm dieses Intervall wieder wählen.
+Tick‑Marken haben separate Steuerungen. Rufen Sie [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickMarksSpacing) mit `False` auf und verwenden [setTickMarksSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickMarksSpacing), um ihr Intervall festzulegen. Zum Beispiel hält `1` eine Tick‑Marke bei jedem Kategorien‑Intervall, während Beschriftungen nur bei jeder dritten Kategorie erscheinen. Verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen können. Ein erneuter Aufruf eines automatischen Abstand‑Setzers mit `True` lässt das Diagramm das Intervall erneut wählen.
 
-Das folgende, eigenständige Beispiel erstellt 24 Kategorien und eine Reihe und speichert dann drei Folien in `CategoryAxisIntervals.pptx`: automatisches Spacing, manuelles Beschriftungs‑Spacing mit unabhängigen Tick‑Marks und wiederhergestelltes automatisches Spacing. Die beiden Kopien behalten die ursprünglichen Diagrammdaten. Keine Eingabepräsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte deutlich sichtbar.
+Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Serie und speichert drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Tick‑Marken und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die ursprünglichen Diagrammdaten. Keine Eingabepräsentation ist erforderlich. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
 
 ```python
 import jpype
@@ -281,7 +385,7 @@ try:
     axis.setAutomaticTickLabelSpacing(True)
     axis.setAutomaticTickMarksSpacing(True)
 
-    # Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie einen Tick‑Mark beibehalten.
+    # Folie 2: jedes dritte Label anzeigen, aber für jede Kategorie eine Tick‑Marke beibehalten.
     manual_slide = presentation.getSlides().addClone(slide)
     manual_chart = manual_slide.getShapes().get_Item(0)
     manual_axis = manual_chart.getAxes().getHorizontalAxis()
@@ -290,7 +394,7 @@ try:
     manual_axis.setAutomaticTickMarksSpacing(False)
     manual_axis.setTickMarksSpacing(1)
 
-    # Folie 3: das Diagramm wählt beide Intervalle erneut.
+    # Folie 3: das Diagramm wählt beide Intervalle wieder aus.
     restored_slide = presentation.getSlides().addClone(manual_slide)
     restored_chart = restored_slide.getShapes().get_Item(0)
     restored_chart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(True)
@@ -301,23 +405,23 @@ finally:
     presentation.dispose()
 ```
 
-**Automatisches Spacing (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umgebrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
+**Automatischer Abstand (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umbrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
 
-![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
+![Automatischer Abstand der Kategorienbeschriftungen bei allen 24 Spalten sichtbar](category-axis-automatic.png)
 
-**Manuelles Spacing (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Tick‑Marks bei jedem Kategorienintervall bleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben mit denselben Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Aussehen wieder her.
+**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während die Tick‑Marken bei jedem Kategorienintervall bleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben mit denselben Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Erscheinungsbild wieder her.
 
-![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
+![Manueller Kategorienbeschriftungsintervall von drei bei allen 24 Spalten sichtbar](category-axis-manual.png)
 
-### **Den richtigen Achsentyp und das Intervall wählen**
+### **Die richtige Achse und das Intervall wählen**
 
-Verwenden Sie dieses Kategorie‑Zähl‑Intervall für eine Text‑Kategorienachse, wie die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, daher wenden Sie diese Einstellungen auf die Achse an, die von [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) zurückgegeben wird. Das Tick‑Mark‑Spacing gilt auch für eine Reihenachse in Diagrammen, die eine solche besitzen.
+Verwenden Sie dieses Kategorien‑Zähl‑Intervall für eine Text‑Kategorienachse, z. B. die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, sodass Sie diese Einstellungen auf die von [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) zurückgegebene Achse anwenden. Das Abstand‑Spacing für Tick‑Marks gilt auch für eine Serienachse in Diagrammen, die eine haben.
 
-Verwenden Sie die Kategorien‑Beschriftungs‑Abstände nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse gibt [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) eine Differenz in Werten an: z. B. erzeugt ein Hauptintervall von `10` Ticks bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Beschriftungs‑Intervall von `3` zählt stattdessen Kategoriepositionen, unabhängig von deren Datenwerten. Streu‑ und Blasendiagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen wie in [Kategorienachse ändern](#change-a-category-axis) beschrieben.
+Verwenden Sie den Kategorien‑Beschriftungsabstand nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse gibt [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) eine Differenz in Werten an: ein Haupteinheit von `10` erzeugt Ticks bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorien‑Beschriftungsintervall von `3` zählt stattdessen Kategorienpositionen, unabhängig von deren Datenwerten. Scatter‑ und Bubble‑Diagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen wie in [Change a Category Axis](#change-a-category-axis).
 
-## **Datumsformat für Kategorienachsenwerte festlegen**
+## **Datumsformat für Kategorienachswerte festlegen**
 
-Das Beispiel ersetzt die Standard‑Diagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert und als Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten berechnet. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) mit [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) mit `False` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat), sodass die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellenformatierung anzeigen.
+Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert, berechnet als Anzahl der Tage seit dem 30. Dezember 1899 für diese Daten. Verwenden Sie [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) mit [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date), rufen Sie [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) mit `False` auf und übergeben Sie `yyyy` an [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat), damit die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellenformatierung anzeigen.
 
 ```python
 from datetime import date
@@ -363,9 +467,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Drehwinkel für Diagrammachsentitel festlegen**
+## **Drehwinkel für einen Diagrammachsentitel festlegen**
 
-Rufen Sie [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) mit `True` für die vertikale Achse auf, geben Sie den Titeltext an und setzen Sie den Drehwinkel in der Textblock‑Formatierung des Titels. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm, bei dem der Titel der Werteachse um 90 Grad gedreht ist.
+Rufen Sie [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTitle) mit `True` auf der vertikalen Achse auf, geben Sie den Titeltext an und setzen Sie den Drehwinkel in der Textblockformatierung des Titels. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit seinem Werteachsentitel um 90 Grad gedreht.
 
 ```python
 import jpype
@@ -390,9 +494,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Achsenposition bei einer Kategorien‑ oder Werteachse festlegen**
+## **Achsenposition auf einer Kategorien‑ oder Werteachse festlegen**
 
-Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories), um zu steuern, ob die Werteachse die Kategorienachse zwischen den Kategorien oder an den Kategorien‑Tick‑Marks kreuzt. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `True` für die horizontale Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
+Verwenden Sie [setAxisBetweenCategories](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAxisBetweenCategories), um zu steuern, ob die Werteachse die Kategorienachse zwischen Kategorien oder an den Kategorien‑Tick‑Marks schneidet. Diese Einstellung gilt für Kategorienachsen. Das Beispiel setzt sie auf `True` bei der horizontalen Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
 
 ```python
 import jpype
@@ -415,9 +519,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Anzeigeeinheit für eine Diagramm‑Werteachse festlegen**
+## **Anzeige­einheit auf einer Diagramm‑Werteachse festlegen**
 
-Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit), um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) auf `Millions` gesetzt wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Anzeigeeinheit Millionen auf seine vertikale Achse an.
+Verwenden Sie [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit), um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/python-java/aspose.slides/displayunittype/) auf `Millions` wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Millionen‑Anzeige­einheit auf seine vertikale Achse an.
 
 ```python
 import jpype
@@ -442,19 +546,19 @@ finally:
 
 ## **Logarithmische Werteachse konfigurieren**
 
-Eine logarithmische Werteachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Beispielsweise kann ein Dienst in fünf Zeiträumen 10, 100, 1 000, 10 000 und 100 000 Anfragen erhalten. Auf einer linearen Skala liegen die kleineren Werte nahe beieinander nahe Null. Eine logarithmische Skala macht ihr relatives Wachstum leichter vergleichbar: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleiche Differenzen.
+Eine logarithmische Werteachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Beispielsweise kann ein Dienst 10, 100, 1 000, 10 000 und 100 000 Anfragen über fünf Perioden erhalten. Auf einer linearen Skala erscheinen die kleineren Werte nahe beieinander bei Null. Eine logarithmische Skala erleichtert den Vergleich ihres relativen Wachstums: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleiche Differenzen.
 
-Rufen Sie [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) mit `True` für die Werteachse auf und verwenden Sie [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase), um die Basis zu wählen. Dies ändert, wie die vorhandenen Werte angezeigt werden; es ändert nicht die Daten oder fügt eine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
+Rufen Sie [setLogarithmic](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogarithmic) mit `True` auf der Werteachse auf und verwenden Sie [setLogBase](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLogBase), um die Basis zu wählen. Dies ändert die Darstellung der vorhandenen Werte; es ändert nicht die Daten oder fügt eine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
 
 ### **Werteachse und Basis wählen**
 
-Für ein Linien‑ oder Säulendiagramm wird die Werteachse von [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) zurückgegeben. Für ein horizontales Balkendiagramm von [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis). Streu‑ und Blasendiagramme haben zwei Werteachsen, wählen Sie also die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide. Wenden Sie keine logarithmische Skalierung auf eine Kategorienachse an.
+Für ein Linien‑ oder Säulendiagramm wird die Werteachse von [getVerticalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getVerticalAxis) zurückgegeben. Für ein horizontales Balkendiagramm wird sie von [getHorizontalAxis](https://reference.aspose.com/slides/python-java/aspose.slides/axesmanager/#getHorizontalAxis) zurückgegeben. Scatter‑ und Bubble‑Diagramme haben zwei Werteachsen, sodass Sie die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide verwenden. Wenden Sie keine logarithmische Skalierung auf eine Kategorienachse an.
 
-Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme verwenden Sie eine Basis von `2` bis `1000` (einschließlich); Bruch‑Basen wie `2.5` werden ebenfalls unterstützt. Mit Basis `10` sind aufeinander folgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
+Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme kann eine Basis von `2` bis `1000` (einschließlich) verwendet werden; Bruch‑Basen wie `2.5` werden ebenfalls unterstützt. Mit Basis `10` sind aufeinanderfolgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
 
 ### **Lineare und logarithmische Skalierung vergleichen**
 
-Das folgende, eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragenzahlen auf der ersten Folie, dupliziert diese Folie und aktiviert auf der zweiten eine Basis‑10‑logarithmische Werteachse. Beide Folien behalten dieselben Daten.
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragen­zahlen auf der ersten Folie und klont dann diese Folie, um auf der zweiten Folie eine logarithmische Werteachse zur Basis 10 zu aktivieren. Beide Folien behalten dieselben Daten.
 
 ```python
 import jpype
@@ -489,7 +593,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, float(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Die erste Folie linear belassen und nur die Skala der Werteachse der Kopie ändern.
+    # Behalte die erste Folie linear und ändere nur die Skalierung der Werteachse der Kopie.
     logarithmic_slide = presentation.getSlides().addClone(slide)
     logarithmic_chart = logarithmic_slide.getShapes().get_Item(0)
     value_axis = logarithmic_chart.getAxes().getVerticalAxis()
@@ -501,24 +605,24 @@ finally:
     presentation.dispose()
 ```
 
-**Lineare Skala (Folie 1):** Gleiche vertikale Abstände repräsentieren gleiche Unterschiede in den Anfragenzahlen. Der größte Wert dominiert das Diagramm, sodass die kleineren Werte schwer zu unterscheiden sind.
+**Lineare Skalierung (Folie 1):** Gleichmäßige vertikale Abstände repräsentieren gleiche Unterschiede in den Anfragen­zahlen. Der größte Wert dominiert das Diagramm, sodass die kleineren Werte schwer zu unterscheiden sind.
 
-![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
+![Liniendiagramm in PowerPoint, das fünf Anfragenzahlen auf einer linearen Werteachse zeigt](value-axis-linear.png)
 
-**Logarithmische Skala (Folie 2):** Gleiche vertikale Abstände repräsentieren gleiche Verhältnisse. Jede Periode hat zehnmal so viele Anfragen wie die vorherige, sodass die Punkte auf der Basis‑10‑Skala eine gerade steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragenzahlen.
+**Logarithmische Skalierung (Folie 2):** Gleichmäßige vertikale Abstände repräsentieren gleiche Verhältnisse. Jede Periode hat zehnmal so viele Anfragen wie die vorherige, sodass die Punkte auf der Basis‑10‑Skala eine gerade steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragenzahlen.
 
-![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
+![Die gleichen fünf Anfragenzahlen in PowerPoint auf einer logarithmischen Werteachse zur Basis 10](value-axis-logarithmic.png)
 
-### **Umgang mit Null‑ und Negativwerten**
+### **Null‑ und negative Werte behandeln**
 
-Eine logarithmische Skala kann nur streng positive Werte anzeigen. Überprüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negativwerte eine Bedeutung haben, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat. Wenn das Ausschließen dieser Werte für die Analyse sinnvoll ist, erklären Sie die Auslassung. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten ändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert für eine logarithmische Achse muss ebenfalls positiv sein.
+Eine logarithmische Skala kann nur strikt positive Werte darstellen. Prüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder negative Werte sinnvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie getrennt an. Wenn das Ausschließen dieser Werte für die Analyse geeignet ist, erklären Sie das Weglassen. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten ändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert für eine logarithmische Achse muss ebenfalls positiv sein.
 
 ## **FAQ**
 
-**Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achskreuzung)?**
+**Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Verwenden Sie [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType), um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Diese Einstellungen ermöglichen es Ihnen, die Achskreuzung zu einer geeigneten Basislinie zu verschieben.
+Verwenden Sie [setCrossType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossType), um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [setCrossAt](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCrossAt). Mit diesen Einstellungen können Sie das Achsenkreuz zu einer geeigneten Basis verschieben.
 
 **Wie kann ich Tick‑Beschriftungen relativ zur Achse positionieren?**
 
-Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) mit [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` oder `None` auf. Um die Tick‑Marks selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) oder [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); diese stehen getrennt von der Beschriftungspositionierung.
+Rufen Sie [setTickLabelPosition](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelPosition) mit [TickLabelPositionType](https://reference.aspose.com/slides/python-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` oder `None` auf. Um die Tick‑Marken selbst zu steuern, verwenden Sie [setMajorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorTickMark) oder [setMinorTickMark](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMinorTickMark); diese sind von der Beschriftungsposition getrennt.

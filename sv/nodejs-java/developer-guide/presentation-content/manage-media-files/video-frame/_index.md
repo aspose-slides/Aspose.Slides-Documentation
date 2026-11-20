@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /sv/nodejs-java/video-frame/
 keywords:
-- lägg till video
+- lägga till video
 - skapa video
 - bädda in video
 - extrahera video
@@ -18,21 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig att på ett programatiskt sätt lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java. Snabb guide."
+description: "Lär dig att programatiskt lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java. Snabb guide."
 ---
 ## **Introduktion**
 
-Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides for Node.js via Java låter dig lägga till videoramar i bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
+Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides för Node.js via Java låter dig lägga till videoramar på bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
 
-PowerPoint stödjer lokala videor och länkar till online‑videor, såsom YouTube‑videor.
+PowerPoint stöder lokala videor och länkar till online‑videor, såsom YouTube‑videor.
 
 För att representera videodata och videoramar tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) , klassen [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) , och andra relevanta typer.
 
 ## **Skapa en inbäddad videoram**
 
-Om videofilen du vill lägga till i bilden är lagrad lokalt kan du skapa en videoram för att bädda in videon i din presentation.
+Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en videoram för att bädda in videon i din presentation.
 
-Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen hålls öppen tills sparandet är klart eftersom [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
+Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen förblir öppen tills sparandet är klart eftersom [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -77,7 +77,7 @@ try {
 
 Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Du kan skapa en videoram som länkar till en online‑video, såsom en YouTube‑video.
 
-Detta exempel lägger till en YouTube‑videolänk och miniatyr på den första bilden. Ersätt videointifikatorn för att använda en annan video. Metoden [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) begär automatisk uppspelning. Nedladdning av miniatyren och uppspelning av videon kräver internetåtkomst. Presentationsvisaren måste också stödja uppspelning av online‑videor.
+Detta exempel lägger till en YouTube‑videolänk och miniatyr på den första bilden. Ersätt videoidentifieraren för att använda en annan video. Metoden [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) begär automatisk uppspelning. Nedladdning av miniatyren och uppspelning av videon kräver internetåtkomst. Presentationsvisaren måste också stödja online‑videouppspelning.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Spela upp en video i fullskärmsläge**
+## **Spela en video i helskärmsläge**
 
-I en utbildningspresentation kan du spela upp en mjukvarudemonstration i fullskärmsläge så att publiken kan se detaljerna. Anropa [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) med `true` för att aktivera detta beteende under uppspelning.
+I en träningspresentation kan du spela en mjukvarudemonstration i helskärmsläge så att publiken kan se detaljerna. Anropa [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) med `true` för att aktivera detta beteende under uppspelning.
 
-Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) på den första bilden och aktiverar fullskärmsuppspelning. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) på den första bilden och aktiverar helskärmsuppspelning. Inmatningspresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,13 +137,13 @@ try {
 }
 ```
 
-Fullskärmsuppspelning styr hur videon visas. Oberoende styr [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) om den startar automatiskt eller vid klick, och [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) styr om den upprepas. För att välja startbeteende, sätt uppspelningsläget till [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Exemplet behåller de befintliga start‑ och loop‑inställningarna.
+Helskärmsuppspelning styr hur videon visas. Oberoende styr [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) om den startar automatiskt eller vid klick, och [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) styr om den upprepas. För att välja startbeteende, sätt uppspelningsläget till [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start- och loop‑inställningarna.
 
 ## **Spola tillbaka en video efter uppspelning**
 
-I en utbildningspresentation gör en återgång av demonstrationsvideon till början den redo för presentatören att spela igen. Anropa [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) med `true` för att återföra videon till början efter att uppspelning avslutats.
+I en träningspresentation gör att återföra en demonstrationsvideo till dess början den redo för presentatören att spela igen. Anropa [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) med `true` för att återföra videon till början när uppspelningen är klar.
 
-Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar loopning så att uppspelning kan avslutas och sätter uppspelning att starta vid klick. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar loopning så att uppspelningen kan slutföras och sätter uppspelning att starta vid klick. Inmatningspresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,15 +170,15 @@ try {
 }
 ```
 
-Spolning tillbaka återför videon till början utan att starta den igen. I kontrast återupptar ett anrop av [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) med `true` uppspelning automatiskt. Håll loopning inaktiverad när du vill att videon ska avslutas och vara redo att spelas igen. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) styr oberoende automatisk eller klick‑start; detta exempel använder [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) så presentatören kontrollerar när uppspelning startar. Ställ in uppspelningsläget efter loop‑inställningen, som visas i exemplet. Spolning tillbaka fungerar oberoende av [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+Spolning tillbaka returnerar videon till början utan att starta den igen. Däremot gör ett anrop till [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) med `true` att uppspelningen upprepas automatiskt. Håll loopning inaktiverad när du vill att videon ska avslutas och vara redo att spelas igen. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) styr oberoende automatisk eller klick‑uppstart; detta exempel använder [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) så presentatören styr när uppspelningen startar. Sätt uppspelningsläget efter loop‑inställningen, som visas i exemplet. Spolning tillbaka fungerar oberoende av [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
 
 ## **Trimma en videoram**
 
-Använd [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) för att hoppa över en del av början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att ändra den inbäddade videodatan.
+Använd [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) för att hoppa över en del av början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att ändra den inbäddade videodata.
 
-**Ange triminställningar**
+**Ställ in triminställningar**
 
-Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video som är längre än 3,5 sekunder så att ett spelbart segment återstår.
+Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video längre än 3,5 sekunder så att ett spelbart segment återstår.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -229,13 +229,13 @@ try {
 }
 ```
 
-## **Hantera videokaptions**
+## **Hantera videobeskrivningar**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint-presentationer. Undertexterna lagras i WebVTT-format och exponeras via metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides låter dig hantera stängda bildtexter för videoramar i PowerPoint‑presentationer. Bildtexter lagras i WebVTT‑format och exponeras via metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Lägg till undertexter till en videoram**
+### **Lägg till bildtexter på en videoram**
 
-Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår märkt English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både videon och dess undertexter.
+Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑bildspår med etiketten English. Bildtext‑tidsstämplarna bör matcha videon. Den sparade presentationen innehåller både videon och dess bildtexter.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -259,11 +259,11 @@ try {
 }
 ```
 
-Klassen [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) erbjuder också metoden [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) för att lägga till undertexter från en ström.
+Klassen [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) tillhandahåller också metoden [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) för att lägga till bildtexter från en ström.
 
-**Extrahera undertexter från en videoram**
+### **Extrahera bildtexter från en videoram**
 
-Detta exempel sparar alla undertextspår från videoramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilerna distinkta. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
+Detta exempel sparar alla bildspår från videoramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilernas namn unika. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,11 +295,11 @@ try {
 }
 ```
 
-Varje [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/)‑objekt visar undertextens identifierare, etikett, binära data och undertexten som en UTF‑8‑sträng.
+Varje [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/)‑objekt visar bildtextens identifierare, etikett, binära data och bildtext som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en videoram**
+### **Ta bort bildtexter från en videoram**
 
-Detta exempel tar bort alla undertexter från videoramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns och att formen är en videoram.
+Detta exempel tar bort alla bildtexter från videoramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns och att formen är en videoram.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,13 +317,79 @@ try {
 }
 ```
 
-Om du behöver ta bort endast ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+Om du bara behöver ta bort ett bildspår, använd metoderna [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+
+### **Sök i video‑bildtexter**
+
+Metoden [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) returnerar hela WebVTT‑spåret, inklusive header, tidslinjer och bildtext. Du kan söka i bildtexten i minnet för att hitta en fras och dess tidsstämpel. Till exempel kan ett engelskt spår på bild 2 innehålla detta cue:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Detta exempel öppnar `captioned_media.pptx` och använder [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) för att läsa spåren för varje top‑nivå videoram på varje bild. I ett ren‑text cue innehåller tidslinjen `-->` och en tom rad avslutar cue‑n. För varje bildtext som innehåller ”café” i valfri skiftning, skriver exemplet ut bildnumret, spårets etikett, originaltidslinjen och hela bildtexten.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Sökning efter ”café” hittar en matchning i exempelspåret. Sökningen hoppar över spår‑headern och bevarar tidsinställningen och radbrytningen i utdata.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extrahera video från en bild**
 
-Förutom att lägga till videor i bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
+Förutom att lägga till videor på bilder, låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
-Detta exempel extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddad data. Konsolen skriver ut varje videos MIME‑typ och det totala antalet. Utdata använder den generiska filändelsen `.bin`; ändra den för att matcha den rapporterade mediatypen vid behov.
+Detta exempel extraherar inbäddade videor från varje bild till separata, numrerade binära filer. Länkade videor hoppas över eftersom de saknar inbäddade data. Konsolen skriver ut varje videos MIME‑typ och det totala antalet. Utdata använder den generiska `.bin`‑filändelsen; ändra den för att matcha den rapporterade mediatypen när det behövs.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -362,13 +428,13 @@ try {
 
 ## **FAQ**
 
-**Vilka videouppspelningsparametrar kan ändras för en videoram?**
+**Vilka uppspelningsparametrar kan ändras för en videoram?**
 
-Du kan styra [playback mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (auto eller vid klick) och [looping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Dessa alternativ är tillgängliga via metoderna på objektet [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+Du kan kontrollera [uppspelningsläget](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (auto eller vid klick) och [loopning](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Dessa alternativ är tillgängliga via objektets metoder på [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
-**Påverkar tillägg av en video PPTX‑filens storlek?**
+**Ökar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du länkar till en online‑video och lägger till en miniatyr sparar presentationen länken och förhandsbilden i stället för videodata, så storleksökningen blir vanligtvis mindre.
+Ja. När du bäddar in en lokal video inkluderas de binära data i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du länkar till en online‑video och lägger till en miniatyr lagras länken och förhandsbilden istället för videodata, så storleksökningen är vanligtvis mindre.
 
 **Kan jag ersätta videon i en befintlig videoram utan att ändra dess position och storlek?**
 

@@ -1,12 +1,12 @@
 ---
-title: Kelola Audio dalam Presentasi Menggunakan C++
-linktitle: Bingkai Audio
+title: Kelola Frame Audio dalam Presentasi Menggunakan C++
+linktitle: Frame Audio
 type: docs
 weight: 10
 url: /id/cpp/audio-frame/
 keywords:
 - audio
-- bingkai audio
+- frame audio
 - gambar mini
 - tambahkan audio
 - properti audio
@@ -14,279 +14,416 @@ keywords:
 - ekstrak audio
 - C++
 - Aspose.Slides
-description: "Buat dan kendalikan bingkai audio di Aspose.Slides untuk C++—contoh kode untuk menyematkan, memangkas, mengulang, dan mengonfigurasi pemutaran pada presentasi PPT, PPTX, dan ODP."
+description: "Tanamkan audio dalam slide, ubah ikon audio, konfigurasikan pemutaran, kelola caption WebVTT, dan ekstrak suara transisi slide dengan Aspose.Slides untuk C++."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan bingkai audio di Aspose.Slides. Artikel ini menunjukkan cara menambahkan audio yang disematkan ke slide, menyesuaikan thumbnail bingkai audio, mengkonfigurasi opsi pemutaran seperti volume, pengulangan, penyembunyian, pemangkasan, dan durasi fade, serta mengekstrak audio yang digunakan dalam transisi slide show.
+Audio frame memungkinkan Anda memutar suara pada slide. Dengan Aspose.Slides untuk C++, Anda dapat menyematkan klip audio, memilih gambar yang mewakilinya, menyesuaikan pemutaran, dan menambahkan caption. Anda juga dapat mengambil suara yang ditetapkan pada transisi slide.
 
-## **Buat Bingkai Audio**
+## **Buat Audio Frame**
 
-Aspose.Slides untuk C++ memungkinkan Anda menambahkan file audio ke slide. File audio disematkan dalam slide sebagai bingkai audio. 
+Gunakan [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) untuk menyematkan klip audio lokal pada slide pertama. Dua koordinat pertama menentukan posisi frame pada slide, dan dua nilai berikutnya mengatur lebar dan tinggi, semuanya dalam poin. Contoh ini memanggil [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) untuk memulai klip secara otomatis dan memanggil [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) untuk memilih preset volume tinggi.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Muat stream file audio yang ingin Anda sematkan ke slide.
-4. Tambahkan bingkai audio yang disematkan (berisi file audio) ke slide.
-5. Atur [PlayMode](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) dan `Volume` yang disediakan oleh objek [IAudioFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_audio_frame).
-6. Simpan presentasi yang telah diubah.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-Kode C++ berikut menunjukkan cara menambahkan bingkai audio yang disematkan ke slide:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// Membuat instance kelas Presentation yang mewakili file presentasi
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Mengambil slide pertama
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Memuat file suara wav ke aliran
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// Menambahkan Bingkai Audio
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Mengatur Mode Putar dan Volume Audio
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Menulis file PowerPoint ke disk
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ubah Thumbnail Bingkai Audio**
+## **Ubah Thumbnail Audio Frame**
 
-Saat Anda menambahkan file audio ke presentasi, audio muncul sebagai bingkai dengan gambar default standar (lihat gambar pada bagian di bawah). Anda dapat mengubah thumbnail bingkai audio (menetapkan gambar pilihan Anda).
-
-Kode C++ berikut menunjukkan cara mengubah thumbnail atau gambar preview bingkai audio:
+Secara default, audio frame menampilkan ikon speaker. Untuk menampilkan thumbnail khusus, tambahkan gambar ke presentasi dengan [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) dan atur sebagai gambar frame dengan [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). Contoh menggunakan JPEG sebagai thumbnail untuk klip audio yang disematkan.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Menambahkan bingkai audio ke slide dengan posisi dan ukuran yang ditentukan.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Menambahkan gambar ke sumber daya presentasi.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Mengatur gambar untuk bingkai audio.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-// Menyimpan presentasi yang telah dimodifikasi ke disk
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ubah Opsi Pemutaran Audio**
 
-Aspose.Slides untuk C++ memungkinkan Anda mengubah opsi yang mengontrol pemutaran atau properti audio. Misalnya, Anda dapat menyesuaikan volume audio, mengatur audio untuk diputar berulang, atau bahkan menyembunyikan ikon audio.
+**Audio Options** di PowerPoint mengontrol kapan klip dimulai, seberapa keras suaranya, dan bagaimana perilakunya selama presentasi.
 
-Panel **Audio Options** di Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Kontrol PowerPoint | Metode Aspose.Slides untuk C++ |
+| --- | --- |
+| Start | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Volume preset | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Play Across Slides | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Loop until Stopped | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Hide During Show | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Rewind after Playing | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Fade In | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Fade Out | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Trim Audio start time | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Trim Audio end time | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Volume slider | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-Opsi **Audio** PowerPoint yang sesuai dengan metode Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/) :
-
-- **Start** drop-down list cocok dengan metode [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_playmode/)
-- **Volume** cocok dengan metode [AudioFrame::set_Volume](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_volume/)
-- **Play Across Slides** cocok dengan metode [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_playacrossslides/)
-- **Loop until Stopped** cocok dengan metode [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_playloopmode/)
-- **Hide During Show** cocok dengan metode [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_hideatshowing/)
-- **Rewind after Playing** cocok dengan metode [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_rewindaudio/)
-
-Opsi **Editing** PowerPoint yang sesuai dengan properti Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/) :
-
-- **Fade In** cocok dengan metode [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_fadeinduration/)
-- **Fade Out** cocok dengan metode [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_fadeoutduration/)
-- **Trim Audio Start Time** cocok dengan metode [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_trimfromstart/)
-- **Trim Audio End Time** memiliki nilai yang sama dengan durasi audio dikurangi nilai metode [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_trimfromend/)
-
-Kontrol **Volume** PowerPoint pada panel kontrol audio sesuai dengan metode [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_volumevalue/). Ini memungkinkan Anda mengubah volume audio dalam persentase.
-
-Berikut cara mengubah opsi Pemutaran Audio:
-
-1. [Create](#creating-audio-frame) atau dapatkan Audio Frame.
-2. Atur nilai baru untuk properti Audio Frame yang ingin Anda sesuaikan.
-3. Simpan file PowerPoint yang telah dimodifikasi.
-
-Kode C++ berikut mendemonstrasikan operasi dimana opsi audio disesuaikan:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Dapatkan sebuah shape
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Mengkonversi shape menjadi shape AudioFrame
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Mengatur mode putar agar diputar saat diklik
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Mengatur volume menjadi rendah
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Mengatur audio agar diputar di seluruh slide
-audioFrame->set_PlayAcrossSlides(true);
-
-// Menonaktifkan pengulangan untuk audio
-audioFrame->set_PlayLoopMode(false);
-
-// Menyembunyikan AudioFrame selama pertunjukan slide
-audioFrame->set_HideAtShowing(true);
-
-// Memundurkan audio ke awal setelah diputar
-audioFrame->set_RewindAudio(true);
-
-// Menyimpan file PowerPoint ke disk
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-Contoh C++ ini menunjukkan cara menambahkan bingkai audio baru dengan audio yang disematkan, memangkasnya, dan mengatur durasi fade:
+Contoh menemukan audio frame pertama pada slide pertama, memanggil [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) untuk memulai pemutaran saat diklik, dan memilih preset volume rendah. Klip berlanjut melintasi slide dengan loop dimatikan. Ikon tetap disembunyikan selama pertunjukan, dan klip diputar ulang setelah pemutaran.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+Untuk klip yang lebih panjang dari 3,5 detik, contoh ini melewatkan 1,5 detik pertama dan 2 detik terakhir. Argumen ke [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) menentukan durasi yang dihilangkan dari akhir klip. Untuk mendapatkan waktu akhir yang ditampilkan di PowerPoint, kurangi offset tersebut dari durasi penuh klip. Klip yang dipangkas memudar masuk selama 200 milidetik dan memudar keluar selama 500 milidetik. Semua empat setter menerima nilai dalam milidetik.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-Contoh kode berikut menunjukkan cara mengambil bingkai audio dengan audio yang disematkan dan mengatur volumenya menjadi 85%:
+Untuk mengatur volume pemutaran ke persentase tertentu, gunakan [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). Contoh ini mengatur audio frame pertama pada slide pertama menjadi 85 %.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Mendapatkan shape bingkai audio
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Mengatur volume audio menjadi 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
 ```
 
 ## **Kelola Caption Audio**
 
-Aspose.Slides memungkinkan Anda menambahkan caption tertutup ke bingkai audio melalui metode [get_CaptionTracks](https://reference.aspose.com/slides/id/cpp/aspose.slides/iaudioframe/get_captiontracks/). Metode ini mengembalikan sebuah [ICaptionsCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/icaptionscollection/), yang memungkinkan Anda menambahkan track caption WebVTT, mengiterasi track yang ada, dan menghapusnya bila diperlukan.
+Setiap audio frame mengekspos koleksi caption‑nya melalui [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). Gunakan untuk menambahkan caption WebVTT ke klip, mengekspor track yang ada, atau menghapusnya.
 
-**Tambah Caption Audio**
+### **Tambah Caption Audio**
 
-Gunakan metode [get_CaptionTracks](https://reference.aspose.com/slides/id/cpp/aspose.slides/iaudioframe/get_captiontracks/) untuk melampirkan satu atau lebih track caption ke bingkai audio. Pada contoh berikut, file audio ditambahkan ke slide, kemudian track caption baru dimuat dari file `.vtt`.
+Contoh menyematkan klip audio pada slide pertama dan menggunakan [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) untuk menambahkan track WebVTT lokal. Argumen pertama menyediakan label track, dan argumen kedua mengidentifikasi file yang berisi caption ber‑timecode.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Ekstrak Caption Audio**
+### **Ekstrak Caption Audio**
 
-Anda dapat mengiterasi track caption yang terkait dengan bingkai audio dan menyimpannya sebagai file `.vtt`. Setiap track caption menampilkan data biner serta pengidentifikasi uniknya, yang dapat digunakan saat mengekspor caption.
+Contoh ini mengekspor setiap track caption yang terlampir pada audio frame di slide pertama. Ia menulis byte yang dikembalikan oleh [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) ke file WebVTT dan menggunakan nilai yang dikembalikan oleh [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) sebagai nama file sehingga setiap track memiliki output terpisah.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Hapus Caption Audio**
+
+Gunakan [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) atau [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) untuk menghapus track tertentu. Contoh menggunakan [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) untuk menghapus semua caption dari audio frame pertama pada slide pertama sambil mempertahankan klip.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Temukan Baris dalam Caption Audio**
+
+Untuk menemukan baris dalam caption audio pada slide pertama, panggil [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) pada setiap track untuk membaca teks WebVTT‑nya di memori. Dalam cue WebVTT teks biasa, baris waktu berisi `-->`, baris caption mengikutinya, dan baris kosong mengakhiri cue. Contoh ini mencetak label track dan setiap baris caption yang mengandung “café”.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Simpan setiap track caption sebagai file .vtt.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-**Hapus Caption Audio**
-
-Untuk menghapus caption dari bingkai audio, gunakan metode yang disediakan oleh [ICaptionsCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/icaptionscollection/), seperti [Clear](https://reference.aspose.com/slides/id/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/icaptionscollection/remove/), atau [RemoveAt](https://reference.aspose.com/slides/id/cpp/aspose.slides/icaptionscollection/removeat/). Contoh berikut menghapus semua track caption dari sebuah bingkai audio.
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// Hapus semua track caption dari bingkai audio.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **Ekstrak Audio**
-Aspose.Slides memungkinkan Anda mengekstrak suara yang digunakan dalam transisi slide show. Misalnya, Anda dapat mengekstrak suara yang digunakan pada slide tertentu.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation) dan muat presentasi yang berisi audio.
-2. Dapatkan referensi slide yang relevan melalui indeksnya.
-3. Akses transisi slideshow untuk slide tersebut.
-4. Ekstrak suara dalam bentuk data byte.
+Transisi slide dapat memiliki suara sendiri. Untuk mengambilnya, panggil [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) pada transisi. Contoh ini mengambil byte audio dengan [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) dan mencetak jumlah byte. Jika slide pertama tidak memiliki suara transisi, ia mencetak pesan sebagai gantinya.
 
-Kode C++ berikut menunjukkan cara mengekstrak audio yang digunakan pada sebuah slide:
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+using namespace Aspose::Slides;
+using namespace System;
 
-// Membuat instance kelas Presentation yang mewakili file presentasi
-auto pres = System::MakeObject<Presentation>(presName);
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Mengakses slide yang diinginkan
-auto slide = pres->get_Slides()->idx_get(0);
-
-// Mendapatkan efek transisi slideshow untuk slide
-auto transition = slide->get_SlideShowTransition();
-
-// Mengekstrak suara dalam array byte
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
 ## **FAQ**
 
-**Apakah saya dapat menggunakan kembali aset audio yang sama di beberapa slide tanpa memperbesar ukuran file?**
+**Apakah saya dapat menggunakan kembali klip audio yang sama di beberapa slide tanpa menggandakannya?**
 
-Ya. Tambahkan audio sekali ke [koleksi audio](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_audios/) bersama presentasi dan buat bingkai audio tambahan yang merujuk ke aset yang sudah ada. Ini menghindari duplikasi data media dan menjaga ukuran presentasi tetap terkendali.
+Ya. Tambahkan klip sekali ke [audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) presentasi dan berikan objek audio yang sama ke [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) untuk tiap slide.
 
-**Apakah saya dapat mengganti suara pada bingkai audio yang sudah ada tanpa membuat ulang bentuk?**
+**Apakah saya dapat mengganti suara pada audio frame yang sudah ada?**
 
-Ya. Untuk suara yang ditautkan, perbarui [link path](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_linkpathlong/) agar mengarah ke file baru. Untuk suara yang disematkan, ganti objek [embedded audio](https://reference.aspose.com/slides/id/cpp/aspose.slides/audioframe/set_embeddedaudio/) dengan yang lain dari [koleksi audio](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_audios/) presentasi. Format bingkai serta sebagian besar pengaturan pemutaran tetap tidak berubah.
+Ya. Untuk suara yang ditautkan, panggil [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) dengan jalur ke file pengganti. Untuk suara yang disematkan, berikan klip lain dari audio collection presentasi ke [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). Kedua pendekatan mempertahankan frame yang ada.
 
-**Apakah pemangkasan mengubah data audio dasar yang disimpan dalam presentasi?**
+**Apakah pemotongan mengubah data audio yang disimpan dalam presentasi?**
 
-Tidak. Pemangkasan hanya menyesuaikan batas pemutaran. Byte audio asli tetap tidak terpengaruh dan dapat diakses melalui audio yang disematkan atau koleksi audio presentasi.
+Tidak. [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) dan [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) hanya menetapkan batas pemutaran. Anda masih dapat mengambil klip penuh dengan [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

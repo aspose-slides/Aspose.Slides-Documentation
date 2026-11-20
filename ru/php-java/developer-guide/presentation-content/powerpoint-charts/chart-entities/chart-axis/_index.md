@@ -8,30 +8,30 @@ keywords:
 - вертикальная ось
 - горизонтальная ось
 - настройка оси
-- манипулирование осью
 - управление осью
+- администрирование оси
 - свойства оси
 - максимальное значение
 - минимальное значение
 - линия оси
 - формат даты
 - заголовок оси
-- положение оси
+- позиция оси
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как использовать Aspose.Slides for PHP via Java для настройки осей диаграмм в презентациях PowerPoint для отчетов и визуализаций."
+description: "Узнайте, как использовать Aspose.Slides для PHP через Java, чтобы настраивать оси диаграмм в презентациях PowerPoint для отчётов и визуализаций."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как настраивать оси диаграмм с помощью Aspose.Slides for PHP via Java. Она охватывает вычисленные значения осей, переключение строк и столбцов диаграммы, видимость осей, интервалы подписей категорий и делений, датированные категории и их форматирование, вращение заголовка, позиционирование осей, единицы отображения и логарифмическое масштабирование.
+В этой статье объясняется, как настраивать оси диаграмм с помощью Aspose.Slides для PHP через Java. Рассматриваются рассчитанные значения осей, переключение строк и столбцов диаграммы, видимость осей, интервалы меток категорий и отметок, даты и их форматирование, вращение заголовка, позиционирование осей, единицы отображения и логарифмическое масштабирование.
 
 ## **Получить максимальные значения на вертикальной оси диаграмм**
 
-Создайте [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и добавьте областьную диаграмму с данными по умолчанию. Вызовите [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) перед чтением вычисленных значений осей, чтобы макет диаграммы был актуален.
+Создайте [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и добавьте площадь‑диаграмму с данными по умолчанию. Вызовите [validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) перед чтением рассчитанных значений осей, чтобы макет диаграммы был актуален.
 
-Читайте [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) и [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) для пределов оси, а также [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) и [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) для интервалов делений. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) и [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) предоставляют масштабы временных единиц, которые актуальны для датированных осей. В примере эти значения сохраняются в локальные переменные и сохраняется диаграмма.
+Прочитайте [getActualMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmaxvalue/) и [getActualMinValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminvalue/) для пределов оси, а также [getActualMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunit/) и [getActualMinorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunit/) для интервалов отметок. [getActualMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualmajorunitscale/) и [getActualMinorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getactualminorunitscale/) предоставляют масштабы единиц времени, которые актуальны для датных осей. Пример сохраняет эти значения в локальные переменные и сохраняет диаграмму.
 
 ```php
 use aspose\slides\ChartType;
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **Поменять данные между осями**
+## **Переставить данные между осями**
 
-Используйте [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) для обмена ролями рядов и категорий в данных диаграммы. Каждая прежняя категория становится рядом, а каждый прежний ряд — категорией. Это изменяет способ группировки данных; это не меняет местами горизонтальную и вертикальную оси. В примере используется [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) для привязки данных по умолчанию к `Sheet1!A1:D5`, включая строку заголовков и столбец категорий, перед переключением рядов и столбцов. Сохраняется диаграмма с четырьмя рядами и тремя категориями.
+Используйте [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) для обмена ролями рядов и категорий в данных диаграммы. Каждая прежняя категория становится рядом, а каждый прежний ряд — категорией. Это меняет способ группировки данных; оси не меняются местами. В примере применяется [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) для привязки данных по умолчанию к `Sheet1!A1:D5`, включая строку заголовка и столбец категорий, перед переключением строк и столбцов. Сохраняется диаграмма с четырьмя рядами и тремя категориями.
 
 ```php
 use aspose\slides\ChartType;
@@ -83,9 +83,69 @@ try {
 }
 ```
 
-## **Отключить вертикальную ось для линейных диаграмм**
+## **Изменить порядок построения оси**
 
-Вызовите [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) с `false` у вертикальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой вертикальной осью.
+Вызовите [setPlotOrderReversed](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setplotorderreversed/) для обратного порядка построения категории или значений. Например, горизонтальная столбчатая диаграмма может показывать стадии проекта сверху вниз в том же порядке, что и в листе: Планирование, Разработка, Тестирование. Обратный порядок меняет направление построения, но не сортирует и не перестраивает данные листа. Для сравнения, [switchRowColumn](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/switchrowcolumn/) меняет роли рядов и категорий.
+
+В следующем примере создаётся горизонтальная столбчатая диаграмма с тремя стадиями и одним рядом. Сохраняется презентация из трёх слайдов: обычный порядок, обратные категории и обратные значения. Каждый копия использует один и тот же набор данных, и только одна ось обратна в каждой копии.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\CrossesType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredBar, 50, 40, 620, 320);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $series = $chart->getChartData()->getSeries()->add(ChartType::ClusteredBar);
+    $stages = ["Planning", "Development", "Testing"];
+    $values = [10, 30, 20];
+    for ($i = 0; $i < count($stages); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $stages[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+        $valueCell = $workbook->getCell(0, $i + 1, 1, $values[$i]);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    // Слайд 2: отображать первую категорию вверху.
+    $categorySlide = $presentation->getSlides()->addClone($slide);
+    $categoryChart = $categorySlide->getShapes()->get_Item(0);
+    $categoryChart->getAxes()->getVerticalAxis()->setPlotOrderReversed(true);
+    // Сохранить горизонтальную ось значений внизу.
+    $categoryChart->getAxes()->getVerticalAxis()->setCrossType(CrossesType::Maximum);
+
+    // Слайд 3: обратить только горизонтальную числовую шкалу.
+    $valueSlide = $presentation->getSlides()->addClone($slide);
+    $valueChart = $valueSlide->getShapes()->get_Item(0);
+    $valueChart->getAxes()->getHorizontalAxis()->setPlotOrderReversed(true);
+
+    $presentation->save("ReversedAxes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Обратный порядок оси может также переместить перпендикулярную ось на противоположную сторону графика. [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) управляет тем, где другая ось пересекает настраиваемую ось. На слайде 2 вызов с параметром `CrossesType::Maximum` для обратной оси категорий оставляет горизонтальную ось значений внизу. Для конкретной точки пересечения используйте [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Проверьте настройки пересечения при изменении направления, особенно если диаграмма уже имеет пользовательскую точку пересечения. Вызов `setPlotOrderReversed` с `false` восстанавливает обычное направление построения; настройки пересечения независимы.
+
+| Обычный порядок (слайд 1) | Обратные категории (слайд 2) | Обратные значения (слайд 3) |
+| --- | --- | --- |
+| ![Горизонтальная столбчатая диаграмма с обычным порядком категорий и оси значений](axis-order-normal.png) | ![Горизонтальная столбчатая диаграмма с категориями, отображаемыми сверху вниз](axis-order-categories-reversed.png) | ![Горизонтальная столбчатая диаграмма с обратной осью значений и нулём справа](axis-order-values-reversed.png) |
+| Категории идут снизу вверх; значения растут слева направо. | Планирование, Разработка и Тестирование идут сверху вниз. Порядок строк листа и значения остаются без изменений. | Категории сохраняют обычный порядок; значения растут справа налево. Ось категорий пересекает ноль справа. |
+
+## **Скрыть вертикальную ось для линейных диаграмм**
+
+Вызовите [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) с `false` для вертикальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой вертикальной осью.
 
 ```php
 use aspose\slides\ChartType;
@@ -105,9 +165,9 @@ try {
 }
 ```
 
-## **Отключить горизонтальную ось для линейных диаграмм**
+## **Скрыть горизонтальную ось для линейных диаграмм**
 
-Вызовите [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) с `false` у горизонтальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой горизонтальной осью.
+Вызовите [setVisible](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setvisible/) с `false` для горизонтальной оси, чтобы скрыть её. В примере создаётся линейная диаграмма с данными по умолчанию и сохраняется с скрытой горизонтальной осью.
 
 ```php
 use aspose\slides\ChartType;
@@ -127,9 +187,48 @@ try {
 }
 ```
 
-## **Изменить категориальную ось**
+## **Показать или скрыть линии сетки диаграммы**
 
-Используйте [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) для выбора датированной или текстовой категориальной оси. Этот пример требует `ExistingChart.pptx`, где диаграмма является первой фигурой на первом слайде, а ячейки категорий содержат численные значения дат Excel. Ось X меняется на датированную. Вызов [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) с `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) с `1` и [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) с `TimeUnitType::Months` размещают основные деления с интервалом в один месяц.
+Вызовите [getShowMajorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowmajorgridlines/) и [getShowMinorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowminorgridlines/) для проверки, какие линии сетки отображаются на оси. Чтобы показать мелкие линии сетки, используйте [getMinorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getminorgridlinesformat/) и задайте заливку линии сплошным видимым цветом. Чтобы скрыть их, задайте заливку [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/). Для основных линий используйте [getMajorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getmajorgridlinesformat/) аналогичным образом. Изменение заливки сохраняет видимость оси и отметки.
+
+Вертикальная ось этой сгруппированной столбчатой диаграммы изначально показывала только основные линии сетки. Пример отображает мелкие линии сетки тёмно‑оранжевым цветом, затем снова скрывает их перед сохранением презентации. На каждом шаге выводится статус видимости линий сетки.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 30, 660, 230);
+    $axis = $chart->getAxes()->getVerticalAxis();
+    printf("Initial: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill = $axis->getMinorGridLinesFormat()->getLine()->getFillFormat();
+    $minorFill->setFillType(FillType::Solid);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $minorFill->getSolidFillColor()->setColor($darkOrange);
+    printf("Enabled: minor=%s\n", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill->setFillType(FillType::NoFill);
+    printf("Hidden: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $presentation->save("ChartGridlines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Мелкие линии сетки включены | Мелкие линии сетки скрыты |
+| --- | --- |
+| ![Оранжевые мелкие линии сетки между основными линиями на вертикальной оси](minor-gridlines-enabled.png) | ![Та же столбчатая диаграмма, отображающая только основные линии сетки](minor-gridlines-hidden.png) |
+
+## **Изменить ось категорий**
+
+Используйте [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) для выбора датной или текстовой оси категорий. В этом примере требуется `ExistingChart.pptx`, где диаграмма является первой фигурой на первом слайде, а ячейки категорий содержат числовые значения дат Excel. Горизонтальная ось меняется на датную. Вызов [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) с `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) с `1` и [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) с `TimeUnitType::Months` размещает основные метки через один‑месяц.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -153,21 +252,81 @@ try {
 }
 ```
 
-## **Управление интервалами меток категориальной оси**
+### **Определить тип оси категорий по данным**
 
-Когда диаграмма содержит множество категорий, уменьшите количество видимых меток оси, не удаляя категории и точки данных. Вызовите [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) с `false`, а затем передайте желаемый интервал категории в [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Для текстовых категорий в обычном порядке отсчёт начинается с первой категории:
+Вызовите [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistypeautomatically/) после заполнения категорий, затем прочитайте [getCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getcategoryaxistype/) для получения выбранного типа. Это удобно, когда одна и та же диаграмма может получать либо текстовые подписи, либо числовые даты. Метод определяет тип в момент вызова; он не сохраняет постоянный режим, который переоценит последующие изменения данных. Вызовите его снова после замены категорий.
 
-| Интервал | Метки, отображаемые в примере |
+В следующем примере создаётся диаграмма с текстовыми категориями и выводится `true`, когда выбран тип `CategoryAxisType::Text`. Затем значения ячеек категорий заменяются датами, вызывается метод ещё раз, и выводится `true`, когда выбран тип `CategoryAxisType::Date`. Даты хранятся как числовые значения OLE Automation — количество дней, прошедших с 30‑го декабря 1899 года, а не как строковые даты. [setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) управляет отображением этих значений; он не преобразует текст в числовые даты. Подробнее о ячейках категорий см. в разделе [Chart Workbook](/slides/ru/php-java/chart-workbook/).
+
+Используйте автоматическое определение, когда входные данные известны как текстовые категории или числовые даты, как в этом примере. Для обычных числовых меток, смешанных категорий или пустых данных явно вызывайте [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) с нужным типом. Только числовые значения сами по себе не определяют, что категории представляют даты.
+
+```php
+use aspose\slides\CategoryAxisType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+    $labels = ["First", "Second", "Third"];
+
+    for ($i = 0; $i < count($labels); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $labels[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Text ? "true" : "false") . PHP_EOL;
+
+    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
+    $dates = [gmmktime(0, 0, 0, 1, 1, 2026), gmmktime(0, 0, 0, 1, 2, 2026), gmmktime(0, 0, 0, 2, 1, 2026)];
+
+    for ($i = 0; $i < count($dates); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0);
+        $categoryCell->setValue((float)(($dates[$i] - $baseDate) / 86400));
+        $categoryCell->setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Date ? "true" : "false") . PHP_EOL;
+
+    $presentation->save("AutomaticCategoryAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Управление интервалами меток оси категорий**
+
+Когда в диаграмме много категорий, уменьшите количество отображаемых меток оси, не удаляя категории и точки данных. Вызовите [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) с `false`, затем передайте желаемый интервал категорий в [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). Для текстовых категорий в их обычном порядке отсчёт начинается с первой категории:
+
+| Интервал | Метки, отображённые в примере |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-Интервал `3` отображает каждую третью метку, оставляя между отображаемыми две скрытые. Это не удаляет соответствующие столбцы. Автоматический интервал выбирается исходя из доступного пространства; он не обязательно отображает каждую метку.
+Интервал `3` отображает каждую третью метку, скрывая две метки между ними. Столбцы не удаляются. Автоматический интервал выбирается исходя из доступного пространства; он не гарантирует отображение каждой метки.
 
-Отметки делений имеют отдельные настройки. Вызовите [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) с `false` и используйте [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) для задания их интервала. Например, `1` оставляет деление у каждой категории, тогда как метки отображаются только каждые три категории. Примените [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) со стилем, видимым на диаграмме. Повторный вызов любого из автоматических методов с `true` возвращает автоматический выбор интервала.
+Отметки имеют отдельные настройки. Вызовите [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomatictickmarksspacing/) с `false` и используйте [setTickMarksSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settickmarksspacing/) для задания их интервала. Например, `1` оставит отметку на каждом интервале категории, пока метки появляются только каждые три категории. Используйте [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) с видимым стилем, чтобы увидеть результат. Повторный вызов автоматического сеттера с `true` возвращает диаграмме выбор интервала по умолчанию.
 
-Следующий автономный пример создаёт 24 категории и один ряд, затем сохраняет три слайда в `CategoryAxisIntervals.pptx`: автоматический интервал, ручной интервал меток с независимыми делениями и восстановленный автоматический интервал. Обе копии сохраняют исходные данные диаграммы. Входная презентация не требуется. Горизонтальный текст меток делает различие в плотности легко заметным.
+В следующем автономном примере создаются 24 категории и один ряд, затем сохраняются три слайда в `CategoryAxisIntervals.pptx`: автоматический интервал, ручной интервал меток с независимыми отметками и восстановление автоматического интервала. Две копии сохраняют исходные данные диаграммы. Входная презентация не требуется. Горизонтальный текст меток упрощает восприятие плотности.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -205,7 +364,7 @@ try {
     $axis->setAutomaticTickLabelSpacing(true);
     $axis->setAutomaticTickMarksSpacing(true);
 
-    // Слайд 2: показывать каждую третью метку, но оставлять деление для каждой категории.
+    // Слайд 2: показывать каждую третью метку, но оставлять отметку для каждой категории.
     $manualSlide = $presentation->getSlides()->addClone($slide);
     $manualChart = $manualSlide->getShapes()->get_Item(0);
     $manualAxis = $manualChart->getAxes()->getHorizontalAxis();
@@ -226,23 +385,23 @@ try {
 }
 ```
 
-**Automatic spacing (slide 1):** В этом варианте каждая вторая метка категории отображается и переносится на две строки. Автоматический результат может различаться в зависимости от размеров диаграммы, шрифтов и рендерера.
+**Автоматический интервал (слайд 1):** При таком отображении каждая вторая метка категории показывается и переносится на две строки. Автоматический результат может различаться в зависимости от размера диаграммы, шрифтов и рендерера.
 
-![Автоматический интервал меток категорий при видимых всех 24 столбцах](category-axis-automatic.png)
+![Автоматический интервал меток категории при видимых всех 24 столбцах](category-axis-automatic.png)
 
-**Manual spacing (slide 2):** Каждая третья метка отображается в одну строку, тогда как деления остаются у каждой категории. Все 24 столбца, включая те, у которых нет меток, остаются видимыми с теми же значениями. Слайд 3 восстанавливает автоматический вид, показанный выше.
+**Ручной интервал (слайд 2):** Каждая третья метка отображается в одну строку, а отметки остаются на каждом интервале категории. Все 24 столбца, включая те, у которых нет меток, остаются видимыми с теми же значениями. Слайд 3 восстанавливает автоматический внешний вид, показанный выше.
 
-![Ручной интервал меток категории в три при видимых всех 24 столбцах](category-axis-manual.png)
+![Ручной интервал меток категории равный трем при видимых всех 24 столбцах](category-axis-manual.png)
 
-### **Выберите правильную ось и интервал**
+### **Выбрать правильную ось и интервал**
 
-Используйте этот интервал количества категорий для текстовой категориальной оси, например для оси категорий столбчатой, линейной, областной или гистограммы. В столбчатой диаграмме это горизонтальная ось. В горизонтальной гистограмме категориальная ось вертикальна, поэтому применяйте эти настройки к оси, возвращаемой [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Интервал делений также относится к оси рядов в диаграммах, где она присутствует.
+Применяйте данный интервал количества категорий к текстовой оси категорий, например к оси категорий столбчатой, линейной, площадной или столбчатой диаграммы. В столбчатой диаграмме это горизонтальная ось. В горизонтальной столбчатой диаграмме ось категорий вертикальна, поэтому применяйте эти настройки к оси, возвращаемой [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Интервал отметок также относится к оси рядов в диаграммах, где она присутствует.
 
-Не используйте интервалы меток категорий для задания числовой шкалы оси значений. На оси значений [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) задаёт разницу в значениях: например, основной шаг `10` создаёт деления 0, 10, 20 и т.д., когда ось начинается с нуля. Интервал метки категории `3` же считает позиции категорий независимо от их значений. Диаграммы рассеяния и пузырьковые используют оси значений, а не текстовую категориальную ось. Для датированной оси используйте временные основные единицы и масштабы, как описано в [Изменить категориальную ось](#изменить-категориальную-ось).
+Не используйте интервал меток категорий для задания числовой шкалы оси значений. На оси значений [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) задаёт разницу значений: например, основной шаг `10` создаёт отметки 0, 10, 20 и т.д., когда ось начинается с нуля. Интервал меток категории `3` считает позиции категорий независимо от их значений. Диаграммы рассеяния и пузырьковые используют оси значений, а не текстовую ось категорий. Для датной оси используйте единицы времени и масштабы, описанные в разделе [Изменить ось категорий](#change-a-category-axis).
 
-## **Установить формат даты для значений категориальной оси**
+## **Установить формат даты для значений оси категорий**
 
-Пример заменяет данные диаграммы четырьмя годовыми значениями. Даты хранятся как серийные номера OLE Automation в первом листе (индекс `0`), вычисляемые как количество дней, прошедших с 30 декабря 1899. Используйте [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) с `CategoryAxisType::Date`, вызовите [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) с `false` и передайте `yyyy` в [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/), чтобы метки категорий отображали четырёхзначные годы независимо от формата ячейки.
+Пример заменяет данные диаграммы четырьмя годовыми значениями. Даты хранятся как серийные числа OLE Automation в первом листе (индекс `0`), рассчитываемые как количество дней с 30‑го декабря 1899 года. Используйте [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) с `CategoryAxisType::Date`, вызовите [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) с `false` и передайте `yyyy` в [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/), чтобы метки категорий отображали четырёхзначные годы независимо от формата ячеек.
 
 ```php
 use aspose\slides\CategoryAxisType;
@@ -287,7 +446,7 @@ try {
 
 ## **Установить угол вращения заголовка оси диаграммы**
 
-Вызовите [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) с `true` у вертикальной оси, укажите текст заголовка и используйте [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) для его поворота. Угол измеряется в градусах; в примере сохраняется столбчатая диаграмма, у которой заголовок оси значений повернут на 90 градусов.
+Вызовите [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/axis/settitle/) с `true` для вертикальной оси, задайте текст заголовка и используйте [setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextblockformat/#setRotationAngle-float-) для поворота заголовка. Угол измеряется в градусах; пример сохраняет столбчатую диаграмму с заголовком оси значений, повернутым на 90 градусов.
 
 ```php
 use aspose\slides\ChartType;
@@ -309,9 +468,9 @@ try {
 }
 ```
 
-## **Установить позицию оси на категориальной или оси значений**
+## **Установить позицию оси на оси категории или значения**
 
-Используйте [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) для управления тем, пересекает ли ось значений ось категорий между категориями или на метках категорий. Эта настройка применяется к категориальным осям. В примере параметр устанавливается в `true` для горизонтальной категориальной оси столбчатой диаграммы и сохраняется результат.
+Используйте [setAxisBetweenCategories](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaxisbetweencategories/) для управления тем, пересекает ли ось значений ось категорий между категориями или на отметках категорий. Это настройка применяется к осям категорий. Пример задаёт её как `true` для горизонтальной оси категории столбчатой диаграммы и сохраняет результат.
 
 ```php
 use aspose\slides\ChartType;
@@ -333,7 +492,7 @@ try {
 
 ## **Установить единицу отображения на оси значений диаграммы**
 
-Используйте [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) для масштабирования меток оси значений без изменения исходных данных. При значении [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` значение 60 000 000 будет отображаться как 60. В примере создаётся столбчатая диаграмма и к её вертикальной оси применяется единица отображения «миллионы».
+Примените [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) для масштабирования меток оси значений без изменения исходных данных. При типе [DisplayUnitType](https://reference.aspose.com/slides/php-java/aspose.slides/displayunittype/) `Millions` значение 60 000 000 отображается как 60. Пример создаёт столбчатую диаграмму и применяет единицу отображения «миллионы» к её вертикальной оси.
 
 ```php
 use aspose\slides\ChartType;
@@ -356,19 +515,19 @@ try {
 
 ## **Настроить логарифмическую ось значений**
 
-Логарифмическая ось значений полезна, когда положительные значения охватывают несколько порядков величины. Например, сервис может получать 10, 100, 1 000, 10 000 и 100 000 запросов за пять периодов. При линейной шкале меньшие значения сосредоточены рядом с нулём. Логарифмическая шкала облегчает сравнение относительного роста: одинаковые расстояния соответствуют одинаковым коэффициентам, а не одинаковым разницам.
+Логарифмическая ось значений полезна, когда положительные значения охватывают несколько порядков величины. Например, сервис может получать 10, 100, 1 000, 10 000 и 100 000 запросов за пять периодов. При линейном масштабе меньшие значения сгруппированы рядом с нулём. Логарифмический масштаб делает их относительный рост легче сравнимым: одинаковые расстояния представляют одинаковые отношения, а не одинаковые различия.
 
-Вызовите [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) с `true` у оси значений и используйте [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) для выбора основания. Это меняет только способ отображения существующих значений; данные и добавление логарифмической линии тренда не меняются. Линия тренда представляет собой построенную по данным зависимость и является отдельной функцией.
+Вызовите [setLogarithmic](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogarithmic/) с `true` для оси значений и используйте [setLogBase](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlogbase/) для выбора основания. Это меняет отображение существующих значений, но не меняет данные и не добавляет логарифмическую линию тренда. Линия тренда представляет построенную зависимость и является отдельной функцией.
 
-### **Выберите ось значений и основание**
+### **Выбрать ось значений и основание**
 
-Для линейной или столбчатой диаграммы ось значений возвращается методом [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Для горизонтальной гистограммы — методом [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Диаграммы рассеяния и пузырьковые имеют две оси значений, поэтому выбирайте горизонтальную ось для значений X, вертикальную — для Y, или обе. Не применяйте логарифмическое масштабирование к категориальной оси.
+Для линейной или столбчатой диаграммы ось значений возвращается методом [getVerticalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/getverticalaxis/). Для горизонтальной столбчатой диаграммы — методом [getHorizontalAxis](https://reference.aspose.com/slides/php-java/aspose.slides/axesmanager/gethorizontalaxis/). Диаграммы рассеяния и пузырьковые имеют две оси значений, поэтому выбирайте горизонтальную ось для X‑значений, вертикальную для Y‑значений или обе. Не применяйте логарифмическое масштабирование к оси категорий.
 
-Основание логарифма по умолчанию `10`. Для диаграмм PPTX допускаются основания от `2` до `1000` включительно; поддерживаются также дробные основания, такие как `2.5`. При основании `10` последовательные степени (10, 100, 1 000, 10 000) располагаются равномерно.
+Основание логарифма по умолчанию — `10`. Для PPTX‑диаграмм допускается основание от `2` до `1000` включительно; поддерживаются и дробные основания, такие как `2.5`. При основании `10` степени 10, 100, 1 000 и 10 000 расположены равномерно.
 
-### **Сравнение линейного и логарифмического масштабирования**
+### **Сравнение линейного и логарифмического масштабов**
 
-Следующий автономный пример создаёт линейную диаграмму с пятью подсчётами запросов на первом слайде, затем клонирует этот слайд и включает логарифмическую ось значений с основанием 10 на втором. Оба слайда сохраняют одинаковые данные.
+В следующем автономном примере создаётся линейная диаграмма с пятью подсчётами запросов на первом слайде, затем этот слайд клонируется и на втором включается логарифмическая ось значений с основанием 10. Оба слайда сохраняют одинаковые данные.
 
 ```php
 use aspose\slides\ChartType;
@@ -400,7 +559,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Оставляем первый слайд линейным и изменяем только масштаб оси значений копии.
+    // Сохранить первый слайд линейным и изменить только масштаб оси значений в копии.
     $logarithmicSlide = $presentation->getSlides()->addClone($slide);
     $logarithmicChart = $logarithmicSlide->getShapes()->get_Item(0);
     $valueAxis = $logarithmicChart->getAxes()->getVerticalAxis();
@@ -413,24 +572,24 @@ try {
 }
 ```
 
-**Linear scale (slide 1):** Равные вертикальные расстояния представляют равные различия в количестве запросов. Наибольшее значение доминирует, делая малые значения трудно различимыми.
+**Линейный масштаб (слайд 1):** Равные вертикальные расстояния представляют равные различия в количестве запросов. Наибольшее значение доминирует, а меньшие трудно различить.
 
-![Линейная диаграмма в PowerPoint, показывающая пять подсчётов запросов на линейной оси значений](value-axis-linear.png)
+![Линейная линейная диаграмма в PowerPoint, показывающая пять подсчётов запросов по линейной оси значений](value-axis-linear.png)
 
-**Logarithmic scale (slide 2):** Равные вертикальные расстояния представляют равные коэффициенты. Каждый период содержит в десять раз больше запросов, чем предыдущий, поэтому точки образуют прямую восходящую линию на шкале с основанием 10. Метки оси по‑прежнему отображают оригинальные подсчёты запросов.
+**Логарифмический масштаб (слайд 2):** Равные вертикальные расстояния представляют равные отношения. Каждый период имеет в десять раз больше запросов, чем предыдущий, поэтому точки образуют прямую восходящую линию на логарифмическом масштабе с основанием 10. Метки оси всё равно показывают исходные количества запросов.
 
 ![Те же пять подсчётов запросов в PowerPoint на логарифмической оси значений с основанием 10](value-axis-logarithmic.png)
 
-### **Обрабатывать нулевые и отрицательные значения**
+### **Обработка нулевых и отрицательных значений**
 
-Логарифмическая шкала может отображать только строго положительные значения. Проверьте данные перед включением её. Если нулевые или отрицательные значения имеют смысл, оставьте линейную шкалу или отобразите их отдельно. Если исключение этих значений уместно для анализа, объясните причину их исключения. Не заменяйте их «тихо» на небольшие положительные числа, так как это меняет смысл данных. Любой вручную заданный минимум или максимум для логарифмической оси также должен быть положительным.
+Логарифмический масштаб может отображать только строго положительные значения. Проверьте данные перед включением. Если нулевые или отрицательные значения имеют смысл, оставьте линейный масштаб или отображайте их отдельно. Если их исключение оправдано, объясните причину. Не заменяйте их «тихо» малыми положительными числами, так как это меняет смысл данных. Любой вручную заданный минимум или максимум для логарифмической оси также должен быть положительным.
 
 ## **FAQ**
 
 **Как задать значение, в котором одна ось пересекает другую (пересечение осей)?**
 
-Используйте [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) для выбора поведения пересечения. Чтобы указать числовое значение пересечения, примените [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Эти настройки позволяют переместить точку пересечения осей к подходящей базовой линии.
+Используйте [setCrossType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrosstype/) для выбора поведения пересечения. Чтобы задать числовое значение пересечения, используйте [setCrossAt](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcrossat/). Эти настройки позволяют переместить пересечение осей к нужному базовому уровню.
 
-**Как позиционировать подписи делений относительно оси?**
+**Как позиционировать метки отметок относительно оси?**
 
-Вызовите [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) с использованием [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` или `None`. Чтобы управлять самими делениями, используйте [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) или [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); они независимы от позиционирования меток.
+Вызовите [setTickLabelPosition](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelposition/) с типом [TickLabelPositionType](https://reference.aspose.com/slides/php-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` или `None`. Чтобы управлять самими отметками, используйте [setMajorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajortickmark/) или [setMinorTickMark](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setminortickmark/); они независимы от позиционирования меток.

@@ -7,32 +7,32 @@ url: /ru/nodejs-java/video-frame/
 keywords:
 - добавить видео
 - создать видео
-- внедрить видео
+- встроить видео
 - извлечь видео
 - получить видео
 - видеокадр
-- веб-источник
+- веб‑источник
 - PowerPoint
 - OpenDocument
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Изучите, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument, используя Aspose.Slides for Node.js via Java. Быстрое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Node.js via Java. Быстрое руководство‑по‑шагам."
 ---
 ## **Введение**
 
-Видео может помочь объяснить идеи и привлечь аудиторию. Aspose.Slides for Node.js via Java позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
+Видео могут помочь объяснить идеи и привлечь аудиторию. Aspose.Slides for Node.js via Java позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
 
-PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео YouTube.
+PowerPoint поддерживает локальные видеоролики и ссылки на онлайн‑видео, такие как видео YouTube.
 
-Для представления видеоданных и видеокадров Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/), класс [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) и другие соответствующие типы.
+Для представления видеоданных и видеокадров Aspose.Slides предоставляет классы [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) и [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/), а также другие соответствующие типы.
 
-## **Создать встроенный видеокадр**
+## **Создание встроенного видеокадра**
 
 Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
 
-В этом примере локальное видео встраивается на первый слайд существующей презентации и сохраняется результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) удерживает его, пока презентация его использует.
+Этот пример встраивает локальное видео на первый слайд существующей презентации и сохраняет результат. Координаты кадра и его размеры указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) удерживает его, пока презентация использует его.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Вы также можете передать путь к локальному видео напрямую в [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). В этом примере видео встраивается на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
+Вы также можете передать путь к локальному видео напрямую в [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Этот пример встраивает видео на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -73,11 +73,11 @@ try {
 }
 ```
 
-## **Создать видеокадр с видео из веб‑источника**
+## **Создание видеокадра с видео из веб‑источника**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например видео YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например, видео YouTube.
 
-В этом примере добавляется ссылка на видео YouTube и миниатюра на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) запрашивает автоматическое воспроизведение. Скачивание миниатюры и воспроизведение видео требуют доступа к Интернету. Приложение для просмотра презентаций также должно поддерживать воспроизведение онлайн‑видео.
+Этот пример добавляет ссылку на видео YouTube и миниатюру на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) запрашивает автоматическое воспроизведение. Загрузка миниатюры и воспроизведение видео требуют доступа к интернету. Просмотрщик презентаций также должен поддерживать онлайн‑воспроизведение видео.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Воспроизвести видео в полноэкранном режиме**
+## **Воспроизведение видео в полноэкранном режиме**
 
-В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория видела детали. Вызовите [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) с `true`, чтобы включить это поведение во время воспроизведения.
+В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория могла увидеть детали. Вызовите [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) с `true`, чтобы включить это поведение во время воспроизведения.
 
-В этом примере открывается презентация, находится первый [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) на первом слайде и включается полноэкранное воспроизведение. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, находит первый [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) на первом слайде и включает полноэкранное воспроизведение. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,13 +137,13 @@ try {
 }
 ```
 
-Полноэкранное воспроизведение определяет, как отображается видео. Независимо от этого [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) управляет тем, начинается ли воспроизведение автоматически или по щелчку, а [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) управляет повтором. Чтобы выбрать поведение запуска, задайте режим воспроизведения [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и цикла.
+Полноэкранное воспроизведение определяет, как отображается видео. Отдельно [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) управляет тем, начинается ли оно автоматически или по щелчку, а [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) определяет, будет ли оно повторяться. Чтобы выбрать способ запуска, установите режим воспроизведения на [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и повторения.
 
-## **Перемотать видео после воспроизведения**
+## **Перемотка видео после воспроизведения**
 
-В учебной презентации возвращение демонстрационного видео к началу делает его готовым к повторному воспроизведению. Вызовите [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) с `true`, чтобы вернуть видео к началу после завершения воспроизведения.
+В учебной презентации возврат демонстрационного видео к началу делает его готовым к повторному воспроизведению. Вызовите [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) с `true`, чтобы после окончания воспроизведения перемотать видео к началу.
 
-В этом примере открывается презентация, находится первый [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) на первом слайде и включается перемотка. Отключается цикл, чтобы воспроизведение могло завершиться, и задаётся запуск воспроизведения по щелчку. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, находит первый [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) на первом слайде и включает перемотку. Он отключает зацикливание, чтобы воспроизведение могло завершиться, и задаёт запуск по щелчку. Входная презентация должна содержать хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,15 +170,15 @@ try {
 }
 ```
 
-Перемотка возвращает видео к началу без повторного запуска. В отличие от этого, вызов [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) с `true` автоматически повторяет воспроизведение. Оставляйте цикл отключённым, когда нужно, чтобы видео завершилось и было готово к повторному воспроизведению. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) независимо управляет автоматическим запуском или запуском по щелчку; в этом примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/), чтобы презентер контролировал, когда начинается воспроизведение. Устанавливайте режим воспроизведения после настройки цикла, как показано в примере. Перемотка работает независимо от [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+Перемотка возвращает видео к началу без повторного запуска. В отличие от этого, вызов [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) с `true` повторяет воспроизведение автоматически. Отключайте зацикливание, когда требуется, чтобы видео закончилось и осталось готовым к повторному запуску. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) независимо управляет автоматическим или по‑клику запуском; в примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/), поэтому презентер сам решает, когда начать воспроизведение. Устанавливайте режим воспроизведения после настройки зацикливания, как показано в примере. Перемотка работает независимо от [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
 
-## **Обрезать видеокадр**
+## **Обрезка видеокадра**
 
-Используйте [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) и [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/), чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указываются в миллисекундах. Обрезка меняет настройки воспроизведения без изменения встроенных видеоданных.
+Используйте [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) и [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения задаются в миллисекундах. Обрезка изменяет параметры воспроизведения без изменения встроенных видеоданных.
 
-**Настройка обрезки**
+**Настройки обрезки**
 
-В этом примере встраивается локальное видео и пропускаются первые 2,5 секунды и последняя секунда во время воспроизведения. Используйте видео длиннее 3,5 секунды, чтобы оставался воспроизводимый сегмент.
+Этот пример встраивает локальное видео и пропускает первые 2,5 секунды и последнюю секунду во время воспроизведения. Используйте видео длительностью более 3,5 секунды, чтобы оставшийся фрагмент был воспроизводим.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,7 +205,7 @@ try {
 
 **Чтение настроек обрезки**
 
-В этом примере выводятся значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать как минимум один слайд. Если у этого слайда нет видеокадра, ничего не выводится. Предыдущий пример выдаёт значения 2500 и 1000.
+Этот пример выводит значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать хотя бы один слайд. Если на этом слайде нет видеокадра, ничего не будет выведено. Предыдущий пример выдаёт значения 2500 и 1000.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -233,9 +233,9 @@ try {
 
 Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Добавить субтитры к видеокадру**
+### **Добавление субтитров к видеокадру**
 
-В этом примере встраивается локальное видео и добавляется дорожка субтитров WebVTT с меткой English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация содержит как видео, так и его субтитры.
+Этот пример встраивает локальное видео и добавляет дорожку субтитров WebVTT с меткой English. Тайм‑коды субтитров должны соответствовать видео. Сохранённая презентация будет включать как видео, так и его субтитры.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -261,9 +261,9 @@ try {
 
 Класс [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) также предоставляет метод [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) для добавления субтитров из потока.
 
-**Извлечь субтитры из видеокадра**
+### **Извлечение субтитров из видеокадра**
 
-В этом примере сохраняются все дорожки субтитров из видеокадров на первом слайде в отдельные файлы WebVTT. Последовательные номера делают выходные файлы различимыми. Консоль выводит количество извлечённых дорожек. Презентация должна содержать как минимум один слайд.
+Этот пример сохраняет все дорожки субтитров из видеокадров первого слайда в отдельные файлы WebVTT. Последовательные номера делают файлы вывода различимыми. Консоль выводит количество извлечённых дорожек. Презентация должна содержать хотя бы один слайд.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,11 +295,11 @@ try {
 }
 ```
 
-Каждый объект [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF-8.
+Каждый объект [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) раскрывает идентификатор субтитра, метку, бинарные данные и текст субтитра в виде строки UTF‑8.
 
-**Удалить субтитры из видеокадра**
+### **Удаление субтитров из видеокадра**
 
-В этом примере удаляются все субтитры из видеокадра, находящегося в первой позиции формы на первом слайде, и сохраняется результат. Предполагается, что слайд и форма существуют и что форма является видеокадром.
+Этот пример удаляет все субтитры из видеокадра, находящегося в первой позиции фигуры на первом слайде, и сохраняет результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,11 +319,77 @@ try {
 
 Если нужно удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) или [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) вместо [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
 
-## **Извлечь видео со слайда**
+### **Поиск субтитров видео**
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+Метод [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) возвращает полную дорожку WebVTT, включая заголовок, строки таймингов и текст субтитров. Вы можете искать текст субтитров в памяти, чтобы найти фразу и её тайм‑коды. Например, английская дорожка на слайде 2 может содержать следующий cue:
 
-В этом примере извлекаются встроенные видео со всех слайдов в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит тип MIME каждого видео и общее количество. Вывод использует общее расширение `.bin`; при необходимости измените его в соответствии с типом медиа.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Этот пример открывает `captioned_media.pptx` и использует [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) для чтения дорожек каждого верхнеуровневого видеокадра на всех слайдах. В простом тексте cue строка тайминга содержит `-->`, а пустая строка завершает cue. Для каждого субтитра, содержащего слово “café” независимо от регистра, пример выводит номер слайда, метку дорожки, оригинальную строку тайминга и полный текст субтитра.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Поиск “café” находит одно совпадение в образцовой дорожке. Поиск пропускает заголовок дорожки и сохраняет настройки таймингов и разрывы строк в выводе.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Извлечение видео со слайда**
+
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенные в презентации.
+
+Этот пример извлекает встроенные видео со всех слайдов в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как у них нет встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Вывод использует обобщённое расширение `.bin`; при необходимости замените его на соответствующее типу медиа.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -362,18 +428,18 @@ try {
 
 ## **FAQ**
 
-**Какие параметры воспроизведения видео можно изменить для видеокадра?**
+**Какие параметры воспроизведения видео могут быть изменены для видеокадра?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [зацикливанием](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация хранит только ссылку и изображение превью вместо видеоданных, поэтому увеличение размера обычно меньше.
+Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации возрастает пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение‑превью, а не само видео, поэтому увеличение размера обычно меньше.
 
-**Могу ли я заменить видео в существующем видеокадре без изменения его положения и размеров?**
+**Можно ли заменить видео в существующем видеокадре без изменения его положения и размеров?**
 
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию формы; это распространённый сценарий обновления медиа в существующей раскладке.
+Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию фигуры; это обычный сценарий обновления медиа в уже существующей раскладке.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например при сохранении на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например, при сохранении файла на диск.

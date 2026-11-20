@@ -25,13 +25,13 @@ description: "Entdecken Sie, wie Sie Aspose.Slides für C++ verwenden, um Diagra
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Sie Diagrammachsen mit Aspose.Slides für C++ anpassen. Er behandelt berechnete Achsenwerte, das Vertauschen von Zeilen und Spalten im Diagramm, Achsensichtbarkeit, Intervall von Kategorielabels und Strichmarken, Datums­kategorien und -formatierung, Titelrotation, Achsenpositionierung, Anzeige­einheiten und logarithmische Skalierung.
+Dieser Artikel erklärt, wie Diagrammachsen mit Aspose.Slides für C++ angepasst werden können. Er behandelt berechnete Achsenwerte, das Vertauschen von Diagramm‑Zeilen und -Spalten, Achsensichtbarkeit, Intervall für Kategorien‑Beschriftungen und Teilstrich‑Markierungen, Datums‑Kategorien und Formatierung, Drehung des Titels, Achsenpositionierung, Anzeigeeinheiten und logarithmische Skalierung.
 
-## **Maximalwerte auf der Vertikalachse in Diagrammen ermitteln**
+## **Maximale Werte der vertikalen Achse bei Diagrammen ermitteln**
 
-Erstellen Sie eine [Präsentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) auf, bevor Sie berechnete Achsenwerte lesen, damit das Diagrammlayout aktuell ist.
+Erstellen Sie eine [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) und fügen Sie ein Flächendiagramm mit Standarddaten hinzu. Rufen Sie [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/validatechartlayout/) auf, bevor Sie berechnete Achsenwerte auslesen, damit das Diagrammlayout aktuell ist.
 
-Lesen Sie [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) und [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) für die Achsengrenzen und [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) und [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) für die Strichintervallen. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) und [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) liefern Zeiteinheiten‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
+Lesen Sie [get_ActualMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmaxvalue/) und [get_ActualMinValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminvalue/) für die Achsenbegrenzungen sowie [get_ActualMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunit/) und [get_ActualMinorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunit/) für die Teilstrich‑Intervalle. [get_ActualMajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualmajorunitscale/) und [get_ActualMinorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/get_actualminorunitscale/) liefern Zeit‑Einheit‑Skalen, die für Datumsachsen relevant sind. Das Beispiel speichert diese Werte in lokalen Variablen und speichert das Diagramm.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -65,9 +65,9 @@ auto minorUnitScale = chart->get_Axes()->get_VerticalAxis()->get_ActualMinorUnit
 presentation->Save(u"AxisValues_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Daten zwischen Achsen austauschen**
+## **Daten zwischen Achsen vertauschen**
 
-Verwenden Sie [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/), um die Rollen von Serien und Kategorien in den Diagrammdaten zu vertauschen. Jede vorherige Kategorie wird zu einer Serie und jede vorherige Serie zu einer Kategorie. Dies ändert die Gruppierung der Daten; es tauscht nicht die horizontale und vertikale Achse aus. Das Beispiel verwendet [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/), um die Standarddaten an `Sheet1!A1:D5` zu binden, einschließlich der Kopfzeile und der Kategoriespalte, bevor Zeilen und Spalten vertauscht werden. Es speichert ein Diagramm mit vier Serien und drei Kategorien.
+Verwenden Sie [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/), um die Rollen von Reihen und Spalten in Diagrammdaten auszutauschen. Jede ehemalige Kategorie wird zu einer Reihe und jede ehemalige Reihe zu einer Kategorie. Das ändert die Gruppierung der Daten; die horizontale und vertikale Achse werden nicht vertauscht. Das Beispiel nutzt [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/setrange/), um die Standarddaten an `Sheet1!A1:D5` zu binden (einschließlich Kopfzeile und Kategorienspalte), bevor Zeilen und Spalten vertauscht werden. Es speichert ein Diagramm mit vier Reihen und drei Kategorien.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -95,11 +95,11 @@ chart->get_ChartData()->SwitchRowColumn();
 presentation->Save(u"SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Plot‑Reihenfolge einer Achse umkehren**
+## **Reihenfolge der Plotting‑Achse umkehren**
 
-Verwenden Sie [set_IsPlotOrderReversed](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isplotorderreversed/), um eine Kategorien‑ oder Werteachse umzukehren. Beispielsweise kann ein horizontales Balkendiagramm Projektphasen von oben nach unten in derselben Reihenfolge wie das Arbeitsblatt anzeigen: Planung, Entwicklung, Testen. Das Umkehren einer Achse ändert die Plot‑Richtung; sie sortiert oder ordnet die Arbeitsmappendaten nicht neu. Im Vergleich dazu vertauscht [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) die Rollen von Serien und Kategorien.
+Verwenden Sie [set_IsPlotOrderReversed](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isplotorderreversed/), um eine Kategorie‑ oder Wertachse umzukehren. Zum Beispiel kann ein horizontales Balkendiagramm Projektphasen von oben nach unten in derselben Reihenfolge wie das Arbeitsblatt anzeigen: Planung, Entwicklung, Testen. Das Umkehren einer Achse ändert die Plot‑Richtung; sie sortiert oder ordnet die Arbeitsblattdaten nicht neu. Im Vergleich dazu tauscht [SwitchRowColumn](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/switchrowcolumn/) die Rollen von Reihen und Kategorien aus.
 
-Das folgende Beispiel erstellt ein horizontales Balkendiagramm mit drei Phasen und einer Serie. Es speichert eine Präsentation mit drei Folien: normale Reihenfolge, umgekehrte Kategorien und umgekehrte Werte. Jede Kopie verwendet denselben Datensatz, und nur eine Achse ist in jeder Kopie umgekehrt.
+Das folgende Beispiel erstellt ein horizontales Balkendiagramm mit drei Phasen und einer Reihe. Es speichert eine Präsentation mit drei Folien: normale Reihenfolge, umgekehrte Kategorien und umgekehrte Werte. Jede Kopie verwendet denselben Datensatz, und jeweils nur eine Achse ist umgekehrt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -153,7 +153,7 @@ for (auto i = 0; i < stages.size(); i++)
 auto categorySlide = presentation->get_Slides()->AddClone(slide);
 auto categoryChart = System::ExplicitCast<IChart>(categorySlide->get_Shape(0));
 categoryChart->get_Axes()->get_VerticalAxis()->set_IsPlotOrderReversed(true);
-// Halte die horizontale Werteachse unten.
+// Die horizontale Werteachse unten behalten.
 categoryChart->get_Axes()->get_VerticalAxis()->set_CrossType(CrossesType::Maximum);
 
 // Folie 3: nur die horizontale numerische Skala umkehren.
@@ -164,16 +164,16 @@ valueChart->get_Axes()->get_HorizontalAxis()->set_IsPlotOrderReversed(true);
 presentation->Save(u"ReversedAxes.pptx", SaveFormat::Pptx);
 ```
 
-Das Umkehren einer Achse kann auch die senkrechte Achse auf die gegenüberliegende Seite des Diagramms verschieben. [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) steuert, wo die andere Achse die konfigurierten Achse kreuzt. In Folie 2 sorgt die Einstellung auf `Maximum` bei der umgekehrten Kategorienachse dafür, dass die horizontale Werteachse unten bleibt. Für einen konkreten Schnittpunkt verwenden Sie [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Überprüfen Sie die Kreuzungseinstellungen beim Ändern der Richtung, insbesondere wenn das Diagramm bereits einen benutzerdefinierten Kreuzungspunkt hat. Rufen Sie `set_IsPlotOrderReversed` mit `false` auf, um die normale Plot‑Richtung wiederherzustellen; die Kreuzungseinstellungen sind separat.
+Das Umkehren einer Achse kann auch die senkrechte Achse auf die gegenüber­liegende Seite des Plots verschieben. [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/) steuert, wo die andere Achse die konfigurierte Achse schneidet. In Folie 2 sorgt das Setzen auf `Maximum` bei der umgekehrten Kategorienachse dafür, dass die horizontale Wertachse unten bleibt. Für einen konkreten Schnittpunkt verwenden Sie [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Prüfen Sie die Schnitt‑Einstellungen beim Richtungswechsel, besonders wenn das Diagramm bereits einen benutzerdefinierten Schnittpunkt hat. Rufen Sie `set_IsPlotOrderReversed` mit `false` auf, um die normale Plot‑Richtung wiederherzustellen; die Schnitt‑Einstellungen sind separat.
 
-| Normale Reihenfolge (Folie 1) | Umgekehrte Kategorien (Folie 2) | Umgekehrte Werte (Folie 3) |
+| Normalreihenfolge (Folien 1) | Umgekehrte Kategorien (Folien 2) | Umgekehrte Werte (Folien 3) |
 | --- | --- | --- |
-| ![Horizontales Balkendiagramm mit normaler Kategorien‑ und Werteachsen‑Reihenfolge](axis-order-normal.png) | ![Horizontales Balkendiagramm mit von oben nach unten angezeigten Kategorien](axis-order-categories-reversed.png) | ![Horizontales Balkendiagramm mit umgekehrter Werteachse und Null rechts](axis-order-values-reversed.png) |
-| Kategorien laufen von unten nach oben; Werte steigen von links nach rechts. | Planung, Entwicklung und Testen laufen von oben nach unten. Werte und Zeilenreihenfolge des Arbeitsblatts bleiben unverändert. | Kategorien behalten ihre normale Reihenfolge; Werte steigen von rechts nach links. Die Kategorienachse schneidet bei Null rechts. |
+| ![Horizontales Balkendiagramm mit normaler Kategorie‑ und Wertachsen‑Reihenfolge](axis-order-normal.png) | ![Horizontales Balkendiagramm mit von oben nach unten angezeigten Kategorien](axis-order-categories-reversed.png) | ![Horizontales Balkendiagramm mit umgekehrter Wertachse und Nullwert rechts](axis-order-values-reversed.png) |
+| Kategorien laufen von unten nach oben; Werte steigen von links nach rechts. | Planung, Entwicklung und Testen laufen von oben nach unten. Werte‑ und Zeilenreihenfolge im Arbeitsblatt bleiben unverändert. | Kategorien behalten ihre normale Reihenfolge; Werte steigen von rechts nach links. Die Kategorienachse schneidet bei Null rechts. |
 
-## **Vertikale Achse für Liniendiagramme deaktivieren**
+## **Vertikale Achse bei Liniendiagrammen ausblenden**
 
-Verwenden Sie [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) mit `false` auf der vertikalen Achse, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
+Verwenden Sie [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) mit `false` für die vertikale Achse, um sie zu verbergen. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter vertikaler Achse.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -198,9 +198,9 @@ chart->get_Axes()->get_VerticalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenVerticalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Horizontale Achse für Liniendiagramme deaktivieren**
+## **Horizontale Achse bei Liniendiagrammen ausblenden**
 
-Verwenden Sie [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) mit `false` auf der horizontalen Achse, um sie auszublenden. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
+Verwenden Sie [set_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isvisible/) mit `false` für die horizontale Achse, um sie zu verbergen. Das Beispiel erstellt ein Liniendiagramm mit Standarddaten und speichert es mit ausgeblendeter horizontaler Achse.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -225,9 +225,59 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
-## **Eine Kategorienachse ändern**
+## **Diagramm‑Rasterlinien anzeigen oder ausblenden**
 
-Verwenden Sie [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/), um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm die erste Form auf der ersten Folie ist und die Kategoriespalten numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Durch Aufrufen von [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) mit `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) mit `1` und [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) mit Monaten werden Hauptstriche im Abstand von einem Monat gesetzt.
+Verwenden Sie [get_ShowMajorGridLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_showmajorgridlines/) und [get_ShowMinorGridLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_showminorgridlines/), um zu prüfen, welche Rasterlinien eine Achse darstellt. Beide Eigenschaften sind schreibgeschützt. Um Nebenrasterlinien anzuzeigen, verwenden Sie [get_MinorGridLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_minorgridlinesformat/) und setzen die Linienfüllung auf eine solide, sichtbare Farbe. Um sie zu verbergen, setzen Sie die Füllung auf [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/). Verwenden Sie [get_MajorGridLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_majorgridlinesformat/), um die Hauptrasterlinien auf die gleiche Weise zu ändern. Das Ändern der Rasterlinien‑Füllung bewahrt die Achsensichtbarkeit und Teilstrich‑Markierungen.
+
+Die vertikale Achse dieses gruppierten Säulendiagramms zeigt zunächst nur Hauptrasterlinien. Das Beispiel zeigt Nebenrasterlinien in Orange an und blendet sie anschließend wieder aus, bevor die Präsentation gespeichert wird.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 30, 660, 230);
+auto axis = chart->get_Axes()->get_VerticalAxis();
+std::cout << std::boolalpha << "Initial: major=" << axis->get_ShowMajorGridLines() << ", minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+auto minorFill = axis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat();
+minorFill->set_FillType(FillType::Solid);
+minorFill->get_SolidFillColor()->set_Color(Color::get_DarkOrange());
+std::cout << "Enabled: minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+minorFill->set_FillType(FillType::NoFill);
+std::cout << "Hidden: major=" << axis->get_ShowMajorGridLines() << ", minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+presentation->Save(u"ChartGridlines.pptx", SaveFormat::Pptx);
+```
+
+| Nebenrasterlinien aktiviert | Nebenrasterlinien ausgeblendet |
+| --- | --- |
+| ![Orangefarbene Nebenrasterlinien zwischen den Hauptrasterlinien auf der vertikalen Achse](minor-gridlines-enabled.png) | ![Dasselbe Säulendiagramm nur mit sichtbaren Hauptrasterlinien](minor-gridlines-hidden.png) |
+
+## **Kategorienachse ändern**
+
+Verwenden Sie [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/), um eine Datums‑ oder Text‑Kategorienachse auszuwählen. Dieses Beispiel erfordert `ExistingChart.pptx`, wobei das Diagramm das erste Shape auf der ersten Folie ist und die Kategorie‑Zellen numerische Excel‑Datumswerte enthalten. Es ändert die horizontale Achse zu einer Datumsachse. Durch Aufruf von [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) mit `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) mit `1` und [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) mit Monaten werden Hauptteilstriche im Abstand von einem Monat gesetzt.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -258,9 +308,87 @@ chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Intervall von Kategorienachsen‑Beschriftungen steuern**
+### **Den Kategorientyp anhand von Daten bestimmen**
 
-Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Verwenden Sie [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) mit `false` und danach [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/), um das gewünschte Kategoriel‑Intervall festzulegen. Für Textkategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
+Rufen Sie nach dem Befüllen der Kategorien [SetCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/setcategoryaxistypeautomatically/) auf und prüfen anschließend mit [get_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_categoryaxistype/), welche Auswahl getroffen wurde. Das ist nützlich, wenn dasselbe Diagramm entweder Text‑Beschriftungen oder numerische Datumswerte erhalten kann. Die Methode bestimmt den Typ beim Aufruf; sie aktiviert keinen dauerhaften Modus, der spätere Datenänderungen erneut auswertet. Rufen Sie sie erneut auf, nachdem die Kategorien ersetzt wurden.
+
+Das folgende Beispiel erzeugt ein Diagramm mit Text‑Kategorien und gibt `Text` aus. Anschließend werden die Kategorie‑Zellwerte durch Datumswerte ersetzt und die Methode erneut aufgerufen, was `Date` ausgibt. Daten werden als numerische OLE‑Automation‑Werte gespeichert, die von [System::DateTime::ToOADate](https://reference.aspose.com/slides/cpp/system/datetime/tooadate/) zurückgegeben werden, nicht als Datums‑Zeichenketten. [set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) steuert die Anzeige dieser Werte; sie konvertiert keinen Text in numerische Datumswerte. Weitere Informationen zu Kategoriezellen finden Sie unter [Chart Workbook](/slides/de/cpp/chart-workbook/).
+
+Verwenden Sie die automatische Bestimmung, wenn die Eingabe eindeutig Text‑Kategorien oder numerische Daten enthält, wie in diesem Beispiel. Für gewöhnliche numerische Beschriftungen, gemischte Kategorien oder leere Daten rufen Sie explizit [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_categoryaxistype/) auf, um die gewünschte Bedeutung zuzuordnen. Nur numerische Werte begründen nicht, dass die Kategorien Datumswerte darstellen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto seriesName = workbook->GetCell(0, 0, 1, System::ObjectExt::Box(System::String(u"Sales")));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+auto labels = std::array<System::String, 3>{u"First", u"Second", u"Third"};
+
+for (auto i = 0; i < labels.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(labels[i]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box((i + 1) * 10));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->SetCategoryAxisTypeAutomatically();
+System::Console::WriteLine(System::Enum<CategoryAxisType>::GetName(axis->get_CategoryAxisType())); // Text
+
+auto dates = std::array<System::DateTime, 3>{System::DateTime(2026, 1, 1), System::DateTime(2026, 1, 2), System::DateTime(2026, 2, 1)};
+
+for (auto i = 0; i < dates.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0);
+    categoryCell->set_Value(System::ObjectExt::Box(dates[i].ToOADate()));
+    categoryCell->set_CustomNumberFormat(u"yyyy-mm-dd");
+}
+
+axis->SetCategoryAxisTypeAutomatically();
+System::Console::WriteLine(System::Enum<CategoryAxisType>::GetName(axis->get_CategoryAxisType())); // Datum
+
+presentation->Save(u"AutomaticCategoryAxis.pptx", SaveFormat::Pptx);
+```
+
+## **Intervall für Kategorienachsen‑Beschriftungen steuern**
+
+Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbarer Achsenbeschriftungen, ohne Kategorien oder Datenpunkte zu entfernen. Verwenden Sie [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) mit `false` und anschließend [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) mit dem gewünschten Kategorie‑Intervall. Für Text‑Kategorien in ihrer normalen Reihenfolge beginnt die Zählung bei der ersten Kategorie:
 
 | Intervall | Im Beispiel angezeigte Beschriftungen |
 | --- | --- |
@@ -268,11 +396,11 @@ Wenn ein Diagramm viele Kategorien enthält, reduzieren Sie die Anzahl sichtbare
 | `2` | Kategorie 1, Kategorie 3, Kategorie 5, … Kategorie 23 |
 | `3` | Kategorie 1, Kategorie 4, Kategorie 7, … Kategorie 22 |
 
-Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten ausgeblendet. Es entfernt nicht die entsprechenden Spalten. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht unbedingt jede Beschriftung an.
+Ein Intervall von `3` zeigt jede dritte Beschriftung an und lässt zwei Beschriftungen zwischen den angezeigten verborgen. Dabei werden die zugehörigen Spalten nicht entfernt. Automatischer Abstand wählt ein Intervall basierend auf dem verfügbaren Platz; er zeigt nicht zwingend jede Beschriftung an.
 
-Strichmarken haben separate Steuerungen. Verwenden Sie [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) mit `false` und [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/), um ihr Intervall festzulegen. Beispiel: `1` behält eine Strichmarke bei jedem Kategoriel‑Intervall bei, während Beschriftungen nur jede dritte Kategorie erscheinen. Verwenden Sie [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) mit einem sichtbaren Stil, damit Sie das Ergebnis sehen. Setzt man eine der automatischen Abstandseigenschaften wieder auf `true`, wählt das Diagramm das Intervall erneut automatisch.
+Teilstriche haben separate Einstellungen. Verwenden Sie [set_IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomatictickmarksspacing/) mit `false` und [set_TickMarksSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_tickmarksspacing/), um ihr Intervall festzulegen. Beispiel: `1` lässt einen Teilstrich bei jedem Kategorie‑Intervall erscheinen, während Beschriftungen nur alle dritten Kategorien angezeigt werden. Nutzen Sie [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majortickmark/) mit einem sichtbaren Stil, um das Ergebnis zu sehen. Setzen Sie eine der automatischen Abstand‑Eigenschaften wieder auf `true`, damit das Diagramm den Abstand erneut wählt.
 
-Das folgende eigenständige Beispiel erstellt 24 Kategorien und eine Serie, speichert dann drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Strichmarken und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die ursprünglichen Diagrammdaten bei. Es wird keine Eingabepäsentation benötigt. Der horizontale Beschriftungstext macht den Unterschied in der Dichte leicht erkennbar.
+Das nachfolgende eigenständige Beispiel erzeugt 24 Kategorien und eine Reihe und speichert drei Folien in `CategoryAxisIntervals.pptx`: automatischer Abstand, manueller Beschriftungsabstand mit unabhängigen Teilstrichen und wiederhergestellter automatischer Abstand. Die beiden Kopien behalten die Original‑Diagrammdaten. Keine Eingabe‑Präsentation ist nötig. Der horizontale Beschriftungstext verdeutlicht die Dichte‑Unterschiede.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -332,7 +460,7 @@ axis->set_MajorTickMark(TickMarkType::Outside);
 axis->set_IsAutomaticTickLabelSpacing(true);
 axis->set_IsAutomaticTickMarksSpacing(true);
 
-// Slide 2: show every third label, but keep a tick mark for every category.
+// Folie 2: jede dritte Beschriftung anzeigen, aber für jede Kategorie einen Teilstrich beibehalten.
 auto manualSlide = presentation->get_Slides()->AddClone(slide);
 auto manualChart = System::ExplicitCast<IChart>(manualSlide->get_Shape(0));
 auto manualAxis = manualChart->get_Axes()->get_HorizontalAxis();
@@ -341,7 +469,7 @@ manualAxis->set_TickLabelSpacing(3);
 manualAxis->set_IsAutomaticTickMarksSpacing(false);
 manualAxis->set_TickMarksSpacing(1);
 
-// Slide 3: let the chart choose both intervals again.
+// Folie 3: das Diagramm erneut beide Intervalle wählen lassen.
 auto restoredSlide = presentation->get_Slides()->AddClone(manualSlide);
 auto restoredChart = System::ExplicitCast<IChart>(restoredSlide->get_Shape(0));
 restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickLabelSpacing(true);
@@ -350,23 +478,23 @@ restoredChart->get_Axes()->get_HorizontalAxis()->set_IsAutomaticTickMarksSpacing
 presentation->Save(u"CategoryAxisIntervals.pptx", SaveFormat::Pptx);
 ```
 
-**Automatischer Abstand (Folie 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und auf zwei Zeilen umgebrochen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
+**Automatischer Abstand (Folien 1):** In dieser Darstellung wird jede zweite Kategorienbeschriftung angezeigt und umbrech­t in zwei Zeilen. Das automatische Ergebnis kann je nach Diagrammgröße, Schriftarten und Renderer variieren.
 
-![Automatischer Kategorienbeschriftungsabstand mit allen 24 Spalten sichtbar](category-axis-automatic.png)
+![Automatischer Kategorien‑Beschriftungsabstand mit allen 24 Spalten sichtbar](category-axis-automatic.png)
 
-**Manueller Abstand (Folie 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Strichmarken bei jedem Kategoriel‑Intervall bleiben. Alle 24 Spalten, einschließlich der ohne Beschriftungen, bleiben mit denselben Werten sichtbar. Folie 3 stellt das oben gezeigte automatische Erscheinungsbild wieder her.
+**Manueller Abstand (Folien 2):** Jede dritte Beschriftung wird in einer Zeile angezeigt, während Teilstriche weiterhin bei jedem Kategorie‑Intervall bleiben. Alle 24 Spalten, auch die ohne Beschriftung, bleiben sichtbar mit denselben Werten. Folie 3 stellt das automatische Aussehen wieder her.
 
-![Manuelles Kategorienbeschriftungsintervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
+![Manueller Kategorien‑Beschriftungsintervall von drei mit allen 24 Spalten sichtbar](category-axis-manual.png)
 
-### **Wählen Sie die richtige Achse und das Intervall**
+### **Den richtigen Achsentyp und das Intervall wählen**
 
-Verwenden Sie dieses Kategori‑Zähl‑Intervall für eine Text‑Kategorienachse, wie die Kategorienachse eines Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist sie die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, daher wenden Sie diese Einstellungen auf [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/) an. Der Strichmarken‑Abstand gilt ebenfalls für eine Serienachse in Diagrammen, die eine solche besitzen.
+Verwenden Sie dieses Kategorien‑Intervall für eine Text‑Kategorienachse, etwa die Kategorienachse einer Säulen‑, Linien‑, Flächen‑ oder Balkendiagramms. In einem Säulendiagramm ist das die horizontale Achse. In einem horizontalen Balkendiagramm ist die Kategorienachse vertikal, sodass Sie diese Einstellungen auf [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/) anwenden. Das Teilstrich‑Intervall gilt ebenfalls für eine Reihen‑Achse in Diagrammen, die eine solche besitzen.
 
-Verwenden Sie die Beschriftungsabstände nicht, um die numerische Skala einer Werteachse festzulegen. Auf einer Werteachse gibt [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) eine Differenz in Werten an: beispielsweise erzeugt ein Hauptintervall von `10` Striche bei 0, 10, 20 usw., wenn die Achse bei Null beginnt. Ein Kategorienbeschriftungsintervall von `3` zählt dagegen Kategoriepunkte, unabhängig von deren Datenwerten. Streu‑ und Blasendiagramme verwenden Werteachsen statt einer Text‑Kategorienachse. Für eine Datumsachse verwenden Sie zeitbasierte Haupteinheiten und Skalen wie in [Kategorienachse ändern](#change-a-category-axis) beschrieben.
+Verwenden Sie das Kategorien‑Beschriftungs‑Intervall **nicht**, um die numerische Skalierung einer Wertachse festzulegen. Bei einer Wertachse gibt [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_majorunit/) einen Unterschied in den Werten an: ein Hauptintervall von `10` erzeugt Teilstriche bei 0, 10, 20 usw., wenn die Achse bei 0 beginnt. Ein Kategorien‑Beschriftungs‑Intervall von `3` zählt hingegen die Positionen der Kategorien, ungeachtet ihrer Datenwerte. Streu‑ und Blasendiagramme verwenden Wertachsen anstelle einer Text‑Kategorienachse. Für eine Datumsachse benutzen Sie zeitbasierte Haupteinheiten und Skalen wie in **[Kategorienachse ändern](#categories-achs-ändern)** beschrieben.
 
-## **Datumsformat für Kategorienachsenwerte festlegen**
+## **Datumsformat für Kategorienachsen‑Werte festlegen**
 
-Das Beispiel ersetzt die Standarddiagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert. Verwenden Sie [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/), um eine Datumsachse auszuwählen, deaktivieren Sie die quellenabhängige Formatierung mit [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), und weisen Sie `yyyy` mit [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/) zu, sodass die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellenformatierung anzeigen.
+Das Beispiel ersetzt die Standard‑Diagrammdaten durch vier Jahreswerte. Daten werden als OLE‑Automation‑Seriennummern im ersten Arbeitsblatt (Index `0`) gespeichert. Verwenden Sie [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/), um eine Datumsachse auszuwählen, deaktivieren Sie die Quell‑Verknüpfung der Formatierung mit [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isnumberformatlinkedtosource/), und setzen Sie `yyyy` mit [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_numberformat/), sodass die Kategorienbeschriftungen vierstellige Jahreszahlen unabhängig von der Zellformatierung anzeigen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -421,9 +549,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_NumberFormat(u"yyyy");
 presentation->Save(u"DateAxisFormat.pptx", SaveFormat::Pptx);
 ```
 
-## **Rotationswinkel für einen Diagrammachsentitel festlegen**
+## **Drehwinkel für Diagrammachsentitel festlegen**
 
-Aktivieren Sie den Vertikalachsen‑Titel mit [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), geben Sie den Titeltext an und verwenden Sie [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/), um den Titel zu rotieren. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm mit um 90 Grad gedrehten Werteachsen‑Titel.
+Aktivieren Sie den Vertikal‑Achsentitel mit [set_HasTitle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_hastitle/), geben Sie den Titeltext an und verwenden Sie [set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextblockformat/set_rotationangle/), um den Titel zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel speichert ein Säulendiagramm, dessen Wertachsen‑Titel um 90 Grad gedreht ist.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -453,9 +581,9 @@ chart->get_Axes()->get_VerticalAxis()->get_Title()->get_TextFormat()->get_TextBl
 presentation->Save(u"RotatedAxisTitle.pptx", SaveFormat::Pptx);
 ```
 
-## **Achsenposition auf einer Kategorien‑ oder Werteachse festlegen**
+## **Achsenposition auf einer Kategorien‑ oder Wertachse festlegen**
 
-Verwenden Sie [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/), um zu steuern, ob die Werteachse die Kategorienachse zwischen den Kategorien oder an Kategorien‑Strichmarken schneidet. Diese Eigenschaft gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` bei der horizontalen Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
+Verwenden Sie [set_AxisBetweenCategories](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_axisbetweencategories/), um zu steuern, ob die Wertachse die Kategorienachse zwischen Kategorien oder an den Kategorie‑Teilstrichen schneidet. Diese Eigenschaft gilt für Kategorienachsen. Das Beispiel setzt sie auf `true` bei der horizontalen Kategorienachse eines Säulendiagramms und speichert das Ergebnis.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -480,9 +608,9 @@ chart->get_Axes()->get_HorizontalAxis()->set_AxisBetweenCategories(true);
 presentation->Save(u"AxisBetweenCategories.pptx", SaveFormat::Pptx);
 ```
 
-## **Anzeigeeinheit auf einer Werteachse festlegen**
+## **Anzeigeeinheit auf einer Wertachse festlegen**
 
-Verwenden Sie [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/), um die Beschriftungen einer Werteachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) auf `Millions` eingestellt wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erstellt ein Säulendiagramm und wendet die Anzeigeeinheit Millionen auf seine vertikale Achse an.
+Verwenden Sie [set_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_displayunit/), um die Beschriftungen einer Wertachse zu skalieren, ohne die zugrunde liegenden Daten zu ändern. Mit [DisplayUnitType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/displayunittype/) auf `Millions` wird ein Wert von 60 000 000 als 60 angezeigt. Das Beispiel erzeugt ein Säulendiagramm und wendet die Millionen‑Anzeigeeinheit auf die vertikale Achse an.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -508,21 +636,21 @@ chart->get_Axes()->get_VerticalAxis()->set_DisplayUnit(DisplayUnitType::Millions
 presentation->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **Logarithmische Werteachse konfigurieren**
+## **Logarithmische Wertachse konfigurieren**
 
-Eine logarithmische Werteachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Beispielsweise kann ein Dienst über fünf Zeiträume 10, 100, 1 000, 10 000 und 100 000 Anfragen erhalten. Auf einer linearen Skala erscheinen die kleineren Werte nahe beieinander bei Null. Eine logarithmische Skala erleichtert den Vergleich ihres relativen Wachstums: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleiche Differenzen.
+Eine logarithmische Wertachse ist nützlich, wenn positive Werte mehrere Größenordnungen umfassen. Zum Beispiel könnte ein Dienst in fünf Perioden 10, 100, 1 000, 10 000 und 100 000 Anfragen erhalten. Auf einer linearen Skala liegen die kleineren Werte nahe beieinander bei 0. Eine logarithmische Skala macht ihr relatives Wachstum leichter vergleichbar: gleiche Abstände repräsentieren gleiche Verhältnisse statt gleicher Unterschiede.
 
-Rufen Sie [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) mit `true` auf der Werteachse auf und verwenden Sie [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/), um die Basis zu wählen. Dies ändert die Anzeige der vorhandenen Werte; es ändert nicht die Daten und fügt keine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
+Rufen Sie [set_IsLogarithmic](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_islogarithmic/) mit `true` für die Wertachse auf und verwenden Sie [set_LogBase](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_logbase/), um die Basis zu wählen. Das ändert, wie die vorhandenen Werte angezeigt werden; es ändert nicht die Daten und fügt keine logarithmische Trendlinie hinzu. Eine Trendlinie stellt eine angepasste Beziehung in den Daten dar und ist ein separates Feature.
 
-### **Wählen Sie die Werteachse und die Basis**
+### **Wertachse und Basis auswählen**
 
-Für ein Linien‑ oder Säulendiagramm ist die Werteachse [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Bei einem horizontalen Balkendiagramm ist sie [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Streu‑ und Blasendiagramme besitzen zwei Werteachsen, sodass Sie die horizontale Achse für X‑Werte, die vertikale Achse für Y‑Werte oder beide wählen. Wenden Sie keine logarithmische Skalierung auf eine Kategorienachse an.
+Für ein Linien‑ oder Säulendiagramm ist die Wertachse [get_VerticalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_verticalaxis/). Für ein horizontales Balkendiagramm ist es [get_HorizontalAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxesmanager/get_horizontalaxis/). Streu‑ und Blasendiagramme besitzen zwei Wertachsen; wählen Sie die horizontale Achse für X‑Werte, die vertikale für Y‑Werte oder beide. Wenden Sie keine logarithmische Skalierung auf eine Kategorienachse an.
 
-Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme verwenden Sie eine Basis von `2` bis `1000`, inklusiv; Bruchbasen wie `2,5` werden ebenfalls unterstützt. Mit Basis `10` sind aufeinanderfolgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
+Die Standard‑Logarithmus‑Basis ist `10`. Für PPTX‑Diagramme ist eine Basis von `2` bis `1000` zulässig; Bruch‑Basen wie `2.5` werden ebenfalls unterstützt. Bei Basis `10` sind aufeinander folgende Potenzen wie 10, 100, 1 000 und 10 000 gleichmäßig verteilt.
 
 ### **Lineare und logarithmische Skalierung vergleichen**
 
-Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit den fünf Anfragenzahlen auf der ersten Folie, klont dann diese Folie und aktiviert auf der zweiten eine logarithmische Werteachse zur Basis 10. Beide Folien behalten dieselben Daten bei.
+Das folgende eigenständige Beispiel erzeugt ein Liniendiagramm mit den fünf Anfragen‑Zahlen auf Folie 1, klont diese Folie und aktiviert auf Folie 2 eine Basis‑10‑logarithmische Wertachse. Beide Folien behalten dieselben Daten.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -574,7 +702,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// Behalte die erste Folie linear und ändere nur die Skalierung der Werteachse der Kopie.
+// Behalte die erste Folie linear und ändere nur die Wertachsen-Skala der Kopie.
 auto logarithmicSlide = presentation->get_Slides()->AddClone(slide);
 auto logarithmicChart = System::ExplicitCast<IChart>(logarithmicSlide->get_Shape(0));
 auto valueAxis = logarithmicChart->get_Axes()->get_VerticalAxis();
@@ -584,24 +712,24 @@ valueAxis->set_LogBase(10);
 presentation->Save(u"LogarithmicAxis.pptx", SaveFormat::Pptx);
 ```
 
-**Lineare Skalierung (Folie 1):** Gleichmäßige vertikale Abstände repräsentieren gleiche Unterschiede in den Anfragenzahlen. Der größte Wert dominiert das Diagramm, sodass die kleineren Werte schwer zu unterscheiden sind.
+**Lineare Skala (Folien 1):** Gleiche vertikale Abstände repräsentieren gleiche Unterschiede in den Anfragen‑Zahlen. Der größte Wert dominiert das Diagramm und macht die kleineren Werte schwer zu unterscheiden.
 
-![Liniendiagramm in PowerPoint, das fünf Anfragenzahlen auf einer linearen Werteachse zeigt](value-axis-linear.png)
+![Liniendiagramm in PowerPoint mit fünf Anfragen‑Zahlen auf einer linearen Wertachse](value-axis-linear.png)
 
-**Logarithmische Skalierung (Folie 2):** Gleichmäßige vertikale Abstände repräsentieren gleiche Verhältnisse. Jeder Zeitraum hat zehnmal so viele Anfragen wie der vorherige, sodass die Punkte auf der Basis‑10‑Skala eine gerade steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragenzahlen.
+**Logarithmische Skala (Folien 2):** Gleiche vertikale Abstände repräsentieren gleiche Verhältnisse. Jede Periode hat zehnmal so viele Anfragen wie die vorherige, sodass die Punkte auf einer Basis‑10‑Skala eine gerade steigende Linie bilden. Die Achsenbeschriftungen zeigen weiterhin die ursprünglichen Anfragen‑Zahlen.
 
-![Die gleichen fünf Anfragenzahlen in PowerPoint auf einer logarithmischen Werteachse zur Basis 10](value-axis-logarithmic.png)
+![Die gleichen fünf Anfragen‑Zahlen in PowerPoint auf einer Basis‑10‑logarithmischen Wertachse](value-axis-logarithmic.png)
 
 ### **Umgang mit Null‑ und Negativwerten**
 
-Eine logarithmische Skala kann nur strikt positive Werte anzeigen. Überprüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negativwerte sinnvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat. Wenn das Ausschließen dieser Werte für die Analyse angemessen ist, erläutern Sie das Weglassen. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten ändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert für eine logarithmische Achse muss ebenfalls positiv sein.
+Eine logarithmische Skala kann nur streng positive Werte darstellen. Prüfen Sie die Daten, bevor Sie sie aktivieren. Wenn Null‑ oder Negativwerte bedeutungsvoll sind, behalten Sie eine lineare Skala bei oder zeigen Sie sie separat an. Wenn das Ausschließen dieser Werte für die Analyse sinnvoll ist, erklären Sie das Auslassen. Ersetzen Sie sie nicht stillschweigend durch kleine positive Zahlen, da dies die Bedeutung der Daten verändert. Jeder manuell konfigurierte Minimal‑ oder Maximalwert einer logarithmischen Achse muss ebenfalls positiv sein.
 
 ## **FAQ**
 
 **Wie lege ich den Wert fest, an dem eine Achse die andere schneidet (Achsenkreuzung)?**
 
-Verwenden Sie [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/), um das Kreuzungsverhalten auszuwählen. Um einen numerischen Kreuzungswert anzugeben, verwenden Sie [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Diese Einstellungen ermöglichen es Ihnen, den Achsenkreuzungswert auf einen geeigneten Nullpunkt zu verschieben.
+Verwenden Sie [set_CrossType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crosstype/), um das Kreuzverhalten auszuwählen. Um einen numerischen Kreuzwert anzugeben, verwenden Sie [set_CrossAt](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_crossat/). Diese Einstellungen ermöglichen es, die Achsenkreuzung auf einen geeigneten Basiswert zu verschieben.
 
-**Wie kann ich Strichbeschriftungen relativ zur Achse positionieren?**
+**Wie kann ich Teilstrich‑Beschriftungen relativ zur Achse positionieren?**
 
-Verwenden Sie [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) mit einem Wert aus [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` oder `None`. Um die Strichmarken selbst zu steuern, verwenden Sie [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) oder [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); diese sind unabhängig von der Positionierung der Beschriftungen.
+Verwenden Sie [set_TickLabelPosition](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_ticklabelposition/) mit einem Wert aus [TickLabelPositionType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo` oder `None`. Um die Teilstriche selbst zu steuern, nutzen Sie [set_MajorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majortickmark/) oder [set_MinorTickMark](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_minortickmark/); diese sind von der Beschriftungspositionierung getrennt.

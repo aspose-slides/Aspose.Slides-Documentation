@@ -1,37 +1,37 @@
 ---
-title: "Zarządzanie ramkami wideo w prezentacjach przy użyciu PHP"
-linktitle: "Ramka wideo"
+title: Zarządzanie ramkami wideo w prezentacjach przy użyciu PHP
+linktitle: Ramka wideo
 type: docs
 weight: 10
 url: /pl/php-java/video-frame/
 keywords:
-- "dodaj wideo"
-- "utwórz wideo"
-- "osadź wideo"
-- "wyodrębnij wideo"
-- "pobierz wideo"
-- "ramka wideo"
-- "źródło internetowe"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentacja"
-- "PHP"
-- "Aspose.Slides"
-description: "Dowiedz się, jak programowo dodawać i wyodrębniać ramki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP via Java. Szybki przewodnik instruktażowy."
+- dodaj wideo
+- utwórz wideo
+- osadź wideo
+- wyodrębnij wideo
+- pobierz wideo
+- ramka wideo
+- źródło internetowe
+- PowerPoint
+- OpenDocument
+- prezentacja
+- PHP
+- Aspose.Slides
+description: "Naucz się programowo dodawać i wyodrębniać ramki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides for PHP via Java. Szybki przewodnik krok po kroku."
 ---
 ## **Wprowadzenie**
 
-Filmy mogą pomóc wyjaśnić pomysły i zaangażować odbiorców. Aspose.Slides for PHP via Java umożliwia dodawanie ramek wideo do slajdów, dostosowywanie ustawień odtwarzania, zarządzanie napisami i wyodrębnianie osadzonych danych wideo.
+Filmy mogą pomóc wyjaśnić pomysły i przyciągnąć uwagę odbiorców. Aspose.Slides for PHP via Java umożliwia dodawanie ramek wideo do slajdów, dostosowywanie ustawień odtwarzania, zarządzanie napisami oraz wyodrębnianie osadzonych danych wideo.
 
 PowerPoint obsługuje lokalne filmy oraz odnośniki do filmów online, takich jak filmy z YouTube.
 
-Aby reprezentować dane wideo i ramki wideo, Aspose.Slides udostępnia klasę [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) klasę [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) oraz inne istotne typy.
+Aby reprezentować dane wideo i ramki wideo, Aspose.Slides udostępnia klasy [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) i [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/), oraz inne powiązane typy.
 
-## **Utwórz osadzoną ramkę wideo**
+## **Utworzenie osadzonej ramki wideo**
 
-Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć ramkę wideo, aby osadzić wideo w swojej prezentacji.
+Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć ramkę wideo, aby osadzić wideo w prezentacji.
 
-Ten przykład osadza lokalny plik wideo na pierwszym slajdzie istniejącej prezentacji i zapisuje wynik. Współrzędne i wymiary ramki podawane są w punktach. Strumień pozostaje otwarty aż do zakończenia zapisu, ponieważ [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) utrzymuje go zablokowanym, gdy prezentacja go używa.
+Ten przykład osadza lokalny film na pierwszym slajdzie istniejącej prezentacji i zapisuje wynik. Współrzędne i wymiary ramki są podawane w punktach. Strumień pozostaje otwarty, aż zapis się zakończy, ponieważ [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) utrzymuje go zablokowanym podczas używania prezentacji.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Możesz również przekazać ścieżkę do lokalnego wideo bezpośrednio do [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Ten przykład osadza wideo na pierwszym slajdzie nowej prezentacji. Wideo musi pozostać dostępne aż do zapisania prezentacji.
+Możesz także przekazać lokalną ścieżkę do wideo bezpośrednio do [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). Ten przykład osadza wideo na pierwszym slajdzie nowej prezentacji. Wideo musi pozostać dostępne do momentu zapisania prezentacji.
 
 ```php
 use aspose\slides\Presentation;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **Utwórz ramkę wideo z wideo ze źródła internetowego**
+## **Utworzenie ramki wideo z wideo z źródła internetowego**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) obsługuje wideo online w prezentacjach. Możesz utworzyć ramkę wideo, która odwołuje się do wideo online, takiego jak wideo z YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) obsługuje filmy online w prezentacjach. Możesz utworzyć ramkę wideo, która odwołuje się do filmu online, takiego jak film z YouTube.
 
-Ten przykład dodaje odnośnik do wideo z YouTube oraz miniaturę na pierwszy slajd. Zastąp identyfikator wideo, aby użyć innego filmu. Metoda [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) żąda automatycznego odtwarzania. Pobieranie miniatury i odtwarzanie wideo wymagają dostępu do internetu. Przeglądarka prezentacji musi również obsługiwać odtwarzanie wideo online.
+Ten przykład dodaje odnośnik do filmu YouTube oraz miniaturę na pierwszy slajd. Zastąp identyfikator filmu, aby użyć innego filmu. Metoda [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) żąda automatycznego odtwarzania. Pobranie miniatury i odtworzenie filmu wymaga dostępu do Internetu. Przeglądarka prezentacji musi także obsługiwać odtwarzanie filmów online.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **Odtwórz wideo w trybie pełnoekranowym**
+## **Odtworzenie wideo w trybie pełnoekranowym**
 
-W prezentacji szkoleniowej możesz odtworzyć demonstrację oprogramowania w trybie pełnoekranowym, aby publiczność widziała szczegóły. Wywołaj [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) z `true`, aby włączyć to zachowanie podczas odtwarzania.
+W prezentacji szkoleniowej możesz odtworzyć demonstrację oprogramowania w trybie pełnoekranowym, aby publiczność zobaczyła szczegóły. Wywołaj [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) z `true`, aby włączyć to zachowanie podczas odtwarzania.
 
-Ten przykład otwiera prezentację, znajduje pierwszą [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na pierwszym slajdzie i włącza odtwarzanie w trybie pełnoekranowym. Wejściowa prezentacja musi zawierać przynajmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
+Ten przykład otwiera prezentację, znajduje pierwszą [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na pierwszym slajdzie i włącza odtwarzanie pełnoekranowe. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-Odtwarzanie w trybie pełnoekranowym kontroluje sposób wyświetlania wideo. Niezależnie od tego, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) określa, czy odtwarzanie rozpoczyna się automatycznie czy po kliknięciu, a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) określa, czy wideo się powtarza. Aby wybrać zachowanie startu, ustaw tryb odtwarzania na [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Przykład zachowuje istniejące ustawienia startu i pętli.
+Odtwarzanie pełnoekranowe kontroluje sposób wyświetlania wideo. Niezależnie od tego, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) określa, czy odtwarzanie rozpoczyna się automatycznie, czy po kliknięciu, a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) kontroluje, czy jest powtarzane. Aby wybrać zachowanie uruchamiania, ustaw tryb odtwarzania na [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Przykład zachowuje istniejące ustawienia startu i pętli.
 
-## **Przewiń wideo po odtworzeniu**
+## **Przewinięcie wideo po odtworzeniu**
 
-W prezentacji szkoleniowej przywrócenie filmu demonstracyjnego do początku sprawia, że jest gotowy do ponownego odtworzenia przez prezentera. Wywołaj [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) z `true`, aby po zakończeniu odtwarzania przewinąć wideo do początku.
+W prezentacji szkoleniowej przywrócenie filmu demonstracyjnego do początku pozwala prowadzącemu odtworzyć go ponownie. Wywołaj [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) z `true`, aby po zakończeniu odtwarzania przewinąć wideo do początku.
 
-Ten przykład otwiera prezentację, znajduje pierwszą [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na pierwszym slajdzie i włącza przewijanie. Wyłącza pętlę, aby odtwarzanie mogło się zakończyć, i ustawia odtwarzanie na start po kliknięciu. Wejściowa prezentacja musi zawierać przynajmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
+Ten przykład otwiera prezentację, znajduje pierwszą [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na pierwszym slajdzie i włącza przewijanie. Wyłącza pętlę, aby odtwarzanie mogło się zakończyć, oraz ustawia odtwarzanie na rozpoczęcie po kliknięciu. Wejściowa prezentacja musi zawierać co najmniej jeden slajd z istniejącą ramką wideo na pierwszym slajdzie.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-Przewijanie zwraca wideo do początku bez ponownego uruchamiania. Natomiast wywołanie [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) z `true` powtarza odtwarzanie automatycznie. Wyłącz pętlę, gdy chcesz, aby wideo zakończyło się i było gotowe do ponownego odtworzenia. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) niezależnie steruje automatycznym lub klikowym uruchomieniem; ten przykład używa [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/), aby prezenter kontrolował moment rozpoczęcia odtwarzania. Ustaw tryb odtwarzania po ustawieniu pętli, jak pokazano w przykładzie. Przewijanie działa niezależnie od [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+Przewijanie przywraca wideo do początku bez ponownego uruchamiania. Natomiast wywołanie [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) z `true` powoduje automatyczne powtarzanie odtwarzania. Trzymaj pętlę wyłączoną, gdy chcesz, aby wideo zakończyło się i było gotowe do ponownego odtworzenia. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) niezależnie kontroluje uruchomienie automatyczne lub po kliknięciu; w tym przykładzie użyto [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/), aby prowadzący decydował, kiedy rozpocząć odtwarzanie. Ustaw tryb odtwarzania po ustawieniu pętli, jak pokazano w przykładzie. Przewijanie działa niezależnie od [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Przytnij ramkę wideo**
+## **Przycięcie ramki wideo**
 
-Użyj [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) oraz [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd), aby pominąć część początku lub końca wideo podczas odtwarzania. Obie wartości podawane są w milisekundach. Przycinanie zmienia ustawienia odtwarzania bez modyfikacji osadzonych danych wideo.
+Użyj [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) i [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd), aby pominąć część początku lub końca filmu podczas odtwarzania. Obie wartości podawane są w milisekundach. Przycięcie zmienia ustawienia odtwarzania bez modyfikacji osadzonych danych wideo.
 
 **Ustawienia przycięcia**
 
-Ten przykład osadza lokalny plik wideo i pomija pierwsze 2,5 sekundy oraz ostatnią sekundę podczas odtwarzania. Użyj wideo dłuższego niż 3,5 sekundy, aby pozostał odtwarzalny segment.
+Ten przykład osadza lokalny film i pomija pierwsze 2,5 sekundy oraz ostatnią sekundę podczas odtwarzania. Użyj filmu dłuższego niż 3,5 sekundy, aby pozostał odtwarzalny fragment.
 
 ```php
 use aspose\slides\Presentation;
@@ -208,9 +208,9 @@ try {
 }
 ```
 
-**Odczytaj ustawienia przycięcia**
+**Odczyt ustawień przycięcia**
 
-Ten przykład wypisuje wartości przycięcia pierwszej ramki wideo na pierwszym slajdzie w milisekundach. Prezentacja musi zawierać przynajmniej jeden slajd. Jeśli ten slajd nie ma ramki wideo, nic nie zostanie wypisane. Poprzedni przykład generuje wartości 2500 i 1000.
+Ten przykład wypisuje wartości przycięcia pierwszej ramki wideo na pierwszym slajdzie w milisekundach. Prezentacja musi zawierać co najmniej jeden slajd. Jeśli ten slajd nie ma ramki wideo, nic nie zostanie wypisane. Poprzedni przykład generuje wartości 2500 i 1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -234,13 +234,13 @@ try {
 }
 ```
 
-## **Zarządzaj napisami wideo**
+## **Zarządzanie napisami wideo**
 
 Aspose.Slides umożliwia zarządzanie zamkniętymi napisami dla ramek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane za pośrednictwem metody [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Dodaj napisy do ramki wideo**
+### **Dodawanie napisów do ramki wideo**
 
-Ten przykład osadza lokalny plik wideo i dodaje ścieżkę napisów WebVTT oznaczoną jako English. Znaczniki czasu napisów powinny odpowiadać wideo. Zapisana prezentacja zawiera zarówno wideo, jak i jego napisy.
+Ten przykład osadza lokalny film i dodaje ścieżkę napisów WebVTT oznaczoną jako English. Znaczniki czasowe napisów powinny odpowiadać wideo. Zapisana prezentacja zawiera zarówno film, jak i jego napisy.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-Klasa [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) również oferuje przeciążenie umożliwiające dodanie napisów ze strumienia.
+Klasa [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) oferuje również przeciążenie umożliwiające dodanie napisów ze strumienia.
 
-**Wyodrębnij napisy z ramki wideo**
+### **Wyodrębnianie napisów z ramki wideo**
 
-Ten przykład zapisuje wszystkie ścieżki napisów z ramek wideo na pierwszym slajdzie jako oddzielne pliki WebVTT. Kolejne liczby utrzymują pliki wynikowe jako odrębne. Konsola raportuje liczbę wyodrębnionych ścieżek. Prezentacja musi zawierać przynajmniej jeden slajd.
+Ten przykład zapisuje wszystkie ścieżki napisów z ramek wideo na pierwszym slajdzie jako oddzielne pliki WebVTT. Kolejne numery utrzymują odrębność plików wyjściowych. Konsola raportuje liczbę wyodrębnionych ścieżek. Prezentacja musi zawierać co najmniej jeden slajd.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,9 +303,9 @@ try {
 }
 ```
 
-Każdy obiekt [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF-8.
+Każdy obiekt [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF‑8.
 
-**Usuń napisy z ramki wideo**
+### **Usuwanie napisów z ramki wideo**
 
 Ten przykład usuwa wszystkie napisy z ramki wideo znajdującej się na pierwszej pozycji kształtu na pierwszym slajdzie i zapisuje wynik. Zakłada, że slajd i kształt istnieją oraz że kształt jest ramką wideo.
 
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisów, użyj metod [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) zamiast [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+Jeśli musisz usunąć tylko jedną ścieżkę napisu, użyj metod [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) zamiast [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
-## **Wyodrębnij wideo ze slajdu**
+### **Wyszukiwanie napisów wideo**
 
-Oprócz dodawania wideo do slajdów, Aspose.Slides umożliwia wyodrębnianie wideo osadzonego w prezentacjach.
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) zwraca kompletną ścieżkę WebVTT, włączając nagłówek, linie czasowe i tekst napisu. Możesz przeszukiwać podpowiedzi w pamięci, aby znaleźć wypowiedziane wyrażenie i jego znacznik czasu. Na przykład angielska ścieżka na slajdzie 2 może zawierać następujący tekst.
 
-Ten przykład wyodrębnia osadzone wideo z każdego slajdu do osobnych, numerowanych plików binarnych. Wideo połączone (linkowane) są pomijane, ponieważ nie mają osadzonych danych. Konsola wypisuje typ MIME każdego wideo oraz całkowitą liczbę. Wyjście używa ogólnego rozszerzenia `.bin`; w razie potrzeby zmień je, aby pasowało do zgłoszonego typu mediów.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Przykład otwiera `captioned_media.pptx` i używa [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) do odczytania ścieżek każdej ramki wideo najwyższego poziomu na wszystkich slajdach. W prostym napisie tekstowym linia czasowa zawiera `-->`, a pusta linia kończy podpowiedź. Gdy napis zawiera słowo „café” w dowolnej wielkości liter, przykład wypisuje numer slajdu, etykietę ścieżki, oryginalną linię czasową i pełny napis.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Wyszukiwanie „café” zwraca jedno dopasowanie do przykładowej ścieżki. Wyszukiwanie pomija nagłówek ścieżki i zachowuje ustawienie czasu w wyniku.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Wyodrębnianie wideo ze slajdu**
+
+Oprócz dodawania filmów do slajdów, Aspose.Slides umożliwia wyodrębnianie filmów osadzonych w prezentacjach.
+
+Ten przykład wyodrębnia osadzone filmy ze wszystkich slajdów do oddzielnych, numerowanych plików binarnych. Filmy linkowane są pomijane, ponieważ nie mają osadzonych danych. Konsola wypisuje typ MIME każdego filmu oraz całkowitą liczbę. Wynik używa ogólnego rozszerzenia `.bin`; zmień je, aby pasowało do zgłaszanego typu mediów, jeśli to konieczne.
 
 ```php
 use aspose\slides\Presentation;
@@ -376,16 +440,16 @@ try {
 
 **Jakie parametry odtwarzania wideo można zmienić dla ramki wideo?**
 
-Możesz kontrolować [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto lub po kliknięciu) oraz [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Opcje te są dostępne poprzez metody obiektu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
+Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto lub po kliknięciu) oraz [pętlę](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Opcje te są dostępne poprzez metody obiektu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
 **Czy dodanie wideo wpływa na rozmiar pliku PPTX?**
 
-Tak. Gdy osadzasz lokalny plik wideo, dane binarne są włączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy linkujesz do wideo online i dodajesz miniaturę, prezentacja zapisuje odnośnik oraz obraz podglądu zamiast danych wideo, więc przyrost rozmiaru jest zazwyczaj mniejszy.
+Tak. Gdy osadzisz lokalny film, dane binarne są dołączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy linkujesz do filmu online i dodajesz miniaturę, prezentacja przechowuje jedynie odnośnik i obraz podglądu zamiast danych wideo, więc przyrost rozmiaru jest zazwyczaj mniejszy.
 
-**Czy mogę zastąpić wideo w istniejącej ramce wideo bez zmiany jej pozycji i rozmiaru?**
+**Czy mogę zastąpić wideo w istniejącej ramce wideo bez zmiany jej położenia i rozmiaru?**
 
-Tak. Możesz wymienić [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) w ramce, zachowując geometrię kształtu; jest to typowy scenariusz aktualizacji mediów w istniejącym układzie.
+Tak. Możesz podmienić [zawartość wideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) w ramce, zachowując geometrię kształtu; jest to powszechny scenariusz aktualizacji mediów w istniejącym układzie.
 
 **Czy można określić typ zawartości (MIME) osadzonego wideo?**
 
-Tak. Osadzone wideo posiada [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType), który możesz odczytać i używać, na przykład przy zapisywaniu go na dysk.
+Tak. Osadzone wideo posiada [typ zawartości](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType), który możesz odczytać i wykorzystać, na przykład przy zapisywaniu go na dysk.
