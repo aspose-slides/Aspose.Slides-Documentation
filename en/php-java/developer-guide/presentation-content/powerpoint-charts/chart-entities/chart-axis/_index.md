@@ -188,6 +188,45 @@ try {
 }
 ```
 
+## **Show or Hide Chart Gridlines**
+
+Call [getShowMajorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowmajorgridlines/) and [getShowMinorGridLines](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getshowminorgridlines/) to check which gridlines an axis displays. To show minor gridlines, use [getMinorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getminorgridlinesformat/) and set the line fill to a solid, visible color. To hide them, set the fill to [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/). Use [getMajorGridLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getmajorgridlinesformat/) to change the line fill for major gridlines in the same way. Changing the fill preserves axis visibility and tick marks.
+
+The vertical axis of this clustered column chart initially shows only major gridlines. The example displays the minor gridlines in dark orange, then hides them again before saving the presentation. It prints the gridline visibility at each step.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 30, 660, 230);
+    $axis = $chart->getAxes()->getVerticalAxis();
+    printf("Initial: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill = $axis->getMinorGridLinesFormat()->getLine()->getFillFormat();
+    $minorFill->setFillType(FillType::Solid);
+    $darkOrange = new Java("java.awt.Color", 255, 140, 0);
+    $minorFill->getSolidFillColor()->setColor($darkOrange);
+    printf("Enabled: minor=%s\n", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $minorFill->setFillType(FillType::NoFill);
+    printf("Hidden: major=%s, minor=%s\n", java_values($axis->getShowMajorGridLines()) ? "true" : "false", java_values($axis->getShowMinorGridLines()) ? "true" : "false");
+
+    $presentation->save("ChartGridlines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Minor gridlines enabled | Minor gridlines hidden |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Change a Category Axis**
 
 Use [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmajorunit/) with `false`, [setMajorUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunit/) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmajorunitscale/) with `TimeUnitType::Months` places major ticks at one-month intervals.

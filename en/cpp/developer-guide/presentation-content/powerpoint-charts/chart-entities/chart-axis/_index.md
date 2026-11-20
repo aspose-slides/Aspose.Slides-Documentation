@@ -226,6 +226,56 @@ chart->get_Axes()->get_HorizontalAxis()->set_IsVisible(false);
 presentation->Save(u"HiddenHorizontalAxis.pptx", SaveFormat::Pptx);
 ```
 
+## **Show or Hide Chart Gridlines**
+
+Use [get_ShowMajorGridLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_showmajorgridlines/) and [get_ShowMinorGridLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_showminorgridlines/) to check which gridlines an axis displays. Both properties are read-only. To show minor gridlines, use [get_MinorGridLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_minorgridlinesformat/) and set the line fill to a solid, visible color. To hide them, set the fill to [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/). Use [get_MajorGridLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_majorgridlinesformat/) to change the major gridlines in the same way. Changing the gridline fill preserves axis visibility and tick marks.
+
+The vertical axis of this clustered column chart initially shows only major gridlines. The example displays minor gridlines in orange, then hides them again before saving the presentation.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 30, 660, 230);
+auto axis = chart->get_Axes()->get_VerticalAxis();
+std::cout << std::boolalpha << "Initial: major=" << axis->get_ShowMajorGridLines() << ", minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+auto minorFill = axis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat();
+minorFill->set_FillType(FillType::Solid);
+minorFill->get_SolidFillColor()->set_Color(Color::get_DarkOrange());
+std::cout << "Enabled: minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+minorFill->set_FillType(FillType::NoFill);
+std::cout << "Hidden: major=" << axis->get_ShowMajorGridLines() << ", minor=" << axis->get_ShowMinorGridLines() << '\n';
+
+presentation->Save(u"ChartGridlines.pptx", SaveFormat::Pptx);
+```
+
+| Minor gridlines enabled | Minor gridlines hidden |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Change a Category Axis**
 
 Use [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_categoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [set_IsAutomaticMajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_isautomaticmajorunit/) with `false`, [set_MajorUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunit/) with `1`, and [set_MajorUnitScale](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axis/set_majorunitscale/) with months places major ticks at one-month intervals.
