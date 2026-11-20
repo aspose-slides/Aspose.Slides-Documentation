@@ -1,6 +1,6 @@
 ---
-title: Správa video rámečků v prezentacích na Androidu
-linktitle: Video rámeček
+title: Správa video snímků v prezentacích na Androidu
+linktitle: Video snímek
 type: docs
 weight: 10
 url: /cs/androidjava/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - vložit video
 - extrahovat video
 - získat video
-- video rámeček
+- video snímek
 - webový zdroj
 - PowerPoint
 - OpenDocument
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video rámečky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Android prostřednictvím Javy. Rychlý návod typu jak na to."
+description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument prezentacích pomocí Aspose.Slides pro Android přes Java. Rychlý návod."
 ---
 ## **Úvod**
 
-Videa mohou pomoci vysvětlit nápady a zaujmout publikum. Aspose.Slides for Android via Java vám umožňuje přidávat video rámečky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
+Videa mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides pro Android prostřednictvím Java vám umožňuje přidávat video snímky do prezentací, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
-PowerPoint podporuje místní videa i odkazy na online videa, například videa z YouTube.
+PowerPoint podporuje lokální videa i odkazy na online videa, například videa z YouTube.
 
-Pro reprezentaci video dat a video rámečků poskytuje Aspose.Slides rozhraní [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) rozhraní [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) a další relevantní typy.
+Pro reprezentaci video dat a video snímků Aspose.Slides poskytuje rozhraní [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/), rozhraní [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) a další relevantní typy.
 
-## **Vytvoření vloženého video rámečku**
+## **Vytvořit vložený video snímek**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámeček, který video vloží do vaší prezentace.
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video snímek a vložit video do prezentace.
 
-Tento příklad vloží místní video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry rámečku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) jej udržuje zamčený, když jej prezentace používá.
+Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) jej udržuje zamčený, dokud jej prezentace používá.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-Můžete také předat cestu k místnímu videu přímo metodě [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
+Můžete také předat cestu k lokálnímu videu přímo metodě [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné, dokud není prezentace uložena.
 
 ```java
 import com.aspose.slides.*;
@@ -68,11 +68,11 @@ try {
 }
 ```
 
-## **Vytvoření video rámečku s videem z webového zdroje**
+## **Vytvořit video snímek s videem z webového zdroje**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video rámeček, který odkazuje na online video, například video z YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video snímek, který odkazuje na online video, například video z YouTube.
 
-Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) požaduje automatické přehrávání. Stahování miniatury a přehrávání videa vyžadují připojení k internetu. Prohlížeč prezentací musí také podporovat přehrávání online videí.
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) požaduje automatické přehrávání. Stažení miniatury a přehrávání videa vyžadují přístup k internetu. Prohlížeč prezentací také musí podporovat přehrávání online videa.
 
 ```java
 import com.aspose.slides.*;
@@ -101,11 +101,11 @@ try {
 }
 ```
 
-## **Přehrání videa v režimu celé obrazovky**
+## **Přehrát video v režimu celé obrazovky**
 
-V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby si publikum mohlo prohlédnout podrobnosti. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) s `true`, aby se během přehrávání toto chování aktivovalo.
+V tréninkové prezentaci můžete přehrát demonstraci softwaru v režimu celé obrazovky, aby publikum vidělo detaily. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) s hodnotou `true`, abyste během přehrávání povolili toto chování.
 
-Tento příklad otevře prezentaci, vyhledá první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámečkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí přehrávání v celé obrazovce. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-Přehrávání v režimu celé obrazovky určuje, jak je video zobrazeno. Samostatně [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) určuje, zda se spustí automaticky nebo po kliknutí, a [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) určuje, zda se opakuje. Pro výběr způsobu spuštění nastavte režim přehrávání na [VideoPlayModePreset.Auto nebo VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Příklad zachovává existující nastavení spuštění a opakování.
+Přehrávání v celé obrazovce určuje, jak je video zobrazeno. Samostatně metoda [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) řídí, zda se spustí automaticky nebo po kliknutí, a metoda [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) určuje, zda se opakuje. Pro výběr chování spuštění nastavte režim přehrávání na [VideoPlayModePreset.Auto nebo VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení spuštění a smyčky.
 
-## **Převíjení videa po přehrání**
+## **Převinout video po přehrání**
 
-V tréninkové prezentaci vrácení demonstračního videa na začátek připraví video k opětovnému přehrání. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) s `true`, aby se video po skončení přehrávání vrátilo na začátek.
+V tréninkové prezentaci vrácení ukázkového videa na začátek připraví video pro další přehrání. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) s hodnotou `true`, aby se video po dokončení přehrávání vrátilo na začátek.
 
-Tento příklad otevře prezentaci, vyhledá první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí převíjení. Zakáže opakování, aby se přehrávání mohlo ukončit, a nastaví spuštění přehrávání po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámečkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) na prvním snímku a povolí převíjení. Zakáže smyčkování, aby přehrávání mohlo skončit, a nastaví přehrávání tak, aby začínalo po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Zpětné převíjení vrátí video na začátek, aniž by ho znovu spustilo. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) s `true` opakuje přehrávání automaticky. Udržujte opakování vypnuté, pokud chcete, aby video skončilo a bylo připraveno k opětovnému přehrání. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) samostatně určuje automatické nebo kliknutím spuštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) , takže prezentující řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Převíjení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Převíjení vrátí video na jeho začátek, aniž by se spustilo znovu. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) s hodnotou `true` způsobí automatické opakování přehrávání. Ponechte smyčkování vypnuté, pokud chcete, aby video skončilo a zůstalo připravené k opětovnému přehrání. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) nezávisle řídí automatické nebo klikací spuštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/), takže prezentující kontroluje, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Převíjení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
-## **Oříznutí video rámečku**
+## **Uřezat video snímek**
 
-Použijte [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-), abyste během přehrávání přeskočili část začátku nebo konce videa. Obě hodnoty jsou v milisekundách. Oříznutí změní nastavení přehrávání, aniž by upravovalo vložená video data.
+Použijte [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) a [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) k přeskočení části začátku nebo konce videa během přehrávání. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by měnilo vložená video data.
 
-**Nastavení oříznutí**
+**Nastavit nastavení ořezu**
 
-Tento příklad vloží místní video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zbyl přehratelný úsek.
+Tento příklad vloží lokální video a během přehrávání přeskočí první 2,5 s a poslední sekundu. Použijte video delší než 3,5 s, aby zůstala přehratelná část.
 
 ```java
 import com.aspose.slides.*;
@@ -192,9 +192,9 @@ try {
 }
 ```
 
-**Čtení nastavení oříznutí**
+**Načíst nastavení ořezu**
 
-Tento příklad vypíše hodnoty oříznutí prvního video rámečku na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video rámeček, nic se nevyptá. Předchozí příklad produkuje hodnoty 2500 a 1000.
+Tento příklad vypíše hodnoty ořezu prvního video snímku na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek neobsahuje video snímek, nic se nevyzvedne. Předchozí příklad produkuje hodnoty 2500 a 1000.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ try {
 }
 ```
 
-## **Správa titulků videa**
+## **Spravovat titulky videa**
 
-Aspose.Slides vám umožňuje spravovat skryté titulky pro video rámečky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny metodou [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+Aspose.Slides umožňuje spravovat uzavřené titulky pro video snímky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny prostřednictvím metody [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Přidání titulků do video rámečku**
+### **Přidat titulky do video snímku**
 
-Tento příklad vloží místní video a přidá WebVTT stopu titulků označenou English. Časová razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
+Tento příklad vloží lokální video a přidá stopu titulků WebVTT označenou jako English. Časové značky titulků by měly odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) také poskytuje přetížení, které vám umožní přidat titulky ze streamu.
+Rozhraní [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) také poskytuje přetížení, které umožňuje přidat titulky ze streamu.
 
-**Extrahování titulků z video rámečku**
+### **Extrahovat titulky z video snímku**
 
-Tento příklad uloží všechny stopy titulků z video rámečků na prvním snímku jako samostatné WebVTT soubory. Pořadová čísla udržují výstupní soubory odlišné. Konzole hlásí počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad uloží všechny stopy titulků z video snímků na prvním snímku jako samostatné soubory WebVTT. Postupně číslované soubory zajišťují, že jsou výstupní soubory odlišné. Konzole hlásí počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-Každý objekt [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) vystavuje identifikátor titulu, popisek, binární data a text titulu jako řetězec UTF-8.
+Každý objekt [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) vystavuje identifikátor titulků, popisek, binární data a text titulků jako řetězec UTF-8.
 
-**Odstranění titulků z video rámečku**
+### **Odstranit titulky z video snímku**
 
-Tento příklad odstraní všechny titulky z video rámečku na první pozici objektu na prvním snímku a výsledek uloží. Předpokládá, že snímek a objekt existují a že objekt je video rámeček.
+Tento příklad odstraní všechny titulky z video snímku na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video snímek.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-Pokud potřebujete odstranit pouze jednu stopu titulu, použijte metody [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) nebo [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) místo [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
+Pokud potřebujete odstranit jen jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) nebo [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) místo [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--).
 
-## **Extrahování videa ze snímku**
+### **Vyhledat titulky videa**
 
-Kromě přidávání videí do snímků umožňuje Aspose.Slides také extrahovat videa vložená v prezentacích.
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) vrací kompletní stopu WebVTT, včetně hlavičky, časových řádků a textu titulků. Můžete prohledávat podněty v paměti, abyste našli mluvenou frázi a její časové razítko. Například anglická stopa na snímku 2 může obsahovat následující text.
 
-Tento příklad extrahuje vložená videa ze všech snímků do samostatných, číslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože neobsahují vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte tak, aby odpovídala oznámenému typu média.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Příklad otevře `captioned_media.pptx` a použije [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) k načtení stop každého hlavního video snímku na každém snímku. V prostém textovém podnětu časová řádka obsahuje `-->` a prázdný řádek ukončuje podnět. Když titulky obsahují slovo „café“ v libovolném velkém či malém písmenu, příklad vypíše číslo snímku, popisek stopy, původní časovou řádku a celý titul.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vyhledávání „café“ vrátí jeden výsledek pro ukázkovou stopu. Vyhledávání vylučuje hlavičku stopy a zachovává časové nastavení ve výstupu.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Extrahovat video ze snímku**
+
+Kromě přidávání videí do snímků Aspose.Slides umožňuje extrahovat videa vložená v prezentacích.
+
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Propojená videa jsou přeskočena, protože neobsahují vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; změňte ji podle skutečného typu média, pokud je to potřeba.
 
 ```java
 import com.aspose.slides.*;
@@ -343,18 +410,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Které parametry přehrávání videa lze změnit pro video rámeček?**
+**Jaké parametry přehrávání videa lze změnit pro video snímek?**
 
-Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automaticky nebo po kliknutí) a [opakování](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
+Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (automatický nebo po kliknutí) a [smyčkování](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Tyto možnosti jsou dostupné přes metody objektu [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/).
 
 **Zvyšuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
+Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží pouze odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím video rámečku bez změny jeho pozice a velikosti?**
+**Mohu nahradit video v existujícím video snímku bez změny jeho polohy a rozměrů?**
 
-Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) uvnitř rámečku při zachování geometrie objektu; to je běžný scénář pro aktualizaci médií v existujícím rozvržení.
+Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) ve snímku při zachování geometrie tvaru; to je častý scénář pro aktualizaci médií v existujícím rozložení.
 
-**Lze určit typ obsahu (MIME) vloženého videa?**
+**Lze zjistit typ obsahu (MIME) vloženého videa?**
 
 Ano. Vložené video má [typ obsahu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) , který můžete přečíst a použít, například při ukládání na disk.

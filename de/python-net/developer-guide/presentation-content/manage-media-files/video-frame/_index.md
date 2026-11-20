@@ -1,5 +1,5 @@
 ---
-title: Video‑Frames in Präsentationen mit Python verwalten
+title: Verwalten von Video‑Frames in Präsentationen mit Python
 linktitle: Video‑Frame
 type: docs
 weight: 10
@@ -17,21 +17,21 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie programmgesteuert Video‑Frames in PowerPoint‑ und OpenDocument‑Folien mit Aspose.Slides für Python über .NET hinzufügen und extrahieren. Schnelle Kurz‑Anleitung."
+description: "Erfahren Sie, wie Sie programmgesteuert Video‑Frames in PowerPoint‑ und OpenDocument‑Folien mit Aspose.Slides für Python über .NET hinzufügen und extrahieren. Schnelle Anleitung."
 ---
 ## **Einleitung**
 
-Videos können helfen, Ideen zu erklären und ein Publikum zu fesseln. Aspose.Slides für Python über .NET ermöglicht das Hinzufügen von Video‑Frames zu Folien, das Anpassen von Wiedergabeeinstellungen, das Verwalten von Untertiteln und das Extrahieren eingebetteter Videodaten.
+Videos können dabei helfen, Ideen zu erklären und das Publikum zu fesseln. Aspose.Slides für Python über .NET ermöglicht das Hinzufügen von Videoframes zu Folien, das Anpassen von Wiedergabeeinstellungen, das Verwalten von Untertiteln und das Extrahieren eingebetteter Videodaten.
 
-PowerPoint unterstützt lokale Videos und Verknüpfungen zu Online‑Videos, wie z. B. YouTube‑Videos.
+PowerPoint unterstützt lokale Videos sowie Links zu Online‑Videos, beispielsweise YouTube‑Videos.
 
-Um Videodaten und Video‑Frames darzustellen, stellt Aspose.Slides die [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/)-Klasse, die [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Klasse und weitere relevante Typen bereit.
+Um Videodaten und Videoframes darzustellen, stellt Aspose.Slides die Klasse [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) bereit, die Klasse [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) und weitere relevante Typen.
 
 ## **Erstellen eines eingebetteten Video‑Frames**
 
-Wenn die Videodatei, die Sie zu Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie einen Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten.
+Wenn die Videodatei, die Sie Ihrer Folie hinzufügen möchten, lokal gespeichert ist, können Sie ein Video‑Frame erstellen, um das Video in Ihre Präsentation einzubetten.
 
-Dieses Beispiel bettet ein lokales Video in die erste Folie einer vorhandenen Präsentation ein und speichert das Ergebnis. Die Koordinaten und Abmessungen des Frames sind in Punkten angegeben. Der Stream bleibt geöffnet, bis das Speichern abgeschlossen ist, da [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) ihn gesperrt hält, während die Präsentation ihn verwendet.
+Dieses Beispiel bettet ein lokales Video auf der ersten Folie einer vorhandenen Präsentation ein und speichert das Ergebnis. Frame‑Koordinaten und -Abmessungen sind in Punkten angegeben. Der Stream bleibt geöffnet, bis das Speichern abgeschlossen ist, weil [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) ihn gesperrt hält, solange die Präsentation ihn verwendet.
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sie können auch einen lokalen Videopfad direkt an [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Dieses Beispiel bettet das Video in die erste Folie einer neuen Präsentation ein. Das Video muss bis zum Speichern der Präsentation zugänglich bleiben.
+Sie können auch einen lokalen Videopfad direkt an [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/) übergeben. Dieses Beispiel bettet das Video auf der ersten Folie einer neuen Präsentation ein. Das Video muss bis zum Speichern der Präsentation zugänglich bleiben.
 
 ```python
 import aspose.slides as slides
@@ -59,11 +59,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Erstellen eines Video‑Frames mit Video aus einer Webquelle**
+## **Erstellen eines Video‑Frames mit Video aus einer Web‑Quelle**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) unterstützt Online‑Videos in Präsentationen. Sie können einen Video‑Frame erstellen, der auf ein Online‑Video, beispielsweise ein YouTube‑Video, verlinkt.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) unterstützt Online‑Videos in Präsentationen. Sie können ein Video‑Frame erstellen, das auf ein Online‑Video verlinkt, beispielsweise ein YouTube‑Video.
 
-Dieses Beispiel fügt einen YouTube‑Video‑Link und ein Vorschaubild zur ersten Folie hinzu. Ersetzen Sie den Video‑Bezeichner, um ein anderes Video zu verwenden. Die Einstellung [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) fordert die automatische Wiedergabe an. Das Herunterladen des Vorschaubilds und das Abspielen des Videos erfordern Internetzugang. Der Präsentations‑Viewer muss ebenfalls die Online‑Videowiedergabe unterstützen.
+Dieses Beispiel fügt der ersten Folie einen YouTube‑Videolink und ein Miniaturbild hinzu. Ersetzen Sie die Video‑Kennung, um ein anderes Video zu verwenden. Die [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/)-Einstellung fordert die automatische Wiedergabe an. Das Herunterladen des Miniaturbilds und das Abspielen des Videos erfordern Internetzugang. Der Präsentations‑Viewer muss ebenfalls die Wiedergabe von Online‑Videos unterstützen.
 
 ```python
 from urllib.request import urlopen
@@ -86,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Video im Vollbildmodus abspielen**
+## **Ein Video im Vollbildmodus abspielen**
 
-In einer Schulungspräsentation können Sie eine Software‑Demonstration im Vollbildmodus abspielen, damit das Publikum die Details sehen kann. Setzen Sie [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) auf `True`, um dieses Verhalten während der Wiedergabe zu aktivieren.
+In einer Schulungspräsentation können Sie eine Software‑Demonstration im Vollbildmodus abspielen, sodass das Publikum die Details sehen kann. Setzen Sie [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) auf `True`, um dieses Verhalten während der Wiedergabe zu aktivieren.
 
-Dieses Beispiel öffnet eine Präsentation, findet den ersten [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) auf der ersten Folie und aktiviert die Vollbild‑Wiedergabe. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
+Dieses Beispiel öffnet eine Präsentation, findet das erste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) auf der ersten Folie und aktiviert die Vollbild‑Wiedergabe. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
 
 ```python
 import aspose.slides as slides
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die Vollbild‑Wiedergabe steuert, wie das Video angezeigt wird. Unabhängig davon regelt [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/), ob es automatisch oder per Klick startet, und [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) , ob es wiederholt wird. Um das Startverhalten zu wählen, setzen Sie den Wiedergabemodus auf [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Das Beispiel bewahrt die vorhandenen Start‑ und Schleifeinstellungen.
+Die Vollbild‑Wiedergabe steuert, wie das Video angezeigt wird. Unabhängig davon steuert [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/), ob es automatisch oder per Klick startet, und [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) steuert, ob es wiederholt wird. Um das Startverhalten zu wählen, setzen Sie den Wiedergabemodus auf [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Das Beispiel erhält die bestehenden Start‑ und Schleife‑Einstellungen bei.
 
-## **Video nach Wiedergabe zurückspulen**
+## **Video nach der Wiedergabe zurückspulen**
 
-In einer Schulungspräsentation macht das Zurückspulen eines Demonstrationsvideos an den Anfang das Video bereit, es erneut abzuspielen. Setzen Sie [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) auf `True`, um das Video nach Beendigung der Wiedergabe an den Anfang zurückzusetzen.
+In einer Schulungspräsentation macht das Zurückspulen eines Demonstrationsvideos zum Anfang das Video wieder bereit für den Presenter. Setzen Sie [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) auf `True`, um das Video nach Abschluss der Wiedergabe an den Anfang zurückzusetzen.
 
-Dieses Beispiel öffnet eine Präsentation, findet den ersten [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) auf der ersten Folie und aktiviert das Zurückspulen. Es deaktiviert die Schleife, damit die Wiedergabe beendet werden kann, und setzt die Wiedergabe auf Start per Klick. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
+Dieses Beispiel öffnet eine Präsentation, findet das erste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) auf der ersten Folie und aktiviert das Zurückspulen. Es deaktiviert die Schleife, damit die Wiedergabe beendet werden kann, und setzt die Wiedergabe auf Start per Klick. Die Eingabe‑Präsentation muss mindestens eine Folie mit einem vorhandenen Video‑Frame auf der ersten Folie enthalten.
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Das Zurückspulen setzt das Video an den Anfang zurück, ohne es erneut zu starten. Im Gegensatz dazu wiederholt das Aktivieren von [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) die Wiedergabe automatisch. Deaktivieren Sie die Schleife, wenn das Video bis zum Ende laufen und bereit zum erneuten Abspielen sein soll. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) steuert unabhängig davon den automatischen oder per Klick gestarteten Beginn; dieses Beispiel verwendet [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/), sodass der Präsentator entscheidet, wann die Wiedergabe startet. Setzen Sie den Wiedergabemodus nach der Schleifeneinstellung, wie im Beispiel gezeigt. Das Zurückspulen funktioniert unabhängig von [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+Das Zurückspulen bringt das Video zum Anfang, ohne es erneut zu starten. Im Gegensatz dazu wiederholt das Aktivieren von [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) die Wiedergabe automatisch. Deaktivieren Sie die Schleife, wenn das Video bis zum Ende laufen und anschließend bereit zum erneuten Abspielen sein soll. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) steuert unabhängig davon, ob die Wiedergabe automatisch oder per Klick startet; dieses Beispiel verwendet [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/), sodass der Presenter den Startzeitpunkt bestimmt. Setzen Sie den Wiedergabemodus nach der Schleife‑Einstellung, wie im Beispiel gezeigt. Das Zurückspulen funktioniert unabhängig von [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
 
 ## **Video‑Frame zuschneiden**
 
-Verwenden Sie [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) und [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/), um zu Beginn oder am Ende eines Videos während der Wiedergabe einen Teil zu überspringen. Beide Werte sind in Millisekunden angegeben. Das Zuschneiden ändert die Wiedergabeeinstellungen, ohne die eingebetteten Videodaten zu ändern.
+Verwenden Sie [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) und [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/), um den Anfang bzw. das Ende eines Videos während der Wiedergabe zu überspringen. Beide Werte werden in Millisekunden angegeben. Das Trimmen ändert Wiedergabeeinstellungen, ohne die eingebetteten Videodaten zu verändern.
 
-**Trim-Einstellungen festlegen**
+**Trim‑Einstellungen festlegen**
 
-Dieses Beispiel bettet ein lokales Video ein und überspringt die ersten 2,5 Sekunden und die letzte Sekunde während der Wiedergabe. Verwenden Sie ein Video, das länger als 3,5 Sekunden ist, damit ein abspielbarer Abschnitt verbleibt.
+Dieses Beispiel bettet ein lokales Video ein und überspringt die ersten 2,5 Sekunden sowie die letzte Sekunde während der Wiedergabe. Verwenden Sie ein Video, das länger als 3,5 Sekunden ist, damit ein abspielbarer Abschnitt erhalten bleibt.
 
 ```python
 import aspose.slides as slides
@@ -157,9 +157,9 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Trim-Einstellungen lesen**
+**Trim‑Einstellungen auslesen**
 
-Dieses Beispiel gibt die Zuschneidewerte des ersten Video‑Frames auf der ersten Folie in Millisekunden aus. Die Präsentation muss mindestens eine Folie enthalten. Hat diese Folie keinen Video‑Frame, wird nichts ausgegeben. Das vorherige Beispiel liefert die Werte 2500 und 1000.
+Dieses Beispiel gibt die Trimm‑Werte des ersten Video‑Frames auf der ersten Folie in Millisekunden aus. Die Präsentation muss mindestens eine Folie enthalten. Wenn diese Folie keinen Video‑Frame hat, wird nichts ausgegeben. Das vorherige Beispiel erzeugt die Werte 2500 und 1000.
 
 ```python
 import aspose.slides as slides
@@ -176,11 +176,11 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
 
 ## **Video‑Untertitel verwalten**
 
-Aspose.Slides ermöglicht die Verwaltung von Untertiteln für Video‑Frames in PowerPoint‑Präsentationen. Untertitel werden im WebVTT‑Format gespeichert und über die Eigenschaft [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) bereitgestellt.
+Aspose.Slides ermöglicht das Verwalten von Closed‑Captions für Video‑Frames in PowerPoint‑Präsentationen. Untertitel werden im WebVTT‑Format gespeichert und über die Eigenschaft [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) bereitgestellt.
 
-**Untertitel zu einem Video‑Frame hinzufügen**
+### **Untertitel zu einem Video‑Frame hinzufügen**
 
-Dieses Beispiel bettet ein lokales Video ein und fügt eine WebVTT‑Untertitelspur mit dem Label English hinzu. Die Zeitstempel der Untertitel sollten zum Video passen. Die gespeicherte Präsentation enthält sowohl das Video als auch dessen Untertitel.
+Dieses Beispiel bettet ein lokales Video ein und fügt eine WebVTT‑Untertitelspur mit dem Label English hinzu. Die Zeitstempel der Untertitel sollten zum Video passen. Die gespeicherte Präsentation enthält sowohl das Video als auch seine Untertitel.
 
 ```python
 import aspose.slides as slides
@@ -198,11 +198,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die Klasse [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) bietet ebenfalls eine Überladung, die das Hinzufügen von Untertiteln aus einem Stream ermöglicht.
+Die Klasse [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) stellt außerdem eine Überladung bereit, mit der Sie Untertitel aus einem Stream hinzufügen können.
 
-**Untertitel aus einem Video‑Frame extrahieren**
+### **Untertitel aus einem Video‑Frame extrahieren**
 
-Dieses Beispiel speichert alle Untertitelspuren von Video‑Frames auf der ersten Folie als getrennte WebVTT‑Dateien. Aufeinanderfolgende Nummern halten die Ausgabedateien eindeutig. Die Konsole gibt die Anzahl der extrahierten Spuren aus. Die Präsentation muss mindestens eine Folie enthalten.
+Dieses Beispiel speichert alle Untertitelspuren von Video‑Frames auf der ersten Folie als separate WebVTT‑Dateien. Fortlaufende Nummern halten die Ausgabedateien eindeutig. Die Konsole gibt die Anzahl der extrahierten Spuren aus. Die Präsentation muss mindestens eine Folie enthalten.
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-Jedes [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/)‑Objekt stellt den Untertitel‑Bezeichner, das Label, die Binärdaten und den Untertiteltext als UTF‑8‑Zeichenfolge bereit.
+Jedes [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/)‑Objekt stellt die Untertitel‑Kennung, das Label, die Binärdaten und den Untertiteltext als UTF‑8‑String bereit.
 
-**Untertitel von einem Video‑Frame entfernen**
+### **Untertitel von einem Video‑Frame entfernen**
 
-Dieses Beispiel entfernt alle Untertitel vom Video‑Frame an der ersten Shape‑Position auf der ersten Folie und speichert das Ergebnis. Es wird angenommen, dass Folie und Shape existieren und dass das Shape ein Video‑Frame ist.
+Dieses Beispiel entfernt alle Untertitel vom Video‑Frame an der ersten Shape‑Position auf der ersten Folie und speichert das Ergebnis. Es wird davon ausgegangen, dass Folie und Shape existieren und dass das Shape ein Video‑Frame ist.
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wenn Sie nur eine Untertitelspur entfernen müssen, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) oder [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/), anstatt [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+Wenn Sie nur eine Untertitelspur entfernen möchten, verwenden Sie die Methoden [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) oder [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) anstelle von [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+
+### **Video‑Untertitel durchsuchen**
+
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) gibt die gesamte WebVTT‑Spur zurück, einschließlich Header, Zeitlinien und Untertiteltext. Zum Beispiel könnte eine englische Spur auf Folie 2 diesen Cue enthalten:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Dieses Beispiel öffnet `captioned_media.pptx` und liest die [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) jedes Top‑Level‑Video‑Frames auf allen Folien. Für jeden Klartext‑Cue findet es die Zeitlinie, die `-->` enthält, und sammelt die Untertitel‑Zeilen bis zur nächsten leeren Zeile oder bis zum Ende der Spur. Es durchsucht den Untertiteltext nach „café“, wobei die Groß‑/Kleinschreibung ignoriert wird, und gibt für jeden Treffer die Folien‑Nummer, das Spur‑Label, die originale Zeitlinie und den kompletten Untertitel aus.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+Die Beispielspur liefert einen Treffer. „Café“ im Header befindet sich außerhalb des Untertiteltexts, und die Ausgabe bewahrt die Zeitlinieneinstellung sowie beide Untertitelzeilen.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Video aus einer Folie extrahieren**
 
 Neben dem Hinzufügen von Videos zu Folien ermöglicht Aspose.Slides das Extrahieren von in Präsentationen eingebetteten Videos.
 
-Dieses Beispiel extrahiert eingebettete Videos aus jeder Folie in separate, nummerierte Binärdateien. Verknüpfte Videos werden übersprungen, da sie keine eingebetteten Daten besitzen. Die Konsole gibt den MIME‑Typ jedes Videos und die Gesamtanzahl aus. Der Output verwendet die generische `.bin`‑Erweiterung; passen Sie sie bei Bedarf dem gemeldeten Medientyp an.
+Dieses Beispiel extrahiert eingebettete Videos von jeder Folie in separate, nummerierte Binärdateien. Verknüpfte Videos werden übersprungen, da sie keine eingebetteten Daten besitzen. Die Konsole gibt den MIME‑Typ jedes Videos und die Gesamtanzahl aus. Die Ausgabe verwendet die generische `.bin`‑Erweiterung; passen Sie sie bei Bedarf an den gemeldeten Medientyp an.
 
 ```python
 import aspose.slides as slides
@@ -272,18 +321,18 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
 
 ## **FAQ**
 
-**Welche Video‑Wiedergabeparameter können für einen Video‑Frame geändert werden?**
+**Welche Videowiedergabeparameter können für ein Video‑Frame geändert werden?**
 
-Sie können den [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/)-Modus (auto oder per Klick) und [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Objekts zur Verfügung.
+Sie können den [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (automatisch oder per Klick) und das [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) steuern. Diese Optionen stehen über die Eigenschaften des [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)-Objekts zur Verfügung.
 
 **Wirkt sich das Hinzufügen eines Videos auf die PPTX-Dateigröße aus?**
 
-Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie hingegen auf ein Online‑Video verlinken und ein Vorschaubild hinzufügen, speichert die Präsentation den Link und das Vorschaubild statt der Videodaten, sodass die Größenincrease normalerweise kleiner ist.
+Ja. Wenn Sie ein lokales Video einbetten, werden die Binärdaten in das Dokument aufgenommen, sodass die Präsentationsgröße proportional zur Dateigröße wächst. Wenn Sie zu einem Online‑Video verlinken und ein Miniaturbild hinzufügen, speichert die Präsentation den Link und das Vorschaubild anstelle der Videodaten, sodass die Größenzunahme in der Regel kleiner ist.
 
 **Kann ich das Video in einem vorhandenen Video‑Frame ersetzen, ohne Position und Größe zu ändern?**
 
-Ja. Sie können den [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/)‑Inhalt im Frame austauschen, während Sie die Geometrie des Shapes beibehalten; dies ist ein gängiges Szenario zum Aktualisieren von Medien in einem vorhandenen Layout.
+Ja. Sie können den [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) innerhalb des Frames austauschen, während Sie die Geometrie des Shapes beibehalten; dies ist ein häufiges Szenario zum Aktualisieren von Medien in einem bestehenden Layout.
 
-**Kann der Inhaltstyp (MIME) eines eingebetteten Videos ermittelt werden?**
+**Kann der Inhaltstyp (MIME) eines eingebetteten Videos bestimmt werden?**
 
-Ja. Ein eingebettetes Video hat einen [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/), den Sie auslesen und verwenden können, zum Beispiel beim Speichern auf die Festplatte.
+Ja. Ein eingebettetes Video besitzt einen [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/), den Sie auslesen und beispielsweise beim Speichern auf die Festplatte verwenden können.

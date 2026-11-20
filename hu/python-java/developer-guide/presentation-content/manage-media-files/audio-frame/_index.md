@@ -1,37 +1,28 @@
 ---
-title: Audió kezelése prezentációkban Python használatával
-linktitle: Audió keret
+title: Audio keretek kezelése prezentációkban Python használatával
+linktitle: Audio keret
 type: docs
 weight: 10
 url: /hu/python-java/audio-frame/
 keywords:
-- audió
-- audió keret
-- bélyegkép
+- hang
+- audio keret
+- előnézet
 - hang hozzáadása
 - hang tulajdonságok
 - hang beállítások
 - hang kinyerése
 - Python
 - Aspose.Slides
-description: "Audiókeretek létrehozása és vezérlése az Aspose.Slides for Python via Java használatával—kódpéldák a beágyazáshoz, vágáshoz, hurokhoz, és a lejátszás konfigurálásához PPT, PPTX és ODP prezentációkban."
+description: "Ágyazz be hangot a diákba, változtasd meg a hang ikont, konfiguráld a lejátszást, kezeld a WebVTT feliratokat, és nyerd ki a diaváltási hangokat az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan dolgozhatunk audiókeretekkel az Aspose.Slides-ben. Bemutatja, hogyan adhatunk beágyazott hangot a diákhoz, testreszabhatjuk az audiókeret miniatűrjét, konfigurálhatjuk a lejátszási beállításokat, például hangerőt, ismétlést, elrejtést, vágást és elhalványulási időtartamokat, valamint hogyan nyerhetjük ki a diavetítés átmeneteihez használt hangot.
+Az audio keret lehetővé teszi hang lejátszását egy dián. Az Aspose.Slides for Python via Java segítségével beágyazhatsz egy hangklipet, kiválaszthatod azt ábrázoló képet, beállíthatod a lejátszást, és feliratokat csatolhatsz. Emellett lekérdezheted a diaátmenethez rendelt hangot.
 
-## **Audiókeretek létrehozása**
+## **Audio keretek létrehozása**
 
-Az Aspose.Slides for Python via Java lehetővé teszi, hogy hangfájlokat adjunk a diákhoz. A hangfájlok beágyazottak a diákban audiókeretként.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezzen hivatkozást egy diára a indexe alapján.
-3. Olvassa be a beágyazni kívánt hangfájlt.
-4. Adja hozzá a beágyazott audiókeretet (amely a hangfájlt tartalmazza) a diához.
-5. Használja a [AudioFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/) objektum által biztosított [setPlayMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setPlayMode) és [setVolume](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setVolume) metódusokat.
-6. Mentse a módosított prezentációt.
-
-Ez a Python kód megmutatja, hogyan adjon egy beágyazott audiókeretet egy diához:
+`audio.wav` fájl bájtjait add hozzá a prezentáció audio gyűjteményéhez, majd használd az [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) hívást a helyi audio klip beágyazásához az első dián. Az első két koordináta helyezi el a keretet a dián, a következő két érték beállítja a szélességét és magasságát pontban. Ez a példa meghívja a [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) metódust a klip automatikus indításához, és meghívja a [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) metódust a hangos előre beállított érték kiválasztásához.
 
 ```python
 from pathlib import Path
@@ -47,6 +38,7 @@ from asposeslides.api import AudioPlayModePreset, AudioVolumeMode, Presentation,
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
@@ -54,16 +46,15 @@ try:
 
     audio_frame.setPlayMode(AudioPlayModePreset.Auto)
     audio_frame.setVolume(AudioVolumeMode.Loud)
+
     presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Az audiókeret miniatűrjének módosítása**
+## **Az audio keret előnézeti képének módosítása**
 
-Ha hangfájlt ad egy prezentációhoz, az hangként egy alapértelmezett képpel (lásd az alábbi képet) jelenik meg keretként. A keret előnézeti képét megváltoztathatja egy saját választott képre.
-
-Ez a Python kód megmutatja, hogyan módosítsa az audiókeret miniatűrjét vagy előnézeti képét:
+Alapértelmezés szerint egy audio keret a hangszóró ikont jeleníti meg. Egy egyéni előnézet megjelenítéséhez adj egy képet a prezentációhoz az [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) metódussal, és állítsd be a keret képére a [setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage) metódussal. A példa egy JPEG-et használ előnézetként egy beágyazott audio klipehez.
 
 ```python
 from pathlib import Path
@@ -79,7 +70,8 @@ from asposeslides.api import Images, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sample2.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audio)
@@ -91,44 +83,33 @@ try:
         image.dispose()
 
     audio_frame.getPictureFormat().getPicture().setImage(picture)
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Az audió lejátszási beállítások módosítása**
+## **Hang lejátszási beállítások módosítása**
 
-Az Aspose.Slides for Python via Java lehetővé teszi, hogy megváltoztassa a hang lejátszását vagy tulajdonságait szabályozó beállításokat. Például beállíthatja a hangerőt, engedélyezheti a hurok lejátszást, vagy elrejtheti a hang ikont.
+A PowerPoint **Audio Options** vezérlői határozzák meg, mikor kezdődik a klip, milyen hangos, és hogyan viselkedik a diavetítés során.
 
-Az **Audióbeállítások** panel a Microsoft PowerPointben:
+![PowerPoint hangbeállítási vezérlők egy audio kerethez](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint vezérlő | Aspose.Slides for Python via Java method |
+| --- | --- |
+| Indítás | [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) |
+| Hangerő előre beállított érték | [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) |
+| Lejátszás diákon át | [setPlayAcrossSlides](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Ismétlés leállításig | [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Elrejtés előadás alatt | [setHideAtShowing](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Visszatekercselés lejátszás után | [setRewindAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setRewindAudio) |
+| Beúsztatás | [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Kicsengés | [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Hang kezdési idő vágása | [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Hang befejezési idő vágása | [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Hangerő csúszka | [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) |
 
-PowerPoint **Audióbeállítások**, amelyek megfelelnek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/) tulajdonságainak:
-
-- **Indítás** legördülő lista megegyezik a [setPlayMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setPlayMode) metódussal
-- **Hangerő** megegyezik a [setVolume](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setVolume) metódussal
-- **Lejátszás a diákon keresztül** megegyezik a [setPlayAcrossSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) metódussal
-- **Ismétlés a leállításig** megegyezik a [setPlayLoopMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setPlayLoopMode) metódussal
-- **Elrejtés a bemutató alatt** megegyezik a [setHideAtShowing](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setHideAtShowing) metódussal
-- **Visszatekerés lejátszás után** megegyezik a [setRewindAudio](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setRewindAudio) metódussal
-
-PowerPoint **Szerkesztési** opciók, amelyek megfelelnek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/) tulajdonságainak:
-
-- **Halványulás be** megegyezik a [setFadeInDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setFadeInDuration) metódussal 
-- **Halványulás ki** megegyezik a [setFadeOutDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setFadeOutDuration) metódussal 
-- **Audió vágás kezdési idő** megegyezik a [setTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setTrimFromStart) metódussal 
-- **Audió vágás befejezési idő** értéke megegyezik az audió hosszával mínusz a [setTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setTrimFromEnd) metódussal beállított értékkel
-
-A PowerPoint **Hangerő szabályzó** az audió vezérlőpanelen megegyezik a [setVolumeValue](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setVolumeValue) metódussal. Lehetővé teszi a hangerő százalékos módosítását.
-
-Így módosíthatja az audió lejátszási beállításokat:
-
-1. [Create](#create-audio-frames) vagy szerezze be az audiókeretet.
-2. Állítson be új értékeket a módosítani kívánt audiókeret tulajdonságokra.
-3. Mentse a módosított PowerPoint fájlt.
-
-Ez a Python kód bemutat egy műveletet, amelyben a hangbeállításokat módosítják:
+A példa megtalálja az első audio keretet az első dián, meghívja a [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) metódust a lejátszás indításához kattintásra, és kiválasztja az alacsony hangerő előre beállított értéket. A klip a diákon át folytatódik a hurok letiltásával. Az ikon rejtve marad az előadás során, és a klip visszatekeredik lejátszás után.
 
 ```python
 import jpype
@@ -141,24 +122,27 @@ from asposeslides.api import AudioFrame, AudioPlayModePreset, AudioVolumeMode, P
 
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
-    audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
-        # Lejátszás kattintásra alacsony hangerővel, a diákon keresztül, ismétlés nélkül.
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
+        # Lejátszás kattintásra alacsony hangerővel, diákon át, hurok nélkül.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # A keret elrejtése a diavetítés alatt és visszatekerés lejátszás után.
+        # A keret elrejtése a diavetítés során és visszatekerés lejátszás után.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
+
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-Ez a Python példa megmutatja, hogyan adjon hozzá egy új audiókeretet beágyazott hanggal, vágja le, és állítsa be a halványulási időtartamokat:
+3,5 másodpercnél hosszabb klip esetén ez a példa kihagyja az első 1,5 másodpercet és az utolsó 2 másodpercet. A [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) a klip végéből eltávolítandó időt veszi. A PowerPointban látható befejezési időhez vonjuk le ezt az eltolást a teljes klipidőből. A levágott klipe 200 ms alatt húz be, és 500 ms alatt húz ki. Mind a négy metódus értékei ezredmásodpercben adhatók meg.
 
 ```python
 from pathlib import Path
@@ -166,7 +150,7 @@ from pathlib import Path
 import jpype
 import asposeslides
 
-if not jpage.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
@@ -174,23 +158,25 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sampleaudio.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Vágjon le 1,5 másodpercet a kezdetektől és 2 másodpercet a végétől.
+    # Vágja le 1,5 másodpercet a kezdetről és 2 másodpercet a végéről.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Állítsa be a befelé halványulást 200 ms-re és a kifelé halványulást 500 ms-re.
+    # Állítsa be a beúsztatást 200 ms-re és a kicsengést 500 ms-re.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
+
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-A következő kódrészlet bemutatja, hogyan kérjen le egy audiókeretet beágyazott hanggal, és állítsa be a hangerőt 85%-ra:
+A lejátszási hangerő meghatározott százalékra állításához használd a [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) metódust. Ez a példa az első audio keretet az első dián 85%-ra állítja.
 
 ```python
 import jpype
@@ -204,23 +190,24 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.setVolumeValue(85.0)
         presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Audió feliratok kezelése**
+## **Audio feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi, hogy zárt feliratokat adjunk egy audiókerethez a [getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#getCaptionTracks) metódus segítségével. Ez a metódus egy [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) objektumot ad vissza, amely lehetővé teszi WebVTT felirat sávok hozzáadását, a meglévő sávok bejárását, és szükség esetén azok eltávolítását.
+Minden audio keret hozzáférést biztosít a felirat sávokhoz a [getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getCaptionTracks) segítségével. Használd a gyűjteményt WebVTT feliratok csatolásához a klipehez, létező sávok exportálásához vagy eltávolításához.
 
-**Audió feliratok hozzáadása**
+### **Audio feliratok hozzáadása**
 
-Használja a [getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#getCaptionTracks) metódust, hogy egy vagy több feliratsávot csatoljon egy audiókerethez. Az alábbi példában egy hangfájlt adunk egy diához, majd egy új feliratsávot töltünk be egy `.vtt` fájlból.
+A példa egy audio klipeet ágyazza be az első diára, és a [add](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#add) hívást használja helyi WebVTT sáv csatolásához. Az első argumentum a sáv címkét adja meg, a második a időzített feliratokat tartalmazó fájlt azonosítja.
 
 ```python
 from pathlib import Path
@@ -229,28 +216,30 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpave.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    audio_data = Path("audio.mp3").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
-    slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Új feliratsáv hozzáadása egy WebVTT fájlból.
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    # Új felirat sáv hozzáadása egy WebVTT fájlból.
+    audio_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Audió feliratok kinyerése**
+### **Audio feliratok kinyerése**
 
-Végigiterálhat a audiókerethez társított feliratsávokon, és elmentheti őket `.vtt` fájlként. Minden feliratsáv bináris adatot és egyedi azonosítót exponál, amely exportáláskor felhasználható.
+Ez a példa exportálja az első dián egy audio kerethez csatolt minden feliratsávot. A [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getBinaryData) által visszaadott bájtokat egy WebVTT fájlba írja, és a [getCaptionId](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getCaptionId) által visszaadott azonosítót használja fájlnévként, hogy minden sáv külön kimenettel rendelkezzen.
 
 ```python
 from pathlib import Path
@@ -266,20 +255,21 @@ from asposeslides.api import AudioFrame, Presentation
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Mentse a feliratsávot .vtt fájlként.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                # Mentse a felirat sávot .vtt fájlként.
+                file_path = Path(f"{caption_track.getCaptionId()}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
 finally:
     presentation.dispose()
 ```
 
-**Audió feliratok eltávolítása**
+### **Audio feliratok eltávolítása**
 
-A feliratok eltávolításához egy audiókeretből használja a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) által biztosított metódusokat, például a [clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#remove) vagy [removeAt](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#removeAt) metódusokat. Az alábbi példa eltávolítja az összes feliratsávot egy audiókeretből.
+Használd a [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) vagy [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) hívást egy egyedi sáv törléséhez. A példa a [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) metódust használja az összes felirat eltávolításához az első dián az első audio keretről, miközben a klipet megőrzi.
 
 ```python
 import jpype
@@ -293,26 +283,54 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.getCaptionTracks().clear()
         presentation.save("audio_without_captions.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Audió kinyerése**
+### **Sor keresése audio feliratokban**
 
-Az Aspose.Slides for Python via Java lehetővé teszi, hogy kinyerje a diavetítés átmeneteihez használt hangot. Például egy adott dia hangját is kinyerheti.
+Az első diához tartozó audio feliratokban egy sort keresni, a [getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) által visszaadott szöveget kell memóriában keresni. Egy egyszerű szöveges WebVTT idézetben az idővonal `-->` tartalmaz, a feliratsorok ezt követik, és egy üres sor zárja az idézetet. Ez a példa kiíratja a sáv címkét és minden olyan feliratsort, amely tartalmazza a „café” szót.
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) példányt, és töltse be azt a prezentációt, amely tartalmazza a hangot.
-2. Szerezzen hivatkozást a megfelelő diára az indexe alapján.
-3. Hozzáférhet a dia [slideshow transitions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getSlideShowTransition) tulajdonságához.
-4. Kinyeri a hangot bájt adatként.
+```python
+import jpype
+import asposeslides
 
-Ez a Python kód megmutatja, hogyan nyerheti ki egy dia által használt hangot:
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AudioFrame, Presentation
+
+presentation = Presentation("audio_with_captions.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, AudioFrame):
+            continue
+        for track in shape.getCaptionTracks():
+            in_cue = False
+            captions = str(track.getDataAsString())
+            for line in captions.splitlines():
+                if not line:
+                    in_cue = False
+                elif "-->" in line:
+                    in_cue = True
+                elif in_cue and "café" in line.casefold():
+                    print(f"{track.getLabel()}: {line}")
+finally:
+    presentation.dispose()
+```
+
+## **Audio kinyerése**
+
+Egy diaváltásnak saját hangja lehet. A lekérdezéshez hívd a [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSound) metódust a diaváltáson. A példa a [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) által visszaadott bájtokat olvassa, és kiírja a bájtok számát. Ha az első dián nincs váltási hang, helyette egy üzenetet írás.
 
 ```python
 import jpype
@@ -326,11 +344,12 @@ from asposeslides.api import Presentation
 presentation = Presentation("AudioSlide.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     transition = slide.getSlideShowTransition()
     sound = transition.getSound()
     if sound is not None:
         audio_data = sound.getBinaryData()
-        print("Length:", len(audio_data))
+        print(f"Transition sound: {len(audio_data)} bytes.")
     else:
         print("The slide transition has no sound.")
 finally:
@@ -339,14 +358,14 @@ finally:
 
 ## **GYIK**
 
-**Újrahasználhatom ugyanazt az audióeszközt több dián anélkül, hogy a fájlméret nőne?**
+**Can I reuse the same audio clip across multiple slides without duplicating it?**
 
-Igen. Adja hozzá a hangot egyszer a prezentáció megosztott [audio collection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getAudios) gyűjteményéhez, és hozzon létre további audiókereteket, amelyek erre a meglévő eszközre hivatkoznak. Ez megakadályozza a médiaadatok duplikálását, és a prezentáció méretét kordában tartja.
+Igen. A klipet egyszer add hozzá a prezentáció [audio collection](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getAudios) és minden dián a ugyanazt az audio objektumot adod át az [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) hívásnak.
 
-**Lecserélhetem a hangot egy meglévő audiókeretben anélkül, hogy újra létrehoznám az alakzatot?**
+**Can I replace the sound in an existing audio frame?**
 
-Igen. Egy hivatkozott hang esetén frissítse a [link path](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setLinkPathLong) értékét, hogy az új fájlra mutasson. Beágyazott hang esetén cserélje ki a [embedded audio](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audioframe/#setEmbeddedAudio) objektumot egy másikra a prezentáció [audio collection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getAudios) gyűjteményéből. A keret formázása és a legtöbb lejátszási beállítás változatlan marad.
+Igen. Egy hivatkozott hang esetén használd a [setLinkPathLong](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setLinkPathLong) hívást a helyettesítő fájlra mutatáshoz. Beágyazott hang esetén válassz egy másik klipet a prezentáció audio gyűjteményéből a [setEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setEmbeddedAudio) segítségével. Mindkét megközelítés megőrzi a meglévő keretet.
 
-**A vágás megváltoztatja a prezentációban tárolt alapvető audióadatot?**
+**Does trimming change the audio data stored in the presentation?**
 
-Nem. A vágás csak a lejátszási határokat módosítja. Az eredeti audióbájtok változatlanul megmaradnak, és hozzáférhetők a beágyazott hang vagy a prezentáció audiógyűjteménye révén.
+Nem. A [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) és [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) a lejátszási határokat állítják be. A teljes klipet továbbra is lekérdezheted a [getEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getEmbeddedAudio) metódussal.

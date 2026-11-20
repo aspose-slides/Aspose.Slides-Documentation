@@ -1,37 +1,37 @@
 ---
-title: Python में प्रस्तुतियों में वीडियो फ़्रेम प्रबंधित करें
-linktitle: वीडियो फ़्रेम
+title: प्रस्तुतियों में Python के साथ वीडियो फ्रेम प्रबंधन
+linktitle: वीडियो फ्रेम
 type: docs
 weight: 10
 url: /hi/python-net/video-frame/
 keywords:
 - वीडियो जोड़ें
-- वीडियो बनाएं
+- वीडियो बनाएँ
 - वीडियो एम्बेड करें
-- वीडियो निकालें
-- वीडियो प्राप्त करें
-- वीडियो फ़्रेम
+- वीडियो निकालेँ
+- वीडियो पुनः प्राप्त करें
+- वीडियो फ्रेम
 - वेब स्रोत
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ़्रेम जोड़ने और निकालने की प्रक्रिया सीखें। तेज़ गाइड।"
+description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ने और निकालने के बारे में जानें। तेज़ कैसे-करें मार्गदर्शिका।"
 ---
 ## **परिचय**
 
-वीडियो विचारों को समझाने और दर्शकों को आकर्षित करने में मदद कर सकते हैं। Aspose.Slides for Python via .NET आपको स्लाइड्स में वीडियो फ़्रेम जोड़ने, प्लेबैक सेटिंग्स को समायोजित करने, कैप्शन प्रबंधित करने और एम्बेडेड वीडियो डेटा निकालने की सुविधा देता है।
+वीडियो विचारों को समझाने और दर्शकों को आकर्षित करने में मदद कर सकते हैं। Aspose.Slides for Python via .NET आपको स्लाइड्स में वीडियो फ्रेम जोड़ने, प्लेबैक सेटिंग्स समायोजित करने, कैप्शन प्रबंधित करने, और एम्बेडेड वीडियो डेटा निकालने की सुविधा देता है।
 
 PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो के लिंक, जैसे YouTube वीडियो, को समर्थन देता है।
 
-वीडियो डेटा और वीडियो फ़्रेम का प्रतिनिधित्व करने के लिए, Aspose.Slides [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) क्लास, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) क्लास, और अन्य प्रासंगिक प्रकार प्रदान करता है।
+वीडियो डेटा और वीडियो फ्रेम को दर्शाने के लिए, Aspose.Slides [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) क्लास, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) क्लास, और अन्य संबंधित प्रकार प्रदान करता है।
 
 ## **एक एम्बेडेड वीडियो फ्रेम बनाएं**
 
-यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप प्रस्तुति में वीडियो एम्बेड करने के लिए एक वीडियो फ़्रेम बना सकते हैं।
+यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप अपनी प्रस्तुति में वीडियो को एम्बेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एम्बेड करता है और परिणाम को सहेजता है। फ़्रेम निर्देशांक और आयाम पॉइंट में हैं। स्ट्रीम उस समय तक खुला रहता है जब तक सहेजना समाप्त नहीं हो जाता, क्योंकि [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) प्रस्तुति द्वारा उपयोग के दौरान इसे लॉक रखता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो को एम्बेड करता है और परिणाम को सहेजता है। फ्रेम के निर्देशांक और आयाम पॉइंट्स में होते हैं। स्ट्रीम तब तक खुला रहता है जब तक सहेजा नहीं जाता क्योंकि [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) प्रस्तुति द्वारा उपयोग किए जाने पर इसे लॉक रखता है।
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-आप स्थानीय वीडियो पथ को सीधे [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/) को भी पास कर सकते हैं। यह उदाहरण नए प्रस्तुति की पहली स्लाइड पर वीडियो एम्बेड करता है। वीडियो को तब तक उपलब्ध रहना चाहिए जब तक प्रस्तुति सहेजी न जाए।
+आप स्थानीय वीडियो पथ को सीधे [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/) को भी पास कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो को एम्बेड करता है। प्रस्तुति सहेजे जाने तक वीडियो तक पहुंच योग्य रहना आवश्यक है।
 
 ```python
 import aspose.slides as slides
@@ -61,9 +61,9 @@ with slides.Presentation() as presentation:
 
 ## **वेब स्रोत से वीडियो के साथ एक वीडियो फ्रेम बनाएं**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो का समर्थन करता है। आप एक वीडियो फ़्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो को समर्थन देता है। आप एक वीडियो फ्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
 
-यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) सेटिंग स्वचालित प्लेबैक का अनुरोध करती है। थंबनेल डाउनलोड करना और वीडियो चलाना इंटरनेट एक्सेस की आवश्यकता देता है। प्रस्तुति व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन होना चाहिए।
+यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता को बदलें। [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) सेटिंग स्वचालित प्लेबैक का अनुरोध करती है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रस्तुति दर्शक को भी ऑनलाइन वीडियो प्लेबैक को समर्थन देना चाहिए।
 
 ```python
 from urllib.request import urlopen
@@ -86,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **पूर्ण-स्क्रीन मोड में वीडियो चलाएं**
+## **पूरा-स्क्रीन मोड में वीडियो चलाएँ**
 
-एक प्रशिक्षण प्रस्तुति में, आप एक सॉफ़्टवेयर डेमोंस्ट्रेशन को पूर्ण-स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) को `True` पर सेट करें।
+एक प्रशिक्षण प्रस्तुति में, आप सॉफ्टवेयर डेमोंस्ट्रेशन को पूरा-स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। प्लेबैक के दौरान यह व्यवहार सक्षम करने के लिए [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) को `True` सेट करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) खोजता है, और पूर्ण-स्क्रीन प्लेबैक सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ़्रेम होना आवश्यक है।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) खोजता है, और पूरा-स्क्रीन प्लेबैक को सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौजूदा वीडियो फ्रेम हो।
 
 ```python
 import aspose.slides as slides
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-पूर्ण-स्क्रीन प्लेबैक नियंत्रित करता है कि वीडियो कैसे प्रदर्शित होता है। स्वतंत्र रूप से, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) निर्धारित करता है कि यह स्वचालित रूप से शुरू होता है या क्लिक पर, और [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) निर्धारित करता है कि यह दोहराता है या नहीं। प्रारंभ व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा प्रारंभ और लूप सेटिंग्स को बरकरार रखता है।
+पूरा-स्क्रीन प्लेबैक यह नियंत्रित करता है कि वीडियो कैसे प्रदर्शित किया जाता है। स्वतंत्र रूप से, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) यह नियंत्रित करता है कि यह स्वचालित रूप से या क्लिक पर शुरू हो, और [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) यह नियंत्रित करता है कि यह दोहराए या नहीं। शुरूआती व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा शुरूआती और लूप सेटिंग्स को बनाए रखता है।
 
 ## **प्लेबैक के बाद वीडियो को रीवाइंड करें**
 
-एक प्रशिक्षण प्रस्तुति में, डेमोंस्ट्रेशन वीडियो को उसकी शुरुआत पर लौटाना इसे प्रस्तोता के फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को प्रारंभ में लौटाने के लिए [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) को `True` पर सेट करें।
+एक प्रशिक्षण प्रस्तुति में, डेमोंस्ट्रेशन वीडियो को उसकी शुरुआत में लौटाना इसे प्रस्तुतकर्ता द्वारा फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लौटाने के लिए [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) को `True` सेट करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) खोजता है, और रीवाइंड सक्षम करता है। यह लूपिंग को अक्षम करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू करने के लिए सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड में पहली स्लाइड पर मौजूदा वीडियो फ़्रेम होना आवश्यक है।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) खोजता है, और रीवाइंडिंग को सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू होने के लिए सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौजूदा वीडियो फ्रेम हो।
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-रीवाइंडिंग वीडियो को फिर से शुरू किए बिना उसकी शुरुआत पर लौटाता है। इसके विपरीत, [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) को सक्षम करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और फिर से चलाने के लिए तैयार रहे, तब लूपिंग को अक्षम रखें। [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) स्वतंत्र रूप से स्वचालित या क्लिक पर शुरूआत को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तोता तय करे कि प्लेबैक कब शुरू हो। जैसा कि उदाहरण में दिखाया गया है, लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) से स्वतंत्र रूप से काम करता है।
+रीवाइंडिंग वीडियो को फिर से शुरू किए बिना उसकी शुरुआत में वापस ले जाता है। इसके विपरीत, [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) को सक्षम करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और फिर से चलाने के लिए तैयार रहे तो लूपिंग को निष्क्रिय रखें। [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) स्वतंत्र रूप से स्वचालित या क्लिक पर शुरूआत को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुतकर्ता यह नियंत्रित कर सके कि प्लेबैक कब शुरू हो। उदाहरण में दिखाए अनुसार लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) से स्वतंत्र रूप से कार्य करता है।
 
-## **वीडियो फ़्रेम को ट्रिम करें**
+## **वीडियो फ्रेम को ट्रिम करें**
 
-[VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) और [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) का उपयोग करके प्लेबैक के दौरान वीडियो की शुरुआत या अंत का कुछ भाग छोड़ सकते हैं। दोनों मान मिलिसेकंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स को बदलती है।
+[VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) और [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) का उपयोग करके प्लेबैक के दौरान वीडियो की शुरुआत या अंत के भाग को छोड़ सकते हैं। दोनों मान मिलीसेकंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स को बदलता है।
 
 **ट्रिम सेटिंग्स सेट करें**
 
-यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और आखिरी सेकंड को छोड़ देता है। एक 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें ताकि एक चलाने योग्य भाग बना रहे।
+यह उदाहरण स्थानीय वीडियो को एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम सेकंड को छोड़ देता है। एक प्लेबिल सेगमेंट बचाने के लिए 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें।
 
 ```python
 import aspose.slides as slides
@@ -159,7 +159,7 @@ with slides.Presentation() as presentation:
 
 **ट्रिम सेटिंग्स पढ़ें**
 
-यह उदाहरण पहली स्लाइड पर पहले वीडियो फ़्रेम के ट्रिम मान को मिलिसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होना चाहिए। यदि उस स्लाइड में कोई वीडियो फ़्रेम नहीं है, तो कुछ भी प्रिंट नहीं होगा। पिछले उदाहरण में मान 2500 और 1000 उत्पन्न होते हैं।
+यह उदाहरण पहली स्लाइड पर पहले वीडियो फ्रेम के ट्रिम मानों को मिलीसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में वीडियो फ्रेम नहीं है, तो कुछ नहीं प्रिंट होता। पिछले उदाहरण ने 2500 और 1000 मान उत्पन्न किए।
 
 ```python
 import aspose.slides as slides
@@ -174,13 +174,13 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
             break
 ```
 
-## **वीडियो कैप्शन प्रबंधित करें**
+## **वीडियो कैप्शन प्रबंधन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ़्रेम के लिए क्लोज़्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फॉर्मेट में संग्रहीत होते हैं और [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) प्रॉपर्टी के माध्यम से उपलब्ध होते हैं।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के क्लोज्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) प्रॉपर्टी के माध्यम से उपलब्ध होते हैं।
 
-**एक वीडियो फ़्रेम में कैप्शन जोड़ें**
+### **वीडियो फ्रेम में कैप्शन जोड़ें**
 
-यह उदाहरण एक स्थानीय वीडियो एम्बेड करता है और अंग्रेजी लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो से मेल खाने चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल होते हैं।
+यह उदाहरण स्थानीय वीडियो को एम्बेड करता है और English लेबल वाली एक WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो से मेल खाने चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल हैं।
 
 ```python
 import aspose.slides as slides
@@ -198,11 +198,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) क्लास भी एक ओवरलोड प्रदान करता है जो आपको स्ट्रीम से कैप्शन जोड़ने की अनुमति देता है।
+[CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) क्लास एक ओवरलोड भी प्रदान करती है जो आपको स्ट्रीम से कैप्शन जोड़ने की सुविधा देता है।
 
-**एक वीडियो फ़्रेम से कैप्शन निकालें**
+### **वीडियो फ्रेम से कैप्शन निकालें**
 
-यह उदाहरण पहली स्लाइड पर वीडियो फ़्रेम से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सेव करता है। क्रमिक संख्याएं आउटपुट फ़ाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैक की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होना चाहिए।
+यह उदाहरण पहली स्लाइड पर वीडियो फ्रेमों के सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक संख्या आउटपुट फ़ाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैक की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-प्रत्येक [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में उजागर करता है।
+प्रत्येक [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में प्रदर्शित करता है।
 
-**एक वीडियो फ़्रेम से कैप्शन हटाएँ**
+### **वीडियो फ्रेम से कैप्शन हटाएँ**
 
-यह उदाहरण पहली स्लाइड पर पहले शेप स्थान पर वीडियो फ़्रेम से सभी कैप्शन हटाता है और परिणाम को सेव करता है। यह मान लेता है कि स्लाइड और शेप मौजूद हैं और वह शेप एक वीडियो फ़्रेम है।
+यह उदाहरण पहली स्लाइड पर पहली शेप स्थिति में स्थित वीडियो फ्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और शेप मौजूद हैं और शेप एक वीडियो फ्रेम है।
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-यदि आपको केवल एक ही कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) की बजाय [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) या [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) मेथड का उपयोग करें।
+यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) के बजाय [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) या [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) मेथड्स का उपयोग करें।
+
+### **वीडियो कैप्शन खोजें**
+
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) पूरे WebVTT ट्रैक को लौटाता है, जिसमें इसका हेडर, टाइमिंग लाइनें, और कैप्शन टेक्स्ट शामिल हैं। उदाहरण के लिए, स्लाइड 2 पर एक English ट्रैक में यह क्यु हो सकता है:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+यह उदाहरण `captioned_media.pptx` खोलता है और प्रत्येक स्लाइड पर प्रत्येक टॉप-लेवल वीडियो फ्रेम के [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) को पढ़ता है। प्रत्येक प्लेन-टेक्स्ट क्यु के लिए, यह `-->` वाली टाइमिंग लाइन को खोजता है और अगले खाली लाइन या ट्रैक के अंत तक के कैप्शन लाइनों को एकत्र करता है। यह कैप्शन टेक्स्ट में "café" को केस के बिना खोजता है और प्रत्येक मिलान के लिए स्लाइड नंबर, ट्रैक लेबल, मूल टाइमिंग लाइन, और पूर्ण कैप्शन प्रिंट करता है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+उदाहरण ट्रैक एक मिलान उत्पन्न करता है। हेडर में "Café" कैप्शन टेक्स्ट के बाहर है, और आउटपुट टाइमिंग सेटिंग और दोनों कैप्शन लाइनों को बरकरार रखता है।
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **स्लाइड से वीडियो निकालें**
 
-स्लाइड्स में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो निकालने की सुविधा देता है।
+स्लाइड में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो निकालने की सुविधा देता है।
 
-यह उदाहरण प्रत्येक स्लाइड से एम्बेडेड वीडियो को अलग-अलग, क्रमांकित बाइनरी फ़ाइलों में निकालता है। लिंक किए गए वीडियो को छोड़ा जाता है क्योंकि उनमें एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME प्रकार और कुल संख्या प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता पड़ने पर इसे रिपोर्ट किए गए मीडिया प्रकार से मिलाने के लिए बदलें।
+यह उदाहरण हर स्लाइड से एम्बेडेड वीडियो को अलग-अलग, क्रमांकित बाइनरी फ़ाइलों में निकालता है। लिंक्ड वीडियो को छोड़ा जाता है क्योंकि उनके पास एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME टाइप और कुल संख्या प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता अनुसार इसे रिपोर्टेड मीडिया टाइप से मेल कराने के लिए बदलें।
 
 ```python
 import aspose.slides as slides
@@ -270,20 +319,20 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
     print(f"Embedded videos extracted: {video_count}")
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**कौन से वीडियो प्लेबैक पैरामीटर वीडियो फ़्रेम के लिए बदले जा सकते हैं?**
+**किस वीडियो फ्रेम के लिए कौन सी वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
 
-आप [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) ऑब्जेक्ट की प्रॉपर्टीज़ के माध्यम से उपलब्ध हैं।
+आप [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (auto या on click) और [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) ऑब्जेक्ट की प्रॉपर्टीज़ के माध्यम से उपलब्ध हैं।
 
-**क्या वीडियो जोड़ने से PPTX फ़ाइल का आकार प्रभावित होता है?**
+**क्या वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है?**
 
-हां। जब आप एक स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल के आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और पूर्वावलोकन छवि को वीडियो डेटा के बजाय संग्रहीत करती है, इसलिए आकार वृद्धि आमतौर पर छोटी होती है।
+हां। जब आप एक स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को वीडियो डेटा के बजाय संग्रहीत करती है, इसलिए आकार वृद्धि आमतौर पर कम होती है।
 
-**क्या मैं मौजूदा वीडियो फ्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
+**क्या मैं मौजूदा वीडियो फ्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूं?**
 
-हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) को बदल सकते हैं जबकि शेप की ज्योमेट्री को बरकरार रखते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने का एक सामान्य परिदृश्य है।
+हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) को बदल सकते हैं जबकि आकारविज़ के ज्यामिति को संरक्षित रखते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने का सामान्य परिदृश्य है।
 
 **क्या एम्बेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
 
-हां। एम्बेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) होता है जिसे आप पढ़ और उपयोग कर सकते हैं, उदाहरण के लिए जब आप इसे डिस्क पर सेव करते हैं।
+हां। एक एम्बेडेड वीडियो के पास एक [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) होता है जिसे आप पढ़ सकते हैं और उपयोग कर सकते हैं, उदाहरण के लिए जब आप इसे डिस्क पर सहेजते हैं।

@@ -8,30 +8,30 @@ keywords:
 - เพิ่มวิดีโอ
 - สร้างวิดีโอ
 - ฝังวิดีโอ
-- สกัดวิดีโอ
-- ดึงวิดีโอ
+- แยกวิดีโอออก
+- ดึงข้อมูลวิดีโอ
 - เฟรมวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและสกัดเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างโปรแกรมโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java อย่างรวดเร็วในคู่มือวิธีทำ"
+description: "เรียนรู้วิธีเพิ่มและดึงเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างโปรแกรมเมติกด้วย Aspose.Slides สำหรับ PHP ผ่าน Java. คู่มือวิธีทำแบบเร็ว."
 ---
 ## **บทนำ**
 
-วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ PHP ผ่าน Java ช่วยให้คุณสามารถเพิ่มเฟรมวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่นจัดการคำบรรยาย และสกัดข้อมูลวิดีโอที่ฝังไว้
+Videos can help explain ideas and engage an audience. Aspose.Slides for PHP via Java lets you add video frames to slides, adjust playback settings, manage captions, and extract embedded video data.
 
-PowerPoint รองรับวิดีโอที่อยู่ในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+PowerPoint supports local videos and links to online videos, such as YouTube videos.
 
-เพื่อแสดงข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีคลาส [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) คลาส [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ
+To represent video data and video frames, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) class, and other relevant types.
 
-## **สร้างเฟรมวิดีโอที่ฝังอยู่**
+## **สร้างเฟรมวิดีโอที่ฝังไว้**
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มในสไลด์จัดเก็บไว้ในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้
+If the video file you want to add to your slide is stored locally, you can create a video frame to embed the video in your presentation.
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมใช้หน่วยจุด สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จสิ้น เพราะ [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) ทำให้ล็อกไว้ในขณะที่งานนำเสนอใช้งาน
+This example embeds a local video on the first slide of an existing presentation and saves the result. Frame coordinates and dimensions are in points. The stream stays open until saving finishes because [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) keeps it locked while the presentation uses it.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-คุณยังสามารถส่งพาธวิดีโอในเครื่องโดยตรงไปยัง [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องยังสามารถเข้าถึงได้จนกว่าจะบันทึกงานนำเสนอ
+You can also pass a local video path directly to [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). This example embeds the video on the first slide of a new presentation. The video must remain accessible until the presentation is saved.
 
 ```php
 use aspose\slides\Presentation;
@@ -76,9 +76,9 @@ try {
 
 ## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) supports online videos in presentations. You can create a video frame that links to an online video, such as a YouTube video.
 
-ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปย่อบนสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) ทำให้เล่นอัตโนมัติ การดาวน์โหลดรูปย่อและการเล่นวิดีโอต้องการการเชื่อมต่ออินเทอร์เน็ต ตัวดูงานนำเสนอจะต้องรองรับการเล่นวิดีโอออนไลน์ด้วย
+This example adds a YouTube video link and thumbnail to the first slide. Replace the video identifier to use another video. The [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) method requests automatic playback. Downloading the thumbnail and playing the video require internet access. The presentation viewer must also support online video playback.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
+## **เล่นวิดีโอในโหมดเต็มจอ**
 
-ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียด เรียก [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) พร้อมค่า `true` เพื่อเปิดใช้งานพฤติกรรมนี้ระหว่างการเล่น
+In a training presentation, you can play a software demonstration in full-screen mode so the audience can see the details. Call [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) with `true` to enable this behavior during playback.
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) แรกบนสไลด์แรกและเปิดใช้งานการเล่นเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+This example opens a presentation, finds the first [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) on the first slide, and enables full-screen playback. The input presentation must contain at least one slide with an existing video frame on the first slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-การเล่นเต็มหน้าจอกำหนดวิธีการแสดงวิดีโอ โดยแยกกัน [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) กำหนดว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) กำหนดว่าจะวนซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่มต้น ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) ตัวอย่างนี้รักษาการตั้งค่าเริ่มต้นและการวนซ้ำที่มีอยู่
+Full-screen playback controls how the video is displayed. Independently, [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) controls whether it starts automatically or on click, and [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) controls whether it repeats. To choose the start behavior, set the playback mode to [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). The example preserves the existing start and loop settings.
 
-## **รีเวิร์ดวิดีโอหลังการเล่น**
+## **ย้อนวิดีโอกลับหลังการเล่น**
 
-ในงานนำเสนอการฝึกอบรม การนำวิดีโอสาธิตกลับไปที่จุดเริ่มทำให้พร้อมสำหรับผู้บรรยายที่จะเล่นอีกครั้ง เรียก [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) พร้อมค่า `true` เพื่อให้วิดีือกลับไปที่จุดเริ่มต้นหลังจากการเล่นเสร็จ
+In a training presentation, returning a demonstration video to its beginning makes it ready for the presenter to play again. Call [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) with `true` to return the video to the beginning after playback finishes.
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) แรกบนสไลด์แรกและเปิดใช้งานการรีเวิร์ด ปิดการวนซ้ำเพื่อให้การเล่นจบลงและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+This example opens a presentation, finds the first [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) on the first slide, and enables rewinding. It disables looping so playback can finish and sets playback to start on click. The input presentation must contain at least one slide with an existing video frame on the first slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-การรีเวิร์ดจะคืนวิดีโอไปที่จุดเริ่มต้นโดยไม่เริ่มใหม่ ในทางตรงกันข้าม การเรียก [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) พร้อมค่า `true` จะทำให้การเล่นวนซ้ำโดยอัตโนมัติ ให้ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอจบและพร้อมสำหรับการเล่นใหม่ [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) ควบคุมการเริ่มอัตโนมัติหรือเมื่อคลิกโดยอิสระ ตัวอย่างนี้ใช้ [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายควบคุมเวลาที่การเล่นเริ่ม ตั้งโหมดการเล่นหลังจากตั้งค่าการวนซ้ำ ตามที่แสดงในตัวอย่าง การรีเวิร์ดทำงานแยกจาก [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+Rewinding returns the video to its beginning without starting it again. In contrast, calling [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) with `true` repeats playback automatically. Keep looping disabled when you want the video to finish and remain ready to replay. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) independently controls automatic or on-click startup; this example uses [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) so the presenter controls when playback starts. Set the playback mode after the loop setting, as shown in the example. Rewinding works independently of [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **ตัดเฟรมวิดีโอ**
+## **ตัดคลิปวิดีโอ**
 
-ใช้ [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) และ [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) เพื่อข้ามส่วนต้นหรือส่วนท้ายของวิดีโอระหว่างการเล่น ค่าเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่
+Use [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) and [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) to skip part of the beginning or end of a video during playback. Both values are in milliseconds. Trimming changes playback settings without modifying the embedded video data.
 
 **ตั้งค่าการตัด**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่เล่นได้
+This example embeds a local video and skips the first 2.5 seconds and the last second during playback. Use a video longer than 3.5 seconds so a playable segment remains.
 
 ```php
 use aspose\slides\Presentation;
@@ -210,7 +210,7 @@ try {
 
 **อ่านการตั้งค่าการตัด**
 
-ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอ จะไม่มีการพิมพ์ ตัวอย่างก่อนหน้านี้ให้ค่าที่ 2500 และ 1000
+This example prints the trim values of the first video frame on the first slide in milliseconds. The presentation must contain at least one slide. If that slide has no video frame, nothing is printed. The preceding example produces values of 2500 and 1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และสามารถเข้าถึงได้ผ่านเมธอด [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks)
+Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) method.
 
-**เพิ่มคำบรรยายให้เฟรมวิดีโอ**
+### **เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทรกคำบรรยาย WebVTT ที่มีป้ายกำกับเป็น English เวลาตัวบรรยายควรตรงกับวิดีโอ งานนำเสนอที่บันทึกจะรวมทั้งวิดีโอและคำบรรยาย
+This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-คลาส [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) ยังมีโอเวอร์โหลดที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้
+The [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) class also provides an overload that lets you add captions from a stream.
 
-**สกัดคำบรรยายจากเฟรมวิดีโอ**
+### **ดึงคำบรรยายจากเฟรมวิดีโอ**
 
-ตัวอย่างนี้บันทึกแทรกคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกกัน ตัวเลขลำดับทำให้ไฟล์ผลลัพธ์แตกต่างกัน คอนโซลจะรายงานจำนวนแทรกที่สกัดได้ งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
+This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-แต่ละอ็อบเจ็กต์ [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) แสดงตัวระบุคำบรรยาย ป้ายกำกับ ข้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
+Each [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**ลบคำบรรยายจากเฟรมวิดีโอ**
+### **ลบคำบรรยายจากเฟรมวิดีโอ**
 
-ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นเฟรมวิดีโอ
+This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-หากต้องการลบแค่แทรกคำบรรยายเดียว ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) หรือ [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) แทนการใช้ [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear)
+If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) or [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) methods instead of [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
 
-## **สกัดวิดีโอจากสไลด์**
+### **ค้นหาคำบรรยายวิดีโอ**
 
-นอกจากการเพิ่มวิดีโอลงสไลด์แล้ว Aspose.Slides ยังให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอ
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) returns the complete WebVTT track, including its header, timing lines, and caption text. You can search the cues in memory to find a spoken phrase and its timestamp. For example, an English track on slide 2 might contain the following text.
 
-ตัวอย่างนี้สกัดวิดีโอที่ฝังจากทุกสไลด์เป็นไฟล์ไบนารีแยกตามหมายเลข วิดีโอที่ลิงก์จะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลพิมพ์ประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; ให้เปลี่ยนเป็นส่วนขยายที่ตรงกับประเภทสื่อที่รายงานเมื่อจำเป็น
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+The example opens `captioned_media.pptx` and uses [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) to read the tracks of each top-level video frame on every slide. In a plain-text cue, the timing line contains `-->`, and a blank line ends the cue. When the caption contains “café” in any letter case, the example prints the slide number, track label, original timing line, and full caption.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Searching for “café” produces one match for the sample track. The search excludes the track header and preserves the timing setting in the output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **ดึงวิดีโอจากสไลด์**
+
+Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
+
+This example extracts embedded videos from every slide into separate, numbered binary files. Linked videos are skipped because they have no embedded data. The console prints each video’s MIME type and the total count. Output uses the generic `.bin` extension; change it to match the reported media type when needed.
 
 ```php
 use aspose\slides\Presentation;
@@ -374,18 +438,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอใดที่สามารถเปลี่ยนได้สำหรับเฟรมวิดีโอ?**
+**พารามิเตอร์การเล่นวิดีโอที่สามารถเปลี่ยนแปลงได้สำหรับเฟรมวิดีโอคืออะไร?**
 
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) ตัวเลือกเหล่านี้พร้อมให้ใช้ผ่านเมธอดของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)
+You can control the [โหมดการเล่น](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto or on click) and [การวน](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). These options are available via the [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) object's methods.
 
-**การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**
+**การเพิ่มวิดีโอทำให้ไฟล์ PPTX มีขนาดใหญ่ขึ้นหรือไม่?**
 
-ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกรวมอยู่ในเอกสาร ทำให้ขนาดงานนำเสนอเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มรูปย่อ งานนำเสนอจะเก็บลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นการเพิ่มขนาดมักจะน้อยกว่า
+Yes. When you embed a local video, the binary data is included in the document, so the presentation size grows in proportion to the file size. When you link to an online video and add a thumbnail, the presentation stores the link and preview image rather than the video data, so the size increase is usually smaller.
 
 **ฉันสามารถแทนที่วิดีโอในเฟรมวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
 
-ได้ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) ภายในเฟรมโดยยังคงรักษาเรขาคณิตของรูปร่างไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเค้าโครงที่มีอยู่
+Yes. You can swap the [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) within the frame while preserving the shape's geometry; this is a common scenario for updating media in an existing layout.
 
-**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังได้หรือไม่?**
+**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังไว้ได้หรือไม่?**
 
-ได้ วิดีโอที่ฝังมี [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) ที่คุณสามารถอ่านและใช้ได้ เช่นเมื่อต้องการบันทึกลงดิสก์
+Yes. An embedded video has a [content type](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) that you can read and use, for example when saving it to disk.

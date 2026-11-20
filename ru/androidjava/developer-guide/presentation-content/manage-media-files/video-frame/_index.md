@@ -11,28 +11,28 @@ keywords:
 - извлечь видео
 - получить видео
 - видеокадр
-- веб‑источник
+- веб-источник
 - PowerPoint
 - OpenDocument
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Android через Java. Быстрое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Android на Java. Быстрое практическое руководство."
 ---
 ## **Введение**
 
-Видео могут помочь объяснить идеи и привлечь аудиторию. Aspose.Slides for Android через Java позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
+Видео может помочь объяснить идеи и заинтересовать аудиторию. Aspose.Slides for Android via Java позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
 
-PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео с YouTube.
+PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео YouTube.
 
-Для представления видеоданных и видеокадров Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) , а также другие соответствующие типы.
+Чтобы представлять видеоданные и видеокадры, Aspose.Slides предоставляет интерфейсы [интерфейс IVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideo/) и [интерфейс IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/), а также другие соответствующие типы.
 
 ## **Создание встроенного видеокадра**
 
-Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы внедрить видео в презентацию.
+Если файл видео, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
 
-В этом примере локальное видео внедряется на первый слайд существующей презентации и сохраняется. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) удерживает его, пока презентация использует его.
+Этот пример встраивает локальное видео на первый слайд существующей презентации и сохраняет результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadingstreambehavior/) удерживает его, пока презентация использует его.
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +51,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-Вы также можете передать путь к локальному видео напрямую в [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). В этом примере видео внедряется на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
+Вы также можете передать путь к локальному видео напрямую в метод [addVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). Этот пример встраивает видео на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
 
 ```java
 import com.aspose.slides.*;
@@ -70,9 +70,9 @@ try {
 
 ## **Создание видеокадра с видео из веб‑источника**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например, видео с YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например, видео YouTube.
 
-В этом примере добавляется ссылка на видео YouTube и миниатюра на **первый** слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) запрашивает автоматическое воспроизведение. Скачивание миниатюры и воспроизведение видео требуют доступа к интернету. Просмотрщик презентаций также должен поддерживать воспроизведение онлайн‑видео.
+Этот пример добавляет ссылку на видео YouTube и миниатюру на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Метод [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setPlayMode-int-) запрашивает автоматическое воспроизведение. Загрузка миниатюры и воспроизведение видео требуют доступа к Интернету. Просмотрщик презентаций также должен поддерживать онлайн‑воспроизведение видео.
 
 ```java
 import com.aspose.slides.*;
@@ -103,9 +103,9 @@ try {
 
 ## **Воспроизведение видео в полноэкранном режиме**
 
-В обучающей презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория могла увидеть детали. Вызовите [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) с `true`, чтобы включить это поведение во время воспроизведения.
+В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория видела детали. Вызовите [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) с параметром `true`, чтобы включить это поведение во время воспроизведения.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) на первом слайде и включается полноэкранное воспроизведение. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, находит первый [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) на первом слайде и включает полноэкранное воспроизведение. Во входной презентации должен быть хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```java
 import com.aspose.slides.*;
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-Полноэкранное воспроизведение определяет, как отображается видео. Отдельно, [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) управляет тем, начинается ли оно автоматически или по щелчку, а [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) определяет, будет ли оно повторяться. Чтобы выбрать поведение при запуске, установите режим воспроизведения в [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и повторения.
+Полноэкранное воспроизведение определяет, как отображается видео. Независимо от этого, метод [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) управляет тем, начинается ли воспроизведение автоматически или по щелчку, а метод [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) отвечает за повтор. Чтобы выбрать поведение запуска, задайте режим воспроизведения в [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и повторения.
 
 ## **Перемотка видео после воспроизведения**
 
-В обучающей презентации возврат демонстрационного видео в начало делает его готовым к повторному воспроизведению. Вызовите [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) с `true`, чтобы вернуть видео в начало после завершения воспроизведения.
+В учебной презентации возврат демонстрационного видео в начало делает его готовым к повторному запуску. Вызовите [setRewindVideo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setRewindVideo-boolean-) с параметром `true`, чтобы вернуть видео в начало после завершения воспроизведения.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) на первом слайде и включается перемотка. Отключается повтор, чтобы воспроизведение могло завершиться, и задаётся запуск воспроизведения по щелчку. Входная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+Этот пример открывает презентацию, находит первый [IVideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/) на первом слайде и включает перемотку. Он отключает повтор, чтобы воспроизведение могло завершиться, и устанавливает старт по щелчку. Во входной презентации должен быть хотя бы один слайд с существующим видеокадром на первом слайде.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +159,15 @@ try {
 }
 ```
 
-Перемотка возвращает видео в начало, не запуская его повторно. В отличие от этого, вызов [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) с `true` автоматически повторяет воспроизведение. Отключайте повтор, когда хотите, чтобы видео завершилось и было готово к повторному воспроизведению. [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) независимо управляет автоматическим запуском или запуском по щелчку; в этом примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/) , чтобы презентатор контролировал начало воспроизведения. Устанавливайте режим воспроизведения после настройки повторения, как показано в примере. Перемотка работает независимо от [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
+Перемотка возвращает видео в начало без повторного запуска. В отличие от этого, вызов [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) с параметром `true` приводит к автоматическому повтору. Оставляйте повтор отключённым, когда требуется, чтобы видео закончилось и было готово к повторному воспроизведению. Метод [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) независимо контролирует автоматический или щелчковый запуск; в примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoplaymodepreset/), чтобы презентующий сам решал, когда начинать воспроизведение. Устанавливайте режим воспроизведения после настройки повторения, как показано в примере. Перемотка работает независимо от [setFullScreenMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setFullScreenMode-boolean-).
 
 ## **Обрезка видеокадра**
 
-Используйте [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) и [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-), чтобы пропускать часть начала или конца видео во время воспроизведения. Оба значения задаются в миллисекундах. Обрезка меняет настройки воспроизведения без изменения встроенных видеоданных.
+Используйте методы [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) и [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) для пропуска части начала или конца видео во время воспроизведения. Оба значения задаются в миллисекундах. Обрезка меняет параметры воспроизведения без изменения встроенных видеоданных.
 
 **Установить параметры обрезки**
 
-В этом примере локальное видео внедряется, а при воспроизведении пропускаются первые 2,5 секунды и последняя секунда. Используйте видео длиной более 3,5 секунды, чтобы оставался воспроизводимый фрагмент.
+Этот пример встраивает локальное видео и пропускает первые 2,5 секунды и последнюю секунду во время воспроизведения. Используйте видео длинее 3,5 секунды, чтобы оставался воспроизводимый сегмент.
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **Прочитать параметры обрезки**
 
-В этом примере выводятся значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать как минимум один слайд. Если у этого слайда нет видеокадра, ничего не выводится. В предыдущем примере получены значения 2500 и 1000.
+Этот пример выводит значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать хотя бы один слайд. Если у этого слайда нет видеокадра, ничего не будет выведено. Предыдущий пример выдаёт значения 2500 и 1000.
 
 ```java
 import com.aspose.slides.*;
@@ -220,9 +220,9 @@ try {
 
 Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
-**Добавить субтитры к видеокадру**
+### **Добавить субтитры к видеокадру**
 
-В этом примере локальное видео внедряется и добавляется дорожка WebVTT с субтитрами, помеченная как English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация включает как видео, так и его субтитры.
+Этот пример встраивает локальное видео и добавляет дорожку субтитров WebVTT с меткой English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация будет содержать как видео, так и его субтитры.
 
 ```java
 import com.aspose.slides.*;
@@ -248,9 +248,9 @@ try {
 
 Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
 
-**Извлечь субтитры из видеокадра**
+### **Извлечь субтитры из видеокадра**
 
-В этом примере все дорожки субтитров из видеокадров на первом слайде сохраняются в отдельные файлы WebVTT. Последовательные номера делают файлы уникальными. Консоль выводит количество извлечённых дорожек. Презентация должна содержать как минимум один слайд.
+Этот пример сохраняет все дорожки субтитров с видеокадров первого слайда в отдельные файлы WebVTT. Последовательные номера делают файлы различными. Консоль выводит количество извлечённых дорожек. Презентация должна содержать хотя бы один слайд.
 
 ```java
 import com.aspose.slides.*;
@@ -279,11 +279,11 @@ try {
 }
 ```
 
-Каждый объект [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF‑8.
+Каждый объект [ICaptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, двоичные данные и текст субтитров в виде строки UTF-8.
 
-**Удалить субтитры из видеокадра**
+### **Удалить субтитры из видеокадра**
 
-В этом примере удаляются все субтитры из видеокадра, находящегося в первой позиции фигуры на первом слайде, и сохраняется результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
+Этот пример удаляет все субтитры из видеокадра, находящегося на первой позиции фигуры первого слайда, и сохраняет результат. Предполагается, что слайд и фигура существуют и что фигура является видеокадром.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +301,80 @@ try {
 }
 ```
 
-Если необходимо удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) или [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) , а не [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
+Если нужно удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) или [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#removeAt-int-) вместо [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/captionscollection/#clear--) .
+
+### **Поиск субтитров видео**
+
+Метод [ICaptions.getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) возвращает полную дорожку WebVTT, включая заголовок, строки времени и текст субтитров. Вы можете искать подсказки в памяти, чтобы найти произнесённую фразу и её временную метку. Например, английская дорожка на слайде 2 может содержать следующий текст.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Пример открывает `captioned_media.pptx` и использует [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) для чтения дорожек каждого видеокадра верхнего уровня на всех слайдах. В простом текстовом подсказке строка времени содержит `-->`, а пустая строка завершает подсказку. Когда субтитры содержат слово «café» в любом регистре, пример выводит номер слайда, метку дорожки, оригинальную строку времени и полный текст субтитров.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringBuilder caption = new StringBuilder();
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            if (caption.length() > 0) {
+                                caption.append('\n');
+                            }
+                            caption.append(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Поиск «café» даёт одно совпадение для образцовой дорожки. Поиск исключает заголовок дорожки и сохраняет настройки времени в выводе.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Извлечение видео со слайда**
 
 Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
 
-В этом примере из каждого слайда извлекаются встроенные видео в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как у них нет встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Выходные файлы используют обобщённое расширение `.bin`; при необходимости измените его в соответствии с указанным типом медиа.
+Этот пример извлекает встроенные видео со всех слайдов в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит тип MIME каждого видео и общее количество. В качестве расширения используется общий `.bin`; при необходимости замените его на соответствующее типу медиа.
 
 ```java
 import com.aspose.slides.*;
@@ -341,16 +408,20 @@ try {
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Какие параметры воспроизведения видео можно изменить для видеокадра?**  
+**Какие параметры воспроизведения видео можно изменить для видеокадра?**
+
 Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (авто или по щелчку) и [повтором](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Эти параметры доступны через методы объекта [VideoFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/) .
 
-**Влияет ли добавление видео на размер файла PPTX?**  
-Да. При внедрении локального видео двоичные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение‑превью, а не сами видеоданные, поэтому увеличение размера обычно меньше.
+**Влияет ли добавление видео на размер файла PPTX?**
 
-**Могу ли я заменить видео в существующем видеокадре, не меняя его позицию и размеры?**  
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) внутри кадра, сохранив геометрию фигуры; это распространённый сценарий обновления медиа в существующем макете.
+Да. При встраивании локального видео двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При связывании с онлайн‑видео и добавлении миниатюры презентация хранит только ссылку и изображение‑превью, а не сами видеоданные, поэтому рост размера обычно меньше.
 
-**Можно ли определить тип содержимого (MIME) встроенного видео?**  
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) который вы можете прочитать и использовать, например при сохранении его на диск.
+**Можно ли заменить видео в существующем видеокадре, не меняя его позицию и размер?**
+
+Да. Вы можете заменить [видео‑контент](https://reference.aspose.com/slides/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) внутри кадра, сохранив геометрию формы; это распространённый сценарий обновления медиа в существующей компоновке.
+
+**Можно ли определить тип содержимого (MIME) встроенного видео?**
+
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/androidjava/com.aspose.slides/video/#getContentType--) , который можно прочитать и использовать, например, при сохранении на диск.

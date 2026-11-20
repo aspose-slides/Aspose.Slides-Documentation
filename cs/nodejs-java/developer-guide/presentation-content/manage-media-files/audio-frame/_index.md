@@ -1,252 +1,322 @@
 ---
-title: Správa zvuku v prezentacích pomocí JavaScriptu
-linktitle: Audio rámeček
+title: Správa audio rámců v prezentacích pomocí JavaScriptu
+linktitle: Audio rámec
 type: docs
 weight: 10
 url: /cs/nodejs-java/audio-frame/
 keywords:
-- zvuk
-- audio rámeček
-- miniatura
-- přidat zvuk
-- vlastnosti zvuku
-- možnosti zvuku
-- extrahovat zvuk
+- audio
+- audio rámec
+- náhled
+- přidat audio
+- vlastnosti audia
+- volby audia
+- extrahovat audio
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vytvářejte a ovládejte audio rámečky v Aspose.Slides pro Node.js — příklady pro vložení, ořezání, opakování a konfiguraci přehrávání v prezentacích PPT, PPTX a ODP."
+description: "Vkládejte audio do snímků, měňte ikonu audia, nastavujte přehrávání, spravujte titulky WebVTT a získávejte zvuky přechodů snímků pomocí Aspose.Slides pro Node.js via Java."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s audio rámečky v Aspose.Slides. Ukazuje, jak přidat vložený zvuk do snímků, přizpůsobit miniaturu audio rámečku, nakonfigurovat možnosti přehrávání, jako je hlasitost, opakování, skrytí, ořezávání a trvání přechodů, a extrahovat zvuk použitý v přechodech prezentace.
+Audio rámec vám umožní přehrát zvuk na snímku. S Aspose.Slides pro Node.js via Java můžete vložit zvukový klip, vybrat obrázek, který jej reprezentuje, upravit přehrávání a připojit titulky. Můžete také získat zvuk přiřazený k přechodu snímku.
 
-## **Vytvoření audio rámečků**
+## **Vytvoření audio rámců**
 
-Aspose.Slides for Node.js via Java vám umožňuje přidávat zvukové soubory do snímků. Zvukové soubory jsou vloženy do snímků jako audio rámečky.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Načtěte stream zvukového souboru, který chcete vložit do snímku.
-4. Přidejte vložený audio rámeček (obsahující zvukový soubor) na snímek.
-5. Nastavte [PlayMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AudioPlayModePreset) a `Volume` vystavené objektem [AudioFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AudioFrame).
-6. Uložte upravenou prezentaci.
-
-Tento JavaScriptový kód ukazuje, jak přidat vložený audio rámeček na snímek:
+Použijte [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) k vložení lokálního audio klipu na první snímek. První dva souřadnice umístí rámec na snímek a další dva hodnoty nastaví jeho šířku a výšku, vše v bodech. Tento příklad volá [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) pro automatické spuštění klipu a volá [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) pro výběr hlasité předvolby.
 
 ```javascript
-// Vytvoří instanci třídy Presentation, která představuje soubor prezentace
-const pres = new aspose.slides.Presentation();
-try {
-    // Získá první snímek
-    const sld = pres.getSlides().get_Item(0);
-    // Načte wav zvukový soubor do proudu
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Přidá audio rámeček
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Nastaví režim přehrávání a hlasitost zvuku
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // Zapíše soubor PowerPoint na disk
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Změna miniatury audio rámečku**
-
-Když do prezentace přidáte zvukový soubor, zvuk se zobrazí jako rámeček se standardním výchozím obrázkem (viz obrázek v následující sekci). Můžete změnit náhledový obrázek audio rámečku (nastavte svůj preferovaný obrázek).
-
-Tento JavaScriptový kód ukazuje, jak změnit miniaturu nebo náhledový obrázek audio rámečku:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Přidá audio rámec na snímek s určenou pozicí a velikostí.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Přidá obrázek do zdrojů prezentace.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Nastaví obrázek pro audio rámec.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // Uloží upravenou prezentaci na disk
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Změna možností přehrávání zvuku**
-
-Aspose.Slides for Node.js via Java vám umožňuje měnit možnosti, které řídí přehrávání zvuku nebo jeho vlastnosti. Například můžete upravit hlasitost zvuku, nastavit opakování přehrávání nebo dokonce skrýt ikonu zvuku.
-
-Panel **Audio Options** v Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-PowerPoint **Audio Options**, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/):
-- **Start** rozbalovací seznam odpovídá metodě [AudioFrame.setPlayMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** odpovídá metodě [AudioFrame.setVolume](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides** odpovídá metodě [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped** odpovídá metodě [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show** odpovídá metodě [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing** odpovídá metodě [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setRewindAudio)
-
-PowerPoint **Editing** možnosti, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/):
-
-- **Fade In** odpovídá metodě [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** odpovídá metodě [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** odpovídá metodě [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** hodnota se rovná délce zvuku minus hodnota metody [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-Ovládací prvek **Volume controll** na panelu ovládání zvuku odpovídá metodě [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Umožňuje změnit hlasitost zvuku v procentech.
-
-Takto měníte možnosti přehrávání zvuku:
-
-1. [Сreate](#create-audio-frame) nebo získejte Audio Frame.
-2. Nastavte nové hodnoty pro vlastnosti Audio Frame, které chcete upravit.
-3. Uložte upravený soubor PowerPoint.
-
-Tento JavaScriptový kód demonstruje operaci, při které jsou upraveny možnosti zvuku:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Získá tvar AudioFrame
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Nastaví režim přehrávání na přehrání po kliknutí
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Nastaví hlasitost na Nízká
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Nastaví audio tak, aby se přehrávalo napříč snímky
-    audioFrame.setPlayAcrossSlides(true);
-    // Zakáže opakování pro audio
-    audioFrame.setPlayLoopMode(false);
-    // Skryje AudioFrame během prezentace
-    audioFrame.setHideAtShowing(true);
-    // Přetočí audio na začátek po přehrání
-    audioFrame.setRewindAudio(true);
-    // Uloží soubor PowerPoint na disk
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Tento JavaScriptový příklad ukazuje, jak přidat nový audio rámeček s vloženým zvukem, oříznout jej a nastavit trvání přechodů:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Nastaví počáteční offset ořezu na 1,5 sekundy
-    audioFrame.setTrimFromStart(1500);
-    // Nastaví koncový offset ořezu na 2 sekundy
-    audioFrame.setTrimFromEnd(2000);
-
-    // Nastaví dobu fade-in na 200 ms
-    audioFrame.setFadeInDuration(200);
-    // Nastaví dobu fade-out na 500 ms
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-Následující ukázka kódu ukazuje, jak získat audio rámeček s vloženým zvukem a nastavit jeho hlasitost na 85 %:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Získá tvar audio rámce
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Nastaví hlasitost zvuku na 85%
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Správa titulků zvuku**
-
-Aspose.Slides vám umožňuje přidávat uzavřené titulky k audio rámečku pomocí metody [getCaptionTracks](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Tato metoda vrací [CaptionsCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/captionscollection/), která vám umožní přidávat WebVTT titulky, iterovat přes existující stopy a odstraňovat je podle potřeby.
-
-**Přidání titulků zvuku**
-
-Použijte metodu [getCaptionTracks](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) k připojení jedné nebo více titulkových stop k audio rámečku. V následujícím příkladu je zvukový soubor přidán na snímek a následně je načtena nová titulková stopa ze souboru `.vtt`.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Přidá novou titulkovou stopu ze souboru WebVTT.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Extrahování titulků zvuku**
+## **Změna miniatury audio rámce**
 
-Můžete iterovat přes titulkové stopy spojené s audio rámečkem a uložit je jako soubory `.vtt`. Každá titulková stopa poskytuje svá binární data a jedinečný identifikátor, který lze použít při exportu titulků.
+Ve výchozím nastavení zobrazuje audio rámec ikonu reproduktoru. Pro zobrazení vlastní miniatury přidejte do prezentace obrázek pomocí [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) a nastavte jej na obrázek rámce pomocí [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage). Příklad používá `eagle.jpeg` jako miniaturu pro vložený audio klip.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Změna možností přehrávání audia**
+
+Ovládací prvky **Audio Options** v PowerPointu určují, kdy klip začne, jak hlasitý je a jak se chová během prezentace.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| Ovládací prvek PowerPointu | Metoda Aspose.Slides pro Node.js via Java |
+| --- | --- |
+| Spuštění | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Předvolba hlasitosti | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Přehrát přes snímky | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Opakovat dokud není zastaveno | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Skrýt během prezentace | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Převinout po přehrání | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| Prolínání dovnitř | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Prolínání ven | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Oříznout čas začátku audia | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Oříznout čas konce audia | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Posuvník hlasitosti | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+Příklad najde první audio rámec na prvním snímku, zavolá [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode), aby spustil přehrávání kliknutím, a vybere předvolbu nízké hlasitosti. Klip pokračuje přes snímky s vypnutým opakováním. Ikona zůstává skrytá během prezentace a klip se po přehrání převine.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Uloží titulkovou stopu jako soubor .vtt.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro klip delší než 3,5 sekundy tento příklad přeskočí první 1,5 sekundy a poslední 2 sekundy. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) určuje dobu, která se má vynechat na konci klipu. Pro získání koncového času zobrazeného v PowerPointu odečtěte tuto odchylku od celkové délky klipu. Oříznutý klip se během 200 milisekund plynule zesílí a během 500 milisekund plynule zeslabí. Všechny čtyři metody přijímají hodnoty v milisekundách.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro nastavení hlasitosti přehrávání na konkrétní procento použijte [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Tento příklad nastaví první audio rámec na prvním snímku na 85 %.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Správa audio titulků**
+
+Každý audio rámec poskytuje přístup ke svým stopám titulků pomocí [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Použijte kolekci k připojení WebVTT titulků ke klipu, exportu existujících stop nebo jejich odebrání.
+
+### **Přidání audio titulků**
+
+Příklad vloží audio klip na první snímek a použije [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add), aby připojil místní WebVTT stopu. První argument poskytuje štítek stopy a druhý určuje soubor obsahující časované titulky.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Extrahování audio titulků**
+
+Tento příklad exportuje každou stopu titulků připojenou k audio rámci na prvním snímku. Zapíše bajty vrácené metodou [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) do souboru WebVTT a použije identifikátor vrácený metodou [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) jako název souboru, aby každá stopa měla samostatný výstup.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Odstranění audio titulků**
+
+Použijte [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt), abyste smazali jednotlivou stopu. Příklad použije [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear), aby odstranil všechny titulky z prvního audio rámce na prvním snímku při zachování klipu.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Vyhledání řádku v audio titulcích**
+
+Pro vyhledání řádku v audio titulcích na prvním snímku prohledejte v paměti text vrácený metodou [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString). V prostém textovém WebVTT cue obsahuje časová řádka znak `-->`, řádky titulků následují a prázdná řádka ukončuje cue. Tento příklad vypíše štítek stopy a každou řádku titulků obsahující „café“.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -255,64 +325,39 @@ try {
 }
 ```
 
-**Odstranění titulků zvuku**
+## **Extrahování audia**
 
-Chcete-li odstranit titulky z audio rámečku, použijte metody poskytované [CaptionsCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/captionscollection/), jako jsou [clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/captionscollection/#removeAt). Následující příklad odstraňuje všechny titulkové stopy z audio rámečku.
+Přechod snímku může mít svůj vlastní zvuk. Pro jeho získání zavolejte [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) na přechodu snímku. Příklad získá bajty vrácené metodou [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) a vypíše jejich počet. Pokud první snímek nemá zvuk přechodu, vypíše místo toho zprávu.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // typ: aspose.slides.AudioFrame
-
-    // Odstraní všechny titulkové stopy z audio rámce.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extrahování zvuku**
-
-Aspose.Slides for Node.js via Java vám umožňuje extrahovat zvuk používaný v přechodech prezentace. Například můžete extrahovat zvuk použitého v konkrétním snímku.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation) a načtěte prezentaci obsahující zvuk.
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přistupte k [slideshow transitions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) pro snímek.
-4. Extrahujte zvuk v bajtových datech.
-
-Tento JavaScriptový kód ukazuje, jak extrahovat zvuk použitý v snímku:
-
-```javascript
-// Vytvoří instanci třídy Presentation, která představuje soubor prezentace
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // Přistoupí k požadovanému snímku
-    const slide = pres.getSlides().get_Item(0);
-    // Získá efekty přechodu prezentace pro snímek
-    const transition = slide.getSlideShowTransition();
-    // Extrahuje zvuk do pole bajtů
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 ## **Často kladené otázky**
 
-**Mohu opakovaně použít stejný zvukový prostředek na více snímcích, aniž by se zvětšila velikost souboru?**
+**Mohu znovu použít stejný audio klip na více snímcích bez jeho duplikování?**
 
-Ano. Přidejte zvuk jednou do sdílené [audio collection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getaudios/) prezentace a vytvořte další audio rámečky, které odkazují na tento existující prostředek. Tím se zabrání duplikaci mediálních dat a velikost prezentace zůstane pod kontrolou.
+Ano. Přidejte klip jednou do [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) prezentace a předávejte stejný audio objekt do [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) pro každý snímek.
 
-**Mohu nahradit zvuk v existujícím audio rámečku, aniž bych znovu vytvářel tvar?**
+**Mohu nahradit zvuk v existujícím audio rámci?**
 
-Ano. Pro propojený zvuk aktualizujte [link path](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) tak, aby ukazoval na nový soubor. Pro vložený zvuk vyměňte objekt [embedded audio](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) za jiný z [audio collection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getaudios/) prezentace. Formátování rámečku a většina nastavení přehrávání zůstane nedotčena.
+Ano. Pro odkazovaný zvuk použijte [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong), aby ukazoval na náhradní soubor. Pro vložený zvuk vyberte jiný klip z audio kolekce prezentace pomocí [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio). Oba přístupy zachovávají existující rámec.
 
-**Mění ořezávání podkladová data zvuku uložená v prezentaci?**
+**Změní oříznutí audio data uložená v prezentaci?**
 
-Ne. Ořezávání upravuje pouze hranice přehrávání. Původní bajty zvuku zůstávají nedotčeny a jsou přístupné prostřednictvím vloženého zvuku nebo audio kolekce prezentace.
+Ne. [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) a [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) nastavují hranice přehrávání. Stále můžete získat celý klip pomocí [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio).

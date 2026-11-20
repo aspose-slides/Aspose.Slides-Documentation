@@ -18,21 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda a añadir y extraer programáticamente fotogramas de vídeo en diapositivas PowerPoint y OpenDocument usando Aspose.Slides para Node.js via Java. Guía rápida paso a paso."
+description: "Aprenda a añadir y extraer fotogramas de vídeo en diapositivas PowerPoint y OpenDocument mediante Aspose.Slides para Node.js vía Java. Guía rápida paso a paso."
 ---
 ## **Introducción**
 
-Los vídeos pueden ayudar a explicar ideas y a captar la atención del público. Aspose.Slides for Node.js via Java le permite añadir fotogramas de vídeo a las diapositivas, ajustar la configuración de reproducción, gestionar subtítulos y extraer los datos de vídeo incrustados.
+Los vídeos pueden ayudar a explicar ideas y a captar la atención del público. Aspose.Slides para Node.js mediante Java le permite añadir fotogramas de vídeo a las diapositivas, ajustar la configuración de reproducción, gestionar subtítulos y extraer datos de vídeo incrustados.
 
 PowerPoint admite vídeos locales y enlaces a vídeos en línea, como los vídeos de YouTube.
 
-Para representar datos de vídeo y fotogramas de vídeo, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) y la clase [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) y otros tipos relevantes.
+Para representar datos de vídeo y fotogramas de vídeo, Aspose.Slides proporciona la clase [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/), la clase [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) y otros tipos relevantes.
 
 ## **Crear un fotograma de vídeo incrustado**
 
 Si el archivo de vídeo que desea añadir a su diapositiva está almacenado localmente, puede crear un fotograma de vídeo para incrustar el vídeo en su presentación.
 
-Este ejemplo incrusta un vídeo local en la primera diapositiva de una presentación existente y guarda el resultado. Las coordenadas y dimensiones del fotograma están en puntos. El flujo permanece abierto hasta que se completa el guardado porque [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) lo mantiene bloqueado mientras la presentación lo utiliza.
+Este ejemplo incrusta un vídeo local en la primera diapositiva de una presentación existente y guarda el resultado. Las coordenadas y dimensiones del fotograma están en puntos. El flujo permanece abierto hasta que se termina de guardar porque [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) lo mantiene bloqueado mientras la presentación lo usa.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-También puede pasar una ruta de vídeo local directamente a [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Este ejemplo incrusta el vídeo en la primera diapositiva de una nueva presentación. El vídeo debe permanecer accesible hasta que la presentación se guarde.
+También puede pasar la ruta de un vídeo local directamente a [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Este ejemplo incrusta el vídeo en la primera diapositiva de una nueva presentación. El vídeo debe permanecer accesible hasta que se guarde la presentación.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -73,11 +73,11 @@ try {
 }
 ```
 
-## **Crear un fotograma de vídeo con vídeo de una fuente web**
+## **Crear un fotograma de vídeo con vídeo desde una fuente web**
 
 Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) admite vídeos en línea en las presentaciones. Puede crear un fotograma de vídeo que enlace a un vídeo en línea, como un vídeo de YouTube.
 
-Este ejemplo añade un enlace a un vídeo de YouTube y su miniatura a la primera diapositiva. Reemplace el identificador del vídeo para usar otro vídeo. El método [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) solicita la reproducción automática. Descargar la miniatura y reproducir el vídeo requieren acceso a Internet. El visor de presentaciones también debe ser compatible con la reproducción de vídeos en línea.
+Este ejemplo añade un enlace y una miniatura de un vídeo de YouTube a la primera diapositiva. Reemplace el identificador del vídeo para usar otro vídeo. El método [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) solicita la reproducción automática. Descargar la miniatura y reproducir el vídeo requieren acceso a Internet. El visor de la presentación también debe admitir la reproducción de vídeo en línea.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Reproducir un vídeo en modo pantalla completa**
+## **Reproducir un vídeo en modo de pantalla completa**
 
-En una presentación de formación, puede reproducir una demostración de software en modo pantalla completa para que el público vea los detalles. Llame a [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) con `true` para habilitar este comportamiento durante la reproducción.
+En una presentación de entrenamiento, puede reproducir una demostración de software en modo pantalla completa para que el público pueda ver los detalles. Llame a [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) con `true` para habilitar este comportamiento durante la reproducción.
 
-Este ejemplo abre una presentación, encuentra el primer [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) en la primera diapositiva y habilita la reproducción a pantalla completa. La presentación de entrada debe contener al menos una diapositiva con un fotograma de vídeo existente en la primera diapositiva.
+Este ejemplo abre una presentación, busca el primer [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) en la primera diapositiva y habilita la reproducción en pantalla completa. La presentación de entrada debe contener al menos una diapositiva con un fotograma de vídeo existente en la primera diapositiva.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,13 +137,13 @@ try {
 }
 ```
 
-La reproducción a pantalla completa controla cómo se muestra el vídeo. De forma independiente, [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) controla si se inicia automáticamente o con un clic, y [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) controla si se repite. Para elegir el comportamiento de inicio, establezca el modo de reproducción a [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). El ejemplo conserva la configuración de inicio y bucle existentes.
+La reproducción en pantalla completa controla cómo se muestra el vídeo. De forma independiente, [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) controla si se inicia automáticamente o al hacer clic, y [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) controla si se repite. Para elegir el comportamiento de inicio, establezca el modo de reproducción a [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). El ejemplo conserva la configuración existente de inicio y bucle.
 
-## **Retroceder un vídeo después de la reproducción**
+## **Rebobinar un vídeo después de la reproducción**
 
-En una presentación de formación, devolver un vídeo de demostración a su principio lo deja listo para que el presentador lo reproduzca nuevamente. Llame a [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) con `true` para devolver el vídeo al principio tras la finalización de la reproducción.
+En una presentación de entrenamiento, devolver un vídeo de demostración a su principio lo deja listo para que el presentador lo reproduzca de nuevo. Llame a [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) con `true` para volver el vídeo al principio después de que la reproducción finalice.
 
-Este ejemplo abre una presentación, encuentra el primer [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) en la primera diapositiva y habilita el rebobinado. Desactiva el bucle para que la reproducción pueda terminar y establece la reproducción para que comience con un clic. La presentación de entrada debe contener al menos una diapositiva con un fotograma de vídeo existente en la primera diapositiva.
+Este ejemplo abre una presentación, busca el primer [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) en la primera diapositiva y habilita el rebobinado. Desactiva el bucle para que la reproducción pueda terminar y establece la reproducción para que inicie al hacer clic. La presentación de entrada debe contener al menos una diapositiva con un fotograma de vídeo existente en la primera diapositiva.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,15 +170,15 @@ try {
 }
 ```
 
-El rebobinado devuelve el vídeo a su principio sin iniciarlo de nuevo. En contraste, llamar a [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) con `true` repite la reproducción automáticamente. Mantenga el bucle desactivado cuando desee que el vídeo finalice y quede listo para reproducirlo nuevamente. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) controla de forma independiente el inicio automático o con clic; este ejemplo usa [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) para que el presentador controle cuándo comienza la reproducción. Establezca el modo de reproducción después de la configuración del bucle, como se muestra en el ejemplo. El rebobinado funciona de forma independiente de [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+El rebobinado devuelve el vídeo a su principio sin iniciarlo de nuevo. En contraste, llamar a [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) con `true` repite la reproducción automáticamente. Mantenga el bucle desactivado cuando desee que el vídeo termine y quede listo para reproducirse nuevamente. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) controla de forma independiente el inicio automático o al hacer clic; este ejemplo utiliza [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) para que el presentador controle cuándo empieza la reproducción. Establezca el modo de reproducción después de la configuración del bucle, como se muestra en el ejemplo. El rebobinado funciona de forma independiente de [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
 
 ## **Recortar un fotograma de vídeo**
 
-Utilice [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) y [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) para omitir parte del principio o del final de un vídeo durante la reproducción. Ambos valores están en milisegundos. El recorte cambia la configuración de reproducción sin modificar los datos del vídeo incrustado.
+Use [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) y [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) para omitir parte del comienzo o del final de un vídeo durante la reproducción. Ambos valores están en milisegundos. El recorte modifica la configuración de reproducción sin alterar los datos del vídeo incrustado.
 
 **Establecer ajustes de recorte**
 
-Este ejemplo incrusta un vídeo local y omite los primeros 2,5 segundos y el último segundo durante la reproducción. Utilice un vídeo de más de 3,5 segundos para que quede un segmento reproducible.
+Este ejemplo incrusta un vídeo local y omite los primeros 2,5 segundos y el último segundo durante la reproducción. Use un vídeo de más de 3,5 segundos para que quede un segmento reproducible.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,7 +205,7 @@ try {
 
 **Leer ajustes de recorte**
 
-Este ejemplo muestra los valores de recorte del primer fotograma de vídeo en la primera diapositiva en milisegundos. La presentación debe contener al menos una diapositiva. Si esa diapositiva no tiene fotograma de vídeo, no se muestra nada. El ejemplo anterior produce valores de 2500 y 1000.
+Este ejemplo muestra los valores de recorte del primer fotograma de vídeo en la primera diapositiva en milisegundos. La presentación debe contener al menos una diapositiva. Si esa diapositiva no tiene fotograma de vídeo, no se mostrará nada. El ejemplo anterior produce valores de 2500 y 1000.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,9 +231,9 @@ try {
 
 ## **Gestionar subtítulos de vídeo**
 
-Aspose.Slides le permite gestionar subtítulos cerrados para los fotogramas de vídeo en presentaciones de PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante el método [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides le permite gestionar subtítulos cerrados para los fotogramas de vídeo en presentaciones PowerPoint. Los subtítulos se almacenan en formato WebVTT y se exponen mediante el método [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Añadir subtítulos a un fotograma de vídeo**
+### **Añadir subtítulos a un fotograma de vídeo**
 
 Este ejemplo incrusta un vídeo local y añade una pista de subtítulos WebVTT etiquetada como English. Las marcas de tiempo de los subtítulos deben coincidir con el vídeo. La presentación guardada incluye tanto el vídeo como sus subtítulos.
 
@@ -261,9 +261,9 @@ try {
 
 La clase [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) también proporciona el método [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) para añadir subtítulos desde un flujo.
 
-**Extraer subtítulos de un fotograma de vídeo**
+### **Extraer subtítulos de un fotograma de vídeo**
 
-Este ejemplo guarda todas las pistas de subtítulos de los fotogramas de vídeo en la primera diapositiva como archivos WebVTT separados. Los números secuenciales mantienen los archivos de salida diferenciados. La consola informa del número de pistas extraídas. La presentación debe contener al menos una diapositiva.
+Este ejemplo guarda todas las pistas de subtítulos de los fotogramas de vídeo de la primera diapositiva como archivos WebVTT separados. Los números secuenciales mantienen los archivos de salida distintos. La consola informa del número de pistas extraídas. La presentación debe contener al menos una diapositiva.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -297,7 +297,7 @@ try {
 
 Cada objeto [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) expone el identificador del subtítulo, la etiqueta, los datos binarios y el texto del subtítulo como una cadena UTF‑8.
 
-**Eliminar subtítulos de un fotograma de vídeo**
+### **Eliminar subtítulos de un fotograma de vídeo**
 
 Este ejemplo elimina todos los subtítulos del fotograma de vídeo en la primera posición de forma en la primera diapositiva y guarda el resultado. Se asume que la diapositiva y la forma existen y que la forma es un fotograma de vídeo.
 
@@ -317,13 +317,79 @@ try {
 }
 ```
 
-Si necesita eliminar solo una pista de subtítulos, utilice los métodos [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) o [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) en lugar de [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+Si necesita eliminar solo una pista de subtítulos, use los métodos [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) o [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) en lugar de [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+
+### **Buscar subtítulos de vídeo**
+
+El método [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) devuelve toda la pista WebVTT, incluido el encabezado, las líneas de tiempo y el texto del subtítulo. Puede buscar el texto del subtítulo en memoria para encontrar una frase y su marca de tiempo. Por ejemplo, una pista en inglés en la diapositiva 2 podría contener esta señal:
+
+```text
+WEBVTT Café tour
+
+00:00:1.000 --> 00:00:3.000 align:start
+Meet me at the café
+near the station.
+```
+
+Este ejemplo abre `captioned_media.pptx` y usa [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) para leer las pistas de cada fotograma de vídeo de nivel superior en todas las diapositivas. En una señal de texto plano, la línea de tiempo contiene `-->`, y una línea en blanco finaliza la señal. Para cada subtítulo que contenga “café” en cualquier combinación de mayúsculas y minúsculas, el ejemplo muestra el número de diapositiva, la etiqueta de la pista, la línea de tiempo original y el subtítulo completo.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Buscar “café” encuentra una coincidencia en la pista de ejemplo. La búsqueda omite el encabezado de la pista y conserva la configuración de tiempo y el salto de línea en la salida.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extraer vídeo de una diapositiva**
 
-Además de añadir vídeos a las diapositivas, Aspose.Slides le permite extraer los vídeos incrustados en presentaciones.
+Además de añadir vídeos a las diapositivas, Aspose.Slides permite extraer los vídeos incrustados en las presentaciones.
 
-Este ejemplo extrae los vídeos incrustados de cada diapositiva en archivos binarios numerados por separado. Los vídeos enlazados se omiten porque no tienen datos incrustados. La consola muestra el tipo MIME de cada vídeo y el recuento total. La salida usa la extensión genérica `.bin`; cámbiela para que coincida con el tipo de medio informado cuando sea necesario.
+Este ejemplo extrae los vídeos incrustados de cada diapositiva en archivos binarios numerados y separados. Los vídeos enlazados se omiten porque no contienen datos incrustados. La consola muestra el tipo MIME de cada vídeo y el recuento total. La salida usa la extensión genérica `.bin`; cámbiela para que coincida con el tipo de medio informado cuando sea necesario.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -364,16 +430,16 @@ try {
 
 **¿Qué parámetros de reproducción de vídeo se pueden cambiar en un fotograma de vídeo?**
 
-Puede controlar el [modo de reproducción](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (automático o con clic) y el [bucle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Estas opciones están disponibles mediante los métodos del objeto [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+Puede controlar el [modo de reproducción](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (automático o al hacer clic) y el [bucle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Estas opciones están disponibles a través de los métodos del objeto [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
 **¿Afecta la incorporación de un vídeo al tamaño del archivo PPTX?**
 
-Sí. Cuando incrusta un vídeo local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación aumenta proporcionalmente al tamaño del archivo. Cuando enlaza a un vídeo en línea y añade una miniatura, la presentación almacena el enlace y la imagen de vista previa en lugar de los datos del vídeo, por lo que el aumento de tamaño suele ser menor.
+Sí. Cuando incrusta un vídeo local, los datos binarios se incluyen en el documento, por lo que el tamaño de la presentación crece en proporción al tamaño del archivo. Cuando enlaza a un vídeo en línea y añade una miniatura, la presentación almacena el enlace y la imagen de vista previa en lugar de los datos del vídeo, de modo que el aumento de tamaño suele ser menor.
 
 **¿Puedo sustituir el vídeo en un fotograma de vídeo existente sin cambiar su posición y tamaño?**
 
-Sí. Puede intercambiar el [contenido del vídeo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) dentro del fotograma manteniendo la geometría de la forma; es un escenario común para actualizar los medios en un diseño existente.
+Sí. Puede intercambiar el [contenido del vídeo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) dentro del fotograma manteniendo la geometría de la forma; es un escenario habitual para actualizar medios en un diseño existente.
 
 **¿Se puede determinar el tipo de contenido (MIME) de un vídeo incrustado?**
 
-Sí. Un vídeo incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) que puede leer y usar, por ejemplo, al guardarlo en disco.
+Sí. Un vídeo incrustado tiene un [tipo de contenido](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) que puede leer y utilizar, por ejemplo, al guardarlo en disco.

@@ -1,227 +1,193 @@
 ---
-title: مدیریت صدا در ارائه‌ها روی اندروید
+title: مدیریت قاب‌های صوتی در ارائه‌ها بر روی Android
 linktitle: قاب صوتی
 type: docs
 weight: 10
 url: /fa/androidjava/audio-frame/
 keywords:
-- صدا
+- صوت
 - قاب صوتی
-- تصویر کوچک
-- اضافه کردن صدا
-- ویژگی‌های صدا
+- تصویر بندانگشتی
+- افزودن صدا
+- خصوصیات صدا
 - گزینه‌های صدا
 - استخراج صدا
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "ایجاد و کنترل قاب‌های صوتی در Aspose.Slides برای اندروید—مثال‌های جاوا برای جاسازی، برش، حلقه‌گذاری و پیکربندی پخش در ارائه‌های PPT، PPTX و ODP."
+description: "صدا را در اسلایدها جاسازی کنید، آیکن صوتی را تغییر دهید، پخش را پیکربندی کنید، زیرنویس‌های WebVTT را مدیریت کنید و صداهای انتقال اسلاید را با Aspose.Slides for Android via Java استخراج کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه با فریم‌های صوتی در Aspose.Slides کار کنید. این مقاله نشان می‌دهد چگونه صداهای جاسازی‌شده را به اسلایدها اضافه کنید، تصویر کوچک فریم صوتی را سفارشی کنید، گزینه‌های پخش مانند صدا، تکرار، مخفی‌سازی، برش و مدت زمان‌های محو شدن را پیکربندی کنید و صداهای استفاده‌شده در انتقال‌های نمایش اسلاید را استخراج کنید.
+یک قاب صوتی به شما امکان می‌دهد صدا را روی اسلاید پخش کنید. با Aspose.Slides for Android via Java می‌توانید یک کلیپ صوتی را جاسازی کنید، تصویری که نمایانگر آن است را انتخاب کنید، تنظیمات پخش را تنظیم کنید و زیرنویس‌ها را الصاق کنید. همچنین می‌توانید صدایی که به یک انتقال اسلاید اختصاص یافته است را بازیابی کنید.
 
-## **ایجاد فریم‌های صوتی**
-Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد فایل‌های صوتی را به اسلایدها اضافه کنید. فایل‌های صوتی به عنوان فریم‌های صوتی در اسلایدها جاسازی می‌شوند.
+## **ایجاد قاب‌های صوتی**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) را ایجاد کنید.
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-3. جریان فایل صوتی که می‌خواهید در اسلاید جاسازی کنید را بارگذاری کنید.
-4. فریم صوتی جاسازی‌شده (شامل فایل صوتی) را به اسلاید اضافه کنید.
-5. مقدار [PlayMode](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioPlayModePreset) و `Volume` که توسط شیء [IAudioFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IAudioFrame) ارائه می‌شود را تنظیم کنید.
-6. ارائه تغییر یافته را ذخیره کنید.
-
-این کد Java نشان می‌دهد چگونه یک فریم صوتی جاسازی‌شده را به اسلاید اضافه کنید:
+از [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-java.io.InputStream-) برای جاسازی یک کلیپ صوتی محلی در اولین اسلاید استفاده کنید. دو مختصهٔ اول موقعیت قاب را روی اسلاید تعیین می‌کند و دو مقدار بعدی عرض و ارتفاع آن را به‌واحد نقطه تنظیم می‌کند. این مثال از [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) برای شروع خودکار کلیپ و از [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) برای انتخاب پیش‌تنظیم صدای بلند استفاده می‌کند.
 
 ```java
-// یک شیء از کلاس Presentation می‌سازد که یک فایل ارائه را نمایندگی می‌کند
-Presentation pres = new Presentation();
-try {
-    // اسلاید اول را دریافت می‌کند
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // فایل صوتی wav را به جریان می‌خواند
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // فریم صوتی را اضافه می‌کند
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // حالت پخش و حجم صدا را تنظیم می‌کند
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // فایل PowerPoint را بر روی دیسک می‌نویسد
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تغییر تصویر کوچک فریم صوتی**
+## **تغییر تصویر بندانگشتی قاب صوتی**
 
-هنگامی که یک فایل صوتی را به ارائه اضافه می‌کنید، صدا به صورت یک فریم با تصویر پیش‌فرض استاندارد ظاهر می‌شود (تصویر را در بخش زیر ببینید). می‌توانید تصویر پیش‌نمایش فریم صوتی را تغییر دهید (تصویر دلخواه خود را تنظیم کنید).
-
-این کد Java نشان می‌دهد چگونه تصویر کوچک یا پیش‌نمایش یک فریم صوتی را تغییر دهید:
+به‌طور پیش‌فرض، یک قاب صوتی یک آیکن میکروفن را نمایش می‌دهد. برای نمایش تصویر بندانگشتی سفارشی، یک تصویر را با [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-java.io.InputStream-) به ارائه اضافه کنید و با [setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#setImage-com.aspose.slides.IPPImage-) آن را بر روی تصویر قاب تنظیم کنید. این مثال از یک JPEG به‌عنوان تصویر بندانگشتی برای کلیپ صوتی جاسازی‌شده استفاده می‌کند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav");
+     FileInputStream imageStream = new FileInputStream("eagle.jpeg")) {
+    IPPImage thumbnail = presentation.getImages().addImage(imageStream);
+
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+    audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تغییر گزینه‌های پخش صوت**
+
+کنترل‌های **Audio Options** در پاورپوینت تعیین می‌کنند کلیپ چه‌وقت شروع شود، چه‌قدر بلند باشد و در طول نمایش اسلاید چگونه رفتار کند.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| کنترل پاورپوینت | متد Aspose.Slides for Android via Java |
+| --- | --- |
+| Start | [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) |
+| Volume preset | [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) |
+| Play Across Slides | [setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayAcrossSlides-boolean-) |
+| Loop until Stopped | [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayLoopMode-boolean-) |
+| Hide During Show | [setHideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setHideAtShowing-boolean-) |
+| Rewind after Playing | [setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setRewindAudio-boolean-) |
+| Fade In | [setFadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeInDuration-float-) |
+| Fade Out | [setFadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeOutDuration-float-) |
+| Trim Audio start time | [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) |
+| Trim Audio end time | [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) |
+| Volume slider | [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) |
+
+مثال اولین قاب صوتی را در اولین اسلاید پیدا می‌کند، با [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) پخش را با کلیک آغاز می‌کند و پیش‌تنظیم صدای پایین را انتخاب می‌کند. کلیپ در اسلایدها ادامه می‌یابد در حالی که حلقه‌سازی غیرفعال است. آیکن در طول نمایش مخفی می‌ماند و پس از پخش کلیپ به عقب برمی‌گردد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک فریم صوتی را با موقعیت و اندازه مشخص به اسلاید اضافه می‌کند.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-
-    // یک تصویر را به منابع ارائه اضافه می‌کند.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
     }
 
-    // Sets the image for the audio frame.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-    //ارائهٔ تغییر یافته را بر روی دیسک ذخیره می‌کند
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    if (audioFrame != null) {
+        audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تغییر گزینه‌های پخش صدا**
-
-Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد گزینه‌هایی را که کنترل پخش یا ویژگی‌های صدا را تنظیم می‌کنند، تغییر دهید. به عنوان مثال می‌توانید حجم صدا را تنظیم کنید، صدا را به شکل حلقه‌ای پخش کنید یا حتی نماد صدا را مخفی کنید.
-
-پنل **Audio Options** در Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-**Audio Options** در PowerPoint که با ویژگی‌های Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame) مطابقت دارد:
-
-- **Start** لیست کشویی مطابق با ویژگی [AudioFrame.PlayMode](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) است
-- **Volume** مطابق با ویژگی [AudioFrame.Volume](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getVolume--) است
-- **Play Across Slides** مطابق با ویژگی [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) است
-- **Loop until Stopped** مطابق با ویژگی [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) است
-- **Hide During Show** مطابق با ویژگی [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) است
-- **Rewind after Playing** مطابق با ویژگی [AudioFrame.RewindAudio](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) است
-
-**Editing** در PowerPoint که با ویژگی‌های Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/) مطابقت دارد:
-
-- **Fade In** مطابق با ویژگی [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) است
-- **Fade Out** مطابق با ویژگی [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) است
-- **Trim Audio Start Time** مطابق با ویژگی [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) است
-- **Trim Audio End Time** مقدار برابر است با مدت زمان صدا منهای مقدار ویژگی [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) 
-
-کنترل **Volume** در پنل کنترل صدا در PowerPoint با ویژگی [AudioFrame.VolumeValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) مطابقت دارد. این امکان را می‌دهد تا حجم صدا را به درصد تغییر دهید.
-
-این‌گونه می‌توانید گزینه‌های پخش صدا را تغییر دهید:
-
-1. [Сreate](#create-audio-frame) یا دریافت فریم صوتی.
-2. مقادیر جدید را برای ویژگی‌های فریم صوتی که می‌خواهید تنظیم کنید، تنظیم کنید.
-3. فایل PowerPoint تغییر یافته را ذخیره کنید.
-
-این کد Java عملی را نشان می‌دهد که در آن گزینه‌های صدا تنظیم می‌شوند:
-
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // شکل AudioFrame را دریافت می‌کند
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // حالت پخش را روی پخش با کلیک تنظیم می‌کند
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
-
-    // حجم صدا را به پایین تنظیم می‌کند
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // صدا را برای پخش در تمام اسلایدها تنظیم می‌کند
-    audioFrame.setPlayAcrossSlides(true);
-
-    // حلقه پخش صدا را غیرفعال می‌کند
-    audioFrame.setPlayLoopMode(false);
-
-    // AudioFrame را در طول نمایش اسلاید مخفی می‌کند
-    audioFrame.setHideAtShowing(true);
-
-    // پس از پخش، صدا را به ابتدای آن برمی‌گرداند
-    audioFrame.setRewindAudio(true);
-
-    // فایل PowerPoint را بر روی دیسک ذخیره می‌کند
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-این مثال Java نشان می‌دهد چگونه یک فریم صوتی جدید با صوت جاسازی‌شده اضافه کنید، آن را برش دهید و مدت زمان‌های محو شدن را تنظیم کنید:
+برای کلیپی با طول بیش از ۳٫۵ ثانیه، این مثال ۱٫۵ ثانیهٔ اول و ۲ ثانیهٔ آخر را کنار می‌گذارد. [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) مدت زمان حذف‌شده از انتهای کلیپ را دریافت می‌کند. برای به‌دست آوردن زمان پایان نشان‌داده‌شده در پاورپوینت، این مقدار را از مدت زمان کل کلیپ کم کنید. کلیپ برش‌خورده به‌صورت ۲۰۰ میلی‌ثانیه‌ای fade‑in و ۵۰۰ میلی‌ثانیه‌ای fade‑out می‌شود. هر چهار متد مقادیر را به‌صورت میلی‌ثانیه می‌پذیرند.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
-    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // آفست شروع برش را به ۱٫۵ ثانیه تنظیم می‌کند
-    // آفست پایان برش را به ۲ ثانیه تنظیم می‌کند
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // مدت زمان محو شدن ورودی را به ۲۰۰ میلی‌ثانیه تنظیم می‌کند
-    // مدت زمان محو شدن خروجی را به ۵۰۰ میلی‌ثانیه تنظیم می‌کند
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+    audioFrame.setTrimFromStart(1500f);
+    audioFrame.setTrimFromEnd(2000f);
+    audioFrame.setFadeInDuration(200f);
+    audioFrame.setFadeOutDuration(500f);
 
-    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+    presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-نمونه کد زیر نشان می‌دهد چگونه یک فریم صوتی با صوت جاسازی‌شده بازیابی کرده و حجم آن را به 85٪ تنظیم کنید:
+برای تنظیم حجم پخش به درصد خاص، از [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) استفاده کنید. این مثال اولین قاب صوتی را در اولین اسلاید به ۸۵٪ تنظیم می‌کند.
 
 ```java
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل فریم صوتی را دریافت می‌کند
-    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // حجم صدا را به 85٪ تنظیم می‌کند
-    audioFrame.setVolumeValue(85f);
-
-    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
+    if (audioFrame != null) {
+        audioFrame.setVolumeValue(85f);
+        presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **مدیریت زیرنویس‌های صوتی**
 
-Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته شده را به یک فریم صوتی از طریق متد [getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) اضافه کنید. این متد یک [ICaptionsCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/) را برمی‌گرداند که به شما اجازه می‌دهد مسیرهای زیرنویس WebVTT را اضافه کنید، در مسیرهای موجود مرور کنید و در صورت نیاز آن‌ها را حذف نمایید.
+هر قاب صوتی دسترسی به مسیرهای زیرنویس خود را از طریق [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) فراهم می‌کند. از این مجموعه می‌توانید زیرنویس‌های WebVTT را به کلیپ الصاق کنید، مسیرهای موجود را استخراج کنید یا آن‌ها را حذف کنید.
 
-**افزودن زیرنویس‌های صوتی**
+### **اضافه‌کردن زیرنویس‌های صوتی**
 
-از متد [getCaptionTracks](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) برای الصاق یک یا چند مسیر زیرنویس به فریم صوتی استفاده کنید. در مثال زیر، یک فایل صوتی به اسلاید اضافه می‌شود و سپس یک مسیر زیرنویس جدید از فایل `.vtt` بارگذاری می‌شود.
+این مثال یک کلیپ صوتی را در اولین اسلاید جاسازی می‌کند و با [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#add-java.lang.String-java.lang.String-) یک مسیر WebVTT محلی الصاق می‌نماید. آرگومان اول برچسب مسیر را فراهم می‌کند و آرگومان دوم فایلی که شامل زیرنویس‌های زمانی است را شناسایی می‌کند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
-    IAudio audio = presentation.getAudios().addAudio(audioData);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // یک مسیر کپشن جدید از فایل WebVTT اضافه می‌کند.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+    audioFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
 } finally {
@@ -229,45 +195,95 @@ try {
 }
 ```
 
-**استخراج زیرنویس‌های صوتی**
+### **استخراج زیرنویس‌های صوتی**
 
-می‌توانید در مسیرهای زیرنویس مرتبط با فریم صوتی مرور کنید و آن‌ها را به صورت فایل‌های `.vtt` ذخیره کنید. هر مسیر زیرنویس داده‌های باینری و شناسه منحصر به فرد خود را ارائه می‌دهد که هنگام صادرات زیرنویس‌ها قابل استفاده است.
+این مثال هر مسیر زیرنویس الصاق‌شده به یک قاب صوتی در اولین اسلاید را صادر می‌کند. داده‌های بایت دریافت‌شده از [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getBinaryData--) را در فایلی با فرمت WebVTT می‌نویسد و از شناسه‌ای که توسط [getCaptionId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getCaptionId--) بازگردانده می‌شود به عنوان نام فایل استفاده می‌کند تا هر مسیر خروجی جداگانه داشته باشد.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame) {
-            IAudioFrame audioFrame = (IAudioFrame) shape;
-            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
-                // مسیر کپشن را به عنوان فایل .vtt ذخیره می‌کند.
-                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                fos.write(captionTrack.getBinaryData());
-                fos.close();
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            try (FileOutputStream output = new FileOutputStream(track.getCaptionId() + ".vtt")) {
+                output.write(track.getBinaryData());
             }
         }
     }
-} catch (IOException e){
 } finally {
     presentation.dispose();
 }
 ```
 
-**حذف زیرنویس‌های صوتی**
+### **حذف زیرنویس‌های صوتی**
 
-برای حذف زیرنویس‌ها از یک فریم صوتی، از متدهای ارائه‌شده توسط [ICaptionsCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/) مانند [clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#clear--)، [remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-)، یا [removeAt](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) استفاده کنید. مثال زیر تمام مسیرهای زیرنویس را از فریم صوتی حذف می‌کند.
+از [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) یا [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) برای حذف یک مسیر خاص استفاده کنید. این مثال با استفاده از [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#clear--) تمام زیرنویس‌ها را از اولین قاب صوتی در اولین اسلاید حذف می‌کند در حالی که کلیپ حفظ می‌شود.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
 
-    // تمام مسیرهای کپشن را از فریم صوتی حذف می‌کند.
-    audioFrame.getCaptionTracks().clear();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **یافتن یک خط در زیرنویس‌های صوتی**
+
+برای یافتن یک خط در زیرنویس‌های صوتی اولین اسلاید، متن بازگشتی از [getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) را در حافظه جستجو کنید. در یک کد WebVTT متنی، خط زمان‌گذاری شامل `-->` است، خطوط زیرنویس پس از آن می‌آیند و یک خط خالی کد را خاتمه می‌دهد. این مثال برچسب مسیر و هر خط زیرنویس حاوی «café» را چاپ می‌کند.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            boolean inCue = false;
+            String captions = track.getDataAsString();
+            for (String line : captions.split("\\r\\n|\\r|\\n")) {
+                if (line.isEmpty()) {
+                    inCue = false;
+                } else if (line.contains("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase(Locale.ROOT).contains("café")) {
+                    System.out.println(track.getLabel() + ": " + line);
+                }
+            }
+        }
+    }
 } finally {
     presentation.dispose();
 }
@@ -275,40 +291,37 @@ try {
 
 ## **استخراج صدا**
 
-Aspose.Slides برای Android از طریق Java به شما امکان می‌دهد صداهای استفاده‌شده در انتقال‌های نمایش اسلاید را استخراج کنید. برای مثال می‌توانید صدای استفاده‌شده در یک اسلاید خاص را استخراج کنید.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید و ارائه حاوی صدا را بارگذاری کنید.
-2. مرجع اسلاید مربوطه را از طریق ایندکس آن دریافت کنید.
-3. به [slideshow transitions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) اسلاید دسترسی پیدا کنید.
-4. صدای مورد نظر را به شکل داده‌های بایت استخراج کنید.
-
-این کد Java نشان می‌دهد چگونه صداهای استفاده‌شده در یک اسلاید را استخراج کنید:
+یک انتقال اسلاید می‌تواند صدای خودش را داشته باشد. برای بازیابی آن، بر روی انتقال اسلاید [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSound--) فراخوانی کنید. این مثال بایت‌های بازگشتی از [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) را دریافت می‌کند و تعداد بایت‌ها را چاپ می‌نماید. اگر اسلاید اول صدا نداشته باشد، به‌جای آن پیام متنی چاپ می‌شود.
 
 ```java
-// یک شیء از کلاس Presentation می‌سازد که یک فایل ارائه را نمایندگی می‌کند
-Presentation pres = new Presentation("AudioSlide.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioSlide.pptx");
 try {
-    // به اسلاید موردنظر دسترسی می‌یابد
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // اثرات انتقال اسلایدشو را برای اسلاید دریافت می‌کند
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    // صدای انتقال را به صورت آرایه بایت استخراج می‌کند
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAudio sound = slide.getSlideShowTransition().getSound();
+    if (sound != null) {
+        byte[] audioData = sound.getBinaryData();
+        System.out.println("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        System.out.println("The first slide has no transition sound.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **پرسش‌های متداول**
 
-**آیا می‌توانم دارایی صوتی یکسان را در چندین اسلاید بدون افزایش حجم فایل استفاده مجدد کنم؟**  
-بله. صدا را یکبار به مجموعه مشترک [audio collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getAudios--) ارائه اضافه کنید و فریم‌های صوتی اضافی که به آن دارایی موجود ارجاع می‌دهند، ایجاد کنید. این کار از تکرار داده‌های رسانه‌ای جلوگیری می‌کند و اندازه ارائه را کنترل می‌دارد.
+**آیا می‌توانم همان کلیپ صوتی را در اسلایدهای متعدد بدون تکثیر استفاده کنم؟**
 
-**آیا می‌توانم صدای موجود در یک فریم صوتی را بدون ایجاد دوباره شکل جایگزین کنم؟**  
-بله. برای صدای پیوندی، مسیر [link path](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) را به فایل جدید تغییر دهید. برای صدای جاسازی‌شده، شیء [embedded audio](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) را با دیگری از [audio collection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getAudios--) ارائه جایگزین کنید. قالب‌بندی فریم و اکثر تنظیمات پخش بدون تغییر باقی می‌مانند.
+بله. کلیپ را یک‌بار به [audio collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) ارائه اضافه کنید و همان شیء صوتی را برای هر اسلاید به [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-com.aspose.slides.IAudio-) پاس دهید.
 
-**آیا برش صدا داده‌های صوتی زیرین ذخیره‌شده در ارائه را تغییر می‌دهد؟**  
-خیر. برش فقط مرزهای پخش را تنظیم می‌کند. بایت‌های اصلی صدا بدون تغییر باقی می‌مانند و از طریق صوت جاسازی‌شده یا مجموعه صوتی ارائه در دسترس هستند.
+**آیا می‌توانم صدای موجود در یک قاب صوتی را جایگزین کنم؟**
+
+بله. برای صدای پیوندی، از [setLinkPathLong](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) برای اشاره به فایل جایگزین استفاده کنید. برای صدای جاسازی‌شده، با [setEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-) کلیپ دیگری از مجموعهٔ صوتی ارائه انتخاب کنید. هر دو روش قاب موجود را حفظ می‌کنند.
+
+**آیا برش صدا دادهٔ صوتی ذخیره‌شده در ارائه را تغییر می‌دهد؟**
+
+نه. [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) و [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) مرزهای پخش را تنظیم می‌کنند. شما هنوز می‌توانید کلیپ کامل را از [getEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getEmbeddedAudio--) دریافت کنید.

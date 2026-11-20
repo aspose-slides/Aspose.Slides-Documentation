@@ -1,12 +1,12 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में ऑडियो प्रबंधित करें
+title: प्रस्तुतियों में C++ का उपयोग करके ऑडियो फ्रेम प्रबंधित करें
 linktitle: ऑडियो फ्रेम
 type: docs
 weight: 10
 url: /hi/cpp/audio-frame/
 keywords:
 - ऑडियो
-- ऑडियो फ़्रेम
+- ऑडियो फ्रेम
 - थंबनेल
 - ऑडियो जोड़ें
 - ऑडियो गुण
@@ -14,271 +14,416 @@ keywords:
 - ऑडियो निकालें
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ में ऑडियो फ्रेम बनाएं और नियंत्रित करें—कोड उदाहरण जो एंबेड, ट्रिम, लूप और PPT, PPTX, और ODP प्रस्तुतियों में प्लेबैक कॉन्फ़िगर करते हैं।"
+description: "स्लाइड्स में ऑडियो एम्बेड करें, ऑडियो आइकन बदलें, प्लेबैक कॉन्फ़िगर करें, WebVTT कैप्शन प्रबंधित करें, और Aspose.Slides for C++ के साथ स्लाइड ट्रांज़िशन ध्वनियों को निकालें।"
 ---
-## **परिचय**
+## **सारांश**
 
-यह लेख Aspose.Slides में ऑडियो फ्रेम्स के साथ काम करने के तरीकों को समझाता है। यह दिखाता है कि स्लाइड्स में एंबेडेड ऑडियो कैसे जोड़ें, ऑडियो फ्रेम थंबनेल को कैसे अनुकूलित करें, प्लेबैक विकल्प जैसे वॉल्यूम, लूपिंग, छिपाना, ट्रिमिंग और फेड अवधि को कैसे कॉन्फ़िगर करें, और स्लाइड शो ट्रांज़िशन में उपयोग किए गए ऑडियो को कैसे निकालें।
+एक ऑडियो फ्रेम आपको स्लाइड पर ध्वनि चलाने की सुविधा देता है। Aspose.Slides for C++ के साथ आप एक ऑडियो क्लिप को एम्बेड कर सकते हैं, उसे दर्शाने वाली छवि चुन सकते हैं, प्लेबैक समायोजित कर सकते हैं, और कैप्शन संलग्न कर सकते हैं। आप स्लाइड ट्रांज़िशन को असाइन किए गए ध्वनि को भी प्राप्त कर सकते हैं।
 
-## **ऑडियो फ्रेम बनाना**
+## **ऑडियो फ्रेम बनाएं**
 
-Aspose.Slides for C++ आपको स्लाइड्स में ऑडियो फ़ाइलें जोड़ने की अनुमति देता है। ऑडियो फ़ाइलें स्लाइड्स में ऑडियो फ्रेम्स के रूप में एंबेड की जाती हैं।
+स्थानीय ऑडियो क्लिप को पहली स्लाइड पर एम्बेड करने के लिये [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) का उपयोग करें। पहले दो निर्देशांक फ्रेम को स्लाइड पर स्थित करते हैं, और अगले दो मान इसकी चौड़ाई और ऊँचाई को पॉइंट्स में सेट करते हैं। यह उदाहरण क्लिप को स्वतः शुरू करने के लिये [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) को कॉल करता है और तेज़ प्रीसैट चुनने के लिये [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) को कॉल करता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एंबेड करने के लिए इच्छित ऑडियो फ़ाइल स्ट्रीम लोड करें।
-4. स्लाइड में एंबेडेड ऑडियो फ्रेम (जिसमें ऑडियो फ़ाइल है) जोड़ें।
-5. ऑब्जेक्ट [IAudioFrame](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_audio_frame) द्वारा उजागर किए गए [PlayMode](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) और `Volume` सेट करें।
-6. संशोधित प्रेजेंटेशन को सेव करें।
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-यह C++ कोड दिखाता है कि स्लाइड में एंबेडेड ऑडियो फ्रेम कैसे जोड़ें:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// एक Presentation क्लास का इंस्टैंस बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करती है
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// पहली स्लाइड प्राप्त करता है
-auto sld = pres->get_Slides()->idx_get(0);
-
-// wav ध्वनि फ़ाइल को स्ट्रीम में लोड करता है
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// ऑडियो फ्रेम जोड़ता है
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// ऑडियो का प्ले मोड और वॉल्यूम सेट करता है
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// PowerPoint फ़ाइल को डिस्क पर लिखता है
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **ऑडियो फ्रेम थंबनेल बदलें**
 
-जब आप प्रस्तुति में एक ऑडियो फ़ाइल जोड़ते हैं, तो ऑडियो एक फ्रेम के रूप में मानक डिफ़ॉल्ट छवि के साथ दिखाई देता है (नीचे अनुभाग में छवि देखें)। आप ऑडियो फ्रेम का थंबनेल बदल सकते हैं (अपनी पसंदीदा छवि सेट करें)।
-
-यह C++ कोड दिखाता है कि ऑडियो फ्रेम का थंबनेल या प्रीव्यू इमेज कैसे बदलें:
+डिफ़ॉल्ट रूप से, एक ऑडियो फ्रेम स्पीकर आइकन दर्शाता है। कस्टम थंबनेल दिखाने के लिये, प्रस्तुति में [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) से एक छवि जोड़ें और उसे फ्रेम की तस्वीर के रूप में [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) से सेट करें। यह उदाहरण एम्बेडेड ऑडियो क्लिप के लिये थंबनेल के रूप में एक JPEG का उपयोग करता है।
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// स्लाइड में निर्दिष्ट स्थिति और आकार के साथ एक ऑडियो फ्रेम जोड़ता है.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// प्रस्तुति संसाधनों में एक चित्र जोड़ता है.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// ऑडियो फ्रेम के लिए चित्र सेट करता है.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//संशोधित प्रस्तुति को डिस्क पर सहेजता है
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **ऑडियो प्ले विकल्प बदलें**
 
-Aspose.Slides for C++ आपको ऑडियो के प्लेबैक या गुणों को नियंत्रित करने वाले विकल्प बदलने की अनुमति देता है। उदाहरण के लिए, आप ऑडियो का वॉल्यूम समायोजित कर सकते हैं, ऑडियो को लूप में चलाने के लिए सेट कर सकते हैं, या यहां तक कि ऑडियो आइकन को छिपा भी सकते हैं।
+PowerPoint के **Audio Options** नियंत्रण निर्धारित करते हैं कि क्लिप कब शुरू होती है, आवाज़ कितनी तेज़ है, और स्लाइड शो के दौरान इसका व्यवहार कैसे रहता है।
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint ऑडियो विकल्प नियंत्रण एक ऑडियो फ्रेम के लिये](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint नियंत्रण | Aspose.Slides for C++ विधि |
+| --- | --- |
+| शुरूआत | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| वॉल्यूम प्रीसैट | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| स्लाइड्स में चलाएँ | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| रोकने तक लूप | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| शो के दौरान छिपाएँ | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| प्ले होने के बाद रीवाइंड | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| फ़ेड इन | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| फ़ेड आउट | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| ऑडियो प्रारम्भ समय ट्रिम | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| ऑडियो अंत समय ट्रिम | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| वॉल्यूम स्लाइडर | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/) methods:
-
-- **Start** ड्रॉप‑डाउन सूची [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_playmode/) मेथड से मेल खाती है
-- **Volume** [AudioFrame::set_Volume](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_volume/) मेथड से मेल खाता है
-- **Play Across Slides** [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_playacrossslides/) मेथड से मेल खाता है
-- **Loop until Stopped** [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_playloopmode/) मेथड से मेल खाता है
-- **Hide During Show** [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_hideatshowing/) मेथड से मेल खाता है
-- **Rewind after Playing** [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_rewindaudio/) मेथड से मेल खाता है
-
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/) properties:
-
-- **Fade In** [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_fadeinduration/) मेथड से मेल खाता है
-- **Fade Out** [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_fadeoutduration/) मेथड से मेल खाता है
-- **Trim Audio Start Time** [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_trimfromstart/) मेथड से मेल खाता है
-- **Trim Audio End Time** मान ऑडियो अवधि में से [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_trimfromend/) मेथड के मान को घटाकर प्राप्त होता है
-
-The PowerPoint **Volume कंट्रोल** ऑडियो नियंत्रण पैनल पर [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_volumevalue/) मेथड से मेल खाता है। यह आपको ऑडियो वॉल्यूम को प्रतिशत में बदलने देता है।
-
-यहाँ बताया गया है कि आप ऑडियो प्ले विकल्प कैसे बदलते हैं:
-
-1. [बनाएं](#creating-audio-frame) या ऑडियो फ्रेम प्राप्त करें।
-2. आप जिन ऑडियो फ्रेम गुणों को समायोजित करना चाहते हैं, उनके लिए नए मान सेट करें।
-3. संशोधित PowerPoint फ़ाइल को सेव करें।
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// एक shape प्राप्त करता है
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// shape को AudioFrame shape में कास्ट करता है
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// प्ले मोड को क्लिक पर चलाने के लिए सेट करता है
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// वॉल्यूम को Low पर सेट करता है
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// ऑडियो को स्लाइड्स के बीच प्ले करने के लिए सेट करता है
-audioFrame->set_PlayAcrossSlides(true);
-
-// ऑडियो के लिए लूप को निष्क्रिय करता है
-audioFrame->set_PlayLoopMode(false);
-
-// स्लाइड शो के दौरान AudioFrame को छिपाता है
-audioFrame->set_HideAtShowing(true);
-
-// प्ले होने के बाद ऑडियो को शुरू से रीवाइंड करता है
-audioFrame->set_RewindAudio(true);
-
-// PowerPoint फ़ाइल को डिस्क पर सहेजता है
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
+यह उदाहरण पहली स्लाइड पर पहला ऑडियो फ्रेम ढूँढ़ता है, क्लिक पर प्लेबैक शुरू करने के लिये [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) को कॉल करता है, और कम वॉल्यूम प्रीसैट चुनता है। क्लिप लूप निष्क्रिय रहने पर स्लाइड्स के बीच चलता रहता है। आइकन शो के दौरान छिपा रहता है, और प्लेबैक के बाद क्लिप रीवाइंड हो जाता है।
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+3.5 सेकंड से अधिक लंबी क्लिप के लिये, यह उदाहरण पहले 1.5 सेकंड और अंतिम 2 सेकंड को छोड़ देता है। [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) को दिया गया तर्क क्लिप के अंत से हटाए जाने वाले अवधि को दर्शाता है। PowerPoint में दिखाए गए अंत समय को प्राप्त करने के लिये इस ऑफ़सेट को पूरी क्लिप अवधि से घटाएँ। ट्रिम्ड क्लिप 200 मिलीसेकंड में फ़ेड इन होती है और 500 मिलीसेकंड में फ़ेड आउट। सभी चार सेटर्स मान को मिलीसेकंड में लेते हैं।
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
+प्लेबैक वॉल्यूम को एक विशिष्ट प्रतिशत पर सेट करने के लिये, [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) का उपयोग करें। यह उदाहरण पहली स्लाइड पर पहले ऑडियो फ्रेम को 85 % पर सेट करता है।
+
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// एक ऑडियो फ्रेम शेप प्राप्त करता है
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Sets the audio volume to 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
 ```
 
 ## **ऑडियो कैप्शन प्रबंधित करें**
 
-Aspose.Slides आपको [get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudioframe/get_captiontracks/) मेथड के माध्यम से एक ऑडियो फ्रेम में क्लोज़्ड कैप्शन जोड़ने की अनुमति देता है। यह मेथड एक [ICaptionsCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/) लौटाता है, जिससे आप WebVTT कैप्शन ट्रैक्स जोड़ सकते हैं, मौजूदा ट्रैक्स पर इटरिट कर सकते हैं, और आवश्यकता पड़ने पर उन्हें हटा सकते हैं।
+प्रत्येक ऑडियो फ्रेम अपनी कैप्शन कलेक्शन को [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/) के माध्यम से उजागर करता है। इसका उपयोग क्लिप पर WebVTT कैप्शन संलग्न करने, मौजूदा ट्रैक्स निर्यात करने, या उन्हें हटाने के लिये किया जा सकता है।
 
-**Add Audio Captions**
+### **ऑडियो कैप्शन जोड़ें**
 
-[get_CaptionTracks](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudioframe/get_captiontracks/) मेथड का उपयोग करके एक या अधिक कैप्शन ट्रैक्स को ऑडियो फ्रेम से जोड़ें। नीचे के उदाहरण में, एक ऑडियो फ़ाइल स्लाइड में जोड़ी जाती है, और फिर एक नई कैप्शन ट्रैक `.vtt` फ़ाइल से लोड की जाती है।
+यह उदाहरण पहली स्लाइड पर एक ऑडियो क्लिप एम्बेड करता है और स्थानीय WebVTT ट्रैक संलग्न करने के लिये [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) का उपयोग करता है। पहला तर्क ट्रैक लेबल देता है, और दूसरा फ़ाइल पहचानता है जिसमें समयबद्ध कैप्शन होते हैं।
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Extract Audio Captions**
+### **ऑडियो कैप्शन निकालें**
 
-आप ऑडियो फ्रेम से जुडे़ हुए कैप्शन ट्रैक्स पर इटरिट करके उन्हें `.vtt` फ़ाइलों के रूप में सेव कर सकते हैं। प्रत्येक कैप्शन ट्रैक अपना बाइनरी डेटा और अनूठा पहचानकर्ता प्रदान करता है, जिसे कैप्शन निर्यात करते समय उपयोग किया जा सकता है।
+यह उदाहरण पहली स्लाइड पर एक ऑडियो फ्रेम से जुड़ी प्रत्येक कैप्शन ट्रैक को एक्सपोर्ट करता है। यह [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) द्वारा लौटाए गए बाइट्स को एक WebVTT फ़ाइल में लिखता है और [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) द्वारा लौटाए गए मान को फ़ाइल नाम के रूप में उपयोग करता है ताकि प्रत्येक ट्रैक का अलग आउटपुट हो।
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **ऑडियो कैप्शन हटाएँ**
+
+एक व्यक्तिगत ट्रैक को हटाने के लिये [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) या [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) का उपयोग करें। यह उदाहरण पहली स्लाइड पर पहले ऑडियो फ्रेम से सभी कैप्शन हटाने के लिये [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) का उपयोग करता है, जबकि क्लिप को संरक्षित रखता है।
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **ऑडियो कैप्शन में पंक्ति खोजें**
+
+पहली स्लाइड पर ऑडियो कैप्शन में कोई पंक्ति खोजने के लिये, प्रत्येक ट्रैक पर [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) को कॉल करके उसकी WebVTT टेक्स्ट मेमोरी में पढ़ें। एक साधारण टेक्स्ट WebVTT क्यू में, टाइमिंग पंक्तियों में `-->` होता है, उसके बाद कैप्शन पंक्तियाँ आती हैं, और एक खाली पंक्ति क्यू को समाप्त करती है। यह उदाहरण ट्रैक लेबल और प्रत्येक कैप्शन पंति को प्रिंट करता है जिसमें “café” शब्द है।
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // प्रत्येक कैप्शन ट्रैक को .vtt फ़ाइल के रूप में सहेजें.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-**Remove Audio Captions**
-
-ऑडियो फ्रेम से कैप्शन हटाने के लिए, [ICaptionsCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/) द्वारा प्रदान किए गए मेथड्स जैसे [Clear](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/remove/), या [RemoveAt](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icaptionscollection/removeat/) का उपयोग करें। नीचे का उदाहरण ऑडियो फ्रेम से सभी कैप्शन ट्रैक्स को हटाता है।
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// ऑडियो फ्रेम से सभी कैप्शन ट्रैक्स हटाएँ.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **ऑडियो निकालें**
-Aspose.Slides आपको स्लाइड शो ट्रांज़िशन में उपयोग किए गए ध्वनि को निकालने की अनुमति देता है। उदाहरण के लिए, आप किसी विशिष्ट स्लाइड में उपयोग किए गए ध्वनि को निकाल सकते हैं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास का इंस्टेंस बनाएं और ऑडियो वाली प्रस्तुति लोड करें।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. स्लाइड के स्लाइडशो ट्रांज़िशन तक पहुँचें।
-4. ध्वनि को बाइट डेटा के रूप में निकालें।
+एक स्लाइड ट्रांज़िशन का अपना ध्वनि हो सकता है। इसे प्राप्त करने के लिये, ट्रांज़िशन पर [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) को कॉल करें। यह उदाहरण [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) के साथ ऑडियो बाइट्स प्राप्त करता है और बाइट्स की संख्या प्रिंट करता है। यदि पहली स्लाइड में ट्रांज़िशन ध्वनि नहीं है, तो यह एक संदेश प्रिंट करता है।
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-// एक Presentation क्लास का इंस्टैंस बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करती है
-auto pres = System::MakeObject<Presentation>(presName);
+using namespace Aspose::Slides;
+using namespace System;
 
-// वांछित स्लाइड तक पहुँचता है
-auto slide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// स्लाइड के लिए स्लाइडशो ट्रांज़िशन इफेक्ट्स प्राप्त करता है
-auto transition = slide->get_SlideShowTransition();
-
-// ध्वनि को बाइट एरे में निकालता है
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं एक ही ऑडियो एसेट को कई स्लाइड्स में पुन: उपयोग कर सकता हूँ बिना फ़ाइल आकार बढ़ाए?**
+**क्या मैं कई स्लाइड्स में एक ही ऑडियो क्लिप को दोहराए बिना उपयोग कर सकता हूँ?**
 
-हाँ। ऑडियो को एक बार प्रस्तुति की साझा [audio collection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_audios/) में जोड़ें और अतिरिक्त ऑडियो फ्रेम बनाएं जो उस मौजूदा एसेट को संदर्भित करते हैं। इससे मीडिया डेटा की डुप्लिकेशन नहीं होती और प्रस्तुति का आकार नियंत्रित रहता है।
+हां। क्लिप को एक बार प्रस्तुति के [audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) में जोड़ें और प्रत्येक स्लाइड के लिये समान ऑडियो ऑब्जेक्ट को [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) को पास करें।
 
-**क्या मैं मौजूदा ऑडियो फ्रेम में ध्वनि को बिना आकार (shape) को पुनः बनाए बदला सकता हूँ?**
+**क्या मैं मौजूदा ऑडियो फ्रेम में ध्वनि बदल सकता हूँ?**
 
-हैं। लिंक्ड साउंड के लिए, नई फ़ाइल की ओर संकेत करने के लिए [link path](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_linkpathlong/) को अपडेट करें। एंबेडेड साउंड के लिए, प्रस्तुति की [audio collection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_audios/) से किसी अन्य ऑब्जेक्ट के साथ [embedded audio](https://reference.aspose.com/slides/hi/cpp/aspose.slides/audioframe/set_embeddedaudio/) ऑब्जेक्ट को बदलें। फ्रेम का फॉर्मेटिंग और अधिकांश प्लेबैक सेटिंग्स अपरिवर्तित रहती हैं।
+हां। लिंक्ड ध्वनि के लिये, प्रतिस्थापन फ़ाइल के पथ के साथ [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) को कॉल करें। एम्बेडेड ध्वनि के लिये, प्रस्तुति के ऑडियो कलेक्शन से दूसरा क्लिप [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/) को पास करें। दोनों तरीकों से मौजूदा फ्रेम बना रहता है।
 
-**क्या ट्रिमिंग प्रस्तुति में संग्रहीत मूल ऑडियो डेटा को बदलती है?**
+**क्या ट्रिमिंग से प्रस्तुति में संग्रहित ऑडियो डेटा बदलता है?**
 
-नहीं। ट्रिमिंग केवल प्लेबैक सीमाओं को समायोजित करती है। मूल ऑडियो बाइट्स अपरिवर्तित रहते हैं और एंबेडेड ऑडियो या प्रस्तुति की ऑडियो संग्रह के माध्यम से उपलब्ध होते हैं।
+नहीं। [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) और [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) प्लेबैक सीमाएँ सेट करते हैं। आप अभी भी [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/) से पूरी क्लिप प्राप्त कर सकते हैं।

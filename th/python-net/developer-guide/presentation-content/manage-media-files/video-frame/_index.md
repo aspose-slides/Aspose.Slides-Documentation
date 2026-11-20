@@ -1,37 +1,38 @@
 ---
-title: "จัดการเฟรมวิดีโอในงานนำเสนอด้วย Python"
-linktitle: "เฟรมวิดีโอ"
+title: จัดการกรอบวิดีโอในการนำเสนอด้วย Python
+linktitle: กรอบวิดีโอ
 type: docs
 weight: 10
 url: /th/python-net/video-frame/
 keywords:
-- "เพิ่มวิดีโอ"
-- "สร้างวิดีโอ"
-- "ฝังวิดีโอ"
-- "ดึงวิดีโอ"
-- "เรียกคืนวิดีโอ"
-- "เฟรมวิดีโอ"
-- "แหล่งเว็บ"
-- "PowerPoint"
-- "OpenDocument"
-- "งานนำเสนอ"
-- "Python"
-- "Aspose.Slides"
-description: "เรียนรู้วิธีการเพิ่มและดึงเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument ด้วยโปรแกรมอย่างเป็นระบบโดยใช้ Aspose.Slides สำหรับ Python ผ่าน .NET คู่มือวิธีทำอย่างรวดเร็ว."
+- เพิ่มวิดีโอ
+- สร้างวิดีโอ
+- ฝังวิดีโอ
+- สกัดวิดีโอ
+- ดึงวิดีโอ
+- กรอบวิดีโอ
+- แหล่งเว็บ
+- PowerPoint
+- OpenDocument
+- การนำเสนอ
+- Python
+- Aspose.Slides
+description: "เรียนรู้วิธีการเพิ่มและสกัดกรอบวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างอัตโนมัติด้วย Aspose.Slides สำหรับ Python via .NET. คู่มือวิธีทำอย่างรวดเร็ว."
 ---
 ## **บทนำ**
 
-วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ Python ผ่าน .NET ให้คุณเพิ่มเฟรมวิดีโอบนสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และดึงข้อมูลวิดีโอที่ฝังอยู่ออกมา
+วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ Python via .NET ให้คุณเพิ่มกรอบวิดีโอไปยังสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และสกัดข้อมูลวิดีโอที่ฝังอยู่
 
-PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
+PowerPoint รองรับวิดีโอแบบโลคัลและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
 
-เพื่อแสดงข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีคลาส [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/), [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ
+เพื่อเป็นตัวแทนข้อมูลวิดีโอและกรอบวิดีโอ Aspose.Slides มีคลาส [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) คลาส [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) และประเภทอื่น ๆ ที่เกี่ยวข้อง
 
-## **สร้างเฟรมวิดีโอแบบฝัง**
+## **สร้างกรอบวิดีโอที่ฝังไว้**
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์จัดเก็บไว้ในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอในงานนำเสนอของคุณได้
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์ของคุณถูกเก็บไว้ในเครื่อง คุณสามารถสร้างกรอบวิดีโอเพื่อฝังวิดีโอลงในการนำเสนอของคุณ
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมเป็นจุด (points) สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จ เนื่องจาก [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) ทำให้มันล็อกขณะงานนำเสนอใช้งาน
+ตัวอย่างนี้ฝังวิดีโอแบบโลคัลบนสไลด์แรกของการนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของกรอบจะเป็นหน่วยจุด สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จสิ้น เพราะ [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) จะล็อกสตรีมขณะการนำเสนอใช้มัน
+
 ```python
 import aspose.slides as slides
 
@@ -45,7 +46,8 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-คุณยังสามารถส่งเส้นทางวิดีโอในเครื่องโดยตรงไปยัง [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องเข้าถึงได้จนกว่าการบันทึกงานนำเสนอจะเสร็จ
+คุณยังสามารถส่งเส้นทางวิดีโอแบบโลคัลโดยตรงไปยัง [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). ตัวอย่างนี้ฝังวิดีโอลงบนสไลด์แรกของการนำเสนอใหม่ วิดีโอจะต้องสามารถเข้าถึงได้จนกว่าการนำเสนอจะถูกบันทึก
+
 ```python
 import aspose.slides as slides
 
@@ -57,11 +59,12 @@ with slides.Presentation() as presentation:
     presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
+## **สร้างกรอบวิดีโอที่ใช้วิดีโอจากแหล่งเว็บ**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในการนำเสนอ คุณสามารถสร้างกรอบวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
 
-ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปย่อลงบนสไลด์แรก แทนที่รหัสวิดีโอเพื่อใช้วิดีโออื่น การตั้งค่า [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ขอให้เล่นอัตโนมัติ การดาวน์โหลดรูปย่อและการเล่นวิดีโอต้องการการเชื่อมต่ออินเทอร์เน็ต ตัวชมงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
+ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปย่อยลงบนสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น การตั้งค่า [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ขอให้เล่นอัตโนมัติ การดาวน์โหลดรูปย่อยและการเล่นวิดีโอต้องใช้การเชื่อมต่ออินเทอร์เน็ต ตัวแสดงผลการนำเสนอจะต้องรองรับการเล่นวิดีโอออนไลน์ด้วย
+
 ```python
 from urllib.request import urlopen
 import aspose.slides as slides
@@ -85,9 +88,10 @@ with slides.Presentation() as presentation:
 
 ## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
 
-ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียด ตั้งค่า [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) เป็น `True` เพื่อเปิดพฤติกรรมนี้ขณะเล่น
+ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียดได้ ตั้งค่า [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) เป็น `True` เพื่อเปิดใช้งานพฤติกรรมนี้ระหว่างการเล่น
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) แรกบนสไลด์แรกและเปิดการเล่นเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+ตัวอย่างนี้เปิดการนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) ตัวแรกบนสไลด์แรกและเปิดการเล่นแบบเต็มหน้าจอ การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
+
 ```python
 import aspose.slides as slides
 
@@ -102,13 +106,14 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-การเล่นเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ อย่างแยกกัน [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) ควบคุมว่าจะวนซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่ม ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). ตัวอย่างนี้รักษาการตั้งค่าเริ่มและวนซ้ำเดิมไว้
+การเล่นแบบเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ อย่างอิสระ [โหมดการเล่น](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [การวนซ้ำ](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) ควบคุมว่าจะทำซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่มต้น ให้ตั้งค่าโหมดการเล่นเป็น [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). ตัวอย่างนี้คงค่าการเริ่มและการวนซ้ำเดิมไว้
 
-## **ย้อนวิดีโอหลังจากการเล่น**
+## **รีวินด์วิดีโอหลังการเล่น**
 
-ในงานนำเสนอการฝึกอบรม การย้อนวิดีโอสาธิตกลับไปยังจุดเริ่มต้นทำให้พร้อมสำหรับผู้บรรยายเล่นอีกครั้ง ตั้งค่า [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) เป็น `True` เพื่อย้อนวิดีโอไปจุดเริ่มต้นหลังจากการเล่นเสร็จ
+ในงานนำเสนอการฝึกอบรม การคืนวิดีโอสาธิตไปยังจุดเริ่มต้นทำให้พร้อมสำหรับผู้บรรยายที่จะเล่นอีกครั้ง ตั้งค่า [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) เป็น `True` เพื่อคืนวิดีโอไปยังจุดเริ่มต้นหลังการเล่นเสร็จ
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) แรกบนสไลด์แรกและเปิดการย้อนกลับ ปิดการวนซ้ำเพื่อให้การเล่นเสร็จและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโอบนสไลด์แรก
+ตัวอย่างนี้เปิดการนำเสนอ ค้นหา [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) ตัวแรกบนสไลด์แรกและเปิดการรีวินด์ มันปิดการวนซ้ำเพื่อให้การเล่นทำงานจนจบและตั้งค่าการเล่นให้เริ่มเมื่อคลิก การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
+
 ```python
 import aspose.slides as slides
 
@@ -125,15 +130,16 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-การย้อนกลับทำให้วิดีโอย้อนกลับไปจุดเริ่มต้นโดยไม่เริ่มใหม่ ในทางตรงกันข้าม การเปิด [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) จะทำให้การเล่นวนซ้ำอัตโนมัติ ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอเล่นจนจบและพร้อมเล่นซ้ำ [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ควบคุมการเริ่มอัตโนมัติหรือเมื่อคลิกโดยแยกจากกัน; ตัวอย่างนี้ใช้ [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายกำหนดเวลาเริ่มเล่น ตั้งโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การย้อนกลับทำงานแยกจาก [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/)
+การรีวินด์จะคืนวิดีโอไปยังจุดเริ่มต้นโดยไม่เริ่มต้นใหม่ ในทางตรงกันข้าม การเปิดใช้งาน [การวนซ้ำ](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) จะทำให้การเล่นวนซ้ำอัตโนมัติ ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอเล่นจนจบและพร้อมที่จะเล่นใหม่ [โหมดการเล่น](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ควบคุมการเริ่มแบบอัตโนมัติหรือเมื่อคลิก ตัวอย่างนี้ใช้ [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายควบคุมเวลาการเริ่มเล่น ตั้งค่าโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การรีวินด์ทำงานอิสระจาก [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
 
-## **ตัดเฟรมวิดีโอ**
+## **ตัดแต่งกรอบวิดีโอ**
 
-ใช้ [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) และ [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) เพื่อข้ามส่วนต้นหรือส่วนสุดของวิดีโอขณะเล่น ค่าเป็นมิลลิวินาที การตัดแต่งปรับการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่
+ใช้ [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) และ [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) เพื่อข้ามส่วนต้นหรือส่วนท้ายของวิดีโอในระหว่างการเล่น ทั้งสองค่ามีหน่วยเป็นมิลลิวินาที การตัดทำการเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่
 
 **ตั้งค่าการตัด**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายขณะเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่สามารถเล่นได้
+ตัวอย่างนี้ฝังวิดีโอแบบโลคัลและข้าม 2.5 วินาทีแรกและวินาทีสุดท้ายในการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่สามารถเล่นได้
+
 ```python
 import aspose.slides as slides
 
@@ -153,7 +159,8 @@ with slides.Presentation() as presentation:
 
 **อ่านค่าการตัด**
 
-ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอจะไม่มีการพิมพ์ ตัวอย่างก่อนหน้าจะได้ค่า 2500 และ 1000
+ตัวอย่างนี้พิมพ์ค่าการตัดของกรอบวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที การนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีกรอบวิดีโอ จะไม่แสดงอะไร ตัวอย่างก่อนหน้าผลลัพธ์เป็นค่า 2500 และ 1000
+
 ```python
 import aspose.slides as slides
 
@@ -169,11 +176,12 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายถูกจัดเก็บในรูปแบบ WebVTT และเข้าถึงได้ผ่านคุณสมบัติ [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/)
+Aspose.Slides ช่วยให้คุณจัดการคำบรรยายปิดสำหรับกรอบวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และเปิดให้เข้าถึงผ่านคุณสมบัติ [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/)
 
-**เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
+### **เพิ่มคำบรรยายให้กับกรอบวิดีโอ**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทรกคำบรรยาย WebVTT ที่ป้าชื่อว่า English เวลาตราประทับของคำบรรยายควรตรงกับวิดีโอ งานนำเสนอที่บันทึกจะมีทั้งวิดีโอและคำบรรยาย
+ตัวอย่างนี้ฝังวิดีโอแบบโลคัลและเพิ่มแทร็คคำบรรยาย WebVTT ที่มีป้ายว่า English. ไทม์สแตมป์ของคำบรรยายควรตรงกับวิดีโอ การนำเสนอที่บันทึกจะรวมทั้งวิดีโอและคำบรรยาย
+
 ```python
 import aspose.slides as slides
 
@@ -190,11 +198,12 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-คลาส [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) ยังมีการโหลดที่ทำให้คุณเพิ่มคำบรรยายจากสตรีมได้
+คลาส [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีม
 
-**ดึงคำบรรยายจากเฟรมวิดีโอ**
+### **สกัดคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้บันทึกแทรกคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกตามเลขลำดับ เพื่อให้ไฟล์ผลลัพธ์ไม่ซ้ำกัน คอนโซลแสดงจำนวนแทรกที่ดึงออก งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้บันทึกแทร็คคำบรรยายทั้งหมดจากกรอบวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกกัน ตัวเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์แยกจากกัน คอนโซลรายงานจำนวนแทร็คที่สกัดออก การนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
+
 ```python
 import aspose.slides as slides
 
@@ -213,11 +222,12 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-แต่ละอ็อบเจ็กต์ [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) เปิดเผยรหัสคำบรรยาย, ป้ายชื่อ, ข้อมูลไบนารี, และข้อความคำบรรยายเป็นสตริง UTF-8
+แต่ละอ็อบเจกต์ [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) เปิดเผยตัวระบุคำบรรยาย ป้าย ช้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
 
-**ลบคำบรรยายจากเฟรมวิดีโอ**
+### **ลบคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นเฟรมวิดีโอ
+ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากกรอบวิดีโาตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นกรอบวิดีโอ
+
 ```python
 import aspose.slides as slides
 
@@ -230,13 +240,63 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-หากต้องการลบเฉพาะแทรกคำบรรยายหนึ่งรายการ ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) หรือ [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) แทน [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/)
+หากคุณต้องการลบเพียงแทร็คคำบรรยายเดียว ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) หรือ [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) แทน [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/)
 
-## **ดึงวิดีโอจากสไลด์**
+### **ค้นหาคำบรรยายวิดีโอ**
 
-นอกจากการเพิ่มวิดีโอลงสไลด์แล้ว Aspose.Slides ยังให้คุณดึงวิดีโอที่ฝังอยู่ในงานนำเสนอ
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) คืนค่าแทร็ค WebVTT ทั้งหมด รวมถึงส่วนหัว บรรทัดเวลา และข้อความคำบรรยาย ตัวอย่างเช่น แทร็ค English บนสไลด์ที่ 2 อาจมีคิวนี้:
 
-ตัวอย่างนี้ดึงวิดีโอที่ฝังจากทุกสไลด์เป็นไฟล์ไบนารีแยกตามหมายเลข วิดีโอที่ลิงก์จะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลพิมพ์ประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; สามารถเปลี่ยนให้ตรงกับสื่อที่รายงานเมื่อจำเป็น
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+ตัวอย่างนี้เปิดไฟล์ `captioned_media.pptx` และอ่าน [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) ของแต่ละกรอบวิดีโอระดับบนบนทุกสไลด์ สำหรับแต่ละคิวข้อความธรรมดา มันค้นหาบรรทัดเวลาที่มี `-->` และรวบรวมบรรทัดคำบรรยายจนถึงบรรทัดว่างถัดไปหรือจบแทร็ค มันค้นหาข้อความคำบรรยายสำหรับคำ “café” โดยไม่คำนึงถึงตัวพิมพ์ใหญ่และพิมพ์หมายเลขสไลด์ ป้ายแทร็ค บรรทัดเวลาต้นฉบับ และคำบรรยายเต็มสำหรับแต่ละการจับคู่
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+แทร็คตัวอย่างให้ผลลัพธ์หนึ่งการจับคู่ “Café” ในหัวข้ออยู่นอกข้อความคำบรรยาย และผลลัพธ์คงการตั้งค่าเวลาและทั้งสองบรรทัดของคำบรรยาย
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **สกัดวิดีโอจากสไลด์**
+
+นอกเหนือจากการเพิ่มวิดีโอลงสไลด์แล้ว Aspose.Slides ยังให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอ
+
+ตัวอย่างนี้สกัดวิดีโอที่ฝังอยู่จากทุกสไลด์เป็นไฟล์ไบนารีแยกตามหมายเลข วิดีโอที่ลิงก์จะถูกข้ามเนื่องจากไม่มีข้อมูลฝัง คอนโซลพิมพ์ประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; เปลี่ยนตามชนิดสื่อตามที่รายงานเมื่อจำเป็น
+
 ```python
 import aspose.slides as slides
 
@@ -261,18 +321,18 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
 
 ## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอที่สามารถเปลี่ยนแปลงสำหรับเฟรมวิดีโอได้มีอะไรบ้าง?**
+**พารามิเตอร์การเล่นวิดีโอใดบ้างที่สามารถเปลี่ยนแปลงได้สำหรับกรอบวิดีโอ?**
 
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). ตัวเลือกเหล่านี้ใช้ได้ผ่านคุณสมบัติโปรพเพอร์ตี้ของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)
+คุณสามารถควบคุม [โหมดการเล่น](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (อัตโนมัติหรือเมื่อคลิก) และ [การวนซ้ำ](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) ได้ ตัวเลือกเหล่านี้สามารถเข้าถึงได้ผ่านคุณสมบัติของอ็อบเจกต์ [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)
 
 **การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**
 
-ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะรวมอยู่ในเอกสารทำให้ขนาดงานนำเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มรูปย่อ งานนำจัดเก็บลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นการเพิ่มขนาดมักจะน้อยกว่า
+ใช่ เมื่อคุณฝังวิดีโอแบบโลคัล ข้อมูลไบนารีจะถูกรวมอยู่ในเอกสาร ดังนั้นขนาดการนำเสนอจะเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มรูปย่อย การนำเสนอจะเก็บลิงก์และภาพแสดงตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นการเพิ่มขนาดจึงมักจะน้อยกว่า
 
-**ฉันสามารถแทนที่วิดีโอในเฟรมวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
+**ฉันสามารถแทนที่วิดีโอในกรอบวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
 
-ได้ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) ภายในเฟรมโดยคงรูปร่างไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลเอาต์ที่มีอยู่
+ใช่ คุณสามารถสลับ [เนื้อหาวิดีโอ](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) ภายในกรอบขณะที่คงรูปทรงของรูปร่างไว้; นี่เป็นกรณีที่พบบ่อยสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่
 
-**สามารถกำหนดประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังได้หรือไม่?**
+**สามารถกำหนดประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังไว้ได้หรือไม่?**
 
-ได้ วิดีโอที่ฝังมี [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) ที่คุณสามารถอ่านและใช้ได้ เช่น เมื่อบันทึกลงดิสก์
+ใช่ วิดีโอที่ฝังไว้มี [ประเภทเนื้อหา](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) ที่คุณสามารถอ่านและนำไปใช้ได้ เช่นเมื่อต้องการบันทึกลงดิสก์

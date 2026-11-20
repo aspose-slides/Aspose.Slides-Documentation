@@ -11,281 +11,282 @@ keywords:
 - добавить аудио
 - свойства аудио
 - параметры аудио
-- извлечь аудио
+- извлечение аудио
 - .NET
 - C#
 - Aspose.Slides
-description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides для .NET — примеры на C# по встраиванию, обрезке, зацикливанию и настройке воспроизведения в презентациях PPT, PPTX и ODP."
+description: "Встраивание аудио в слайды, изменение значка аудио, настройка воспроизведения, управление WebVTT‑подписями и извлечение звуков переходов слайдов с помощью Aspose.Slides для .NET."
 ---
+## **Обзор**
+
+Аудио‑кадр позволяет воспроизводить звук на слайде. С помощью Aspose.Slides для .NET вы можете встроить аудиоклип, выбрать изображение, которое его представляет, настроить воспроизведение и добавить подписи. Также можно получить звук, назначенный переходу слайда.
+
 ## **Создание аудио‑кадров**
 
-Aspose.Slides для .NET позволяет добавлять аудиофайлы на слайды. Аудиофайлы встраиваются в слайды в виде аудио‑кадров. 
+Используйте [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) для встраивания локального аудиоклипа на первый слайд. Первые две координаты задают положение кадра на слайде, а следующие два значения задают его ширину и высоту, всё в пунктах. В этом примере свойству [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) задаётся автоматический запуск клипа, а [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) — громкая предустановка.
 
-1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Загрузите поток аудиофайла, который вы хотите встроить в слайд.
-4. Добавьте встроенный аудио‑кадр (содержит аудиофайл) на слайд.
-5. Установите [PlayMode](https://reference.aspose.com/slides/ru/net/aspose.slides/audioplaymodepreset) и `Volume`, доступные через объект [IAudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe).
-6. Сохраните изменённую презентацию.
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Этот код на C# показывает, как добавить встроенный аудио‑кадр на слайд:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Создаёт экземпляр класса презентации, представляющего файл презентации
-using (Presentation pres = new Presentation())
-{
-    // Получает первый слайд
-    ISlide sld = pres.Slides[0];
-    
-    // Загружает wav‑файл звука в поток
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // Добавляет аудио‑кадр
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
-
-    // Устанавливает режим воспроизведения и громкость аудио
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // Записывает файл PowerPoint на диск
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Изменение миниатюры аудио‑кадра**
 
-Когда вы добавляете аудиофайл в презентацию, аудио отображается как кадр со стандартным изображением по умолчанию (см. изображение в разделе ниже). Вы можете изменить миниатюру аудио‑кадра (установить своё изображение).
+По умолчанию аудио‑кадр отображает значок динамика. Чтобы показать пользовательскую миниатюру, добавьте изображение в презентацию с помощью [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) и присвойте его свойству [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/) кадра. В примере в качестве миниатюры для встроенного аудиоклипа используется JPEG.
 
-Этот код на C# показывает, как изменить миниатюру или изображение предварительного просмотра аудио‑кадра:
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Добавляет аудио‑кадр на слайд с указанным положением и размером.
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // Добавляет изображение в ресурсы презентации.
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
 
-    // Устанавливает изображение для аудио‑кадра.
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-    
-    // Сохраняет изменённую презентацию на диск
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Изменение параметров воспроизведения аудио**
 
-Aspose.Slides для .NET позволяет изменять параметры, управляющие воспроизведением аудио или его свойствами. Например, можно отрегулировать громкость, установить цикл воспроизведения или скрыть значок аудио.
+PowerPoint’s **Audio Options** controls determine when a clip starts, how loud it sounds, and how it behaves during a slide show.
 
-Панель **Audio Options** в Microsoft PowerPoint:
+![Элементы управления Audio Options в PowerPoint для аудио‑кадра](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Элемент управления PowerPoint | Свойство Aspose.Slides |
+| --- | --- |
+| Запуск | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| Предустановка громкости | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| Воспроизведение на всех слайдах | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| Повторять до остановки | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| Скрывать во время показа | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| Перемотка после воспроизведения | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| Появление (Fade In) | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| Исчезновение (Fade Out) | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| Обрезать время начала аудио | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| Обрезать время окончания аудио | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| Регулятор громкости | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options**, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe):
+В примере находится первый аудио‑кадр на первом слайде, свойству [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) задаётся запуск воспроизведения по щелчку, и выбирается предустановка низкой громкости. Клип продолжает воспроизводиться на всех слайдах при отключённом цикле. Значок остаётся скрытым во время показа, а клип перематывается после воспроизведения.
 
-- **Start** – выпадающий список соответствует свойству [AudioFrame.PlayMode](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/playmode)
-- **Volume** соответствует свойству [AudioFrame.Volume](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/volume)
-- **Play Across Slides** соответствует свойству [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/playacrossslides)
-- **Loop until Stopped** соответствует свойству [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/playloopmode)
-- **Hide During Show** соответствует свойству [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/hideatshowing)
-- **Rewind after Playing** соответствует свойству [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/properties/rewindaudio)
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-PowerPoint **Editing**‑опции, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe):
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-- **Fade In** соответствует свойству [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/fadeinduration/) 
-- **Fade Out** соответствует свойству [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/fadeoutduration/) 
-- **Trim Audio Start Time** соответствует свойству [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/trimfromstart/) 
-- **Trim Audio End Time** значение равно продолжительности аудио минус значение свойства [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/trimfromend/)
-
-Контроллер **Volume** на панели управления аудио в PowerPoint соответствует свойству [AudioFrame.VolumeValue](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/volumevalue/). Он позволяет изменять громкость аудио в процентах.
-
-Так меняются параметры воспроизведения аудио:
-
-1. [Создать](#create-audio-frame) или получить аудио‑кадр.
-2. Установите новые значения свойств аудио‑кадра, которые вы хотите изменить.
-3. Сохраните изменённый файл PowerPoint.
-
-Этот код на C# демонстрирует операцию, в которой настраиваются параметры аудио:
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Получает форму AudioFrame
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // Устанавливает режим воспроизведения на воспроизведение по щелчку
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // Устанавливает громкость в Low
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // Устанавливает воспроизведение аудио на всех слайдах
-    audioFrame.PlayAcrossSlides = true;
-
-    // Отключает цикл воспроизведения для аудио
-    audioFrame.PlayLoopMode = false;
-
-    // Скрывает AudioFrame во время показа слайдов
-    audioFrame.HideAtShowing = true;
-
-    // Перематывает аудио к началу после воспроизведения
-    audioFrame.RewindAudio = true;
-
-    // Сохраняет файл PowerPoint на диск
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-Этот пример на C# показывает, как добавить новый аудио‑кадр с встроенным аудио, обрезать его и задать длительность затухания:
+Для клипа длиной более 3,5 секунды этот пример пропускает первые 1,5 секунды и последние 2 секунды. [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) измеряет длительность, которую необходимо исключить в конце клипа. Чтобы получить конечное время, отображаемое в PowerPoint, вычтите этот смещение из полной длительности клипа. Обрезанный клип плавно появляется в течение 200 миллисекунд и исчезает в течение 500 миллисекунд. Все четыре свойства принимают значения в миллисекундах.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Устанавливает смещение начала обрезки в 1,5 секунды
-    audioFrame.TrimFromStart = 1500f;
-    // Устанавливает смещение конца обрезки в 2 секунды
-    audioFrame.TrimFromEnd = 2000f;
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    // Устанавливает длительность плавного появления в 200 мс
-    audioFrame.FadeInDuration = 200f;
-    // Устанавливает длительность плавного затухания в 500 мс
-    audioFrame.FadeOutDuration = 500f;
-
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-Следующий образец кода показывает, как получить аудио‑кадр с встроенным аудио и установить его громкость на 85 %:
+Чтобы задать громкость воспроизведения в конкретный процент, используйте [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/). В этом примере первый аудио‑кадр на первом слайде устанавливается на 85 %.
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // Получает форму аудио‑кадра
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // Устанавливает громкость аудио в 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Управление аудио‑подписями**
 
-Aspose.Slides позволяет добавлять закрытые субтитры к аудио‑кадру через свойство [CaptionTracks](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/captiontracks/). Это свойство возвращает [ICaptionsCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/icaptionscollection/), позволяя добавлять дорожки WebVTT, перебирать существующие дорожки и удалять их при необходимости.
+У каждого аудио‑кадра есть коллекция [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/). Используйте её, чтобы прикрепить к клипу подписи WebVTT, экспортировать существующие дорожки или удалить их.
 
-**Добавить аудио‑подписи**
+### **Добавление аудио‑подписей**
 
-Используйте свойство [CaptionTracks](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/captiontracks/) для присоединения одной или нескольких дорожек субтитров к аудио‑кадру. В примере ниже аудиофайл добавляется на слайд, после чего новая дорожка субтитров загружается из файла `.vtt`.
+В примере встраивается аудио‑клип на первый слайд и используется [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) чтобы присоединить локальную дорожку WebVTT. Первый аргумент задаёт метку дорожки, второй указывает файл с тайм‑квипами.
 
-```cs
-using (Presentation presentation = new Presentation())
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
+
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+```
+
+### **Извлечение аудио‑подписей**
+
+В этом примере экспортируется каждая дорожка подписи, прикреплённая к аудио‑кадру на первом слайде. Данные дорожки [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) записываются в файл WebVTT, а её [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) используется как имя файла, чтобы каждая дорожка имела отдельный вывод.
+
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
-
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Добавьте новую дорожку субтитров из файла WebVTT.
-    audioFrame.CaptionTracks.Add("New track", "track.vtt");
-
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+    foreach (var track in audioFrame.CaptionTracks)
+    {
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
 }
 ```
 
-**Извлечение аудио‑субтитров**
+### **Удаление аудио‑подписей**
 
-Можно перебрать дорожки субтитров, связанные с аудио‑кадром, и сохранить их как файлы `.vtt`. Каждая дорожка раскрывает свои двоичные данные и уникальный идентификатор, которые можно использовать при экспорте субтитров.
+Для удаления отдельной дорожки используйте [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/). В примере применяется [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) чтобы удалить все подписи из первого аудио‑кадра на первом слайде, сохранив при этом клип.
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **Поиск строки в аудио‑подписях**
+
+Чтобы найти строку в аудио‑подписях на первом слайде, прочитайте в памяти [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) каждой дорожки. В простом текстовом WebVTT‑cue строка тайминга содержит `-->`, за ней следуют строки подписи, а пустая строка завершает cue. В этом примере выводятся метка дорожки и каждая строка подписи, содержащая «café».
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // Сохраните дорожку субтитров в файл .vtt.
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-**Удаление аудио‑субтитров**
-
-Чтобы удалить субтитры из аудио‑кадра, используйте методы, предоставляемые [ICaptionsCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/icaptionscollection/), такие как [Clear](https://reference.aspose.com/slides/ru/net/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/ru/net/aspose.slides/icaptionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/ru/net/aspose.slides/icaptionscollection/removeat/). Пример ниже удаляет все дорожки субтитров из аудио‑кадра.
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // Удалить все дорожки субтитров из аудио‑кадра.
-    audioFrame.CaptionTracks.Clear();
-
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **Извлечение аудио**
 
-Aspose.Slides для .NET позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, можно извлечь звук, использованный в конкретном слайде.
+У перехода слайда может быть собственный звук. Чтобы получить его, прочитайте свойство [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) перехода. В примере доступ к [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) звука и выводится его размер в байтах. Если у первого слайда нет звука перехода, выводится сообщение.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation) и загрузите презентацию, содержащую аудио.
-2. Получите ссылку на соответствующий слайд по его индексу.
-3. Доступ к переходам слайд‑шоу для этого слайда.
-4. Извлеките звук в виде байтовых данных.
+```csharp
+using System;
+using Aspose.Slides;
 
-Этот код на C# показывает, как извлечь аудио, используемое в слайде:
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-```c#
-string presName = "AudioSlide.pptx";
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// Создаёт экземпляр класса Presentation, представляющего файл презентации
-Presentation pres = new Presentation(presName);
-
-// Accesses the slide
-ISlide slide = pres.Slides[0];
-
-// Gets the slideshow transition effects for the slide
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//Extracts the sound in byte array
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли использовать один и тот же аудио‑ресурс на нескольких слайдах без увеличения размера файла?**
+**Могу ли я использовать один и тот же аудио‑клип на нескольких слайдах без дублирования?**
 
-Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/audios/) презентации и создайте дополнительные аудио‑кадры, которые ссылаются на этот существующий ресурс. Это предотвращает дублирование медиа‑данных и сохраняет размер презентации под контролем.
+Да. Добавьте клип один раз в [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) презентации и передайте тот же аудио‑объект в [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) для каждого слайда.
 
-**Можно ли заменить звук в существующем аудио‑кадре без пересоздания формы?**
+**Могу ли я заменить звук в существующем аудио‑кадре?**
 
-Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/linkpathlong/) так, чтобы он указывал на новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/ru/net/aspose.slides/audioframe/embeddedaudio/) другим из [audio collection](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/audios/) презентации. Форматирование кадра и большинство настроек воспроизведения сохраняются.
+Да. Для связанного звука обновите [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/) , указав путь к файлу‑заменителю. Для встроенного звука назначьте другой клип из аудио‑коллекции презентации свойству [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/). Оба подхода сохраняют существующий кадр.
 
-**Изменяет ли обрезка фактические аудио‑данные, хранящиеся в презентации?**
+**Изменяет ли обрезка аудио‑данные, хранящиеся в презентации?**
 
-Нет. Обрезка меняет только границы воспроизведения. Исходные аудио‑байты остаются нетронутыми и доступны через встроенное аудио или коллекцию аудио презентации.
+Нет. [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) и [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) задают границы воспроизведения. Полный клип всё ещё можно получить из [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/).

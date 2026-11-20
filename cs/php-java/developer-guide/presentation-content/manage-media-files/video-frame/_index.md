@@ -17,21 +17,21 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro PHP přes Java. Rychlý návod."
+description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro PHP přes Java. Rychlý návod jak na to."
 ---
 ## **Úvod**
 
-Videa mohou pomoci vysvětlit nápady a zaujmout publikum. Aspose.Slides pro PHP přes Java vám umožňuje přidávat video snímky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
+Videa mohou pomoci vysvětlit nápady a zaujmout publikum. Aspose.Slides pro PHP přes Java vám umožňuje přidávat snímky videa do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
 PowerPoint podporuje lokální videa i odkazy na online videa, například videa na YouTube.
 
-K reprezentaci video dat a video snímků poskytuje Aspose.Slides třídu [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) , třídu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) a další relevantní typy.
+Pro reprezentaci video dat a snímků videa poskytuje Aspose.Slides třídu [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/), třídu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) a další související typy.
 
-## **Vytvořit vložený video snímek**
+## **Vytvořit vložený snímek videa**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen místně, můžete vytvořit video snímek pro vložení videa do vaší prezentace.
+Pokud je video soubor, který chcete přidat na snímek, uložen lokálně, můžete vytvořit snímek videa a vložit video do vaší prezentace.
 
-Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) jej udržuje uzamčený, dokud ho prezentace používá.
+Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) jej udržuje uzamčený, dokud je prezentace používá.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-## **Vytvořit video snímek s videem z webového zdroje**
+## **Vytvořit snímek videa s videem z webového zdroje**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video snímek, který odkazuje na online video, například video na YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit snímek videa, který odkazuje na online video, například video z YouTube.
 
-Tento příklad přidá odkaz na YouTube video a náhledový obrázek na první snímek. Nahraďte identifikátor videa, abyste použili jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) požaduje automatické přehrávání. Stažení náhledu a přehrání videa vyžadují přístup k internetu. Prohlížeč prezentací také musí podporovat přehrávání online videa.
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) požaduje automatické přehrávání. Stahování miniatury a přehrávání videa vyžaduje připojení k internetu. Prohlížeč prezentací musí také podporovat přehrávání online videí.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,11 +110,11 @@ try {
 }
 ```
 
-## **Přehrát video v režimu na celou obrazovku**
+## **Přehrát video v režimu celé obrazovky**
 
-V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu na celou obrazovku, aby publikum vidělo detaily. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) s `true`, abyste během přehrávání povolili toto chování.
+V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) s `true`, čímž povolíte toto chování během přehrávání.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na první snímku a povolí přehrávání na celou obrazovku. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na první snímek a povolí přehrávání na celou obrazovku. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-Přehrávání na celou obrazovku určuje, jak je video zobrazeno. Samostatně metoda [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) řídí, zda se spustí automaticky nebo po kliknutí, a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) určuje, zda se opakuje. Pro výběr chování při spuštění nastavte režim přehrávání na [VideoPlayModePreset::Auto nebo VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Příklad zachovává existující nastavení startu a opakování.
+Přehrávání na celou obrazovku řídí, jak je video zobrazeno. Samostatně [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) určuje, zda se spustí automaticky nebo po kliknutí, a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) určuje, zda se opakuje. Pro výběr chování při spuštění nastavte režim přehrávání na [VideoPlayModePreset::Auto nebo VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení spuštění a opakování.
 
 ## **Přetočit video po přehrání**
 
-V tréninkové prezentaci vrácení ukázkového videa na začátek jej připraví pro další přehrání prezentátorem. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) s `true`, aby se video po dokončení přehrávání vrátilo na začátek.
+V tréninkové prezentaci vrácení demonstračního videa na začátek připraví video pro další přehrání prezentátorem. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) s `true`, čímž vrátíte video na začátek po dokončení přehrávání.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na první snímku a povolí přetočení. Zakáže opakování, aby přehrávání mohlo skončit, a nastaví spuštění přehrávání po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) na první snímek a povolí přetočení. Zakáže opakování, aby přehrávání mohlo skončit, a nastaví přehrávání tak, aby se spouštělo po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na první snímku.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,11 +175,11 @@ try {
 }
 ```
 
-Přetočení vrátí video na začátek, aniž by se spustilo znovu. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) s `true` automaticky opakuje přehrávání. Nechte opakování zakázáno, když chcete, aby video skončilo a zůstalo připravené k opětovnému přehrání. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) samostatně řídí automatické nebo kliknutím spouštění; tento příklad používá [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/), takže prezentátor řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Přetočení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+Přetočení vrátí video na začátek, aniž by jej okamžitě spustilo. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) s `true` způsobí automatické opakování přehrávání. Ponechte opakování zakázáno, pokud chcete, aby video skončilo a zůstalo připravené k opakovanému přehrání. [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) samostatně řídí automatické nebo kliknutím spouštění; tento příklad používá [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) , takže prezentátor řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení opakování, jak je ukázáno v příkladu. Přetočení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **Oříznout video snímek**
+## **Uříznout snímek videa**
 
-Použijte [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd), abyste během přehrávání přeskočili část začátku nebo konce videa. Obě hodnoty jsou v milisekundách. Oříznutí mění nastavení přehrávání, aniž by upravovalo vložená video data.
+Použijte [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd), abyste během přehrávání přeskočili část začátku nebo konce videa. Obě hodnoty jsou v milisekundách. Oříznutí mění nastavení přehrávání, aniž by měnilo vložená video data.
 
 **Nastavit nastavení oříznutí**
 
@@ -210,7 +210,7 @@ try {
 
 **Přečíst nastavení oříznutí**
 
-Tento příklad vypíše hodnoty oříznutí prvního video snímku na první slide v milisekundách. Prezentace musí obsahovat alespoň jeden slide. Pokud tento slide neobsahuje video snímek, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
+Tento příklad vytiskne hodnoty oříznutí prvního video snímku na první snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud daný snímek nemá video snímek, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **Spravovat titulky videa**
 
-Aspose.Slides vám umožňuje spravovat skryté titulky pro video snímky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou zpřístupněny pomocí metody [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video snímky v prezentacích PowerPoint. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné pomocí metody [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Přidat titulky k video snímku**
+### **Přidat titulky k video snímku**
 
-Tento příklad vloží lokální video a přidá stopu titulků WebVTT označenou English. Časové značky titulků by měly odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
+Tento příklad vloží lokální video a přidá stopu titulků WebVTT označenou English. Časové razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-Třída [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) také poskytuje přetížení, které vám umožní přidat titulky ze streamu.
+Třída [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) také poskytuje přetížení, které umožňuje přidávat titulky ze streamu.
 
-**Extrahovat titulky z video snímku**
+### **Extrahovat titulky z video snímku**
 
-Tento příklad uloží všechny stopy titulků z video snímků na první slide jako samostatné soubory WebVTT. Sekvenční čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden slide.
+Tento příklad uloží všechny stopy titulků z video snímků na první snímek jako samostatné soubory WebVTT. Postupná čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-Každý objekt [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) vystavuje identifikátor titulku, popisek, binární data a text titulku jako řetězec UTF-8.
+Každý objekt [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) poskytuje identifikátor titulku, značku, binární data a text titulku jako řetězec UTF-8.
 
-**Odstranit titulky z video snímku**
+### **Odstranit titulky z video snímku**
 
-Tento příklad odstraní všechny titulky z video snímku na první pozici tvaru na první slide a uloží výsledek. Předpokládá, že slide a tvar existují a že tvar je video snímek.
+Tento příklad odstraní všechny titulky z video snímku na první pozici objektu na první snímku a uloží výsledek. Předpokládá, že snímek a objekt existují a že objekt je video snímek.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metodu [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) místo [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) místo [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+
+### **Vyhledat titulky ve videu**
+
+[Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) vrací kompletní stopu WebVTT, včetně hlavičky, časových řádků a textu titulků. Můžete prohledávat signály v paměti a najít řečenou frázi a její časové razítko. Například anglická stopa na snímku 2 může obsahovat následující text.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Příklad otevře `captioned_media.pptx` a použije [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks), aby načetl stopy každého video snímku nejvyšší úrovně na každém snímku. V prostém textovém cue časová řádka obsahuje `-->` a prázdný řádek ukončuje cue. Když titulky obsahují “café” v jakékoliv velikosti písmen, příklad vytiskne číslo snímku, označení stopy, původní časovou řádku a celý titulek.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Vyhledávání “café” vytvoří jeden výsledek pro ukázkovou stopu. Vyhledávání vylučuje hlavičku stopy a zachovává nastavení časování ve výstupu.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extrahovat video ze snímku**
 
-Kromě přidávání videí do snímků vám Aspose.Slides umožňuje extrahovat videa vložená v prezentacích.
+Kromě přidávání videí na snímky umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.
 
-Tento příklad extrahuje vložená videa ze všech slide do samostatných, číslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože nemají vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte tak, aby odpovídala hlášenému typu média.
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Propojená videa jsou přeskočena, protože nemají vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte tak, aby odpovídala hlášenému typu média.
 
 ```php
 use aspose\slides\Presentation;
@@ -372,19 +436,19 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Které parametry přehrávání videa lze změnit u video snímku?**
+**Jaké parametry přehrávání videa lze změnit pro video snímek?**
 
-Můžete ovládat [playback mode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (auto nebo po kliknutí) a [looping](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) .
+Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (automaticky nebo po kliknutí) a [opakovatelnost](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
 **Ovlivňuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte náhledový obrázek, prezentace uloží odkaz a preview obrázek místo video dat, takže nárůst velikosti je obvykle menší.
+Ano. Když vložíte lokální video, binární data jsou zahrnuta v dokumentu, takže velikost prezentace roste úměrně k velikosti souboru. Když se odkazujete na online video a přidáte miniaturu, prezentace ukládá odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
 
 **Mohu nahradit video v existujícím video snímku bez změny jeho polohy a velikosti?**
 
-Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) uvnitř snímku při zachování geometrie tvaru; to je běžný scénář pro aktualizaci médií v existujícím rozložení.
+Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) uvnitř snímku při zachování geometrie objektu; toto je běžný scénář pro aktualizaci médií v existujícím rozvržení.
 
 **Lze určit typ obsahu (MIME) vloženého videa?**
 

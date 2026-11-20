@@ -17,21 +17,21 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument slaytlarında programatik olarak video çerçeveleri eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır kılavuzu."
+description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument slaytlarında programlı olarak video çerçevelerini eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
 ---
 ## **Giriş**
 
-Videolar fikirleri açıklamaya yardımcı olabilir ve izleyiciyi etkileşime sokabilir. Aspose.Slides for C++ slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını ayarlamanızı, altyazıları yönetmenizi ve gömülü video verilerini çıkarmanızı sağlar.
+Videolar fikirleri açıklamaya ve izleyiciyi etkilemeye yardımcı olabilir. Aspose.Slides for C++ slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını ayarlamanızı, açıklamaları yönetmenizi ve gömülü video verilerini çıkarmanızı sağlar.
 
-PowerPoint yerel videoları ve YouTube gibi çevrimiçi video bağlantılarını destekler.
+PowerPoint yerel videoları ve YouTube videoları gibi çevrimiçi video bağlantılarını destekler.
 
-Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides, [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) arayüzünü, [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) arayüzünü ve diğer ilgili tipleri sağlar.
+Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) arayüzünü, [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) arayüzünü ve diğer ilgili türleri sağlar.
 
 ## **Gömülü Video Çerçevesi Oluşturma**
 
-Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanıyorsa, videoyu sunumunuza gömmek için bir video çerçevesi oluşturabilirsiniz.
+Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanmışsa, videoyu sunumunuza yerleştirmek için bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek mevcut bir sunumun ilk sl aytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları point cinsindendir. Akış, sunum kullanıldığı sürece kilitli tutan [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) nedeniyle kaydetme tamamlanana kadar açık kalır.
+Bu örnek, mevcut bir sunumun ilk slaydına yerel bir videoyu gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme tamamlanana kadar açık kalır çünkü [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) sunum kullanıldığı sürece kilitli tutar.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Ayrıca yerel video yolunu doğrudan [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) yöntemine geçirebilirsiniz. Bu örnek yeni bir sunumun ilk sl aytına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
+Yerel video yolunu doğrudan [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) metoduna da geçirebilirsiniz. Bu örnek, yeni bir sunumun ilk slaydına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -86,9 +86,9 @@ presentation->Dispose();
 
 ## **Web Kaynağından Video ile Video Çerçevesi Oluşturma**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) sunumlarda çevrimiçi videoları destekler. YouTube gibi bir çevrimiçi videoya bağlanan bir video çerçevesi oluşturabilirsiniz.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) sunumlarda çevrimiçi videoları destekler. YouTube videosu gibi çevrimiçi bir videoya bağlantı veren bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek ilk sl ayta bir YouTube video bağlantısı ve küçük resim ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) yöntemi otomatik oynatmayı talep eder. Küçük resmi indirmek ve videoyu oynatmak internet erişimi gerektirir. Sunum görüntüleyicisinin de çevrimiçi video oynatmayı desteklemesi gerekir.
+Bu örnek, ilk slayta bir YouTube video bağlantısı ve küçük resim ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) yöntemi otomatik oynatmayı talep eder. Küçük resmin indirilmesi ve videonun oynatılması internet erişimi gerektirir. Sunum görüntüleyicisi de çevrimiçi video oynatımını desteklemelidir.
 
 ```cpp
 #include <net/web_client.h>
@@ -129,9 +129,9 @@ presentation->Dispose();
 
 ## **Videoyu Tam Ekran Modunda Oynatma**
 
-Bir eğitim sunumunda, yazılım demonstrasyonunu tam ekran modunda oynatabilirsiniz; böylece izleyiciler ayrıntıları görebilir. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) `true` alarak bu davranışı oynatma sırasında etkinleştirir.
+Eğitim sunumunda, izleyicilerin ayrıntıları görebilmesi için bir yazılım demosunu tam ekran modunda oynatabilirsiniz. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) bu davranışı oynatma sırasında etkinleştirmek için `true` değerini kabul eder.
 
-Bu örnek bir sunumu açar, ilk sl ayttaki ilk [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Giriş sunumu, ilk sl aytta mevcut bir video çerçevesi içeren en az bir sl ayt içermelidir.
+Bu örnek bir sunumu açar, ilk slaydın ilk [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Tam ekran oynatma, videonun nasıl görüntüleneceğini kontrol eder. Bağımsız olarak, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) otomatik mi yoksa tıklama ile mi başlayacağını, [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ise tekrar edip etmeyeceğini kontrol eder. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek mevcut başlangıç ve döngü ayarlarını korur.
+Tam ekran oynatma, videonun nasıl gösterileceğini kontrol eder. Bağımsız olarak, [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) videonun otomatik mi yoksa tıklamayla mı başlayacağını, [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ise tekrarlayıp tekrarlamayacağını kontrol eder. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek, mevcut başlangıç ve döngü ayarlarını korur.
 
-## **Oynatmadan Sonra Videoyu Geri Sarma**
+## **Oynatmadan Sonra Videoyu Geri Sar**
 
-Bir eğitim sunumunda, bir demonstrasyon videosunu başa döndürmek, sunumcunun videoyu tekrar oynatmasını hazır hale getirir. `true` parametresiyle [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) çağırarak oynatma bittikten sonra videoyu başa sarabilirsiniz.
+Eğitim sunumunda, bir demo videosunu başına döndürmek, sunumcunun videoyu yeniden oynatmaya hazır olmasını sağlar. Oynatma tamamlandığında videoyu başa döndürmek için [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) metodunu `true` ile çağırın.
 
-Bu örnek bir sunumu açar, ilk sl ayttaki ilk [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Döngüyü devre dışı bırakır, böylece oynatma tamamlanabilir ve oynatmayı tıklamayla başlatır. Giriş sunumu, ilk sl aytta mevcut bir video çerçevesi içeren en az bir sl ayt içermelidir.
+Bu örnek bir sunumu açar, ilk slaydın ilk [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Döngüyü devre dışı bırakır, böylece oynatma sona erebilir ve oynatmayı tıklamayla başlatır. Giriş sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Geri sarma, videoyu başa döndürür ancak tekrar başlatmaz. Buna karşılık, [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) etkinleştirildiğinde oynatma otomatik olarak tekrarlanır. Videonun bitmesini ve tekrar oynatılmaya hazır kalmasını istiyorsanız döngüyü devre dışı bırakın. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) bağımsız olarak otomatik ya da tıklama ile başlatmayı kontrol eder; bu örnek [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) kullanır, böylece sunumcu oynatmanın ne zaman başlayacağını kontrol eder. Döngü ayarının ardından oynatma modunu ayarlayın, örnekte gösterildiği gibi. Geri sarma, [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) ile bağımsız olarak çalışır.
+Geri sarma videoyu tekrar başlatmadan başına döndürür. Buna karşılık, [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) etkinleştirildiğinde oynatma otomatik olarak tekrar eder. Videonun bitmesini ve yeniden oynatılmaya hazır kalmasını istediğinizde döngüyü devre dışı bırakın. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) bağımsız olarak otomatik ya da tıklamayla başlatmayı kontrol eder; bu örnek, oynatmanın ne zaman başlayacağını sunumcunun kontrol etmesi için [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) kullanır. Örnekte gösterildiği gibi döngü ayarından sonra oynatma modu ayarlanır. Geri sarma, [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) ile bağımsız çalışır.
 
-## **Video Çerçevesini Kesme**
+## **Video Çerçevesini Kırpma**
 
-[IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) ve [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) yöntemleriyle bir videonun başlangıç ya da son kısmını oynatma sırasında atlayabilirsiniz. Her iki değer milisaniye cinsindendir. Kesme, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
+[IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) ve [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) yöntemlerini kullanarak oynatma sırasında videonun başlangıcının veya sonunun bir kısmını atlayabilirsiniz. Her iki değer de milisaniye cinsindendir. Kırpma, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
 
-**Kesme Ayarlarını Belirleme**
+**Kırpma Ayarlarını Belirleme**
 
-Bu örnek yerel bir video gömer ve oynatma sırasında ilk 2.5 saniye ile son bir saniyeyi atlar. Oynatılabilir bir segment kalması için videonun 3.5 saniyeden uzun olması gerekir.
+Bu örnek, yerel bir video gömer ve oynatma sırasında ilk 2,5 saniyeyi ve son saniyeyi atlar. Oynatılabilir bir segment kalması için 3,5 saniyeden uzun bir video kullanın.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Kesme Ayarlarını Okuma**
+**Kırpma Ayarlarını Okuma**
 
-Bu örnek ilk sl ayttaki ilk video çerçevesinin kesme değerlerini milisaniye olarak yazdırır. Sunum en az bir sl ayt içermelidir. Eğer o sl aytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
+Bu örnek, ilk slaydın ilk video çerçevesinin kırpma değerlerini milisaniye cinsinden yazdırır. Sunum en az bir slayt içermelidir. Eğer o slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -281,11 +281,11 @@ presentation->Dispose();
 
 ## **Video Altyazılarını Yönetme**
 
-Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenize olanak tanır. Altyazılar WebVTT formatında depolanır ve [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) yöntemi aracılığıyla sunulur.
+Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında depolanır ve [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) yöntemi aracılığıyla sunulur.
 
-**Video Çerçevesine Altyazı Ekleme**
+### **Video Çerçevesine Altyazı Ekleme**
 
-Bu örnek yerel bir video gömer ve "English" etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları videoya uygun olmalıdır. Kaydedilen sunum hem videoyu hem de altyazılarını içerir.
+Bu örnek, yerel bir video gömer ve İngilizce etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları video ile eşleşmelidir. Kaydedilen sunum hem videoyu hem de altyazılarını içerir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) arayüzü, bir akıştan altyazı eklemenizi sağlayan bir aşırı yükleme de sunar.
+[ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) arayüzü ayrıca bir akıştan altyazı eklemenizi sağlayan bir aşırı yükleme sunar.
 
-**Video Çerçevesinden Altyazı Çıkarma**
+### **Video Çerçevesinden Altyazı Çıkarma**
 
-Bu örnek ilk sl ayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Sıralı numaralar çıktı dosyalarının birbirinden farklı olmasını sağlar. Konsol, çıkarılan iz sayısını raporlar. Sunum en az bir sl ayt içermelidir.
+Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Ardışık sayılar çıktı dosyalarının farklı olmasını sağlar. Konsol, çıkarılan iz sayısını raporlar. Sunum en az bir slayt içermelidir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Her [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) nesnesi, altyazı tanımlayıcısını, etiketi, ikili veriyi ve UTF‑8 dizgesi olarak altyazı metnini sunar.
+Her [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) nesnesi, altyazı kimliğini, etiketini, ikili veriyi ve altyazı metnini UTF-8 dizesi olarak sunar.
 
-**Video Çerçevesinden Altyazı Kaldırma**
+### **Video Çerçevesinden Altyazı Silme**
 
-Bu örnek ilk sl ayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Sl ayt ve şeklin mevcut olduğunu ve şeklin bir video çerçevesi olduğunu varsayar.
+Bu örnek, ilk slayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Slayt ve şeklin mevcut olduğu ve şeklin bir video çerçevesi olduğu varsayılır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Yalnızca tek bir altyazı izini kaldırmanız gerekiyorsa, [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) yerine [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) veya [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) yöntemlerini kullanın.
+Yalnızca bir altyazı izini kaldırmanız gerekiyorsa, [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) yerine [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) veya [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) yöntemlerini kullanın.
+
+### **Video Altyazılarını Arama**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) başlık, zaman çizgileri ve altyazı metni dahil olmak üzere tam WebVTT izini döndürür. Konuşulan bir ifadeyi ve zaman damgasını bulmak için ipuçlarını bellekte okuyun. Örneğin, 2. slaydın İngilizce izinde aşağıdaki metin bulunabilir:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Örnek, `captioned_media.pptx` dosyasını açar ve her slayttaki üst düzey video çerçevelerinin altyazı izlerini [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) kullanarak okur. Düz metin ipucunda zaman çizgisi `-->` içerir ve boş bir satır ipucunu sonlandırır. Altyazı “café” içerdiğinde, örnek slayt numarasını, iz etiketini, orijinal zaman çizgisini ve tam altyazıyı yazar. Arama büyük/küçük harf duyarsızdır.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+“café” aranması, örnek iz için bir eşleşme üretir. Arama başlığı atlar ve zaman ayarını çıktıda korur.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Slayttan Video Çıkarma**
 
-Videoları slaytlara eklemenin yanı sıra, Aspose.Slides gömülü videoları sunumlardan çıkarmanıza olanak tanır.
+Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda gömülü videoları çıkarmanıza da olanak tanır.
 
-Bu örnek gömülü videoları her sl ayttan ayrı numaralı ikili dosyalara çıkarır. Bağlantılı videolar atlanır çünkü gömülü veri içermezler. Konsol her videonun MIME tipini ve toplam sayısını yazdırır. Çıktı `.bin` uzantısını kullanır; gerektiğinde bildirilen medya tipine göre değiştirilebilir.
+Bu örnek, gömülü videoları her slayttan ayrı, numaralı ikili dosyalara çıkarır. Bağlantılı videolar, gömülü veri olmadığından atlanır. Konsol, her videonun MIME türünü ve toplam sayısını yazdırır. Çıktı, genel `.bin` uzantısını kullanır; gerektiğinde bildirilen medya türüne uygun şekilde değiştirin.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,18 +525,14 @@ presentation->Dispose();
 
 ## **SSS**
 
-**Bir video çerçevesi için hangi video oynatma parametreleri değiştirilebilir?**
+**Bir video çerçevesi için hangi video oynatma parametreleri değiştirilebilir?**  
+Oynatma modunu ([oynatma modu](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/)) (otomatik veya tıklamayla) ve [döngü](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) kontrol edebilirsiniz. Bu seçenekler [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) nesnesinin yöntemleri aracılığıyla kullanılabilir.
 
-[oynatma modu](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (otomatik veya tıklama) ve [döngüleme](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) kontrol edilebilir. Bu seçenekler [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) nesnesinin yöntemleri aracılığıyla sunulur.
+**Bir video eklemek PPTX dosya boyutunu etkiler mi?**  
+Evet. Yerel bir video gömdüğünüzde ikili veri belgeye eklenir, bu nedenle sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir videoya bağlantı verip bir küçük resim eklediğinizde, sunum video verisi yerine bağlantıyı ve önizleme görüntüsünü saklar, bu yüzden boyut artışı genellikle daha küçüktür.
 
-**Bir video eklemek PPTX dosya boyutunu etkiler mi?**
+**Mevcut bir video çerçevesindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**  
+Evet. Çerçeve içindeki [video içeriğini](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) şeklin geometrisini koruyarak değiştirebilirsiniz; bu, mevcut bir yerleşimde medyayı güncellemek için yaygın bir senaryodur.
 
-Evet. Yerel bir video gömdüğünüzde ikili veri belgede yer alır ve sunum boyutu dosya boyutu ile orantılı olarak artar. Çevrimiçi bir videoya bağlanıp küçük resim eklediğinizde, sunum video verisi yerine bağlantı ve ön izleme görüntüsünü saklar; bu yüzden boyut artışı genellikle daha az olur.
-
-**Mevcut bir video çerçevesindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**
-
-Evet. [video içeriğini](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) çerçeve içinde değiştirerek şeklin geometrisini koruyabilirsiniz; bu, mevcut bir düzen içinde medyayı güncellemenin yaygın bir senaryosudur.
-
-**Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**
-
-Evet. Gömülü bir videonun [içerik türü](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) vardır ve bunu okuyarak örneğin diske kaydederken kullanabilirsiniz.
+**Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**  
+Evet. Gömülü bir video, [içerik türü](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) olarak okuyabileceğiniz ve örneğin diske kaydederken kullanabileceğiniz bir bilgiye sahiptir.

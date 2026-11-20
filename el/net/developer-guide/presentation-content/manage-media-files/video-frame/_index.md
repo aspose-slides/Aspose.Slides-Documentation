@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Πλαισίων Βίντεο σε Παρουσιάσεις στο .NET
-linktitle: Πλαίσιο Βίντεο
+title: Διαχείριση πλαισίων βίντεο σε παρουσιάσεις σε .NET
+linktitle: Πλαίσιο βίντεο
 type: docs
 weight: 10
 url: /el/net/video-frame/
@@ -11,28 +11,28 @@ keywords:
 - εξαγωγή βίντεο
 - ανάκτηση βίντεο
 - πλαίσιο βίντεο
-- πηγή ιστού
+- διαδικτυακή πηγή
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET. Γρήγορος οδηγός βήμα-βήμα."
+description: "Μάθετε πώς να προσθέτετε και να εξάγετε προγραμματιστικά πλαίσια βίντεο σε διαφάνειες PowerPoint και OpenDocument χρησιμοποιώντας Aspose.Slides for .NET. Γρήγορος οδηγός how-to."
 ---
 ## **Εισαγωγή**
 
-Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην εμπλοκή του κοινού. Το Aspose.Slides για .NET σάς επιτρέπει να προσθέτετε πλαίσια βίντεο στις διαφάνειες, να προσαρμόζετε τις ρυθμίσεις αναπαραγωγής, να διαχειρίζεστε υποτιτλισμούς και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
+Τα βίντεο μπορούν να βοηθήσουν στην εξήγηση ιδεών και στην εμπλοκή του κοινού. Aspose.Slides for .NET σάς επιτρέπει να προσθέσετε πλαίσια βίντεο σε διαφάνειες, να προσαρμόσετε τις ρυθμίσεις αναπαραγωγής, να διαχειριστείτε υπότιτλους και να εξάγετε ενσωματωμένα δεδομένα βίντεο.
 
-Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους σε διαδικτυακά βίντεο, όπως βίντεο του YouTube.
+Το PowerPoint υποστηρίζει τοπικά βίντεο και συνδέσμους προς διαδικτυακά βίντεο, όπως βίντεο του YouTube.
 
-Για να αναπαραστήσετε δεδομένα βίντεο και πλαίσια βίντεο, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) , τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους.
+Για την αναπαράσταση δεδομένων βίντεο και πλαισίων βίντεο, το Aspose.Slides παρέχει τη διεπαφή [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/), τη διεπαφή [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) και άλλους σχετικούς τύπους.
 
-## **Δημιουργία Ενσωματωμένου Πλαισίου Βίντεο**
+## **Δημιουργία ενσωματωμένου πλαισίου βίντεο**
 
-Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνειά σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
+Εάν το αρχείο βίντεο που θέλετε να προσθέσετε στη διαφάνεια σας είναι αποθηκευμένο τοπικά, μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο για να ενσωματώσετε το βίντεο στην παρουσίασή σας.
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε μονάδες point. Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση επειδή το [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) το διατηρεί κλειδωμένο ενώ η παρουσίαση το χρησιμοποιεί.
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης και αποθηκεύει το αποτέλεσμα. Οι συντεταγμένες και οι διαστάσεις του πλαισίου είναι σε points. Η ροή παραμένει ανοιχτή μέχρι να ολοκληρωθεί η αποθήκευση επειδή το [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) το κρατά κλειδωμένο ενώ η παρουσίαση το χρησιμοποιεί.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Μπορείτε επίσης να περάσετε απευθείας μια τοπική διαδρομή βίντεο στη μέθοδο [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμένει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
+Μπορείτε επίσης να περάσετε μια τοπική διαδρομή βίντεο απευθείας στο [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). Αυτό το παράδειγμα ενσωματώνει το βίντεο στην πρώτη διαφάνεια μιας νέας παρουσίασης. Το βίντεο πρέπει να παραμένει προσβάσιμο μέχρι να αποθηκευτεί η παρουσίαση.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,11 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός Όγκου Βίντεο με Ακρίβεια**
+## **Ορισμός έντασης βίντεο με ακρίβεια**
 
-Στο Aspose.Slides για .NET 26.11 ή νεότερο, το [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ορίζει ένα ποσοστό κινητής υποδιαστολής από 0 έως 100. Χρησιμοποιήστε το όταν οι προεπιλογές [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) είναι πολύ αδυνατότητες. Για παράδειγμα, το `75.5f` ζητά όγκο 75,5%.
+Στο Aspose.Slides for .NET 26.11 ή νεότερο, το [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) ορίζει ένα ποσοστό κινητής υποδιαστολής από 0 έως 100. Χρησιμοποιήστε το όταν οι προεπιλογές [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) είναι πολύ ασάφεις. Για παράδειγμα, το `75.5f` ζητά ένταση 75,5%.
 
-Αυτό το παράδειγμα απαιτεί το [Aspose.Slides for .NET](/slides/el/net/installation/) 26.11 ή νεότερο και ένα τοπικό `video.mp4`. Ενσωματώνει το βίντεο, αρχικοποιεί ρητά την αναπαραγωγή, αποθηκεύει την παρουσίαση και διαβάζει ξανά το αποθηκευμένο ποσοστό.
+Αυτό το παράδειγμα απαιτεί το [Aspose.Slides for .NET](/slides/el/net/installation/) 26.11 ή νεότερο και ένα τοπικό `video.mp4`. Ενσωματώνει το βίντεο, αρχικοποιεί ρητά την αναπαραγωγή, αποθηκεύει την παρουσίαση και διαβάζει το αποθηκευμένο ποσοστό πίσω.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Επικυρώστε την είσοδο μόνος σας· μην βασίζεστε στην μέθοδο ορισμού για να απορρίψει τιμές εκτός του τεκμηριωμένου εύρους. Οι προεπιλογές Low, Medium και Loud αντιστοιχούν στα 20, 50 και 80 στην έκδοση 26.11. Ο ορισμός προεπιλογής μπορεί να αντικαταστήσει ένα προηγούμενο ποσοστό, γι’ αυτό ορίστε το ποσοστό τελευταία όταν χρειάζεστε ακριβή τιμή. Χρησιμοποιήστε το [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) για την ρητή ρύθμιση σίγασης· το μηδενικό αριθμητικό και η προεπιλογή enum δεν είναι εναλλάξιμες καταστάσεις.
+Επικυρώστε την είσοδο μόνοι σας· μην βασίζεστε στην μέθοδο setter για την απόρριψη τιμών εκτός του τεκμηριωμένου εύρους. Οι προεπιλογές Low, Medium και Loud αντιστοιχούν σε 20, 50 και 80 στο 26.11. Ο ορισμός μιας προεπιλογής μπορεί να αντικαταστήσει ένα προηγούμενο ποσοστό, επομένως ορίστε το ποσοστό τελευταίο όταν χρειάζεστε ακριβή τιμή. Χρησιμοποιήστε το [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) για την ρητή ρύθμιση σίγασης· το μηδενικό αριθμητικό και η προεπιλογή enum δεν είναι αμοιβαία εναλλάξιμες καταστάσεις.
 
-Ορίστε ρητά το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) κατά τη διαμόρφωση ενός συνδεδεμένου βίντεο επίσης, και διατηρήστε το αρχείο πολυμέσων διαθέσιμο για τον θεατή. Η αποθήκευση και επανάληψη επαλήθευσης ελέγχει τη αποθηκευμένη ρύθμιση· η πραγματική αναπαραγωγή και ένταση εξαρτώνται από το πρόγραμμα προβολής της παρουσίασης και τις ρυθμίσεις ήχου του.
+Ορίστε ρητά το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) όταν ρυθμίζετε επίσης ένα συνδεδεμένο βίντεο και διατηρήστε το αρχείο πολυμέσων διαθέσιμο για τον θεατή. Η αποθήκευση και η επανέναρξη επαληθεύουν την αποθηκευμένη ρύθμιση· η πραγματική αναπαραγωγή και ένταση εξαρτώνται από τον αναπαραγωγέα παρουσίασης και τις ρυθμίσεις ήχου του.
 
-## **Δημιουργία Πλαισίου Βίντεο με Βίντεο από Πηγή στον Ιστό**
+## **Δημιουργία πλαισίου βίντεο με βίντεο από διαδικτυακή πηγή**
 
-Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει διαδικτυακά βίντεο στις παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται με ένα διαδικτυακό βίντεο, όπως ένα βίντεο του YouTube.
+Το Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) υποστηρίζει διαδικτυακά βίντεο σε παρουσιάσεις. Μπορείτε να δημιουργήσετε ένα πλαίσιο βίντεο που συνδέεται με ένα διαδικτυακό βίντεο, όπως ένα βίντεο του YouTube.
 
-Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η ρύθμιση [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο internet. Ο προβολέας της παρουσίασης πρέπει επίσης να υποστηρίζει την αναπαραγωγή διαδικτυακού βίντεο.
+Αυτό το παράδειγμα προσθέτει έναν σύνδεσμο βίντεο YouTube και μικρογραφία στην πρώτη διαφάνεια. Αντικαταστήστε το αναγνωριστικό βίντεο για να χρησιμοποιήσετε άλλο βίντεο. Η ρύθμιση [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) ζητά αυτόματη αναπαραγωγή. Η λήψη της μικρογραφίας και η αναπαραγωγή του βίντεο απαιτούν πρόσβαση στο διαδίκτυο. Ο θεατής παρουσίασης πρέπει επίσης να υποστηρίζει την αναπαραγωγή διαδικτυακού βίντεο.
 
 ```csharp
 using System.Net.Http;
@@ -131,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Αναπαραγωγή Βίντεο σε Λειτουργία Πλήρους Οθόνης**
+## **Αναπαραγωγή βίντεο σε λειτουργία πλήρους οθόνης**
 
-Σε μια παρουσίαση εκπαίδευσης, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να βλέπει τις λεπτομέρειες. Ορίστε το [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) σε `true` για να ενεργοποιήσετε αυτή τη συμπεριφορά κατά την αναπαραγωγή.
+Σε μια εκπαιδευτική παρουσίαση, μπορείτε να αναπαράγετε μια επίδειξη λογισμικού σε λειτουργία πλήρους οθόνης ώστε το κοινό να δει τις λεπτομέρειες. Ορίστε το [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) σε `true` για να ενεργοποιήσετε αυτή τη συμπεριφορά κατά την αναπαραγωγή.
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή πλήρους οθόνης. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την αναπαραγωγή σε πλήρη οθόνη. Η εισερχόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια με ένα υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Η αναπαραγωγή πλήρους οθόνης ελέγχει τον τρόπο που εμφανίζεται το βίντεο. Ξεχωριστά, το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ελέγχει αν ξεκινά αυτόματα ή με κλικ, και το [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και βρόχου.
+Η αναπαραγωγή σε πλήρη οθνη ελέγχει πώς εμφανίζεται το βίντεο. Ανεξάρτητα, το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ελέγχει αν ξεκινά αυτόματα ή με κλικ, και το [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) ελέγχει αν επαναλαμβάνεται. Για να επιλέξετε τη συμπεριφορά εκκίνησης, ορίστε τη λειτουργία αναπαραγωγής σε [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Το παράδειγμα διατηρεί τις υπάρχουσες ρυθμίσεις εκκίνησης και βρόχου.
 
-## **Επαναφορά Βίντεο μετά την Αναπαραγωγή**
+## **Επαναφορά βίντεο μετά την αναπαραγωγή**
 
-Σε μια παρουσίαση εκπαίδευσης, η επιστροφή ενός βίντεο επίδειξης στην αρχή το καθιστά έτοιμο για τον παρουσιαστή να το αναπαράγει ξανά. Ορίστε το [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) σε `true` για να επιστρέφει το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
+Σε μια εκπαιδευτική παρουσίαση, η επιστροφή ενός βίντεο επίδειξης στην αρχή το κάνει έτοιμο για τον παρουσιαστή να το αναπαράγει ξανά. Ορίστε το [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) στη τιμή `true` για να επιστρέψετε το βίντεο στην αρχή μετά το τέλος της αναπαραγωγής.
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επαναφορά. Απενεργοποιεί το βρόχο ώστε η αναπαραγωγή να μπορεί να ολοκληρωθεί και ορίζει την αναπαραγωγή να ξεκινά με κλικ. Η παρουσίαση εισόδου πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) στην πρώτη διαφάνεια και ενεργοποιεί την επαναφορά. Απενεργοποιεί την επανάληψη ώστε η αναπαραγωγή να μπορεί να ολοκληρωθεί και ορίζει την αναπαραγωγή να ξεκινά με κλικ. Η εισερχόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια με υπάρχον πλαίσιο βίντεο στην πρώτη διαφάνεια.
 
 ```csharp
 using Aspose.Slides;
@@ -185,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Η επαναφορά επιστρέφει το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντιθέτως, η ενεργοποίηση του [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) επαναλαμβάνει την αναπαραγωγή αυτόματα. Κρατήστε το βρόχο απενεργοποιημένο όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανααναπαραγωγή. Το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ελέγχει ανεξάρτητα την αυτόματη ή με κλικ εκκίνηση· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση του βρόχου, όπως φαίνεται στο παράδειγμα. Η επαναφορά λειτουργεί ανεξάρτητα από το [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Η επαναφορά επιστρέφει το βίντεο στην αρχή χωρίς να το ξεκινήσει ξανά. Αντιθέτως, η ενεργοποίηση του [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) επαναλαμβάνει την αναπαραγωγή αυτόματα. Διατηρήστε την επανάληψη απενεργοποιημένη όταν θέλετε το βίντεο να ολοκληρωθεί και να παραμείνει έτοιμο για επανααναπαραγωγή. Το [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) ελέγχει ανεξάρτητα την αυτόματη ή κλικ-εκκίνηση· αυτό το παράδειγμα χρησιμοποιεί το [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) ώστε ο παρουσιαστής να ελέγχει πότε ξεκινά η αναπαραγωγή. Ορίστε τη λειτουργία αναπαραγωγής μετά τη ρύθμιση του βρόχου, όπως φαίνεται στο παράδειγμα. Η επαναφορά λειτουργεί ανεξάρτητα από το [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Περικοπή Πλαισίου Βίντεο**
+## **Περικοπή πλαισίου βίντεο**
 
-Χρησιμοποιήστε τα [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) και [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά δευτερολέπτων. Η περικοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
+Χρησιμοποιήστε το [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) και το [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) για να παραλείψετε μέρος της αρχής ή του τέλους ενός βίντεο κατά την αναπαραγωγή. Και οι δύο τιμές είναι σε χιλιοστά του δευτερολέπτου. Η περικοπή αλλάζει τις ρυθμίσεις αναπαραγωγής χωρίς να τροποποιεί τα ενσωματωμένα δεδομένα βίντεο.
 
-**Ορισμός Ρυθμίσεων Περικοπής**
+**Ορισμός ρυθμίσεων περικοπής**
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τα πρώτα 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμείνει ένα αναγνώσιμο τμήμα.
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και παραλείπει τις πρώτες 2,5 δευτερόλεπτα και το τελευταίο δευτερόλεπτο κατά την αναπαραγωγή. Χρησιμοποιήστε ένα βίντεο μεγαλύτερο από 3,5 δευτερόλεπτα ώστε να παραμείνει ένα αναπαράξιμο τμήμα.
 
 ```csharp
 using System.IO;
@@ -213,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Ανάγνωση Ρυθμίσεων Περικοπής**
+**Ανάγνωση ρυθμίσεων περικοπής**
 
-Αυτό το παράδειγμα εμφανίζει τις τιμές περικοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά δευτερολέπτων. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια. Εάν αυτή η διαφάνεια δεν έχει πλαίσιο βίντεο, δεν εμφανίζεται τίποτα. Το προηγούμενο παράδειγμα δημιουργεί τιμές 2500 και 1000.
+Αυτό το παράδειγμα εκτυπώνει τις τιμές περικοπής του πρώτου πλαισίου βίντεο στην πρώτη διαφάνεια σε χιλιοστά του δευτερολέπτου. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια. Εάν η διαφάνεια αυτή δεν έχει πλαίσιο βίντεο, δεν εκτυπώνεται κάτι. Το προηγούμενο παράδειγμα παράγει τιμές 2500 και 1000.
 
 ```csharp
 using System;
@@ -235,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Διαχείριση Υπότιτλων Βίντεο**
+## **Διαχείριση υπότιτλων βίντεο**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε κλειστά υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της ιδιότητας [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Το Aspose.Slides σάς επιτρέπει να διαχειρίζεστε κλειστούς υπότιτλους για πλαίσια βίντεο σε παρουσιάσεις PowerPoint. Οι υπότιτλοι αποθηκεύονται σε μορφή WebVTT και εκτίθενται μέσω της ιδιότητας [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Προσθήκη Υπότιτλων σε Πλαίσιο Βίντεο**
+### **Προσθήκη υποτίτλων σε πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα WebVTT υπότιτλο με ετικέτα English. Οι χρονοσήμανση των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλους του.
+Αυτό το παράδειγμα ενσωματώνει ένα τοπικό βίντεο και προσθέτει ένα WebVTT κομμάτι υποτίτλων με ετικέτα English. Τα χρονικά στιγμιότυπα των υποτίτλων πρέπει να ταιριάζουν με το βίντεο. Η αποθηκευμένη παρουσίαση περιλαμβάνει τόσο το βίντεο όσο και τους υπότιτλους του.
 
 ```csharp
 using System.IO;
@@ -260,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) παρέχει επίσης μια υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από μια ροή.
+Η διεπαφή [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) παρέχει επίσης υπερφόρτωση που σας επιτρέπει να προσθέσετε υπότιτλους από μια ροή.
 
-**Εξαγωγή Υπότιτλων από Πλαίσιο Βίντεο**
+### **Εξαγωγή υποτίτλων από πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα αποθηκεύει όλα τα κανάλια υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Διαδοχικοί αριθμοί κρατούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων καναλιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
+Αυτό το παράδειγμα αποθηκεύει όλα τα κομμάτια υποτίτλων από τα πλαίσια βίντεο στην πρώτη διαφάνεια ως ξεχωριστά αρχεία WebVTT. Διαδοχικοί αριθμοί διατηρούν τα αρχεία εξόδου διαφορετικά. Η κονσόλα αναφέρει τον αριθμό των εξαγόμενων κομματιών. Η παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
 
 ```csharp
 using System;
@@ -291,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) εκθέτει το αναγνωριστικό του υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF-8.
+Κάθε αντικείμενο [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) εκθέτει το αναγνωριστικό υπότιτλου, την ετικέτα, τα δυαδικά δεδομένα και το κείμενο του υπότιτλου ως συμβολοσειρά UTF-8.
 
-**Αφαίρεση Υπότιτλων από Πλαίσιο Βίντεο**
+### **Αφαίρεση υποτίτλων από πλαίσιο βίντεο**
 
-Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πλαίσιο βίντεο.
+Αυτό το παράδειγμα αφαιρεί όλους τους υπότιτλους από το πλαίσιο βίντεο στην πρώτη θέση σχήματος της πρώτης διαφάνειας και αποθηκεύει το αποτέλεσμα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι ένα πλαίσιο βίντεο.
 
 ```csharp
 using System;
@@ -311,13 +311,68 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Εάν χρειάζεται να αφαιρέσετε μόνο ένα κανάλι υπότιτλου, χρησιμοποιήστε τις μεθόδους [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) ή [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) αντί για τη [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+Αν χρειάζεστε να αφαιρέσετε μόνο ένα κομμάτι υπότιτλου, χρησιμοποιήστε τις μεθόδους [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) ή [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) αντί για το [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
 
-## **Εξαγωγή Βίντεο από Διαφάνεια**
+### **Αναζήτηση υποτίτλων βίντεο**
 
-Εκτός από την προσθήκη βίντεο στις διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
+Το [ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) επιστρέφει το πλήρες κομμάτι WebVTT, συμπεριλαμβανομένου του κεφαλίδας, των γραμμών χρονισμού και του κειμένου υποτίτλου. Για να βρείτε μια προφορική φράση και το χρονικό της σήμα, διαβάστε τα cues στη μνήμη. Για παράδειγμα, ένα αγγλικό κομμάτι στη διαφάνεια 2 μπορεί να περιέχει το παρακάτω κείμενο:
 
-Αυτό το παράδειγμα εξάγει τα ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εμφανίζει τον τύπο MIME κάθε βίντεο και τον συνολικό αριθμό. Η έξοδος χρησιμοποιεί την γενική επέκταση `.bin`; αλλάξτε τη ώστε να ταιριάζει με τον αναφερόμενο τύπο μέσου όταν χρειάζεται.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Το παράδειγμα επισκέπτεται κάθε διαφάνεια και διαβάζει τα κομμάτια των ανώτερων πλαισίων βίντεο μέσω του [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). Σε ένα απλό κείμενο cue, η γραμμή χρονισμού περιέχει `-->` και μια κενή γραμμή λήγει το cue. Όταν το κείμενο του υπότιτλου περιέχει «café», το παράδειγμα εκτυπώνει τον αριθμό της διαφάνειας, την ετικέτα του κομματιού, την αρχική γραμμή χρονισμού και τον πλήρη υπότιτλο.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Η αναζήτηση για «café» παράγει ένα ταίριασμα για το παράδειγμα κομματιού. Η κεφαλίδα και η ρύθμιση χρονισμού είναι εκτός του κειμένου cue.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Εξαγωγή βίντεο από διαφάνεια**
+
+Εκτός από την προσθήκη βίντεο σε διαφάνειες, το Aspose.Slides σας επιτρέπει να εξάγετε βίντεο ενσωματωμένα σε παρουσιάσεις.
+
+Αυτό το παράδειγμα εξάγει τα ενσωματωμένα βίντεο από κάθε διαφάνεια σε ξεχωριστά αριθμημένα δυαδικά αρχεία. Τα συνδεδεμένα βίντεο παραλείπονται επειδή δεν έχουν ενσωματωμένα δεδομένα. Η κονσόλα εκτυπώνει τον τύπο MIME κάθε βίντεο και το συνολικό αριθμό. Η έξοδος χρησιμοποιεί τη γενική επέκταση `.bin`; αλλάξτε την ώστε να ταιριάζει με τον αναφερόμενο τύπο μέσου όταν χρειάζεται.
 
 ```csharp
 using System;
@@ -351,20 +406,20 @@ foreach (var slide in presentation.Slides)
 Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Ποια παραμέτρους αναπαραγωγής βίντεο μπορούν να τροποποιηθούν για ένα πλαίσιο βίντεο;**
+**Ποια παραμέτρους αναπαραγωγής βίντεο μπορούν να αλλάξουν για ένα πλαίσιο βίντεο;**
 
-Μπορείτε να ελέγξετε τη [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (αυτόματη ή με κλικ) και το [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Μπορείτε να ελέγξετε τη [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (αυτόματα ή με κλικ) και την [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Αυτές οι επιλογές είναι διαθέσιμες μέσω των ιδιοτήτων του αντικειμένου [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
 **Επηρεάζει η προσθήκη βίντεο το μέγεθος του αρχείου PPTX;**
 
-Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα περιλαμβάνονται στο έγγραφο, έτσι το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέετε σε διαδικτυακό βίντεο και προσθέτετε μικρογραφία, η παρουσίαση αποθηκεύει το σύνδεσμο και την προεπισκόπηση αντί για τα δεδομένα του βίντεο, οπότε η αύξηση μεγέθους είναι συνήθως μικρότερη.
+Ναι. Όταν ενσωματώνετε ένα τοπικό βίντεο, τα δυαδικά δεδομένα συμπεριλαμβάνονται στο έγγραφο, οπότε το μέγεθος της παρουσίασης αυξάνεται ανάλογα με το μέγεθος του αρχείου. Όταν συνδέετε ένα διαδικτυακό βίντεο και προσθέτετε μικρογραφία, η παρουσίαση αποθηκεύει τον σύνδεσμο και την εικόνα προεπισκόπησης αντί για τα δεδομένα βίντεο, έτσι η αύξηση του μεγέθους είναι συνήθως μικρότερη.
 
 **Μπορώ να αντικαταστήσω το βίντεο σε ένα υπάρχον πλαίσιο βίντεο χωρίς να αλλάξω τη θέση και το μέγεθός του;**
 
-Ναι. Μπορείτε να ανταλλάξετε το [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) μέσα στο πλαίσιο διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι συνήθης περίπτωση για την ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
+Ναι. Μπορείτε να ανταλλάξετε το [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) εντός του πλαισίου διατηρώντας τη γεωμετρία του σχήματος· αυτό είναι μια κοινή κατάσταση για την ενημέρωση πολυμέσων σε υπάρχουσα διάταξη.
 
 **Μπορεί να προσδιοριστεί ο τύπος περιεχομένου (MIME) ενός ενσωματωμένου βίντεο;**
 
-Ναι. Ένα ενσωματωμένο βίντεο διαθέτει έναν [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) τον οποίο μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα κατά την αποθήκευση του στον δίσκο.
+Ναι. Ένα ενσωματωμένο βίντεο έχει έναν [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) που μπορείτε να διαβάσετε και να χρησιμοποιήσετε, για παράδειγμα όταν το αποθηκεύετε σε δίσκο.

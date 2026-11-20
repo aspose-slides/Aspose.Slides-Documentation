@@ -19,9 +19,9 @@ keywords:
 - Aspose.Slides
 description: "学习使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 幻灯片中以编程方式添加和提取视频帧。快速入门指南。"
 ---
-## **简介**
+## **介绍**
 
-视频可以帮助解释概念并吸引受众。Aspose.Slides for C++ 让您可以向幻灯片添加视频帧、调整播放设置、管理字幕并提取嵌入的视频数据。
+视频可以帮助解释想法并吸引观众。Aspose.Slides for C++ 允许您向幻灯片添加视频帧，调整播放设置，管理字幕，并提取嵌入的视频数据。
 
 PowerPoint 支持本地视频以及指向在线视频（例如 YouTube 视频）的链接。
 
@@ -29,9 +29,9 @@ PowerPoint 支持本地视频以及指向在线视频（例如 YouTube 视频）
 
 ## **创建嵌入式视频帧**
 
-如果要添加到幻灯片的视频文件存放在本地，您可以创建视频帧将视频嵌入到演示文稿中。
+如果要添加到幻灯片的视频文件存储在本地，您可以创建视频帧将视频嵌入到演示文稿中。
 
-此示例在现有演示文稿的第一张幻灯片上嵌入本地视频并保存结果。帧的坐标和尺寸使用点为单位。流会保持打开状态直至保存完成，因为 [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) 在演示文稿使用流时会保持其锁定。
+此示例将在现有演示文稿的第一张幻灯片上嵌入本地视频并保存结果。帧的坐标和尺寸使用点为单位。因为 [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) 在演示文稿使用流期间保持其锁定，流会保持打开状态直至保存完成。
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-您也可以将本地视频路径直接传递给 [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/)。此示例在新演示文稿的第一张幻灯片上嵌入视频。视频必须在演示文稿保存之前保持可访问。
+您也可以直接将本地视频路径传递给 [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/)。此示例将在新演示文稿的第一张幻灯片上嵌入视频。视频必须在演示文稿保存之前保持可访问。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **使用来自网络来源的视频创建视频帧**
+## **使用网络来源的视频创建视频帧**
 
 Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) 支持在演示文稿中使用在线视频。您可以创建一个链接到在线视频（例如 YouTube 视频）的视频帧。
 
-此示例向第一张幻灯片添加 YouTube 视频链接和缩略图。请替换视频标识符以使用其他视频。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) 方法请求自动播放。下载缩略图和播放视频需要网络访问。演示文稿查看器还必须支持在线视频播放。
+此示例向第一张幻灯片添加 YouTube 视频链接和缩略图。将视频标识符替换为其他视频即可使用其他视频。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) 方法请求自动播放。下载缩略图和播放视频需要互联网访问。演示文稿查看器还必须支持在线视频播放。
 
 ```cpp
 #include <net/web_client.h>
@@ -127,11 +127,11 @@ presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **在全屏模式下播放视频**
+## **全屏模式播放视频**
 
-在培训演示中，您可以在全屏模式下播放软件演示，以便观众看到细节。[set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) 接受 `true` 来在播放期间启用此行为。
+在培训演示文稿中，您可以全屏播放软件演示，让观众看到细节。[set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) 接受 `true` 以在播放期间启用此行为。
 
-此示例打开演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)，并启用全屏播放。输入演示文稿必须至少包含一张幻灯片，其中第一张幻灯片已有视频帧。
+此示例打开一个演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)，并启用全屏播放。输入演示文稿必须至少包含一张幻灯片，该幻灯片的第一张中已有视频帧。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-全屏播放控制视频的显示方式。除此之外，[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) 控制是自动播放还是点击播放，[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) 控制是否循环。要选择启动行为，请将播放模式设置为 [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/)。示例保留了现有的启动和循环设置。
+全屏播放控制视频的显示方式。与此同时，[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) 控制是自动启动还是点击启动，[set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) 控制是否循环。要选择启动行为，请将播放模式设置为 [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/)。示例保留了现有的启动和循环设置。
 
-## **在播放后倒回视频**
+## **回放后倒带视频**
 
-在培训演示中，将演示视频倒回到开头可以让演讲者再次播放。将 `true` 传递给 [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) 可在播放结束后将视频倒回到开头。
+在培训演示文稿中，将演示视频返回到起始位置可使演示者再次播放。调用 [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) 并传入 `true`，即可在播放结束后将视频倒回到开头。
 
-此示例打开演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)，并启用倒回。它禁用循环，以便播放可以结束，并将播放模式设置为点击启动。输入演示文稿必须至少包含一张幻灯片，其中第一张幻灯片已有视频帧。
+此示例打开一个演示文稿，查找第一张幻灯片上的第一个 [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/)，并启用倒带。它禁用循环以便播放可以结束，并将播放设置为点击启动。输入演示文稿必须至少包含一张幻灯片，该幻灯片的第一张中已有视频帧。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-倒回会将视频返回到开头而不会重新启动。相反，启用 [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) 会自动重复播放。希望视频结束后保持就绪以便重新播放时，请保持循环关闭。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) 独立控制自动或点击启动；本例使用 [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/)，以让演讲者自行决定何时启动播放。示例中先设置循环，再设置播放模式。倒回与 [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) 的设置相互独立。
+倒带会将视频返回到起始位置而不会再次启动。相反，启用 [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) 会自动循环播放。当您希望视频播放完毕后保持可再次播放的状态时，请保持循环关闭。[set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) 独立控制自动或点击启动；本示例使用 [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) 让演示者自行决定何时开始播放。示例先设置循环，然后再设置播放模式，如代码所示。倒带独立于 [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) 工作。
 
-## **修剪视频帧**
+## **裁剪视频帧**
 
-使用 [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) 和 [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) 可以在播放期间跳过视频的开头或结尾部分。两个值的单位为毫秒。修剪会更改播放设置，而不修改嵌入的视频数据。
+使用 [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) 和 [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) 可在播放期间跳过视频开头或结尾的部分。两个值的单位为毫秒。裁剪会更改播放设置，但不修改嵌入的视频数据。
 
-**设置修剪参数**
+**设置裁剪参数**
 
-此示例嵌入本地视频并在播放时跳过前 2.5 秒和后 1 秒。请使用时长超过 3.5 秒的视频，以确保仍有可播放的片段。
+此示例嵌入本地视频，并在播放时跳过前 2.5 秒和最后 1 秒。请使用时长超过 3.5 秒的视频，以确保仍有可播放片段。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,9 +245,9 @@ presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**读取修剪参数**
+**读取裁剪参数**
 
-此示例以毫秒为单位打印第一张幻灯片上第一个视频帧的修剪值。演示文稿必须至少包含一张幻灯片。如果该幻灯片没有视频帧，则不会打印任何内容。前面的示例会产生 2500 和 1000 两个值。
+此示例打印第一张幻灯片上第一个视频帧的裁剪值（单位为毫秒）。演示文稿必须至少包含一张幻灯片。如果该幻灯片没有视频帧，则不会输出任何内容。前面的示例会产生 2500 和 1000 的值。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -281,11 +281,11 @@ presentation->Dispose();
 
 ## **管理视频字幕**
 
-Aspose.Slides 允许您在 PowerPoint 演示文稿中管理视频帧的闭合字幕。字幕以 WebVTT 格式存储，并通过 [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) 方法公开。
+Aspose.Slides 允许您管理 PowerPoint 演示文稿中视频帧的闭合字幕。字幕以 WebVTT 格式存储，可通过 [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) 方法获取。
 
-**向视频帧添加字幕**
+### **向视频帧添加字幕**
 
-此示例嵌入本地视频并添加标记为 English 的 WebVTT 字幕轨道。字幕时间戳应与视频匹配。保存的演示文稿同时包含视频和其字幕。
+此示例嵌入本地视频并添加标记为 English 的 WebVTT 字幕轨。字幕时间戳应与视频匹配。保存后的演示文稿同时包含视频及其字幕。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) 接口还提供了一个重载，允许您从流中添加字幕。
+[ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) 接口还提供了一个重载，可让您从流中添加字幕。
 
-**从视频帧提取字幕**
+### **从视频帧提取字幕**
 
-此示例将第一张幻灯片上所有视频帧的字幕轨道保存为单独的 WebVTT 文件。使用顺序编号以保持输出文件的唯一性。控制台会报告提取的轨道数量。演示文稿必须至少包含一张幻灯片。
+此示例将第一张幻灯片上所有视频帧的字幕轨保存为单独的 WebVTT 文件。使用顺序编号以保持输出文件的唯一性。控制台会报告提取的轨道数量。演示文稿必须至少包含一张幻灯片。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-每个 [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) 对象都会公开字幕标识符、标签、二进制数据以及 UTF-8 字符串形式的字幕文本。
+每个 [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) 对象会公开字幕标识符、标签、二进制数据以及作为 UTF-8 字符串的字幕文本。
 
-**从视频帧删除字幕**
+### **从视频帧移除字幕**
 
-此示例删除第一张幻灯片上第一个形状位置的视频帧的所有字幕并保存结果。它假设幻灯片和形状存在且该形状是视频帧。
+此示例移除第一张幻灯片上第一个形状位置的视频帧的所有字幕并保存结果。它假设该幻灯片和形状存在且该形状是视频帧。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-如果只需要删除单个字幕轨道，请使用 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) 方法，而不是 [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/)。
+如果只需要移除某一条字幕轨道，请使用 [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) 方法，而不是 [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/)。
 
-## **从幻灯片中提取视频**
+### **搜索视频字幕**
 
-除了向幻灯片添加视频之外，Aspose.Slides 还允许您提取嵌入在演示文稿中的视频。
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) 返回完整的 WebVTT 轨道，包括标题、时间线和字幕文本。要查找口语短语及其时间戳，可在内存中读取 cue。例如，幻灯片 2 上的英文轨道可能包含如下文本：
 
-此示例从每张幻灯片提取嵌入式视频并保存为单独的、编号的二进制文件。链接的视频会被跳过，因为它们没有嵌入数据。控制台会打印每个视频的 MIME 类型以及总计数。输出使用通用的 `.bin` 扩展名；如有需要，可根据报告的媒体类型进行更改。
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+示例打开 `captioned_media.pptx`，并使用 [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) 读取每张幻灯片上每个顶层视频帧的字幕轨。纯文本 cue 中，时间行包含 `-->`，空行结束 cue。当字幕包含 “café” 时，示例会打印幻灯片编号、轨道标签、原始时间行和完整字幕。搜索不区分大小写。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+搜索 “café” 会在示例轨道中产生一次匹配。搜索会跳过标题，并在输出中保留时间设置。
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **从幻灯片提取视频**
+
+除了向幻灯片添加视频外，Aspose.Slides 还允许您提取演示文稿中嵌入的视频。
+
+此示例将每张幻灯片中嵌入的视频提取为单独的、编号的二进制文件。链接视频会被跳过，因为它们没有嵌入数据。控制台会打印每个视频的 MIME 类型以及总数量。输出使用通用的 `.bin` 扩展名；如有需要，可将其更改为匹配报告的媒体类型。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,18 +525,18 @@ presentation->Dispose();
 
 ## **常见问题**
 
-**可以更改视频帧的哪些播放参数？**
+**可以为视频帧更改哪些视频播放参数？**
 
-您可以控制[播放模式](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/)（自动或点击）和[循环](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/)。这些选项通过 [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) 对象的方法提供。
+您可以控制 [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/)（自动或点击）和 [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/)。这些选项通过 [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) 对象的方法提供。
 
 **添加视频会影响 PPTX 文件大小吗？**
 
-会。当您嵌入本地视频时，二进制数据会包含在文档中，演示文稿的大小会随视频文件大小成比例增长。当您链接到在线视频并添加缩略图时，演示文稿只存储链接和预览图像，而不是视频数据，通常导致的大小增加较小。
+会。嵌入本地视频时，二进制数据会被写入文档，演示文稿大小会随视频文件大小成比例增长。链接到在线视频并添加缩略图时，演示文稿仅存储链接和预览图像，而不存储视频数据，因此大小增幅通常较小。
 
-**可以在不更改位置和大小的情况下替换已有视频帧中的视频吗？**
+**是否可以在不更改位置和尺寸的情况下替换已有视频帧中的视频？**
 
-可以。您可以在保持形状几何不变的情况下替换帧内的[视频内容](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/)，这在更新已有布局中的媒体时非常常见。
+可以。您可以在保持形状几何属性不变的情况下，将帧内的 [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) 替换为其他视频，这是更新已有布局中媒体的常见场景。
 
-**可以确定嵌入视频的内容类型（MIME）吗？**
+**能否确定嵌入视频的内容类型（MIME）？**
 
-可以。嵌入视频具有[内容类型](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/)，您可以读取并使用，例如在保存到磁盘时。
+可以。嵌入视频具有可通过 [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) 读取的 MIME 类型，例如在将其保存到磁盘时使用。

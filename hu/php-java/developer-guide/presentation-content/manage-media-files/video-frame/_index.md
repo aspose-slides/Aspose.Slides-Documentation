@@ -5,33 +5,33 @@ type: docs
 weight: 10
 url: /hu/php-java/video-frame/
 keywords:
-- videó hozzáadása
+- video hozzáadása
 - videó létrehozása
 - videó beágyazása
 - videó kinyerése
-- videó lekérdezése
+- videó lekérése
 - videókeret
-- web forrás
+- webes forrás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Tanulja meg programozottan videókeretek hozzáadását és kinyerését PowerPoint és OpenDocument diákban az Aspose.Slides for PHP via Java használatával. Gyors gyakorlati útmutató."
+description: "Tanulja meg, hogyan lehet programozottan videókereteket hozzáadni és kinyerni PowerPoint és OpenDocument diákban az Aspose.Slides for PHP via Java használatával. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-A videók segíthetnek a gondolatok magyarázatában és a közönség bevonásában. Az Aspose.Slides for PHP via Java lehetővé teszi videókeretek hozzáadását a diákhoz, a lejátszási beállítások módosítását, a feliratok kezelését és a beágyazott videóadatok kinyerését.
+A videók segíthetnek az ötletek magyarázatában és a közönség bevonásában. Az Aspose.Slides for PHP via Java lehetővé teszi, hogy videókereteket adjon a diákhoz, módosítsa a lejátszási beállításokat, kezelje a feliratokat, és kinyerje a beágyazott videó adatokat.
 
-PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube‑videókat.
+A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube‑videókat.
 
-A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja a [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) osztályt és egyéb kapcsolódó típusokat.
+A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja a [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) osztályt, és más releváns típusokat.
 
 ## **Beágyazott videókeret létrehozása**
 
-Ha a diára felvenni kívánt videofájl helyben van tárolva, létrehozhatsz egy videókeretet, amely beágyazza a videót a bemutatóba.
+Ha a diára felvenni kívánt videófájl helyileg van tárolva, létrehozhat egy videókeretet a videó bemutatóba való beágyazásához.
 
-Ez a példa egy helyi videót ágyaz be egy meglévő bemutató első diájára, majd elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A folyam (stream) nyitva marad a mentés befejezéséig, mivel a [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a bemutató használja.
+Ez a példa egy helyi videót ágyaz be a meglévő bemutató első diájára, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A stream nyitva marad a mentés befejezéséig, mert a [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a bemutató használja.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Megadhatod a helyi videó elérési útját közvetlenül a [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) metódusnak. Ez a példa a videót egy új bemutató első diájára ágyazza be. A videónak a mentés befejezéséig hozzáférhetőnek kell maradnia.
+Átadhatja a helyi videó elérési útját közvetlenül a [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame) metódusnak. Ez a példa a videót egy új bemutató első diájára ágyazza be. A videónak elérhetőnek kell maradnia, amíg a bemutatót el nem mentik.
 
 ```php
 use aspose\slides\Presentation;
@@ -76,9 +76,9 @@ try {
 
 ## **Videókeret létrehozása webes forrásból származó videóval**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a bemutatókban. Létrehozhatsz egy videókeretet, amely egy online videóra mutat, például egy YouTube‑videóra.
+A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatója az online videók beillesztését a bemutatókba. Létrehozhat egy videókeretet, amely egy online videóra hivatkozik, például egy YouTube‑videóra.
 
-Ez a példa egy YouTube videó hivatkozást és előnézeti képet ad hozzá az első diához. Cseréld ki a videó azonosítót, ha másik videót szeretnél használni. A [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) metódus automatikus lejátszást kér. Az előnézeti kép letöltése és a videó lejátszása internetkapcsolatot igényel. A bemutató megjelenítőnek is támogatnia kell az online videó lejátszást.
+Ez a példa egy YouTube‑videó hivatkozást és miniatűr képet ad az első diához. Cserélje ki a videó azonosítót egy másik videó használatához. A [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) metódus automatikus lejátszást kér. A miniatűr letöltése és a videó lejátszása internetkapcsolatot igényel. A bemutató megjelenítőnek szintén támogatnia kell az online videó lejátszását.
 
 ```php
 use aspose\slides\Presentation;
@@ -112,9 +112,9 @@ try {
 
 ## **Videó lejátszása teljes képernyős módban**
 
-Egy oktatási bemutatóban lejátszhatsz egy szoftver demonstrációt teljes képernyőn, hogy a közönség lássa a részleteket. Hívd meg a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) metódust `true` értékkel a viselkedés engedélyezéséhez a lejátszás során.
+Egy képzési bemutatóban lejátszhat egy szoftverdemonstrációt teljes képernyőn, hogy a közönség lássa a részleteket. Hívja meg a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) metódust `true` értékkel, hogy ezt a viselkedést engedélyezze a lejátszás során.
 
-Ez a példa megnyit egy bemutatót, megtalálja az első [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) a első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti bemutatónak legalább egy, az első dián létező videókerettel kell rendelkeznie.
+Ez a példa megnyit egy bemutatót, megtalálja az első [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) keretet az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen az első dián már létező videókeret van.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Függetlenül, a [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) határozza meg, automatikusan vagy kattintásra indul-e, a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) pedig szabályozza az ismétlést. A kezdési viselkedés kiválasztásához állítsd be a lejátszási módot a [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) értékre. A példa megtartja a meglévő kezdési és ismétlődési beállításokat.
+A teljes képernyős lejátszás szabályozza, hogy a videó hogyan jelenik meg. Függetlenül, a [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) szabályozza, automatikusan vagy kattintásra indul-e, és a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) azt, hogy ismétlődik-e. A kezdési viselkedés kiválasztásához állítsa be a lejátszási módot a [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) értékre. A példa megtartja a meglévő kezdési és ismétlődési beállításokat.
 
 ## **Videó visszatekerése lejátszás után**
 
-Egy oktatási bemutatóban a demonstrációs videó elejére visszatekerése lehetővé teszi, hogy az előadó újra lejátszhassa. Hívd meg a [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) metódust `true` értékkel, hogy a videó a lejátszás befejezése után visszatérjen a kezdethez.
+Egy képzési bemutatóban a demonstrációs videó visszatekerése az elejére lehetővé teszi, hogy az előadó újból lejátszhassa. Hívja meg a [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) metódust `true` értékkel, hogy a videó a lejátszás befejezése után visszatérjen az elejére.
 
-Ez a példa megnyit egy bemutatót, megtalálja az első [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) a első dián, és engedélyezi a visszatekerést. Letiltja az ismétlést, hogy a lejátszás befejeződhessen, és beállítja a lejátszást kattintásra indítva. A bemeneti bemutatónak legalább egy, az első dián létező videókerettel kell rendelkeznie.
+Ez a példa megnyit egy bemutatót, megtalálja az első [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) keretet az első dián, és engedélyezi a visszatekerést. Kikapcsolja a ciklikus lejátszást, hogy a lejátszás befejeződhessen, és beállítja, hogy kattintásra induljon. A bemeneti bemutatónak legalább egy diát kell tartalmaznia, amelyen az első dián már létező videókeret van.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-A visszatekerés a videót a kezdetéhez viszi anélkül, hogy újraindulna. Ezzel szemben a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) `true` értékkel való meghívása automatikusan ismétli a lejátszást. Kapcsold ki az ismétlést, ha azt szeretnéd, hogy a videó befejeződjön és készen álljon az újra lejátszásra. A [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) függetlenül szabályozza az automatikus vagy kattintásra indított indítást; ez a példa a [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) értéket használja, így az előadó szabályozza a lejátszás kezdetét. Állítsd be a lejátszási módot a ciklusbeállítás után, ahogyan a példában látható. A visszatekerés független a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) működésétől.
+A visszatekerés a videót az elejére helyezi anélkül, hogy újra elindulna. Ezzel szemben a [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) `true` értékkel való meghívása automatikusan ismétli a lejátszást. Tartsa a ciklikus lejátszást kikapcsolva, ha azt szeretné, hogy a videó befejeződjön és készen álljon az újrajátszásra. A [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) önállóan szabályozza az automatikus vagy kattintásos indítást; ez a példa a [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) értéket használja, hogy az előadó ellenőrizhesse, mikor kezdődjön a lejátszás. Állítsa be a lejátszási módot a ciklus beállítása után, ahogy a példában látható. A visszatekerés függetlenül működik a [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) beállítástól.
 
 ## **Videókeret vágása**
 
-A [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) és a [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) használatával kihagyhatod a videó elejének vagy végének egy részét a lejátszás során. Mindkét érték ezredmásodpercben van megadva. A vágás módosítja a lejátszási beállításokat anélkül, hogy a beágyazott videóadatot változtatná.
+Használja a [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) és a [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) metódusokat a videó elejének vagy végének egy részének kihagyásához a lejátszás során. Mindkét érték ezredmásodpercben van. A vágás módosítja a lejátszási beállításokat anélkül, hogy a beágyazott videó adatot módosítaná.
 
-**Vágási beállítások beállítása**
+**Vágási beállítások megadása**
 
-Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használj legalább 3,5 másodpercnél hosszabb videót, hogy lejátszható szegmens maradjon.
+Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon 3,5 másodpercnél hosszabb videót, hogy lejátszható szegmens maradjon.
 
 ```php
 use aspose\slides\Presentation;
@@ -208,9 +208,9 @@ try {
 }
 ```
 
-**Vágási beállítások olvasása**
+**Vágási beállítások kiolvasása**
 
-Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A bemutatónak legalább egy diát kell tartalmaznia. Ha azon a dián nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket eredményez.
+Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A bemutatónak legalább egy diát kell tartalmaznia. Ha az a dia nem tartalmaz videókeretet, semmit sem ír ki. Az előző példa 2500 és 1000 értékeket ad.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,11 +236,11 @@ try {
 
 ## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi a zárt feliratok kezelését a PowerPoint bemutatók videókereteihez. A feliratok WebVTT formátumban tárolódnak, és a [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi a zárt feliratok kezelését a PowerPoint bemutatók videókereteihez. A feliratok WebVTT formátumban vannak tárolva, és a [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.
 
-**Feliratok hozzáadása videókerethez**
+### **Feliratok hozzáadása videókerethez**
 
-Ez a példa egy helyi videót ágyaz be, és hozzáad egy WebVTT feliratsp tracket 'English' címkével. A felirat időbélyegeinek egyezniük kell a videóval. A mentett bemutató tartalmazza a videót és a feliratokat is.
+Ez a példa egy helyi videót ágyaz be, és egy English (angol) címkéjű WebVTT felirat sávot ad hozzá. A felirat időbélyegeinek meg kell egyezniük a videóval. A mentett bemutató tartalmazza a videót és a feliratokat is.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-A [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) osztály továbbá egy túlterhelést biztosít, amely lehetővé teszi feliratok hozzáadását egy folyam (stream) segítségével.
+A [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) osztály is biztosít egy túlterhelést, amely lehetővé teszi feliratok hozzáadását streamből.
 
-**Feliratok kinyerése videókeretből**
+### **Feliratok kinyerése videókeretből**
 
-Ez a példa az első dián lévő videókeretek összes feliratsávját különálló WebVTT fájlokként menti. A sorozatszámok biztosítják, hogy a kimeneti fájlok különbözőek legyenek. A konzol jelzi a kinyert sávok számát. A bemutatónak legalább egy diát kell tartalmaznia.
+Ez a példa az első dián lévő videókeretek összes feliratsávját különálló WebVTT fájlokként menti. A sorozatszámok biztosítják a kimeneti fájlok egyediségét. A konzol jelentést ad a kinyert sávok számáról. A bemutatónak legalább egy diát kell tartalmaznia.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-Minden [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) objektum kiállítja a feliratazonosítót, a címkét, a bináris adatot és a felirat szövegét UTF‑8 karakterláncként.
+Minden [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) objektum tartalmazza a felirat azonosítóját, címkéjét, bináris adatait, és a felirat szövegét UTF‑8 karakterláncként.
 
-**Feliratok eltávolítása videókeretből**
+### **Feliratok eltávolítása videókeretből**
 
-Ez a példa eltávolítja az összes feliratot az első dián, az első alakzat pozíciójában lévő videókeretről, és elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat egy videókeret.
+Ez a példa eltávolítja az összes feliratot az első dián az első alakzat pozíciójában lévő videókeretről, és elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-Ha csak egy feliratsáv eltávolítására van szükség, használd a [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) vagy [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) metódusokat a [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) helyett.
+Ha csak egy feliratsávot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) vagy a [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) metódusokat a [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) helyett.
 
-## **Videó kinyerése diáról**
+### **Videó feliratok keresése**
 
-A videók diákhoz adásán túl az Aspose.Slides lehetővé teszi a bemutatókba beágyazott videók kinyerését.
+A [Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) visszaadja a teljes WebVTT sávot, beleértve a fejlécet, az időzítési sorokat és a felirat szöveget. A memóriában kereshet a képletek között, hogy megtalálja a kimondott kifejezést és annak időbélyegét. Például a 2. dián egy angol sáv a következő szöveget tartalmazhatja.
 
-Ez a példa minden diáról kinyeri a beágyazott videókat különálló, számozott bináris fájlokba. A hivatkozott videókat kihagyja, mivel nincs beágyazott adatuk. A konzol kiírja minden videó MIME‑típusát és a teljes darabszámot. A kimenet általános `.bin` kiterjesztést használ; szükség esetén változtasd meg a jelentett médiatípusnak megfelelően.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+A példa megnyitja a `captioned_media.pptx` fájlt, és a [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) metódust használja, hogy beolvassa minden dia minden felső szintű videókeretének sávjait. Egy egyszerű szöveges képletben az időzítési sor `-->` karaktert tartalmaz, és egy üres sor jelzi a képlet végét. Ha a felirat tartalmazza a „café” szót bármilyen betűméretben, a példa kiírja a dia számát, a sáv címkéjét, az eredeti időzítési sort és a teljes feliratot.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+A „café” keresése egy egyezést ad a minta sávra. A keresés kizárja a sávfejlécet, és megőrzi az időzítési beállítást a kimenetben.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Videó kinyerése diából**
+
+A videók diákhoz adása mellett az Aspose.Slides lehetővé teszi a bemutatókba beágyazott videók kinyerését.
+
+Ez a példa minden diáról kinyeri a beágyazott videókat különálló, számozott bináris fájlokba. A hivatkozott videók kihagyásra kerülnek, mivel nem tartalmaznak beágyazott adatot. A konzol kiírja minden videó MIME‑típusát és a teljes számot. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén változtassa meg a jelentett média típusnak megfelelően.
 
 ```php
 use aspose\slides\Presentation;
@@ -372,20 +436,20 @@ try {
 }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Milyen videólejátszási paraméterek módosíthatók egy videókeretnél?**
+**Milyen videó lejátszási paraméterek módosíthatók egy videókeretnél?**
 
-A [lejátszási mód](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (automatikus vagy kattintásra) és az [ismétlés](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) módja módosítható. Ezek az opciók a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) objektum metódusain keresztül érhetők el.
+Megadhatja a [lejátszási módot](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (automatikus vagy kattintásra) és a [ciklust](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) objektum metódusain keresztül érhetők el.
 
-**Beépített videó növeli a PPTX fájl méretét?**
+**A videó hozzáadása befolyásolja a PPTX fájlméretet?**
 
-Igen. Ha helyi videót ágyazol be, a bináris adat a dokumentumba kerül, így a bemutató mérete a fájl méretével arányosan nő. Ha online videóra hivatkozol és előnézeti képet adsz hozzá, a bemutató a hivatkozást és a előnézeti képet tárolja a videóadat helyett, így a méretnövekedés általában kisebb.
+Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a bemutató mérete a fájlmérettel arányosan nő. Ha online videóra hivatkozik és egy miniatűrt ad hozzá, a bemutató a hivatkozást és az előnézeti képet tárolja a videóadat helyett, így a mérettömeg általában kisebb.
 
-**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
+**Lecserélhetem a videót egy meglévő videókeretben a pozíció és a méret módosítása nélkül?**
 
-Igen. A [videótartalmat](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) cserélheted a kereten belül a forma geometriai adatait megtartva; ez egy gyakori eset a médiák frissítésére meglévő elrendezésben.
+Igen. Cserélheti a keretben lévő [videótartalmat](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) anélkül, hogy a forma geometriáját megváltoztatná; ez gyakori eset a médiák frissítésére egy meglévő elrendezésben.
 
-**Megállapítható egy beágyazott videó tartalom típusa (MIME)?**
+**Megállapítható a beágyazott videó tartalomtípusa (MIME)?**
 
-Igen. Egy beágyazott videónak van egy [tartalom típusa](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType), amelyet kiolvashatsz és használhatsz, például amikor lemented a lemezre.
+Igen. Egy beágyazott videónak van [tartalomtípusa](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType), amelyet kiolvashat és felhasználhat, például amikor lemezre menti.

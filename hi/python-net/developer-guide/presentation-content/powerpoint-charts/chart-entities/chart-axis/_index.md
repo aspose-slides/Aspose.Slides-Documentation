@@ -9,7 +9,7 @@ keywords:
 - क्षैतिज अक्ष
 - अक्ष को अनुकूलित करें
 - अक्ष को हेरफेर करें
-- अक्ष का प्रबंधन करें
+- अक्ष को प्रबंधित करें
 - अक्ष गुण
 - अधिकतम मान
 - न्यूनतम मान
@@ -22,17 +22,17 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में रिपोर्ट और दृश्यात्मकता के लिए चार्ट अक्षों को अनुकूलित करने के तरीके की खोज करें।"
+description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में रिपोर्ट और दृश्यावलोकन के लिए चार्ट अक्षों को अनुकूलित करने के तरीकों की खोज करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for Python via .NET के साथ चार्ट अक्षों को अनुकूलित करने का तरीका समझाता है। यह गणना किए गए अक्ष मानों, चार्ट की पंक्तियों और स्तंभों को बदलने, अक्ष की दृश्यता, श्रेणी लेबल और टिक‑मार्क अंतराल, तिथि श्रेणियों और स्वरूपण, शीर्षक का घुमाव, अक्ष की स्थिति, डिस्प्ले यूनिट और लघुगणकीय स्केलिंग को कवर करता है।
+यह लेख Aspose.Slides for Python via .NET का उपयोग करके चार्ट अक्षों को अनुकूलित करने के तरीकों को समझाता है। इसमें गणना किए गए अक्ष मान, चार्ट पंक्तियों और स्तम्भों का अदला‑बदली, अक्ष की दृश्यता, श्रेणी लेबल और टिक‑मार्क अंतराल, तिथि श्रेणियाँ और स्वरूपण, शीर्षक का घुमाव, अक्ष का स्थान, प्रदर्शित इकाइयाँ और लघुगणकीय स्केलिंग शामिल हैं।
 
 ## **चार्ट में लंबवत अक्ष पर अधिकतम मान प्राप्त करें**
 
-एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) बनाएं और डिफ़ॉल्ट डेटा के साथ एक एरिया चार्ट जोड़ें। गणना किए गए अक्ष मान पढ़ने से पहले [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) को कॉल करें ताकि चार्ट लेआउट अद्यतन हो।
+डिफ़ॉल्ट डेटा के साथ एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) बनाएं और एक एरिया चार्ट जोड़ें। गणना किए गए अक्ष मान पढ़ने से पहले चार्ट लेआउट को अद्यतन रखने के लिए [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) को कॉल करें।
 
-अक्ष सीमा के लिए [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) और [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) पढ़ें, और टिक अंतराल के लिए [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) और [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) पढ़ें। [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) और [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) समय‑इकाई स्केल प्रदान करते हैं, जो तिथि अक्षों के लिए प्रासंगिक हैं। उदाहरण इन मानों को स्थानीय चर में संग्रहीत करता है और चार्ट को सहेजता है।
+अक्ष सीमाओं के लिए [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) और [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) पढ़ें, तथा टिक अंतराल के लिए [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) और [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) पढ़ें। तिथि अक्षों से संबंधित समय‑इकाई स्केल के लिए [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) और [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) उपलब्ध होते हैं। यह उदाहरण इन मानों को स्थानीय चरों में संग्रहीत करता है और चार्ट को सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **अक्षों के बीच डेटा बदलें**
 
-चार्ट डेटा में श्रृंखला और श्रेणियों की भूमिकाओं को बदलने के लिए [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) का उपयोग करें। प्रत्येक पूर्व श्रेणी एक श्रृंखला बन जाती है, और प्रत्येक पूर्व श्रृंखला एक श्रेणी बन जाती है। यह डेटा के समूह बनाने के तरीके को बदलता है; यह क्षैतिज और लंबवत अक्षों को नहीं बदलता। उदाहरण [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का उपयोग करके डिफ़ॉल्ट डेटा को `Sheet1!A1:D5` से बाइंड करता है, जिसमें हेडर पंक्ति और श्रेणी स्तंभ शामिल हैं, पंक्तियों और स्तंभों को बदलने से पहले। यह चार श्रृंखलाओं और तीन श्रेणियों वाले चार्ट को सहेजता है।
+चार्ट डेटा में श्रृंखला और श्रेणियों की भूमिकाओं को बदलने के लिए [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) का उपयोग करें। प्रत्येक पूर्व श्रेणी एक श्रृंखला बनती है और प्रत्येक पूर्व श्रृंखला एक श्रेणी बनती है। यह डेटा के समूह को बदलता है; यह क्षैतिज और लंबवत अक्षों का अदला‑बदला नहीं करता। उदाहरण में [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का उपयोग करके डिफ़ॉल्ट डेटा को `Sheet1!A1:D5` (हेडर पंक्ति और श्रेणी स्तम्भ सहित) से बाँधा गया है, फिर पंक्तियों और स्तम्भों को बदला गया है। यह चार श्रृंखलाओं और तीन श्रेणियों वाला चार्ट सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -75,11 +75,11 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **अक्ष के प्लॉटिंग क्रम को उल्टा करें**
+## **अक्ष की प्लॉट क्रम उलटना**
 
-एक श्रेणी या मान अक्ष को उल्टा करने के लिए [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) का उपयोग करें। उदाहरण के लिए, एक क्षैतिज बार चार्ट वर्कशीट के समान क्रम में ऊपर से नीचे परियोजना चरण दिखा सकता है: Planning, Development, Testing। अक्ष को उल्टा करने से प्लॉटिंग दिशा बदलती है; यह वर्कबुक डेटा को क्रमबद्ध या पुन: व्यवस्थित नहीं करता। तुलना के लिए, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) श्रृंखला और श्रेणियों की भूमिकाओं को बदलता है।
+अक्ष को उलटने के लिए [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) का प्रयोग करें। उदाहरण के लिये, एक क्षैतिज बार चार्ट परियोजना चरणों को वर्कशीट क्रम में शीर्ष‑से‑नीचे दिखा सकता है: Planning, Development, Testing। अक्ष को उलटने से प्लॉट दिशा बदलती है; यह वर्कबुक डेटा को सॉर्ट या पुनः व्यवस्थित नहीं करता। तुलना के लिये, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) श्रृंखला और श्रेणियों की भूमिकाओं को बदलता है।
 
-निम्न उदाहरण तीन चरणों और एक श्रृंखला के साथ एक क्षैतिज बार चार्ट बनाता है। यह तीन स्लाइडों के साथ एक प्रस्तुति सहेजता है: सामान्य क्रम, उल्टे श्रेणियाँ, और उल्टे मान। प्रत्येक प्रति समान डेटासेट उपयोग करती है, और प्रत्येक प्रति में केवल एक अक्ष उल्टा किया गया है।
+निम्न उदाहरण तीन चरणों और एक श्रृंखला वाला क्षैतिज बार चार्ट बनाता है। यह तीन स्लाइडों वाली प्रस्तुति सहेजता है: सामान्य क्रम, उल्टे श्रेणी, और उल्टे मान। प्रत्येक प्रतिलिपि समान डेटा सेट का उपयोग करती है, और प्रत्येक में केवल एक ही अक्ष उलटा होता है।
 
 ```python
 import aspose.slides as slides
@@ -106,14 +106,14 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, values[i])
         series.data_points.add_data_point_for_bar_series(value_cell)
 
-    # स्लाइड 2: शीर्ष पर पहली श्रेणी प्रदर्शित करें।
+    # स्लाइड 2: पहली श्रेणी को शीर्ष पर प्रदर्शित करें।
     category_slide = presentation.slides.add_clone(slide)
     category_chart = category_slide.shapes[0]
     category_chart.axes.vertical_axis.is_plot_order_reversed = True
     # क्षैतिज मान अक्ष को नीचे रखें।
     category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
 
-    # स्लाइड 3: केवल क्षैतिज संख्यात्मक स्केल को उल्टा करें।
+    # स्लाइड 3: केवल क्षैतिज संख्यात्मक स्केल को उलटें।
     value_slide = presentation.slides.add_clone(slide)
     value_chart = value_slide.shapes[0]
     value_chart.axes.horizontal_axis.is_plot_order_reversed = True
@@ -121,16 +121,16 @@ with slides.Presentation() as presentation:
     presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-एक अक्ष को उल्टा करने से लंबरूप अक्ष को प्लॉट के विपरीत पक्ष पर ले जाया जा सकता है। [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) नियंत्रित करता है कि अन्य अक्ष किस बिंदु पर कॉन्फ़िगर किए जा रहे अक्ष को क्रॉस करता है। स्लाइड 2 में, उल्टे श्रेणी अक्ष पर इसे `MAXIMUM` पर सेट करने से क्षैतिज मान अक्ष नीचे बना रहता है। किसी विशिष्ट क्रॉसिंग बिंदु के लिए, [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) का उपयोग करें। दिशा बदलते समय क्रॉसिंग सेटिंग्स की जाँच करें, विशेष रूप से यदि चार्ट में पहले से एक कस्टम क्रॉसिंग बिंदु है। सामान्य प्लॉटिंग दिशा को पुनर्स्थापित करने के लिए `is_plot_order_reversed` को `False` पर सेट करें; क्रॉसिंग सेटिंग्स अलग हैं।
+अक्ष को उलटने से लंबरूप अक्ष को प्लॉट के विपरीत पक्ष पर ले जाया जा सकता है। [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) निर्धारित करता है कि दूसरी अक्ष कहाँ पर निर्धारित अक्ष को पार करती है। स्लाइड 2 में, उल्टे श्रेणी अक्ष पर `MAXIMUM` सेट करने से क्षैतिज मान अक्ष नीचे रहता है। विशिष्ट पार‑बिंदु के लिये, [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) का प्रयोग करें। दिशा बदलते समय पार‑सेटिंग्स की जाँच करें, विशेषकर यदि चार्ट में पहले से कस्टम पार‑बिंदु है। सामान्य प्लॉट दिशा पुनः स्थापित करने के लिये `is_plot_order_reversed` को `False` सेट करें; पार‑सेटिंग्स अलग रहती हैं।
 
-| सामान्य क्रम (स्लाइड 1) | उल्टे श्रेणियाँ (स्लाइड 2) | उल्टे मान (स्लाइड 3) |
+| सामान्य क्रम (स्लाइड 1) | उल्टा श्रेणी (स्लाइड 2) | उल्टा मान (स्लाइड 3) |
 | --- | --- | --- |
-| ![सामान्य श्रेणी और मान अक्ष क्रम के साथ क्षैतिज बार चार्ट](axis-order-normal.png) | ![ऊपर से नीचे श्रेणियों के साथ क्षैतिज बार चार्ट](axis-order-categories-reversed.png) | ![उल्टा मान अक्ष और दाएँ शून्य के साथ क्षैतिज बार चार्ट](axis-order-values-reversed.png) |
-| श्रेणियाँ नीचे से ऊपर तक चलती हैं; मान बाएँ से दाएँ बढ़ते हैं। | योजना, विकास, और परीक्षण ऊपर से नीचे चलते हैं। मान और वर्कबुक पंक्तियों का क्रम अपरिवर्तित रहता है। | श्रेणियाँ अपने सामान्य क्रम को बनाए रखती हैं; मान दाएँ से बाएँ बढ़ते हैं। श्रेणी अक्ष दाएँ शून्य पर क्रॉस करता है। |
+| ![Horizontal bar chart with normal category and value axis order](axis-order-normal.png) | ![Horizontal bar chart with categories displayed from top to bottom](axis-order-categories-reversed.png) | ![Horizontal bar chart with a reversed value axis and zero on the right](axis-order-values-reversed.png) |
+| श्रेणियाँ नीचे‑से‑ऊपर आती हैं; मान बाएँ‑से‑दाएँ बढ़ते हैं। | Planning, Development, और Testing शीर्ष‑से‑नीचे दिखती हैं। मान और वर्कबुक पंक्ति क्रम अपरिवर्तित रहता है। | श्रेणियाँ सामान्य क्रम रखती हैं; मान दाएँ‑से‑बाएँ बढ़ते हैं। श्रेणी अक्ष शून्य पर दाएँ पार करता है। |
 
-## **लाइन चार्ट के लिए लंबवत अक्ष अक्षम करें**
+## **लाइन चार्ट में लंबवत अक्ष को निष्क्रिय करें**
 
-लंबवत अक्ष को छिपाने के लिए उस पर [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) को `False` सेट करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और उसे लंबवत अक्ष छिपे हुए सहेजता है।
+लंबवत अक्ष को छिपाने के लिये वह अक्ष पर [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) को `False` सेट करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और लंबवत अक्ष छिपा कर सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -145,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **लाइन चार्ट के लिए क्षैतिज अक्ष अक्षम करें**
+## **लाइन चार्ट में क्षैतिज अक्ष को निष्क्रिय करें**
 
-क्षैतिज अक्ष को छिपाने के लिए उस पर [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) को `False` सेट करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और उसे क्षैतिज अक्ष छिपे हुए सहेजता है।
+क्षैतिज अक्ष को छिपाने के लिये वह अक्ष पर [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) को `False` सेट करें। उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है और क्षैतिज अक्ष छिपा कर सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -162,9 +162,41 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **चार्ट ग्रिडलाइन दिखाएँ या छिपाएँ**
+
+किस अक्ष पर कौन सी ग्रिडलाइन दिखाई देती हैं, यह जांचने के लिये [show_major_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_major_grid_lines/) और [show_minor_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_minor_grid_lines/) पढ़ें। दोनों गुण केवल‑पढ़ने योग्य हैं। मायनर ग्रिडलाइन दिखाने के लिये [minor_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_grid_lines_format/) में लाइन फ़िल को ठोस भराव सेट करें और दृश्यमान रंग चुनें। उन्हें छिपाने के लिये फ़िल प्रकार को `FillType.NO_FILL` सेट करें। मेजर ग्रिडलाइन के लिये, [major_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_grid_lines_format/)`.line.fill_format` का प्रयोग करें। फ़िल बदलने से अक्ष की दृश्यता और टिक‑मार्क नहीं बदलते।
+
+इस क्लस्टर्ड कॉलम चार्ट की लंबवत अक्ष प्रारंभ में मेजर ग्रिडलाइन दिखाती है और मायनर ग्रिडलाइन छिपी रहती है। उदाहरण पहले मायनर ग्रिडलाइन को नारंगी दिखाता है, फिर उन्हें फिर से छिपाकर प्रस्तुति सहेजता है।
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 30, 660, 230)
+    axis = chart.axes.vertical_axis
+    print(f"Initial: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    minor_fill = axis.minor_grid_lines_format.line.fill_format
+    minor_fill.fill_type = slides.FillType.SOLID
+    minor_fill.solid_fill_color.color = slides.Color.dark_orange
+    print(f"Enabled: minor={axis.show_minor_grid_lines}")
+
+    minor_fill.fill_type = slides.FillType.NO_FILL
+    print(f"Hidden: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    presentation.save("ChartGridlines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| मायनर ग्रिडलाइन सक्रिय | मायनर ग्रिडलाइन छिपी |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **श्रेणी अक्ष बदलें**
 
-[category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) को सेट करके तिथि या टेक्स्ट श्रेणी अक्ष चुना जा सकता है। इस उदाहरण में `ExistingChart.pptx` आवश्यक है, जिसमें पहली स्लाइड पर पहला आकार एक चार्ट है और श्रेणी कोशिकाओं में संख्यात्मक Excel तिथि मान हैं। यह क्षैतिज अक्ष को तिथि अक्ष में बदलता है। [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) को `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) को `1`, और [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) को महीनों पर सेट करने से प्रमुख टिक एक महीने के अंतराल पर रखे जाते हैं।
+श्रेणी अक्ष को तिथि या पाठ प्रकार चुनने के लिये [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) सेट करें। यह उदाहरण `ExistingChart.pptx` की आवश्यकता रखता है, जिसमें पहले स्लाइड की पहली आकृति पर एक चार्ट है और श्रेणी कोशिकाएँ संख्यात्मक Excel तिथि मान रखती हैं। यह क्षैतिज अक्ष को तिथि अक्ष में बदलता है। [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) को `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) को `1`, और [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) को `months` सेट करने से मेजर टिक एक‑महीने के अंतराल पर रखे जाते हैं।
 
 ```python
 import aspose.slides as slides
@@ -182,21 +214,74 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **डेटा से श्रेणी अक्ष प्रकार निर्धारित करें**
+
+श्रेणियों को भरने के बाद [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) को कॉल करें, फिर [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) पढ़ें ताकि चयन देखा जा सके। यह उसी समय प्रकार निर्धारित करता है; यह बाद में डेटा परिवर्तन पर पुनः‑मूल्यांकन नहीं करता। श्रेणियों को बदलने के बाद इसे पुनः कॉल करें।
+
+निम्न उदाहरण पाठ श्रेणियों वाला चार्ट बनाकर `TEXT` प्रिंट करता है। फिर श्रेणी कोशिका मानों को तिथियों से बदलता है और फिर से मेथड को कॉल करता है, जिससे `DATE` प्रिंट होता है। तिथियों को संख्यात्मक OLE Automation मानों के रूप में संग्रहीत किया जाता है, जो 30 December 1899 से बीते दिनों की संख्या होते हैं, न कि तिथि स्ट्रिंग। [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) निर्धारित करता है कि ये मान कैसे दिखाए जाएँ; यह पाठ को संख्यात्मक तिथियों में नहीं बदलता। श्रेणी कोशिकाओं के बारे में अधिक जानकारी के लिये देखें [Chart Workbook](/slides/hi/python-net/chart-workbook/)।
+
+इनपुट में यदि केवल पाठ श्रेणियाँ या संख्यात्मक तिथियाँ हों तो स्वचालित निर्धारण का प्रयोग करें, जैसा कि इस उदाहरण में दिखाया गया है। सामान्य संख्यात्मक लेबल, मिश्रित श्रेणियाँ, या खाली डेटा के लिये स्पष्ट रूप से [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) सेट करें ताकि इच्छित अर्थ के साथ मेल खाए। केवल संख्यात्मक मान यह स्थापित नहीं करते कि श्रेणियाँ तिथियों को दर्शाती हैं।
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # पाठ
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # तारीख
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **श्रेणी अक्ष लेबल अंतराल नियंत्रित करें**
 
-जब चार्ट में कई श्रेणियाँ हों, तो श्रेणियों या डेटा बिंदुओं को हटाए बिना दृश्यमान अक्ष लेबलों की संख्या घटाई जा सकती है। [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) को `False` पर सेट करें, फिर वांछित श्रेणी अंतराल के लिए [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) को सेट करें। सामान्य क्रम में टेक्स्ट श्रेणियों के लिए गणना पहली श्रेणी से शुरू होती है:
+जब चार्ट में कई श्रेणियाँ हों, तो बिना श्रेणियों या डेटा बिंदुओं को हटाए दृश्य लेबल की संख्या घटाएँ। [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) को `False` करें, फिर इच्छित श्रेणी अंतराल के लिये [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) सेट करें। सामान्य क्रम में पाठ श्रेणियों के लिये गणना पहले श्रेणी से शुरू होती है:
 
-| अंतराल | उदाहरण में प्रदर्शित लेबल |
+| अंतराल | उदाहरण में दर्शाए गए लेबल |
 | --- | --- |
-| `1` | श्रेणी 1, श्रेणी 2, श्रेणी 3, ... श्रेणी 24 |
-| `2` | श्रेणी 1, श्रेणी 3, श्रेणी 5, ... श्रेणी 23 |
-| `3` | श्रेणी 1, श्रेणी 4, श्रेणी 7, ... श्रेणी 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-`3` का अंतराल प्रत्येक तृतीय लेबल को दिखाता है, प्रदर्शित लेबलों के बीच दो लेबल छिपे रहते हैं। यह संबंधित स्तंभों को नहीं हटाता। स्वचालित स्पेसिंग उपलब्ध स्थान के आधार पर एक अंतराल चुनती है; यह आवश्यक रूप से प्रत्येक लेबल नहीं दिखाती।
+`3` का अंतराल प्रत्येक तीसरा लेबल दिखाता है, दो लेबल छुपे रहते हैं। यह संबंधित स्तम्भों को नहीं हटाता। स्वचालित स्पेसिंग उपलब्ध स्थान के आधार पर अंतराल चुनती है; यह आवश्यक नहीं कि हर लेबल दिखे।
 
-टिक‑मार्क के लिए अलग नियंत्रण होते हैं। [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) को `False` पर सेट करें और उनके अंतराल को निर्धारित करने के लिए [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) का उपयोग करें। उदाहरण के लिए, `1` प्रत्येक श्रेणी अंतराल पर एक टिक‑मार्क रखता है जबकि लेबल केवल प्रत्येक तृतीय श्रेणी पर दिखाई देते हैं। परिणाम देखने के लिए [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) को एक दृश्यमान शैली पर सेट करें। किसी भी स्वचालित‑स्पेसिंग गुण को फिर से `True` पर सेट करने से चार्ट उस अंतराल को फिर से चुनता है।
+टिक‑मार्क के लिये अलग नियंत्रण होते हैं। [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) को `False` करें और [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) के द्वारा उनका अंतराल सेट करें। उदाहरण के लिये, `1` सेट करने से प्रत्येक श्रेणी अंतराल पर टिक‑मार्क रहता है जबकि लेबल केवल प्रत्येक तीसरे श्रेणी पर दिखते हैं। दिखाने योग्य शैली के लिये [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) सेट करें। स्वचालित‑स्पेसिंग गुण को फिर से `True` करने से चार्ट को वही अंतराल फिर से चुनने की अनुमति मिलती है।
 
-निम्न स्वनिहित उदाहरण 24 श्रेणियाँ और एक श्रृंखला बनाता है, फिर `CategoryAxisIntervals.pptx` में तीन स्लाइड सहेजता है: स्वचालित स्पेसिंग, स्वतंत्र टिक‑मार्क के साथ मैन्युअल लेबल स्पेसिंग, और पुनर्स्थापित स्वचालित स्पेसिंग। दो प्रतियां मूल चार्ट डेटा को बनाए रखती हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है। क्षैतिज लेबल टेक्स्ट घनत्व में अंतर को आसानी से दिखाता है।
+निम्न स्वनिर्भर उदाहरण 24 श्रेणियों और एक श्रृंखला बनाकर `CategoryAxisIntervals.pptx` में तीन स्लाइड सहेजता है: स्वचालित स्पेसिंग, स्वतंत्र टिक‑मार्क के साथ मैन्युअल लेबल स्पेसिंग, और पुनः स्वचालित स्पेसिंग। दो प्रतिलिपियों में मूल चार्ट डेटा रहता है। इनपुट प्रस्तुति की आवश्यकता नहीं है। क्षैतिज लेबल पाठ घनत्व को आसानी से दिखाता है।
 
 ```python
 import aspose.slides as slides
@@ -229,7 +314,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # स्लाइड 2: हर तीसरे लेबल को दिखाएँ, लेकिन प्रत्येक श्रेणी के लिए एक टिक‑मार्क रखें।
+    # स्लाइड 2: प्रत्येक तीसरे लेबल को दिखाएँ, लेकिन प्रत्येक श्रेणी के लिये एक टिक‑मार्क रखें।
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -247,23 +332,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**स्वचालित स्पेसिंग (स्लाइड 1):** इस रेंडरिंग में प्रत्येक दूसरी श्रेणी लेबल दिखाई देती है और दो पंक्तियों में लिपट जाती है। स्वचालित परिणाम चार्ट आकार, फ़ॉन्ट और रेंडरर के अनुसार बदल सकता है।
+**स्वचालित स्पेसिंग (स्लाइड 1):** इस रेंडरिंग में प्रत्येक दूसरी श्रेणी लेबल दिखाया जाता है और दो पंक्तियों में लिपटे होते हैं। स्वचालित परिणाम चार्ट आकार, फ़ॉन्ट और रेंडरर के आधार पर बदल सकता है।
 
-![सभी 24 स्तंभ दृश्यमान के साथ स्वचालित श्रेणी लेबल अंतराल](category-axis-automatic.png)
+![Automatic category label spacing with all 24 columns visible](category-axis-automatic.png)
 
-**मैन्युअल स्पेसिंग (स्लाइड 2):** प्रत्येक तृतीय लेबल एक पंक्ति में दिखाई देता है, जबकि टिक‑मार्क प्रत्येक श्रेणी अंतराल पर बने रहते हैं। सभी 24 स्तंभ, जिनमें बिना लेबल वाले भी शामिल हैं, समान मानों के साथ दृश्यमान रहते हैं। स्लाइड 3 ऊपर दिखाए गए स्वचालित रूप को पुनर्स्थापित करती है।
+**मैन्युअल स्पेसिंग (स्लाइड 2):** प्रत्येक तीसरे लेबल को एक पंक्ति में दिखाया जाता है, जबकि टिक‑मार्क प्रत्येक श्रेणी अंतराल पर रहते हैं। सभी 24 स्तम्भ, चुनिंदा लेबल के बिना भी, समान मान के साथ दिखाई देते हैं। स्लाइड 3 स्वचालित रूप से ऊपर दिखाए गये स्वरूप को पुनर्स्थापित करता है।
 
-![तीन के मैन्युअल श्रेणी लेबल अंतराल के साथ सभी 24 स्तंभ दृश्यमान](category-axis-manual.png)
+![Manual category label interval of three with all 24 columns visible](category-axis-manual.png)
 
 ### **सही अक्ष और अंतराल चुनें**
 
-एक टेक्स्ट श्रेणी अक्ष के लिए इस श्रेणी‑गणना अंतराल का उपयोग करें, जैसे कि कॉलम, लाइन, एरिया या बार चार्ट का श्रेणी अक्ष। कॉलम चार्ट में यह क्षैतिज अक्ष होता है। क्षैतिज बार चार्ट में श्रेणी अक्ष लंबवत होता है, इसलिए इन सेटिंग्स को [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) पर लागू करें। टिक‑मार्क स्पेसिंग उन चार्टों में श्रृंखला अक्ष पर भी लागू होती है जिनमें ऐसा अक्ष होता है।
+पाठ श्रेणी अक्ष, जैसे कि कॉलम, लाइन, एरिया या बार चार्ट का श्रेणी अक्ष, के लिये यह श्रेणी‑गणना अंतराल प्रयोग करें। कॉलम चार्ट में यह क्षैतिज अक्ष होता है। क्षैतिज बार चार्ट में श्रेणी अक्ष लंबवत होता है, इसलिए इन्हें [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) पर लागू करें। टिक‑मार्क स्पेसिंग उन चार्टों में श्रृंखला‑अक्ष पर भी लागू होती है जिनमें वह मौजूद हो।
 
-श्रेणी लेबल स्पेसिंग का उपयोग मान अक्ष के संख्यात्मक स्केल को निर्धारित करने के लिए न करें। मान अक्ष पर, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) मानों के अंतर को निर्दिष्ट करता है: उदाहरण के लिए, `10` का प्रमुख इकाई 0, 10, 20 आदि पर टिक बनाता है जब अक्ष शून्य से शुरू होता है। `3` का श्रेणी लेबल अंतराल श्रेणी स्थितियों की गणना करता है, उनके डेटा मानों की परवाह किए बिना। स्कैटर और बबल चार्ट टेक्स्ट श्रेणी अक्ष के बजाय मान अक्ष का उपयोग करते हैं। तिथि अक्ष के लिए, [Change a Category Axis](#change-a-category-axis) में वर्णित समय‑आधारित प्रमुख इकाइयों और स्केल का उपयोग करें।
+श्रेणी‑लेबल स्पेसिंग का प्रयोग मान अक्ष के संख्यात्मक स्केल को सेट करने के लिये न करें। मान अक्ष में, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) मानों के अंतर को निर्दिष्ट करता है: उदाहरण के लिये, `10` का मेजर यूनिट शून्य से शुरू होने पर 0, 10, 20 आदि पर टिक रखता है। `3` का श्रेणी‑लेबल अंतराल केवल श्रेणी स्थितियों को गिनता है, उनके डेटा मानों से असंबंधित। स्कैटर और बबल चार्ट मान अक्षों का प्रयोग करते हैं, न कि पाठ श्रेणी अक्ष का। तिथि अक्ष के लिये, [Change a Category Axis](#change-a-category-axis) में वर्णित समय‑आधारित मेजर यूनिट और स्केल का प्रयोग करें।
 
-## **श्रेणी अक्ष मानों के लिए तिथि स्वरूप सेट करें**
+## **श्रेणी अक्ष मानों के लिये तिथि स्वरूप निर्धारित करें**
 
-उदाहरण डिफ़ॉल्ट चार्ट डेटा को चार वार्षिक मानों से बदलता है। तिथियों को पहले कार्यपत्रक (इंडेक्स `0`) में OLE ऑटोमेशन सीरियल नंबरों के रूप में संग्रहीत किया जाता है। [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) को तिथि अक्ष पर सेट करें, [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) को निष्क्रिय करें, और [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) को `yyyy` असाइन करें ताकि श्रेणी लेबल सेल स्वरूपण से स्वतंत्र रूप से चार-अंकीय वर्ष दिखाएँ।
+यह उदाहरण डिफ़ॉल्ट चार्ट डेटा को चार वार्षिक मानों से बदलता है। तिथियाँ पहले कार्यपत्रक (अनुक्रमणिका `0`) में OLE Automation क्रमांक के रूप में संग्रहीत हैं। [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) को तिथि अक्ष पर सेट करें, [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) को अक्षम करें, और लेबल को चार‑अंकीय वर्ष दिखाने के लिये [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) को `yyyy` निर्धारित करें, जिससे श्रेणी लेबल सेल स्वरूप से स्वतंत्र रूप से दिखे।
 
 ```python
 from datetime import date
@@ -299,9 +384,9 @@ with slides.Presentation() as presentation:
     presentation.save("DateAxisFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **चार्ट अक्ष शीर्षक के लिए घुमाव कोण सेट करें**
+## **चार्ट अक्ष शीर्षक के लिये घुमाव कोण निर्धारित करें**
 
-लंबवत अक्ष पर [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) को सक्रिय करें, शीर्षक पाठ प्रदान करें, और शीर्षक को घुमाने के लिए [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) को सेट करें। कोण डिग्री में मापा जाता है; यह उदाहरण मान‑अक्ष शीर्षक को 90 डिग्री घुमा कर एक कॉलम चार्ट सहेजता है।
+लंबवत अक्ष पर [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) सक्षम करें, शीर्षक पाठ प्रदान करें, और [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) को सेट करके शीर्षक को घुमाएँ। कोण डिग्री में मापा जाता है; यह उदाहरण मान‑अक्ष शीर्षक को 90 डिग्री घुमा कर कॉलम चार्ट सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -320,7 +405,7 @@ with slides.Presentation() as presentation:
 
 ## **श्रेणी या मान अक्ष पर अक्ष की स्थिति निर्धारित करें**
 
-[axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) का उपयोग करके नियंत्रित करें कि मान अक्ष श्रेणी अक्ष को श्रेणियों के बीच या श्रेणी टिक‑मार्क पर कब पार करे। यह गुण श्रेणी अक्षों पर लागू होता है। उदाहरण ने इसे कॉलम चार्ट के क्षैतिज श्रेणी अक्ष पर `True` सेट किया और परिणाम सहेजा।
+[axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) का प्रयोग करके निर्धारित करें कि मान अक्ष श्रेणी अक्ष को श्रेणियों के बीच या श्रेणी टिक‑मार्क पर पार करता है। यह गुण केवल श्रेणी अक्षों पर लागू होता है। उदाहरण में इसे कॉलम चार्ट के क्षैतिज श्रेणी अक्ष पर `True` सेट करके परिणाम सहेजा गया है।
 
 ```python
 import aspose.slides as slides
@@ -335,9 +420,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **चार्ट मान अक्ष पर डिस्प्ले यूनिट सेट करें**
+## **चार्ट मान अक्ष पर प्रदर्शित इकाई निर्धारित करें**
 
-[display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) को सेट करके मान अक्ष पर लेबलों का स्केल बदला जा सकता है без मूल डेटा बदले। जब [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) को `MILLIONS` पर सेट किया जाता है, तो 60,000,000 का मान 60 के रूप में दिखाया जाता है। उदाहरण एक कॉलम चार्ट बनाता है और उसके लंबवत अक्ष पर मिलियन डिस्प्ले यूनिट लागू करता है।
+[display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) को सेट करके मान अक्ष पर लेबल का स्केल बदले बिना डेटा नहीं बदले जाता। जब [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) `MILLIONS` पर सेट हो, तो 60 000 000 को 60 दिखाया जाता है। उदाहरण एक कॉलम चार्ट बनाता है और उसकी लंबवत अक्ष पर मिलियन डिस्प्ले यूनिट लागू करता है।
 
 ```python
 import aspose.slides as slides
@@ -352,21 +437,21 @@ with slides.Presentation() as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **लघुगणकीय मान अक्ष को कॉन्फ़िगर करें**
+## **लघुगणकीय मान अक्ष कॉन्फ़िगर करें**
 
-जब सकारात्मक मान कई क्रम magnitude में होते हैं, तो लघुगणकीय मान अक्ष उपयोगी होता है। उदाहरण के लिए, एक सेवा पाँच अवधियों में 10, 100, 1,000, 10,000 और 100,000 अनुरोध प्राप्त कर सकती है। रैखिक स्केल पर छोटे मान शून्य के निकट बहुत करीब दिखाई देते हैं। लघुगणकीय स्केल उनके सापेक्ष वृद्धि को तुलना करना आसान बनाता है: समान दूरी समान अनुपात को दर्शाती है, समान अंतर को नहीं।
+जब सकारात्मक मान कई क्रमांकों में फैले हों तो लघुगणकीय मान अक्ष उपयोगी होता है। उदाहरण के लिये, एक सेवा पाँच अवधियों में 10, 100, 1 000, 10 000 और 100 000 अनुरोध प्राप्त कर सकती है। रैखिक स्केल पर छोटे मान शून्य के निकट आपस में बहुत निकट दिखाई देते हैं। लघुगणकीय स्केल सापेक्ष वृद्धि को आसान तुलना प्रदान करता है: समान दूरी समान अनुपात दर्शाती है, न कि समान अंतर।
 
-मान अक्ष पर [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) को `True` सेट करें और आधार चुनने के लिए [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) का उपयोग करें। यह मौजूदा मानों के प्रदर्शित रूप को बदलता है; यह डेटा को नहीं बदलता या लघुगणकीय ट्रेंड‑लाइन नहीं जोड़ता। ट्रेंड‑लाइन डेटा में एक फिटेड संबंध को दर्शाती है और अलग सुविधा है।
+मान अक्ष पर [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) को `True` सेट करें और लघुगणकीय आधार चुनने के लिये [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) का प्रयोग करें। यह मौजूदा मानों के प्रदर्शन को बदलता है; यह डेटा नहीं बदलता और न ही लघुगणकीय ट्रेंड‑लाइन जोड़ता है। ट्रेंड‑लाइन डेटा में फिटेड संबंध का प्रतिनिधित्व करती है और अलग सुविधा है।
 
 ### **मान अक्ष और आधार चुनें**
 
-लाइन या कॉलम चार्ट के लिए, मान अक्ष [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) है। क्षैतिज बार चार्ट के लिए, वह [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/) है। स्कैटर और बबल चार्ट में दो मान अक्ष होते हैं, इसलिए X मानों के लिए क्षैतिज अक्ष, Y मानों के लिए लंबवत अक्ष, या दोनों चुनें। श्रेणी अक्ष पर लघुगणकीय स्केलिंग लागू न करें।
+लाइन या कॉलम चार्ट के लिये मान अक्ष [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/) होता है। क्षैतिज बार चार्ट के लिये यह [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/) होता है। स्कैटर और बबल चार्ट में दो मान अक्ष होते हैं, इसलिए X मान के लिये क्षैतिज और Y मान के लिये लंबवत अक्ष चुनें, या दोनों। श्रेणी अक्ष पर लघुगणकीय स्केल लागू न करें।
 
-डिफ़ॉल्ट लघुगणकीय आधार `10` है। PPTX चार्टों के लिए `2` से `1000` (शामिल) के बीच कोई भी आधार उपयोग किया जा सकता है; `2.5` जैसी भिन्नात्मक आधार भी समर्थित हैं। आधार `10` के साथ क्रमागत शक्ति — 10, 100, 1,000, 10,000 — समान दूरी पर होती हैं।
+डिफ़ॉल्ट लघुगणकीय आधार `10` है। PPTX चार्ट में `2` से `1000` तक (समावेशी) आधार प्रयोग किया जा सकता है; अंशात्मक आधार जैसे `2.5` भी समर्थित हैं। आधार `10` पर क्रमशः 10, 100, 1 000, 10 000 समान अंतराल पर होते हैं।
 
-### **रैखिक और लघुगणकीय स्केलिंग की तुलना**
+### **रैखिक और लघुगणकीय स्केल की तुलना करें**
 
-निम्न स्वनिहित उदाहरण पहली स्लाइड पर पाँच अनुरोध गणनाओं के साथ एक लाइन चार्ट बनाता है, फिर उस स्लाइड की प्रतिलिपि बनाता है और दूसरी पर आधार‑10 लघुगणकीय मान अक्ष सक्षम करता है। दोनों स्लाइड समान डेटा बनाए रखती हैं।
+निम्न स्वनिर्भर उदाहरण पहला स्लाइड पर पाँच अनुरोध गणनाओं वाला लाइन चार्ट बनाता है, फिर उस स्लाइड को क्लोन करके दूसरे स्लाइड पर आधार‑10 लघुगणकीय मान अक्ष सक्षम करता है। दोनों स्लाइड समान डेटा रखती हैं।
 
 ```python
 import aspose.slides as slides
@@ -395,7 +480,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # पहली स्लाइड को रैखिक रखें और केवल कॉपी के वैल्यू-एक्सिस स्केल को बदलें।
+    # पहली स्लाइड को रैखिक रखें और केवल कॉपी के मान-अक्ष स्केल को बदलें।
     logarithmic_slide = presentation.slides.add_clone(slide)
     logarithmic_chart = logarithmic_slide.shapes[0]
     value_axis = logarithmic_chart.axes.vertical_axis
@@ -405,22 +490,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**रैखिक स्केल (स्लाइड 1):** समान ऊर्ध्वाधर दूरी अनुरोध गणनाओं में समान अंतर दर्शाती है। सबसे बड़ा मान चार्ट पर हावी होता है, जिससे छोटे मानों को अलग‑अलगा देखना कठिन हो जाता है।
+**रैखिक स्केल (स्लाइड 1):** समान ऊँचाई अंतर समान अनुरोध सीमा अंतर दर्शाती है। सबसे बड़ा मान चार्ट को प्रभुत्व देता है, जिससे छोटे मान दिखना कठिन हो जाता है।
 
-![PowerPoint में रैखिक मान अक्ष पर पाँच अनुरोध गणनाओं के साथ लाइन चार्ट](value-axis-linear.png)
+![Line chart in PowerPoint showing five request counts on a linear value axis](value-axis-linear.png)
 
-**लघुगणकीय स्केल (स्लाइड 2):** समान ऊर्ध्वाधर दूरी समान अनुपात दर्शाती है। प्रत्येक अवधि में पिछले की तुलना में दस गुना अधिक अनुरोध होते हैं, इसलिए बिंदु आधार‑10 स्केल पर सीधी बढ़ती रेखा बनाते हैं। अक्ष लेबल अभी भी मूल अनुरोध गणनाओं को दिखाते हैं।
+**लघुगणकीय स्केल (स्लाइड 2):** समान ऊँचाई अंतर समान अनुपात दर्शाती है। प्रत्येक अवधि की अनुरोध संख्या पिछले से दस गुना अधिक है, इसलिए बिंदु आधार‑10 स्केल पर सीधी रेखा बनाते हैं। अक्ष लेबल अभी भी मूल अनुरोध गणना दिखाते हैं।
 
-![PowerPoint में आधार‑10 लघुगणकीय मान अक्ष पर वही पाँच अनुरोध गणनाएँ](value-axis-logarithmic.png)
+![The same five request counts in PowerPoint on a base-10 logarithmic value axis](value-axis-logarithmic.png)
 
 ### **शून्य और नकारात्मक मानों को संभालें**
 
-लघुगणकीय स्केल केवल सशर्त सकारात्मक मान दिखा सकता है। इसे सक्षम करने से पहले डेटा की जाँच करें। यदि शून्य या नकारात्मक मान अर्थपूर्ण हैं, तो रैखिक स्केल रखें या उन्हें अलग‑अलग दिखाएँ। यदि विश्लेषण के लिए उन मानों को बाहर करना उचित है, तो अपवर्जन का कारण स्पष्ट करें। उन्हें चुपचाप छोटे सकारात्मक संख्याओं से न बदलें, क्योंकि इससे डेटा का अर्थ बदल जाता है। लघुगणकीय अक्ष के लिए मैन्युअल रूप से कॉन्फ़िगर किया गया कोई भी न्यूनतम या अधिकतम मान भी सकारात्मक होना चाहिए।
+लघुगणकीय स्केल केवल शून्य से बड़े मान दिखा सकता है। इसे सक्षम करने से पहले डेटा जाँचें। यदि शून्य या नकारात्मक मान अर्थपूर्ण हैं, तो रैखिक स्केल रखें या उन्हें अलग से दिखाएँ। यदि विश्लेषण के लिये उन मानों को हटाना उचित है, तो वर्जन का कारण बताएँ। उन्हें छोटे सकारात्मक मानों से मौन बदलना डेटा का अर्थ बदल देगा। लघुगणकीय अक्ष के लिये किसी भी मैन्युअल न्यूनतम या अधिकतम को भी सकारात्मक होना चाहिए।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **बारंबार पूछे जाने वाले प्रश्न**
 
-**एक अक्ष को दूसरे के ऊपर किस मान पर क्रॉस कराना है (अक्ष क्रॉसिंग) को कैसे सेट करूँ?**  
-[cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) का उपयोग करके क्रॉसिंग व्यवहार चुनें। संख्यात्मक क्रॉसिंग मान निर्दिष्ट करने के लिए [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) को सेट करें। ये सेटिंग्स आपको अक्ष क्रॉसिंग को उपयुक्त बेजलाइन पर ले जाने में मदद करती हैं।
+**एक अक्ष को दूसरे के साथ कहाँ पार करना है (axis crossing) इसे कैसे निर्धारित करूँ?**
 
-**टिक लेबल को अक्ष के सापेक्ष कैसे स्थित करें?**  
-[tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) को [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/) के साथ सेट करें: `LOW`, `HIGH`, `NEXT_TO` या `NONE`। टिक‑मार्क स्वयं को नियंत्रित करने के लिए [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) या [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) का उपयोग करें; ये लेबल स्थितिकरण से अलग हैं।
+अक्ष के पार‑बिंदु व्यवहार को चुनने के लिये [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) का उपयोग करें। संख्यात्मक पार‑बिंदु निर्दिष्ट करने के लिये [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/) सेट करें। ये सेटिंग्स आपको अक्ष पार‑बिंदु को उपयुक्त बेसलाइन पर स्थानांतरित करने देती हैं।
+
+**मैं टिक‑लेबल को अक्ष के सापेक्ष कैसे स्थानित करूँ?**
+
+[tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) को [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/) (`LOW`, `HIGH`, `NEXT_TO`, या `NONE`) के साथ सेट करें। टिक‑मार्क स्वयं को नियंत्रित करने के लिये [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) या [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) का प्रयोग करें; ये लेबल स्थितियों से अलग हैं।

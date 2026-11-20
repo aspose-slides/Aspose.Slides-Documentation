@@ -1,252 +1,322 @@
 ---
-title: مدیریت صدا در ارائه‌ها با استفاده از JavaScript
-linktitle: فریم صوتی
+title: مدیریت قاب‌های صوتی در ارائه‌ها با استفاده از جاوااسکریپت
+linktitle: قاب صوتی
 type: docs
 weight: 10
 url: /fa/nodejs-java/audio-frame/
 keywords:
 - صدا
-- فریم صوتی
-- تصویر بندانگشتی
+- قاب صوتی
+- تصویر کوچک
 - افزودن صدا
-- خصوصیات صدا
-- گزینه‌های صدا
+- ویژگی‌های صدا
+- گزینه‌های صوت
 - استخراج صدا
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ایجاد و کنترل فریم‌های صوتی در Aspose.Slides برای Node.js — مثال‌هایی برای تعبیه، برش، حلقه‌گذاری و پیکربندی پخش در ارائه‌های PPT، PPTX و ODP."
+description: "صدا را در اسلایدها جاسازی کنید، نماد صوتی را تغییر دهید، پخش را پیکربندی کنید، زیرنویس‌های WebVTT را مدیریت کنید و صداهای انتقال اسلاید را با Aspose.Slides برای Node.js از طریق Java استخراج کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله نحوه کار با فریم‌های صوتی در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه صوت تعبیه‌شده به اسلایدها اضافه کنید، تصویر بندانگشتی فریم صوتی را سفارشی کنید، گزینه‌های پخش مانند حجم، حلقه‌گذاری، مخفی‌سازی، بریدن و زمان‌های محو شدن را تنظیم کنید و صوت استفاده‌شده در انتقال‌های نمایش اسلاید را استخراج کنید.
+یک قاب صوتی به شما امکان می‌دهد یک صدا را روی اسلاید پخش کنید. با Aspose.Slides برای Node.js از طریق Java، می‌توانید یک کلیپ صوتی را جاسازی کنید، تصویر نماینده آن را انتخاب کنید، پخش را تنظیم کنید و زیرنویس‌ها را پیوست کنید. همچنین می‌توانید صدایی که به یک انتقال اسلاید اختصاص یافته است را بازیابی کنید.
 
-## **ایجاد فریم‌های صوتی**
+## **ایجاد قاب‌های صوتی**
 
-Aspose.Slides برای Node.js از طریق Java به شما امکان افزودن فایل‌های صوتی به اسلایدها را می‌دهد. فایل‌های صوتی به‌صورت فریم‌های صوتی در اسلایدها تعبیه می‌شوند.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.
-3. جریان فایل صوتی را که می‌خواهید در اسلاید تعبیه کنید، بارگذاری کنید.
-4. فریم صوتی تعبیه‌شده (شامل فایل صوتی) را به اسلاید اضافه کنید.
-5. [PlayMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AudioPlayModePreset) و `Volume` را که توسط شیء [AudioFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AudioFrame) در دسترس هستند، تنظیم کنید.
-6. ارائه اصلاح‌شده را ذخیره کنید.
-
-این کد JavaScript نشان می‌دهد چگونه یک فریم صوتی تعبیه‌شده به یک اسلاید اضافه کنید:
+از [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) برای جاسازی یک کلیپ صوتی محلی در اولین اسلاید استفاده کنید. اولین دو مختصات موقعیت قاب را روی اسلاید تعیین می‌کند و دو مقدار بعدی عرض و ارتفاع آن را به واحد پوینت تنظیم می‌کند. این مثال به [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) فراخوانی می‌کند تا کلیپ به‌صورت خودکار شروع شود و به [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) فراخوانی می‌کند تا پیش‌تنظیم صدای بلند را انتخاب کند.
 
 ```javascript
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایان‌گر فایل ارائه است
-const pres = new aspose.slides.Presentation();
-try {
-    // اولین اسلاید را دریافت می‌کند
-    const sld = pres.getSlides().get_Item(0);
-    // فایل صوتی wav را به‌صورت جریان بارگذاری می‌کند
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // فریم صوتی را اضافه می‌کند
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // حالت پخش و حجم صدا را تنظیم می‌کند
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // فایل PowerPoint را روی دیسک می‌نویسد
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **تغییر تصویر بندانگشتی فریم صوتی**
-
-هنگامی که یک فایل صوتی به ارائه اضافه می‌کنید، صوت به‌صورت فریمی با تصویر پیش‌فرض استاندارد ظاهر می‌شود (به تصویر در بخش زیر مراجعه کنید). می‌توانید تصویر پیش‌نمایش فریم صوتی را (تصویر دلخواه خود را تنظیم کنید) تغییر دهید.
-
-این کد JavaScript نشان می‌دهد چگونه تصویر بندانگشتی یا پیش‌نمایش فریم صوتی را تغییر دهید:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // یک فریم صوتی را به اسلاید اضافه می‌کند با موقعیت و اندازهٔ مشخص.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // یک تصویر را به منابع ارائه اضافه می‌کند.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // تصویر را برای فریم صوتی تنظیم می‌کند.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // ارائهٔ اصلاح‌شده را روی دیسک ذخیره می‌کند
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **تغییر گزینه‌های پخش صوت**
-
-Aspose.Slides برای Node.js از طریق Java به شما اجازه می‌دهد گزینه‌هایی که پخش یا خصوصیات صوت را کنترل می‌کنند، تغییر دهید. به‌عنوان مثال می‌توانید حجم صدا را تنظیم کنید، صوت را به‌صورت حلقه‌ای پخش کنید یا حتی نماد صوت را مخفی کنید.
-
-پنل **Audio Options** در Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-**Audio Options** در PowerPoint که با خصوصیات [AudioFrame] در Aspose.Slides مطابقت دارند:
-- لیست کشویی **Start** مطابق با متد [AudioFrame.setPlayMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setPlayMode) است
-- **Volume** مطابق با متد [AudioFrame.setVolume](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setVolume) است
-- **Play Across Slides** مطابق با متد [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) است
-- **Loop until Stopped** مطابق با متد [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) است
-- **Hide During Show** مطابق با متد [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) است
-- **Rewind after Playing** مطابق با متد [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setRewindAudio) است
-
-گزینه‌های **Editing** در PowerPoint که با خصوصیات [AudioFrame] در Aspose.Slides مطابقت دارند:
-
-- **Fade In** مطابق با متد [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) است
-- **Fade Out** مطابق با متد [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) است
-- **Trim Audio Start Time** مطابق با متد [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) است
-- مقدار **Trim Audio End Time** برابر است با مدت زمان صوت منهای مقدار متد [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-کنترل **Volume** در پنل کنترل صدا در PowerPoint مطابق با متد [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#setVolumeValue) است. این امکان را می‌دهد تا حجم صدا را به صورت درصدی تغییر دهید.
-
-نحوه تغییر گزینه‌های پخش صوت به این صورت است:
-
-1. [Сreate](#create-audio-frame) یا دریافت Audio Frame.
-2. مقادیر جدید برای خصوصیات Audio Frame که می‌خواهید تنظیم کنید، تعیین کنید.
-3. فایل PowerPoint اصلاح‌شده را ذخیره کنید.
-
-این کد JavaScript نشان می‌دهد که چگونه گزینه‌های یک صوت تنظیم می‌شوند:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // شکل AudioFrame را دریافت می‌کند
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // حالت پخش را روی کلیک تنظیم می‌کند
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // حجم صدا را روی کم تنظیم می‌کند
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // صدا را برای پخش در تمام اسلایدها تنظیم می‌کند
-    audioFrame.setPlayAcrossSlides(true);
-    // حلقه پخش صدا را غیرفعال می‌کند
-    audioFrame.setPlayLoopMode(false);
-    // فریم AudioFrame را در طول نمایش اسلاید مخفی می‌کند
-    audioFrame.setHideAtShowing(true);
-    // پس از پخش، صدا را به ابتدا باز می‌گرداند
-    audioFrame.setRewindAudio(true);
-    // فایل PowerPoint را روی دیسک ذخیره می‌کند
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-این مثال JavaScript نشان می‌دهد چگونه فریم صوتی جدیدی با صوت تعبیه‌شده اضافه کنید، آن را بریده و زمان‌های محو شدن را تنظیم کنید:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // آغاز برش را به ۱٫۵ ثانیه تنظیم می‌کند
-    audioFrame.setTrimFromStart(1500);
-    // پایان برش را به ۲ ثانیه تنظیم می‌کند
-    audioFrame.setTrimFromEnd(2000);
-
-    // مدت زمان محو شدن ورودی (fade‑in) را به ۲۰۰ میلی‌ثانیه تنظیم می‌کند
-    audioFrame.setFadeInDuration(200);
-    // مدت زمان محو شدن خروجی (fade‑out) را به ۵۰۰ میلی‌ثانیه تنظیم می‌کند
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-نمونه کد زیر نشان می‌دهد چگونه یک فریم صوتی با صوت تعبیه‌شده بازیابی شود و حجم آن را روی ۸۵٪ تنظیم کنید:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // یک شکل فریم صوتی دریافت می‌کند
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // حجم صدا را به ۸۵٪ تنظیم می‌کند
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **مدیریت زیرنویس‌های صوتی**
-
-Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته به فریم صوتی از طریق متد [getCaptionTracks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) اضافه کنید. این متد یک [CaptionsCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/captionscollection/) برمی‌گرداند که به شما اجازه می‌دهد مسیرهای زیرنویس WebVTT را اضافه، در مسیرهای موجود مرور کنید و در صورت نیاز آن‌ها را حذف کنید.
-
-**افزودن زیرنویس صوتی**
-
-از متد [getCaptionTracks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) برای متصل کردن یک یا چند مسیر زیرنویس به یک فریم صوتی استفاده کنید. در مثال زیر، یک فایل صوتی به اسلاید اضافه می‌شود و سپس مسیر زیرنویس جدیدی از یک فایل `.vtt` بارگذاری می‌شود.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // یک مسیر زیرنویس جدید از یک فایل WebVTT اضافه می‌کند.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**استخراج زیرنویس صوتی**
+## **تغییر تصویر کوچک قاب صوتی**
 
-می‌توانید در مسیرهای زیرنویس مرتبط با فریم صوتی گردش کنید و آنها را به‌صورت فایل‌های `.vtt` ذخیره کنید. هر مسیر زیرنویس داده‌های باینری و شناسهٔ یکتای خود را در اختیار می‌گذارد که می‌تواند هنگام صادرات زیرنویس‌ها استفاده شود.
+به‌صورت پیش‌فرض، یک قاب صوتی یک نماد بلندگو را نمایش می‌دهد. برای نمایش تصویر کوچک سفارشی، یک تصویر را با [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) به ارائه اضافه کنید و آن را با [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage) بر روی تصویر قاب تنظیم کنید. این مثال از `eagle.jpeg` به‌عنوان تصویر کوچک برای کلیپ صوتی جاسازی‌شده استفاده می‌کند.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تغییر گزینه‌های پخش صوت**
+
+کنترل‌های **Audio Options** PowerPoint تعیین می‌کنند که یک کلیپ چه زمانی شروع شود، چه مقدار صدا داشته باشد و در طول نمایش اسلاید چگونه رفتار کند.
+
+![کنترل‌های Audio Options PowerPoint برای یک قاب صوتی](audio_frame_0.png)
+
+| کنترل PowerPoint | متد Aspose.Slides برای Node.js از طریق Java |
+| --- | --- |
+| شروع | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| پیش‌تنظیم صدا | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| پخش در تمام اسلایدها | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| حلقه تا توقف | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| مخفی در طول نمایش | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| بازپخش پس از پخش | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| محو شدن ورود | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| محو شدن خروج | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| برش زمان شروع صدا | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| برش زمان پایان صدا | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| نوار لغزنده حجم | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+این مثال اولین قاب صوتی را در اولین اسلاید پیدا می‌کند، به [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) فراخوانی می‌کند تا پخش را با کلیک شروع کند و پیش‌تنظیم صدای پایین را انتخاب می‌کند. کلیپ در تمام اسلایدها ادامه می‌یابد در حالی که حلقه غیرفعال است. نماد در طول نمایش مخفی می‌ماند و پس از پخش، کلیپ به‌صورت معکوس پخش می‌شود.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // مسیر زیرنویس را به‌صورت فایل .vtt ذخیره می‌کند.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+برای کلیپی که طول آن بیش از 3.5 ثانیه است، این مثال اولین 1.5 ثانیه و آخرین 2 ثانیه را حذف می‌کند. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) مدت زمان حذف‌شده از انتهای کلیپ را می‌گیرد. برای به دست آوردن زمان پایان نشان‌داده‌شده در PowerPoint، آن افست را از مدت زمان کامل کلیپ کم می‌کنید. کلیپ برش‌خورده در طول 200 میلی‌ثانیه محو ورود می‌شود و در 500 میلی‌ثانیه محو خروج می‌گیرد. تمام چهار متد مقدارها را بر حسب میلی‌ثانیه می‌پذیرند.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+برای تنظیم حجم پخش به درصد مشخصی، از [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) استفاده کنید. این مثال اولین قاب صوتی را در اولین اسلاید به 85 ٪ تنظیم می‌کند.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **مدیریت زیرنویس‌های صوتی**
+
+هر قاب صوتی دسترسی به مسیرهای زیرنویس خود را از طریق [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) فراهم می‌آورد. از این مجموعه برای پیوست کردن زیرنویس‌های WebVTT به کلیپ، استخراج مسیرهای موجود یا حذف آن‌ها استفاده کنید.
+
+### **افزودن زیرنویس صوتی**
+
+این مثال یک کلیپ صوتی را در اولین اسلاید جاسازی می‌کند و از [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) برای پیوست یک مسیر WebVTT محلی استفاده می‌کند. آرگومان اول برچسب مسیر را تامین می‌کند و آرگومان دوم فایلی که حاوی زیرنویس‌های زمان‌بندی شده است را شناسایی می‌کند.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **استخراج زیرنویس‌های صوتی**
+
+این مثال هر مسیر زیرنویس پیوست‌شده به یک قاب صوتی در اولین اسلاید را استخراج می‌کند. بایت‌های بازگشتی توسط [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) را به یک فایل WebVTT می‌نویسد و شناسه بازگشتی توسط [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) را به عنوان نام فایل استفاده می‌کند تا هر مسیر خروجی جداگانه‌ای داشته باشد.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **حذف زیرنویس‌های صوتی**
+
+از [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) برای حذف یک مسیر فردی استفاده کنید. این مثال از [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) برای حذف تمام زیرنویس‌ها از اولین قاب صوتی در اولین اسلاید استفاده می‌کند، در حالی که کلیپ حفظ می‌شود.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **یافتن خطی در زیرنویس‌های صوتی**
+
+برای یافتن خطی در زیرنویس‌های صوتی در اولین اسلاید، متن بازگشتی توسط [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) را در حافظه جستجو کنید. در یک Cue متن ساده WebVTT، خط زمان‌بندی شامل `-->` است، خطوط زیرنویس پس از آن می‌آیند و یک خط خالی Cue را پایان می‌دهد. این مثال برچسب مسیر و هر خط زیرنویسی که شامل «café» باشد را چاپ می‌کند.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -255,64 +325,39 @@ try {
 }
 ```
 
-**حذف زیرنویس صوتی**
+## **استخراج صوت**
 
-برای حذف زیرنویس‌ها از فریم صوتی، از متدهای ارائه‌شده توسط [CaptionsCollection] استفاده کنید، مانند [clear](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/captionscollection/#clear)، [remove](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/captionscollection/#removeAt). مثال زیر همه مسیرهای زیرنویس را از فریم صوتی حذف می‌کند.
+یک انتقال اسلاید می‌تواند صدای خاص خود را داشته باشد. برای بازیابی آن، بر روی انتقال اسلاید به [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) فراخوانی کنید. این مثال بایت‌های بازگشتی توسط [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) را می‌گیرد و تعداد بایت‌ها را چاپ می‌کند. اگر اولین اسلاید صدای انتقال نداشته باشد، به جای آن پیام چاپ می‌شود.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // نوع: aspose.slides.AudioFrame
-
-    // تمام مسیرهای زیرنویس را از فریم صوتی حذف می‌کند.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **استخراج صدا**
-
-Aspose.Slides برای Node.js از طریق Java به شما امکان استخراج صدای استفاده‌شده در انتقال‌های نمایش اسلاید را می‌دهد. به‌عنوان مثال می‌توانید صدای استفاده‌شده در یک اسلاید خاص را استخراج کنید.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید و ارائه حاوی صوت را بارگذاری کنید.
-2. مرجع اسلاید مربوطه را از طریق شاخص آن دریافت کنید.
-3. به [slideshow transitions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) اسلاید دسترسی پیدا کنید.
-4. صدای بایت‌دیتا را استخراج کنید.
-
-این کد JavaScript نشان می‌دهد چگونه صدای استفاده‑شده در یک اسلاید استخراج شود:
-
-```javascript
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // به اسلاید مورد نظر دسترسی پیدا می‌کند
-    const slide = pres.getSlides().get_Item(0);
-    // افکت‌های انتقال نمایش اسلاید را برای اسلاید دریافت می‌کند
-    const transition = slide.getSlideShowTransition();
-    // صدا را به صورت آرایه بایت استخراج می‌کند
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 ## **سوالات متداول**
 
-**آیا می‌توانم همان دارایی صوتی را در اسلایدهای متعدد بدون افزایش حجم فایل استفاده دوباره کنم؟**
+**آیا می‌توانم همان کلیپ صوتی را در اسلایدهای متعدد بدون تکرار استفاده کنم؟**
 
-بله. صوت را یک‌بار به [audio collection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getaudios/) مشترک ارائه اضافه کنید و فریم‌های صوتی اضافی که به آن دارایی موجود اشاره دارند، ایجاد کنید. این کار از تکرار داده‌های رسانه‌ای جلوگیری کرده و اندازهٔ ارائه را تحت کنترل نگه می‌دارد.
+بله. کلیپ را یک بار به [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) ارائه اضافه کنید و همان شی صوتی را برای هر اسلاید به [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) پاس دهید.
 
-**آیا می‌توانم صدای موجود در یک فریم صوتی را بدون بازسازی شکل جایگزین کنم؟**
+**آیا می‌توانم صدا را در یک قاب صوتی موجود جایگزین کنم؟**
 
-بله. برای صدای پیوندی، مسیر [link path](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) را به فایل جدید تنظیم کنید. برای صدای تعبیه‌شده، شیء [embedded audio](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) را با دیگری از [audio collection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getaudios/) ارائه تعویض کنید. قالب‌بندی فریم و اکثر تنظیمات پخش بدون تغییر باقی می‌مانند.
+بله. برای صدای پیوندی، از [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) برای اشاره به فایل جایگزین استفاده کنید. برای صداهای جاسازی‌شده، کلیپ دیگری را از مجموعه صوتی ارائه با [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio) انتخاب کنید. هر دو روش قاب موجود را حفظ می‌کنند.
 
-**آیا بریدن (trim) داده‌های صوتی زیرین ذخیره‌شده در ارائه را تغییر می‌دهد؟**
+**آیا برش صدا باعث تغییر داده‌های صوتی ذخیره‌شده در ارائه می‌شود؟**
 
-خیر. بریدن فقط مرزهای پخش را تنظیم می‌کند. بایت‌های اصلی صوت دست‌نخورده باقی می‌مانند و از طریق صوت تعبیه‌شده یا مجموعهٔ صوت ارائه قابل دسترسی هستند.
+خیر. متدهای [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) و [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) فقط مرزهای پخش را تنظیم می‌کنند. شما هنوز می‌توانید کلیپ کامل را از [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio) بازیابی کنید.

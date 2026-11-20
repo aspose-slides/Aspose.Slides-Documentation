@@ -14,7 +14,7 @@ keywords:
 - 最大値
 - 最小値
 - 軸線
-- 日付形式
+- 日付書式
 - 軸タイトル
 - 軸位置
 - PowerPoint
@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Java を介して Node.js 用 Aspose.Slides と JavaScript を使用し、レポートや可視化のための PowerPoint プレゼンテーションでチャート軸をカスタマイズする方法を解説します。"
+description: "Java を介した Node.js 用 Aspose.Slides と JavaScript を使用して、PowerPoint プレゼンテーションのレポートや可視化のためにチャート軸をカスタマイズする方法を紹介します。"
 ---
 ## **概要**
 
-この記事では、Java 経由で Aspose.Slides for Node.js を使用してチャート軸をカスタマイズする方法を説明します。計算された軸値、チャートの行と列の入れ替え、軸の表示/非表示、カテゴリラベルと目盛り間隔、日付カテゴリと書式設定、タイトルの回転、軸の位置指定、表示単位、対数スケーリングについてカバーします。
+この記事では、Aspose.Slides for Node.js via Java を使用してチャートの軸をカスタマイズする方法を説明します。計算された軸値、チャートの行と列の入れ替え、軸の表示/非表示、カテゴリ ラベルと目盛間隔、日付カテゴリと書式設定、タイトルの回転、軸の位置設定、表示単位、対数スケーリングについて解説します。
 
-## **チャートの縦軸で最大値を取得する**
+## **チャートの縦軸の最大値を取得する**
 
-[プレゼンテーション](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) を作成し、デフォルトデータのエリアチャートを追加します。計算された軸値を取得する前に、チャートレイアウトが最新になるように [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) を呼び出します。
+[プレゼンテーション](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) を作成し、デフォルト データのエリア チャートを追加します。計算された軸値を読み取る前に、チャートのレイアウトが最新になるように [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) を呼び出します。
 
-軸の上限・下限には [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) と [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) を使用し、目盛り間隔には [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) と [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) を使用します。[getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) と [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) は日付軸に関連する時間単位スケールを提供します。例ではこれらの値をローカル変数に格納し、チャートを保存します。
+軸の上限と下限を取得するには [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) と [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) を使用し、目盛間隔を取得するには [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) と [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) を使用します。[getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) と [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) は時間単位のスケールを提供し、日付軸に関連します。例ではこれらの値をローカル変数に格納し、チャートを保存します。
 
 ```javascript
 var aspose = aspose || {};
@@ -62,7 +62,7 @@ try {
 
 ## **軸間のデータを入れ替える**
 
-[switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) を使用して、チャートデータで系列とカテゴリの役割を入れ替えます。以前のカテゴリは系列になり、以前の系列はカテゴリになります。これはデータのグループ化方法を変更するだけで、水平軸と垂直軸を入れ替えるわけではありません。例では [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) を使用してデフォルトデータを `Sheet1!A1:D5`（ヘッダー行とカテゴリ列を含む）にバインドし、行と列を入れ替える前に設定しています。結果として 4 系列・3 カテゴリのチャートが保存されます。
+[swapRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) を使用して、チャート データ内の系列とカテゴリの役割を入れ替えます。以前のカテゴリは系列になり、以前の系列はカテゴリになります。これはデータのグループ化方法を変更しますが、水平軸と垂直軸を入れ替えるわけではありません。例では [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) を使用してデフォルト データを `Sheet1!A1:D5`（ヘッダー行とカテゴリ列を含む）にバインドし、行と列を入れ替えます。結果として 4 系列と 3 カテゴリのチャートが保存されます。
 
 ```javascript
 var aspose = aspose || {};
@@ -84,9 +84,9 @@ try {
 
 ## **軸のプロット順序を逆にする**
 
-[setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) を使用して、カテゴリ軸または値軸の順序を逆にします。例えば、水平棒グラフでプロジェクト段階を「計画 → 開発 → テスト」の順に上から下へ表示できます。軸を逆にするとプロット方向が変わりますが、ワークブックのデータが並び替えられたり再配置されたりするわけではありません。比較として、[switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) は系列とカテゴリの役割を入れ替えます。
+[setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) を使用してカテゴリ軸または値軸のプロット順序を逆にします。たとえば、水平バー チャートでプロジェクトの段階をシートと同じ順序（計画、開発、テスト）で上から下へ表示できます。軸を逆にするとプロット方向が変わりますが、ワークブック データの並び替えや再配置は行われません。比較として、[switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) は系列とカテゴリの役割を交換します。
 
-以下の例では 3 段階・1 系列の水平棒グラフを作成し、3 スライド（通常順、カテゴリ逆、値逆）のプレゼンテーションを保存します。各スライドは同じデータセットを使用し、1 つの軸だけを逆にしています。
+以下の例は、3 つの段階と 1 系列の水平バー チャートを作成します。3 スライドのプレゼンテーションを保存します：通常順序、カテゴリ逆順、値逆順。各コピーは同じデータセットを使用し、各コピーで 1 つだけ軸が逆になります。
 
 ```javascript
 var aspose = aspose || {};
@@ -119,7 +119,7 @@ try {
     var categorySlide = presentation.getSlides().addClone(slide);
     var categoryChart = categorySlide.getShapes().get_Item(0);
     categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
-    // 水平値軸を下部に保持します。
+    // 水平の数値軸を下部に保持します。
     categoryChart.getAxes().getVerticalAxis().setCrossType(aspose.slides.CrossesType.Maximum);
 
     // スライド 3: 水平数値スケールのみを逆にします。
@@ -133,16 +133,16 @@ try {
 }
 ```
 
-軸を逆にすると、直交する軸をプロットの反対側に移動させることもできます。[setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) で、他の軸が設定中の軸と交差する位置を制御します。スライド 2 では、逆にしたカテゴリ軸に対して `aspose.slides.CrossesType.Maximum` を指定し、水平値軸を下側に保持しています。特定の交差点を指定したい場合は [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) を使用してください。方向を変更する際は交差設定を確認しましょう。特にカスタムの交差点が既に設定されている場合は注意が必要です。`setPlotOrderReversed` を `false` で呼び出すと通常のプロット方向に戻りますが、交差設定は別個に管理されます。
+軸を逆にすると、直角軸をプロットの反対側に移動させることもできます。[setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) は、設定対象の軸が他の軸と交差する位置を制御します。スライド 2 では、逆順のカテゴリ軸に対して `aspose.slides.CrossesType.Maximum` を指定すると、水平値軸が下部に残ります。特定の交差点を設定したい場合は [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) を使用します。方向を変更する際は、特にチャートにカスタム交差点が設定されている場合は交差設定を確認してください。`setPlotOrderReversed` を `false` で呼び出すと通常のプロット方向に戻ります。交差設定は別個です。
 
-| 通常順（スライド 1） | カテゴリ逆（スライド 2） | 値逆（スライド 3） |
+| 通常順序（スライド 1） | カテゴリ逆順（スライド 2） | 値逆順（スライド 3） |
 | --- | --- | --- |
-| ![通常のカテゴリ軸と値軸順序の水平棒グラフ](axis-order-normal.png) | ![上から下へ表示されるカテゴリの水平棒グラフ](axis-order-categories-reversed.png) | ![右側がゼロの逆値軸を持つ水平棒グラフ](axis-order-values-reversed.png) |
-| カテゴリは下から上へ、値は左から右へ増加します。 | 計画、開発、テストが上から下へ表示されます。値とワークブックの行順序は変わりません。 | カテゴリは通常順のまま、値は右から左へ増加します。カテゴリ軸は右側ゼロで交差します。 |
+| ![通常のカテゴリと値軸順序の水平バー チャート](axis-order-normal.png) | ![カテゴリが上から下へ表示される水平バー チャート](axis-order-categories-reversed.png) | ![値軸が逆順で右側がゼロになる水平バー チャート](axis-order-values-reversed.png) |
+| カテゴリは下から上へ、値は左から右へ増加します。 | 計画、開発、テストが上から下へ表示されます。値とワークブックの行順序は変更されません。 | カテゴリは通常順序のまま、値は右から左へ増加します。カテゴリ軸は右側ゼロで交差します。 |
 
 ## **折れ線グラフの縦軸を非表示にする**
 
-縦軸に対して `false` を渡して [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) を呼び出し、軸を隠します。例ではデフォルトデータの折れ線グラフを作成し、縦軸を非表示にして保存します。
+縦軸で [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) を `false` に設定して非表示にします。例ではデフォルト データの折れ線グラフを作成し、縦軸を非表示にして保存します。
 
 ```javascript
 var aspose = aspose || {};
@@ -163,7 +163,7 @@ try {
 
 ## **折れ線グラフの横軸を非表示にする**
 
-横軸に対して `false` を渡して [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) を呼び出し、軸を隠します。例ではデフォルトデータの折れ線グラフを作成し、横軸を非表示にして保存します。
+横軸で [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) を `false` に設定して非表示にします。例ではデフォルト データの折れ線グラフを作成し、横軸を非表示にして保存します。
 
 ```javascript
 var aspose = aspose || {};
@@ -182,9 +182,47 @@ try {
 }
 ```
 
+## **チャートのグリッドラインを表示または非表示にする**
+
+[getShowMajorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowmajorgridlines/) と [getShowMinorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowminorgridlines/) を呼び出して、軸が表示しているグリッドラインを確認します。小グリッドラインを表示するには [getMinorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getminorgridlinesformat/) を使用し、線の塗りを実線の可視色に設定します。非表示にするには塗りを [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) に設定します。大グリッドラインの塗りを変更するには [getMajorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getmajorgridlinesformat/) を同様に使用します。塗りを変更しても軸の可視性や目盛りは保持されます。
+
+この集合棒グラフの縦軸は最初は大グリッドラインのみが表示されています。例では小グリッドラインを濃いオレンジで表示し、保存前に再び非表示にします。各ステップでグリッドラインの可視性を出力します。
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 30, 660, 230);
+    var axis = chart.getAxes().getVerticalAxis();
+    console.log("Initial: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    var minorFill = axis.getMinorGridLinesFormat().getLine().getFillFormat();
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    minorFill.getSolidFillColor().setColor(darkOrange);
+    console.log("Enabled: minor=%s", axis.getShowMinorGridLines());
+
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    console.log("Hidden: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    presentation.save("ChartGridlines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| 小グリッドライン表示 | 小グリッドライン非表示 |
+| --- | --- |
+| ![縦軸の大グリッドライン間にあるオレンジの小グリッドライン](minor-gridlines-enabled.png) | ![大グリッドラインのみが表示されている同じ棒グラフ](minor-gridlines-hidden.png) |
+
 ## **カテゴリ軸を変更する**
 
-[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) を使用して、日付軸またはテキスト軸を選択します。この例では `ExistingChart.pptx` が必要で、最初のスライドの最初のシェイプとしてチャートがあり、カテゴリセルには数値の Excel 日付が格納されています。水平軸を日付軸に変更します。[setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) を `false`、[setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) を `1`、[setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) を `TimeUnitType.Months` に設定すると、主要目盛りが 1 ヶ月間隔で配置されます。
+[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) を使用して日付軸またはテキスト軸を選択します。この例は `ExistingChart.pptx` を必要とし、最初のスライドの最初のシェイプとしてチャートが配置され、カテゴリ セルに数値の Excel 日付が格納されています。水平軸を日付軸に変更します。[setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) を `false`、[setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) を `1`、[setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) を `TimeUnitType.Months` に設定すると、1 か月間隔の主目盛が配置されます。
 
 ```javascript
 var aspose = aspose || {};
@@ -206,21 +244,81 @@ try {
 }
 ```
 
+### **データからカテゴリ軸の種類を自動判定する**
+
+カテゴリを設定した後に [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistypeautomatically/) を呼び出し、[getCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getcategoryaxistype/) で判定結果を取得します。テキスト ラベルまたは数値の日付のいずれかがチャートに設定されている場合に便利です。呼び出し時に種類が決定され、後でデータが変わっても自動的に再評価されるモードは有効になりません。カテゴリを置き換えた後に再度呼び出してください。
+
+以下の例はテキストカテゴリのチャートを作成し、選択されたタイプが `CategoryAxisType.Text` のときに `true` を出力します。その後カテゴリ セルの値を日付に置き換え、再度メソッドを呼び出して `CategoryAxisType.Date` が選択されたときに `true` を出力します。日付は数値の OLE Automation 値として格納され、1899 年 12 月 30 日からの経過日数として計算されます（文字列ではありません）。JavaScript の計算は UTC タイムスタンプを使用し、1 日を 86 400 000 ミリ秒で割ります。月インデックスは 0 から始まります。各日付値を Java に double として渡すには `java.newDouble` を使用します。[setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) は表示形式を制御し、テキストを数値日付に変換しません。カテゴリ セルの詳細については [Chart Workbook](/slides/ja/nodejs-java/chart-workbook/) を参照してください。
+
+テキストカテゴリまたは数値日付が入力に含まれることが分かっている場合は自動判定を使用します。通常の数値ラベル、混在カテゴリ、または空データの場合は、意図した意味に合わせて明示的に [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) を呼び出してください。数値だけではカテゴリが日付であるという判断にはなりません。
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var seriesName = workbook.getCell(0, 0, 1, "Sales");
+    var series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    var labels = ["First", "Second", "Third"];
+
+    for (var i = 0; i < labels.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Text); // true
+
+    var baseDate = Date.UTC(1899, 11, 30);
+    var dates = [Date.UTC(2026, 0, 1), Date.UTC(2026, 0, 2), Date.UTC(2026, 1, 1)];
+
+    for (var i = 0; i < dates.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0);
+        var dateValue = java.newDouble((dates[i] - baseDate) / 86400000);
+        categoryCell.setValue(dateValue);
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Date); // true
+
+    presentation.save("AutomaticCategoryAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **カテゴリ軸ラベル間隔を制御する**
 
-カテゴリが多いチャートでは、カテゴリやデータポイントを削除せずに表示ラベル数を減らしたい場合があります。`false` を渡して [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) を呼び出し、次に希望するカテゴリ間隔を [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) に渡します。テキストカテゴリが通常順の場合、カウントは最初のカテゴリから開始します。
+カテゴリが多数ある場合、カテゴリやデータポイントを削除せずに表示ラベル数を減らせます。まず [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) を `false` にし、[setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) に希望のカテゴリ間隔を渡します。テキストカテゴリが通常順序の場合、カウントは最初のカテゴリから開始します。
 
 | 間隔 | 例で表示されるラベル |
 | --- | --- |
-| `1` | Category 1, Category 2, Category 3, ... Category 24 |
-| `2` | Category 1, Category 3, Category 5, ... Category 23 |
-| `3` | Category 1, Category 4, Category 7, ... Category 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-間隔 `3` は 3 番目ごとのラベルだけを表示し、表示ラベル間に 2 つずつ非表示ラベルが残ります。対応する列は削除されません。自動間隔は利用可能なスペースに基づいて決定され、必ずしもすべてのラベルを表示するわけではありません。
+`3` の間隔は 3 つごとにラベルを表示し、表示されたラベル間に 2 つのラベルが非表示になります。対応する列は削除されません。自動間隔は利用可能なスペースに基づいて選択され、必ずしもすべてのラベルが表示されるわけではありません。
 
-目盛りには別個の制御があります。`false` を渡して [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) を呼び出し、[setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) で間隔を設定します。たとえば `1` はカテゴリ間隔ごとに目盛りを残し、ラベルは 3 番目ごとだけ表示します。可視スタイルの [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) を使用して結果を確認できます。自動設定に戻したい場合は、いずれかの自動間隔セッターを `true` に戻します。
+目盛りには別個の設定があります。[setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) を `false` にし、[setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) で間隔を設定します。たとえば `1` は各カテゴリ間隔に目盛りを配置し、ラベルは 3 番目ごとに表示されます。目に見えるスタイルで [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) を使用すると結果が確認できます。自動設定に戻すには、再度 `true` を渡して自動間隔を有効にします。
 
-以下の自己完結型例は 24 カテゴリと 1 系列を作成し、`CategoryAxisIntervals.pptx` に 3 スライドを保存します：自動間隔、ラベル間隔手動設定（目盛りは独立）、自動間隔に復元。2 つのコピーは元のチャートデータを保持します。入力プレゼンテーションは不要です。水平ラベルテキストにより密度の違いが分かりやすくなります。
+以下の自己完結型例は 24 カテゴリと 1 系列を作成し、`CategoryAxisIntervals.pptx` に 3 スライドを保存します：自動間隔、ラベル間隔手動設定（目盛りは独立）、自動間隔復元。2 つのコピーは元のチャート データを保持します。入力プレゼンテーションは不要です。水平ラベル テキストにより密度の違いが分かりやすくなります。
 
 ```javascript
 var aspose = aspose || {};
@@ -255,7 +353,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // スライド 2: 3番目ごとのラベルを表示し、各カテゴリに目盛りを残します。
+    // スライド 2: 3番目ごとのラベルを表示し、カテゴリごとに目盛りを保持します。
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -264,7 +362,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // スライド 3: チャートに両方の間隔を再び自動選択させます。
+    // スライド 3: チャートに両方の間隔を再度選択させます。
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -276,23 +374,23 @@ try {
 }
 ```
 
-**自動間隔（スライド 1）:** この表示では 2 列ごとにラベルが表示され、2 行に折り返されます。自動結果はチャートサイズ、フォント、レンダラにより変わります。
+**自動間隔（スライド 1）:** この描画では、2 番目のカテゴリ ラベルごとに表示され、2 行に折り返されます。自動結果はチャートのサイズ、フォント、レンダラにより変わります。
 
-![すべての 24 列が表示された自動カテゴリラベル間隔](category-axis-automatic.png)
+![全 24 列が表示された自動カテゴリ ラベル間隔](category-axis-automatic.png)
 
-**手動間隔（スライド 2）:** 3 列ごとにラベルが 1 行に表示され、目盛りはすべてのカテゴリ間隔に残ります。ラベルがない列も同じ値で表示されます。スライド 3 は上記の自動表示に戻します。
+**手動間隔（スライド 2）:** 3 番目ごとのラベルが 1 行に表示され、目盛りは各カテゴリ間隔に残ります。ラベルがない列も含め、24 列すべてが同じ値で表示されます。スライド 3 は上記の自動外観に復元します。
 
-![すべての 24 列が表示された手動間隔（3）](category-axis-manual.png)
+![全 24 列が表示された手動カテゴリ ラベル間隔（間隔 3）](category-axis-manual.png)
 
 ### **正しい軸と間隔を選択する**
 
-テキストカテゴリ軸（例：列、折れ線、エリア、棒グラフのカテゴリ軸）にこのカテゴリ間隔を使用します。列グラフでは水平軸、水平棒グラフでは縦軸がカテゴリ軸になるため、[getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) が返す軸に設定してください。目盛り間隔は、シリーズ軸を持つチャートのシリーズ軸にも適用されます。
+テキスト カテゴリ軸（列、折れ線、エリア、棒チャートのカテゴリ軸）にこのカテゴリ間隔を使用します。列チャートでは水平軸、水平棒チャートではカテゴリ軸が垂直になるため、[getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) が返す軸に適用します。目盛り間隔は系列軸を持つチャートの系列軸にも適用できます。
 
-カテゴリラベル間隔を値軸の数値スケール設定に使用しないでください。値軸では [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) が値の差を指定します（例：`10` の主要単位は 0、10、20…）。カテゴリラベル間隔 `3` はデータ値に関係なくカテゴリ位置を数えるだけです。散布図やバブルチャートはテキストカテゴリ軸ではなく値軸を使用します。日付軸の場合は、[Change a Category Axis](#change-a-category-axis) で説明した時間ベースの主要単位とスケールを使用してください。
+カテゴリ ラベル間隔を使用して値軸の数値スケールを設定しないでください。値軸では [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) が値の差を指定します（例: `10` の主単位は 0, 10, 20 …）。カテゴリ ラベル間隔 `3` はデータ値に関係なくカテゴリ位置をカウントします。散布図やバブルチャートはテキスト カテゴリ軸ではなく値軸を使用します。日付軸の場合は、[カテゴリ軸を変更する](#change-a-category-axis) で説明した時間ベースの主単位とスケールを使用してください。
 
-## **カテゴリ軸値の日時書式を設定する**
+## **カテゴリ軸値の日付書式を設定する**
 
-例ではデフォルトのチャートデータを 4 つの年次値に置き換えます。日付は最初のワークシート（インデックス `0`）に OLE Automation のシリアル番号として格納され、1899 年 12 月 30 日からの日数として計算されます。JavaScript の計算は UTC タイムスタンプを使用し、差を 86 400 000 ミリ秒（1 日）で割ります。[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) に `CategoryAxisType.Date` を指定し、[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) を `false`、[setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) に `yyyy` を渡すことで、セル書式に関係なくカテゴリラベルに 4 桁の年が表示されます。
+例ではデフォルトのチャート データを 4 つの年次値に置き換えます。日付は最初のワークシート（インデックス `0`）に OLE Automation のシリアル番号として格納され、1899 年 12 月 30 日からの経過日数として計算されます。JavaScript の計算は UTC タイムスタンプを使用し、1 日を 86 400 000 ミリ秒で割ります。[setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) に `CategoryAxisType.Date` を指定し、[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) を `false` に、[setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) に `yyyy` を渡すことで、セルの書式設定に関係なくカテゴリ ラベルに 4 桁の年が表示されます。
 
 ```javascript
 var aspose = aspose || {};
@@ -334,7 +432,7 @@ try {
 
 ## **チャート軸タイトルの回転角度を設定する**
 
-縦軸に対して `true` を渡して [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) を呼び出し、タイトルテキストを設定し、[setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) で回転させます。角度は度数で指定します。この例では列グラフの値軸タイトルを 90 度回転させて保存します。
+縦軸で [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) を `true` にし、タイトル テキストを設定したうえで、[setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) でタイトルを回転させます。角度は度数で指定されます。この例では、値軸タイトルを 90 度回転させた列チャートを保存します。
 
 ```javascript
 var aspose = aspose || {};
@@ -355,9 +453,9 @@ try {
 }
 ```
 
-## **カテゴリ軸または値軸の軸位置を設定する**
+## **カテゴリ軸または値軸の位置を設定する**
 
-[setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) を使用して、値軸がカテゴリ軸のカテゴリ間またはカテゴリ目盛り上で交差するかを制御します。この設定はカテゴリ軸に適用されます。例では列グラフの水平カテゴリ軸に対して `true` を設定し、結果を保存します。
+[setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) を使用して、値軸がカテゴリ軸とカテゴリ目盛の間で交差するか、カテゴリ目盛上で交差するかを制御します。この設定はカテゴリ軸に適用されます。例では列チャートの水平カテゴリ軸で `true` に設定し、結果を保存します。
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +474,9 @@ try {
 }
 ```
 
-## **チャート値軸の表示単位を設定する**
+## **値軸の表示単位を設定する**
 
-[setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) を使用して、基になるデータを変更せずに値軸ラベルをスケールします。[DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) を `Millions` に設定すると、60 000 000 が 60 と表示されます。例では列グラフを作成し、縦軸にミリオン表示単位を適用します。
+[setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) を使用して、基になるデータを変更せずに値軸のラベルをスケールします。[DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) を `Millions` に設定すると、60 000 000 の値が 60 と表示されます。例では列チャートを作成し、垂直軸にミリオン表示単位を適用します。
 
 ```javascript
 var aspose = aspose || {};
@@ -399,19 +497,19 @@ try {
 
 ## **対数値軸を構成する**
 
-対数値軸は、正の値が複数のオーダーに渡って広がる場合に便利です。例えば、あるサービスが 5 つの期間で 10、100、1 000、10 000、100 000 件のリクエストを受け取ったとします。線形スケールでは小さい値がゼロ付近に密集して見えますが、対数スケールにすると相対的な成長が比較しやすくなります（等間隔が等比率を表す）。
+正の値が複数桁にわたる場合、対数値軸が有用です。たとえば、あるサービスが 5 期間で 10、100、1 000、10 000、100 000 のリクエストを受け取るとします。線形スケールでは小さい値がゼロ付近に密集して表示されます。対数スケールでは等距離が等比率を表すため、相対的な増加が比較しやすくなります。
 
-値軸に対して `true` を渡して [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) を呼び出し、[setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) で基数を選択します。これにより既存の値の表示方法が変わりますが、データ自体や対数トレンドラインは変わりません。トレンドラインはデータにフィットした関係を表す別機能です。
+値軸で [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) を `true` にし、[setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) で基数を選択します。既存の値の表示方法が変わりますが、データ自体や対数トレンドラインは変更されません。トレンドラインはデータに対するフィット関係を表す別機能です。
 
 ### **値軸と基数を選択する**
 
-折れ線や列グラフの場合、値軸は [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) が返します。水平棒グラフの場合は [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) が返す軸です。散布図やバブルチャートは 2 つの値軸を持つため、X 値には水平軸、Y 値には垂直軸、または両方を選択します。カテゴリ軸には対数スケーリングを適用しないでください。
+折れ線または列チャートの場合、値軸は [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) が返します。水平棒チャートの場合は [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) が返します。散布図やバブルチャートは 2 つの値軸を持つため、X 値には水平軸、Y 値には垂直軸、または両方を選択します。カテゴリ軸には対数スケーリングを適用しないでください。
 
-既定の対数基数は `10` です。PPTX チャートでは `2` から `1000`（整数）までの基数が使用でき、`2.5` のような小数基数もサポートされます。基数 `10` の場合、10、100、1 000、10 000 といった連続するべき乗が等間隔になります。
+デフォルトの対数基数は `10` です。PPTX チャートでは `2`〜`1000`（整数）および `2.5` などの小数基数もサポートされています。基数 `10` の場合、10、100、1 000、10 000 といった連続したべき乗が等間隔になります。
 
 ### **線形スケールと対数スケールの比較**
 
-以下の自己完結型例は、最初のスライドに 5 つのリクエスト数を持つ折れ線グラフを作成し、そのスライドを複製して 2 番目のスライドで基数 10 の対数値軸を有効にします。2 つのスライドは同じデータを保持します。
+以下の自己完結型例は、最初のスライドに 5 つのリクエスト数を持つ折れ線チャートを作成し、同じスライドを複製して 2 番目のスライドで基数 10 の対数値軸を有効にします。両方のスライドは同じデータを保持します。
 
 ```javascript
 var aspose = aspose || {};
@@ -442,7 +540,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // 最初のスライドは線形のままで、コピーの値軸スケールだけを変更します。
+    // 最初のスライドは線形のままにして、コピーの値軸スケールだけを変更します。
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -455,24 +553,24 @@ try {
 }
 ```
 
-**線形スケール（スライド 1）:** 等しい垂直距離はリクエスト数の等しい差を表します。最大値がチャートを支配し、比較的小さい値が見分けにくくなります。
+**線形スケール（スライド 1）:** 等しい垂直距離はリクエスト数の等しい差を表します。最大値がチャートを支配し、較小値が判別しにくくなります。
 
-![線形値軸で 5 つのリクエスト数を示す折れ線グラフ](value-axis-linear.png)
+![線形値軸で 5 つのリクエスト数を示す PowerPoint の折れ線チャート](value-axis-linear.png)
 
-**対数スケール（スライド 2）:** 等しい垂直距離は等しい比率を表します。各期間のリクエスト数は前回の 10 倍になるため、基数 10 のスケール上では一直線に上昇します。軸ラベルは元のリクエスト数のままです。
+**対数スケール（スライド 2）:** 等しい垂直距離は等しい比率を表します。各期間のリクエスト数は前回の 10 倍になるため、基数 10 のスケールでは直線的に上昇するラインになります。軸ラベルは元のリクエスト数をそのまま表示します。
 
-![基数 10 の対数値軸で同じ 5 つのリクエスト数を示すグラフ](value-axis-logarithmic.png)
+![基数 10 の対数値軸で同じ 5 つのリクエスト数を示す PowerPoint の折れ線チャート](value-axis-logarithmic.png)
 
-### **ゼロと負の値の取り扱い**
+### **ゼロおよび負の値の取り扱い**
 
-対数スケールは正の値のみ表示できます。使用前にデータを確認してください。ゼロや負の値が意味を持つ場合は、線形スケールを維持するか別途表示してください。分析上それらの値を除外する場合は、その理由を説明しましょう。小さな正数に置き換えるとデータの意味が変わります。対数軸の手動最小・最大値も正である必要があります。
+対数スケールは正の値のみを表示できます。使用前にデータを確認してください。ゼロまたは負の値が意味を持つ場合は、線形スケールを維持するか、別々に表示してください。分析上それらの値を除外する場合は、除外した理由を説明してください。小さな正の数に黙って置き換えることは、データの意味を変えるため避けてください。対数軸の手動で設定した最小値または最大値も正の数でなければなりません。
 
 ## **FAQ**
 
-**軸が他方の軸と交差する位置（軸交差点）を設定するにはどうすればよいですか？**
+**軸が他の軸と交差する位置（軸交差点）をどのように設定しますか？**
 
-[setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) を使用して交差動作を選択します。数値の交差点を指定したい場合は [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) を使用します。これらの設定で軸交差点を適切な基準線に移動できます。
+[setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) を使用して交差動作を選択します。数値の交差点を指定するには [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) を使用します。これらの設定により、軸交差点を適切な基準線に移動できます。
 
-**目盛りラベルの位置を軸に対してどのように指定できますか？**
+**目盛ラベルを軸に対してどのように位置付けますか？**
 
-[setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) に [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) の `Low`, `High`, `NextTo`, `None` のいずれかを渡します。目盛り自体を制御したい場合は、[setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) や [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) を使用してください。これらはラベル位置とは別に設定されます。
+[setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) と [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/)（`Low`, `High`, `NextTo`, `None`）を使用します。目盛自体を制御するには、[setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) または [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) を使用します。これらはラベル位置設定とは別です。

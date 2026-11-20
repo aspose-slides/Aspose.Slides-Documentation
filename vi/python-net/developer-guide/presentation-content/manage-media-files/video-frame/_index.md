@@ -1,6 +1,6 @@
 ---
-title: Quản lý khung video trong bản thuyết trình bằng Python
-linktitle: Khung video
+title: Quản lý Khung Video trong Bản Trình chiếu bằng Python
+linktitle: Khung Video
 type: docs
 weight: 10
 url: /vi/python-net/video-frame/
@@ -14,10 +14,10 @@ keywords:
 - nguồn web
 - PowerPoint
 - OpenDocument
-- bản thuyết trình
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho Python thông qua .NET. Hướng dẫn nhanh chóng."
+description: "Tìm hiểu cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho Python qua .NET. Hướng dẫn nhanh chóng."
 ---
 ## **Giới thiệu**
 
@@ -25,13 +25,13 @@ Video có thể giúp giải thích ý tưởng và thu hút khán giả. Aspose
 
 PowerPoint hỗ trợ video cục bộ và liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Để đại diện cho dữ liệu video và khung video, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/), lớp [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) và các kiểu liên quan khác.
+Để biểu diễn dữ liệu video và khung video, Aspose.Slides cung cấp lớp [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/), lớp [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) và các kiểu liên quan khác.
 
-## **Tạo khung video nhúng**
+## **Tạo một Khung Video Nhúng**
 
-Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bản thuyết trình.
+Nếu tệp video bạn muốn thêm vào slide được lưu cục bộ, bạn có thể tạo một khung video để nhúng video vào bản trình chiếu của mình.
 
-Ví dụ này nhúng video cục bộ vào slide đầu tiên của một bản thuyết trình hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Luồng vẫn mở cho đến khi lưu hoàn tất vì [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) giữ nó khóa trong khi bản thuyết trình đang sử dụng.
+Ví dụ này nhúng một video cục bộ vào slide đầu tiên của một bản trình chiếu hiện có và lưu kết quả. Tọa độ và kích thước khung được tính bằng điểm. Luồng vẫn mở cho đến khi lưu xong vì [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) giữ nó bị khóa trong khi bản trình chiếu sử dụng nó.
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp cho [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Ví dụ này nhúng video vào slide đầu tiên của một bản thuyết trình mới. Video phải vẫn có thể truy cập được cho đến khi bản thuyết trình được lưu.
+Bạn cũng có thể truyền đường dẫn video cục bộ trực tiếp tới [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Ví dụ này nhúng video vào slide đầu tiên của một bản trình chiếu mới. Video phải vẫn có thể truy cập được cho đến khi bản trình chiếu được lưu.
 
 ```python
 import aspose.slides as slides
@@ -59,11 +59,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tạo khung video với video từ nguồn web**
+## **Tạo một Khung Video với Video từ Nguồn Web**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản thuyết trình. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bản trình chiếu. Bạn có thể tạo một khung video liên kết tới video trực tuyến, chẳng hạn như video trên YouTube.
 
-Ví dụ này thêm liên kết và hình thu nhỏ của video YouTube vào slide đầu tiên. Thay đổi định danh video để sử dụng video khác. Cài đặt [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) yêu cầu phát tự động. Tải hình thu nhỏ và phát video yêu cầu truy cập internet. Trình xem bản thuyết trình cũng phải hỗ trợ phát video trực tuyến.
+Ví dụ này thêm một liên kết video YouTube và ảnh thu nhỏ vào slide đầu tiên. Thay thế định danh video để sử dụng video khác. Cài đặt [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) yêu cầu phát tự động. Tải ảnh thu nhỏ và phát video cần có kết nối internet. Trình xem bản trình chiếu cũng phải hỗ trợ phát video trực tuyến.
 
 ```python
 from urllib.request import urlopen
@@ -86,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Phát video ở chế độ toàn màn hình**
+## **Phát Video ở Chế Độ Toàn Màn Hình**
 
-Trong một bản thuyết trình đào tạo, bạn có thể phát một bản demo phần mềm ở chế độ toàn màn hình để khán giả có thể thấy chi tiết. Đặt [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) thành `True` để bật hành vi này trong quá trình phát.
+Trong bản trình chiếu đào tạo, bạn có thể phát một bản demo phần mềm ở chế độ toàn màn hình để khán giả nhìn rõ chi tiết. Đặt [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) thành `True` để kích hoạt hành vi này trong khi phát.
 
-Ví dụ này mở một bản thuyết trình, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản thuyết trình đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
+Ví dụ này mở một bản trình chiếu, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật phát toàn màn hình. Bản trình chiếu đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
 
 ```python
 import aspose.slides as slides
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Chế độ phát toàn màn hình kiểm soát cách video được hiển thị. Riêng biệt, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) kiểm soát video có bắt đầu tự động hay khi nhấp, và [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) kiểm soát việc lặp lại. Để chọn hành vi khởi động, đặt chế độ phát thành [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt khởi động và vòng lặp hiện có.
+Phát toàn màn hình kiểm soát cách video được hiển thị. Tách ra, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) kiểm soát việc video bắt đầu tự động hay khi nhấp, và [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) kiểm soát việc lặp lại. Để chọn hành vi bắt đầu, đặt chế độ phát thành [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Ví dụ giữ nguyên các cài đặt bắt đầu và vòng lặp hiện có.
 
-## **Quay lại video sau khi phát**
+## **Quay Lại Video Sau Khi Phát**
 
-Trong một bản thuyết trình đào tạo, việc đưa video demo trở lại đầu giúp người thuyết trình có thể phát lại lần nữa. Đặt [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) thành `True` để trả video về đầu sau khi phát xong.
+Trong bản trình chiếu đào tạo, việc đưa video demo trở lại đầu giúp người thuyết trình có thể phát lại. Đặt [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) thành `True` để video trở lại đầu sau khi phát xong.
 
-Ví dụ này mở một bản thuyết trình, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật tính năng quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt chế độ phát bắt đầu khi nhấp. Bản thuyết trình đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
+Ví dụ này mở một bản trình chiếu, tìm khung [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) đầu tiên trên slide đầu tiên, và bật quay lại. Nó tắt vòng lặp để phát có thể kết thúc và đặt chế độ phát bắt đầu khi nhấp. Bản trình chiếu đầu vào phải chứa ít nhất một slide có khung video hiện có trên slide đầu tiên.
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Quay lại trả video về đầu mà không khởi động lại. Ngược lại, bật [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) sẽ lặp lại phát tự động. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) độc lập kiểm soát khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát thời điểm bắt đầu phát. Đặt chế độ phát sau khi thiết lập vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+Quay lại đưa video về đầu mà không phát lại. Ngược lại, bật [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) sẽ lặp lại phát tự động. Giữ vòng lặp tắt khi bạn muốn video kết thúc và sẵn sàng phát lại. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) độc lập kiểm soát khởi động tự động hay khi nhấp; ví dụ này sử dụng [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) để người thuyết trình kiểm soát khi nào phát. Đặt chế độ phát sau khi thiết lập vòng lặp, như trong ví dụ. Quay lại hoạt động độc lập với [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
 
-## **Cắt khung video**
+## **Cắt Bớt Khung Video**
 
-Sử dụng [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) và [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) để bỏ qua phần đầu hoặc cuối của video trong quá trình phát. Cả hai giá trị đều tính bằng mili giây. Cắt thay đổi cài đặt phát lại mà không sửa đổi dữ liệu video được nhúng.
+Sử dụng [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) và [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) để bỏ qua phần đầu hoặc cuối của video khi phát. Cả hai giá trị đều tính bằng mili giây. Cắt bớt thay đổi cài đặt phát mà không sửa đổi dữ liệu video được nhúng.
 
-**Đặt cài đặt cắt**
+**Cài Đặt Cắt Bớt**
 
-Ví dụ này nhúng video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối trong quá trình phát. Sử dụng video dài hơn 3,5 giây để còn lại phần có thể phát.
+Ví dụ này nhúng một video cục bộ và bỏ qua 2,5 giây đầu và 1 giây cuối khi phát. Sử dụng video dài hơn 3,5 giây để còn lại một đoạn có thể phát.
 
 ```python
 import aspose.slides as slides
@@ -157,9 +157,9 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Đọc cài đặt cắt**
+**Đọc Cài Đặt Cắt Bớt**
 
-Ví dụ này in ra các giá trị cắt của khung video đầu tiên trên slide đầu tiên tính bằng mili giây. Bản thuyết trình phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước đưa ra các giá trị 2500 và 1000.
+Ví dụ này in ra các giá trị cắt của khung video đầu tiên trên slide đầu tiên tính bằng mili giây. Bản trình chiếu phải chứa ít nhất một slide. Nếu slide đó không có khung video, sẽ không in gì. Ví dụ trước đưa ra các giá trị 2500 và 1000.
 
 ```python
 import aspose.slides as slides
@@ -174,13 +174,13 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
             break
 ```
 
-## **Quản lý phụ đề video**
+## **Quản Lý Phụ Đề Video**
 
-Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản thuyết trình PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập qua thuộc tính [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
+Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bản trình chiếu PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập thông qua thuộc tính [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
 
-**Thêm phụ đề vào khung video**
+### **Thêm Phụ Đề vào Khung Video**
 
-Ví dụ này nhúng video cục bộ và thêm một track phụ đề WebVTT có nhãn English. Các dấu thời gian phụ đề phải khớp với video. Bản thuyết trình đã lưu bao gồm cả video và phụ đề của nó.
+Ví dụ này nhúng một video cục bộ và thêm một track phụ đề WebVTT mang nhãn English. Các dấu thời gian phụ đề phải khớp với video. Bản trình chiếu đã lưu sẽ bao gồm cả video và phụ đề của nó.
 
 ```python
 import aspose.slides as slides
@@ -200,9 +200,9 @@ with slides.Presentation() as presentation:
 
 Lớp [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng.
 
-**Trích xuất phụ đề từ khung video**
+### **Trích Xuất Phụ Đề từ Khung Video**
 
-Ví dụ này lưu tất cả track phụ đề từ các khung video trên slide đầu tiên dưới dạng các tệp WebVTT riêng biệt. Các số thứ tự liên tiếp giữ cho các tệp đầu ra không trùng nhau. Console báo cáo số lượng track đã trích xuất. Bản thuyết trình phải chứa ít nhất một slide.
+Ví dụ này lưu tất cả các track phụ đề từ các khung video trên slide đầu tiên thành các tệp WebVTT riêng biệt. Các số thứ tự liên tiếp giữ cho các tệp đầu ra không trùng nhau. Bảng điều khiển in ra số lượng track đã trích xuất. Bản trình chiếu phải chứa ít nhất một slide.
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-Mỗi đối tượng [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) cung cấp mã định danh phụ đề, nhãn, dữ liệu nhị phân và nội dung phụ đề dưới dạng chuỗi UTF-8.
+Mỗi đối tượng [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) tiết lộ định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
 
-**Xóa phụ đề khỏi khung video**
+### **Xóa Phụ Đề khỏi Khung Video**
 
-Ví dụ này xóa tất cả phụ đề khỏi khung video ở vị trí shape đầu tiên trên slide đầu tiên và lưu kết quả. Nó giả định slide và shape tồn tại và shape là một khung video.
+Ví dụ này xóa tất cả phụ đề khỏi khung video tại vị trí hình dạng đầu tiên trên slide đầu tiên và lưu kết quả. Giả định slide và hình dạng tồn tại và hình dạng là một khung video.
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nếu bạn chỉ cần xóa một track phụ đề, hãy sử dụng phương thức [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) hoặc [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) thay vì [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+Nếu bạn chỉ cần xóa một track phụ đề, sử dụng các phương thức [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) hoặc [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) thay vì [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
 
-## **Trích xuất video từ một slide**
+### **Tìm Kiếm Phụ Đề Video**
 
-Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản thuyết trình.
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) trả về toàn bộ track WebVTT, bao gồm tiêu đề, các dòng thời gian và văn bản phụ đề. Ví dụ, một track tiếng Anh trên slide 2 có thể chứa cue sau:
 
-Ví dụ này trích xuất video nhúng từ mọi slide vào các tệp nhị phân đánh số riêng biệt. Video liên kết bị bỏ qua vì chúng không có dữ liệu được nhúng. Console in ra loại MIME của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng `.bin` chung; hãy thay đổi nó để khớp với loại phương tiện được báo cáo khi cần.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Ví dụ này mở `captioned_media.pptx` và đọc [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) của mỗi khung video cấp cao trên mọi slide. Đối với mỗi cue dạng văn bản thuần, nó tìm dòng thời gian chứa `-->` và thu thập các dòng phụ đề cho đến dòng trống tiếp theo hoặc khi track kết thúc. Nó tìm kiếm chuỗi “café” trong văn bản phụ đề mà không phân biệt hoa thường và in ra số slide, nhãn track, dòng thời gian gốc và toàn bộ phụ đề cho mỗi kết quả khớp.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+Track mẫu tạo ra một kết quả khớp. “Café” trong tiêu đề nằm ngoài văn bản phụ đề, và đầu ra giữ nguyên cài đặt thời gian và cả hai dòng phụ đề.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Trích Xuất Video từ Slide**
+
+Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video được nhúng trong bản trình chiếu.
+
+Ví dụ này trích xuất các video đã nhúng từ mọi slide thành các tệp nhị phân riêng, có đánh số. Các video liên kết sẽ bị bỏ qua vì không có dữ liệu nhúng. Bảng điều khiển in ra loại MIME của mỗi video và tổng số. Đầu ra sử dụng phần mở rộng `.bin` chung; khi cần, hãy đổi thành phần mở rộng phù hợp với loại media đã báo cáo.
 
 ```python
 import aspose.slides as slides
@@ -270,20 +319,20 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
     print(f"Embedded videos extracted: {video_count}")
 ```
 
-## **FAQ**
+## **Câu Hỏi Thường Gặp**
 
-**Tham số phát lại video nào có thể được thay đổi cho một khung video?**
+**Những tham số phát lại video nào có thể thay đổi cho một khung video?**
 
-Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (tự động hoặc khi nhấp) và [việc lặp lại](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). Những tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/).
+Bạn có thể điều khiển [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (tự động hoặc khi nhấp) và [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). Các tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/).
 
 **Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, vì vậy kích thước bản thuyết trình tăng tỷ lệ với kích thước tệp. Khi bạn liên kết tới video trực tuyến và thêm hình thu nhỏ, bản thuyết trình chỉ lưu liên kết và ảnh xem trước thay vì dữ liệu video, do đó mức tăng kích thước thường nhỏ hơn.
+Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, do đó kích thước bản trình chiếu tăng tỷ lệ với kích thước tệp video. Khi bạn liên kết tới video trực tuyến và thêm ảnh thu nhỏ, bản trình chiếu chỉ lưu liên kết và ảnh preview thay vì dữ liệu video, vì vậy tăng kích thước thường nhỏ hơn.
 
 **Tôi có thể thay thế video trong một khung video hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể hoán đổi [nội dung video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) trong khung mà vẫn giữ nguyên hình dạng của shape; đây là kịch bản thường gặp để cập nhật phương tiện trong bố cục hiện có.
+Có. Bạn có thể hoán đổi [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) trong khung mà vẫn giữ nguyên hình học của shape; đây là kịch bản phổ biến để cập nhật media trong bố cục đã tồn tại.
 
 **Có thể xác định loại nội dung (MIME) của video được nhúng không?**
 
-Có. Một video được nhúng có [loại nội dung](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.
+Có. Một video được nhúng có [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó ra đĩa.

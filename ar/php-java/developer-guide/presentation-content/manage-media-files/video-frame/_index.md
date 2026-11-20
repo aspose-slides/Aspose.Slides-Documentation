@@ -17,21 +17,21 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides for PHP عبر Java. دليل سريع عملي."
+description: "تعلّم كيفية إضافة واستخراج إطارات الفيديو برمجيًا في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ PHP عبر Java. دليل سريع خطوة بخطوة."
 ---
 ## **المقدمة**
 
-يمكن للفيديوهات أن تساعد في شرح الأفكار وإشراك الجمهور. تتيح لك Aspose.Slides for PHP عبر Java إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة الترجمات، واستخراج بيانات الفيديو المضمنة.
+يمكن للفيديوهات أن تساعد في توضيح الأفكار وجذب الجمهور. يتيح Aspose.Slides for PHP عبر Java إمكانية إضافة إطارات فيديو إلى الشرائح، وضبط إعدادات التشغيل، وإدارة التسميات التوضيحية، واستخراج بيانات الفيديو المضمنة.
 
-يدعم PowerPoint الفيديوهات المحلية والروابط إلى الفيديوهات على الإنترنت، مثل فيديوهات YouTube.
+يدعم PowerPoint مقاطع الفيديو المحلية وروابط مقاطع الفيديو على الإنترنت، مثل مقاطع YouTube.
 
-لتمثيل بيانات الفيديو وإطارات الفيديو، توفر Aspose.Slides الفئة [فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/video/)، الفئة [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/)، وأنواع أخرى ذات صلة.
+لتمثيل بيانات الفيديو وإطارات الفيديو، يوفر Aspose.Slides الفئة [Video](https://reference.aspose.com/slides/php-java/aspose.slides/video/) والفئة [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) وأنواع أخرى ذات صلة.
 
 ## **إنشاء إطار فيديو مضمّن**
 
-إذا كان ملف الفيديو الذي تريد إضافته إلى شريحتك مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
+إذا كان ملف الفيديو الذي تريد إضافةه إلى شريحتك مخزّنًا محليًا، يمكنك إنشاء إطار فيديو لتضمين الفيديو في عرضك التقديمي.
 
-يقوم هذا المثال بتضمين فيديو محلي على الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدات النقاط. يبقى التيار مفتوحًا حتى ينتهي الحفظ لأن [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) يبقيه مقفولًا أثناء استخدام العرض التقديمي له.
+يضمن هذا المثال فيديوً محليًا على الشريحة الأولى من عرض تقديمي موجود ويحفظ النتيجة. إحداثيات الإطار وأبعاده بوحدات النقاط. يظل التدفق مفتوحًا حتى تنتهي عملية الحفظ لأن [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/php-java/aspose.slides/loadingstreambehavior/) يبقيه مقفلًا أثناء استخدام العرض التقديمي له.
 
 ```php
 use aspose\slides\LoadingStreamBehavior;
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-يمكنك أيضًا تمرير مسار الفيديو المحلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). يقوم هذا المثال بتضمين الفيديو على الشريحة الأولى من عرض تقديمي جديد. يجب أن يظل الفيديو متاحًا حتى يتم حفظ العرض التقديمي.
+يمكنك أيضًا تمرير مسار فيديو محلي مباشرة إلى [addVideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addVideoFrame). يضمن هذا المثال الفيديو على الشريحة الأولى من عرض تقديمي جديد. يجب أن يبقى الفيديو قابلاً للوصول حتى يتم حفظ العرض التقديمي.
 
 ```php
 use aspose\slides\Presentation;
@@ -76,9 +76,9 @@ try {
 
 ## **إنشاء إطار فيديو مع فيديو من مصدر ويب**
 
-يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) الفيديوهات عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يرتبط بفيديو عبر الإنترنت، مثل فيديو YouTube.
+يدعم Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) مقاطع الفيديو عبر الإنترنت في العروض التقديمية. يمكنك إنشاء إطار فيديو يربط إلى فيديو على الإنترنت، مثل فيديو YouTube.
 
-يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. طريقة [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) تطلب تشغيلًا تلقائيًا. تنزيل الصورة المصغرة وتشغيل الفيديو يتطلبان اتصالًا بالإنترنت. يجب أن يدعم عارض العرض التقديمي أيضًا تشغيل الفيديو عبر الإنترنت.
+يضيف هذا المثال رابط فيديو YouTube وصورة مصغرة إلى الشريحة الأولى. استبدل معرف الفيديو لاستخدام فيديو آخر. تطلب طريقة [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) التشغيل التلقائي. يتطلب تحميل الصورة المصغرة وتشغيل الفيديو اتصالًا بالإنترنت. يجب أن يدعم عارض العرض التقديمي أيضًا تشغيل الفيديو عبر الإنترنت.
 
 ```php
 use aspose\slides\Presentation;
@@ -112,9 +112,9 @@ try {
 
 ## **تشغيل فيديو في وضع ملء الشاشة**
 
-في عرض تدريبي، يمكنك تشغيل عرض توضيحي للبرنامج في وضع ملء الشاشة بحيث يراها الجمهور بالتفصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) مع `true` لتمكين هذا السلوك أثناء التشغيل.
+في عرض تقديمي تدريبي، يمكنك تشغيل عرض توضيحي للبرنامج في وضع ملء الشاشة حتى يتمكن الجمهور من رؤية التفاصيل. استدعِ [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode) مع `true` لتمكين هذا السلوك أثناء التشغيل.
 
-يفتح هذا المثال عرضًا تقديميًا، يجد أول [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل مع إطار فيديو موجود في الشريحة الأولى.
+يفتح هذا المثال عرض تقديمي، يجد أول [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل تشغيل ملء الشاشة. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-تشغيل ملء الشاشة يتحكم في طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) في ما إذا كان يبدأ تلقائيًا أو عند النقر، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) في ما إذا كان يكرّر. لاختيار سلوك البدء، عيّن وضع التشغيل إلى [VideoPlayModePreset::Auto أو VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
+يتحكم تشغيل ملء الشاشة في طريقة عرض الفيديو. بشكل مستقل، تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) فيما إذا كان يبدأ تلقائيًا أو بنقرة، وتتحكم [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) فيما إذا كان يكرر. لاختيار سلوك البدء، اضبط وضع التشغيل على [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/). يحافظ المثال على إعدادات البدء والتكرار الحالية.
 
-## **إعادة تموضع الفيديو بعد التشغيل**
+## **إرجاع الفيديو إلى البداية بعد التشغيل**
 
-في عرض تدريبي، إعادة تشغيل فيديو التوضيح إلى بدايته يجعلها جاهزة للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) مع `true` لإرجاع الفيديو إلى بدايته بعد انتهاء التشغيل.
+في عرض تقديمي تدريبي، إرجاع فيديو العرض إلى بدايته يجعله جاهزًا للمقدم لتشغيله مرة أخرى. استدعِ [setRewindVideo](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setRewindVideo) مع `true` لإرجاع الفيديو إلى البداية بعد انتهاء التشغيل.
 
-يفتح هذا المثال عرضًا تقديميًا، يجد أول [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل الإعادة إلى البداية. يعطل التكرار حتى يتمكن التشغيل من الانتهاء ويعيّن التشغيل للبدء عند النقر. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل مع إطار فيديو موجود في الشريحة الأولى.
+يفتح هذا المثال عرضًا تقديميًا، يجد أول [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/) في الشريحة الأولى، ويفعل الإرجاع. يعطل التكرار حتى يمكن انتهاء التشغيل ويضبط التشغيل للبدء عند النقر. يجب أن يحتوي عرض الإدخال على شريحة واحدة على الأقل تحتوي على إطار فيديو موجود في الشريحة الأولى.
 
 ```php
 use aspose\slides\Presentation;
@@ -175,15 +175,15 @@ try {
 }
 ```
 
-الإعادة إلى البداية تُعيد الفيديو إلى بدايته دون تشغيله مرة أخرى. على النقيض من ذلك، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) مع `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويبقى جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) بشكل مستقل في التشغيل التلقائي أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) بحيث يسيطر المقدم على بدء التشغيل. عيّن وضع التشغيل بعد إعداد التكرار، كما هو موضح في المثال. تعمل الإعادة إلى البداية بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
+إرجاع الفيديو يعيده إلى بدايته دون تشغيله مرة أخرى. على العكس، استدعاء [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode) مع `true` يكرر التشغيل تلقائيًا. أبقِ التكرار معطلاً عندما تريد أن ينتهي الفيديو ويظل جاهزًا لإعادة التشغيل. تتحكم [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) بشكل مستقل في بدء التشغيل تلقائيًا أو عند النقر؛ يستخدم هذا المثال [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/php-java/aspose.slides/videoplaymodepreset/) بحيث يتحكم المقدم في توقيت بدء التشغيل. اضبط وضع التشغيل بعد إعداد التكرار، كما هو موضح في المثال. يعمل إرجاع الفيديو بشكل مستقل عن [setFullScreenMode](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setFullScreenMode).
 
-## **قص إطار فيديو**
+## **تقليم إطار فيديو**
 
-استخدم [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) لتخطي جزء من بداية أو نهاية الفيديو أثناء التشغيل. كلا القيمتين بوحدة المللي ثانية. القص يغيّر إعدادات التشغيل دون تعديل بيانات الفيديو المضمّن.
+استخدم [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromStart) و[VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setTrimFromEnd) لتجاوز جزء من بداية أو نهاية الفيديو أثناء التشغيل. القيمتان بوحدة المليثانية. يغير التقليم إعدادات التشغيل دون تعديل بيانات الفيديو المضمنة.
 
-**إعدادات القص**
+**تعيين إعدادات التقليم**
 
-يقوم هذا المثال بتضمين فيديو محلي ويتخطى أول 2.5 ثانية وآخر ثانية واحدة أثناء التشغيل. استخدم فيديوً أطول من 3.5 ثانية حتى يبقى جزء قابل للتشغيل.
+يضمن هذا المثال فيديوً محليًا ويتخطى الثواني الأولى 2.5 والثانية الأخيرة أثناء التشغيل. استخدم فيديوًا أطول من 3.5 ثوانٍ بحيث يبقى جزء قابل للتشغيل.
 
 ```php
 use aspose\slides\Presentation;
@@ -208,9 +208,9 @@ try {
 }
 ```
 
-**قراءة إعدادات القص**
+**قراءة إعدادات التقليم**
 
-يطبع هذا المثال قيم قص أول إطار فيديو على الشريحة الأولى بالمللي ثانية. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لا يُطبع شيء. ينتج المثال السابق قيمتين 2500 و1000.
+يطبع هذا المثال قيم التقليم لأول إطار فيديو في الشريحة الأولى بالمليثانية. يجب أن يحتوي العرض على شريحة واحدة على الأقل. إذا لم تحتوي تلك الشريحة على إطار فيديو، لن يُطبع شيء. ينتج المثال السابق القيم 2500 و1000.
 
 ```php
 use aspose\slides\Presentation;
@@ -234,13 +234,13 @@ try {
 }
 ```
 
-## **إدارة ترجمات الفيديو**
+## **إدارة تسميات الفيديو**
 
-تسمح لك Aspose.Slides بإدارة الترجمات المغلقة لإطارات الفيديو في عروض PowerPoint. تُخزن الترجمات بتنسيق WebVTT وتُظهر عبر طريقة [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
+يتيح Aspose.Slides لك إدارة التسمية التوضيحية المغلقة لإطارات الفيديو في عروض PowerPoint. تُحفظ التسميات في صيغة WebVTT وتُعرض عبر طريقة [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**إضافة ترجمات إلى إطار فيديو**
+### **إضافة تسميات إلى إطار فيديو**
 
-يقوم هذا المثال بتضمين فيديو محلي ويضيف مسار ترجمة WebVTT معلم بـ "English". يجب أن تتطابق طوابع زمنية الترجمة مع الفيديو. يتضمن العرض التقديمي المحفوظ كلًا من الفيديو وترجماته.
+يضمن هذا المثال فيديوً محليًا ويضيف مسار تسمية WebVTT مع تسمية English. يجب أن تتطابق طوابع التوقيت مع الفيديو. يتضمن العرض الم保存 الفيديو وتسميعاته.
 
 ```php
 use aspose\slides\Presentation;
@@ -264,11 +264,11 @@ try {
 }
 ```
 
-توفر الفئة [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) أيضًا حملًا إضافيًا يتيح لك إضافة الترجمات من تدفق.
+توفر فئة [CaptionsCollection](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/) أيضًا نسخة مُحمّلة تسمح لك بإضافة تسميات من تدفق.
 
-**استخراج ترجمات من إطار فيديو**
+### **استخراج التسميات من إطار فيديو**
 
-يحفظ هذا المثال جميع مسارات الترجمات من إطارات الفيديو على الشريحة الأولى كملفات WebVTT منفصلة. تُستخدم الأرقام المتسلسلة للحفاظ على تميز ملفات الإخراج. يسجل الطرفية عدد المسارات المستخرجة. يجب أن يحتوي العرض التقديمي على شريحة واحدة على الأقل.
+يحفظ هذا المثال جميع مسارات التسميات من إطارات الفيديو في الشريحة الأولى كملفات WebVTT منفصلة. تحافظ الأرقام المتتالية على تميز ملفات الإخراج. يوضح وحدة التحكم عدد المسارات المستخرجة. يجب أن يحتوي العرض على شريحة واحدة على الأقل.
 
 ```php
 use aspose\slides\Presentation;
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-كل كائن [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) يكشف عن معرف الترجمة، اللقب، البيانات الثنائية، ونص الترجمة كسلسلة UTF-8.
+كل كائن من نوع [Captions](https://reference.aspose.com/slides/php-java/aspose.slides/captions/) يكشف عن معرّف التسمية، والملصق، والبيانات الثنائية، ونص التسمية كسلسلة UTF-8.
 
-**إزالة ترجمات من إطار فيديو**
+### **إزالة التسميات من إطار فيديو**
 
-يزيل هذا المثال جميع الترجمات من إطار الفيديو في أول موضع شكل على الشريحة الأولى ويحفظ النتيجة. يفترض وجود الشريحة والشكل وأن الشكل هو إطار فيديو.
+يزيل هذا المثال جميع التسميات من إطار الفيديو الموجود في الموضع الأول للشكل في الشريحة الأولى ويحفظ النتيجة. يفترض أن الشريحة والشكل موجودان وأن الشكل هو إطار فيديو.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +326,77 @@ try {
 }
 ```
 
-إذا كنت بحاجة إلى إزالة مسار ترجمة واحد فقط، استخدم طريقة [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) بدلًا من [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+إذا كنت تحتاج إلى إزالة مسار تسمية واحد فقط، استخدم طريقتي [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) أو [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) بدلاً من [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear).
+
+### **بحث عن تسميات الفيديو**
+
+ترجع [Captions::getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) المسار الكامل WebVTT، بما في ذلك الرأس، وخطوط التوقيت، ونص التسمية. يمكنك البحث في الإشارات في الذاكرة للعثور على عبارة منطوقة وطابعها الزمني. على سبيل المثال، قد يحتوي مسار English في الشريحة 2 على النص التالي.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+يفتح المثال `captioned_media.pptx` ويستخدم [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#getCaptionTracks) لقراءة مسارات كل إطار فيديو من المستوى الأعلى في كل شريحة. في إشارة نصية عادية، يحتوي خط التوقيت على `-->`، ويسطر فارغ ينهي الإشارة. عندما تحتوي التسمية على كلمة “café” بأي حالة حرفية، يطبع المثال رقم الشريحة، وملصق المسار، وخط التوقيت الأصلي، والتسمية الكاملة.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("captioned_media.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+                continue;
+            }
+            $trackCount = java_values($shape->getCaptionTracks()->getCount());
+            for ($index = 0; $index < $trackCount; $index++) {
+                $track = $shape->getCaptionTracks()->get_Item($index);
+                $lines = preg_split('/\r\n|\n|\r/', java_values($track->getDataAsString()));
+                $lineCount = count($lines);
+                for ($i = 0; $i < $lineCount; $i++) {
+                    $timing = $lines[$i];
+                    if (strpos($timing, "-->") === false) {
+                        continue;
+                    }
+                    $captionLines = [];
+                    while (++$i < $lineCount && $lines[$i] !== "") {
+                        $captionLines[] = $lines[$i];
+                    }
+                    $caption = implode("\n", $captionLines);
+                    if (preg_match('/café/iu', $caption)) {
+                        printf("Slide %d | %s | %s\n", java_values($slide->getSlideNumber()), java_values($track->getLabel()), $timing);
+                        echo $caption, "\n";
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+تنتج عملية البحث عن كلمة “café” تطابقًا واحدًا للمسار التجريبي. يستبعد البحث رأس المسار ويحافظ على إعداد التوقيت في الناتج.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **استخراج فيديو من شريحة**
 
-بالإضافة إلى إضافة فيديوهات إلى الشرائح، تتيح لك Aspose.Slides استخراج الفيديوهات المضمنة في العروض التقديمية.
+إلى جانب إضافة مقاطع الفيديو إلى الشرائح، يتيح Aspose.Slides استخراج مقاطع الفيديو المضمنة في العروض التقديمية.
 
-يستخرج هذا المثال الفيديوهات المضمنة من كل شريحة إلى ملفات ثنائية منفصلة مرقمة. تُهمل الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مضمَّنة. يطبع الطرفية نوع MIME لكل فيديو وإجمالي العدد. يستخدم الإخراج الامتداد العام `.bin`؛ عدّل الامتداد ليتطابق مع نوع الوسائط المُبلغ عنه عند الحاجة.
+يستخرج هذا المثال مقاطع الفيديو المضمنة من كل شريحة إلى ملفات ثنائية منفصلة ومرقمة. تُتخطى الفيديوهات المرتبطة لأنها لا تحتوي على بيانات مدمجة. تطبع وحدة التحكم نوع MIME لكل فيديو والعدد الإجمالي. يستخدم الإخراج الامتداد العام `.bin`؛ غيّره ليتطابق مع نوع الوسائط المبلغ عنه عند الحاجة.
 
 ```php
 use aspose\slides\Presentation;
@@ -372,20 +436,20 @@ try {
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هي معلمات تشغيل الفيديو التي يمكن تعديلها لإطار الفيديو؟**
+**ما هي معلمات تشغيل الفيديو التي يمكن تغييرها لإطار الفيديو؟**
 
-يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (تلقائي أو عند النقر) و[التكرار](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). تتوفر هذه الخيارات عبر طرق كائن [إطار فيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
+يمكنك التحكم في [وضع التشغيل](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayMode) (تلقائي أو بنقرة) و[التكرار](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setPlayLoopMode). تتوفر هذه الخيارات عبر طرق كائن [VideoFrame](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/).
 
 **هل يؤثر إضافة فيديو على حجم ملف PPTX؟**
 
-نعم. عندما تُضمّن فيديو محلي، تُضمّن البيانات الثنائية في المستند، فيزداد حجم العرض التقديمي بما يتناسب مع حجم الملف. عند ربط فيديو عبر الإنترنت وإضافة صورة مصغرة، يخزن العرض التقديمي الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا يكون الزيادة عادة أصغر.
+نعم. عندما تدمج فيديوً محليًا، تُضمَّن البيانات الثنائية في المستند، فيزداد حجم العرض بنسبة حجم الملف. عندما تربط فيديوًا على الإنترنت وتضيف صورة مصغرة، يخزن العرض الرابط وصورة المعاينة بدلاً من بيانات الفيديو، لذا عادة ما يكون الزيادة أصغر.
 
-**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موضعه وحجمه؟**
+**هل يمكنني استبدال الفيديو في إطار فيديو موجود دون تغيير موقعه وحجمه؟**
 
-نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) داخل الإطار مع الحفاظ على هندسة الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
+نعم. يمكنك استبدال [محتوى الفيديو](https://reference.aspose.com/slides/php-java/aspose.slides/videoframe/#setEmbeddedVideo) داخل الإطار مع الحفاظ على أبعاد الشكل؛ هذا سيناريو شائع لتحديث الوسائط في تخطيط موجود.
 
 **هل يمكن تحديد نوع المحتوى (MIME) للفيديو المضمّن؟**
 
-نعم. للفيديو المضمّن [نوع محتوى](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه على القرص.
+نعم. للفيديو المضمّن [نوع محتوى](https://reference.aspose.com/slides/php-java/aspose.slides/video/#getContentType) يمكنك قراءته واستخدامه، على سبيل المثال عند حفظه إلى القرص.

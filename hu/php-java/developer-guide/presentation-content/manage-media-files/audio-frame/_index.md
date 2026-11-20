@@ -1,5 +1,5 @@
 ---
-title: Hangkezelés prezentációkban PHP használatával
+title: Hangkeretek kezelése prezentációkban PHP használatával
 linktitle: Hangkeret
 type: docs
 weight: 10
@@ -9,215 +9,223 @@ keywords:
 - hangkeret
 - bélyegkép
 - hang hozzáadása
-- hang tulajdonságok
-- hang beállítások
+- hang tulajdonságai
+- hang beállításai
 - hang kinyerése
 - PHP
 - Aspose.Slides
-description: "Audio keretek létrehozása és vezérlése az Aspose.Slides for PHP-ban – példakódok a beágyazáshoz, vágáshoz, ismétléshez és a lejátszás konfigurálásához PPT, PPTX és ODP prezentációkban."
+description: "Ágyazz be hangot a diákba, módosítsd a hang ikont, állítsd be a lejátszást, kezeld a WebVTT feliratokat, és nyerd ki a diákátmenet hangjait az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan dolgozhat az audio keretekkel az Aspose.Slides-ben. Megmutatja, hogyan adhat beágyazott hangot a diához, testreszabhatja az audio keret bélyegképét, konfigurálhatja a lejátszási beállításokat, például hangerőt, ismétlést, elrejtést, vágást és áttűnési időket, valamint kinyerheti a diavetítés átmeneteihez használt hangot.
+Az audio keret lehetővé teszi, hogy hangot játssz le egy dián. Az Aspose.Slides for PHP via Java segítségével beágyazhatsz egy audio klipet, kiválaszthatod a képét, amely azt reprezentálja, beállíthatod a lejátszást, és felveheted a feliratokat. A diákátmenethez rendelt hangot is lekérheted.
 
-## **Audio keretek létrehozása**
+## **Hangkeretek létrehozása**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi, hogy hangfájlokat adjon a diáknál. A hangfájlok beágyazott audio keretként kerülnek a diákba.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-2. Szerezze meg a dia referenciáját az indexe alapján.
-3. Töltse be a beágyazni kívánt hangfájl adatfolyamát.
-4. Adja hozzá a beágyazott audio keretet (amely a hangfájlt tartalmazza) a diahoz.
-5. Állítsa be a [PlayMode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/AudioPlayModePreset) és a `Volume` értékeket, amelyeket a [AudioFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/) objektum biztosít.
-6. Mentse el a módosított prezentációt.
-
-Ez a PHP kód megmutatja, hogyan adjon beágyazott audio keretet egy diához:
+Használd a [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/) metódust egy helyi audio klip beágyazásához az első diára. Az első két koordináta pozícionálja a keretet a dián, a következő két érték a szélességét és magasságát állítja be pontokban. Ez a példa meghívja a [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) metódust a klip automatikus indításához, és a [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) metódust a hangos előbeállítás kiválasztásához.
 
 ```php
-// Létrehozza a Presentation osztály egy példányát, amely egy prezentációs fájlt képvisel
-$pres = new Presentation();
-try {
-    # Megkapja az első diát
-    $sld = $pres->getSlides()->get_Item(0);
-    # Betölti a wav hangfájlt adatfolyamként
-    $fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
-    # Hozzáadja az Audio Frame-et
-    $audioFrame = $sld->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $fstr);
-    $fstr->close();
-    # Beállítja a lejátszási módot és a hangerőt az Audio számára
-    $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
-    $audioFrame->setVolume(AudioVolumeMode->Loud);
-    # Kiírja a PowerPoint fájlt a lemezre
-    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
-} catch(JavaException e) {
-} finally {
-    if (!java_is_null($pres)) $pres.dispose();
-}
-```
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Audio keret bélyegképének módosítása**
-
-Amikor hangfájlt ad a prezentációhoz, a hang egy keretként jelenik meg egy szabványos alapértelmezett képpel (lásd az alábbi szekcióban látható képet). A hangkeret előnézeti képét módosíthatja (állítsa be a kívánt képet).
-
-Ez a PHP kód megmutatja, hogyan módosíthatja egy audio keret bélyegképét vagy előnézeti képét:
-
-```php
 $presentation = new Presentation();
 try {
-	$slide = $presentation->getSlides()->get_Item(0);
-	# Hozzáad egy audio keretet a diára a megadott pozícióval és mérettel.
-	$audioStream = new Java("java.io.FileInputStream", "sample2.mp3");
-	$audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
-	$audioStream->close();
-	# Hozzáad egy képet a prezentáció erőforrásaihoz.
-	$picture;
-	$image = Images->fromFile("eagle.jpeg");
-	try {
-		$picture = $presentation->getImages()->addImage($image);
-	} finally {
-		if (!java_is_null($image)) {
-			$image->dispose();
-		}
-	}
-	# Beállítja a képet az audio kerethez.
-	$audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
+    $slide = $presentation->getSlides()->get_Item(0);
 
-	# Elmenti a módosított prezentációt a lemezre
-	$presentation->save("example_out.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->setPlayMode(AudioPlayModePreset::Auto);
+    $audioFrame->setVolume(AudioVolumeMode::Loud);
+
+    $presentation->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } finally {
-	if (!java_is_null($presentation)) {
-		$presentation->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
-## **Audio lejátszási beállítások módosítása**
+## **Az audio keret bélyegképének módosítása**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi, hogy megváltoztassa a hang lejátszását vagy tulajdonságait szabályozó beállításokat. Például módosíthatja a hangerőt, beállíthatja a hang ismételt lejátszását, vagy akár elrejtheti a hang ikont.
-
-A Microsoft PowerPoint **Audio Options** ablaka:
-
-![example1_image](audio_frame_0.png)
-
-A PowerPoint **Audio Options** beállítások, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-
-- **Start** legördülő lista megfelel az [AudioFrame::setPlayMode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setPlayMode) metódusnak
-- **Volume** megfelel az [AudioFrame::setVolume](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setVolume) metódusnak
-- **Play Across Slides** megfelel az [AudioFrame::setPlayAcrossSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setPlayAcrossSlides) metódusnak
-- **Loop until Stopped** megfelel az [AudioFrame::setPlayLoopMode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setPlayLoopMode) metódusnak
-- **Hide During Show** megfelel az [AudioFrame::setHideAtShowing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setHideAtShowing) metódusnak
-- **Rewind after Playing** megfelel az [AudioFrame::setRewindAudio](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setRewindAudio) metódusnak
-
-A PowerPoint **Editing** beállításai, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-
-- **Fade In** megfelel a [AudioFrame::setFadeInDuration](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setFadeInDuration) metódusnak
-- **Fade Out** megfelel a [AudioFrame::setFadeOutDuration](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setFadeOutDuration) metódusnak
-- **Trim Audio Start Time** megfelel a [AudioFrame::setTrimFromStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setTrimFromStart) metódusnak
-- **Trim Audio End Time** értéke megegyezik a hang időtartamával mínusz a [AudioFrame::setTrimFromEnd](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setTrimFromEnd) metódus értékével
-
-A PowerPoint **Volume controll** a hangvezérlő panelen a [AudioFrame::setVolumeValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#setVolumeValue) metódusnak felel meg. Lehetővé teszi a hangerő százalékos módosítását.
-
-Így módosíthatja az Audio Play beállításokat:
-
-1. [Сreate](#create-audio-frame) vagy szerezze be az Audio Frame-et.
-2. Állítson be új értékeket az Audio Frame azon tulajdonságaihoz, amelyeket módosítani szeretne.
-3. Mentse el a módosított PowerPoint fájlt.
-
-Ez a PHP kód bemutat egy olyan műveletet, amelyben egy hang beállításai módosulnak:
+Alapértelmezés szerint egy audio keret a hangszóró ikont jeleníti meg. Egy egyéni bélyegkép megjelenítéséhez adj egy képet a prezentációhoz a [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) segítségével, és állítsd be a keret képeként a [setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/setimage/) metódussal. A példa egy JPEG-et használ bélyegképként a beágyazott audio kliphez.
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
 try {
-    # Lekéri az AudioFrame alakzatot
-    $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    # Beállítja a lejátszási módot kattintásra
-    $audioFrame->setPlayMode(AudioPlayModePreset->OnClick);
-    # Beállítja a hangerőt alacsonyra
-    $audioFrame->setVolume(AudioVolumeMode->Low);
-    # Beállítja a hangot, hogy a diákon át lejátszódjon
-    $audioFrame->setPlayAcrossSlides(true);
-    # Letiltja a hang ismétlését
-    $audioFrame->setPlayLoopMode(false);
-    # Elrejti az AudioFrame-et a diavetítés alatt
-    $audioFrame->setHideAtShowing(true);
-    # Visszatekeri a hangot a kezdőpontra a lejátszás után
-    $audioFrame->setRewindAudio(true);
-    # Elmenti a PowerPoint fájlt a lemezre
-    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(150, 100, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+
+    $imageStream = new Java("java.io.FileInputStream", "eagle.jpeg");
+    try {
+        $thumbnail = $presentation->getImages()->addImage($imageStream);
+    } finally {
+        $imageStream->close();
+    }
+    $audioFrame->getPictureFormat()->getPicture()->setImage($thumbnail);
+
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
-Ez a PHP példa megmutatja, hogyan adjon hozzá egy új audio keretet beágyazott hanggal, hogyan vágja le, és hogyan állítsa be az áttűnési időket:
+## **Az audio lejátszási beállítások módosítása**
+
+A PowerPoint **Audio Options** vezérlői határozzák meg, hogy mikor indul a klip, milyen hangerővel szól, és hogyan viselkedik a diavetítés során.
+
+![PowerPoint audio beállítási vezérlők egy audio kerethez](audio_frame_0.png)
+
+| PowerPoint vezérlő | Aspose.Slides for PHP via Java metódus |
+| --- | --- |
+| Indítás | [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) |
+| Hangerő előbeállítás | [setVolume](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setvolume/) |
+| Lejátszás diák között | [setPlayAcrossSlides](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayacrossslides/) |
+| Ismétlés leállításig | [setPlayLoopMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplayloopmode/) |
+| Elrejtés bemutató alatt | [setHideAtShowing](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/sethideatshowing/) |
+| Visszatekerés lejátszás után | [setRewindAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setrewindaudio/) |
+| Beúsztatás | [setFadeInDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Kiesés | [setFadeOutDuration](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Kezdeti idő vágása | [setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Vége idő vágása | [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Hangerő csúszka | [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) |
+
+A példa megtalálja az első audio keretet az első dián, meghívja a [setPlayMode](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setplaymode/) metódust a lejátszás kattintásra indításához, és az alacsony hangerő előbeállítást választja. A klip a diákon át folytatódik, a ciklus le van tiltva. Az ikon rejtve marad a bemutató alatt, és a klip a lejátszás után visszatekerődik.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\AudioPlayModePreset;
+use aspose\slides\AudioVolumeMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    $audioData = file_get_contents("sampleaudio.mp3");
-    $audio = $pres->getAudios()->addAudio($audioData);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audio);
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    // Beállítja a vágás kezdőeltolását 1,5 másodpercre
+    if ($audioFrame !== null) {
+        $audioFrame->setPlayAcrossSlides(true);
+        $audioFrame->setPlayLoopMode(false);
+        $audioFrame->setPlayMode(AudioPlayModePreset::OnClick);
+        $audioFrame->setVolume(AudioVolumeMode::Low);
+        $audioFrame->setHideAtShowing(true);
+        $audioFrame->setRewindAudio(true);
+
+        $presentation->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+3,5 másodpercnél hosszabb klip esetén ez a példa kihagyja az első 1,5 másodpercet és az utolsó 2 másodpercet. A [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) a klip végéről elhagyandó időt veszi. A PowerPointban látható végidő megszerzéséhez vonja le ezt az eltolást a teljes klip hosszából. A vágott klip 200 ms alatt húzódik be és 500 ms alatt húzódik ki. Mind a négy metódus értékei ezredmásodpercben értendők.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(50, 50, 100, 100, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
     $audioFrame->setTrimFromStart(1500);
-    // Beállítja a vágás befejező eltoltását 2 másodpercre
     $audioFrame->setTrimFromEnd(2000);
-
-    // Beállítja a belépő áttűnés időtartamát 200 ms-re
     $audioFrame->setFadeInDuration(200);
-    // Beállítja a kilépő áttűnés időtartamát 500 ms-re
     $audioFrame->setFadeOutDuration(500);
 
-    $pres->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
+    $presentation->save("AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-A következő kódrészlet megmutatja, hogyan szerezzen be egy beágyazott hanggal rendelkező audio keretet, és állítsa be a hangerőét 85%-ra:
+A lejátszási hangerő egy adott százalékra állításához használd a [setVolumeValue](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setVolumeValue) metódust. Ez a példa az első audio keretet az első dián 85%-ra állítja.
 
 ```php
-$pres = new Presentation("AudioFrameEmbed_out.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    $slide = $pres->getSlides()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Lekéri egy audio keret alakzatot
-    $audioFrame = $slide->getShapes()->get_Item(0);
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    // Beállítja a hanghangerőt 85%-ra
-    $audioFrame->setVolumeValue(85);
-
-    $pres->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
-}
-finally {
-    $pres->dispose();
+    if ($audioFrame !== null) {
+        $audioFrame->setVolumeValue(85);
+        $presentation->save("AudioFrameValue_out.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
 }
 ```
 
 ## **Audio feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi, hogy a [getCaptionTracks](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#getCaptionTracks) metódussal zárt feliratokat adjon egy audio kerethez. Ez a metódus egy [CaptionsCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/captionscollection/) objektumot ad vissza, amely lehetővé teszi WebVTT feliratsávok hozzáadását, a meglévő sávok bejárását és azok szükség szerinti eltávolítását.
+Minden audio keret hozzáférést biztosít a feliratsávjaihoz a [getCaptionTracks](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#getCaptionTracks) segítségével. Használd a gyűjteményt WebVTT feliratok csatolásához a kliphez, meglévő sávok exportálásához vagy eltávolításához.
 
-**Audio feliratok hozzáadása**
+### **Audio feliratok hozzáadása**
 
-Használja a [getCaptionTracks](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/#getCaptionTracks) metódust, hogy egy vagy több feliratsávot csatoljon egy audio kerethez. A következő példában egy hangfájlt adnak hozzá egy diához, majd egy új feliratsávot töltenek be egy `.vtt` fájlból.
+A példa egy audio klipet ágyaz be az első diára, és a [add](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#add) metódust használja egy helyi WebVTT sáv csatolásához. Az első argumentum a sáv címkéjét adja meg, a második pedig a időzített feliratokat tartalmazó fájlt határozza meg.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $audioData = file_get_contents("audio.mp3");
-    $audio = $presentation->getAudios()->addAudio($audioData);
-
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audio);
 
-    // Új feliratsáv hozzáadása egy WebVTT fájlból.
-    $audioFrame->getCaptionTracks()->add("New track", "track.vtt");
+    $audioStream = new Java("java.io.FileInputStream", "audio.wav");
+    try {
+        $audioFrame = $slide->getShapes()->addAudioFrameEmbedded(10, 10, 50, 50, $audioStream);
+    } finally {
+        $audioStream->close();
+    }
+    $audioFrame->getCaptionTracks()->add("English", "track.vtt");
 
     $presentation->save("audio_with_captions.pptx", SaveFormat::Pptx);
 } finally {
@@ -225,25 +233,36 @@ try {
 }
 ```
 
-**Audio feliratok kinyerése**
+### **Audio feliratok kinyerése**
 
-Bejárhatja az audio kerethez társított feliratsávokat, és elmentheti őket `.vtt` fájlokként. Minden feliratsáv kiadja a bináris adatait és egyedi azonosítóját, amely felhasználható a feliratok exportálásakor.
+Ez a példa exportálja az első dián egy audio kerethez csatolt minden feliratsávot. A [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getBinaryData) által visszaadott bájtokat egy WebVTT fájlba írja, és a [getCaptionId](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getCaptionId) által visszaadott azonosítót használja fájlnévként, így minden sáv külön kimenettel rendelkezik.
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shapeCount = java_values($slide->getShapes()->size());
-    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
-        $shape = $slide->getShapes()->get_Item($shapeIndex);
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AudioFrame"))) {
-            $audioFrame = $shape;
-            $trackCount = java_values($audioFrame->getCaptionTracks()->getCount());
-            for ($trackIndex = 0; $trackIndex < $trackCount; $trackIndex++) {
-                $captionTrack = $audioFrame->getCaptionTracks()->get_Item($trackIndex);
-                // Ments minden feliratsávot .vtt fájlként.
-                $filePath = $captionTrack->getCaptionId() . ".vtt";
-                file_put_contents($filePath, $captionTrack->getBinaryData());
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $fileName = $track->getCaptionId() . ".vtt";
+            $audioCaptions = $track->getBinaryData();
+            $output = new Java("java.io.FileOutputStream", $fileName);
+            try {
+                $output->write($audioCaptions);
+            } finally {
+                $output->close();
             }
         }
     }
@@ -252,20 +271,77 @@ try {
 }
 ```
 
-**Audio feliratok eltávolítása**
+### **Audio feliratok eltávolítása**
 
-Az audio keret feliratait a [CaptionsCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/captionscollection/) által biztosított metódusokkal távolíthatja el, például a [clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/captionscollection/#remove), vagy a [removeAt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/captionscollection/#removeAt) metódusokkal. Az alábbi példa eltávolítja az összes feliratsávot egy audio keretből.
+Használd a [remove](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#remove) vagy [removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#removeAt) metódust egy egyedi sáv törléséhez. A példa a [clear](https://reference.aspose.com/slides/php-java/aspose.slides/captionscollection/#clear) metódust használja az első audio keret összes feliratának eltávolításához az első dián, miközben a klip megmarad.
 
 ```php
-$presentation = new Presentation($folderPath . "audio_with_captions.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("audio_with_captions.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $audioFrame = $slide->getShapes()->get_Item(0); // típus: AudioFrame
 
-    // Az összes feliratsáv eltávolítása az audio keretből.
-    $audioFrame->getCaptionTracks()->clear();
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $audioFrame = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (java_instanceof($shape, $audioFrameType)) {
+            $audioFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save($folderPath . "audio_without_captions.pptx", SaveFormat::Pptx);
+    if ($audioFrame !== null) {
+        $audioFrame->getCaptionTracks()->clear();
+        $presentation->save("audio_without_captions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The first slide has no audio frame.\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Sor keresése audio feliratokban**
+
+Hogy megtalálj egy sort az első dián az audio feliratokban, keresd a [getDataAsString](https://reference.aspose.com/slides/php-java/aspose.slides/captions/#getDataAsString) által visszaadott szöveget a memóriában. Egy egyszerű szöveges WebVTT cue-ban az időzítő sor `-->` karaktert tartalmaz, ezt követik a feliratsorok, és egy üres sor zárja a cue-t. Ez a példa kiírja a sáv címkéjét és minden feliratsort, amely a „café” szót tartalmazza.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("audio_with_captions.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $audioFrameType = new JavaClass("com.aspose.slides.AudioFrame");
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($i = 0; $i < $shapeCount; $i++) {
+        $shape = $shapes->get_Item($i);
+        if (!java_instanceof($shape, $audioFrameType)) {
+            continue;
+        }
+        $tracks = $shape->getCaptionTracks();
+        $trackCount = java_values($tracks->getCount());
+        for ($j = 0; $j < $trackCount; $j++) {
+            $track = $tracks->get_Item($j);
+            $inCue = false;
+            $captions = (string) $track->getDataAsString();
+            foreach (preg_split('/\R/u', $captions) as $line) {
+                if ($line === "") {
+                    $inCue = false;
+                } elseif (strpos($line, "-->") !== false) {
+                    $inCue = true;
+                } elseif ($inCue && preg_match('/café/iu', $line)) {
+                    echo $track->getLabel() . ": " . $line . "\n";
+                }
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
@@ -273,44 +349,41 @@ try {
 
 ## **Audio kinyerése**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi a diavetítés átmeneteihez használt hang kinyerését. Például kinyerheti egy adott dia hangját.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból, és töltse be a hangot tartalmazó prezentációt.
-2. Szerezze meg a megfelelő dia referenciáját az indexe alapján.
-3. Hozzáférjen a dia [slideshow transitions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#getSlideShowTransition) beállításaihoz.
-4. Kinyerje a hangot bájt adatokként.
-
-Ez a kód megmutatja, hogyan nyerje ki a dián használt hangot:
+Egy diákátmenetnek is lehet saját hangja. Ennek lekéréséhez hívd meg a [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/getsound/) metódust a diákátmeneten. A példa a [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) által visszaadott bájtokat érinti, és kiírja a bájtok számát. Ha az első diáknak nincs átmeneti hangja, akkor egy üzenetet ír ki.
 
 ```php
-# Létrehozza a Presentation osztály egy példányát, amely egy prezentációs fájlt képvisel
-$pres = new Presentation("AudioSlide.pptx");
-$Array = new java_class("java.lang.reflect.Array");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("AudioSlide.pptx");
 try {
-	# Hozzáfér a kívánt diához
-	$slide = $pres->getSlides()->get_Item(0);
-	# Lekéri a diára vonatkozó diavetítés-átmeneti effektusokat
-	$transition = $slide->getSlideShowTransition();
-	# Kinyeri a hangot bájt tömbként
-	$audio = $transition->getSound()->getBinaryData();
-	echo("Length: " . $Array->getLength($audio));
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $sound = $slide->getSlideShowTransition()->getSound();
+    if (java_is_null($sound)) {
+        echo "The first slide has no transition sound.\n";
+    } else {
+        $audioData = $sound->getBinaryData();
+        $array = new JavaClass("java.lang.reflect.Array");
+        echo "Transition sound: " . $array->getLength($audioData) . " bytes.\n";
+    }
 } finally {
-	if (!java_is_null($pres)) {
-		$pres->dispose();
-	}
+    $presentation->dispose();
 }
 ```
 
 ## **GYIK**
 
-**Újra felhasználhatom ugyanazt a hangforrást több dián anélkül, hogy megnövelném a fájlméretet?**
+**Can I reuse the same audio clip across multiple slides without duplicating it?**  
+**Használhatom ugyanazt az audio klipet több dián anélkül, hogy többször megkettőzném?**  
 
-Igen. Adja hozzá a hangot egyszer a prezentáció közös [audio collection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getaudios/) gyűjteményéhez, majd hozzon létre további audio kereteket, amelyek erre a meglévő eszközre hivatkoznak. Ez elkerüli a médiaadatok duplikálását, és a prezentáció méretét kontroll alatt tartja.
+Igen. Add hozzá a klipet egyszer a prezentáció [audio collection](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getaudios/) gyűjteményéhez, és minden dián a ugyanazt az audio objektumot adod át a [addAudioFrameEmbedded](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addaudioframeembedded/) metódusnak.
 
-**Cserélhetem a hangot egy meglévő audio keretben a forma újra létrehozása nélkül?**
+**Can I replace the sound in an existing audio frame?**  
+**Lecserélhetem a hangot egy meglévő audio keretben?**  
 
-Igen. Egy hivatkozott hang esetén frissítse a [link path](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/setlinkpathlong/) mezőt, hogy az új fájlra mutasson. Beágyazott hang esetén cserélje ki a [embedded audio](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audioframe/setembeddedaudio/) objektumot egy másikra a prezentáció [audio collection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getaudios/) gyűjteményéből. A keret formázása és a legtöbb lejátszási beállítás változatlan marad.
+Igen. Hivatkozott hang esetén használd a [setLinkPathLong](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setlinkpathlong/) metódust, hogy a cserélni kívánt fájlra mutasson. Beágyazott hang esetén válassz egy másik klipet a prezentáció audio gyűjteményéből a [setEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/setembeddedaudio/) segítségével. Mindkét megközelítés megőrzi a meglévő keretet.
 
-**A vágás módosítja a prezentációban tárolt hang alapvető adatait?**
+**Does trimming change the audio data stored in the presentation?**  
+**Megváltoztatja a vágás a prezentációban tárolt audio adatot?**  
 
-Nem. A vágás csak a lejátszási határokat módosítja. Az eredeti hangbájtok érintetlenek maradnak, és elérhetők a beágyazott hang vagy a prezentáció audio collection-je segítségével.
+Nem. A [setTrimFromStart](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromStart) és a [setTrimFromEnd](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/#setTrimFromEnd) csak a lejátszási határokat állítják be. A teljes klip továbbra is lekérhető a [getEmbeddedAudio](https://reference.aspose.com/slides/php-java/aspose.slides/audioframe/getembeddedaudio/) metódussal.

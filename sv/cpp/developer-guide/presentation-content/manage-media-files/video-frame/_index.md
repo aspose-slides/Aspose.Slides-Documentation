@@ -1,37 +1,37 @@
 ---
-title: Hantera videoramar i presentationer med C++
-linktitle: Videoram
+title: "Hantera video‑ramar i presentationer med C++"
+linktitle: "Video‑ram"
 type: docs
 weight: 10
 url: /sv/cpp/video-frame/
 keywords:
-- lägga till video
-- skapa video
-- bädda in video
-- extrahera video
-- hämta video
-- videoram
-- webbkälla
-- PowerPoint
-- OpenDocument
-- presentation
-- C++
-- Aspose.Slides
-description: "Lär dig programmera att lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för C++. Snabb guide."
+- "lägga till video"
+- "skapa video"
+- "bädda in video"
+- "extrahera video"
+- "hämta video"
+- "video‑ram"
+- "webbkälla"
+- "PowerPoint"
+- "OpenDocument"
+- "presentation"
+- "C++"
+- "Aspose.Slides"
+description: "Lär dig att programatiskt lägga till och extrahera video‑ramar i PowerPoint‑ och OpenDocument‑bilder med Aspose.Slides för C++. Snabb steg‑för‑steg‑guide."
 ---
 ## **Introduktion**
 
-Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides för C++ låter dig lägga till videoramar i bilder, justera uppspelningsinställningar, hantera undertexter och extrahera inbäddade videodata.
+Videor kan hjälpa till att förklara idéer och engagera en publik. Aspose.Slides för C++ låter dig lägga till video­ramar på bilder, justera uppspelningsinställningar, hantera bildtexter och extrahera inbäddade videodata.
 
 PowerPoint stödjer lokala videor och länkar till online‑videor, såsom YouTube‑videor.
 
-För att representera videodata och videoramar tillhandahåller Aspose.Slides gränssnitten [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) , och andra relevanta typer.
+För att representera videodata och video­ramar tillhandahåller Aspose.Slides gränssnitten [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) , samt andra relevanta typer.
 
-## **Skapa en inbäddad videoram**
+## **Skapa en inbäddad video­ram**
 
-Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoram för att bädda in videon i din presentation.
+Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en video­ram för att bädda in videon i din presentation.
 
-Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i points. Strömmen förblir öppen tills sparandet är klart eftersom [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
+Detta exempel bäddar in en lokal video på den första bilden i en befintlig presentation och sparar resultatet. Ramens koordinater och dimensioner är i punkter. Strömmen förblir öppen tills sparandet är klart eftersom [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) låser den medan presentationen använder den.
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-Du kan också skicka en lokal videoväg direkt till [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli tillgänglig tills presentationen sparas.
+Du kan också skicka en lokal videostig direkt till [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/). Detta exempel bäddar in videon på den första bilden i en ny presentation. Videon måste förbli åtkomlig tills presentationen sparas.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Skapa en videoram med video från en webbkälla**
+## **Skapa en video­ram med video från en webbkälla**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stödjer online‑videor i presentationer. Du kan skapa en videoram som länkar till en online‑video, till exempel en YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stödjer online‑videor i presentationer. Du kan skapa en video­ram som länkar till en online‑video, till exempel en YouTube‑video.
 
-Detta exempel lägger till en YouTube‑videolänk och miniatyrbild på den första bilden. Ersätt video‑identifieraren för att använda en annan video. Metoden [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) begär automatisk uppspelning. Nedladdning av miniatyrbilden och uppspelning av videon kräver internetåtkomst. Presentationsvisaren måste också stödja online‑uppspelning av video.
+Detta exempel lägger till en YouTube‑videolänk och miniatyr på den första bilden. Byt ut videoin identifieraren för att använda en annan video. Metoden [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) begär automatisk uppspelning. Nedladdning av miniatyren och uppspelning av videon kräver internetåtkomst. Visningsprogrammet för presentationen måste även stödja online‑videouppspelning.
 
 ```cpp
 #include <net/web_client.h>
@@ -127,11 +127,11 @@ presentation->Save(u"online_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Spela upp en video i helskärmsläge**
+## **Spela en video i helskärmsläge**
 
-I en utbildningspresentation kan du spela upp en programdemonstration i helskärmsläge så publiken kan se detaljerna. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) accepterar `true` för att aktivera detta beteende under uppspelning.
+I en träningspresentation kan du spela en mjukvarudemonstration i helskärmsläge så publiken kan se detaljerna. [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) accepterar `true` för att aktivera detta beteende under uppspelning.
 
-Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) på den första bilden och aktiverar helskärmsuppspelning. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) på den första bilden och aktiverar helskärmsuppspelning. Indatapresentationen måste innehålla minst en bild med en befintlig video­ram på den första bilden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Helskärmsuppspelning styr hur videon visas. Oberoende styr [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) om den startar automatiskt eller vid klick, och [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) om den upprepas. För att välja startbeteende, ställ in uppspelningsläget till [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start- och loop‑inställningarna.
+Helskärmsuppspelning styr hur videon visas. Oberoende kontrollerar [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) om den startar automatiskt eller på klick, och [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) styr om den upprepas. För att välja startbeteendet, sätt uppspelningsläget till [VideoPlayModePreset::Auto eller VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/). Exemplet bevarar de befintliga start- och loopinställningarna.
 
 ## **Spola tillbaka en video efter uppspelning**
 
-I en utbildningspresentation gör att återföra en demonstrationsvideo till början den redo för presentatören att spela upp igen. Anropa [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) med `true` för att återföra videon till början efter att uppspelning avslutats.
+I en träningspresentation gör att återföra en demonstrationsvideo till början den redo för presentatören att spela igen. Anropa [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) med `true` för att återföra videon till början efter att uppspelningen är klar.
 
-Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar loopning så att uppspelning kan avslutas och sätter uppspelning att starta vid klick. Indatapresentationen måste innehålla minst en bild med en befintlig videoram på den första bilden.
+Detta exempel öppnar en presentation, hittar den första [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) på den första bilden och aktiverar spolning tillbaka. Det inaktiverar looping så att uppspelningen kan avslutas och sätter uppspelning att starta på klick. Indatapresentationen måste innehålla minst en bild med en befintlig video­ram på den första bilden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Spolning tillbaka för videon till början utan att starta den igen. I motsats till detta får aktivering av [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) uppspelning att upprepas automatiskt. Håll loopning inaktiverad när du vill att videon ska avslutas och vara redo att spelas igen. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) styr oberoende om uppspelning sker automatiskt eller vid klick; detta exempel använder [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) så presentatören kontrollerar när uppspelning startar. Ställ in uppspelningsläget efter loop‑inställningen, som visas i exemplet. Spolning tillbaka fungerar oberoende av [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
+Spolning tillbaka återför videon till början utan att starta den igen. Däremot gör att aktivera [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) att uppspelning upprepas automatiskt. Håll looping inaktiverad när du vill att videon ska avslutas och vara redo för återuppspelning. [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) kontrollerar oberoende automatisk eller klickstart; detta exempel använder [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) så presentatören styr när uppspelning startar. Ställ in uppspelningsläget efter loopinställningen, som visas i exemplet. Spolning tillbaka fungerar oberoende av [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/).
 
-## **Trimma en videoram**
+## **Trimma en video­ram**
 
-Använd [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) och [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) för att hoppa över en del i början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att ändra den inbäddade videon.
+Använd [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) och [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) för att hoppa över en del av början eller slutet av en video under uppspelning. Båda värdena är i millisekunder. Trimning ändrar uppspelningsinställningarna utan att ändra den inbäddade videon.
 
 **Ställ in triminställningar**
 
-Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video längre än 3,5 sekunder så att ett spelbart segment återstår.
+Detta exempel bäddar in en lokal video och hoppar över de första 2,5 sekunderna och den sista sekunden under uppspelning. Använd en video längre än 3,5 sekunder så att ett spelbart segment kvarstår.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -247,7 +247,7 @@ presentation->Dispose();
 
 **Läs triminställningar**
 
-Detta exempel skriver ut trimvärdena för den första videoramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden inte har någon videoram skrivs inget ut. Föregående exempel ger värdena 2500 och 1000.
+Detta exempel skriver ut trimvärdena för den första video­ramen på den första bilden i millisekunder. Presentationen måste innehålla minst en bild. Om den bilden saknar video­ram skrivs inget ut. Föregående exempel ger värdena 2500 och 1000.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -279,13 +279,13 @@ for (auto&& shape : IterateOver(slide->get_Shapes()))
 presentation->Dispose();
 ```
 
-## **Hantera videoundertexter**
+## **Hantera video‑undertexter**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint-presentationer. Undertexter lagras i WebVTT-format och exponeras via metoden [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) .
+Aspose.Slides låter dig hantera stängda undertexter för video­ramar i PowerPoint‑presentationer. Undertexterna lagras i WebVTT‑format och exponeras via metoden [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/).
 
-**Lägg till undertexter i en videoram**
+### **Lägg till undertexter på en video­ram**
 
-Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår med beteckningen English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både video och dess undertexter.
+Detta exempel bäddar in en lokal video och lägger till ett WebVTT‑undertextspår märkt English. Undertextens tidsstämplar bör matcha videon. Den sparade presentationen innehåller både video och dess undertexter.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -318,9 +318,9 @@ presentation->Dispose();
 
 Gränssnittet [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) erbjuder också en överlagring som låter dig lägga till undertexter från en ström.
 
-**Extrahera undertexter från en videoram**
+### **Extrahera undertexter från en video­ram**
 
-Detta exempel sparar alla undertextspår från videoramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utskriftsfilerna distinkta. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
+Detta exempel sparar alla undertextspår från video­ramar på den första bilden som separata WebVTT‑filer. Sekventiella nummer håller utdatafilerna unika. Konsolen rapporterar antalet extraherade spår. Presentationen måste innehålla minst en bild.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-Varje [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binär data och undertextens text som en UTF‑8‑sträng.
+Varje [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/)‑objekt exponerar undertextens identifierare, etikett, binära data och undertextens text som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en videoram**
+### **Ta bort undertexter från en video­ram**
 
-Detta exempel tar bort alla undertexter från videoramen på den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns och att formen är en videoram.
+Detta exempel tar bort alla undertexter från video­ramen i den första formens position på den första bilden och sparar resultatet. Det förutsätter att bilden och formen finns och att formen är en video­ram.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,7 +391,84 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Om du bara behöver ta bort ett undertextspår, använd metoderna [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) i stället för [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/) .
+Om du bara behöver ta bort ett undertextspår, använd metoderna [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) eller [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) istället för [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+
+### **Sök i video‑undertexter**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) returnerar hela WebVTT‑spåret, inklusive header, tidslinjer och undertexten. För att hitta en talad fras och dess tidsstämpel, läs cue‑erna i minnet. Till exempel kan ett engelsk spår på bild 2 innehålla följande text:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Exemplet öppnar `captioned_media.pptx` och läser undertextspåren för varje top‑nivå video­ram på varje bild med [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). I en plain‑text cue innehåller tidslinjen `-->` och en tom rad avslutar cue‑en. När undertexten innehåller “café” skriver exemplet ut bildnummer, spårets etikett, originaltidslinjen och fullständig undertext. Sökningen ignorerar skiftläge.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Sökning efter “café” ger en matchning för det exempelspåret. Sökningen hoppar över headern och bevarar tidsinställningen i utdata.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extrahera video från en bild**
 
@@ -446,20 +523,20 @@ Console::WriteLine(String::Format(u"Embedded videos extracted: {0}", videoCount)
 presentation->Dispose();
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vilka videouppspelningsparametrar kan ändras för en videoram?**
+**Vilka video‑uppspelningsparametrar kan ändras för en video­ram?**
 
-Du kan styra [uppspelningsläget](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto eller vid klick) och [loopning](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Dessa alternativ är tillgängliga via objektets metoder i [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/) .
+Du kan styra [uppspelningsläget](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (auto eller på klick) och [loopning](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/). Dessa alternativ är tillgängliga via [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)-objektets metoder.
 
 **Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära data i dokumentet, så presentationens storlek ökar proportionellt mot filstorleken. När du länkar till en online‑video och lägger till en miniatyr sparar presentationen länken och förhandsbilden istället för videodata, så storleksökningen är vanligtvis mindre.
+Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till videofilen. När du länkar till en online‑video och lägger till en miniatyr sparar presentationen länken och förhandsbilden istället för videodatan, så storleksökningen är vanligtvis mindre.
 
-**Kan jag ersätta videon i en befintlig videoram utan att ändra dess position och storlek?**
+**Kan jag ersätta videon i en befintlig video­ram utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [video‑innehållet](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) i ramen samtidigt som du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [videoinnehållet](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) i ramen samtidigt som du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 
-Ja. En inbäddad video har en [innehållstyp](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) som du kan läsa och använda, till exempel när du sparar den till disk.
+Ja. En inbäddad video har en [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) som du kan läsa och använda, till exempel när du sparar den till disk.

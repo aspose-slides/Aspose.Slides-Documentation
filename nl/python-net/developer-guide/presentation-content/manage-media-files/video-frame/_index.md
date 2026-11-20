@@ -1,5 +1,5 @@
 ---
-title: Beheer videoframes in presentaties in Python
+title: Beheer videoframes in presentaties met Python
 linktitle: Videoframe
 type: docs
 weight: 10
@@ -17,21 +17,21 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u programmatisch video‑frames kunt toevoegen en extraheren in PowerPoint‑ en OpenDocument‑dia's met Aspose.Slides voor Python via .NET. Snelle stapsgewijze handleiding."
+description: "Leer hoe u programmatic videoframes kunt toevoegen en extraheren in PowerPoint- en OpenDocument-dia's met Aspose.Slides voor Python via .NET. Snelle stapsgewijze gids."
 ---
-## **Introductie**
+## **Inleiding**
 
-Video's kunnen helpen ideeën uit te leggen en een publiek te boeien. Aspose.Slides for Python via .NET stelt u in staat videoframes aan dia's toe te voegen, afspeelinstellingen aan te passen, ondertitels te beheren en ingesloten videogegevens te extraheren.
+Video’s kunnen helpen ideeën te verduidelijken en een publiek te betrekken. Aspose.Slides voor Python via .NET stelt u in staat videoframes aan dia’s toe te voegen, afspeelinstellingen aan te passen, ondertitels te beheren en ingesloten videogegevens te extraheren.
 
 PowerPoint ondersteunt lokale video’s en koppelingen naar online video’s, zoals YouTube‑video’s.
 
-Om video‑gegevens en videoframes weer te geven, biedt Aspose.Slides de klasse [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) , de klasse [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) en andere relevante typen.
+Om videogegevens en videoframes te vertegenwoordigen, levert Aspose.Slides de [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/)‑klasse, de [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)‑klasse en andere relevante typen.
 
-## **Maak een ingesloten videoframe**
+## **Een ingesloten videoframe maken**
 
 Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een videoframe maken om de video in uw presentatie in te sluiten.
 
-Dit voorbeeld sluit een lokale video in op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in points. De stroom blijft geopend tot het opslaan voltooid is omdat [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie deze gebruikt.
+Dit voorbeeld voegt een lokale video in op de eerste dia van een bestaande presentatie en slaat het resultaat op. Frame‑coördinaten en afmetingen zijn in points. De stream blijft geopend tot het opslaan voltooid is, omdat [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) deze vergrendeld houdt terwijl de presentatie er gebruik van maakt.
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-U kunt ook een lokaal video‑pad rechtstreeks doorgeven aan [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Dit voorbeeld sluit de video in op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
+U kunt ook direct een lokaal video‑pad doorgeven aan [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Dit voorbeeld voegt de video in op de eerste dia van een nieuwe presentatie. De video moet toegankelijk blijven tot de presentatie is opgeslagen.
 
 ```python
 import aspose.slides as slides
@@ -59,11 +59,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Maak een videoframe met video van een webbron**
+## **Een videoframe maken met video van een webbron**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een videoframe maken dat koppelt naar een online video, zoals een YouTube‑video.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) ondersteunt online video’s in presentaties. U kunt een videoframe maken dat naar een online video linkt, bijvoorbeeld een YouTube‑video.
 
-Dit voorbeeld voegt een YouTube‑videokoppeling en miniatuurafbeelding toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De instelling [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) vraagt om automatisch afspelen. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatieweergave moet ook online video‑afspelen ondersteunen.
+Dit voorbeeld voegt een YouTube‑videolink en miniatuur toe aan de eerste dia. Vervang de video‑identifier om een andere video te gebruiken. De [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/)‑instelling vraagt om automatisch afspelen. Het downloaden van de miniatuur en het afspelen van de video vereisen internettoegang. De presentatiekijker moet ook online video‑afspelen ondersteunen.
 
 ```python
 from urllib.request import urlopen
@@ -86,11 +86,11 @@ with slides.Presentation() as presentation:
     presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Speel een video af in volledig scherm**
+## **Een video afspelen in volledig‑schermmodus**
 
-In een trainingspresentatie kunt u een software‑demonstratie in volledig scherm afspelen zodat het publiek de details kan zien. Stel [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) in op `True` om dit gedrag tijdens het afspelen in te schakelen.
+In een trainingspresentatie kunt u een software‑demo in volledig‑schermmodus afspelen zodat het publiek de details kan zien. Stel [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) in op `True` om dit gedrag tijdens het afspelen in te schakelen.
 
-Dit voorbeeld opent een presentatie, zoekt de eerste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) op de eerste dia en schakelt afspelen in volledig scherm in. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, vindt de eerste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) op de eerste dia en schakelt afspelen in volledig scherm in. De invoerpresentatie moet ten minste één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```python
 import aspose.slides as slides
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Afspelen in volledig scherm bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan regelt [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) of deze automatisch start of bij een klik, en [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) bepaalt of ze wordt herhaald. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lusinstellingen.
+Volledig‑scherm‑afspelen bepaalt hoe de video wordt weergegeven. Onafhankelijk daarvan bepaalt [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) of deze automatisch of bij klikken start, en [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) of hij wordt herhaald. Om het startgedrag te kiezen, stelt u de afspeelmodus in op [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Het voorbeeld behoudt de bestaande start‑ en lusinstellingen.
 
-## **Video terugspoelen na het afspelen**
+## **Een video terugspoelen na afspelen**
 
-In een trainingspresentatie maakt het terugspoelen van een demonstratie‑video naar het begin de video klaar voor de presentator om opnieuw af te spelen. Stel [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) in op `True` om de video na afloop van het afspelen naar het begin te retourneren.
+In een trainingspresentatie maakt het terugspoelen van een demonstratievideo naar het begin het mogelijk om deze opnieuw af te spelen. Stel [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) in op `True` om de video na afloop van het afspelen naar het begin terug te brengen.
 
-Dit voorbeeld opent een presentatie, zoekt de eerste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) op de eerste dia en schakelt terugspoelen in. Het schakelt lus uit zodat het afspelen kan beëindigen en stelt het afspelen in op starten bij een klik. De invoerpresentatie moet minstens één dia bevatten met een bestaand videoframe op de eerste dia.
+Dit voorbeeld opent een presentatie, vindt de eerste [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) op de eerste dia en schakelt terugspoelen in. Het schakelt lus uit zodat het afspelen kan eindigen en stelt het afspelen in op starten bij klikken. De invoerpresentatie moet ten minste één dia bevatten met een bestaand videoframe op de eerste dia.
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Terugspoelen brengt de video terug naar het begin zonder deze opnieuw te starten. Daarentegen zorgt het inschakelen van [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) voor automatisch herhalen van het afspelen. Houd lus uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft om opnieuw te worden afgespeeld. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) regelt onafhankelijk automatisch of bij klik starten; dit voorbeeld gebruikt [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) zodat de presentator bepaalt wanneer het afspelen start. Stel de afspeelmodus in na de lusinstelling, zoals in het voorbeeld wordt getoond. Terugspoelen werkt onafhankelijk van [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+Terugspoelen brengt de video terug naar het begin zonder hem opnieuw te starten. Daarentegen herhaalt het inschakelen van [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) het afspelen automatisch. Houd de lus uitgeschakeld wanneer u wilt dat de video eindigt en klaar blijft voor opnieuw afspelen. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) bepaalt onafhankelijk automatisch of bij‑klikken starten; dit voorbeeld gebruikt [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) zodat de presentator beslist wanneer het afspelen start. Stel de afspeelmodus in na de lusinstelling, zoals in het voorbeeld wordt weergegeven. Terugspoelen werkt onafhankelijk van [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
 
-## **Trimmen van een videoframe**
+## **Een videoframe inkorten**
 
-Gebruik [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) en [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) om een gedeelte aan het begin of het einde van een video over te slaan tijdens het afspelen. Beide waarden worden opgegeven in milliseconden. Trimmen wijzigt de afspeelinstellingen zonder de ingesloten video‑gegevens te wijzigen.
+Gebruik [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) en [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) om het begin‑ of einddeel van een video over te slaan tijdens het afspelen. Beide waarden worden in milliseconden opgegeven. Inkorten verandert de afspeelinstellingen zonder de ingesloten videogegevens te wijzigen.
 
 **Triminstellingen instellen**
 
-Dit voorbeeld sluit een lokale video in en slaat de eerste 2,5 seconde en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 seconde zodat er een afspeelbaar segment overblijft.
+Dit voorbeeld voegt een lokale video in en slaat de eerste 2,5 secondes en de laatste seconde over tijdens het afspelen. Gebruik een video langer dan 3,5 secondes zodat er een speelbaar segment overblijft.
 
 ```python
 import aspose.slides as slides
@@ -159,7 +159,7 @@ with slides.Presentation() as presentation:
 
 **Triminstellingen lezen**
 
-Dit voorbeeld drukt de trimwaarden van het eerste videoframe op de eerste dia af in milliseconden. De presentatie moet minstens één dia bevatten. Als die dia geen videoframe heeft, wordt er niets afgedrukt. Het vorige voorbeeld geeft waarden van 2500 en 1000.
+Dit voorbeeld print de trimwaarden van het eerste videoframe op de eerste dia in milliseconden. De presentatie moet ten minste één dia bevatten. Als die dia geen videoframe heeft, wordt er niets geprint. Het voorgaande voorbeeld geeft waarden van 2500 en 1000.
 
 ```python
 import aspose.slides as slides
@@ -174,13 +174,13 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
             break
 ```
 
-## **Beheer video‑ondertitels**
+## **Video‑bijschriften beheren**
 
-Aspose.Slides stelt u in staat ondertitels voor videoframes in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de eigenschap [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
+Aspose.Slides stelt u in staat gesloten bijschriften voor videoframes in PowerPoint‑presentaties te beheren. Bijschriften worden opgeslagen in WebVTT‑formaat en zijn blootgesteld via de eigenschap [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
 
-**Ondertitels toevoegen aan een videoframe**
+### **Bijschriften toevoegen aan een videoframe**
 
-Dit voorbeeld sluit een lokale video in en voegt een WebVTT‑ondertiteltrack toe met het label English. De ondertitel‑tijdstempels moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de ondertitels.
+Dit voorbeeld voegt een lokale video in en voegt een WebVTT‑bijschrifttrack met de naam English toe. De tijdstempels van de bijschriften moeten overeenkomen met de video. De opgeslagen presentatie bevat zowel de video als de bijschriften.
 
 ```python
 import aspose.slides as slides
@@ -198,11 +198,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De klasse [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
+De [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/)‑klasse biedt ook een overload waarmee u bijschriften vanuit een stream kunt toevoegen.
 
-**Ondertitels extraheren uit een videoframe**
+### **Bijschriften extraheren uit een videoframe**
 
-Dit voorbeeld slaat alle ondertiteltracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Sequentiële nummers houden de uitvoerbestanden onderscheidend. De console meldt het aantal geëxtraheerde tracks. De presentatie moet minstens één dia bevatten.
+Dit voorbeeld slaat alle bijschrifttracks van videoframes op de eerste dia op als afzonderlijke WebVTT‑bestanden. Opeenvolgende nummers houden de uitvoerbestanden verschillend. De console meldt het aantal geëxtraheerde tracks. De presentatie moet ten minste één dia bevatten.
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-Elk [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) object geeft de ondertitel‑identifier, label, binaire gegevens en ondertiteltekst weer als een UTF‑8‑string.
+Elk [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/)‑object geeft de bijschrift‑identifier, het label, binaire data en de bijschrift‑tekst als een UTF‑8‑string weer.
 
-**Ondertitels verwijderen uit een videoframe**
+### **Bijschriften verwijderen uit een videoframe**
 
-Dit voorbeeld verwijdert alle ondertitels van het videoframe op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een videoframe is.
+Dit voorbeeld verwijdert alle bijschriften van het videoframe op de eerste vormpositie op de eerste dia en slaat het resultaat op. Het gaat ervan uit dat de dia en vorm bestaan en dat de vorm een videoframe is.
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) of [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) in plaats van [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) .
+Als u slechts één bijschrifttrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) of [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) in plaats van [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+
+### **Video‑bijschriften doorzoeken**
+
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) retourneert de volledige WebVTT‑track, inclusief header, timing‑regels en bijschrifttekst. Bijvoorbeeld, een Engelse track op dia 2 kan de volgende cue bevatten:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Dit voorbeeld opent `captioned_media.pptx` en leest de [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) van elk bovenliggend videoframe op elke dia. Voor elke plain‑text cue zoekt het de timing‑regel die `-->` bevat en verzamelt de bijschriftregels tot de volgende lege regel of het einde van de track. Het zoekt in de bijschrifttekst naar “café” ongeacht hoofdletters en print het dia‑nummer, track‑label, originele timing‑regel en volledige bijschrift voor elke overeenkomst.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+De voorbeeldtrack levert één overeenkomst op. “Café” in de header staat buiten de bijschrifttekst, en de uitvoer behoudt de timing‑instelling en beide bijschriftregels.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Video extraheren van een dia**
 
-Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat om video’s die in presentaties zijn ingesloten te extraheren.
+Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingebed te extraheren.
 
-Dit voorbeeld extraheert ingesloten video’s van elke dia naar afzonderlijke, genummerde binaire bestanden. Gekoppelde video’s worden overgeslagen omdat ze geen ingesloten gegevens hebben. De console drukt het MIME‑type van elke video en het totale aantal af. De output gebruikt de generieke extensie `.bin`; wijzig deze indien nodig zodat deze overeenkomt met het gerapporteerde mediatype.
+Dit voorbeeld extraheert ingesloten video’s van elke dia naar afzonderlijke genummerde binaire bestanden. Gekoppelde video’s worden overgeslagen omdat ze geen ingesloten data hebben. De console print het MIME‑type van elke video en het totale aantal. De output gebruikt de generieke `.bin`‑extensie; wijzig deze om overeen te komen met het gerapporteerde mediatype indien nodig.
 
 ```python
 import aspose.slides as slides
@@ -272,18 +321,18 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
 
 ## **FAQ**
 
-**Welke video‑afspeelparameters kunnen voor een videoframe worden gewijzigd?**
+**Welke videoweergave‑parameters kunnen voor een videoframe worden aangepast?**
 
-U kunt de [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (auto of bij klik) en het [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) beheren. Deze opties zijn beschikbaar via de eigenschappen van het object [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) .
+U kunt de [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (auto of bij klik) en [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) regelen. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/)‑object.
 
-**Heeft het toevoegen van een video invloed op de grootte van het PPTX‑bestand?**
+**Heeft het toevoegen van een video invloed op de bestandsomvang van de PPTX?**
 
-Ja. Wanneer u een lokale video insluit, worden de binaire gegevens toegevoegd aan het document, waardoor de presentatie‑grootte evenredig toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuur toevoegt, slaat de presentatie de link en de voorbeeldafbeelding op in plaats van de video‑gegevens, waardoor de grootte‑toename meestal kleiner is.
+Ja. Wanneer u een lokale video inbedt, wordt de binaire data in het document opgenomen, waardoor de presentatiemaat evenredig toeneemt met de bestandsgrootte. Wanneer u naar een online video linkt en een miniatuur toevoegt, slaat de presentatie alleen de koppeling en de voorbeeldafbeelding op in plaats van de videogegevens, waardoor de omvangstoename meestal kleiner is.
 
-**Kan ik de video in een bestaand videoframe vervangen zonder de positie en grootte te wijzigen?**
+**Kan ik de video in een bestaand videoframe vervangen zonder de positie en afmetingen te wijzigen?**
 
-Ja. U kunt de [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
+Ja. U kunt de [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) binnen het frame omwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
 
-**Kan het content‑type (MIME) van een ingesloten video worden bepaald?**
+**Kan het inhoudstype (MIME) van een ingesloten video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) dat u kunt lezen en gebruiken, bijvoorbeeld wanneer u deze naar schijf opslaat.
+Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.

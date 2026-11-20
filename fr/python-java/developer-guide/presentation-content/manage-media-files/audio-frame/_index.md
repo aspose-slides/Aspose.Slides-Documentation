@@ -1,37 +1,28 @@
 ---
-title: Gérer l'audio dans les présentations avec Python
-linktitle: Cadre audio
+title: "Gérer les cadres audio dans les présentations avec Python"
+linktitle: "Cadre audio"
 type: docs
 weight: 10
 url: /fr/python-java/audio-frame/
 keywords:
 - audio
 - cadre audio
-- vignette
-- ajouter de l'audio
+- miniature
+- ajouter audio
 - propriétés audio
 - options audio
-- extraire l'audio
+- extraire audio
 - Python
 - Aspose.Slides
-description: "Créer et contrôler des cadres audio dans Aspose.Slides for Python via Java — exemples de code pour intégrer, rogner, boucler et configurer la lecture dans les présentations PPT, PPTX et ODP."
+description: "Intégrez de l'audio dans les diapositives, changez l'icône audio, configurez la lecture, gérez les sous-titres WebVTT et extrayez les sons de transition des diapositives avec Aspose.Slides for Python via Java."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Cet article explique comment travailler avec les cadres audio dans Aspose.Slides. Il montre comment ajouter de l'audio intégré aux diapositives, personnaliser la miniature du cadre audio, configurer les options de lecture telles que le volume, la boucle, le masquage, le découpage et les durées d'estompage, et extraire l'audio utilisé dans les transitions du diaporama.
+Un cadre audio vous permet de lire un son sur une diapositive. Avec Aspose.Slides for Python via Java, vous pouvez intégrer un extrait audio, choisir l'image qui le représente, ajuster la lecture et ajouter des sous‑titres. Vous pouvez également récupérer un son attribué à une transition de diapositive.
 
 ## **Créer des cadres audio**
 
-Aspose.Slides for Python via Java vous permet d'ajouter des fichiers audio aux diapositives. Les fichiers audio sont intégrés aux diapositives sous forme de cadres audio. 
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) .
-2. Obtenez une référence à une diapositive par son index.
-3. Lisez le fichier audio que vous souhaitez intégrer dans la diapositive.
-4. Ajoutez le cadre audio intégré (contenant le fichier audio) à la diapositive.
-5. Utilisez [setPlayMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setPlayMode) et [setVolume](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setVolume) exposés par l'objet [AudioFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/) .
-6. Enregistrez la présentation modifiée.
-
-Ce code Python vous montre comment ajouter un cadre audio intégré à une diapositive :
+Ajoutez les octets de `audio.wav` à la collection audio de la présentation, puis utilisez [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) pour intégrer un extrait audio local sur la première diapositive. Les deux premières coordonnées positionnent le cadre sur la diapositive, et les deux valeurs suivantes définissent sa largeur et sa hauteur, le tout en points. Cet exemple appelle [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) pour démarrer automatiquement l’extrait et appelle [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) pour choisir le préréglage fort.
 
 ```python
 from pathlib import Path
@@ -47,6 +38,7 @@ from asposeslides.api import AudioPlayModePreset, AudioVolumeMode, Presentation,
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
@@ -54,33 +46,33 @@ try:
 
     audio_frame.setPlayMode(AudioPlayModePreset.Auto)
     audio_frame.setVolume(AudioVolumeMode.Loud)
+
     presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Modifier la vignette du cadre audio**
+## **Modifier la miniature du cadre audio**
 
-Lorsque vous ajoutez un fichier audio à une présentation, l'audio apparaît sous forme d'un cadre avec une image par défaut standard (voir l'image dans la section ci‑dessous). Vous pouvez changer l'image d'aperçu du cadre audio par une image de votre choix.
-
-Ce code Python vous montre comment changer la vignette ou l'image d'aperçu d'un cadre audio :
+Par défaut, un cadre audio affiche une icône de haut‑parleur. Pour afficher une miniature personnalisée, ajoutez une image à la présentation avec [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) et affectez‑la au cadre avec [setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage). L’exemple utilise un JPEG comme miniature pour un extrait audio intégré.
 
 ```python
 from pathlib import Path
 
-import jpime
+import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
-    jpime.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Images, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sample2.mp3").read_bytes()
-    java_audio_data = jpime.JArray(jpime.JByte)(audio_data)
+
+    audio_data = Path("audio.wav").read_bytes()
+    java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audio)
 
@@ -91,6 +83,7 @@ try:
         image.dispose()
 
     audio_frame.getPictureFormat().getPicture().setImage(picture)
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,37 +91,25 @@ finally:
 
 ## **Modifier les options de lecture audio**
 
-Aspose.Slides for Python via Java vous permet de modifier les options qui contrôlent la lecture audio ou ses propriétés. Par exemple, vous pouvez régler le volume audio, définir l'audio en boucle ou même masquer l'icône audio.
+Les contrôles **Audio Options** de PowerPoint déterminent quand un extrait commence, quel volume il a et comment il se comporte pendant le diaporama.
 
-Le **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Contrôle PowerPoint | Méthode Aspose.Slides for Python via Java |
+| --- | --- |
+| Démarrer | [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) |
+| Préréglage de volume | [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) |
+| Lire sur plusieurs diapositives | [setPlayAcrossSlides](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Boucler jusqu'à l'arrêt | [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Masquer pendant le diaporama | [setHideAtShowing](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Rembobiner après la lecture | [setRewindAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setRewindAudio) |
+| Fondu entrant | [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Fondu sortant | [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Rogner le temps de début de l’audio | [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Rogner le temps de fin de l’audio | [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Curseur de volume | [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) |
 
-Options audio de PowerPoint qui correspondent aux propriétés Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/) :
-
-- **Démarrer** (liste déroulante) correspond à la méthode [setPlayMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** correspond à la méthode [setVolume](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setVolume)
-- **Lire sur plusieurs diapositives** correspond à la méthode [setPlayAcrossSlides](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Boucler jusqu'à arrêt** correspond à la méthode [setPlayLoopMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Masquer pendant le diaporama** correspond à la méthode [setHideAtShowing](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rembobiner après lecture** correspond à la méthode [setRewindAudio](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setRewindAudio)
-
-Options d'édition de PowerPoint qui correspondent aux propriétés Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/) :
-
-- **Fondu d'entrée** correspond à la méthode [setFadeInDuration](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fondu de sortie** correspond à la méthode [setFadeOutDuration](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Temps de début du rognage audio** correspond à la méthode [setTrimFromStart](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Temps de fin du rognage audio** la valeur correspond à la durée audio moins la valeur définie par la méthode [setTrimFromEnd](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-Le **contrôle du volume** de PowerPoint dans le panneau de contrôle audio correspond à la méthode [setVolumeValue](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setVolumeValue). Il vous permet de modifier le volume audio en pourcentage.
-
-Voici comment modifier les options de lecture audio :
-
-1. [Créer](#create-audio-frames) ou obtenir le cadre audio.
-2. Définissez de nouvelles valeurs pour les propriétés du cadre audio que vous souhaitez ajuster.
-3. Enregistrez le fichier PowerPoint modifié.
-
-Ce code Python démontre une opération dans laquelle les options audio sont ajustées :
+L’exemple trouve le premier cadre audio sur la première diapositive, appelle [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) pour démarrer la lecture au clic, et sélectionne le préréglage de volume bas. L’extrait continue sur plusieurs diapositives avec la boucle désactivée. L’icône reste masquée pendant le diaporama, et l’extrait est rembobiné après la lecture.
 
 ```python
 import jpype
@@ -141,9 +122,11 @@ from asposeslides.api import AudioFrame, AudioPlayModePreset, AudioVolumeMode, P
 
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
-    audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
-        # Lire au clic à faible volume, sur toutes les diapositives, sans boucle.
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
+        # Jouer au clic à faible volume, sur plusieurs diapositives, sans boucle.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
@@ -151,14 +134,15 @@ try:
         # Masquer le cadre pendant le diaporama et rembobiner après la lecture.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
+
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-Ce code Python montre comment ajouter un nouveau cadre audio avec audio intégré, le rogner et définir les durées d'estompage :
+Pour un extrait de plus de 3,5 secondes, cet exemple saute les 1,5 premiers secondes et les 2 dernières secondes. [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) indique la durée à omettre à la fin de l’extrait. Pour obtenir le temps de fin affiché dans PowerPoint, soustrayez ce décalage de la durée totale de l’extrait. L’extrait rogné fait un fondu entrant de 200 millisecondes et un fondu sortant de 500 millisecondes. Les quatre méthodes utilisent des valeurs en millisecondes.
 
 ```python
 from pathlib import Path
@@ -174,23 +158,25 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sampleaudio.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Couper 1.5 secondes du début et 2 secondes de la fin.
+    # Couper 1,5 seconde du début et 2 secondes de la fin.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Définir le fondu d'entrée à 200 ms et le fondu de sortie à 500 ms.
+    # Définir le fondu entrant à 200 ms et le fondu sortant à 500 ms.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
+
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-L'exemple de code suivant montre comment récupérer un cadre audio avec audio intégré et régler son volume à 85 % :
+Pour définir le volume de lecture à un pourcentage précis, utilisez [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue). Cet exemple règle le premier cadre audio sur la première diapositive à 85 %.
 
 ```python
 import jpype
@@ -204,23 +190,24 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.setVolumeValue(85.0)
         presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Gérer les légendes audio**
+## **Gérer les sous‑titres audio**
 
-Aspose.Slides vous permet d'ajouter des sous‑titres fermés à un cadre audio via la méthode [getCaptionTracks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#getCaptionTracks). Cette méthode renvoie une [CaptionsCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/captionscollection/), qui vous permet d'ajouter des pistes de sous‑titres WebVTT, d'itérer les pistes existantes et de les supprimer si nécessaire.
+Chaque cadre audio offre un accès à ses pistes de sous‑titres via [getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getCaptionTracks). Utilisez la collection pour joindre des sous‑titres WebVTT à l’extrait, exporter les pistes existantes ou les supprimer.
 
-**Ajouter des légendes audio**
+### **Ajouter des sous‑titres audio**
 
-Utilisez la méthode [getCaptionTracks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#getCaptionTracks) pour attacher une ou plusieurs pistes de sous‑titres à un cadre audio. Dans l'exemple suivant, un fichier audio est ajouté à une diapositive, puis une nouvelle piste de sous‑titres est chargée depuis un fichier `.vtt`.
+L’exemple intègre un extrait audio sur la première diapositive et utilise [add](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#add) pour attacher une piste WebVTT locale. Le premier argument fournit le libellé de la piste, et le second identifie le fichier contenant les sous‑titres synchronisés.
 
 ```python
 from pathlib import Path
@@ -235,22 +222,24 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    audio_data = Path("audio.mp3").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
-    slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Ajouter une nouvelle piste de sous‑titres à partir d'un fichier WebVTT.
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    # Ajouter une nouvelle piste de sous-titres à partir d'un fichier WebVTT.
+    audio_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Extraire les légendes audio**
+### **Extraire les sous‑titres audio**
 
-Vous pouvez parcourir les pistes de sous‑titres associées à un cadre audio et les enregistrer sous forme de fichiers `.vtt`. Chaque piste expose ses données binaires et son identifiant unique, qui peuvent être utilisés lors de l'exportation des sous‑titres.
+Cet exemple exporte chaque piste de sous‑titres attachée à un cadre audio sur la première diapositive. Il écrit les octets retournés par [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getBinaryData) dans un fichier WebVTT et utilise l’identifiant retourné par [getCaptionId](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getCaptionId) comme nom de fichier afin que chaque piste possède une sortie distincte.
 
 ```python
 from pathlib import Path
@@ -266,20 +255,21 @@ from asposeslides.api import AudioFrame, Presentation
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Enregistrer la piste de sous‑titres sous forme de fichier .vtt.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                # Enregistrer la piste de sous-titres en tant que fichier .vtt.
+                file_path = Path(f"{caption_track.getCaptionId()}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
 finally:
     presentation.dispose()
 ```
 
-**Supprimer les légendes audio**
+### **Supprimer les sous‑titres audio**
 
-Pour supprimer les sous‑titres d'un cadre audio, utilisez les méthodes fournies par [CaptionsCollection](https://reference.aspose.com/slides/fr/python-java/aspose.slides/captionscollection/), telles que [clear](https://reference.aspose.com/slides/fr/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/fr/python-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/fr/python-java/aspose.slides/captionscollection/#removeAt). L'exemple suivant supprime toutes les pistes de sous‑titres d'un cadre audio.
+Utilisez [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) pour supprimer une piste individuelle. L’exemple utilise [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) pour retirer tous les sous‑titres du premier cadre audio sur la première diapositive tout en conservant l’extrait.
 
 ```python
 import jpype
@@ -293,26 +283,54 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.getCaptionTracks().clear()
         presentation.save("audio_without_captions.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Extraire l'audio**
+### **Trouver une ligne dans les sous‑titres audio**
 
-Aspose.Slides for Python via Java vous permet d'extraire le son utilisé dans les transitions du diaporama. Par exemple, vous pouvez extraire le son utilisé dans une diapositive spécifique.
+Pour trouver une ligne dans les sous‑titres audio sur la première diapositive, recherchez le texte retourné par [getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) en mémoire. Dans un cue WebVTT en texte brut, la ligne de timing contient `-->`, les lignes de sous‑titres la suivent, et une ligne vide termine le cue. Cet exemple affiche le libellé de la piste et chaque ligne de sous‑titre contenant «café».
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) et chargez la présentation contenant l'audio.
-2. Obtenez une référence à la diapositive concernée par son index.
-3. Accédez aux [transitions du diaporama](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getSlideShowTransition) de la diapositive.
-4. Extrayez le son sous forme de données binaires.
+```python
+import jpype
+import asposeslides
 
-Ce code Python vous montre comment extraire l'audio utilisé dans une diapositive :
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AudioFrame, Presentation
+
+presentation = Presentation("audio_with_captions.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, AudioFrame):
+            continue
+        for track in shape.getCaptionTracks():
+            in_cue = False
+            captions = str(track.getDataAsString())
+            for line in captions.splitlines():
+                if not line:
+                    in_cue = False
+                elif "-->" in line:
+                    in_cue = True
+                elif in_cue and "café" in line.casefold():
+                    print(f"{track.getLabel()}: {line}")
+finally:
+    presentation.dispose()
+```
+
+## **Extraire l’audio**
+
+Une transition de diapositive peut avoir son propre son. Pour le récupérer, appelez [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSound) sur la transition de la diapositive. L’exemple accède aux octets retournés par [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) et affiche le nombre d’octets. Si la première diapositive n’a pas de son de transition, il affiche un message à la place.
 
 ```python
 import jpype
@@ -326,11 +344,12 @@ from asposeslides.api import Presentation
 presentation = Presentation("AudioSlide.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     transition = slide.getSlideShowTransition()
     sound = transition.getSound()
     if sound is not None:
         audio_data = sound.getBinaryData()
-        print("Length:", len(audio_data))
+        print(f"Transition sound: {len(audio_data)} bytes.")
     else:
         print("The slide transition has no sound.")
 finally:
@@ -339,14 +358,14 @@ finally:
 
 ## **FAQ**
 
-**Puis-je réutiliser le même fichier audio sur plusieurs diapositives sans gonfler la taille du fichier ?**
+**Puis-je réutiliser le même extrait audio sur plusieurs diapositives sans le dupliquer ?**
 
-Oui. Ajoutez l'audio une fois à la [collection audio partagée](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getAudios) de la présentation et créez des cadres audio supplémentaires qui font référence à cet élément existant. Cela évite de dupliquer les données multimédia et maintient la taille de la présentation sous contrôle.
+Oui. Ajoutez l’extrait une fois à la [audio collection](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getAudios) de la présentation et transmettez le même objet audio à [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) pour chaque diapositive.
 
-**Puis-je remplacer le son d'un cadre audio existant sans recréer la forme ?**
+**Puis-je remplacer le son d’un cadre audio existant ?**
 
-Oui. Pour un son lié, mettez à jour le [chemin du lien](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setLinkPathLong) pour pointer vers le nouveau fichier. Pour un son intégré, échangez l'objet [embedded audio](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audioframe/#setEmbeddedAudio) avec un autre provenant de la [collection audio](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getAudios) de la présentation. Le format du cadre et la plupart des paramètres de lecture restent intacts.
+Oui. Pour un son lié, utilisez [setLinkPathLong](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setLinkPathLong) pour indiquer le fichier de remplacement. Pour un son intégré, choisissez un autre extrait dans la collection audio de la présentation avec [setEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setEmbeddedAudio). Les deux approches conservent le cadre existant.
 
-**Le rognage modifie-t-il les données audio sous‑jacentes stockées dans la présentation ?**
+**Le rognage modifie-t-il les données audio stockées dans la présentation ?**
 
-Non. Le rognage ajuste uniquement les limites de lecture. Les octets audio originaux restent intacts et accessibles via l'audio intégré ou la collection audio de la présentation.
+Non. [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) et [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) définissent les limites de lecture. Vous pouvez toujours récupérer l’extrait complet avec [getEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getEmbeddedAudio).

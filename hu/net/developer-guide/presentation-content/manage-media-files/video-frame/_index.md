@@ -1,5 +1,5 @@
 ---
-title: .NET-ben videókeretek kezelése prezentációkban
+title: Videókeretek kezelése prezentációkban .NET-ben
 linktitle: Videókeret
 type: docs
 weight: 10
@@ -11,28 +11,28 @@ keywords:
 - videó kinyerése
 - videó lekérése
 - videókeret
-- webes forrás
+- web forrás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Tanulja meg programozottan videókeretek hozzáadását és kinyerését PowerPoint és OpenDocument diákban az Aspose.Slides for .NET használatával. Gyors útmutató."
+description: "Tanulja meg, hogyan adhat hozzá és nyerhet ki programozottan videókereteket PowerPoint és OpenDocument diákban az Aspose.Slides for .NET használatával. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-A videók segíthetnek megmagyarázni az ötleteket és lekötni a közönséget. Az Aspose.Slides for .NET lehetővé teszi videókeretek hozzáadását a diákhoz, a lejátszási beállítások módosítását, feliratok kezelését és a beágyazott videóadatok kinyerését.
+A videók segíthetnek az ötletek magyarázatában és a közönség bevonásában. Az Aspose.Slides for .NET lehetővé teszi, hogy videókereteket adjunk a diákhoz, beállítsuk a lejátszási opciókat, kezeljük a feliratokat, és kinyerjük a beágyazott videóadatokat.
 
-A PowerPoint támogatja a helyi videókat és az online videókra mutató hivatkozásokat, például a YouTube videókat.
+A PowerPoint helyi videókat és online videókra mutató hivatkozásokat (például YouTube‑videók) is támogat.
 
-A videóadatok és videókeretek reprezentálásához az Aspose.Slides a [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) interfészt, a [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) interfészt és további releváns típusokat biztosít.
+A videóadatok és videókeretek ábrázolásához az Aspose.Slides biztosítja az [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) interfészt, az [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) interfészt és egyéb kapcsolódó típusokat.
 
 ## **Beágyazott videókeret létrehozása**
 
-Ha a diához hozzáadni kívánt videófájl helyileg van tárolva, létrehozhat egy videókeretet a videó bemutatóba történő beágyazásához.
+Ha a diára felvenni kívánt videófájl helyileg van tárolva, létrehozhat egy videókeretet a videó beágyazásához a prezentációba.
 
-Ez a példa egy helyi videót ágyaz be egy meglévő bemutató első diájára, és elmenti az eredményt. A keret koordinátái és méretei pontban vannak megadva. A stream nyitva marad, amíg a mentés be nem fejeződik, mivel a [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a bemutató használja.
+Ez a példa egy helyi videót ágyaz be az első diára egy meglévő prezentációban, és elmenti az eredményt. A keret koordinátái és méretei pontokban vannak megadva. A folyam (stream) nyitva marad a mentés befejezéséig, mert a [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) zárolva tartja, amíg a prezentáció használja.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-A helyi videó útvonalát közvetlenül is átadhatja az [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/) metódusnak. Ez a példa a videót egy új bemutató első diájára ágyazza be. A videónak elérhetőnek kell maradnia, amíg a bemutató el nem mentésre kerül.
+Átadhatja a helyi videó elérési útját közvetlenül az [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/)-nek is. Ez a példa a videót az első diára ágyazza be egy új prezentációban. A videónak elérhetőnek kell maradnia a prezentáció mentéséig.
 
 ```csharp
 using Aspose.Slides;
@@ -63,11 +63,11 @@ slide.Shapes.AddVideoFrame(50, 150, 300, 150, "video.avi");
 presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 ```
 
-## **A videóhangerő pontos beállítása**
+## **A videó hangerő pontos beállítása**
 
-Az Aspose.Slides for .NET 26.11 vagy újabb verziójában a [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) egy 0‑tól 100‑ig terjedő lebegőpontos százalékot állít be. Akkor használja, ha a [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) előre beállított értékek túl durvák. Például a `75.5f` 75,5 % hangerőt kér.
+Az Aspose.Slides for .NET 26.11‑től kezdődően a [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) egy 0‑tól 100‑ig terjedő lebegőpontos százalékot állít be. Használja, ha a [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) előre beállított értékei túl durvák. Például a `75.5f` 75,5 % hangerőt kér.
 
-Ez a példa a [Aspose.Slides for .NET](/slides/hu/net/installation/) 26.11 vagy újabb verzióját és egy helyi `video.mp4` fájlt igényel. A videót beágyazza, kifejezetten inicializálja a lejátszást, elmenti a bemutatót, és visszaolvassa a tárolt százalékértéket.
+Ez a példa az [Aspose.Slides for .NET](/slides/hu/net/installation/) 26.11‑es vagy újabb verzióját és egy helyi `video.mp4`‑t igényel. A videót beágyazza, kifejezetten inicializálja a lejátszást, elmenti a prezentációt, és visszaolvassa a tárolt százalékot.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Ellenőrizze a bemenetet saját maga; ne bízza a beállítót, hogy elutasítsa a dokumentált tartományon kívüli értékeket. Az Alacsony, Közepes és Hangos előre beállított értékek a 26.11‑ben 20‑nak, 50‑nek és 80‑nak felelnek meg. Egy előre beállított érték beállítása felülírhat egy korábbi százalékot, ezért ha pontos értékre van szükség, adja meg a százalékot utoljára. Az [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) használatával explicit némítást állíthat be; a numerikus nulla és az előre beállított enum nem felcserélhető állapotok.
+Ellenőrizze a bemenetet saját maga; ne bízzon abban, hogy a setter elutasítja a dokumentált tartományon kívüli értékeket. Az Alacsony, Közepes és Hangos előre beállítások 26.11‑ben 20, 50 és 80 értéknek felelnek meg. Egy előre beállított érték beállítása felülírhat egy korábban megadott százalékot, ezért a pontos érték esetén a százalékot állítsa be utoljára. Használja az [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/) beállítást a kifejezett némításra; a numerikus nulla és az előre beállított enum nem cserélhető ki egymással.
 
-Explicit módon állítsa be a [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) értéket, amikor egy csatolt videót konfigurál, és tartsa a médiafájlt elérhetően a néző számára. A mentés és újranyitás ellenőrzi a tárolt beállítást; a tényleges lejátszás és hangerő a bemutatólejátszó és annak hangbeállításaitól függ.
+A [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) beállítást explicit módon is állítsa be összekapcsolt videó konfigurálásakor, és tartsa a médiafájlt a néző számára elérhetően. A mentés és újranyitás ellenőrzi a tárolt beállítást; a tényleges lejátszás és hangerő a prezentációs lejátszó és annak audio beállításain múlik.
 
 ## **Videókeret létrehozása webes forrásból származó videóval**
 
-A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) támogatja az online videókat a prezentációkban. Létrehozhat egy videókeretet, amely egy online videóra, például egy YouTube‑videóra hivatkozik.
+A Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) online videókat is támogat a prezentációkban. Létrehozhat egy videókeretet, amely egy online videóra (például YouTube‑videóra) mutat.
 
-Ez a példa egy YouTube videóhivatkozást és bélyegképet ad az első diához. Cserélje ki a videó azonosítót egy másik videó használatához. A [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) beállítás automatikus lejátszást kér. A bélyegkép letöltése és a videó lejátszása internetkapcsolatot igényel. A prezentáció megjelenítőnek szintén támogatnia kell az online videó lejátszását.
+Ez a példa egy YouTube‑videó hivatkozást és miniatűr képet ad az első diához. Cserélje ki a videóazonosítót, ha másik videót szeretne használni. A [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) beállítás automatikus lejátszást kér. A miniatűr letöltése és a videó lejátszása internetkapcsolatot igényel. A prezentációs nézőnek támogatnia kell az online videó lejátszását is.
 
 ```csharp
 using System.Net.Http;
@@ -131,11 +131,11 @@ videoFrame.PictureFormat.Picture.Image = thumbnail;
 presentation.Save("online_video.pptx", SaveFormat.Pptx);
 ```
 
-## **Videó lejátszása teljes képernyő módban**
+## **Videó lejátszása teljes képernyős módban**
 
-Egy oktató prezentációban a szoftverbemutatót teljes képernyő módban játszhatja le, így a közönség láthatja a részleteket. Állítsa a [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) értékét `true`‑ra, hogy ez a viselkedés a lejátszás során engedélyezve legyen.
+Képzési prezentációban egy szoftverbemutató lejátszható teljes képernyős módban, hogy a közönség lássa a részleteket. Állítsa a [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/)‑t `true`‑ra a lejátszás során.
 
-Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)‑et az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
+Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)‑t az első dián, és engedélyezi a teljes képernyős lejátszást. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen már létezik videókeret az első dián.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Függetlenül ettől a [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) szabályozza, automatikusan vagy kattintásra indul-e, a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) pedig azt, hogy ismétlődik‑e. A kezdési viselkedés kiválasztásához állítsa a lejátszási módot a [VideoPlayModePreset.Auto vagy VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) értékre. A példa megtartja a meglévő kezdési és ismétlődési beállításokat.
+A teljes képernyős lejátszás szabályozza, hogyan jelenik meg a videó. Ezzel párhuzamosan a [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) határozza meg, hogy automatikusan vagy kattintásra induljon, a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) pedig a ismétlést. A kezdési viselkedés kiválasztásához állítsa a lejátszási módot a [VideoPlayModePreset.Auto vagy VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/)-ra. A példa megőrzi a meglévő kezdési és ismétlési beállításokat.
 
-## **Videó visszatekerése lejátszás után**
+## **Videó visszatekerése a lejátszás után**
 
-Egy oktató prezentációban a bemutatóvideó elejére való visszahozása azt teszi lehetővé, hogy az előadó újra lejátszhassa. Állítsa a [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) értékét `true`‑ra, hogy a lejátszás befejezése után a videó a kezdőpontra térjen.
+Képzési prezentációban a bemutató videó visszatekerése a kezdeti állapotba lehetővé teszi a bemondó számára, hogy újból elindítsa. Állítsa a [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/)‑t `true`‑ra, hogy a lejátszás befejezése után a videó a kezdetre térjen.
 
-Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)‑et az első dián, és engedélyezi a visszatekerést. Kikapcsolja az ismétlést, hogy a lejátszás befejeződhessen, és beállítja a lejátszást kattintásra indítandó módra. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen az első dián már létezik videókeret.
+Ez a példa megnyit egy prezentációt, megtalálja az első [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/)‑t az első dián, és engedélyezi a visszatekerést. Kikapcsolja a ciklusismétlést, hogy a lejátszás befejeződhessen, és a lejátszást kattintásra állítja. A bemeneti prezentációnak legalább egy diát kell tartalmaznia, amelyen már létezik videókeret az első dián.
 
 ```csharp
 using Aspose.Slides;
@@ -185,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-A visszatekerés a videót a kezdetére viszi anélkül, hogy újra elindulna. Ezzel szemben a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) engedélyezése automatikusan ismétli a lejátszást. Tartsa az ismétlést letiltva, ha azt szeretné, hogy a videó befejeződjön, és készen álljon az újra lejátszásra. A [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) önállóan szabályozza az automatikus vagy kattintásra indítandó indítást; ez a példa a [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/) értéket használja, így az előadó irányítja a lejátszás indítását. A lejátszási módot állítsa be az ismétlési beállítás után, ahogy a példában látható. A visszatekerés független a [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) beállítástól.
+A visszatekerés a videót a kezdeti állapotba hozza anélkül, hogy újraindítaná. Ezzel szemben a [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) engedélyezése automatikusan ismétli a lejátszást. Tartsa letiltva a ciklust, ha azt szeretné, hogy a videó befejeződjön, és készen álljon az újra lejátszásra. A [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) függetlenül szabályozza az automatikus vagy kattintásos indítást; ez a példa a [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/)‑t használja, így a bemondó kontrollálja a lejátszás indítását. Állítsa be a lejátszási módot a ciklus beállítása után, ahogy a példában látható. A visszatekerés független a [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/)-tól.
 
 ## **Videókeret vágása**
 
-Használja az [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) és az [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) metódusokat, hogy a lejátszás során kihagyja a videó elejének vagy végének egy részét. Mindkét érték ezredmásodpercben van. A vágás a lejátszási beállításokat módosítja anélkül, hogy a beágyazott videó adatot változtatná.
+Használja az [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) és az [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) metódusokat, hogy a lejátszás során kihagyja a videó elejének vagy végének egy részét. Mindkét érték ezredmásodpercben van megadva. A vágás módosítja a lejátszási beállításokat anélkül, hogy a beágyazott videóadatokat változtatná.
 
 **Vágási beállítások megadása**
 
-Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet és az utolsó másodpercet. Használjon 3,5 másodpercnél hosszabb videót, hogy maradjon lejátszható rész.
+Ez a példa egy helyi videót ágyaz be, és a lejátszás során kihagyja az első 2,5 másodpercet illetve az utolsó másodpercet. Használjon legalább 3,5 másodperc hosszú videót, hogy legyen lejátszható szegmens.
 
 ```csharp
 using System.IO;
@@ -215,7 +215,7 @@ presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 
 **Vágási beállítások kiolvasása**
 
-Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A prezentációnak legalább egy diát kell tartalmaznia. Ha azon a dián nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket állít elő.
+Ez a példa kiírja az első videókeret vágási értékeit az első dián ezredmásodpercben. A prezentációnak legalább egy diát kell tartalmaznia. Ha az adott dián nincs videókeret, semmi sem kerül kiírásra. Az előző példa 2500 és 1000 értékeket ad.
 
 ```csharp
 using System;
@@ -235,13 +235,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-## **Videófeliratok kezelése**
+## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi a lezárt feliratok kezelését a PowerPoint prezentációk videókereteihez. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) tulajdonságon keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑prezentációk videókereteihez zárt feliratokat kezeljünk. A feliratok WebVTT formátumban tárolódnak, és a [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) tulajdonságon keresztül érhetők el.
 
-**Feliratok hozzáadása videókerethez**
+### **Feliratok hozzáadása egy video kerethez**
 
-Ez a példa egy helyi videót ágyaz be, és egy 'English' címkéjű WebVTT feliratsávot ad hozzá. A felirat időbélyegeinek meg kell egyezniük a videóval. A mentett prezentáció tartalmazza mind a videót, mind a feliratokat.
+Ez a példa egy helyi videót ágyaz be, és egy „English” címkéjű WebVTT feliratsp track‑et ad hozzá. A felirat időbélyegeinek meg kell egyezniük a videóval. A mentett prezentáció tartalmazni fogja mind a videót, mind a feliratokat.
 
 ```csharp
 using System.IO;
@@ -260,11 +260,11 @@ videoFrame.CaptionTracks.Add("English", "track.vtt");
 presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 ```
 
-Az [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) interfész további túlterhelést is biztosít, amely lehetővé teszi feliratok hozzáadását egy stream‑ből.
+Az [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) interfész egy olyan túlterhelést is nyújt, amely lehetővé teszi a feliratok áramlásból (stream) történő hozzáadását.
 
-**Feliratok kinyerése videókeretből**
+### **Feliratok kinyerése egy video keretből**
 
-Ez a példa az első dián lévő videókeretek összes feliratsávját külön WebVTT fájlokba menti. A sorban következő számok biztosítják, hogy a kimeneti fájlok különállóak legyenek. A konzol jelzi a kinyert sávok számát. A prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa az első dián található videókeretek összes feliratsp track‑jét különálló WebVTT fájlokként menti. A sorozatszámok biztosítják, hogy a kimeneti fájlok megkülönböztethetők legyenek. A konzol kiírja a kinyert track‑ek számát. A prezentációnak legalább egy diát kell tartalmaznia.
 
 ```csharp
 using System;
@@ -291,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Minden [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) objektum a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF‑8 karakterláncként teszi elérhetővé.
+Minden [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) objektum elérhetővé teszi a felirat azonosítóját, címkéjét, bináris adatait és a felirat szövegét UTF‑8 karakterláncként.
 
-**Feliratok eltávolítása videókeretből**
+### **Feliratok eltávolítása egy video keretből**
 
-Ez a példa az első dián az első alakzat pozíciójában lévő videókeretről eltávolít minden feliratot, majd elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
+Ez a példa eltávolítja az összes feliratot az első dián lévő első alakzat pozíciójában található videókeretből, majd elmenti az eredményt. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat videókeret.
 
 ```csharp
 using System;
@@ -311,13 +311,68 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Ha csak egy feliratsávot kell eltávolítani, használja a [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) vagy a [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) metódusokat a [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) helyett.
+Ha csak egy feliratsp track‑et szeretne eltávolítani, használja a [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) vagy a [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) metódust a [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/) helyett.
 
-## **Videó kinyerése diából**
+### **Videó feliratok keresése**
 
-A videók diákhoz adása mellett az Aspose.Slides lehetővé teszi a prezentációkba beágyazott videók kinyerését.
+Az [ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) visszaadja a teljes WebVTT track‑et, beleértve a fejlécet, az időzítési sorokat és a felirat szövegét. Egy kimondott kifejezés és annak időbélyegének megtalálásához olvassa be a cue‑kat a memóriában. Például egy angol track a 2. dián a következő szöveget tartalmazhatja:
 
-Ez a példa a beágyazott videókat minden diáról külön, számozott bináris fájlokba nyeri ki. A csatolt videók kihagyásra kerülnek, mivel nem tartalmaznak beágyazott adatot. A konzol minden videó MIME‑típusát és az összes darabszámát kiírja. A kimenet a generikus `.bin` kiterjesztést használja; szükség esetén változtassa meg a jelentett média típusnak megfelelően.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+A példa minden diát bejár, és a felső szintű videókeretek track‑eit a [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) segítségével olvassa. Egy sima‑szöveges cue‑ban az időzítési sor `-->`‑t tartalmaz, és egy üres sor zárja a cue‑t. Ha a felirat szövegében a „café” szó szerepel, a példa kiírja a dia számát, a track címkét, az eredeti időzítési sort és a teljes feliratot.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+A „café” keresése egy egyezést ad a mintatrack‑hez. A fejléc és az időzítési beállítás a cue szövege kívül van.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Videó kinyerése egy diából**
+
+A videók diákhoz adása mellett az Aspose.Slides lehetővé teszi a prezentációkban beágyazott videók kinyerését is.
+
+Ez a példa minden diáról kinyeri a beágyazott videókat, és külön‑számozott bináris fájlokba menti őket. A hivatkozott videók kimaradnak, mivel nincs beágyazott adatuk. A konzol kiírja minden videó MIME‑típusát és a teljes számot. A kimenet általános `.bin` kiterjesztést használ; ha szükséges, cserélje le a jelentett média‑típusnak megfelelő kiterjesztésre.
 
 ```csharp
 using System;
@@ -351,20 +406,20 @@ foreach (var slide in presentation.Slides)
 Console.WriteLine($"Embedded videos extracted: {videoCount}");
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Mely videólejátszási paraméterek módosíthatók egy videókeret esetén?**
+**Melyik videólejátszási paraméter módosítható egy videókeretben?**
 
-A [playback mode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) szabályozható. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
+A [lejátszási mód](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (automatikus vagy kattintásra) és a [ciklus](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) szabályozható. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
 
 **A videó hozzáadása befolyásolja a PPTX fájl méretét?**
 
-Igen. Ha helyi videót ágyaz be, a bináris adatok a dokumentumba kerülnek, ezért a prezentáció mérete arányosan nő a fájl méretével. Ha online videóra hivatkozik és bélyegképet ad hozzá, a prezentáció a hivatkozást és az előnézeti képet tárolja a videóadatok helyett, így a méretnövekedés általában kisebb.
+Igen. Amikor egy helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a prezentáció mérete arányosan nő a videó méretével. Amikor egy online videóra hivatkozik, és egy miniatűr képet ad hozzá, a prezentáció csak a hivatkozást és a preview képet tárolja a videó adat helyett, ezért a méretnövekedés általában kisebb.
 
-**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozíciót és a méretet?**
+**Lecserélhetem a videót egy meglévő videókeretben anélkül, hogy megváltoztatnám a pozíciót és méretet?**
 
-Igen. A [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) cserélhető a kereten belül, miközben megőrzöd az alakzat geometriáját; ez gyakori eset a média frissítésére egy meglévő elrendezésben.
+Igen. A [video content](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) cseréjével a keret geometriáját megőrizheti; ez gyakori művelet a meglévő elrendezésben lévő média frissítéséhez.
 
-**Megállapítható a beágyazott videó tartalomtípusa (MIME)?**
+**Megállapítható-e egy beágyazott videó tartalom típusa (MIME)?**
 
-Igen. A beágyazott videónak van egy [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) , amelyet kiolvashat és felhasználhat, például mentéskor a lemezre.
+Igen. Egy beágyazott videó rendelkezik [content type](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/) tulajdonsággal, amely kiolvasható és felhasználható, például a lemezre mentéskor.

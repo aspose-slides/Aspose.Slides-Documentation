@@ -1,6 +1,6 @@
 ---
-title: إدارة الصوت في العروض التقديمية باستخدام C++
-linktitle: إطار صوتي
+title: إدارة إطارات الصوت في العروض التقديمية باستخدام C++
+linktitle: إطار صوت
 type: docs
 weight: 10
 url: /ar/cpp/audio-frame/
@@ -14,275 +14,416 @@ keywords:
 - استخراج الصوت
 - C++
 - Aspose.Slides
-description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides for C++ — أمثلة شيفرة لتضمين الصوت، قصه، تشغيله بشكل متكرر، وتكوين التشغيل عبر عروض PPT و PPTX و ODP."
+description: "إدراج صوت في الشرائح، تغيير أيقونة الصوت، ضبط تشغيله، إدارة ترجمات WebVTT، واستخراج أصوات انتقال الشرائح باستخدام Aspose.Slides for C++."
 ---
+## **نظرة عامة**
+
+إطار الصوت يتيح لك تشغيل صوت على الشريحة. باستخدام Aspose.Slides for C++, يمكنك تضمين مقطع صوتي، اختيار الصورة التي تمثله، ضبط التشغيل، وإرفاق الترجمات. يمكنك أيضًا استرجاع الصوت المعين لانتقال الشريحة.
+
 ## **إنشاء إطارات صوتية**
 
-يسمح Aspose.Slides for C++ بإضافة ملفات صوتية إلى الشرائح. تُدمج ملفات الصوت في الشرائح كإطارات صوتية. 
+استخدم [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) لتضمين مقطع صوتي محلي على الشريحة الأولى. الإحداثيين الأوليين يحددان موضع الإطار على الشريحة، والقيمتين التاليتين تحددان عرضه وارتفاعه، جميعًا بالنقاط. هذا المثال يستدعي [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) لتشغيل المقطع تلقائيًا ويستدعي [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) لاختيار مستوى الصوت المرتفع.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation).
-2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
-3. تحميل تدفق ملف الصوت الذي تريد دمجه في الشريحة.
-4. إضافة إطار الصوت المدمج (الذي يحتوي على ملف الصوت) إلى الشريحة.
-5. ضبط [PlayMode](https://reference.aspose.com/slides/ar/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) و`Volume` المعروضين بواسطة كائن [IAudioFrame](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_audio_frame).
-6. حفظ العرض المعدل.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-هذا الكود C++ يوضح لك كيفية إضافة إطار صوتي مدمج إلى شريحة:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// يحصل على الشريحة الأولى
-auto sld = pres->get_Slides()->idx_get(0);
-
-// يحمّل ملف الصوت wav إلى تدفق
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// يضيف إطار صوتي
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// يضبط وضع التشغيل ومستوى الصوت للصوت
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// يكتب ملف PowerPoint إلى القرص
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **تغيير الصورة المصغرة لإطار الصوت**
+## **تغيير صورة مصغرة لإطار الصوت**
 
-عند إضافة ملف صوتي إلى عرض تقديمي، يظهر الصوت كإطار يحتوي على صورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير الصورة المصغرة لإطار الصوت (تعيين الصورة المفضلة لديك).
-
-هذا الكود C++ يوضح لك كيفية تغيير الصورة المصغرة أو صورة المعاينة لإطار الصوت:
+بشكل افتراضي، يعرض إطار الصوت أيقونة مكبر صوت. لعرض صورة مصغرة مخصصة، أضف صورة إلى العرض التقديمي باستخدام [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) وحددها كصورة الإطار عبر [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). المثال يستخدم ملف JPEG كصورة مصغرة لمقطع صوتي مضمّن.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// يضيف إطار صوت إلى الشريحة بموقع وحجم محددين.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// يضيف صورة إلى موارد العرض التقديمي.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// يضبط الصورة لإطار الصوت.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//يحفظ العرض التقديمي المعدل إلى القرص
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **تغيير خيارات تشغيل الصوت**
 
-يسمح Aspose.Slides for C++ بتغيير الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك ضبط حجم الصوت، أو تشغيل الصوت بشكل متكرر، أو حتى إخفاء أيقونة الصوت.
+تحدد عناصر تحكم **Audio Options** في PowerPoint متى يبدأ المقطع، ومدى صوته، وكيفية تصرفه أثناء عرض الشرائح.
 
-لوحة **Audio Options** في Microsoft PowerPoint:
+![عناصر التحكم في Audio Options في PowerPoint لإطار صوت](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| عنصر تحكم PowerPoint | طريقة Aspose.Slides for C++ |
+| --- | --- |
+| ابدأ | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| مستوى الصوت المسبق | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| تشغيل عبر الشرائح | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| تكرار حتى الإيقاف | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| إخفاء أثناء العرض | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| إعادة إلى البداية بعد التشغيل | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| تلاشي الدخول | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| تلاشي الخروج | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| تقليم بدء الصوت | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| تقليم انتهاء الصوت | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| شريط مستوى الصوت | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-خيارات **Audio Options** في PowerPoint التي تتطابق مع طرق Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/) :
-
-- قائمة **Start** المنسدلة تتطابق مع طريقة [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_playmode/).
-- **Volume** تتطابق مع طريقة [AudioFrame::set_Volume](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_volume/).
-- **Play Across Slides** تتطابق مع طريقة [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_playacrossslides/).
-- **Loop until Stopped** تتطابق مع طريقة [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_playloopmode/).
-- **Hide During Show** تتطابق مع طريقة [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_hideatshowing/).
-- **Rewind after Playing** تتطابق مع طريقة [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_rewindaudio/).
-
-خيارات **Editing** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/) :
-
-- **Fade In** تتطابق مع طريقة [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_fadeinduration/).
-- **Fade Out** تتطابق مع طريقة [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_fadeoutduration/).
-- **Trim Audio Start Time** تتطابق مع طريقة [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_trimfromstart/).
-- قيمة **Trim Audio End Time** تساوي مدة الصوت مطروحًا منها قيمة طريقة [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_trimfromend/).
-
-متحكم **Volume** في لوحة التحكم الصوتي في PowerPoint يتطابق مع طريقة [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_volumevalue/). يتيح لك تغيير حجم الصوت كنسبة مئوية.
-
-هذه هي الطريقة لتغيير خيارات تشغيل الصوت:
-
-1. [Сreate](#creating-audio-frame) أو الحصول على إطار الصوت.
-2. ضبط القيم الجديدة للخصائص التي تريد تعديلها في إطار الصوت.
-3. حفظ ملف PowerPoint المعدل.
-
-هذا الكود C++ يوضح عملية تعديل خيارات الصوت:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// احصل على شكل
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// يحوّل الشكل إلى شكل AudioFrame
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// يضبط وضع التشغيل لتشغيل عند النقر
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// يضبط مستوى الصوت إلى منخفض
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// يضبط تشغيل الصوت عبر الشرائح
-audioFrame->set_PlayAcrossSlides(true);
-
-// يعطل التكرار للصوت
-audioFrame->set_PlayLoopMode(false);
-
-// يخفي إطار الصوت أثناء عرض الشرائح
-audioFrame->set_HideAtShowing(true);
-
-// يعيد الصوت إلى البداية بعد التشغيل
-audioFrame->set_RewindAudio(true);
-
-// يحفظ ملف PowerPoint إلى القرص
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-هذا المثال C++ يوضح كيفية إضافة إطار صوتي جديد مع صوت مدمج، قصه، وتعيين مدة التلاشي:
+يقوم المثال بالعثور على أول إطار صوت في الشريحة الأولى، ويستدعي [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) لبدء التشغيل عند النقر، ويختار مستوى الصوت المنخفض. يستمر المقطع عبر الشرائح مع تعطيل التكرار. تظل الأيقونة مخفية أثناء العرض، ويُعاد تشغيل المقطع من البداية بعد التشغيل.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+لمقطع أطول من 3.5 ثوانٍ، يتخطى هذا المثال الثواني الأولى 1.5 ثانية والأخيرة ثانيتين. المعامل في [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) يحدد المدة التي تُحذف من نهاية المقطع. للحصول على وقت النهاية المعروض في PowerPoint، اطرح هذا الإزاحة من المدة الكاملة للمقطع. المقطع المقصوص يتلاشى عند البدء خلال 200 مللي ثانية ويتلاشى عند الانتهاء خلال 500 مللي ثانية. جميع الدالات الأربعة تأخذ قيمًا بالمللي ثانية.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-العينة البرمجية التالية توضح كيفية استرجاع إطار صوتي مدمج وتعيين مستوى الصوت إلى 85%:
+لتعيين حجم التشغيل بنسبة مئوية محددة، استخدم [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). يضبط هذا المثال أول إطار صوت في الشريحة الأولى إلى 85٪.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// يحصل على شكل إطار صوت
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// يضبط مستوى الصوت إلى 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
-```
-
-## **إدارة تسميات الصوت**
-
-يسمح Aspose.Slides بإضافة تسميات مغلقة إلى إطار صوتي عبر طريقة [get_CaptionTracks](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iaudioframe/get_captiontracks/). تُرجع هذه الطريقة كائنًا من نوع [ICaptionsCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icaptionscollection/)، والذي يتيح لك إضافة مسارات تسمية WebVTT، والقيام بالتكرار عبر المسارات الموجودة، وإزالتها عند الحاجة.
-
-**إضافة تسميات صوتية**
-
-استخدم طريقة [get_CaptionTracks](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iaudioframe/get_captiontracks/) لإرفاق مسار أو أكثر من مسارات التسمية إلى إطار صوتي. في المثال التالي، يتم إضافة ملف صوتي إلى شريحة، ثم يتم تحميل مسار تسمية جديد من ملف `.vtt`.
-
-```cpp
-auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// إضافة مسار توضيحات جديد من ملف WebVTT.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+## **إدارة الترجمات الصوتية**
+
+كل إطار صوت يكشف عن مجموعة الترجمات الخاصة به عبر [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). استخدمها لإرفاق ترجمات WebVTT بالمقطع، أو تصدير المسارات الموجودة، أو إزالتها.
+
+### **إضافة ترجمات صوتية**
+
+يقوم المثال بتضمين مقطع صوتي في الشريحة الأولى ويستخدم [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) لإرفاق مسار WebVTT محلي. المعامل الأول يزود بتسمية المسار، والثاني يحدد الملف الذي يحتوي على الترجمات الزمنية.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**استخراج تسميات صوتية**
+### **استخراج ترجمات الصوت**
 
-يمكنك التكرار عبر مسارات التسمية المرتبطة بإطار صوتي وحفظها كملفات `.vtt`. كل مسار تسمية يكشف عن بياناته الثنائية ومعرفه الفريد، مما يمكن استخدامه عند تصدير التسميات.
+يقوم هذا المثال بتصدير كل مسار ترجمة مرفق بإطار صوت في الشريحة الأولى. يكتب البايتات التي تُرجعها [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) إلى ملف WebVTT ويستخدم القيمة التي تُرجعها [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) كاسم ملف بحيث يكون لكل مسار مخرج منفصل.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **إزالة ترجمات الصوت**
+
+استخدم [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) أو [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) لحذف مسار فردي. يستخدم المثال [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) لإزالة جميع الترجمات من أول إطار صوت في الشريحة الأولى مع الحفاظ على المقطع.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **العثور على سطر في ترجمات الصوت**
+
+للعثور على سطر في ترجمات الصوت في الشريحة الأولى، استدعِ [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) على كل مسار لقراءة نص WebVTT الخاص به في الذاكرة. في إشارة WebVTT بنص عادي، يحتوي سطر التوقيت على `-->`، وتليها سطور الترجمات، وينتهي الإشارة بسطر فارغ. يطبع هذا المثال تسمية المسار وكل سطر ترجمة يحتوي على “café”.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // احفظ كل مسار توضيحات كملف .vtt.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-**إزالة تسميات صوتية**
-
-لإزالة التسميات من إطار صوتي، استخدم الطرق المتاحة في [ICaptionsCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icaptionscollection/)، مثل [Clear](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icaptionscollection/clear/)، [Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icaptionscollection/remove/)، أو [RemoveAt](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icaptionscollection/removeat/). المثال التالي يزيل جميع مسارات التسمية من إطار صوتي.
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// إزالة جميع مسارات التسمية من إطار الصوت.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **استخراج الصوت**
-يسمح Aspose.Slides باستخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي الذي يحتوي على الصوت.
-2. الحصول على مرجع الشريحة ذات الصلة عبر فهرسها.
-3. الوصول إلى انتقالات عرض الشرائح لتلك الشريحة.
-4. استخراج الصوت كبيانات بايت.
+يمكن أن يحتوي انتقال الشرائح على صوت خاص به. لاسترجاعه، استدعِ [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) على الانتقال. يسترجع المثال بايتات الصوت عبر [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) ويطبع عدد البايتات. إذا لم تحتوي الشريحة الأولى على صوت انتقال، فسيطبع رسالة بدلاً من ذلك.
 
-هذا الكود C++ يوضح لك كيفية استخراج الصوت المستخدم في شريحة:
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+using namespace Aspose::Slides;
+using namespace System;
 
-// ينشئ كائنًا من فئة Presentation التي تمثل ملف عرض تقديمي
-auto pres = System::MakeObject<Presentation>(presName);
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// الوصول إلى الشريحة المطلوبة
-auto slide = pres->get_Slides()->idx_get(0);
-
-// يحصل على تأثيرات انتقال عرض الشرائح للشريحة
-auto transition = slide->get_SlideShowTransition();
-
-// يستخرج الصوت في مصفوفة بايت
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل يمكنني إعادة استخدام نفس ملف الصوت عبر عدة شرائح دون زيادة حجم الملف؟**
+**هل يمكنني إعادة استخدام نفس مقطع الصوت عبر عدة شرائح دون تكراره؟**
 
-نعم. أضف الصوت مرة واحدة إلى [مجموعة الصوت المشتركة](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_audios/) في العرض التقديمي وأنشئ إطارات صوتية إضافية تشير إلى ذلك الأصل الموجود. هذا يمنع تكرار بيانات الوسائط ويحافظ على حجم العرض تحت السيطرة.
+نعم. أضف المقطع مرة واحدة إلى [مجموعة الصوت](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) الخاصة بالعرض التقديمي ومرّر نفس كائن الصوت إلى [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) لكل شريحة.
 
-**هل يمكنني استبدال الصوت في إطار صوتي موجود دون إعادة إنشاء الشكل؟**
+**هل يمكنني استبدال الصوت في إطار صوت موجود؟**
 
-نعم. بالنسبة للصوت المرتبط، قم بتحديث [مسار الرابط](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_linkpathlong/) للإشارة إلى الملف الجديد. بالنسبة للصوت المدمج، استبدل كائن [embedded audio](https://reference.aspose.com/slides/ar/cpp/aspose.slides/audioframe/set_embeddedaudio/) بآخر من [مجموعة الصوت](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_audios/) في العرض التقديمي. يظل تنسيق الإطار ومعظم إعدادات التشغيل كما هي.
+نعم. للحصول على صوت مرتبط، استدعِ [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) مع مسار الملف البديل. بالنسبة إلى صوت مضمّن، مرّر مقطعًا آخر من مجموعة الصوت في العرض التقديمي إلى [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). كلا النهجين يحافظان على الإطار الموجود.
 
-**هل يؤدي القص إلى تغيير بيانات الصوت الأصلية المخزنة في العرض التقديمي؟**
+**هل يغيّر التقليم بيانات الصوت المخزنة في العرض التقديمي؟**
 
-لا. يقتصر القص على تعديل حدود التشغيل. تظل بايتات الصوت الأصلية دون تغيير ويمكن الوصول إليها عبر الصوت المدمج أو مجموعة الصوت في العرض.
+لا. تقوم [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) و[set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) بتحديد حدود التشغيل. لا يزال بإمكانك استرجاع المقطع الكامل عبر [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

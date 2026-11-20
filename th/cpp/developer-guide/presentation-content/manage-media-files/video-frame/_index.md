@@ -1,6 +1,6 @@
 ---
-title: จัดการเฟรมวิดีโอในงานนำเสนอด้วย C++
-linktitle: เฟรมวิดีโอ
+title: จัดการกรอบวิดีโอในงานนำเสนอด้วย C++
+linktitle: กรอบวิดีโอ
 type: docs
 weight: 10
 url: /th/cpp/video-frame/
@@ -9,29 +9,29 @@ keywords:
 - สร้างวิดีโอ
 - ฝังวิดีโอ
 - ดึงวิดีโอ
-- ดึงข้อมูลวิดีโอ
-- เฟรมวิดีโอ
+- เรียกคืนวิดีโอ
+- กรอบวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและดึงเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างเป็นโปรแกรมด้วย Aspose.Slides สำหรับ C++ คู่มือวิธีเร็ว."
+description: "เรียนรู้วิธีเพิ่มและดึงกรอบวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างโปรแกรมโดยใช้ Aspose.Slides สำหรับ C++. คู่มือสั้นๆ เร็วๆ"
 ---
-## **คำนำ**
+## **บทนำ**
 
-วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ C++ ให้คุณเพิ่มเฟรมวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และดึงข้อมูลวิดีโอที่ฝังไว้
+วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides สำหรับ C++ ให้คุณเพิ่มกรอบวิดีโอบนสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และดึงข้อมูลวิดีโอที่ฝังไว้
 
-PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอบน YouTube
+PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
 
-เพื่อเป็นตัวแทนข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีส่วนต่อประสาน [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ
+เพื่อเป็นตัวแทนของข้อมูลวิดีโอและกรอบวิดีโอ Aspose.Slides มีอินเทอร์เฟซ [IVideo](https://reference.aspose.com/slides/cpp/aspose.slides/ivideo/) , อินเทอร์เฟซ [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ
 
-## **สร้างเฟรมวิดีโอที่ฝัง**
+## **สร้างกรอบวิดีโอที่ฝังไว้**
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มในสไลด์ถูกเก็บไว้ในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์เก็บไว้ในเครื่อง คุณสามารถสร้างกรอบวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมใช้หน่วยเป็นพ้อยต์ สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จเนื่องจาก [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) ทำให้มันถูกล็อกในขณะที่งานนำใช้
+ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของกรอบจะเป็นหน่วยจุด สตรีมจะเปิดค้างจนกว่าจะบันทึกเสร็จ เนื่องจาก [LoadingStreamBehavior::KeepLocked](https://reference.aspose.com/slides/cpp/aspose.slides/loadingstreambehavior/) จะล็อกสตรีมไว้ขณะงานนำเสนอใช้มัน
 
 ```cpp
 #include <system/io/file.h>
@@ -62,7 +62,7 @@ presentation->Dispose();
 videoStream->Dispose();
 ```
 
-คุณสามารถส่งเส้นทางวิดีโอในเครื่องโดยตรงไปยัง [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีุต้องสามารถเข้าถึงได้จนกว่างานนำจะถูกบันทึก
+คุณยังสามารถส่งพาธวิดีโอในเครื่องโดยตรงไปยัง [AddVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addvideoframe/) ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอต้องสามารถเข้าถึงได้จนกว่างานนำจะถูกบันทึก
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -84,11 +84,11 @@ presentation->Save(u"video_from_path.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **สร้างเฟรมวิดีโอจากแหล่งบนเว็บ**
+## **สร้างกรอบวิดีโอพร้อมวิดีโอจากแหล่งเว็บ**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอบน YouTube
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างกรอบวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอจาก YouTube
 
-ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปย่อยไปยังสไลด์แรก แก้ไขตัวระบุวิดีโอเพื่อใช้วิดีโออื่น วิธีการ [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) ขอให้เล่นอัตโนมัติ การดาวน์โหลดรูปย่อยและการเล่นวิดีโอต้องใช้การเชื่อมต่ออินเทอร์เน็ต ตัวชมงานนำเสนอจำเป็นต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
+ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และภาพย่อไปยังสไลด์แรก เปลี่ยนตัวระบุวิดีโอเพื่อใช้วิดีโออื่น วิธี [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_playmode/) ร้องขอให้เล่นอัตโนมัติ การดาวน์โหลดภาพย่อและการเล่นวิดีโอต้องใช้การเชื่อมต่ออินเทอร์เน็ต ตัวผู้อ่านงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
 
 ```cpp
 #include <net/web_client.h>
@@ -129,9 +129,9 @@ presentation->Dispose();
 
 ## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
 
-ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียดได้ [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) รับค่า `true` เพื่อเปิดใช้งานพฤติกรรมนี้ขณะเล่น
+ในการนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมเห็นรายละเอียดได้ [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/) รับค่า `true` เพื่อเปิดใช้พฤติกรรมนี้ระหว่างการเล่น
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) แรกบนสไลด์แรก และเปิดการเล่นเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) แรกบนสไลด์แรกและเปิดใช้งานการเล่นเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -164,13 +164,13 @@ presentation->Save(u"full_screen_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-การเล่นเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ แยกจากนั้น [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ควบคุมว่าจะแสดงซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่ม ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) ตัวอย่างนี้คงค่าการเริ่มและการวนซ้ำเดิม
+การเล่นเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ อย่างอิสระ [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ควบคุมว่าเริ่มอัตโนมัติหรือเมื่อคลิก และ [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ควบคุมการวนซ้ำ เพื่อเลือกพฤติกรรมการเริ่ม ให้ตั้งค่าโหมดการเล่นเป็น [VideoPlayModePreset::Auto or VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) ตัวอย่างนี้คงค่าการเริ่มและการวนซ้ำเดิมไว้
 
-## **ถอยวิดีโอย้อนหลังการเล่น**
+## **ถอยหลังวิดีโอหลังการเล่น**
 
-ในงานนำเสนอการฝึกอบรม การคืนวิดีโอสาธิตกลับไปที่จุดเริ่มทำให้พร้อมสำหรับผู้บรรยายที่จะเล่นอีกครั้ง ให้เรียก [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) ด้วยค่า `true` เพื่อคืนวิดีโอกลับไปที่จุดเริ่มหลังจากการเล่นเสร็จ
+ในการนำเสนอการฝึกอบรม การนำวิดีโอสาธิตกลับไปที่จุดเริ่มทำให้พร้อมสำหรับผู้บรรยายเล่นใหม่ เรียก [set_RewindVideo](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_rewindvideo/) ด้วยค่า `true` เพื่อให้วิดีอกลับไปที่จุดเริ่มหลังจากการเล่นจบ
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) แรกบนสไลด์แรก และเปิดการย้อนกลับ โดยปิดการวนซ้ำเพื่อให้การเล่นจบและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่บนสไลด์แรก
+ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/) แรกบนสไลด์แรกและเปิดการถอยหลัง ปิดการวนซ้ำเพื่อให้การเล่นจบและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -206,15 +206,15 @@ presentation->Save(u"rewind_video.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-การถอยคืนทำให้วิดีโอกลับไปที่จุดเริ่มโดยไม่เริ่มใหม่ ในทางกลับกัน การเปิดใช้งาน [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) จะทำให้การเล่นวนซ้ำอัตโนมัติ ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอจบและพร้อมที่จะเล่นใหม่ [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ควบคุมการเริ่มอัตโนมัติหรือเมื่อคลิกอย่างอิสระ; ตัวอย่างนี้ใช้ [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายกำหนดเวลาการเริ่มเล่น ตั้งโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การถอยคืนทำงานแยกจาก [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/)
+การถอยหลังจะพาวิดีโอกลับไปที่จุดเริ่มโดยไม่เริ่มใหม่ ตรงกันข้าม การเปิด [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) จะทำให้การเล่นวนซ้ำอัตโนมัติ อย่าปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอเล่นจนจบและพร้อมเล่นใหม่ [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) ควบคุมการเริ่มแบบอัตโนมัติหรือด้วยคลิกอย่างอิสระ ตัวอย่างนี้ใช้ [VideoPlayModePreset::OnClick](https://reference.aspose.com/slides/cpp/aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายควบคุมเวลาเริ่มการเล่น ตั้งโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การถอยหลังทำงานแยกจาก [set_FullScreenMode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_fullscreenmode/)
 
-## **ตัดเฟรมวิดีโอ**
+## **ตัดกรอบวิดีโอ**
 
-ใช้ [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) และ [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) เพื่อตัดส่วนเริ่มหรือส่วนท้ายของวิดีโอขณะเล่น ทั้งสองค่าเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังไว้
+ใช้ [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromstart/) และ [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/set_trimfromend/) เพื่อตัดส่วนเริ่มต้นหรือส่วนท้ายของวิดีโอระหว่างการเล่น ทั้งสองค่ามีหน่วยเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังไว้
 
 **ตั้งค่าการตัด**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายขณะเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่สามารถเล่นได้
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้ส่วนที่เล่นได้เหลืออยู่
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -247,7 +247,7 @@ presentation->Dispose();
 
 **อ่านค่าการตัด**
 
-ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอ จะไม่มีการพิมพ์ ค่าในตัวอย่างก่อนหน้านี้คือ 2500 และ 1000
+ตัวอย่างนี้พิมพ์ค่าการตัดของกรอบวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีกรอบวิดีโอจะไม่มีการพิมพ์ ตัวอย่างก่อนหน้าให้ค่าที่ 2500 และ 1000
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -281,11 +281,11 @@ presentation->Dispose();
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides อนุญาตให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และเปิดให้เข้าถึงผ่านเมธอด [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/)
+Aspose.Slides อนุญาตให้คุณจัดการคำบรรยายแบบปิดสำหรับกรอบวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจัดเก็บในรูปแบบ WebVTT และเปิดให้เข้าถึงผ่านเมธอด [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/)
 
-**เพิ่มคำบรรยายลงในเฟรมวิดีโอ**
+### **เพิ่มคำบรรยายให้กับกรอบวิดีโอ**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ที่มีป้ายเป็น English เวลาตราประทับของคำบรรยายต้องตรงกับวิดีโอ งานนำเสนอที่บันทึกจะมีทั้งวิดีโอและคำบรรยายรวมอยู่
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทรกคำบรรยาย WebVTT ที่มีป้ายภาษาอังกฤษ ค่าตำแหน่งเวลาในคำบรรยายควรตรงกับวิดีโอ งานนำเสนอที่บันทึกแล้วจะมีทั้งวิดีโอและคำบรรยายรวมกัน
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -316,11 +316,11 @@ presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ส่วนต่อประสาน [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้
+อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้ด้วย
 
-**ดึงคำบรรยายจากเฟรมวิดีโอ**
+### **ดึงคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกไฟล์ โดยใช้หมายเลขต่อเนื่องเพื่อแยกไฟล์ผลลัพธ์ คอนโซลจะแสดงจำนวนแทร็กที่ดึงออก งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้บันทึกแทรกคำบรรยายทั้งหมดจากกรอบวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกต่างหาก ตัวเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์ไม่ซ้ำกัน คอนโซลรายงานจำนวนแทรกที่ดึงออก งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -362,11 +362,11 @@ Console::WriteLine(String::Format(u"Caption tracks extracted: {0}", trackCount))
 presentation->Dispose();
 ```
 
-แต่ละวัตถุ [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) เปิดเผยตัวระบุของคำบรรยาย ป้าย ชุดข้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
+แต่ละวัตถุ [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) เปิดเผยตัวระบุของคำบรรยาย ป้าย ระเบียนไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
 
-**ลบคำบรรยายจากเฟรมวิดีโอ**
+### **ลบคำบรรยายจากกรอบวิดีโอ**
 
-ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอตำแหน่งรูปทรงแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่าสไลด์และรูปทรงมีอยู่และรูปทรงเป็นเฟรมวิดีโอ
+ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากกรอบวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปทรงนั้นอยู่และรูปทรงเป็นกรอบวิดีโอ
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -391,13 +391,90 @@ presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-หากต้องการลบแทร็กคำบรรยายเพียงหนึ่งแทร็ก ให้ใช้เมธอด [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) หรือ [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) แทนการใช้ [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/)
+หากคุณต้องการลบแทรกคำบรรยายเพียงหนึ่งรายการ ให้ใช้เมธอด [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) หรือ [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) แทนการใช้ [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/)
+
+### **ค้นหาคำบรรยายวิดีโอ**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) คืนค่าแทรก WebVTT ทั้งหมดรวมถึงหัวเรื่อง บรรทัดเวลา และข้อความคำบรรยาย เพื่อค้นหาวลีที่พูดและตำแหน่งเวลา ให้อ่านคิวในหน่วยความจำ ตัวอย่างเช่น แทรกภาษาอังกฤษบนสไลด์ที่ 2 อาจมีข้อความดังนี้
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+ตัวอย่างเปิดไฟล์ `captioned_media.pptx` และอ่านแทรกคำบรรยายของกรอบวิดีโอระดับบนแต่ละอันบนทุกสไลด์โดยใช้ [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) ในคิวข้อความธรรมดาบรรทัดเวลาอาจมี `-->` และบรรทัดว่างจะเป็นการจบคิว เมื่อคำบรรยายมีคำว่า “café” ตัวอย่างจะพิมพ์หมายเลขสไลด์ ป้ายแทรก บรรทัดเวลาต้นฉบับ และคำบรรยายทั้งหมด การค้นหาจะไม่สนใจตัวพิมพ์ใหญ่‑เล็ก
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+การค้นหาคำว่า “café” ให้ผลลัพธ์หนึ่งรายการสำหรับแทรกตัวอย่าง การค้นจะแข skipping ส่วนหัวและคงการตั้งค่าการเวลาไว้ในผลลัพธ์
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **ดึงวิดีโอจากสไลด์**
 
-นอกจากการเพิ่มวิดีโอลงสไลด์แล้ว Aspose.Slides ยังอนุญาตให้คุณดึงวิดีโอที่ฝังอยู่ในงานนำเสนอ
+นอกจากนี้ยังสามารถเพิ่มวิดีโอลงสไลด์ Aspose.Slides ยังอนุญาตให้คุณดึงวิดีโอที่ฝังอยู่ในงานนำเสนอได้
 
-ตัวอย่างนี้ดึงวิดีโอที่ฝังจากทุกสไลด์เป็นไฟล์ไบนารีแยกตามหมายเลข วิดีโอที่ลิงก์จะถูกข้ามเนื่องจากไม่มีข้อมูลฝัง คอนโซลพิมพ์ประเภท MIME ของวิดีโอแต่ละไฟล์และจำนวนรวม ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; สามารถเปลี่ยนเป็นส่วนขยายที่ตรงกับประเภทสื่อที่รายงานได้เมื่อจำเป็น
+ตัวอย่างนี้ดึงวิดีโอที่ฝังอยู่จากทุกสไลด์ไปเป็นไฟล์ไบนารีที่แยกกันและมีการต่อเลขลำดับ วิดีโอที่ลิงก์จะถูกข้ามเนื่องจากไม่มีข้อมูลที่ฝังอยู่ คอนโซลพิมพ์ชนิด MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยายทั่วไป `.bin` ; หากต้องการให้ตรงกับประเภทสื่อที่รายงานให้เปลี่ยนส่วนขยายตามนั้น
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,18 +525,18 @@ presentation->Dispose();
 
 ## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอใดสามารถเปลี่ยนแปลงได้สำหรับเฟรมวิดีโอ?**
+**พารามิเตอร์การเล่นวิดีโอใดที่สามารถเปลี่ยนแปลงได้สำหรับกรอบวิดีโอ?**
 
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ตัวเลือกเหล่านี้มีให้ผ่านเมธอดของอ็อบเจกต์ [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)
+คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playmode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_playloopmode/) ตัวเลือกเหล่านี้สามารถเข้าถึงได้ผ่านเมธอดของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/)
 
-**การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**
+**การเพิ่มวิดีโอส่งผลต่อขนาดไฟล์ PPTX หรือไม่?**
 
-ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกรวมในเอกสาร ทำให้ขนาดงานนำเสนอเพิ่มตามขนาดไฟล์ หากคุณลิงก์วิดีโอออนไลน์และเพิ่มรูปย่อย งานนำเสนอจะเก็บลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นขนาดที่เพิ่มมักจะน้อยกว่า
+ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกบรรจุในเอกสาร ดังนั้นขนาดงานนำเสนอจะเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มภาพย่อ งานนำเสนอจะเก็บลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นขนาดที่เพิ่มมักจะน้อยกว่า
 
-**ฉันสามารถเปลี่ยนวิดีโอในเฟรมวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
+**ฉันสามารถแทนที่วิดีโอในกรอบวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
 
-ใช่ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) ภายในเฟรมโดยคงรูปทรงและขนาดไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเค้าโครงที่มีอยู่
+ได้ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/cpp/aspose.slides/videoframe/set_embeddedvideo/) ภายในกรอบได้โดยคงรูปทรงและขนาดไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่
 
-**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังไว้ได้หรือไม่?**
+**สามารถกำหนดประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังอยู่ได้หรือไม่?**
 
-ได้ วิดีโอที่ฝังไว้มี [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) ที่คุณสามารถอ่านและใช้ได้ ตัวอย่างเช่นเมื่อต้องบันทึกลงดิสก์
+ได้ วิดีโอที่ฝังอยู่มี [content type](https://reference.aspose.com/slides/cpp/aspose.slides/video/get_contenttype/) ที่คุณสามารถอ่านและใช้ได้ ตัวอย่างเช่นเมื่อบันทึกลงดิสก์

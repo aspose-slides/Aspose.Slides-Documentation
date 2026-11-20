@@ -1,6 +1,6 @@
 ---
-title: Quản lý âm thanh trong bản trình chiếu bằng C++
-linktitle: Khung âm thanh
+title: Quản lý Khung Âm Thanh trong Bài Trình Bày bằng C++
+linktitle: Khung Âm Thanh
 type: docs
 weight: 10
 url: /vi/cpp/audio-frame/
@@ -14,279 +14,416 @@ keywords:
 - trích xuất âm thanh
 - C++
 - Aspose.Slides
-description: "Tạo và điều khiển các khung âm thanh trong Aspose.Slides cho C++ — các ví dụ mã để nhúng, cắt, lặp và cấu hình phát lại trên các bản trình chiếu PPT, PPTX và ODP."
+description: "Nhúng âm thanh vào các slide, thay đổi biểu tượng âm thanh, cấu hình phát lại, quản lý phụ đề WebVTT và trích xuất âm thanh chuyển đổi slide với Aspose.Slides cho C++."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với khung âm thanh trong Aspose.Slides. Nó cho thấy cách thêm âm thanh nhúng vào các slide, tùy chỉnh hình thu nhỏ của khung âm thanh, cấu hình các tùy chọn phát lại như âm lượng, vòng lặp, ẩn, cắt và thời gian làm mờ, và trích xuất âm thanh được sử dụng trong chuyển đổi trình chiếu.
+Khung âm thanh cho phép bạn phát âm thanh trên một slide. Với Aspose.Slides for C++, bạn có thể nhúng một đoạn âm thanh, chọn hình ảnh đại diện, điều chỉnh phát lại và đính kèm phụ đề. Bạn cũng có thể lấy âm thanh được gán cho chuyển đổi slide.
 
-## **Tạo khung âm thanh**
+## **Tạo Khung Âm Thanh**
 
-Aspose.Slides cho C++ cho phép bạn thêm tệp âm thanh vào các slide. Các tệp âm thanh được nhúng trong slide dưới dạng khung âm thanh. 
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-3. Tải luồng tệp âm thanh mà bạn muốn nhúng vào slide.
-4. Thêm khung âm thanh nhúng (chứa tệp âm thanh) vào slide.
-5. Đặt [PlayMode](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) và `Volume` được công bố bởi đối tượng [IAudioFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_audio_frame).
-6. Lưu bản trình chiếu đã sửa đổi.
-
-Đoạn mã C++ này cho bạn thấy cách thêm một khung âm thanh nhúng vào slide:
+Sử dụng [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) để nhúng một đoạn âm thanh cục bộ vào slide đầu tiên. Hai tọa độ đầu tiên đặt vị trí khung trên slide, và hai giá trị tiếp theo thiết lập chiều rộng và chiều cao, tất cả đều tính bằng điểm. Ví dụ này gọi [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) để bắt đầu đoạn âm thanh tự động và gọi [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) để chọn mức âm lượng cao sẵn.
 
 ```cpp
-// Tạo một đối tượng lớp Presentation đại diện cho tệp bản trình chiếu
-auto pres = System::MakeObject<Presentation>();
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-// Lấy slide đầu tiên
-auto sld = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Tải tệp âm thanh wav vào luồng
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Thêm khung âm thanh
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Đặt chế độ phát và âm lượng cho âm thanh
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Ghi tệp PowerPoint ra đĩa
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Thay đổi hình thu nhỏ của khung âm thanh**
+## **Thay Đổi Hình Thu Nhỏ Khung Âm Thanh**
 
-Khi bạn thêm một tệp âm thanh vào bản trình chiếu, âm thanh sẽ hiển thị dưới dạng một khung với hình ảnh mặc định tiêu chuẩn (xem hình ảnh trong phần bên dưới). Bạn có thể thay đổi hình thu nhỏ của khung âm thanh (đặt hình ảnh bạn muốn).
-
-Đoạn mã C++ này cho bạn thấy cách thay đổi hình thu nhỏ hoặc hình ảnh xem trước của khung âm thanh:
+Mặc định, khung âm thanh hiển thị biểu tượng loa. Để hiển thị hình thu nhỏ tùy chỉnh, thêm một hình ảnh vào bản trình chiếu bằng [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) và đặt nó làm ảnh của khung bằng [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). Ví dụ sử dụng một tệp JPEG làm hình thu nhỏ cho đoạn âm thanh được nhúng.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Thêm một khung âm thanh vào slide với vị trí và kích thước xác định.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Thêm một hình ảnh vào tài nguyên của bản trình chiếu.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Đặt hình ảnh cho khung âm thanh.
-audioFrame->get_PictureFormat()->get_Picture()->set_Image(audioImage); // <-----
-        
-//Lưu bản trình chiếu đã chỉnh sửa ra đĩa
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Thay đổi tùy chọn phát âm thanh**
+## **Thay Đổi Tùy Chọn Phát Âm Thanh**
 
-Aspose.Slides cho C++ cho phép bạn thay đổi các tùy chọn kiểm soát việc phát lại hoặc thuộc tính của âm thanh. Ví dụ, bạn có thể điều chỉnh âm lượng của âm thanh, đặt âm thanh phát vòng lặp, hoặc thậm chí ẩn biểu tượng âm thanh.
+Các điều khiển **Audio Options** của PowerPoint xác định thời điểm bắt đầu đoạn âm thanh, mức độ to, và cách nó hoạt động trong khi trình chiếu.
 
-Bảng **Audio Options** trong Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Điều khiển PowerPoint | Phương thức Aspose.Slides for C++ |
+| --- | --- |
+| Start | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Volume preset | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Play Across Slides | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Loop until Stopped | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Hide During Show | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Rewind after Playing | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Fade In | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Fade Out | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Trim Audio start time | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Trim Audio end time | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Volume slider | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-**Audio Options** của PowerPoint tương ứng với các phương thức của Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/) :
-
-- **Start** danh sách thả xuống tương ứng với phương thức [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_playmode/) 
-- **Volume** tương ứng với phương thức [AudioFrame::set_Volume](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_volume/) 
-- **Play Across Slides** tương ứng với phương thức [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_playacrossslides/) 
-- **Loop until Stopped** tương ứng với phương thức [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_playloopmode/) 
-- **Hide During Show** tương ứng với phương thức [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_hideatshowing/) 
-- **Rewind after Playing** tương ứng với phương thức [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_rewindaudio/) 
-
-Các tùy chọn **Editing** của PowerPoint tương ứng với các thuộc tính của Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/) :
-
-- **Fade In** tương ứng với phương thức [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_fadeinduration/) 
-- **Fade Out** tương ứng với phương thức [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_fadeoutduration/) 
-- **Trim Audio Start Time** tương ứng với phương thức [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_trimfromstart/) 
-- **Trim Audio End Time** có giá trị bằng độ dài âm thanh trừ đi giá trị của phương thức [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_trimfromend/) 
-
-Bộ điều khiển **Volume** trên bảng điều khiển âm thanh của PowerPoint tương ứng với phương thức [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_volumevalue/). Nó cho phép bạn thay đổi âm lượng âm thanh dưới dạng phần trăm.
-
-Đây là cách bạn thay đổi các tùy chọn phát âm thanh:
-
-1. [Tạo](#creating-audio-frame) hoặc lấy Khung âm thanh.
-2. Đặt các giá trị mới cho các thuộc tính Khung âm thanh mà bạn muốn điều chỉnh.
-3. Lưu tệp PowerPoint đã sửa đổi.
-
-Đoạn mã C++ này minh họa một thao tác trong đó các tùy chọn của âm thanh được điều chỉnh:
-
-```cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Lấy một shape
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Ép kiểu shape thành shape AudioFrame
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Đặt chế độ phát để phát khi nhấp
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Đặt âm lượng thành Thấp
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Đặt âm thanh phát xuyên suốt các slide
-audioFrame->set_PlayAcrossSlides(true);
-
-// Tắt vòng lặp cho âm thanh
-audioFrame->set_PlayLoopMode(false);
-
-// Ẩn AudioFrame trong khi trình chiếu
-audioFrame->set_HideAtShowing(true);
-
-// Quay lại âm thanh về đầu sau khi phát
-audioFrame->set_RewindAudio(true);
-
-// Lưu tệp PowerPoint ra đĩa
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-Ví dụ C++ này cho bạn thấy cách thêm một khung âm thanh mới với âm thanh nhúng, cắt nó và đặt thời gian làm mờ:
+Ví dụ tìm khung âm thanh đầu tiên trên slide đầu tiên, gọi [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) để bắt đầu phát khi nhấp, và chọn mức âm lượng thấp. Đoạn âm thanh tiếp tục qua các slide với vòng lặp bị tắt. Biểu tượng được ẩn trong khi trình chiếu, và đoạn âm thanh được tua lại sau khi phát.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Sets the trimming start offset to 1.5 seconds
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+Đối với đoạn âm thanh dài hơn 3,5 giây, ví dụ này bỏ qua 1,5 giây đầu và 2 giây cuối. Tham số truyền vào [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) chỉ định thời lượng loại bỏ ở cuối đoạn. Để có thời gian kết thúc hiển thị trong PowerPoint, lấy tổng thời lượng trừ đi độ lệch này. Đoạn đã cắt sẽ tăng dần âm lượng trong 200 mil giây và giảm dần trong 500 mil giây. Bốn phương thức này đều nhận giá trị tính bằng mil giây.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Sets the trimming end offset to 2 seconds
 audioFrame->set_TrimFromEnd(2000);
-
-// Sets the fade-in duration to 200 ms
 audioFrame->set_FadeInDuration(200);
-// Sets the fade-out duration to 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-Đoạn mã mẫu dưới đây cho bạn thấy cách lấy một khung âm thanh có âm thanh nhúng và đặt âm lượng thành 85%:
+Để đặt mức âm lượng phát lại theo phần trăm cụ thể, sử dụng [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). Ví dụ này đặt khung âm thanh đầu tiên trên slide đầu tiên thành 85%.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Lấy một shape khung âm thanh
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Đặt âm lượng âm thanh thành 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
-```
-
-## **Quản lý phụ đề âm thanh**
-
-Aspose.Slides cho phép bạn thêm phụ đề đóng vào một khung âm thanh thông qua phương thức [get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iaudioframe/get_captiontracks/). Phương thức này trả về một [ICaptionsCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/), cho phép bạn thêm các track phụ đề WebVTT, duyệt qua các track hiện có và xóa chúng khi cần.
-
-**Thêm phụ đề âm thanh**
-
-Sử dụng phương thức [get_CaptionTracks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iaudioframe/get_captiontracks/) để gắn một hoặc nhiều track phụ đề vào khung âm thanh. Trong ví dụ sau, một tệp âm thanh được thêm vào slide, sau đó một track phụ đề mới được tải từ tệp `.vtt`.
-
-```cpp
-auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+## **Quản Lý Phụ Đề Âm Thanh**
+
+Mỗi khung âm thanh mở ra bộ sưu tập phụ đề thông qua [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). Sử dụng nó để đính kèm phụ đề WebVTT cho đoạn, xuất các track hiện có, hoặc xóa chúng.
+
+### **Thêm Phụ Đề Âm Thanh**
+
+Ví dụ nhúng một đoạn âm thanh vào slide đầu tiên và sử dụng [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) để đính kèm một track WebVTT cục bộ. Tham số đầu tiên cung cấp nhãn track, và tham số thứ hai xác định tệp chứa phụ đề có thời gian.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Trích xuất phụ đề âm thanh**
+### **Trích Xuất Phụ Đề Âm Thanh**
 
-Bạn có thể duyệt qua các track phụ đề gắn với khung âm thanh và lưu chúng dưới dạng tệp `.vtt`. Mỗi track phụ đề cung cấp dữ liệu nhị phân và định danh duy nhất, có thể dùng khi xuất phụ đề.
+Ví dụ này xuất mỗi track phụ đề được gắn vào khung âm thanh trên slide đầu tiên. Nó ghi các byte trả về bởi [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) vào một tệp WebVTT và sử dụng giá trị trả về bởi [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) làm tên tệp để mỗi track có đầu ra riêng.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Xóa Phụ Đề Âm Thanh**
+
+Sử dụng [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) để xóa một track riêng lẻ. Ví dụ này sử dụng [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) để xóa tất cả phụ đề khỏi khung âm thanh đầu tiên trên slide đầu tiên trong khi vẫn giữ lại đoạn âm thanh.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Tìm Dòng Trong Phụ Đề Âm Thanh**
+
+Để tìm một dòng trong phụ đề âm thanh trên slide đầu tiên, gọi [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) trên mỗi track để đọc văn bản WebVTT trong bộ nhớ. Trong một cue WebVTT dạng văn bản thuần, dòng thời gian chứa `-->`, các dòng phụ đề nằm sau, và một dòng trống kết thúc cue. Ví dụ này in nhãn track và mỗi dòng phụ đề chứa “café”.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Lưu mỗi track phụ đề dưới dạng tệp .vtt.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
 ```
 
-**Xóa phụ đề âm thanh**
+## **Trích Xuất Âm Thanh**
 
-Để xóa phụ đề khỏi khung âm thanh, sử dụng các phương thức của [ICaptionsCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/), chẳng hạn như [Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/remove/), hoặc [RemoveAt](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icaptionscollection/removeat/). Ví dụ sau xóa tất cả các track phụ đề khỏi một khung âm thanh.
+Một chuyển đổi slide có thể có âm thanh riêng. Để lấy nó, gọi [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) trên chuyển đổi. Ví dụ này lấy các byte âm thanh bằng [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) và in số lượng byte. Nếu slide đầu tiên không có âm thanh chuyển đổi, nó sẽ in một thông báo thay thế.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
 auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
 
-// Xóa tất cả các track phụ đề khỏi khung âm thanh.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **Trích xuất âm thanh**
-Aspose.Slides cho phép bạn trích xuất âm thanh được sử dụng trong chuyển đổi trình chiếu. Ví dụ, bạn có thể trích xuất âm thanh được dùng trong một slide cụ thể.
+## **Câu hỏi thường gặp**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation) và tải bản trình chiếu chứa âm thanh.
-2. Lấy tham chiếu của slide liên quan thông qua chỉ mục của nó.
-3. Truy cập các chuyển đổi slideshow cho slide đó.
-4. Trích xuất âm thanh dưới dạng dữ liệu byte.
+**Tôi có thể tái sử dụng cùng một đoạn âm thanh trên nhiều slide mà không sao chép lại không?**
 
-Đoạn mã C++ này cho bạn thấy cách trích xuất âm thanh được sử dụng trong một slide:
+Có. Thêm đoạn âm thanh một lần vào [bộ sưu tập âm thanh](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) và truyền cùng một đối tượng âm thanh vào [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) cho mỗi slide.
 
-```cpp
-String presName = u"AudioSlide.pptx";
+**Tôi có thể thay thế âm thanh trong một khung âm thanh hiện có không?**
 
-// Tạo một đối tượng lớp Presentation đại diện cho tệp bản trình chiếu
-auto pres = System::MakeObject<Presentation>(presName);
+Có. Đối với âm thanh liên kết, gọi [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) với đường dẫn đến tệp thay thế. Đối với âm thanh nhúng, truyền một đoạn khác từ bộ sưu tập âm thanh của bản trình chiếu vào [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). Cả hai cách đều giữ lại khung hiện tại.
 
-// Truy cập slide mong muốn
-auto slide = pres->get_Slides()->idx_get(0);
+**Việc cắt đoạn có thay đổi dữ liệu âm thanh được lưu trong bản trình chiếu không?**
 
-// Lấy hiệu ứng chuyển đổi slideshow cho slide
-auto transition = slide->get_SlideShowTransition();
-
-// Trích xuất âm thanh dưới dạng mảng byte
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
-```
-
-## **FAQ**
-
-**Tôi có thể tái sử dụng cùng một tài nguyên âm thanh cho nhiều slide mà không làm tăng kích thước tệp không?**
-
-Có. Thêm âm thanh một lần vào [audio collection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/get_audios/) chung của bản trình chiếu và tạo các khung âm thanh bổ sung tham chiếu tới tài nguyên đã tồn tại. Điều này tránh việc sao chép dữ liệu media và giữ kích thước bản trình chiếu trong tầm kiểm soát.
-
-**Tôi có thể thay thế âm thanh trong một khung âm thanh hiện có mà không phải tạo lại hình dạng không?**
-
-Có. Đối với âm thanh liên kết, cập nhật [link path](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_linkpathlong/) để trỏ tới tệp mới. Đối với âm thanh nhúng, thay thế đối tượng [embedded audio](https://reference.aspose.com/slides/vi/cpp/aspose.slides/audioframe/set_embeddedaudio/) bằng một đối tượng khác từ [audio collection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/get_audios/) của bản trình chiếu. Định dạng khung và hầu hết các cài đặt phát lại vẫn giữ nguyên.
-
-**Việc cắt giảm có thay đổi dữ liệu âm thanh nền được lưu trong bản trình chiếu không?**
-
-Không. Việc cắt chỉ điều chỉnh ranh giới phát lại. Các byte âm thanh gốc vẫn không thay đổi và có thể truy cập thông qua âm thanh nhúng hoặc audio collection của bản trình chiếu.
+Không. [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) và [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) chỉ thiết lập giới hạn phát lại. Bạn vẫn có thể lấy toàn bộ đoạn âm thanh bằng [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

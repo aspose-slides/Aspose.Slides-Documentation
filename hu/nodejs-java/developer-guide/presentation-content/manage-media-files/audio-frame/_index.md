@@ -1,6 +1,6 @@
 ---
-title: Hang kezelése prezentációkban JavaScript használatával
-linktitle: Hangkeret
+title: Audio keretek kezelése prezentációkban JavaScript használatával
+linktitle: Audio keret
 type: docs
 weight: 10
 url: /hu/nodejs-java/audio-frame/
@@ -11,240 +11,312 @@ keywords:
 - hang hozzáadása
 - hang tulajdonságok
 - hang beállítások
-- hang kinyerése
+- hang kinyerés
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Hangkeretek létrehozása és vezérlése az Aspose.Slides for Node.js-ben – példák a beágyazásra, vágásra, ciklikus lejátszásra és a lejátszás beállítására PPT, PPTX és ODP prezentációkban."
+description: "Hang beágyazása diákba, a hang ikon módosítása, lejátszás beállítása, WebVTT feliratok kezelése, valamint diaátmeneti hangok kinyerése az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan dolgozzunk hangkeretekkel az Aspose.Slides-ben. Bemutatja, hogyan adhatunk beágyazott hangot a diákhoz, hogyan testreszabhatjuk a hangkeret bélyegképét, hogyan konfigurálhatjuk a lejátszási beállításokat, például a hangerőt, a ciklikus lejátszást, a rejtést, a vágást és a halványulási időket, valamint hogyan nyerhetünk ki hangot a diavetítés átmeneteihez.
+Az audio keret lehetővé teszi hang lejátszását a dián. Az Aspose.Slides for Node.js via Java segítségével beágyazhatsz egy hangklipet, kiválaszthatod a hozzá tartozó képet, szabályozhatod a lejátszást, és felveheted a feliratokat. A diaváltáshoz rendelt hangot is lekérheted.
 
-## **Hangkeretek létrehozása**
+## **Audio keretek létrehozása**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy hangfájlokat adjunk a diákhoz. A hangfájlok beágyazott audio keretként kerülnek a diákra.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezze be a dia hivatkozását az indexe alapján.
-3. Töltse be a beágyazni kívánt hangfájl adatfolyamát a diára.
-4. Adja hozzá a beágyazott audio keretet (amely a hangfájlt tartalmazza) a diához.
-5. Állítsa be a [PlayMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/AudioPlayModePreset) és a `Volume` értékeket, amelyeket a [AudioFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/AudioFrame) objektum biztosít.
-6. Mentse a módosított bemutatót.
-
-Ez a JavaScript kód megmutatja, hogyan adjon hozzá beágyazott audio keretet egy diához:
+Használd a [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) metódust a helyi audio klip beágyazásához az első diára. Az első két koordináta helyezi a keretet a diához, a következő két érték állítja be a szélességét és magasságát, mind pontban. Ez a példa meghívja a [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) metódust a klip automatikus indításához, és a [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) metódust a hangos előre beállított érték kiválasztásához.
 
 ```javascript
-// Példányosít egy Presentation osztályt, amely egy prezentációs fájlt képvisel
-const pres = new aspose.slides.Presentation();
-try {
-    // Lekéri az első diát
-    const sld = pres.getSlides().get_Item(0);
-    // Betölti a wav hangfájlt adatfolyamba
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Hozzáadja a hangkeretet
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Beállítja a hang lejátszási módját és hangerőét
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // A PowerPoint fájlt a lemezre írja
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Hangkeret bélyegképének módosítása**
-
-Amikor hangfájlt ad a bemutatóhoz, a hang egy keretként jelenik meg egy alapértelmezett képpel (lásd a lenti képet). Megváltoztathatja a hangkeret előnézeti képét (állítsa be a kívánt képet).
-
-Ez a JavaScript kód megmutatja, hogyan változtassa meg egy hangkeret bélyegképét vagy előnézeti képét:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Hangkeretet ad a diára a megadott pozícióval és mérettel.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Képet ad a prezentáció erőforrásaihoz.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Beállítja a képet a hangkerethez.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // A módosított prezentációt lemezre menti
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Hang lejátszási beállításainak módosítása**
-
-Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy megváltoztassa a hang lejátszását vagy tulajdonságait szabályozó beállításokat. Például állíthatja a hangerőt, beállíthatja a hang ciklikus lejátszását, vagy akár elrejtheti a hang ikont.
-
-The **Audio Options** pane in Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-A PowerPoint **Audio Options** beállítások, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-- **Start** legördülő lista megfelel az [AudioFrame.setPlayMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setPlayMode) metódusnak
-- **Volume** megfelel az [AudioFrame.setVolume](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setVolume) metódusnak
-- **Play Across Slides** megfelel az [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) metódusnak
-- **Loop until Stopped** megfelel az [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) metódusnak
-- **Hide During Show** megfelel az [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) metódusnak
-- **Rewind after Playing** megfelel az [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setRewindAudio) metódusnak
-
-A PowerPoint **Editing** beállítások, amelyek az Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/) tulajdonságainak felelnek meg:
-- **Fade In** megfelel az [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) metódusnak
-- **Fade Out** megfelel az [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) metódusnak
-- **Trim Audio Start Time** megfelel az [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) metódusnak
-- **Trim Audio End Time** értéke megegyezik a hang időtartamával mínusz az [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) metódus értékével
-
-A PowerPoint **Volume controll** a hangvezérlő panelen az [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#setVolumeValue) metódusnak felel meg. Lehetővé teszi a hangerő százalékos módosítását.
-
-Így módosíthatja a hang lejátszási beállításait:
-1. [Létrehozni](#create-audio-frame) vagy szerezze be az Audio Frame-et.
-2. Állítson be új értékeket a kívánt Audio Frame tulajdonságokhoz.
-3. Mentse a módosított PowerPoint fájlt.
-
-Ez a JavaScript kód egy olyan műveletet mutat be, amelyben a hang beállításait módosítják:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Lekéri a AudioFrame alakzatot
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Beállítja a lejátszási módot kattintásra
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Beállítja a hangerőt alacsonyra
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Beállítja a hangot, hogy a diákon át lejátszódjon
-    audioFrame.setPlayAcrossSlides(true);
-    // Letiltja a ciklus lejátszást a hangnál
-    audioFrame.setPlayLoopMode(false);
-    // Elrejti a AudioFrame-et a diavetítés során
-    audioFrame.setHideAtShowing(true);
-    // Visszatekeri a hangot a kezdéshez a lejátszás után
-    audioFrame.setRewindAudio(true);
-    // A PowerPoint fájlt lemezre menti
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Ez a JavaScript példa megmutatja, hogyan adjon hozzá új audio keretet beágyazott hanggal, vágja meg, és állítsa be a halványulási időket:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Beállítja a vágás kezdő eltolását 1,5 másodpercre
-    audioFrame.setTrimFromStart(1500);
-    // Beállítja a vágás befejező eltolását 2 másodpercre
-    audioFrame.setTrimFromEnd(2000);
-
-    // Beállítja a fade-in időtartamot 200 ms-re
-    audioFrame.setFadeInDuration(200);
-    // Beállítja a fade-out időtartamot 500 ms-re
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-A következő kódrészlet megmutatja, hogyan szerezzen be egy beágyazott hanggal rendelkező audio keretet, és állítsa be a hangerőt 85%-ra:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Lekéri az audio keret alakzatot
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Beállítja a hang hangerő értékét 85%-ra
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Hang feliratok kezelése**
-
-Az Aspose.Slides lehetővé teszi, hogy a [getCaptionTracks](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) metódus segítségével zárt feliratokat adjon egy audio kerethez. Ez a metódus egy [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) objektumot ad vissza, amely lehetővé teszi WebVTT felirat sávok hozzáadását, a létező sávok bejárását és szükség esetén azok eltávolítását.
-
-### **Hang feliratok hozzáadása**
-
-Használja a [getCaptionTracks](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) metódust, hogy egy vagy több feliratsávot csatoljon egy audio kerethez. A következő példában egy hangfájlt adnak hozzá egy diához, majd egy új feliratsávot tölt be egy `.vtt` fájlból.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Új feliratsáv hozzáadása egy WebVTT fájlból.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-### **Hang feliratok kinyerése**
+## **Az audio keret bélyegképének módosítása**
 
-Bejárhatja az audio kerethez tartozó feliratsávokat, és elmentheti őket `.vtt` fájlokként. Minden feliratsáv elérhető bináris adatként és egyedi azonosítóval, amely a feliratok exportálásakor felhasználható.
+Alapértelmezés szerint egy audio keret a hangszóró ikont jeleníti meg. Egy egyéni bélyegkép megjelenítéséhez adj egy képet a prezentációhoz a [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) metódussal, és állítsd be a keret képként a [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage) metódussal. A példa az `eagle.jpeg` fájlt használja bélyegképként a beágyazott audio kliphez.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Az audio lejátszási beállítások módosítása**
+
+A PowerPoint **Audio Options** vezérlői határozzák meg, hogy mikor indul a klip, milyen hangos, és hogyan viselkedik a diavetítés során.
+
+![PowerPoint Audio Options vezérlők egy audio kerethez](audio_frame_0.png)
+
+| PowerPoint vezérlő | Aspose.Slides for Node.js via Java metódus |
+| --- | --- |
+| Indítás | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Hangerő előre beállított érték | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Lejátszás diákon át | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Ismétlés leállításig | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Elrejtés a vetítés során | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Visszatekerés lejátszás után | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| Belenyúlás | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Kimenyúlás | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Audio vágás kezdőidő | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Audio vágás befejező idő | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Hangerő csúszka | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+A példa megtalálja az első audio keretet az első dián, meghívja a [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) metódust a lejátszás kattintásra indításához, és az alacsony hangerő előre beállított értéket választja. A klip diákon át folytatódik a ismétlés letiltásával. Az ikon rejtve marad a vetítés során, és a klip a lejátszás után visszatekeredik.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Mentse a feliratsávot .vtt fájlként.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+3,5 másodpercnél hosszabb klip esetén ez a példa kihagyja az első 1,5 másodpercet és az utolsó 2 másodpercet. A [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) metódus a klip végéről elhagyandó időt veszi át. A PowerPointban látható befejezési időhez vonjuk le ezt az eltolást a teljes klip időtartamából. A levágott klip 200 milliszekundumban belenyúlik és 500 milliszekundumban kimenyúlik. Mind a négy metódus értékét milliszekundumban várja.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A lejátszási hangerő konkrét százalékra állításához használd a [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) metódust. Ez a példa az első dián lévő első audio keretet 85%-ra állítja.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Audio feliratok kezelése**
+
+Minden audio keret hozzáférést biztosít a felirat sávjaihoz a [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) metóduson keresztül. A gyűjteményt használhatod WebVTT feliratok csatolására a kliphez, meglévő sávok exportálására vagy eltávolítására.
+
+### **Audio feliratok hozzáadása**
+
+A példa egy audio klipet ágyaz be az első diára, és a [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) metódust használja egy helyi WebVTT sáv csatolásához. Az első argumentum a sáv címkéjét adja meg, a második a feliratok időzítését tartalmazó fájlt.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Audio feliratok kinyerése**
+
+Ez a példa exportálja az első diához csatolt audio keret minden felirat sávját. A [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) által visszaadott bájtokat egy WebVTT fájlba írja, és a [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) által visszaadott azonosítót használja fájlnévként, hogy minden sáv külön kimenettel rendelkezzen.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Audio feliratok eltávolítása**
+
+Használd a [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) vagy [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) metódust egy egyedi sáv törléséhez. A példa a [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) metódust használja, hogy az első diához tartozó első audio keret összes feliratát eltávolítsa, miközben a klip megmarad.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Sor keresése audio feliratokban**
+
+Az első dián lévő audio feliratokban sor kereséséhez keresd a [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) által visszaadott szöveget a memóriában. Egy egyszerű szöveges WebVTT cue-ban az időzítési sor `-->` tartalmaz, a feliratsorok ezt követik, és egy üres sor zárja a cue-t. Ez a példa kiírja a sáv címkéjét és minden olyan feliratsort, amely tartalmazza a „café” szót.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -253,64 +325,39 @@ try {
 }
 ```
 
-### **Hang feliratok eltávolítása**
+## **Audio kinyerése**
 
-A feliratok egy audio keretről történő eltávolításához használja a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) által biztosított módszereket, például a [clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#remove), vagy a [removeAt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#removeAt). A következő példa eltávolítja az összes feliratsávot egy audio keretből.
+Egy diaváltás saját hanggal rendelkezhet. A lekéréséhez hívd a [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) metódust a diaváltáson. A példa a [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) által visszaadott bájtokat érinti, és kiírja a bájtok számát. Ha az első diának nincs váltási hangja, akkor egy üzenetet ír ki.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // típus: aspose.slides.AudioFrame
-
-    // Távolítsa el az összes feliratsávot a hangkeretből.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Hang kinyerése**
+## **GYIK**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy kinyerje a diavetítés átmeneteihez használt hangot. Például kinyerheti egy adott dia hangját.
+**Újra felhasználhatom ugyanazt a hangklipet több dián anélkül, hogy duplikálnám?**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból, és töltse be a hangot tartalmazó bemutatót.
-2. Szerezze be a megfelelő dia hivatkozását az indexe alapján.
-3. Érje el a dia [slideshow transitions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) beállításait.
-4. Nyissa ki a hangot bájt adatként.
+Igen. Add hozzá a klipet egyszer a prezentáció [audio gyűjtemény](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) gyűjteményéhez, és minden diára add át ugyanazt az audio objektumot a [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) hívásával.
 
-Ez a JavaScript kód megmutatja, hogyan nyerje ki egy dia által használt hangot:
+**Lecserélhetem egy meglévő audio keret hangját?**
 
-```javascript
-// Példányosít egy Presentation osztályt, amely egy prezentációs fájlt képvisel
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // Eléri a kívánt diát
-    const slide = pres.getSlides().get_Item(0);
-    // Lekéri a dia diavetítés átmeneti effektjeit
-    const transition = slide.getSlideShowTransition();
-    // Kinyeri a hangot bájt tömbként
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+Igen. Kapcsolt hang esetén a [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) metódust használd a helyettesítő fájlra mutatásra. Beágyazott hang esetén válassz egy másik klipet a prezentáció audio gyűjteményéből a [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio) metódussal. Mindkét megközelítés megőrzi a meglévő keretet.
 
-## **FAQ**
+**A vágás megváltoztatja a prezentációban tárolt audio adatot?**
 
-**Újra felhasználhatom ugyanazt a hangeszközt több dián anélkül, hogy megnövelném a fájlméretet?**
-
-Igen. Adja hozzá a hangot egyszer a bemutató megosztott [audio collection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getaudios/)‑hoz, és hozzon létre további audio kereteket, amelyek hivatkoznak erre a meglévő eszközre. Ez megakadályozza a médiaadat duplikálását és a bemutató méretét kontroll alatt tartja.
-
-**Lecserélhetem egy meglévő audio keret hangját anélkül, hogy újra létrehoznám az alakzatot?**
-
-Igen. A hivatkozott hang esetén frissítse a [link path](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/setlinkpathlong/)‑t, hogy az új fájlra mutasson. Beágyazott hang esetén cserélje le a [embedded audio](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) objektumot egy másikra a bemutató [audio collection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getaudios/)‑ből. A keret formázása és a legtöbb lejátszási beállítás változatlan marad.
-
-**A vágás megváltoztatja-e a bemutatóban tárolt alapul szolgáló hangadatot?**
-
-Nem. A vágás csak a lejátszási határokat módosítja. Az eredeti hangbájtok érintetlenek maradnak, és továbbra is elérhetők a beágyazott hang vagy a bemutató audio collection segítségével.
+Nem. A [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) és a [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) metódusok a lejátszási határokat állítják be. A teljes klip továbbra is lekérhető a [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio) metódussal.

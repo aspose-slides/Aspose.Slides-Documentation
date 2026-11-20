@@ -1,12 +1,12 @@
 ---
-title: Gerenciar áudio em apresentações usando JavaScript
-linktitle: Quadro de áudio
+title: Gerenciar frames de áudio em apresentações usando JavaScript
+linktitle: Frame de áudio
 type: docs
 weight: 10
 url: /pt/nodejs-java/audio-frame/
 keywords:
 - áudio
-- quadro de áudio
+- frame de áudio
 - miniatura
 - adicionar áudio
 - propriedades de áudio
@@ -15,228 +15,308 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Crie e controle quadros de áudio no Aspose.Slides para Node.js — exemplos para incorporar, cortar, repetir e configurar a reprodução em apresentações PPT, PPTX e ODP."
+description: "Incorpore áudio em slides, altere o ícone de áudio, configure a reprodução, gerencie legendas WebVTT e extraia sons de transição de slides com Aspose.Slides para Node.js via Java."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com quadros de áudio no Aspose.Slides. Ele mostra como adicionar áudio incorporado aos slides, personalizar a miniatura do quadro de áudio, configurar opções de reprodução como volume, repetição, ocultação, corte e durações de fade, e extrair o áudio usado nas transições de apresentação de slides.
+Um frame de áudio permite reproduzir um som em um slide. Com Aspose.Slides for Node.js via Java, você pode incorporar um clipe de áudio, escolher a imagem que o representa, ajustar a reprodução e anexar legendas. Você também pode recuperar um som atribuído a uma transição de slide.
 
-## **Criar quadros de áudio**
+## **Criar frames de áudio**
 
-O Aspose.Slides para Node.js via Java permite adicionar arquivos de áudio aos slides. Os arquivos de áudio são incorporados aos slides como quadros de áudio.
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation).
-2. Obtenha a referência de um slide através de seu índice.
-3. Carregue o fluxo do arquivo de áudio que deseja incorporar no slide.
-4. Adicione o quadro de áudio incorporado (contendo o arquivo de áudio) ao slide.
-5. Defina [PlayMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/AudioPlayModePreset) e `Volume` expostos pelo objeto [AudioFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/AudioFrame).
-6. Salve a apresentação modificada.
+Use [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) para incorporar um clipe de áudio local no primeiro slide. As duas primeiras coordenadas posicionam o frame no slide, e os dois valores seguintes definem sua largura e altura, tudo em pontos. Este exemplo chama [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) para iniciar o clipe automaticamente e chama [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) para selecionar a predefinição alta.
 
 ```javascript
-// Instancia uma classe Presentation que representa um arquivo de apresentação
-const pres = new aspose.slides.Presentation();
-try {
-    // Obtém o primeiro slide
-    const sld = pres.getSlides().get_Item(0);
-    // Carrega o arquivo de som wav para stream
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Adiciona o Quadro de Áudio
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Define o modo de reprodução e o volume do áudio
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // Grava o arquivo PowerPoint no disco
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Alterar miniatura do quadro de áudio**
-
-Ao adicionar um arquivo de áudio a uma apresentação, o áudio aparece como um quadro com uma imagem padrão (veja a imagem na seção abaixo). Você pode alterar a imagem de visualização do quadro de áudio (defina sua imagem preferida).
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Adiciona um quadro de áudio ao slide com posição e tamanho especificados.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Adiciona uma imagem aos recursos da apresentação.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Define a imagem para o quadro de áudio.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // Salva a apresentação modificada no disco
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Alterar opções de reprodução de áudio**
-
-O Aspose.Slides para Node.js via Java permite alterar opções que controlam a reprodução ou propriedades de um áudio. Por exemplo, você pode ajustar o volume de um áudio, definir o áudio para reprodução em loop ou até ocultar o ícone de áudio.
-
-O painel **Opções de áudio** no Microsoft PowerPoint:
-
-![exemplo1_imagem](audio_frame_0.png)
-
-Opções de áudio do PowerPoint que correspondem às propriedades [AudioFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/) do Aspose.Slides:
-- **Iniciar** (lista suspensa) corresponde ao método [AudioFrame.setPlayMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** corresponde ao método [AudioFrame.setVolume](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setVolume)
-- **Reproduzir em todos os slides** corresponde ao método [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop até parar** corresponde ao método [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Ocultar durante a apresentação** corresponde ao método [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Retroceder após a reprodução** corresponde ao método [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setRewindAudio)
-
-Opções de **Edição** do PowerPoint que correspondem às propriedades [AudioFrame](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/) do Aspose.Slides:
-- **Fade In** corresponde ao método [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** corresponde ao método [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Cortar início do áudio** corresponde ao método [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Cortar fim do áudio** o valor corresponde à duração do áudio menos o valor do método [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-O **controle de volume** do PowerPoint no painel de controle de áudio corresponde ao método [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Ele permite alterar o volume do áudio em porcentagem.
-
-É assim que você altera as opções de reprodução de áudio:
-1. [Crie](#create-audio-frame) ou obtenha o Quadro de Áudio.
-2. Defina novos valores para as propriedades do Quadro de Áudio que deseja ajustar.
-3. Salve o arquivo PowerPoint modificado.
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Obtém a forma AudioFrame
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Define o modo de reprodução para reproduzir ao clicar
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Define o volume como Baixo
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Define o áudio para reproduzir em todos os slides
-    audioFrame.setPlayAcrossSlides(true);
-    // Desativa o loop para o áudio
-    audioFrame.setPlayLoopMode(false);
-    // Oculta o AudioFrame durante a apresentação
-    audioFrame.setHideAtShowing(true);
-    // Rebobina o áudio para o início após a reprodução
-    audioFrame.setRewindAudio(true);
-    // Salva o arquivo PowerPoint no disco
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Este exemplo JavaScript mostra como adicionar um novo quadro de áudio com áudio incorporado, cortá‑lo e definir as durações de fade:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Define o deslocamento de início do corte para 1,5 segundos
-    audioFrame.setTrimFromStart(1500);
-    // Define o deslocamento de fim do corte para 2 segundos
-    audioFrame.setTrimFromEnd(2000);
-
-    // Define a duração do fade-in para 200 ms
-    audioFrame.setFadeInDuration(200);
-    // Define a duração do fade-out para 500 ms
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-O exemplo de código a seguir mostra como recuperar um quadro de áudio com áudio incorporado e definir seu volume para 85%:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Obtém uma forma de quadro de áudio
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Define o volume do áudio para 85%
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Gerenciar legendas de áudio**
-
-O Aspose.Slides permite adicionar legendas fechadas a um quadro de áudio através do método [getCaptionTracks](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Esse método retorna uma [CaptionsCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/captionscollection/), que permite adicionar faixas de legenda WebVTT, iterar pelas faixas existentes e removê‑las quando necessário.
-
-**Adicionar legendas de áudio**
-
-Use o método [getCaptionTracks](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) para anexar uma ou mais faixas de legenda a um quadro de áudio. No exemplo a seguir, um arquivo de áudio é adicionado a um slide e, em seguida, uma nova faixa de legenda é carregada de um arquivo `.vtt`.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Adicionar uma nova faixa de legenda a partir de um arquivo WebVTT.
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Extrair legendas de áudio**
+## **Alterar a miniatura do frame de áudio**
 
-Você pode iterar pelas faixas de legenda associadas a um quadro de áudio e salvá‑las como arquivos `.vtt`. Cada faixa de legenda expõe seus dados binários e identificador exclusivo, que podem ser usados ao exportar legendas.
+Por padrão, um frame de áudio exibe um ícone de alto-falante. Para exibir uma miniatura personalizada, adicione uma imagem à apresentação com [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) e defina-a na imagem do frame com [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage). O exemplo usa `eagle.jpeg` como a miniatura para um clipe de áudio incorporado.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Alterar opções de reprodução de áudio**
+
+Os controles de **Opções de Áudio** do PowerPoint determinam quando um clipe inicia, quão alto ele soa e como ele se comporta durante uma apresentação de slides.
+
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
+
+| PowerPoint control | Aspose.Slides for Node.js via Java method |
+| --- | --- |
+| Iniciar | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Predefinição de volume | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Reproduzir em todos os slides | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Loop até parar | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Ocultar durante a apresentação | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Retroceder após reproduzir | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| Fade in | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Fade out | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Cortar início do áudio | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Cortar fim do áudio | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Controle deslizante de volume | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+O exemplo encontra o primeiro frame de áudio no primeiro slide, chama [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) para iniciar a reprodução ao clicar e seleciona a predefinição de volume baixo. O clipe continua entre slides com o looping desativado. O ícone permanece oculto durante a apresentação, e o clipe retrocede após a reprodução.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Salvar a faixa de legenda como um arquivo .vtt.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Para um clipe com mais de 3,5 segundos, este exemplo pula os primeiros 1,5 segundos e os últimos 2 segundos. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) recebe a duração a ser omitida do final do clipe. Para obter o tempo final exibido no PowerPoint, subtraia esse deslocamento da duração total do clipe. O clipe cortado faz fade in em 200 milissegundos e fade out em 500 milissegundos. Todos os quatro métodos recebem valores em milissegundos.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Para definir o volume de reprodução em uma porcentagem específica, use [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Este exemplo define o primeiro frame de áudio no primeiro slide para 85 %.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Gerenciar legendas de áudio**
+
+Cada frame de áudio fornece acesso às suas faixas de legenda por meio de [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Use a coleção para anexar legendas WebVTT ao clipe, exportar faixas existentes ou removê‑las.
+
+### **Adicionar legendas de áudio**
+
+O exemplo incorpora um clipe de áudio no primeiro slide e usa [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) para anexar uma faixa WebVTT local. O primeiro argumento fornece o rótulo da faixa, e o segundo identifica o arquivo que contém as legendas cronometradas.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Extrair legendas de áudio**
+
+Este exemplo exporta cada faixa de legenda anexada a um frame de áudio no primeiro slide. Ele grava os bytes retornados por [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) em um arquivo WebVTT e usa o identificador retornado por [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) como nome do arquivo, de modo que cada faixa tenha uma saída separada.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Remover legendas de áudio**
+
+Use [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) para excluir uma faixa individual. O exemplo usa [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) para remover todas as legendas do primeiro frame de áudio no primeiro slide, preservando o clipe.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Encontrar uma linha nas legendas de áudio**
+
+Para encontrar uma linha nas legendas de áudio no primeiro slide, procure o texto retornado por [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) na memória. Em uma cue WebVTT em texto simples, a linha de tempo contém `-->`, as linhas de legenda seguem‑na, e uma linha em branco finaliza a cue. Este exemplo imprime o rótulo da faixa e cada linha de legenda que contém “café”.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -245,62 +325,39 @@ try {
 }
 ```
 
-**Remover legendas de áudio**
+## **Extrair áudio**
 
-Para remover legendas de um quadro de áudio, use os métodos fornecidos pela [CaptionsCollection](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/captionscollection/), como [clear](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/captionscollection/#removeAt). O exemplo a seguir remove todas as faixas de legenda de um quadro de áudio.
+Uma transição de slide pode ter seu próprio som. Para recuperá‑lo, chame [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) na transição de slide. O exemplo acessa os bytes retornados por [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) e imprime o número de bytes. Se o primeiro slide não possuir som de transição, ele imprime uma mensagem em vez disso.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // tipo: aspose.slides.AudioFrame
-
-    // Remover todas as faixas de legenda do quadro de áudio.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extrair áudio**
+## **FAQ**
 
-O Aspose.Slides para Node.js via Java permite extrair o som usado nas transições de apresentação de slides. Por exemplo, você pode extrair o som usado em um slide específico.
+**Posso reutilizar o mesmo clipe de áudio em vários slides sem duplicá‑lo?**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Presentation) e carregue a apresentação que contém o áudio.
-2. Obtenha a referência do slide relevante através de seu índice.
-3. Acesse as [transições de apresentação de slides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) do slide.
-4. Extraia o som em dados binários.
+Sim. Adicione o clipe uma vez à [coleção de áudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) e passe o mesmo objeto de áudio para [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) em cada slide.
 
-```javascript
-// Instancia uma classe Presentation que representa um arquivo de apresentação
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // Acessa o slide desejado
-    const slide = pres.getSlides().get_Item(0);
-    // Obtém os efeitos de transição da apresentação de slides para o slide
-    const transition = slide.getSlideShowTransition();
-    // Extrai o som em um array de bytes
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+**Posso substituir o som em um frame de áudio existente?**
 
-## **Perguntas frequentes**
+Sim. Para um som vinculado, use [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) para apontar para o arquivo de substituição. Para um som incorporado, selecione outro clipe da coleção de áudio da apresentação com [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio). Ambas as abordagens preservam o frame existente.
 
-**Posso reutilizar o mesmo recurso de áudio em vários slides sem aumentar o tamanho do arquivo?**
+**O corte altera os dados de áudio armazenados na apresentação?**
 
-Sim. Adicione o áudio uma única vez à [coleção de áudio](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getaudios/) compartilhada da apresentação e crie quadros de áudio adicionais que façam referência a esse recurso existente. Isso evita duplicação de dados de mídia e mantém o tamanho da apresentação sob controle.
-
-**Posso substituir o som em um quadro de áudio existente sem recriar a forma?**
-
-Sim. Para um som vinculado, atualize o [caminho do link](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) para apontar para o novo arquivo. Para um som incorporado, troque o objeto [áudio incorporado](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) por outro da [coleção de áudio](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getaudios/) da apresentação. A formatação do quadro e a maioria das configurações de reprodução permanecem intactas.
-
-**O corte altera os dados de áudio subjacentes armazenados na apresentação?**
-
-Não. O corte ajusta apenas os limites de reprodução. Os bytes originais do áudio permanecem inalterados e acessíveis através do áudio incorporado ou da coleção de áudio da apresentação.
+Não. [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) e [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) definem limites de reprodução. Você ainda pode recuperar o clipe completo por meio de [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio).

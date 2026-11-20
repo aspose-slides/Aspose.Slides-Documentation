@@ -1,5 +1,5 @@
 ---
-title: Hantera ljud i presentationer på Android
+title: Hantera ljudramar i presentationer på Android
 linktitle: Ljudram
 type: docs
 weight: 10
@@ -7,269 +7,283 @@ url: /sv/androidjava/audio-frame/
 keywords:
 - ljud
 - ljudram
-- miniatyr
-- lägga till ljud
+- miniatyrbild
+- lägg till ljud
 - ljudegenskaper
 - ljudalternativ
 - extrahera ljud
 - Android
 - Java
 - Aspose.Slides
-description: "Skapa och kontrollera ljudramar i Aspose.Slides för Android—Java‑exempel för att bädda in, trimma, loopa och konfigurera uppspelning i PPT-, PPTX- och ODP‑presentationer."
+description: "Bädda in ljud i bilder, ändra ljudikonen, konfigurera uppspelning, hantera WebVTT-textning och extrahera ljud från bildövergångar med Aspose.Slides för Android via Java."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med ljudramar i Aspose.Slides. Den visar hur man lägger till inbäddat ljud i bilder, anpassar ljudramens miniatyr, konfigurerar uppspelningsalternativ som volym, loopning, dölja, trimning och toningslängder, och extraherar ljud som används i bildspelsövergångar.
+En ljudram låter dig spela ett ljud på en bild. Med Aspose.Slides for Android via Java kan du bädda in ett ljudklipp, välja bilden som representerar det, justera uppspelning och bifoga bildtexter. Du kan också hämta ett ljud som är tilldelat en bildövergång.
 
 ## **Skapa ljudramar**
-Aspose.Slides för Android via Java låter dig lägga till ljudfiler i bilder. Ljudfilerna bäddas in i bilder som ljudramar.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-2. Hämta en bilds referens via dess index.
-3. Läs in ljudfilströmmen som du vill bädda in i bilden.
-4. Lägg till den inbäddade ljudramen (som innehåller ljudfilen) till bilden.
-5. Ställ in [PlayMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioPlayModePreset) och `Volume` som exponeras av objektet [IAudioFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IAudioFrame).
-6. Spara den modifierade presentationen.
-
-Denna Java-kod visar hur du lägger till en inbäddad ljudram i en bild:
+Använd [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-java.io.InputStream-) för att bädda in ett lokalt ljudklipp på den första bilden. De två första koordinaterna placerar ramen på bilden, och de två nästa värdena anger dess bredd och höjd, alla i punkter. Detta exempel anropar [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) för att starta klippet automatiskt och anropar [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) för att välja den högsta volyminställningen.
 
 ```java
-// Instansierar en Presentation-klass som representerar en presentationsfil
-Presentation pres = new Presentation();
-try {
-    // Hämtar den första bilden
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Laddar wav-ljudfilen till en ström
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägger till ljudramen
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // Ställer in uppspelningsläge och volym för ljudet
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
     audioFrame.setPlayMode(AudioPlayModePreset.Auto);
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
-    // Skriver PowerPoint-filen till disk
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ändra ljudramens miniatyr**
+## **Ändra ljudramens miniatyrbild**
 
-När du lägger till en ljudfil i en presentation visas ljudet som en ram med en standardstandardbild (se bilden i avsnittet nedan). Du kan ändra ljudramens förhandsbild (ange din föredragna bild).
-
-Denna Java-kod visar hur du ändrar en ljudramens miniatyr eller förhandsbild:
+Som standard visar en ljudram en högtalarikon. För att visa en anpassad miniatyrbild, lägg till en bild i presentationen med [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-java.io.InputStream-) och sätt den på ramens bild med [setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#setImage-com.aspose.slides.IPPImage-). Exemplet använder en JPEG som miniatyrbild för ett inbäddat ljudklipp.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägger till en ljudram på bilden med en specificerad position och storlek.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
+try (FileInputStream audioStream = new FileInputStream("audio.wav");
+     FileInputStream imageStream = new FileInputStream("eagle.jpeg")) {
+    IPPImage thumbnail = presentation.getImages().addImage(imageStream);
+
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
+    audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
 
-    // Lägger till en bild i presentationens resurser.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Ställer in bilden för ljudramen.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-    //Sparar den ändrade presentationen till disk
     presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ändra ljuduppspelningsalternativ**
 
-Aspose.Slides för Android via Java låter dig ändra alternativ som styr ett ljüds uppspelning eller egenskaper. Till exempel kan du justera ett ljüds volym, sätta ljüdet på loop eller till och med dölja ljüdikonen.
+PowerPoints **Audio Options**-kontroller bestämmer när ett klipp startar, hur högt det låter och hur det beter sig under en bildspel.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint‑kontroll | Aspose.Slides for Android via Java method |
+| --- | --- |
+| Start | [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) |
+| Volymförinställning | [setVolume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolume-int-) |
+| Spela över bilder | [setPlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayAcrossSlides-boolean-) |
+| Upprepa tills stoppad | [setPlayLoopMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayLoopMode-boolean-) |
+| Dölj under visning | [setHideAtShowing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setHideAtShowing-boolean-) |
+| Spola tillbaka efter uppspelning | [setRewindAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setRewindAudio-boolean-) |
+| Tona in | [setFadeInDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeInDuration-float-) |
+| Tona ut | [setFadeOutDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setFadeOutDuration-float-) |
+| Trimma ljudets starttid | [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) |
+| Trimma ljudets sluttid | [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) |
+| Volymreglage | [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-) |
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame) properties:
+Exemplet hittar den första ljudramen på den första bilden, anropar [setPlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setPlayMode-int-) för att starta uppspelning vid ett klick och väljer den låga volymförinställningen. Klippet fortsätter över bilder med loopning avstängd. Ikonen förblir dold under visningen, och klippet spolar tillbaka efter uppspelning.
 
-- **Start**-rullgardinslistan motsvarar egenskapen [AudioFrame.PlayMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) 
-- **Volym** motsvarar egenskapen [AudioFrame.Volume](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getVolume--) 
-- **Spela över bilder** motsvarar egenskapen [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) 
-- **Loopa tills stoppad** motsvarar egenskapen [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getPlayLoopMode--) 
-- **Dölj under presentation** motsvarar egenskapen [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getHideAtShowing--) 
-- **Spola tillbaka efter uppspelning** motsvarar egenskapen [AudioFrame.RewindAudio](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/AudioFrame#getRewindAudio--) 
+```java
+import com.aspose.slides.*;
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/) properties:
-
-- **Tona in** motsvarar egenskapen [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/#getFadeInDuration--) 
-- **Tona ut** motsvarar egenskapen [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/#getFadeOutDuration--) 
-- **Trimma ljud starttid** motsvarar egenskapen [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/#getTrimFromStart--) 
-- **Trimma ljud sluttid** värdet är lika med ljudets varaktighet minus värdet av egenskapen [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/#getTrimFromEnd--) 
-
-PowerPoint **volymkontroll** på ljudpanel motsvarar egenskapen [AudioFrame.VolumeValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/audioframe/#getVolumeValue--) . Den låter dig ändra ljudvolymen i procent.
-
-Så här ändrar du ljuduppspelningsalternativen:
-
-1. [Skapa](#create-audio-frame) eller hämta Audio Frame.
-2. Ange nya värden för de Audio Frame‑egenskaper du vill justera.
-3. Spara den modifierade PowerPoint‑filen.
-
-Denna Java-kod demonstrerar en operation där ljudalternativen justeras:
-
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    // Hämtar AudioFrame-formen
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ställer in uppspelningsläget till att spela vid klick
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // Ställer in volymen till Låg
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // Ställer in ljudet att spela över bilder
-    audioFrame.setPlayAcrossSlides(true);
-
-    // Inaktiverar loopning för ljudet
-    audioFrame.setPlayLoopMode(false);
-
-    // Döljer AudioFrame under bildspelet
-    audioFrame.setHideAtShowing(true);
-
-    // Spolar tillbaka ljudet till början efter uppspelning
-    audioFrame.setRewindAudio(true);
-
-    // Sparar PowerPoint-filen till disk
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Detta Java‑exempel visar hur man lägger till en ny ljudram med inbäddat ljud, trimmar den och anger toningslängderna:
+För ett klipp som är längre än 3,5 sekunder hoppar detta exempel över de första 1,5 sekunderna och de sista 2 sekunderna. [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) tar emot den varaktighet som ska utelämnas från klippets slut. För att få den sluttid som visas i PowerPoint, subtrahera detta offset från hela klippets varaktighet. Det trimmade klippet tonar in på 200 ms och tonar ut på 500 ms. Alla fyra metoder tar värden i millisekunder.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
-    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-    // Ställer in trimningens startoffset till 1,5 sekunder
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
     audioFrame.setTrimFromStart(1500f);
-    // Ställer in trimningens slutoffset till 2 sekunder
     audioFrame.setTrimFromEnd(2000f);
-
-    // Ställer in toningens intagslängd till 200 ms
     audioFrame.setFadeInDuration(200f);
-    // Ställer in toningens uttoningslängd till 500 ms
     audioFrame.setFadeOutDuration(500f);
 
-    pres.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+    presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Följande kodexempel visar hur man hämtar en ljudram med inbäddat ljud och sätter dess volym till 85 %:
+För att ange uppspelningsvolymen till en specifik procentsats, använd [setVolumeValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setVolumeValue-float-). Detta exempel sätter den första ljudramen på den första bilden till 85 %.
 
 ```java
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioFrameEmbed_out.pptx");
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hämtar en ljudramform
-    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    // Ställer in ljudvolymen till 85%
-    audioFrame.setVolumeValue(85f);
-
-    pres.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
+    if (audioFrame != null) {
+        audioFrame.setVolumeValue(85f);
+        presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Hantera ljudtextning**
 
-Aspose.Slides låter dig lägga till stängda bildtexter till en ljudram via metoden [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) . Denna metod returnerar en [ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/), som låter dig lägga till WebVTT‑textspår, iterera genom befintliga spår och ta bort dem vid behov.
+Varje ljudram ger åtkomst till sina textningsspår via [getCaptionTracks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--). Använd samlingen för att bifoga WebVTT‑textning till klippet, exportera befintliga spår eller ta bort dem.
 
-**Lägg till ljudtextning**
+### **Lägg till ljudtextning**
 
-Använd metoden [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudioframe/#getCaptionTracks--) för att bifoga ett eller flera textspår till en ljudram. I följande exempel läggs en ljudfil till en bild och därefter laddas ett nytt textspår från en `.vtt`‑fil.
+Exemplet bäddar in ett ljudklipp på den första bilden och använder [add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#add-java.lang.String-java.lang.String-) för att bifoga ett lokalt WebVTT‑spår. Det första argumentet anger spårets etikett och det andra identifierar filen som innehåller tidskodad textning.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
-try {
-    byte[] audioData = Files.readAllBytes(Paths.get("audio.mp3"));
-    IAudio audio = presentation.getAudios().addAudio(audioData);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
+try (FileInputStream audioStream = new FileInputStream("audio.wav")) {
+    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+    audioFrame.getCaptionTracks().add("English", "track.vtt");
 
-    // Lägg till ett nytt textspår från en WebVTT-fil.
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Extrahera ljudtextning**
+### **Extrahera ljudtextning**
 
-Du kan iterera genom de textspår som är associerade med en ljudram och spara dem som `.vtt`‑filer. Varje textspår exponerar sin binära data och unika identifierare, vilket kan användas vid export av textning.
+Detta exempel exporterar varje textningsspår som är bifogat en ljudram på den första bilden. Det skriver de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getBinaryData--) till en WebVTT‑fil och använder identifieraren som returneras av [getCaptionId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getCaptionId--) som filnamn så att varje spår får en separat utdata.
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAudioFrame) {
-            IAudioFrame audioFrame = (IAudioFrame) shape;
-            for (ICaptions captionTrack : audioFrame.getCaptionTracks()) {
-                // Spara textspåret som en .vtt-fil.
-                FileOutputStream fos = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
-                fos.write(captionTrack.getBinaryData());
-                fos.close();
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            try (FileOutputStream output = new FileOutputStream(track.getCaptionId() + ".vtt")) {
+                output.write(track.getBinaryData());
             }
         }
     }
-} catch (IOException e){
 } finally {
     presentation.dispose();
 }
 ```
 
-**Ta bort ljudtextning**
+### **Ta bort ljudtextning**
 
-För att ta bort textning från en ljudram, använd metoderna som tillhandahålls av [ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/), såsom [clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#clear--), [remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-), eller [removeAt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-). Följande exempel tar bort alla textspår från en ljudram.
+Använd [remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) eller [removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) för att ta bort ett enskilt spår. Exemplet använder [clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptionscollection/#clear--) för att ta bort all textning från den första ljudramen på den första bilden samtidigt som klippet bevaras.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("audio_with_captions.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAudioFrame audioFrame = (IAudioFrame) slide.getShapes().get_Item(0);
 
-    // Ta bort alla textspår från ljudramen.
-    audioFrame.getCaptionTracks().clear();
+    IAudioFrame audioFrame = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IAudioFrame) {
+            audioFrame = (IAudioFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    if (audioFrame != null) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Hitta en rad i ljudtextning**
+
+För att hitta en rad i ljudtextningen på den första bilden, sök i texten som returneras av [getDataAsString](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icaptions/#getDataAsString--) i minnet. I en ren text‑WebVTT‑cue innehåller tidradens `-->`, följt av textningsraderna och en tom rad avslutar cue:n. Detta exempel skriver ut spårets etikett och varje textningsrad som innehåller “café”.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation("audio_with_captions.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAudioFrame)) {
+            continue;
+        }
+        IAudioFrame audioFrame = (IAudioFrame) shape;
+        for (ICaptions track : audioFrame.getCaptionTracks()) {
+            boolean inCue = false;
+            String captions = track.getDataAsString();
+            for (String line : captions.split("\\r\\n|\\r|\\n")) {
+                if (line.isEmpty()) {
+                    inCue = false;
+                } else if (line.contains("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase(Locale.ROOT).contains("café")) {
+                    System.out.println(track.getLabel() + ": " + line);
+                }
+            }
+        }
+    }
 } finally {
     presentation.dispose();
 }
@@ -277,43 +291,37 @@ try {
 
 ## **Extrahera ljud**
 
-Aspose.Slides för Android via Java låter dig extrahera ljudet som används i bildspelsövergångar. Till exempel kan du extrahera ljudet som används i en specifik bild.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) och läs in presentationen som innehåller ljudet.
-2. Hämta den relevanta bildens referens via dess index.
-3. Åtkomst till [slideshow transitions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) för bilden.
-4. Extrahera ljudet i byte‑data.
-
-Denna kod i Java visar hur du extraherar ljudet som används i en bild:
+En bildövergång kan ha sitt eget ljud. För att hämta det, anropa [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSound--) på bildövergången. Exemplet får åtkomst till de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) och skriver ut antalet byte. Om den första bilden saknar övergångsljud skrivs ett meddelande istället.
 
 ```java
-// Instansierar en Presentation-klass som representerar en presentationsfil
-Presentation pres = new Presentation("AudioSlide.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("AudioSlide.pptx");
 try {
-    // Hämtar den önskade bilden
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Hämtar bildspelsövergångseffekterna för bilden
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //Extraherar ljudet i byte array
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAudio sound = slide.getSlideShowTransition().getSound();
+    if (sound != null) {
+        byte[] audioData = sound.getBinaryData();
+        System.out.println("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        System.out.println("The first slide has no transition sound.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Kan jag återanvända samma ljudresurs på flera bilder utan att öka filstorleken?**
+**Kan jag återanvända samma ljudklipp på flera bilder utan att duplicera det?**
 
-Ja. Lägg till ljudet en gång i presentationens delade [audio collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getAudios--) och skapa ytterligare ljudramar som refererar till den befintliga resursen. Detta undviker duplicering av mediadata och håller presentationens storlek under kontroll.
+Ja. Lägg till klippet en gång i presentationens [audio collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getAudios--) och skicka samma ljudobjekt till [addAudioFrameEmbedded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAudioFrameEmbedded-float-float-float-float-com.aspose.slides.IAudio-) för varje bild.
 
-**Kan jag byta ut ljudet i en befintlig ljudram utan att återskapa formen?**
+**Kan jag ersätta ljudet i en befintlig ljudram?**
 
-Ja. För ett länkat ljud, uppdatera [link path](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) så att det pekar på den nya filen. För ett inbäddat ljud, byt ut det [embedded audio](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-)‑objektet mot ett annat från presentationens [audio collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getAudios--). Ramens formatering och de flesta uppspelningsinställningar förblir intakta.
+Ja. För ett länkat ljud, använd [setLinkPathLong](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setLinkPathLong-java.lang.String-) för att peka på ersättningsfilen. För ett inbäddat ljud, välj ett annat klipp från presentationens ljudsamling med [setEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setEmbeddedAudio-com.aspose.slides.IAudio-). Båda metoderna bevarar den befintliga ramen.
 
-**Ändrar trimning den underliggande ljuddata som lagras i presentationen?**
+**Ändrar trimning ljuddata som lagras i presentationen?**
 
-Nej. Trimning justerar endast uppspelningsgränserna. De ursprungliga ljudbytarna förblir orörda och kan nås via det inbäddade ljudet eller presentationens ljudsamling.
+Nej. [setTrimFromStart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromStart-float-) och [setTrimFromEnd](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#setTrimFromEnd-float-) anger uppspelningsgränser. Du kan fortfarande hämta hela klippet från [getEmbeddedAudio](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudioframe/#getEmbeddedAudio--).

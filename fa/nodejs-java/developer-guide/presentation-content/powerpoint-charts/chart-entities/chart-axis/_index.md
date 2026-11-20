@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی محورهای نمودار در ارائه‌ها با استفاده از جاوااسکریپت
+title: سفارشی‌سازی محورها در نمودارها در ارائه‌ها با استفاده از JavaScript
 linktitle: محور نمودار
 type: docs
 url: /fa/nodejs-java/chart-axis/
@@ -12,7 +12,7 @@ keywords:
 - مدیریت محور
 - ویژگی‌های محور
 - بیشینه مقدار
-- حداقل مقدار
+- کمینه مقدار
 - خط محور
 - قالب تاریخ
 - عنوان محور
@@ -22,17 +22,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "کشف کنید چگونه می‌توان با استفاده از جاوااسکریپت و Aspose.Slides برای Node.js از طریق جاوا، محورهای نمودار را در ارائه‌های PowerPoint برای گزارش‌ها و تجسم‌ها سفارشی کرد."
+description: "کشف کنید چگونه می‌توان با JavaScript و Aspose.Slides برای Node.js از طریق Java، محورها را در نمودارهای PowerPoint برای گزارش‌ها و تجسم‌ها سفارشی‌سازی کرد."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه می‌توانید محورهای نمودار را با Aspose.Slides برای Node.js از طریق Java شخصی‌سازی کنید. در آن به مقادیر محاسبه‌شده محور، جابجایی ردیف‌ها و ستون‌های نمودار، نمایش یا عدم نمایش محور، بازه‌های برچسب دسته و تیک‌مارک، دسته‌بندی‌های تاریخ و قالب‌بندی، چرخش عنوان، موقعیت‌یابی محور، واحدهای نمایش، و مقیاس لگاریتمی پرداخته می‌شود.
+این مقاله نحوهٔ سفارشی‌سازی محورها در نمودارها با Aspose.Slides برای Node.js از طریق Java را توضیح می‌دهد. موارد شامل مقادیر محاسبه‌شدهٔ محور، جابجایی سطرها و ستون‌های نمودار، نمایش یا پنهان‌سازی محورها، بازه‌های برچسب دسته‌بندی و تیک‌مارک، دسته‌بندی‌های تاریخ و قالب‌بندی آن‌ها، چرخش عنوان، موقعیت‌گذاری محور، واحدهای نمایش و مقیاس لگاریتمی می‌شود.
 
-## **دریافت بیشترین مقدارها روی محور عمودی در نمودارها**
+## **دریافت حداکثر مقادیر محور عمودی در نمودارها**
 
-یک [ارائه](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید و یک نمودار ناحیه‌ای با داده‌های پیش‌فرض اضافه کنید. قبل از خواندن مقادیر محاسبه‌شده محور، [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) را فراخوانی کنید تا طرح‌بندی نمودار به‌روز باشد.
+یک [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید و یک نمودار مساحتی با داده‌های پیش‌فرض اضافه کنید. قبل از خواندن مقادیر محاسبه‌شدهٔ محور، برای به‌روزرسانی طرح نمودار، [validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) را فراخوانی کنید.
 
-[getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) و [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) را برای محدودیت‌های محور بخوانید و [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) و [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) را برای بازه‌های تیک استفاده کنید. [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) و [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) مقیاس‌های زمان‑واحد را فراهم می‌کنند که برای محورهای تاریخ مهم هستند. مثال این مقادیر را در متغیرهای محلی ذخیره کرده و نمودار را ذخیره می‌کند.
+مقادیر حداکثر و حداقل محور را با استفاده از [getActualMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmaxvalue/) و [getActualMinValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminvalue/) بخوانید و بازه‌های تیک را با [getActualMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunit/) و [getActualMinorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunit/) دریافت کنید. مقیاس‌های واحد زمانی را که برای محورهای تاریخ مرتبط هستند، می‌توانید با [getActualMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualmajorunitscale/) و [getActualMinorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getactualminorunitscale/) به دست آورید. مثال این مقادیر را در متغیرهای محلی ذخیره کرده و نمودار را ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -60,9 +60,9 @@ try {
 }
 ```
 
-## **جابه‌جایی داده‌ها بین محورها**
+## **تعویض داده‌ها بین محورها**
 
-از [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) برای تعویض نقش سری‌ها و دسته‌ها در داده‌های نمودار استفاده کنید. هر دسته قبلی به یک سری تبدیل می‌شود و هر سری قبلی به یک دسته. این تغییر نحوه گروه‌بندی داده‌ها را تغییر می‌دهد؛ محور افقی و عمودی جابجا نمی‌شوند. مثال از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) برای بستن داده‌های پیش‌فرض به `Sheet1!A1:D5`، شامل سطر سرصفحه و ستون دسته، قبل از جابجایی ردیف‌ها و ستون‌ها استفاده می‌کند. سپس نموداری با چهار سری و سه دسته ذخیره می‌کند.
+از [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) برای تعویض نقش سری‌ها و دسته‌بندی‌ها در داده‌های نمودار استفاده کنید. هر دسته‌بندی قبلی تبدیل به یک سری می‌شود و هر سری قبلی تبدیل به یک دسته‌بندی می‌شود. این تغییر نحوهٔ گروه‌بندی داده‌ها را تحت تأثیر قرار می‌دهد؛ محورها افقی و عمودی را تعویض نمی‌کند. مثال از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) برای اتصال داده‌های پیش‌فرض به `Sheet1!A1:D5`، شامل سطر عنوان و ستون دسته‌بندی، قبل از تعویض سطرها و ستون‌ها استفاده می‌کند. یک نمودار با چهار سری و سه دسته‌بندی ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -82,9 +82,67 @@ try {
 }
 ```
 
+## **معکوس کردن ترتیب ترسیم یک محور**
+
+از [setPlotOrderReversed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setplotorderreversed/) برای معکوس کردن محور دسته‌بندی یا مقدار استفاده کنید. به عنوان مثال، یک نمودار میله‌ای افقی می‌تواند مراحل پروژه را از بالا به پایین در همان ترتیب برگهٔ کاری نشان دهد: Planning, Development, Testing. معکوس کردن یک محور جهت ترسیم را تغییر می‌دهد؛ داده‌های برگهٔ کاری را مرتب یا جابه‌جا نمی‌کند. برای مقایسه، [switchRowColumn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/switchrowcolumn/) نقش سری‌ها و دسته‌بندی‌ها را تعویض می‌کند.
+
+مثال زیر یک نمودار میله‌ای افقی با سه مرحله و یک سری ایجاد می‌کند. ارائه‌ای با سه اسلاید ذخیره می‌کند: ترتیب عادی، دسته‌بندی‌های معکوس و مقادیر معکوس. هر نسخه از همان داده‌ها استفاده می‌کند و فقط یک محور در هر نسخه معکوس می‌شود.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredBar, 50, 40, 620, 320);
+    chart.setLegend(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.ClusteredBar);
+    var stages = ["Planning", "Development", "Testing"];
+    var values = [10, 30, 20];
+    for (var i = 0; i < stages.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, stages[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+        var valueCell = workbook.getCell(0, i + 1, 1, values[i]);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    // اسلاید ۲: نمایش اولین دسته‌بندی در بالا.
+    var categorySlide = presentation.getSlides().addClone(slide);
+    var categoryChart = categorySlide.getShapes().get_Item(0);
+    categoryChart.getAxes().getVerticalAxis().setPlotOrderReversed(true);
+    // محور مقدار افقی را در پایین نگه دارید.
+    categoryChart.getAxes().getVerticalAxis().setCrossType(aspose.slides.CrossesType.Maximum);
+
+    // اسلاید ۳: فقط مقیاس عددی افقی را معکوس کنید.
+    var valueSlide = presentation.getSlides().addClone(slide);
+    var valueChart = valueSlide.getShapes().get_Item(0);
+    valueChart.getAxes().getHorizontalAxis().setPlotOrderReversed(true);
+
+    presentation.save("ReversedAxes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+معکوس کردن یک محور می‌تواند محور عمود را به سمت opposite side of the plot منتقل کند. [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) تعیین می‌کند که محور دیگر در کجا محور تنظیم‌شده را قطع می‌کند. در اسلاید 2، با استفاده از `aspose.slides.CrossesType.Maximum` روی محور دسته‌بندی معکوس، محور مقدار افقی در پایین باقی می‌ماند. برای یک نقطهٔ قطع خاص، از [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) استفاده کنید. هنگام تغییر جهت، تنظیمات قطع را بررسی کنید، به‌ویژه اگر نمودار قبلاً نقطهٔ قطع سفارشی دارد. برای برگرداندن جهت عادی، `setPlotOrderReversed` را با `false` فراخوانی کنید؛ تنظیمات قطع جداگانه هستند.
+
+| ترتیب عادی (اسلاید 1) | دسته‌بندی‌های معکوس (اسلاید 2) | مقادیر معکوس (اسلاید 3) |
+| --- | --- | --- |
+| ![نمودار میله‌ای افقی با ترتیب عادی محور دسته‌بندی و مقدار](axis-order-normal.png) | ![نمودار میله‌ای افقی با نمایش دسته‌بندی‌ها از بالا به پایین](axis-order-categories-reversed.png) | ![نمودار میله‌ای افقی با محور مقدار معکوس و صفر در سمت راست](axis-order-values-reversed.png) |
+| دسته‌بندی‌ها از پایین به بالا حرکت می‌کنند؛ مقادیر از چپ به راست افزایش می‌یابند. | Planning, Development, و Testing از بالا به پایین حرکت می‌کنند. مقادیر و ترتیب سطرهای برگهٔ کاری تغییر نمی‌کند. | دسته‌بندی‌ها ترتیب عادی خود را حفظ می‌کنند؛ مقادیر از راست به چپ افزایش می‌یابند. محور دسته‌بندی در صفر سمت راست قطع می‌شود. |
+
 ## **غیرفعال کردن محور عمودی برای نمودارهای خطی**
 
-با فراخوانی [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) با مقدار `false` روی محور عمودی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با مخفی شدن محور عمودی ذخیره می‌کند.
+با فراخوانی [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) با مقدار `false` روی محور عمودی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور عمودی مخفی ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,7 +163,7 @@ try {
 
 ## **غیرفعال کردن محور افقی برای نمودارهای خطی**
 
-با فراخوانی [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) با مقدار `false` روی محور افقی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با مخفی شدن محور افقی ذخیره می‌کند.
+با فراخوانی [setVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setvisible/) با مقدار `false` روی محور افقی، آن را مخفی کنید. مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد کرده و آن را با محور افقی مخفی ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -124,9 +182,47 @@ try {
 }
 ```
 
-## **تغییر یک محور دسته‌ای**
+## **نمایش یا مخفی کردن خطوط شبکهٔ نمودار**
 
-از [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) برای انتخاب یک محور دسته‌ای تاریخ یا متن استفاده کنید. این مثال به فایل `ExistingChart.pptx` نیاز دارد که در اولین اسلاید اولین شکل یک نمودار است و سلول‌های دسته شامل مقادیر عددی تاریخ‌های Excel هستند. محور افقی را به محور تاریخ تغییر می‌دهد. با فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) با `false`، [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) با `1` و [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) با `TimeUnitType.Months` تیک‌های اصلی را در بازه‌های یک‌ماهه قرار می‌دهد.
+با فراخوانی [getShowMajorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowmajorgridlines/) و [getShowMinorGridLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getshowminorgridlines/) می‌توانید بررسی کنید که کدام خطوط شبکهٔ محور نمایش داده می‌شوند. برای نمایش خطوط شبکهٔ جزئی، از [getMinorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getminorgridlinesformat/) استفاده کنید و پرخط را به رنگ جامد و قابل مشاهده تنظیم کنید. برای مخفی کردن آن‌ها، پرکرده را به [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) تنظیم کنید. برای خطوط شبکهٔ اصلی نیز می‌توانید از [getMajorGridLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getmajorgridlinesformat/) به همان روش استفاده کنید. تغییر پرکردگی، نمایش محورها و تیک‌ها را حفظ می‌کند.
+
+محور عمودی این نمودار میله‌ای خوشه‌ای ابتدا فقط خطوط شبکهٔ اصلی را نشان می‌دهد. مثال خطوط شبکهٔ جزئی را به رنگ نارنجی تیره نمایش می‌دهد، سپس دوباره آن‌ها را مخفی می‌کند و سپس ارائه را ذخیره می‌کند. این مثال در هر مرحله وضعیت نمایش خطوط شبکه را چاپ می‌کند.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 30, 660, 230);
+    var axis = chart.getAxes().getVerticalAxis();
+    console.log("Initial: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    var minorFill = axis.getMinorGridLinesFormat().getLine().getFillFormat();
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    var darkOrange = java.newInstanceSync("java.awt.Color", 255, 140, 0);
+    minorFill.getSolidFillColor().setColor(darkOrange);
+    console.log("Enabled: minor=%s", axis.getShowMinorGridLines());
+
+    minorFill.setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    console.log("Hidden: major=%s, minor=%s", axis.getShowMajorGridLines(), axis.getShowMinorGridLines());
+
+    presentation.save("ChartGridlines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| خطوط شبکهٔ جزئی فعال | خطوط شبکهٔ جزئی مخفی |
+| --- | --- |
+| ![خطوط شبکهٔ جزئی نارنجی بین خطوط اصلی بر محور عمودی](minor-gridlines-enabled.png) | ![همان نمودار میله‌ای با فقط خطوط شبکهٔ اصلی قابل مشاهده](minor-gridlines-hidden.png) |
+
+## **تغییر محور دسته‌بندی**
+
+از [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) برای انتخاب محور دسته‌بندی تاریخ یا متن استفاده کنید. این مثال به فایل `ExistingChart.pptx` نیاز دارد که در اسلاید اول اولین شکل آن یک نمودار باشد و سلول‌های دسته‌بندی شامل مقادیر عددی تاریخ Excel باشند. محور افقی را به محور تاریخ تغییر می‌دهد. با فراخوانی [setAutomaticMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmajorunit/) با مقدار `false`، [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) با مقدار `1` و [setMajorUnitScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunitscale/) با `TimeUnitType.Months` تیک‌های اصلی را در فواصل یک‌ماهه تنظیم می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -148,21 +244,81 @@ try {
 }
 ```
 
-## **کنترل بازه برچسب‌های محور دسته‌ای**
+### **تعیین نوع محور دسته‌بندی از داده‌ها**
 
-هنگامی که یک نمودار دسته‌های بسیاری دارد، می‌توانید تعداد برچسب‌های محور قابل مشاهده را بدون حذف دسته‌ها یا نقاط داده کاهش دهید. [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) را با `false` فراخوانی کنید، سپس بازهٔ دلخواه دسته را به [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) بدهید. برای دسته‌های متنی در ترتیب عادی، شمارش از اولین دسته آغاز می‌شود:
+پس از پرکردن دسته‌بندی‌ها، [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistypeautomatically/) را فراخوانی کنید، سپس با خواندن [getCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getcategoryaxistype/) نوع انتخاب‌شده را بررسی کنید. این روش زمانی مفید است که همان نمودار یا برچسب‌های متنی یا مقادیر عددی تاریخ را دریافت کند. این متد زمان فراخوانی نوع را تعیین می‌کند؛ حالت پایدار برای ارزیابی مجدد تغییرات بعدی داده‌ها فراهم نمی‌کند. پس از جایگزینی دسته‌بندی‌ها، دوباره آن را فراخوانی کنید.
 
-| بازه | برچسب‌های نمایش داده‌شده در مثال |
+مثال زیر یک نمودار با دسته‌بندی‌های متنی ایجاد می‌کند و وقتی نوع انتخاب‌شده `CategoryAxisType.Text` باشد `true` چاپ می‌کند. سپس مقادیر سلول دسته‌بندی را با تاریخ‌ها جایگزین می‌کند و دوباره متد را فراخوانی می‌کند و وقتی نوع انتخاب‌شده `CategoryAxisType.Date` باشد `true` چاپ می‌کند. تاریخ‌ها به‌عنوان مقدارهای عددی OLE Automation ذخیره می‌شوند که به‌عنوان تعداد روزها از 30 دسامبر 1899 حساب می‌شوند، نه به‌صورت رشتهٔ تاریخ. محاسبهٔ JavaScript از زمان‌موقعیت‌های UTC استفاده می‌کند و اختلاف را بر 86 400 000 میلیثانیه در روز تقسیم می‌کند؛ ایندکس‌های ماه صفر‑پایه هستند. برای ارسال هر مقدار تاریخ به Java به‌عنوان double از `java.newDouble` استفاده کنید. [setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) کنترل می‌کند که این مقدارها چگونه نمایش داده شوند؛ متن را به تاریخ عددی تبدیل نمی‌کند. برای اطلاعات بیشتر دربارهٔ سلول‌های دسته‌بندی، به [Chart Workbook](/slides/fa/nodejs-java/chart-workbook/) مراجعه کنید.
+
+از تعیین خودکار استفاده کنید وقتی ورودی شامل دسته‌بندی‌های متنی یا تاریخ‌های عددی باشد، همان‌طور که در این مثال نشان داده شده است. برای برچسب‌های عددی معمولی، دسته‌بندی‌های ترکیبی یا داده‌های خالی، به‌صورت صریح از [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) برای مطابقت با معنای موردنظر استفاده کنید. مقادیر عددی به‌تنهایی نشان نمی‌دهند که دسته‌بندی‌ها تاریخ هستند.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var seriesName = workbook.getCell(0, 0, 1, "Sales");
+    var series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    var labels = ["First", "Second", "Third"];
+
+    for (var i = 0; i < labels.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Text); // درست
+
+    var baseDate = Date.UTC(1899, 11, 30);
+    var dates = [Date.UTC(2026, 0, 1), Date.UTC(2026, 0, 2), Date.UTC(2026, 1, 1)];
+
+    for (var i = 0; i < dates.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0);
+        var dateValue = java.newDouble((dates[i] - baseDate) / 86400000);
+        categoryCell.setValue(dateValue);
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Date); // درست
+
+    presentation.save("AutomaticCategoryAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **کنترل بازه‌های برچسب محور دسته‌بندی**
+
+زمانی که یک نمودار دارای تعداد زیادی دسته‌بندی باشد، می‌توانید عدد برچسب‌های محوری قابل مشاهده را بدون حذف دسته‌بندی‌ها یا نقاط داده کاهش دهید. با فراخوانی [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) با مقدار `false`، سپس بازهٔ دلخواه دسته‌بندی را به [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/) می‌دهید. برای دسته‌بندی‌های متنی در ترتیب عادی، شمارش از اولین دسته‌بندی آغاز می‌شود:
+
+| بازه | برچسب‌های نمایش‌داده‌شده در مثال |
 | --- | --- |
-| `1` | دسته 1، دسته 2، دسته 3، … دسته 24 |
-| `2` | دسته 1، دسته 3، دسته 5، … دسته 23 |
-| `3` | دسته 1، دسته 4، دسته 7، … دسته 22 |
+| `1` | دسته 1, دسته 2, دسته 3, ... دسته 24 |
+| `2` | دسته 1, دسته 3, دسته 5, ... دسته 23 |
+| `3` | دسته 1, دسته 4, دسته 7, ... دسته 22 |
 
-یک بازهٔ `3` هر برچسب سومی را نمایش می‌دهد و دو برچسب بین برچسب‌های نشان‌داده‌شده مخفی می‌مانند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصله‌گذاری خودکار بر اساس فضای موجود یک بازه انتخاب می‌کند؛ لزوماً تمام برچسب‌ها را نشان نمی‌دهد.
+بازهٔ `3` هر برچسب سوم را نشان می‌دهد و دو برچسب بین برچسب‌های نمایش‌داده‌شده پنهان می‌مانند. این کار ستون‌های مربوطه را حذف نمی‌کند. فاصله‌گذاری خودکار بر اساس فضای موجود یک بازه انتخاب می‌کند؛ لزوماً تمام برچسب‌ها را نشان نمی‌دهد.
 
-تیک‌مارک‌ها کنترل جداگانه‌ای دارند. [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) را با `false` فراخوانی کنید و از [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) برای تنظیم بازهٔ آن‌ها استفاده کنید. برای مثال، مقدار `1` یک تیک‌مارک را در هر بازهٔ دسته حفظ می‌کند در حالی که برچسب‌ها فقط هر سومین دسته ظاهر می‌شوند. با استفاده از [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) یک سبک قابل مشاهده تنظیم کنید تا نتیجه را ببینید. بازگشت به تنظیم خودکار با تعیین `true` مجدداً اجازه می‌دهد نمودار بازه را به‌صورت خودکار انتخاب کند.
+تیک‌مارک‌ها کنترل جداگانه‌ای دارند. با فراخوانی [setAutomaticTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomatictickmarksspacing/) با مقدار `false` و استفاده از [setTickMarksSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settickmarksspacing/) می‌توانید بازهٔ آن‌ها را تنظیم کنید. برای مثال، مقدار `1` یک تیک‌مارک در هر بازهٔ دسته‌بندی حفظ می‌کند در حالی که برچسب‌ها فقط هر سومین دسته‌بندی نمایش می‌یابند. با استفاده از [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) یک سبک قابل مشاهده تنظیم کنید تا نتیجه را ببینید. فراخوانی هرکدام از تنظیم‌کننده‌های خودکار با `true` مجدداً به نمودار اجازه می‌دهد تا بازه را به‌صورت خودکار انتخاب کند.
 
-مثال زیر یک مثال خودکفایی است که ۲۴ دسته و یک سری ایجاد می‌کند، سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصله‌گذاری خودکار، فاصله‌گذاری دستی برچسب‌ها با تیک‌مارک‌های مستقل، و بازگشت به فاصله‌گذاری خودکار. دو نسخه کپی داده‌های اصلی نمودار را حفظ می‌کنند. ارائهٔ ورودی لازم نیست. متن برچسب‌های افقی تفاوت چگالی را به‌راحتی نشان می‌دهد.
+مثال خودکفای زیر ۲۴ دسته‌بندی و یک سری ایجاد می‌کند، سپس سه اسلاید در `CategoryAxisIntervals.pptx` ذخیره می‌کند: فاصله‌گذاری خودکار، فاصله‌گذاری دستی برچسب‌ها با تیک‌مارک‌های مستقل، و بازگشت به فاصله‌گذاری خودکار. دو نسخهٔ کپی داده‌های اصلی نمودار را حفظ می‌کنند. ارائهٔ ورودی لازم نیست. متنی که بر روی برچسب‌ها افقی قرار می‌گیرد، اختلاف تراکم را به‌راحتی نشان می‌دهد.
 
 ```javascript
 var aspose = aspose || {};
@@ -197,7 +353,7 @@ try {
     axis.setAutomaticTickLabelSpacing(true);
     axis.setAutomaticTickMarksSpacing(true);
 
-    // اسلاید ۲: هر برچسب سوم را نمایش دهید، اما برای هر دسته یک علامت تیک نگه دارید.
+    // اسلاید ۲: نمایش هر سومین برچسب، اما برای هر دسته‌بندی یک تیک‌مارک نگه دارید.
     var manualSlide = presentation.getSlides().addClone(slide);
     var manualChart = manualSlide.getShapes().get_Item(0);
     var manualAxis = manualChart.getAxes().getHorizontalAxis();
@@ -206,7 +362,7 @@ try {
     manualAxis.setAutomaticTickMarksSpacing(false);
     manualAxis.setTickMarksSpacing(1);
 
-    // اسلاید ۳: بگذارید نمودار دوباره هر دو بازه را انتخاب کند.
+    // اسلاید ۳: اجازه دهید نمودار دوباره هر دو بازه را انتخاب کند.
     var restoredSlide = presentation.getSlides().addClone(manualSlide);
     var restoredChart = restoredSlide.getShapes().get_Item(0);
     restoredChart.getAxes().getHorizontalAxis().setAutomaticTickLabelSpacing(true);
@@ -218,23 +374,23 @@ try {
 }
 ```
 
-**فاصله‌گذاری خودکار (اسلاید ۱):** در این رندر، هر دومین برچسب دسته نمایش داده می‌شود و در دو خط می‌پیچد. نتیجهٔ خودکار می‌تواند بسته به اندازهٔ نمودار، قلم‌ها و رندرر متفاوت باشد.
+**فاصله‌گذاری خودکار (اسلاید 1):** در این رندر، هر دومین برچسب دسته‌بندی نمایش داده می‌شود و به دو خط می‌پیچد. نتیجهٔ خودکار می‌تواند بسته به اندازهٔ نمودار، فونت‌ها و رندر کننده متغیر باشد.
 
-![فاصله‌گذاری خودکار برچسب‌های دسته با همهٔ ۲۴ ستون قابل مشاهده](category-axis-automatic.png)
+![فاصله‌گذاری خودکار برچسب‌های دسته‌بندی با نمایش تمام ۲۴ ستون](category-axis-automatic.png)
 
-**فاصله‌گذاری دستی (اسلاید ۲):** هر سومین برچسب در یک خط نمایش داده می‌شود، در حالی که تیک‌مارک‌ها در هر بازهٔ دسته باقی می‌مانند. همهٔ ۲۴ ستون، از جمله ستون‌های بدون برچسب، با همان مقادیر قابل مشاهده‌اند. اسلاید ۳ ظاهر خودکار نشان داده‌شده در بالا را بازگردانی می‌کند.
+**فاصله‌گذاری دستی (اسلاید 2):** هر سومین برچسب در یک خط نمایش داده می‌شود، در حالی که تیک‌مارک‌ها در هر بازهٔ دسته‌بندی باقی می‌مانند. تمام ۲۴ ستون، شامل آن‌هایی که برچسب ندارند، با همان مقادیر قابل مشاهده هستند. اسلاید ۳ ظاهر خودکار نشان داده‌شده در بالا را بازگردانی می‌کند.
 
-![فاصله‌گذاری برچسب‌های دسته به‌صورت سه‌تایی با همهٔ ۲۴ ستون قابل مشاهده](category-axis-manual.png)
+![فاصله‌گذاری دستی برچسب‌های دسته‌بندی به‌صورت سه‌تایی با نمایش تمام ۲۴ ستون](category-axis-manual.png)
 
 ### **انتخاب محور و بازهٔ صحیح**
 
-از این بازهٔ شمارش دسته برای یک محور دسته‌ای متن استفاده کنید، مانند محور دسته‌ای یک نمودار ستون، خط، ناحیه یا میله. در یک نمودار ستون، این محور افقی است. در یک نمودار میلهٔ افقی، محور دسته‌ای عمودی است، بنابراین این تنظیمات را بر محور بازگشتی از [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) اعمال کنید. فاصله‌گذاری تیک‌مارک همچنین برای محور سری در نمودارهایی که دارای آن هستند، اعمال می‌شود.
+از این بازهٔ شمارش دسته‌بندی برای محور دسته‌بندی متنی استفاده کنید، مانند محور دسته‌بندی یک نمودار میله‌ای، خطی، مساحتی یا ستونی. در یک نمودار ستونی، این محور افقی است. در یک نمودار میله‌ای افقی، محور دسته‌بندی عمودی است، بنابراین این تنظیمات را روی محوری که توسط [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) برگردانده می‌شود اعمال کنید. فاصله‌گذاری تیک‌مارک‌ها نیز برای محور سری در نمودارهایی که دارای چنین محوری هستند، اعمال می‌شود.
 
-از فاصله‌گذاری برچسب دسته برای تنظیم مقیاس عددی یک محور مقدار استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) یک اختلاف عددی را مشخص می‌کند: به عنوان مثال، واحد اصلی `10` تیک‌ها را در ۰، ۱۰، ۲۰ و غیره تولید می‌کند وقتی محور از صفر شروع می‌شود. یک بازهٔ برچسب دسته‌ای `3` به‌جای مقادیر عددی، موقعیت‌های دسته‌ای را می‌شمارد. نمودارهای پراکندگی و حباب از محورهای مقدار به‌جای یک محور دسته‌ای متن استفاده می‌کنند. برای یک محور تاریخ، از واحدهای اصلی مبتنی بر زمان و مقیاس‌ها همان‌گونه که در [تغییر یک محور دسته‌ای](#change-a-category-axis) توضیح داده شد، استفاده کنید.
+از فاصله‌گذاری برچسب‌های دسته‌بندی برای تنظیم مقیاس عددی یک محور مقدار استفاده نکنید. در یک محور مقدار، [setMajorUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajorunit/) اختلافی در مقادیر مشخص می‌کند: به‌عنوان مثال، واحد اصلی `10` تیک‌مارک‌ها را در 0، 10، 20 و غیره قرار می‌دهد وقتی محور از صفر شروع می‌شود. بازهٔ برچسب‌های دسته‌بندی `3` به‌جای مقدارهای داده‌ای، موقعیت‌های دسته‌بندی را می‌شمارد. نمودارهای پراکنش و حبابی از محورها مقدار استفاده می‌کنند نه محور متنی دسته‌بندی. برای محور تاریخ، از واحدهای اصلی مبتنی بر زمان و مقیاس‌ها همان‌طور که در [تغییر محور دسته‌بندی](#change-a-category-axis) توضیح داده شد، استفاده کنید.
 
-## **تنظیم قالب تاریخ برای مقادیر محور دسته‌ای**
+## **تنظیم قالب تاریخ برای مقادیر محور دسته‌بندی**
 
-مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به‌عنوان شماره‌های سریال OLE Automation در اولین کاربرگ (شاخص `0`) ذخیره می‌شوند که به‌عنوان تعداد روزهای گذشته از ۳۰‑دسامبر ۱۸۹۹ محاسبه می‌شوند. محاسبهٔ JavaScript از زمان‌سنجی UTC استفاده می‌کند و اختلاف را بر ۸۶٬۴۰۰٬۰۰۰ میلی‌ثانیه در هر روز تقسیم می‌کند. با استفاده از [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) با مقدار `CategoryAxisType.Date`، [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) را با `false` فراخوانی کنید و `yyyy` را به [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) بدهید تا برچسب‌های دسته سال‌های چهاررقمی را مستقل از قالب‌سازی سلول نمایش دهند.
+مثال داده‌های پیش‌فرض نمودار را با چهار مقدار سالانه جایگزین می‌کند. تاریخ‌ها به‌عنوان شمارهٔ سریال OLE Automation در اولین برگه کاری (اندیس `0`) ذخیره می‌شوند و به‌عنوان تعداد روزها از 30 دسامبر 1899 محاسبه می‌شوند. محاسبهٔ JavaScript از زمان‌موقعیت‌های UTC استفاده می‌کند و اختلاف را بر 86 400 000 میلیثانیه در روز تقسیم می‌کند. با استفاده از [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) همراه با `CategoryAxisType.Date`، [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) را با مقدار `false` فراخوانی کنید و `yyyy` را به [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) پاس دهید تا برچسب‌های دسته‌بندی سال‌های چهاررقمی را صرف‌نظر از قالب‌بندی سلول نمایش دهد.
 
 ```javascript
 var aspose = aspose || {};
@@ -274,9 +430,9 @@ try {
 }
 ```
 
-## **تنظیم زاویهٔ چرخش برای عنوان محور نمودار**
+## **تنظیم زاویهٔ چرخش عنوان محور نمودار**
 
-بر محور عمودی [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) را با مقدار `true` فراخوانی کنید، متن عنوان را ارائه دهید و با [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) زاویهٔ چرخش را تنظیم کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستونی را با عنوان محور مقدار که به‌صورت ۹۰ درجه چرخیده ذخیره می‌کند.
+با فراخوانی [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/settitle/) با مقدار `true` روی محور عمودی، متن عنوان را فراهم کنید و از [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/setrotationangle/) برای چرخاندن عنوان استفاده کنید. زاویه بر حسب درجه اندازه‌گیری می‌شود؛ این مثال یک نمودار ستونی را با عنوان محور مقدار که به‌صورت 90 درجه چرخانده شده ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -297,9 +453,9 @@ try {
 }
 ```
 
-## **تنظیم موقعیت محور روی محور دسته‌ای یا مقدار**
+## **تنظیم موقعیت محور در محور دسته‌بندی یا مقدار**
 
-از [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) برای کنترل اینکه آیا محور مقدار در میان دسته‌ها یا روی تیک‌مارک‌های دسته عبور می‌کند استفاده کنید. این تنظیم برای محورهای دسته‌ای اعمال می‌شود. مثال این ویژگی را بر محور دسته‌ای افقی یک نمودار ستونی با مقدار `true` تنظیم می‌کند و نتیجه را ذخیره می‌کند.
+از [setAxisBetweenCategories](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaxisbetweencategories/) برای کنترل اینکه آیا محور مقدار بین دسته‌بندی‌ها یا در تیک‌مارک‌های دسته‌بندی محور را قطع می‌کند، استفاده کنید. این تنظیم برای محورها دسته‌بندی اعمال می‌شود. مثال این تنظیم را روی محور دسته‌بندی افقی یک نمودار ستونی به `true` تغییر می‌دهد و نتیجه را ذخیره می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -318,9 +474,9 @@ try {
 }
 ```
 
-## **تنظیم واحد نمایش بر روی محور مقدار نمودار**
+## **تنظیم واحد نمایش در محور مقدار نمودار**
 
-با استفاده از [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) برچسب‌های یک محور مقدار را بدون تغییر داده‌های پایه مقیاس می‌کنید. هنگامی که [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) بر `Millions` تنظیم شود، مقدار ۶۰٬۰۰۰٬۰۰۰ به‌صورت ۶۰ نمایش داده می‌شود. مثال یک نمودار ستونی ایجاد می‌کند و واحد نمایش میلیون‌ها را بر محور عمودی آن اعمال می‌نماید.
+از [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setdisplayunit/) برای مقیاس‌بندی برچسب‌های یک محور مقدار بدون تغییر داده‌های زیرین استفاده کنید. با تنظیم [DisplayUnitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/displayunittype/) به `Millions`، مقدار 60 000 000 به‌صورت 60 نمایش داده می‌شود. مثال یک نمودار ستونی ایجاد می‌کند و واحد نمایش میلیون‌ها را بر محور عمودی آن اعمال می‌نماید.
 
 ```javascript
 var aspose = aspose || {};
@@ -339,21 +495,21 @@ try {
 }
 ```
 
-## **پیکربندی یک محور مقدار لگاریتمی**
+## **پیکربندی محور مقدار لگاریتمی**
 
-یک محور مقدار لگاریتمی زمانی مفید است که مقادیر مثبت در چندین مرتبهٔ بزرگی متفاوت قرار گیرند. به‌عنوان مثال، سرویسی ممکن است در پنج دوره ۱۰، ۱۰۰، ۱٬۰۰۰، ۱۰٬۰۰۰ و ۱۰۰٬۰۰۰ درخواست دریافت کند. در مقیاس خطی، مقادیر کوچکتر نزدیک به صفر و به‌هم‌چسبان ظاهر می‌شوند. مقیاس لگاریتمی رشد نسبی آن‌ها را آسان‌تر مقایسه می‌کند: فواصل برابر نشان‌دهندۀ نسبت‌های برابر هستند نه اختلاف‌های برابر.
+یک محور مقدار لگاریتمی زمانی مفید است که مقادیر مثبت در چندین مرتبهٔ قدرتمند متفاوت باشند. به عنوان مثال، سرویسی ممکن است 10، 100، 1 000، 10 000 و 100 000 درخواست در پنج دوره دریافت کند. در مقیاس خطی، مقادیر کوچکتر نزدیک به صفر جمع می‌شوند. مقیاس لگاریتمی رشد نسبی آن‌ها را آسان‌تر مقایسه می‌کند: فواصل مساوی نشان‌دهندهٔ نسبت‌های برابر نه اختلاف‌های عددی برابر هستند.
 
-با فراخوانی [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) با مقدار `true` بر محور مقدار و استفاده از [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) پایهٔ دلخواه را انتخاب کنید. این کار نحوهٔ نمایش مقادیر موجود را تغییر می‌دهد؛ داده‌ها را تغییر نمی‌دهد و خط روند لگاریتمی اضافه نمی‌کند. خط روند یک ویژگی جداگانه است که رابطهٔ برازش‌شدهٔ در داده‌ها را نشان می‌دهد.
+با فراخوانی [setLogarithmic](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogarithmic/) با مقدار `true` روی محور مقدار و استفاده از [setLogBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlogbase/) برای انتخاب پایه، این تغییر نحوهٔ نمایش مقادیر موجود را تحت تأثیر قرار می‌دهد؛ داده‌ها را تغییر نمی‌دهد و خط روند لگاریتمی اضافه نمی‌کند. خط روند یک ویژگی جداگانه است.
 
 ### **انتخاب محور مقدار و پایه**
 
-برای یک نمودار خطی یا ستونی، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) بازگردانده می‌شود. برای یک نمودار میله‌ای افقی، توسط [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) بازگردانده می‌شود. نمودارهای پراکندگی و حباب دو محور مقدار دارند، بنابراین برای مقادیر X محور افقی، برای مقادیر Y محور عمودی یا هر دو را انتخاب کنید. از اعمال مقیاس لگاریتمی بر محور دسته‌ای خودداری کنید.
+در یک نمودار خطی یا ستونی، محور مقدار توسط [getVerticalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/getverticalaxis/) بازمی‌گردد. در یک نمودار میله‌ای افقی، توسط [getHorizontalAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axesmanager/gethorizontalaxis/) بازمی‌گردد. نمودارهای پراکنش و حبابی دو محور مقدار دارند، بنابراین برای مقادیر X محور افقی، برای مقادیر Y محور عمودی یا هر دو را انتخاب کنید. مقیاس لگاریتمی را بر محور دسته‌بندی اعمال نکنید.
 
-پایهٔ پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX، می‌توانید پایه‌ای بین `2` تا `1000` (شامل) استفاده کنید؛ پایه‌های کسری مانند `2.5` نیز پشتیبانی می‌شوند. با پایهٔ `10` توان‌های متوالی مانند ۱۰، ۱۰۰، ۱٬۰۰۰ و ۱۰٬۰۰۰ به‌صورت مساوی فاصله دارند.
+پایهٔ پیش‌فرض لگاریتمی `10` است. برای نمودارهای PPTX، می‌توانید پایه‌ای بین `2` تا `1000` (شامل) استفاده کنید؛ پایه‌های کسری مانند `2.5` نیز پشتیبانی می‌شوند. با پایهٔ `10`، توان‌های متوالی همچون 10، 100، 1 000 و 10 000 به‌صورت برابر فاصله‌گذاری می‌شوند.
 
 ### **مقایسه مقیاس خطی و لگاریتمی**
 
-مثال زیر یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کپی می‌کند و در اسلاید دوم پایهٔ لگاریتمی ۱۰ را فعال می‌سازد. هر دو اسلاید داده‌های یکسانی را حفظ می‌کنند.
+مثال خودکفای زیر یک نمودار خطی با پنج شمارش درخواست در اسلاید اول ایجاد می‌کند، سپس آن اسلاید را کپی کرده و در اسلاید دوم محور مقدار لگاریتمی پایه‌10 را فعال می‌کند. هر دو اسلاید داده‌های یکسانی را حفظ می‌کنند.
 
 ```javascript
 var aspose = aspose || {};
@@ -384,7 +540,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // اسلاید اول را خطی نگه داشته و فقط مقیاس محور مقدار نسخهٔ کپی شده را تغییر دهید.
+    // اسلاید اول را به‌صورت خطی نگه دارید و تنها مقیاس محور مقدار نسخه‌ی کپی را تغییر دهید.
     var logarithmicSlide = presentation.getSlides().addClone(slide);
     var logarithmicChart = logarithmicSlide.getShapes().get_Item(0);
     var valueAxis = logarithmicChart.getAxes().getVerticalAxis();
@@ -397,24 +553,24 @@ try {
 }
 ```
 
-**مقیاس خطی (اسلاید ۱):** فواصل عمودی برابر نشان‌دهندۀ اختلاف‌های مساوی در شمارش درخواست‌ها هستند. مقدار بزرگتر به‌صورت غالب در نمودار ظاهر می‌شود و مقادیر کوچکتر تشخیص دشواری دارند.
+**مقیاس خطی (اسلاید 1):** فواصل عمودی برابر نشان‌دهندهٔ اختلاف‌های مساوی در شمارش درخواست‌ها هستند. مقدار بزرگ‌ترین مقدار نمودار را dominate می‌کند و مقادیر کوچکتر را تشخیص دشوار می‌کند.
 
 ![نمودار خطی در PowerPoint که پنج شمارش درخواست را بر محور مقدار خطی نشان می‌دهد](value-axis-linear.png)
 
-**مقیاس لگاریتمی (اسلاید ۲):** فواصل عمودی برابر نشان‌دهندۀ نسبت‌های مساوی هستند. هر دوره ten‑fold بیشتر از دوره قبل است، بنابراین نقاط در مقیاس لگاریتمی پایه‑۱۰ یک خط مستقیم صعودی شکل می‌دهند. برچسب‌های محور همچنان شمارش درخواست‌های اصلی را نشان می‌دهند.
+**مقیاس لگاریتمی (اسلاید 2):** فواصل عمودی برابر نشان‌دهندهٔ نسبت‌های مساوی هستند. هر دوره ده برابر درخواست دورهٔ قبلی دارد، بنابراین نقاط روی مقیاس پایه‌10 به‌صورت خط صعودی مستقیم ظاهر می‌شوند. برچسب‌های محور همچنان شمارش اصلی درخواست‌ها را نشان می‌دهند.
 
-![همان پنج شمارش درخواست در PowerPoint بر محور مقدار لگاریتمی پایه‑۱۰](value-axis-logarithmic.png)
+![همان پنج شمارش درخواست در PowerPoint بر محور مقدار لگاریتمی پایه‌10](value-axis-logarithmic.png)
 
-### **مدیریت مقادیر صفر و منفی**
+### **مدیریت مقدار صفر و منفی**
 
-یک مقیاس لگاریتمی تنها می‌تواند مقادیر مثبت مطلق را نمایش دهد. پیش از فعال‌سازی آن، داده‌ها را بررسی کنید. اگر مقادیر صفر یا منفی معنی‌دار هستند، یا مقیاس خطی را حفظ کنید یا آن‌ها را جداگانه نشان دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلیل حذف را توضیح دهید. به‌صورت خاموش آنها را با عددهای مثبت کوچک جایگزین نکنید، زیرا معنای داده‌ها را تغییر می‌دهد. هر حداقل یا حداکثر به‌صورت دستی تنظیم‌شده برای یک محور لگاریتمی نیز باید مثبت باشد.
+مقیاس لگاریتمی فقط می‌تواند مقادیر مثبت مطلق را نمایش دهد. قبل از فعال‌سازی آن داده‌ها را بررسی کنید. اگر مقدار صفر یا منفی معنایی داشته باشد، مقیاس خطی را حفظ کنید یا آن‌ها را جداگانه نشان دهید. اگر حذف این مقادیر برای تحلیل مناسب است، دلیل حذف را توضیح دهید. به‌صورت خامسیت آنها را با مقادیر مثبت کوچک جایگزین نکنید، زیرا معنای داده را تغییر می‌دهد. هر حداقل یا حداکثر به‌صورت دستی برای یک محور لگاریتمی تنظیم می‌شود باید مثبت باشد.
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه مقدار تقاطع یک محور با محور دیگر (crossing) را تنظیم کنم؟**
+**How do I set the value at which one axis crosses the other (axis crossing)?**
 
-از [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) برای انتخاب رفتار تقاطع استفاده کنید. برای تعیین مقدار عددی تقاطع، [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) را به کار ببرید. این تنظیمات به شما امکان می‌دهند تقاطع محور را به یک خط پایه مناسب منتقل کنید.
+از [setCrossType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrosstype/) برای انتخاب رفتار قطع محور استفاده کنید. برای تعیین مقدار عددی قطع، از [setCrossAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcrossat/) استفاده کنید. این تنظیمات به شما امکان می‌دهند نقطهٔ قطع محور را به خط پایهٔ مناسب منتقل کنید.
 
-**چگونه می‌توانم موقعیت برچسب‌های تیک را نسبت به محور تنظیم کنم؟**
+**How can I position tick labels relative to the axis?**
 
-با فراخوانی [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) و استفاده از [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/) مقادیر `Low`، `High`، `NextTo` یا `None` موقعیت برچسب‌ها را تعیین کنید. برای کنترل خود تیک‌مارک‌ها، از [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) یا [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) استفاده کنید؛ این تنظیمات جدا از موقعیت برچسب‌ها هستند.
+با فراخوانی [setTickLabelPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelposition/) و استفاده از [TickLabelPositionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ticklabelpositiontype/): `Low`, `High`, `NextTo` یا `None` موقعیت برچسب‌های تیک را تنظیم کنید. برای کنترل خود تیک‌مارک‌ها، می‌توانید از [setMajorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmajortickmark/) یا [setMinorTickMark](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setminortickmark/) استفاده کنید؛ این تنظیمات جدا از موقعیت برچسب‌ها هستند.

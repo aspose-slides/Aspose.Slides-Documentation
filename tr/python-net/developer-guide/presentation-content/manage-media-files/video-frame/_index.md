@@ -1,5 +1,5 @@
 ---
-title: Python'da Sunumlarda Video Çerçevelerini Yönetme
+title: Sunumlarda Video Çerçevelerini Python ile Yönetme
 linktitle: Video Çerçevesi
 type: docs
 weight: 10
@@ -17,21 +17,21 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument slaytlarında video çerçevelerini programlı olarak eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
+description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument slaytlarında programlı olarak video çerçevelerini eklemeyi ve çıkarmayı öğrenin. Hızlı nasıl‑yapılır rehberi."
 ---
 ## **Giriş**
 
-Videolar fikirleri açıklamaya ve bir izleyiciyi çekmeye yardımcı olabilir. Aspose.Slides for Python via .NET, slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını ayarlamanızı, altyazıları yönetmenizi ve gömülü video verilerini çıkarmanızı sağlar.
+Videolar fikirleri açıklamaya yardımcı olabilir ve izleyiciyi dahil edebilir. Aspose.Slides for Python via .NET, slaytlara video çerçeveleri eklemenizi, oynatma ayarlarını ayarlamanızı, altyazıları yönetmenizi ve gömülü video verilerini çıkarmanızı sağlar.
 
 PowerPoint, yerel videoları ve YouTube videoları gibi çevrimiçi videolara bağlantıları destekler.
 
-Video verilerini ve video çerçevelerini temsil etmek için, Aspose.Slides [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) sınıfını, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) sınıfını ve diğer ilgili türleri sağlar.
+Video verilerini ve video çerçevelerini temsil etmek için Aspose.Slides, [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) sınıfını, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) sınıfını ve diğer ilgili türleri sağlar.
 
-## **Gömülü Video Çerçevesi Oluşturma**
+## **Gömülü Bir Video Çerçevesi Oluşturma**
 
-Slaydınıza eklemek istediğiniz video dosyası yerel olarak depolanıyorsa, videoyu sunumunuza gömmek için bir video çerçevesi oluşturabilirsiniz.
+Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanmışsa, sunumunuzda videoyu gömmek için bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek, mevcut bir sunumun ilk slaytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme tamamlanana kadar açık kalır çünkü [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) sunum kullanıldığı sürece kilitli tutar.
+Bu örnek, mevcut bir sunumun ilk slaytına yerel bir video gömer ve sonucu kaydeder. Çerçeve koordinatları ve boyutları puan cinsindendir. Akış, kaydetme tamamlanana kadar açıktır çünkü [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) sunum tarafından kullanılırken kilitli kalmasını sağlar.
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Yerel bir video yolunu doğrudan [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/) işlevine de geçirebilirsiniz. Bu örnek, yeni bir sunumun ilk slaytına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
+Yerel bir video yolunu doğrudan [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/) yöntemine de geçirebilirsiniz. Bu örnek, yeni bir sunumun ilk slaytına videoyu gömer. Video, sunum kaydedilene kadar erişilebilir olmalıdır.
 
 ```python
 import aspose.slides as slides
@@ -61,9 +61,9 @@ with slides.Presentation() as presentation:
 
 ## **Web Kaynağından Video ile Video Çerçevesi Oluşturma**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) sunumlarda çevrimiçi videoları destekler. YouTube videosu gibi çevrimiçi bir videoya bağlanan bir video çerçevesi oluşturabilirsiniz.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) sunumlarda çevrimiçi videoları destekler. YouTube videosu gibi bir çevrimiçi videoya bağlantı veren bir video çerçevesi oluşturabilirsiniz.
 
-Bu örnek, ilk slayta bir YouTube video bağlantısı ve küçük resim ekler. Başka bir video kullanmak için video tanımlayıcısını değiştirin. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ayarı otomatik oynatımı talep eder. Küçük resmi indirmek ve videoyu oynatmak internet erişimi gerektirir. Sunum görüntüleyicisi ayrıca çevrimiçi video oynatımını desteklemelidir.
+Bu örnek, ilk slayta bir YouTube video bağlantısı ve önizleme görseli ekler. Başka bir video kullanmak için video kimliğini değiştirin. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) ayarı otomatik oynatmayı talep eder. Önizleme görselinin indirilmesi ve videonun oynatılması internet erişimi gerektirir. Sunum görüntüleyicisinin de çevrimiçi video oynatımını desteklemesi gerekir.
 
 ```python
 from urllib.request import urlopen
@@ -86,9 +86,9 @@ with slides.Presentation() as presentation:
     presentation.save("online_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Videoyu Tam Ekran Modunda Oynatma**
+## **Tam Ekran Modunda Video Oynatma**
 
-Bir eğitim sunumunda, izleyicilerin detayları görebilmesi için bir yazılım demosunu tam ekran modunda oynatabilirsiniz. Oynatma sırasında bu davranışı etkinleştirmek için [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) değerini `True` olarak ayarlayın.
+Eğitim sunumunda, izleyicinin ayrıntıları görebilmesi için bir yazılım demosunu tam ekran modunda oynatabilirsiniz. Bu davranışı oynatma sırasında etkinleştirmek için [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) özelliğini `True` yapın.
 
 Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) öğesini bulur ve tam ekran oynatmayı etkinleştirir. Girdi sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
 
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tam ekran oynatma, videonun nasıl gösterileceğini kontrol eder. Bağımsız olarak, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) otomatik mi yoksa tıklamayla mı başlayacağını ve [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) tekrar edip etmeyeceğini denetler. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek, mevcut başlangıç ve döngü ayarlarını korur.
+Tam ekran oynatma, videonun nasıl görüntüleneceğini denetler. Bağımsız olarak, [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) otomatik mi yoksa tıklamayla mı başlayacağını, [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) ise tekrarlayıp tekrarlamayacağını kontrol eder. Başlangıç davranışını seçmek için oynatma modunu [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) olarak ayarlayın. Örnek, mevcut başlangıç ve döngü ayarlarını korur.
 
-## **Oynatmadan Sonra Videoyu Geri Sarma**
+## **Oynatmadan Sonra Videoyu Geri Sar**
 
-Bir eğitim sunumunda, gösterim videosunu başına geri döndürmek, sunumcunun videoyu tekrar oynatmaya hazır olmasını sağlar. Oynatma bittiğinde videoyu başa döndürmek için [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) değerini `True` olarak ayarlayın.
+Eğitim sunumunda, bir demo videosunu başa döndürmek, sunumu yapan kişinin videoyu tekrar oynatmasını hazır hâle getirir. Oynatma tamamlandıktan sonra videoyu başa döndürmek için [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) özelliğini `True` yapın.
 
-Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Oynatmanın bitmesi için döngüyü devre dışı bırakır ve oynatmayı tıklamayla başlamaya ayarlar. Girdi sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
+Bu örnek bir sunumu açar, ilk slayttaki ilk [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) öğesini bulur ve geri sarmayı etkinleştirir. Döngüyü devre dışı bırakır, böylece oynatma tamamlanabilir ve tıklamayla başlamasını ayarlar. Girdi sunumu, ilk slaytta mevcut bir video çerçevesi içeren en az bir slayt içermelidir.
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Geri sarmak, videoyu tekrar başlatmadan başına döndürür. Buna karşılık, [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) etkinleştirildiğinde oynatma otomatik olarak tekrar eder. Videonun bitmesini ve yeniden oynatmaya hazır kalmasını istediğinizde döngüyü devre dışı bırakın. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) bağımsız olarak otomatik ya da tıklamayla başlatmayı kontrol eder; bu örnek, oynatmanın ne zaman başlayacağını sunumcunun kontrol etmesi için [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) kullanır. Örnekte gösterildiği gibi döngü ayarından sonra oynatma modu ayarlanır. Geri sarmak, [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/)’dan bağımsız çalışır.
+Geri sarma, videoyu tekrar başlatmadan başlangıç noktasına getirir. Buna karşılık, [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) etkinleştirildiğinde oynatma otomatik olarak tekrarlanır. Videoyu bitirip tekrar oynatmaya hazır tutmak istediğinizde döngüyü devre dışı bırakın. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) bağımsız olarak otomatik ya da tıklamayla başlangıcı denetler; bu örnek, sunumu yapan kişinin ne zaman oynatmaya başlayacağını kontrol etmesi için [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/) kullanır. Döngü ayarından sonra oynatma modunu ayarlayın, örnekte gösterildiği gibi. Geri sarma, [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) özelliğinden bağımsız çalışır.
 
 ## **Video Çerçevesini Kırpma**
 
-[VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) ve [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) kullanarak oynatma sırasında videonun başlangıcının veya sonunun bir kısmını atlayabilirsiniz. Her iki değer milisaniye cinsindedir. Kırpma, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
+[VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) ve [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) kullanarak bir videonun başından ya da sonundan bir kısmını oynatma sırasında atlayabilirsiniz. Her iki değer de milisaniye cinsindendir. Kırpma, gömülü video verisini değiştirmeden oynatma ayarlarını değiştirir.
 
 **Kırpma Ayarlarını Belirleme**
 
-Bu örnek, yerel bir video gömer ve oynatma sırasında ilk 2,5 saniyeyi ve son bir saniyeyi atlar. Oynanabilir bir segment kalması için 3,5 saniyeden uzun bir video kullanın.
+Bu örnek, yerel bir videoyu gömer ve oynatma sırasında ilk 2,5 saniyeyi ve son bir saniyeyi atlar. Oynatılabilir bir segment kalması için 3,5 saniyeden uzun bir video kullanın.
 
 ```python
 import aspose.slides as slides
@@ -159,7 +159,7 @@ with slides.Presentation() as presentation:
 
 **Kırpma Ayarlarını Okuma**
 
-Bu örnek, ilk slayttaki ilk video çerçevesinin kırpma değerlerini milisaniye cinsinden yazdırır. Sunum en az bir slayt içermelidir. Eğer o slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
+Bu örnek, ilk slayttaki ilk video çerçevesinin kırpma değerlerini milisaniye cinsinden yazdırır. Sunum en az bir slayt içermelidir. Eğer slaytta video çerçevesi yoksa hiçbir şey yazdırılmaz. Önceki örnek 2500 ve 1000 değerlerini üretir.
 
 ```python
 import aspose.slides as slides
@@ -178,9 +178,9 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
 
 Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında depolanır ve [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) özelliği aracılığıyla sunulur.
 
-**Bir Video Çerçevesine Altyazı Ekleme**
+### **Video Çerçevesine Altyazı Ekleme**
 
-Bu örnek, yerel bir video gömer ve İngilizce etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları videoyla eşleşmelidir. Kaydedilen sunum, videoyu ve altyazılarını içerir.
+Bu örnek, yerel bir video gömer ve “English” etiketiyle bir WebVTT altyazı izi ekler. Altyazı zaman damgaları videoya uygun olmalıdır. Kaydedilen sunum hem videoyu hem de altyazılarını içerir.
 
 ```python
 import aspose.slides as slides
@@ -200,9 +200,9 @@ with slides.Presentation() as presentation:
 
 [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) sınıfı ayrıca bir akıştan altyazı eklemenizi sağlayan bir aşırı yükleme sunar.
 
-**Bir Video Çerçevesinden Altyazı Çıkarma**
+### **Video Çerçevesinden Altyazı Çıkarma**
 
-Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyaları olarak kaydeder. Ardışık numaralar çıktı dosyalarının farklı olmasını sağlar. Konsol, çıkarılan iz sayısını rapor eder. Sunum en az bir slayt içermelidir.
+Bu örnek, ilk slayttaki video çerçevelerinden tüm altyazı izlerini ayrı WebVTT dosyalarına kaydeder. Sıralı sayılar, çıktı dosyalarının farklı olmasını sağlar. Konsol, çıkarılan iz sayısını bildirir. Sunum en az bir slayt içermelidir.
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-Her [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketi, ikili veriyi ve altyazı metnini UTF-8 dizesi olarak sunar.
+Her [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) nesnesi, altyazı tanımlayıcısını, etiketini, ikili verisini ve UTF‑8 dizesi olarak altyazı metnini sunar.
 
-**Bir Video Çerçevesinden Altyazı Kaldırma**
+### **Video Çerçevesinden Altyazı Silme**
 
-Bu örnek, ilk slayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Slayt ve şeklin mevcut olduğu ve şeklin bir video çerçevesi olduğu varsayılır.
+Bu örnek, ilk slayttaki ilk şekil konumundaki video çerçevesinden tüm altyazıları kaldırır ve sonucu kaydeder. Slayt ve şeklin var olduğunu ve şeklin bir video çerçevesi olduğunu varsayar.
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Yalnızca bir altyazı izini kaldırmanız gerekiyorsa, [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) yerine [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) veya [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) yöntemlerini kullanın.
+Yalnızca tek bir altyazı izini silmek istiyorsanız, [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/) yerine [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) veya [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/) yöntemlerini kullanın.
 
-## **Slayttan Video Çıkarma**
+### **Video Altyazılarını Arama**
 
-Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda gömülü videoları çıkarmanıza da olanak tanır.
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) tüm WebVTT izini, başlık, zaman satırları ve altyazı metni dahil olmak üzere döndürür. Örneğin, ikinci slayttaki bir İngilizce iz şu ipucu içerebilir:
 
-Bu örnek, her slayttan gömülü videoları ayrı, numaralı ikili dosyalara çıkarır. Bağlantılı videolar, gömülü veri olmadığından atlanır. Konsol, her videonun MIME türünü ve toplam sayısını yazdırır. Çıktı, genel `.bin` uzantısını kullanır; gerektiğinde rapor edilen medya türüne uygun olarak değiştirin.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Bu örnek `captioned_media.pptx` dosyasını açar ve her slayttaki üst‑düzey video çerçevelerinin [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) izlerini okur. Düz metin ipuçları için `-->` içeren zaman satırını bulur ve bir sonraki boş satıra ya da iz sonuna kadar olan altyazı satırlarını toplar. Altyazı metninde “café” sözcüğünü büyük/küçük harf duyarsız olarak arar ve eşleşen her satır için slayt numarasını, iz etiketini, orijinal zaman satırını ve tam altyazıyı yazar.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+Örnek iz bir eşleşme üretir. Başlıktaki “Café” altyazı metni dışındadır ve çıktı zaman ayarını ve her iki altyazı satırını korur.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Bir Slayttan Video Çıkarma**
+
+Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda gömülü videoları çıkarmanıza da izin verir.
+
+Bu örnek, her slayttan gömülü videoları ayrı numaralı ikili dosyalara çıkarır. Bağlantılı videolar atlanır çünkü gömülü veri içermezler. Konsol her videonun MIME tipini ve toplam sayısını yazar. Çıktı, genel `.bin` uzantısını kullanır; gerektiğinde bildirilen medya tipine göre uzantıyı değiştirebilirsiniz.
 
 ```python
 import aspose.slides as slides
@@ -274,16 +323,16 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
 
 **Bir video çerçevesi için hangi video oynatma parametreleri değiştirilebilir?**
 
-Video çerçevesinin [oynatma modu](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (otomatik ya da tıklamayla) ve [döngü](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) (döngü) parametrelerini kontrol edebilirsiniz. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) nesnesinin özellikleri aracılığıyla kullanılabilir.
+[playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (otomatik veya tıklamayla) ve [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) kontrol edilebilir. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) nesnesinin özellikleri aracılığıyla sunulur.
 
 **Bir video eklemek PPTX dosya boyutunu etkiler mi?**
 
-Evet. Yerel bir video gömdüğünüzde, ikili veri belgeye dahil edilir ve sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir videoya bağlanıp bir küçük resim eklediğinizde, sunum videoyu değil bağlantıyı ve önizleme görüntüsünü depolar; bu nedenle boyut artışı genellikle daha küçüktür.
+Evet. Yerel bir video gömülürse, ikili veri belgeye dahil edilir ve sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir video bağlantısı ve önizleme görseli eklenirse, sunum yalnızca bağlantıyı ve önizleme görselini saklar; bu genellikle daha az boyut artışı demektir.
 
 **Mevcut bir video çerçevesindeki videoyu konumunu ve boyutunu değiştirmeden değiştirebilir miyim?**
 
-Evet. Çerçevenin içindeki [video içeriği](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) değiştirerek şeklin geometriğini koruyabilirsiniz; bu, mevcut bir düzen içinde medyayı güncellemek için yaygın bir senaryodur.
+Evet. Çerçevenin içinde [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) değiştirilirken şeklin geometrisi korunur; bu, mevcut bir yerleşimde medyanın güncellenmesi için yaygın bir senaryodur.
 
 **Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**
 
-Evet. Gömülü bir videonun [içerik türü](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) vardır ve bunu okuyup, örneğin diske kaydederken kullanabilirsiniz.
+Evet. Gömülü bir videonun [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/) okunabilir ve örneğin diske kaydederken kullanılabilir.

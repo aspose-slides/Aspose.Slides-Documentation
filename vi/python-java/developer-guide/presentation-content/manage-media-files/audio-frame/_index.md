@@ -1,5 +1,5 @@
 ---
-title: Quản lý âm thanh trong bản trình chiếu bằng Python
+title: Quản lý khung âm thanh trong bài thuyết trình bằng Python
 linktitle: Khung âm thanh
 type: docs
 weight: 10
@@ -14,24 +14,15 @@ keywords:
 - trích xuất âm thanh
 - Python
 - Aspose.Slides
-description: "Tạo và điều khiển khung âm thanh trong Aspose.Slides for Python via Java—các ví dụ mã để nhúng, cắt, vòng lặp và cấu hình phát trên các bản trình chiếu PPT, PPTX và ODP."
+description: "Nhúng âm thanh vào các slide, thay đổi biểu tượng âm thanh, cấu hình phát lại, quản lý phụ đề WebVTT, và trích xuất âm thanh chuyển slide với Aspose.Slides cho Python qua Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với khung âm thanh trong Aspose.Slides. Nó chỉ ra cách thêm âm thanh nhúng vào các slide, tùy chỉnh hình thu nhỏ của khung âm thanh, cấu hình các tùy chọn phát như âm lượng, vòng lặp, ẩn, cắt và thời gian làm mờ, và trích xuất âm thanh được sử dụng trong các chuyển đổi trình chiếu.
+Một khung âm thanh cho phép bạn phát âm thanh trên một slide. Với Aspose.Slides for Python via Java, bạn có thể nhúng một clip âm thanh, chọn hình ảnh đại diện cho nó, điều chỉnh phát lại và gắn phụ đề. Bạn cũng có thể lấy âm thanh được gán cho hiệu ứng chuyển slide.
 
-## **Tạo khung âm thanh**
+## **Tạo Khung Âm Thanh**
 
-Aspose.Slides for Python via Java cho phép bạn thêm tệp âm thanh vào các slide. Các tệp âm thanh được nhúng trong slide dưới dạng khung âm thanh. 
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-2. Lấy một tham chiếu tới slide theo chỉ mục của nó.
-3. Đọc tệp âm thanh mà bạn muốn nhúng vào slide.
-4. Thêm khung âm thanh nhúng (chứa tệp âm thanh) vào slide.
-5. Sử dụng [setPlayMode](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setPlayMode) và [setVolume](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setVolume) được cung cấp bởi đối tượng [AudioFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/).
-6. Lưu bản trình chiếu đã sửa đổi.
-
-Đoạn mã Python này cho bạn thấy cách thêm một khung âm thanh nhúng vào slide:
+Thêm các byte từ `audio.wav` vào bộ sưu tập âm thanh của bản trình chiếu, sau đó sử dụng [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) để nhúng một clip âm thanh cục bộ vào slide đầu tiên. Hai tọa độ đầu tiên xác định vị trí khung trên slide, và hai giá trị tiếp theo đặt chiều rộng và chiều cao của nó, tất cả bằng đơn vị point. Ví dụ này gọi [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) để bắt đầu clip tự động và gọi [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) để chọn mức âm lượng cao.
 
 ```python
 from pathlib import Path
@@ -47,6 +38,7 @@ from asposeslides.api import AudioPlayModePreset, AudioVolumeMode, Presentation,
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
@@ -54,16 +46,15 @@ try:
 
     audio_frame.setPlayMode(AudioPlayModePreset.Auto)
     audio_frame.setVolume(AudioVolumeMode.Loud)
+
     presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Thay đổi hình thu nhỏ của khung âm thanh**
+## **Thay Đổi Hình Thu Nhỏ Khung Âm Thanh**
 
-Khi bạn thêm một tệp âm thanh vào bản trình chiếu, âm thanh sẽ hiển thị dưới dạng một khung với hình ảnh mặc định tiêu chuẩn (xem hình ảnh trong phần dưới đây). Bạn có thể thay đổi hình ảnh preview của khung âm thanh thành bất kỳ hình ảnh nào bạn muốn.
-
-Đoạn mã Python này cho bạn thấy cách thay đổi hình thu nhỏ hoặc hình preview của khung âm thanh:
+Mặc định, một khung âm thanh hiển thị biểu tượng loa. Để hiển thị hình thu nhỏ tùy chỉnh, thêm một hình ảnh vào bản trình chiếu bằng [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) và đặt nó vào ảnh của khung bằng [setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage). Ví dụ sử dụng một file JPEG làm hình thu nhỏ cho clip âm thanh được nhúng.
 
 ```python
 from pathlib import Path
@@ -79,7 +70,8 @@ from asposeslides.api import Images, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sample2.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audio)
@@ -91,59 +83,50 @@ try:
         image.dispose()
 
     audio_frame.getPictureFormat().getPicture().setImage(picture)
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Thay đổi tùy chọn phát âm thanh**
+## **Thay Đổi Tùy Chọn Phát Âm Thanh**
 
-Aspose.Slides for Python via Java cho phép bạn thay đổi các tùy chọn điều khiển việc phát âm thanh hoặc các thuộc tính. Ví dụ, bạn có thể điều chỉnh âm lượng, thiết lập vòng lặp, hoặc thậm chí ẩn biểu tượng âm thanh.
+Bộ điều khiển **Audio Options** của PowerPoint xác định thời điểm một clip bắt đầu, mức âm lượng, và cách nó hoạt động trong buổi trình chiếu.
 
-Bảng **Audio Options** trong Microsoft PowerPoint:
+![Bộ điều khiển Audio Options của PowerPoint cho một khung âm thanh](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Điều khiển PowerPoint | Phương thức Aspose.Slides for Python via Java |
+| --- | --- |
+| Bắt đầu | [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) |
+| Mẫu âm lượng | [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) |
+| Phát xuyên suốt các slide | [setPlayAcrossSlides](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Lặp lại cho đến khi dừng | [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Ẩn trong khi trình chiếu | [setHideAtShowing](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Tua lại sau khi phát | [setRewindAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setRewindAudio) |
+| Mờ dần vào | [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Mờ dần ra | [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Cắt thời gian bắt đầu âm thanh | [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Cắt thời gian kết thúc âm thanh | [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Thanh trượt âm lượng | [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) |
 
-PowerPoint **Audio Options** tương ứng với các thuộc tính [AudioFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/) của Aspose.Slides:
-
-- **Start** danh sách thả xuống khớp với phương thức [setPlayMode](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** khớp với phương thức [setVolume](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides** khớp với phương thức [setPlayAcrossSlides](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped** khớp với phương thức [setPlayLoopMode](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show** khớp với phương thức [setHideAtShowing](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing** khớp với phương thức [setRewindAudio](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setRewindAudio)
-
-PowerPoint **Editing** tùy chọn tương ứng với các thuộc tính [AudioFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/) của Aspose.Slides:
-
-- **Fade In** khớp với phương thức [setFadeInDuration](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** khớp với phương thức [setFadeOutDuration](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** khớp với phương thức [setTrimFromStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** giá trị bằng tổng thời lượng âm thanh trừ đi giá trị được đặt bởi phương thức [setTrimFromEnd](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-Điều khiển **Volume** trên bảng điều khiển âm thanh của PowerPoint tương ứng với phương thức [setVolumeValue](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setVolumeValue). Nó cho phép bạn thay đổi âm lượng dưới dạng phần trăm.
-
-Đây là cách bạn thay đổi các tùy chọn phát âm thanh:
-
-1. [Create](#create-audio-frames) hoặc lấy khung âm thanh.
-2. Đặt các giá trị mới cho các thuộc tính khung âm thanh mà bạn muốn điều chỉnh.
-3. Lưu tệp PowerPoint đã sửa đổi.
-
-Đoạn mã Python này trình bày một thao tác trong đó các tùy chọn âm thanh được điều chỉnh:
+Ví dụ này tìm khung âm thanh đầu tiên trên slide đầu tiên, gọi [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) để bắt đầu phát khi nhấp, và chọn mẫu âm lượng thấp. Clip tiếp tục phát xuyên suốt các slide với vòng lặp bị tắt. Biểu tượng được ẩn trong khi trình chiếu, và clip được tua lại sau khi phát.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpime.startJVM()
 
 from asposeslides.api import AudioFrame, AudioPlayModePreset, AudioVolumeMode, Presentation, SaveFormat
 
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
-    audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
-        # Phát khi nhấp chuột ở âm lượng thấp, trên toàn bộ slide, không vòng lặp.
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
+        # Phát khi nhấp với âm lượng thấp, xuyên suốt các slide, không lặp lại.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
@@ -151,14 +134,15 @@ try:
         # Ẩn khung trong khi trình chiếu và tua lại sau khi phát.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
+
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-Ví dụ Python này cho thấy cách thêm một khung âm thanh mới với âm thanh nhúng, cắt nó và đặt thời gian làm mờ:
+Đối với một clip dài hơn 3,5 giây, ví dụ này bỏ qua 1,5 giây đầu và 2 giây cuối. [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) nhận thời lượng cần bỏ ở cuối clip. Để lấy thời gian kết thúc hiển thị trong PowerPoint, trừ offset này khỏi thời lượng đầy đủ của clip. Clip đã cắt sẽ mờ dần vào trong 200 mil giây và mờ dần ra trong 500 mil giây. Tất cả bốn phương thức này nhận giá trị bằng mil giây.
 
 ```python
 from pathlib import Path
@@ -174,23 +158,25 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sampleaudio.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Cắt 1.5 giây từ đầu và 2 giây từ cuối.
+    # Cắt 1,5 giây từ phần đầu và 2 giây từ phần cuối.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Đặt thời gian fade-in thành 200 ms và fade-out thành 500 ms.
+    # Đặt thời gian mờ dần vào là 200 ms và mờ dần ra là 500 ms.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
+
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Mẫu mã sau đây cho thấy cách lấy một khung âm thanh có âm thanh nhúng và đặt âm lượng thành 85%:
+Để đặt âm lượng phát lại ở một phần trăm cụ thể, sử dụng [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue). Ví dụ này đặt khung âm thanh đầu tiên trên slide đầu tiên ở mức 85%.
 
 ```python
 import jpype
@@ -204,23 +190,24 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.setVolumeValue(85.0)
         presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Quản lý phụ đề âm thanh**
+## **Quản Lý Phụ Đề Âm Thanh**
 
-Aspose.Slides cho phép bạn thêm phụ đề đóng vào một khung âm thanh thông qua phương thức [getCaptionTracks](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#getCaptionTracks). Phương thức này trả về một [CaptionsCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/captionscollection/), cho phép bạn thêm các track phụ đề WebVTT, duyệt qua các track hiện có và xóa chúng khi cần.
+Mỗi khung âm thanh cung cấp quyền truy cập vào các track phụ đề của nó thông qua [getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getCaptionTracks). Sử dụng bộ sưu tập này để gắn phụ đề WebVTT vào clip, xuất các track hiện có, hoặc xóa chúng.
 
-**Thêm phụ đề âm thanh**
+### **Thêm Phụ Đề Âm Thanh**
 
-Sử dụng phương thức [getCaptionTracks](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#getCaptionTracks) để gắn một hoặc nhiều track phụ đề vào khung âm thanh. Trong ví dụ sau, một tệp âm thanh được thêm vào slide, sau đó một track phụ đề mới được tải từ tệp `.vtt`.
+Ví dụ này nhúng một clip âm thanh vào slide đầu tiên và sử dụng [add](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#add) để gắn một track WebVTT cục bộ. Đối số đầu tiên cung cấp nhãn track, và đối số thứ hai xác định tệp chứa phụ đề có thời gian.
 
 ```python
 from pathlib import Path
@@ -235,22 +222,24 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    audio_data = Path("audio.mp3").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
-    slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
     # Thêm một track phụ đề mới từ tệp WebVTT.
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    audio_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Trích xuất phụ đề âm thanh**
+### **Trích Xuất Phụ Đề Âm Thanh**
 
-Bạn có thể duyệt qua các track phụ đề gắn với khung âm thanh và lưu chúng dưới dạng tệp `.vtt`. Mỗi track phụ đề cung cấp dữ liệu nhị phân và định danh duy nhất, có thể dùng khi xuất phụ đề.
+Ví dụ này xuất mỗi track phụ đề được gắn vào một khung âm thanh trên slide đầu tiên. Nó ghi các byte trả về bởi [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getBinaryData) vào một tệp WebVTT và sử dụng định danh trả về bởi [getCaptionId](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getCaptionId) làm tên tệp sao cho mỗi track có một tệp xuất riêng.
 
 ```python
 from pathlib import Path
@@ -266,20 +255,21 @@ from asposeslides.api import AudioFrame, Presentation
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
                 # Lưu track phụ đề dưới dạng tệp .vtt.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                file_path = Path(f"{caption_track.getCaptionId()}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
 finally:
     presentation.dispose()
 ```
 
-**Xóa phụ đề âm thanh**
+### **Xóa Phụ Đề Âm Thanh**
 
-Để xóa phụ đề khỏi khung âm thanh, sử dụng các phương thức do [CaptionsCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/captionscollection/) cung cấp, chẳng hạn như [clear](https://reference.aspose.com/slides/vi/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/vi/python-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/vi/python-java/aspose.slides/captionscollection/#removeAt). Ví dụ dưới đây xóa tất cả các track phụ đề khỏi khung âm thanh.
+Sử dụng [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) để xóa một track riêng lẻ. Ví dụ này sử dụng [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) để xóa tất cả phụ đề khỏi khung âm thanh đầu tiên trên slide đầu tiên mà vẫn giữ lại clip.
 
 ```python
 import jpype
@@ -293,26 +283,54 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.getCaptionTracks().clear()
         presentation.save("audio_without_captions.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Trích xuất âm thanh**
+### **Tìm Dòng trong Phụ Đề Âm Thanh**
 
-Aspose.Slides for Python via Java cho phép bạn trích xuất âm thanh được sử dụng trong các chuyển đổi trình chiếu. Ví dụ, bạn có thể trích xuất âm thanh được dùng trong một slide cụ thể.
+Để tìm một dòng trong phụ đề âm thanh trên slide đầu tiên, tìm kiếm văn bản trả về bởi [getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) trong bộ nhớ. Trong một cue WebVTT dạng văn bản thuần, dòng thời gian chứa `-->`, các dòng phụ đề theo sau, và một dòng trống kết thúc cue. Ví dụ này in nhãn track và mỗi dòng phụ đề chứa “café”.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) và tải bản trình chiếu chứa âm thanh.
-2. Lấy một tham chiếu tới slide liên quan theo chỉ mục của nó.
-3. Truy cập vào [slideshow transitions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseslide/#getSlideShowTransition) cho slide đó.
-4. Trích xuất âm thanh dưới dạng dữ liệu byte.
+```python
+import jpype
+import asposeslides
 
-Mã Python này cho bạn thấy cách trích xuất âm thanh được sử dụng trong một slide:
+if not jpype.isJVMStarted():
+    jpime.startJVM()
+
+from asposeslides.api import AudioFrame, Presentation
+
+presentation = Presentation("audio_with_captions.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, AudioFrame):
+            continue
+        for track in shape.getCaptionTracks():
+            in_cue = False
+            captions = str(track.getDataAsString())
+            for line in captions.splitlines():
+                if not line:
+                    in_cue = False
+                elif "-->" in line:
+                    in_cue = True
+                elif in_cue and "café" in line.casefold():
+                    print(f"{track.getLabel()}: {line}")
+finally:
+    presentation.dispose()
+```
+
+## **Trích Xuất Âm Thanh**
+
+Một hiệu ứng chuyển slide có thể có âm thanh riêng. Để lấy nó, gọi [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSound) trên hiệu ứng chuyển slide. Ví dụ truy cập các byte trả về bởi [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) và in ra số byte. Nếu slide đầu tiên không có âm thanh chuyển, nó sẽ in một thông báo thay thế.
 
 ```python
 import jpype
@@ -326,27 +344,28 @@ from asposeslides.api import Presentation
 presentation = Presentation("AudioSlide.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     transition = slide.getSlideShowTransition()
     sound = transition.getSound()
     if sound is not None:
         audio_data = sound.getBinaryData()
-        print("Length:", len(audio_data))
+        print(f"Transition sound: {len(audio_data)} bytes.")
     else:
         print("The slide transition has no sound.")
 finally:
     presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể tái sử dụng cùng một tài nguyên âm thanh trên nhiều slide mà không làm tăng kích thước tệp không?**
+**Có thể tái sử dụng cùng một clip âm thanh trên nhiều slide mà không sao chép lại không?**
 
-Có. Thêm âm thanh một lần vào [audio collection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getAudios) chia sẻ của bản trình chiếu và tạo thêm các khung âm thanh tham chiếu tới tài nguyên hiện có. Điều này tránh việc sao chép dữ liệu media và giữ kích thước bản trình chiếu trong kiểm soát.
+Đúng. Thêm clip một lần vào [bộ sưu tập âm thanh](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getAudios) của bản trình chiếu và truyền cùng một đối tượng âm thanh vào [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) cho mỗi slide.
 
-**Tôi có thể thay thế âm thanh trong một khung âm thanh hiện có mà không cần tạo lại hình dạng không?**
+**Có thể thay thế âm thanh trong một khung âm thanh hiện có không?**
 
-Có. Đối với âm thanh liên kết, cập nhật [link path](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setLinkPathLong) để trỏ tới tệp mới. Đối với âm thanh nhúng, thay thế đối tượng [embedded audio](https://reference.aspose.com/slides/vi/python-java/aspose.slides/audioframe/#setEmbeddedAudio) bằng một đối tượng khác từ [audio collection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getAudios) của bản trình chiếu. Định dạng của khung và hầu hết các thiết lập phát vẫn giữ nguyên.
+Đúng. Đối với âm thanh được liên kết, sử dụng [setLinkPathLong](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setLinkPathLong) để chỉ tới tệp thay thế. Đối với âm thanh được nhúng, chọn một clip khác từ [bộ sưu tập âm thanh] của bản trình chiếu bằng [setEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setEmbeddedAudio). Cả hai cách đều giữ nguyên khung hiện tại.
 
-**Việc cắt bỏ có thay đổi dữ liệu âm thanh nền được lưu trong bản trình chiếu không?**
+**Việc cắt âm thanh có thay đổi dữ liệu âm thanh được lưu trong bản trình chiếu không?**
 
-Không. Việc cắt chỉ điều chỉnh ranh giới phát. Các byte âm thanh gốc vẫn không bị thay đổi và có thể truy cập thông qua âm thanh nhúng hoặc collection âm thanh của bản trình chiếu.
+Không. [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) và [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) chỉ đặt giới hạn phát lại. Bạn vẫn có thể lấy lại clip đầy đủ từ [getEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getEmbeddedAudio).

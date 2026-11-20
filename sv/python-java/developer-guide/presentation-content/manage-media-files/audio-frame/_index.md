@@ -1,5 +1,5 @@
 ---
-title: Hantera ljud i presentationer med Python
+title: Hantera ljudramar i presentationer med Python
 linktitle: Ljudram
 type: docs
 weight: 10
@@ -7,29 +7,22 @@ url: /sv/python-java/audio-frame/
 keywords:
 - ljud
 - ljudram
-- miniatyr
-- lägg till ljud
+- miniatyrbild
+- lägga till ljud
 - ljudegenskaper
 - ljudalternativ
 - extrahera ljud
 - Python
 - Aspose.Slides
-description: "Skapa och kontrollera ljudramar i Aspose.Slides för Python via Java—kodexempel för att bädda in, trimma, loopa och konfigurera uppspelning i PPT-, PPTX- och ODP-presentationer."
+description: "Bädda in ljud i bilder, ändra ljudikonen, konfigurera uppspelning, hantera WebVTT-undertexter och extrahera bildövergångsljud med Aspose.Slides för Python via Java."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med ljudramar i Aspose.Slides. Den visar hur man lägger till inbäddat ljud till bilder, anpassar ljudramens miniatyr, konfigurerar uppspelningsalternativ såsom volym, loopning, döljning, trimning och toningslängder, samt extraherar ljud som används i bildspelsövergångar.
+En ljudram låter dig spela ett ljud på en bild. Med Aspose.Slides för Python via Java kan du bädda in ett ljudklipp, välja bilden som representerar det, justera uppspelning och bifoga bildtexter. Du kan också hämta ett ljud som tilldelats en bildövergång.
 
 ## **Skapa ljudramar**
 
-Aspose.Slides för Python via Java låter dig lägga till ljudfiler till bilder. Ljudfilerna bäddas in i bilder som ljudramar. 
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-2. Hämta en referens till en bild med dess index.
-3. Läs in ljudfilen som du vill bädda in i bilden.
-4. Lägg till den inbäddade ljudramen (som innehåller ljudfilen) på bilden.
-5. Använd [setPlayMode](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/#setPlayMode) och [setVolume](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/#setVolume) som exponeras av objektet [AudioFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/).
-6. Spara den modifierade presentationen.
+Lägg till byte från `audio.wav` till presentationens ljudsamling, och använd sedan [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) för att bädda in ett lokalt ljudklipp på den första bilden. De två första koordinaterna placerar ramen på bilden, och de nästa två värdena anger dess bredd och höjd, alla i punkter. Detta exempel anropar [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) för att starta klippet automatiskt och anropar [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) för att välja den höga förinställningen.
 
 ```python
 from pathlib import Path
@@ -45,6 +38,7 @@ from asposeslides.api import AudioPlayModePreset, AudioVolumeMode, Presentation,
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
@@ -52,14 +46,15 @@ try:
 
     audio_frame.setPlayMode(AudioPlayModePreset.Auto)
     audio_frame.setVolume(AudioVolumeMode.Loud)
+
     presentation.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ändra ljudramens miniatyr**
+## **Ändra ljudramens miniatyrbild**
 
-När du lägger till en ljudfil i en presentation visas ljudet som en ram med en standardstandardbild (se bilden i avsnittet nedan). Du kan ändra ljudramens förhandsbild till en bild du själv väljer.
+Som standard visar en ljudram en högtalarikon. För att visa en anpassad miniatyr, lägg till en bild i presentationen med [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) och sätt den på ramens bild med [setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage). Exemplet använder en JPEG som miniatyr för ett inbäddat ljudklipp.
 
 ```python
 from pathlib import Path
@@ -75,7 +70,8 @@ from asposeslides.api import Images, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sample2.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audio)
@@ -87,42 +83,33 @@ try:
         image.dispose()
 
     audio_frame.getPictureFormat().getPicture().setImage(picture)
+
     presentation.save("example_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ändra uppspelningsalternativ för ljud**
+## **Ändra ljuduppspelningsalternativ**
 
-Aspose.Slides för Python via Java låter dig ändra alternativ som styr ljuduppspelning eller egenskaper. Till exempel kan du justera ljudvolymen, ställa in att ljudet ska loopas eller till och med dölja ljudikonen.
+PowerPoints **Audio Options**-kontroller bestämmer när ett klipp startar, hur högt det låter och hur det beter sig under en bildspelsvisning.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+![PowerPoint-ljudalternativ för en ljudram](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint-kontroll | Aspose.Slides for Python via Java method |
+| --- | --- |
+| Start | [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) |
+| Volyminställning | [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) |
+| Spela över bilder | [setPlayAcrossSlides](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Loop tills stoppad | [setPlayLoopMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Dölj under visning | [setHideAtShowing](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Spola tillbaka efter uppspelning | [setRewindAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setRewindAudio) |
+| Tona in | [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Tona ut | [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Trimma ljud starttid | [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Trimma ljud sluttid | [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Volymreglage | [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) |
 
-PowerPoint **Audio Options** som motsvarar Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/) egenskaper:
-
-- **Start** rullgardinslistan matchar metoden [setPlayMode]
-- **Volume** matchar metoden [setVolume]
-- **Play Across Slides** matchar metoden [setPlayAcrossSlides]
-- **Loop until Stopped** matchar metoden [setPlayLoopMode]
-- **Hide During Show** matchar metoden [setHideAtShowing]
-- **Rewind after Playing** matchar metoden [setRewindAudio]
-
-PowerPoint **Editing** alternativ som motsvarar Aspose.Slides [AudioFrame] egenskaper:
-
-- **Fade In** matchar metoden [setFadeInDuration] 
-- **Fade Out** matchar metoden [setFadeOutDuration] 
-- **Trim Audio Start Time** matchar metoden [setTrimFromStart] 
-- **Trim Audio End Time** värdet är lika med ljudets varaktighet minus värdet som anges av metoden [setTrimFromEnd]
-
-PowerPoint **Volume control** på ljudkontrollpanelen motsvarar metoden [setVolumeValue]. Den låter dig ändra ljudvolymen i procent.
-
-Så här ändrar du uppspelningsalternativen för ljud:
-
-1. [Skapa](#create-audio-frames) eller hämta ljudramen.
-2. Ställ in nya värden för de ljudramsegenskaper du vill justera.
-3. Spara den modifierade PowerPoint-filen.
+Exemplet hittar den första ljudramen på den första bilden, anropar [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) för att starta uppspelning vid ett klick, och väljer den låga volyminställningen. Klippet fortsätter över bilder med loopning inaktiverad. Ikonen förblir dold under visningen, och klippet spolar tillbaka efter uppspelning.
 
 ```python
 import jpype
@@ -135,24 +122,27 @@ from asposeslides.api import AudioFrame, AudioPlayModePreset, AudioVolumeMode, P
 
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
-    audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         # Spela vid klick med låg volym, över bilder, utan loopning.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Dölj ramen under bildspelet och spola tillbaka efter uppspelning.
+        # Dölj ramen under bildspelsvisningen och spola tillbaka efter uppspelning.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
+
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-Detta Python‑exempel visar hur man lägger till en ny ljudram med inbäddat ljud, trimmar den och ställer in toningslängderna:
+För ett klipp längre än 3,5 sekunder hoppar detta exempel över de första 1,5 sekunderna och de sista 2 sekunderna. [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) tar den varaktighet som ska utelämnas från slutet av klippet. För att få sluttiden som visas i PowerPoint, dra av den förskjutningen från hela klippets varaktighet. Det trimmade klippet tonar in under 200 millisekunder och tonar ut under 500 millisekunder. Alla fyra metoder tar värden i millisekunder.
 
 ```python
 from pathlib import Path
@@ -168,7 +158,8 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_data = Path("sampleaudio.mp3").read_bytes()
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
@@ -176,15 +167,16 @@ try:
     # Trimma 1,5 sekunder från början och 2 sekunder från slutet.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Ställ in fade‑in till 200 ms och fade‑out till 500 ms.
+    # Ställ in toning in till 200 ms och toning out till 500 ms.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
+
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Följande kodexempel visar hur man hämtar en ljudram med inbäddat ljud och ställer in dess volym till 85 %:
+För att ställa in uppspelningsvolymen till en specifik procentandel, använd [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue). Detta exempel sätter den första ljudramen på den första bilden till 85 %.
 
 ```python
 import jpype
@@ -198,23 +190,24 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.setVolumeValue(85.0)
         presentation.save("AudioFrameValue_out.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
 finally:
     presentation.dispose()
 ```
 
-## **Hantera ljudtextning**
+## **Hantera ljudundertexter**
 
-Aspose.Slides låter dig lägga till stängda undertexter till en ljudram via metoden [getCaptionTracks]. Denna metod returnerar en [CaptionsCollection], som låter dig lägga till WebVTT‑undertextspår, iterera genom befintliga spår och ta bort dem vid behov.
+Varje ljudram ger åtkomst till sina undertextspår via [getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getCaptionTracks). Använd samlingen för att bifoga WebVTT-undertexter till klippet, exportera befintliga spår eller ta bort dem.
 
-**Lägg till ljudtextning**
+### **Lägg till ljudundertexter**
 
-Använd metoden [getCaptionTracks] för att fästa ett eller flera undertextspår till en ljudram. I följande exempel läggs en ljudfil till en bild och sedan laddas ett nytt undertextspår från en `.vtt`‑fil.
+Exemplet bäddar in ett ljudklipp på den första bilden och använder [add](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#add) för att bifoga ett lokalt WebVTT-spår. Det första argumentet anger spårets etikett, och det andra identifierar filen som innehåller de tidsinställda undertexterna.
 
 ```python
 from pathlib import Path
@@ -229,22 +222,24 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    audio_data = Path("audio.mp3").read_bytes()
+    slide = presentation.getSlides().get_Item(0)
+
+    audio_data = Path("audio.wav").read_bytes()
     java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
-    slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
     # Lägg till ett nytt undertextspår från en WebVTT-fil.
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    audio_frame.getCaptionTracks().add("English", "track.vtt")
+
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Extrahera ljudtextning**
+### **Extrahera ljudundertexter**
 
-Du kan iterera genom undertextspåren som är kopplade till en ljudram och spara dem som `.vtt`‑filer. Varje undertextspår exponerar sin binära data och unika identifierare, som kan användas vid export av undertexter.
+Detta exempel exporterar varje undertextspår som är bifogat till en ljudram på den första bilden. Det skriver de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getBinaryData) till en WebVTT-fil och använder identifieraren som returneras av [getCaptionId](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getCaptionId) som filnamn så att varje spår har en separat utdata.
 
 ```python
 from pathlib import Path
@@ -253,27 +248,28 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpase.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import AudioFrame, Presentation
 
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
                 # Spara undertextspåret som en .vtt-fil.
-                file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
+                file_path = Path(f"{caption_track.getCaptionId()}.vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
 finally:
     presentation.dispose()
 ```
 
-**Ta bort ljudtextning**
+### **Ta bort ljudundertexter**
 
-För att ta bort undertexter från en ljudram, använd metoderna som tillhandahålls av [CaptionsCollection], såsom [clear], [remove] eller [removeAt]. Följande exempel tar bort alla undertextspår från en ljudram.
+Använd [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) för att radera ett enskilt spår. Exemplet använder [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear) för att ta bort alla undertexter från den första ljudramen på den första bilden samtidigt som klippet behålls.
 
 ```python
 import jpype
@@ -287,24 +283,54 @@ from asposeslides.api import AudioFrame, Presentation, SaveFormat
 presentation = Presentation("audio_with_captions.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    audio_frame = slide.getShapes().get_Item(0)
-    if isinstance(audio_frame, AudioFrame):
+
+    audio_frame = next((shape for shape in slide.getShapes() if isinstance(shape, AudioFrame)), None)
+    if audio_frame is not None:
         audio_frame.getCaptionTracks().clear()
         presentation.save("audio_without_captions.pptx", SaveFormat.Pptx)
     else:
-        print("The shape is not an audio frame.")
+        print("The first slide has no audio frame.")
+finally:
+    presentation.dispose()
+```
+
+### **Hitta en rad i ljudundertexter**
+
+För att hitta en rad i ljudundertexterna på den första bilden, sök i texten som returneras av [getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) i minnet. I en klartext-WebVTT-cue innehåller tidslinjen `-->`, undertextraderna följer den, och en tom rad avslutar cue:n. Detta exempel skriver ut spårets etikett och varje undertextrad som innehåller “café”.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AudioFrame, Presentation
+
+presentation = Presentation("audio_with_captions.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, AudioFrame):
+            continue
+        for track in shape.getCaptionTracks():
+            in_cue = False
+            captions = str(track.getDataAsString())
+            for line in captions.splitlines():
+                if not line:
+                    in_cue = False
+                elif "-->" in line:
+                    in_cue = True
+                elif in_cue and "café" in line.casefold():
+                    print(f"{track.getLabel()}: {line}")
 finally:
     presentation.dispose()
 ```
 
 ## **Extrahera ljud**
 
-Aspose.Slides för Python via Java låter dig extrahera ljudet som används i bildspelsövergångar. Till exempel kan du extrahera ljudet som används i en specifik bild.
-
-1. Skapa en instans av klassen [Presentation] och läs in presentationen som innehåller ljudet.
-2. Hämta en referens till den relevanta bilden med dess index.
-3. Åtkomst till [slideshow transitions] för bilden.
-4. Extrahera ljudet som byte‑data.
+En bildövergång kan ha ett eget ljud. För att hämta det, anropa [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSound) på bildövergången. Exemplet får åtkomst till de byte som returneras av [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) och skriver ut antalet byte. Om den första bilden inte har något övergångsljud, skriver det ut ett meddelande istället.
 
 ```python
 import jpype
@@ -318,11 +344,12 @@ from asposeslides.api import Presentation
 presentation = Presentation("AudioSlide.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     transition = slide.getSlideShowTransition()
     sound = transition.getSound()
     if sound is not None:
         audio_data = sound.getBinaryData()
-        print("Length:", len(audio_data))
+        print(f"Transition sound: {len(audio_data)} bytes.")
     else:
         print("The slide transition has no sound.")
 finally:
@@ -331,14 +358,14 @@ finally:
 
 ## **Vanliga frågor**
 
-**Kan jag återanvända samma ljudresurs på flera bilder utan att öka filstorleken?**
+**Kan jag återanvända samma ljudklipp på flera bilder utan att duplicera det?**
 
-Ja. Lägg till ljudet en gång i presentationens delade [audio collection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getAudios) och skapa ytterligare ljudramar som refererar till den befintliga resursen. Detta undviker duplicering av mediedata och håller presentationens storlek under kontroll.
+Ja. Lägg till klippet en gång i presentationens [audio collection](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getAudios) och skicka samma ljudobjekt till [addAudioFrameEmbedded](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) för varje bild.
 
-**Kan jag ersätta ljudet i en befintlig ljudram utan att återskapa formen?**
+**Kan jag ersätta ljudet i en befintlig ljudram?**
 
-Ja. För ett länkat ljud, uppdatera [link path](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/#setLinkPathLong) så att det pekar på den nya filen. För ett inbäddat ljud, byt ut objektet [embedded audio](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audioframe/#setEmbeddedAudio) mot ett annat från presentationens [audio collection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getAudios). Ramens formatering och de flesta uppspelningsinställningar förblir intakta.
+Ja. För ett länkat ljud, använd [setLinkPathLong](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setLinkPathLong) för att peka på ersättningsfilen. För ett inbäddat ljud, välj ett annat klipp från presentationens ljudsamling med [setEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setEmbeddedAudio). Båda metoderna bevarar den befintliga ramen.
 
-**Ändrar trimning den underliggande ljuddata som lagras i presentationen?**
+**Ändrar trimning ljuddata som lagras i presentationen?**
 
-Nej. Trimning justerar endast uppspelningsgränserna. De ursprungliga ljudbyterna förblir orörda och kan nås via det inbäddade ljudet eller presentationens ljudsamling.
+Nej. [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) och [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) anger uppspelningsgränser. Du kan fortfarande hämta hela klippet från [getEmbeddedAudio](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#getEmbeddedAudio).

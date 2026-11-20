@@ -1,38 +1,38 @@
 ---
-title: Tùy chỉnh Trục Biểu đồ trong Bản trình bày .NET
-linktitle: Trục Biểu đồ
+title: "Tùy chỉnh trục biểu đồ trong bản trình chiếu .NET"
+linktitle: "Trục biểu đồ"
 type: docs
 url: /vi/net/chart-axis/
 keywords:
-- trục biểu đồ
-- trục dọc
-- trục ngang
-- tùy chỉnh trục
-- thao tác trục
-- quản lý trục
-- thuộc tính trục
-- giá trị tối đa
-- giá trị tối thiểu
-- đường trục
-- định dạng ngày
-- tiêu đề trục
-- vị trí trục
-- PowerPoint
-- bản trình bày
-- .NET
-- C#
-- Aspose.Slides
-description: "Khám phá cách sử dụng Aspose.Slides cho .NET để tùy chỉnh trục biểu đồ trong các bản trình bày PowerPoint cho báo cáo và trực quan hoá."
+- "trục biểu đồ"
+- "trục dọc"
+- "trục ngang"
+- "tùy chỉnh trục"
+- "thao tác trục"
+- "quản lý trục"
+- "thuộc tính trục"
+- "giá trị tối đa"
+- "giá trị tối thiểu"
+- "đường trục"
+- "định dạng ngày"
+- "tiêu đề trục"
+- "vị trí trục"
+- "PowerPoint"
+- "bản trình chiếu"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Khám phá cách sử dụng Aspose.Slides for .NET để tùy chỉnh trục biểu đồ trong các bản trình chiếu PowerPoint cho báo cáo và trực quan hóa."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides for .NET. Nó bao gồm các giá trị trục đã tính toán, chuyển đổi hàng và cột của biểu đồ, hiển thị trục, khoảng nhãn danh mục và khoảng cách các dấu tick, danh mục ngày và định dạng, xoay tiêu đề, vị trí trục, đơn vị hiển thị và tỷ lệ logarit.
+Bài viết này giải thích cách tùy chỉnh trục biểu đồ với Aspose.Slides for .NET. Nó bao gồm các giá trị trục đã tính, chuyển đổi hàng và cột biểu đồ, hiển thị trục, khoảng cách nhãn danh mục và dấu tick, danh mục ngày và định dạng, xoay tiêu đề, vị trí trục, đơn vị hiển thị và tỷ lệ logarit.
 
 ## **Lấy Giá Trị Tối Đa Trên Trục Dọc Trong Biểu Đồ**
 
-Tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) và thêm một biểu đồ khu vực với dữ liệu mặc định. Gọi [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) trước khi đọc các giá trị trục đã tính toán để bố cục biểu đồ được cập nhật.
+Tạo một [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) và thêm một biểu đồ khu vực với dữ liệu mặc định. Gọi [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) trước khi đọc các giá trị trục đã tính để bố cục biểu đồ được cập nhật.
 
-Đọc [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) và [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) để lấy giới hạn của trục, và [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) và [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) để lấy khoảng cách các dấu tick. [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) và [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) cung cấp các thang thời gian, có liên quan đến trục ngày. Ví dụ lưu các giá trị này vào biến cục bộ và lưu biểu đồ.
+Đọc [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) và [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) để lấy giới hạn trục, và [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) và [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) để lấy khoảng cách dấu tick. [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) và [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) cung cấp tỉ lệ đơn vị thời gian, có liên quan đến trục ngày. Ví dụ lưu các giá trị này vào các biến cục bộ và lưu biểu đồ.
 
 ```csharp
 using Aspose.Slides;
@@ -59,7 +59,7 @@ presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 
 ## **Hoán Đổi Dữ Liệu Giữa Các Trục**
 
-Sử dụng [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) để hoán đổi vai trò của series và category trong dữ liệu biểu đồ. Mỗi category cũ trở thành một series, và mỗi series cũ trở thành một category. Điều này thay đổi cách nhóm dữ liệu; nó không hoán đổi các trục ngang và dọc. Ví dụ sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) để liên kết dữ liệu mặc định với `Sheet1!A1:D5`, bao gồm hàng tiêu đề và cột category, trước khi hoán đổi hàng và cột. Nó lưu một biểu đồ với bốn series và ba category.
+Use [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) to exchange the roles of series and categories in chart data. Each former category becomes a series, and each former series becomes a category. This changes how the data is grouped; it does not exchange the horizontal and vertical axes. The example uses [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) to bind the default data to `Sheet1!A1:D5`, including the header row and category column, before switching rows and columns. It saves a chart with four series and three categories.
 
 ```csharp
 using Aspose.Slides;
@@ -79,9 +79,9 @@ presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 
 ## **Đảo Ngược Thứ Tự Vẽ Của Một Trục**
 
-Sử dụng [IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) để đảo ngược một trục category hoặc value. Ví dụ, một biểu đồ thanh ngang có thể hiển thị các giai đoạn dự án từ trên xuống dưới theo cùng thứ tự với bảng tính: Planning, Development, Testing. Đảo ngược một trục thay đổi hướng vẽ; nó không sắp xếp hay sắp lại dữ liệu trong workbook. So sánh với [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) thì phương pháp này hoán đổi vai trò của series và category.
+Use [IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) to reverse a category or value axis. For example, a horizontal bar chart can show project stages from top to bottom in the same order as the worksheet: Planning, Development, Testing. Reversing an axis changes the plotting direction; it does not sort or rearrange the workbook data. By comparison, [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) exchanges the roles of series and categories.
 
-Ví dụ dưới đây tạo một biểu đồ thanh ngang với ba giai đoạn và một series. Nó lưu một bản trình bày với ba slide: thứ tự bình thường, category đảo ngược, và giá trị đảo ngược. Mỗi bản sao sử dụng cùng một bộ dữ liệu, và mỗi bản chỉ đảo ngược một trục.
+The following example creates a horizontal bar chart with three stages and one series. It saves a presentation with three slides: normal order, reversed categories, and reversed values. Each copy uses the same dataset, and only one axis is reversed on each copy.
 
 ```csharp
 using Aspose.Slides;
@@ -126,16 +126,16 @@ valueChart.Axes.HorizontalAxis.IsPlotOrderReversed = true;
 presentation.Save("ReversedAxes.pptx", SaveFormat.Pptx);
 ```
 
-Đảo ngược một trục cũng có thể di chuyển trục vuông góc sang phía đối diện của biểu đồ. [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) kiểm soát vị trí mà trục còn lại cắt qua trục đang cấu hình. Trong slide 2, đặt giá trị này thành `Maximum` trên trục category đã đảo ngược giữ cho trục value ngang ở phía dưới. Để chỉ định một điểm giao cụ thể, hãy sử dụng [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). Kiểm tra cài đặt giao điểm khi thay đổi hướng, đặc biệt nếu biểu đồ đã có điểm giao tùy chỉnh. Đặt lại `IsPlotOrderReversed` về `false` để khôi phục hướng vẽ bình thường; cài đặt giao điểm là riêng biệt.
+Reversing an axis can also move the perpendicular axis to the opposite side of the plot. [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) controls where the other axis crosses the axis being configured. In slide 2, setting it to `Maximum` on the reversed category axis keeps the horizontal value axis at the bottom. For a specific crossing point, use [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). Check the crossing settings when changing direction, especially if the chart already has a custom crossing point. Set `IsPlotOrderReversed` back to `false` to restore the normal plotting direction; crossing settings are separate.
 
-| Thứ tự bình thường (slide 1) | Category đảo ngược (slide 2) | Giá trị đảo ngược (slide 3) |
+| Normal order (slide 1) | Reversed categories (slide 2) | Reversed values (slide 3) |
 | --- | --- | --- |
-| ![Biểu đồ thanh ngang với thứ tự trục category và value bình thường](axis-order-normal.png) | ![Biểu đồ thanh ngang với category hiển thị từ trên xuống dưới](axis-order-categories-reversed.png) | ![Biểu đồ thanh ngang với trục value đảo ngược và zero ở bên phải](axis-order-values-reversed.png) |
-| Category chạy từ dưới lên trên; values tăng từ trái sang phải. | Planning, Development, và Testing chạy từ trên xuống dưới. Values và thứ tự hàng workbook không thay đổi. | Category giữ nguyên thứ tự; values tăng từ phải sang trái. Trục category cắt tại zero ở bên phải. |
+| ![Biểu đồ thanh ngang với thứ tự trục danh mục và trục giá trị bình thường](axis-order-normal.png) | ![Biểu đồ thanh ngang với danh mục hiển thị từ trên xuống dưới](axis-order-categories-reversed.png) | ![Biểu đồ thanh ngang với trục giá trị đảo ngược và số 0 ở bên phải](axis-order-values-reversed.png) |
+| Danh mục chạy từ dưới lên trên; giá trị tăng từ trái sang phải. | Lập kế hoạch, Phát triển và Kiểm thử chạy từ trên xuống dưới. Giá trị và thứ tự hàng trong workbook không thay đổi. | Danh mục giữ nguyên thứ tự bình thường; giá trị tăng từ phải sang trái. Trục danh mục cắt tại số 0 ở bên phải. |
 
-## **Vô hiệu hoá Trục Dọc cho Biểu Đồ Đường**
+## **Vô Hiệu Hóa Trục Dọc Cho Biểu Đồ Đường**
 
-Đặt [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) thành `false` trên trục dọc để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu nó với trục dọc bị ẩn.
+Set [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) to `false` on the vertical axis to hide it. The example creates a line chart with default data and saves it with the vertical axis hidden.
 
 ```csharp
 using Aspose.Slides;
@@ -151,9 +151,9 @@ chart.Axes.VerticalAxis.IsVisible = false;
 presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **Vô hiệu hoá Trục Ngang cho Biểu Đồ Đường**
+## **Vô Hiệu Hóa Trục Ngang Cho Biểu Đồ Đường**
 
-Đặt [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) thành `false` trên trục ngang để ẩn nó. Ví dụ tạo một biểu đồ đường với dữ liệu mặc định và lưu nó với trục ngang bị ẩn.
+Set [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) to `false` on the horizontal axis to hide it. The example creates a line chart with default data and saves it with the horizontal axis hidden.
 
 ```csharp
 using Aspose.Slides;
@@ -169,9 +169,44 @@ chart.Axes.HorizontalAxis.IsVisible = false;
 presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
+## **Hiển Thị Hoặc Ẩn Lưới Biểu Đồ**
+
+Read [ShowMajorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showmajorgridlines/) and [ShowMinorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showminorgridlines/) to check which gridlines an axis displays. Both properties are read-only. Use the line fill of [MinorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/minorgridlinesformat/) to show or hide minor gridlines. Set a solid fill with a visible color to show them, or use `FillType.NoFill` to hide them. The corresponding setting for major gridlines is [MajorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorgridlinesformat/)`.Line.FillFormat`. Changing a gridline fill preserves the axis visibility and tick marks.
+
+The vertical axis of this clustered column chart starts with major gridlines visible and minor gridlines hidden. The example shows the minor gridlines in orange, then hides them again before saving the presentation.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 30, 660, 230);
+var axis = chart.Axes.VerticalAxis;
+Console.WriteLine($"Initial: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+var minorFill = axis.MinorGridLinesFormat.Line.FillFormat;
+minorFill.FillType = FillType.Solid;
+minorFill.SolidFillColor.Color = Color.DarkOrange;
+Console.WriteLine($"Enabled: minor={axis.ShowMinorGridLines}");
+
+minorFill.FillType = FillType.NoFill;
+Console.WriteLine($"Hidden: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+presentation.Save("ChartGridlines.pptx", SaveFormat.Pptx);
+```
+
+| Lưới phụ được bật | Lưới phụ ẩn |
+| --- | --- |
+| ![Lưới phụ màu cam nằm giữa các lưới chính trên trục dọc](minor-gridlines-enabled.png) | ![Biểu đồ cột giống nhau chỉ hiển thị lưới chính](minor-gridlines-hidden.png) |
+
 ## **Thay Đổi Trục Danh Mục**
 
-Đặt [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) để chọn một trục ngày hoặc văn bản. Ví dụ này yêu cầu `ExistingChart.pptx`, với một biểu đồ là shape đầu tiên trên slide đầu và các ô category chứa giá trị ngày Excel dạng số. Nó thay đổi trục ngang thành trục ngày. Đặt [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) thành `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) thành `1`, và [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) thành months để đặt các tick lớn ở khoảng một tháng.
+Set [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Setting [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) to `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) to `1`, and [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) to months places major ticks at one-month intervals.
 
 ```csharp
 using System;
@@ -191,21 +226,78 @@ chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
 presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Kiểm Soát Khoảng Nhãn Trục Danh Mục**
+### **Xác Định Kiểu Trục Danh Mục Từ Dữ Liệu**
 
-Khi một biểu đồ có nhiều category, giảm số lượng nhãn trục hiển thị mà không loại bỏ các category hoặc điểm dữ liệu. Đặt [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) thành `false`, sau đó đặt [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) thành khoảng cách category mong muốn. Đối với các category văn bản theo thứ tự bình thường, việc đếm bắt đầu từ category đầu tiên:
+Call [SetCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/setcategoryaxistypeautomatically/) after populating the categories, then read [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
 
-| Khoảng cách | Nhãn hiển thị trong ví dụ |
+The following example creates a chart with text categories and prints `Text`. It then replaces the category cell values with dates and calls the method again, which prints `Date`. Dates are stored as numeric OLE Automation values returned by [DateTime.ToOADate](https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tooadate), rather than date strings. [CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/customnumberformat/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Sổ làm việc Biểu Đồ](/slides/vi/net/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly set [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+var labels = new[] { "First", "Second", "Third" };
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, labels[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Văn bản
+
+var dates = new[] { new DateTime(2026, 1, 1), new DateTime(2026, 1, 2), new DateTime(2026, 2, 1) };
+
+for (var i = 0; i < dates.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0);
+    categoryCell.Value = dates[i].ToOADate();
+    categoryCell.CustomNumberFormat = "yyyy-mm-dd";
+}
+
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Ngày
+
+presentation.Save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx);
+```
+
+## **Kiểm Soát Khoảng Cách Nhãn Trục Danh Mục**
+
+When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Set [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) to `false`, then set [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) to the desired category interval. For text categories in their normal order, counting starts at the first category:
+
+| Khoảng | Nhãn hiển thị trong ví dụ |
 | --- | --- |
-| `1` | Danh mục 1, Danh mục 2, Danh mục 3, … Danh mục 24 |
-| `2` | Danh mục 1, Danh mục 3, Danh mục 5, … Danh mục 23 |
-| `3` | Danh mục 1, Danh mục 4, Danh mục 7, … Danh mục 22 |
+| `1` | Danh mục 1, Danh mục 2, Danh mục 3, ... Danh mục 24 |
+| `2` | Danh mục 1, Danh mục 3, Danh mục 5, ... Danh mục 23 |
+| `3` | Danh mục 1, Danh mục 4, Danh mục 7, ... Danh mục 22 |
 
-Khoảng cách `3` hiển thị mỗi nhãn thứ ba, để lại hai nhãn ẩn giữa các nhãn hiển thị. Nó không loại bỏ các cột tương ứng. Khoảng cách tự động chọn một khoảng dựa trên không gian có sẵn; nó không nhất thiết hiển thị mọi nhãn.
+An interval of `3` displays every third label, leaving two labels hidden between displayed labels. It does not remove the corresponding columns. Automatic spacing chooses an interval based on the available space; it does not necessarily display every label.
 
-Dấu tick có các điều khiển riêng. Đặt [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) thành `false` và sử dụng [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) để đặt khoảng cách của chúng. Ví dụ, `1` giữ một dấu tick ở mỗi khoảng category trong khi nhãn chỉ xuất hiện mỗi category thứ ba. Đặt [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) thành kiểu hiển thị để bạn có thể thấy kết quả. Đặt lại bất kỳ thuộc tính tự động‑spacing nào về `true` cho phép biểu đồ chọn lại khoảng đó.
+Tick marks have separate controls. Set [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) to `false` and use [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) to set their interval. For example, `1` keeps a tick mark at every category interval while labels appear only every third category. Set [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) to a visible style so you can see the result. Setting either automatic-spacing property back to `true` lets the chart choose that interval again.
 
-Ví dụ tự chứa dưới đây tạo 24 category và một series, sau đó lưu ba slide trong `CategoryAxisIntervals.pptx`: khoảng cách tự động, khoảng cách nhãn thủ công với dấu tick độc lập, và khôi phục khoảng cách tự động. Hai bản sao giữ nguyên dữ liệu biểu đồ gốc. Không cần bản trình bày đầu vào. Văn bản nhãn ngang làm cho sự khác biệt về mật độ dễ thấy.
+The following self-contained example creates 24 categories and one series, then saves three slides in `CategoryAxisIntervals.pptx`: automatic spacing, manual label spacing with independent tick marks, and restored automatic spacing. The two copies retain the original chart data. No input presentation is required. Horizontal label text makes the difference in density easy to see.
 
 ```csharp
 using Aspose.Slides;
@@ -241,7 +333,7 @@ axis.MajorTickMark = TickMarkType.Outside;
 axis.IsAutomaticTickLabelSpacing = true;
 axis.IsAutomaticTickMarksSpacing = true;
 
-// Slide 2: hiển thị mỗi nhãn thứ ba, nhưng vẫn giữ một dấu tick cho mỗi danh mục.
+// Slide 2: hiển thị mỗi nhãn thứ ba, nhưng giữ dấu tick cho mỗi danh mục.
 var manualSlide = presentation.Slides.AddClone(slide);
 var manualChart = (IChart)manualSlide.Shapes[0];
 var manualAxis = manualChart.Axes.HorizontalAxis;
@@ -259,23 +351,23 @@ restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
 presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-**Automatic spacing (slide 1):** Trong bản hiển thị này, mỗi nhãn category thứ hai được hiển thị và xuống hai dòng. Kết quả tự động có thể thay đổi tùy theo kích thước biểu đồ, phông chữ và bộ render.
+**Automatic spacing (slide 1):** Trong bản render này, mỗi nhãn danh mục thứ hai được hiển thị và xuống dòng thành hai dòng. Kết quả tự động có thể thay đổi tùy theo kích thước biểu đồ, phông chữ và bộ render.
 
-![Khoảng cách nhãn category tự động với tất cả 24 cột hiển thị](category-axis-automatic.png)
+![Khoảng cách nhãn danh mục tự động với tất cả 24 cột hiển thị](category-axis-automatic.png)
 
-**Manual spacing (slide 2):** Mỗi nhãn thứ ba được hiển thị trên một dòng, trong khi dấu tick vẫn ở mỗi khoảng category. Tất cả 24 cột, bao gồm cả những cột không có nhãn, vẫn hiển thị với cùng giá trị. Slide 3 khôi phục giao diện tự động như trên.
+**Manual spacing (slide 2):** Mỗi nhãn thứ ba được hiển thị trên một dòng, trong khi dấu tick vẫn ở mỗi khoảng danh mục. Tất cả 24 cột, kể cả những cột không có nhãn, vẫn hiển thị với các giá trị giống nhau. Slide 3 khôi phục lại giao diện tự động như trên.
 
-![Khoảng cách nhãn category thủ công với ba và tất cả 24 cột hiển thị](category-axis-manual.png)
+![Khoảng cách nhãn danh mục thủ công ba với tất cả 24 cột hiển thị](category-axis-manual.png)
 
-### **Chọn Trục và Khoảng Thích Hợp**
+### **Chọn Trục và Khoảng Cách Phù Hợp**
 
-Sử dụng khoảng cách đếm category này cho một trục category dạng văn bản, chẳng hạn trục category của biểu đồ cột, đường, khu vực hoặc thanh. Trong biểu đồ cột, nó là trục ngang. Trong biểu đồ thanh ngang, trục category là trục dọc, vì vậy áp dụng các cài đặt này cho [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). Khoảng cách dấu tick cũng áp dụng cho trục series trong các biểu đồ có trục series.
+Use this category-count interval for a text category axis, such as the category axis of a column, line, area, or bar chart. In a column chart, it is the horizontal axis. In a horizontal bar chart, the category axis is vertical, so apply these settings to [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). Tick-mark spacing also applies to a series axis in charts that have one.
 
-Không sử dụng khoảng cách nhãn category để đặt thang số cho trục value. Trên trục value, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) xác định sự khác biệt về giá trị: ví dụ, một major unit là `10` sẽ tạo các tick tại 0, 10, 20, … khi trục bắt đầu từ zero. Khoảng cách nhãn category `3` thay vào đó đếm vị trí category, bất kể giá trị dữ liệu của chúng. Các biểu đồ scatter và bubble sử dụng trục value thay vì trục category dạng văn bản. Đối với trục ngày, hãy sử dụng các đơn vị và thang thời gian như mô tả trong [Change a Category Axis](#change-a-category-axis).
+Do not use category label spacing to set the numeric scale of a value axis. On a value axis, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) specifies a difference in values: for example, a major unit of `10` produces ticks at 0, 10, 20, and so on when the axis starts at zero. A category label interval of `3` instead counts category positions, regardless of their data values. Scatter and bubble charts use value axes rather than a text category axis. For a date axis, use time-based major units and scales as described in [Change a Category Axis](#change-a-category-axis).
 
-## **Đặt Định Dạng Ngày cho Giá Trị Trục Danh Mục**
+## **Đặt Định Dạng Ngày Cho Giá Trị Trục Danh Mục**
 
-Ví dụ thay thế dữ liệu biểu đồ mặc định bằng bốn giá trị hàng năm. Ngày được lưu dưới dạng số serial OLE Automation trong worksheet đầu tiên (chỉ số `0`). Đặt [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) thành trục ngày, tắt [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/), và gán `yyyy` cho [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) để nhãn category hiển thị năm bốn chữ số độc lập với định dạng ô.
+The example replaces the default chart data with four annual values. Dates are stored as OLE Automation serial numbers in the first worksheet (index `0`). Set [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) to a date axis, disable [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/), and assign `yyyy` to [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) so the category labels display four-digit years independently of the cell formatting.
 
 ```csharp
 using System;
@@ -312,9 +404,9 @@ chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
 presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt Góc Xoay cho Tiêu Đề Trục Biểu Đồ**
+## **Đặt Góc Xoay Cho Tiêu Đề Trục Biểu Đồ**
 
-Bật [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) trên trục dọc, cung cấp văn bản tiêu đề, và đặt [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) để xoay tiêu đề. Góc được đo bằng độ; ví dụ này lưu một biểu đồ cột với tiêu đề trục value xoay 90 độ.
+Enable [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) on the vertical axis, provide title text, and set [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) to rotate the title. The angle is measured in degrees; this example saves a column chart with its value-axis title rotated by 90 degrees.
 
 ```csharp
 using Aspose.Slides;
@@ -332,9 +424,9 @@ chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt Vị Trí Trục trên Trục Category hoặc Value**
+## **Đặt Vị Trí Trục Trên Trục Danh Mục Hoặc Trục Giá Trị**
 
-Sử dụng [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) để kiểm soát việc trục value cắt trục category giữa các category hay tại các dấu tick của category. Thuộc tính này áp dụng cho các trục category. Ví dụ đặt giá trị này thành `true` trên trục category ngang của biểu đồ cột và lưu kết quả.
+Use [AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) to control whether the value axis crosses the category axis between categories or at category tick marks. This property applies to category axes. The example sets it to `true` on the horizontal category axis of a column chart and saves the result.
 
 ```csharp
 using Aspose.Slides;
@@ -350,9 +442,9 @@ chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt Đơn Vị Hiển Thị trên Trục Giá Trị Biểu Đồ**
+## **Đặt Đơn Vị Hiển Thị Trên Trục Giá Trị Biểu Đồ**
 
-Đặt [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) để co giãn các nhãn trên trục value mà không thay đổi dữ liệu nền. Với [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) đặt thành `Millions`, một giá trị 60 000 000 sẽ hiển thị là 60. Ví dụ tạo một biểu đồ cột và áp dụng đơn vị hiển thị triệu cho trục dọc của nó.
+Set [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) to scale the labels on a value axis without changing the underlying data. With [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) set to `Millions`, a value of 60,000,000 is displayed as 60. The example creates a column chart and applies the millions display unit to its vertical axis.
 
 ```csharp
 using Aspose.Slides;
@@ -370,19 +462,19 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ## **Cấu Hình Trục Giá Trị Logarit**
 
-Một trục giá trị logarit hữu ích khi các giá trị dương trải rộng qua nhiều bậc độ. Ví dụ, một dịch vụ có thể nhận được 10, 100, 1 000, 10 000 và 100 000 yêu cầu trong năm giai đoạn. Trên thang tuyến tính, các giá trị nhỏ hơn xuất hiện gần nhau ở zero. Thang logarit giúp so sánh tăng trưởng tương đối dễ hơn: khoảng cách bằng nhau đại diện cho tỉ lệ bằng nhau thay vì chênh lệch bằng nhau.
+A logarithmic value axis is useful when positive values span several orders of magnitude. For example, a service might receive 10, 100, 1,000, 10,000, and 100,000 requests over five periods. On a linear scale, the smaller values appear close together near zero. A logarithmic scale makes their relative growth easier to compare: equal distances represent equal ratios rather than equal differences.
 
-Đặt [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) thành `true` trên trục value và sử dụng [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) để chọn cơ sở. Điều này thay đổi cách hiển thị các giá trị hiện có; nó không thay đổi dữ liệu hay thêm đường xu hướng logarit. Đường xu hướng đại diện cho mối quan hệ khớp trong dữ liệu và là một tính năng riêng.
+Set [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) to `true` on the value axis and use [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) to choose the base. This changes how the existing values are displayed; it does not change the data or add a logarithmic trend line. A trend line represents a fitted relationship in the data and is a separate feature.
 
-### **Chọn Trục Giá Trị và Cơ Sở**
+### **Chọn Trục Giá Trị và Cơ Số**
 
-Đối với biểu đồ đường hoặc cột, trục value là [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). Đối với biểu đồ thanh ngang, nó là [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/). Các biểu đồ scatter và bubble có hai trục value, vì vậy chọn trục ngang cho giá trị X, trục dọc cho giá trị Y, hoặc cả hai. Không áp dụng tỷ lệ logarit cho trục category.
+For a line or column chart, the value axis is [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/). For a horizontal bar chart, it is [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/). Scatter and bubble charts have two value axes, so choose the horizontal axis for X values, the vertical axis for Y values, or both. Do not apply logarithmic scaling to a category axis.
 
-Cơ sở logarit mặc định là `10`. Đối với biểu đồ PPTX, sử dụng cơ sở từ `2` đến `1000`, bao gồm; các cơ sở phân số như `2.5` cũng được hỗ trợ. Với cơ sở `10`, các lũy thừa liên tiếp như 10, 100, 1 000 và 10 000 có khoảng cách đều nhau.
+The default logarithmic base is `10`. For PPTX charts, use a base from `2` through `1000`, inclusive; fractional bases such as `2.5` are also supported. With base `10`, successive powers such as 10, 100, 1,000, and 10,000 are equally spaced. 
 
-### **So Sánh Tỷ Lệ Tuyến Tính và Logarit**
+### **So Sánh Thang Độ Tuyến Tính và Logarit**
 
-Ví dụ tự chứa dưới đây tạo một biểu đồ đường với năm lượng yêu cầu trên slide đầu, sau đó sao chép slide đó và bật trục value logarit cơ sở 10 trên slide thứ hai. Cả hai slide giữ nguyên dữ liệu.
+The following self-contained example creates a line chart with the five request counts on the first slide, then clones that slide and enables a base-10 logarithmic value axis on the second. Both slides retain the same data.
 
 ```csharp
 using Aspose.Slides;
@@ -414,7 +506,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// Giữ slide đầu tiên ở dạng tuyến tính và chỉ thay đổi thang trục giá trị của bản sao.
+// Giữ slide đầu tiên ở dạng tuyến tính và chỉ thay đổi thang đo trục giá trị của bản sao.
 var logarithmicSlide = presentation.Slides.AddClone(slide);
 var logarithmicChart = (IChart)logarithmicSlide.Shapes[0];
 var valueAxis = logarithmicChart.Axes.VerticalAxis;
@@ -424,24 +516,24 @@ valueAxis.LogBase = 10;
 presentation.Save("LogarithmicAxis.pptx", SaveFormat.Pptx);
 ```
 
-**Linear scale (slide 1):** Khoảng cách dọc bằng nhau đại diện cho sự chênh lệch đều trong lượng yêu cầu. Giá trị lớn nhất chi phối biểu đồ, khiến các giá trị nhỏ hơn khó phân biệt.
+**Linear scale (slide 1):** Equal vertical distances represent equal differences in request counts. The largest value dominates the chart, making the smaller values difficult to distinguish.
 
-![Biểu đồ đường trong PowerPoint hiển thị năm lượng yêu cầu trên trục value tuyến tính](value-axis-linear.png)
+![Biểu đồ đường trong PowerPoint hiển thị năm lượt yêu cầu trên trục giá trị tuyến tính](value-axis-linear.png)
 
-**Logarithmic scale (slide 2):** Khoảng cách dọc bằng nhau đại diện cho tỉ lệ bằng nhau. Mỗi giai đoạn có số yêu cầu gấp mười lần so với giai đoạn trước, vì vậy các điểm tạo thành một đường thẳng lên trên trên thang cơ sở 10. Nhãn trục vẫn hiển thị số lượng yêu cầu gốc.
+**Logarithmic scale (slide 2):** Equal vertical distances represent equal ratios. Each period has ten times as many requests as the previous one, so the points form a straight rising line on the base-10 scale. The axis labels still show the original request counts.
 
-![Cùng năm lượng yêu cầu trong PowerPoint trên trục value logarit cơ sở 10](value-axis-logarithmic.png)
+![Năm lượt yêu cầu giống nhau trong PowerPoint trên trục giá trị logarit cơ số 10](value-axis-logarithmic.png)
 
 ### **Xử Lý Giá Trị Zero và Âm**
 
-Thang logarit chỉ có thể hiển thị các giá trị dương tuyệt đối. Kiểm tra dữ liệu trước khi bật. Nếu zero hoặc các giá trị âm có ý nghĩa, giữ thang tuyến tính hoặc hiển thị chúng riêng. Nếu việc loại bỏ các giá trị này phù hợp với phân tích, giải thích lý do bỏ chúng. Đừng thay thế lặng lẽ chúng bằng các số dương nhỏ, vì điều này làm thay đổi ý nghĩa dữ liệu. Bất kỳ giá trị minimum hoặc maximum nào được cấu hình thủ công cho trục logarit cũng phải là dương.
+A logarithmic scale can display only strictly positive values. Check the data before enabling it. If zero or negative values are meaningful, keep a linear scale or show them separately. If excluding those values is appropriate for the analysis, explain the omission. Do not silently replace them with small positive numbers, as this changes the meaning of the data. Any manually configured minimum or maximum for a logarithmic axis must also be positive.
 
-## **FAQ**
+## **Câu Hỏi Thường Gặp**
 
-**Làm sao tôi đặt giá trị mà một trục cắt qua trục còn lại (giao điểm trục)?**
+**Làm thế nào để đặt giá trị mà một trục cắt trục còn lại (giao điểm trục)?**
 
-Sử dụng [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) để chọn hành vi giao điểm. Để chỉ định một giá trị giao điểm số, đặt [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). Những cài đặt này cho phép bạn di chuyển giao điểm trục tới một mức cơ sở phù hợp.
+Use [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) to select the crossing behavior. To specify a numeric crossing value, set [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/). These settings let you move the axis crossing to a suitable baseline.
 
-**Làm sao tôi định vị nhãn tick so với trục?**
+**Làm sao tôi có thể định vị nhãn dấu tick tương đối với trục?**
 
-Đặt [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) bằng cách sử dụng [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, hoặc `None`. Để kiểm soát các dấu tick riêng, sử dụng [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) hoặc [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); chúng riêng biệt với việc định vị nhãn.
+Set [TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) using [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/): `Low`, `High`, `NextTo`, or `None`. To control the tick marks themselves, use [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) or [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/); these are separate from label positioning.

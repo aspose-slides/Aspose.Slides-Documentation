@@ -1,6 +1,6 @@
 ---
-title: Presentasyonlarda .NET ile Grafik Eksenlerini Özelleştirme
-linktitle: Grafik Eksenleri
+title: Sunumlarda .NET ile Grafik Eksenlerini Özelleştirme
+linktitle: Grafik Ekseni
 type: docs
 url: /tr/net/chart-axis/
 keywords:
@@ -8,11 +8,11 @@ keywords:
 - dikey eksen
 - yatay eksen
 - eksen özelleştirme
-- eksen üzerinde işlem
+- eksen manipülasyonu
 - eksen yönetimi
 - eksen özellikleri
-- azami değer
-- asgari değer
+- maksimum değer
+- minimum değer
 - eksen çizgisi
 - tarih biçimi
 - eksen başlığı
@@ -22,17 +22,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'i kullanarak PowerPoint sunumlarında raporlar ve görselleştirmeler için grafik eksenlerini nasıl özelleştireceğinizi keşfedin."
+description: "Raporlar ve görselleştirmeler için PowerPoint sunumlarında grafik eksenlerini özelleştirmek amacıyla Aspose.Slides for .NET'in nasıl kullanılacağını keşfedin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET ile grafik eksenlerini özelleştirmeyi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçik aralıkları, tarih kategorileri ve biçimlendirme, başlık dönüşü, eksen konumlandırma, görüntüleme birimleri ve logaritmik ölçeklendirme konularını kapsar.
+Bu makale, Aspose.Slides for .NET ile grafik eksenlerini nasıl özelleştireceğinizi açıklar. Hesaplanan eksen değerleri, grafik satır ve sütunlarının değiştirilmesi, eksen görünürlüğü, kategori etiketi ve işaretçik aralıkları, tarih kategorileri ve biçimlendirme, başlık döndürmesi, eksen konumlandırma, görüntü birimleri ve logaritmik ölçeklendirme konularını kapsar.
 
-## **Grafiklerde Dikey Eksenin Azami Değerlerini Alın**
+## **Dikey Eksen Üzerindeki Maksimum Değerleri Alma**
 
-Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanan eksen değerlerini okumadan önce [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) çağırın, böylece grafik düzeni güncel olur.
+Bir [Sunum](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturun ve varsayılan verilerle bir alan grafiği ekleyin. Hesaplanan eksen değerlerini okumadan önce grafiğin düzeninin güncel olması için [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/validatechartlayout/) metodunu çağırın.
 
-[ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) ve [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/) okuyun, işaretçi aralıkları için [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) ve [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) okuyun. [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) ve [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) zaman birimi ölçeklerini sağlar; bu, tarih eksenleriyle ilgilidir. Örnek, bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
+Eksen limitleri için [ActualMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmaxvalue/) ve [ActualMinValue](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminvalue/), işaretçi aralıkları için ise [ActualMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunit/) ve [ActualMinorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunit/) okunur. Tarih eksenleriyle ilgili zaman birimi ölçekleri, [ActualMajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualmajorunitscale/) ve [ActualMinorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/actualminorunitscale/) tarafından sağlanır. Örnek bu değerleri yerel değişkenlerde saklar ve grafiği kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -57,9 +57,9 @@ var minorUnitScale = chart.Axes.VerticalAxis.ActualMinorUnitScale;
 presentation.Save("AxisValues_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Eksenler Arasındaki Verileri Değiştirin**
+## **Verileri Eksenler Arasında Değiştirme**
 
-Grafik verilerinde seriler ve kategorilerin rollerini değiştirmek için [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) kullanın. Her önceki kategori bir seri, her önceki seri bir kategori olur. Bu, verilerin gruplanma şeklini değiştirir; yatay ve dikey eksenleri değiştirmez. Örnek, varsayılan verileri `Sheet1!A1:D5` adresine, başlık satırı ve kategori sütunu dahil olacak şekilde bağlamak için [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) kullanır, ardından satır ve sütunları değiştirir. Dört seri ve üç kategori içeren bir grafik kaydeder.
+Grafik verilerinde seriler ve kategorilerin rollerini değiştirmek için [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) kullanın. Her eski kategori bir seri, her eski seri ise bir kategori haline gelir. Bu, verilerin gruplanma biçimini değiştirir; yatay ve düşey eksenlerin yerini değiştirmez. Örnek, varsayılan verileri `Sheet1!A1:D5` aralığına (başlık satırı ve kategori sütunu dahil) bağlamak için [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/setrange/) metodunu kullanır, ardından satır ve sütunları değiştirir. Dört seri ve üç kategori içeren bir grafik kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -77,11 +77,11 @@ chart.ChartData.SwitchRowColumn();
 presentation.Save("SwitchChartRowColumns_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Eksenin Çizim Sırasını Tersine Çevirin**
+## **Bir Eksenin Çizim Sırasını Ters Çevirme**
 
-[IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) kullanarak bir kategori veya değer eksenini tersine çevirin. Örneğin, bir yatay çubuk grafik, projenin aşamalarını çalışma sayfasındaki aynı sırayla üstten alta gösterebilir: Planlama, Geliştirme, Test. Bir ekseni tersine çevirmek, çizim yönünü değiştirir; verileri sıralamaz veya yeniden düzenlemez. Karşılaştırma olarak, [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) seriler ve kategorilerin rollerini değiştirir.
+Bir kategori veya değer eksenini tersine çevirmek için [IsPlotOrderReversed](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isplotorderreversed/) özelliğini kullanın. Örneğin, yatay çubuk grafik, proje aşamalarını çalışma sayfasındaki aynı sırada (Planlama, Geliştirme, Test) üstten alta gösterebilir. Bir eksenin ters çevrilmesi çizim yönünü değiştirir; çalışma kitabı verilerini sıralamaz veya yeniden düzenlemez. Buna karşılık, [SwitchRowColumn](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/switchrowcolumn/) seri ve kategori rollerini değiştirir.
 
-Sonraki örnek, üç aşama ve bir seri içeren bir yatay çubuk grafik oluşturur. Normal sıra, ters kategoriler ve ters değerler olmak üzere üç slayt içeren bir sunum kaydeder. Her kopya aynı veri kümesini kullanır ve her kopyada yalnızca bir eksen tersine çevrilir.
+Aşağıdaki örnek, üç aşamalı bir yatay çubuk grafik oluşturur ve bir sunumda üç slayt kaydeder: normal sıra, ters kategori ve ters değer. Her kopya aynı veri kümesini kullanır ve yalnızca bir eksen her kopyada ters çevrilir.
 
 ```csharp
 using Aspose.Slides;
@@ -118,7 +118,7 @@ categoryChart.Axes.VerticalAxis.IsPlotOrderReversed = true;
 // Yatay değer eksenini altta tut.
 categoryChart.Axes.VerticalAxis.CrossType = CrossesType.Maximum;
 
-// Slayt 3: sadece yatay sayısal ölçeği tersine çevir.
+// Slayt 3: yalnızca yatay sayısal ölçeği ters çevir.
 var valueSlide = presentation.Slides.AddClone(slide);
 var valueChart = (IChart)valueSlide.Shapes[0];
 valueChart.Axes.HorizontalAxis.IsPlotOrderReversed = true;
@@ -126,16 +126,16 @@ valueChart.Axes.HorizontalAxis.IsPlotOrderReversed = true;
 presentation.Save("ReversedAxes.pptx", SaveFormat.Pptx);
 ```
 
-Bir ekseni tersine çevirmek, dik olan ekseni grafiğin karşı tarafına da taşıyabilir. [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) diğer eksenin yapılandırılan ekseni nerede kestiğini kontrol eder. 2. slaytta, ters kategori ekseninde onu `Maximum` olarak ayarlamak, yatay değer eksenini altta tutar. Belirli bir kesişme noktası için [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) kullanın. Yön değiştirirken kesişme ayarlarını kontrol edin, özellikle grafik zaten özel bir kesişme noktasına sahipse. Normal çizim yönünü geri getirmek için `IsPlotOrderReversed` özelliğini `false` yapın; kesişme ayarları ayrı bir konudur.
+Bir ekseni ters çevirmek, dik ekseni grafiğin karşı tarafına taşıyabilir. [CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) ayarı, yapılandırılan eksenin diğer ekseni nerede kesişeceğini belirler. 2. slaytta, ters kategori ekseninde `Maximum` olarak ayarlandığında, yatay değer ekseni altta kalır. Belirli bir kesişim noktası için [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) kullanılabilir. Yön değiştirilirken kesişim ayarlarını kontrol edin; özellikle grafik zaten özel bir kesişim noktasına sahipse. Normal çizim yönünü geri getirmek için `IsPlotOrderReversed` değerini `false` yapın; kesişim ayarları bağımsızdır.
 
-| Normal sıra (slayt 1) | Ters kategoriler (slayt 2) | Ters değerler (slayt 3) |
+| Normal sıra (slayt 1) | Ters kategori (slayt 2) | Ters değer (slayt 3) |
 | --- | --- | --- |
-| ![Normal kategori ve değer ekseni sırasına sahip yatay çubuk grafik](axis-order-normal.png) | ![Kategorilerin üstten alta gösterildiği yatay çubuk grafik](axis-order-categories-reversed.png) | ![Ters değer ekseni ve sağda sıfır bulunan yatay çubuk grafik](axis-order-values-reversed.png) |
-| Kategoriler alttan üste doğru ilerler; değerler soldan sağa artar. | Planlama, Geliştirme ve Test üstten alta doğru ilerler. Değerler ve çalışma sayfası satır sırası değişmez. | Kategoriler normal sıralarını korur; değerler sağdan sola artar. Kategori ekseni sağda sıfırda kesişir. |
+| ![Normal kategori ve değer eksen sırasına sahip yatay çubuk grafik](axis-order-normal.png) | ![Kategoriler üstten alta görüntülenen yatay çubuk grafik](axis-order-categories-reversed.png) | ![Sağda sıfırda kesişen ters değer eksenli yatay çubuk grafik](axis-order-values-reversed.png) |
+| Kategoriler alttan üste; değerler soldan sağa artar. | Planlama, Geliştirme ve Test üstten alta sıralanır. Değerler ve çalışma sayfası satır sırası değişmez. | Kategoriler normal sırada kalır; değerler sağdan sola artar. Kategori ekseni sağda sıfırda kesişir. |
 
-## **Çizgi Grafiklerde Dikey Eksen'i Devre Dışı Bırakın**
+## **Çizgi Grafiklerde Dikey Eksenin Devre Dışı Bırakılması**
 
-[Dikey eksende](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) `IsVisible` özelliğini `false` olarak ayarlayın, böylece gizlenir. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve dikey ekseni gizli olarak kaydeder.
+Dikey ekseni gizlemek için [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) özelliğini `false` yapın. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve dik ekseni gizlenmiş olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -151,9 +151,9 @@ chart.Axes.VerticalAxis.IsVisible = false;
 presentation.Save("HiddenVerticalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **Çizgi Grafiklerde Yatay Eksen'i Devre Dışı Bırakın**
+## **Çizgi Grafiklerde Yatay Eksenin Devre Dışı Bırakılması**
 
-[Yatay eksende](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) `IsVisible` özelliğini `false` olarak ayarlayın. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve yatay ekseni gizli olarak kaydeder.
+Yatay ekseni gizlemek için [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isvisible/) özelliğini `false` yapın. Örnek, varsayılan verilerle bir çizgi grafik oluşturur ve yatay ekseni gizlenmiş olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -169,9 +169,44 @@ chart.Axes.HorizontalAxis.IsVisible = false;
 presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Kategori Ekseni Değiştirin**
+## **Grafik Izgara Çizgilerini Gösterme veya Gizleme**
 
-[CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) ayarlayarak tarih veya metin kategori ekseni seçin. Bu örnek, `ExistingChart.pptx` dosyasını gerektirir; ilk slayttaki ilk şekil bir grafik ve kategori hücreleri sayısal Excel tarih değerleri içerir. Yatay ekseni bir tarih ekseni olarak değiştirir. [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) özelliğini `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) `1` ve [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) `Months` olarak ayarlamak, ana işaretçileri bir‑ay aralıklarla yerleştirir.
+Bir eksenin hangi ızgara çizgilerini görüntülediğini öğrenmek için [ShowMajorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showmajorgridlines/) ve [ShowMinorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showminorgridlines/) okunur. Her iki özellik de salt‑okunurdur. Küçük ızgara çizgilerini göstermek veya gizlemek için [MinorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/minorgridlinesformat/) öğesinin çizgi dolgusunu kullanın. Görünür bir renk ile katı dolgu ayarlayın; gizlemek için `FillType.NoFill` kullanın. Büyük ızgara çizgileri için karşılık gelen ayar [MajorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorgridlinesformat/)`.Line.FillFormat`’dır. Bir ızgara çizgisinin dolgusunu değiştirmek eksen görünürlüğü ve işaretçikleri etkilemez.
+
+Bu gruplanmış sütun grafiğinin dik ekseni, büyük ızgara çizgileri görünür, küçük ızgara çizgileri gizli olarak başlar. Örnek, küçük ızgara çizgilerini turuncu renkte gösterir, ardından tekrar gizler ve sunumu kaydeder.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 30, 660, 230);
+var axis = chart.Axes.VerticalAxis;
+Console.WriteLine($"Initial: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+var minorFill = axis.MinorGridLinesFormat.Line.FillFormat;
+minorFill.FillType = FillType.Solid;
+minorFill.SolidFillColor.Color = Color.DarkOrange;
+Console.WriteLine($"Enabled: minor={axis.ShowMinorGridLines}");
+
+minorFill.FillType = FillType.NoFill;
+Console.WriteLine($"Hidden: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+presentation.Save("ChartGridlines.pptx", SaveFormat.Pptx);
+```
+
+| Küçük ızgara çizgileri etkin | Küçük ızgara çizgileri gizli |
+| --- | --- |
+| ![Dikey eksende büyük ızgara çizgileri arasında turuncu küçük ızgara çizgileri](minor-gridlines-enabled.png) | ![Yalnızca büyük ızgara çizgileri görünür aynı sütun grafik](minor-gridlines-hidden.png) |
+
+## **Bir Kategori Ekseni Değiştirme**
+
+[Tarih veya metin kategori ekseni seçmek için CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) ayarlayın. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik içeren ve kategori hücrelerinde sayısal Excel tarih değerleri bulunan `ExistingChart.pptx` dosyasını gerektirir. Yatay ekseni bir tarih ekseni haline getirir. [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) `1` ve [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) `Months` ayarları, ana işaretçileri bir‑ay aralıklarla yerleştirir.
 
 ```csharp
 using System;
@@ -191,21 +226,78 @@ chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
 presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Kategori Eksen Etiketi Aralıklarını Kontrol Edin**
+### **Verilerden Kategori Ekseni Türünü Belirleme**
 
-Bir grafikte çok sayıda kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) `false` yapın, ardından istediğiniz kategori aralığı için [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) ayarlayın. Metin kategorileri normal sırada iken, sayım ilk kategoriden başlar:
+Kategorileri doldurduktan sonra [SetCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/setcategoryaxistypeautomatically/) çağırın, ardından seçimi incelemek için [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) okunur. Aynı grafik hem metin etiketleri hem de sayısal tarih değerleri alabilirken faydalıdır. Metod çağrıldığında tür belirlenir; daha sonraki veri değişikliklerini yeniden değerlendiren kalıcı bir mod etkinleştirmez. Kategorileri değiştirdikten sonra tekrar çağırın.
+
+Aşağıdaki örnek, metin kategorili bir grafik oluşturur ve `Text` yazar. Ardından kategori hücre değerlerini tarihlere çevirir ve metodu yeniden çağırır; bu sefer `Date` yazar. Tarihler, [DateTime.ToOADate](https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tooadate) tarafından döndürülen sayısal OLE Automation değerleri olarak saklanır, tarih dizesi olarak değil. [CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/customnumberformat/) bu değerlerin nasıl gösterileceğini denetler; metni sayısal tarihlere dönüştürmez. Kategori hücreleri hakkında daha fazla bilgi için [Chart Workbook](/slides/tr/net/chart-workbook/) sayfasına bakın.
+
+Girdi, metin kategorileri mi yoksa sayısal tarihler mi içeriyorsa otomatik belirleme kullanın. Normal sayısal etiketler, karışık kategoriler veya boş veri için, [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) özelliğini amaçlanan anlama göre açıkça ayarlayın. Yalnızca sayısal değerler, kategorilerin tarihleri temsil ettiğini göstermez.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+var labels = new[] { "First", "Second", "Third" };
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, labels[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Metin
+
+var dates = new[] { new DateTime(2026, 1, 1), new DateTime(2026, 1, 2), new DateTime(2026, 2, 1) };
+
+for (var i = 0; i < dates.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0);
+    categoryCell.Value = dates[i].ToOADate();
+    categoryCell.CustomNumberFormat = "yyyy-mm-dd";
+}
+
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Tarih
+
+presentation.Save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx);
+```
+
+## **Kategori Ekseni Etiket Aralıklarını Kontrol Etme**
+
+Bir grafikte çok sayıda kategori olduğunda, kategorileri veya veri noktalarını kaldırmadan görünür eksen etiketlerinin sayısını azaltın. [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) `false` yapın, ardından istediğiniz kategori aralığını belirtmek için [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) ayarlayın. Normal sıradaki metin kategorileri için sayım ilk kategoriyle başlar:
 
 | Aralık | Örnekte gösterilen etiketler |
 | --- | --- |
-| `1` | Kategori 1, Kategori 2, Kategori 3, ... Kategori 24 |
-| `2` | Kategori 1, Kategori 3, Kategori 5, ... Kategori 23 |
-| `3` | Kategori 1, Kategori 4, Kategori 7, ... Kategori 22 |
+| `1` | Category 1, Category 2, Category 3, … Category 24 |
+| `2` | Category 1, Category 3, Category 5, … Category 23 |
+| `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-`3` aralığı, her üçüncü etiketi gösterir ve gösterilen etiketler arasında iki etiket gizlenir. İlgili sütunları kaldırmaz. Otomatik aralık, mevcut alana göre bir aralık seçer; her etiketi göstermeyebilir.
+`3` aralığı her üçüncü etiketi gösterir, iki etiket gizli kalır. İlgili sütunlar kaldırılmaz. Otomatik aralık, mevcut alana göre bir değer seçer; her etiketi göstermek zorunda değildir.
 
-İşaretçikler ayrı kontrolere sahiptir. [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) `false` yapın ve aralıklarını ayarlamak için [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) kullanın. Örneğin, `1` her kategori aralığında bir işaretçik bırakırken etiketler sadece her üçüncü kategori için görünür. [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) görünür bir stil olarak ayarlayın, böylece sonucu görebilirsiniz. Otomatik‑aralık özelliğini tekrar `true` yaparsanız, grafik tekrar bu aralığı seçer.
+İşaretçiklerin ayrı kontrolleri vardır. [IsAutomaticTickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomatictickmarksspacing/) `false` yapın ve [TickMarksSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/tickmarksspacing/) ile aralıklarını ayarlayın. Örneğin, `1` her kategori aralığında bir işaretçik bırakırken etiketler sadece her üçüncü kategori için görünür. Görünür bir stil seçmek için [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majortickmark/) ayarlayın. Otomatik‑aralık özelliklerinden birini tekrar `true` yaparsanız grafik yeniden ona göre ayar seçer.
 
-İşte kendi içinde çalışan örnek, 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçiklerle manuel etiket aralığı ve otomatik aralığın geri yüklenmesi. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerekli değildir. Yatay etiket metni, yoğunluğu fark etmeyi kolaylaştırır.
+Aşağıdaki bağımsız örnek, 24 kategori ve bir seri oluşturur, ardından `CategoryAxisIntervals.pptx` içinde üç slayt kaydeder: otomatik aralık, bağımsız işaretçiklere sahip manuel etiket aralığı ve otomatik aralığın geri yüklenmesi. İki kopya orijinal grafik verilerini korur. Giriş sunumu gerekmez. Yatay etiket metni, yoğunluk farkını net görmeyi sağlar.
 
 ```csharp
 using Aspose.Slides;
@@ -259,23 +351,23 @@ restoredChart.Axes.HorizontalAxis.IsAutomaticTickMarksSpacing = true;
 presentation.Save("CategoryAxisIntervals.pptx", SaveFormat.Pptx);
 ```
 
-**Otomatik aralık (slayt 1):** Bu renderda, her ikinci kategori etiketi gösterilir ve iki satıra kayar. Otomatik sonuç grafik boyutu, yazı tipleri ve renderlayıcıya göre değişebilir.
+**Otomatik aralık (slayt 1):** Bu gösterimde her ikinci kategori etiketi görüntülenir ve iki satıra sarktılır. Otomatik sonuç grafik boyutu, yazı tipi ve renderlayıcıya göre değişebilir.
 
-![Tüm 24 sütun görünen otomatik kategori etiketi aralığı](category-axis-automatic.png)
+![Tüm 24 sütun görünür otomatik kategori etiketi aralığı](category-axis-automatic.png)
 
-**Manuel aralık (slayt 2):** Her üçüncü etiket bir satırda gösterilir, işaretçikler ise her kategori aralığında kalır. Etiketsiz olanlar dahil olmak üzere tüm 24 sütun aynı değerlerle görünür. 3. slayt, yukarıdaki otomatik görünümü geri yükler.
+**Manuel aralık (slayt 2):** Her üçüncü etiket tek satırda gösterilir, işaretçikler ise her kategori aralığında kalır. Etiketsiz kalan 24 sütun da aynı değerlerle görünür. Slayt 3, yukarıdaki otomatik görünümü geri yükler.
 
-![Üçüncü manuel kategori etiketi aralığı, 24 sütunun tümü görünür](category-axis-manual.png)
+![Üçlü manuel kategori etiketi aralığı, tüm 24 sütun görünür](category-axis-manual.png)
 
-### **Doğru Eksen ve Aralığı Seçin**
+### **Doğru Eksen ve Aralığı Seçme**
 
-Bu kategori‑sayım aralığını, sütun, çizgi, alan veya çubuk grafiğin kategori ekseni gibi bir metin kategori ekseni için kullanın. Bir sütun grafiğinde, bu yatay eksendir. Yatay çubuk grafiğinde, kategori ekseni dikeydir; bu ayarları [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) üzerine uygulayın. İşaretçik aralığı, bir seri ekseni bulunan grafiklerde de geçerlidir.
+Bu kategori‑sayım aralığını metin kategori ekseni için kullanın; örneğin sütun, çizgi, alan veya çubuk grafiğin kategori ekseni. Bir sütun grafiğinde bu yatay eksendir. Yatay çubuk grafiğinde kategori ekseni düşeydir, bu yüzden ayarları [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) üzerine uygulayın. İşaretçik aralığı, bir seriye ait eksenleri olan grafiklerde seriler eksenine de uygulanabilir.
 
-Kategori etiketi aralığını bir değer ekseninin sayısal ölçeğini ayarlamak için kullanmayın. Değer ekseninde, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) bir değer farkını belirtir: örneğin `10` bir major unit, eksen sıfırdan başladıysa 0,10,20 vb. işaretçikler üretir. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılım ve balon grafikler bir metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman‑bazlı major unit ve ölçekler kullanın.
+Değer ekseninin sayısal ölçeğini kategori etiketi aralığı ile ayarlamaya çalışmayın. Değer ekseninde [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorunit/) değerin farkını belirler; örneğin `10` birim, eksen sıfırdan başlıyorsa 0, 10, 20… noktalarını üretir. `3` kategori etiketi aralığı ise veri değerlerinden bağımsız olarak kategori konumlarını sayar. Dağılma ve balon grafikler bir metin kategori ekseni yerine değer eksenleri kullanır. Tarih ekseni için, [Change a Category Axis](#change-a-category-axis) bölümünde açıklandığı gibi zaman‑bazlı birimler ve ölçekler kullanın.
 
-## **Kategori Ekseni Değerleri için Tarih Biçimini Ayarlayın**
+## **Kategori Ekseni Değerleri için Tarih Biçimini Ayarlama**
 
-Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasında (indeks `0`) OLE Automation seri numaraları olarak saklanır. [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) bir tarih ekseni olarak ayarlayın, [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) devre dışı bırakın ve kategori etiketlerinin hücre biçimlemesinden bağımsız olarak dört basamaklı yıl göstermesi için [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/) `yyyy` olarak atayın.
+Örnek, varsayılan grafik verilerini dört yıllık değerle değiştirir. Tarihler, ilk çalışma sayfasının (`0` indeks) OLE Automation seri numaraları olarak saklanır. [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) bir tarih ekseni olarak ayarlanır, [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isnumberformatlinkedtosource/) devre dışı bırakılır ve kategori etiketlerinin hücre biçiminden bağımsız olarak dört basamaklı yıl gösterebilmesi için `yyyy` değeri [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberformat/)’a atanır.
 
 ```csharp
 using System;
@@ -312,9 +404,9 @@ chart.Axes.HorizontalAxis.NumberFormat = "yyyy";
 presentation.Save("DateAxisFormat.pptx", SaveFormat.Pptx);
 ```
 
-## **Grafik Eksen Başlığı İçin Döndürme Açısı Ayarlayın**
+## **Grafik Eksen Başlığı İçin Döndürme Açısı Ayarlama**
 
-Dikey eksende [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) etkinleştirin, başlık metni sağlayın ve [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) ayarlayarak başlığı döndürün. Açı derecelerle ölçülür; bu örnek, değer ekseni başlığı 90 derece döndürülmüş bir sütun grafik kaydeder.
+Dikey eksende [HasTitle](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/hastitle/) özelliğini etkinleştirin, başlık metnini sağlayın ve başlığı döndürmek için [RotationAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextblockformat/rotationangle/) ayarlayın. Açı derece cinsindedir; örnek, değer‑eksen başlığını 90 derece döndürerek bir sütun grafik kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -332,9 +424,9 @@ chart.Axes.VerticalAxis.Title.TextFormat.TextBlockFormat.RotationAngle = 90;
 presentation.Save("RotatedAxisTitle.pptx", SaveFormat.Pptx);
 ```
 
-## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarlayın**
+## **Kategori veya Değer Ekseninde Eksen Konumunu Ayarlama**
 
-[AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) kullanarak değer ekseninin kategori eksenini kategoriler arasından mı yoksa kategori işaretçiklerinde mi kestiğini kontrol edin. Bu özellik kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bunu `true` yapar ve sonucu kaydeder.
+[AxisBetweenCategories](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/axisbetweencategories/) özelliği, değer ekseninin kategori eksenini kategoriler arasında mı yoksa kategori işaretçiklerinde mi kesiştireceğini kontrol eder. Bu özellik yalnızca kategori eksenlerine uygulanır. Örnek, bir sütun grafiğinin yatay kategori ekseninde bu özelliği `true` yapar ve sonucu kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -350,9 +442,9 @@ chart.Axes.HorizontalAxis.AxisBetweenCategories = true;
 presentation.Save("AxisBetweenCategories.pptx", SaveFormat.Pptx);
 ```
 
-## **Grafik Değer Ekseninde Görüntüleme Birimini Ayarlayın**
+## **Grafik Değer Ekseninde Görüntü Birimini Ayarlama**
 
-[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) ayarlayarak değer eksenindeki etiketleri temel veriyi değiştirmeden ölçeklendirin. [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) `Millions` olarak ayarlandığında, 60.000.000 değeri 60 olarak gösterilir. Örnek, bir sütun grafik oluşturur ve dikey eksenine milyon görüntüleme birimini uygular.
+[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/displayunit/) ayarı, temel veriyi değiştirmeden değer eksenindeki etiketleri ölçeklendirir. [DisplayUnitType](https://reference.aspose.com/slides/net/aspose.slides.charts/displayunittype/) `Millions` olarak ayarlandığında, 60 000 000 değeri 60 olarak gösterilir. Örnek, bir sütun grafik oluşturur ve düşey eksenine milyon görüntü birimini uygular.
 
 ```csharp
 using Aspose.Slides;
@@ -368,21 +460,21 @@ chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Millions;
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-## **Logaritmik Değer Ekseni Konfigüre Edin**
+## **Logaritmik Değer Eksenini Yapılandırma**
 
-Pozitif değerler birden fazla büyüklük derecesi kapsadığında logaritmik değer ekseni faydalıdır. Örneğin, bir hizmet beş dönemde 10, 100, 1.000, 10.000 ve 100.000 istek alabilir. Doğrusal ölçekte, daha küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, bunların göreli büyümesini karşılaştırmayı kolaylaştırır: eşit mesafeler eşit oranları temsil eder, eşit farkları değil.
+Pozitif değerlerin birden fazla mertebe aralığı kapsadığı durumlarda logaritmik değer ekseni yararlıdır. Örneğin bir hizmet, beş dönem boyunca 10, 100, 1 000, 10 000 ve 100 000 istek alabilir. Doğrusal ölçekte küçük değerler sıfıra yakın bir arada görünür. Logaritmik ölçek, bu değerlerin göreli büyümesini karşılaştırmayı kolaylaştırır: eşit uzaklıklar eşit oranları temsil eder, eşit farkları değil.
 
-[IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) özelliğini değer ekseninde `true` yapın ve tabanı seçmek için [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) kullanın. Bu, mevcut değerlerin nasıl gösterildiğini değiştirir; verileri değiştirmez veya logaritmik bir trend çizgisi eklemez. Trend çizgisi, verideki uyarlanmış ilişkiyi temsil eder ve ayrı bir özelliktir.
+Değer ekseninde [IsLogarithmic](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/islogarithmic/) `true` yapılır ve taban seçimi için [LogBase](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/logbase/) ayarlanır. Bu, mevcut değerlerin gösterimini değiştirir; veriyi ya da logaritmik trend çizgisini eklemez. Trend çizgisi, veriye uydurulan ayrı bir özelliktir.
 
-### **Değer Eksenini ve Tabanı Seçin**
+### **Değer Eksenini ve Tabanı Seçme**
 
-Çizgi veya sütun grafiği için değer ekseni [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/) dur. Yatay çubuk grafik için [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/) dur. Dağılım ve balon grafiklerin iki değer ekseni vardır; X değerleri için yatay ekseni, Y değerleri için dikey ekseni veya ikisini seçin. Bir kategori eksenine logaritmik ölçek uygulamayın.
+Çizgi veya sütun grafiklerde değer ekseni [VerticalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/verticalaxis/)’dir. Yatay çubuk grafiklerde ise [HorizontalAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxesmanager/horizontalaxis/) kullanılır. Dağılma ve balon grafiklerde iki değer ekseni bulunur; X değerleri için yatay, Y değerleri için düşey eksen seçilir veya her ikisi kullanılabilir. Kategori eksenine logaritmik ölçek uygulanmaz.
 
-Varsayılan logaritmik taban `10` dur. PPTX grafiklerde, 2 ile 1000 arasında (dahil) bir taban kullanın; `2.5` gibi kesirli tabanlar da desteklenir. Tabana `10` uygulandığında, 10, 100, 1.000 ve 10.000 gibi ardışık katlar eşit aralıkta olur.
+Varsayılan logaritmik taban `10`’dur. PPTX grafiklerinde `2`‑`1000` aralığındaki bir taban kullanılabilir; kesirli tabanlar (`2.5` gibi) da desteklenir. `10` tabanında ardışık kuvvetler (10, 100, 1 000, 10 000) eşit aralıklıdır.
 
-### **Doğrusal ve Logaritmik Ölçeklemeyi Karşılaştırın**
+### **Doğrusal ve Logaritmik Ölçek Karşılaştırması**
 
-Aşağıdaki kendi içinde çalışan örnek, ilk slaytta beş istek sayısı ile bir çizgi grafik oluşturur, ardından bu slaytı kopyalar ve ikinci slaytta 10 tabanlı bir logaritmik değer ekseni etkinleştirir. Her iki slayt da aynı veriyi korur.
+Aşağıdaki bağımsız örnek, ilk slaytta beş istek sayısını gösteren bir çizgi grafik oluşturur, ardından ikinci slaytı klonlar ve taban‑10 logaritmik değer eksenini etkinleştirir. Her iki slayt da aynı veriyi korur.
 
 ```csharp
 using Aspose.Slides;
@@ -414,7 +506,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// İlk slaytı doğrusal tut ve yalnızca kopyanın değer ekseni ölçeğini değiştir.
+// Keep the first slide linear and change only the copy's value-axis scale.
 var logarithmicSlide = presentation.Slides.AddClone(slide);
 var logarithmicChart = (IChart)logarithmicSlide.Shapes[0];
 var valueAxis = logarithmicChart.Axes.VerticalAxis;
@@ -424,22 +516,24 @@ valueAxis.LogBase = 10;
 presentation.Save("LogarithmicAxis.pptx", SaveFormat.Pptx);
 ```
 
-**Doğrusal ölçek (slayt 1):** Eşit dikey mesafeler, istek sayılarındaki eşit farkları temsil eder. En büyük değer grafiği domine eder, daha küçük değerler ayırt edilmesi zor olur.
+**Doğrusal ölçek (slayt 1):** Eşit düşey mesafeler istek sayılarındaki eşit farkları temsil eder. En büyük değer grafiği domine eder, küçük değerler ayırt edilmesi zorlaşır.
 
-![Doğrusal değer ekseninde beş istek sayısını gösteren PowerPoint'teki çizgi grafik](value-axis-linear.png)
+![Doğrusal değer ekseninde beş istek sayısını gösteren çizgi grafik](value-axis-linear.png)
 
-**Logaritmik ölçek (slayt 2):** Eşit dikey mesafeler eşit oranları temsil eder. Her dönem, bir önceki dönemden on kat fazla istek alır; bu nedenle noktalar, 10 tabanlı ölçekte düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
+**Logaritmik ölçek (slayt 2):** Eşit düşey mesafeler eşit oranları temsil eder. Her dönem önceki döneme göre on kat daha fazla istek alır; bu yüzden noktalar taban‑10 ölçeğinde düz bir yükselen çizgi oluşturur. Eksen etiketleri hâlâ orijinal istek sayılarını gösterir.
 
-![PowerPoint'te aynı beş istek sayısı, 10 tabanlı logaritmik değer ekseninde](value-axis-logarithmic.png)
+![Taban‑10 logaritmik değer ekseninde aynı beş istek sayısını gösteren çizgi grafik](value-axis-logarithmic.png)
 
-### **Sıfır ve Negatif Değerlerle Başa Çıkma**
+### **Sıfır ve Negatif Değerlerin Ele Alınması**
 
-Logaritmik ölçek yalnızca kesin pozitif değerleri gösterebilir. Etkinleştirmeden önce veriyi kontrol edin. Sıfır veya negatif değerler anlamlıysa, doğrusal ölçeği koruyun veya bunları ayrı gösterin. Analiz için bu değerleri dışlamak uygun ise, dışlamayı açıklayın. Onları sessizce küçük pozitif sayılarla değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan minimum veya maksimum değerler de pozitif olmalıdır.
+Logaritmik ölçek yalnızca kesin pozitif değerleri gösterebilir. Etkinleştirmeden önce veriyi kontrol edin. Sıfır veya negatif değerler anlam taşıyorsa, doğrusal ölçek kullanın ya da ayrı bir şekilde gösterin. Bu değerleri analizden çıkarmak uygunsa, eksikliğin nedenini açıklayın. Küçük pozitif sayılarla gizlice değiştirmeyin; bu veri anlamını değiştirir. Logaritmik eksen için manuel olarak ayarlanan minimum veya maksimum da pozitif olmalıdır.
 
 ## **SSS**
 
-**Bir eksenin diğerini kestiği değeri (ekseni kesişim) nasıl ayarlarım?**  
-[CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) kullanarak kesişim davranışını seçin. Sayısal bir kesişim değeri belirtmek için [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) ayarlayın. Bu ayarlar, eksen kesişimini uygun bir temel çizgiye taşımanıza olanak verir.
+**Bir eksenin diğerini nerede kestiği (eks kesişimi) değerini nasıl ayarlarım?**
 
-**İşaretçi etiketlerini eksene göre nasıl konumlandırabilirim?**  
-[TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) ayarlarken [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/) değerlerinden birini kullanın: `Low`, `High`, `NextTo` veya `None`. İşaretçikleri kontrol etmek için [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) veya [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/) kullanın; bunlar etiket konumlandırmadan bağımsızdır.
+[CrossType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crosstype/) ile kesişim davranışını seçin. Sayısal bir kesişim değeri belirtmek için [CrossAt](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/crossat/) ayarlayın. Bu ayarlar, eksen kesişimini uygun bir temel çizgisine taşımanıza olanak tanır.
+
+**İşaretçi etiketlerini eksene göre nasıl konumlandırabilirim?**
+
+[TickLabelPosition](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/ticklabelposition/) özelliğini, [TickLabelPositionType](https://reference.aspose.com/slides/net/aspose.slides.charts/ticklabelpositiontype/) ile `Low`, `High`, `NextTo` veya `None` olarak ayarlayın. İşaretçikleri kontrol etmek için [MajorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majortickmark/) veya [MinorTickMark](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/minortickmark/) kullanılabilir; bunlar etiket konumlandırmadan bağımsızdır.

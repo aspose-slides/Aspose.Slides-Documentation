@@ -1,6 +1,6 @@
 ---
-title: "Διαχείριση ήχου σε παρουσιάσεις με C++"
-linktitle: "Πλαίσιο ήχου"
+title: Διαχείριση πλαισίων ήχου σε παρουσιάσεις με C++
+linktitle: Πλαίσιο ήχου
 type: docs
 weight: 10
 url: /el/cpp/audio-frame/
@@ -14,279 +14,416 @@ keywords:
 - εξαγωγή ήχου
 - C++
 - Aspose.Slides
-description: "Δημιουργία και έλεγχος πλαισίων ήχου στην Aspose.Slides για C++ — παραδείγματα κώδικα για ενσωμάτωση, περικοπή, βρόχο και διαμόρφωση της αναπαραγωγής σε παρουσιάσεις PPT, PPTX και ODP."
+description: "Ενσωματώστε ήχο σε διαφάνειες, αλλάξτε το εικονίδιο ήχου, διαμορφώστε την αναπαραγωγή, διαχειριστείτε υπότιτλους WebVTT και εξάγετε ήχους μετάβασης διαφάνειας με το Aspose.Slides για C++."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργαστείτε με πλαίσια ήχου στην Aspose.Slides. Δείχνει πώς να προσθέσετε ενσωματωμένο ήχο στις διαφάνειες, να προσαρμόσετε τη μικρογραφία του πλαισίου ήχου, να διαμορφώσετε επιλογές αναπαραγωγής όπως η ένταση, η επανάληψη, η απόκρυψη, η περικοπή και οι διάρκειες εξασθένισης, και να εξάγετε ήχο που χρησιμοποιείται στις μεταβάσεις της παρουσίασης.
+Ένα πλαίσιο ήχου σάς επιτρέπει να αναπαράγετε έναν ήχο σε μια διαφάνεια. Με το Aspose.Slides for C++ μπορείτε να ενσωματώσετε ένα αποσπάσμα ήχου, να επιλέξετε την εικόνα που το αντιπροσωπεύει, να ρυθμίσετε την αναπαραγωγή και να προσθέσετε υπότιτλους. Μπορείτε επίσης να ανακτήσετε έναν ήχο που έχει οριστεί για μια μετάβαση διαφάνειας.
 
 ## **Δημιουργία Πλαισίων Ήχου**
 
-Η Aspose.Slides για C++ επιτρέπει την προσθήκη αρχείων ήχου σε διαφάνειες. Τα αρχεία ήχου ενσωματώνονται στις διαφάνειες ως πλαίσια ήχου. 
+Χρησιμοποιήστε [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) για να ενσωματώσετε ένα τοπικό αποσπάσμα ήχου στην πρώτη διαφάνεια. Οι δύο πρώτες συντεταγμένες τοποθετούν το πλαίσιο στη διαφάνεια και οι δύο επόμενες καθορίζουν το πλάτος και το ύψος του, όλα σε μονάδες σημείων. Αυτό το παράδειγμα καλεί το [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) για να ξεκινήσει το αποσπάσμα αυτόματα και καλεί το [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) για να επιλέξει την έντονη προεπιλογή.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Φορτώστε τη ροή του αρχείου ήχου που θέλετε να ενσωματώσετε στη διαφάνεια.
-4. Προσθέστε το ενσωματωμένο πλαίσιο ήχου (που περιέχει το αρχείο ήχου) στη διαφάνεια.
-5. Ορίστε το [PlayMode](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides#a1e0dfa632c5498e693145d42f3cf8e4c) και το `Volume` που εκθέτει το αντικείμενο [IAudioFrame](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_audio_frame).
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+```cpp
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
 
-Αυτός ο κώδικας C++ δείχνει πώς να προσθέσετε ένα ενσωματωμένο πλαίσιο ήχου σε μια διαφάνεια:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-``` cpp
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Αποκτά την πρώτη διαφάνεια
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Φορτώνει το αρχείο ήχου wav σε ροή
-auto fstr = System::MakeObject<FileStream>(u"sampleaudio.wav", FileMode::Open, FileAccess::Read);
-
-// Προσθέτει το Πλαίσιο Ήχου
-auto audioFrame = sld->get_Shapes()->AddAudioFrameEmbedded(50.0f, 150.0f, 100.0f, 100.0f, fstr);
-
-// Ορίζει τη Λειτουργία Αναπαραγωγής και την Ένταση του Ήχου
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
 audioFrame->set_PlayMode(AudioPlayModePreset::Auto);
 audioFrame->set_Volume(AudioVolumeMode::Loud);
 
-// Γράφει το αρχείο PowerPoint στον δίσκο
-pres->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Αλλαγή της Μικρογραφίας του Πλαισίου Ήχου**
+## **Αλλαγή Μικρογραφίας Πλαισίου Ήχου**
 
-Όταν προσθέτετε ένα αρχείο ήχου σε μια παρουσίαση, ο ήχος εμφανίζεται ως πλαίσιο με μια προεπιλεγμένη τυποποιημένη εικόνα (δείτε την εικόνα στην παρακάτω ενότητα). Μπορείτε να αλλάξετε τη μικρογραφία του πλαισίου ήχου (ορίστε την προτιμώμενη εικόνα).
-
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε τη μικρογραφία ή την προεπισκόπηση ενός πλαισίου ήχου:
+Από προεπιλογή, ένα πλαίσιο ήχου εμφανίζει ένα εικονίδιο ηχείου. Για να εμφανίσετε μια προσαρμοσμένη μικρογραφία, προσθέστε μια εικόνα στην παρουσίαση με το [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) και ορίστε τη ως εικόνα του πλαισίου με το [set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/). Το παράδειγμα χρησιμοποιεί ένα JPEG ως μικρογραφία για ένα ενσωματωμένο αποσπάσμα ήχου.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
-        
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// Προσθέτει ένα πλαίσιο ήχου στη διαφάνεια με καθορισμένη θέση και μέγεθος.
-auto audioStream = System::MakeObject<System::IO::FileStream>(u"sample2.mp3", 
-    System::IO::FileMode::Open, System::IO::FileAccess::Read);
-    
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150.0f, 100.0f, 50.0f, 50.0f, audioStream);
-            
-// Προσθέτει μια εικόνα στους πόρους της παρουσίασης.
-auto imageStream = System::IO::File::OpenRead(u"eagle.jpeg");
-auto audioImage = presentation->get_Images()->AddImage(imageStream);
-            
-// Ορίζει την εικόνα για το πλαίσιο ήχου. // <-----
-        
-//Αποθηκεύει την τροποποιημένη παρουσίαση στο δίσκο
-presentation->Save(u"example_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+#include <DOM/IAudioFrame.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto imageStream = File::OpenRead(u"eagle.jpeg");
+auto thumbnail = presentation->get_Images()->AddImage(imageStream);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame->get_PictureFormat()->get_Picture()->set_Image(thumbnail);
+
+presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Αλλαγή Επιλογών Αναπαραγωγής Ήχου**
 
-Η Aspose.Slides για C++ επιτρέπει την αλλαγή επιλογών που ελέγχουν την αναπαραγωγή ή τις ιδιότητες ενός ήχου. Για παράδειγμα, μπορείτε να ρυθμίσετε την ένταση του ήχου, να ορίσετε αναπαραγωγή σε βρόχο ή ακόμη και να κρύψετε το εικονίδιο ήχου.
+Οι **Ρυθμίσεις Ήχου** του PowerPoint καθορίζουν πότε ξεκινά ένα αποσπάσμα, πόσο έντονα ακούγεται και πώς συμπεριφέρεται κατά τη διάρκεια της παρουσίασης.
 
-Το πλαίσιο **Audio Options** στο Microsoft PowerPoint:
+![PowerPoint Audio Options controls for an audio frame](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| Έλεγχος PowerPoint | Μέθοδος Aspose.Slides for C++ |
+| --- | --- |
+| Έναρξη | [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) |
+| Προκαθορισμένη ένταση | [set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volume/) |
+| Αναπαραγωγή σε όλες τις διαφάνειες | [set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playacrossslides/) |
+| Επανάληψη μέχρι να σταματήσει | [set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playloopmode/) |
+| Απόκρυψη κατά την εμφάνιση | [set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_hideatshowing/) |
+| Επιστροφή στην αρχή μετά την αναπαραγωγή | [set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_rewindaudio/) |
+| Εφέ εξασθένισης (Fade In) | [set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeinduration/) |
+| Εφέ εξασθένισης (Fade Out) | [set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_fadeoutduration/) |
+| Κόψιμο ήχου - χρόνος έναρξης | [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) |
+| Κόψιμο ήχου - χρόνος λήξης | [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) |
+| Ολισθητής έντασης | [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/) |
 
-Οι **Audio Options** του PowerPoint που αντιστοιχούν στις μεθόδους Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/) :
-
-- **Start** η λίστα επιλογών ταιριάζει με τη μέθοδο [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_playmode/).
-- **Volume** ταιριάζει με τη μέθοδο [AudioFrame::set_Volume](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_volume/).
-- **Play Across Slides** ταιριάζει με τη μέθοδο [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_playacrossslides/).
-- **Loop until Stopped** ταιριάζει με τη μέθοδο [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_playloopmode/).
-- **Hide During Show** ταιριάζει με τη μέθοδο [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_hideatshowing/).
-- **Rewind after Playing** ταιριάζει με τη μέθοδο [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_rewindaudio/).
-
-Οι επιλογές **Editing** του PowerPoint που αντιστοιχούν στις ιδιότητες Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/) :
-
-- **Fade In** ταιριάζει με τη μέθοδο [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_fadeinduration/).
-- **Fade Out** ταιριάζει με τη μέθοδο [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_fadeoutduration/).
-- **Trim Audio Start Time** ταιριάζει με τη μέθοδο [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_trimfromstart/).
-- **Trim Audio End Time** η τιμή ισούται με τη διάρκεια του ήχου μείον την τιμή της [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_trimfromend/) μεθόδου.
-
-Ο **Volume controll** του PowerPoint στον πίνακα ελέγχου ήχου αντιστοιχεί στη μέθοδο [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_volumevalue/). Σας επιτρέπει να αλλάξετε την ένταση του ήχου ως ποσοστό.
-
-Αυτή είναι η διαδικασία για την αλλαγή των επιλογών αναπαραγωγής ήχου:
-
-1. [Δημιουργία](#creating-audio-frame) ή λήψη του Πλαισίου Ήχου.
-2. Ορίστε νέες τιμές για τις ιδιότητες του Πλαισίου Ήχου που θέλετε να προσαρμόσετε.
-3. Αποθηκεύστε το τροποποιημένο αρχείο PowerPoint.
-
-Αυτός ο κώδικας C++ παρουσιάζει μια λειτουργία όπου ρυθμίζονται οι επιλογές ενός ήχου:
-
-``` cpp 
-auto pres = System::MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-
-// Λήψη σχήματος
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0);
-
-// Μετατρέπει το σχήμα σε σχήμα AudioFrame
-auto audioFrame = System::ExplicitCast<AudioFrame>(shape);
-
-// Ορίζει τη λειτουργία αναπαραγωγής σε αναπαραγωγή με κλικ
-audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
-
-// Ορίζει την ένταση σε χαμηλή
-audioFrame->set_Volume(AudioVolumeMode::Low);
-
-// Ορίζει τον ήχο να αναπαράγεται σε όλες τις διαφάνειες
-audioFrame->set_PlayAcrossSlides(true);
-
-// Απενεργοποιεί την επανάληψη του ήχου
-audioFrame->set_PlayLoopMode(false);
-
-// Κρύβει το Πλαίσιο Ήχου κατά τη διάρκεια της παρουσίασης
-audioFrame->set_HideAtShowing(true);
-
-// Επαναφέρει τον ήχο στην αρχή μετά την αναπαραγωγή
-audioFrame->set_RewindAudio(true);
-
-// Αποθηκεύει το αρχείο PowerPoint στο δίσκο
-pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
-```
-
-Αυτό το παράδειγμα C++ δείχνει πώς να προσθέσετε ένα νέο πλαίσιο ήχου με ενσωματωμένο ήχο, να το κόψετε και να ορίσετε τις διάρκειες εξασθένισης:
+Το παράδειγμα εντοπίζει το πρώτο πλαίσιο ήχου στην πρώτη διαφάνεια, καλεί το [set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_playmode/) για να ξεκινήσει η αναπαραγωγή με κλικ και επιλέγει τη χαμηλή προεπιλεγμένη ένταση. Το αποσπάσμα συνεχίζει ανάμεσα στις διαφάνειες με απενεργοποιημένη επανάληψη. Το εικονίδιο παραμένει κρυφό κατά τη διάρκεια της παρουσίασης και το αποσπάσμα επανέρχεται στην αρχή μετά την αναπαραγωγή.
 
 ```cpp
-auto pres = MakeObject<Presentation>();
-auto slide = pres->get_Slide(0);
+#include <DOM/AudioPlayModePreset.h>
+#include <DOM/AudioVolumeMode.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
-auto audio = pres->get_Audios()->AddAudio(audioData);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ορίζει το offset έναρξης περικοπής σε 1.5 δευτερόλεπτα
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_PlayMode(AudioPlayModePreset::OnClick);
+    audioFrame->set_Volume(AudioVolumeMode::Low);
+    audioFrame->set_PlayAcrossSlides(true);
+    audioFrame->set_PlayLoopMode(false);
+    audioFrame->set_HideAtShowing(true);
+    audioFrame->set_RewindAudio(true);
+
+    presentation->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+Για ένα αποσπάσμα μεγαλύτερο των 3,5 δευτερολέπτων, το παράδειγμα παραλείπει τα πρώτα 1,5 δευτερόλεπτα και τα τελευταία 2 δευτερόλεπτα. Το όρισμα του [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) καθορίζει τη διάρκεια που θα αφαιρεθεί από το τέλος του αποσπάσματος. Για να λάβετε το χρονικό σημείο λήξης που εμφανίζεται στο PowerPoint, αφαιρέστε αυτήν την απόκλιση από τη συνολική διάρκεια του αποσπάσματος. Το κομμένο αποσπάσμα εξασθενεί (fade in) μέσα σε 200 χιλιοστά του δευτερολέπτου και εξασθενεί (fade out) μέσα σε 500 χιλιοστά του δευτερολέπτου. Οι τέσσερις μέθοδοι λαμβάνουν τιμές σε χιλιοστά του δευτερολέπτου.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 audioFrame->set_TrimFromStart(1500);
-// Ορίζει το offset τέλους περικοπής σε 2 δευτερόλεπτα
 audioFrame->set_TrimFromEnd(2000);
-
-// Ορίζει τη διάρκεια fade-in σε 200 ms
 audioFrame->set_FadeInDuration(200);
-// Ορίζει τη διάρκεια fade-out σε 500 ms
 audioFrame->set_FadeOutDuration(500);
 
-pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+presentation->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
 ```
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να ανακτήσετε ένα πλαίσιο ήχου με ενσωματωμένο ήχο και να ορίσετε την ένταση του στο 85%:
+Για να ορίσετε την ένταση αναπαραγωγής σε συγκεκριμένο ποσοστό, χρησιμοποιήστε το [set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_volumevalue/). Αυτό το παράδειγμα θέτει το πρώτο πλαίσιο ήχου στην πρώτη διαφάνεια στο 85 %.
 
 ```cpp
-auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
-    
-// Λαμβάνει ένα σχήμα πλαισίου ήχου
-auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
 
-// Ορίζει την ένταση ήχου στο 85%
-audioFrame->set_VolumeValue(85);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
-pres->Dispose();
+auto presentation = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->set_VolumeValue(85);
+
+    presentation->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
 ```
 
 ## **Διαχείριση Υπότιτλων Ήχου**
 
-Η Aspose.Slides επιτρέπει την προσθήκη κλειστών υπότιτλων σε ένα πλαίσιο ήχου μέσω της μεθόδου [get_CaptionTracks](https://reference.aspose.com/slides/el/cpp/aspose.slides/iaudioframe/get_captiontracks/). Αυτή η μέθοδος επιστρέφει ένα [ICaptionsCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/icaptionscollection/), το οποίο σας επιτρέπει να προσθέσετε κομμάτια υπότιτλων WebVTT, να διατρέξετε τα υπάρχοντα κομμάτια και να τα αφαιρέσετε όταν χρειάζεται.
+Κάθε πλαίσιο ήχου εκθέτει τη συλλογή των υποτίτλων του μέσω του [get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_captiontracks/). Χρησιμοποιήστε το για να συνδέσετε υπότιτλους WebVTT με το αποσπάσμα, να εξάγετε υπάρχοντες δρόμους ή να τους αφαιρέσετε.
 
-**Προσθήκη Υπότιτλων Ήχου**
+### **Προσθήκη Υπότιτλων Ήχου**
 
-Χρησιμοποιήστε τη μέθοδο [get_CaptionTracks](https://reference.aspose.com/slides/el/cpp/aspose.slides/iaudioframe/get_captiontracks/) για να συνδέσετε μία ή περισσότερες λωρίδες υποτίτλων σε ένα πλαίσιο ήχου. Στο παρακάτω παράδειγμα, ένα αρχείο ήχου προστίθεται σε μια διαφάνεια, και στη συνέχεια φορτώνεται μια νέα λωρίδα υπότιτλου από αρχείο `.vtt`.
+Το παράδειγμα ενσωματώνει ένα αποσπάσμα ήχου στην πρώτη διαφάνεια και χρησιμοποιεί το [ICaptionsCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/add/) για να προσθέσει έναν τοπικό δρόμο WebVTT. Το πρώτο όρισμα παρέχει την ετικέτα του δρόμου και το δεύτερο καθορίζει το αρχείο που περιέχει τους χρονικά σημειωμένους υπότιτλους.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
-
-auto audioData = File::ReadAllBytes(u"audio.mp3");
-auto audio = presentation->get_Audios()->AddAudio(audioData);
-
 auto slide = presentation->get_Slide(0);
-auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audio);
 
-// Add a new caption track from a WebVTT file.
-audioFrame->get_CaptionTracks()->Add(u"New track", u"track.vtt");
+auto audioStream = File::OpenRead(u"audio.wav");
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"audio_with_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-**Εξαγωγή Υπότιτλων Ήχου**
+### **Εξαγωγή Υπότιτλων Ήχου**
 
-Μπορείτε να διατρέξετε τις λωρίδες υποτίτλων που σχετίζονται με ένα πλαίσιο ήχου και να τις αποθηκεύσετε ως αρχεία `.vtt`. Κάθε λωρίδα υπότιτλου εκθέτει τα δυαδικά της δεδομένα και το μοναδικό της αναγνωριστικό, τα οποία μπορούν να χρησιμοποιηθούν κατά την εξαγωγή των υποτίτλων.
+Αυτό το παράδειγμα εξάγει κάθε δρόμο υπότιτλου που είναι συνδεδεμένος με ένα πλαίσιο ήχου στην πρώτη διαφάνεια. Γράφει τα byte που επιστρέφει το [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_binarydata/) σε ένα αρχείο WebVTT και χρησιμοποιεί την τιμή που επιστρέφει το [get_CaptionId](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_captionid/) ως όνομα αρχείου, ώστε κάθε δρόμος να έχει ξεχωριστή έξοδο.
 
 ```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
-for (auto&& shape : slide->get_Shapes())
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
 {
-    if (ObjectExt::Is<IAudioFrame>(shape))
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
     {
-        auto audioFrame = ExplicitCast<IAudioFrame>(shape);
-        for (auto&& captionTrack : audioFrame->get_CaptionTracks())
+        auto fileName = track->get_CaptionId().ToString() + u".vtt";
+        File::WriteAllBytes(fileName, track->get_BinaryData());
+    }
+}
+```
+
+### **Αφαίρεση Υπότιτλων Ήχου**
+
+Χρησιμοποιήστε το [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/remove/) ή το [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/removeat/) για να διαγράψετε έναν μεμονωμένο δρόμο. Το παράδειγμα χρησιμοποιεί το [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/clear/) για να αφαιρέσει όλους τους υπότιτλους από το πρώτο πλαίσιο ήχου στην πρώτη διαφάνεια, διατηρώντας το αποσπάσμα.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IAudioFrame> audioFrame;
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    audioFrame = AsCast<IAudioFrame>(shape);
+    if (audioFrame)
+        break;
+}
+
+if (audioFrame)
+{
+    audioFrame->get_CaptionTracks()->Clear();
+
+    presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The first slide has no audio frame.");
+}
+```
+
+### **Αναζήτηση Γραμμής σε Υπότιτλους Ήχου**
+
+Για να εντοπίσετε μια γραμμή στους υπότιτλους ήχου στην πρώτη διαφάνεια, καλέστε το [get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) σε κάθε δρόμο ώστε να διαβάσετε το κείμενο WebVTT στη μνήμη. Σε ένα απλό κείμενο WebVTT cue, η γραμμή χρονοδείκτη περιέχει `-->`, ακολουθούν οι γραμμές υπότιτλου και μια κενή γραμμή τελειώνει το cue. Αυτό το παράδειγμα εκτυπώνει την ετικέτα του δρόμου και κάθε γραμμή υπότιτλου που περιέχει τη λέξη “café”.
+
+```cpp
+#include <DOM/IAudioFrame.h>
+#include <DOM/ICaptions.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : IterateOver(slide->get_Shapes()))
+{
+    auto audioFrame = AsCast<IAudioFrame>(shape);
+    if (!audioFrame)
+        continue;
+
+    for (auto&& track : IterateOver(audioFrame->get_CaptionTracks()))
+    {
+        auto reader = MakeObject<StringReader>(track->get_DataAsString());
+        auto inCue = false;
+        for (auto line = reader->ReadLine(); !line.IsNull(); line = reader->ReadLine())
         {
-            // Αποθηκεύει κάθε λωρίδα υπότιτλου ως αρχείο .vtt.
-            auto fileName = captionTrack->get_CaptionId().ToString() + u".vtt";
-            File::WriteAllBytes(fileName, captionTrack->get_BinaryData());
+            if (line.get_Length() == 0)
+                inCue = false;
+            else if (line.Contains(u"-->"))
+                inCue = true;
+            else if (inCue && line.IndexOf(u"caf\u00e9", StringComparison::OrdinalIgnoreCase) >= 0)
+                Console::WriteLine(track->get_Label() + u": " + line);
         }
     }
 }
-presentation->Dispose();
-```
-
-**Αφαίρεση Υπότιτλων Ήχου**
-
-Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο ήχου, χρησιμοποιήστε τις μεθόδους που παρέχει το [ICaptionsCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/icaptionscollection/), όπως [Clear](https://reference.aspose.com/slides/el/cpp/aspose.slides/icaptionscollection/clear/), [Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/icaptionscollection/remove/), ή [RemoveAt](https://reference.aspose.com/slides/el/cpp/aspose.slides/icaptionscollection/removeat/). Το παρακάτω παράδειγμα αφαιρεί όλες τις λωρίδες υποτίτλων από ένα πλαίσιο ήχου.
-
-```cpp
-auto presentation = MakeObject<Presentation>(u"audio_with_captions.pptx");
-auto slide = presentation->get_Slide(0);
-auto audioFrame = ExplicitCast<IAudioFrame>(slide->get_Shape(0));
-
-// Αφαιρέστε όλες τις λωρίδες υποτίτλων από το πλαίσιο ήχου.
-audioFrame->get_CaptionTracks()->Clear();
-
-presentation->Save(u"audio_without_captions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
 ## **Εξαγωγή Ήχου**
 
-Η Aspose.Slides επιτρέπει την εξαγωγή του ήχου που χρησιμοποιείται στις μεταβάσεις της παρουσίασης. Για παράδειγμα, μπορείτε να εξάγετε τον ήχο που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια.
+Μια μετάβαση διαφάνειας μπορεί να έχει το δικό της ήχο. Για να το ανακτήσετε, καλέστε το [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_sound/) στη μετάβαση. Το παράδειγμα ανακτά τα byte ήχου με το [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) και εκτυπώνει τον αριθμό των byte. Εάν η πρώτη διαφάνεια δεν έχει ήχο μετάβασης, εκτυπώνει αντίστοιχο μήνυμα.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) και φορτώστε την παρουσίαση που περιέχει τον ήχο.
-2. Αποκτήστε την αναφορά της αντίστοιχης διαφάνειας μέσω του δείκτη της.
-3. Πρόσβαση στις μεταβάσεις της παρουσίασης για τη διαφάνεια.
-4. Εξαγωγή του ήχου σε δεδομένα byte.
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
 
-Αυτός ο κώδικας C++ δείχνει πώς να εξάγετε τον ήχο που χρησιμοποιείται σε μια διαφάνεια:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-String presName = u"AudioSlide.pptx";
+auto presentation = MakeObject<Presentation>(u"AudioSlide.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-auto pres = System::MakeObject<Presentation>(presName);
-
-// Αποκτά τη ζητούμενη διαφάνεια
-auto slide = pres->get_Slides()->idx_get(0);
-
-// Λαμβάνει τα εφέ μετάβασης παρουσίασης για τη διαφάνεια
-auto transition = slide->get_SlideShowTransition();
-
-// Εξάγει τον ήχο σε πίνακα byte
-auto audio = transition->get_Sound()->get_BinaryData();
-
-Console::WriteLine(String(u"Length: ") + audio->get_Length());
+auto sound = slide->get_SlideShowTransition()->get_Sound();
+if (sound)
+{
+    auto audioData = sound->get_BinaryData();
+    Console::WriteLine(u"Transition sound: {0} bytes.", audioData->get_Length());
+}
+else
+{
+    Console::WriteLine(u"The first slide has no transition sound.");
+}
 ```
 
-## **Συχνές ερωτήσεις**
+## **ΣΣΑ**
 
-**Μπορώ να ξαναχρησιμοποιήσω το ίδιο αρχείο ήχου σε πολλές διαφάνειες χωρίς να αυξήσω το μέγεθος του αρχείου;**
+**Μπορώ να ξαναχρησιμοποιήσω το ίδιο αποσπάσμα ήχου σε πολλές διαφάνειες χωρίς να το αντιγράψω;**
 
-Ναι. Προσθέστε τον ήχο μία φορά στη κοινόχρηστη [audio collection](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_audios/) της παρουσίασης και δημιουργήστε πρόσθετα πλαίσια ήχου που παραπέμπουν σε αυτό το υπάρχον αντικείμενο. Αυτό αποτρέπει την αντιγραφή των αρχείων πολυμέσων και διατηρεί το μέγεθος της παρουσίασης υπό έλεγχο.
+Ναι. Προσθέστε το αποσπάσμα μία φορά στη [audio collection](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_audios/) της παρουσίασης και περάστε το ίδιο αντικείμενο ήχου στο [AddAudioFrameEmbedded](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addaudioframeembedded/) για κάθε διαφάνεια.
 
-**Μπορώ να αντικαταστήσω τον ήχο σε υπάρχον πλαίσιο ήχου χωρίς να ξαναδημιουργήσω το σχήμα;**
+**Μπορώ να αντικαταστήσω τον ήχο σε ένα υπάρχον πλαίσιο ήχου;**
 
-Ναι. Για έναν συνδεδεμένο ήχο, ενημερώστε το [link path](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_linkpathlong/) ώστε να δείχνει στο νέο αρχείο. Για έναν ενσωματωμένο ήχο, αντικαταστήστε το αντικείμενο [embedded audio](https://reference.aspose.com/slides/el/cpp/aspose.slides/audioframe/set_embeddedaudio/) με κάποιο άλλο από την [audio collection](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_audios/) της παρουσίασης. Η μορφοποίηση του πλαισίου και οι περισσότερες ρυθμίσεις αναπαραγωγής παραμένουν αμετάβλητες.
+Ναι. Για έναν συνδεδεμένο ήχο, καλέστε το [set_LinkPathLong](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_linkpathlong/) με τη διαδρομή του αρχείου αντικατάστασης. Για έναν ενσωματωμένο ήχο, περάστε άλλο αποσπάσμα από τη συλλογή ήχου της παρουσίασης στο [set_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_embeddedaudio/). Και οι δύο προσεγγίσεις διατηρούν το υπάρχον πλαίσιο.
 
-**Η περικοπή αλλάζει τα υποκείμενα δεδομένα ήχου που αποθηκεύονται στην παρουσίαση;**
+**Αλλάζει η κοπή τα δεδομένα ήχου που αποθηκεύονται στην παρουσίαση;**
 
-Όχι. Η περικοπή προσαρμόζει μόνο τα όρια της αναπαραγωγής. Τα αρχικά bytes του ήχου παραμένουν αμετάβλητα και προσβάσιμα μέσω του ενσωματωμένου ήχου ή της audio collection της παρουσίασης.
+Όχι. Τα [set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromstart/) και [set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/set_trimfromend/) ορίζουν τα όρια αναπαραγωγής. Μπορείτε ακόμη να ανακτήσετε το πλήρες αποσπάσμα μέσω του [get_EmbeddedAudio](https://reference.aspose.com/slides/cpp/aspose.slides/iaudioframe/get_embeddedaudio/).

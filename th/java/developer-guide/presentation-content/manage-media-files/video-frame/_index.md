@@ -1,6 +1,6 @@
 ---
-title: จัดการกรอบวิดีโอในงานนำเสนอด้วย Java
-linktitle: กรอบวิดีโอ
+title: จัดการเฟรมวิดีโอในงานนำเสนอโดยใช้ Java
+linktitle: เฟรมวิดีโอ
 type: docs
 weight: 10
 url: /th/java/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - ฝังวิดีโอ
 - สกัดวิดีโอ
 - ดึงวิดีโอ
-- กรอบวิดีโอ
+- เฟรมวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีการเพิ่มและสกัดกรอบวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างอัตโนมัติโดยใช้ Aspose.Slides สำหรับ Java คู่มือวิธีทำอย่างรวดเร็ว"
+description: "เรียนรู้วิธีการเพิ่มและสกัดเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างเป็นโปรแกรมโดยใช้ Aspose.Slides for Java. คู่มือวิธีทำที่เร็ว"
 ---
 ## **บทนำ**
 
-วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ฟังได้ Aspose.Slides for Java ช่วยให้คุณเพิ่มกรอบวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และสกัดข้อมูลวิดีโอที่ฝังอยู่
+วิดีโอสามารถช่วยอธิบายแนวคิดและดึงดูดผู้ชมได้ Aspose.Slides for Java ทำให้คุณสามารถเพิ่มเฟรมวิดีโอลงในสไลด์ ปรับการตั้งค่าการเล่น จัดการคำบรรยาย และสกัดข้อมูลวิดีโอที่ฝังไว้
 
-PowerPoint รองรับวิดีโอในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+PowerPoint รองรับวิดีโอที่อยู่ในเครื่องและลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
 
-เพื่อเป็นตัวแทนข้อมูลวิดีโอและกรอบวิดีโอ Aspose.Slides ให้บริการอินเทอร์เฟซ [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) , อินเทอร์เฟซ [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) และชนิดที่เกี่ยวข้องอื่น ๆ
+เพื่อเป็นตัวแทนของข้อมูลวิดีโอและเฟรมวิดีโอ Aspose.Slides มีอินเทอร์เฟซ [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) อินเทอร์เฟซ [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) และชนิดอื่นที่เกี่ยวข้อง
 
-## **สร้างกรอบวิดีโอที่ฝังไว้**
+## **สร้างเฟรมวิดีโอฝัง**
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงสไลด์อยู่ในเครื่องคุณสามารถสร้างกรอบวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มในสไลด์ของคุณถูกจัดเก็บในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของกรอบใช้หน่วยจุด สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จสิ้น เนื่องจาก [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) จะล็อกสตรีมไว้ขณะงานนำเสนอใช้งานมัน
+ตัวอย่างนี้ฝังวิดีโอในเครื่องบนสไลด์แรกของงานนำเสนอที่มีอยู่และบันทึกผลลัพธ์ พิกัดและขนาดของเฟรมใช้หน่วยจุด (points) สตรีมจะเปิดอยู่จนกว่าการบันทึกจะเสร็จสิ้น เพราะ [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) ทำให้ล็อกไว้ขณะงานนำเสนอใช้มัน
 
 ```java
 import com.aspose.slides.*;
@@ -50,7 +50,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-คุณยังสามารถส่งเส้นทางวิดีโอในเครื่องโดยตรงไปยังเมธอด [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องยังคงเข้าถึงได้จนกว่าจะบันทึกงานนำเสนอเสร็จ
+คุณยังสามารถส่งเส้นทางวิดีโอในเครื่องโดยตรงไปยัง [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-). ตัวอย่างนี้ฝังวิดีโอบนสไลด์แรกของงานนำเสนอใหม่ วิดีโอจะต้องยังสามารถเข้าถึงได้จนกว่าจะบันทึกงานนำเสนอ
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-## **สร้างกรอบวิดีโอจากแหล่งเว็บ**
+## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างกรอบวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) รองรับวิดีโอออนไลน์ในงานนำเสนอ คุณสามารถสร้างเฟรมวิดีโอที่ลิงก์ไปยังวิดีโอออนไลน์ เช่น วิดีโอ YouTube
 
-ตัวอย่างนี้เพิ่มลิงก์และภาพย่อยของวิดีโอ YouTube ไปยังสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น ๆ เมธอด [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) ขอให้วิดีโอเล่นอัตโนมัติ การดาวน์โหลดภาพย่อยและการเล่นวิดีโอต้องการการเชื่อมต่ออินเทอร์เน็ต ตัวดูงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์ด้วย
+ตัวอย่างนี้เพิ่มลิงก์วิดีโอ YouTube และรูปย่อบนสไลด์แรก แทนที่ตัวระบุวิดีโอเพื่อใช้วิดีโออื่น วิธีการ [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) ขอให้เล่นอัตโนมัติ การดาวน์โหลดรูปย่อและการเล่นวิดีโอต้องการการเข้าถึงอินเทอร์เน็ต ผู้ชมงานนำเสนอจะต้องสนับสนุนการเล่นวิดีโอออนไลน์เช่นกัน
 
 ```java
 import com.aspose.slides.*;
@@ -100,11 +100,11 @@ try {
 }
 ```
 
-## **เล่นวิดีโอแบบเต็มจอ**
+## **เล่นวิดีโอในโหมดเต็มหน้าจอ**
 
-ในงานนำเสนอการฝึกอบรม คุณสามารถเล่นการสาธิตซอฟต์แวร์แบบเต็มจอเพื่อให้ผู้ฟังเห็นรายละเอียดได้ เรียกเมธอด [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) พร้อมค่า `true` เพื่อเปิดใช้งานพฤติกรรมนี้ระหว่างการเล่น
+ในการฝึกอบรมคุณสามารถเล่นการสาธิตซอฟต์แวร์ในโหมดเต็มหน้าจอเพื่อให้ผู้ชมมองเห็นรายละเอียดได้ เรียกใช้ [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) พร้อมค่า `true` เพื่อเปิดการทำงานนี้ระหว่างการเล่น
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรก และเปิดการเล่นแบบเต็มจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
+ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรกและเปิดการเล่นแบบเต็มหน้าจอ งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่แล้วบนสไลด์แรก
 
 ```java
 import com.aspose.slides.*;
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-การเล่นแบบเต็มจอกำหนดวิธีการแสดงวิดีโอ อย่างอิสระ เมธอด [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และเมธอด [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ควบคุมว่าซ้ำหรือไม่ เพื่อเลือกพฤติกรรมการเริ่ม ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) ตัวอย่างจะรักษาการตั้งค่าเริ่มต้นและการวนซ้ำที่มีอยู่
+การเล่นแบบเต็มหน้าจอควบคุมวิธีการแสดงวิดีโอ อย่างอิสระ [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมว่าจะเริ่มอัตโนมัติหรือเมื่อคลิก และ [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ควบคุมว่าจะทำซ้ำหรือไม่ เมื่อต้องการเลือกพฤติกรรมการเริ่มต้น ให้ตั้งโหมดการเล่นเป็น [VideoPlayModePreset.Auto หรือ VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/). ตัวอย่างนี้คงค่าการเริ่มและการวนซ้ำที่มีอยู่
 
-## **ย้อนกลับวิดีโอหลังการเล่น**
+## **ถอยวิดีโอกลับหลังการเล่น**
 
-ในงานนำเสนอการฝึกอบรม การคืนวิดีโอสาธิตไปยังจุดเริ่มต้นทำให้พร้อมสำหรับผู้บรรยายเล่นอีกครั้ง เรียกเมธอด [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) พร้อมค่า `true` เพื่อให้วิดีโอกลับไปยังจุดเริ่มต้นหลังจากการเล่นเสร็จ
+ในการฝึกอบรม การนำวิดีโอสาธิตกลับไปที่จุดเริ่มต้นทำให้พร้อมสำหรับผู้พูดที่จะเล่นอีกครั้ง เรียก [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) ด้วยค่า `true` เพื่อให้วิดีอกลับไปที่จุดเริ่มต้นหลังการเล่นเสร็จ
 
-ตัวอย่างนี้เปิดงานนำเสนอ ค้นหา [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรกและเปิดการย้อนกลับ มันจะปิดการวนซ้ำเพื่อให้การเล่นจบลงและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีกรอบวิดีโออยู่บนสไลด์แรก
+ตัวอย่างนี้เปิดงานนำเข้า ค้นหา [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) ตัวแรกบนสไลด์แรกและเปิดการถอยวิดีโอ มันปิดการวนซ้ำเพื่อให้การเล่นเสร็จสิ้นและตั้งให้เริ่มเมื่อคลิก งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ที่มีเฟรมวิดีโออยู่แล้วบนสไลด์แรก
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-การย้อนกลับทำให้วิดีโอกลับไปยังจุดเริ่มต้นโดยไม่เริ่มใหม่ ในขณะที่การเรียกเมธอด [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) พร้อมค่า `true` จะทำให้การเล่นวนซ้ำโดยอัตโนมัติ ให้ปิดการวนซ้ำเมื่อต้องการให้วิดีโอจบและพร้อมเล่นใหม่ เมธอด [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมการเริ่มอัตโนมัติหรือเมื่อคลิก ตัวอย่างนี้ใช้ [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) เพื่อให้ผู้บรรยายควบคุมการเริ่มเล่น ตั้งค่าโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การย้อนกลับทำงานแยกจากเมธอด [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)
+การถอยวิดีโอทำให้วิดีอกลับไปที่จุดเริ่มต้นโดยไม่เริ่มใหม่ ในทางกลับกัน การเรียก [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ด้วยค่า `true` จะทำให้การเล่นวนซ้ำโดยอัตโนมัติ ปิดการวนซ้ำเมื่อคุณต้องการให้วิดีโอเล่นจนจบและพร้อมสำหรับการเล่นอีกครั้ง [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) ควบคุมการเริ่มอัตโนมัติหรือเมื่อคลิกอย่างอิสระ ตัวอย่างนี้ใช้ [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) เพื่อให้ผู้พูดควบคุมเวลาการเริ่มเล่น ตั้งค่าโหมดการเล่นหลังจากตั้งค่าการวนซ้ำตามที่แสดงในตัวอย่าง การถอยทำงานอิสระจาก [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-)
 
-## **ตัดต่อกรอบวิดีโอ**
+## **ตัดเฟรมวิดีโอ**
 
-ใช้เมธอด [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) และ [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) เพื่อข้ามส่วนเริ่มต้นหรือส่วนสิ้นสุดของวิดีโอระหว่างการเล่น ค่าเป็นมิลลิวินาที การตัดต่อเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่
+ใช้ [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) และ [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) เพื่อตัดส่วนต้นหรือส่วนท้ายของวิดีโอระหว่างการเล่น ทั้งสองค่าเป็นมิลลิวินาที การตัดเปลี่ยนการตั้งค่าการเล่นโดยไม่แก้ไขข้อมูลวิดีโอที่ฝังอยู่
 
 **ตั้งค่าการตัด**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้มีส่วนที่สามารถเล่นได้เหลืออยู่
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและละเลย 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายระหว่างการเล่น ใช้วิดีโอที่ยาวกว่า 3.5 วินาทีเพื่อให้เหลือส่วนที่เล่นได้
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **อ่านค่าการตัด**
 
-ตัวอย่างนี้พิมพ์ค่าการตัดของกรอบวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีกรอบวิดีโอ จะไม่มีการพิมพ์ ค่าในตัวอย่างก่อนหน้าคือ 2500 และ 1000
+ตัวอย่างนี้พิมพ์ค่าการตัดของเฟรมวิดีโอแรกบนสไลด์แรกเป็นมิลลิวินาที งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์ หากสไลด์นั้นไม่มีเฟรมวิดีโอ จะไม่มีการพิมพ์ ตัวอย่างก่อนหน้านี้ให้ค่าที่ 2500 และ 1000
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **จัดการคำบรรยายวิดีโอ**
 
-Aspose.Slides ให้คุณจัดการคำบรรยายปิดสำหรับกรอบวิดีโอในงานนำเสนอ PowerPoint คำบรรยายถูกจัดเก็บในรูปแบบ WebVTT และสามารถเข้าถึงได้ผ่านเมธอด [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) 
+Aspose.Slides ให้คุณจัดการคำบรรยายแบบปิดสำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกจัดเก็บในรูปแบบ WebVTT และเปิดให้เข้าถึงผ่านเมธอด [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--)
 
-**เพิ่มคำบรรยายให้กับกรอบวิดีโอ**
+### **เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
 
-ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ที่มีป้ายกำกับ English ค่ามาร์คอัพของคำบรรยายควรตรงกับวิดีโอ งานนำเสนอที่บันทึกแล้วจะรวมทั้งวิดีโอและคำบรรยาย
+ตัวอย่างนี้ฝังวิดีโอในเครื่องและเพิ่มแทร็กคำบรรยาย WebVTT ที่มีป้ายชื่อ English เวลาตราประทับของคำบรรยายควรตรงกับวิดีโอ งานนำเสนอที่บันทึกจะรวมทั้งวิดีโอและคำบรรยาย
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) ยังมีโอเวอร์โหลดที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้
+อินเทอร์เฟซ [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีม
 
-**สกัดคำบรรยายจากกรอบวิดีโอ**
+### **สกัดคำบรรยายจากเฟรมวิดีโอ**
 
-ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากกรอบวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกกัน ตัวเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์ไม่ซ้ำกัน คอนโซลจะแจ้งจำนวนแทร็กที่สกัด งานนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้บันทึกแทร็กคำบรรยายทั้งหมดจากเฟรมวิดีโอบนสไลด์แรกเป็นไฟล์ WebVTT แยกกัน หมายเลขต่อเนื่องทำให้ไฟล์ผลลัพธ์แยกจากกัน คอนโซลจะแจ้งจำนวนแทร็กที่สกัด งานนำเสนอจะต้องมีอย่างน้อยหนึ่งสไลด์
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-แต่ละอ็อบเจ็กต์ [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) จะเผยให้เห็นตัวระบุคำบรรยาย ป้ายกำกับ ข้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
+แต่ละอ็อบเจกต์ [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) เปิดเผยตัวระบุคำบรรยาย ป้ายชื่อ ข้อมูลไบนารี และข้อความคำบรรยายในรูปแบบสตริง UTF-8
 
-**ลบคำบรรยายจากกรอบวิดีโอ**
+### **ลบคำบรรยายจากเฟรมวิดีโอ**
 
-ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากกรอบวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างนั้นเป็นกรอบวิดีโอ
+ตัวอย่างนี้ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอที่ตำแหน่งรูปร่างแรกบนสไลด์แรกและบันทึกผลลัพธ์ สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างนั้นเป็นเฟรมวิดีโอ
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-หากต้องการลบเฉพาะแทร็กคำบรรยายเดียวให้ใช้เมธอด [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) หรือ [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) แทนการใช้ [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--)
+หากต้องการลบเพียงแทร็กคำบรรยายเดียว ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) หรือ [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) แทน [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--)
+
+### **ค้นหาคำบรรยายวิดีโอ**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) คืนค่าแทร็ก WebVTT ทั้งหมดรวมถึงหัวเรื่อง บรรทัดเวลา และข้อความคำบรรยาย คุณสามารถค้นหาคิวในหน่วยความจำเพื่อหา ประโยคที่พูดและเวลาประทับของมัน ตัวอย่างเช่น แทร็ก English บนสไลด์ 2 อาจมีข้อความต่อไปนี้
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+ตัวอย่างนี้เปิดไฟล์ `captioned_media.pptx` และใช้ [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) เพื่ออ่านแทร็กของแต่ละเฟรมวิดีโอระดับบนบนทุกสไลด์ ในคิวข้อความธรรมดา บรรทัดเวลาจะมี `-->` และบรรทัดว่างจะสิ้นสุดคิว เมื่อคำบรรยายมีคำว่า “café” ในรูปแบบตัวอักษรใดก็ได้ ตัวอย่างจะพิมพ์หมายเลขสไลด์ ป้ายแทร็ก บรรทัดเวลาต้นฉบับ และคำบรรยายทั้งหมด
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การค้นหา “café” ให้ผลลัพธ์ที่ตรงหนึ่งรายการสำหรับแทร็กตัวอย่าง การค้นหานี้จะยกเว้นหัวแทร็กและคงการตั้งค่าเวลาไว้ในผลลัพธ์
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **สกัดวิดีโอจากสไลด์**
 
-นอกเหนือจากการเพิ่มวิดีโอลงสไลด์ Aspose.Slides ยังช่วยให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอได้
+นอกเหนือจากการเพิ่มวิดีโอลงสไลด์ Aspose.Slides ยังอนุญาตให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอ
 
-ตัวอย่างนี้สกัดวิดีโอที่ฝังอยู่จากทุกสไลด์เป็นไฟล์ไบนารีที่มีหมายเลขแยกกัน วิดีโอที่ลิงก์จะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลจะแสดงประเภท MIME ของแต่ละวิดีโอและจำนวนทั้งหมด ผลลัพธ์ใช้ส่วนขยายไฟล์ทั่วไป `.bin` คุณสามารถเปลี่ยนเป็นส่วนขยายที่ตรงกับชนิดสื่อที่รายงานได้ตามต้องการ
+ตัวอย่างนี้สกัดวิดีโอที่ฝังจากทุกสไลด์เป็นไฟล์ไบนารีแยกตามลำดับ หมายเลข วิดีโอที่ลิงก์จะถูกข้ามเพราะไม่มีข้อมูลฝัง คอนโซลจะแสดงประเภท MIME ของแต่ละวิดีโอและจำนวนรวม ผลลัพธ์ใช้ส่วนขยาย `.bin` ทั่วไป; ปรับเปลี่ยนตามประเภทสื่อที่รายงานเมื่อจำเป็น
 
 ```java
 import com.aspose.slides.*;
@@ -346,18 +411,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**พารามิเตอร์การเล่นวิดีโอใดบ้างที่สามารถเปลี่ยนแปลงได้สำหรับกรอบวิดีโอ?**
+**พารามิเตอร์การเล่นวิดีโอใดที่สามารถเปลี่ยนแปลงได้สำหรับเฟรมวิดีโอ?**
 
-คุณสามารถควบคุม[โหมดการเล่น](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (อัตโนมัติหรือเมื่อคลิก) และ[การวนซ้ำ](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) ตัวเลือกเหล่านี้มีให้ผ่านเมธอดของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/)
+คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). ตัวเลือกเหล่านี้สามารถเข้าถึงได้ผ่านเมธอดของอ็อบเจกต์ [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/)
 
 **การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**
 
-ใช่ เมื่อฝังวิดีโอในเครื่องข้อมูลไบนารีจะถูกใส่ในเอกสารทำให้ขนาดงานนำเสนอเพิ่มตามขนาดไฟล์ เมื่อเชื่อมลิงก์ไปยังวิดีโอออนไลน์และเพิ่มภาพย่อย งานนำเสนอจะเก็บลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ทำให้การเพิ่มขนาดมักจะน้อยกว่า
+ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีจะถูกใส่ในเอกสารทำให้ขนาดงานนำเสนอเพิ่มตามขนาดไฟล์ เมื่อคุณลิงก์ไปยังวิดีโอออนไลน์และเพิ่มรูปย่อ งานนำชี้จะบันทึกลิงก์และภาพตัวอย่างแทนข้อมูลวิดีโอ ดังนั้นการเพิ่มขนาดมักจะน้อยกว่า
 
-**ฉันสามารถแทนที่วิดีโอในกรอบวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
+**ฉันสามารถแทนที่วิดีโอในเฟรมวิดีโอที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**
 
-ได้ คุณสามารถสลับ[เนื้อหาวิดีโอ](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) ภายในกรอบโดยคงรูปทรงเดิมไว้ นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่
+ใช่ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) ภายในเฟรมโดยคงรูปร่างไว้; นี่เป็นสถานการณ์ทั่วไปสำหรับอัปเดตสื่อในเลย์เอาต์ที่มีอยู่
 
-**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังไว้ได้หรือไม่?**
+**สามารถกำหนดประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังได้หรือไม่?**
 
-ได้ วิดีโอที่ฝังไว้มี[ประเภทเนื้อหา](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) ที่คุณสามารถอ่านและใช้ได้ ตัวอย่างเช่นเมื่อต้องการบันทึกลงดิสก์
+ใช่ วิดีโอที่ฝังมี [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) ที่คุณสามารถอ่านและใช้ได้ เช่น เมื่อบันทึกลงดิสก์

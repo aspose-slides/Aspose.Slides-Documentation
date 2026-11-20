@@ -15,268 +15,278 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中创建和控制音频帧——提供 C# 示例，实现嵌入、剪裁、循环以及在 PPT、PPTX 和 ODP 演示文稿中的播放配置。"
+description: "在幻灯片中嵌入音频，更改音频图标，配置播放，管理 WebVTT 字幕，并使用 Aspose.Slides for .NET 提取幻灯片切换声音。"
 ---
+## **概览**
+
+音频帧可让您在幻灯片上播放声音。使用 Aspose.Slides for .NET，您可以嵌入音频剪辑，选择代表它的图像，调整播放方式，并附加字幕。您还可以检索分配给幻灯片切换的声音。
+
 ## **创建音频帧**
 
-Aspose.Slides for .NET 允许您向幻灯片添加音频文件。音频文件以音频帧的形式嵌入幻灯片中。
+使用 [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/) 将本地音频剪辑嵌入第一张幻灯片。前两个坐标决定帧在幻灯片上的位置，接下来的两个值以点为单位设置宽度和高度。此示例将 [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) 设置为自动播放剪辑，并将 [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) 设置为响亮预设。
 
-1. 创建 [Presentation ](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 加载要嵌入到幻灯片中的音频文件流。
-4. 将嵌入的音频帧（包含音频文件）添加到幻灯片。
-5. 设置由 [IAudioFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe) 对象公开的 [PlayMode](https://reference.aspose.com/slides/zh/net/aspose.slides/audioplaymodepreset) 和 `Volume`。
-6. 保存修改后的演示文稿。
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// 实例化一个表示演示文稿文件的 Presentation 类
-using (Presentation pres = new Presentation())
-{
-    // 获取第一张幻灯片
-    ISlide sld = pres.Slides[0];
-    
-    // 加载 wav 声音文件到流
-    FileStream fstr = new FileStream("sampleaudio.wav", FileMode.Open, FileAccess.Read);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 添加音频帧
-    IAudioFrame audioFrame = sld.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, fstr);
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+audioFrame.Volume = AudioVolumeMode.Loud;
 
-    // 设置音频的播放模式和音量
-    audioFrame.PlayMode = AudioPlayModePreset.Auto;
-    audioFrame.Volume = AudioVolumeMode.Loud;
-
-    // 将 PowerPoint 文件写入磁盘
-    pres.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **更改音频帧缩略图**
 
-当您向演示文稿添加音频文件时，音频会显示为具有默认标准图像的帧（见下图）。您可以更改音频帧的缩略图（设置您喜欢的图像）。
+默认情况下，音频帧显示扬声器图标。若要显示自定义缩略图，请使用 [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) 将图像添加到演示文稿中，并将其分配给帧的 [Picture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/) 属性。示例使用 JPEG 作为嵌入音频剪辑的缩略图。
 
-```c#
-using (var presentation = new Presentation())
-{
-    var slide = presentation.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 在幻灯片上添加音频帧，指定位置和大小。
-    var audioStream = new FileStream("sample2.mp3", FileMode.Open, FileAccess.Read);
-    var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.Dispose();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 向演示文稿资源添加图像。
-    var imageStream = File.OpenRead("eagle.jpeg");
-    var audioImage = presentation.Images.AddImage(imageStream);
-    imageStream.Dispose();
+using var imageStream = File.OpenRead("eagle.jpeg");
+var thumbnail = presentation.Images.AddImage(imageStream);
 
-    // 设置音频帧的图像。
-    audioFrame.PictureFormat.Picture.Image = audioImage; // <-----
-    
-	//将修改后的演示文稿保存到磁盘
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
-}
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+audioFrame.PictureFormat.Picture.Image = thumbnail;
+
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **更改音频播放选项**
 
-Aspose.Slides for .NET 允许您更改控制音频播放的选项或属性。例如，您可以调节音频音量、设置音频循环播放，甚至隐藏音频图标。
+PowerPoint 的 **音频选项** 控件决定剪辑何时开始、音量大小以及在幻灯片放映期间的行为。
 
-PowerPoint 中的 **Audio Options** 窗格：
+![PowerPoint 音频帧的音频选项控件](audio_frame_0.png)
 
-![example1_image](audio_frame_0.png)
+| PowerPoint 控件 | Aspose.Slides 属性 |
+| --- | --- |
+| 开始 | [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) |
+| 音量预设 | [Volume](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volume/) |
+| 跨幻灯片播放 | [PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playacrossslides/) |
+| 循环直到停止 | [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playloopmode/) |
+| 演示期间隐藏 | [HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/hideatshowing/) |
+| 播放后倒回 | [RewindAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/rewindaudio/) |
+| 淡入 | [FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeinduration/) |
+| 淡出 | [FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/fadeoutduration/) |
+| 修剪音频开始时间 | [TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) |
+| 修剪音频结束时间 | [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) |
+| 音量滑块 | [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/) |
 
-PowerPoint **Audio Options** 对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe) 属性：
+示例在第一张幻灯片上找到第一个音频帧，将 [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/playmode/) 设置为单击时播放，并选择低音量预设。剪辑在跨幻灯片时继续播放，且循环已禁用。图标在放映期间保持隐藏，播放结束后剪辑会倒回。
 
-- **Start** 下拉菜单对应 [AudioFrame.PlayMode](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/playmode) 属性
-- **Volume** 对应 [AudioFrame.Volume](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/volume) 属性
-- **Play Across Slides** 对应 [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/playacrossslides) 属性
-- **Loop until Stopped** 对应 [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/playloopmode) 属性
-- **Hide During Show** 对应 [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/hideatshowing) 属性
-- **Rewind after Playing** 对应 [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/properties/rewindaudio) 属性
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-PowerPoint **Editing** 选项对应 Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe) 属性：
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
 
-- **Fade In** 对应 [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/fadeinduration/) 属性
-- **Fade Out** 对应 [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/fadeoutduration/) 属性
-- **Trim Audio Start Time** 对应 [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/trimfromstart/) 属性
-- **Trim Audio End Time** 的值等于音频时长减去 [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/trimfromend/) 属性的值
-
-PowerPoint 音频控制面板上的 **Volume 控制** 对应 [AudioFrame.VolumeValue](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/volumevalue/) 属性，可按百分比更改音量。
-
-更改音频播放选项的步骤：
-
-1. [Сreate](#create-audio-frame) 或获取音频帧。
-2. 为要调整的音频帧属性设置新值。
-3. 保存修改后的 PowerPoint 文件。
-
-``` csharp 
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // 获取 AudioFrame 形状
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
-
-    // 将播放模式设置为点击播放
-    audioFrame.PlayMode = AudioPlayModePreset.OnClick;
-
-    // 将音量设置为低
-    audioFrame.Volume = AudioVolumeMode.Low;
-
-    // 将音频设置为跨幻灯片播放
-    audioFrame.PlayAcrossSlides = true;
-
-    // 禁用音频循环
-    audioFrame.PlayLoopMode = false;
-
-    // 在放映过程中隐藏 AudioFrame
-    audioFrame.HideAtShowing = true;
-
-    // 播放结束后将音频倒回到开始
-    audioFrame.RewindAudio = true;
-
-    // 将 PowerPoint 文件保存到磁盘
-    pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.PlayMode = AudioPlayModePreset.OnClick;
+audioFrame.Volume = AudioVolumeMode.Low;
+audioFrame.PlayAcrossSlides = true;
+audioFrame.PlayLoopMode = false;
+audioFrame.HideAtShowing = true;
+audioFrame.RewindAudio = true;
+
+presentation.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
 ```
 
-此 C# 示例展示了如何添加带嵌入音频的新音频帧、剪裁音频并设置淡入淡出时长：
+对于时长超过 3.5 秒的剪辑，示例跳过前 1.5 秒和后 2 秒。 [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) 用于测量要从剪辑末尾省略的时长。要获取 PowerPoint 中显示的结束时间，只需从完整剪辑时长中减去该偏移量。剪辑在 200 毫秒内淡入，500 毫秒内淡出。所有四个属性的取值均为毫秒。
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
-    IAudio audio = pres.Audios.AddAudio(audioData);
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 将剪裁起始偏移设置为 1.5 秒
-    audioFrame.TrimFromStart = 1500f;
-    // 将剪裁结束偏移设置为 2 秒
-    audioFrame.TrimFromEnd = 2000f;
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+audioFrame.TrimFromStart = 1500f;
+audioFrame.TrimFromEnd = 2000f;
+audioFrame.FadeInDuration = 200f;
+audioFrame.FadeOutDuration = 500f;
 
-    // 将淡入持续时间设置为 200 毫秒
-    audioFrame.FadeInDuration = 200f;
-    // 将淡出持续时间设置为 500 毫秒
-    audioFrame.FadeOutDuration = 500f;
-
-    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 ```
 
-以下代码示例演示如何检索带嵌入音频的音频帧并将其音量设为 85%：
+要将播放音量设置为特定百分比，请使用 [VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/volumevalue/)。此示例将第一张幻灯片上的第一个音频帧音量设为 85%。
 
-```c#
-using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("AudioFrameEmbed_out.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    // 获取音频帧形状
-    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
-
-    // 将音频音量设置为 85%
-    audioFrame.VolumeValue = 85f;
-    
-    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
 }
+
+audioFrame.VolumeValue = 85f;
+
+presentation.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **管理音频字幕**
 
-Aspose.Slides 允许您通过 [CaptionTracks](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudioframe/captiontracks/) 属性为音频帧添加闭合字幕。此属性返回一个 [ICaptionsCollection](https://reference.aspose.com/slides/zh/net/aspose.slides/icaptionscollection/)，您可以添加 WebVTT 字幕轨道、遍历现有轨道并在需要时将其移除。
+每个音频帧都有一个 [CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/captiontracks/) 集合。使用它可以为剪辑附加 WebVTT 字幕、导出现有轨道或删除它们。
 
-**添加音频字幕**
+### **添加音频字幕**
 
-使用 [CaptionTracks](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudioframe/captiontracks/) 属性将一个或多个字幕轨道附加到音频帧。以下示例在将音频文件添加到幻灯片后，从 `.vtt` 文件加载新的字幕轨道。
+示例在第一张幻灯片上嵌入音频剪辑，并使用 [ICaptionsCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/add/) 将本地 WebVTT 轨道附加到剪辑。第一个参数提供轨道标签，第二个参数指定包含时间字幕的文件。
 
-```cs
-using (Presentation presentation = new Presentation())
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var audioStream = File.OpenRead("audio.wav");
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+audioFrame.CaptionTracks.Add("English", "track.vtt");
+
+presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+```
+
+### **提取音频字幕**
+
+此示例导出附加到第一张幻灯片上音频帧的每个字幕轨道。它将轨道的 [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/icaptions/binarydata/) 写入 WebVTT 文件，并使用其 [CaptionId](https://reference.aspose.com/slides/net/aspose.slides/icaptions/captionid/) 作为文件名，以便每个轨道产生独立的输出。
+
+```csharp
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var audioFrame in slide.Shapes.OfType<IAudioFrame>())
 {
-    byte[] audioData = File.ReadAllBytes("audio.mp3");
-    IAudio audio = presentation.Audios.AddAudio(audioData);
-
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // 从 WebVTT 文件添加新的字幕轨道。
-    audioFrame.CaptionTracks.Add("New track", "track.vtt");
-
-    presentation.Save("audio_with_captions.pptx", SaveFormat.Pptx);
+    foreach (var track in audioFrame.CaptionTracks)
+    {
+        File.WriteAllBytes($"{track.CaptionId}.vtt", track.BinaryData);
+    }
 }
 ```
 
-**提取音频字幕**
+### **删除音频字幕**
 
-您可以遍历与音频帧关联的字幕轨道并将其保存为 `.vtt` 文件。每个字幕轨道都会公开其二进制数据和唯一标识符，可用于导出字幕。
+使用 [Remove](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/removeat/) 删除单个轨道。示例使用 [Clear](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/clear/) 删除第一张幻灯片上第一个音频帧的所有字幕，同时保留音频剪辑本身。
 
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+var audioFrame = slide.Shapes.OfType<IAudioFrame>().FirstOrDefault();
+if (audioFrame == null)
 {
-    ISlide slide = presentation.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    Console.WriteLine("The first slide has no audio frame.");
+    return;
+}
+
+audioFrame.CaptionTracks.Clear();
+
+presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
+```
+
+### **在音频字幕中查找行**
+
+要在第一张幻灯片的音频字幕中查找某行，请将每个轨道的 [DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) 读取到内存中。在纯文本 WebVTT 提示中，时间行包含 `-->`，字幕行紧随其后，空行标记提示结束。示例打印轨道标签以及包含 “café” 的每行字幕。
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("audio_with_captions.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var frame in slide.Shapes.OfType<IAudioFrame>())
+{
+    foreach (var track in frame.CaptionTracks)
     {
-        if (shape is IAudioFrame audioFrame)
+        using var reader = new StringReader(track.DataAsString);
+        var inCue = false;
+        while (reader.ReadLine() is string line)
         {
-            foreach (ICaptions captionTrack in audioFrame.CaptionTracks)
-            {
-                // 将字幕轨道保存为 .vtt 文件。
-                File.WriteAllBytes($"{captionTrack.CaptionId}.vtt", captionTrack.BinaryData);
-            }
+            if (line.Length == 0)
+                inCue = false;
+            else if (line.Contains("-->"))
+                inCue = true;
+            else if (inCue && line.Contains("café", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine($"{track.Label}: {line}");
         }
     }
 }
 ```
 
-**移除音频字幕**
-
-要从音频帧中移除字幕，请使用 [ICaptionsCollection](https://reference.aspose.com/slides/zh/net/aspose.slides/icaptionscollection/) 提供的方法，例如 [Clear](https://reference.aspose.com/slides/zh/net/aspose.slides/icaptionscollection/clear/)、[Remove](https://reference.aspose.com/slides/zh/net/aspose.slides/icaptionscollection/remove/) 或 [RemoveAt](https://reference.aspose.com/slides/zh/net/aspose.slides/icaptionscollection/removeat/)。以下示例移除音频帧的所有字幕轨道。
-
-```cs
-using (Presentation presentation = new Presentation("audio_with_captions.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IAudioFrame audioFrame = slide.Shapes[0] as IAudioFrame;
-
-    // 移除音频帧中的所有字幕轨道。
-    audioFrame.CaptionTracks.Clear();
-
-    presentation.Save("audio_without_captions.pptx", SaveFormat.Pptx);
-}
-```
-
 ## **提取音频**
-Aspose.Slides for .NET 允许您提取幻灯片放映过渡中使用的声音。例如，您可以提取特定幻灯片使用的声音。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类的实例并加载包含音频的演示文稿。
-2. 通过索引获取相关幻灯片的引用。
-3. 访问该幻灯片的放映过渡。
-4. 提取声音的字节数据。
+幻灯片切换可以拥有自己的声音。要检索它，请读取切换的 [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) 属性。示例访问声音的 [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) 并打印其字节大小。如果第一张幻灯片没有切换声音，则会打印一条提示信息。
 
-```c#
-string presName = "AudioSlide.pptx";
+```csharp
+using System;
+using Aspose.Slides;
 
-// 实例化一个表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation(presName);
+using var presentation = new Presentation("AudioSlide.pptx");
+var slide = presentation.Slides[0];
 
-// 访问幻灯片
-ISlide slide = pres.Slides[0];
+var sound = slide.SlideShowTransition.Sound;
+if (sound == null)
+{
+    Console.WriteLine("The first slide has no transition sound.");
+    return;
+}
 
-// 获取幻灯片的放映过渡效果
-ISlideShowTransition transition = slide.SlideShowTransition;
-
-//提取字节数组中的声音
-byte[] audio = transition.Sound.BinaryData;
-
-System.Console.WriteLine("Length: " + audio.Length);
+var audioData = sound.BinaryData;
+Console.WriteLine($"Transition sound: {audioData.Length} bytes.");
 ```
 
 ## **常见问题**
 
-**我可以在多个幻灯片中重复使用相同的音频资源而不增加文件大小吗？**
+**我可以在多张幻灯片中重复使用相同的音频剪辑而无需复制吗？**
 
-可以。将音频一次添加到演示文稿的共享 [audio collection](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/audios/) 中，然后创建引用该现有资源的额外音频帧。这样可避免媒体数据重复，保持演示文稿大小受控。
+可以。将剪辑一次添加到演示文稿的 [audio collection](https://reference.aspose.com/slides/net/aspose.slides/presentation/audios/) 中，并在每张幻灯片上将相同的音频对象传递给 [AddAudioFrameEmbedded](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addaudioframeembedded/)。
 
-**我可以在不重新创建形状的情况下替换现有音频帧中的声音吗？**
+**我可以替换现有音频帧中的声音吗？**
 
-可以。对于链接的声音，更新 [link path](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/linkpathlong/) 指向新文件。对于嵌入的声音，用演示文稿的另一个 [embedded audio](https://reference.aspose.com/slides/zh/net/aspose.slides/audioframe/embeddedaudio/) 对象替换相应的对象。帧的格式和大多数播放设置保持不变。
+可以。对于链接的声音，更新 [LinkPathLong](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/linkpathlong/) 以指向替换文件。对于嵌入的声音，将演示文稿的音频集合中的另一剪辑分配给 [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/)。两种方法都保留现有帧。
 
-**剪裁会改变演示文稿中存储的底层音频数据吗？**
+**修剪会更改存储在演示文稿中的音频数据吗？**
 
-不会。剪裁仅调整播放边界，原始音频字节保持不变，可通过嵌入的音频或演示文稿的音频集合继续访问。
+不会。[TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromstart/) 和 [TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/trimfromend/) 仅设置播放边界。您仍然可以从 [EmbeddedAudio](https://reference.aspose.com/slides/net/aspose.slides/iaudioframe/embeddedaudio/) 中检索完整剪辑。

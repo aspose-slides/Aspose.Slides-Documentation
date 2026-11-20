@@ -7,7 +7,7 @@ url: /fa/nodejs-java/video-frame/
 keywords:
 - افزودن ویدیو
 - ایجاد ویدیو
-- جاسازی ویدیو
+- تعبیه ویدیو
 - استخراج ویدیو
 - دریافت ویدیو
 - فریم ویدیو
@@ -18,21 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "یاد بگیرید به‌صورت برنامه‌نویسی فریم‌های ویدیو را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java اضافه و استخراج کنید. راهنمای سریع گام‌به‌گام."
+description: "یاد بگیرید که چگونه به‌صورت برنامه‌نویسی فریم‌های ویدیو را در اسلایدهای PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java اضافه و استخراج کنید. راهنمای سریع گام‌به‌گام."
 ---
-## **مقدمه**
+## **معرفی**
 
-ویدیوها می‌توانند به توضیح ایده‌ها کمک کنند و مخاطب را درگیر سازند. Aspose.Slides برای Node.js از طریق Java به شما امکان می‌دهد فریم‌های ویدیو را به اسلایدها اضافه کنید، تنظیمات پخش را تنظیم کنید، زیرنویس‌ها را مدیریت کنید و داده‌های ویدیوی جاسازی‌شده را استخراج کنید.
+ویدیوها می‌توانند به توضیح ایده‌ها و جذب مخاطب کمک کنند. Aspose.Slides برای Node.js از طریق Java به شما امکان می‌دهد فریم‌های ویدیو را به اسلایدها اضافه کنید، تنظیمات پخش را تنظیم کنید، زیرنویس‌ها را مدیریت کنید و داده‌های ویدیو تعبیه‌شده را استخراج کنید.
 
-پاورپوینت از ویدیوهای محلی و پیوندهای به ویدیوهای آنلاین، مانند ویدیوهای یوتیوب، پشتیبانی می‌کند.
+PowerPoint از ویدیوهای محلی و پیوندهای به ویدیوهای آنلاین، مانند ویدیوهای YouTube، پشتیبانی می‌کند.
 
-برای نمایش داده‌های ویدیو و فریم‌های ویدیو، Aspose.Slides کلاس [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) ، کلاس [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) و انواع مرتبط دیگر را فراهم می‌کند.
+برای نمایش داده‌های ویدیو و فریم‌های ویدیو، Aspose.Slides کلاس [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/)، کلاس [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) و انواع مرتبط دیگر را ارائه می‌دهد.
 
-## **ایجاد یک فریم ویدیو جاسازی‌شده**
+## **ایجاد فریم ویدیو تعبیه‌شده**
 
-اگر فایل ویدیویی که می‌خواهید به اسلاید خود اضافه کنید به‌صورت محلی ذخیره شده باشد، می‌توانید یک فریم ویدیو ایجاد کنید تا ویدیو را در ارائه خود جاسازی کنید.
+اگر فایل ویدیویی که می‌خواهید به اسلاید اضافه کنید به صورت محلی ذخیره شده باشد، می‌توانید فریم ویدیو ایجاد کنید تا ویدیو را در ارائه خود تعبیه کنید.
 
-این مثال یک ویدیو محلی را در اسلاید اول یک ارائه موجود جاسازی می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم بر حسب نقاط هستند. جریان تا پایان ذخیره‌سازی باز می‌ماند زیرا [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) آن را در حینی که ارائه از آن استفاده می‌کند، قفل نگه می‌دارد.
+این مثال یک ویدیو محلی را در اسلاید اول یک ارائه موجود تعبیه می‌کند و نتیجه را ذخیره می‌نماید. مختصات و ابعاد فریم بر حسب نقطه (point) هستند. جریان (stream) تا پایان ذخیره‌سازی باز می‌ماند، زیرا [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) در حینی که ارائه از آن استفاده می‌کند، آن را قفل نگه می‌دارد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-به‌علاوه می‌توانید مسیر ویدیو محلی را مستقیماً به [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/) پاس بدهید. این مثال ویدیو را در اسلاید اول یک ارائه جدید جاسازی می‌کند. ویدیو باید تا زمان ذخیره‌سازی ارائه در دسترس باقی بماند.
+همچنین می‌توانید مسیر ویدیو محلی را مستقیماً به [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/) بدهید. این مثال ویدیو را در اسلاید اول یک ارائه جدید تعبیه می‌کند. ویدیو باید تا زمان ذخیره‌سازی ارائه قابل دسترسی بماند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -73,11 +73,11 @@ try {
 }
 ```
 
-## **ایجاد یک فریم ویدیو با ویدیو از منبع وب**
+## **ایجاد فریم ویدیو با ویدیو از منبع وب**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریم ویدیو ایجاد کنید که به یک ویدیو آنلاین، مانند یک ویدیو یوتیوب، پیوند دارد.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) از ویدیوهای آنلاین در ارائه‌ها پشتیبانی می‌کند. می‌توانید فریم ویدیو ایجاد کنید که به یک ویدیو آنلاین، مانند یک ویدیو YouTube، پیوند دهد.
 
-این مثال پیوند یک ویدیو یوتیوب و تصویر کوچک آن را به اسلاید اول اضافه می‌کند. شناسه ویدیو را برای استفاده از ویدیو دیگری جایگزین کنید. متد [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) پخش خودکار را درخواست می‌کند. دانلود تصویر کوچک و پخش ویدیو به دسترسی به اینترنت نیاز دارد. نمایانگر ارائه نیز باید از پخش ویدیو آنلاین پشتیبانی کند.
+این مثال یک پیوند ویدیو YouTube و تصویر بندانگشتی آن را به اسلاید اول اضافه می‌کند. شناسه ویدیو را تغییر دهید تا از ویدیوی دیگری استفاده کنید. متد [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) درخواست پخش خودکار را می‌دهد. دانلود تصویر بندانگشتی و پخش ویدیو نیاز به دسترسی به اینترنت دارد. نمایشگر ارائه نیز باید پخش ویدیوهای آنلاین را پشتیبانی کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **پخش یک ویدیو در حالت تمام‌صفحه**
+## **پخش ویدیو در حالت تمام‌صفحه**
 
-در یک ارائه آموزشی، می‌توانید یک دموی نرم‌افزاری را در حالت تمام‌صفحه پخش کنید تا مخاطب جزئیات را ببیند. برای فعال‌سازی این رفتار در حین پخش، [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) را با مقدار `true` فراخوانی کنید.
+در یک ارائه آموزشی، می‌توانید یک نمایش نرم‌افزاری را در حالت تمام‌صفحه پخش کنید تا مخاطب جزئیات را ببیند. برای فعال کردن این رفتار هنگام پخش، [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) را با مقدار `true` صدا بزنید.
 
-این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اسلاید اول یک فریم ویدیو موجود داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و پخش تمام‌صفحه را فعال می‌سازد. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اسلاید اول یک فریم ویدیو موجود باشد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,13 +137,13 @@ try {
 }
 ```
 
-پخش تمام‌صفحه نحوه نمایش ویدیو را کنترل می‌کند. به‌صورت مستقل، [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) تعیین می‌کند که آیا به‌صورت خودکار یا با کلیک آغاز شود و [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) تعیین می‌کند که آیا تکرار شود. برای انتخاب رفتار آغاز، حالت پخش را به [VideoPlayModePreset.Auto یا VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) تنظیم کنید. این مثال تنظیمات آغاز و حلقه موجود را حفظ می‌کند.
+پخش تمام‌صفحه نحوه نمایش ویدیو را کنترل می‌کند. به طور مستقل، [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) تعیین می‌کند که آیا به‌صورت خودکار یا با کلیک شروع شود و [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) تعیین می‌کند که آیا تکرار شود یا نه. برای انتخاب رفتار شروع، حالت پخش را به [VideoPlayModePreset.Auto یا VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) تنظیم کنید. این مثال تنظیمات شروع و حلقه موجود را حفظ می‌کند.
 
 ## **بازگرداندن ویدیو پس از پخش**
 
-در یک ارائه آموزشی، بازگرداندن ویدیو دموی به ابتدای خود آن را برای نمایش مجدد توسط ارائه‌دهنده آماده می‌کند. برای بازگرداندن ویدیو به ابتدای آن پس از اتمام پخش، [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) را با مقدار `true` فراخوانی کنید.
+در یک ارائه آموزشی، بازگرداندن ویدیو نمایشی به ابتدای خود باعث می‌شود برای ارائه‌دهنده آماده پخش دوباره باشد. برای بازگشت ویدیو به ابتدای خود پس از اتمام پخش، [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) را با مقدار `true` صدا بزنید.
 
-این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و بازگردانی را فعال می‌سازد. حلقه‌زدن را غیرفعال می‌کند تا پخش بتواند تمام شود و پخش را برای آغاز با کلیک تنظیم می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اسلاید اول فریم ویدیو موجود داشته باشد.
+این مثال یک ارائه را باز می‌کند، اولین [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) را در اسلاید اول پیدا می‌کند و بازگردانی را فعال می‌سازد. حلقه‌گذاری را غیرفعال می‌کند تا پخش بتواند پایان یابد و پخش را روی کلیک تنظیم می‌کند. ارائه ورودی باید حداقل یک اسلاید داشته باشد که در اسلاید اول یک فریم ویدیو موجود باشد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,15 +170,15 @@ try {
 }
 ```
 
-بازگردانی ویدیو را به ابتدای آن برمی‌گرداند بدون اینکه دوباره آغاز شود. در مقابل، فراخوانی [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) با مقدار `true` پخش را به‌صورت خودکار تکرار می‌کند. هنگامیکه می‌خواهید ویدیو تمام شود و آمادهٔ بازپخش بماند، حلقه‌زدن را غیرفعال نگه دارید. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) به‌صورت مستقل کنترل می‌کند که پخش به‌صورت خودکار یا با کلیک آغاز شود؛ این مثال از [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌دهنده زمان شروع پخش را کنترل کند. حالت پخش را پس از تنظیم حلقه همان‌طور که در مثال نشان داده شده تنظیم کنید. بازگردانی به‌صورت مستقل از [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) عمل می‌کند.
+بازگردانی ویدیو را به ابتدای خود بدون شروع دوباره باز می‌گرداند. در مقابل، فراخوانی [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) با مقدار `true` پخش را به‌صورت خودکار تکرار می‌کند. وقتی می‌خواهید ویدیو به‌مرور زمان تمام شود و آماده بازپخش بماند، حلقه‌گذاری را غیرفعال نگه دارید. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) به‌صورت مستقل کنترل استارت خودکار یا با کلیک را انجام می‌دهد؛ این مثال از [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) استفاده می‌کند تا ارائه‌دهنده زمان شروع پخش را کنترل کند. تنظیم حالت پخش پس از تنظیم حلقه همان‌گونه که در مثال نشان داده شده است انجام می‌شود. بازگردانی به‌صورت مستقل از [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) کار می‌کند.
 
-## **برش یک فریم ویدیو**
+## **قلم‌زنی فریم ویدیو**
 
-از [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) و [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) برای نادیده گرفتن بخشی از ابتدای یا انتهای ویدیو در حین پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. برش تنظیمات پخش را بدون تغییر داده‌های ویدیوی جاسازی‌شده تغییر می‌دهد.
+از متدهای [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) و [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) برای حذف بخشی از ابتدای یا انتهای ویدیو هنگام پخش استفاده کنید. هر دو مقدار بر حسب میلی‌ثانیه هستند. برش تنظیمات پخش را بدون تغییر داده‌های ویدیو تعبیه‌شده تغییر می‌دهد.
 
 **تنظیمات برش**
 
-این مثال یک ویدیو محلی را جاسازی می‌کند و در حین پخش، ۲٫۵ ثانیه اول و یک ثانیه آخر را نادیده می‌گیرد. از ویدیویی طولانی‌تر از ۳٫۵ ثانیه استفاده کنید تا یک بخش قابل پخش باقی بماند.
+این مثال یک ویدیو محلی را تعبیه می‌کند و در زمان پخش ثانیه اول 2.5 و آخرین یک ثانیه را حذف می‌کند. از ویدیویی طولانی‌تر از 3.5 ثانیه استفاده کنید تا بخشی قابل پخش باقی بماند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,7 +205,7 @@ try {
 
 **خواندن تنظیمات برش**
 
-این مثال مقادیر برش اولین فریم ویدیو در اسلاید اول را به میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدیویی نداشته باشد، هیچ چیزی چاپ نمی‌شود. مثال قبلی مقادیر ۲۵۰۰ و ۱۰۰۰ را تولید می‌کند.
+این مثال مقادیر برش فریم ویدیو اول در اسلاید اول را به میلی‌ثانیه چاپ می‌کند. ارائه باید حداقل یک اسلاید داشته باشد. اگر آن اسلاید فریم ویدیو نداشته باشد، هیچ‌چیزی چاپ نمی‌شود. مثال قبل مقادیر 2500 و 1000 را تولید می‌کرد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,11 +231,11 @@ try {
 
 ## **مدیریت زیرنویس‌های ویدیو**
 
-Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته برای فریم‌های ویدیو در ارائه‌های پاورپوینت را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) در دسترس هستند.
+Aspose.Slides به شما امکان می‌دهد زیرنویس‌های بسته (closed captions) برای فریم‌های ویدیو در ارائه‌های PowerPoint را مدیریت کنید. زیرنویس‌ها در قالب WebVTT ذخیره می‌شوند و از طریق متد [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) در دسترس هستند.
 
-**افزودن زیرنویس به فریم ویدیو**
+### **اضافه کردن زیرنویس به فریم ویدیو**
 
-این مثال یک ویدیو محلی را جاسازی می‌کند و یک مسیر زیرنویس WebVTT با برچسب English اضافه می‌کند. زمان‌مکان‌های زیرنویس باید با ویدیو مطابقت داشته باشند. ارائه ذخیره‌شده شامل هر دو ویدیو و زیرنویس‌های آن است.
+این مثال یک ویدیو محلی را تعبیه می‌کند و یک مسیر زیرنویس WebVTT با برچسب English اضافه می‌کند. زمان‌برچسب‌های زیرنویس باید با ویدیو مطابقت داشته باشد. ارائه ذخیره‌شده هم ویدیو و هم زیرنویس‌های آن را شامل می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -259,11 +259,11 @@ try {
 }
 ```
 
-کلاس [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) همچنین متد [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) را برای افزودن زیرنویس‌ها از یک جریان ارائه می‌دهد.
+کلاس [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) همچنین متد [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) را برای افزودن زیرنویس‌ها از یک جریان (stream) فراهم می‌کند.
 
-**استخراج زیرنویس‌ها از فریم ویدیو**
+### **استخراج زیرنویس‌ها از فریم ویدیو**
 
-این مثال تمام مسیرهای زیرنویس از فریم‌های ویدیو در اسلاید اول را به‌صورت فایل‌های جداگانه WebVTT ذخیره می‌کند. اعداد متوالی فایل‌های خروجی را متمایز نگه می‌دارند. کنسول تعداد مسیرهای استخراج‌شده را گزارش می‌کند. ارائه باید حداقل یک اسلاید داشته باشد.
+این مثال تمام مسیرهای زیرنویس را از فریم‌های ویدیو در اسلاید اول به‌صورت فایل‌های جداگانه WebVTT ذخیره می‌کند. شماره‌های ترتیبی خروجی‌ها را متمایز نگه می‌دارند. کنسول تعداد مسیرهای استخراج‌شده را گزارش می‌کند. ارائه باید حداقل یک اسلاید داشته باشد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,11 +295,11 @@ try {
 }
 ```
 
-هر شیء [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) شناسه زیرنویس، برچسب، داده‌های باینری و متن زیرنویس را به‌صورت رشته UTF-8 نمایش می‌دهد.
+هر شیء [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) شناسه زیرنویس، برچسب، داده باینری و متن زیرنویس را به‌صورت رشته UTF-8 ارائه می‌دهد.
 
-**حذف زیرنویس‌ها از فریم ویدیو**
+### **حذف زیرنویس‌ها از فریم ویدیو**
 
-این مثال تمام زیرنویس‌ها را از فریم ویدیو در اولین موقعیت شکل در اسلاید اول حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌کند که اسلاید و شکل وجود داشته و شکل یک فریم ویدیو است.
+این مثال تمام زیرنویس‌ها را از فریم ویدیو در اولین موقعیت شکل در اسلاید اول حذف می‌کند و نتیجه را ذخیره می‌نماید. فرض می‌کند اسلاید و شکل موجود هستند و شکل یک فریم ویدیو است.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,13 +317,79 @@ try {
 }
 ```
 
-اگر نیاز دارید تنها یک مسیر زیرنویس را حذف کنید، به‌جای [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) از متدهای [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) استفاده کنید.
+اگر نیاز به حذف تنها یک مسیر زیرنویس دارید، به جای [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) از متدهای [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) استفاده کنید.
+
+### **جستجوی زیرنویس‌های ویدیو**
+
+متد [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) کل مسیر WebVTT را شامل سرآیند، خطوط زمان‌بندی و متن زیرنویس برمی‌گرداند. می‌توانید متن زیرنویس را در حافظه جستجو کنید تا عبارت و زمان‌مهر آن را پیدا کنید. برای مثال، یک مسیر انگلیسی در اسلاید 2 ممکن است شامل این cue باشد:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+این مثال فایل `captioned_media.pptx` را باز می‌کند و با استفاده از [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) مسیرهای هر فریم ویدیو سطح بالا را در همه اسلایدها می‌خواند. در یک cue متنی ساده، خط زمان‌بندی شامل `-->` است و یک خط خالی انتهای cue را نشان می‌دهد. برای هر زیرنویسی که شامل کلمه “café” در هر ترکیب حروف باشد، مثال شماره اسلاید، برچسب مسیر، خط زمان‌بندی اصلی و متن کامل زیرنویس را چاپ می‌کند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+جستجو برای “café” یک تطابق در مسیر نمونه پیدا می‌کند. جستجو سرآیند مسیر را نادیده می‌گیرد و تنظیم زمان‌بندی و شکستن خط را در خروجی حفظ می‌کند.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **استخراج ویدیو از اسلاید**
 
-علاوه بر افزودن ویدیوها به اسلایدها، Aspose.Slides به شما امکان استخراج ویدیوهای جاسازی‌شده در ارائه‌ها را می‌دهد.
+به‌جز افزودن ویدیو به اسلایدها، Aspose.Slides به شما امکان می‌دهد ویدیوهای تعبیه‌شده در ارائه‌ها را استخراج کنید.
 
-این مثال ویدیوهای جاسازی‌شده را از هر اسلاید به فایل‌های باینری جداگانه و شماره‌دار استخراج می‌کند. ویدیوهای پیوندی چون دادهٔ جاسازی‌شده ندارند، نادیده گرفته می‌شوند. کنسول نوع MIME هر ویدیو و تعداد کل را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز آن را به نوع رسانه گزارش‌شده تغییر دهید.
+این مثال ویدیوهای تعبیه‌شده را از هر اسلاید به‌صورت فایل‌های باینری شماره‌گذاری‌شده جداگانه استخراج می‌کند. ویدیوهای پیوندی نادیده گرفته می‌شوند زیرا داده تعبیه‌شده‌ای ندارند. کنسول نوع MIME هر ویدیو و تعداد کل را چاپ می‌کند. خروجی از پسوند عمومی `.bin` استفاده می‌کند؛ در صورت نیاز می‌توانید آن را به‌صورت متناسب با نوع رسانه گزارش‌شده تغییر دهید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -360,20 +426,20 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+## **سؤال‌های متداول**
 
-**کدام پارامترهای پخش ویدیو می‌توانند برای یک فریم ویدیو تغییر کنند؟**
+**کدام پارامترهای پخش ویدیو می‌توان برای فریم ویدیو تغییر داد؟**
 
-می‌توانید [حالت پخش](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (خودکار یا با کلیک) و [حلقه‌زدن](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) را کنترل کنید. این گزینه‌ها از طریق متدهای شیء [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) در دسترس هستند.
+می‌توانید [playback mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (خودکار یا با کلیک) و [looping](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) را کنترل کنید. این گزینه‌ها از طریق متدهای شیء [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) در دسترس هستند.
 
-**آیا افزودن ویدیو بر حجم فایل PPTX تأثیر دارد؟**
+**آیا افزودن یک ویدیو بر اندازه فایل PPTX تاثیر می‌گذارد؟**
 
-بله. وقتی یک ویدیو محلی را جاسازی می‌کنید، داده‌های باینری در سند گنجانده می‌شوند، بنابراین اندازه ارائه به نسبت اندازهٔ فایل بزرگ‌تر می‌شود. وقتی به یک ویدیو آنلاین پیوند می‌دهید و تصویر کوچک اضافه می‌کنید، ارائه پیوند و تصویر پیش‌نمایش را به‌جای دادهٔ ویدیو ذخیره می‌کند، بنابراین افزایش حجم معمولاً کمتر است.
+بله. وقتی یک ویدیو محلی را تعبیه می‌کنید، داده باینری در سند گنجانده می‌شود، بنابراین اندازه ارائه به نسبت حجم فایل رشد می‌کند. وقتی به یک ویدیو آنلاین پیوند می‌دهید و تصویر بندانگشتی اضافه می‌کنید، ارائه فقط پیوند و تصویر پیش‌نمایش را ذخیره می‌کند نه داده ویدیو، بنابراین افزایش اندازه معمولاً کمتر است.
 
-**آیا می‌توانم ویدیو را در یک فریم ویدیو موجود بدون تغییر موقعیت و اندازه‌اش جایگزین کنم؟**
+**آیا می‌توانم ویدیو را در یک فریم ویدیو موجود بدون تغییر موقعیت و اندازه آن جایگزین کنم؟**
 
-بله. می‌توانید محتوای [video content](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) را در داخل فریم تعویض کنید در حالی که هندسهٔ شکل حفظ می‌شود؛ این یک سناریوی رایج برای به‌روزرسانی رسانه در یک طرح موجود است.
+بله. می‌توانید محتویات [video content](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) را داخل فریم تعویض کنید در حالی که هندسه شکل حفظ می‌شود؛ این یک سناریو رایج برای به‌روزرسانی رسانه در یک طرح‌بندی موجود است.
 
-**آیا می‌توان نوع محتوا (MIME) یک ویدیو جاسازی‌شده را تعیین کرد؟**
+**آیا می‌توان نوع محتوا (MIME) ویدیو تعبیه‌شده را تعیین کرد؟**
 
-بله. یک ویدیو جاسازی‌شده دارای یک [content type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی در دیسک.
+بله. یک ویدیو تعبیه‌شده دارای [content type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/getcontenttype/) است که می‌توانید آن را بخوانید و استفاده کنید، برای مثال هنگام ذخیره‌سازی بر روی دیسک.

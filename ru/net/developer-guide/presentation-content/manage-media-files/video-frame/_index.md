@@ -1,38 +1,38 @@
 ---
-title: Управление видеокадрами в презентациях в .NET
-linktitle: Видеокадр
+title: Управление видеофреймами в презентациях на .NET
+linktitle: Видео фрейм
 type: docs
 weight: 10
 url: /ru/net/video-frame/
 keywords:
-  - добавить видео
-  - создать видео
-  - встроить видео
-  - извлечь видео
-  - получить видео
-  - видеокадр
-  - веб источник
-  - PowerPoint
-  - OpenDocument
-  - презентация
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides for .NET. Быстрое руководство."
+- добавить видео
+- создать видео
+- внедрить видео
+- извлечь видео
+- получить видео
+- видеофрейм
+- веб-источник
+- PowerPoint
+- OpenDocument
+- презентация
+- .NET
+- C#
+- Aspose.Slides
+description: "Изучите, как программно добавлять и извлекать видеофреймы в слайдах PowerPoint и OpenDocument с помощью Aspose.Slides for .NET. Быстрое руководство‑как‑делать."
 ---
 ## **Введение**
 
-Видео может помочь объяснить идеи и привлечь аудиторию. Aspose.Slides for .NET позволяет добавлять видеокадры на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
+Видео могут помочь объяснить идеи и привлечь аудиторию. Aspose.Slides for .NET позволяет добавлять видеофреймы на слайды, настраивать параметры воспроизведения, управлять субтитрами и извлекать встроенные видеоданные.
 
 PowerPoint поддерживает локальные видео и ссылки на онлайн‑видео, такие как видео YouTube.
 
-Для представления видеоданных и видеокадров Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/), а также другие соответствующие типы.
+Для представления видеоданных и видеофреймов Aspose.Slides предоставляет интерфейсы [IVideo](https://reference.aspose.com/slides/net/aspose.slides/ivideo/) и [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/), а также другие соответствующие типы.
 
-## **Создание встроенного видеокадра**
+## **Создание встроенного видеофрейма**
 
-Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
+Если видеофайл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеофрейм для встраивания видео в презентацию.
 
-В этом примере локальное видео встраивается на первый слайд существующей презентации и сохраняется результат. Координаты и размеры кадра указаны в пунктах. Поток остаётся открытым до завершения сохранения, поскольку [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) удерживает его, пока презентация использует его.
+В этом примере локальное видео встраивается на первый слайд существующей презентации и сохраняется результат. Координаты и размеры фрейма указаны в пунктах. Поток остаётся открытым до завершения сохранения, потому что [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/net/aspose.slides/loadingstreambehavior/) удерживает его, пока презентация использует его.
 
 ```csharp
 using System.IO;
@@ -49,7 +49,7 @@ slide.Shapes.AddVideoFrame(10, 10, 150, 250, video);
 presentation.Save("embedded_video.pptx", SaveFormat.Pptx);
 ```
 
-Вы также можете передать путь к локальному видео напрямую в [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). В этом примере видео встраивается на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
+Вы также можете передать путь к локальному видео непосредственно в [AddVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addvideoframe/). В этом примере видео встраивается на первый слайд новой презентации. Видео должно оставаться доступным до сохранения презентации.
 
 ```csharp
 using Aspose.Slides;
@@ -65,9 +65,9 @@ presentation.Save("video_from_path.pptx", SaveFormat.Pptx);
 
 ## **Точное регулирование громкости видео**
 
-В Aspose.Slides for .NET версии 26.11 и новее свойство [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) задаёт процент в виде числа с плавающей точкой от 0 до 100. Используйте его, когда предустановки [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) слишком грубы. Например, `75.5f` задаёт громкость 75,5 %.
+В Aspose.Slides for .NET 26.11 и выше [IVideoFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volumevalue/) задаёт процент в виде числа с плавающей точкой от 0 до 100. Используйте его, когда предустановки [Volume](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/volume/) слишком грубы. Например, `75.5f` задаёт громкость 75,5 %.
 
-Для этого примера требуется [Aspose.Slides for .NET](/slides/ru/net/installation/) версии 26.11 или новее и локальный файл `video.mp4`. Пример встраивает видео, явно инициализирует воспроизведение, сохраняет презентацию и считывает сохранённый процент обратно.
+Этот пример требует [Aspose.Slides for .NET](/slides/ru/net/installation/) 26.11 или новее и локальный `video.mp4`. Он встраивает видео, явно инициализирует воспроизведение, сохраняет презентацию и читает сохранённый процент обратно.
 
 ```csharp
 using System;
@@ -98,15 +98,15 @@ var savedFrame = saved.Slides[0].Shapes.OfType<IVideoFrame>().First();
 Console.WriteLine(savedFrame.VolumeValue);
 ```
 
-Проверяйте ввод самостоятельно; не полагайтесь на сеттер для отклонения значений, выходящих за пределы задокументированного диапазона. Предустановки Low, Medium и Loud соответствуют 20, 50 и 80 в версии 26.11. Установка предустановки может заменить ранее заданный процент, поэтому присваивайте процент последним, когда требуется точное значение. Для явного отключения звука используйте [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/); числовой ноль и предустановка enum не являются взаимозаменяемыми состояниями.
+Проверяйте ввод самостоятельно; не полагайтесь на сеттер, отбрасывающий значения вне документированного диапазона. Предустановки Low, Medium и Loud соответствуют 20, 50 и 80 в версии 26.11. Установка предустановки может заменить ранее заданный процент, поэтому присваивайте процент последним, когда нужен точный уровень. Для явного отключения звука используйте [AudioVolumeMode.Mute](https://reference.aspose.com/slides/net/aspose.slides/audiovolumemode/), числовой ноль и перечисление предустановки не являются взаимозаменяемыми состояниями.
 
-Явно задавайте [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) при настройке связанного видео и сохраняйте его медиафайл доступным для просматривающего. Сохранение и повторное открытие проверяют сохранённую настройку; фактическое воспроизведение и громкость зависят от проигрывателя презентаций и его аудионастроек.
+Явно задавайте [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) при конфигурации связанного видео и держите его медиафайл доступным для просмотра. Сохранение и повторное открытие подтверждают сохранённую настройку; фактическое воспроизведение и громкость зависят от проигрывателя презентаций и его аудио‑настроек.
 
-## **Создание видеокадра с видео из веб‑источника**
+## **Создание видеофрейма с видео из веб‑источника**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеокадр, который ссылается на онлайн‑видео, например, видео YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) поддерживает онлайн‑видео в презентациях. Вы можете создать видеофрейм, который ссылается на онлайн‑видео, например видео YouTube.
 
-В этом примере добавляются ссылка на видео YouTube и миниатюра на первый слайд. Замените идентификатор видео, чтобы использовать другое видео. Настройка [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) запрашивает автоматическое воспроизведение. Для загрузки миниатюры и воспроизведения видео требуется доступ к интернету. Просмотрщик презентаций также должен поддерживать воспроизведение онлайн‑видео.
+В этом примере на первый слайд добавляется ссылка на видео YouTube и миниатюра. Замените идентификатор видео, чтобы использовать другое видео. Настройка [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/playmode/) запрашивает автоматическое воспроизведение. Скачивание миниатюры и воспроизведение видео требуют доступа к интернету. Средство просмотра презентаций также должно поддерживать онлайн‑воспроизведение видео.
 
 ```csharp
 using System.Net.Http;
@@ -133,9 +133,9 @@ presentation.Save("online_video.pptx", SaveFormat.Pptx);
 
 ## **Воспроизведение видео в полноэкранном режиме**
 
-В обучающей презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория могла видеть детали. Установите [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) в `true`, чтобы включить это поведение во время воспроизведения.
+В учебной презентации вы можете воспроизводить демонстрацию программного обеспечения в полноэкранном режиме, чтобы аудитория видела детали. Установите [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/) в `true`, чтобы включить это поведение во время воспроизведения.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) на первом слайде и включается полноэкранное воспроизведение. Исходная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) на первом слайде и включается полноэкранное воспроизведение. Входная презентация должна содержать хотя бы один слайд с существующим видеофреймом на первом слайде.
 
 ```csharp
 using Aspose.Slides;
@@ -156,13 +156,13 @@ foreach (var shape in slide.Shapes)
 presentation.Save("full_screen_video.pptx", SaveFormat.Pptx);
 ```
 
-Полноэкранное воспроизведение управляет отображением видео. Независимо от этого, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) определяет, начинается ли видео автоматически или по щелчку, а [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) определяет, повторяется ли оно. Чтобы выбрать поведение запуска, задайте режим воспроизведения [VideoPlayModePreset.Auto или VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки запуска и цикла.
+Полноэкранное воспроизведение управляет отображением видео. Независимо от этого, [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) определяет, начинается ли воспроизведение автоматически или по щелчку, а [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) — повторяется ли оно. Чтобы выбрать поведение запуска, задайте режим воспроизведения [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/). Пример сохраняет существующие настройки начала и цикла.
 
 ## **Перемотка видео после воспроизведения**
 
-В обучающей презентации возврат демонстрационного видео к началу делает его готовым к повторному воспроизведению. Установите [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) в `true`, чтобы после завершения воспроизведения перемотать видео к началу.
+В учебной презентации возврат демонстрационного видео к началу готовит его к повторному воспроизведению. Установите [RewindVideo](https://reference.aspose.com/slides/net/aspose.slides/videoframe/rewindvideo/) в `true`, чтобы после завершения воспроизведения видео возвращалось к началу.
 
-В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) на первом слайде и включается перемотка. Отключается цикл, чтобы воспроизведение могло завершиться, и задаётся запуск воспроизведения по щелчку. Исходная презентация должна содержать как минимум один слайд с существующим видеокадром на первом слайде.
+В этом примере открывается презентация, находится первый [IVideoFrame](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/) на первом слайде и включается перемотка. Отключается цикл, чтобы воспроизведение могло завершиться, и устанавливается запуск воспроизведения по щелчку. Входная презентация должна содержать хотя бы один слайд с существующим видеофреймом на первом слайде.
 
 ```csharp
 using Aspose.Slides;
@@ -185,15 +185,15 @@ foreach (var shape in slide.Shapes)
 presentation.Save("rewind_video.pptx", SaveFormat.Pptx);
 ```
 
-Перемотка возвращает видео к началу без повторного запуска. В отличие от этого, включение [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) автоматически повторяет воспроизведение. Отключайте цикл, если хотите, чтобы видео завершилось и было готово к повторному воспроизведению. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) независимо управляет автоматическим запуском или запуском по щелчку; в данном примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/), чтобы презентатор сам выбирал момент начала воспроизведения. Устанавливайте режим воспроизведения после настройки цикла, как показано в примере. Перемотка работает независимо от [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
+Перемотка возвращает видео к началу без повторного запуска. В отличие от этого, включение [PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/) автоматически повторяет воспроизведение. Отключайте цикл, когда хотите, чтобы видео закончилось и было готово к повторному воспроизведению. [PlayMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) независимо управляет автоматическим запуском или запуском по щелчку; в этом примере используется [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/net/aspose.slides/videoplaymodepreset/), чтобы докладчик контролировал начало воспроизведения. Устанавливайте режим воспроизведения после настройки цикла, как показано в примере. Перемотка работает независимо от [FullScreenMode](https://reference.aspose.com/slides/net/aspose.slides/videoframe/fullscreenmode/).
 
-## **Обрезка видеокадра**
+## **Обрезка видеофрейма**
 
-Используйте [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) и [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/), чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указываются в миллисекундах. Обрезка изменяет параметры воспроизведения без изменения встроенных видеоданных.
+Используйте [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromstart/) и [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/trimfromend/) чтобы пропустить часть начала или конца видео во время воспроизведения. Оба значения указываются в миллисекундах. Обрезка изменяет настройки воспроизведения без изменения встроенных видеоданных.
 
-**Установить параметры обрезки**
+**Настройка обрезки**
 
-В этом примере встраивается локальное видео и пропускаются первые 2,5 секунды и последняя секунда во время воспроизведения. Используйте видео длительностью более 3,5 секунды, чтобы оставался воспроизводимый фрагмент.
+В этом примере встраивается локальное видео, а во время воспроизведения пропускаются первые 2,5 секунды и последняя секунда. Используйте видео длинее 3,5 секунды, чтобы остался воспроизводимый сегмент.
 
 ```csharp
 using System.IO;
@@ -213,9 +213,9 @@ videoFrame.TrimFromEnd = 1000f;
 presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
 ```
 
-**Прочитать параметры обрезки**
+**Чтение настроек обрезки**
 
-В этом примере выводятся значения обрезки первого видеокадра на первом слайде в миллисекундах. Презентация должна содержать как минимум один слайд. Если на этом слайде нет видеокадра, ничего не выводится. Предыдущий пример дает значения 2500 и 1000.
+В этом примере выводятся значения обрезки первого видеофрейма на первом слайде в миллисекундах. Презентация должна содержать хотя бы один слайд. Если на этом слайде нет видеофрейма, ничего не выводится. Предыдущий пример дает значения 2500 и 1000.
 
 ```csharp
 using System;
@@ -237,11 +237,11 @@ foreach (var shape in slide.Shapes)
 
 ## **Управление субтитрами видео**
 
-Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через свойство [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides позволяет управлять скрытыми субтитрами для видеофреймов в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через свойство [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/).
 
-**Добавить субтитры к видеокадру**
+### **Добавление субтитров к видеофрейму**
 
-В этом примере встраивается локальное видео и добавляется дорожка субтитров WebVTT с меткой English. Тайм‑коды субтитров должны соответствовать видео. Сохранённая презентация содержит как видео, так и его субтитры.
+В этом примере встраивается локальное видео и добавляется дорожка субтитров WebVTT с меткой English. Метки времени субтитров должны соответствовать видео. Сохранённая презентация содержит как видео, так и его субтитры.
 
 ```csharp
 using System.IO;
@@ -262,9 +262,9 @@ presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 
 Интерфейс [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) также предоставляет перегрузку, позволяющую добавлять субтитры из потока.
 
-**Извлечь субтитры из видеокадра**
+### **Извлечение субтитров из видеофрейма**
 
-В этом примере все дорожки субтитров из видеокадров на первом слайде сохраняются в отдельные файлы WebVTT. Последовательные номера делают выходные файлы различными. Консоль выводит количество извлечённых дорожек. Презентация должна содержать как минимум один слайд.
+В этом примере сохраняются все дорожки субтитров из видеофреймов первого слайда в отдельные файлы WebVTT. Последовательные номера делают файлы уникальными. Консоль выводит количество извлечённых дорожек. Презентация должна содержать хотя бы один слайд.
 
 ```csharp
 using System;
@@ -291,11 +291,11 @@ foreach (var shape in slide.Shapes)
 Console.WriteLine($"Caption tracks extracted: {trackCount}");
 ```
 
-Каждый объект [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) предоставляет идентификатор субтитров, метку, бинарные данные и текст субтитров как строку UTF‑8.
+Каждый объект [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров как строку UTF‑8.
 
-**Удалить субтитры из видеокадра**
+### **Удаление субтитров из видеофрейма**
 
-В этом примере удаляются все субтитры из видеокадра, находящегося в первой форме на первом слайде, и сохраняется результат. Предполагается, что слайд и форма существуют и что форма является видеокадром.
+В этом примере удаляются все субтитры из видеофрейма, находящегося в первой позиции фигур на первом слайде, и сохраняется результат. Предполагается, что слайд и фигура существуют, и что фигура является видеофреймом.
 
 ```csharp
 using System;
@@ -311,13 +311,68 @@ videoFrame.CaptionTracks.Clear();
 presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
-Если нужно удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) вместо [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+Если необходимо удалить только одну дорожку субтитров, используйте методы [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) или [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) вместо [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+
+### **Поиск субтитров видео**
+
+[ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) возвращает полную дорожку WebVTT, включая заголовок, строки тайминга и текст субтитров. Чтобы найти произнесённую фразу и её метку времени, прочитайте cue‑элементы в памяти. Например, английская дорожка на слайде 2 может содержать следующий текст:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Пример проходит по каждому слайду и читает дорожки его видеофреймов верхнего уровня через [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). В простом текстовом cue строка тайминга содержит `-->`, а пустая строка завершает cue. Когда текст субтитров содержит «café», пример выводит номер слайда, метку дорожки, оригинальную строку тайминга и полный субтитр.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Поиск «café» даёт одно совпадение для образцовой дорожки. Заголовок и настройка тайминга находятся вне текста cue.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Извлечение видео со слайда**
 
-Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать встроенное в презентации видео.
 
-В этом примере из каждого слайда извлекаются встроенные видео в отдельные нумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Выходные файлы используют общее расширение `.bin`; при необходимости меняйте его в соответствии с отмеченным типом медиа.
+В этом примере из каждого слайда извлекаются встроенные видео в отдельные пронумерованные бинарные файлы. Связанные видео пропускаются, так как они не содержат встроенных данных. Консоль выводит MIME‑тип каждого видео и общее количество. Вывод использует обобщённое расширение `.bin`; при необходимости измените его в соответствии с определённым типом медиа.
 
 ```csharp
 using System;
@@ -353,18 +408,18 @@ Console.WriteLine($"Embedded videos extracted: {videoCount}");
 
 ## **FAQ**
 
-**Какие параметры воспроизведения видео можно изменить для видеокадра?**
+**Какие параметры воспроизведения видео можно изменить для видеофрейма?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (авто или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playmode/) (автоматически или по клику) и [циклом](https://reference.aspose.com/slides/net/aspose.slides/videoframe/playloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/net/aspose.slides/videoframe/).
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение‑превью, а не данные видео, поэтому увеличение размера обычно меньше.
+Да. При встраивании локального видео его бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При ссылке на онлайн‑видео и добавлении миниатюры презентация сохраняет только ссылку и изображение‑превью, а не данные видео, поэтому увеличение размера обычно меньше.
 
-**Можно ли заменить видео в существующем видеокадре, не меняя его положение и размер?**
+**Можно ли заменить видео в существующем видеофрейме, не меняя его положение и размеры?**
 
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) внутри кадра, сохранив геометрию формы; это распространённый сценарий обновления медиа в существующей раскладке.
+Да. Вы можете заменить [контент видео](https://reference.aspose.com/slides/net/aspose.slides/videoframe/embeddedvideo/) внутри фрейма, сохранив геометрию фигуры; это распространённый сценарий обновления медиа в уже существующем макете.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/), который можно прочитать и использовать, например при сохранении на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/net/aspose.slides/video/contenttype/), который можно прочитать и использовать, например при сохранении его на диск.

@@ -1,10 +1,10 @@
 ---
-title: Personnaliser les axes des graphiques dans les présentations avec Python
-linktitle: Axe du graphique
+title: Personnaliser les axes de graphiques dans les présentations avec Python
+linktitle: Axe de graphique
 type: docs
 url: /fr/python-net/chart-axis/
 keywords:
-- axe du graphique
+- axe de graphique
 - axe vertical
 - axe horizontal
 - personnaliser l'axe
@@ -22,17 +22,17 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Découvrez comment utiliser Aspose.Slides for Python via .NET pour personnaliser les axes des graphiques dans les présentations PowerPoint et OpenDocument pour les rapports et visualisations."
+description: "Découvrez comment utiliser Aspose.Slides pour Python via .NET afin de personnaliser les axes des graphiques dans les présentations PowerPoint et OpenDocument pour les rapports et les visualisations."
 ---
-## **Vue d’ensemble**
+## **Vue d'ensemble**
 
-Cet article explique comment personnaliser les axes des graphiques avec Aspose.Slides for Python via .NET. Il couvre les valeurs d’axe calculées, le basculement des lignes et colonnes du graphique, la visibilité des axes, les intervalles d’étiquettes de catégorie et de marques d’échelle, les catégories de dates et leur mise en forme, la rotation du titre, le positionnement des axes, les unités d’affichage et le redimensionnement logarithmique.
+Cet article explique comment personnaliser les axes des graphiques avec Aspose.Slides for Python via .NET. Il couvre les valeurs d'axe calculées, l'échange des lignes et colonnes du graphique, la visibilité des axes, les intervalles des libellés de catégorie et des repères, les catégories de dates et leur mise en forme, la rotation du titre, le positionnement des axes, les unités d'affichage et le redimensionnement logarithmique.
 
-## **Obtenir les valeurs maximales sur l’axe vertical des graphiques**
+## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
 
-Créez une [Présentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) et ajoutez un graphique en aires avec des données par défaut. Appelez [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) avant de lire les valeurs d’axe calculées afin que la mise en forme du graphique soit à jour.
+Créez une [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) et ajoutez un graphique en aires avec les données par défaut. Appelez [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) avant de lire les valeurs d'axe calculées afin que la disposition du graphique soit à jour.
 
-Lisez [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) et [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) pour les limites de l’axe, ainsi que [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) et [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) pour les intervalles de marques. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) et [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) fournissent les échelles d’unités temporelles, pertinentes pour les axes de dates. L’exemple stocke ces valeurs dans des variables locales et enregistre le graphique.
+Lisez [actual_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_max_value/) et [actual_min_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_min_value/) pour les limites de l'axe, et [actual_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit/) et [actual_minor_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit/) pour les intervalles des repères. [actual_major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_major_unit_scale/) et [actual_minor_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/actual_minor_unit_scale/) fournissent des échelles d'unités temporelles, pertinentes pour les axes de dates. L'exemple stocke ces valeurs dans des variables locales et enregistre le graphique.
 
 ```python
 import aspose.slides as slides
@@ -58,7 +58,7 @@ with slides.Presentation() as presentation:
 
 ## **Échanger les données entre les axes**
 
-Utilisez [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) pour inverser les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie le regroupement des données ; cela n’échange pas les axes horizontal et vertical. L’exemple utilise [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) pour lier les données par défaut à `Sheet1!A1:D5`, incluant la ligne d’en‑tête et la colonne des catégories, avant d’échanger les lignes et colonnes. Il enregistre un graphique avec quatre séries et trois catégories.
+Utilisez [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) pour échanger les rôles des séries et des catégories dans les données du graphique. Chaque ancienne catégorie devient une série, et chaque ancienne série devient une catégorie. Cela modifie la façon dont les données sont groupées ; cela n'échange pas les axes horizontal et vertical. L'exemple utilise [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) pour lier les données par défaut à `Sheet1!A1:D5`, y compris la ligne d'en-tête et la colonne de catégorie, avant d'échanger les lignes et les colonnes. Il enregistre un graphique avec quatre séries et trois catégories.
 
 ```python
 import aspose.slides as slides
@@ -75,11 +75,11 @@ with slides.Presentation() as presentation:
     presentation.save("SwitchChartRowColumns_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Inverser l’ordre de trame d’un axe**
+## **Inverser l'ordre de traçage d'un axe**
 
-Utilisez [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) pour inverser un axe de catégorie ou de valeur. Par exemple, un graphique à barres horizontal peut afficher les étapes d’un projet de haut en bas dans le même ordre que la feuille : Planification, Développement, Test. Inverser un axe change la direction de traçage ; cela ne trie pas et ne réarrange pas les données du classeur. En comparaison, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) échange les rôles des séries et des catégories.
+Utilisez [is_plot_order_reversed](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_plot_order_reversed/) pour inverser un axe de catégorie ou de valeur. Par exemple, un graphique à barres horizontales peut afficher les étapes du projet de haut en bas dans le même ordre que la feuille de calcul : Planning, Development, Testing. Inverser un axe change la direction de traçage ; cela ne trie pas et ne réarrange pas les données du classeur. En comparaison, [switch_row_column](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/switch_row_column/) échange les rôles des séries et des catégories.
 
-L’exemple suivant crée un graphique à barres horizontal avec trois étapes et une série. Il enregistre une présentation avec trois diapositives : ordre normal, catégories inversées et valeurs inversées. Chaque copie utilise le même jeu de données, et un seul axe est inversé dans chaque copie.
+L'exemple suivant crée un graphique à barres horizontales avec trois étapes et une série. Il enregistre une présentation avec trois diapositives : ordre normal, catégories inversées et valeurs inversées. Chaque copie utilise le même jeu de données, et un seul axe est inversé dans chaque copie.
 
 ```python
 import aspose.slides as slides
@@ -113,7 +113,7 @@ with slides.Presentation() as presentation:
     # Conserver l'axe de valeur horizontal en bas.
     category_chart.axes.vertical_axis.cross_type = charts.CrossesType.MAXIMUM
 
-    # Diapositive 3 : inverser uniquement l’échelle numérique horizontale.
+    # Diapositive 3 : inverser uniquement l'échelle numérique horizontale.
     value_slide = presentation.slides.add_clone(slide)
     value_chart = value_slide.shapes[0]
     value_chart.axes.horizontal_axis.is_plot_order_reversed = True
@@ -121,16 +121,16 @@ with slides.Presentation() as presentation:
     presentation.save("ReversedAxes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Inverser un axe peut également déplacer l’axe perpendiculaire du côté opposé du tracé. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) contrôle l’endroit où l’autre axe croise l’axe configuré. Dans la diapositive 2, le définir sur `MAXIMUM` sur l’axe de catégorie inversé maintient l’axe de valeur horizontal en bas. Pour un point de croisement spécifique, utilisez [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Vérifiez les réglages de croisement lors du changement de direction, surtout si le graphique possède déjà un point de croisement personnalisé. Réinitialisez `is_plot_order_reversed` à `False` pour restaurer la direction de traçage normale ; les réglages de croisement sont indépendants.
+Inverser un axe peut également déplacer l'axe perpendiculaire vers le côté opposé du tracé. [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) contrôle où l'autre axe croise l'axe configuré. Dans la diapositive 2, le définir sur `MAXIMUM` sur l'axe de catégorie inversé maintient l'axe de valeur horizontal en bas. Pour un point de croisement spécifique, utilisez [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Vérifiez les paramètres de croisement lors du changement de direction, notamment si le graphique possède déjà un point de croisement personnalisé. Réglez `is_plot_order_reversed` sur `False` pour rétablir la direction de traçage normale ; les paramètres de croisement sont séparés.
 
-| Ordre normal (diapo 1) | Catégories inversées (diapo 2) | Valeurs inversées (diapo 3) |
+| Ordre normal (diapositive 1) | Catégories inversées (diapositive 2) | Valeurs inversées (diapositive 3) |
 | --- | --- | --- |
-| ![Graphique à barres horizontal avec ordre normal des axes de catégorie et de valeur](axis-order-normal.png) | ![Graphique à barres horizontal avec les catégories affichées de haut en bas](axis-order-categories-reversed.png) | ![Graphique à barres horizontal avec un axe de valeur inversé et zéro à droite](axis-order-values-reversed.png) |
-| Les catégories s’étendent de bas en haut ; les valeurs augmentent de gauche à droite. | Planification, Développement et Test s’étendent de haut en bas. Les valeurs et l’ordre des lignes du classeur restent inchangés. | Les catégories conservent leur ordre normal ; les valeurs augmentent de droite à gauche. L’axe de catégorie croise à zéro à droite. |
+| ![Histogramme à barres horizontales avec ordre normal des axes de catégorie et de valeur](axis-order-normal.png) | ![Histogramme à barres horizontales avec les catégories affichées de haut en bas](axis-order-categories-reversed.png) | ![Histogramme à barres horizontales avec un axe de valeur inversé et zéro à droite](axis-order-values-reversed.png) |
+| Les catégories s'étendent du bas vers le haut ; les valeurs augmentent de gauche à droite. | Planning, Development et Testing s'affichent de haut en bas. Les valeurs et l'ordre des lignes du classeur restent inchangés. | Les catégories conservent leur ordre normal ; les valeurs augmentent de droite à gauche. L'axe de catégorie croise à zéro à droite. |
 
-## **Désactiver l’axe vertical pour les graphiques en courbes**
+## **Masquer l'axe vertical pour les graphiques en courbes**
 
-Définissez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) sur `False` pour l’axe vertical afin de le masquer. L’exemple crée un graphique en courbes avec des données par défaut et l’enregistre avec l’axe vertical masqué.
+Définissez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) sur `False` sur l'axe vertical pour le masquer. L'exemple crée un graphique en courbes avec les données par défaut et l'enregistre avec l'axe vertical masqué.
 
 ```python
 import aspose.slides as slides
@@ -145,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenVerticalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Désactiver l’axe horizontal pour les graphiques en courbes**
+## **Masquer l'axe horizontal pour les graphiques en courbes**
 
-Définissez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) sur `False` pour l’axe horizontal afin de le masquer. L’exemple crée un graphique en courbes avec des données par défaut et l’enregistre avec l’axe horizontal masqué.
+Définissez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_visible/) sur `False` sur l'axe horizontal pour le masquer. L'exemple crée un graphique en courbes avec les données par défaut et l'enregistre avec l'axe horizontal masqué.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +162,41 @@ with slides.Presentation() as presentation:
     presentation.save("HiddenHorizontalAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Afficher ou masquer les quadrillages du graphique**
+
+Lisez [show_major_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_major_grid_lines/) et [show_minor_grid_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/show_minor_grid_lines/) pour vérifier quels quadrillages un axe affiche. Les deux propriétés sont en lecture seule. Pour afficher les quadrillages mineurs, définissez le remplissage de ligne dans [minor_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_grid_lines_format/) sur un remplissage plein et choisissez une couleur visible. Pour les masquer, définissez le type de remplissage sur `FillType.NO_FILL`. Pour les quadrillages majeurs, utilisez [major_grid_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_grid_lines_format/)`.line.fill_format`. Modifier le remplissage préserve la visibilité de l'axe et des repères.
+
+L'axe vertical de ce graphique à colonnes groupées commence avec les quadrillages majeurs visibles et les quadrillages mineurs masqués. L'exemple montre les quadrillages mineurs en orange, puis les masque à nouveau avant d'enregistrer la présentation.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 30, 660, 230)
+    axis = chart.axes.vertical_axis
+    print(f"Initial: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    minor_fill = axis.minor_grid_lines_format.line.fill_format
+    minor_fill.fill_type = slides.FillType.SOLID
+    minor_fill.solid_fill_color.color = slides.Color.dark_orange
+    print(f"Enabled: minor={axis.show_minor_grid_lines}")
+
+    minor_fill.fill_type = slides.FillType.NO_FILL
+    print(f"Hidden: major={axis.show_major_grid_lines}, minor={axis.show_minor_grid_lines}")
+
+    presentation.save("ChartGridlines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Quadrillage mineur activé | Quadrillage mineur masqué |
+| --- | --- |
+| ![Quadrillage mineur orange entre les quadrillages majeurs sur l'axe vertical](minor-gridlines-enabled.png) | ![Le même graphique à colonnes avec uniquement les quadrillages majeurs visibles](minor-gridlines-hidden.png) |
+
 ## **Modifier un axe de catégorie**
 
-Définissez [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) pour choisir un axe de catégorie de type date ou texte. Cet exemple nécessite `ExistingChart.pptx`, contenant un graphique comme première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il change l’axe horizontal en axe de date. En définissant [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) sur `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) sur `1` et [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) sur « months », les marques majeures sont placées à intervalles d’un mois.
+Définissez [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) pour choisir un axe de catégorie date ou texte. Cet exemple nécessite `ExistingChart.pptx`, avec un graphique comme première forme de la première diapositive et des cellules de catégorie contenant des valeurs de date Excel numériques. Il transforme l'axe horizontal en axe de date. Définir [is_automatic_major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_major_unit/) sur `False`, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) sur `1` et [major_unit_scale](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit_scale/) sur months place les repères majeurs à des intervalles d'un mois.
 
 ```python
 import aspose.slides as slides
@@ -182,21 +214,74 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Contrôler les intervalles des étiquettes d’axe de catégorie**
+### **Déterminer le type d'axe de catégorie à partir des données**
 
-Lorsqu’un graphique possède de nombreuses catégories, réduisez le nombre d’étiquettes d’axe visibles sans supprimer les catégories ou les points de données. Définissez [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) sur `False`, puis définissez [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) sur l’intervalle de catégorie souhaité. Pour des catégories texte dans leur ordre normal, le comptage commence à la première catégorie :
+Appelez [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) après avoir rempli les catégories, puis lisez [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) pour inspecter la sélection. Cela est utile lorsque le même graphique reçoit soit des libellés texte, soit des valeurs de date numériques. La méthode détermine le type lorsqu'elle est appelée ; elle n'active pas un mode persistant qui réévalue les changements de données ultérieurs. Appelez‑la de nouveau après avoir remplacé les catégories.
 
-| Intervalle | Étiquettes affichées dans l’exemple |
+L'exemple suivant crée un graphique avec des catégories texte et affiche `TEXT`. Il remplace ensuite les valeurs des cellules de catégorie par des dates et rappelle la méthode, qui affiche `DATE`. Les dates sont stockées comme valeurs numériques OLE Automation, calculées ici comme le nombre de jours depuis le 30 décembre 1899, plutôt que comme des chaînes de date. [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) contrôle la façon dont ces valeurs sont affichées ; il ne convertit pas le texte en dates numériques. Pour plus d'informations sur les cellules de catégorie, voir le [Classeur du graphique](/slides/fr/python-net/chart-workbook/).
+
+Utilisez la détermination automatique lorsque l'entrée est connue pour contenir des catégories texte ou des dates numériques, comme dans cet exemple. Pour des libellés numériques ordinaires, des catégories mixtes ou des données vides, définissez explicitement [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) afin de correspondre à la signification souhaitée. Les valeurs numériques seules n'établissent pas que les catégories représentent des dates.
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # TEXTE
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # DATE
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Contrôler les intervalles des libellés d'axe de catégorie**
+
+Lorsqu'un graphique possède de nombreuses catégories, réduisez le nombre de libellés d'axe visibles sans supprimer les catégories ou les points de données. Définissez [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) sur `False`, puis définissez [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) sur l'intervalle de catégorie souhaité. Pour les catégories texte dans leur ordre normal, le comptage commence à la première catégorie :
+
+| Intervalle | Libellés affichés dans l'exemple |
 | --- | --- |
 | `1` | Category 1, Category 2, Category 3, … Category 24 |
 | `2` | Category 1, Category 3, Category 5, … Category 23 |
 | `3` | Category 1, Category 4, Category 7, … Category 22 |
 
-Un intervalle de `3` affiche chaque troisième étiquette, les deux étiquettes intermédiaires restant masquées. Cela ne supprime pas les colonnes correspondantes. L’espacement automatique choisit un intervalle en fonction de l’espace disponible ; il n’affiche pas forcément chaque étiquette.
+Un intervalle de `3` affiche chaque troisième libellé, laissant deux libellés masqués entre les libellés affichés. Cela ne supprime pas les colonnes correspondantes. L'espacement automatique choisit un intervalle en fonction de l'espace disponible ; il n'affiche pas forcément chaque libellé.
 
-Les marques de graduation disposent de contrôles séparés. Définissez [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) sur `False` et utilisez [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) pour définir leur intervalle. Par exemple, `1` conserve une marque de graduation à chaque intervalle de catégorie tandis que les étiquettes n’apparaissent que toutes les trois catégories. Définissez [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) sur un style visible afin de voir le résultat. Réactiver l’une ou l’autre des propriétés d’espacement automatique à `True` laisse le graphique choisir à nouveau cet intervalle.
+Les repères ont des contrôles séparés. Définissez [is_automatic_tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_marks_spacing/) sur `False` et utilisez [tick_marks_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_marks_spacing/) pour définir leur intervalle. Par exemple, `1` conserve un repère à chaque intervalle de catégorie tandis que les libellés n'apparaissent que tous les trois. Définissez [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) sur un style visible afin de voir le résultat. Revenir à `True` pour les propriétés d'espacement automatique laisse le graphique choisir cet intervalle à nouveau.
 
-L’exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des étiquettes avec marques de graduation indépendantes, et restauration de l’espacement automatique. Les deux copies conservent les données d’origine du graphique. Aucune présentation d’entrée n’est requise. Le texte d’étiquette horizontal rend la différence de densité facile à voir.
+L'exemple autonome suivant crée 24 catégories et une série, puis enregistre trois diapositives dans `CategoryAxisIntervals.pptx` : espacement automatique, espacement manuel des libellés avec repères indépendants, et rétablissement de l'espacement automatique. Les deux copies conservent les données originales du graphique. Aucun fichier de présentation d'entrée n'est requis. Le texte des libellés horizontaux facilite la visualisation de la densité.
 
 ```python
 import aspose.slides as slides
@@ -229,7 +314,7 @@ with slides.Presentation() as presentation:
     axis.is_automatic_tick_label_spacing = True
     axis.is_automatic_tick_marks_spacing = True
 
-    # Diapositive 2 : afficher chaque troisième étiquette, mais garder une marque de graduation pour chaque catégorie.
+    # Diapositive 2 : afficher chaque troisième libellé, mais garder un repère pour chaque catégorie.
     manual_slide = presentation.slides.add_clone(slide)
     manual_chart = manual_slide.shapes[0]
     manual_axis = manual_chart.axes.horizontal_axis
@@ -247,23 +332,23 @@ with slides.Presentation() as presentation:
     presentation.save("CategoryAxisIntervals.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Espacement automatique (diapo 1) :** Dans ce rendu, chaque deuxième étiquette de catégorie est affichée et passe à la ligne. Le résultat automatique peut varier selon la taille du graphique, les polices et le moteur de rendu.
+**Espacement automatique (diapositive 1) :** Dans ce rendu, chaque deuxième libellé de catégorie est affiché et passe à deux lignes. Le résultat automatique peut varier selon la taille du graphique, les polices et le moteur de rendu.
 
-![Espacement automatique des étiquettes de catégorie avec les 24 colonnes visibles](category-axis-automatic.png)
+![Espacement automatique des libellés de catégorie avec les 24 colonnes visibles](category-axis-automatic.png)
 
-**Espacement manuel (diapo 2) :** Chaque troisième étiquette est affichée sur une ligne, tandis que les marques de graduation restent à chaque intervalle de catégorie. Les 24 colonnes, y compris celles sans étiquette, restent visibles avec les mêmes valeurs. La diapo 3 restaure l’apparence automatique montrée ci‑dessus.
+**Espacement manuel (diapositive 2) :** Chaque troisième libellé est affiché sur une ligne, tandis que les repères restent à chaque intervalle de catégorie. Toutes les 24 colonnes, y compris celles sans libellés, restent visibles avec les mêmes valeurs. La diapositive 3 rétablit l'apparence automatique présentée ci‑dessus.
 
-![Intervalle d’étiquettes de catégorie manuelles de trois avec les 24 colonnes visibles](category-axis-manual.png)
+![Intervalle de libellé de catégorie manuel de trois avec les 24 colonnes visibles](category-axis-manual.png)
 
-### **Choisir le bon axe et intervalle**
+### **Choisir l'axe et l'intervalle corrects**
 
-Utilisez cet intervalle de comptage de catégories pour un axe de catégorie texte, tel que l’axe de catégorie d’un graphique à colonnes, lignes, aires ou barres. Dans un graphique à colonnes, il s’agit de l’axe horizontal. Dans un graphique à barres horizontal, l’axe de catégorie est vertical, appliquez donc ces réglages à [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). L’espacement des marques de graduation s’applique également à un axe de série dans les graphiques qui en possèdent un.
+Utilisez cet intervalle de comptage de catégories pour un axe de catégorie texte, tel que l'axe de catégorie d'un graphique en colonnes, lignes, aires ou barres. Dans un graphique en colonnes, il s'agit de l'axe horizontal. Dans un graphique à barres horizontales, l'axe de catégorie est vertical, appliquez donc ces réglages à [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). L'espacement des repères s'applique également à un axe de série dans les graphiques qui en possèdent un.
 
-N’utilisez pas l’espacement des étiquettes de catégorie pour définir l’échelle numérique d’un axe de valeur. Sur un axe de valeur, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) indique une différence de valeurs : par exemple, une unité majeure de `10` produit des marques à 0, 10, 20, etc. lorsqu’un axe commence à zéro. Un intervalle d’étiquette de catégorie de `3` compte les positions de catégorie, indépendamment de leurs valeurs. Les graphiques en nuage de points et en bulles utilisent des axes de valeur plutôt qu’un axe de catégorie texte. Pour un axe de date, utilisez les unités majeures basées sur le temps et les échelles décrites dans [Modifier un axe de catégorie](#modifier-un-axe-de-catégorie).
+N'utilisez pas l'espacement des libellés de catégorie pour définir l'échelle numérique d'un axe de valeur. Sur un axe de valeur, [major_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_unit/) spécifie une différence de valeurs : par exemple, une unité majeure de `10` produit des repères à 0, 10, 20, etc. lorsqu'un axe démarre à zéro. Un intervalle de libellé de catégorie de `3` compte les positions de catégorie, indépendamment de leurs valeurs de données. Les graphiques de dispersion et de bulles utilisent des axes de valeur plutôt qu'un axe de catégorie texte. Pour un axe de date, utilisez des unités majeures et des échelles temporelles comme décrit dans [Modifier un axe de catégorie](#modifier-un-axe-de-catégorie).
 
-## **Définir le format de date pour les valeurs d’axe de catégorie**
+## **Définir le format de date pour les valeurs de l'axe de catégorie**
 
-L’exemple remplace les données du graphique par défaut par quatre valeurs annuelles. Les dates sont stockées comme nombres de série OLE Automation dans la première feuille de calcul (index `0`). Définissez [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) sur un axe de date, désactivez [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/), et attribuez `yyyy` à [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) afin que les étiquettes de catégorie affichent les années sur quatre chiffres indépendamment du format de la cellule.
+L'exemple remplace les données du graphique par défaut par quatre valeurs annuelles. Les dates sont stockées comme numéros de série OLE Automation dans la première feuille de calcul (index `0`). Définissez [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) sur un axe de date, désactivez [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) et attribuez `yyyy` à [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) afin que les libellés de catégorie affichent les années à quatre chiffres indépendamment du format de cellule.
 
 ```python
 from datetime import date
@@ -299,9 +384,9 @@ with slides.Presentation() as presentation:
     presentation.save("DateAxisFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir un angle de rotation pour le titre d’un axe de graphique**
+## **Définir un angle de rotation pour le titre d'un axe de graphique**
 
-Activez [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) sur l’axe vertical, fournissez le texte du titre et définissez [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) pour faire pivoter le titre. L’angle est mesuré en degrés ; cet exemple enregistre un graphique à colonnes avec son titre d’axe de valeur pivoté de 90 degrés.
+Activez [has_title](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/has_title/) sur l'axe vertical, fournissez le texte du titre et définissez [rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) pour faire pivoter le titre. L'angle est mesuré en degrés ; cet exemple enregistre un graphique à colonnes avec le titre de son axe de valeur tourné de 90 degrés.
 
 ```python
 import aspose.slides as slides
@@ -318,9 +403,9 @@ with slides.Presentation() as presentation:
     presentation.save("RotatedAxisTitle.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir la position de l’axe sur un axe de catégorie ou de valeur**
+## **Définir la position de l'axe sur un axe de catégorie ou de valeur**
 
-Utilisez [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) pour contrôler si l’axe de valeur croise l’axe de catégorie entre les catégories ou aux marques de catégorie. Cette propriété s’applique aux axes de catégorie. L’exemple la définit sur `True` pour l’axe de catégorie horizontal d’un graphique à colonnes et enregistre le résultat.
+Utilisez [axis_between_categories](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/axis_between_categories/) pour contrôler si l'axe de valeur croise l'axe de catégorie entre les catégories ou sur les repères de catégorie. Cette propriété s'applique aux axes de catégorie. L'exemple le définit sur `True` sur l'axe de catégorie horizontal d'un graphique en colonnes et enregistre le résultat.
 
 ```python
 import aspose.slides as slides
@@ -335,9 +420,9 @@ with slides.Presentation() as presentation:
     presentation.save("AxisBetweenCategories.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Définir l’unité d’affichage sur un axe de valeur du graphique**
+## **Définir l'unité d'affichage sur l'axe de valeur d'un graphique**
 
-Définissez [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) pour mettre à l’échelle les étiquettes d’un axe de valeur sans modifier les données sous‑jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) réglé sur `MILLIONS`, une valeur de 60 000 000 s’affiche comme 60. L’exemple crée un graphique à colonnes et applique l’unité d’affichage millions à son axe vertical.
+Définissez [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) pour mettre à l'échelle les libellés d'un axe de valeur sans modifier les données sous‑jacentes. Avec [DisplayUnitType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/displayunittype/) défini sur `MILLIONS`, une valeur de 60 000 000 est affichée comme 60. L'exemple crée un graphique à colonnes et applique l'unité d'affichage millions à son axe vertical.
 
 ```python
 import aspose.slides as slides
@@ -354,19 +439,19 @@ with slides.Presentation() as presentation:
 
 ## **Configurer un axe de valeur logarithmique**
 
-Un axe de valeur logarithmique est utile lorsque des valeurs positives couvrent plusieurs ordres de grandeur. Par exemple, un service peut recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes sur cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent proches les unes des autres près de zéro. Une échelle logarithmique rend leur croissance relative plus facile à comparer : des distances égales représentent des rapports égaux plutôt que des différences égales.
+Un axe de valeur logarithmique est utile lorsque des valeurs positives s'étendent sur plusieurs ordres de grandeur. Par exemple, un service peut recevoir 10, 100, 1 000, 10 000 et 100 000 requêtes sur cinq périodes. Sur une échelle linéaire, les petites valeurs apparaissent proches les unes des autres près de zéro. Une échelle logarithmique rend leur croissance relative plus facile à comparer : des distances égales représentent des rapports égaux plutôt que des différences égales.
 
-Définissez [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) sur `True` pour l’axe de valeur et utilisez [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne modifie pas les données ni n’ajoute une courbe de tendance logarithmique. Une courbe de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
+Définissez [is_logarithmic](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_logarithmic/) sur `True` sur l'axe de valeur et utilisez [log_base](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/log_base/) pour choisir la base. Cela modifie la façon dont les valeurs existantes sont affichées ; cela ne change pas les données ni n'ajoute une ligne de tendance logarithmique. Une ligne de tendance représente une relation ajustée aux données et constitue une fonctionnalité distincte.
 
-### **Choisir l’axe de valeur et la base**
+### **Choisir l'axe de valeur et la base**
 
-Pour un graphique en lignes ou en colonnes, l’axe de valeur est [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Pour un graphique à barres horizontal, il s’agit de [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Les graphiques en nuage de points et en bulles possèdent deux axes de valeur, choisissez donc l’axe horizontal pour les valeurs X, l’axe vertical pour les valeurs Y, ou les deux. N’appliquez pas le redimensionnement logarithmique à un axe de catégorie.
+Pour un graphique en lignes ou en colonnes, l'axe de valeur est [vertical_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/vertical_axis/). Pour un graphique à barres horizontales, il s'agit de [horizontal_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axesmanager/horizontal_axis/). Les graphiques de dispersion et de bulles possèdent deux axes de valeur, choisissez donc l'axe horizontal pour les valeurs X, l'axe vertical pour les valeurs Y, ou les deux. N'appliquez pas de mise à l'échelle logarithmique à un axe de catégorie.
 
-La base logarithmique par défaut est `10`. Pour les graphiques PPTX, utilisez une base comprise entre `2` et `1000` inclusive ; les bases fractionnaires comme `2.5` sont également prises en charge. Avec la base `10`, les puissances successives telles que 10, 100, 1 000 et 10 000 sont espacées de façon égale.
+La base logarithmique par défaut est `10`. Pour les graphiques PPTX, utilisez une base comprise entre `2` et `1000`, inclusive ; les bases fractionnaires telles que `2.5` sont également prises en charge. Avec la base `10`, les puissances successives comme 10, 100, 1 000 et 10 000 sont également espacées.
 
-### **Comparer l’échelle linéaire et logarithmique**
+### **Comparer le redimensionnement linéaire et logarithmique**
 
-L’exemple autonome suivant crée un graphique en lignes avec les cinq décomptes de requêtes sur la première diapositive, puis clone cette diapositive et active un axe de valeur logarithmique base 10 sur la seconde. Les deux diapositives conservent les mêmes données.
+L'exemple autonome suivant crée un graphique en lignes avec les cinq comptes de requêtes sur la première diapositive, puis duplique cette diapositive et active un axe de valeur logarithmique base 10 sur la deuxième. Les deux diapositives conservent les mêmes données.
 
 ```python
 import aspose.slides as slides
@@ -405,24 +490,24 @@ with slides.Presentation() as presentation:
     presentation.save("LogarithmicAxis.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Échelle linéaire (diapo 1) :** Des distances verticales égales représentent des différences égales dans les comptes de requêtes. La valeur la plus élevée domine le graphique, rendant les valeurs plus petites difficiles à distinguer.
+**Échelle linéaire (diapositive 1) :** Des distances verticales égales représentent des différences égales dans les comptes de requêtes. La valeur la plus élevée domine le graphique, rendant les valeurs plus faibles difficiles à distinguer.
 
-![Graphique en lignes dans PowerPoint montrant cinq décomptes de requêtes sur un axe de valeur linéaire](value-axis-linear.png)
+![Graphique en lignes dans PowerPoint montrant cinq comptes de requêtes sur un axe de valeur linéaire](value-axis-linear.png)
 
-**Échelle logarithmique (diapo 2) :** Des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, de sorte que les points forment une ligne droite ascendante sur l’échelle base 10. Les étiquettes d’axe affichent toujours les comptes de requêtes d’origine.
+**Échelle logarithmique (diapositive 2) :** Des distances verticales égales représentent des rapports égaux. Chaque période a dix fois plus de requêtes que la précédente, de sorte que les points forment une ligne droite ascendante sur l'échelle base 10. Les libellés d'axe affichent toujours les comptes de requêtes originaux.
 
-![Les mêmes cinq décomptes de requêtes dans PowerPoint sur un axe de valeur logarithmique base 10](value-axis-logarithmic.png)
+![Les mêmes cinq comptes de requêtes dans PowerPoint sur un axe de valeur logarithmique base 10](value-axis-logarithmic.png)
 
 ### **Gérer les valeurs zéro et négatives**
 
-Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l’activer. Si les valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si leur exclusion est appropriée pour l’analyse, expliquez cette omission. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela altère le sens des données. Toute valeur minimale ou maximale configurée manuellement pour un axe logarithmique doit également être positive.
+Une échelle logarithmique ne peut afficher que des valeurs strictement positives. Vérifiez les données avant de l'activer. Si les valeurs zéro ou négatives sont significatives, conservez une échelle linéaire ou affichez‑les séparément. Si l'exclusion de ces valeurs est appropriée pour l'analyse, expliquez la suppression. Ne les remplacez pas silencieusement par de petits nombres positifs, car cela change la signification des données. Toute valeur minimale ou maximale configurée manuellement pour un axe logarithmique doit également être positive.
 
 ## **FAQ**
 
-**Comment définir la valeur à laquelle un axe croise l’autre (croisement d’axe) ?**
+**Comment définir la valeur à laquelle un axe croise l'autre (croisement d'axe) ?**
 
-Utilisez [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) pour sélectionner le comportement de croisement. Pour spécifier une valeur de croisement numérique, définissez [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Ces réglages vous permettent de déplacer le croisement de l’axe vers une ligne de base appropriée.
+Utilisez [cross_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_type/) pour sélectionner le comportement de croisement. Pour spécifier une valeur de croisement numérique, définissez [cross_at](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/cross_at/). Ces paramètres vous permettent de déplacer le croisement de l'axe vers une ligne de base appropriée.
 
-**Comment positionner les étiquettes de graduation par rapport à l’axe ?**
+**Comment positionner les libellés des repères par rapport à l'axe ?**
 
-Définissez [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) à l’aide de [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/) : `LOW`, `HIGH`, `NEXT_TO` ou `NONE`. Pour contrôler les marques de graduation elles‑mêmes, utilisez [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) ou [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/) ; ils sont séparés du positionnement des étiquettes.
+Définissez [tick_label_position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_position/) en utilisant [TickLabelPositionType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ticklabelpositiontype/) : `LOW`, `HIGH`, `NEXT_TO` ou `NONE`. Pour contrôler les repères eux‑mêmes, utilisez [major_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/major_tick_mark/) ou [minor_tick_mark](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/minor_tick_mark/); ils sont séparés du positionnement des libellés.

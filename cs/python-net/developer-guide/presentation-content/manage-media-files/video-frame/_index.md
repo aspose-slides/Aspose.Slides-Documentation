@@ -1,6 +1,6 @@
 ---
-title: Správa video snímků v prezentacích v Pythonu
-linktitle: Video snímek
+title: Správa video rámců v prezentacích v Pythonu
+linktitle: Video Rámec
 type: docs
 weight: 10
 url: /cs/python-net/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - vložit video
 - extrahovat video
 - získat video
-- video snímek
+- video rámec
 - webový zdroj
 - PowerPoint
 - OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides for Python via .NET. Rychlý návod."
+description: "Naučte se programově přidávat a extrahovat video rámečky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Python přes .NET. Rychlý návod jak na to."
 ---
 ## **Úvod**
 
-Videa mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides for Python via .NET vám umožňuje přidávat video snímky do slidů, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
+Videa mohou pomoci vysvětlit nápady a zaujmout publikum. Aspose.Slides pro Python přes .NET vám umožňuje přidávat video rámečky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
-PowerPoint podporuje místní videa a odkazy na online videa, například videa z YouTube.
+PowerPoint podporuje lokální videa a odkazy na online videa, například videa z YouTube.
 
-Pro reprezentaci video dat a video snímků poskytuje Aspose.Slides třídu [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) třídu [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) a další relevantní typy.
+Pro reprezentaci video dat a video rámců poskytuje Aspose.Slides třídu [Video](https://reference.aspose.com/slides/python-net/aspose.slides/video/) třídu [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) a další relevantní typy.
 
-## **Vytvoření vloženého video snímku**
+## **Vytvořit vložený video rámec**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video snímek pro vložení videa do vaší prezentace.
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámec pro vložení videa do vaší prezentace.
 
-Tento příklad vloží místní video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený, dokud se ukládání nedokončí, protože [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) jej drží uzamčený, dokud jej prezentace používá.
+Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry rámce jsou v bodech. Stream zůstává otevřený až do dokončení ukládání, protože [LoadingStreamBehavior.KEEP_LOCKED](https://reference.aspose.com/slides/python-net/aspose.slides/loadingstreambehavior/) jej uzamyká, dokud je prezentace používá.
 
 ```python
 import aspose.slides as slides
@@ -46,7 +46,7 @@ with slides.Presentation("presentation.pptx") as presentation:
         presentation.save("embedded_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Můžete také předat cestu k místnímu videu přímo metodě [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
+Můžete také předat cestu k lokálnímu videu přímo metodě [add_video_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_video_frame/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
 
 ```python
 import aspose.slides as slides
@@ -59,11 +59,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_from_path.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vytvoření video snímku s videem z webového zdroje**
+## **Vytvořit video rámec s videem z webového zdroje**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video snímek, který odkazuje na online video, například video z YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video rámec, který odkazuje na online video, například na YouTube video.
 
-Tento příklad přidá odkaz na YouTube video a náhledový obrázek na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Nastavení [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) požaduje automatické přehrávání. Stažení náhledového obrázku a přehrání videa vyžadují připojení k internetu. Prohlížeč prezentací také musí podporovat přehrávání online videí.
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, abyste použili jiné video. Nastavení [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) požaduje automatické přehrávání. Stažení miniatury a přehrání videa vyžaduje přístup k internetu. Prohlížeč prezentací také musí podporovat přehrávání online videí.
 
 ```python
 from urllib.request import urlopen
@@ -88,9 +88,9 @@ with slides.Presentation() as presentation:
 
 ## **Přehrát video v režimu celé obrazovky**
 
-V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. Nastavte [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) na `True`, aby se během přehrávání tento režim aktivoval.
+V tréninkové prezentaci můžete přehrávat ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. Nastavte [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/) na `True`, aby se během přehrávání povolilo toto chování.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) na prvním snímku a povolí přehrávání v celé obrazovce. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) na první snímek a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámcem na prvním snímku.
 
 ```python
 import aspose.slides as slides
@@ -106,13 +106,13 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("full_screen_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Přehrávání v celé obrazovce určuje, jak je video zobrazováno. Samostatně [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) řídí, zda se spustí automaticky nebo po kliknutí, a [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) určuje, zda se opakuje. Pro výběr chování při spuštění nastavte režim přehrávání na [VideoPlayModePreset.AUTO or VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení spuštění a opakování.
+Přehrávání v režimu celé obrazovky ovlivňuje, jak je video zobrazeno. Odděleně [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) určuje, zda se spustí automaticky nebo po kliknutí, a [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) určuje, zda se opakuje. Pro výběr chování při spuštění nastavte režim přehrávání na [VideoPlayModePreset.AUTO nebo VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/). Příklad zachovává existující nastavení spuštění a opakování.
 
-## **Převíjení videa po přehrání**
+## **Přetočit video po přehrání**
 
-V tréninkové prezentaci vrácení demonstračního videa na začátek jej připraví, aby ho přednášející mohl přehrát znovu. Nastavte [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) na `True`, aby se video po skončení přehrávání vrátilo na začátek.
+V tréninkové prezentaci vrácení demonstračního videa na začátek umožňuje přednášejícímu ho přehrát znovu. Nastavte [rewind_video](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/rewind_video/) na `True`, aby se video po skončení přehrávání vrátilo na začátek.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) na prvním snímku a povolí převíjení. Vypne opakování, aby přehrávání mohlo skončit, a nastaví přehrávání na spuštění po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/) na první snímek a povolí přetočení. Zakáže opakování, aby přehrávání mohlo skončit, a nastaví přehrávání tak, aby se spustilo po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video rámcem na prvním snímku.
 
 ```python
 import aspose.slides as slides
@@ -130,15 +130,15 @@ with slides.Presentation("training.pptx") as presentation:
     presentation.save("rewind_video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Převíjení vrátí video na začátek, aniž by jej spustilo znovu. Naproti tomu povolení [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) přehrávání automaticky opakuje. Ponechte opakování vypnuté, pokud chcete, aby video skončilo a bylo připravené k opětovnému přehrání. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) samostatně řídí automatické nebo kliknutím spuštění; tento příklad používá [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/), takže přednášející kontroluje, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení opakování, jak je ukázáno v příkladu. Převíjení funguje nezávisle na [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
+Přetočení vrátí video na začátek, aniž by ho znovu spustilo. Naopak povolení [play_loop_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/) automaticky opakuje přehrávání. Ponechte opakování zakázáno, pokud chcete, aby video skončilo a bylo připraveno k opětovnému přehrání. [play_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) samostatně řídí automatické nebo kliknutím spuštění; tento příklad používá [VideoPlayModePreset.ON_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides/videoplaymodepreset/), takže přednášející řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení opakování, jak je ukázáno v příkladu. Přetočení funguje nezávisle na [full_screen_mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/full_screen_mode/).
 
-## **Ořezání video snímku**
+## **Uříznout video rámec**
 
-Použijte [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) a [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) k přeskočení části na začátku nebo na konci videa během přehrávání. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by upravovalo vložená video data.
+Použijte [VideoFrame.trim_from_start](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_start/) a [VideoFrame.trim_from_end](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/trim_from_end/) abyste během přehrávání přeskočili část na začátku nebo na konci videa. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání, aniž by upravovalo vložená video data.
 
-**Nastavení ořezu**
+**Nastavit ořezové nastavení**
 
-Tento příklad vloží místní video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstala přehratelná část.
+Tento příklad vloží lokální video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstala přehratelná část.
 
 ```python
 import aspose.slides as slides
@@ -157,9 +157,9 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_trim.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Čtení nastavení ořezu**
+**Načíst ořezové nastavení**
 
-Tento příklad vypíše hodnoty ořezu prvního video snímku na prvním snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video snímek, nic není vytištěno. Předchozí příklad produkuje hodnoty 2500 a 1000.
+Tento příklad vypíše hodnoty ořezu prvního video rámce na první snímek v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video rámec, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
 
 ```python
 import aspose.slides as slides
@@ -174,13 +174,13 @@ with slides.Presentation("video_with_trim.pptx") as presentation:
             break
 ```
 
-## **Správa titulků videa**
+## **Spravovat video titulky**
 
-Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video snímky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné přes vlastnost [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video rámečky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné prostřednictvím vlastnosti [VideoFrame.caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/).
 
-**Přidání titulků do video snímku**
+### **Přidat titulky do video rámce**
 
-Tento příklad vloží místní video a přidá WebVTT stopu titulků označenou jako English. Časové razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
+Tento příklad vloží lokální video a přidá WebVTT stopu titulků označenou English. Časová razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```python
 import aspose.slides as slides
@@ -198,11 +198,11 @@ with slides.Presentation() as presentation:
     presentation.save("video_with_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Třída [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) také poskytuje přetížení, které umožňuje přidat titulky ze streamu.
+Třída [CaptionsCollection](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/) také poskytuje přetížení, které vám umožní přidat titulky ze streamu.
 
-**Extrahování titulků z video snímku**
+### **Extrahovat titulky z video rámce**
 
-Tento příklad uloží všechny stopy titulků z video snímků na prvním snímku jako samostatné soubory WebVTT. Pořadová čísla udržují výstupní soubory odlišné. Konzole hlásí počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad uloží všechny stopy titulků z video rámců na první snímek jako samostatné WebVTT soubory. Sekvenční čísla udržují výstupní soubory odlišné. Konzole hlásí počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```python
 import aspose.slides as slides
@@ -222,11 +222,11 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     print(f"Caption tracks extracted: {track_count}")
 ```
 
-Každý objekt [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) vystavuje identifikátor titulku, popisek, binární data a text titulku jako řetězec UTF-8.
+Každý objekt [Captions](https://reference.aspose.com/slides/python-net/aspose.slides/captions/) exposuje identifikátor titulku, štítek, binární data a text titulku jako řetězec UTF-8.
 
-**Odstranění titulků z video snímku**
+### **Odstranit titulky z video rámce**
 
-Tento příklad odstraní všechny titulky z video snímku na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video snímek.
+Tento příklad odstraní všechny titulky z video rámce na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video rámec.
 
 ```python
 import aspose.slides as slides
@@ -240,13 +240,62 @@ with slides.Presentation("video_with_captions.pptx") as presentation:
     presentation.save("video_without_captions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pokud potřebujete odstranit jen jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) nebo [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/), místo [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
+Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove/) nebo [remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/remove_at/), místo [clear](https://reference.aspose.com/slides/python-net/aspose.slides/captionscollection/clear/).
 
-## **Extrahování videa ze snímku**
+### **Vyhledat video titulky**
+
+[Captions.data_as_string](https://reference.aspose.com/slides/python-net/aspose.slides/captions/data_as_string/) vrací celý WebVTT track, včetně hlavičky, časových řádků a textu titulků. Například anglická stopa na snímku 2 může obsahovat tento cue:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Tento příklad otevře `captioned_media.pptx` a načte [caption_tracks](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/caption_tracks/) každého video rámce nejvyšší úrovně na každém snímku. Pro každý čistý textový cue najde časový řádek obsahující `-->` a shromáždí řádky titulků až do další prázdné řádky nebo konce stopy. Vyhledá v textu titulků slovo “café” bez ohledu na velikost písmen a vypíše číslo snímku, štítek stopy, původní časový řádek a úplný titulek pro každý výsledek.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("captioned_media.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.VideoFrame):
+                continue
+
+            for track in shape.caption_tracks:
+                lines = iter(track.data_as_string.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.slide_number} | {track.label} | {timing}")
+                        print(caption)
+```
+
+Ukázková stopa vytváří jeden výsledek. “Café” v hlavičce není součástí textu titulků a výstup zachovává časové nastavení i oba řádky titulků.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Extrahovat video ze snímku**
 
 Kromě přidávání videí do snímků umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.
 
-Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Odkazovaná videa jsou přeskočena, protože neobsahují vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte, aby odpovídala hlášenému mediálnímu typu.
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných, číslovaných binárních souborů. Připojená videa jsou přeskočena, protože nemají vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; změňte ji podle hlášeného typu médií, pokud je to potřeba.
 
 ```python
 import aspose.slides as slides
@@ -270,20 +319,20 @@ with slides.Presentation("presentation_with_videos.pptx") as presentation:
     print(f"Embedded videos extracted: {video_count}")
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Které parametry přehrávání videa lze změnit pro video snímek?**
+**Které parametry přehrávání videa lze u video rámce změnit?**
 
-Můžete ovládat [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (automatické nebo po kliknutí) a [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). Tyto možnosti jsou dostupné prostřednictvím vlastností objektu [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/).
+Můžete ovládat [playback mode](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_mode/) (automatické nebo po kliknutí) a [looping](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/play_loop_mode/). Tyto možnosti jsou k dispozici prostřednictvím vlastností objektu [VideoFrame](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/).
 
-**Zvyšuje přidání videa velikost souboru PPTX?**
+**Ovlivňuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte náhledový obrázek, prezentace ukládá odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
+Ano. Když vložíte lokální video, binární data jsou zahrnuta v dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace ukládá odkaz a obrázek náhledu místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím video snímku bez změny jeho pozice a velikosti?**
+**Mohu nahradit video ve existujícím video rámci bez změny jeho polohy a velikosti?**
 
-Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) v rámci snímku při zachování geometrie tvaru; to je běžný scénář při aktualizaci médií v existujícím rozložení.
+Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/python-net/aspose.slides/videoframe/embedded_video/) v rámci, přičemž zachováte geometrii tvaru; to je běžný scénář pro aktualizaci médií v existujícím rozvržení.
 
-**Lze zjistit typ obsahu (MIME) vloženého videa?**
+**Lze určit typ obsahu (MIME) vloženého videa?**
 
 Ano. Vložené video má [content type](https://reference.aspose.com/slides/python-net/aspose.slides/video/content_type/), který můžete přečíst a použít, například při ukládání na disk.

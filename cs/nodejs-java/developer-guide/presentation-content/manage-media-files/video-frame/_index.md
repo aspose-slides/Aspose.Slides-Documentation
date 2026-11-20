@@ -1,6 +1,6 @@
 ---
 title: Správa video snímků v prezentacích pomocí Node.js
-linktitle: Video snímek
+linktitle: Snímek videa
 type: docs
 weight: 10
 url: /cs/nodejs-java/video-frame/
@@ -18,21 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Node.js přes Java. Rychlý praktický návod."
+description: "Naučte se programově přidávat a extrahovat video snímky v PowerPoint a OpenDocument slidech pomocí Aspose.Slides pro Node.js přes Java. Rychlý praktický průvodce."
 ---
 ## **Úvod**
 
-Videa mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides pro Node.js přes Java vám umožňuje přidávat video snímky do snímků, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená videodata.
+Videa mohou pomoci vysvětlit nápady a zapojit publikum. Aspose.Slides pro Node.js prostřednictvím Javy vám umožňuje přidávat snímky videa do slidů, upravovat nastavení přehrávání, spravovat titulky a extrahovat vložená video data.
 
-PowerPoint podporuje místní videa i odkazy na online videa, například videa YouTube.
+PowerPoint podporuje místní videa i odkazy na online videa, například videa z YouTube.
 
-Pro reprezentaci video dat a video snímků Aspose.Slides poskytuje třídu [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) třídu [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) a další relevantní typy.
+Aspose.Slides poskytuje třídu [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) třídu [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) a další relevantní typy.
 
-## **Vytvořit vložený video snímek**
+## **Vytvoření vloženého snímku videa**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video snímek pro vložení videa do vaší prezentace.
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit snímek videa pro vložení videa do vaší prezentace.
 
-Tento příklad vloží lokální video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený až do dokončení uložení, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) jej uzamkne, dokud je prezentace používá.
+Tento příklad vloží místní video na první snímek existující prezentace a uloží výsledek. Souřadnice a rozměry snímku jsou v bodech. Proud zůstává otevřený, dokud se ukládání neukončí, protože [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadingstreambehavior/) ho během používání prezentace zamkne.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-Můžete také předat cestu k lokálnímu videu přímo metodě [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné až do uložení prezentace.
+Můžete také předat cestu k místnímu videu přímo metodě [addVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addvideoframe/). Tento příklad vloží video na první snímek nové prezentace. Video musí zůstat přístupné, dokud není prezentace uložena.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -73,11 +73,11 @@ try {
 }
 ```
 
-## **Vytvořit video snímek s videem z webového zdroje**
+## **Vytvoření snímku videa s videem z webového zdroje**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit video snímek, který odkazuje na online video, například video YouTube.
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) podporuje online videa v prezentacích. Můžete vytvořit snímek videa, který odkazuje na online video, například na YouTube video.
 
-Tento příklad přidá odkaz na YouTube video a náhledový obrázek na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) požaduje automatické přehrávání. Stahování náhledového obrázku a přehrávání videa vyžaduje přístup k internetu. Prohlížeč prezentací také musí podporovat přehrávání online videí.
+Tento příklad přidá odkaz na YouTube video a miniaturu na první snímek. Nahraďte identifikátor videa, pokud chcete použít jiné video. Metoda [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) požaduje automatické přehrávání. Stažení miniatury a přehrání videa vyžaduje připojení k internetu. Prohlížeč prezentací musí také podporovat přehrávání online videí.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Přehrát video v režimu celé obrazovky**
+## **Přehrání videa v režimu celé obrazovky**
 
-V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo detaily. Zavolejte [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) s `true` pro povolení tohoto chování během přehrávání.
+V tréninkové prezentaci můžete přehrát ukázku softwaru v režimu celé obrazovky, aby publikum vidělo podrobnosti. Zavolejte metodu [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/) s hodnotou `true`, aby se během přehrávání tento režim aktivoval.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) na první snímku a povolí přehrávání na celou obrazovku. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) na první snímku a povolí přehrávání v režimu celé obrazovky. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím snímkem videa na první snímku.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -137,13 +137,13 @@ try {
 }
 ```
 
-Režim celé obrazovky řídí, jak je video zobrazeno. Samostatně [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) určuje, zda se spustí automaticky nebo po kliknutí, a [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) určuje, zda se opakuje. Pro výběr chování při spuštění nastavte režim přehrávání na [VideoPlayModePreset.Auto nebo VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Příklad zachovává existující nastavení startu a smyčky.
+Přehrávání v režimu celé obrazovky řídí, jak je video zobrazeno. Samostatně metoda [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) určuje, zda se spustí automaticky nebo po kliknutí, a metoda [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) určuje, zda se opakuje. Pro výběr chování spuštění nastavte režim přehrávání na [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/). Příklad zachovává stávající nastavení spuštění a opakování.
 
-## **Přetočit video po přehrání**
+## **Převinutí videa po přehrání**
 
-V tréninkové prezentaci vrácení ukázkového videa na začátek ho připraví pro opětovné přehrání prezentátorem. Zavolejte [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) s `true` pro vrácení videa na začátek po dokončení přehrávání.
+V tréninkové prezentaci vrácení demonstračního videa na začátek zajišťuje, že je připraveno pro další přehrání prezentátorem. Zavolejte metodu [setRewindVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setrewindvideo/) s hodnotou `true`, aby se video po dokončení přehrávání vrátilo na začátek.
 
-Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) na prvním snímku a povolí přetáčení. Vypne smyčku, aby přehrávání mohlo skončit, a nastaví přehrávání na start po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím video snímkem na prvním snímku.
+Tento příklad otevře prezentaci, najde první [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) na první snímku a povolí převinutí. Vypne opakování, aby přehrávání mohlo skončit, a nastaví spuštění přehrávání po kliknutí. Vstupní prezentace musí obsahovat alespoň jeden snímek s existujícím snímkem videa na první snímku.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -170,15 +170,15 @@ try {
 }
 ```
 
-Přetáčení vrátí video na začátek, aniž by jej znovu spustilo. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) s `true` způsobí automatické opakování přehrávání. Udržujte smyčku vypnutou, pokud chcete, aby video skončilo a zůstalo připravené k opětovnému přehrání. [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) samostatně řídí automatické nebo po‑kliknutí spuštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/) , takže prezentátor řídí, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení smyčky, jak je ukázáno v příkladu. Přetáčení funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
+Převinutí vrací video na jeho začátek, aniž by jej znovu spustilo. Naopak volání [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/) s hodnotou `true` způsobí automatické opakování přehrávání. Pokud chcete, aby video skončilo a zůstalo připravené k opětovnému přehrání, nechte opakování vypnuté. Metoda [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) samostatně řídí automatické nebo kliknutím spouštění; tento příklad používá [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoplaymodepreset/), aby prezentátor kontroloval, kdy se přehrávání spustí. Nastavte režim přehrávání po nastavení opakování, jak je ukázáno v příkladu. Převinutí funguje nezávisle na [setFullScreenMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setfullscreenmode/).
 
-## **Oříznout video snímek**
+## **Ořezání snímku videa**
 
-Použijte [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) , abyste při přehrávání přeskočili část na začátku nebo na konci videa. Obě hodnoty jsou v milisekundách. Ořezávání mění nastavení přehrávání bez úpravy vložených video dat.
+Použijte metody [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromstart/) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/settrimfromend/) pro přeskočení části začátku nebo konce videa během přehrávání. Obě hodnoty jsou v milisekundách. Ořezání mění nastavení přehrávání, aniž by upravovalo vložená video data.
 
-**Nastavit nastavení ořezu**
+**Nastavení ořezu**
 
-Tento příklad vloží lokální video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstala přehratelná část.
+Tento příklad vloží místní video a během přehrávání přeskočí první 2,5 sekundy a poslední sekundu. Použijte video delší než 3,5 sekundy, aby zůstala přehratelná část.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -203,9 +203,9 @@ try {
 }
 ```
 
-**Přečíst nastavení ořezu**
+**Čtení nastavení ořezu**
 
-Tento příklad vytiskne hodnoty ořezu prvního video snímku na první snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá video snímek, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
+Tento příklad vypíše hodnoty ořezu prvního snímku videa na první snímku v milisekundách. Prezentace musí obsahovat alespoň jeden snímek. Pokud tento snímek nemá žádný snímek videa, nic se nevytiskne. Předchozí příklad produkuje hodnoty 2500 a 1000.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -229,13 +229,13 @@ try {
 }
 ```
 
-## **Spravovat titulky videa**
+## **Správa titulků videa**
 
-Aspose.Slides vám umožňuje spravovat skryté titulky pro video snímky v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné pomocí metody [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro snímky videa v prezentacích PowerPoint. Titulky jsou uloženy ve formátu WebVTT a jsou dostupné prostřednictvím metody [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Přidat titulky do video snímku**
+### **Přidání titulků do snímku videa**
 
-Tento příklad vloží lokální video a přidá WebVTT stopu titulků označenou English. Časová razítka titulků by měla odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
+Tento příklad vloží místní video a přidá stopu titulků WebVTT označenou jako English. Časové značky titulků by měly odpovídat videu. Uložená prezentace obsahuje jak video, tak jeho titulky.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -261,9 +261,9 @@ try {
 
 Třída [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) také poskytuje metodu [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) pro přidání titulků ze streamu.
 
-**Extrahovat titulky z video snímku**
+### **Extrahování titulků ze snímku videa**
 
-Tento příklad uloží všechny stopy titulků z video snímků na první snímku jako samostatné WebVTT soubory. Postupná čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad uloží všechny stopy titulků ze snímků videa na první snímku jako samostatné soubory WebVTT. Pořadová čísla udržují výstupní soubory odlišné. Konzole vypíše počet extrahovaných stop. Prezentace musí obsahovat alespoň jeden snímek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,11 +295,11 @@ try {
 }
 ```
 
-Každý objekt [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) vystavuje identifikátor titulků, popisek, binární data a text titulků jako řetězec UTF-8.
+Každý objekt [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) zpřístupňuje identifikátor titulku, popisek, binární data a text titulku jako řetězec UTF-8.
 
-**Odstranit titulky z video snímku**
+### **Odstranění titulků ze snímku videa**
 
-Tento příklad odstraní všechny titulky z video snímku na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je video snímek.
+Tento příklad odstraní všechny titulky ze snímku videa na první pozici tvaru na prvním snímku a uloží výsledek. Předpokládá, že snímek a tvar existují a že tvar je snímek videa.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,13 +317,79 @@ try {
 }
 ```
 
-Pokud potřebujete odstranit pouze jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt), místo [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+Pokud potřebujete odstranit jen jednu stopu titulků, použijte metodu [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) místo [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
 
-## **Extrahovat video ze snímku**
+### **Vyhledávání titulků videa**
 
-Kromě přidávání videí do snímků vám Aspose.Slides umožňuje extrahovat videa vložená v prezentacích.
+Metoda [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) vrací celou stopu WebVTT, včetně hlavičky, časových řádků a textu titulku. Můžete v paměti prohledávat text titulku a najít frázi a její časovou značku. Například anglická stopa na snímku 2 může obsahovat tento cue:
 
-Tento příklad extrahuje vložená videa ze všech snímků do samostatných, číslovaných binárních souborů. Propojená videa jsou přeskočena, protože nemají vložená data. Konzole vypíše typ MIME každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; při potřebě ji změňte tak, aby odpovídala hlášenému typu média.
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+Tento příklad otevře `captioned_media.pptx` a použije [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) k načtení stop každého vrchního snímku videa na všech snímcích. V prostém textovém cue časová řádka obsahuje `-->` a prázdný řádek cue ukončuje. Pro každý titulek, který obsahuje „café“ v libovolném psaní, příklad vypíše číslo snímku, popisek stopy, původní časovou řádku a celý titulek.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vyhledávání „café“ najde jednu shodu ve vzorové stopě. Vyhledávání přeskočí hlavičku stopy a zachová nastavení časování a zalomení řádku ve výstupu.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+## **Extrahování videa ze snímku**
+
+Kromě přidávání videí do snímků umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.
+
+Tento příklad extrahuje vložená videa ze všech snímků do samostatných číslovaných binárních souborů. Odkazy na videa jsou přeskočeny, protože neobsahují žádná vložená data. Konzole vypíše MIME typ každého videa a celkový počet. Výstup používá obecnou příponu `.bin`; v případě potřeby ji změňte, aby odpovídala hlášenému typu média.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -362,17 +428,17 @@ try {
 
 ## **Často kladené otázky**
 
-**Které parametry přehrávání videa lze u video snímku změnit?**
+**Které parametry přehrávání videa lze změnit pro snímek videa?**
 
-Můžete ovládat [režim přehrávání](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (auto nebo po kliknutí) a [opakování](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+Můžete řídit [režim přehrávání](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplaymode/) (automaticky nebo po kliknutí) a [opakování](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Tyto možnosti jsou dostupné prostřednictvím metod objektu [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 
 **Ovlivňuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte lokální video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když odkazujete na online video a přidáte náhledový obrázek, prezentace ukládá odkaz a obrázek náhledu místo video dat, takže nárůst velikosti je obvykle menší.
+Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže se velikost prezentace zvětší úměrně velikosti souboru. Když odkazujete na online video a přidáte miniaturu, prezentace uloží pouze odkaz a náhledový obrázek místo video dat, takže nárůst velikosti je obvykle menší.
 
-**Mohu nahradit video v existujícím video snímku bez změny jeho polohy a velikosti?**
+**Mohu nahradit video v existujícím snímku videa bez změny jeho polohy a velikosti?**
 
-Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) uvnitř snímku při zachování geometrie tvaru; to je běžný scénář pro aktualizaci médií v existujícím rozvržení.
+Ano. Můžete vyměnit [video obsah](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) uvnitř snímku a zachovat geometrii tvaru; jedná se o běžný scénář pro aktualizaci médií v existujícím rozvržení.
 
 **Lze určit typ obsahu (MIME) vloženého videa?**
 

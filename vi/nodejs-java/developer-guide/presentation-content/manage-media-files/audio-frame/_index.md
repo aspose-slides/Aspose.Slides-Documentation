@@ -1,13 +1,13 @@
 ---
-title: Quản lý âm thanh trong bản trình chiếu bằng JavaScript
-linktitle: Khung Âm Thanh
+title: Quản lý khung âm thanh trong bản trình bày bằng JavaScript
+linktitle: Khung âm thanh
 type: docs
 weight: 10
 url: /vi/nodejs-java/audio-frame/
 keywords:
 - âm thanh
 - khung âm thanh
-- ảnh thu nhỏ
+- hình thu nhỏ
 - thêm âm thanh
 - thuộc tính âm thanh
 - tùy chọn âm thanh
@@ -15,238 +15,308 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tạo và kiểm soát các khung âm thanh trong Aspose.Slides cho Node.js—ví dụ về nhúng, cắt, lặp và cấu hình phát lại cho các bản trình chiếu PPT, PPTX và ODP."
+description: "Nhúng âm thanh vào các slide, thay đổi biểu tượng âm thanh, cấu hình phát lại, quản lý phụ đề WebVTT và trích xuất âm thanh chuyển tiếp slide với Aspose.Slides cho Node.js qua Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với các khung âm thanh trong Aspose.Slides. Nó trình bày cách thêm âm thanh nhúng vào các slide, tùy chỉnh ảnh thu nhỏ của khung âm thanh, cấu hình các tùy chọn phát như âm lượng, lặp lại, ẩn, cắt và thời gian làm mờ, và trích xuất âm thanh được sử dụng trong chuyển đổi trình chiếu.
+Khung âm thanh cho phép bạn phát một âm thanh trên slide. Với Aspose.Slides for Node.js via Java, bạn có thể nhúng một đoạn âm thanh, chọn hình ảnh đại diện, điều chỉnh phát lại và đính kèm phụ đề. Bạn cũng có thể lấy âm thanh được gán cho chuyển tiếp slide.
 
-## **Tạo Khung Âm Thanh**
+## **Tạo khung âm thanh**
 
-Aspose.Slides for Node.js via Java cho phép bạn thêm tệp âm thanh vào các slide. Các tệp âm thanh được nhúng vào slide dưới dạng khung âm thanh.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu đến một slide thông qua chỉ mục của nó.
-3. Tải luồng tệp âm thanh mà bạn muốn nhúng vào slide.
-4. Thêm khung âm thanh nhúng (chứa tệp âm thanh) vào slide.
-5. Đặt [PlayMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AudioPlayModePreset) và `Volume` được cung cấp bởi đối tượng [AudioFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AudioFrame).
-6. Lưu bản trình chiếu đã chỉnh sửa.
-
-Mã JavaScript này cho bạn thấy cách thêm một khung âm thanh nhúng vào slide:
+Sử dụng [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) để nhúng một đoạn âm thanh cục bộ vào slide đầu tiên. Hai tọa độ đầu tiên định vị khung trên slide, và hai giá trị tiếp theo đặt chiều rộng và chiều cao, tất cả tính bằng điểm. Ví dụ này gọi [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) để bắt đầu tự động và gọi [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) để chọn mức âm lớn.
 
 ```javascript
-// Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu
-const pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    const sld = pres.getSlides().get_Item(0);
-    // Tải tệp âm thanh wav vào luồng
-    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
-    // Thêm Khung Âm Thanh
-    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    // Đặt Chế độ Phát và Âm lượng cho Âm thanh
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
-    // Ghi tệp PowerPoint ra đĩa
-    pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Thay Đổi Hình Thu Nhỏ Khung Âm Thanh**
-
-Khi bạn thêm tệp âm thanh vào bản trình chiếu, âm thanh sẽ hiển thị dưới dạng một khung với hình ảnh mặc định tiêu chuẩn (xem hình ảnh trong phần bên dưới). Bạn có thể thay đổi hình ảnh trước xem của khung âm thanh (đặt hình ảnh bạn ưa thích).
-
-Mã JavaScript này cho bạn thấy cách thay đổi ảnh thu nhỏ hoặc ảnh preview của khung âm thanh:
-
-```javascript
-const presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    // Thêm một khung âm thanh vào slide với vị trí và kích thước xác định.
-    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-    // Thêm một hình ảnh vào tài nguyên của bản trình chiếu.
-    let picture;
-    const image = aspose.slides.Images.fromFile("eagle.jpeg");
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
     try {
-        picture = presentation.getImages().addImage(image);
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, audioStream);
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(slides.AudioVolumeMode.Loud);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        audioStream.close();
     }
-    // Đặt hình ảnh cho khung âm thanh.
-    audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
-    // Lưu bản trình chiếu đã chỉnh sửa vào đĩa
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Thay Đổi Các Tùy Chọn Phát Âm Thanh**
-
-Aspose.Slides for Node.js via Java cho phép bạn thay đổi các tùy chọn kiểm soát việc phát hoặc thuộc tính của âm thanh. Ví dụ, bạn có thể điều chỉnh âm lượng, đặt âm thanh phát theo vòng lặp, hoặc thậm chí ẩn biểu tượng âm thanh.
-
-Bảng **Audio Options** trong Microsoft PowerPoint:
-
-![example1_image](audio_frame_0.png)
-
-Các **Audio Options** của PowerPoint tương ứng với các thuộc tính [AudioFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/) của Aspose.Slides:
-- **Start**: danh sách thả xuống tương ứng với phương thức [AudioFrame.setPlayMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume**: tương ứng với phương thức [AudioFrame.setVolume](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides**: tương ứng với phương thức [AudioFrame.setPlayAcrossSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped**: tương ứng với phương thức [AudioFrame.setPlayLoopMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show**: tương ứng với phương thức [AudioFrame.setHideAtShowing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing**: tương ứng với phương thức [AudioFrame.setRewindAudio](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setRewindAudio)
-
-Các tùy chọn **Editing** của PowerPoint tương ứng với các thuộc tính [AudioFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/) của Aspose.Slides:
-
-- **Fade In**: tương ứng với phương thức [AudioFrame.setFadeInDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out**: tương ứng với phương thức [AudioFrame.setFadeOutDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time**: tương ứng với phương thức [AudioFrame.setTrimFromStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time**: giá trị bằng thời lượng âm thanh trừ đi giá trị của phương thức [AudioFrame.setTrimFromEnd](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd)
-
-Thanh điều khiển **Volume** trên bảng điều khiển âm thanh của PowerPoint tương ứng với phương thức [AudioFrame.setVolumeValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Nó cho phép bạn thay đổi âm lượng âm thanh dưới dạng phần trăm.
-
-Đây là cách bạn thay đổi các tùy chọn phát âm thanh:
-
-1. [Create](#create-audio-frame) hoặc lấy Khung Âm Thanh.
-2. Đặt các giá trị mới cho các thuộc tính Khung Âm Thanh mà bạn muốn điều chỉnh.
-3. Lưu tệp PowerPoint đã chỉnh sửa.
-
-Mã JavaScript này minh họa một thao tác trong đó các tùy chọn của âm thanh được điều chỉnh:
-
-```javascript
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Lấy hình dạng AudioFrame
-    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    // Đặt chế độ phát là khi nhấp chuột
-    audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
-    // Đặt âm lượng là Thấp
-    audioFrame.setVolume(aspose.slides.AudioVolumeMode.Low);
-    // Đặt âm thanh phát qua các slide
-    audioFrame.setPlayAcrossSlides(true);
-    // Vô hiệu hoá vòng lặp cho âm thanh
-    audioFrame.setPlayLoopMode(false);
-    // Ẩn AudioFrame trong khi trình chiếu
-    audioFrame.setHideAtShowing(true);
-    // Cuộn lại âm thanh về đầu sau khi phát
-    audioFrame.setRewindAudio(true);
-    // Lưu tệp PowerPoint vào đĩa
-    pres.save("AudioFrameEmbed_changed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-Ví dụ JavaScript này cho thấy cách thêm một khung âm thanh mới với âm thanh nhúng, cắt nó và đặt thời gian làm mờ:
-
-```js
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    
-    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    const audio = pres.getAudios().addAudio(audioData);
-    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
-
-    // Đặt thời gian bắt đầu cắt là 1.5 giây
-    audioFrame.setTrimFromStart(1500);
-    // Đặt thời gian kết thúc cắt là 2 giây
-    audioFrame.setTrimFromEnd(2000);
-
-    // Đặt thời lượng làm mờ vào là 200 ms
-    audioFrame.setFadeInDuration(200);
-    // Đặt thời lượng làm mờ ra là 500 ms
-    audioFrame.setFadeOutDuration(500);
-
-    pres.save("AudioFrameTrimFade_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-Mẫu mã sau cho thấy cách lấy một khung âm thanh có âm thanh nhúng và đặt âm lượng thành 85%:
-
-```js
-const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    // Lấy hình dạng khung âm thanh
-    const audioFrame = slide.getShapes().get_Item(0);
-
-    // Đặt âm lượng âm thanh thành 85%
-    audioFrame.setVolumeValue(85.0);
-
-    pres.save("AudioFrameValue_out.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
-    pres.dispose();
-}
-```
-
-## **Quản Lý Phụ Đề Âm Thanh**
-
-Aspose.Slides cho phép bạn thêm phụ đề đóng vào khung âm thanh thông qua phương thức [getCaptionTracks](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Phương thức này trả về một [CaptionsCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/captionscollection/), cho phép bạn thêm các track phụ đề WebVTT, duyệt qua các track hiện có và xóa chúng khi cần.
-
-**Thêm Phụ Đề Âm Thanh**
-
-Sử dụng phương thức [getCaptionTracks](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/#getCaptionTracks) để gắn một hoặc nhiều track phụ đề vào khung âm thanh. Trong ví dụ sau, một tệp âm thanh được thêm vào slide, sau đó một track phụ đề mới được tải từ tệp `.vtt`.
-
-```js
-let presentation = new aspose.slides.Presentation();
-try {
-    let audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.mp3");
-    let audio = presentation.getAudios().addAudio(audioStream);
-    audioStream.close();
-
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio);
-
-    // Thêm một track phụ đề mới từ tệp WebVTT.
-    audioFrame.getCaptionTracks().add("New track", "track.vtt");
-
-    presentation.save("audio_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("AudioFrameEmbed_out.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-**Trích Xuất Phụ Đề Âm Thanh**
+## **Thay đổi hình thu nhỏ của khung âm thanh**
 
-Bạn có thể duyệt qua các track phụ đề liên kết với khung âm thanh và lưu chúng dưới dạng tệp `.vtt`. Mỗi track phụ đề cung cấp dữ liệu nhị phân và định danh duy nhất, có thể dùng khi xuất phụ đề.
+Mặc định, khung âm thanh hiển thị biểu tượng loa. Để hiển thị một hình thu nhỏ tùy chỉnh, thêm một hình ảnh vào bản trình bày bằng [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/#addImage) và đặt nó cho ảnh của khung bằng [setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage). Ví dụ sử dụng `eagle.jpeg` làm hình thu nhỏ cho đoạn âm thanh nhúng.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shapeCount = slide.getShapes().size();
-    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
-        let shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        const imageStream = java.newInstanceSync("java.io.FileInputStream", "eagle.jpeg");
+        try {
+            const thumbnail = presentation.getImages().addImage(imageStream);
+            audioFrame.getPictureFormat().getPicture().setImage(thumbnail);
+        } finally {
+            imageStream.close();
+        }
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("example_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Thay đổi tùy chọn phát âm thanh**
+
+Các điều khiển **Audio Options** của PowerPoint xác định khi nào một đoạn âm thanh bắt đầu, âm lượng của nó và cách nó hoạt động trong buổi trình chiếu.
+
+![Điều khiển Audio Options của PowerPoint cho một khung âm thanh](audio_frame_0.png)
+
+| Điều khiển PowerPoint | Phương thức Aspose.Slides for Node.js via Java |
+| --- | --- |
+| Bắt đầu | [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) |
+| Cài đặt âm lượng | [setVolume](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolume) |
+| Phát trên các slide | [setPlayAcrossSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayAcrossSlides) |
+| Lặp lại cho đến khi dừng | [setPlayLoopMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayLoopMode) |
+| Ẩn trong khi trình chiếu | [setHideAtShowing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setHideAtShowing) |
+| Quay lại sau khi phát | [setRewindAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setRewindAudio) |
+| Mờ dần vào | [setFadeInDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeInDuration) |
+| Mờ dần ra | [setFadeOutDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setFadeOutDuration) |
+| Cắt thời gian bắt đầu âm thanh | [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) |
+| Cắt thời gian kết thúc âm thanh | [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) |
+| Thanh trượt âm lượng | [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue) |
+
+Ví dụ tìm khung âm thanh đầu tiên trên slide đầu tiên, gọi [setPlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setPlayMode) để bắt đầu phát khi nhấp và chọn cài đặt âm lượng thấp. Đoạn âm thanh tiếp tục qua các slide với vòng lặp bị tắt. Biểu tượng được ẩn trong buổi trình chiếu và đoạn âm thanh quay lại sau khi phát.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
-            let audioFrame = shape;
-            let trackCount = audioFrame.getCaptionTracks().getCount();
-            for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
-                let captionTrack = audioFrame.getCaptionTracks().get_Item(trackIndex);
-                // Lưu track phụ đề thành tệp .vtt.
-                let filePath = captionTrack.getCaptionId() + ".vtt";
-                let captionData = Buffer.from(captionTrack.getBinaryData());
-                fs.writeFileSync(filePath, captionData);
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setPlayMode(slides.AudioPlayModePreset.OnClick);
+        audioFrame.setVolume(slides.AudioVolumeMode.Low);
+        audioFrame.setPlayAcrossSlides(true);
+        audioFrame.setPlayLoopMode(false);
+        audioFrame.setHideAtShowing(true);
+        audioFrame.setRewindAudio(true);
+        presentation.save("AudioFrameEmbed_changed.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Đối với đoạn âm thanh dài hơn 3,5 giây, ví dụ này bỏ qua 1,5 giây đầu và 2 giây cuối. [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) nhận thời lượng cần loại bỏ ở cuối đoạn. Để lấy thời gian kết thúc hiển thị trong PowerPoint, lấy tổng thời lượng trừ đi độ lệch này. Đoạn âm thanh đã cắt sẽ mờ dần vào trong 200 ms và mờ dần ra trong 500 ms. Bốn phương thức này đều nhận giá trị tính bằng mili giây.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        audioFrame.setTrimFromStart(1500);
+        audioFrame.setTrimFromEnd(2000);
+        audioFrame.setFadeInDuration(200);
+        audioFrame.setFadeOutDuration(500);
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("AudioFrameTrimFade_out.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Để đặt âm lượng phát lại ở một phần trăm cụ thể, sử dụng [setVolumeValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setVolumeValue). Ví dụ này đặt khung âm thanh đầu tiên trên slide đầu tiên ở mức 85 %.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("AudioFrameEmbed_out.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.setVolumeValue(85);
+        presentation.save("AudioFrameValue_out.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Quản lý phụ đề âm thanh**
+
+Mỗi khung âm thanh cung cấp quyền truy cập vào các track phụ đề của nó thông qua [getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getCaptionTracks). Sử dụng collection này để đính kèm phụ đề WebVTT vào đoạn, xuất các track hiện có hoặc xóa chúng.
+
+### **Thêm phụ đề âm thanh**
+
+Ví dụ nhúng một đoạn âm thanh vào slide đầu tiên và sử dụng [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#add) để đính kèm một track WebVTT cục bộ. Đối số đầu tiên cung cấp nhãn track, đối số thứ hai xác định tệp chứa phụ đề có thời gian.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "audio.wav");
+    try {
+        const audioFrame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audioStream);
+        audioFrame.getCaptionTracks().add("English", "track.vtt");
+    } finally {
+        audioStream.close();
+    }
+    presentation.save("audio_with_captions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Trích xuất phụ đề âm thanh**
+
+Ví dụ này xuất mỗi track phụ đề được gắn vào khung âm thanh trên slide đầu tiên. Nó ghi các byte trả về bởi [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getBinaryData) vào một tệp WebVTT và sử dụng định danh trả về bởi [getCaptionId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getCaptionId) làm tên tệp để mỗi track có một file đầu ra riêng.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("node:fs");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            const fileName = track.getCaptionId() + ".vtt";
+            const bytes = track.getBinaryData();
+            const data = Buffer.from(bytes);
+            fs.writeFileSync(fileName, data);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Xóa phụ đề âm thanh**
+
+Sử dụng [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) để xóa một track riêng lẻ. Ví dụ này dùng [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear) để xóa tất cả phụ đề khỏi khung âm thanh đầu tiên trên slide đầu tiên trong khi vẫn giữ đoạn âm thanh.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let audioFrame = null;
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            audioFrame = shape;
+            break;
+        }
+    }
+
+    if (audioFrame) {
+        audioFrame.getCaptionTracks().clear();
+        presentation.save("audio_without_captions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The first slide has no audio frame.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Tìm một dòng trong phụ đề âm thanh**
+
+Để tìm một dòng trong phụ đề âm thanh trên slide đầu tiên, tìm kiếm văn bản trả về bởi [getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) trong bộ nhớ. Trong một cue WebVTT dạng text thuần, dòng thời gian chứa `-->`, các dòng phụ đề nằm sau nó và một dòng trống kết thúc cue. Ví dụ này in nhãn track và mỗi dòng phụ đề chứa “café”.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("audio_with_captions.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.AudioFrame")) {
+            continue;
+        }
+        const tracks = shape.getCaptionTracks();
+        for (let k = 0; k < tracks.getCount(); k++) {
+            const track = tracks.get_Item(k);
+            let inCue = false;
+            const captions = track.getDataAsString();
+            for (const line of captions.split(/\r\n|\n|\r/)) {
+                if (line === "") {
+                    inCue = false;
+                } else if (line.includes("-->")) {
+                    inCue = true;
+                } else if (inCue && line.toLowerCase().includes("café")) {
+                    console.log(track.getLabel() + ": " + line);
+                }
             }
         }
     }
@@ -255,64 +325,39 @@ try {
 }
 ```
 
-**Xóa Phụ Đề Âm Thanh**
+## **Trích xuất âm thanh**
 
-Để xóa phụ đề khỏi khung âm thanh, sử dụng các phương thức do [CaptionsCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/captionscollection/) cung cấp, chẳng hạn như [clear](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/captionscollection/#remove) hoặc [removeAt](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/captionscollection/#removeAt). Ví dụ dưới đây xóa tất cả các track phụ đề khỏi khung âm thanh.
+Một chuyển tiếp slide có thể có âm thanh riêng. Để lấy nó, gọi [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSound) trên chuyển tiếp slide. Ví dụ truy cập các byte trả về bởi [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audio/#getBinaryData) và in số byte. Nếu slide đầu tiên không có âm thanh chuyển tiếp, nó sẽ in một thông báo thay thế.
 
-```js
-let presentation = new aspose.slides.Presentation("audio_with_captions.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("AudioSlide.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let audioFrame = slide.getShapes().get_Item(0); // loại: aspose.slides.AudioFrame
-
-    // Xóa tất cả các track phụ đề khỏi khung âm thanh.
-    audioFrame.getCaptionTracks().clear();
-
-    presentation.save("audio_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const sound = slide.getSlideShowTransition().getSound();
+    if (sound) {
+        const audioData = sound.getBinaryData();
+        console.log("Transition sound: " + audioData.length + " bytes.");
+    } else {
+        console.log("The first slide has no transition sound.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Trích Xuất Âm Thanh**
-
-Aspose.Slides for Node.js via Java cho phép bạn trích xuất âm thanh được sử dụng trong chuyển đổi trình chiếu. Ví dụ, bạn có thể trích xuất âm thanh được dùng trong một slide cụ thể.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) và tải bản trình chiếu chứa âm thanh.
-2. Lấy tham chiếu đến slide liên quan thông qua chỉ mục của nó.
-3. Truy cập đến [slideshow transitions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) của slide.
-4. Trích xuất âm thanh dưới dạng dữ liệu byte.
-
-Mã JavaScript này cho bạn thấy cách trích xuất âm thanh được sử dụng trong một slide:
-
-```javascript
-// Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu
-const pres = new aspose.slides.Presentation("AudioSlide.pptx");
-try {
-    // Truy cập slide mong muốn
-    const slide = pres.getSlides().get_Item(0);
-    // Lấy hiệu ứng chuyển đổi trình chiếu cho slide
-    const transition = slide.getSlideShowTransition();
-    // Trích xuất âm thanh dưới dạng mảng byte
-    const audio = transition.getSound().getBinaryData();
-    console.log("Length: " + audio.length);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
 ## **FAQ**
 
-**Tôi có thể tái sử dụng cùng một tài nguyên âm thanh trên nhiều slide mà không làm tăng kích thước tệp không?**
+**Tôi có thể sử dụng lại cùng một đoạn âm thanh trên nhiều slide mà không sao chép lại không?**
 
-Có. Thêm âm thanh một lần vào [audio collection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getaudios/) chung của bản trình chiếu và tạo các khung âm thanh bổ sung tham chiếu tới tài nguyên đã tồn tại. Điều này tránh việc sao chép dữ liệu media và giữ kích thước bản trình chiếu trong mức kiểm soát.
+Có. Thêm đoạn âm thanh một lần vào [audio collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getAudios) của bản trình bày và truyền cùng một đối tượng âm thanh vào [addAudioFrameEmbedded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAudioFrameEmbedded) cho mỗi slide.
 
-**Tôi có thể thay thế âm thanh trong một khung âm thanh hiện có mà không cần tạo lại shape không?**
+**Tôi có thể thay thế âm thanh trong một khung âm thanh hiện có không?**
 
-Có. Đối với âm thanh liên kết, cập nhật [link path](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/setlinkpathlong/) để trỏ tới tệp mới. Đối với âm thanh nhúng, hoán đổi đối tượng [embedded audio](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audioframe/setembeddedaudio/) bằng một đối tượng khác từ [audio collection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getaudios/) của bản trình chiếu. Định dạng khung và hầu hết các cài đặt phát vẫn được giữ nguyên.
+Có. Đối với âm thanh liên kết, dùng [setLinkPathLong](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setLinkPathLong) để chỉ tới tệp thay thế. Đối với âm thanh nhúng, chọn một đoạn khác từ audio collection của bản trình bày bằng [setEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setEmbeddedAudio). Cả hai cách đều bảo toàn khung hiện có.
 
-**Việc cắt giảm (trimming) có thay đổi dữ liệu âm thanh gốc được lưu trong bản trình chiếu không?**
+**Việc cắt đoạn có thay đổi dữ liệu âm thanh được lưu trong bản trình bày không?**
 
-Không. Việc cắt giảm chỉ điều chỉnh ranh giới phát. Các byte âm thanh gốc vẫn không bị thay đổi và có thể truy cập thông qua âm thanh nhúng hoặc audio collection của bản trình chiếu.
+Không. [setTrimFromStart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromStart) và [setTrimFromEnd](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#setTrimFromEnd) chỉ đặt giới hạn phát lại. Bạn vẫn có thể lấy đoạn âm thanh đầy đủ bằng [getEmbeddedAudio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/audioframe/#getEmbeddedAudio).

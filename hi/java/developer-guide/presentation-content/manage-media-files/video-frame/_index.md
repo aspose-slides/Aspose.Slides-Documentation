@@ -1,6 +1,6 @@
 ---
-title: जावा का उपयोग करके प्रस्तुतियों में वीडियो फ्रेम प्रबंधित करें
-linktitle: वीडियो फ्रेम
+title: जावा का प्रयोग करके प्रस्तुतियों में वीडियो फ़्रेम प्रबंधित करें
+linktitle: वीडियो फ़्रेम
 type: docs
 weight: 10
 url: /hi/java/video-frame/
@@ -10,28 +10,28 @@ keywords:
 - वीडियो एम्बेड करें
 - वीडियो निकालें
 - वीडियो प्राप्त करें
-- वीडियो फ्रेम
+- वीडियो फ़्रेम
 - वेब स्रोत
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रस्तुतीकरण
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ्रेम जोड़ने और निकालने के बारे में सीखें। तेज़ कैसे-करें गाइड।"
+description: "Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument स्लाइड्स में प्रोग्रामेटिक रूप से वीडियो फ़्रेम जोड़ना और निकालना सीखें। तेज़ कैसे‑करें गाइड."
 ---
 ## **परिचय**
 
-वीडियो विचारों को समझाने और दर्शकों को जुड़ाव प्रदान करने में मदद कर सकते हैं। Aspose.Slides for Java आपको स्लाइड्स में वीडियो फ्रेम जोड़ने, प्लेबैक सेटिंग्स समायोजित करने, कैप्शन प्रबंधित करने और एम्बेडेड वीडियो डेटा निकालने की सुविधा देता है।
+वीडियो विचारों को समझाने और दर्शकों को जोड़ने में मदद कर सकते हैं। Aspose.Slides for Java आपको स्लाइड्स में वीडियो फ़्रेम जोड़ने, प्लेबैक सेटिंग्स समायोजित करने, कैप्शन प्रबंधित करने और एम्बेडेड वीडियो डेटा निकालने की अनुमति देता है।
 
-PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो, जैसे YouTube वीडियो, के लिंक का समर्थन करता है।
+PowerPoint स्थानीय वीडियो और ऑनलाइन वीडियो के लिंक, जैसे YouTube वीडियो, का समर्थन करता है।
 
-वीडियो डेटा और वीडियो फ्रेम को दर्शाने के लिए, Aspose.Slides [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) इंटरफ़ेस, [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) इंटरफ़ेस, और अन्य संबंधित प्रकार प्रदान करता है।
+वीडियो डेटा और वीडियो फ़्रेम का प्रतिनिधित्व करने के लिए, Aspose.Slides [IVideo](https://reference.aspose.com/slides/java/com.aspose.slides/ivideo/) इंटरफ़ेस, [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) इंटरफ़ेस, और अन्य संबंधित प्रकार प्रदान करता है।
 
-## **एक एंबेडेड वीडियो फ्रेम बनाना**
+## **एक एम्बेडेड वीडियो फ़्रेम बनाएँ**
 
-यदि वह वीडियो फ़ाइल जिसे आप अपनी स्लाइड में जोड़ना चाहते हैं स्थानीय रूप से संग्रहीत है, तो आप प्रस्तुति में वीडियो एंबेड करने के लिए एक वीडियो फ्रेम बना सकते हैं।
+यदि आप जिस वीडियो फ़ाइल को अपनी स्लाइड में जोड़ना चाहते हैं वह स्थानीय रूप से संग्रहीत है, तो आप अपने प्रेज़ेंटेशन में वीडियो एम्बेड करने के लिए एक वीडियो फ़्रेम बना सकते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक स्थानीय वीडियो एंबेड करता है और परिणाम को सहेजता है। फ़्रेम के निर्देशांक और आयाम पॉइंट्स में हैं। स्ट्रीम सहेजने के पूर्ण होने तक खुला रहता है क्योंकि [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) प्रस्तुति द्वारा उपयोग किए जाने पर इसे लॉक रखता है।
+यह उदाहरण मौजूदा प्रेज़ेंटेशन की पहली स्लाइड पर स्थानीय वीडियो को एम्बेड करता है और परिणाम को सहेजता है। फ़्रेम निर्देशांक और आयाम पॉइंट्स में हैं। स्ट्रीम तब तक खुला रहता है जब तक सहेजना समाप्त नहीं हो जाता क्योंकि [LoadingStreamBehavior.KeepLocked](https://reference.aspose.com/slides/java/com.aspose.slides/loadingstreambehavior/) प्रस्तुति द्वारा उपयोग के दौरान इसे लॉक रखता है।
 
 ```java
 import com.aspose.slides.*;
@@ -50,7 +50,7 @@ try (FileInputStream videoStream = new FileInputStream("video.mp4")) {
 }
 ```
 
-आप स्थानीय वीडियो पथ को सीधे [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) को पास भी कर सकते हैं। यह उदाहरण नई प्रस्तुति की पहली स्लाइड पर वीडियो एंबेड करता है। वीडियो को तब तक सुलभ रहना चाहिए जब तक प्रस्तुति सहेजी नहीं जाती।
+आप स्थानीय वीडियो पथ को सीधे [addVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-java.lang.String-) को पास भी कर सकते हैं। यह उदाहरण नई प्रेज़ेंटेशन की पहली स्लाइड पर वीडियो को एम्बेड करता है। वीडियो को तब तक सुलभ रहना चाहिए जब तक प्रेज़ेंटेशन सहेजा नहीं जाता।
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-## **वेब स्रोत से वीडियो के साथ एक वीडियो फ्रेम बनाना**
+## **वेब स्रोत से वीडियो के साथ एक वीडियो फ़्रेम बनाएं**
 
-Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो का समर्थन करता है। आप एक वीडियो फ्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) प्रस्तुतियों में ऑनलाइन वीडियो का समर्थन करता है। आप एक वीडियो फ़्रेम बना सकते हैं जो ऑनलाइन वीडियो, जैसे YouTube वीडियो, से लिंक करता है।
 
-यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो के उपयोग के लिये वीडियो पहचानकर्ता को बदलें। [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) मेथड स्वचालित प्लेबैक का अनुरोध करता है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिये इंटरनेट कनेक्शन आवश्यक है। प्रस्तुति व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन होना चाहिए।
+यह उदाहरण पहली स्लाइड में एक YouTube वीडियो लिंक और थंबनेल जोड़ता है। किसी अन्य वीडियो का उपयोग करने के लिए वीडियो पहचानकर्ता बदलें। [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setPlayMode-int-) मेथड स्वचालित प्लेबैक का अनुरोध करता है। थंबनेल डाउनलोड करने और वीडियो चलाने के लिए इंटरनेट एक्सेस आवश्यक है। प्रेज़ेंटेशन व्यूअर को भी ऑनलाइन वीडियो प्लेबैक का समर्थन करना चाहिए।
 
 ```java
 import com.aspose.slides.*;
@@ -102,9 +102,9 @@ try {
 
 ## **पूर्ण-स्क्रीन मोड में वीडियो चलाएँ**
 
-एक ट्रेनिंग प्रस्तुति में, आप सॉफ्टवेयर डेमॉन्स्ट्रेशन को पूर्ण-स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए `true` के साथ [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) को कॉल करें।
+एक प्रशिक्षण प्रस्तुति में, आप सॉफ़्टवेयर डेमोंस्ट्रेशन को पूर्ण-स्क्रीन मोड में चला सकते हैं ताकि दर्शक विवरण देख सकें। प्लेबैक के दौरान इस व्यवहार को सक्षम करने के लिए `true` के साथ [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) को कॉल करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) खोजता है, और पूर्ण-स्क्रीन प्लेबैक सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौजूदा वीडियो फ्रेम हो।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) खोजता है, और पूर्ण-स्क्रीन प्लेबैक को सक्षम करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर एक मौजूदा वीडियो फ़्रेम हो।
 
 ```java
 import com.aspose.slides.*;
@@ -127,13 +127,13 @@ try {
 }
 ```
 
-पूर्ण-स्क्रीन प्लेबैक निर्धारित करता है कि वीडियो कैसे प्रदर्शित होता है। स्वतंत्र रूप से, [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) नियंत्रित करता है कि यह स्वचालित रूप से शुरू हो या क्लिक पर, और [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) नियंत्रित करता है कि यह दोहराए या नहीं। प्रारंभ व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा प्रारंभ और लूप सेटिंग को बरकरार रखता है।
+पूर्ण-स्क्रीन प्लेबैक नियंत्रित करता है कि वीडियो कैसे प्रदर्शित होता है। अलग से, [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) नियंत्रित करता है कि वह स्वचालित रूप से या क्लिक पर शुरू हो, और [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) नियंत्रित करता है कि वह दोहराए या नहीं। शुरूआती व्यवहार चुनने के लिए, प्लेबैक मोड को [VideoPlayModePreset.Auto or VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) पर सेट करें। उदाहरण मौजूदा शुरूआती और लूप सेटिंग को बरकरार रखता है।
 
 ## **प्लेबैक के बाद वीडियो को रीवाइंड करें**
 
-एक ट्रेनिंग प्रस्तुति में, डेमॉन्स्ट्रेशन वीडियो को उसकी शुरुआत पर लौटाना इसे फिर से चलाने के लिये तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरू में लौटाने के लिए `true` के साथ [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) को कॉल करें।
+एक प्रशिक्षण प्रस्तुति में, डेमोंस्ट्रेशन वीडियो को उसकी शुरुआत में लौटाना इसे प्रस्तुतकर्ता द्वारा फिर से चलाने के लिए तैयार करता है। प्लेबैक समाप्त होने के बाद वीडियो को शुरुआत में लौटाने के लिए `true` के साथ [setRewindVideo](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setRewindVideo-boolean-) को कॉल करें।
 
-यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) खोजता है, और रीवाइंडिंग सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू होने के लिये सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौजूदा वीडियो फ्रेम हो।
+यह उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर पहला [IVideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/) खोजता है, और रीवाइंड सक्षम करता है। यह लूपिंग को निष्क्रिय करता है ताकि प्लेबैक समाप्त हो सके और प्लेबैक को क्लिक पर शुरू करने के लिए सेट करता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए जिसमें पहली स्लाइड पर मौजूदा वीडियो फ़्रेम हो।
 
 ```java
 import com.aspose.slides.*;
@@ -158,15 +158,15 @@ try {
 }
 ```
 
-रीवाइंडिंग वीडियो को उसकी शुरुआत पर लौटा देता है बिना उसे फिर से शुरू किए। इसके विपरीत, `true` के साथ [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) को कॉल करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और पुनः चलाने के लिए तैयार रहे, तो लूपिंग को निष्क्रिय रखें। [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) स्वतंत्र रूप से स्वचालित या क्लिक पर शुरूआत को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुतकर्ता नियंत्रण कर सके कि प्लेबैक कब शुरू हो। जैसा कि उदाहरण में दिखाया गया है, लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) से स्वतंत्र रूप से कार्य करता है।
+रीवाइंडिंग वीडियो को फिर से शुरू किए बिना उसकी शुरुआत में ले जाता है। इसके विपरीत, `true` के साथ [setPlayLoopMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) को कॉल करने से प्लेबैक स्वचालित रूप से दोहराया जाता है। जब आप चाहते हैं कि वीडियो समाप्त हो और पुनः चलाने के लिए तैयार रहे, तो लूपिंग को निष्क्रिय रखें। [setPlayMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) स्वतंत्र रूप से स्वचालित या क्लिक पर शुरूआत को नियंत्रित करता है; यह उदाहरण [VideoPlayModePreset.OnClick](https://reference.aspose.com/slides/java/com.aspose.slides/videoplaymodepreset/) का उपयोग करता है ताकि प्रस्तुतकर्ता तय कर सके कि प्लेबैक कब शुरू हो। उदाहरण में दिखाए अनुसार लूप सेटिंग के बाद प्लेबैक मोड सेट करें। रीवाइंडिंग [setFullScreenMode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setFullScreenMode-boolean-) से स्वतंत्र रूप से कार्य करता है।
 
-## **वीडियो फ्रेम को ट्रिम करें**
+## **वीडियो फ़्रेम को ट्रिम करें**
 
-[IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) और [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) का उपयोग करके आप प्लेबैक के दौरान वीडियो की शुरुआत या अंत का हिस्सा छोड़ सकते हैं। दोनों मान मिलीसेकंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स को बदलती है।
+[IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) और [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-) का उपयोग करके प्लेबैक के दौरान वीडियो की शुरुआत या अंत के भाग को छोड़ सकते हैं। दोनों मान मिलिसेकंड में होते हैं। ट्रिमिंग एम्बेडेड वीडियो डेटा को बदले बिना प्लेबैक सेटिंग्स को बदलता है।
 
 **ट्रिम सेटिंग्स निर्धारित करें**
 
-यह उदाहरण एक स्थानीय वीडियो एंबेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम सेकंड को छोड़ देता है। एक 3.5 सेकंड से अधिक लंबा वीडियो उपयोग करें ताकि एक चलाने योग्य हिस्सी बचा रहे।
+यह उदाहरण एक स्थानीय वीडियो को एम्बेड करता है और प्लेबैक के दौरान पहले 2.5 सेकंड और अंतिम एक सेकंड को छोड़ देता है। एक 3.5 सेकंड से लंबा वीडियो उपयोग करें ताकि एक चलने योग्य भाग बना रहे।
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +194,7 @@ try {
 
 **ट्रिम सेटिंग्स पढ़ें**
 
-यह उदाहरण पहली स्लाइड पर पहले वीडियो फ्रेम के ट्रिम मानों को मिलीसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में कोई वीडियो फ्रेम नहीं है, तो कुछ नहीं प्रिंट होता। पूर्ववर्ती उदाहरण 2500 और 1000 मान उत्पन्न करता है।
+यह उदाहरण पहली स्लाइड पर पहले वीडियो फ़्रेम के ट्रिम मानों को मिलिसेकंड में प्रिंट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए। यदि उस स्लाइड में कोई वीडियो फ़्रेम नहीं है, तो कुछ नहीं प्रिंट होगा। पिछला उदाहरण 2500 और 1000 मान उत्पन्न करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 
 ## **वीडियो कैप्शन प्रबंधित करें**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ्रेम के लिए क्लोज्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) मेथड के माध्यम से उपलब्ध होते हैं।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में वीडियो फ़्रेम के लिए क्लोज्ड कैप्शन प्रबंधित करने की अनुमति देता है। कैप्शन WebVTT फ़ॉर्मेट में संग्रहीत होते हैं और [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) मेथड के माध्यम से उपलब्ध होते हैं।
 
-**वीडियो फ्रेम में कैप्शन जोड़ें**
+### **वीडियो फ़्रेम में कैप्शन जोड़ें**
 
-यह उदाहरण एक स्थानीय वीडियो एंबेड करता है और English लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो के साथ मेल खाने चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल होते हैं।
+यह उदाहरण एक स्थानीय वीडियो को एम्बेड करता है और English लेबल वाला WebVTT कैप्शन ट्रैक जोड़ता है। कैप्शन टाइमस्टैम्प वीडियो से मेल खाने चाहिए। सहेजी गई प्रस्तुति में वीडियो और उसके कैप्शन दोनों शामिल होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) इंटरफ़ेस भी एक ओवरलोड प्रदान करता है जिससे आप स्ट्रीम से कैप्शन जोड़ सकते हैं।
+[ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) इंटरफ़ेस भी एक ओवरलोड प्रदान करता है जो आपको स्ट्रीम से कैप्शन जोड़ने की अनुमति देता है।
 
-**वीडियो फ्रेम से कैप्शन निकालें**
+### **वीडियो फ़्रेम से कैप्शन निकालें**
 
-यह उदाहरण पहली स्लाइड पर वीडियो फ्रेम से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फ़ाइलों के रूप में सहेजता है। क्रमिक संख्याएँ आउटपुट फ़ाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैकों की संख्या दर्शाता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+यह उदाहरण पहली स्लाइड पर वीडियो फ़्रेम से सभी कैप्शन ट्रैक को अलग-अलग WebVTT फाइलों के रूप में सहेजता है। क्रमिक संख्याएँ आउटपुट फाइलों को अलग रखती हैं। कंसोल निकाले गए ट्रैकों की संख्या रिपोर्ट करता है। प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```java
 import com.aspose.slides.*;
@@ -283,9 +283,9 @@ try {
 
 प्रत्येक [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) ऑब्जेक्ट कैप्शन पहचानकर्ता, लेबल, बाइनरी डेटा, और कैप्शन टेक्स्ट को UTF-8 स्ट्रिंग के रूप में उजागर करता है।
 
-**वीडियो फ्रेम से कैप्शन हटाएँ**
+### **वीडियो फ़्रेम से कैप्शन हटाएँ**
 
-यह उदाहरण पहली स्लाइड पर प्रथम आकार स्थिति में मौजूद वीडियो फ्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार वीडियो फ्रेम है।
+यह उदाहरण पहली स्लाइड पर पहले शेप पोजीशन के वीडियो फ़्रेम से सभी कैप्शन हटाता है और परिणाम सहेजता है। यह मानता है कि स्लाइड और शेप मौजूद हैं और शेप एक वीडियो फ़्रेम है।
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,78 @@ try {
 }
 ```
 
-यदि आपको केवल एक ही कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) की बजाय [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) या [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) मेथड का उपयोग करें।
+यदि आपको केवल एक कैप्शन ट्रैक हटाना है, तो [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--) के बजाय [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) या [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) मेथड का उपयोग करें।
+
+### **वीडियो कैप्शन खोजें**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) पूर्ण WebVTT ट्रैक लौटाता है, जिसमें हेडर, टाइमिंग लाइन्स और कैप्शन टेक्स्ट शामिल होते हैं। आप मेमोरी में क्यूज़ को खोज कर बोले हुए वाक्य और उसका टाइमस्टैम्प पा सकते हैं। उदाहरण के तौर पर, स्लाइड 2 पर एक English ट्रैक में निम्नलिखित टेक्स्ट हो सकता है।
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+उदाहरण `captioned_media.pptx` खोलता है और प्रत्येक स्लाइड पर प्रत्येक टॉप-लेवल वीडियो फ़्रेम के ट्रैकों को पढ़ने के लिए [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) का उपयोग करता है। एक प्लेन-टेक्स्ट क्यू में, टाइमिंग लाइन में `-->` होता है, और एक खाली लाइन क्यू को समाप्त करती है। जब कैप्शन में कोई भी केस में “café” होता है, तो उदाहरण स्लाइड नंबर, ट्रैक लेबल, मूल टाइमिंग लाइन और पूर्ण कैप्शन को प्रिंट करता है।
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+“café” की खोज से सैंपल ट्रैक के लिए एक मिलान प्राप्त होता है। खोज ट्रैक हेडर को बाहर रखती है और आउटपुट में टाइमिंग सेटिंग को संरक्षित रखती है।
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **स्लाइड से वीडियो निकालें**
 
-स्लाइड पर वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एंबेडेड वीडियो निकालने की सुविधा देता है।
+स्लाइड्स में वीडियो जोड़ने के अलावा, Aspose.Slides आपको प्रस्तुतियों में एम्बेडेड वीडियो निकालने की अनुमति देता है।
 
-यह उदाहरण प्रत्येक स्लाइड से एंबेडेड वीडियो को अलग-अलग, क्रमांकित बाइनरी फ़ाइलों में निकालता है। लिंक्ड वीडियो को छोड़ दिया जाता है क्योंकि उनमें एंबेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME प्रकार और कुल संख्या प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता पड़ने पर इसे रिपोर्ट किए गए मीडिया प्रकार से मेल खाने के लिए बदलें।
+यह उदाहरण हर स्लाइड से एम्बेडेड वीडियो को अलग-अलग, क्रमांकित बाइनरी फाइलों में निकालता है। लिंक किए गए वीडियो को छोड़ दिया जाता है क्योंकि उनके पास एम्बेडेड डेटा नहीं होता। कंसोल प्रत्येक वीडियो का MIME प्रकार और कुल गिनती प्रिंट करता है। आउटपुट सामान्य `.bin` एक्सटेंशन का उपयोग करता है; आवश्यकता अनुसार रिपोर्टेड मीडिया प्रकार से मिलाने के लिए इसे बदलें।
 
 ```java
 import com.aspose.slides.*;
@@ -346,18 +411,18 @@ try {
 
 ## **FAQ**
 
-**एक वीडियो फ्रेम के लिए कौन से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
+**एक वीडियो फ़्रेम के लिए कौन से वीडियो प्लेबैक पैरामीटर बदले जा सकते हैं?**
 
-आप [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) ऑब्जेक्ट की मेथड्स के माध्यम से उपलब्ध हैं।
+आप [playback mode](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayMode-int-) (ऑटो या क्लिक पर) और [looping](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-) को नियंत्रित कर सकते हैं। ये विकल्प [VideoFrame](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/) ऑब्जेक्ट के मेथड्स के माध्यम से उपलब्ध हैं।
 
-**क्या वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है?**
+**वीडियो जोड़ने से PPTX फ़ाइल आकार प्रभावित होता है क्या?**
 
-हाँ। जब आप एक स्थानीय वीडियो एंबेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल के आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो को लिंक करते हैं और एक थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को संग्रहीत करती है, न कि वीडियो डेटा, इसलिए आकार वृद्धि आमतौर पर कम होती है।
+हां। जब आप स्थानीय वीडियो एम्बेड करते हैं, तो बाइनरी डेटा दस्तावेज़ में शामिल हो जाता है, इसलिए प्रस्तुति का आकार फ़ाइल आकार के अनुपात में बढ़ता है। जब आप ऑनलाइन वीडियो से लिंक करते हैं और थंबनेल जोड़ते हैं, तो प्रस्तुति लिंक और प्रीव्यू इमेज को स्टोर करती है, न कि वीडियो डेटा को, इसलिए आकार वृद्धि आमतौर पर छोटी होती है।
 
-**क्या मैं मौजूदा वीडियो फ्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
+**क्या मैं मौजूदा वीडियो फ़्रेम में वीडियो को उसकी स्थिति और आकार बदले बिना बदल सकता हूँ?**
 
-हाँ। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) को बदल सकते हैं जबकि आकार की ज्यामिति को बरकरार रखते हैं; यह मौज़ूदा लेआउट में मीडिया को अपडेट करने का सामान्य परिदृश्य है।
+हां। आप फ्रेम के भीतर [video content](https://reference.aspose.com/slides/java/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) को बदल सकते हैं जबकि शेप के आकार को संरक्षित रखते हैं; यह मौजूदा लेआउट में मीडिया अपडेट करने का आम परिदृश्य है।
 
-**क्या एंबेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
+**क्या एम्बेडेड वीडियो का कंटेंट टाइप (MIME) निर्धारित किया जा सकता है?**
 
-हाँ। एंबेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) होता है जिसे आप पढ़ और उपयोग कर सकते हैं, उदाहरण के लिए जब इसे डिस्क पर सहेजा जाता है।
+हां। एम्बेडेड वीडियो का एक [content type](https://reference.aspose.com/slides/java/com.aspose.slides/video/#getContentType--) होता है जिसे आप पढ़ सकते हैं और उपयोग कर सकते हैं, उदाहरण के तौर पर जब आप इसे डिस्क पर सहेजते हैं।
