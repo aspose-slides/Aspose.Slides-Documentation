@@ -284,7 +284,7 @@ presentation->Dispose();
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/) method.
 
-**Add Captions to a Video Frame**
+### **Add Captions to a Video Frame**
 
 This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
@@ -319,7 +319,7 @@ presentation->Dispose();
 
 The [ICaptionsCollection](https://reference.aspose.com/slides/cpp/aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
 
-**Extract Captions from a Video Frame**
+### **Extract Captions from a Video Frame**
 
 This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
@@ -365,7 +365,7 @@ presentation->Dispose();
 
 Each [ICaptions](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**Remove Captions from a Video Frame**
+### **Remove Captions from a Video Frame**
 
 This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
@@ -393,6 +393,83 @@ presentation->Dispose();
 ```
 
 If you need to remove only one caption track, use the [Remove](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/remove/) or [RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/removeat/) methods instead of [Clear](https://reference.aspose.com/slides/cpp/aspose.slides/captionscollection/clear/).
+
+### **Search Video Captions**
+
+[ICaptions::get_DataAsString](https://reference.aspose.com/slides/cpp/aspose.slides/icaptions/get_dataasstring/) returns the complete WebVTT track, including the header, timing lines, and caption text. To find a spoken phrase and its timestamp, read the cues in memory. For example, an English track on slide 2 might contain the following text:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+The example opens `captioned_media.pptx` and reads the caption tracks of each top-level video frame on every slide using [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/cpp/aspose.slides/ivideoframe/get_captiontracks/). In a plain-text cue, the timing line contains `-->` and a blank line ends the cue. When the caption contains “café”, the example prints the slide number, track label, original timing line, and full caption. The search ignores case.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/ICaptionsCollection.h>
+#include <DOM/ICaptions.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/string_reader.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"captioned_media.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : IterateOver(slide->get_Shapes()))
+    {
+        auto videoFrame = AsCast<IVideoFrame>(shape);
+        if (!videoFrame)
+            continue;
+
+        for (auto&& track : IterateOver(videoFrame->get_CaptionTracks()))
+        {
+            auto reader = MakeObject<StringReader>(track->get_DataAsString());
+            for (auto timing = reader->ReadLine(); !timing.IsNull(); timing = reader->ReadLine())
+            {
+                if (!timing.Contains(u"-->"))
+                    continue;
+
+                String caption;
+                for (auto line = reader->ReadLine(); !String::IsNullOrEmpty(line); line = reader->ReadLine())
+                {
+                    if (!String::IsNullOrEmpty(caption))
+                        caption += u"\n";
+                    caption += line;
+                }
+
+                if (caption.IndexOf(u"caf\u00E9", StringComparison::OrdinalIgnoreCase) >= 0)
+                {
+                    Console::WriteLine(String::Format(u"Slide {0} | {1} | {2}", slide->get_SlideNumber(), track->get_Label(), timing));
+                    Console::WriteLine(caption);
+                }
+            }
+        }
+    }
+}
+presentation->Dispose();
+```
+
+Searching for “café” produces one match for the sample track. The search skips the header and preserves the timing setting in the output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extract Video from a Slide**
 
