@@ -926,6 +926,47 @@ finally:
     presentation.dispose()
 ```
 
+### **Copy Language Metadata**
+
+When copying multilingual text from a template, preserve both [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getLanguageId) and [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). The following self-contained example creates a source portion with US English as its language and French as its alternative language and copies the text and identifiers to a portion in a new presentation.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Portion, Presentation, SaveFormat, ShapeType
+
+source = Portion("Hello! Bonjour!")
+source.getPortionFormat().setLanguageId("en-US")
+source.getPortionFormat().setAlternativeLanguageId("fr-FR")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80)
+    paragraph = shape.getTextFrame().getParagraphs().get_Item(0)
+    paragraph.getPortions().clear()
+
+    destination = Portion()
+    destination.setText(source.getText())
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId())
+    # If the source has no alternative language, None clears the destination value.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId())
+    paragraph.getPortions().add(destination)
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+To try a source without an alternative language, omit the assignment of `"fr-FR"`. The alternative identifier is then `None`, and the same copy statement preserves its absence without introducing a default value, even if the destination previously had an alternative language assigned.
+
+These identifiers are stored language metadata. Preserving them does not establish which dictionary PowerPoint selects for spelling or grammar checks.
+
 ## **Set Default Language**
 
 Use [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.

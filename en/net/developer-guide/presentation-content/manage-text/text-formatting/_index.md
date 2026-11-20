@@ -770,6 +770,39 @@ paragraph.Portions.Add(textPortion);
 presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 ```
 
+### **Copy Language Metadata**
+
+When copying multilingual text from a template, preserve both [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) and [IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/). The following self-contained example creates a source portion with US English as its language and French as its alternative language and copies the text and identifiers to a portion in a new presentation.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new Portion("Hello! Bonjour!");
+source.PortionFormat.LanguageId = "en-US";
+source.PortionFormat.AlternativeLanguageId = "fr-FR";
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 80);
+var paragraph = shape.TextFrame.Paragraphs[0];
+paragraph.Portions.Clear();
+
+var destination = new Portion();
+destination.Text = source.Text;
+destination.PortionFormat.LanguageId = source.PortionFormat.LanguageId;
+// If the source has no alternative language, null clears the destination value.
+destination.PortionFormat.AlternativeLanguageId = source.PortionFormat.AlternativeLanguageId;
+paragraph.Portions.Add(destination);
+
+presentation.Save("copied_language_metadata.pptx", SaveFormat.Pptx);
+```
+
+To try a source without an alternative language, omit the assignment of `"fr-FR"`. The alternative identifier is then `null`, and the same copy statement preserves its absence without introducing a default value, even if the destination previously had an alternative language assigned.
+
+These identifiers are stored language metadata. Preserving them does not establish which dictionary PowerPoint selects for spelling or grammar checks.
+
 ## **Set Default Language**
 
 Use [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.
