@@ -1144,6 +1144,52 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Copy Language Metadata**
+
+When copying multilingual text from a template, preserve both language identifiers using [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) and [IBasePortionFormat::set_AlternativeLanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_alternativelanguageid/). The following self-contained example creates a source portion with US English as its language and French as its alternative language and copies the text and identifiers to a portion in a new presentation.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto source = System::MakeObject<Portion>(u"Hello! Bonjour!");
+source->get_PortionFormat()->set_LanguageId(u"en-US");
+source->get_PortionFormat()->set_AlternativeLanguageId(u"fr-FR");
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 80.0f);
+auto paragraph = shape->get_TextFrame()->get_Paragraph(0);
+paragraph->get_Portions()->Clear();
+
+auto destination = System::MakeObject<Portion>();
+destination->set_Text(source->get_Text());
+destination->get_PortionFormat()->set_LanguageId(source->get_PortionFormat()->get_LanguageId());
+// If the source has no alternative language, a null string clears the destination value.
+destination->get_PortionFormat()->set_AlternativeLanguageId(source->get_PortionFormat()->get_AlternativeLanguageId());
+paragraph->get_Portions()->Add(destination);
+
+presentation->Save(u"copied_language_metadata.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+To try a source without an alternative language, omit the assignment of `u"fr-FR"`. The alternative identifier is then a null string, and the same copy statement preserves its absence without introducing a default value, even if the destination previously had an alternative language assigned.
+
+These identifiers are stored language metadata. Preserving them does not establish which dictionary PowerPoint selects for spelling or grammar checks.
+
 ## **Set Default Language**
 
 Use [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.

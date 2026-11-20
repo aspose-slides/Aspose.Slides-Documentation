@@ -719,6 +719,38 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Copy Language Metadata**
+
+When copying multilingual text from a template, preserve both [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) and [BasePortionFormat.alternative_language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/alternative_language_id/). The following self-contained example creates a source portion with US English as its language and French as its alternative language and copies the text and identifiers to a portion in a new presentation.
+
+```python
+import aspose.slides as slides
+
+source = slides.Portion("Hello! Bonjour!")
+source.portion_format.language_id = "en-US"
+source.portion_format.alternative_language_id = "fr-FR"
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 80)
+    paragraph = shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    destination = slides.Portion()
+    destination.text = source.text
+    destination.portion_format.language_id = source.portion_format.language_id
+    # If the source has no alternative language, None clears the destination value.
+    destination.portion_format.alternative_language_id = source.portion_format.alternative_language_id
+    paragraph.portions.add(destination)
+
+    presentation.save("copied_language_metadata.pptx", slides.export.SaveFormat.PPTX)
+```
+
+To try a source without an alternative language, omit the assignment of `"fr-FR"`. The alternative identifier is then `None`, and the same copy statement preserves its absence without introducing a default value, even if the destination previously had an alternative language assigned.
+
+These identifiers are stored language metadata. Preserving them does not establish which dictionary PowerPoint selects for spelling or grammar checks.
+
 ## **Set Default Language**
 
 Use [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.
