@@ -1,5 +1,5 @@
 ---
-title: تنسيق نص العرض التقديمي في بايثون
+title: تنسيق نص العرض التقديمي في Python
 linktitle: تنسيق النص
 type: docs
 weight: 50
@@ -15,33 +15,33 @@ keywords:
 - دوران النص
 - زاوية الدوران
 - إطار النص
-- تباعد السطر
-- خاصية الملاءمة التلقائية
-- تثبيت إطار النص
+- تباعد الأسطر
+- خاصية الضبط التلقائي
+- مرساة إطار النص
 - تبويب النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - Python
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للبايثون عبر .NET. قم بتخصيص الخطوط والألوان والمحاذاة والمزيد."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر .NET. خصّص الخطوط والألوان والمحاذاة وغيرها."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Python عبر .NET. تغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، علامات التبويب، وإعدادات اللغة.
+تُظهر هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر .NET. تشمل المواضيع ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الضبط التلقائي، تثبيت النص، نقاط التبويب، وإعدادات اللغة.
 
-ما لم يذكر غير ذلك، تستخدم الأمثلة [sample.pptx](sample.pptx). الشكل الأول في الشريحة الأولى هو مربع نص، والفقرة الأولى فيه تحتوي على النص الموضح أدناه. كل من مؤشرات الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تختار أجزاءً غامقة تستخدم تنسيقًا فعالًا، بما في ذلك التنسيق الغامق الموروث:
+ما لم يُذكر خلاف ذلك، تستخدم الأمثلة الملف [sample.pptx](sample.pptx). الشكل الأول في الشريحة الأولى هو مربع نص، وفقرةه الأولى تحتوي على النص المعروض أدناه. كل من فهارس الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تحدد أجزاء غامقة تستخدم التنسيق الفعَّال، بما في ذلك التنسيق الغامق الموروث:
 
-![نص عيني](sample_text.png)
+![نص عينة](sample_text.png)
 
-للعثور على نص حرفي أو مطابقة تعبيرات نمطية وتسليط الضوء عليها، راجع [بحث واستبدال النص](/slides/ar/python-net/search-and-replace-text/).
+للعثور على نص حرفي أو مطابقة تعبير عادي وتظليله، راجع [بحث واستبدال النص](/slides/ar/python-net/search-and-replace-text/).
 
 ## **تعيين لون خلفية النص**
 
-استخدم [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) لتعيين لون التظليل الافتراضي للفقرة، أو استخدم [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) لأجزاء النص الفردية.
+استخدم [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) لأجزاء النص الفردية.
 
-المثال التالي يحدد تظليلًا رماديًا فاتحًا كإعداد افتراضي للفقرة الأولى. ألوان التظليل الصريحة على الأجزاء الفردية لها أولوية أعلى من هذا الإعداد الافتراضي:
+المثال التالي يضبط تظليل رمادي فاتح كافتراضي للفقرة الأولى. تُعرَف ألوان التظليل الصريحة على الأجزاء الفردية أولوية على هذا الافتراضي:
 
 ```python
 import aspose.pydrawing as draw
@@ -63,7 +63,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![الفقرة الرمادية](gray_paragraph.png)
 
-المثال البرمجي أدناه يوضح كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط الغامق**:
+المثال البرمجي أدناه يوضح كيفية ضبط لون الخلفية **لأجزاء النص ذات الخط الغامق**:
 
 ```python
 import aspose.pydrawing as draw
@@ -89,7 +89,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **محاذاة فقرات النص**
 
-استخدم [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، محاذاة إلى اليسار، إلى اليمين، مبررة، إلخ.
+استخدم [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزة، مُحاذاة إلى اليسار، إلى اليمين، مبررة، وما إلى ذلك.
 
 المثال البرمجي التالي يوضح كيفية محاذاة الفقرة إلى **المركز**:
 
@@ -110,13 +110,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 النتيجة:
 
-![الفقرة المحاذاة إلى المركز](aligned_paragraph.png)
+![الفقرة المحاذاة](aligned_paragraph.png)
 
 ## **محاذاة الخطوط داخل السطر**
 
-استخدم [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) لمحاذاة أجزاء النص ذات أحجام الخط المختلفة عموديًا داخل السطر. ينطبق هذا الإعداد على الفقرة بأكملها ويتحكم في المحاذاة داخل كل سطر منها.
+استخدم [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) لمحاذاة أجزاء النص ذات أحجام الخط المختلفة رأسياً داخل السطر. يُطبق هذا الإعداد على الفقرة بأكملها ويتحكم في المحاذاة داخل كل سطر فيها.
 
-المثال التالي المستقل ينشئ أربع صناديق نصية معنونة على شريحة واحدة. كل فقرة تحتوي على نفس النص بحجم 18، 36، و54 نقطة، مع محاذاة خط مختلفة. يستخدم الخط Arial، ويعطل الملاءمة التلقائية واللف، ويجعل إطارات النص كبيرة بما يكفي لسطر واحد.
+المثال التالي يُنشئ أربعة مربعات نص مُسماة على شريحة واحدة. كل فقرة تحتوي على نفس النص بحجم 18، 36، و54 نقطة، مع محاذاة خط مختلفة. يستخدم الخط Arial، ويعطل الضبط التلقائي واللفات، ويُبقي إطارات النص كبيرة بما يكفي لسطر واحد.
 
 ```python
 import aspose.pydrawing as draw
@@ -165,17 +165,17 @@ with slides.Presentation() as presentation:
 
 النتيجة:
 
-![مقارنة بين محاذاة القاع، الأعلى، الوسط، والخط الأساسي مع أحجام خطوط مختلطة](font_alignment.png)
+![مقارنة محاذاة Baseline, Top, Center, وBottom مع أحجام خطوط مختلطة](font_alignment.png)
 
-محاذاة الخط تستخدم مقاييس الخط، لذلك قد لا تتطابق حواف الحروف الفردية بالضبط. يتضمن المثال حرفًا كبيرًا وحرفًا منخفضًا لتوضيح الفرق بين المحاذاة القاعدية والسفلية. تتأثر النتيجة بتوفر الخط وبدائله، الأحرف المستخدمة، واختلاف أحجام الخطوط. أبعاد الإطار، الهوامش، تباعد الأسطر، اللف، والملاءمة التلقائية تؤثر أيضًا على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند المقارنة بين الأنماط.
+تستخدم محاذاة الخط مقاييس الخط، لذا قد لا تتطابق حواف الحروف الفردية بالضبط. يتضمن المثال حرفاً كبيراً وحرفًا منخفضًا لتوضيح الفرق بين محاذاة القاعدة والسفلي. تؤثر توفر الخطوط والاستبدال، الأحرف المستخدمة، واختلاف أحجام الخطوط على النتيجة. كما تؤثر أبعاد الإطار، الهوامش، تباعد الأسطر، اللف، والضبط التلقائي على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند مقارنة الأوضاع.
 
-يختلف هذا الإعداد عن [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/)، الذي يتحكم في محاذاة الفقرة أفقياً، وعن [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/)، الذي يحدد موضع كتلة النص عموديًا داخل الشكل. تنسيق السوبراسسكريبت والسوبسسكريبت عبر [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) يحرك الأجزاء الفردية نسبةً إلى الخط القاعدي بدلاً من تعيين محاذاة الخط لأسطر الفقرة.
+يختلف هذا الإعداد عن [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/)، الذي يتحكم في المحاذاة الأفقية للفقرة، و[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/)، الذي يضع كتلة النص عمودياً داخل الشكل. يغيّر تنسيق الفوقية والسفلية عبر [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) أجزاء النص بالنسبة للقاعدة بدلاً من ضبط محاذاة الخط لسطر الفقرة.
 
-## **تعيين الشفافية للنص**
+## **تعيين شفافية النص**
 
-تتحكم شفافية النص من خلال مكوّن ألفا للون المعيّن إلى [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة الشفافية.
+تُتحكم شفافية النص عبر مكوّن ألفا للون المعيّن إلى [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-المثال البرمجي التالي يوضح كيفية تطبيق الشفافية على **الفقرة بأكملها**:
+المثال البرمجي التالي يُظهر كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```python
 import aspose.pydrawing as draw
@@ -189,7 +189,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # تعيين تعبئة سوداء شبه شفافة للنص.
+    # تعيين تعبئة سوداء نصف شفافة للنص.
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
@@ -200,7 +200,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-المثال البرمجي التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغامق**:
+المثال التالي يُظهر كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغامق**:
 
 ```python
 import aspose.pydrawing as draw
@@ -229,9 +229,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **تعيين تباعد الأحرف للنص**
 
-استخدم [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) لتوسيع أو تقليل التباعد بين الأحرف في مربع نص. تُضيف الأمثلة 3 نقاط من التباعد؛ القيم السالبة تقرّب النص.
+استخدم [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) لتوسيع أو تضييق التباعد بين الأحرف في مربع نص. تُضيف الأمثلة 3 نقاط تباعد؛ القيم السالبة تضيق النص.
 
-الكود التالي في بايثون يوضح كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+المثال البرمجي التالي يُظهر كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
 
 ```python
 import aspose.slides as slides
@@ -242,7 +242,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # ملاحظة: استخدم قيمًا سالبة لتقليل تباعد الأحرف.
+    # ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
     paragraph.paragraph_format.default_portion_format.spacing = 3  # توسيع تباعد الأحرف.
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -252,7 +252,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-المثال البرمجي أدناه يوضح كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط الغامق**:
+المثال البرمجي أدناه يُظهر كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط الغامق**:
 
 ```python
 import aspose.slides as slides
@@ -265,7 +265,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # ملاحظة: استخدم قيمًا سالبة لتقليل تباعد الأحرف.
+            # ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
             portion.portion_format.spacing = 3  # توسيع تباعد الأحرف.
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
@@ -275,11 +275,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **تعطيل التتبع (Kerning) لخطوط معينة**
+### **تعطيل التكرن (Kerning) للخطوط المحددة**
 
-في بعض الحالات، قد يبدو النص المرسوم بواسطة Aspose.Slides أكثر تماسكًا قليلاً من النص نفسه في PowerPoint. يحدث هذا لأن PowerPoint قد يتجاهل بيانات التتبع لبعض الخطوط، حتى عندما يحتوي الخط على معلومات تتبع صالحة ويتم تمكين التتبع في إعدادات PowerPoint.
+في بعض الحالات قد يبدو النص المُصدَّر بواسطة Aspose.Slides أكثر تضيقًا قليلًا مقارنةً بالنص نفسه في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات التكرن لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات تكرن صحيحة وتم تمكين التكرن في إعدادات PowerPoint.
 
-لتقريب الناتج المرسوم من مظهر PowerPoint في مثل هذه الحالات، يمكنك تعطيل التتبع لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) إلى قيمة أكبر من الحجم الفعلي للخط. يتطلب هذا المثال ملف "presentation.pptx" يحتوي على مربع نص كشكل أول في الشريحة الأولى. يتحقق من أسماء الخطوط الفعالة، بما في ذلك الخطوط الموروثة، ويضبط عتبة 100 نقطة للأجزاء التي تستخدم Roboto. هذا يعطل التتبع للأجزاء المطابقة التي يكون حجم الخط أقل من 100 نقطة:
+لجعل النتيجة المُصدَّرة أقرب إلى ما يقدمه PowerPoint في مثل هذه الحالات، يمكنك تعطيل التكرن لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) إلى قيمة أكبر من حجم الخط الفعلي. يتطلب هذا المثال وجود ملف "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يتحقق من أسماء الخطوط الفعَّالة، بما في ذلك الخطوط الموروثة، ويضبط عتبة 100 نقطة للأجزاء التي تستخدم خط Roboto. هذا يعطل التكرن للأجزاء المطابقة ذات حجم الخط أقل من 100 نقطة:
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-بالنسبة للنص المطابق الذي يقل عن العتبة، يمنع هذا الإعداد التتبع وقد يساعد في مواءمة عرض Aspose.Slides مع المظهر البصري لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+بالنسبة للنص المطابق الذي يقل عن العتبة، يمنع هذا الإعداد التكرن ويمكن أن يساعد في مواءمة عرض Aspose.Slides مع مظهر PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
 يمكن تعيين خصائص الخط على مستوى الفقرة عبر [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) أو على الأجزاء الفردية عبر [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/).
 
-المثال التالي يحدد الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع تنسيق غامق، مائل، وتسطير منقط. تنسيق صريح على الأجزاء الفردية له أولوية على هذه الإعدادات الافتراضية.
+المثال التالي يضبط الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع تنسيق غامق، مائل، وتسطير نقطي. يَأخذ التنسيق الصريح للأجزاء الفردية أولوية على هذه القيم الافتراضية:
 
 ```python
 import aspose.slides as slides
@@ -334,7 +334,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-المثال التالي يطبق Times New Roman بحجم 13 نقطة، تنسيق مائل، وتسطير منقط على الأجزاء التي يكون تنسيقها الفعّال غامقًا:
+المثال التالي يطبق حجم 13 نقطة من Times New Roman، تنسيق مائل، وتسطير نقطي على الأجزاء التي يكون تنسيقها الفعَّال غامقًا:
 
 ```python
 import aspose.slides as slides
@@ -360,13 +360,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
-## **التحكم في تطبيع ارتفاع النص**
+## **التحكم في ضبط ارتفاع النص**
 
-استخدم [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) عند إعادة إنتاج طباعة القالب أو فحص الفروقات في ارتفاع الأحرف. في PowerPoint، يؤدي تمكين التطبيع إلى تمديد أو ضغط الأحرف عموديًا لمنحها ارتفاعًا مرئيًا موحدًا داخل جزء النص. لا يضمن ذلك ارتفاع نص موحد عبر خطوط مختلفة.
+استخدم [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) عند إعادة إنتاج طباعة القالب أو فحص الفروقات في ارتفاع الأحرف. في PowerPoint، يُمكِّن الضبط المعياري من تمديد أو ضغط الأحرف عموديًا لتظهر بارتفاع مرئي موحد داخل جزء النص. لا يضمن ذلك تساوي ارتفاعات النص عبر خطوط مختلفة.
 
-اضبط الخاصية إلى [NullableBool.TRUE أو FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) لتمكين أو تعطيل التطبيع صراحةً. `NullableBool.NOT_DEFINED` يترك الإعداد المحلي غير مضبوط بحيث يرث الجزء قيمته، على سبيل المثال، من [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) الخاص بالفقرة. لا يعني ذلك `False`. استخدم [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) وقراءة [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) للحصول على القيمة البوليانية المحلولة.
+اضبط الخاصية إلى [NullableBool.TRUE أو FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) لتمكين أو تعطيل الضبط صراحةً. `NullableBool.NOT_DEFINED` يترك الإعداد المحلي غير محدد بحيث يرث الجزء قيمته، مثلاً من [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) الخاص بالفقرة. لا يعني ذلك `False`. استخدم [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) وقراءة [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) للحصول على القيمة المنطقية المُحلَّة.
 
-المثال التالي المستقل يتطلب تثبيت **Arial**. ينشئ كتلتين نصيتين يحتويان على نفس الحروف الكبيرة، الصغيرة، الأحرف السفلية، والحروف ذات العلامات في 54 نقطة. تمكّن الفقرتان التطبيع افتراضيًا. الجزء العلوي يعطل التطبيع صراحةً؛ الجزء السفلي يرثه. أبعاد الإطار، الهوامش، وتباعد الفقرات متطابقة، مع تعطيل اللف والملاءمة التلقائية للحفاظ على مقارنة ثابتة. يطبع المثال `FALSE: False` و`NOT_DEFINED: True`، ثم يحفظ "text_height_normalization.pptx".
+المثال التالي يتطلب تثبيت **Arial**. يُنشئ كتلتين نصيتين يحتويان على نفس الحروف الكبيرة والصغيرة، الحروف المنخفضة، والرموز المشكَّلة بحجم 54 نقطة. تُفعَّل الضبط المعياري في الفقرتين افتراضيًا. الجزء العلوي يعطل الضبط صراحةً؛ الجزء السفلي يرث الإعداد. أبعاد الإطارات، الهوامش، وتباعد الفقرات متماثلة، مع تعطيل اللف والضبط التلقائي للحفاظ على المقارنة. يطبع المثال `FALSE: False` و`NOT_DEFINED: True`، ثم يحفظ الملف "text_height_normalization.pptx".
 
 ```python
 import aspose.slides as slides
@@ -408,19 +408,19 @@ with slides.Presentation() as presentation:
     presentation.save("text_height_normalization.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تم تصدير المقارنة أدناه من العرض المحفوظ. الصف العلوي فيه التطبيع معطل (`FALSE`)، والصف السفلي يرث الإعداد المفعل (`NOT_DEFINED` → `True`). احرص على تثبيت Arial لتستعيد هذا المظهر.
+المقارنة أدناه تم تصديرها من العرض المحفوظ. الصف العلوي به ضبط مرفوض (`FALSE`)؛ الصف السفلي يرث الضبط المُمكّن (`NOT_DEFINED` → `True`). احرص على تثبيت Arial لإعادة إنتاج هذا الشكل.
 
-![نص Arial بحجم 54 نقطة مع تطبيع معطل في الأعلى وتطبيع مُرث في الأسفل](text_height_normalization.png)
+![نص Arial بحجم 54 نقطة مع ضبط مرفوض أعلاه وضبط ممكّن مُورث أدناه](text_height_normalization.png)
 
-يغيّر التطبيع ارتفاع الأحرف دون تعديل قيمة [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) في الفقرة لتباعد الأسطر، بينما يتحكم [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) لإطار النص في كيفية ضبط النص أو حاويته لتناسبه. هذه الإعدادات تخدم أغراضًا مختلفة ويمكن أن تؤثر على التخطيط العام بشكل مستقل. للمزيد حول تنسيق الفقرة والوراثة، راجع [إدارة الفقرة](/slides/ar/python-net/manage-paragraph/).
+يغيّر الضبط المعياري ارتفاع الأحرف دون تغيير قيمة [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) في الفقرة في تباعد الأسطر، بينما يتحكم [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) لإطار النص في كيفية تعديل النص أو حاويته لتلائم المساحة. تخدم هذه الإعدادات أغراضًا مختلفة ويمكن أن تؤثر على التخطيط العام بشكل مستقل. للمزيد حول تنسيق الفقرات والوراثة، راجع [إدارة الفقرات](/slides/ar/python-net/manage-paragraph/).
 
-## **تطبيق وإزالة خط الإلغاء (Strikethrough)**
+## **تطبيق وإزالة الخط المشطوب**
 
-استخدم [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) على جزء نص لإظهار تصحيحات أو مصطلحات ملغاة أو أسعار سابقة دون حذف النص الأصلي. اضبطه إلى [TextStrikethroughType.SINGLE أو DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) لسطر واحد أو مزدوج عبر النص.
+استخدم [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) على جزء نص لإظهار تصحيحات أو إلغاءات أو أسعار سابقة دون حذف النص الأصلي. عيّنها إلى [TextStrikethroughType.SINGLE أو DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) لسطر أو سطرين مشطوبين عبر النص.
 
-لإزالة خط الإلغاء، عيّن `TextStrikethroughType.NONE`. هذا يعطل التأثير صراحةً، حتى إذا كان التنسيق المحيط يحدد خط إلغاء. بالمقابل، يترك `TextStrikethroughType.NOT_DEFINED` الإعداد المحلي غير معرف، مما يسمح للجزء بورث التنسيق، على سبيل المثال من الفقرة. لا يضمن ذلك إزالة خط الإلغاء. استخدم [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
+لإزالة الخط المشطوب، عيّن `TextStrikethroughType.NONE`. هذا يُعطل التأثير صراحةً، حتى لو كان التنسيق المحيط يُحدِّد خطًا مشطوبًا. بالمقابل، `TextStrikethroughType.NOT_DEFINED` يترك الإعداد المحلي غير معرف، مما يسمح للجزء بوراثة التنسيق، مثلاً من الفقرة. لا يضمن ذلك إزالة الخط المشطوب. استخدم [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
 
-المثال التالي المستقل ينشئ ثلاث مقارنات أسعار. كل فقرة لديها أجزاء منفصلة للملصق، السعر السابق، والسعر الحالي، بحيث يتأثر السعر السابق فقط. الصف الأول يطبق ثم يزيل خط الإلغاء؛ الصفوف الأخرى تحتفظ بخط إلغاء واحد أو مزدوج. تغيير هذه الخاصية يحافظ على النص وتنسيقه الآخر، بما في ذلك الغامق للسعر السابق.
+المثال التالي يُنشئ ثلاث مقارنات سعرية. كل فقرة تتضمن أجزاءً منفصلة للعلامة، السعر السابق، والسعر الحالي، بحيث يتأثر السعر السابق فقط. الصف الأول يطبق الخط المشطوب ثم يزيله؛ الصفوف الأخرى تحافظ على الخط المشطوب الفردي والمزدوج. تغيير هذه الخاصية يحافظ على النص وتنسيقه الآخر، بما في ذلك الغامق للسعر السابق.
 
 ```python
 import aspose.pydrawing as draw
@@ -458,7 +458,7 @@ with slides.Presentation() as presentation:
 
     paragraphs = shape.text_frame.paragraphs
 
-    # تطبيق خط الإلغاء، ثم إزالته صراحةً من السعر السابق الأول.
+    # تطبيق الخط المشطوب، ثم إزالته صراحةً من السعر السابق الأول.
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.NONE
 
@@ -468,15 +468,15 @@ with slides.Presentation() as presentation:
     presentation.save("strikethrough.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة من الأعلى إلى الأسفل: لا خط إلغاء، خط إلغاء واحد، وخط إلغاء مزدوج.
+النتيجة، من الأعلى إلى الأسفل: بدون خط مشطوب، خط مشطوب أحادي، وخط مشطوب مزدوج.
 
-![أسعار سابقة بدون إلغاء، مع إلغاء واحد، ومع إلغاء مزدوج](strikethrough.png)
+![الأسعار السابقة بدون خط مشطوب، بخط مشطوب أحادي، وبخط مشطوب مزدوج](strikethrough.png)
 
 ## **تعيين دوران النص**
 
-استخدم [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) لتعيين توجيه نص مسبق داخل شكل.
+استخدم [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) لتعيين اتجاه نص مسبق داخل شكل.
 
-المثال البرمجي التالي يضبط توجيه النص في الشكل إلى [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/)، مما يدور النص **90 درجة عكس عقارب الساعة**:
+المثال التالي يعيّن اتجاه النص في الشكل إلى [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/)، والذي يدور النص **90 درجة عكس عقرب الساعة**:
 
 ```python
 import aspose.slides as slides
@@ -497,9 +497,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **تعيين دوران مخصص لإطارات النص**
 
-استخدم [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) لتعيين زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+استخدم [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) لتحديد زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 
-المثال البرمجي أدناه يدير إطار النص بزاوية 3 درجات باتجاه عقارب الساعة داخل الشكل:
+المثال البرمجي أدناه يدور إطار النص 3 درجات باتجاه عقرب الساعة داخل الشكل:
 
 ```python
 import aspose.slides as slides
@@ -516,16 +516,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 النتيجة:
 
-![دوران نص مخصص](custom_text_rotation.png)
+![الدوران المخصص للنص](custom_text_rotation.png)
 
-## **تعيين تباعد السطر للفقرات**
+## **تعيين تباعد الأسطر للفقرات**
 
-توفر Aspose.Slides الخصائص [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/)، [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/)، و[ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) للتحكم بتباعد الفقرات. تُستخدم هذه الخصائص كالتالي:
+توفر Aspose.Slides الخصائص [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/)، [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/)، و[ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كما يلي:
 
-* استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
-* استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
+* استخدم قيمة موجبة لتحديد تباعد الأسطر كنسبة مئوية من ارتفاع السطر.
+* استخدم قيمة سالبة لتحديد تباعد الأسطر بالنقاط.
 
-المثال التالي يحدد التباعد داخل الفقرة الأولى إلى 200% من ارتفاع السطر (تباعد مزدوج):
+المثال التالي يضبط التباعد داخل الفقرة الأولى إلى 200 % من ارتفاع السطر (تباعد مزدوج):
 
 ```python
 import aspose.slides as slides
@@ -543,18 +543,18 @@ with slides.Presentation("sample.pptx") as presentation:
 
 النتيجة:
 
-![تباعد السطر داخل الفقرة](line_spacing.png)
+![تباعد الأسطر داخل الفقرة](line_spacing.png)
 
 ## **التحكم في كسر السطر**
 
-قواعد كسر سطر الفقرة مفيدة في كتل نصية ضيقة وعروض تقديمية تمزج بين النص اللاتيني والآسيوي الشرقي. الخصائص التالية تنتمي إلى [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/)، لذا فهي تنطبق على الفقرة بأكملها:
+قواعد كسر سطر الفقرة مفيدة في كتل نصية ضيّقة وعروض تقديمية تمزج بين النص اللاتيني والآسيوي الشرقي. الخصائص التالية تتبع [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/)، لذا فهي تنطبق على الفقرة بأكملها:
 
-- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) يتحكم في قواعد كسر السطر اللاتيني. في نص مختلط، يمكن لتغييره أيضًا تغيير موضع اللف للنص الآسيوي الشرقي وعلامات الترقيم المجاورة.
-- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) يتحكم في قواعد كسر السطر الآسيوي الشرقي، بما في ذلك القيود على الأحرف في بداية ونهاية السطر.
+- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) يتحكم في قواعد كسر السطر للخط اللاتيني. في النص المختلط، قد يغيّر ذلك موضع التفاف النص الآسيوي الشرقي وعلامات الترقيم المجاورة.
+- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) يتحكم في قواعد كسر السطر للآسيوي الشرقي، بما في ذلك القيود على الأحرف في بداية ونهاية السطر.
 
-هذه القواعد لا تحل محل [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/)، الذي يُمكّن اللف التلقائي داخل إطار النص. إنها تؤثر على التخطيط عندما يحدث اللف؛ لا تُدرج أحرف كسر السطر. كسر سطر صريح يُجبر سطرًا جديدًا داخل الفقرة بغض النظر عن العرض المتاح.
+هذه القواعد لا تستبدل [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/)، التي تُفعِّل الالتفاف التلقائي داخل إطار النص. إنها تؤثر على التخطيط عندما يحدث الالتفاف؛ لا تُدرج أحرف كسر السطر. كسر سطر صريح يفرض سطرًا جديدًا داخل الفقرة مستقلاً عن العرض المتاح.
 
-المثال التالي المستقل ينشئ كتلة نصية ضيقة تحتوي على نص صيني ولاتيني. يضبط كلا خاصيتي كسر السطر صراحةً ويحفظ "line_breaking.pptx". لتجربة أي قاعدة، غير قيمة الخاصية مع إبقاء الإعدادات الأخرى ثابتة. يستخدم المثال خط Arial بحجم 24 نقطة وSimSun مع عرض إطار 160 نقطة وهوامش أفقية صفرية لإطار النص. يُضبط [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) إلى [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/) للحفاظ على حجم النص وإطار النص ثابتين.
+المثال التالي يُنشئ كتلة نصية ضيقة تحتوي على نص صيني ولاتيني. يضبط كلا خاصيتي كسر السطر صراحةً ويحفظ الملف "line_breaking.pptx". لتجربة أي قاعدة، غيّر قيمة الخاصية مع إبقاء الأخرى ثابتة. يستخدم المثال خط Arial بحجم 24 نقطة وSimSun مع عرض إطار 160 نقطة وهوامش أفقية صفرية. يُعيّن [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) إلى [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/) بحيث يبقى حجم النص وأبعاد الإطار ثابتين.
 
 ```python
 import aspose.pydrawing as draw
@@ -588,11 +588,11 @@ with slides.Presentation() as presentation:
     presentation.save("line_breaking.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **التحكم في علامات الترقيم المتدلية**
+## **التحكم في علامات الترقيم المعلقة**
 
-يسمح [ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) للعلامات الترقيمية المؤهلة بالتمدد خارج الحافة اليمنى لسطر النص بدلاً من احتلال السطر التالي. يطبق على الفقرة بأكملها وهو مختلف عن المسافة المتدلية.
+يتيح [ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) للعلامات الترقيمية المؤهلة أن تمتد خارج الحافة اليمنى لسطر النص بدلاً من أن تحتل السطر التالي. ينطبق على الفقرة بأكملها ويختلف عن المسافة المتداولة (hanging indent).
 
-المثال التالي المستقل يُفعّل علامات الترقيم المتدلية في إطار نص عرضه 100 نقطة ويحفظ "hanging_punctuation.pptx". باستخدام Arial بحجم 24 نقطة وهوامش أفقية صفرية، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد خارج حافة النص اليمنى. اضبط الخاصية إلى [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) للمقارنة: بهذه الإعدادات، تحتل النقطة سطرًا منفصلًا. يُفعَّل اللف ويُعطَّل الملاءمة التلقائية للحفاظ على عرض ثابت.
+المثال التالي يمكّن علامات الترقيم المعلقة في إطار نص بعرض 100 نقطة ويحفظ الملف "hanging_punctuation.pptx". مع Arial بحجم 24 نقطة وهوامش أفقية صفرية، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد إلى ما وراء الحافة اليمنى للنص. عيّن الخاصية إلى [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) للمقارنة: مع هذه الإعدادات، تشغل النقطة سطرًا منفصلاً. يُفعَّل اللف وتُعطل الضبط التلقائي للحفاظ على عرض ثابت.
 
 ```python
 import aspose.pydrawing as draw
@@ -624,11 +624,11 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ليس كل علامة ترقيم يمكن أن تتدلى. النتيجة المرئية تعتمد على [الخط وظروف التخطيط](#control-line-breaking): تغيير الخط أو العرض المتاح أو الهوامش أو إعدادات الملاءمة التلقائية يمكن أن يزيل الفرق المرئي.
+ليس كل علامة ترقيم يمكن أن تُعلق. النتيجة المرئية تعتمد على [الخط وظروف التخطيط](#control-line-breaking): تغيير الخط أو العرض المتاح أو الهوامش أو إعدادات الضبط التلقائي يمكن أن يُزيل الاختلاف الظاهر.
 
-## **تعيين نوع الملاءمة التلقائية لإطارات النص**
+## **تعيين نوع الضبط التلقائي لإطارات النص**
 
-يحدد [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) كيفية تصرف النص عندما يتجاوز حدود الحاوية. استخدمه للتحكم فيما إذا كان النص يُصغّر، يفيض، أو يُعيد تحجيم الشكل تلقائيًا. المثال التالي يضبط الشكل لإعادة التحجيم ليناسب النص ويحفظ النتيجة إلى "autofit_type.pptx".
+يحدد [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص يتقَلص، يفيض، أو يغير حجم الشكل تلقائيًا. المثال التالي يضبط الشكل لإعادة حجمه ليلائم النص ويحفظ النتيجة في "autofit_type.pptx".
 
 ```python
 import aspose.slides as slides
@@ -643,11 +643,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-لحساب عدد الأسطر بعد اللف التلقائي ورؤية كيف يتغيّر عرض النص أو الشكل، راجع [عد الأسطر المُرسومة](/slides/ar/python-net/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يفيض عن الحاوية.
+لحساب عدد الأسطر بعد الالتفاف التلقائي ورؤية كيفية تغير عرض النص أو الشكل، راجع [عد الأسطر المُصدَّرة](/slides/ar/python-net/manage-paragraph/). عدد الأسطر وحده لا يُظهر ما إذا كان النص يفيض حاويته.
 
-## **تعيين تثبيت إطارات النص**
+## **تعيين مرساة إطارات النص**
 
-يعّرف [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) كيفية موضع النص عموديًا داخل الشكل، مثل الأعلى، الوسط، أو الأسفل. المثال التالي يثبت النص إلى أسفل الشكل الأول ويحفظ النتيجة إلى "text_anchor.pptx".
+يعرّف [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) كيف يُوضع النص عموديًا داخل الشكل، مثلًا في الأعلى أو الوسط أو الأسفل. المثال التالي يَرْسِي النص إلى أسفل الشكل الأول ويحفظ النتيجة في "text_anchor.pptx".
 
 ```python
 import aspose.slides as slides
@@ -662,9 +662,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تعيين علامات التبويب للنص**
+## **تعيين تبويب النص**
 
-استخدم [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) و[ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) لتكوين نقاط التبويب في فقرة. المثال التالي يضبط الفاصل الزمني الافتراضي للعلامة إلى 100 نقطة ويضيف علامة تبويب محاذاة إلى اليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف تبويب.
+استخدم [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) و[ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) لتكوين نقاط التبويب في الفقرة. المثال التالي يضبط الفاصل الافتراضي للتاب إلى 100 نقطة ويضيف نقطة تبويب مُحاذاة لليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف تبويب.
 
 ```python
 import aspose.slides as slides
@@ -683,13 +683,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 النتيجة:
 
-![علامات تبويب الفقرة](paragraph_tabs.png)
+![تبويبات الفقرة](paragraph_tabs.png)
 
 ## **تعيين لغة التدقيق**
 
-توفر Aspose.Slides الخاصية [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/)، التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتدقيق الإملاء والقواعد في PowerPoint.
+توفر Aspose.Slides الخاصية [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/)، التي تتيح لك تعيين لغة التدقيق لجزء نص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
 
-المثال التالي يتطلب "presentation.pptx" يحتوي على مربع نص كشكل أول في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتويات الفقرة الأولى بـ "1。" ويضبط SimSun كخط لها، ويعيّن لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة إلى "proofing_language.pptx":
+المثال التالي يتطلب ملف "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتويات الفقرة الأولى بـ "1。" ويضبط SimSun كخط لها، ويُعيّن لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة في "proofing_language.pptx":
 
 ```python
 import aspose.slides as slides
@@ -718,9 +718,41 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **نسخ بيانات اللغة الوصفية**
+
+عند نسخ نص متعدد اللغات من قالب، حافظ على كل من [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) و[BasePortionFormat.alternative_language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/alternative_language_id/). المثال التالي يُنشئ جزءًا مصدرًا بلغته الإنجليزية (US) واللغة البديلة الفرنسية، وينسخ النص والمعرفات إلى جزء في عرض جديد.
+
+```python
+import aspose.slides as slides
+
+source = slides.Portion("Hello! Bonjour!")
+source.portion_format.language_id = "en-US"
+source.portion_format.alternative_language_id = "fr-FR"
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 80)
+    paragraph = shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    destination = slides.Portion()
+    destination.text = source.text
+    destination.portion_format.language_id = source.portion_format.language_id
+    # إذا لم يكن للمصدر لغة بديلة، فإن None يمسح قيمة الوجهة.
+    destination.portion_format.alternative_language_id = source.portion_format.alternative_language_id
+    paragraph.portions.add(destination)
+
+    presentation.save("copied_language_metadata.pptx", slides.export.SaveFormat.PPTX)
+```
+
+لتجربة مصدر بدون لغة بديلة، احذف تعيين `"fr-FR"`. يصبح المعرف البديل `None`، ويحافظ بيان النسخ نفسه على عدم وجوده دون إدخال قيمة افتراضية، حتى إذا كان الوجهة قد عيّنت لغة بديلة مسبقًا.
+
+هذه المعرفات تخزن بيانات لغة وصفية. حفظها لا يحدِّد أي قاموس سيختاره PowerPoint للتدقيق الإملائي أو النحوي.
+
 ## **تعيين اللغة الافتراضية**
 
-استخدم [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) لتحديد اللغة الافتراضية للنص المنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي ينشئ عرضًا تقديميًا باللغة الإنجليزية الأمريكية كلغة نص افتراضية، يضيف مربع نص، ويطبع `en-US` للجزء النصي الأول.
+استخدم [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) لتحديد اللغة الافتراضية للنص المُنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي يُنشئ عرضًا بلغته الإنجليزية (US) كلغة نص افتراضية، يضيف مربع نص، ويطبع `en-US` للجزء النصي الأول.
 
 ```python
 import aspose.slides as slides
@@ -731,26 +763,26 @@ load_options.default_text_language = "en-US"
 with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # إضافة شكل مستطيل جديد مع نص.
+    # إضافة شكل مستطيل جديد مع النص.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
-    # التحقق من لغة الجزء الأول.
+    # تحقق من لغة الجزء الأول.
     portion = shape.text_frame.paragraphs[0].portions[0]
     print(portion.portion_format.language_id)
 ```
 
 ## **تعيين نمط النص الافتراضي**
 
-لتطبيق تنسيق نص افتراضي على مستوى العرض، استخدم [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
+لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
 
-المثال التالي يعيّن خطًا غامقًا بحجم 14 نقطة كافتراضي للفقرات العليا في عرض تقديمي جديد ويحفظه إلى "default_text_style.pptx". يمكن للنص أن يرث هذه الإعدادات ما لم يتجاوزها تنسيق أكثر تحديدًا.
+المثال التالي يضبط خطًا غامقًا بحجم 14 نقطة كافتراضي للفقرات العليا في عرض جديد ويحفظه في "default_text_style.pptx". يمكن للنص أن يرث هذه القيم الافتراضية ما لم يتجاوزها تنسيق أكثر تخصيصًا.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # احصل على تنسيق الفقرة ذات المستوى الأعلى.
+    # الحصول على تنسيق الفقرة المستوى الأعلى.
     paragraph_format = presentation.default_text_style.get_level(0)
 
     if paragraph_format is not None:
@@ -760,15 +792,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **استخراج النص مع تأثير الحروف الكبيرة (All-Caps)**
+## **استخراج النص بتأثير الحروف الكبيرة جميعًا**
 
-في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى وإن كان مكتوبًا أصلاً بأحرف صغيرة. عندما تسترجع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، تحقّق من [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `ALL`.
+في PowerPoint، يجعل تطبيق تأثير الخط **All Caps** النص يظهر بأحرف كبيرة على الشريحة حتى وإن كُتب أصلاً بأحرف صغيرة. عند استرداد جزء نص كهذا باستخدام Aspose.Slides، تُعيد المكتبة النص كما كُتب بالضبط. لمطابقة النص المعروض، تفقد [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) وحوِّل السلسلة التي تُرجَع إلى أحرف كبيرة عندما تكون القيمة `ALL`.
 
-يتطلب هذا المثال ملف "sample2.pptx" يحتوي على مربع نص كشكل أول في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
+المثال التالي يتطلب ملف "sample2.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
 
 ![تأثير All Caps](all_caps_effect.png)
 
-المثال البرمجي التالي يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+المثال البرمجي أدناه يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```python
 import aspose.slides as slides
@@ -787,7 +819,7 @@ with slides.Presentation("sample2.pptx") as presentation:
         print("All-Caps effect:", text)
 ```
 
-المخرجات:
+الإخراج:
 
 ```text
 Original text: Hello, Aspose!
@@ -796,12 +828,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني تعديل النص في جدول على شريحة؟**
+**كيف يمكن تعديل النص في جدول داخل شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). تجول عبر الخلايا وقم بتحديث كل خلية عبر [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) وتنسيق الفقرة عبر [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
+لتعديل النص في جدول داخل شريحة، استخدم [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). استعرض الخلايا وقم بتحديث كل خلية عبر [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) وتنسيق الفقرة عبر [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
 
-**كيف يمكنني تطبيق لون متدرج للنص على شريحة PowerPoint؟**
+**كيف يمكن تطبيق لون تدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج للنص، استخدم [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). اضبط [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) واضبط نقاط التدرج والاتجاه والشفافية.
+لتطبيق لون تدرج على النص، استخدم [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). عيّن [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) إلى [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) ثم اضبط نقاط التدرج، الاتجاه، والشفافية.
 
-الميزة ذات الصلة: [تنسيق النص داخل الشرائح](/slides/ar/features/text-formatting/).
+الميزة المرتبطة: [تنسيق النص داخل الشرائح](/slides/ar/features/text-formatting/).

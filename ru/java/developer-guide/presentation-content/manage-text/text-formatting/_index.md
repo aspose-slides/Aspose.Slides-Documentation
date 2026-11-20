@@ -1,5 +1,5 @@
 ---
-title: Форматирование текста презентации в Java
+title: Форматировать текст презентации в Java
 linktitle: Форматирование текста
 type: docs
 weight: 50
@@ -14,10 +14,10 @@ keywords:
 - семейство шрифтов
 - вращение текста
 - угол вращения
-- текстовая рамка
+- текстовый кадр
 - межстрочный интервал
-- свойство автоподбора
-- привязка текстовой рамки
+- свойство автоподгонки
+- якорь текстового кадра
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
@@ -29,19 +29,19 @@ description: "Форматировать и стилизовать текст в
 ---
 ## **Обзор**
 
-В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Java. Охвачены цвета фона, прозрачность, интервал между символами, свойства шрифта, вращение, интервалы абзацев, поведение автоподбора, привязка текста, табуляция и параметры языка.
+В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Java. Рассматриваются цвета фона, прозрачность, интервал между символами, свойства шрифта, вращение, интервалы абзацев, поведение автоподгонки, привязка текста, табуляция и настройки языка.
 
-Если не указано иначе, в примерах используется [sample.pptx](sample.pptx). Первая фигура на первом слайде — текстовое поле, а его первый абзац содержит показанный ниже текст. Индексы слайдов и фигур нумеруются с нуля. Примеры, выбирающие выделенные жирным части, используют эффективное форматирование, включая унаследованное жирное форматирование:
+Если не указано иное, примеры используют [sample.pptx](sample.pptx). Первая фигура на первом слайде представляет собой текстовое поле, и первый абзац содержит показанный ниже текст. Индексы слайдов и фигур начинаются с нуля. Примеры, выделяющие жирные части, используют эффективное форматирование, включая унаследованное жирное форматирование:
 
 ![Пример текста](sample_text.png)
 
-Чтобы найти и выделить буквальный текст или совпадения регулярных выражений, см. [Search and Replace Text](/slides/ru/java/search-and-replace-text/).
+Чтобы найти и выделить буквальный текст или совпадения регулярных выражений, см. [Поиск и замена текста](/slides/ru/java/search-and-replace-text/).
 
-## **Установить цвет фона текста**
+## **Установка цвета фона текста**
 
-Используйте [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) для задания цвета подсветки по умолчанию для абзаца или [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) для отдельных частей текста.
+Используйте [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) для установки цвета выделения по умолчанию для абзаца или [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) для отдельных текстовых фрагментов.
 
-В следующем примере задаётся светло-серый цвет подсветки по умолчанию для первого абзаца. Явные цвета подсветки у отдельных частей имеют приоритет над этим значением по умолчанию:
+Следующий пример устанавливает светло-серый цвет выделения по умолчанию для первого абзаца. Явные цвета выделения у отдельных фрагментов имеют приоритет над этим значением по умолчанию:
 
 ```java
 import com.aspose.slides.*;
@@ -54,7 +54,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Задайте цвет подсветки для всего абзаца.
+    // Установите цвет подсветки для всего абзаца.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -67,7 +67,7 @@ try {
 
 ![Серый абзац](gray_paragraph.png)
 
-Ниже показан пример кода, демонстрирующий, как установить цвет фона для **частей текста с жирным шрифтом**:
+Пример кода ниже демонстрирует, как установить цвет фона для **текстовых фрагментов с жирным шрифтом**:
 
 ```java
 import com.aspose.slides.*;
@@ -82,7 +82,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Задайте цвет подсветки для части текста.
+            // Установите цвет подсветки для текстового фрагмента.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -95,13 +95,13 @@ try {
 
 Результат:
 
-![Серые части текста](gray_text_portions.png)
+![Серые текстовые фрагменты](gray_text_portions.png)
 
 ## **Выравнивание абзацев текста**
 
-Используйте [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) для установки выравнивания абзаца внутри текстовой рамки. Значение может быть центрированным, выровненным по левому, правому краю, по ширине и т.д.
+Используйте [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) для установки выравнивания абзаца внутри текстового кадра. Значение может быть центрировано, выровнено по левому краю, по правому, выровнено по ширине и т.д.
 
-В следующем примере показано, как выровнять абзац **по центру**:
+Следующий пример кода показывает, как выровнять абзац по **центру**:
 
 ```java
 import com.aspose.slides.*;
@@ -128,9 +128,9 @@ try {
 
 ## **Выравнивание шрифтов в строке**
 
-Используйте [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) для вертикального выравнивания частей текста разных размеров шрифта в строке. Эта настройка применяется ко всему абзацу и управляет выравниванием внутри каждой его строки.
+Используйте [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) для вертикального выравнивания текстовых фрагментов разного размера шрифта в строке. Эта настройка применяется к всему абзацу и регулирует выравнивание в каждой его строке.
 
-Ниже приведён автономный пример, создающий четыре текстовых поля с метками на одном слайде. Каждый абзац содержит один и тот же текст размером 18, 36 и 54 пункта с различным выравниванием шрифта. Используется Arial, отключён автоподбор и перенос, а текстовые рамки достаточно велики для одной строки.
+Следующий автономный пример создает четыре помеченных текстовых поля на одном слайде. Каждый абзац содержит одинаковый текст размером 18, 36 и 54 пункта с различным выравниванием шрифта. В примере используется Arial, отключена автоподгонка и перенос, а текстовые кадры достаточно велики для одной строки.
 
 ```java
 import com.aspose.slides.*;
@@ -186,17 +186,17 @@ try {
 
 Результат:
 
-![Сравнение базовой линии, верхнего, центрального и нижнего выравнивания шрифта при смешанных размерах](font_alignment.png)
+![Сравнение выравнивания шрифтов (Baseline, Top, Center, Bottom) при разных размерах](font_alignment.png)
 
-Выравнивание шрифта использует метрики шрифта, поэтому видимые края отдельных букв не всегда совпадают точно. В примере присутствует заглавная буква и нижний выносной элемент, чтобы показать разницу между базовой линией и нижним выравниванием. Наличие шрифта и его подстановка, используемые символы и различие размеров шрифтов влияют на результат. Размеры рамки, отступы, межстрочный интервал, перенос и автоподбор также влияют на макет; используйте одинаковые шрифты и настройки макета при сравнении режимов.
+Выравнивание шрифта использует метрики шрифта, поэтому видимые границы отдельных букв могут не точно совпадать. В примере присутствует заглавная буква и нижний вынос, чтобы продемонстрировать разницу между выравниванием по базовой линии и по низу. Наличие шрифта и его замена, используемые символы и разница в размерах шрифта влияют на результат. Размеры кадра, отступы, межстрочный интервал, перенос и автоподгонка также влияют на расположение; при сравнении режимов используйте одинаковые шрифты и параметры оформления.
 
-Эта настройка отличается от [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-), который управляет горизонтальным выравниванием абзаца, и от [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), который позиционирует блок текста вертикально внутри фигуры. Форматирование надстрочника и подстрочника через [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) смещает отдельные части относительно базовой линии вместо установки выравнивания шрифта для строк абзаца.
+Эта настройка отличается от [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-), который управляет горизонтальным выравниванием абзаца, и [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), который позиционирует текстовый блок вертикально внутри фигуры. Форматирование надстрочного и подстрочного текста с помощью [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) смещает отдельные фрагменты относительно базовой линии, а не устанавливает выравнивание шрифта для строк абзаца.
 
-## **Установить прозрачность текста**
+## **Установка прозрачности текста**
 
-Прозрачность текста управляется альфа‑компонентой цвета, назначенного [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). В примерах ниже `alpha = 50` — это значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
+Прозрачность текста контролируется альфа-каналом цвета, назначенного [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). В приведенных ниже примерах `alpha = 50` — это значение альфа-канала ARGB в диапазоне 0–255, а не процент прозрачности.
 
-Ниже показан пример кода, применяющий прозрачность к **всему абзацу**:
+Пример кода ниже показывает, как применить прозрачность к **всему абзацу**:
 
 ```java
 import com.aspose.slides.*;
@@ -225,7 +225,7 @@ try {
 
 ![Прозрачный абзац](transparent_paragraph.png)
 
-Следующий пример кода показывает, как применить прозрачность к **частям текста с жирным шрифтом**:
+Следующий пример кода показывает, как применить прозрачность к **текстовым фрагментам с жирным шрифтом**:
 
 ```java
 import com.aspose.slides.*;
@@ -242,7 +242,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Установите прозрачность части текста.
+            // Установите прозрачность текстового фрагмента.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -256,13 +256,13 @@ try {
 
 Результат:
 
-![Прозрачные части текста](transparent_text_portions.png)
+![Прозрачные текстовые фрагменты](transparent_text_portions.png)
 
-## **Установить интервал между символами текста**
+## **Установка интервала между символами текста**
 
-Используйте [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) для увеличения или уменьшения расстояния между символами в текстовом поле. В примерах добавляется 3 пункта интервала; отрицательные значения сжимают текст.
+Используйте [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) для увеличения или уменьшения интервала между символами в текстовом поле. В примерах добавляется 3 пункта интервала; отрицательные значения сжимают текст.
 
-Ниже показан Java‑код, расширяющий интервал между символами в **всём абзаце**:
+Следующий код Java показывает, как расширить интервал между символами в **всём абзаце**:
 
 ```java
 import com.aspose.slides.*;
@@ -274,7 +274,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Примечание: используйте отрицательные значения для сжатия интервала между символами.
+    // Примечание: используйте отрицательные значения, чтобы сжать интервал между символами.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Увеличить интервал между символами.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -287,7 +287,7 @@ try {
 
 ![Интервал между символами в абзаце](character_spacing_in_paragraph.png)
 
-Пример кода ниже показывает, как расширить интервал между символами в **частях текста с жирным шрифтом**:
+Пример кода ниже показывает, как расширить интервал между символами в **текстовых фрагментах с жирным шрифтом**:
 
 ```java
 import com.aspose.slides.*;
@@ -301,7 +301,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Примечание: используйте отрицательные значения для сжатия интервала между символами.
+            // Примечание: используйте отрицательные значения, чтобы сжать интервал между символами.
             portion.getPortionFormat().setSpacing(3); // Увеличить интервал между символами.
         }
     }
@@ -314,13 +314,13 @@ try {
 
 Результат:
 
-![Интервал между символами в частях текста](character_spacing_in_text_portions.png)
+![Интервал между символами в текстовых фрагментах](character_spacing_in_text_portions.png)
 
-### **Отключить кернинг для конкретных шрифтов**
+### **Отключение кернинга для отдельных шрифтов**
 
-В некоторых случаях текст, отрисованный Aspose.Slides, может выглядеть слегка плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint игнорирует данные кернинга для некоторых шрифтов, даже если шрифт содержит корректные данные кернинга и кернинг включён в настройках PowerPoint.
+В некоторых случаях текст, отрисованный Aspose.Slides, может выглядеть чуть плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint может игнорировать данные кернинга для определённых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
 
-Чтобы приближённо воспроизвести вывод PowerPoint в таких случаях, можно отключить кернинг для частей текста, использующих затронутый шрифт. Установите [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) в значение, превышающее реальный размер шрифта. В этом примере требуется файл "presentation.pptx" с текстовым полем в первой фигуре первого слайда. Он проверяет эффективные имена шрифтов, включая унаследованные, и задаёт порог в 100 пунктов для частей, использующих Roboto. Это отключает кернинг для соответствующих частей с размером шрифта ниже 100 пунктов:
+Чтобы сделать вывод ближе к PowerPoint в таких случаях, можно отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) в значение, большее фактического размера шрифта. Этот пример требует файл "presentation.pptx" с текстовым полем в первой фигуре первого слайда. Он проверяет эффективные имена шрифтов, включая унаследованные, и задаёт порог в 100 пунктов для фрагментов, использующих Roboto. Это отключает кернинг для соответствующих фрагментов с размером шрифта ниже 100 пунктов:
 
 ```java
 import com.aspose.slides.*;
@@ -353,13 +353,13 @@ try {
 }
 ```
 
-Для текста ниже порога данная настройка подавляет кернинг и может помочь согласовать визуальный вывод Aspose.Slides с PowerPoint для шрифтов, на которые влияет данное специфическое поведение PowerPoint.
+Для соответствующего текста ниже порога эта настройка предотвращает кернинг и может помочь согласовать вывод Aspose.Slides с визуальным выводом PowerPoint для шрифтов, затронутых этой специфической для PowerPoint особенностью.
 
 ## **Управление свойствами шрифта текста**
 
-Свойства шрифта можно задавать на уровне абзаца через [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) или для отдельных частей через [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/).
+Свойства шрифта можно задать на уровне абзаца через [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) или для отдельных фрагментов через [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/).
 
-В следующем примере задаётся шрифт по умолчанию для первого абзаца: Times New Roman, 12 пунктов, жирный, курсив и пунктирное подчеркивание. Явное форматирование отдельных частей имеет приоритет над этими значениями по умолчанию.
+Следующий пример задаёт шрифт по умолчанию первого абзаца — Times New Roman 12 пунктов с жирным, курсивом и пунктирным подчёркиванием. Явное форматирование отдельных фрагментов имеет приоритет над этими значениями по умолчанию:
 
 ```java
 import com.aspose.slides.*;
@@ -388,7 +388,7 @@ try {
 
 ![Свойства шрифта для абзаца](font_properties_for_paragraph.png)
 
-В следующем примере применяется Times New Roman, 13 пунктов, курсив и пунктирное подчеркивание к частям, у которых эффективное форматирование содержит жирный стиль:
+Следующий пример применяет Times New Roman 13 пунктов, курсив и пунктирное подчёркивание к фрагментам, у которых эффективное форматирование — жирное:
 
 ```java
 import com.aspose.slides.*;
@@ -402,7 +402,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Установите свойства шрифта для части текста.
+            // Установите свойства шрифта для текстового фрагмента.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -418,15 +418,15 @@ try {
 
 Результат:
 
-![Свойства шрифта для частей текста](font_properties_for_text_portions.png)
+![Свойства шрифта для текстовых фрагментов](font_properties_for_text_portions.png)
 
 ## **Контроль нормализации высоты текста**
 
-Используйте [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) при воспроизведении типографики шаблона или исследовании различий в высоте символов. В PowerPoint включение нормализации растягивает или сжимает отдельные символы вертикально, чтобы они имели одинаковую визуальную высоту внутри части текста. Это не гарантирует одинаковую высоту текста между разными шрифтами.
+Используйте [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) при воспроизведении типографии шаблона или исследовании различий в высоте символов. В PowerPoint включение нормализации растягивает или сжимает отдельные символы по вертикали, чтобы они имели одинаковую видимую высоту в текстовом фрагменте. Это не гарантирует одинаковую высоту текста для разных шрифтов.
 
-Установите свойство в [NullableBool.True или False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) для явного включения или отключения нормализации. `NullableBool.NotDefined` оставляет локальную настройку неопределённой, позволяя части наследовать значение, например, из [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) абзаца. Это не то же самое, что `False`. Используйте [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) и читайте [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) для получения разрешённого булевого значения.
+Установите свойство в [NullableBool.True or False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) , чтобы явно включить или отключить нормализацию. `NullableBool.NotDefined` оставляет локальную настройку неопределённой, поэтому фрагмент наследует её значение, например, от [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) абзаца. Это не то же самое, что `False`. Используйте [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) и прочитайте [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) , чтобы получить разрешённое булево значение.
 
-Ниже автономный пример, требующий установленного **Arial**. Он создаёт два текстовых блока, содержащих одинаковые заглавные буквы, строчные буквы, нижние выносные элементы и символы с диакритикой размером 54 пункта. Оба абзаца включают нормализацию по умолчанию. Верхняя часть явно отключает её; нижняя наследует. Размеры рамок, отступы и интервалы абзацев идентичны, перенос и автоподбор отключены для согласованного сравнения. Пример выводит `False: false` и `NotDefined: true`, затем сохраняет "text_height_normalization.pptx".
+Следующий автономный пример требует установки **Arial**. Он создает два текстовых блока, содержащих одинаковые заглавные и строчные буквы, нижние выносы и символы с диакритиками размером 54 пункта. Оба абзаца включают нормализацию по умолчанию. Верхний фрагмент явно отключает её; нижний наследует. Размеры кадров, отступы и интервалы абзацев одинаковы, перенос и автоподгонка отключены для согласованного сравнения. Пример выводит `False: false` и `NotDefined: true`, затем сохраняет "text_height_normalization.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -476,19 +476,19 @@ try {
 }
 ```
 
-Сравнение ниже экспортировано из сохранённой презентации. В верхнем ряду нормализация отключена (`False`); в нижнем ряду наследуется включённый параметр (`NotDefined` → `True`). Для воспроизведения требуется установленный Arial.
+Сравнение ниже экспортировано из сохранённой презентации. В верхней строке нормализация отключена (`False`); в нижней строке она наследуется как включённая (`NotDefined` → `True`). Оставьте установленным Arial, чтобы воспроизвести вид.
 
-![Текст Arial 54 пт с отключённой нормализацией сверху и наследуемой нормализацией снизу](text_height_normalization.png)
+![Текст Arial 54 пункта с отключенной нормализацией сверху и унаследованной включённой снизу](text_height_normalization.png)
 
-Нормализация изменяет высоту символов без изменения значения [getFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFontHeight--), которое указывает размер шрифта в пунктах. Параметр [setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) абзаца управляет межстрочным интервалом, а [setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) текстовой рамки контролирует, как текст или его контейнер подстраиваются под размер. Эти настройки служат разным целям и могут независимо влиять на общий макет. Подробнее о форматировании абзаца и наследовании см. в разделе [Manage Paragraph](/slides/ru/java/manage-paragraph/).
+Нормализация изменяет высоту символов без изменения назначенного значения [getFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) , которое задаёт размер шрифта в пунктах. Параметр абзаца [setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) контролирует межстрочный интервал, а [setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) текстового кадра регулирует, как текст или его контейнер подстраиваются под размер. Эти настройки служат разным целям и могут независимо влиять на общий макет. Подробнее о форматировании абзацев и наследовании см. в разделе [Manage Paragraph](/slides/ru/java/manage-paragraph/).
 
-## **Применить и удалить зачёркивание**
+## **Применение и удаление зачеркивания**
 
-Используйте [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) у части текста, чтобы отобразить исправления, отменённые термины или предыдущие цены без удаления оригинального текста. Установите значение [TextStrikethroughType.Single или Double](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/) для одной или двух линий через текст.
+Используйте [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) для текстового фрагмента, чтобы показывать исправления, отменённые термины или прежние цены, не удаляя исходный текст. Установите его в [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/) для одной или двух линий зачеркивания текста.
 
-Чтобы удалить зачёркивание, задайте [TextStrikethroughType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#None). Это явно отключает эффект, даже если окружающее форматирование задаёт зачёркивание. В отличие от этого, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#NotDefined) оставляет локальную настройку неопределённой, позволяя части наследовать форматирование, например, из абзаца. Это не гарантирует, что зачёркивание будет удалено. Используйте [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) для чтения итогового форматирования, включая наследуемые значения.
+Чтобы удалить зачеркивание, передайте [TextStrikethroughType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#None). Это явно отключает эффект, даже если окружающее форматирование задаёт зачеркивание. В отличие от этого, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#NotDefined) оставляет локальную настройку неопределённой, позволяя фрагменту наследовать форматирование, например, от абзаца. Это не гарантирует, что зачеркивание будет удалено. Используйте [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) , чтобы прочитать итоговое форматирование, включая унаследованные значения.
 
-Ниже автономный пример, создающий три сравнения цен. Каждый абзац имеет отдельные части для метки, прежней цены и текущей цены, поэтому только прежняя цена подвергается изменению. В первой строке применяется, а затем удаляется зачёркивание; остальные строки сохраняют одиночное и двойное зачёркивание. Такое изменение сохраняет текст и его остальное форматирование, включая жирную прежнюю цену.
+Следующий автономный пример создаёт три сравнения цен. Каждый абзац имеет отдельные фрагменты для метки, прежней цены и текущей цены, поэтому зачеркиванию подлежит только прежняя цена. В первой строке зачеркивание применяется, а затем удаляется; в остальных строках сохраняются одинарное и двойное зачеркивание. Изменение этой настройки сохраняет текст и его остальное форматирование, включая жирную прежнюю цену.
 
 ```java
 import com.aspose.slides.*;
@@ -544,15 +544,15 @@ try {
 }
 ```
 
-Результат сверху вниз: без зачёркивания, одиночное зачёркивание и двойное зачёркивание.
+Результат сверху вниз: без зачеркивания, одинарное зачеркивание и двойное зачеркивание.
 
-![Прежние цены без зачёркивания, с одиночным зачёркиванием и с двойным зачёркиванием](strikethrough.png)
+![Прежние цены без зачеркивания, с одинарным зачеркиванием и с двойным зачеркиванием](strikethrough.png)
 
-## **Установить вращение текста**
+## **Установка вращения текста**
 
-Используйте [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) для задания предопределённой ориентации текста внутри фигуры.
+Используйте [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) для установки предопределённой ориентации текста внутри фигуры.
 
-В следующем примере код устанавливает ориентацию текста в фигуре в значение [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/), что вращает текст **на 90 градусов против часовой стрелки**:
+Следующий пример кода задаёт ориентацию текста в фигуре как [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/), что вращает текст **на 90 градусов против часовой стрелки**:
 
 ```java
 import com.aspose.slides.*;
@@ -574,11 +574,11 @@ try {
 
 ![Вращение текста](text_rotation.png)
 
-## **Установить пользовательское вращение для текстовых рамок**
+## **Установка пользовательского вращения для текстовых рамок**
 
-Используйте [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) для задания пользовательского угла вращения [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
+Используйте [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) для задания пользовательского угла вращения для [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/).
 
-В примере кода ниже текстовая рамка вращается на 3 градуса по часовой стрелке внутри фигуры:
+В примере кода ниже текстовый кадр вращается на 3 градуса по часовой стрелке внутри фигуры:
 
 ```java
 import com.aspose.slides.*;
@@ -600,14 +600,14 @@ try {
 
 ![Пользовательское вращение текста](custom_text_rotation.png)
 
-## **Установить межстрочный интервал абзацев**
+## **Установка интервала строк абзацев**
 
-Aspose.Slides предоставляет [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) и [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) для управления интервалом абзацев. Эти свойства используются так:
+Aspose.Slides предоставляет [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) и [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) для управления интервалами абзацев. Эти свойства используются следующим образом:
 
-* Положительное значение задаёт межстрочный интервал в процентах от высоты строки.
-* Отрицательное значение задаёт межстрочный интервал в пунктах.
+* Укажите положительное значение, чтобы задать межстрочный интервал в процентах от высоты строки.
+* Укажите отрицательное значение, чтобы задать межстрочный интервал в пунктах.
 
-В следующем примере задаётся интервал внутри первого абзаца, равный 200 % от высоты строки (двойной интервал):
+Следующий пример задаёт интервал внутри первого абзаца как 200% от высоты строки (двойной интервал):
 
 ```java
 import com.aspose.slides.*;
@@ -631,16 +631,16 @@ try {
 
 ![Межстрочный интервал внутри абзаца](line_spacing.png)
 
-## **Контроль переноса строк**
+## **Контроль разрыва строк**
 
-Правила переноса строк абзаца полезны в узких текстовых блоках и презентациях, где смешаны латинский и восточно‑азиатский тексты. Ниже перечисленные методы относятся к [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/), поэтому они применяются к целому абзацу:
+Правила разрыва строк в абзаце полезны в узких текстовых блоках и презентациях, где смешан латинский и восточноазиатский текст. Следующие методы относятся к [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/), поэтому они применимы к целому абзацу:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) управляет правилами переноса латинского текста. В смешанном тексте его изменение может также влиять на то, где будет перенесён соседний восточно‑азиатский текст и знаки препинания.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) управляет правилами переноса восточно‑азиатского текста, включая ограничения на символы в начале и в конце строки.
+- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) управляет правилами разрыва строк для латинского текста. В смешанном тексте изменение этого параметра может также изменить место переноса прилегающего восточноазиатского текста и пунктуации.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) управляет правилами разрыва строк для восточноазиатского текста, включая ограничения на символы в начале и в конце строки.
 
-Эти правила не заменяют [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), который включает автоматический перенос внутри текстовой рамки. Они влияют на макет при выполнении переноса; они не вставляют символы переноса строки. Явный перенос строки принудительно создаёт новую строку в абзаце независимо от доступной ширины.
+Эти правила не заменяют [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-), который включает автоматический перенос внутри текстового кадра. Они влияют на макет при переносе, но не вставляют символы разрыва строки. Явный разрыв строки принудительно создаёт новую строку внутри абзаца независимо от доступной ширины.
 
-Ниже автономный пример создаёт узкий текстовый блок, содержащий китайский и латинский тексты. Он явно задаёт обе опции переноса и сохраняет файл "line_breaking.pptx". Чтобы поэкспериментировать с любой из правил, изменяйте соответствующее значение, оставив остальные параметры неизменными. В примере используется Arial 24 пт и SimSun, ширина рамки 160 пт и нулевые горизонтальные отступы. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) вызывается с [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/), чтобы размеры текста и рамки оставались фиксированными.
+Следующий автономный пример создаёт узкий текстовый блок, содержащий китайский и латинский текст. Он явно задаёт обе опции разрыва строк и сохраняет "line_breaking.pptx". Чтобы экспериментировать с любой из правил, измените соответствующее значение, оставив остальные настройки без изменения. В примере используются Arial и SimSun размером 24 пункта, ширина кадра 160 пунктов и нулевые горизонтальные отступы текстового кадра. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) вызывается с [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/) , чтобы размер текста и размеры кадра оставались фиксированными.
 
 ```java
 import com.aspose.slides.*;
@@ -680,11 +680,11 @@ try {
 }
 ```
 
-## **Контроль висячей пунктуации**
+## **Управление висячей пунктуацией**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) позволяет допускаемым знакам пунктуации выступать за правый край строки вместо того, чтобы занимать следующую строку. Применяется к целому абзацу и отличается от висячего отступа.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) позволяет подходящей пунктуации выходить за правый край строки текста вместо того, чтобы занимать следующую строку. Применяется к всему абзацу и отличается от висячего отступа.
 
-Ниже автономный пример включает висячую пунктуацию в текстовой рамке шириной 100 пт и сохраняет файл "hanging_punctuation.pptx". При Arial 24 пт и нулевых горизонтальных отступах финальная точка остаётся после слова «sentence» и выступает за правый край текста. Установите значение свойства в [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) для сравнения: с такими настройками точка будет занимать отдельную строку. Перенос включён, автоподбор отключён, чтобы ширина оставалась фиксированной.
+Следующий автономный пример включает висячую пунктуацию в текстовом кадре шириной 100 пунктов и сохраняет "hanging_punctuation.pptx". При использовании Arial 24 пункта и нулевых горизонтальных отступов текстового кадра, конечная точка остаётся после слова "sentence" и выходит за правый край текста. Установите свойство в [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) для сравнения: при этих настройках точка занимает отдельную строку. Перенос включён, а автоподгонка отключена, чтобы фиксировать доступную ширину.
 
 ```java
 import com.aspose.slides.*;
@@ -721,11 +721,11 @@ try {
 }
 ```
 
-Не каждый знак пунктуации может «висеть». Описанные выше [условия шрифта и макета](#control-line-breaking) также применимы к этому сравнению: изменение шрифта, доступной ширины, отступов или настроек автоподбора может убрать видимую разницу.
+Не каждый знак пунктуации может висеть. [Шрифтовые и макетные условия, описанные выше](#control-line-breaking) также применимы к этому сравнению: изменение шрифта, доступной ширины, отступов или настроек автоподгонки может устранить видимую разницу.
 
-## **Установить тип автоподбора для текстовых рамок**
+## **Установка типа автоподгонки для текстовых рамок**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) определяет, как текст ведёт себя, когда превышает границы своего контейнера. Используйте его, чтобы контролировать, будет ли текст сжиматься, выходить за пределы или автоматически менять размер фигуры. В следующем примере конфигурируется фигура для изменения размеров под текст и результат сохраняется в "autofit_type.pptx".
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) определяет поведение текста, когда он выходит за пределы контейнера. Используйте его, чтобы контролировать, будет ли текст сжиматься, выходить за пределы или автоматически изменять размер фигуры. В следующем примере форма настраивается на изменение размера под текст, и результат сохраняется в "autofit_type.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -743,11 +743,11 @@ try {
 }
 ```
 
-Чтобы подсчитать строки после автоматического переноса и увидеть, как меняются ширина текста или фигуры, см. [Count Rendered Lines](/slides/ru/java/manage-paragraph/). Само количество строк не указывает, выходит ли текст за пределы контейнера.
+Чтобы подсчитать строки после автоматического переноса и увидеть, как изменяется результат при изменении ширины текста или фигуры, см. [Count Rendered Lines](/slides/ru/java/manage-paragraph/). Одно лишь количество строк не указывает, выходит ли текст за пределы контейнера.
 
-## **Установить привязку текстовых рамок**
+## **Установка привязки текстовых рамок**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) определяет, как текст позиционируется вертикально внутри фигуры, например, вверху, по центру или внизу. В следующем примере текст привязывается к нижней части первой фигуры и сохраняется в "text_anchor.pptx".
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) определяет вертикальное положение текста внутри фигуры, например, вверху, по середине или внизу. В следующем примере текст привязывается к нижней части первой фигуры и результат сохраняется в "text_anchor.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -765,9 +765,9 @@ try {
 }
 ```
 
-## **Установить табуляцию текста**
+## **Установка табуляции текста**
 
-Используйте [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) и [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) для настройки табуляций в абзаце. В следующем примере задаётся интервал табуляции по умолчанию в 100 пт и добавляется левый табулятор на 30 пт. Эти настройки влияют на текст, содержащий символы табуляции.
+Используйте [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) и [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) для настройки табуляций в абзаце. В следующем примере задаётся интервал табуляции по умолчанию в 100 пунктов и добавляется табуляция выравненная по левому краю на 30 пунктах. Эти настройки влияют на текст, содержащий символы табуляции.
 
 ```java
 import com.aspose.slides.*;
@@ -790,13 +790,13 @@ try {
 
 Результат:
 
-![Табы абзаца](paragraph_tabs.png)
+![Табуляции абзаца](paragraph_tabs.png)
 
-## **Установить язык проверки орфографии**
+## **Установка языка проверки правописания**
 
-Aspose.Slides предоставляет [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), позволяя задать язык проверки орфографии для части текста. Язык проверки определяет, какой язык будет использоваться для проверки орфографии и грамматики в PowerPoint.
+Aspose.Slides предоставляет [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), который позволяет задать язык проверки правописания для текстового фрагмента. Язык проверки определяет язык, используемый для проверки орфографии и грамматики в PowerPoint.
 
-В следующем примере требуется файл "presentation.pptx" с текстовым полем в первой фигуре первого слайда и хотя бы одним абзацем. Он заменяет содержимое первого абзаца на «1。», задаёт SimSun как шрифт и назначает язык проверки Simplified Chinese (`zh-CN`). Результат сохраняется в "proofing_language.pptx":
+Следующий пример требует файл "presentation.pptx" с текстовым полем в первой фигуре первого слайда и по крайней мере одним абзацем. Он заменяет содержимое первого абзаца на "1。", задаёт SimSun в качестве шрифта и устанавливает язык проверки упрощённого китайского (`zh-CN`). Затем сохраняет результат в "proofing_language.pptx":
 
 ```java
 import com.aspose.slides.*;
@@ -816,7 +816,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Установите Id языка проверки орфографии.
+    // Установите идентификатор проверочного языка.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -828,9 +828,45 @@ try {
 }
 ```
 
-## **Установить язык по умолчанию**
+### **Копирование метаданных языка**
 
-Используйте [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) для определения языка текста по умолчанию при загрузке или создании презентации. В следующем примере создаётся презентация с американским английским как языком текста по умолчанию, добавляется текстовое поле и выводится `en-US` для первой части текста.
+При копировании многоязычного текста из шаблона сохраняйте как [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getLanguageId--) , так и [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--) . В следующем автономном примере создаётся исходный фрагмент с американским английским в качестве языка и французским как альтернативным языком, после чего текст и идентификаторы копируются в фрагмент новой презентации.
+
+```java
+import com.aspose.slides.*;
+
+Portion source = new Portion("Hello! Bonjour!");
+source.getPortionFormat().setLanguageId("en-US");
+source.getPortionFormat().setAlternativeLanguageId("fr-FR");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80);
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    Portion destination = new Portion();
+    destination.setText(source.getText());
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
+    // Если у источника нет альтернативного языка, null очищает значение назначения.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
+    paragraph.getPortions().add(destination);
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Чтобы проверить источник без альтернативного языка, опустите присваивание "fr-FR". Тогда альтернативный идентификатор будет `null`, и тот же оператор копирования сохранит его отсутствие без введения значения по умолчанию, даже если у целевого фрагмента ранее был задан альтернативный язык.
+
+Эти идентификаторы хранятся как метаданные языка. Сохранение их не определяет, какой словарь PowerPoint выбирает для проверки орфографии или грамматики.
+
+## **Установка языка по умолчанию**
+
+Используйте [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) для определения языка текста по умолчанию при загрузке или создании презентации. В следующем примере создаётся презентация с американским английским как языком текста по умолчанию, добавляется текстовое поле и выводится `en-US` для его первого текстового фрагмента.
 
 ```java
 import com.aspose.slides.*;
@@ -842,11 +878,11 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Добавьте новую прямоугольную фигуру с текстом.
+    // Добавьте новую прямоугольную форму с текстом.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Проверить язык первой части текста.
+    // Проверьте язык первого фрагмента.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -854,18 +890,18 @@ try {
 }
 ```
 
-## **Установить стиль текста по умолчанию**
+## **Установка стиля текста по умолчанию**
 
 Чтобы применить форматирование текста по умолчанию на уровне презентации, используйте [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-В следующем примере задаётся шрифт 14 пт, жирный, как стиль по умолчанию для абзацев верхнего уровня в новой презентации и сохраняется в "default_text_style.pptx". Текст может наследовать эти значения, если более специфичное форматирование их не переопределяет.
+В следующем примере задаётся шрифт 14 пунктов полужирный в качестве значения по умолчанию для абзацев верхнего уровня в новой презентации и сохраняется в "default_text_style.pptx". Текст может наследовать эти значения по умолчанию, если только более конкретное форматирование их не переопределит.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Получите формат абзаца верхнего уровня.
+    // Получить формат абзаца верхнего уровня.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -879,15 +915,15 @@ try {
 }
 ```
 
-## **Извлечение текста с эффектом «Все заглавные»**
+## **Извлечение текста с эффектом All-Caps**
 
-В PowerPoint применение эффекта **All Caps** делает текст заглавным на слайде, даже если он был введён в нижнем регистре. При получении такой части текста через Aspose.Slides библиотека возвращает текст точно в том виде, в каком он был введён. Чтобы получить отображаемый текст, проверьте [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) и при значении `All` преобразуйте полученную строку в верхний регистр.
+В PowerPoint применение эффекта **All Caps** делает текст отображаемым заглавными буквами на слайде, даже если он был введён строчными. При получении такого текстового фрагмента через Aspose.Slides библиотека возвращает текст точно в том виде, в котором он был введён. Чтобы соответствовать отображаемому тексту, проверьте [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) и преобразуйте возвращённую строку в верхний регистр, когда значение равно `All`.
 
-Этот пример требует файл "sample2.pptx" с текстовым полем в первой фигуре первого слайда. В первой части первого абзаца находится «Hello, Aspose!», к которой применён эффект All Caps, как показано ниже.
+Этот пример требует файл "sample2.pptx" с текстовым полем в первой фигуре первого слайда. Первый фрагмент первого абзаца содержит "Hello, Aspose!" с применённым эффектом All Caps, как показано ниже.
 
 ![Эффект All Caps](all_caps_effect.png)
 
-Ниже пример кода, показывающий, как извлечь текст с применённым эффектом **All Caps**:
+Пример кода ниже показывает, как извлечь текст с применённым эффектом **All Caps**:
 
 ```java
 import com.aspose.slides.*;
@@ -922,10 +958,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Чтобы изменить текст в таблице на слайде, используйте [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Перебирайте ячейки и обновляйте каждую через [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) и форматирование абзацев через [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Чтобы изменить текст в таблице на слайде, используйте [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/). Итеративно пройдитесь по ячейкам и обновите каждую ячейку через [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) и форматирование абзацев через [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Как применить градиентный цвет к тексту на слайде PowerPoint?**
 
-Чтобы применить градиентный цвет к тексту, используйте [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Установите [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) в [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) и настройте градиентные стопы, направление и прозрачность.
+Чтобы применить градиентный цвет к тексту, используйте [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Установите [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) в [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) и настройте точки градиента, направление и прозрачность.
 
-Связанная функция: [Format text within slides](/slides/ru/features/text-formatting/).
+Related feature: [Форматировать текст в слайдах](/slides/ru/features/text-formatting/).

@@ -1,5 +1,5 @@
 ---
-title: Text in Präsentationen in .NET formatieren
+title: Formatierung von Präsentationstext in .NET
 linktitle: Textformatierung
 type: docs
 weight: 50
@@ -12,13 +12,13 @@ keywords:
 - Zeichenabstand
 - Schrifteigenschaften
 - Schriftfamilie
-- Textdrehung
-- Rotationswinkel
+- Textrotation
+- Drehwinkel
 - Textrahmen
 - Zeilenabstand
-- Autofit‑Eigenschaft
-- Textrahmen‑Verankerung
-- Tabulatoren
+- Autofit-Eigenschaft
+- Textrahmen-Anker
+- Texttabulator
 - Standardsprache
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET formatieren und gestalten. Schriften, Farben, Ausrichtungen und mehr anpassen."
+description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET. Passen Sie Schriftarten, Farben, Ausrichtung und mehr an."
 ---
 ## **Übersicht**
 
-Dieser Artikel zeigt, wie Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für .NET formatiert wird. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabulatoren und Spracheinstellungen.
+Dieser Artikel zeigt, wie Text in PowerPoint- und OpenDocument‑Präsentationen mit Aspose.Slides für .NET formatiert wird. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schrifteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabulatoren und Spracheinstellungen.
 
-Sofern nicht anders angegeben, verwenden die Beispiele [sample.pptx](sample.pptx). Die erste Form auf der ersten Folie ist ein Textfeld, und ihr erster Absatz enthält den unten gezeigten Text. Sowohl Folien‑ als auch Form‑Indizes beginnen bei Null. Beispiele, die fette Textteile auswählen, verwenden effektive Formatierung, einschließlich vererbter Fettschrift:
+Sofern nicht anders angegeben, verwenden die Beispiele [sample.pptx](sample.pptx). Die erste Form auf der ersten Folie ist ein Textfeld, und ihr erster Absatz enthält den unten gezeigten Text. Sowohl Folien‑ als auch Formenindizes beginnen bei Null. Beispiele, die fette Textteile auswählen, verwenden wirksame Formatierung, einschließlich geerbter Fettdarstellung:
 
 ![Sample text](sample_text.png)
 
-Zum Auffinden und Hervorheben von Literaltext oder regulären Ausdruck‑Übereinstimmungen siehe [Search and Replace Text](/slides/de/net/search-and-replace-text/).
+Um wörtlichen Text oder Übereinstimmungen mit regulären Ausdrücken zu finden und hervorzuheben, siehe [Suchen und Ersetzen von Text](/slides/de/net/search-and-replace-text/).
 
-## **Text‑Hintergrundfarbe festlegen**
+## **Text-Hintergrundfarbe festlegen**
 
-Verwenden Sie [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/), um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) für einzelne Textabschnitte.
+Verwenden Sie [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/), um die standardmäßige Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) für einzelne Textteile.
 
-Das folgende Beispiel setzt ein hellgraues Hervorheben als Standard für den ersten Absatz. Explizite Hervorhebungsfarben einzelner Abschnitte haben Vorrang vor diesem Standard:
+Das folgende Beispiel legt eine hellgraue Hervorhebung als Standard für den ersten Absatz fest. Explizite Hervorhebungsfarben bei einzelnen Textteilen haben Vorrang vor diesem Standard:
 
 ```cs
 using System.Drawing;
@@ -65,7 +65,7 @@ Das Ergebnis:
 
 ![The gray paragraph](gray_paragraph.png)
 
-Das Code‑Beispiel unten zeigt, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festgelegt wird:
+Das folgende Codebeispiel zeigt, wie die Hintergrundfarbe für **Textteile mit fetter Schrift** festgelegt wird:
 
 ```cs
 using System.Drawing;
@@ -82,7 +82,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // Legen Sie die Hervorhebungsfarbe für den Textabschnitt fest.
+        // Setzen Sie die Hervorhebungsfarbe für den Textteil.
         portion.PortionFormat.HighlightColor.Color = Color.LightGray;
     }
 }
@@ -94,11 +94,11 @@ Das Ergebnis:
 
 ![The gray text portions](gray_text_portions.png)
 
-## **Absätze ausrichten**
+## **Textabsätze ausrichten**
 
-Verwenden Sie [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), um die Absatzausrichtung innerhalb eines Textrahmens festzulegen. Der Wert kann z. B. zentriert, linksbündig, rechtsbündig, block‑justiert usw. sein.
+Verwenden Sie [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), um die Absatzausrichtung innerhalb eines Textrahmens festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, blockiert usw. sein.
 
-Das folgende Code‑Beispiel zeigt, wie der Absatz **zentriert** ausgerichtet wird:
+Das folgende Codebeispiel zeigt, wie der Absatz **Mitte** ausgerichtet wird:
 
 ```cs
 using Aspose.Slides;
@@ -110,7 +110,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// Setzen Sie die Ausrichtung des Absatzes auf Zentriert.
+// Setzen Sie die Ausrichtung des Absatzes auf die Mitte.
 paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
 presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -120,11 +120,11 @@ Das Ergebnis:
 
 ![The aligned paragraph](aligned_paragraph.png)
 
-## **Schriftarten innerhalb einer Zeile ausrichten**
+## **Schriften innerhalb einer Zeile ausrichten**
 
-Verwenden Sie [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/), um Textabschnitte verschiedener Schriftgrößen innerhalb einer Zeile vertikal auszurichten. Diese Einstellung gilt für den gesamten Absatz und steuert die Ausrichtung jeder Zeile.
+Verwenden Sie [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/), um Textteile mit unterschiedlichen Schriftgrößen innerhalb einer Zeile vertikal auszurichten. Diese Einstellung gilt für den gesamten Absatz und steuert die Ausrichtung in jeder seiner Zeilen.
 
-Das folgende eigenständige Beispiel erstellt vier beschriftete Textfelder auf einer Folie. Jeder Absatz enthält denselben Text in 18, 36 und 54 Pt, mit unterschiedlicher Schrift‑Ausrichtung. Es verwendet Arial, deaktiviert Autofit und Zeilenumbruch und hält die Textrahmen groß genug für eine einzelne Zeile.
+Das folgende eigenständige Beispiel erstellt vier beschriftete Textfelder auf einer Folie. Jeder Absatz enthält denselben Text in 18, 36 und 54 Punkten mit unterschiedlicher Schriftartenausrichtung. Es verwendet Arial, deaktiviert Autofit und Zeilenumbruch und hält die Textrahmen groß genug für eine einzelne Zeile.
 
 ```cs
 using System.Drawing;
@@ -180,15 +180,15 @@ Das Ergebnis:
 
 ![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
 
-Die Schrift‑Ausrichtung verwendet Schriftmetriken, sodass die sichtbaren Kanten einzelner Buchstaben nicht exakt übereinstimmen müssen. Das Beispiel enthält sowohl einen Großbuchstaben als auch einen Unterschenker, um den Unterschied zwischen Grundlinie und Unterkante zu verdeutlichen. Schriftverfügbarkeit und -ersatz, die verwendeten Zeichen und die unterschiedlichen Schriftgrößen beeinflussen das Ergebnis. Rahmen‑Abmessungen, Ränder, Zeilenabstand, Zeilenumbruch und Autofit wirken sich ebenfalls auf das Layout aus; verwenden Sie dieselben Schriften und Layout‑Einstellungen beim Vergleich der Modi.
+Die Schriftartenausrichtung verwendet Schriftmetriken, sodass die sichtbaren Kanten einzelner Buchstaben nicht unbedingt exakt ausgerichtet sind. Das Beispiel enthält sowohl einen Großbuchstaben als auch einen Tiefpunkt, um den Unterschied zwischen Grundlinie und Unterkante zu verdeutlichen. Schriftverfügbarkeit und -ersatz, die verwendeten Zeichen und die Unterschiedlichkeit der Schriftgrößen beeinflussen das Ergebnis. Rahmenabmessungen, Ränder, Zeilenabstand, Zeilenumbruch und Autofit wirken sich ebenfalls auf das Layout aus; verwenden Sie dieselben Schriften und Layouteinstellungen beim Vergleich der Modi.
 
-Diese Einstellung unterscheidet sich von [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), das die horizontale Absatzausrichtung steuert, und von [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), das den Textblock vertikal innerhalb seiner Form positioniert. Hoch‑ und Tiefgestellt‑Formatierung über [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) verschiebt einzelne Abschnitte relativ zur Grundlinie, anstatt die Schrift‑Ausrichtung für die Zeilen des Absatzes festzulegen.
+Diese Einstellung unterscheidet sich von [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), die die horizontale Absatzausrichtung steuert, und von [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), die den Textblock vertikal innerhalb seiner Form positioniert. Hoch- und Tiefstellung über [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) verschieben einzelne Textteile relativ zur Grundlinie, anstatt die Schriftartenausrichtung für die Zeilen des Absatzes festzulegen.
 
 ## **Transparenz für Text festlegen**
 
-Die Text‑Transparenz wird über die Alphakomponente der Farbe gesteuert, die [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/) zugewiesen wird. In den nachfolgenden Beispielen bedeutet `alpha = 50` einen ARGB‑Alpha‑Wert im Bereich 0–255, nicht einen Transparenz‑Prozentsatz.
+Die Texttransparenz wird über die Alpha‑Komponente der einer [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/) zugewiesenen Farbe gesteuert. In den nachfolgenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Kanalwert im Bereich 0–255 und kein Transparenz‑Prozentsatz.
 
-Das Code‑Beispiel unten zeigt, wie Transparenz auf den **gesamten Absatz** angewendet wird:
+Das folgende Codebeispiel zeigt, wie Transparenz auf den **gesamten Absatz** angewendet wird:
 
 ```cs
 using System.Drawing;
@@ -214,7 +214,7 @@ Das Ergebnis:
 
 ![The transparent paragraph](transparent_paragraph.png)
 
-Das folgende Code‑Beispiel zeigt, wie Transparenz auf **Textabschnitte mit fetter Schrift** angewendet wird:
+Das folgende Codebeispiel zeigt, wie Transparenz auf **Textteile mit fetter Schrift** angewendet wird:
 
 ```cs
 using System.Drawing;
@@ -233,7 +233,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // Setzen Sie die Transparenz des Textabschnitts.
+        // Setzen Sie die Transparenz des Textteils.
         portion.PortionFormat.FillFormat.FillType = FillType.Solid;
         portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
     }
@@ -248,7 +248,7 @@ Das Ergebnis:
 
 ## **Zeichenabstand für Text festlegen**
 
-Verwenden Sie [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/), um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verringern. Die Beispiele fügen 3 Pt Abstand hinzu; negative Werte verdichten den Text.
+Verwenden Sie [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/), um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verringern. Die Beispiele fügen 3 Punkte Abstand hinzu; negative Werte verringern den Text.
 
 Der folgende C#‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** erweitert wird:
 
@@ -263,7 +263,7 @@ var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
 // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
-paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Zeichenabstand vergrößern.
+paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Zeichenabstand erweitern.
 
 presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 ```
@@ -272,7 +272,7 @@ Das Ergebnis:
 
 ![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Das Code‑Beispiel unten zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** erweitert wird:
+Das folgende Codebeispiel zeigt, wie der Zeichenabstand in **Textteilen mit fetter Schrift** erweitert wird:
 
 ```cs
 using Aspose.Slides;
@@ -289,7 +289,7 @@ foreach (var portion in paragraph.Portions)
     if (portion.PortionFormat.GetEffective().FontBold)
     {
         // Hinweis: Verwenden Sie negative Werte, um den Zeichenabstand zu komprimieren.
-        portion.PortionFormat.Spacing = 3;  // Zeichenabstand vergrößern.
+        portion.PortionFormat.Spacing = 3;  // Zeichenabstand erweitern.
     }
 }
 
@@ -302,9 +302,9 @@ Das Ergebnis:
 
 ### **Kerning für bestimmte Schriften deaktivieren**
 
-In einigen Fällen kann von Aspose.Slides gerenderter Text etwas enger wirken als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriften ignoriert, selbst wenn die Schrift gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+In manchen Fällen kann der von Aspose.Slides gerenderte Text leicht enger wirken als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriften ignorieren kann, selbst wenn die Schrift gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
 
-Um die gerenderte Ausgabe in solchen Fällen PowerPoint‑ähnlicher zu machen, können Sie Kerning für Textabschnitte, die die betroffene Schrift verwenden, deaktivieren. Setzen Sie [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) auf einen Wert, der größer als die tatsächliche Schriftgröße ist. Dieses Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Es prüft effektive Schriftnamen, einschließlich vererbter Schriften, und legt einen Schwellenwert von 100 Pt für Abschnitte fest, die Roboto verwenden. Damit wird Kerning für passende Abschnitte unter 100 Pt deaktiviert:
+Um das gerenderte Ergebnis solchen Fällen näher an PowerPoint zu bringen, können Sie Kerning für Textteile deaktivieren, die die betroffene Schrift verwenden. Setzen Sie [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) auf einen Wert, der größer ist als die tatsächliche Schriftgröße. Dieses Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Es prüft wirksame Schriftarten, einschließlich geerbter Schriften, und legt einen Schwellenwert von 100 Punkten für Textteile fest, die Roboto verwenden. Damit wird Kerning für passende Textteile mit einer Schriftgröße unter 100 Punkten deaktiviert:
 
 ```cs
 using Aspose.Slides;
@@ -336,13 +336,13 @@ foreach (var paragraph in autoShape.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-Für passende Texte unterhalb des Schwellenwerts verhindert diese Einstellung Kerning und kann helfen, das Rendering von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriften anzupassen.
+Für passenden Text unterhalb des Schwellenwerts verhindert diese Einstellung Kerning und kann helfen, das Rendering von Aspose.Slides an die visuelle Ausgabe von PowerPoint für betroffene Schriften anzupassen.
 
-## **Schriftarteigenschaften verwalten**
+## **Schrifteigenschaften für Text verwalten**
 
-Schriftarteigenschaften können auf Absatzebene über [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) oder auf einzelne Abschnitte über [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/) festgelegt werden.
+Schrifteigenschaften können auf Absatzebene über [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) oder für einzelne Textteile über [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/) festgelegt werden.
 
-Das folgende Beispiel setzt die Standardschrift des ersten Absatzes auf 12 Pt Times New Roman mit fett, kursiv und punktierter Unterstreichung. Explizite Formatierung einzelner Abschnitte hat Vorrang vor diesen Vorgaben:
+Das folgende Beispiel legt die Standardschrift des ersten Absatzes auf 12‑Punkt Times New Roman mit fetter, kursiver und gepunkteter Unterstreichung fest. Explizite Formatierung einzelner Textteile hat Vorrang vor diesen Vorgaben:
 
 ```cs
 using Aspose.Slides;
@@ -354,7 +354,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// Legen Sie die Schrifteigenschaften für den Absatz fest.
+// Setzen Sie die Schrifteigenschaften für den Absatz.
 var portionFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
 portionFormat.FontHeight = 12;
 portionFormat.FontBold = NullableBool.True;
@@ -369,7 +369,7 @@ Das Ergebnis:
 
 ![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-Das folgende Beispiel wendet 13 Pt Times New Roman, kursive Formatierung und punktierte Unterstreichung auf Abschnitte an, deren effektive Formatierung fett ist:
+Das folgende Beispiel wendet 13‑Punkt Times New Roman, kursive Formatierung und eine gepunktete Unterstreichung auf Textteile an, deren wirksame Formatierung fett ist:
 
 ```cs
 using Aspose.Slides;
@@ -385,7 +385,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // Setzen Sie die Schrifteigenschaften für den Textabschnitt.
+        // Setzen Sie die Schrifteigenschaften für den Textteil.
         portion.PortionFormat.FontHeight = 13;
         portion.PortionFormat.FontItalic = NullableBool.True;
         portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -400,13 +400,13 @@ Das Ergebnis:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **Normalisierung der Text‑Höhe steuern**
+## **Text-Höhen-Normalisierung steuern**
 
-Verwenden Sie [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/), wenn Sie Vorlagen‑Typografie reproduzieren oder Unterschiede in der Zeichenhöhe untersuchen. In PowerPoint streckt oder komprimiert das Aktivieren der Normalisierung einzelne Zeichen vertikal, um innerhalb des Textabschnitts eine einheitliche sichtbare Höhe zu erreichen. Es garantiert nicht gleiche Text‑Höhen über unterschiedliche Schriften hinweg.
+Verwenden Sie [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/), wenn Sie Vorlagentypografie reproduzieren oder Unterschiede in der Zeichenhöhe untersuchen. In PowerPoint streckt oder komprimiert das Aktivieren der Normalisierung einzelne Zeichen vertikal, um ihnen innerhalb des Textteils eine einheitliche sichtbare Höhe zu geben. Es garantiert nicht gleich hohe Texte bei verschiedenen Schriften.
 
-Setzen Sie die Eigenschaft auf [NullableBool.True or False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), um Normalisierung explizit zu aktivieren bzw. zu deaktivieren. `NullableBool.NotDefined` lässt die lokale Einstellung undefiniert, sodass der Abschnitt den Wert beispielsweise von [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) erbt. Es bedeutet nicht `False`. Verwenden Sie [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) und lesen Sie [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/), um den aufgelösten booleschen Wert zu erhalten.
+Setzen Sie die Eigenschaft auf [NullableBool.True oder False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), um Normalisierung explizit zu aktivieren oder zu deaktivieren. `NullableBool.NotDefined` lässt die lokale Einstellung ungesetzt, sodass das Textteil den Wert von beispielsweise dem [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) des Absatzes erbt. Es bedeutet nicht `False`. Verwenden Sie [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) und lesen Sie [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/), um den aufgelösten booleschen Wert zu erhalten.
 
-Das folgende eigenständige Beispiel erfordert **Arial**. Es erstellt zwei Textblöcke mit denselben Groß‑ und Kleinbuchstaben, Unterscheidern und Akzentzeichen in 54 Pt. Beide Absätze aktivieren die Normalisierung standardmäßig. Der obere Abschnitt deaktiviert sie ausdrücklich; der untere erbt die Einstellung. Rahmen‑Größen, Ränder und Absatz‑Abstand sind identisch, Zeilenumbruch und Autofit sind deaktiviert, um den Vergleich konsistent zu halten. Das Beispiel gibt `False: False` und `NotDefined: True` aus und speichert „text_height_normalization.pptx“.
+Das folgende eigenständige Beispiel erfordert **Arial**, um installiert zu sein. Es erstellt zwei Textblöcke, die dieselben Groß‑ und Kleinbuchstaben, Tiefpunkte und Sonderzeichen in 54 Punkten enthalten. Beide Absätze aktivieren Normalisierung standardmäßig. Der obere Teil deaktiviert sie explizit; der untere Teil erbt sie. Rahmenabmessungen, Ränder und Absatzabstand sind identisch, Zeilenumbruch und Autofit sind deaktiviert, um den Vergleich konsistent zu halten. Das Beispiel gibt `False: False` und `NotDefined: True` aus und speichert „text_height_normalization.pptx“.
 
 ```cs
 using System;
@@ -453,19 +453,19 @@ for (var i = 0; i < settings.Length; i++)
 presentation.Save("text_height_normalization.pptx", SaveFormat.Pptx);
 ```
 
-Der nachfolgende Vergleich wurde aus der gespeicherten Präsentation exportiert. Die obere Zeile hat Normalisierung deaktiviert (`False`); die untere Zeile erbt die aktivierte Einstellung (`NotDefined` → `True`). Arial muss installiert sein, um das Aussehen zu reproduzieren.
+Der Vergleich unten wurde aus der gespeicherten Präsentation exportiert. Die obere Zeile hat Normalisierung deaktiviert (`False`); die untere Zeile erbt die aktivierte Einstellung (`NotDefined` → `True`). Stellen Sie sicher, dass Arial installiert ist, um dieses Aussehen zu reproduzieren.
 
-![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+![Arial‑Text mit 54 Punkten, wobei die Normalisierung oben deaktiviert und unten geerbt ist](text_height_normalization.png)
 
-Normalisierung ändert die Zeichenhöhe, ohne den zugewiesenen [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/)-Wert zu verändern, der die Schriftgröße in Punkten angibt. [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) des Absatzes steuert den Zeilenabstand, während [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) des Textrahmens bestimmt, wie Text oder dessen Container sich anpassen. Diese Einstellungen dienen unterschiedlichen Zwecken und können das Gesamtlayout unabhängig voneinander beeinflussen. Weitere Informationen zu Absatz‑Formatierung und Vererbung finden Sie unter [Manage Paragraph](/slides/de/net/manage-paragraph/).
+Normalisierung ändert die Zeichenhöhe, ohne den zugewiesenen [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/)‑Wert zu verändern, der die Schriftgröße in Punkten angibt. Der Absatz‑[SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) steuert den Zeilenabstand, während das Text‑[AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) bestimmt, wie Text oder sein Container sich anpasst. Diese Einstellungen dienen unterschiedlichen Zwecken und können das Gesamtlayout unabhängig voneinander beeinflussen. Weitere Informationen zur Absatzformatierung und Vererbung finden Sie unter [Manage Paragraph](/slides/de/net/manage-paragraph/).
 
 ## **Durchgestrichenen Text anwenden und entfernen**
 
-Verwenden Sie [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) auf einem Textabschnitt, um Korrekturen, streich‑ oder frühere Preise darzustellen, ohne den Originaltext zu löschen. Setzen Sie ihn auf [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/), um eine bzw. zwei Linien durch den Text zu zeichnen.
+Verwenden Sie [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) auf einem Textteil, um Korrekturen, strichgelöschte Begriffe oder frühere Preise anzuzeigen, ohne den Originaltext zu löschen. Setzen Sie ihn auf [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/), um eine bzw. zwei Durchstreichlinien zu erzeugen.
 
-Um Durchstreichung zu entfernen, weisen Sie `TextStrikethroughType.None` zu. Dies deaktiviert den Effekt ausdrücklich, selbst wenn das umgebende Format Durchstreichung angibt. Im Gegensatz dazu lässt `TextStrikethroughType.NotDefined` die lokale Einstellung undefiniert, sodass der Abschnitt Formatierungen erben kann, beispielsweise vom Absatz. Das garantiert nicht, dass Durchstreichung entfernt wird. Verwenden Sie [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/), um das resultierende Format einschließlich vererbter Werte zu lesen.
+Um Durchstreichung zu entfernen, weisen Sie `TextStrikethroughType.None` zu. Dadurch wird der Effekt explizit deaktiviert, selbst wenn die umgebende Formatierung Durchstreichung vorsieht. Im Gegensatz dazu lässt `TextStrikethroughType.NotDefined` die lokale Einstellung undefiniert, sodass das Textteil die Formatierung beispielsweise vom Absatz erben kann. Es garantiert nicht, dass die Durchstreichung entfernt wird. Verwenden Sie [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/), um die resultierende Formatierung einschließlich ererbter Werte auszulesen.
 
-Das folgende eigenständige Beispiel erstellt drei Preisvergleiche. Jeder Absatz hat separate Abschnitte für Bezeichnung, alten Preis und aktuellen Preis, sodass nur der alte Preis betroffen ist. Die erste Zeile wendet Durchstreichung an und entfernt sie anschließend; die anderen Zeilen behalten einfache bzw. doppelte Durchstreichung bei. Das Ändern dieser Eigenschaft bewahrt den Text und dessen übrige Formatierung, einschließlich des fetten alten Preises.
+Das folgende eigenständige Beispiel erstellt drei Preisvergleiche. Jeder Absatz enthält separate Textteile für die Bezeichnung, den vorherigen Preis und den aktuellen Preis, sodass nur der vorherige Preis betroffen ist. Die erste Zeile wendet Durchstreichung an und entfernt sie dann wieder; die anderen Zeilen behalten einfache bzw. doppelte Durchstreichung bei. Das Ändern dieser Eigenschaft bewahrt den Text und seine übrige Formatierung, einschließlich des fetten vorherigen Preises.
 
 ```cs
 using System.Drawing;
@@ -506,7 +506,7 @@ foreach (var label in labels)
 
 var paragraphs = shape.TextFrame.Paragraphs;
 
-// Durchstreichen anwenden, dann ausdrücklich vom ersten vorherigen Preis entfernen.
+// Strikethrough anwenden und dann explizit vom ersten vorherigen Preis entfernen.
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Single;
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.None;
 
@@ -518,13 +518,13 @@ presentation.Save("strikethrough.pptx", SaveFormat.Pptx);
 
 Das Ergebnis von oben nach unten: keine Durchstreichung, einfache Durchstreichung und doppelte Durchstreichung.
 
-![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+![Vorherige Preise ohne Durchstreichung, mit einfacher Durchstreichung und mit doppelter Durchstreichung](strikethrough.png)
 
-## **Text‑Drehung festlegen**
+## **Textdrehung festlegen**
 
-Verwenden Sie [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/), um eine vordefinierte Textorientierung innerhalb einer Form festzulegen.
+Verwenden Sie [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/), um eine vordefinierte Textausrichtung innerhalb einer Form festzulegen.
 
-Das folgende Code‑Beispiel setzt die Textorientierung der Form auf [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/), wodurch der Text **90 Grad gegen den Uhrzeigersinn** rotiert wird:
+Das folgende Codebeispiel setzt die Textausrichtung in der Form auf [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/), das den Text **90 Grad gegen den Uhrzeigersinn** dreht:
 
 ```cs
 using Aspose.Slides;
@@ -543,11 +543,11 @@ Das Ergebnis:
 
 ![The text rotation](text_rotation.png)
 
-## **Benutzerdefinierte Rotation für Textrahmen festlegen**
+## **Benutzerdefinierte Drehung für Textfelder festlegen**
 
-Verwenden Sie [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/), um einen benutzerdefinierten Rotationswinkel für ein [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) festzulegen.
+Verwenden Sie [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/), um einen benutzerdefinierten Drehwinkel für ein [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) festzulegen.
 
-Das Code‑Beispiel unten rotiert den Textrahmen um 3 Grad im Uhrzeigersinn innerhalb der Form:
+Das folgende Codebeispiel dreht das Textfeld um 3 Grad im Uhrzeigersinn innerhalb der Form:
 
 ```cs
 using Aspose.Slides;
@@ -568,7 +568,7 @@ Das Ergebnis:
 
 ## **Zeilenabstand von Absätzen festlegen**
 
-Aspose.Slides bietet [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) und [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) zur Steuerung des Absatzabstands. Diese Eigenschaften werden wie folgt verwendet:
+Aspose.Slides stellt [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) und [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) zur Kontrolle des Absatzabstands bereit. Diese Eigenschaften werden wie folgt verwendet:
 
 * Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
 * Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkten anzugeben.
@@ -596,14 +596,14 @@ Das Ergebnis:
 
 ## **Zeilenumbruch steuern**
 
-Regeln zum Zeilenumbruch von Absätzen sind nützlich in schmalen Textblöcken und Präsentationen, die lateinischen und ostasiatischen Text mischen. Die folgenden Eigenschaften gehören zu [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/), sodass sie für einen gesamten Absatz gelten:
+Absatz‑Zeilenumbruchregeln sind in schmalen Textblöcken und Präsentationen, die lateinischen und ostasiatischen Text mischen, nützlich. Die folgenden Eigenschaften gehören zu [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/), sodass sie für einen gesamten Absatz gelten:
 
-- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) steuert die Zeilenumbruch‑Regeln für lateinischen Text. In gemischtem Text kann das Ändern auch beeinflussen, wo angrenzender ostasiatischer Text und Interpunktion umbrechen.
-- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) steuert die Zeilenumbruch‑Regeln für ostasiatischen Text, einschließlich Beschränkungen für Zeichen am Anfang und Ende einer Zeile.
+- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) steuert die lateinischen Zeilenumbruchregeln. In gemischtem Text kann eine Änderung zudem beeinflussen, wo benachbarter ostasiatischer Text und Interpunktion umbrechen.
+- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) steuert die ostasiatischen Zeilenumbruchregeln, einschließlich Beschränkungen für Zeichen am Anfang und Ende einer Zeile.
 
-Diese Regeln ersetzen nicht [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/), das automatischen Zeilenumbruch innerhalb eines Textrahmens aktiviert. Sie beeinflussen das Layout, wenn ein Umbruch erfolgt; sie fügen keine Zeilenumbruch‑Zeichen ein. Ein expliziter Zeilenumbruch erzwingt eine neue Zeile im Absatz, unabhängig von der verfügbaren Breite.
+Diese Regeln ersetzen nicht [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/), das automatisches Umbrechen innerhalb eines Textrahmens aktiviert. Sie beeinflussen das Layout, wenn ein Umbrechen erfolgt; sie fügen keine Zeilenumbruch‑Zeichen ein. Ein expliziter Zeilenumbruch zwingt eine neue Zeile im Absatz, unabhängig von der verfügbaren Breite.
 
-Das folgende eigenständige Beispiel erstellt einen schmalen Textblock mit chinesischem und lateinischem Text. Es setzt beide Zeilenumbruch‑Eigenschaften explizit und speichert „line_breaking.pptx“. Zum Experimentieren damit ändern Sie den jeweiligen Eigenschaftswert, während die andere Einstellung unverändert bleibt. Das Beispiel verwendet 24 Pt Arial und SimSun bei einer Rahmenbreite von 160 Pt und horizontalen Textrahmen‑Rändern von 0. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) ist auf [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) gesetzt, sodass Textgröße und Rahmenmaße fest bleiben.
+Das folgende eigenständige Beispiel erstellt einen schmalen Textblock mit chinesischem und lateinischem Text. Es setzt beide Zeilenumbruch‑Eigenschaften explizit und speichert „line_breaking.pptx“. Zum Experimentieren mit einer Regel ändern Sie deren Wert, während die andere Einstellung unverändert bleibt. Das Beispiel verwendet 24‑Punkt Arial und SimSun bei einer Rahmenbreite von 160 Punkten und null horizontalen Textrahmen‑Rändern. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) ist auf [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) gesetzt, sodass Textgröße und Rahmenabmessungen fest bleiben.
 
 ```cs
 using System.Drawing;
@@ -640,9 +640,9 @@ presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 
 ## **Hängende Interpunktion steuern**
 
-[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) ermöglicht es zulässiger Interpunktion, über den rechten Rand der Textzeile hinauszuragen, anstatt in die nächste Zeile zu wechseln. Sie gilt für den gesamten Absatz und unterscheidet sich von einem hängenden Einzug.
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) ermöglicht es zulässiger Interpunktion, über den rechten Rand der Textzeile hinauszuragen, anstatt die nächste Zeile zu belegen. Sie gilt für den gesamten Absatz und unterscheidet sich von einem hängenden Einzug.
 
-Das folgende eigenständige Beispiel aktiviert hängende Interpunktion in einem 100‑Pt‑breiten Textrahmen und speichert „hanging_punctuation.pptx“. Bei 24 Pt Arial und horizontalen Textrahmen‑Rändern von 0 bleibt der abschließende Punkt nach „sentence“ und ragt über den rechten Textrand hinaus. Setzen Sie die Eigenschaft auf [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), um zu vergleichen: Mit diesen Einstellungen nimmt der Punkt eine eigene Zeile ein. Zeilenumbruch ist aktiviert und Autofit deaktiviert, um die verfügbare Breite festzuhalten.
+Das folgende eigenständige Beispiel aktiviert hängende Interpunktion in einem 100‑Punkt‑breiten Textrahmen und speichert „hanging_punctuation.pptx“. Bei 24‑Punkt Arial und null horizontalen Textrahmen‑Rändern bleibt der abschließende Punkt nach „sentence“ und reicht über den rechten Textrand hinaus. Setzen Sie die Eigenschaft auf [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/), um zu vergleichen: Mit diesen Einstellungen belegt der Punkt eine eigene Zeile. Zeilenumbruch ist aktiviert und Autofit deaktiviert, um die verfügbare Breite festzuhalten.
 
 ```cs
 using System.Drawing;
@@ -675,11 +675,11 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-Nicht jedes Satzzeichen kann hängen. Die oben beschriebenen [Schrift‑ und Layout‑Bedingungen](#control-line-breaking) gelten ebenfalls für diesen Vergleich: Ändern von Schrift, verfügbarer Breite, Rändern oder Autofit‑Einstellungen kann den sichtbaren Unterschied entfernen.
+Nicht jede Interpunktionsmarke kann hängen. Die [Schrift‑ und Layoutbedingungen, die oben beschrieben wurden](#control-line-breaking) gelten ebenfalls für diesen Vergleich: Änderungen an Schrift, verfügbarer Breite, Rändern oder Autofit‑Einstellungen können den sichtbaren Unterschied entfernen.
 
-## **Autofit‑Typ für Textrahmen festlegen**
+## **Autofit‑Typ für Textfelder festlegen**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) bestimmt, wie Text sich verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie ihn, um zu steuern, ob Text schrumpft, überläuft oder die Form automatisch resized. Das folgende Beispiel konfiguriert die Form so, dass sie sich an den Text anpasst, und speichert das Ergebnis unter „autofit_type.pptx“.
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie es, um zu steuern, ob der Text schrumpft, überläuft oder die Form automatisch anpasst. Das folgende Beispiel konfiguriert die Form so, dass sie sich an den Text anpasst, und speichert das Ergebnis in „autofit_type.pptx“.
 
 ```cs
 using Aspose.Slides;
@@ -694,11 +694,11 @@ autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-Um nach automatischem Zeilenumbruch Zeilen zu zählen und zu sehen, wie sich Text‑ oder Formbreite auf das Ergebnis auswirkt, siehe [Count Rendered Lines](/slides/de/net/manage-paragraph/). Die Zeilenzahl allein gibt keinen Hinweis darauf, ob Text den Container überläuft.
+Um nach automatischem Umbrechen Zeilen zu zählen und zu sehen, wie Text‑ oder Formbreite das Ergebnis verändern, siehe [Gerenderte Zeilen zählen](/slides/de/net/manage-paragraph/). Die Zeilenzahl allein gibt keinen Aufschluss darüber, ob Text seinen Container überläuft.
 
-## **Verankerung von Textrahmen festlegen**
+## **Verankerung von Textfeldern festlegen**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, mittig oder unten. Das folgende Beispiel verankert den Text am unteren Rand der ersten Form und speichert das Ergebnis unter „text_anchor.pptx“.
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, mittig oder unten. Das folgende Beispiel verankert den Text am unteren Rand der ersten Form und speichert das Ergebnis in „text_anchor.pptx“.
 
 ```cs
 using Aspose.Slides;
@@ -715,7 +715,7 @@ presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 
 ## **Tabulatoren für Text festlegen**
 
-Verwenden Sie [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) und [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/), um Tabstopps in einem Absatz zu konfigurieren. Das folgende Beispiel setzt das Standard‑Tabintervall auf 100 Pt und fügt einen linksbündigen Tabstopp bei 30 Pt hinzu. Diese Einstellungen betreffen Text, der Tab‑Zeichen enthält.
+Verwenden Sie [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) und [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/), um Tabulatoren in einem Absatz zu konfigurieren. Das folgende Beispiel setzt das Standard‑Tab‑Intervall auf 100 Punkte und fügt bei 30 Punkten einen linksbündigen Tabulator ein. Diese Einstellungen betreffen Text, der Tab‑Zeichen enthält.
 
 ```cs
 using Aspose.Slides;
@@ -734,13 +734,13 @@ presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
 
 Das Ergebnis:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Die Absatz-Tabulatoren](paragraph_tabs.png)
 
-## **Korrektursprache festlegen**
+## **Prüfsprache festlegen**
 
-Aspose.Slides bietet [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt, welche Sprache für Rechtschreib‑ und Grammatikprüfung in PowerPoint verwendet wird.
+Aspose.Slides bietet [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), mit dem Sie die Prüfsprache für ein Textteil festlegen können. Die Prüfsprache bestimmt die in PowerPoint für Rechtschreib‑ und Grammatikprüfungen verwendete Sprache.
 
-Das folgende Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie und mindestens einem Absatz. Es ersetzt den Inhalt des ersten Absatzes durch „1。“, setzt SimSun als Schrift und weist die vereinfachte chinesische Korrektursprache (`zh-CN`) zu. Das Ergebnis wird unter „proofing_language.pptx“ gespeichert:
+Das folgende Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie und mindestens einen Absatz. Es ersetzt den Inhalt des ersten Absatzes durch „1。“, setzt SimSun als Schrift und weist die vereinfachte chinesische Prüfsprache (`zh-CN`) zu. Das Ergebnis wird in „proofing_language.pptx“ gespeichert:
 
 ```cs
 using Aspose.Slides;
@@ -760,7 +760,7 @@ textPortion.PortionFormat.ComplexScriptFont = font;
 textPortion.PortionFormat.EastAsianFont = font;
 textPortion.PortionFormat.LatinFont = font;
 
-// Setzen Sie die Korrektursprache auf vereinfachtes Chinesisch.
+// Setzen Sie die Prüfsprache auf vereinfachtes Chinesisch.
 textPortion.PortionFormat.LanguageId = "zh-CN";
 
 textPortion.Text = "1。";
@@ -769,9 +769,42 @@ paragraph.Portions.Add(textPortion);
 presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 ```
 
+### **Sprachmetadaten kopieren**
+
+Beim Kopieren mehrsprachigen Textes aus einer Vorlage sollten sowohl [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) als auch [IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/) beibehalten werden. Das folgende eigenständige Beispiel erstellt einen Quell‑Textteil mit US‑Englisch als Sprache und Französisch als alternativer Sprache und kopiert Text sowie Kennungen in einen Textteil einer neuen Präsentation.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new Portion("Hello! Bonjour!");
+source.PortionFormat.LanguageId = "en-US";
+source.PortionFormat.AlternativeLanguageId = "fr-FR";
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 80);
+var paragraph = shape.TextFrame.Paragraphs[0];
+paragraph.Portions.Clear();
+
+var destination = new Portion();
+destination.Text = source.Text;
+destination.PortionFormat.LanguageId = source.PortionFormat.LanguageId;
+// Wenn die Quelle keine alternative Sprache hat, löscht null den Zielwert.
+destination.PortionFormat.AlternativeLanguageId = source.PortionFormat.AlternativeLanguageId;
+paragraph.Portions.Add(destination);
+
+presentation.Save("copied_language_metadata.pptx", SaveFormat.Pptx);
+```
+
+Um eine Quelle ohne alternative Sprache zu testen, lassen Sie die Zuweisung von `"fr-FR"` weg. Der alternative Bezeichner ist dann `null`, und dieselbe Kopieranweisung bewahrt dessen Fehlen, ohne einen Standardwert einzuführen, selbst wenn das Ziel zuvor eine alternative Sprache zugewiesen hatte.
+
+Diese Bezeichner werden als Sprach‑Metadaten gespeichert. Das Beibehalten bewirkt nicht, welches Wörterbuch PowerPoint für Rechtschreibung oder Grammatik prüft.
+
 ## **Standardsprache festlegen**
 
-Verwenden Sie [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/), um die Standardsprache für Text festzulegen, der beim Laden oder Erstellen einer Präsentation erzeugt wird. Das folgende Beispiel erstellt eine Präsentation mit US‑Englisch als Standard‑Textsprache, fügt ein Textfeld hinzu und gibt `en-US` für den ersten Textabschnitt aus.
+Verwenden Sie [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/), um die Standardsprache für beim Laden oder Erstellen einer Präsentation erzeugten Text zu definieren. Das folgende Beispiel erstellt eine Präsentation mit US‑Englisch als Standard‑Textsprache, fügt ein Textfeld hinzu und gibt `en-US` für dessen ersten Textteil aus.
 
 ```cs
 using System;
@@ -783,27 +816,27 @@ loadOptions.DefaultTextLanguage = "en-US";
 using var presentation = new Presentation(loadOptions);
 var slide = presentation.Slides[0];
 
-// Fügen Sie eine neue Rechteckform mit Text hinzu.
+// Neue Rechteckform mit Text hinzufügen.
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
 shape.TextFrame.Text = "Sample text";
 
-// Überprüfen Sie die Sprache des ersten Abschnitts.
+// Prüfe die Sprache des ersten Textteils.
 var portion = shape.TextFrame.Paragraphs[0].Portions[0];
 Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
 ## **Standard‑Textstil festlegen**
 
-Um Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/).
+Um die Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Das folgende Beispiel legt eine 14‑Pt‑fette Schrift als Standard für oberste Absätze in einer neuen Präsentation fest und speichert sie unter „default_text_style.pptx“. Text kann diese Vorgaben erben, sofern keine spezifischere Formatierung sie überschreibt.
+Das folgende Beispiel setzt eine 14‑Punkt‑fette Schrift als Standard für Absatz‑Erste­ebene in einer neuen Präsentation und speichert sie als „default_text_style.pptx“. Text kann diese Vorgaben erben, sofern keine spezifischere Formatierung sie überschreibt.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-// Get the top level paragraph format.
+// Holen Sie das Absatzformat der obersten Ebene.
 var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
 if (paragraphFormat != null)
@@ -815,15 +848,15 @@ if (paragraphFormat != null)
 presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **Text mit All‑Caps‑Effekt extrahieren**
+## **Text mit Großbuchstaben‑Effekt extrahieren**
 
-In PowerPoint bewirkt das Anwenden des **All Caps**‑Schrifteffekts, dass Text auf der Folie in Großbuchstaben erscheint, selbst wenn er ursprünglich klein geschrieben wurde. Beim Abrufen eines solchen Textabschnitts mit Aspose.Slides gibt die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) und konvertieren Sie den zurückgegebenen String bei `All` in Großbuchstaben.
+In PowerPoint bewirkt das Anwenden des **All Caps**‑Schrift‑Effekts, dass Text auf der Folie in Großbuchstaben erscheint, selbst wenn er ursprünglich kleingeschrieben wurde. Wenn Sie einen solchen Textteil mit Aspose.Slides abrufen, liefert die Bibliothek den Text exakt so zurück, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) und konvertieren Sie die zurückgegebene Zeichenkette in Großbuchstaben, wenn der Wert `All` ist.
 
-Dieses Beispiel benötigt „sample2.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Der erste Absatz‑erste Abschnitt enthält „Hello, Aspose!“ mit angewendetem All‑Caps‑Effekt, siehe unten.
+Dieses Beispiel benötigt „sample2.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Der erste Textteil des ersten Absatzes enthält „Hello, Aspose!“ mit angewendetem All‑Caps‑Effekt, wie unten gezeigt.
 
-![The All Caps effect](all_caps_effect.png)
+![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Das Code‑Beispiel unten zeigt, wie der Text mit angewendetem **All Caps**‑Effekt extrahiert wird:
+Der folgende Code zeigt, wie Sie den Text mit angewendetem **All Caps**‑Effekt extrahieren:
 
 ```cs
 using System;
@@ -856,10 +889,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Wie ändere ich Text in einer Tabelle auf einer Folie?**
 
-Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Durchlaufen Sie die Zellen und aktualisieren jede Zelle über [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) sowie die Absatzformatierung über [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
+Verwenden Sie [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/), um durch die Zellen zu iterieren und jede Zelle über [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) sowie Absatzformatierung über [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/) zu aktualisieren.
 
-**Wie wende ich einem Text auf einer PowerPoint‑Folie einen Farbverlauf an?**
+**Wie wende ich einer Textfarbe in einer PowerPoint‑Folie einen Farbverlauf an?**
 
-Um einen Farbverlauf auf Text anzuwenden, verwenden Sie [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Setzen Sie [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) auf [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) und konfigurieren Sie die Verlauf‑Stops, Richtung und Transparenz.
+Verwenden Sie [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Setzen Sie [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) auf [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) und konfigurieren Sie die Farbverlaufs‑Stops, Richtung und Transparenz.
 
-Related feature: [Format text within slides](/slides/de/features/text-formatting/).
+Related feature: [Textformatierung innerhalb von Folien](/slides/de/features/text-formatting/).

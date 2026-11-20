@@ -10,12 +10,12 @@ keywords:
 - پس‌زمینه متن
 - شفافیت متن
 - فاصله حروف
-- ویژگی‌های قلم
+- خصوصیات قلم
 - خانواده قلم
 - چرخش متن
-- زاویه چرخش
+- زاویهٔ چرخش
 - قاب متن
-- فاصله خطوط
+- فاصلهٔ خط
 - ویژگی autofit
 - لنگر قاب متن
 - تب‌بندی متن
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "قالب‌بندی و استایل‌دهی به متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای پایتون از طریق جاوا. قلم‌ها، رنگ‌ها، تراز و موارد بیشتر را سفارشی کنید."
+description: "قالب‌بندی و استایل‌دهی به متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Python از طریق Java. قلم‌ها، رنگ‌ها، تراز و موارد دیگر را سفارشی‌ کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-این مقاله نشان می‌دهد چگونه متن در ارائه‌های PowerPoint و OpenDocument را با استفاده از Aspose.Slides برای Python از طریق Java قالب‌بندی کنید. این مقاله رنگ‌های پس‌زمینه، شفافیت، فاصله‌گذاری بین حروف، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار autofit، لنگرگذاری متن، توقف‌گاه‌های تب و تنظیمات زبان را پوشش می‌دهد.
+این مقاله نحوه قالب‌بندی متن در ارائه‌های PowerPoint و OpenDocument را با استفاده از Aspose.Slides برای Python از طریق Java نشان می‌دهد. موضوعات شامل رنگ‌های پس‌زمینه، شفافیت، فاصله حروف، خصوصیات قلم، چرخش، فاصله بین پاراگراف‌ها، رفتار autofit، لنگر متن، توقف‌های تب و تنظیمات زبان است.
 
-اگر خلاف آن ذکر نشده باشد، مثال‌ها از [sample.pptx](sample.pptx) استفاده می‌کنند. اولین شکل در اولین اسلاید آن یک جعبه متن است و اولین پاراگراف آن شامل متنی است که در زیر نمایش داده شده است. هر دو شاخص اسلاید و شکل به صورت صفر-محور هستند. مثال‌هایی که بخش‌های بولد را انتخاب می‌کنند از قالب‌بندی مؤثر، شامل قالب‌بندی بولد به ارث‌برده، استفاده می‌کنند:
+مگر اینکه به‌طور خاص ذکر شده باشد، مثال‌ها از [sample.pptx](sample.pptx) استفاده می‌کنند. اولین شکل در اولین اسلاید یک جعبه متن است و اولین پاراگراف آن حاوی متنی است که در زیر نشان داده شده است. هر دو شاخص اسلاید و شکل به صورت صفر‑مبتنی هستند. مثال‌هایی که بخش‌های پر رنگ را انتخاب می‌کنند از قالب‌بندی مؤثر استفاده می‌نمایند، شامل قالب‌بندی پر رنگ وارث شده:
 
 ![متن نمونه](sample_text.png)
 
-برای یافتن و برجسته کردن متن دقیق یا مطابقت‌های عبارت منظم، به [جستجو و جایگزینی متن](/slides/fa/python-java/search-and-replace-text/) مراجعه کنید.
+برای یافتن و برجسته‌کردن متن دقیق یا موارد مطابق با عبارات منظم، به [جستجو و جایگزینی متن](/slides/fa/python-java/search-and-replace-text/) مراجعه کنید.
 
 ## **تنظیم رنگ پس‌زمینه متن**
 
-از [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) برای تنظیم رنگ هایلایت پیش‌فرض یک پاراگراف استفاده کنید، یا برای بخش‌های متنی جداگانه از [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) استفاده کنید.
+از [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) برای تنظیم رنگ برجسته پیش‌فرض برای یک پاراگراف استفاده کنید یا برای بخش‌های متنی فردی از [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) بهره ببرید.
 
-مثال زیر هایلایت خاکستری روشن را به عنوان پیش‌فرض برای اولین پاراگراف تنظیم می‌کند. رنگ‌های هایلایت صریح در بخش‌های جداگانه نسبت به این پیش‌فرض اولویت دارند:
+مثال زیر رنگ برجستهٔ خاکستری روشن را به‌عنوان پیش‌فرض برای اولین پاراگراف تنظیم می‌کند. رنگ‌های برجستهٔ صریح بر روی بخش‌های فردی بر این پیش‌فرض ارجحیت دارند:
 
 ```python
 import jpype
@@ -61,7 +61,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # رنگ هایلایت را برای تمام پاراگراف تنظیم کنید.
+    # رنگ برجسته را برای کل پاراگراف تنظیم کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx)
@@ -73,7 +73,7 @@ finally:
 
 ![پاراگراف خاکستری](gray_paragraph.png)
 
-مثال کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه را برای **بخش‌های متنی با قلم بولد** تنظیم کنید:
+مثال کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **بخش‌های متنی با قلم پر نقش** تنظیم شود:
 
 ```python
 import jpype
@@ -94,7 +94,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # رنگ هایلایت را برای بخش متن تنظیم کنید.
+            # رنگ برجسته را برای بخش متن تنظیم کنید.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_text_portions.pptx", SaveFormat.Pptx)
@@ -108,9 +108,9 @@ finally:
 
 ## **تراز کردن پاراگراف‌های متن**
 
-از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) برای تنظیم تراز پاراگراف درون یک فریم متن استفاده کنید. مقدار می‌تواند مرکز، چپ‌تراز، راست‌تراز، توجیه‌شده و غیره باشد.
+از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) برای تنظیم تراز پاراگراف داخل یک چارچوب متن استفاده کنید. مقدار می‌تواند centered، left‑aligned، right‑aligned، justified و ... باشد.
 
-مثال کد زیر نشان می‌دهد چگونه پاراگراف را به **مرکز** تراز کنید:
+کد زیر نشان می‌دهد چگونه پاراگراف را به **مرکز** تراز کنید:
 
 ```python
 import jpype
@@ -128,7 +128,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تنظیم تراز پاراگراف به مرکز.
+    # تراز پاراگراف را به مرکز تنظیم کنید.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center)
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx)
@@ -140,18 +140,18 @@ finally:
 
 ![پاراگراف تراز شده](aligned_paragraph.png)
 
-## **تراز کردن قلم‌ها درون یک خط**
+## **تراز کردن قلم‌ها در یک خط**
 
-از [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) برای تراز عمودی بخش‌های متنی با اندازه‌های قلم متفاوت درون یک خط استفاده کنید. این تنظیم برای تمام پاراگراف اعمال می‌شود و تراز در هر یک از خطوط آن را کنترل می‌کند.
+از [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) برای تراز عمودی بخش‌های متنی با اندازه‌های قلم متفاوت در یک خط استفاده کنید. این تنظیم برای کل پاراگراف اعمال می‌شود و تراز را در هر یک از خطوط آن کنترل می‌کند.
 
-مثال مستقل زیر چهار جعبه متن با برچسب بر روی یک اسلاید ایجاد می‌کند. هر پاراگراف همان متن را با اندازه‌های ۱۸، ۳۶ و ۵۴ پوینت دارد، با تراز قلم متفاوت. از Arial استفاده می‌کند، autofit و بسته‌بندی را غیرفعال می‌کند و فریم‌های متن را به اندازه‌ای بزرگ نگه می‌دارد که یک خط باشند.
+مثال کاملا مستقل زیر چهار جعبه متن برچسب‌دار را در یک اسلاید ایجاد می‌کند. هر پاراگراف متن یکسانی با اندازه‌های 18، 36 و 54 پوینت دارد و تراز قلم متفاوتی دارد. از Arial استفاده می‌شود، autofit و wrap غیرفعال می‌شوند و چارچوب‌های متن به اندازه‌ای بزرگ هستند که یک خط را در بر بگیرند.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpime.startJVM()
 
 from asposeslides.api import FillType, FontAlignment, FontData, NullableBool, Paragraph, Portion, Presentation, SaveFormat, ShapeType, TextAlignment, TextAnchorType, TextAutofitType
 from java.awt import Color
@@ -204,17 +204,17 @@ finally:
 
 نتیجه:
 
-![مقایسه تراز قلم Baseline، Top، Center و Bottom با اندازه‌های قلم مختلف](font_alignment.png)
+![مقایسه تراز Baseline، Top، Center و Bottom با اندازه‌های قلم مختلف](font_alignment.png)
 
-تراز قلم از معیارهای قلم استفاده می‌کند، بنابراین لبه‌های قابل مشاهده حروف جداگانه لزوماً دقیقاً هم‌سطح نیستند. مثال شامل یک حرف بزرگ و یک حروف پایین‌بر است تا تفاوت بین تراز baseline و bottom را نشان دهد. موجودی و جایگزینی قلم، کاراکترهای استفاده‌شده و تفاوت در اندازه‌های قلم بر نتیجه تأثیر می‌گذارند. ابعاد فریم، حاشیه‌ها، فاصله خطوط، بسته‌بندی و autofit نیز بر چیدمان اثر می‌گذارند؛ هنگام مقایسه حالت‌ها از همان قلم‌ها و تنظیمات چیدمان استفاده کنید.
+تراز قلم از متریک‌های قلم استفاده می‌کند، بنابراین لبه‌های قابل رؤیت حروف لزوماً دقیقاً هم‌سطح نیستند. مثال شامل یک حرف بزرگ و یک حرف پایین‌خانه برای نشان دادن تفاوت بین تراز baseline و bottom می‌شود. در دسترس بودن قلم و جایگزینی آن، کاراکترهای استفاده‌شده و تفاوت در اندازه‌های قلم بر نتیجه تاثیر می‌گذارند. ابعاد چارچوب، حاشیه‌ها، فاصله خط، wrap و autofit نیز بر چیدمان اثر دارند؛ برای مقایسه حالت‌ها از همان قلم‌ها و تنظیمات چیدمان استفاده کنید.
 
-این تنظیم متفاوت از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) است که تراز افقی پاراگراف را کنترل می‌کند، و از [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) که بلوک متن را به صورت عمودی درون شکل موقعیت می‌دهد. قالب‌بندی بالانویس و زیرنویس از طریق [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) بخش‌های جداگانه را نسبت به baseline جابه‌جا می‌کند نه اینکه تراز قلم خطوط پاراگراف را تنظیم کند.
+این تنظیم متفاوت از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) است که تراز افقی پاراگراف را کنترل می‌کند و از [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) که بلوک متن را به صورت عمودی داخل شکل موقعیت می‌دهد. قالب‌بندی superscript و subscript از طریق [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) بخش‌های فردی را نسبت به baseline جابجا می‌کند نه اینکه تراز قلم را برای خطوط پاراگراف تنظیم کند.
 
 ## **تنظیم شفافیت برای متن**
 
-شفافیت متن از طریق مؤلفه آلفای رنگ اختصاص داده شده به [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار کانال آلفای ARGB در مقیاس ۰ تا ۲۵۵ است، نه درصد شفافیت.
+شفافیت متن از طریق مؤلفهٔ آلفای رنگی که به [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) اختصاص داده می‌شود، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار کانال آلفای ARGB در مقیاس 0–255 است، نه درصد شفافیت.
 
-مثال کد زیر نشان می‌دهد چگونه شفافیت را به **تمام پاراگراف** اعمال کنید:
+کد زیر نشان می‌دهد چگونه شفافیت را بر **کل پاراگراف** اعمال کنید:
 
 ```python
 import jpype
@@ -249,7 +249,7 @@ finally:
 
 ![پاراگراف شفاف](transparent_paragraph.png)
 
-مثال کد زیر نشان می‌دهد چگونه شفافیت را به **بخش‌های متنی با قلم بولد** اعمال کنید:
+کد زیر نشان می‌دهد چگونه شفافیت را بر **بخش‌های متنی با قلم پر نقش** اعمال کنید:
 
 ```python
 import jpype
@@ -288,9 +288,9 @@ finally:
 
 ## **تنظیم فاصله حروف برای متن**
 
-از [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) برای گسترش یا فشردن فاصله بین حروف در یک جعبه متن استفاده کنید. مثال‌ها ۳ پوینت فاصله اضافه می‌کنند؛ مقادیر منفی متن را فشرده می‌سازند.
+از [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) برای گسترش یا فشرده‌سازی فاصله بین حروف در یک جعبه متن استفاده کنید. مثال‌ها 3 پوینت فاصله اضافه می‌کنند؛ مقادیر منفی متن را فشرده می‌کنند.
 
-کد Python زیر نشان می‌دهد چگونه فاصله حروف را در **تمام پاراگراف** گسترش دهید:
+کد پایتون زیر نشان می‌دهد چگونه فاصله حروف را در **کل پاراگراف** گسترش دهید:
 
 ```python
 import jpype
@@ -308,7 +308,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # توجه: برای فشرده‌سازی فاصله حروف از مقادیر منفی استفاده کنید.
+    # توجه: برای فشرده شدن فاصله حروف از مقادیر منفی استفاده کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # گسترش فاصله حروف.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
@@ -320,7 +320,7 @@ finally:
 
 ![فاصله حروف در پاراگراف](character_spacing_in_paragraph.png)
 
-مثال کد زیر نشان می‌دهد چگونه فاصله حروف را در **بخش‌های متنی با قلم بولد** گسترش دهید:
+کد زیر نشان می‌دهد چگونه فاصله حروف را در **بخش‌های متنی با قلم پر نقش** گسترش دهید:
 
 ```python
 import jpype
@@ -340,7 +340,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # توجه: برای فشرده‌سازی فاصله حروف از مقادیر منفی استفاده کنید.
+            # توجه: برای فشرده‌کردن فاصله حروف از مقادیر منفی استفاده کنید.
             portion.getPortionFormat().setSpacing(3) # گسترش فاصله حروف.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
@@ -354,9 +354,9 @@ finally:
 
 ### **غیرفعال کردن کرنینگ برای قلم‌های خاص**
 
-در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود ممکن است کمی فشرده‌تر از متن مشابه در PowerPoint به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint ممکن است داده‌های کرنینگ برای برخی قلم‌ها را نادیده بگیرد، حتی اگر قلم حاوی اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
+در برخی موارد، متن رندر شده توسط Aspose.Slides ممکن است کمی فشرده‌تر از متن مشابه در PowerPoint ظاهر شود. این می‌تواند به این دلیل باشد که PowerPoint داده‌های کرنینگ را برای برخی قلم‌ها نادیده می‌گیرد، حتی اگر قلم حاوی اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
 
-برای نزدیک‌تر کردن خروجی رندر شده به PowerPoint در این موارد، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم تحت تأثیر استفاده می‌کنند غیرفعال کنید. مقدار [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) را به مقداری بزرگ‌تر از اندازه واقعی قلم تنظیم کنید. این مثال نیاز به «presentation.pptx» دارد که یک جعبه متن به عنوان اولین شکل در اولین اسلاید داشته باشد. نام‌های قلم مؤثر، شامل قلم‌های به ارث‌برده، بررسی می‌شود و برای بخش‌هایی که از Roboto استفاده می‌کنند آستانه ۱۰۰ پوینت تنظیم می‌شود. این کار کرنینگ را برای بخش‌های مطابقت‌دار با اندازه قلم زیر ۱۰۰ پوینت غیرفعال می‌کند:
+برای نزدیک‌تر کردن خروجی رندر شده به PowerPoint، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم متاثر استفاده می‌کنند، غیرفعال کنید. مقدار [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) را بزرگ‌تر از اندازهٔ واقعی قلم تنظیم کنید. این مثال به «presentation.pptx» که یک جعبه متن به عنوان اولین شکل در اولین اسلاید دارد، نیاز دارد. نام‌های قلم مؤثر، از جمله قلم‌های وارث شده، بررسی می‌شوند و برای بخش‌هایی که از Roboto استفاده می‌کنند، آستانهٔ 100 پوینت تنظیم می‌شود؛ این کار کرنینگ را برای بخش‌های مطابقت‌دار با اندازهٔ قلم زیر 100 پوینت غیرفعال می‌کند:
 
 ```python
 import jpype
@@ -386,13 +386,13 @@ finally:
     presentation.dispose()
 ```
 
-برای متونی که زیر آستانه هستند، این تنظیم از کرنینگ جلوگیری می‌کند و می‌تواند به همسان‌سازی رندر Aspose.Slides با خروجی بصری PowerPoint برای قلم‌های تحت تأثیر این رفتار خاص PowerPoint کمک کند.
+برای متن مطابقت‌دار زیر آستانه، این تنظیم کرنینگ را پیشگیری می‌کند و می‌تواند به هم‌راستایی رندر Aspose.Slides با خروجی بصری PowerPoint برای قلم‌های تحت تأثیر این رفتار خاص PowerPoint کمک کند.
 
-## **مدیریت ویژگی‌های قلم متن**
+## **مدیریت خصوصیات قلم متن**
 
-ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) یا در بخش‌های جداگانه از طریق [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) تنظیم شوند.
+خصوصیات قلم می‌توانند در سطح پاراگراف از طریق [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) یا برای بخش‌های منفرد از طریق [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) تنظیم شوند.
 
-مثال زیر قلم پیش‌فرض اولین پاراگراف را به ۱۲ پوینت Times New Roman با قالب‌بندی بولد، ایتالیک و زیرخط نقطه‌دار تنظیم می‌کند. قالب‌بندی صریح در بخش‌های جداگانه بر این پیش‌فرض‌ها برتری دارد:
+مثال زیر قلم پیش‌فرض اولین پاراگراف را به 12 پوینت Times New Roman با پر نقش، ایتالیک و زیرخط نقطه‌دار تنظیم می‌کند. قالب‌بندی صریح بر بخش‌های منفرد بر این پیش‌فرض‌ها ارجحیت دارد:
 
 ```python
 import jpype
@@ -410,7 +410,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # تنظیم ویژگی‌های قلم برای پاراگراف.
+    # خصوصیات قلم برای پاراگراف را تنظیم کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True_)
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True_)
@@ -425,9 +425,9 @@ finally:
 
 نتیجه:
 
-![ویژگی‌های قلم برای پاراگراف](font_properties_for_paragraph.png)
+![خصوصیات قلم برای پاراگراف](font_properties_for_paragraph.png)
 
-مثال زیر ۱۳ پوینت Times New Roman، قالب‌بندی ایتالیک و زیرخط نقطه‌دار را به بخش‌هایی که قالب‌بندی مؤثرشان بولد است اعمال می‌کند:
+مثال زیر 13 پوینت Times New Roman، قالب ایتالیک و زیرخط نقطه‌دار را بر بخش‌هایی که قالب مؤثرشان پر نقش است اعمال می‌کند:
 
 ```python
 import jpype
@@ -447,7 +447,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # ویژگی‌های قلم را برای بخش متن تنظیم کنید.
+            # خصوصیات قلم برای بخش متن را تنظیم کنید.
             portion.getPortionFormat().setFontHeight(13)
             portion.getPortionFormat().setFontItalic(NullableBool.True_)
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted)
@@ -461,15 +461,15 @@ finally:
 
 نتیجه:
 
-![ویژگی‌های قلم برای بخش‌های متنی](font_properties_for_text_portions.png)
+![خصوصیات قلم برای بخش‌های متنی](font_properties_for_text_portions.png)
 
 ## **کنترل نرمال‌سازی ارتفاع متن**
 
-از [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) هنگام بازتولید تایپوگرافی قالب یا بررسی تفاوت‌های ارتفاع حروف استفاده کنید. در PowerPoint، فعال‌سازی نرمال‌سازی حروف را به صورت عمودی کشیده یا فشرده می‌کند تا ارتفاع قابل مشاهده‌ی یکسانی درون بخش متن ایجاد شود. این تضمین نمی‌کند که ارتفاع متن در قلم‌های مختلف برابر باشد.
+از [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) هنگام بازتولید تایپوگرافی قالب یا بررسی تفاوت‌های ارتفاع حروف استفاده کنید. در PowerPoint، فعال‌سازی نرمال‌سازی حروف را به‌صورت عمودی کشیده یا فشرده می‌کند تا ارتفاع قابل رؤیت یکسانی درون بخش متنی داشته باشند. این کار تضمین‌کنندهٔ ارتفاع برابر متن در قلم‌های مختلف نیست.
 
-مقدار ویژگی را به [NullableBool.True_ یا False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) تنظیم کنید تا نرمال‌سازی را به‌صورت صریح فعال یا غیرفعال کنید. `NullableBool.NotDefined` تنظیم محلی را نادیده می‌گیرد تا بخش مقدار را به ارث ببرد، برای مثال از [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) پاراگراف. این به معنی `False` نیست. از [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) استفاده کنید و `getNormaliseHeight` را در قالب‌بندی مؤثر دریافت‌شده بخوانید تا مقدار بولی نهایی را به دست آورید.
+مقدار ویژگی را به [NullableBool.True_ or False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) تنظیم کنید تا صراحتاً نرمال‌سازی را فعال یا غیرفعال کنید. `NullableBool.NotDefined` تنظیم محلی را خالی می‌گذارد تا بخش مقدار را از مثالاً پاراگراف [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) به ارث ببرد. این به معنای `False` نیست. از [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) استفاده کنید و `getNormaliseHeight` را روی قالب مؤثر برگردانده شده بخوانید تا مقدار بولی حل‌شده را بدست آورید.
 
-مثال مستقل زیر نیاز به نصب **Arial** دارد. دو بلوک متن ایجاد می‌کند که حروف بزرگ، حروف کوچک، حروف پایین‌بر و کاراکترهای لهجه‌دار را با ۵۴ پوینت شامل می‌شوند. هر دو پاراگراف به‌طور پیش‌فرض نرمال‌سازی را فعال می‌کنند. بخش بالایی به‌صورت صریح آن را غیرفعال می‌کند؛ بخش پایینی آن را به ارث می‌برد. اندازه فریم‌ها، حاشیه‌ها و فاصله پاراگراف یکسان هستند و بسته‌بندی و autofit غیرفعال‌اند تا مقایسه ثابت بماند. مثال `False: False` و `NotDefined: True` را چاپ می‌کند، سپس «text_height_normalization.pptx» را ذخیره می‌کند:
+مثال کاملاً مستقل زیر نیاز به نصب **Arial** دارد. دو بلوک متن حاوی حروف بزرگ، حروف کوچک، حروف پایین‌خانه و نویسه‌های لهجه‌دار در 54 پوینت ایجاد می‌کند. هر دو پاراگراف به‌طور پیش‌فرض نرمال‌سازی را فعال می‌کند. بخش بالایی صراحتاً آن را غیرفعال می‌کند؛ بخش پایین‌تر آن را ارث می‌برد. اندازهٔ فریم‌ها، حاشیه‌ها و فاصله پاراگراف یکسان هستند، با wrap و autofit غیرفعال برای حفظ سازگاری مقایسه. مثال رشتهٔ `False: False` و `NotDefined: True` را چاپ می‌کند سپس «text_height_normalization.pptx» را ذخیره می‌نماید:
 
 ```python
 import jpype
@@ -523,19 +523,19 @@ finally:
     presentation.dispose()
 ```
 
-مقایسه زیر از ارائه ذخیره‌شده صادر شده است. ردیف بالا نرمال‌سازی غیرفعال (`False`) دارد؛ ردیف پایین تنظیم فعال را به ارث می‌برد (`NotDefined` → `True`). برای بازتولید این ظاهر، Arial نصب باشد.
+مقایسهٔ زیر از ارائهٔ ذخیره‌شده استخراج شده است. ردیف بالایی نرمال‌سازی غیرفعال (`False`) دارد؛ ردیف پایینی تنظیم فعال را ارث می‌برد (`NotDefined` → `True`). برای بازتولید این ظاهر، Arial باید نصب باشد.
 
-![متن ۵۴ پوینت Arial با نرمال‌سازی غیرفعال در بالا و نرمال‌سازی ارث‌برده فعال در پایین](text_height_normalization.png)
+![متن 54‑پوینت Arial با نرمال‌سازی غیرفعال در بالا و نرمال‌سازی ارث‌برده در زیر](text_height_normalization.png)
 
-نرمال‌سازی ارتفاع حروف را بدون تغییر مقدار اختصاص داده شده به [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) که اندازه قلم را به پوینت مشخص می‌کند، تغییر می‌دهد. پاراگراف [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) فاصله خطوط را کنترل می‌کند، در حالی که فریم متن [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) نحوه تنظیم متن یا محفظه آن برای مطابقت را کنترل می‌کند. این تنظیمات مقاصد متفاوتی دارند و می‌توانند به‌صورت مستقل بر چیدمان کلی تأثیر بگذارند. برای اطلاعات بیشتر درباره قالب‌بندی پاراگراف و ارث‌بری، به [Manage Paragraph](/slides/fa/python-java/manage-paragraph/) مراجعه کنید.
+نرمال‌سازی ارتفاع حروف را بدون تغییر مقدار [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) که اندازهٔ قلم را به پوینت مشخص می‌کند، تغییر می‌دهد. پاراگراف [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) فاصلهٔ خطوط را کنترل می‌کند، در حالی که [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) در فریم متن نحوهٔ تنظیم متن یا محفظه را برای تناسب تعیین می‌کند. این تنظیمات مقاصد متفاوتی دارند و می‌توانند به طور مستقل بر چیدمان کلی اثر بگذارند. برای اطلاعات بیشتر درباره قالب‌بندی پاراگراف و وراثت، به [مدیریت پاراگراف](/slides/fa/python-java/manage-paragraph/) مراجعه کنید.
 
-## **اعمال و حذف خط‌کش**
+## **اعمال و حذف خط‌خورده**
 
-از [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) بر روی یک بخش متنی استفاده کنید تا اصلاحات، اصطلاحات لغو شده یا قیمت‌های قبلی را بدون حذف متن اصلی نمایش دهید. برای یک یا دو خط عبور از متن، آن را به [TextStrikethroughType.Single یا Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) تنظیم کنید.
+از [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) بر یک بخش متنی استفاده کنید تا اصلاحات، اصطلاحات لغو شده یا قیمت‌های قبلی را بدون حذف متن اصلی نشان دهید. برای یک یا دو خط روی متن، آن را به [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) تنظیم کنید.
 
-برای حذف خط‌کش، [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None) را ارسال کنید. این به‌صورت صریح اثر را غیرفعال می‌کند حتی اگر قالب‌بندی اطراف خط‌کش را مشخص کرده باشد. در مقابل، [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) تنظیم محلی را نامشخص می‌گذارد و به بخش اجازه می‌دهد قالب‌بندی را به ارث ببرد، برای مثال از پاراگراف. این تضمین نمی‌کند که خط‌کش حذف شود. از [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) برای خواندن قالب‌بندی نهایی، شامل مقادیر ارث‌بری، استفاده کنید.
+برای حذف خط‌خورده، از [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None) استفاده کنید. این به‌صورت صریح اثر را غیرفعال می‌کند، حتی اگر قالب‌بندی پیرامونی خط‌خورده باشد. در مقابل، [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) تنظیم محلی را تعریف‌نشده می‌گذارد تا بخش قالب‌بندی را از پاراگراف ارث ببرد. این به معنای حذف خط‌خورده نیست. برای خواندن قالب‌بندی نهایی، شامل مقادیر ارث‌برده، از [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) استفاده کنید.
 
-مثال مستقل زیر سه مقایسه قیمت ایجاد می‌کند. هر پاراگراف بخش‌های جداگانه‌ای برای برچسب، قیمت قبلی و قیمت فعلی دارد، بنابراین فقط قیمت قبلی تحت تأثیر قرار می‌گیرد. ردیف اول خط‌کش را اعمال و سپس حذف می‌کند؛ ردیف‌های دیگر خط‌کش تک و دوگانه را حفظ می‌کنند. تغییر این تنظیم متن و سایر قالب‌بندی‌های آن، از جمله قیمت قبلی بولد، را حفظ می‌کند:
+مثال خودکفا زیر سه مقایسهٔ قیمتی ایجاد می‌کند. هر پاراگراف دارای بخش‌های جداگانه‌ای برای برچسب، قیمت قبلی و قیمت فعلی است؛ فقط قیمت قبلی تحت تأثیر قرار می‌گیرد. ردیف اول خط‌خورده را اعمال و سپس حذف می‌کند؛ ردیف‌های دیگر به ترتیب خط‌خوردهٔ تک و دو خطی را حفظ می‌کنند. تغییر این تنظیم متن و سایر قالب‌بندی‌های آن، از جمله پر نقش بودن قیمت قبلی را حفظ می‌کند.
 
 ```python
 import jpype
@@ -583,7 +583,7 @@ try:
 
     paragraphs = shape.getTextFrame().getParagraphs()
 
-    # اعمال خط‌کش، سپس به‌صورت صریح آن را از اولین قیمت قبلی حذف کنید.
+    # خط‌خورده را اعمال کنید، سپس به‌صورت صریح آن را از اولین قیمت قبلی حذف کنید.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
 
@@ -595,15 +595,15 @@ finally:
     presentation.dispose()
 ```
 
-نتیجه، از بالا به پایین: بدون خط‌کش، خط‌کش تک، و خط‌کش دوگانه.
+نتیجه، از بالا به پایین: بدون خط‌خورده، خط‌خوردهٔ تک، و خط‌خوردهٔ دوخطی.
 
-![قیمت‌های قبلی بدون خط‌کش، با خط‌کش تک، و با خط‌کش دوگانه](strikethrough.png)
+![قیمت‌های قبلی بدون خط‌خورده، با خط‌خوردهٔ تک و با خط‌خوردهٔ دوخطی](strikethrough.png)
 
 ## **تنظیم چرخش متن**
 
-از [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) برای تنظیم جهت پیش‌تعریف‌شده متن درون یک شکل استفاده کنید.
+از [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) برای تعیین جهت پیش‌تعریف‌شدهٔ متن داخل یک شکل استفاده کنید.
 
-مثال کد زیر جهت متن در شکل را به [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/) تنظیم می‌کند که متن را **۹۰ درجه ضد ساعت‌گرد** می‌چرخاند:
+کد زیر جهت متن را در شکل به [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/) تنظیم می‌کند؛ این کار متن را **90 درجه به‌صورت خلاف ساعت** می‌چرخاند:
 
 ```python
 import jpype
@@ -632,9 +632,9 @@ finally:
 
 ## **تنظیم چرخش سفارشی برای فریم‌های متن**
 
-از [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) برای تنظیم زاویه چرخش سفارشی برای یک [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) استفاده کنید.
+از [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) برای تعیین زاویهٔ چرخش سفارشی برای یک [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) استفاده کنید.
 
-مثال کد زیر فریم متن را ۳ درجه به سمت ساعت‌گرد درون شکل می‌چرخاند:
+کد زیر فریم متن را درون شکل به‌صورت 3 درجه ساعت‌گرد می‌چرخاند:
 
 ```python
 import jpype
@@ -661,14 +661,14 @@ finally:
 
 ![چرخش سفارشی متن](custom_text_rotation.png)
 
-## **تنظیم فاصله خطوط پاراگراف‌ها**
+## **تنظیم فاصله خط پاراگراف‌ها**
 
-Aspose.Slides متدهای [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) و [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) را برای کنترل فاصله پاراگراف‌ها ارائه می‌دهد. این خصوصیات به‌صورت زیر استفاده می‌شوند:
+Aspose.Slides توابع [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) و [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) را برای کنترل فاصله پاراگراف ارائه می‌دهد. این ویژگی‌ها به‌صورت زیر استفاده می‌شوند:
 
-* برای مشخص کردن فاصله خطوط به‌صورت درصدی از ارتفاع خط، مقدار مثبت استفاده کنید.
-* برای مشخص کردن فاصله خطوط به‌صورت پوینت، مقدار منفی استفاده کنید.
+* از مقدار مثبت برای تعیین فاصله خط به‌صورت درصدی از ارتفاع خط استفاده کنید.
+* از مقدار منفی برای تعیین فاصله خط به‌صورت پوینت استفاده کنید.
 
-مثال زیر فاصله داخلی اولین پاراگراف را به ۲۰۰٪ از ارتفاع خط (دوبل اسپیسینگ) تنظیم می‌کند:
+مثال زیر فاصلهٔ داخلی اولین پاراگراف را به 200 ٪ از ارتفاع خط (دوبل اسپیس) تنظیم می‌کند:
 
 ```python
 import jpype
@@ -695,18 +695,18 @@ finally:
 
 نتیجه:
 
-![فاصله خطوط درون پاراگراف](line_spacing.png)
+![فاصلهٔ خط داخلی پاراگراف](line_spacing.png)
 
-## **کنترل شکست خط**
+## **کنترل شکستن خط**
 
-قواعد شکست خط پاراگراف در بلوک‌های متنی باریک و ارائه‌هایی که متن لاتین و آسیای شرقی را ترکیب می‌کنند مفید هستند. متدهای زیر متعلق به [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/) هستند، بنابراین بر کل پاراگراف اعمال می‌شوند:
+قوانین شکستن خط پاراگراف در بلوک‌های متنی باریک و ارائه‌هایی که متن لاتین و متون شرق آسیا را مخلوط می‌کنند، مفید هستند. توابع زیر متعلق به [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/) هستند و بر کل پاراگراف اعمال می‌شوند:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) قوانین شکست خط لاتین را کنترل می‌کند. در متن‌های ترکیبی، تغییر آن می‌تواند مکان بسته شدن متن لاتین و نقطه‌گذاری‌های همسایه آسیای شرقی را نیز تغییر دهد.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) قوانین شکست خط آسیای شرقی را کنترل می‌کند، از جمله محدودیت‌های حروف در ابتدای و انتهای خط.
+- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) قوانین شکستن خط لاتین را کنترل می‌کند. در متن ترکیبی، تغییر آن می‌تواند مکان بسته شدن متون و علامت‌های نقطه‌گذاری شرق آسیا را نیز تغییر دهد.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) قوانین شکستن خط شرق آسیا را کنترل می‌کند، شامل محدودیت‌های کاراکترهای آغاز و انتهای خط.
 
-این قواعد جایگزین [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) نمی‌شوند که بسته‌بندی خودکار درون فریم متن را فعال می‌کند. آن‌ها هنگام بسته شدن بر چیدمان تأثیر می‌گذارند؛ کاراکترهای شکست خط را وارد نمی‌کنند. یک شکست خط صریح یک خط جدید درون پاراگراف ایجاد می‌کند که مستقل از عرض موجود است.
+این قوانین جایگزین [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) نمی‌شوند؛ آن گزینه بسته شدن خودکار متن را درون فریم متن فعال می‌کند. این قوانین بر چیدمان هنگام بسته شدن تأثیر می‌گذارند؛ کاراکترهای شکستن خط را وارد نمی‌کنند. یک شکستن خط صریح یک خط جدید را درون پاراگراف ایجاد می‌کند بدون توجه به عرض موجود.
 
-مثال مستقل زیر یک بلوک متن باریک شامل متن چینی و لاتین ایجاد می‌کند. هر دو گزینه شکست خط را به‌صورت صریح تنظیم می‌کند و «line_breaking.pptx» را ذخیره می‌کند. برای آزمایش هر یک از قوانین، مقدار مربوطه را تغییر دهید در حالی که تنظیمات دیگر ثابت می‌مانند. مثال از ۲۴ پوینت Arial و SimSun با عرض فریم ۱۶۰ پوینت و حاشیه افقی صفر استفاده می‌کند. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) با [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) فراخوانی می‌شود تا اندازه متن و ابعاد فریم ثابت بمانند:
+مثال خودکفا زیر یک بلوک متنی باریک شامل متن چینی و لاتین ایجاد می‌کند. هر دو گزینهٔ شکستن خط به‌صورت صریح تنظیم می‌شوند و «line_breaking.pptx» ذخیره می‌شود. برای آزمایش هر یک از قوانین، مقدار مربوطه را تغییر دهید در حالی که تنظیمات دیگر ثابت می‌مانند. مثال از Arial 24 پوینت و SimSun با عرض فریم 160 پوینت و حاشیهٔ افقی صفر استفاده می‌کند. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) با [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) فراخوانی می‌شود تا اندازهٔ متن و ابعاد فریم ثابت بمانند.
 
 ```python
 import jpype
@@ -753,9 +753,9 @@ finally:
 
 ## **کنترل نقطه‌گذاری معلق**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) به نقطه‌گذاری‌های مجاز اجازه می‌دهد تا از لبه راست خط متن فراتر روند به‌جای اینکه در خط بعدی قرار بگیرند. این تنظیم برای کل پاراگراف اعمال می‌شود و متفاوت از تورفتگی معلق است.
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) اجازه می‌دهد علامت‌های نقطه‌گذاری مجاز فراتر از لبهٔ راست خط متن امتداد یابند به‌جای این‌که در خط بعدی قرار گیرند. این ویژگی برای کل پاراگراف اعمال می‌شود و متفاوت از تورفتگی معلق است.
 
-مثال مستقل زیر نقطه‌گذاری معلق را در فریم متن ۱۰۰ پوینت‌عریض فعال می‌کند و «hanging_punctuation.pptx» را ذخیره می‌کند. با ۲۴ پوینت Arial و حاشیه افقی صفر، نقطه انتهایی پس از «sentence» می‌ماند و از لبه راست متن عبور می‌کند. برای مقایسه، ویژگی را به [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) تنظیم کنید: با این تنظیمات، نقطه در خط جداگانه‌ای قرار می‌گیرد. بسته‌بندی فعال و autofit غیرفعال است تا عرض موجود ثابت بماند:
+مثال خودکفا زیر نقطه‌گذاری معلق را در یک فریم متن با عرض 100 پوینت فعال می‌کند و «hanging_punctuation.pptx» ذخیره می‌نماید. با Arial 24 پوینت و حاشیهٔ افقی صفر، نقطهٔ نهایی پس از «sentence» می‌ماند و فراتر از لبهٔ راست متن امتداد می‌یابد. مقدار ویژگی را به [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) تنظیم کنید تا مقایسه کنید: با این تنظیمات، نقطه در یک خط جداگانه قرار می‌گیرد. wrap فعال و autofit غیرفعال می‌شود تا عرض موجود ثابت بماند.
 
 ```python
 import jpype
@@ -797,11 +797,11 @@ finally:
     presentation.dispose()
 ```
 
-هر نقطه‌گذاری نمی‌تواند معلق باشد. [شرایط قلم و چیدمان که در بالا توضیح داده شد](#control-line-breaking) نیز برای این مقایسه اعمال می‌شوند: تغییر قلم، عرض موجود، حاشیه‌ها یا تنظیمات autofit می‌تواند تفاوت قابل مشاهده را حذف کند.
+همهٔ علامت‌های نقطه‌گذاری نمی‌توانند معلق شوند. شرایط قلم و چیدمان توصیف‌شده در بخش [کنترل شکستن خط](#control-line-breaking) نیز برای این مقایسه اعمال می‌شوند: تغییر قلم، عرض موجود، حاشیه‌ها یا تنظیمات autofit می‌تواند تفاوت قابل مشاهده را حذف کند.
 
 ## **تنظیم نوع Autofit برای فریم‌های متن**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) تعیین می‌کند متن هنگام عبور از مرزهای محفظه چگونه رفتار کند. از آن برای کنترل اینکه متن کوچک شود، سرریز شود یا به‌صورت خودکار شکل را تغییر اندازه دهد استفاده کنید. مثال زیر شکل را طوری تنظیم می‌کند که برای متن آن اندازه‌اش را تغییر دهد و نتیجه را در «autofit_type.pptx» ذخیره می‌کند:
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) تعیین می‌کند متن وقتی بیش از مرزهای محفظهٔ خود می‌شود، چگونه رفتار کند. از آن برای کنترل اینکه آیا متن کوچک شود، بیش از حد خارج شود یا شکل به‌صورت خودکار اندازهٔ خود را تغییر دهد، استفاده کنید. مثال زیر شکل را طوری تنظیم می‌کند که برای متن خود اندازهٔ شکل را تغییر دهد و نتیجه در «autofit_type.pptx» ذخیره می‌شود:
 
 ```python
 import jpype
@@ -824,11 +824,11 @@ finally:
     presentation.dispose()
 ```
 
-برای شمارش خطوط پس از بسته‌بندی خودکار و مشاهده اینکه چگونه عرض متن یا شکل نتیجه را تغییر می‌دهد، به [Count Rendered Lines](/slides/fa/python-java/manage-paragraph/) مراجعه کنید. شمارش خطوط به تنهایی نشان‌دهنده سرریز شدن متن از محفظه نیست.
+برای شمارش خطوط پس از بسته شدن خودکار و مشاهدهٔ نحوهٔ تغییر عرض متن یا شکل، به [شمارش خطوط رندر شده](/slides/fa/python-java/manage-paragraph/) مراجعه کنید. خود شمارش خطوط بیانگر این نیست که متن از محفظهٔ خود بیرون می‌زنند یا نه.
 
 ## **تنظیم لنگر فریم‌های متن**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) تعیین می‌کند متن به‌صورت عمودی داخل یک شکل چگونه موقعیت‌گیری کند، مثلاً در بالا، وسط یا پایین. مثال زیر متن را به پایین اولین شکل لنگر می‌کند و نتیجه را در «text_anchor.pptx» ذخیره می‌کند:
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) تعیین می‌کند متن به‌صورت عمودی داخل شکل چگونه موقعیت یابد؛ برای مثال در بالا، وسط یا پایین. مثال زیر متن را به پایین اولین شکل لنگر می‌کند و نتیجه در «text_anchor.pptx» ذخیره می‌شود:
 
 ```python
 import jpype
@@ -853,7 +853,7 @@ finally:
 
 ## **تنظیم تب‌بندی متن**
 
-از [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) و [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) برای پیکربندی توقف‌گاه‌های تب در یک پاراگراف استفاده کنید. مثال زیر فاصله تب پیش‌فرض را به ۱۰۰ پوینت تنظیم می‌کند و یک توقف‌گاه تب چپ‌تراز در ۳۰ پوینت اضافه می‌کند. این تنظیمات بر متنی که حاوی کاراکترهای تب است تأثیر می‌گذارند:
+از [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) و [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) برای پیکربندی توقف‌های تب در یک پاراگراف استفاده کنید. مثال زیر اندازهٔ پیش‌فرض تب را به 100 پوینت تنظیم می‌کند و یک توقف تب چپ‌تراز در 30 پوینت اضافه می‌کند. این تنظیمات بر متنی که شامل کاراکترهای تب است، اثر می‌گذارد.
 
 ```python
 import jpype
@@ -883,11 +883,11 @@ finally:
 
 ![تب‌های پاراگراف](paragraph_tabs.png)
 
-## **تنظیم زبان تصحیح**
+## **تنظیم زبان تصحیح املایی**
 
-Aspose.Slides متد [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) را ارائه می‌دهد که به شما امکان تنظیم زبان تصحیح برای یک بخش متنی را می‌دهد. زبان تصحیح زبانی را که برای بررسی املا و دستور زبان در PowerPoint استفاده می‌شود تعیین می‌کند.
+Aspose.Slides متد [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) را فراهم می‌کند که به شما اجازه می‌دهد زبان تصحیح املایی برای یک بخش متنی را تنظیم کنید. زبان تصحیح املایی تعیین می‌کند PowerPoint از کدام لغت‌نامه برای بررسی املایی و گرامری استفاده کند.
 
-مثال زیر نیاز به «presentation.pptx» دارد که جعبه متنی به‌عنوان اولین شکل در اولین اسلاید داشته باشد و حداقل یک پاراگراف داشته باشد. محتوای اولین پاراگراف را با «1।» جایگزین می‌کند، SimSun را به عنوان قلم تنظیم می‌کند و زبان تصحیح چینی ساده (`zh-CN`) را اختصاص می‌دهد. نتیجه را در «proofing_language.pptx» ذخیره می‌کند:
+مثال زیر به «presentation.pptx» که یک جعبه متن به عنوان اولین شکل در اولین اسلاید دارد و حداقل یک پاراگراف دارد، نیاز دارد. محتوای اولین پاراگراف را با «1。」» جایگزین می‌کند، SimSun را به‌عنوان قلم آن تنظیم می‌کند و زبان تصحیح املایی چینی ساده (`zh-CN`) را اختصاص می‌دهد. نتیجه در «proofing_language.pptx» ذخیره می‌شود:
 
 ```python
 import jpype
@@ -914,7 +914,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # شناسه زبان تصحیح را تنظیم کنید.
+    # شناسه زبان تصحیح املایی را تنظیم کنید.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -925,9 +925,50 @@ finally:
     presentation.dispose()
 ```
 
+### **کپی متادیتای زبان**
+
+هنگام کپی متن چندزبانه از یک قالب، هر دو [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getLanguageId) و [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) را حفظ کنید. مثال خودکفا زیر یک بخش منبع با زبان انگلیسی (ایالات متحده) به عنوان زبان اصلی و فرانسوی به عنوان زبان جایگزین ایجاد می‌کند و متن و شناسه‌ها را به بخش در یک ارائهٔ جدید کپی می‌نماید.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Portion, Presentation, SaveFormat, ShapeType
+
+source = Portion("Hello! Bonjour!")
+source.getPortionFormat().setLanguageId("en-US")
+source.getPortionFormat().setAlternativeLanguageId("fr-FR")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80)
+    paragraph = shape.getTextFrame().getParagraphs().get_Item(0)
+    paragraph.getPortions().clear()
+
+    destination = Portion()
+    destination.setText(source.getText())
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId())
+    # اگر منبع زبان جایگزینی نداشته باشد، None مقدار مقصد را پاک می‌کند.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId())
+    paragraph.getPortions().add(destination)
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+برای آزمایش منبع بدون زبان جایگزین، اختصاص `"fr-FR"` را حذف کنید. شناسهٔ جایگزین سپس `None` خواهد بود و همان عبارت کپی عدم حضور آن را بدون افزودن مقدار پیش‌فرض حفظ می‌کند، حتی اگر مقصد قبلاً زبان جایگزین داشته باشد.
+
+این شناسه‌ها متادیتای زبانی هستند. حفظ آن‌ها تعیین‌کنندهٔ این نیست که کدام لغت‌نامه توسط PowerPoint برای بررسی املایی یا گرامری انتخاب می‌شود.
+
 ## **تنظیم زبان پیش‌فرض**
 
-از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) برای تعریف زبان پیش‌فرض متن‌های ایجاد شده هنگام بارگذاری یا ساخت یک ارائه استفاده کنید. مثال زیر ارائه‌ای با زبان پیش‌فرض متن انگلیسی ایالات متحده ایجاد می‌کند، یک جعبه متن اضافه می‌کند و `en-US` را برای اولین بخش متن آن چاپ می‌کند:
+از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد ارائه ایجاد می‌شود، استفاده کنید. مثال زیر یک ارائه با زبان پیش‌فرض متن انگلیسی (ایالات متحده) ایجاد می‌کند، یک جعبه متن اضافه می‌کند و برای اولین بخش متنی آن `en-US` را چاپ می‌کند.
 
 ```python
 import jpype
@@ -945,11 +986,11 @@ presentation = Presentation(load_options)
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    #   یک شکل مستطیل با متن اضافه کنید.
+    # یک شکل مستطیل با متن اضافه کنید.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    #   زبان اولین بخش متن را بررسی کنید.
+    # زبان اولین بخش را بررسی کنید.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
@@ -960,10 +1001,10 @@ finally:
 
 برای اعمال قالب‌بندی متن پیش‌فرض در سطح ارائه، از [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle) استفاده کنید.
 
-مثال زیر قلم بولد ۱۴ پوینت را به‌عنوان پیش‌فرض برای پاراگراف‌های سطح بالایی در یک ارائه جدید تنظیم می‌کند و آن را در «default_text_style.pptx» ذخیره می‌کند. متن می‌تواند این پیش‌فرض‌ها را به ارث ببرد مگر اینکه قالب‌بندی خاص‌تری آن‌ها را بازنویسی کند:
+مثال زیر قلم 14‑پوینت پر نقش را به‌عنوان پیش‌فرض برای پاراگراف‌های سطح بالا در یک ارائهٔ جدید تنظیم می‌کند و آن را در «default_text_style.pptx» ذخیره می‌نماید. متن می‌تواند این پیش‌فرض‌ها را ارث ببرد مگر آنکه قالب‌بندی خاص‌تری آنها را بازنویسی کند.
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -985,15 +1026,15 @@ finally:
     presentation.dispose()
 ```
 
-## **استخراج متن با اثر تمام حروف بزرگ**
+## **استخراج متن با اثر تماماً بزرگ‌حروف (All‑Caps)**
 
-در PowerPoint، اعمال افکت **All Caps** باعث می‌شود متن روی اسلاید به‌صورت حروف بزرگ نمایش داده شود حتی اگر به‌صورت حروف کوچک وارد شده باشد. هنگامی که چنین بخشی از متن را با Aspose.Slides بازیابی می‌کنید، کتابخانه متن را دقیقاً همان‌گونه که وارد شده است بر می‌گرداند. برای همخوانی با متن نمایش داده‌شده، [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) را بررسی کنید و هنگامیکه مقدار `All` باشد، رشته بازگشتی را به حروف بزرگ تبدیل کنید.
+در PowerPoint، اعمال اثر **All Caps** بر قلم باعث می‌شود متن روی اسلاید به‌صورت حروف بزرگ نشان داده شود حتی اگر ابتدا با حروف کوچک وارد شده باشد. هنگام بازیابی چنین بخشی از متن با Aspose.Slides، کتابخانه دقیقاً همان متنی را که وارد شده است برمی‌گرداند. برای مطابقت با متنی که نمایش داده می‌شود، [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) را بررسی کنید و زمانی که مقدار `All` باشد، رشتهٔ بازگشتی را به حروف بزرگ تبدیل کنید.
 
-این مثال نیاز به «sample2.pptx» دارد که جعبه متنی به‌عنوان اولین شکل در اولین اسلاید داشته باشد. اولین بخش اولین پاراگراف آن شامل «Hello, Aspose!» با افکت All Caps اعمال‌شده است، همان‌طور که در زیر نشان داده شده است:
+این مثال به «sample2.pptx» که یک جعبه متن به عنوان اولین شکل در اولین اسلاید دارد، نیاز دارد. اولین پاراگراف آن اولین بخش خود حاوی «Hello, Aspose!» با اثر All Caps اعمال‌شده دارد، همان‌طور که در زیر نشان داده شده است.
 
 ![اثر All Caps](all_caps_effect.png)
 
-مثال کد زیر نشان می‌دهد چگونه متن با افکت **All Caps** استخراج شود:
+کد زیر نشان می‌دهد چگونه متن را با اثر **All Caps** استخراج کنید:
 
 ```python
 import jpype
@@ -1028,12 +1069,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه متن در جدول یک اسلاید را ویرایش کنم؟**
+**چگونه می‌توان متن داخل جدول در یک اسلاید را اصلاح کرد؟**
 
-برای ویرایش متن در جدول یک اسلاید، از [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) استفاده کنید. از طریق سلول‌ها مرور کنید و هر سلول را با [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) به‌روزرسانی کنید و قالب‌بندی پاراگراف را با [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) تنظیم نمایید.
+برای اصلاح متن داخل جدول در یک اسلاید، از [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) استفاده کنید. سلول‌ها را پیمایش کنید و هر سلول را از طریق [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) به‌روزرسانی کنید و قالب‌بندی پاراگراف را از طریق [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) تنظیم کنید.
 
-**چگونه یک رنگ گرادیان به متن در یک اسلاید PowerPoint اعمال کنم؟**
+**چگونه می‌توان رنگ گرادیان را به متن در یک اسلاید PowerPoint اعمال کرد؟**
 
-برای اعمال رنگ گرادیان به متن، از [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) استفاده کنید. مقدار [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) را به [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) تنظیم کنید و نقاط گرادیان، جهت و شفافیت را پیکربندی نمایید.
+برای اعمال رنگ گرادیان به متن، از [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) استفاده کنید. مقدار [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) را به [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) تنظیم کنید و نقاط توقف گرادیان، جهت و شفافیت را پیکربندی کنید.

@@ -1,5 +1,5 @@
 ---
-title: Formátování textu prezentace v C++
+title: Formátování textu v prezentaci v C++
 linktitle: Formátování textu
 type: docs
 weight: 50
@@ -12,12 +12,12 @@ keywords:
 - mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- otáčení textu
-- úhel otáčení
-- textový rám
+- rotace textu
+- úhel rotace
+- textový rámeček
 - řádkování
 - vlastnost automatického přizpůsobení
-- ukotvení textového rámu
+- ukotvení textového rámečku
 - tabulace textu
 - výchozí jazyk
 - PowerPoint
@@ -29,19 +29,19 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++. Popisuje barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otáčení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, zarážky tabulátoru a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++. Popisuje barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, rotaci, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou nulové. Příklady, které vybírají tučné části, používají efektivní formátování, včetně zděděného tučného formátování:
+Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové políčko a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou nulové. Příklady, které vyberou tučné části, používají efektivní formátování, včetně zděděného tučného formátování:
 
 ![Ukázkový text](sample_text.png)
 
-Pro vyhledání a zvýraznění doslovného textu nebo shody regulárním výrazem viz [Hledat a nahradit text](/slides/cs/cpp/search-and-replace-text/).
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů viz [Vyhledávání a nahrazování textu](/slides/cs/cpp/search-and-replace-text/).
 
-## **Nastavit barvu pozadí textu**
+## **Nastavení barvy pozadí textu**
 
-Použijte [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) pro jednotlivé části textu.
+Použijte [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) pro nastavení výchozí barvy zvýraznění odstavce nebo použijte [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) pro jednotlivé textové úseky.
 
-Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění u jednotlivých částí mají přednost před tímto výchozím nastavením:
+Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění u jednotlivých úseků mají přednost před tímto výchozím nastavením:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
+// Nastavte barvu zvýraznění pro celý odstavec.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -78,7 +78,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený ukázkový kód demonstruje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
+Níže uvedený kód ukazuje, jak nastavit barvu pozadí **textových úseků s tučným písmem**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -113,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Nastavit barvu zvýraznění pro část textu.
+        // Nastavte barvu zvýraznění pro textový úsek.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -124,13 +124,13 @@ presentation->Dispose();
 
 Výsledek:
 
-![Šedé části textu](gray_text_portions.png)
+![Šedé textové úseky](gray_text_portions.png)
 
-## **Zarovnat odstavce textu**
+## **Zarovnání odstavců textu**
 
-Použijte [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) k nastavení zarovnání odstavce v textovém rámci. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, zarovnaná do bloku a podobně.
+Použijte [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) pro nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
 
-Následující ukázkový kód ukazuje, jak zarovnat odstavec do **středu**:
+Následující kód ukazuje, jak zarovnat odstavec do **centra**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -151,7 +151,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Nastavit zarovnání odstavce na střed.
+// Nastavte zarovnání odstavce na střed.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -162,11 +162,11 @@ Výsledek:
 
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Zarovnat písma v řádku**
+## **Zarovnání písma v řádku**
 
-Použijte [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) k vertikálnímu zarovnání částí textu s různou velikostí písma v rámci řádku. Toto nastavení se vztahuje na celý odstavec a řídí zarovnání v každém z jeho řádků.
+Použijte [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) pro vertikální zarovnání textových úseků různých velikostí písma v řádku. Toto nastavení se vztahuje na celý odstavec a řídí zarovnání v každém jeho řádku.
 
-Následující samostatný příklad vytvoří čtyři označená textová pole na jednom snímku. Každý odstavec obsahuje stejný text s velikostmi 18, 36 a 54 bodů a odlišným zarovnáním písma. Používá Arial, vypíná automatické přizpůsobení a zalamování a udržuje textové rámy dostatečně velké pro jediný řádek.
+Následující samostatný příklad vytvoří čtyři označená textová políčka na jednom snímku. Každý odstavec obsahuje stejný text ve velikostech 18, 36 a 54 bodů, s odlišným zarovnáním písma. Používá písmo Arial, vypíná automatické přizpůsobení a zalamování a ponechává textové rámečky dostatečně velké pro jeden řádek.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -253,17 +253,17 @@ presentation->Dispose();
 
 Výsledek:
 
-![Porovnání zarovnání písma na základní linii, vrchu, středu a spodku s různými velikostmi písma](font_alignment.png)
+![Porovnání zarovnání Baseline, Top, Center a Bottom u smíšených velikostí písma](font_alignment.png)
 
-Zarovnání písma používá metriky písma, takže viditelné okraje jednotlivých znaků nemusí nutně přesně souhlasit. Příklad obsahuje jak velké písmeno, tak spádový znak, aby se ukázal rozdíl mezi zarovnáním na základní linii a na spodní část. Dostupnost písma a jeho náhrada, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámu, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozložení; při porovnávání režimů použijte stejná písma a nastavení rozložení.
+Zarovnání písma používá metriky písma, takže viditelné hrany jednotlivých znaků se nemusí přesně shodovat. Příklad zahrnuje velké písmeno i znak s dolní částí, aby ukázal rozdíl mezi zarovnáním k základní lince a dole. Dostupnost a substituce písma, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámečku, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozvržení; při porovnávání režimů použijte stejná písma a nastavení rozvržení.
 
-Přesto se toto nastavení liší od [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), které řídí horizontální zarovnání odstavce, a od [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), které umisťuje textový blok vertikálně uvnitř tvaru. Formátování horního a dolního indexu pomocí [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) posouvá jednotlivé části relativně k základní linii místo nastavení zarovnání písma pro řádky odstavce.
+Toto nastavení se liší od [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), který řídí horizontální zarovnání odstavce, a od [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), který vertikálně umisťuje textový blok uvnitř tvaru. Formátování horního a dolního indexu pomocí [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) posouvá jednotlivé úseky relativně k základní lince místo nastavení zarovnání písma pro řádky odstavce.
 
-## **Nastavit průhlednost textu**
+## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB na škále 0–255, ne procento průhlednosti.
+Průhlednost textu se řídí alfa‑komponentou barvy přiřazené pomocí [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). V níže uvedených příkladech `alpha = 50` představuje hodnotu kanálu alfa v rozsahu 0–255, nikoli procento průhlednosti.
 
-Kód níže ukazuje, jak použít průhlednost na **celý odstavec**:
+Následující kód ukazuje, jak použít průhlednost na **celý odstavec**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -292,7 +292,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Nastavit barvu výplně textu na průhlednou barvu.
+// Nastavte barvu výplně textu na průhlednou barvu.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -306,7 +306,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující kód ukazuje, jak aplikovat průhlednost na **části textu s tučným písmem**:
+Následující kód ukazuje, jak použít průhlednost na **textové úseky s tučným písmem**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -344,7 +344,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Nastavit průhlednost části textu.
+        // Nastavte průhlednost textového úseku.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -358,11 +358,11 @@ presentation->Dispose();
 
 Výsledek:
 
-![Průhledné části textu](transparent_text_portions.png)
+![Průhledné textové úseky](transparent_text_portions.png)
 
-## **Nastavit mezery mezi znaky v textu**
+## **Nastavení mezery mezi znaky textu**
 
-Použijte [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) k rozšíření nebo zúžení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty zmenšují text.
+Použijte [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) pro rozšíření nebo zúžení mezery mezi znaky v textovém rámečku. Příklady přidávají 3 body mezery; záporné hodnoty mezery zmenšují text.
 
 Následující C++ kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
@@ -385,8 +385,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Poznámka: Použijte záporné hodnoty ke zkompresování mezery mezi znaky.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Zvětšit mezeru mezi znaky.
+// Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Rozšířit mezeru mezi znaky.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -396,7 +396,7 @@ Výsledek:
 
 ![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Kód níže ukazuje, jak rozšířit mezeru mezi znaky v **částech textu s tučným písmem**:
+Níže uvedený kód ukazuje, jak rozšířit mezeru mezi znaky v **textových úsecích s tučným písmem**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -428,8 +428,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Poznámka: Použijte záporné hodnoty pro zkomprimování mezery mezi znaky.
-        portionFormat->set_Spacing(3.0f); // Zvětšit mezeru mezi znaky.
+        // Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
+        portionFormat->set_Spacing(3.0f); // Rozšířit mezeru mezi znaky.
     }
 }
 
@@ -439,13 +439,13 @@ presentation->Dispose();
 
 Výsledek:
 
-![Mezera mezi znaky v částech textu](character_spacing_in_text_portions.png)
+![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
 
-### **Zakázat kerning pro konkrétní písma**
+### **Zakázání kerningu pro konkrétní písma**
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určité fonty, i když font obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby byl výstup blíže PowerPointu, můžete v takových případech zakázat kerning pro části textu, které používají dotčený font. Použijte [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) k nastavení hodnoty větší než skutečná velikost písma. Tento příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na prvním snímku. Kontroluje efektivní názvy fontů, včetně zděděných, a nastavuje prahovou hodnotu 100 bodů pro části, které používají Roboto. Tím se zakáže kerning pro odpovídající části s velikostí písma pod 100 bodů:
+Aby byl výstup co nejblíže PowerPointu, můžete pro textové úseky používající ovlivněné písmo zakázat kerning. Použijte [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) a nastavte hodnotu vyšší než skutečná velikost písma. Tento příklad vyžaduje soubor "presentation.pptx" s textovým políčkem jako prvním tvarem na první snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastaví práh 100 bodů pro úseky používající písmo Roboto. Tím se zakáže kerning pro odpovídající úseky s velikostí písma pod 100 bodů:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -503,13 +503,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pro odpovídající text pod prahem toto nastavení zabraňuje kerningu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro fonty, na které se toto chování PowerPointu vztahuje.
+Pro text pod prahem toto nastavení zakazuje kerning a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se tento specifický postup PowerPointu vztahuje.
 
-## **Spravovat vlastnosti písma textu**
+## **Správa vlastností písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) nebo na jednotlivých částech pomocí [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) nebo na jednotlivých úsecích pomocí [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
 
-Následující příklad nastavuje výchozí písmo prvního odstavce na 12bodový Times New Roman s tučným, kurzívním a tečkovaným podtržením. Výslovné formátování u jednotlivých částí má přednost před těmito výchozími nastaveními.
+Následující příklad nastaví výchozí písmo prvního odstavce na Times New Roman 12 bodů s tučným, kurzívovým a tečkovaným podtržením. Výslovné formátování na jednotlivých úsecích má přednost před těmito výchozími hodnotami:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -534,7 +534,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Nastavit vlastnosti písma pro odstavec.
+// Nastavte vlastnosti písma pro odstavec.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -550,7 +550,7 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Následující příklad aplikuje 13bodový Times New Roman, kurzívu a tečkované podtržení na části, jejichž efektivní formátování je tučné:
+Následující příklad aplikuje Times New Roman 13 bodů, kurzívu a tečkované podtržení na úseky, jejichž efektivní formátování je tučné:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -585,11 +585,11 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Nastavit vlastnosti písma pro část textu.
-        portionFormat->set_FontHeight(13.0f);
-        portionFormat->set_FontItalic(NullableBool::True);
-        portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
-        portionFormat->set_LatinFont(font);
+            // Nastavte vlastnosti písma pro textový úsek.
+            portionFormat->set_FontHeight(13.0f);
+            portionFormat->set_FontItalic(NullableBool::True);
+            portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
+            portionFormat->set_LatinFont(font);
     }
 }
 
@@ -599,13 +599,191 @@ presentation->Dispose();
 
 Výsledek:
 
-![Vlastnosti písma pro části textu](font_properties_for_text_portions.png)
+![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
 
-## **Nastavit otáčení textu**
+## **Řízení normalizace výšky textu**
 
-Použijte [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) k nastavení předdefinované orientace textu uvnitř tvaru.
+Použijte [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) při reprodukci typografie šablon nebo při zkoumání rozdílů ve výšce znaků. V PowerPointu zapnutí normalizace protahuje nebo stlačuje jednotlivé znaky vertikálně, aby měly jednotnou viditelnou výšku v rámci textového úseku. Normalizace nezaručuje stejnou výšku textu mezi různými písmy.
 
-Následující ukázkový kód nastaví orientaci textu ve tvaru na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
+Nastavte vlastnost na [NullableBool::True nebo False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) pro výslovné zapnutí nebo vypnutí normalizace. `NullableBool::NotDefined` ponechá lokální nastavení neinicializované, takže úsek zdědí hodnotu, například z [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). To neznamená `False`. Použijte [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) a přečtěte [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) pro získání vyřešené Boolovské hodnoty.
+
+Následující samostatný příklad vyžaduje nainstalované **Arial**. Vytvoří dva textové bloky obsahující stejné velké písmeno, malé písmeno, dolní část a diakritiku ve velikosti 54 bodů. Oba odstavce mají výchozí zapnutou normalizaci. Horní úsek ji výslovně vypíná; dolní úsek ji zdědí. Rozměry rámečků, okraje a mezery odstavců jsou identické, zalamování a automatické přizpůsobení jsou vypnuté pro udržení konzistence porovnání. Příklad vypíše `False: False` a `NotDefined: True`, poté uloží "text_height_normalization.pptx".
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+NullableBool settings[] = { NullableBool::False, NullableBool::NotDefined };
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 60 + i * 200, 660, 150);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(u"Hxgjpq ÅÉ 0123");
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_MarginTop(0);
+    textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+
+    auto paragraph = textFrame->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    paragraph->get_ParagraphFormat()->set_SpaceWithin(100);
+    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_NormaliseHeight(NullableBool::True);
+
+    auto portion = paragraph->get_Portion(0);
+    auto font = MakeObject<FontData>(u"Arial");
+    portion->get_PortionFormat()->set_LatinFont(font);
+    portion->get_PortionFormat()->set_FontHeight(54);
+    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+    portion->get_PortionFormat()->set_NormaliseHeight(settings[i]);
+
+    Console::WriteLine(u"{0}: {1}", settings[i], portion->get_PortionFormat()->GetEffective()->get_NormaliseHeight());
+}
+
+presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Porovnání níže bylo exportováno ze uložené prezentace. Horní řádek má normalizaci vypnutou (`False`); dolní řádek ji zdědí (`NotDefined` → `True`). Pro reprodukci vzhledu mějte nainstalované Arial.
+
+![Arial 54‑bodový text s vypnutou normalizací nahoře a zděděnou zapnutou normalizací dole](text_height_normalization.png)
+
+Normalizace mění výšku znaků bez změny přiřazené hodnoty [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/), která udává velikost písma v bodech. Řízení řádkování provádí [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/), zatímco [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) řídí, jak se text nebo jeho kontejner přizpůsobuje velikosti. Tato nastavení mají odlišné účely a mohou nezávisle ovlivnit celkové rozvržení. Další informace o formátování odstavců a dědičnosti najdete v [Správa odstavců](/slides/cs/cpp/manage-paragraph/).
+
+## **Použití a odebrání přeškrtnutí**
+
+Použijte [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) na textový úsek k zobrazení oprav, zrušených výrazů nebo předchozích cen bez odstranění původního textu. Nastavte na [TextStrikethroughType::Single nebo Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) pro jednu nebo dvě čáry přes text.
+
+Pro odebrání přeškrtnutí přiřaďte `TextStrikethroughType::None`. Tím se efekt výslovně zakáže, i když okolní formátování přeškrtnutí specifikuje. Naopak `TextStrikethroughType::NotDefined` ponechá lokální nastavení nedefinované, takže úsek může zdědit formátování, například z odstavce. To nezaručuje, že přeškrtnutí bude odstraněno. Použijte [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) pro čtení výsledného formátování včetně zděděných hodnot.
+
+Následující samostatný příklad vytvoří tři porovnání cen. Každý odstavec má samostatné úseky pro popisek, předchozí cenu a aktuální cenu, takže pouze předchozí cena je ovlivněna. První řádek použije a poté odebere přeškrtnutí; ostatní řádky zachovají jednoduché a dvojité přeškrtnutí. Změna této vlastnosti zachová text a jeho další formátování, včetně tučné předchozí ceny.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextStrikethroughType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+String labels[] = { u"None: ", u"Single: ", u"Double: " };
+
+for (auto label : labels)
+{
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(20);
+
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    format->set_FontHeight(28);
+    auto font = MakeObject<FontData>(u"Arial");
+    format->set_LatinFont(font);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto labelPortion = MakeObject<Portion>(label);
+    paragraph->get_Portions()->Add(labelPortion);
+
+    auto previousPrice = MakeObject<Portion>(u"$100");
+    previousPrice->get_PortionFormat()->set_FontBold(NullableBool::True);
+    paragraph->get_Portions()->Add(previousPrice);
+    auto currentPrice = MakeObject<Portion>(u" → $80");
+    paragraph->get_Portions()->Add(currentPrice);
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+// Aplikujte přeškrtnutí a poté jej explicitně odstraňte od první předchozí ceny.
+auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
+
+textFrame->get_Paragraph(1)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Single);
+textFrame->get_Paragraph(2)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Double);
+
+presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Výsledek shora dolů: žádné přeškrtnutí, jednoduché přeškrtnutí a dvojité přeškrtnutí.
+
+![Předchozí ceny bez přeškrtnutí, s jednoduchým přeškrtnutím a s dvojitým přeškrtnutím](strikethrough.png)
+
+
+## **Nastavení rotace textu**
+
+Použijte [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) pro nastavení předdefinované orientace textu v tvaru.
+
+Následující kód nastaví orientaci textu ve tvaru na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -631,13 +809,13 @@ presentation->Dispose();
 
 Výsledek:
 
-![Otáčení textu](text_rotation.png)
+![Rotace textu](text_rotation.png)
 
-## **Nastavit vlastní otáčení pro textové rámy**
+## **Nastavení vlastní rotace pro textové rámečky**
 
-Použijte [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) k nastavení vlastního úhlu otáčení pro [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
+Použijte [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) pro nastavení vlastní úhlu rotace pro [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
 
-Níže uvedený kód otáčí textový rám o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Níže uvedený kód otáčí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -662,16 +840,16 @@ presentation->Dispose();
 
 Výsledek:
 
-![Vlastní otáčení textu](custom_text_rotation.png)
+![Vlastní rotace textu](custom_text_rotation.png)
 
-## **Nastavit řádkování odstavců**
+## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) a [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) pro řízení mezery odstavců. Tyto metody se používají následovně:
+Aspose.Slides poskytuje [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) a [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) pro řízení mezer odstavců. Tyto metody se používají následovně:
 
-* Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
-* Použijte zápornou hodnotu k určení řádkování v bodech.
+* Použijte kladnou hodnotu pro specifikaci řádkování jako procenta výšky řádku.
+* Použijte zápornou hodnotu pro specifikaci řádkování v bodech.
 
-Následující příklad nastaví mezeru v rámci prvního odstavce na 200 % výšky řádku (dvojité řádkování):
+Následující příklad nastaví mezeru uvnitř prvního odstavce na 200 % výšky řádku (dvojité řádkování):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -699,18 +877,18 @@ presentation->Dispose();
 
 Výsledek:
 
-![Řádkování v odstavci](line_spacing.png)
+![Řádkování uvnitř odstavce](line_spacing.png)
 
-## **Řídit zalamování řádků**
+## **Řízení zalamování řádků**
 
-Pravidla zalamování řádků odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinské a východoasijské texty. Následující metody patří k [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), takže se vztahují na celý odstavec:
+Pravidla zalamování řádků odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinský a východoasijský text. Následující metody patří do [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), takže platí pro celý odstavec:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) řídí pravidla zalamování latinského textu. V smíšeném textu jeho změna může také změnit, kde se zalamuje sousední východoasijský text a interpunkce.
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) řídí pravidla zalamování latinského textu. Ve smíšeném textu může změna také ovlivnit, kde se zalamuje sousední východoasijský text a interpunkce.
 - [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) řídí pravidla zalamování východoasijského textu, včetně omezení znaků na začátku a konci řádku.
 
-Tato pravidla nenahrazují [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), která umožňuje automatické zalamování v textovém rámci. Ovlivňují rozvržení při zalamování; nevkládají znaky pro zalomení řádku. Výslovné zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
+Tato pravidla nenahrazují [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), který povoluje automatické zalamování v textovém rámečku. Pravidla ovlivňují rozvržení, když k zalamování dochází; nevkládají znaky konce řádku. Výslovné zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
 
-Následující samostatný příklad vytvoří úzký textový blok obsahující čínštinu a latinku. Explicitně nastaví obě pravidla zalamování řádků a uloží „line_breaking.pptx“. Pro experimentování s jednotlivým pravidlem změňte hodnotu předávanou jeho setteru při zachování ostatních nastavení. Příklad používá 24bodový Arial a SimSun s šířkou rámu 160 bodů a nulovými vodorovnými okraji textového rámu. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) je voláno s [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/), aby velikost textu a rozměry rámu zůstaly pevné.
+Následující samostatný příklad vytvoří úzký textový blok obsahující čínštinu a latinku. Nastaví oba způsoby zalamování explicitně a uloží "line_breaking.pptx". Pro experimentování s libovolným pravidlem změňte hodnotu předávanou do příslušného setteru a ostatní nastavení ponechte beze změny. Příklad používá Arial 24 bodů a SimSun, šířku rámečku 160 bodů a nulové vodorovné okraje textového rámečku. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) se volá s [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/), aby velikost textu a rozměry rámečku zůstaly pevné.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -768,11 +946,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Řídit zavěšenou interpunkci**
+## **Řízení visící interpunkce**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) umožňuje oprávněné interpunkční znaky přesahovat pravý okraj textového řádku místo toho, aby zabíraly následující řádek. Platí pro celý odstavec a liší se od zavěšeného odsazení.
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) umožňuje oprávněné interpunkci přesáhnout pravý okraj řádku textu místo aby zabírala další řádek. Používá se na celý odstavec a liší se od odsazení první řádky.
 
-Následující samostatný příklad povoluje zavěšenou interpunkci v textovém rámci o šířce 100 bodů a uloží „hanging_punctuation.pptx“. S 24bodovým Arial a nulovými vodorovnými okraji textového rámu zůstane poslední tečka za „sentence“ a přesáhne pravý okraj textu. Předávejte [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) do setteru pro porovnání: s těmito nastaveními tečka zabírá samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je vypnuto, aby šířka zůstala pevná.
+Následující samostatný příklad povolí visící interpunkci v textovém rámečku širokém 100 bodů a uloží "hanging_punctuation.pptx". Při použití Arial 24 bodů a nulových vodorovných okrajů textového rámečku zůstane poslední tečka po slově "sentence" a přesáhne pravý okraj. Pro srovnání předejte setteru [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/); s těmito nastaveními tečka zabere samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je zakázáno, aby byla šířka pevná.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -827,11 +1005,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ne každá interpunkční značka se může zavěsit. [Podmínky fontu a rozvržení popsané výše](#control-line-breaking) se vztahují i na toto srovnání: změna fontu, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl skrýt.
+Ne každá interpunkční značka může viset. Výše popsané podmínky písma a rozvržení ([#control-line-breaking](#control-line-breaking)) se na toto srovnání vztahují také: změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl odstranit.
 
-## **Nastavit typ automatického přizpůsobení pro textové rámy**
+## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru. Následující příklad nastaví tvar tak, aby se změnil dle velikosti textu a uloží výsledek do „autofit_type.pptx“.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej pro řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru. Následující příklad nakonfiguruje tvar tak, aby se změnil velikostí podle textu, a uloží výsledek do "autofit_type.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -855,11 +1033,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pro spočítání řádků po automatickém zalamování a zobrazení, jak změna šířky textu nebo tvaru ovlivní výsledek, navštivte [Počítání vykreslených řádků](/slides/cs/cpp/manage-paragraph/). Pouze počet řádků neukazuje, zda text přesahuje svůj kontejner.
+Pro spočítání řádků po automatickém zalomení a zjištění, jak se mění šířka textu nebo tvaru, viz [Count Rendered Lines](/slides/cs/cpp/manage-paragraph/). Samotný počet řádků neindikují, zda text přetéká svůj kontejner.
 
-## **Nastavit ukotvení textových rámů**
+## **Nastavení ukotvení textových rámečků**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke spodu prvního tvaru a uloží výsledek do „text_anchor.pptx“.
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) určuje, jak je text vertikálně umístěn uvnitř tvaru, např. nahoře, uprostřed nebo dole. Následující příklad ukotví text dole prvního tvaru a uloží výsledek do "text_anchor.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -883,9 +1061,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Nastavit tabulátory textu**
+## **Nastavení tabulátorů textu**
 
-Použijte [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) a [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) k nastavení tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátoru na 100 bodů a přidá levé zarovnání tabulátoru na 30 bodech. Tato nastavení ovlivňují text obsahující tabulátory.
+Použijte [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) a [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) pro konfiguraci tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátoru na 100 bodů a přidá levé zarovnaný tabulátor na 30 bodů. Tato nastavení ovlivňují text obsahující tabulátory.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -916,13 +1094,13 @@ presentation->Dispose();
 
 Výsledek:
 
-![Tabulátory odstavce](paragraph_tabs.png)
+![Tabulátory v odstavci](paragraph_tabs.png)
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavení jazyka kontroly pravopisu**
 
-Aspose.Slides poskytuje [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), který umožňuje nastavit jazyk kontroly pravopisu pro část textu. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), který umožňuje nastavit jazyk kontroly pravopisu pro textový úsek. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
 
-Následující příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na prvním snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce řetězcem "1。", nastaví SimSun jako jeho písmo a přiřadí jazyk kontroly pravopisu Simplified Chinese (`zh-CN`). Uloží výsledek do „proofing_language.pptx“:
+Následující příklad vyžaduje "presentation.pptx" s textovým políčkem jako prvním tvarem na první snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem "1。", nastaví SimSun jako jeho písmo a přiřadí jazyk kontroly pravopisu Zjednodušená čínština (`zh-CN`). Uloží výsledek do "proofing_language.pptx":
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -955,7 +1133,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Nastavit jazyk kontroly pravopisu na zjednodušenou čínštinu.
+// Nastavte jazyk kontroly pravopisu na Zjednodušenou čínštinu.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -965,9 +1143,55 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Nastavit výchozí jazyk**
+### **Kopírování metadat jazyka**
 
-Použijte [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace. Následující příklad vytvoří prezentaci s americkou angličtinou jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro jeho první část textu.
+Při kopírování vícejazyčného textu ze šablony zachovejte oba identifikátory jazyků pomocí [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) a [IBasePortionFormat::set_AlternativeLanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_alternativelanguageid/). Následující samostatný příklad vytvoří zdrojový úsek s US English jako jazykem a francouzštinou jako alternativním jazykem a zkopíruje text i identifikátory do úseku v nové prezentaci.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto source = System::MakeObject<Portion>(u"Hello! Bonjour!");
+source->get_PortionFormat()->set_LanguageId(u"en-US");
+source->get_PortionFormat()->set_AlternativeLanguageId(u"fr-FR");
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 80.0f);
+auto paragraph = shape->get_TextFrame()->get_Paragraph(0);
+paragraph->get_Portions()->Clear();
+
+auto destination = System::MakeObject<Portion>();
+destination->set_Text(source->get_Text());
+destination->get_PortionFormat()->set_LanguageId(source->get_PortionFormat()->get_LanguageId());
+// Pokud zdroj nemá alternativní jazyk, nulový řetězec vymaže hodnotu v cíli.
+destination->get_PortionFormat()->set_AlternativeLanguageId(source->get_PortionFormat()->get_AlternativeLanguageId());
+paragraph->get_Portions()->Add(destination);
+
+presentation->Save(u"copied_language_metadata.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Pro vyzkoušení zdroje bez alternativního jazyka vynechte přiřazení `u"fr-FR"`. Alternativní identifikátor bude pak prázdný řetězec a stejný příkaz pro kopírování zachová jeho nepřítomnost, aniž by zaváděl výchozí hodnotu, i když cíl dříve měl přiřazený alternativní jazyk.
+
+Tyto identifikátory představují jazyková metadata. Jejich zachování neurčuje, který slovník PowerPoint vybere pro kontrolu pravopisu nebo gramatiky.
+
+## **Nastavení výchozího jazyka**
+
+Použijte [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) pro definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace. Následující příklad vytvoří prezentaci s US English jako výchozím jazykem textu, přidá textové políčko a vypíše `en-US` pro jeho první textový úsek.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -994,7 +1218,7 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Zkontrolujte jazyk první části.
+// Zkontrolujte jazyk první úseku.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -1002,11 +1226,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **Nastavit výchozí styl textu**
+## **Nastavení výchozího stylu textu**
 
-Pro použití výchozího formátování textu na úrovni prezentace použijte [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
+Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Následující příklad nastaví 14bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží ji do „default_text_style.pptx“. Text může dědit tato výchozí nastavení, pokud není přepsáno konkrétnějším formátováním.
+Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce první úrovně v nové prezentaci a uloží ji do "default_text_style.pptx". Text může tyto výchozí hodnoty zdědit, pokud není přepsán konkrétnějším formátováním.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -1021,7 +1245,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Získat formát odstavce nejvyšší úrovně.
+// Získejte formát odstavce nejvyšší úrovně.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -1035,15 +1259,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Extrahovat text s efektem Všech velkých písmen**
+## **Extrahování textu s efektem všech velkých písmen**
 
-V PowerPointu aplikace efekt **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně napsán malými. Když takovou část textu získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu s zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) a při hodnotě [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) převedete vrácený řetězec na velká písmena.
+V PowerPointu aplikace efektu **All Caps** (všechna písmena) způsobí, že text vypadá na snímku velkými písmeny, i když byl původně zadán malými. Když takový textový úsek získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro získání zobrazeného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) a při hodnotě [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) převádějte vrácený řetězec na velká písmena.
 
-Tento příklad vyžaduje soubor "sample2.pptx" s textovým polem jako prvním tvarem na prvním snímku. První část prvního odstavce obsahuje "Hello, Aspose!" s aplikovaným efektem All Caps, jak je zobrazeno níže.
+Tento příklad vyžaduje "sample2.pptx" s textovým políčkem jako prvním tvarem na první snímku. První odstavec jeho prvního úseku obsahuje "Hello, Aspose!" s aplikovaným efektem All Caps, jak je zobrazeno níže.
 
 ![Efekt všech velkých písmen](all_caps_effect.png)
 
-Kód níže ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Níže uvedený kód ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1087,10 +1311,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Často kladené otázky**
 
-**Jak upravit text v tabulce na snímku?**
+**Jak mohu upravit text v tabulce na snímku?**
 
-K úpravě textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku pomocí [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) a formátování odstavců pomocí [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku přes [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) a formátování odstavců přes [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
+**Jak mohu aplikovat gradientní barvu na text na snímku PowerPoint?**
 
-Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Nastavte [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) a nakonfigurujte gradientové zastávky, směr a průhlednost.
+Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Nastavte [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) a nakonfigurujte gradientní zastávky, směr a průhlednost.
+
+Související funkce: [Formátování textu v prezentacích](/slides/cs/features/text-formatting/).
