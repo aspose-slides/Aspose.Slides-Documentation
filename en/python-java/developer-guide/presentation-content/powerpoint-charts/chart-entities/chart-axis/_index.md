@@ -201,6 +201,48 @@ finally:
     presentation.dispose()
 ```
 
+## **Show or Hide Chart Gridlines**
+
+Call [getShowMajorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMajorGridLines) and [getShowMinorGridLines](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getShowMinorGridLines) to check which gridlines an axis displays. To show minor gridlines, use [getMinorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMinorGridLinesFormat) and set the line fill to a solid, visible color. To hide them, set the fill to [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/#NoFill). Use [getMajorGridLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getMajorGridLinesFormat) to change the line fill for major gridlines in the same way. Changing the fill preserves axis visibility and tick marks.
+
+The vertical axis of this clustered column chart initially shows only major gridlines. The example displays the minor gridlines in dark orange, then hides them again before saving the presentation. It prints the gridline visibility at each step.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 30, 660, 230)
+    axis = chart.getAxes().getVerticalAxis()
+    print(f"Initial: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    minor_fill = axis.getMinorGridLinesFormat().getLine().getFillFormat()
+    minor_fill.setFillType(FillType.Solid)
+    minor_fill.getSolidFillColor().setColor(Color(255, 140, 0))
+    print(f"Enabled: minor={axis.getShowMinorGridLines()}")
+
+    minor_fill.setFillType(FillType.NoFill)
+    print(f"Hidden: major={axis.getShowMajorGridLines()}, minor={axis.getShowMinorGridLines()}")
+
+    presentation.save("ChartGridlines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Minor gridlines enabled | Minor gridlines hidden |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Change a Category Axis**
 
 Use [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Calling [setAutomaticMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMajorUnit) with `False`, [setMajorUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnit) with `1`, and [setMajorUnitScale](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMajorUnitScale) with [TimeUnitType.Months](https://reference.aspose.com/slides/python-java/aspose.slides/timeunittype/#Months) places major ticks at one-month intervals.

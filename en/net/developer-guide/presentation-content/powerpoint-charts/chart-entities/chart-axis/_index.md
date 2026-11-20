@@ -170,6 +170,41 @@ chart.Axes.HorizontalAxis.IsVisible = false;
 presentation.Save("HiddenHorizontalAxis.pptx", SaveFormat.Pptx);
 ```
 
+## **Show or Hide Chart Gridlines**
+
+Read [ShowMajorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showmajorgridlines/) and [ShowMinorGridLines](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/showminorgridlines/) to check which gridlines an axis displays. Both properties are read-only. Use the line fill of [MinorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/minorgridlinesformat/) to show or hide minor gridlines. Set a solid fill with a visible color to show them, or use `FillType.NoFill` to hide them. The corresponding setting for major gridlines is [MajorGridLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/majorgridlinesformat/)`.Line.FillFormat`. Changing a gridline fill preserves the axis visibility and tick marks.
+
+The vertical axis of this clustered column chart starts with major gridlines visible and minor gridlines hidden. The example shows the minor gridlines in orange, then hides them again before saving the presentation.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 30, 660, 230);
+var axis = chart.Axes.VerticalAxis;
+Console.WriteLine($"Initial: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+var minorFill = axis.MinorGridLinesFormat.Line.FillFormat;
+minorFill.FillType = FillType.Solid;
+minorFill.SolidFillColor.Color = Color.DarkOrange;
+Console.WriteLine($"Enabled: minor={axis.ShowMinorGridLines}");
+
+minorFill.FillType = FillType.NoFill;
+Console.WriteLine($"Hidden: major={axis.ShowMajorGridLines}, minor={axis.ShowMinorGridLines}");
+
+presentation.Save("ChartGridlines.pptx", SaveFormat.Pptx);
+```
+
+| Minor gridlines enabled | Minor gridlines hidden |
+| --- | --- |
+| ![Orange minor gridlines between the major gridlines on the vertical axis](minor-gridlines-enabled.png) | ![The same column chart with only major gridlines visible](minor-gridlines-hidden.png) |
+
 ## **Change a Category Axis**
 
 Set [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/categoryaxistype/) to choose a date or text category axis. This example requires `ExistingChart.pptx`, with a chart as the first shape on the first slide and category cells containing numeric Excel date values. It changes the horizontal axis to a date axis. Setting [IsAutomaticMajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticmajorunit/) to `false`, [MajorUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunit/) to `1`, and [MajorUnitScale](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/majorunitscale/) to months places major ticks at one-month intervals.
