@@ -221,7 +221,7 @@ try {
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) method.
 
-**Add Captions to a Video Frame**
+### **Add Captions to a Video Frame**
 
 This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
@@ -250,7 +250,7 @@ try {
 
 The [ICaptionsCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
 
-**Extract Captions from a Video Frame**
+### **Extract Captions from a Video Frame**
 
 This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
@@ -284,7 +284,7 @@ try {
 
 Each [ICaptions](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**Remove Captions from a Video Frame**
+### **Remove Captions from a Video Frame**
 
 This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
@@ -305,6 +305,71 @@ try {
 ```
 
 If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#remove-com.aspose.slides.ICaptions-) or [removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#removeAt-int-) methods instead of [clear](https://reference.aspose.com/slides/java/com.aspose.slides/captionscollection/#clear--).
+
+### **Search Video Captions**
+
+[ICaptions.getDataAsString](https://reference.aspose.com/slides/java/com.aspose.slides/icaptions/#getDataAsString--) returns the complete WebVTT track, including its header, timing lines, and caption text. You can search the cues in memory to find a spoken phrase and its timestamp. For example, an English track on slide 2 might contain the following text.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+The example opens `captioned_media.pptx` and uses [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/java/com.aspose.slides/ivideoframe/#getCaptionTracks--) to read the tracks of each top-level video frame on every slide. In a plain-text cue, the timing line contains `-->`, and a blank line ends the cue. When the caption contains “café” in any letter case, the example prints the slide number, track label, original timing line, and full caption.
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("captioned_media.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IVideoFrame)) {
+                continue;
+            }
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            for (ICaptions track : videoFrame.getCaptionTracks()) {
+                try (Scanner reader = new Scanner(track.getDataAsString())) {
+                    while (reader.hasNextLine()) {
+                        String timing = reader.nextLine();
+                        if (!timing.contains("-->")) {
+                            continue;
+                        }
+                        StringJoiner caption = new StringJoiner(System.lineSeparator());
+                        while (reader.hasNextLine()) {
+                            String line = reader.nextLine();
+                            if (line.isEmpty()) {
+                                break;
+                            }
+                            caption.add(line);
+                        }
+                        if (caption.toString().toLowerCase(Locale.ROOT).contains("café")) {
+                            System.out.printf("Slide %d | %s | %s%n", slide.getSlideNumber(), track.getLabel(), timing);
+                            System.out.println(caption);
+                        }
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Searching for “café” produces one match for the sample track. The search excludes the track header and preserves the timing setting in the output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extract Video from a Slide**
 

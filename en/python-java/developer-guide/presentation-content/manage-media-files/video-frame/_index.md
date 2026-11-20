@@ -253,7 +253,7 @@ finally:
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) method.
 
-**Add Captions to a Video Frame**
+### **Add Captions to a Video Frame**
 
 This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
@@ -288,7 +288,7 @@ finally:
 
 The [CaptionsCollection](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/) class also provides an overload that lets you add captions from a stream.
 
-**Extract Captions from a Video Frame**
+### **Extract Captions from a Video Frame**
 
 This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
@@ -323,7 +323,7 @@ finally:
 
 Each [Captions](https://reference.aspose.com/slides/python-java/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**Remove Captions from a Video Frame**
+### **Remove Captions from a Video Frame**
 
 This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
@@ -353,6 +353,62 @@ finally:
 ```
 
 If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#remove) or [removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#removeAt) methods instead of [clear](https://reference.aspose.com/slides/python-java/aspose.slides/captionscollection/#clear).
+
+### **Search Video Captions**
+
+[Captions.getDataAsString](https://reference.aspose.com/slides/python-java/aspose.slides/captions/#getDataAsString) returns the complete WebVTT track, including its header, timing lines, and caption text. You can search the captions in memory to find a phrase and its timestamp. For example, an English track on slide 2 might contain the following text.
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+This example opens `captioned_media.pptx` and uses [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/python-java/aspose.slides/videoframe/#getCaptionTracks) to read the tracks of each top-level video frame on every slide. In a plain-text cue, the timing line contains `-->`, and a blank line ends the cue. For each caption containing “café” in any letter case, the example prints the slide number, track label, original timing line, and full caption.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, VideoFrame
+
+presentation = Presentation("captioned_media.pptx")
+try:
+    for slide in presentation.getSlides():
+        for shape in slide.getShapes():
+            if not isinstance(shape, VideoFrame):
+                continue
+            for track in shape.getCaptionTracks():
+                track_text = str(track.getDataAsString())
+                lines = iter(track_text.splitlines())
+                for timing in lines:
+                    if "-->" not in timing:
+                        continue
+                    caption_lines = []
+                    for line in lines:
+                        if not line:
+                            break
+                        caption_lines.append(line)
+                    caption = "\n".join(caption_lines)
+                    if "café" in caption.casefold():
+                        print(f"Slide {slide.getSlideNumber()} | {track.getLabel()} | {timing}")
+                        print(caption)
+finally:
+    presentation.dispose()
+```
+
+Searching for “café” produces one match for the sample track. The search excludes the track header and preserves the timing setting and line breaks in the output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extract Video from a Slide**
 

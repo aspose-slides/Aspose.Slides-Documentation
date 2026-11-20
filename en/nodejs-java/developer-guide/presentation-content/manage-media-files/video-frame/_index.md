@@ -234,7 +234,7 @@ try {
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) method.
 
-**Add Captions to a Video Frame**
+### **Add Captions to a Video Frame**
 
 This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
@@ -262,7 +262,7 @@ try {
 
 The [CaptionsCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/) class also provides the [addFromStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#addFromStream) method for adding captions from a stream.
 
-**Extract Captions from a Video Frame**
+### **Extract Captions from a Video Frame**
 
 This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
@@ -298,7 +298,7 @@ try {
 
 Each [Captions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**Remove Captions from a Video Frame**
+### **Remove Captions from a Video Frame**
 
 This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
@@ -319,6 +319,72 @@ try {
 ```
 
 If you need to remove only one caption track, use the [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#remove) or [removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#removeAt) methods instead of [clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captionscollection/#clear).
+
+### **Search Video Captions**
+
+The [Captions.getDataAsString](https://reference.aspose.com/slides/nodejs-java/aspose.slides/captions/#getDataAsString) method returns the entire WebVTT track, including the header, timing lines, and caption text. You can search the caption text in memory to find a phrase and its timestamp. For example, an English track on slide 2 might contain this cue:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+This example opens `captioned_media.pptx` and uses [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) to read the tracks of each top-level video frame on every slide. In a plain-text cue, the timing line contains `-->`, and a blank line ends the cue. For each caption that contains “café” in any letter case, the example prints the slide number, track label, original timing line, and full caption.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("captioned_media.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const shapes = slide.getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                continue;
+            }
+
+            const tracks = shape.getCaptionTracks();
+            for (let trackIndex = 0; trackIndex < tracks.getCount(); trackIndex++) {
+                const track = tracks.get_Item(trackIndex);
+                const lines = track.getDataAsString().split(/\r\n|\n|\r/);
+                for (let i = 0; i < lines.length; i++) {
+                    const timing = lines[i];
+                    if (!timing.includes("-->")) {
+                        continue;
+                    }
+                    const start = i + 1;
+                    i = start;
+                    while (i < lines.length && lines[i] !== "") {
+                        i++;
+                    }
+                    const caption = lines.slice(start, i).join("\n");
+                    if (caption.toLowerCase().includes("café")) {
+                        console.log(`Slide ${slide.getSlideNumber()} | ${track.getLabel()} | ${timing}`);
+                        console.log(caption);
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Searching for “café” finds one match in the sample track. The search skips the track header and preserves the timing setting and line break in the output.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extract Video from a Slide**
 

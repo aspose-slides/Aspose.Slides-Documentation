@@ -240,7 +240,7 @@ foreach (var shape in slide.Shapes)
 
 Aspose.Slides allows you to manage closed captions for video frames in PowerPoint presentations. Captions are stored in WebVTT format and are exposed through the [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/) property.
 
-**Add Captions to a Video Frame**
+### **Add Captions to a Video Frame**
 
 This example embeds a local video and adds a WebVTT caption track labeled English. The caption timestamps should match the video. The saved presentation includes both the video and its captions.
 
@@ -263,7 +263,7 @@ presentation.Save("video_with_captions.pptx", SaveFormat.Pptx);
 
 The [ICaptionsCollection](https://reference.aspose.com/slides/net/aspose.slides/icaptionscollection/) interface also provides an overload that lets you add captions from a stream.
 
-**Extract Captions from a Video Frame**
+### **Extract Captions from a Video Frame**
 
 This example saves all caption tracks from video frames on the first slide as separate WebVTT files. Sequential numbers keep the output files distinct. The console reports the number of extracted tracks. The presentation must contain at least one slide.
 
@@ -294,7 +294,7 @@ Console.WriteLine($"Caption tracks extracted: {trackCount}");
 
 Each [ICaptions](https://reference.aspose.com/slides/net/aspose.slides/icaptions/) object exposes the caption identifier, label, binary data, and caption text as a UTF-8 string.
 
-**Remove Captions from a Video Frame**
+### **Remove Captions from a Video Frame**
 
 This example removes all captions from the video frame at the first shape position on the first slide and saves the result. It assumes that the slide and shape exist and that the shape is a video frame.
 
@@ -313,6 +313,61 @@ presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
 ```
 
 If you need to remove only one caption track, use the [Remove](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/remove/) or [RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/removeat/) methods instead of [Clear](https://reference.aspose.com/slides/net/aspose.slides/captionscollection/clear/).
+
+### **Search Video Captions**
+
+[ICaptions.DataAsString](https://reference.aspose.com/slides/net/aspose.slides/icaptions/dataasstring/) returns the complete WebVTT track, including its header, timing lines, and caption text. To find a spoken phrase and its timestamp, read the cues in memory. For example, an English track on slide 2 might contain the following text:
+
+```text
+WEBVTT Café tour
+
+00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
+
+The example visits each slide and reads the tracks of its top-level video frames through [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/net/aspose.slides/ivideoframe/captiontracks/). In a plain-text cue, the timing line contains `-->` and a blank line ends the cue. When the caption text contains “café”, the example prints the slide number, track label, original timing line, and full caption.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("captioned_media.pptx");
+foreach (var slide in presentation.Slides)
+{
+    var tracks = slide.Shapes.OfType<IVideoFrame>().SelectMany(frame => frame.CaptionTracks);
+    foreach (var track in tracks)
+    {
+        using var reader = new StringReader(track.DataAsString);
+        while (reader.ReadLine() is string timing)
+        {
+            if (!timing.Contains("-->")) continue;
+
+            var lines = new List<string>();
+            while (reader.ReadLine() is string line && line.Length > 0)
+                lines.Add(line);
+
+            var caption = string.Join(Environment.NewLine, lines);
+            if (caption.Contains("café", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Slide {slide.SlideNumber} | {track.Label} | {timing}");
+                Console.WriteLine(caption);
+            }
+        }
+    }
+}
+```
+
+Searching for “café” produces one match for the sample track. The header and the timing setting are outside the cue text.
+
+```text
+Slide 2 | English | 00:00:01.000 --> 00:00:03.000 align:start
+Meet me at the café
+near the station.
+```
 
 ## **Extract Video from a Slide**
 
