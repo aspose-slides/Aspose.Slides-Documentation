@@ -1,5 +1,5 @@
 ---
-title: PHP ile Sunum Metnini Biçimlendirme
+title: PHP ile Sunum Metnini Biçimlendir
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
@@ -17,9 +17,9 @@ keywords:
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi bağlama noktası
+- metin çerçevesi sabitlemesi
 - metin sekmesi
-- varsayılan dil
+- öntanımlı dil
 - PowerPoint
 - OpenDocument
 - sunum
@@ -29,19 +29,19 @@ description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocume
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin bağlama, sekme durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
 
-Aksi belirtilmedikçe örneklerde [sample.pptx](sample.pptx) kullanılır. İlk slaytındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Hem slayt hem de şekil dizinleri sıfır‑tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılmış kalın biçimlendirme dahil olmak üzere etkili biçimlendirme kullanır:
+Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaydındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Hem slayt hem de şekil indeksleri sıfır tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirme dahil olmak üzere etkili biçimlendirmeyi kullanır:
 
 ![Örnek metin](sample_text.png)
 
-Gerçek metni veya düzenli ifade eşleşmelerini bulmak ve vurgulamak için [Metin Arama ve Değiştirme](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
+Metin Arama ve Değiştirme için, [Metin Arama ve Değiştirme](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın veya tek tek metin bölümleri için [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın, ya da tek tek metin bölümleri için [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Tek tek bölümler üzerindeki açık vurgulama renkleri bu varsayılanın üzerine yazılır:
+Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Tek tek bölümlerde açıkça belirlenen vurgulama renkleri bu varsayılanın üzerindeki önceliğe sahiptir:
 
 ```php
 use aspose\slides\Presentation;
@@ -55,7 +55,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Tüm paragraf için vurgulama rengini ayarla.
+    // Paragrafın tamamı için vurgulama rengini ayarla.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -68,7 +68,7 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağını gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -103,9 +103,9 @@ Sonuç:
 
 ## **Metin Paragraflarını Hizala**
 
-Metin çerçevesi içinde paragraf hizalamasını ayarlamak için [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) kullanın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
+Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) kullanın. Değer, ortalanmış, sola hizalı, sağa hizalı, iki yana yaslı vb. olabilir.
 
-Aşağıdaki kod örneği paragrafı **ortaya** hizalar:
+Aşağıdaki kod örneği, paragrafı **ortaya** hizalamanın yolunu gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -134,9 +134,9 @@ Sonuç:
 
 ## **Satır İçinde Yazı Tiplerini Hizala**
 
-Farklı yazı tipi boyutlarına sahip metin bölümlerini aynı satır içinde dikey olarak hizalamak için [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) kullanın. Bu ayar tüm paragraf için geçerlidir ve her satırdaki hizalamayı kontrol eder.
+Satır içinde farklı puntoya sahip metin bölümlerini dikey olarak hizalamak için [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) kullanın. Bu ayar tüm paragraf için geçerlidir ve satırların her birindeki hizalamayı kontrol eder.
 
-Aşağıdaki bağımsız örnek, bir slaytta dört etiketli metin kutusu yaratır. Her paragraf aynı metni 18, 36 ve 54 puan boyutlarında içerir ve farklı bir yazı tipi hizalamasına sahiptir. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
+Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puanda içerir ve farklı bir yazı tipi hizalamasına sahiptir. Arial kullanır, otomatik sığdırma ve satır bölmeyi devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
 
 ```php
 use aspose\slides\FillType;
@@ -205,17 +205,17 @@ try {
 
 Sonuç:
 
-![Baseline, Top, Center ve Bottom yazı tipi hizalamalarının karışık yazı tipi boyutlarıyla karşılaştırması](font_alignment.png)
+![Alt Çizgi, Üst, Orta ve Alt yazı tipi hizalamalarının karışık boyutlarla karşılaştırması](font_alignment.png)
 
-Yazı tipi hizalaması yazı tipi metriklerini kullanır, bu nedenle tek tek harflerin görünen kenarları mutlaka tam olarak hizalanmaz. Örnek, büyük harf ve alt kısmı uzanan bir karakter içererek taban ve alt hizalama arasındaki farkı göstermek için tasarlanmıştır. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve yazı tipi boyutları sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; modları karşılaştırırken aynı yazı tiplerini ve düzen ayarlarını kullanın.
+Yazı tipi hizalaması, yazı tipi metriklerini kullanır, bu nedenle bireysel harflerin görünür kenarları mutlaka tam olarak hizalanmaz. Örnek, alt çizgi ve alt hizalama arasındaki farkı göstermek için bir büyük harf ve bir alt karakter içerir. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve yazı tipi boyutları arasındaki fark sonuçları etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, sarmalama ve otomatik sığdırma da yerleşimi etkiler; modları karşılaştırırken aynı yazı tiplerini ve yerleşim ayarlarını kullanın.
 
-Bu ayar, yatay paragraf hizalamasını yöneten [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) ve şekil içinde metin bloğunu dikey olarak konumlandıran [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) işlevlerinden farklıdır. Üst simge ve alt simge biçimlendirmesi, [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) aracılığıyla, paragrafın satırları için yazı tipi hizalaması ayarlamaktan ziyade bireysel bölümleri tabana göre kaydırır.
+Bu ayar, yatay paragraf hizalamasını kontrol eden [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), ve metin bloğunu şekil içinde dikey olarak konumlandıran [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) yöntemlerinden farklıdır. Üst ve alt simge biçimlendirmesi, [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) aracılığıyla, bireysel bölümleri temel çizgiye göre kaydırır; paragraf satırlarının yazı tipi hizalamasını ayarlamaz.
 
 ## **Metin Şeffaflığını Ayarla**
 
-Metin şeffaflığı, [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) içine atanan rengin alfa bileşeni aracılığıyla kontrol edilir. Aşağıdaki örneklerde `alpha = 50` 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde şeffaflık değildir.
+Metin şeffaflığı, [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) ile atanmış rengin alfa bileşeni aracılığıyla kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, %0‑255 ölçeğinde bir ARGB alfa kanalı değeridir, şeffaflık yüzdesi değildir.
 
-Aşağıdaki kod örneği **tüm paragraf** için şeffaflık uygular:
+Aşağıdaki kod örneği, **tüm paragraf** için şeffaflık uygulamayı gösterir:
 
 ```php
 use aspose\slides\FillType;
@@ -232,7 +232,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Metnin dolgu rengini şeffaf bir renge ayarla.
+    // Metnin doldurma rengini şeffaf bir renk olarak ayarla.
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -247,7 +247,7 @@ Sonuç:
 
 ![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği **kalın bir yazı tipine sahip metin bölümleri** için şeffaflık uygular:
+Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflık uygulamayı gösterir:
 
 ```php
 use aspose\slides\FillType;
@@ -287,9 +287,9 @@ Sonuç:
 
 ## **Metin Karakter Aralığını Ayarla**
 
-Metin kutusunda karakterler arasındaki boşluğu artırmak veya azaltmak için [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) kullanın. Örnekler 3 puan boşluk ekler; negatif değerler metni sıkıştırır.
+Bir metin kutusundaki karakterler arasındaki boşluğu genişletmek ya da daraltmak için [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) kullanın. Örneklerde 3 puan boşluk eklenir; negatif değerler metni sıkıştırır.
 
-Aşağıdaki PHP kodu, **tüm paragraf** içinde karakter aralığını nasıl genişleteceğinizi gösterir:
+Aşağıdaki PHP kodu, **tüm paragrafta** karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -347,11 +347,11 @@ Sonuç:
 
 ![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
 
-### **Belirli Yazı Tipleri için Kerning’i Devre Dışı Bırak**
+### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
 
-Bazı durumlarda Aspose.Slides tarafından oluşturulan metin, PowerPoint’teki aynı metinden biraz daha sık görünebilir. Bu, PowerPoint’in belirli yazı tipleri için kerning verilerini yok saymasından kaynaklanabilir; hatta yazı tipi geçerli kerning bilgisine sahip ve PowerPoint ayarlarında kerning açıksa bile.
+Belirli durumlarda, Aspose.Slides tarafından render edilen metin, PowerPoint'te görüntülenen aynı metinden biraz daha sık görünebilir. Bu, PowerPoint'in bazı yazı tipleri için kerning verilerini görmezden gelmesinden kaynaklanabilir; yazı tipi geçerli kerning bilgisine sahip olsa ve PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu durumlarda çıkışın PowerPoint’e daha yakın olmasını sağlamak için, etkilenen yazı tipini kullanan metin bölümleri için kerning’i devre dışı bırakabilirsiniz. [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) değerini gerçek yazı tipi boyutundan büyük bir değere ayarlayın. Bu örnek, ilk slaydın ilk şekline ait bir metin kutusuna sahip “presentation.pptx” dosyasını gerektirir. Etkili yazı tipi adlarını (kalıtılmış yazı tipleri dahil) kontrol eder ve Roboto kullanan bölümler için 100 puan eşiği belirler. Bu, 100 puandan küçük yazı tipi boyutuna sahip eşleşen bölümler için kerning’i devre dışı bırakır:
+Bu durumlarda render edilen çıktıyı PowerPoint'e daha yakın hale getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) değerini gerçek yazı tipi boyutundan daha büyük bir değere ayarlayın. Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "presentation.pptx" dosyasını gerektirir. Etkili yazı tipi adlarını, kalıtılan yazı tipleri dahil, kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri belirler. Bu, 100 puandan daha küçük puntoya sahip eşleşen bölümler için kerning'i devre dışı bırakır:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-Eşiğin altındaki eşleşen metin için bu ayar kerning’i önler ve bu PowerPoint’e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides’ın render çıktısını PowerPoint’in görsel çıktısına yaklaştırmaya yardımcı olabilir.
+Eşiğin altındaki eşleşen metinler için bu ayar kerning'i önler ve bu PowerPoint'e özgü davranıştan etkilenen yazı tiplerinin Aspose.Slides render'ını PowerPoint'in görsel çıktısına yaklaştırabilir.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla paragraf düzeyinde veya [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) üzerinden tek tek bölümler için ayarlanabilir.
+Yazı tipi özellikleri, paragraf düzeyinde [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ile veya tek tek bölümler üzerinde [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) ile ayarlanabilir.
 
-Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman, kalın, italik ve noktalı alt çizgi şeklinde ayarlar. Tek tek bölümler üzerindeki açık biçimlendirme bu varsayılanların üzerine yazılır:
+Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman olarak, kalın, italik ve noktalı alt çizgi biçimlendirmesiyle ayarlar. Tek tek bölümlerde açıkça yapılan biçimlendirme bu varsayılanların üzerindeki önceliğe sahiptir:
 
 ```php
 use aspose\slides\FontData;
@@ -430,7 +430,7 @@ Sonuç:
 
 ![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik ve noktalı alt çizgi uygular:
+Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik biçimlendirme ve noktalı alt çizgi uygular:
 
 ```php
 use aspose\slides\FontData;
@@ -470,9 +470,155 @@ Sonuç:
 
 ![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
 
-## **Metin Döndürmeyi Ayarla**
+## **Metin Yüksekliği Normalizasyonunu Kontrol Et**
 
-Şekil içinde ön tanımlı bir metin yönelimi ayarlamak için [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) kullanın.
+Şablon tipografisini yeniden üretirken ya da karakter yüksekliği farklarını incelerken [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) kullanın. PowerPoint'te normalizasyonu etkinleştirmek, metin bölümündeki karakterleri dikey olarak uzatır ya da sıkıştırır ve görünür yüksekliği tekdüze hâle getirir. Farklı yazı tipleri arasında eşit metin yüksekliği garantilemez.
+
+Özelliği, normalizasyonu açıkça etkinleştirmek ya da devre dışı bırakmak için [NullableBool::True or False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) olarak ayarlayın. `NullableBool::NotDefined`, yerel ayarı ayarlamamış bırakır; böylece bölüm, örneğin paragrafın [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) değerini devralır. Bu `False` anlamına gelmez. Çözümlenen Boolean değeri elde etmek için [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) kullanın ve dönen etkili biçimlendirme verisinde `getNormaliseHeight`'i okuyun.
+
+Aşağıdaki bağımsız örnek, **Arial**'ın kurulu olmasını gerektirir. 54 puanda aynı büyük harfler, küçük harfler, alt karakterler ve aksanlı karakterleri içeren iki metin bloğu oluşturur. Her iki paragraf da varsayılan olarak normalizasyonu etkinleştirir. Üst bölüm bunu açıkça devre dışı bırakır; alt bölüm ise devralır. Çerçeve boyutları, kenar boşlukları ve paragraf aralığı aynı olup, karşılaştırmanın tutarlı kalması için sarmalama ve otomatik sığdırma devre dışı bırakılmıştır. Örnek `False: false` ve `NotDefined: true` yazdırır, ardından "text_height_normalization.pptx" dosyasını kaydeder.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $settings = [NullableBool::False, NullableBool::NotDefined];
+    $settingNames = ["False", "NotDefined"];
+
+    for ($i = 0; $i < count($settings); $i++) {
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 60 + $i * 200, 660, 150);
+        $shape->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $textFrame = $shape->getTextFrame();
+        $textFrame->setText("Hxgjpq ÅÉ 0123");
+        $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+        $textFrame->getTextFrameFormat()->setWrapText(NullableBool::False);
+        $textFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Top);
+        $textFrame->getTextFrameFormat()->setMarginTop(0);
+        $textFrame->getTextFrameFormat()->setMarginLeft(0);
+
+        $paragraph = $textFrame->getParagraphs()->get_Item(0);
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceBefore(0);
+        $paragraph->getParagraphFormat()->setSpaceAfter(0);
+        $paragraph->getParagraphFormat()->setSpaceWithin(100);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setNormaliseHeight(NullableBool::True);
+
+        $portion = $paragraph->getPortions()->get_Item(0);
+        $font = new FontData("Arial");
+        $portion->getPortionFormat()->setLatinFont($font);
+        $portion->getPortionFormat()->setFontHeight(54);
+        $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+        $portion->getPortionFormat()->setNormaliseHeight($settings[$i]);
+
+        $normaliseHeight = java_values($portion->getPortionFormat()->getEffective()->getNormaliseHeight());
+        echo $settingNames[$i], ": ", $normaliseHeight ? "true" : "false", PHP_EOL;
+    }
+
+    $presentation->save("text_height_normalization.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, kaydedilen sunumdan dışa aktarılmıştır. Üst satırda normalizasyon devre dışı (`False`); alt satırda etkin ayar devralınır (`NotDefined` → `True`). Bu görünümü yeniden oluşturmak için Arial kurulu tutun.
+
+![Arial 54 puan metin, üstte normalizasyon devre dışı, altta devralınan normalizasyon etkin](text_height_normalization.png)
+
+Normalizasyon, karakter yüksekliğini atanan [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) değerini değiştirmeden değiştirir; bu değer puan cinsinden yazı tipi boyutunu belirtir. Paragraf [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) satır aralığını kontrol eder, metin çerçevesi [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) ise metnin veya kapsayıcısının nasıl sığdırılacağını belirler. Bu ayarlar farklı amaçlara hizmet eder ve genel yerleşimi bağımsız olarak etkileyebilir. Paragraf biçimlendirme ve kalıtım hakkında daha fazla bilgi için [Manage Paragraph](/slides/tr/php-java/manage-paragraph/) bölümüne bakın.
+
+## **Üstü Çizili Biçimini Uygula ve Kaldır**
+
+Bir metin bölümünde düzeltmeleri, iptal edilen terimleri veya önceki fiyatları orijinal metni silmeden göstermek için [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) kullanın. Metnin üzerinden bir ya da iki çizgi çekmek için bunu [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) olarak ayarlayın.
+
+Üstü çiziliyi kaldırmak için [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None) gönderin. Bu, etrafındaki biçimlendirme üstü çizili belirtiyor olsa bile, etkisi açıkça devre dışı bırakır. Buna karşılık, [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) yerel ayarı tanımsız bırakır; bölümün, örneğin paragraftan, biçimlendirmeyi devralmasına izin verir. Bu, üstü çiziliğin kaldırılmasını garanti etmez. Sonuç biçimlendirmeyi, kalıtılan değerler dahil, okumak için [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) kullanın.
+
+Aşağıdaki bağımsız örnek üç fiyat karşılaştırması oluşturur. Her paragrafta etiket, önceki fiyat ve mevcut fiyat için ayrı bölümler bulunur; bu yüzden yalnızca önceki fiyat etkilenir. İlk satır üstü çiziliyi uygular ve ardından kaldırır; diğer satırlar tek ve çift üstü çiziliyi korur. Bu ayarın değiştirilmesi, metni ve diğer biçimlendirmeleri, kalın önceki fiyat dahil, korur.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextStrikethroughType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $labels = [ "None: ", "Single: ", "Double: " ];
+
+    foreach ($labels as $label) {
+        $paragraph = new Paragraph();
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceAfter(20);
+
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $format->setFontHeight(28);
+        $font = new FontData("Arial");
+        $format->setLatinFont($font);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $blackColor = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($blackColor);
+
+        $labelPortion = new Portion($label);
+        $paragraph->getPortions()->add($labelPortion);
+
+        $previousPrice = new Portion("$100");
+        $previousPrice->getPortionFormat()->setFontBold(NullableBool::True);
+        $paragraph->getPortions()->add($previousPrice);
+        $currentPrice = new Portion(" → $80");
+        $paragraph->getPortions()->add($currentPrice);
+
+        $shape->getTextFrame()->getParagraphs()->add($paragraph);
+    }
+
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+
+    // Üstü çizgiyi uygula, ardından ilk önceki fiyatın üstündeki çizgiyi açıkça kaldır.
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
+
+    $paragraphs->get_Item(1)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(2)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Double);
+
+    $presentation->save("strikethrough.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sonuç, üstten alta: üstü çizili yok, tek çizgi üstü çizili ve çift çizgi üstü çizili.
+
+![Üstü çizili olmayan önceki fiyatlar, tek çizgi üstü çizili ve çift çizgi üstü çizili](strikethrough.png)
+
+## **Metin Döndürmesini Ayarla**
+
+Bir şekil içinde önceden tanımlı bir metin yönelimi ayarlamak için [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) kullanın.
 
 Aşağıdaki kod örneği, şekildeki metin yönelimini [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
@@ -498,11 +644,11 @@ Sonuç:
 
 ![Metin döndürmesi](text_rotation.png)
 
-## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
+## **Metin Çerçeveleri İçin Özel Döndürmeyi Ayarla**
 
-[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) kullanarak bir [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) için özel bir döndürme açısı ayarlayın.
+[TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) için özel bir döndürme açısı ayarlamak üzere [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) kullanın.
 
-Aşağıdaki kod örneği, şekil içinde metin çerçevesini saat yönünde 3 derece döndürür:
+Aşağıdaki kod örneği, şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
 ```php
 use aspose\slides\Presentation;
@@ -527,12 +673,12 @@ Sonuç:
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler şu şekilde kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler aşağıdaki gibi kullanılır:
 
-* Satır aralığını satır yüksekliğinin yüzde olarak belirtmek için pozitif değer kullanın.
-* Satır aralığını puan olarak belirtmek için negatif değer kullanın.
+* Satır aralığını satır yüksekliğinin yüzdesi olarak belirlemek için pozitif değer kullanın.
+* Satır aralığını puan cinsinden belirlemek için negatif değer kullanın.
 
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200’ü (çift aralık) olarak ayarlar:
+Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200'üne (çift satır aralığı) ayarlar:
 
 ```php
 use aspose\slides\Presentation;
@@ -557,16 +703,16 @@ Sonuç:
 
 ![Paragraftaki satır aralığı](line_spacing.png)
 
-## **Satır Kesilmesini Kontrol Et**
+## **Satır Kesintisini Kontrol Et**
 
-Paragraf satır kesme kuralları, dar metin bloklarında ve Latin ile Doğu Asya metinlerinin karıştığı sunumlarda faydalıdır. Aşağıdaki yöntemler [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) sınıfına aittir, bu yüzden bir bütün paragraf için geçerlidir:
+Paragraf satır kesintisi kuralları, dar metin bloklarında ve Latin ile Doğu Asya metninin karıştığı sunumlarda faydalıdır. Aşağıdaki yöntemler [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) aittir, bu yüzden tüm bir paragraf için uygulanır:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) Latin satır kesme kurallarını kontrol eder. Karışık metinde değiştirmek, Doğu Asya metni ve noktalama işaretlerinin nerede kaydırılacağını da etkileyebilir.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) Doğu Asya satır kesme kurallarını kontrol eder; satırın başı ve sonundaki karakter sınırlamaları da dahildir.
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) Latin satır kesintisi kurallarını kontrol eder. Karışık metinde, bunu değiştirmek, yan yana gelen Doğu Asya metni ve noktalama işaretlerinin nerede bölüneceğini de etkileyebilir.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) Doğu Asya satır kesintisi kurallarını kontrol eder; bir satırın başındaki ve sonundaki karakterlere ilişkin kısıtlamaları içerir.
 
-Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) işlevinin yerini almaz. Kaydırma gerçekleştiğinde düzeni etkiler; satır sonu karakterleri eklemezler. Açık bir satır sonu, mevcut genişliğe bakılmaksızın paragrafta bağımsız bir yeni satır oluşturur.
+Bu kurallar, metin çerçevesi içinde otomatik sarmalamayı etkinleştiren [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) işlevini yerine geçmez. Sarmalama gerçekleştiğinde yerleşimi etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragrafta yeni bir satır zorlar.
 
-Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesme seçeneğini de açıkça ayarlar ve “line_breaking.pptx” olarak kaydeder. Her iki kuralı denemek için bir değeri değiştirirken diğer ayarları sabit tutun. Örnek, 24 puan Arial ve SimSun kullanır, çerçeve genişliği 160 puan ve yatay metin çerçevesi kenar boşlukları sıfırdır. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve boyutları sabit kalır.
+Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesintisi seçeneğini de açıkça ayarlar ve "line_breaking.pptx" dosyasını kaydeder. Herhangi bir kuralı denemek için, diğer ayarları sabit tutarak ilgili değeri değiştirin. Örnek, 24 puan Arial ve SimSun kullanır, çerçeve genişliği 160 puan ve yatay metin çerçevesi kenar boşlukları sıfırdır. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve ölçüleri sabit kalır.
 
 ```php
 use aspose\slides\FillType;
@@ -613,11 +759,11 @@ try {
 }
 ```
 
-## **Asılı Noktalama İşaretlerini Kontrol Et**
+## **Askıda Noktalama İşaretlerini Kontrol Et**
 
-[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation), uygun noktalama işaretlerinin metin satırının sağ kenarının ötesine uzanmasına izin verir; bir sonraki satırı doldurmaz. Bu, tüm paragraf için geçerlidir ve asılı girintiden farklıdır.
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation), uygun noktalama işaretlerinin bir sonraki satırı işgal etmeden metin satırının sağ kenarından öteye uzanmasına izin verir. Bu, tüm paragraf için geçerlidir ve asılı girintiden farklıdır.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde asılı noktalama işaretini etkinleştirir ve “hanging_punctuation.pptx” olarak kaydeder. 24 puan Arial ve sıfır yatay kenar boşluklarıyla, son nokta “sentence” kelimesinin ardından kalır ve sağ metin kenarının ötesine uzanır. Özelliği [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) olarak ayarlayarak karşılaştırın: bu ayarlarla nokta ayrı bir satırda yer alır. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır; böylece kullanılabilir genişlik sabit kalır.
+Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde askıda noktalama işaretini etkinleştirir ve "hanging_punctuation.pptx" dosyasını kaydeder. 24 puan Arial ve yatay metin çerçevesi kenar boşlukları sıfır olduğunda, son nokta "sentence" kelimesinden sonra kalır ve sağ metin kenarının ötesine uzanır. Karşılaştırmak için özelliği [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) olarak ayarlayın; bu ayarlarda nokta ayrı bir satır alır. Sarmalama etkinleştirilir ve otomatik sığdırma devre dışı bırakılır, böylece kullanılabilir genişlik sabit kalır.
 
 ```php
 use aspose\slides\FillType;
@@ -661,11 +807,11 @@ try {
 }
 ```
 
-Her noktalama işareti asılı olamaz. Yukarıda açıklanan [yazı tipi ve düzen koşulları](#control-line-breaking) da bu karşılaştırmaya uygulanır: yazı tipini, kullanılabilir genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
+Her noktalama işareti asılı olamaz. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#control-line-breaking) bu karşılaştırmaya da uygulanır: yazı tipini, kullanılabilir genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
 
 ## **Metin Çerçeveleri İçin Otomatik Sığdırma Tipini Ayarla**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), metin kapsayıcısının sınırlarını aştığında metnin nasıl davranacağını belirler. Metnin otomatik olarak küçülmesini, taşmasını veya şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine göre yeniden boyutlandıracak şekilde yapılandırır ve sonucu “autofit_type.pptx” olarak kaydeder.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType), metin konteyner sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceğini, taşma mı yoksa şekli otomatik olarak yeniden boyutlandırıp boyutlandırmayacağını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine uyması için yeniden boyutlandırır ve sonucu "autofit_type.pptx" olarak kaydeder.
 
 ```php
 use aspose\slides\Presentation;
@@ -685,11 +831,11 @@ try {
 }
 ```
 
-Otomatik kaydırma sonrası satır sayısını saymak ve metin ya da şekil genişliğinin sonucu nasıl değiştirdiğini görmek için [Render Edilen Satırları Say](/slides/tr/php-java/manage-paragraph/) bölümüne bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
+Otomatik sarmalamadan sonra satırları saymak ve metnin ya da şeklin genişliğinin sonucu nasıl etkilediğini görmek için [Count Rendered Lines](/slides/tr/php-java/manage-paragraph/) bölümüne bakın. Sadece satır sayısı, metnin konteyneri aşıp aşmadığını göstermez.
 
-## **Metin Çerçevelerinin Bağlantı Noktasını Ayarla**
+## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), metnin bir şekil içinde dikey konumlandırmasını tanımlar; örneğin, üstte, ortada veya altta. Aşağıdaki örnek, metni ilk şeklin altına bağlar ve sonucu “text_anchor.pptx” olarak kaydeder.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin üst, orta ya da alt. Aşağıdaki örnek, metni ilk şeklin altına sabitler ve sonucu "text_anchor.pptx" olarak kaydeder.
 
 ```php
 use aspose\slides\Presentation;
@@ -709,9 +855,9 @@ try {
 }
 ```
 
-## **Metin Sekme Ayarlarını Yap**
+## **Metin Sekme Ayarını Yap**
 
-Paragrafta sekme duraklarını yapılandırmak için [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) kullanın. Aşağıdaki örnek, varsayılan sekme aralığını 100 puan olarak ayarlar ve 30 puanda sola hizalı bir sekme durak ekler. Bu ayarlar sekme karakteri içeren metni etkiler.
+[ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) kullanarak bir paragrafta sekme duraklarını yapılandırın. Aşağıdaki örnek, varsayılan sekme aralığını 100 puana ayarlar ve 30 puanda sola hizalı bir sekme durak ekler. Bu ayarlar, sekme karakteri içeren metni etkiler.
 
 ```php
 use aspose\slides\Presentation;
@@ -740,9 +886,9 @@ Sonuç:
 
 ## **Denetleme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümünün denetleme dilini ayarlamanıza izin veren [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) sunar. Denetleme dili, PowerPoint’te yazım ve dilbilgisi denetimi için kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) sunar. Denetleme dili, PowerPoint'te yazım ve dilbilgisi denetimi için kullanılan dili belirler.
 
-Aşağıdaki örnek, ilk slaydın ilk şekline bir metin kutusu eklenmiş “presentation.pptx” dosyasını gerektirir ve en az bir paragraf içerir. İlk paragrafın içeriğini “1。” ile değiştirir, SimSun’u yazı tipi olarak ayarlar ve Basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu “proofing_language.pptx” olarak kaydeder:
+Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu ve en az bir paragraf içeren "presentation.pptx" dosyasını gerektirir. İlk paragrafın içeriğini "1。" ile değiştirir, yazı tipini SimSun olarak ayarlar ve Basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu "proofing_language.pptx" olarak kaydeder:
 
 ```php
 use aspose\slides\FontData;
@@ -778,9 +924,48 @@ try {
 }
 ```
 
+### **Dil Metaverisini Kopyala**
+
+Bir şablondan çok dilli metin kopyalarken, hem [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId) hem de [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) değerlerini koruyun. Aşağıdaki bağımsız örnek, dili US English ve alternatif dili Fransızca olan bir kaynak bölüm oluşturur ve metni ve tanımlayıcıları yeni bir sunumdaki bir bölüme kopyalar.
+
+```php
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$source = new Portion("Hello! Bonjour!");
+$source->getPortionFormat()->setLanguageId("en-US");
+$source->getPortionFormat()->setAlternativeLanguageId("fr-FR");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 80);
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getPortions()->clear();
+
+    $destination = new Portion();
+    $destination->setText($source->getText());
+    $destination->getPortionFormat()->setLanguageId($source->getPortionFormat()->getLanguageId());
+    // Eğer kaynağın alternatif dili yoksa, null hedef değerini temizler.
+    $destination->getPortionFormat()->setAlternativeLanguageId($source->getPortionFormat()->getAlternativeLanguageId());
+    $paragraph->getPortions()->add($destination);
+
+    $presentation->save("copied_language_metadata.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Alternatif dili olmayan bir kaynak denemek için "fr-FR" atamasını atlayın. Alternatif tanımlayıcı o zaman `null` olur ve aynı kopyalama ifadesi, hedefte daha önce atanmış bir alternatif dil olsa bile, varsayılan bir değer eklemeden yokluğunu korur.
+
+Bu tanımlayıcılar dil metaverisi olarak saklanır. Bunların korunması, PowerPoint'in hangi sözlüğü yazım veya dilbilgisi denetimi için seçeceğini belirlemez.
+
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metin için varsayılan dili tanımlayın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi (US English) ile bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümünün dili için `en-US` yazdırır.
+[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanarak bir sunum yüklenirken ya da oluşturulurken oluşturulan metin için varsayılan dili tanımlayın. Aşağıdaki örnek, varsayılan metin dili olarak US English ayarlayan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümü için `en-US` yazdırır.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -806,11 +991,11 @@ try {
 }
 ```
 
-## **Varsayılan Metin Stilini Ayarla**
+## **Varsayılan Metin Stili Ayarla**
 
-Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
+Sunum seviyesinde varsayılan metin biçimlendirmesini uygulamak için [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
 
-Aşağıdaki örnek, yeni bir sunumdaki üst‑seviye paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve “default_text_style.pptx” olarak kaydeder. Metin, daha spesifik bir biçimlendirme geçerli olmadıkça bu varsayılanları devralabilir.
+Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve "default_text_style.pptx" olarak kaydeder. Metin, daha spesifik bir biçimlendirme üzerine yazılmadıkça bu varsayılanları devralabilir.
 
 ```php
 use aspose\slides\NullableBool;
@@ -819,7 +1004,7 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation();
 try {
-    // Üst seviye paragraf biçimini al.
+    // Üst düzey paragraf biçimini al.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -833,11 +1018,11 @@ try {
 }
 ```
 
-## **Büyük Harf Etkisiyle Metin Çıkarma**
+## **Tüm Büyük Harf Etkisiyle Metni Çıkar**
 
-PowerPoint’te **All Caps** (Tüm Büyük Harf) font etkisi uygulanırsa, metin slaytta büyük harflerle gösterilir ancak orijinal olarak küçük harfle yazılmıştır. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) kontrol edilmeli ve değer `All` olduğunda döndürülen dize büyük harfe dönüştürülmelidir.
+PowerPoint'te **All Caps** (Tüm Büyük Harf) yazı tipi etkisini uygulamak, metin küçük harfle girilmiş olsa bile slaytta büyük harfle görünmesini sağlar. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği şekilde döndürür. Görüntülenen metinle eşleşmek için [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda dönen dizeyi büyük harfe dönüştürün.
 
-Bu örnek, ilk slaydın ilk şekline bir metin kutusu eklenmiş “sample2.pptx” dosyasını gerektirir. İlk paragrafın ilk bölümü “Hello, Aspose!” metnini **All Caps** etkisiyle içerir, aşağıda gösterildiği gibi.
+Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "sample2.pptx" dosyasını gerektirir. İlk paragrafının ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış "Hello, Aspose!" içerir.
 
 ![All Caps etkisi](all_caps_effect.png)
 
@@ -876,10 +1061,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tablo içinde metni nasıl değiştiririm?**
+**Bir slayttaki tablodaki metni nasıl değiştiririm?**
 
-Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) kullanın. Hücreler üzerinden döngü oluşturun ve her hücreyi [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) ve paragraf biçimlendirmesini [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) aracılığıyla güncelleyin.
+Bir slayd üzerindeki bir tabloda metni değiştirmek için [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) kullanın. Hücreler üzerinde döngü yapın ve her hücreyi [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) ile güncelleyin; paragraf biçimlendirmesi için [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) kullanın.
 
-**PowerPoint slaytında metne degrade (gradient) renk nasıl uygularım?**
+**PowerPoint slaytındaki metne bir degrade (gradient) renk nasıl uygularım?**
 
-Metne degrade renk uygulamak için [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) kullanın. [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) değerini [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Metne bir degrade renk uygulamak için [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) kullanın. [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) değerini [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.

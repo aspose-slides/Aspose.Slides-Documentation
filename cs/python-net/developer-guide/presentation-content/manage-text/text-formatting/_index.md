@@ -9,7 +9,7 @@ keywords:
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezera mezi znaky
+- mezery mezi znaky
 - vlastnosti písma
 - rodina písma
 - otočení textu
@@ -25,23 +25,23 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python prostřednictvím .NET. Přizpůsobte písma, barvy, zarovnání a další."
+description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes .NET. Přizpůsobte písma, barvy, zarovnání a další."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python prostřednictvím .NET. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písem, rotaci, mezery mezi odstavci, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes .NET. Pokrývá barvy pozadí, průhlednost, rozestupy mezi znaky, vlastnosti písma, rotaci, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou číslené od nuly. Příklady, které vybírají tučné úseky, používají efektivní formátování, včetně zděděného tučného formátování:
+Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou založeny na nule. Příklady, které vybírají tučné části, používají efektivní formátování, včetně zděděného tučného formátování:
 
 ![Ukázkový text](sample_text.png)
 
-Chcete‑li najít a zvýraznit doslovný text nebo shody regulárního výrazu, podívejte se na [Vyhledávání a nahrazování textu](/slides/cs/python-net/search-and-replace-text/).
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů viz [Search and Replace Text](/slides/cs/python-net/search-and-replace-text/).
 
-## **Nastavení barvy pozadí textu**
+## **Nastavit barvu pozadí textu**
 
-Použijte [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) pro jednotlivé úseky textu.
+Použijte [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) pro nastavení výchozí barvy zvýraznění odstavce nebo použijte [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) pro jednotlivé části textu.
 
-Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění na jednotlivých úsecích mají přednost před tímto výchozím nastavením:
+Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovně nastavené barvy zvýraznění jednotlivých částí mají přednost před tímto výchozím nastavením:
 
 ```python
 import aspose.pydrawing as draw
@@ -63,7 +63,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Kód níže ukazuje, jak nastavit barvu pozadí pro **úseky textu s tučným písmem**:
+Níže uvedený příklad kódu ukazuje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
 
 ```python
 import aspose.pydrawing as draw
@@ -77,7 +77,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Nastavte barvu zvýraznění pro úsek textu.
+            # Nastavte barvu zvýraznění pro část textu.
             portion.portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
@@ -85,13 +85,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Výsledek:
 
-![Šedé úseky textu](gray_text_portions.png)
+![Šedé části textu](gray_text_portions.png)
 
-## **Zarovnání odstavců textu**
+## **Zarovnat odstavce textu**
 
-Použijte [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
+Použijte [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) pro nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
 
-Následující ukázkový kód ukazuje, jak zarovnat odstavec na **střed**:
+Následující příklad kódu ukazuje, jak zarovnat odstavec na **střed**:
 
 ```python
 import aspose.slides as slides
@@ -112,11 +112,11 @@ Výsledek:
 
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Zarovnání písem v řádku**
+## **Zarovnat písma v řádku**
 
-Použijte [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) k vertikálnímu zarovnání úseků textu s různými velikostmi písma v rámci řádku. Toto nastavení se vztahuje na celý odstavec a řídí zarovnání v každém řádku.
+Použijte [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) pro svislé zarovnání částí textu s různými velikostmi písma v řádku. Toto nastavení se vztahuje na celý odstavec a řídí zarovnání v každém jeho řádku.
 
-Následující samostatný příklad vytvoří čtyři označená textová pole na jednom snímku. Každý odstavec obsahuje stejný text ve velikostech 18, 36 a 54 bodů s různým zarovnáním písma. Používá Arial, zakazuje automatické přizpůsobení a zalamování a udržuje textové rámečky dostatečně velké pro jeden řádek.
+Následující samostatný příklad vytvoří čtyři označená textová pole na jednom snímku. Každý odstavec obsahuje stejný text velikostmi 18, 36 a 54 bodů s různým zarovnáním písma. Používá písmo Arial, vypíná automatické přizpůsobení a zalamování a udržuje textové rámečky dostatečně velké pro jediný řádek.
 
 ```python
 import aspose.pydrawing as draw
@@ -165,17 +165,17 @@ with slides.Presentation() as presentation:
 
 Výsledek:
 
-![Porovnání zarovnání písma (základní, horní, střední a dolní) s různými velikostmi písma](font_alignment.png)
+![Porovnání zarovnání Baseline, Top, Center a Bottom s různými velikostmi písma](font_alignment.png)
 
-Zarovnání písma používá metriky písma, takže viditelné hrany jednotlivých znaků nemusí přesně sedět. Příklad zahrnuje jak velké písmeno, tak spodní část znaku, aby ukázal rozdíl mezi zarovnáním na základní linii a dolním zarovnáním. Dostupnost písma a jeho náhrada, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámečku, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozvržení; při porovnávání režimů použijte stejná písma a nastavení rozvržení.
+Zarovnání písma používá metriky písma, takže viditelné hrany jednotlivých znaků nemusí přesně souhlasit. Příklad obsahuje velké písmeno i znak s dolním výčnem, aby ilustroval rozdíl mezi zarovnáním na základní linii a na spodní část. Dostupnost písma a jeho náhrada, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámce, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozvržení; při porovnávání režimů používejte stejná písma a nastavení rozvržení.
 
-Toto nastavení se liší od [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/), který řídí vodorovné zarovnání odstavce, a od [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/), který vertikálně umísťuje blok textu uvnitř tvaru. Formátování horního a dolního indexu pomocí [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) posouvá jednotlivé úseky relativně k základní linii místo nastavení zarovnání písma pro řádky odstavce.
+Toto nastavení se liší od [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/), které řídí horizontální zarovnání odstavce, a od [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/), které umisťuje textový blok svisle uvnitř tvaru. Formátování horního a dolního indexu pomocí [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) posouvá jednotlivé části relativně k základní linii místo nastavení zarovnání písma pro řádky odstavce.
 
-## **Nastavení průhlednosti textu**
+## **Nastavit průhlednost textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené k [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB na stupnici 0–255, ne procento průhlednosti.
+Průhlednost textu je řízena alfa komponentou barvy přiřazené k [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). V příkladech níže je `alpha = 50` hodnota kanálu ARGB v rozsahu 0–255, ne procento průhlednosti.
 
-Kód níže ukazuje, jak použít průhlednost na **celý odstavec**:
+Níže uvedený příklad kódu ukazuje, jak aplikovat průhlednost na **celý odstavec**:
 
 ```python
 import aspose.pydrawing as draw
@@ -189,7 +189,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Nastavte poloprůhlednou černou výplň pro text.
+    # Nastavte poloprůhlednou černou výplň textu.
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
@@ -200,7 +200,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující kód ukazuje, jak použít průhlednost na **úseky textu s tučným písmem**:
+Následující příklad kódu ukazuje, jak aplikovat průhlednost na **části textu s tučným písmem**:
 
 ```python
 import aspose.pydrawing as draw
@@ -216,7 +216,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Nastavte průhlednost úseku textu.
+            # Nastavte průhlednost části textu.
             portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
             portion.portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
@@ -225,13 +225,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Výsledek:
 
-![Průhledné úseky textu](transparent_text_portions.png)
+![Průhledné části textu](transparent_text_portions.png)
 
-## **Nastavení mezery mezi znaky textu**
+## **Nastavit rozestupy mezi znaky textu**
 
-Použijte [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) k rozšíření nebo zúžení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty zhušťují text.
+Použijte [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) pro rozšíření nebo zúžení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty mezery text zúží.
 
-Následující Python kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
+Níže uvedený kód v Pythonu ukazuje, jak rozšířit mezery mezi znaky v **celém odstavci**:
 
 ```python
 import aspose.slides as slides
@@ -242,17 +242,17 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # Zvětšit mezeru mezi znaky.
+    # Poznámka: Použijte záporné hodnoty k zúžení mezery mezi znaky.
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # Rozšířit mezery mezi znaky.
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Výsledek:
 
-![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
+![Rozestupy mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Kód níže ukazuje, jak rozšířit mezeru mezi znaky v **úsecích textu s tučným písmem**:
+Níže uvedený příklad kódu ukazuje, jak rozšířit mezery mezi znaky v **částech textu s tučným písmem**:
 
 ```python
 import aspose.slides as slides
@@ -265,21 +265,21 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-            portion.portion_format.spacing = 3  # Zvětšit mezeru mezi znaky.
+            # Poznámka: Použijte záporné hodnoty k zúžení mezery mezi znaky.
+            portion.portion_format.spacing = 3  # Rozšířit mezery mezi znaky.
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Výsledek:
 
-![Mezera mezi znaky v úsecích textu](character_spacing_in_text_portions.png)
+![Rozestupy mezi znaky v částech textu](character_spacing_in_text_portions.png)
 
 ### **Zakázat kerning pro konkrétní písma**
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro některá písma, i když písmo obsahuje platné kerningové informace a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby byl výstup co nejvíce podobný PowerPointu, můžete v takových případech zakázat kerning pro úseky textu, které používají dotčené písmo. Nastavte [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) na hodnotu vyšší než skutečná velikost písma. Tento příklad vyžaduje soubor „presentation.pptx“ s textovým polem jako první tvar na první snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastaví prahovou hodnotu 100 bodů pro úseky používající Roboto. Tím se zakáže kerning pro úseky s velikostí písma pod 100 bodů:
+Aby výstup byl vizuálně blíže PowerPointu, můžete zakázat kerning pro části textu, které používají dotčené písmo. Nastavte [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) na hodnotu větší než skutečná velikost písma. Tento příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na první snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastavuje práh 100 bodů pro části používající Roboto. Tím se zakáže kerning pro odpovídající části s velikostí písma pod 100 bodů:
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro text pod prahovou hodnotou toto nastavení zabraňuje kerningu a může pomoci sladit vykreslení Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se tato specifická chování PowerPointu vztahují.
+Pro text pod prahem toto nastavení zabraňuje kerningu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se toto chování PowerPointu vztahuje.
 
-## **Správa vlastností písma textu**
+## **Spravovat vlastnosti písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) nebo na jednotlivých úsecích pomocí [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/).
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) nebo na jednotlivých částech pomocí [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/).
 
-Následující příklad nastaví výchozí písmo prvního odstavce na 12‑bodové Times New Roman s tučným, kurzívou a čárkovaným podtržením. Výslovné formátování na jednotlivých úsecích má přednost před těmito výchozími nastaveními:
+Následující příklad nastaví výchozí písmo prvního odstavce na Times New Roman 12 bodů s tučným, kurzívou a tečkovaným podtržením. Výslovné formátování jednotlivých částí má přednost před těmito výchozími hodnotami:
 
 ```python
 import aspose.slides as slides
@@ -334,7 +334,7 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Následující příklad aplikuje 13‑bodové Times New Roman, kurzívu a čárkované podtržení na úseky, jejichž efektivní formátování je tučné:
+Následující příklad použije Times New Roman 13 bodů, kurzívu a tečkované podtržení na části, jejichž efektivní formátování je tučné:
 
 ```python
 import aspose.slides as slides
@@ -347,7 +347,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Nastavte vlastnosti písma pro úsek textu.
+            # Nastavte vlastnosti písma pro část textu.
             portion.portion_format.font_height = 13
             portion.portion_format.font_italic = slides.NullableBool.TRUE
             portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
@@ -358,15 +358,15 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Výsledek:
 
-![Vlastnosti písma pro úseky textu](font_properties_for_text_portions.png)
+![Vlastnosti písma pro textové části](font_properties_for_text_portions.png)
 
-## **Řízení normalizace výšky textu**
+## **Kontrola normalizace výšky textu**
 
-Použijte [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) při reprodukci typografie šablony nebo zkoumání rozdílů ve výšce znaků. V PowerPointu povolení normalizace protahuje nebo zmenšuje jednotlivé znaky vertikálně, aby měly jednotnou viditelnou výšku v rámci úseku textu. Nezaručuje stejnou výšku textu napříč různými písmy.
+Použijte [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) při reprodukci typografie šablon nebo zkoumání rozdílů ve výšce znaků. V PowerPointu aktivace normalizace natáhne nebo zmenší jednotlivé znaky svisle tak, aby měly jednotnou viditelnou výšku v textové části. Není zaručeno, že výška textu bude stejná napříč různými fonty.
 
-Nastavte vlastnost na [NullableBool.TRUE nebo FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) aby se normalizace explicitně povolila nebo zakázala. `NullableBool.NOT_DEFINED` ponechá místní nastavení nedefinované, takže úsek dědí hodnotu, například z [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) odstavce. To neznamená `False`. Použijte [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) a přečtěte [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) abyste získali vyhodnocenou Boolovskou hodnotu.
+Nastavte vlastnost na [NullableBool.TRUE nebo FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) pro explicitní zapnutí nebo vypnutí normalizace. `NullableBool.NOT_DEFINED` ponechává lokální nastavení nevyplněné, takže část zdědí hodnotu, např. z [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) odstavce. To neznamená `False`. Použijte [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) a přečtěte [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) pro získání vyřešené Boolovské hodnoty.
 
-Následující samostatný příklad vyžaduje nainstalovaný **Arial**. Vytvoří dva bloky textu obsahující stejné velké a malé písmena, spodní části znaků a diakritiku ve velikosti 54 bodů. Oba odstavce mají standardně povolenou normalizaci. Horní úsek ji explicitně zakazuje; spodní úsek ji dědí. Rozměry rámečků, okraje a mezery odstavců jsou identické, s vypnutým zalamováním a automatickým přizpůsobením, aby byl srovnání konzistentní. Příklad vytiskne `FALSE: False` a `NOT_DEFINED: True` a uloží soubor "text_height_normalization.pptx".
+Následující samostatný příklad vyžaduje nainstalované **Arial**. Vytváří dva textové bloky obsahující stejná velká písmena, malá písmena, dolní výčny a diakritické znaky ve velikosti 54 bodů. Oba odstavce mají normalizaci ve výchozím nastavení zapnutou. Horní část ji explicitně vypíná; spodní část ji zdědí. Rozměry rámců, okraje a mezery odstavců jsou identické, zalamování a automatické přizpůsobení jsou vypnuté, aby byl výsledek srovnatelný. Příklad vypíše `FALSE: False` a `NOT_DEFINED: True` a uloží soubor "text_height_normalization.pptx".
 
 ```python
 import aspose.slides as slides
@@ -408,19 +408,19 @@ with slides.Presentation() as presentation:
     presentation.save("text_height_normalization.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Srovnání níže bylo exportováno ze uložené prezentace. Horní řada má normalizaci vypnutou (`FALSE`); spodní řada dědí zapnuté nastavení (`NOT_DEFINED` → `True`). Pro reprodukci vzhledu mějte nainstalovaný Arial.
+Porovnání níže bylo exportováno ze uložené prezentace. Horní řádek má normalizaci vypnutou (`FALSE`); spodní řádek ji zdědí (`NOT_DEFINED` → `True`). Pro reprodukci vzhledu mějte nainstalované Arial.
 
-![Text Arial 54 bodů s vypnutou normalizací nahoře a zděděnou zapnutou normalizací dole](text_height_normalization.png)
+![Arial 54‑bodový text s vypnutou normalizací nahoře a zděděnou zapnutou normalizací dole](text_height_normalization.png)
 
-Normalizace mění výšku znaků, aniž by měnila přiřazenou [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) hodnotu, která určuje velikost písma v bodech. Odstavec [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) řídí řádkování, zatímco textový rámeček [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) určuje, jak se text nebo jeho kontejner přizpůsobuje. Tato nastavení mají odlišné účely a mohou nezávisle ovlivnit celkové rozvržení. Více o formátování odstavců a dědění najdete v [Správa odstavců](/slides/cs/python-net/manage-paragraph/).
+Normalizace mění výšku znaků, aniž by měnila přiřazenou hodnotu [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/), která udává velikost písma v bodech. Odstavecní [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) řídí řádkování, zatímco [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) textového rámce určuje, jak se text nebo jeho kontejner přizpůsobí. Tato nastavení slouží různým účelům a mohou nezávisle ovlivnit celkové rozvržení. Další informace o formátování odstavců a dědičnosti najdete v [Manage Paragraph](/slides/cs/python-net/manage-paragraph/).
 
-## **Použití a odebrání přeškrtnutí**
+## **Použít a odstranit přeškrtnutí**
 
-Použijte [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) na úsek textu, abyste zobrazili opravy, zrušené výrazy nebo původní ceny, aniž byste smazali původní text. Nastavte jej na [TextStrikethroughType.SINGLE nebo DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) pro jednu nebo dvě čáry přes text.
+Použijte [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) na část textu k zobrazení oprav, zrušených termínů nebo předchozích cen bez smazání původního textu. Nastavte na [TextStrikethroughType.SINGLE nebo DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) pro jednu nebo dvě čáry přes text.
 
-Pro odstranění přeškrtnutí přiřaďte `TextStrikethroughType.NONE`. Tím se efekt explicitně zakáže, i když okolní formátování specifikuje přeškrtnutí. Naopak `TextStrikethroughType.NOT_DEFINED` ponechá místní nastavení nedefinované, což umožní úseku dědit formátování, například z odstavce. To nezaručuje, že přeškrtnutí bude odstraněno. Použijte [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) abyste přečetli výsledné formátování, včetně zděděných hodnot.
+Pro odstranění přeškrtnutí přiřaďte `TextStrikethroughType.NONE`. Tím se efekt explicitně vypne, i když okolní formátování určuje přeškrtnutí. Naopak `TextStrikethroughType.NOT_DEFINED` nechává lokální nastavení nedefinované, což umožňuje části zdědit formátování, např. z odstavce. To nezaručuje, že přeškrtnutí bude odstraněno. Použijte [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) pro čtení výsledného formátování, včetně zděděných hodnot.
 
-Následující samostatný příklad vytvoří tři srovnání cen. Každý odstavec má oddělené úseky pro popisek, předchozí cenu a aktuální cenu, takže je ovlivněna pouze předchozí cena. V první řadě se přeškrtnutí aplikuje a poté odstraní; ostatní řady zachovávají jednoduché a dvojité přeškrtnutí. Změna této vlastnosti zachovává text a jeho další formátování, včetně tučné předchozí ceny.
+Následující samostatný příklad vytváří tři srovnání cen. Každý odstavec má samostatné části pro popisek, předchozí cenu a aktuální cenu, takže pouze předchozí cena je ovlivněna. První řádek nejprve použije a pak odstraní přeškrtnutí; ostatní řádky zachovávají jednoduché a dvojité přeškrtnutí. Změna této vlastnosti zachovává text i jeho další formátování, včetně tučné předchozí ceny.
 
 ```python
 import aspose.pydrawing as draw
@@ -458,7 +458,7 @@ with slides.Presentation() as presentation:
 
     paragraphs = shape.text_frame.paragraphs
 
-    # Použijte přeškrtnutí a poté jej explicitně odstraňte z první předchozí ceny.
+    # Použijte přeškrtnutí, pak jej explicitně odstraňte z první předchozí ceny.
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.NONE
 
@@ -468,15 +468,15 @@ with slides.Presentation() as presentation:
     presentation.save("strikethrough.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Výsledek shora dolů: bez přeškrtnutí, jednoduché přeškrtnutí a dvojité přeškrtnutí.
+Výsledek shora dolů: bez přeškrtnutí, s jednoduchým přeškrtnutím a s dvojitým přeškrtnutím.
 
-![Předchozí ceny bez přeškrtnutí, s jednoduchým a s dvojitým přeškrtnutím](strikethrough.png)
+![Předchozí ceny bez přeškrtnutí, s jednoduchým přeškrtnutím a s dvojitým přeškrtnutím](strikethrough.png)
 
-## **Nastavení otočení textu**
+## **Nastavit otočení textu**
 
-Použijte [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) k nastavení předdefinované orientace textu uvnitř tvaru.
+Použijte [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) pro nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující ukázkový kód nastaví orientaci textu ve tvaru na [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující příklad kódu nastaví orientaci textu ve tvaru na [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```python
 import aspose.slides as slides
@@ -495,11 +495,11 @@ Výsledek:
 
 ![Otočení textu](text_rotation.png)
 
-## **Nastavení vlastního otočení textových rámců**
+## **Nastavit vlastní otočení textových rámců**
 
-Použijte [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) k nastavení vlastního úhlu otočení pro [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+Použijte [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) pro nastavení vlastního úhlu otočení [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 
-Následující kód otáčí textový rámec o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Níže uvedený příklad kódu otočí textový rámec o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```python
 import aspose.slides as slides
@@ -518,14 +518,14 @@ Výsledek:
 
 ![Vlastní otočení textu](custom_text_rotation.png)
 
-## **Nastavení řádkování odstavců**
+## **Nastavit řádkování odstavců**
 
-Aspose.Slides poskytuje [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) a [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) k řízení mezery odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) a [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) pro řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
-* Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
-* Použijte zápornou hodnotu k určení řádkování v bodech.
+* Použijte kladnou hodnotu pro určení řádkování jako procenta výšky řádku.
+* Použijte zápornou hodnotu pro určení řádkování v bodech.
 
-Následující příklad nastaví mezeru v rámci prvního odstavce na 200 % výšky řádku (dvojnásobné řádkování):
+Následující příklad nastaví mezeru uvnitř prvního odstavce na 200 % výšky řádku (dvojité řádkování):
 
 ```python
 import aspose.slides as slides
@@ -543,18 +543,18 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Výsledek:
 
-![Řádkování v odstavci](line_spacing.png)
+![Řádkování uvnitř odstavce](line_spacing.png)
 
 ## **Řízení zalamování řádků**
 
-Pravidla pro zalamování řádků odstavce jsou užitečná v úzkých textech a prezentacích, které kombinují latinské i východoasijské písmo. Následující vlastnosti patří do [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/), takže se vztahují na celý odstavec:
+Pravidla pro zalamování řádků odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinský a východoasijský text. Následující vlastnosti patří do [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/), takže se vztahují na celý odstavec:
 
-- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) řídí pravidla zalamování řádků pro latinské písmo. V smíšeném textu může jeho změna také změnit, kde se zalamuje sousední východoasijské písmo a interpunkce.
-- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) řídí pravidla zalamování řádků pro východoasijské písmo, včetně omezení znaků na začátku a konci řádku.
+* [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) řídí pravidla zalamování pro latinské texty. V smíšeném textu může jeho změna také změnit, kde se zalamuje sousední východoasijský text a interpunkce.
+* [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) řídí pravidla zalamování pro východoasijské texty, včetně omezení na znaky na začátku a konci řádku.
 
-Tato pravidla nenahrazují [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/), který umožňuje automatické zalamování v textovém rámčku. Ovlivňují rozvržení při zalamování; nezasazují znaky konce řádku. Výslovné zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
+Tato pravidla nenahrazují [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/), které umožňuje automatické zalamování v textovém rámečku. Ovlivňují rozvržení, když k zalamování dochází; nevkládají znaky konce řádku. Výslovný konec řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
 
-Následující samostatný příklad vytvoří úzký textový blok obsahující čínské a latinské texty. Explicitně nastaví obě vlastnosti zalamování řádků a uloží soubor "line_breaking.pptx". Pro experimentování s libovolným pravidlem změňte hodnotu dané vlastnosti a ostatní nastavení ponechte beze změny. Příklad používá 24‑bodové Arial a SimSun s šířkou rámce 160 bodů a nulovými vodorovnými okraji textového rámce. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) je nastaven na [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/), takže velikost textu a rozměry rámce zůstávají pevné.
+Následující samostatný příklad vytvoří úzký textový blok obsahující čínštinu a latinu. Explicitně nastaví obě vlastnosti zalamování a uloží soubor "line_breaking.pptx". Pro experimentování s libovolným pravidlem změňte hodnotu dané vlastnosti a nechte druhé nastavení beze změny. Příklad používá Arial 24 bodů a SimSun s šířkou rámce 160 bodů a nulovými horizontálními okraji textového rámce. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) je nastaven na [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/), aby velikost textu a rozměry rámce zůstaly pevné.
 
 ```python
 import aspose.pydrawing as draw
@@ -588,11 +588,11 @@ with slides.Presentation() as presentation:
     presentation.save("line_breaking.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Řízení zavěšené interpunkce**
+## **Řízení visící interpunkce**
 
-[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) umožňuje oprávněné interpunkční znaménko přesahovat pravý okraj textové řady místo aby zabíralo další řádek. Platí pro celý odstavec a liší se od zavěšeného odsazení.
+[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) umožňuje vhodné interpunkční znaky prodloužit přes pravý okraj řádku textu místo toho, aby zabíraly další řádek. Používá se na celý odstavec a liší se od visícího odsazení.
 
-Následující samostatný příklad povolí zavěšenou interpunkci v 100‑bodovém širokém textovém rámečku a uloží soubor "hanging_punctuation.pptx". S 24‑bodovým Arial a nulovými vodorovnými okraji textového rámce zůstane poslední tečka za slovem „sentence“ a přesahuje pravý okraj textu. Nastavte vlastnost na [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) abyste porovnali: s tímto nastavením tečka zabírá samostatný řádek. Zalamování je zapnuto a automatické přizpůsobení vypnuto, aby byla šířka pevná.
+Následující samostatný příklad povolí visící interpunkci v textovém rámečku o šířce 100 bodů a uloží soubor "hanging_punctuation.pptx". S Arial 24 bodů a nulovými horizontálními okraji textového rámce zůstane poslední tečka po slově „sentence“ a prodlouží se za pravý okraj textu. Nastavte vlastnost na [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) pro porovnání: s tímto nastavením tečka zabírá samostatný řádek. Zalamování je zapnuto a automatické přizpůsobení je vypnuto, aby šířka zůstala fixní.
 
 ```python
 import aspose.pydrawing as draw
@@ -624,11 +624,11 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ne každá interpunkční značka může zavěsit. Viditelný výsledek závisí na [písmo a podmínkách rozvržení](#control-line-breaking): změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl odstranit.
+Ne každá interpunkce může viset. Viditelný výsledek závisí na [podmínkách písma a rozvržení](#control-line-breaking): změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl odstranit.
 
-## **Nastavení typu automatického přizpůsobení pro textové rámečky**
+## **Nastavit typ automatického přizpůsobení pro textové rámečky**
 
-[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) určuje, jak se text chová, když přesahuje hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru. Následující příklad nakonfiguruje tvar tak, aby se změnil velikost podle textu a uloží výsledek do souboru "autofit_type.pptx".
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej ke kontrole, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru. Následující příklad konfiguruje tvar tak, aby se změnil velikostí tak, aby odpovídal textu, a uloží výsledek do souboru "autofit_type.pptx".
 
 ```python
 import aspose.slides as slides
@@ -643,11 +643,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro spočítání řádků po automatickém zalamování a zjištění, jak změna šířky textu nebo tvaru výsledek ovlivní, podívejte se na [Počítání vykreslených řádků](/slides/cs/python-net/manage-paragraph/). Samotný počet řádků neukazuje, zda text přesahuje svůj kontejner.
+Pro spočítání řádků po automatickém zalamování a zjištění, jak se mění šířka textu nebo tvaru, viz [Count Rendered Lines](/slides/cs/python-net/manage-paragraph/). Počet řádků sám o sobě neukazuje, zda text přesahuje svůj kontejner.
 
-## **Nastavení ukotvení textových rámců**
+## **Nastavit ukotvení textových rámců**
 
-[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) určuje, jak je text vertikálně umístěn uvnitř tvaru, např. nahoře, uprostřed nebo dole. Následující příklad ukotví text ke spodní části prvního tvaru a uloží výsledek do souboru "text_anchor.pptx".
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) určuje, jak je text umístěn svisle uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke spodní části prvního tvaru a uloží výsledek do souboru "text_anchor.pptx".
 
 ```python
 import aspose.slides as slides
@@ -662,9 +662,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení tabulátorů textu**
+## **Nastavit tabulaci textu**
 
-Použijte [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) a [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) k nastavení tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátoru na 100 bodů a přidá levě zarovnaný tabulátor na 30 bodů. Tato nastavení ovlivňují text obsahující znak tabulátoru.
+Použijte [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) a [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) pro konfiguraci tabulátorů v odstavci. Následující příklad nastaví výchozí interval tabulátoru na 100 bodů a přidá levý tabulátor na 30 bodů. Tato nastavení ovlivňují text obsahující znak tabulátoru.
 
 ```python
 import aspose.slides as slides
@@ -685,11 +685,11 @@ Výsledek:
 
 ![Tabulátory odstavce](paragraph_tabs.png)
 
-## **Nastavení jazyka kontroly pravopisu**
+## **Nastavit jazyk korektury**
 
-Aspose.Slides poskytuje [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/), který umožňuje nastavit jazyk kontroly pravopisu pro úsek textu. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/), který umožňuje nastavit jazyk korektury pro část textu. Jazyk korektury určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
 
-Následující příklad vyžaduje soubor "presentation.pptx" s textovým polem jako první tvar na první snímku a alespoň jedním odstavcem. Nahradí obsah prvního odstavce za "1。", nastaví písmo SimSun a přiřadí jazyk zjednodušené čínštiny (`zh-CN`). Uloží výsledek do souboru "proofing_language.pptx":
+Následující příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na první snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem „1。“, nastaví SimSun jako písmo a přiřadí jazyk korektury pro zjednodušenou čínštinu (`zh-CN`). Výsledek uloží do souboru "proofing_language.pptx":
 
 ```python
 import aspose.slides as slides
@@ -709,7 +709,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     text_portion.portion_format.east_asian_font = font
     text_portion.portion_format.latin_font = font
 
-    # Nastavte jazyk kontroly pravopisu na zjednodušenou čínštinu.
+    # Nastavte jazyk korektury na zjednodušenou čínštinu.
     text_portion.portion_format.language_id = "zh-CN"
 
     text_portion.text = "1。"
@@ -718,9 +718,41 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení výchozího jazyka**
+### **Kopírovat jazyková metadata**
 
-Použijte [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace. Následující příklad vytvoří prezentaci s US English jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro jeho první úsek textu.
+Při kopírování vícejazyčného textu ze šablony zachovejte jak [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/), tak [BasePortionFormat.alternative_language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/alternative_language_id/). Následující samostatný příklad vytvoří zdrojovou část s US English jako jazykem a francouzštinou jako alternativním jazykem a zkopíruje text a identifikátory do části v nové prezentaci.
+
+```python
+import aspose.slides as slides
+
+source = slides.Portion("Hello! Bonjour!")
+source.portion_format.language_id = "en-US"
+source.portion_format.alternative_language_id = "fr-FR"
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 80)
+    paragraph = shape.text_frame.paragraphs[0]
+    paragraph.portions.clear()
+
+    destination = slides.Portion()
+    destination.text = source.text
+    destination.portion_format.language_id = source.portion_format.language_id
+    # Pokud zdroj nemá alternativní jazyk, None vymaže hodnotu v cíli.
+    destination.portion_format.alternative_language_id = source.portion_format.alternative_language_id
+    paragraph.portions.add(destination)
+
+    presentation.save("copied_language_metadata.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Pro vyzkoušení zdroje bez alternativního jazyka vynechte přiřazení `"fr-FR"`. Alternativní identifikátor bude pak `None` a stejný příkaz pro kopírování zachová jeho nepřítomnost, aniž by zavedl výchozí hodnotu, i když cíl dříve měl nastaven alternativní jazyk.
+
+Tyto identifikátory jsou uloženy jako jazyková metadata. Jejich zachování neovlivňuje, který slovník PowerPoint zvolí pro kontrolu pravopisu nebo gramatiky.
+
+## **Nastavit výchozí jazyk**
+
+Použijte [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) k definování výchozího jazyka pro text vytvářený při načítání nebo vytváření prezentace. Následující příklad vytvoří prezentaci s US English jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro jeho první část textu.
 
 ```python
 import aspose.slides as slides
@@ -735,16 +767,16 @@ with slides.Presentation(load_options) as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
-    # Zkontrolujte jazyk prvního úseku.
+    # Zkontrolujte jazyk první části.
     portion = shape.text_frame.paragraphs[0].portions[0]
     print(portion.portion_format.language_id)
 ```
 
-## **Nastavení výchozího stylu textu**
+## **Nastavit výchozí styl textu**
 
-Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
+Pro použití výchozího formátování textu na úrovni celé prezentace použijte [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
 
-Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží jej do souboru "default_text_style.pptx". Text může tato výchozí nastavení dědit, pokud není přepsáno konkrétnějším formátováním.
+Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží jej do souboru "default_text_style.pptx". Text může tyto výchozí hodnoty zdědit, pokud není přepsán konkrétnějším formátováním.
 
 ```python
 import aspose.slides as slides
@@ -760,15 +792,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Extrahování textu s efektem Všech velkých písmen**
+## **Extrahovat text s efektem Všechna velká písmena**
 
-V PowerPointu aplikace efektu **All Caps** (všechna velká písmena) způsobí, že text na snímku vypadá jako velká písmena, i když byl původně zadán malými písmeny. Když takový úsek textu získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro sladění s vykázaným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) a pokud je hodnota `ALL`, převeďte vrácený řetězec na velká písmena.
+V PowerPointu aplikace efektu **All Caps** (všechna velká písmena) způsobí, že text na snímku vypadá jako velká písmena, i když byl původně zadán malými. Když takovou část textu získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu s zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) a převeďte vrácený řetězec na velká písmena, pokud je hodnota `ALL`.
 
-Tento příklad vyžaduje soubor "sample2.pptx" s textovým polem jako první tvar na první snímku. První úsek prvního odstavce obsahuje "Hello, Aspose!" s aplikovaným efektem All Caps, jak je zobrazena níže.
+Tento příklad vyžaduje soubor "sample2.pptx" s textovým polem jako prvním tvarem na první snímku. První část prvního odstavce obsahuje „Hello, Aspose!“ s aplikovaným efektem All Caps, jak je ukázáno níže.
 
 ![Efekt All Caps](all_caps_effect.png)
 
-Kód níže ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Níže uvedený kód ukazuje, jak extrahovat text s **aplikovaným efektem All Caps**:
 
 ```python
 import aspose.slides as slides
@@ -794,14 +826,14 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak mohu upravit text v tabulce na snímku?**
+**Jak upravit text v tabulce na snímku?**
 
-Chcete‑li upravit text v tabulce na snímku, použijte [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) a formátování odstavců pomocí [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
+Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) a formátování odstavců pomocí [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
 
-**Jak aplikovat gradientní barvu na text na snímku PowerPointu?**
+**Jak aplikovat gradientní barvu na text na snímku PowerPoint?**
 
-Chcete‑li aplikovat gradientní barvu na text, použijte [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). Nastavte [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) na [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) a nakonfigurujte gradientové body, směr a průhlednost.
+Pro aplikaci gradientní barvy na text použijte [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). Nastavte [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) na [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) a nakonfigurujte gradientní zastávky, směr a průhlednost.
 
-Související funkce: [Formátování textu v prezentacích](/slides/cs/features/text-formatting/).
+Související funkce: [Format text within slides](/slides/cs/features/text-formatting/).

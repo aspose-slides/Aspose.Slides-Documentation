@@ -1,21 +1,21 @@
 ---
-title: Format Teks Presentasi di Android
+title: Format Teks Presentasi pada Android
 linktitle: Pemformatan Teks
 type: docs
 weight: 50
 url: /id/androidjava/text-formatting/
 keywords:
-- penyelarasan paragraf
+- perataan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
-- spasi karakter
+- jarak karakter
 - properti font
 - keluarga font
 - rotasi teks
 - sudut rotasi
 - bingkai teks
-- spasi baris
+- jarak baris
 - properti autofit
 - jangkar bingkai teks
 - tabulasi teks
@@ -30,19 +30,19 @@ description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument 
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Android via Java. Ini mencakup warna latar belakang, transparansi, spasi karakter, properti font, rotasi, spasi paragraf, perilaku autofit, penempatan teks, jeda tab, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks pada presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Android via Java. Ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tab stop, dan pengaturan bahasa.
 
-Kecuali disebutkan lain, contoh menggunakan [sample.pptx](sample.pptx). Bentuk pertama pada slide pertama adalah kotak teks, dan paragraf pertama berisi teks yang ditunjukkan di bawah. Indeks slide dan bentuk dimulai dari nol. Contoh yang menyorot bagian tebal menggunakan format efektif, termasuk format tebal yang diwariskan:
+Kecuali dinyatakan lain, contoh menggunakan [sample.pptx](sample.pptx). Bentuk pertama pada slide pertamanya adalah kotak teks, dan paragraf pertamanya berisi teks yang ditampilkan di bawah ini. Indeks slide dan bentuk menggunakan basis nol. Contoh yang menyorot bagian tebal menggunakan pemformatan efektif, termasuk pemformatan tebal yang diwariskan:
 
-![Contoh teks](sample_text.png)
+![Teks contoh](sample_text.png)
 
-Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Search and Replace Text](/slides/id/androidjava/search-and-replace-text/).
+Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Pencarian dan Penggantian Teks](/slides/id/androidjava/search-and-replace-text/).
 
-## **Set Text Background Color**
+## **Setel Warna Latar Belakang Teks**
 
-Gunakan [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) untuk menetapkan warna sorotan default untuk sebuah paragraf, atau gunakan [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) untuk bagian teks individual.
+Gunakan [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) untuk mengatur warna sorotan default bagi sebuah paragraf, atau gunakan [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) untuk bagian teks individual.
 
-Contoh berikut menetapkan sorotan abu‑abu terang sebagai default untuk paragraf pertama. Warna sorotan eksplisit pada bagian individual memiliki prioritas lebih tinggi daripada default ini:
+Contoh berikut mengatur sorotan abu-abu terang sebagai default untuk paragraf pertama. Warna sorotan eksplisit pada bagian individual memiliki prioritas lebih tinggi daripada default ini:
 
 ```java
 import com.aspose.slides.*;
@@ -55,7 +55,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur warna sorotan untuk seluruh paragraf.
+    // Set warna sorotan untuk seluruh paragraf.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -66,9 +66,9 @@ try {
 
 Hasilnya:
 
-![Paragraf abu‑abu](gray_paragraph.png)
+![Paragraf abu-abu](gray_paragraph.png)
 
-Contoh kode di bawah ini memperlihatkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
 ```java
 import com.aspose.slides.*;
@@ -96,11 +96,11 @@ try {
 
 Hasilnya:
 
-![Bagian teks abu‑abu](gray_text_portions.png)
+![Bagian teks abu-abu](gray_text_portions.png)
 
-## **Align Text Paragraphs**
+## **Ratakan Paragraf Teks**
 
-Gunakan [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa centered, left‑aligned, right‑aligned, justified, dan lain‑lain.
+Gunakan [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) untuk menyetel perataan paragraf dalam bingkai teks. Nilainya dapat berupa centered, left-aligned, right-aligned, justified, dan sebagainya.
 
 Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
 
@@ -127,11 +127,11 @@ Hasilnya:
 
 ![Paragraf yang diratakan](aligned_paragraph.png)
 
-## **Align Fonts Within a Line**
+## **Ratakan Font dalam Baris**
 
 Gunakan [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) untuk meratakan vertikal bagian teks dengan ukuran font berbeda dalam satu baris. Pengaturan ini berlaku untuk seluruh paragraf dan mengontrol perataan dalam setiap barisnya.
 
-Contoh mandiri berikut membuat empat kotak teks berlabel pada satu slide. Setiap paragraf berisi teks yang sama pada ukuran 18, 36, dan 54 poin, dengan perataan font yang berbeda. Ia menggunakan Arial, menonaktifkan autofit dan wrapping, serta menjaga bingkai teks cukup besar untuk satu baris.
+Contoh mandiri berikut membuat empat kotak teks berlabel pada satu slide. Setiap paragraf berisi teks yang sama dengan ukuran 18, 36, dan 54 poin, dengan perataan font yang berbeda. Menggunakan Arial, menonaktifkan autofit dan wrapping, serta menjaga bingkai teks cukup besar untuk satu baris.
 
 ```java
 import com.aspose.slides.*;
@@ -189,13 +189,13 @@ Hasilnya:
 
 ![Perbandingan perataan Baseline, Top, Center, dan Bottom dengan ukuran font campuran](font_alignment.png)
 
-Perataan font menggunakan metrik font, sehingga tepi visual huruf individual tidak selalu sejajar tepat. Contoh mencakup huruf kapital dan descender untuk memperlihatkan perbedaan antara baseline dan bottom. Ketersediaan font, substitusi, karakter yang dipakai, dan perbedaan ukuran font memengaruhi hasil. Dimensi bingkai, margin, spasi baris, wrapping, dan autofit juga memengaruhi tata letak; gunakan font dan pengaturan tata letak yang sama ketika membandingkan mode.
+Perataan font menggunakan metrik font, sehingga tepi visual huruf individual tidak selalu berbaris secara tepat. Contoh mencakup huruf kapital dan descender untuk menunjukkan perbedaan antara baseline dan bottom alignment. Ketersediaan font dan substitusi, karakter yang digunakan, serta perbedaan ukuran font memengaruhi hasil. Dimensi bingkai, margin, jarak baris, wrapping, dan autofit juga memengaruhi tata letak; gunakan font dan pengaturan tata letak yang sama saat membandingkan mode.
 
-Pengaturan ini berbeda dari [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), yang mengontrol perataan horizontal paragraf, dan [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), yang menempatkan blok teks secara vertikal dalam bentuknya. Format superscript dan subscript melalui [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) menggeser bagian individual relatif terhadap baseline, bukan mengatur perataan font untuk baris paragraf.
+Pengaturan ini berbeda dari [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), yang mengontrol perataan horizontal paragraf, dan [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), yang menempatkan blok teks secara vertikal dalam bentuknya. Format superskrip dan subskrip melalui [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) menggeser bagian individual relatif terhadap baseline, bukan mengatur perataan font untuk baris paragraf.
 
-## **Set Transparency for Text**
+## **Setel Transparansi untuk Teks**
 
-Transparansi teks diatur melalui komponen alfa warna yang diberikan ke [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Pada contoh di bawah, `alpha = 50` adalah nilai saluran alfa ARGB pada skala 0–255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alfa warna yang ditetapkan ke [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Pada contoh di bawah, `alpha = 50` adalah nilai saluran alfa ARGB pada skala 0–255, bukan persentase transparansi.
 
 Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
@@ -212,7 +212,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur warna isi teks menjadi transparan.
+    // Atur warna isi teks menjadi warna transparan.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -259,11 +259,11 @@ Hasilnya:
 
 ![Bagian teks transparan](transparent_text_portions.png)
 
-## **Set Character Spacing for Text**
+## **Setel Jarak Karakter untuk Teks**
 
-Gunakan [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit spasi antar karakter dalam kotak teks. Contoh menambahkan 3 poin spasi; nilai negatif mempersempit teks.
+Gunakan [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks. Contoh menambahkan 3 poin jarak; nilai negatif mempersempit teks.
 
-Kode Java berikut menunjukkan cara memperlebar spasi karakter dalam **seluruh paragraf**:
+Kode Java berikut menunjukkan cara memperlebar jarak karakter dalam **seluruh paragraf**:
 
 ```java
 import com.aspose.slides.*;
@@ -275,8 +275,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Catatan: Gunakan nilai negatif untuk memangkas spasi karakter.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Perluas spasi karakter.
+    // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Perluas jarak karakter.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -286,9 +286,9 @@ try {
 
 Hasilnya:
 
-![Spasi karakter dalam paragraf](character_spacing_in_paragraph.png)
+![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara memperlebar spasi karakter dalam **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menunjukkan cara memperlebar jarak karakter dalam **bagian teks dengan font tebal**:
 
 ```java
 import com.aspose.slides.*;
@@ -302,8 +302,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Catatan: Gunakan nilai negatif untuk memangkas spasi karakter.
-            portion.getPortionFormat().setSpacing(3); // Perluas spasi karakter.
+            // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+            portion.getPortionFormat().setSpacing(3); // Perluas jarak karakter.
         }
     }
 
@@ -315,13 +315,13 @@ try {
 
 Hasilnya:
 
-![Spasi karakter dalam bagian teks](character_spacing_in_text_portions.png)
+![Jarak karakter dalam bagian teks](character_spacing_in_text_portions.png)
 
-### **Disable Kerning for Specific Fonts**
+### **Nonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides mungkin terlihat sedikit lebih rapat daripada teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan di pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat dibandingkan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan di pengaturan PowerPoint.
 
-Untuk membuat output lebih mirip dengan PowerPoint, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terdampak. Atur [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ke nilai yang lebih besar daripada ukuran font sebenarnya. Contoh ini memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Ia memeriksa nama font efektif, termasuk font yang diwariskan, dan menetapkan ambang 100 poin untuk bagian yang menggunakan Roboto. Ini menonaktifkan kerning untuk bagian yang cocok dengan ukuran font di bawah 100 poin:
+Untuk membuat output yang lebih mirip dengan PowerPoint, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terkena. Setel [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ke nilai yang lebih besar daripada ukuran font sebenarnya. Contoh ini memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Ia memeriksa nama font efektif, termasuk font yang diwariskan, dan menetapkan ambang 100 poin untuk bagian yang menggunakan Roboto. Ini menonaktifkan kerning untuk bagian yang cocok dengan ukuran font di bawah 100 poin:
 
 ```java
 import com.aspose.slides.*;
@@ -354,13 +354,13 @@ try {
 }
 ```
 
-Untuk teks yang cocok di bawah ambang, pengaturan ini mencegah kerning dan dapat membantu menyamakan hasil render Aspose.Slides dengan tampilan visual PowerPoint bagi font yang dipengaruhi perilaku khusus PowerPoint ini.
+Untuk teks yang cocok di bawah ambang, pengaturan ini mencegah kerning dan dapat membantu menyelaraskan hasil render Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
 
-## **Manage Text Font Properties**
+## **Kelola Properti Font Teks**
 
-Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) atau pada bagian individual melalui [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/).
+Properti font dapat disetel pada tingkat paragraf melalui [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) atau pada bagian individual melalui [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/).
 
-Contoh berikut menetapkan font default paragraf pertama menjadi Times New Roman 12 poin dengan format tebal, miring, dan underline titik. Format eksplisit pada bagian individual memiliki prioritas lebih tinggi daripada default ini.
+Contoh berikut mengatur font default paragraf pertama menjadi Times New Roman 12 poin dengan format tebal, miring, dan underline bertitik. Pemformatan eksplisit pada bagian individual memiliki prioritas lebih tinggi daripada default ini.
 
 ```java
 import com.aspose.slides.*;
@@ -389,7 +389,7 @@ Hasilnya:
 
 ![Properti font untuk paragraf](font_properties_for_paragraph.png)
 
-Contoh berikut menerapkan Times New Roman 13 poin, format miring, dan underline titik pada bagian yang format efektifnya tebal:
+Contoh berikut menerapkan Times New Roman 13 poin, format miring, dan underline bertitik pada bagian yang pemformatannya efektif tebal:
 
 ```java
 import com.aspose.slides.*;
@@ -421,13 +421,13 @@ Hasilnya:
 
 ![Properti font untuk bagian teks](font_properties_for_text_portions.png)
 
-## **Control Text Height Normalization**
+## **Kontrol Normalisasi Tinggi Teks**
 
-Gunakan [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) saat mereproduksi tipografi templat atau menyelidiki perbedaan tinggi karakter. Di PowerPoint, mengaktifkan normalisasi meregangkan atau memampatkan karakter individual secara vertikal agar memiliki tinggi visual yang seragam dalam bagian teks. Ini tidak menjamin tinggi teks yang sama antar font yang berbeda.
+Gunakan [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) saat mereproduksi tipografi template atau menyelidiki perbedaan tinggi karakter. Di PowerPoint, mengaktifkan normalisasi meregangkan atau mengompres karakter individual secara vertikal sehingga mereka memiliki tinggi visual yang seragam dalam bagian teks. Ini tidak menjamin tinggi teks yang sama di font yang berbeda.
 
-Atur properti ke [NullableBool.True or False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) untuk secara eksplisit mengaktifkan atau menonaktifkan normalisasi. `NullableBool.NotDefined` membiarkan pengaturan lokal tidak diset sehingga bagian mewarisi nilainya, misalnya dari [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) paragraf. Ini bukan berarti `False`. Gunakan [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) dan baca [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) untuk memperoleh nilai Boolean yang terresolusi.
+Setel properti ke [NullableBool.True atau False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) untuk secara eksplisit mengaktifkan atau menonaktifkan normalisasi. `NullableBool.NotDefined` membiarkan pengaturan lokal tidak diset sehingga bagian mewarisi nilainya, misalnya, dari [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) paragraf. Ini bukan berarti `False`. Gunakan [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) dan baca [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) untuk memperoleh nilai Boolean yang terresolusi.
 
-Contoh mandiri berikut memerlukan **Arial** terpasang. Ia membuat dua blok teks berisi huruf kapital, huruf kecil, descender, dan karakter beraksen pada 54 poin. Kedua paragraf mengaktifkan normalisasi secara default. Bagian atas secara eksplisit menonaktifkannya; bagian bawah mewarisinya. Ukuran bingkai, margin, dan spasi paragraf identik, dengan wrapping dan autofit dinonaktifkan agar perbandingan konsisten. Contoh mencetak `False: false` dan `NotDefined: true`, lalu menyimpan "text_height_normalization.pptx".
+Contoh mandiri berikut memerlukan **Arial** terpasang. Ia membuat dua blok teks yang berisi huruf kapital, huruf kecil, descender, dan karakter beraksen pada 54 poin. Kedua paragraf mengaktifkan normalisasi secara default. Bagian atas secara eksplisit menonaktifkannya; bagian bawah mewarisinya. Ukuran bingkai, margin, dan jarak paragraf identik, dengan wrapping dan autofit dinonaktifkan agar perbandingan konsisten. Contoh mencetak `False: false` dan `NotDefined: true`, lalu menyimpan "text_height_normalization.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -477,19 +477,19 @@ try {
 }
 ```
 
-Perbandingan di bawah diekspor dari presentasi yang disimpan. Baris atas memiliki normalisasi dinonaktifkan (`False`); baris bawah mewarisi pengaturan aktif (`NotDefined` → `True`). Pastikan Arial terpasang untuk mereproduksi tampilan ini.
+Perbandingan di bawah ini diekspor dari presentasi yang disimpan. Baris atas memiliki normalisasi dinonaktifkan (`False`); baris bawah mewarisi pengaturan yang diaktifkan (`NotDefined` → `True`). Pastikan Arial terpasang untuk mereproduksi tampilan ini.
 
-![Teks Arial 54‑poin dengan normalisasi dinonaktifkan di atas dan normalisasi diwariskan di bawah](text_height_normalization.png)
+![Teks Arial 54 poin dengan normalisasi dinonaktifkan di atas dan normalisasi diwariskan di bawah](text_height_normalization.png)
 
-Normalisasi mengubah tinggi karakter tanpa mengubah nilai [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) yang ditetapkan, yaitu ukuran font dalam poin. [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) paragraf mengontrol spasi baris, sementara [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bingkai teks mengatur cara teks atau kontainernya menyesuaikan diri. Pengaturan ini memiliki tujuan berbeda dan dapat memengaruhi tata letak secara independen. Untuk informasi lebih lanjut tentang format paragraf dan pewarisan, lihat [Manage Paragraph](/slides/id/androidjava/manage-paragraph/).
+Normalisasi mengubah tinggi karakter tanpa mengubah nilai [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) yang ditetapkan, yang menentukan ukuran font dalam poin. [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) paragraf mengontrol jarak baris, sementara [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bingkai teks mengontrol bagaimana teks atau kontainernya menyesuaikan diri. Pengaturan ini memiliki tujuan berbeda dan dapat memengaruhi tata letak secara independen. Untuk informasi lebih lanjut tentang pemformatan paragraf dan pewarisan, lihat [Kelola Paragraf](/slides/id/androidjava/manage-paragraph/).
 
-## **Apply and Remove Strikethrough**
+## **Terapkan dan Hapus Coret**
 
-Gunakan [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) pada bagian teks untuk menampilkan koreksi, istilah yang dibatalkan, atau harga sebelumnya tanpa menghapus teks asli. Atur ke [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) untuk satu atau dua garis melalui teks.
+Gunakan [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) pada bagian teks untuk menampilkan koreksi, istilah yang dibatalkan, atau harga sebelumnya tanpa menghapus teks asli. Setel ke [TextStrikethroughType.Single atau Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) untuk satu atau dua garis melalui teks.
 
-Untuk menghapus strikethrough, berikan [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None). Ini secara eksplisit menonaktifkan efek, meskipun format di sekitarnya menyatakan strikethrough. Sebaliknya, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) membiarkan pengaturan lokal tidak terdefinisi, memungkinkan bagian mewarisi format, misalnya dari paragraf. Ini tidak menjamin strikethrough dihapus. Gunakan [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) untuk membaca format hasil, termasuk nilai yang diwariskan.
+Untuk menghapus coret, gunakan [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None). Ini secara eksplisit menonaktifkan efek, meskipun pemformatan di sekitarnya menyatakan coret. Sebaliknya, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) membiarkan pengaturan lokal tidak terdefinisi, memungkinkan bagian mewarisi pemformatan, misalnya, dari paragraf. Ini tidak menjamin coret dihapus. Gunakan [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) untuk membaca pemformatan hasil, termasuk nilai yang diwariskan.
 
-Contoh mandiri berikut membuat tiga perbandingan harga. Setiap paragraf memiliki bagian terpisah untuk label, harga sebelumnya, dan harga saat ini, sehingga hanya harga sebelumnya yang dipengaruhi. Baris pertama menerapkan lalu menghapus strikethrough; baris lain mempertahankan strikethrough tunggal dan ganda. Mengubah pengaturan ini menjaga teks dan format lainnya, termasuk harga sebelumnya yang tebal.
+Contoh mandiri berikut membuat tiga perbandingan harga. Setiap paragraf memiliki bagian terpisah untuk label, harga lama, dan harga baru, sehingga hanya harga lama yang terpengaruh. Baris pertama menerapkan lalu menghapus coret; baris lainnya mempertahankan coret tunggal dan ganda. Mengubah pengaturan ini mempertahankan teks dan format lainnya, termasuk harga lama yang tebal.
 
 ```java
 import com.aspose.slides.*;
@@ -532,7 +532,7 @@ try {
 
     IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Terapkan coretan, kemudian hapus secara eksplisit dari harga sebelumnya pertama.
+    // Terapkan coret, lalu secara eksplisit hapus dari harga sebelumnya pertama.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
 
@@ -545,13 +545,13 @@ try {
 }
 ```
 
-Hasilnya, dari atas ke bawah: tanpa strikethrough, strikethrough tunggal, dan strikethrough ganda.
+Hasilnya, dari atas ke bawah: tanpa coret, coret tunggal, dan coret ganda.
 
-![Harga sebelumnya tanpa strikethrough, dengan strikethrough tunggal, dan dengan strikethrough ganda](strikethrough.png)
+![Harga sebelumnya tanpa coret, dengan coret tunggal, dan dengan coret ganda](strikethrough.png)
 
-## **Set Text Rotation**
+## **Setel Rotasi Teks**
 
-Gunakan [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) untuk menetapkan orientasi teks pra‑definisi dalam sebuah bentuk.
+Gunakan [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) untuk menetapkan orientasi teks bawaan dalam sebuah bentuk.
 
 Contoh kode berikut mengatur orientasi teks dalam bentuk ke [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
@@ -575,9 +575,9 @@ Hasilnya:
 
 ![Rotasi teks](text_rotation.png)
 
-## **Set Custom Rotation for Text Frames**
+## **Setel Rotasi Kustom untuk Bingkai Teks**
 
-Gunakan [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) untuk menetapkan sudut rotasi khusus bagi sebuah [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
+Gunakan [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) untuk menentukan sudut rotasi kustom bagi sebuah [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 
 Contoh kode di bawah ini memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
@@ -599,16 +599,16 @@ try {
 
 Hasilnya:
 
-![Rotasi teks khusus](custom_text_rotation.png)
+![Rotasi kustom teks](custom_text_rotation.png)
 
-## **Set Line Spacing of Paragraphs**
+## **Setel Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), dan [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) untuk mengontrol spasi paragraf. Properti‑propersi ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), dan [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) untuk mengontrol jarak paragraf. Properti‑nya digunakan sebagai berikut:
 
-* Gunakan nilai positif untuk menentukan spasi baris sebagai persentase tinggi baris.
-* Gunakan nilai negatif untuk menentukan spasi baris dalam poin.
+* Gunakan nilai positif untuk menentukan jarak baris sebagai persentase tinggi baris.
+* Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
 
-Contoh berikut menetapkan spasi dalam paragraf pertama menjadi 200 % tinggi baris (spasi ganda):
+Contoh berikut mengatur jarak dalam paragraf pertama menjadi 200 % tinggi baris (jarak ganda):
 
 ```java
 import com.aspose.slides.*;
@@ -630,18 +630,18 @@ try {
 
 Hasilnya:
 
-![Spasi baris dalam paragraf](line_spacing.png)
+![Jarak baris dalam paragraf](line_spacing.png)
 
-## **Control Line Breaking**
+## **Kontrol Pemutusan Garis**
 
-Aturan pemutusan baris paragraf berguna pada blok teks sempit dan presentasi yang mencampur teks Latin dan Asia Timur. Metode berikut milik [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), sehingga berlaku untuk seluruh paragraf:
+Aturan pemutusan garis paragraf berguna pada blok teks sempit dan presentasi yang mencampur teks Latin dan Asia Timur. Metode berikut milik [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), sehingga berlaku untuk seluruh paragraf:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) mengontrol aturan pemutusan baris Latin. Pada teks campur, mengubahnya juga dapat mengubah tempat pembungkus teks Asia Timur dan tanda baca di sekitarnya.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) mengontrol aturan pemutusan baris Asia Timur, termasuk pembatasan karakter di awal dan akhir baris.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) mengontrol aturan pemutusan garis Latin. Pada teks campuran, mengubahnya juga dapat mengubah tempat teks Asia Timur dan tanda baca di sekitarnya terbungkus.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) mengontrol aturan pemutusan garis Asia Timur, termasuk pembatasan karakter pada awal dan akhir baris.
 
 Aturan ini tidak menggantikan [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), yang mengaktifkan pembungkus otomatis dalam bingkai teks. Mereka memengaruhi tata letak ketika pembungkus terjadi; mereka tidak menyisipkan karakter pemutusan baris. Pemutusan baris eksplisit memaksa baris baru dalam paragraf terlepas dari lebar yang tersedia.
 
-Contoh mandiri berikut membuat blok teks sempit yang berisi bahasa Cina dan Latin. Ia menetapkan kedua opsi pemutusan baris secara eksplisit dan menyimpan "line_breaking.pptx". Untuk bereksperimen dengan salah satu aturan, ubah nilai yang bersangkutan sambil mempertahankan pengaturan lainnya. Contoh menggunakan Arial 24 poin dan SimSun dengan lebar bingkai 160 poin serta margin horizontal bingkai teks nol. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) dipanggil dengan [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) sehingga ukuran teks dan bingkai tetap tetap.
+Contoh mandiri berikut membuat blok teks sempit yang berisi bahasa Cina dan Latin. Ia mengatur kedua opsi pemutusan garis secara eksplisit dan menyimpan "line_breaking.pptx". Untuk bereksperimen dengan salah satu aturan, ubah nilai yang bersangkutan sambil mempertahankan pengaturan lainnya. Contoh menggunakan Arial 24 poin dan SimSun dengan lebar bingkai 160 poin serta margin horizontal bingkai teks nol. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) dipanggil dengan [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) sehingga ukuran teks dan bingkai tetap tetap.
 
 ```java
 import com.aspose.slides.*;
@@ -681,11 +681,11 @@ try {
 }
 ```
 
-## **Control Hanging Punctuation**
+## **Kontrol Tanda Baca Menggantung**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) memungkinkan tanda baca yang memenuhi syarat melampaui tepi kanan baris teks alih‑alih menempati baris berikutnya. Ini berlaku untuk seluruh paragraf dan berbeda dari hanging indent.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) memungkinkan tanda baca yang memenuhi syarat menjorok melewati tepi kanan baris teks alih‑alih menempati baris berikutnya. Pengaturan ini berlaku untuk seluruh paragraf dan berbeda dari hanging indent.
 
-Contoh mandiri berikut mengaktifkan hanging punctuation dalam bingkai teks lebar 100 poin dan menyimpan "hanging_punctuation.pptx". Dengan Arial 24 poin dan margin horizontal bingkai teks nol, titik akhir akhir tetap setelah "sentence" dan melampaui tepi kanan teks. Atur properti ke [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) untuk perbandingan: dengan pengaturan ini, titik berada pada baris terpisah. Wrapping diaktifkan dan autofit dinonaktifkan untuk menjaga lebar tersedia tetap.
+Contoh mandiri berikut mengaktifkan tanda baca menggantung dalam bingkai teks selebar 100 poin dan menyimpan "hanging_punctuation.pptx". Dengan Arial 24 poin dan margin horizontal bingkai teks nol, titik akhir akhir tetap berada setelah "sentence" dan menjorok melewati tepi kanan teks. Setel properti ke [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) untuk perbandingan: dengan pengaturan ini, titik berada pada baris terpisah. Wrapping diaktifkan dan autofit dinonaktifkan agar lebar tersedia tetap tetap.
 
 ```java
 import com.aspose.slides.*;
@@ -722,11 +722,11 @@ try {
 }
 ```
 
-Tidak semua tanda baca dapat menggantung. [Kondisi font dan tata letak yang dijelaskan di atas](#control-line-breaking) juga berlaku untuk perbandingan ini: mengubah font, lebar tersedia, margin, atau pengaturan autofit dapat menghilangkan perbedaan visual.
+Tidak setiap tanda baca dapat menggantung. [Kondisi font dan tata letak yang dijelaskan di atas](#control-line-breaking) juga berlaku untuk perbandingan ini: mengubah font, lebar tersedia, margin, atau pengaturan autofit dapat menghilangkan perbedaan visual.
 
-## **Set Autofit Type for Text Frames**
+## **Setel Tipe Autofit untuk Bingkai Teks**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainer. Gunakan untuk mengontrol apakah teks menyusut, meluber, atau mengubah ukuran bentuk secara otomatis. Contoh berikut mengonfigurasi bentuk agar mengubah ukuran menyesuaikan teks dan menyimpan hasilnya ke "autofit_type.pptx".
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks diperkecil, meluap, atau bentuk secara otomatis menyesuaikan dirinya. Contoh berikut mengonfigurasi bentuk untuk menyesuaikan ukurannya agar cocok dengan teks dan menyimpan hasil ke "autofit_type.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -744,11 +744,11 @@ try {
 }
 ```
 
-Untuk menghitung baris setelah pembungkus otomatis dan melihat bagaimana lebar teks atau bentuk mengubah hasil, lihat [Count Rendered Lines](/slides/id/androidjava/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluber kontainer.
+Untuk menghitung baris setelah pembungkus otomatis dan melihat bagaimana lebar teks atau bentuk mengubah hasil, lihat [Hitung Baris yang Dirender](/slides/id/androidjava/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluap dari kontainernya.
 
-## **Set Anchor of Text Frames**
+## **Setel Anchor Bingkai Teks**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) menentukan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah. Contoh berikut menambatkan teks ke bagian bawah bentuk pertama dan menyimpan hasilnya ke "text_anchor.pptx".
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) menentukan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah. Contoh berikut menambatkan teks ke bagian bawah bentuk pertama dan menyimpan hasil ke "text_anchor.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -766,9 +766,9 @@ try {
 }
 ```
 
-## **Set Text Tabulation**
+## **Setel Tabulasi Teks**
 
-Gunakan [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) dan [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) untuk mengonfigurasi jeda tab dalam paragraf. Contoh berikut menetapkan interval tab default menjadi 100 poin dan menambahkan jeda tab rata kiri pada 30 poin. Pengaturan ini memengaruhi teks yang mengandung karakter tab.
+Gunakan [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) dan [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) untuk mengonfigurasi tab stop dalam sebuah paragraf. Contoh berikut mengatur interval tab default menjadi 100 poin dan menambahkan tab stop rata kiri pada 30 poin. Pengaturan ini memengaruhi teks yang berisi karakter tab.
 
 ```java
 import com.aspose.slides.*;
@@ -793,11 +793,11 @@ Hasilnya:
 
 ![Tab paragraf](paragraph_tabs.png)
 
-## **Set Proofing Language**
+## **Setel Bahasa Proofing**
 
-Aspose.Slides menyediakan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda menetapkan bahasa pemeriksaan ejaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda menetapkan bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
 
-Contoh berikut memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama dan setidaknya satu paragraf. Ia mengganti isi paragraf pertama dengan "1。", menetapkan SimSun sebagai fontnya, dan menetapkan bahasa pemeriksaan Chinese Simplified (`zh-CN`). Hasil disimpan ke "proofing_language.pptx":
+Contoh berikut memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama dan setidaknya satu paragraf. Ia mengganti isi paragraf pertama dengan "1。", menetapkan SimSun sebagai fontnya, dan menetapkan bahasa proofing Chinese Simplified (`zh-CN`). Hasil disimpan ke "proofing_language.pptx":
 
 ```java
 import com.aspose.slides.*;
@@ -818,7 +818,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Atur Id bahasa pemeriksaan.
+    // Atur Id bahasa proofing.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -830,9 +830,45 @@ try {
 }
 ```
 
-## **Set Default Language**
+### **Salin Metadata Bahasa**
 
-Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk mendefinisikan bahasa default bagi teks yang dibuat saat memuat atau membuat presentasi. Contoh berikut membuat presentasi dengan bahasa teks US English sebagai default, menambahkan kotak teks, dan mencetak `en-US` untuk bagian teks pertamanya.
+Saat menyalin teks multibahasa dari template, pertahankan baik [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) maupun [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--). Contoh mandiri berikut membuat bagian sumber dengan bahasa Inggris AS sebagai bahasa utama dan Prancis sebagai bahasa alternatif, lalu menyalin teks dan pengenal ke bagian dalam presentasi baru.
+
+```java
+import com.aspose.slides.*;
+
+Portion source = new Portion("Hello! Bonjour!");
+source.getPortionFormat().setLanguageId("en-US");
+source.getPortionFormat().setAlternativeLanguageId("fr-FR");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80);
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    Portion destination = new Portion();
+    destination.setText(source.getText());
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
+    // Jika sumber tidak memiliki bahasa alternatif, null menghapus nilai tujuan.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
+    paragraph.getPortions().add(destination);
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk mencoba sumber tanpa bahasa alternatif, hilangkan penetapan `"fr-FR"`. Pengidentifikasi alternatif kemudian menjadi `null`, dan pernyataan salin yang sama mempertahankan ketidakhadirannya tanpa memperkenalkan nilai default, bahkan bila tujuan sebelumnya memiliki bahasa alternatif yang ditetapkan.
+
+Pengidentifikasi ini menyimpan metadata bahasa. Mempertahankannya tidak menentukan kamus mana yang dipilih PowerPoint untuk pemeriksaan ejaan atau tata bahasa.
+
+## **Setel Bahasa Default**
+
+Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk mendefinisikan bahasa default bagi teks yang dibuat saat memuat atau membuat presentasi. Contoh berikut membuat presentasi dengan bahasa teks default English (US), menambahkan kotak teks, dan mencetak `en-US` untuk bagian teks pertamanya.
 
 ```java
 import com.aspose.slides.*;
@@ -856,11 +892,11 @@ try {
 }
 ```
 
-## **Set Default Text Style**
+## **Setel Gaya Teks Default**
 
-Untuk menerapkan format teks default pada tingkat presentasi, gunakan [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Contoh berikut menetapkan font tebal 14 poin sebagai default untuk paragraf tingkat atas dalam presentasi baru dan menyimpannya ke "default_text_style.pptx". Teks dapat mewarisi default ini kecuali ada format yang lebih spesifik yang menimpanya.
+Contoh berikut menetapkan font tebal 14 poin sebagai default untuk paragraf tingkat atas dalam presentasi baru dan menyimpannya ke "default_text_style.pptx". Teks dapat mewarisi default ini kecuali pemformatan yang lebih spesifik menimpanya.
 
 ```java
 import com.aspose.slides.*;
@@ -881,15 +917,15 @@ try {
 }
 ```
 
-## **Extract Text with the All-Caps Effect**
+## **Ekstrak Teks dengan Efek Semua Kapital**
 
-Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital di slide meskipun awalnya diketik dengan huruf kecil. Ketika Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) dan konversi string yang dikembalikan ke huruf kapital ketika nilainya `All`.
+Di PowerPoint, menerapkan efek font **All Caps** membuat teks tampil dalam huruf kapital pada slide meskipun awalnya diketik dengan huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) dan konversi string yang dikembalikan ke huruf kapital bila nilai tersebut `All`.
 
-Contoh ini memerlukan "sample2.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Bagian pertama paragraf pertamanya berisi "Hello, Aspose!" dengan efek All Caps diterapkan, seperti yang ditunjukkan di bawah.
+Contoh ini memerlukan "sample2.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Bagian pertama paragraf pertamanya berisi "Hello, Aspose!" dengan efek All Caps diterapkan, seperti ditunjukkan di bawah.
 
 ![Efek All Caps](all_caps_effect.png)
 
-Contoh kode berikut menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
+Contoh kode berikut menunjukkan cara mengekstrak teks dengan efek **All Caps** diterapkan:
 
 ```java
 import com.aspose.slides.*;
@@ -922,10 +958,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Bagaimana cara memodifikasi teks dalam tabel pada slide?**
+**Bagaimana cara mengubah teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Iterasi melalui sel‑sel dan perbarui masing‑masing sel melalui [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) dan format paragraf melalui [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Untuk mengubah teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Iterasi sel‑sel dan perbarui masing‑masing sel melalui [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) dan format paragraf melalui [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Bagaimana cara menerapkan warna gradien pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Atur [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) dan konfigurasikan titik‑titik gradien, arah, serta transparansi.
+Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Setel [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) dan konfigurasikan titik‑titik gradien, arah, serta transparansi.

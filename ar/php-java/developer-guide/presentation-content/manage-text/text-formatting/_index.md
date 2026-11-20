@@ -15,33 +15,33 @@ keywords:
 - دوران النص
 - زاوية الدوران
 - إطار النص
-- تباعد الأسطر
+- تباعد السطر
 - خاصية الملاءمة التلقائية
-- نقطة ارتساء إطار النص
-- جدولة النص
+- مرساة إطار النص
+- تبويب النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. تخصيص الخطوط، الألوان، المحاذاة، وغيرها."
+description: "تنسيق وتنسيق نصوص في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides للغة PHP عبر Java. خصّص الخطوط والألوان والمحاذاة وغير ذلك."
 ---
 ## **نظرة عامة**
 
-هذه المقالة توضح كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for PHP عبر Java. وهي تغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، مسافات الجدولة، وإعدادات اللغة.
+تُظهر هذه المقالة كيفية تنسيق النص في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides للـ PHP عبر Java. تُغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، مواضع علامات التبويب، وإعدادات اللغة.
 
-ما لم يذكر خلاف ذلك، تستخدم الأمثلة [sample.pptx](sample.pptx). الشكل الأول في شريحةه الأولى هو مربع نص، والفقرة الأولى تحتوي على النص المعروض أدناه. كل من فهارس الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تختار أجزاءً بالخط العريض تستخدم التنسيق الفعّال، بما في ذلك تنسيق العريض الموروث:
+ما لم يُذكر خلاف ذلك، تستخدم الأمثلة [sample.pptx](sample.pptx). الشكل الأول في الشريحة الأولى هو مربع نص، ويحتوي الفقرة الأولى على النص الموضح أدناه. كل من مؤشرات الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تُحدِّد أجزاءً بالخط العريض تستخدم تنسيقًا فعالًا، بما في ذلك تنسيق الخط العريض الموروث:
 
 ![نص عينة](sample_text.png)
 
-للعثور على النص الحرفي أو مطابقة التعبيرات النمطية وتسليط الضوء عليها، راجع [البحث واستبدال النص](/slides/ar/php-java/search-and-replace-text/).
+للعثور على النص الحرفي أو مطابقة التعبير النمطي وتظليله، راجع [Search and Replace Text](/slides/ar/php-java/search-and-replace-text/).
 
 ## **تعيين لون خلفية النص**
 
 استخدم [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) لأجزاء النص الفردية.
 
-المثال التالي يعيّن تظليلًا رماديًا فاتحًا كافتراضي للفقرة الأولى. ألوان التظليل الصريحة على الأجزاء الفردية تتفوّق على هذا الافتراضي:
+المثال التالي يعيّن تظليلًا رماديًا فاتحًا كافتراضي للفقرة الأولى. تُعطى ألوان التظليل الصريحة على الأجزاء الفردية أولوية على هذا الافتراضي:
 
 ```php
 use aspose\slides\Presentation;
@@ -68,7 +68,7 @@ try {
 
 ![الفقرة الرمادية](gray_paragraph.png)
 
-يوضح المثال البرمجي أدناه كيفية تعيين لون الخلفية لـ **أجزاء النص بخط عريض**:
+يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط العريض**:
 
 ```php
 use aspose\slides\Presentation;
@@ -86,8 +86,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-                // تعيين لون التظليل لجزء النص.
-                $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
+            // تعيين لون التظليل لجزء النص.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -103,9 +103,9 @@ try {
 
 ## **محاذاة فقرات النص**
 
-استخدم [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، محاذاة إلى اليسار، محاذاة إلى اليمين، مبررة، وما إلى ذلك.
+استخدم [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، متمحرفة إلى اليسار، متمحرفة إلى اليمين، مبررة، وما إلى ذلك.
 
-المثال البرمجي التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
+المثال التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
 
 ```php
 use aspose\slides\Presentation;
@@ -132,11 +132,11 @@ try {
 
 ![الفقرة المحاذاة](aligned_paragraph.png)
 
-## **محاذاة الخطوط داخل سطر**
+## **محاذاة الخطوط داخل السطر**
 
-استخدم [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) لمحاذاة أجزاء النص ذات أحجام الخط المختلفة عموديًا داخل سطر. هذا الإعداد ينطبق على الفقرة بأكملها ويتحكم في المحاذاة داخل كل سطر منها.
+استخدم [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) لمحاذاة أجزاء النص ذات الأحجام الخطية المختلفة عموديًا داخل سطر. يُطبق هذا الإعداد على الفقرة بأكملها ويتحكم في المحاذاة داخل كل سطر منها.
 
-المثال المستقل التالي ينشئ أربع مربعات نص مُعنوَنة على شريحة واحدة. كل فقرة تحتوي على النص نفسه بأحجام 18 و36 و54 نقطة، مع محاذاة خط مختلفة. يستخدم Arial، ويعطّل الملاءمة التلقائية واللف، ويحافظ على إطارات النص كبيرة بما يكفي لسطر واحد.
+المثال التالي يخلق أربعة مربعات نص مُعنونة على شريحة واحدة. كل فقرة تحتوي على نفس النص بحجم 18، 36، و54 نقطة، مع محاذاة خط مختلفة. يستخدم الخط Arial، ويعطل الملاءمة التلقائية واللف، ويحافظ على إطارات النص كبيرة بما يكفي لسطر واحد.
 
 ```php
 use aspose\slides\FillType;
@@ -205,17 +205,17 @@ try {
 
 النتيجة:
 
-![مقارنة بين محاذاة القاعدة، الأعلى، الوسط، والأسفل للخط مع أحجام خطوط مختلطة](font_alignment.png)
+![مقارنة بين محاذاة الخط القاعدية، العليا، الوسطى، والسفلية مع أحجام خطوط مختلطة](font_alignment.png)
 
-محاذاة الخط تستخدم قياسات الخط، لذلك قد لا تتطابق الحواف الظاهرة للأحرف الفردية بالضبط. يتضمن المثال حرفًا كبيرًا وحرفًا ذو ذيل سفلي لتوضيح الفارق بين محاذاة القاعدة والسفلية. توفر الخطوط والاستبدال، الأحرف المستخدمة، واختلاف أحجام الخط تؤثر على النتيجة. أبعاد الإطار والهوامش وتباعد السطر واللف والملاءمة التلقائية تؤثر أيضًا على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند مقارنة الأنماط.
+محاذاة الخط تستخدم مقاييس الخط، لذا قد لا تتطابق الحواف المرئية للأحرف الفردية تمامًا. يتضمن المثال حرفًا كبيرًا وحرفًا منخفضًا لتوضيح الفرق بين المحاذاة القاعدية والسفلية. تتأثر النتيجة بتوفر الخطوط والاستبدال، الأحرف المستخدمة، والفرق في أحجام الخط. كما تؤثر أبعاد الإطار وهوامش الفقرة وتباعد السطر واللف والملاءمة التلقائية على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند مقارنة الأوضاع.
 
-هذا الإعداد يختلف عن [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment)، الذي يتحكم في المحاذاة الأفقية للفقرة، وعن [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType)، الذي يحدد موضع كتلة النص عموديًا داخل الشكل. تنسيق الفوقية والتحتيّة عبر [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) يرفع أجزاءً فردية بالنسبة للقاعدة بدلًا من تعيين محاذاة للخطوط داخل الفقرة.
+يختلف هذا الإعداد عن [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) الذي يتحكم في محاذاة الفقرة الأفقية، وعن [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) الذي يحدد موضع كتلة النص عموديًا داخل الشكل. تنسيق النص العلوي والسفلي عبر [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) يُحَرّك الأجزاء الفردية نسبة إلى القاعدة بدلًا من تعيين محاذاة الخط لأسطر الفقرة.
 
 ## **تعيين الشفافية للنص**
 
-تُتحكم شفافية النص عبر مكوّن alpha للون المحدد في [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
+تُتحكم شفافية النص من خلال مكوّن ألفا للون المعين إلى [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا بنظام ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-المثال البرمجي أدناه يوضح كيفية تطبيق الشفافية على **الفقرة بأكملها**:
+يوضح مثال الشيفرة أدناه كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```php
 use aspose\slides\FillType;
@@ -247,7 +247,7 @@ try {
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-المثال البرمجي التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص بخط عريض**:
+المثال التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
 
 ```php
 use aspose\slides\FillType;
@@ -287,9 +287,9 @@ try {
 
 ## **تعيين تباعد الأحرف للنص**
 
-استخدم [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) لتوسيع أو تقليص التباعد بين الأحرف في مربع نص. تضيف الأمثلة 3 نقاط من التباعد؛ القيم السالبة تُقَلّص النص.
+استخدم [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) لتوسيع أو تقليص التباعد بين الأحرف في مربع نص. تُضيف الأمثلة 3 نقاط من التباعد؛ القيم السالبة تُقلّص النص.
 
-المثال البرمجي التالي يُظهر كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+الكود PHP التالي يُظهر كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
 
 ```php
 use aspose\slides\Presentation;
@@ -302,8 +302,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // ملاحظة: استخدم القيم السالبة لتقليل تباعد الأحرف.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // زيادة تباعد الأحرف.
+    // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // توسيع تباعد الأحرف.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -315,7 +315,7 @@ try {
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-المثال البرمجي أدناه يُظهر كيفية توسيع تباعد الأحرف في **أجزاء النص بخط عريض**:
+مثال الشيفرة أدناه يُظهر كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
 
 ```php
 use aspose\slides\Presentation;
@@ -333,7 +333,7 @@ try {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
             // ملاحظة: استخدم القيم السالبة لضغط تباعد الأحرف.
-            $portion->getPortionFormat()->setSpacing(3); // زيادة تباعد الأحرف.
+            $portion->getPortionFormat()->setSpacing(3); // توسيع تباعد الأحرف.
         }
     }
 
@@ -349,9 +349,9 @@ try {
 
 ### **تعطيل الكيرنينغ للخطوط المحددة**
 
-في بعض الحالات، قد يبدو النص المُستَخرَج من Aspose.Slides أكثر ضيقًا قليلاً من النص نفسه في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الكيرنينغ لبعض الخطوط، حتى عندما يحتوي الخط على معلومات كيرنينغ صالحة ويتم تمكين الكيرنينغ في إعدادات PowerPoint.
+في بعض الحالات، قد يبدو النص المطبوع بواسطة Aspose.Slides أكثر ضيقًا قليلاً من النص نفسه المعروض في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الكيرنينغ لبعض الخطوط، حتى عندما يحتوي الخط على معلومات كيرنينغ صالحة وتم تمكين الكيرنينغ في إعدادات PowerPoint.
 
-لجعل المخرجات المُستَخرَجة أقرب إلى PowerPoint في مثل هذه الحالات، يمكنك تعطيل الكيرنينغ لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) إلى قيمة أكبر من حجم الخط الفعلي. يتطلب هذا المثال ملف "presentation.pptx" يحتوي على مربع نص كالشكل الأول في الشريحة الأولى. يتحقق من أسماء الخطوط الفعّالة، بما في ذلك الخطوط الموروثة، ويضع عتبة 100 نقطة للأجزاء التي تستخدم Roboto. هذا يعطّل الكيرنينغ للأجزاء المطابقة التي يكون حجم الخط أقل من 100 نقطة:
+لجعل المخرجات المرسومة أقرب إلى PowerPoint في مثل هذه الحالات، يمكنك تعطيل الكيرنينغ لأجزاء النص التي تستخدم الخط المتأثر. اضبط [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) على قيمة أكبر من حجم الخط الفعلي. يتطلب هذا المثال ملف "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يتحقق من أسماء الخطوط الفعّالة، بما في ذلك الخطوط الموروثة، ويحدد حدًا قدره 100 نقطة للأجزاء التي تستخدم Roboto. هذا يعطل الكيرنينغ للأجزاء المطابقة ذات حجم الخط أقل من 100 نقطة:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-بالنسبة للنص المتطابق تحت العتبة، يمنع هذا الإعداد الكيرنينغ ويمكن أن يساعد على محاذاة مخرجات Aspose.Slides مع المظهر البصري لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+بالنسبة للنص المطابق الذي يكون دون الحد، يمنع هذا الإعداد الكيرنينغ ويمكن أن يساعد في تقريب مخرجات Aspose.Slides إلى العرض البصري لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
 يمكن تعيين خصائص الخط على مستوى الفقرة عبر [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) أو على الأجزاء الفردية عبر [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
 
-المثال التالي يعيّن الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع تنسيق عريض، مائل، وتسطير منقط. التنسيق الصريح على الأجزاء الفردية يتفوَّق على هذه القيم الافتراضية:
+المثال التالي يعيّن الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع تنسيق عريض، مائل، وتسطير منقط. يتفوق التنسيق الصريح على الأجزاء الفردية على هذه القيم الافتراضية.
 
 ```php
 use aspose\slides\FontData;
@@ -470,13 +470,13 @@ try {
 
 ![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
-## **التحكم في تسوية ارتفاع النص**
+## **التحكم في تطبيع ارتفاع النص**
 
-استخدم [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) عند إعادة إنتاج طباعة القالب أو فحص الفروقات في ارتفاع الأحرف. في PowerPoint، تمكين التسوية يمدد أو يضغط الأحرف عموديًا لتمنحها ارتفاعًا مرئيًا موحدًا داخل جزء النص. لا يضمن ذلك تساوي ارتفاع النص عبر خطوط مختلفة.
+استخدم [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) عند إعادة إنتاج طباعيات القالب أو فحص الاختلافات في ارتفاع الأحرف. في PowerPoint، يؤدي تمكين التطبيع إلى تمديد أو ضغط الأحرف الفردية رأسيًا لمنحها ارتفاع مرئي موحد داخل جزء النص. لا يضمن ذلك تساوي ارتفاع النص عبر خطوط مختلفة.
 
-عيّن الخاصية إلى [NullableBool::True أو False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) لتمكين أو تعطيل التسوية صراحةً. `NullableBool::NotDefined` يترك الإعداد المحلي غير محدد بحيث يرث الجزء قيمته، مثلاً من [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) الخاص بالفقرة. لا يعني ذلك `False`. استخدم [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) واقرأ `getNormaliseHeight` على بيانات التنسيق الفعّال المسترجعة للحصول على القيمة المنطقية المُفسَّرة.
+عيّن الخاصية إلى [NullableBool::True أو False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) لتمكين أو تعطيل التطبيع صراحة. يترك `NullableBool::NotDefined` الإعداد المحلي غير محدد بحيث يرث الجزء قيمته، على سبيل المثال من [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) الخاص بالفقرة. لا يعني ذلك `False`. استخدم [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) واقرأ `getNormaliseHeight` في البيانات الفعّالة للحصول على القيمة البوليانية المحلولة.
 
-المثال المستقل التالي يتطلب تثبيت **Arial**. ينشئ كتلتين نصيتين تحتويان على نفس الأحرف الكبيرة، الأحرف الصغيرة، الأحرف ذات الذيل السفلي، والحروف المشكولة بحجم 54 نقطة. تمكّن كلا الفقرتين التسوية افتراضيًا. الجزء العلوي يُعطّل التسوية صراحةً؛ الجزء السفلي يرثها. أحجام الإطارات، والهوامش، وتباعد الفقرات متطابقة، مع تعطيل اللف والملاءمة التلقائية للحفاظ على المقارنة متسقة. يطبع المثال `False: false` و`NotDefined: true`، ثم يحفظ "text_height_normalization.pptx".
+المثال التالي المستقل يتطلب تثبيت خط **Arial**. يخلق كتلتين نصيتين تحتويان على نفس الأحرف الكبيرة والصغيرة، الحروف السفلية، والحروف المتقطعة بحجم 54 نقطة. تُفعَّل التطبيع في كلتا الفقرتين افتراضيًا. تُعطَّل الجزء العلوي صراحةً، بينما يرث الجزء السفلي الإعداد. أحجام الإطار، الهوامش، وتباعد الفقرات متماثلة، مع تعطيل اللف والملاءمة التلقائية للحفاظ على مقارنة ثابتة. يطبع المثال `False: false` و `NotDefined: true`، ثم يحفظ "text_height_normalization.pptx".
 
 ```php
 use aspose\slides\FillType;
@@ -535,19 +535,19 @@ try {
 }
 ```
 
-المقارنة أدناه صُدرت من العرض المحفوظ. الصف العلوي يُظهر التسوية معطَّلة (`False`)؛ الصف السفلي يرث الإعداد الممكّن (`NotDefined` → `True`). حافظ على تثبيت Arial لإعادة إنتاج هذا الشكل.
+المقارنة أدناه تم تصديرها من العرض المحفوظ. الصف العلوي لديه التطبيع معطل (`False`)؛ الصف السفلي يرث الإعداد المفعَّل (`NotDefined` → `True`). حافظ على تثبيت Arial لإعادة إنتاج هذا الشكل.
 
-![نص Arial بحجم 54 نقطة مع تسوية معطَّلة أعلاه وتساوية مُورّثة أدناه](text_height_normalization.png)
+![نص Arial بحجم 54 نقطة مع التطبيع معطل في الأعلى ومُرث في الأسفل](text_height_normalization.png)
 
-تغيّر التسوية ارتفاع الأحرف دون تغيير قيمة [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) في تباعد الأسطر، بينما يتحكم [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) لإطار النص في كيفية تعديل النص أو حاوية النص لتناسب. تخدم هذه الإعدادات أغراضًا مختلفة ويمكن أن تؤثر على التخطيط الكلي بشكل مستقل. لمزيد من المعلومات حول تنسيق الفقرة والوراثة، راجع [إدارة الفقرة](/slides/ar/php-java/manage-paragraph/).
+التطبيع يغيّر ارتفاع الأحرف دون تغيير قيمة [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) في الفقرة في تباعد السطر، بينما يتحكم [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) لإطار النص في كيفية تعديل النص أو حاويته لتلائم. تخدم هذه الإعدادات أغراضًا مختلفة ويمكن أن تؤثر على التخطيط العام بشكل مستقل. للمزيد عن تنسيق الفقرات والوراثة، راجع [Manage Paragraph](/slides/ar/php-java/manage-paragraph/).
 
-## **تطبيق وإزالة الخط المتوسط (Strikethrough)**
+## **تطبيق وإزالة الخط المشطوب**
 
-استخدم [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) على جزء نص لعرض التصحيحات أو المصطلحات الملغاة أو الأسعار السابقة دون حذف النص الأصلي. اضبطه إلى [TextStrikethroughType::Single أو Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) لخط أحد أو خطين عبر النص.
+استخدم [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) على جزء نص لإظهار تصحيحات أو مصطلحات ملغاة أو أسعار سابقة دون حذف النص الأصلي. اضبطه إلى [TextStrikethroughType::Single أو Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) لسطر واحد أو مزدوج عبر النص.
 
-لإزالة الخط المتوسط، مرّر [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). هذا يعطّل التأثير صراحةً، حتى لو كان التنسيق المحيط يحدده. بالمقابل، يترك [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) الإعداد المحلي غير معرّف، مما يسمح للجزء بوراثة التنسيق، على سبيل المثال من الفقرة. لا يضمن ذلك إزالة الخط المتوسط. استخدم [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
+لإزالة الخط المشطوب، مرّر [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). هذا يعطل التأثير صراحةً، حتى إذا كان التنسيق المحيط يحدد الخط المشطوب. بالمقابل، يترك [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) الإعداد المحلي غير معرف، مما يسمح للجزء بوراثة التنسيق، على سبيل المثال من الفقرة. لا يضمن ذلك إزالة الخط المشطوب. استخدم [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
 
-المثال المستقل التالي يُنشئ ثلاث مقارنات أسعار. لكل فقرة أجزاء منفصلة للعلامة والسعر السابق والسعر الحالي، لذا يتأثر السعر السابق فقط. يطبق الصف الأول الخط المتوسط ثم يزيله؛ الصفوف الأخرى تحتفظ بخط وسط واحد ومزدوج. تغيير هذا الإعداد يحافظ على النص وتنسيقه الآخر، بما في ذلك السعر السابق العريض.
+المثال المستقل التالي يُنشئ ثلاث مقارنات أسعار. كل فقرة لديها أجزاء منفصلة للملصق، السعر السابق، والسعر الحالي، بحيث يتأثر السعر السابق فقط. الصف الأول يطبق ثم يزيل الخط المشطوب؛ الصفوف الأخرى تحتفظ بالخط المشطوب الأحادي والمزدوج. تغيير هذا الإعداد يحافظ على النص وتنسيقه الآخر، بما في ذلك السعر السابق العريض.
 
 ```php
 use aspose\slides\FillType;
@@ -599,7 +599,7 @@ try {
 
     $paragraphs = $shape->getTextFrame()->getParagraphs();
 
-    // تطبيق خط متوسط، ثم إزالته صراحةً من السعر السابق الأول.
+    // تطبيق الخط المشطوب، ثم إزالته صراحة من السعر السابق الأول.
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
 
@@ -612,15 +612,15 @@ try {
 }
 ```
 
-النتيجة من الأعلى إلى الأسفل: لا خط متوسط، خط متوسط واحد، وخط متوسط مزدوج.
+النتيجة، من الأعلى إلى الأسفل: بدون خط مشطوب، خط مشطوب أحادي، وخط مشطوب مزدوج.
 
-![الأسعار السابقة بدون خط متوسط، بخط متوسط واحد، وبخط متوسط مزدوج](strikethrough.png)
+![الأسعار السابقة بدون خط مشطوب، مع خط مشطوب أحادي، ومع خط مشطوب مزدوج](strikethrough.png)
 
 ## **تعيين دوران النص**
 
-استخدم [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) لتعيين اتجاه نص مسبق داخل شكل.
+استخدم [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) لتعيين توجيه نص مُعرّف مسبقًا داخل شكل.
 
-المثال البرمجي التالي يعيّن اتجاه النص في الشكل إلى [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/)، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
+المثال التالي يعيّن توجيه النص في الشكل إلى [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/)، والذي يدور النص **90 درجة عكس عقارب الساعة**:
 
 ```php
 use aspose\slides\Presentation;
@@ -648,7 +648,7 @@ try {
 
 استخدم [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) لتعيين زاوية دوران مخصصة لـ [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
-المثال البرمجي أدناه يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+المثال التالي يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
 
 ```php
 use aspose\slides\Presentation;
@@ -671,14 +671,14 @@ try {
 
 ![دوران النص المخصص](custom_text_rotation.png)
 
-## **تعيين تباعد الأسطر للفقرة**
+## **تعيين تباعد الأسطر للفقرات**
 
 توفر Aspose.Slides [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter)، [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore)، و[ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) للتحكم في تباعد الفقرات. تُستَخدم هذه الخصائص كما يلي:
 
 * استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
 * استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-المثال التالي يعيّن التباعد داخل الفقرة الأولى إلى 200 % من ارتفاع السطر (تباعد مزدوج):
+المثال التالي يعيّن التباعد داخل الفقرة الأولى إلى 200% من ارتفاع السطر (تباعد مزدوج):
 
 ```php
 use aspose\slides\Presentation;
@@ -703,16 +703,16 @@ try {
 
 ![تباعد السطر داخل الفقرة](line_spacing.png)
 
-## **التحكم في كسر الأسطر**
+## **التحكم في كسر السطر**
 
-قواعد كسر الأسطر للفقرة مفيدة في كتل النص الضيقة والعروض التي تمزج النص اللاتيني مع النصوص الشرقية الآسيوية. الطرق التالية تنتمي إلى [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/)، لذا فهي تنطبق على الفقرة بأكملها:
+قواعد كسر سطر الفقرة مفيدة في كتل نص ضيقة وعروض تقديمية تمزج بين النص اللاتيني والنص الآسيوي الشرقي. الطرق التالية تنتمي إلى [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/)، لذا فهي تنطبق على الفقرة بأكملها:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) يتحكم في قواعد كسر الأسطر اللاتينية. في النص المختلط، قد يغيّر ذلك موضع لف النص الشرقي الآسيوي وعلامات الترقيم المجاورة.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) يتحكم في قواعد كسر الأسطر الشرقية الآسيوية، بما في ذلك القيود على الأحرف في بداية ونهاية السطر.
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) يتحكم في قواعد كسر سطر النص اللاتيني. في النص المختلط، قد يغيّر هذا أيضًا موضع التفاف النص والرموز الشرقية المجاورة.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) يتحكم في قواعد كسر سطر النص الآسيوي الشرقي، بما في ذلك القيود على الأحرف في بداية ونهاية السطر.
 
-هذه القواعد لا تحل محل [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText)، الذي يُفعّل اللف التلقائي داخل إطار النص. هي تؤثر على التخطيط عندما يحدث اللف؛ لا تُدرج أحرف كسر السطر. كسر سطر صريح يُجبر سطرًا جديدًا داخل الفقرة بغض النظر عن العرض المتاح.
+هذه القواعد لا تحل محل [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText)، الذي يُمكِّن اللف التلقائي داخل إطار النص. إنها تؤثر على التخطيط عندما يحدث اللف؛ لا تُدرج أحرف كسر السطر. كسر سطر صريح يفرض سطرًا جديدًا داخل الفقرة مستقلاً عن العرض المتاح.
 
-المثال المستقل التالي ينشئ كتلة نص ضيقة تحتوي على نص صيني ولاتيني. يحدد كلا خيارَي كسر الأسطر صراحةً ويحفظ "line_breaking.pptx". لتجربة أي قاعدة، غير القيمة المقابلة مع إبقاء الإعدادات الأخرى ثابتة. يستخدم المثال Arial بحجم 24 نقطة وSimSun، وعرض إطار 160 نقطة وهوامش أفقية صفرية. يُستدعى [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) مع [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) لإبقاء حجم النص وأبعاد الإطار ثابتين.
+المثال المستقل التالي يخلق كتلة نص ضيقة تحتوي على صيني ولاتيني. يحدد كلا خيارَي كسر السطر صراحةً ويحفظ "line_breaking.pptx". لتجربة أي قاعدة، غير القيمة المقابلة مع الحفاظ على الإعدادات الأخرى ثابتة. يستخدم المثال Arial بحجم 24 نقطة وSimSun مع عرض إطار 160 نقطة وهامش أفقي صفري لإطار النص. يُستدعى [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) مع [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) بحيث يبقى حجم النص وإطار الشكل ثابتين.
 
 ```php
 use aspose\slides\FillType;
@@ -759,11 +759,11 @@ try {
 }
 ```
 
-## **التحكم في علامات الترقيم المعلقة**
+## **التحكم في علامات الترقيم المتدلية**
 
-يتيح [ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) للعلامات المسموح بها أن تمتد إلى ما وراء الحافة اليمنى لسطر النص بدلاً من احتلال السطر التالي. ينطبق ذلك على الفقرة بأكملها ويختلف عن المسافة المعلقة.
+يتيح [ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) للعلامات الترقيمية المؤهلة أن تمتد إلى ما بعد الحافة اليمنى لسطر النص بدلاً من احتلال السطر التالي. ينطبق ذلك على الفقرة بأكملها ويختلف عن مسافة بادئة متدلية.
 
-المثال المستقل التالي يُفعّل علامات الترقيم المعلقة في إطار نص عرضه 100 نقطة ويحفظ "hanging_punctuation.pptx". مع Arial بحجم 24 نقطة وهوامش أفقية صفرية، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد إلى ما وراء حافة النص اليمنى. اضبط الخاصية إلى [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) للمقارنة: مع هذه الإعدادات، تحتل النقطة سطرًا منفصلًا. يُفعَّل اللف وتُعطَّل الملاءمة التلقائية لإبقاء العرض المتاح ثابتًا.
+المثال المستقل التالي يُفعّل علامات الترقيم المتدلية في إطار نص بعرض 100 نقطة ويحفظ "hanging_punctuation.pptx". مع Arial بحجم 24 نقطة وهوامش أفقية صفريّة، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد إلى ما بعد حافة النص اليمنى. اضبط الخاصية إلى [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) للمقارنة: مع هذه الإعدادات، تشغل النقطة سطرًا منفصلًا. تم تمكين اللف وتعطيل الملاءمة التلقائية للحفاظ على عرض ثابت.
 
 ```php
 use aspose\slides\FillType;
@@ -807,11 +807,11 @@ try {
 }
 ```
 
-ليس كل علامة ترقيم يمكن أن تُعلق. تنطبق أيضًا [الشروط الخطية وتخطيطية المذكورة أعلاه](#control-line-breaking) على هذه المقارنة: تغيير الخط، العرض المتاح، الهوامش، أو إعدادات الملاءمة يمكن أن يُزيل الفارق المرئي.
+ليس كل علامة ترقيم يمكن أن تتدلى. تنطبق شروط الخط والتخطيط المذكورة أعلاه ([التحكم في كسر السطر](#control-line-breaking)) على هذه المقارنة أيضًا: تغيير الخط أو العرض المتاح أو الهوامش أو إعدادات الملاءمة التلقائية يمكن أن يزيل الفارق المرئي.
 
 ## **تعيين نوع الملاءمة التلقائية لإطارات النص**
 
-يحدد [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) كيف يتصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص ينكمش، يتجاوز، أو يُعيد تحجيم الشكل تلقائيًا. المثال التالي يضبط الشكل لإعادة التحجيم ليتناسب مع نصه ويحفظ النتيجة إلى "autofit_type.pptx".
+يحدد [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص يصغر، يتدفق، أو يعيد تحجيم الشكل تلقائيًا. المثال التالي يضبط الشكل لإعادة تحجيمه ليناسب النص ويحفظ النتيجة إلى "autofit_type.pptx".
 
 ```php
 use aspose\slides\Presentation;
@@ -831,11 +831,11 @@ try {
 }
 ```
 
-لحساب عدد الأسطر بعد اللف التلقائي ورؤية كيف يغيّر عرض النص أو الشكل النتيجة، راجع [Count Rendered Lines](/slides/ar/php-java/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز حاويته.
+لحساب عدد الأسطر بعد اللف التلقائي ورؤية كيف يتغيّر عرض النص أو الشكل، راجع [Count Rendered Lines](/slides/ar/php-java/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز حاويته.
 
-## **تعيين نقطة ارتساء إطارات النص**
+## **تعيين مرساة إطارات النص**
 
-يُعرّف [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) كيف يُوضَع النص عموديًا داخل الشكل، مثلاً في الأعلى أو الوسط أو الأسفل. المثال التالي يثبت النص إلى أسفل الشكل الأول ويحفظ النتيجة إلى "text_anchor.pptx".
+يحدد [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) كيفية توضع النص عموديًا داخل الشكل، مثلاً في الأعلى أو الوسط أو الأسفل. المثال التالي يرسخ النص إلى أسفل الشكل الأول ويحفظ النتيجة إلى "text_anchor.pptx".
 
 ```php
 use aspose\slides\Presentation;
@@ -855,9 +855,9 @@ try {
 }
 ```
 
-## **تعيين الفواصل الجدولة للنص**
+## **تعيين تبويب النص**
 
-استخدم [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) و[ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) لتكوين مواضع الفواصل الجدولة في الفقرة. المثال التالي يعيّن الفاصل الجدولي الافتراضي إلى 100 نقطة ويضيف فاصل جدولي محاذٍ إلى اليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف جدولة.
+استخدم [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) و[ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) لتكوين مواضع التبويب في فقرة. المثال التالي يعيّن الفاصل الافتراضي إلى 100 نقطة ويضيف موضع تبويب محاذى إلى اليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف تبويب.
 
 ```php
 use aspose\slides\Presentation;
@@ -882,13 +882,13 @@ try {
 
 النتيجة:
 
-![فواصل الفقرة](paragraph_tabs.png)
+![تبويبات الفقرة](paragraph_tabs.png)
 
 ## **تعيين لغة التدقيق**
 
-توفر Aspose.Slides [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)، التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتدقيق الإملاء والقواعد في PowerPoint.
+تُوفر Aspose.Slides [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)، الذي يتيح لك تعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
 
-المثال التالي يتطلب "presentation.pptx" يحتوي على مربع نص كالشكل الأول في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتويات الفقرة الأولى بـ "1。"، يعيّن SimSun كخط لها، ويُحدد لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة إلى "proofing_language.pptx":
+المثال التالي يتطلب "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتويات الفقرة الأولى بـ "1。"، يعيّن SimSun كخط لها، ويُحدد لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة إلى "proofing_language.pptx":
 
 ```php
 use aspose\slides\FontData;
@@ -924,9 +924,48 @@ try {
 }
 ```
 
+### **نسخ بيانات اللغة الوصفية**
+
+عند نسخ نص متعدد اللغات من قالب، احفظ كلًا من [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId) و[BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). المثال المستقل التالي يُنشئ جزء مصدر باللغة الإنجليزية الأمريكية كلغة أساسية والفرنسية كلغة بديلة، ثم ينسخ النص والمعرفات إلى جزء في عرض تقديمي جديد.
+
+```php
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$source = new Portion("Hello! Bonjour!");
+$source->getPortionFormat()->setLanguageId("en-US");
+$source->getPortionFormat()->setAlternativeLanguageId("fr-FR");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 80);
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getPortions()->clear();
+
+    $destination = new Portion();
+    $destination->setText($source->getText());
+    $destination->getPortionFormat()->setLanguageId($source->getPortionFormat()->getLanguageId());
+    // إذا لم يكن للمصدر لغة بديلة، فإن null يمسح قيمة الوجهة.
+    $destination->getPortionFormat()->setAlternativeLanguageId($source->getPortionFormat()->getAlternativeLanguageId());
+    $paragraph->getPortions()->add($destination);
+
+    $presentation->save("copied_language_metadata.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+لتجربة مصدر بدون لغة بديلة، احذف إسناد `"fr-FR"`. يصبح المعرف البديل `null`، ويحافظ أمر النسخ نفسه على غيابه دون إدخال قيمة افتراضية، حتى لو كان الوجهة قد عُيّنت لها لغة بديلة مسبقًا.
+
+هذه المعرفات تُخزن بيانات لغة وصفية. حفظها لا يحدد أي قاموس سيختاره PowerPoint للتدقيق الإملائي أو القواعدي.
+
 ## **تعيين اللغة الافتراضية**
 
-استخدم [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) لتعريف اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي يُنشئ عرضًا تقديميًا باللغة الإنجليزية الأمريكية كلغة نص افتراضية، يضيف مربع نص، ويطبع `en-US` لأول جزء نص به.
+استخدم [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) لتحديد اللغة الافتراضية للنص المُنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي يُنشئ عرضًا تقديميًا باللغة الإنجليزية الأمريكية كلغة نص افتراضية، يضيف مربع نص، ويطبع `en-US` للجزء النصي الأول.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -944,7 +983,7 @@ try {
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // تحقق من لغة الجزء الأول.
+    // التحقق من لغة الجزء الأول.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -956,7 +995,7 @@ try {
 
 لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-المثال التالي يعيّن خطًا عريضًا بحجم 14 نقطة كافتراضي للفقرات ذات المستوى العلوي في عرض تقديمي جديد ويحفظه إلى "default_text_style.pptx". يمكن للنص وراثة هذه القيم الافتراضية ما لم يتغلب تنسيق أكثر تحديدًا عليها.
+المثال التالي يعيّن خطًا عريضًا بحجم 14 نقطة كافتراضي للفقرات العليا في عرض تقديمي جديد ويحفظه إلى "default_text_style.pptx". يمكن للنص وراثة هذه القيم الافتراضية ما لم يتجاوزها تنسيق أكثر تحديدًا.
 
 ```php
 use aspose\slides\NullableBool;
@@ -965,7 +1004,7 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation();
 try {
-    // احصل على تنسيق الفقرة في المستوى الأعلى.
+    // الحصول على تنسيق الفقرة المستوى الأعلى.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -979,15 +1018,15 @@ try {
 }
 ```
 
-## **استخراج النص مع تأثير الأحرف الكبيرة (All Caps)**
+## **استخراج النص مع تأثير الحروف الكبيرة كلها**
 
-في PowerPoint، يجعل تطبيق تأثير **All Caps** الخط يجعل النص يظهر بأحرف كبيرة على الشريحة حتى لو كُتب أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما أُدخل بالضبط. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
+في PowerPoint، يُظهر تطبيق تأثير الخط **All Caps** النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي بـ Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) وحوِّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
-هذا المثال يتطلب "sample2.pptx" يحتوي على مربع نص كالشكل الأول في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
+يتطلب هذا المثال "sample2.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
 
-![تأثير All Caps](all_caps_effect.png)
+![تأثير الحروف الكبيرة كلها](all_caps_effect.png)
 
-المثال البرمجي أدناه يُظهر كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+المثال التالي يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```php
 use aspose\slides\Presentation;
@@ -1020,12 +1059,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكن تعديل النص في جدول على شريحة؟**
+**كيف يمكنني تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). كرّر عبر الخلايا وقم بتحديث كل خلية عبر [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) وتنسيق الفقرة عبر [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
+لتعديل النص في جدول على شريحة، استخدم [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). استعرض الخلايا وحدّث كل خلية عبر [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) وتنسيق الفقرة عبر [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**كيف يمكن تطبيق لون متدرج على النص في شريحة PowerPoint؟**
+**كيف يمكنني تطبيق لون تدرج على نص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج على النص، استخدم [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). اضبط [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون تدرج على النص، استخدم [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). اضبط [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) إلى [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) ثم قم بتكوين نقاط التدرج، الاتجاه، والشفافية.

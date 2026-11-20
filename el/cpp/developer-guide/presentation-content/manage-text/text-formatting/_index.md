@@ -1,13 +1,13 @@
 ---
-title: Διαμόρφωση Κειμένου Παρουσίασης σε C++
-linktitle: Μορφοποίηση Κειμένου
+title: "Διαμόρφωση κειμένου παρουσίασης σε C++"
+linktitle: "Μορφοποίηση κειμένου"
 type: docs
 weight: 50
 url: /el/cpp/text-formatting/
 keywords:
-- στοίχιση παραγράφου
+- ευθυγράμμιση παραγράφου
 - στυλ κειμένου
-- υπόβαθρο κειμένου
+- φόντο κειμένου
 - διαφάνεια κειμένου
 - διάστημα χαρακτήρων
 - ιδιότητες γραμματοσειράς
@@ -15,33 +15,33 @@ keywords:
 - περιστροφή κειμένου
 - γωνία περιστροφής
 - πλαίσιο κειμένου
-- διάστημα γραμμής
+- διάστημα γραμμών
 - ιδιότητα autofit
-- άγκρωση πλαισίου κειμένου
-- καρτέλες κειμένου
+- άγκυρα πλαισίου κειμένου
+- στηλοθέτηση κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαμορφώστε και στυλιζάτε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
+description: "Διαμορφώστε και στιλρίστε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Προσαρμόστε γραμματοσειρές, χρώματα, ευθυγράμμιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Καλύπτει τα χρώματα υποβάθρου, τη διαφάνεια, το διάστημα χαρακτήρων, τις ιδιότητες γραμματοσειράς, την περιστροφή, το διάστημα παραγράφων, τη συμπεριφορά autofit, την αγκύρωση κειμένου, τα σταθμεύματα καρτέλας (tab stops) και τις ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για C++. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά autofit, αγκύρωση κειμένου, στάσεις στηλοθετών και ρυθμίσεις γλώσσας.
 
-Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα πεδίο κειμένου, και η πρώτη παράγραφος του περιέχει το κείμενο που φαίνεται παρακάτω. Και οι δείκτες διαφανειών και σχημάτων είναι μηδενικής βάσης. Τα παραδείγματα που επιλέγουν έντονες περιοχές χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομικής έντονης μορφοποίησης:
+Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν [sample.pptx](sample.pptx). Το πρώτο σχήμα στη πρώτη του διαφάνεια είναι ένα πλαίσιο κειμένου, και η πρώτη παράγραφος του περιέχει το κείμενο που φαίνεται παρακάτω. Οι δείκτες διαφάνειας και σχήματος είναι μηδενικής βάσης. Παραδείγματα που επιλέγουν έντονες περιοχές χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/cpp/search-and-replace-text/).
+Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικών εκφράσεων, δείτε [Search and Replace Text](/slides/el/cpp/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) για ατομικές περιοχές κειμένου.
+Χρησιμοποιήστε [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) για να ορίσετε το προεπιλεγμένο χρώμα υπογράμμισης για μια παράγραφο, ή το [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) για μεμονωμένα τμήματα κειμένου.
 
-Το παρακάτω παράδειγμα ορίζει μια ανοιχτόγκρι επισήμανση ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης σε ατομικές περιοχές έχουν προτεραιότητα έναντι αυτής της προεπιλογής:
+Το παρακάτω παράδειγμα ορίζει ανοιχτό γκρι χρώμα υπογράμμισης ως προεπιλογή για την πρώτη παράγραφο. Οι ρητές χρωματικές υπογραμμίσεις στα μεμονωμένα τμήματα έχουν προτεραιότητα επί της προεπιλογής:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -78,7 +78,7 @@ presentation->Dispose();
 
 ![Η γκρι παράγραφος](gray_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -113,8 +113,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-            // Ορίστε το χρώμα επισήμανσης για την περιοχή κειμένου.
-            portionFormat->get_HighlightColor()->set_Color(highlightColor);
+        // Ορίστε το χρώμα επισήμανσης για το τμήμα κειμένου.
+        portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
 
@@ -124,13 +124,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι γκρι περιοχές κειμένου](gray_text_portions.png)
+![Τα γκρι τμήματα κειμένου](gray_text_portions.png)
 
 ## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) για να ορίσετε στοίχιση παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά, δεξιά, ομοιόμορφα (justified) κ.λπ.
+Χρησιμοποιήστε [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) για να ορίσετε στοίχιση παραγράφου μέσα σε πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά, δεξιά, ίση κ.λπ.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο **στο κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -151,7 +151,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
+// Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -160,13 +160,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Η στοιχισμένη παράγραφος](aligned_paragraph.png)
+![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
 
-## **Στοίχιση Γραμματοσειρών Μέσα σε Γραμμή**
+## **Στοίχιση Γραμματοσειρών Εντός Γραμμής**
 
-Χρησιμοποιήστε [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) για να στοιχίσετε κατακόρυφα περιοχές κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μια γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε όλη την παράγραφο και ελέγχει τη στοίχιση σε κάθε γραμμή της.
+Χρησιμοποιήστε [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) για κάθετη στοίχιση τμημάτων κειμένου διαφορετικών μεγεθών γραμματοσειράς εντός μιας γραμμής. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παράγραφο και ελέγχει τη στοίχιση σε κάθε μία από τις γραμμές της.
 
-Το παρακάτω αυτό-συμπεριλαμβανόμενο παράδειγμα δημιουργεί τέσσερα ετικετοποιημένα πεδία κειμένου σε μία διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο στα 18, 36 και 54 σημεία, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί το autofit και τη συσπαίρωση, και διατηρεί τα πλαίσια κειμένου αρκετά μεγάλα για μια γραμμή.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα επισημασμένα πλαίσια κειμένου σε μία διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο στα 18, 36 και 54 σημεία, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί autofit και αναδίπλωση, και κρατά τα πλαίσια κειμένου αρκετά μεγάλα για μία γραμμή.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -253,17 +253,17 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Σύγκριση Στοίχισης Baseline, Top, Center και Bottom με ανάμειξη μεγεθών γραμματοσειράς](font_alignment.png)
+![Σύγκριση Στοίχισης Baseline, Top, Center και Bottom με ανάμικτα μεγέθη γραμματοσειράς](font_alignment.png)
 
-Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι οι ορατές άκρες των ατομικών γραμμάτων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει τόσο ένα κεφαλαίο γράμμα όσο και ένα κατώτερο (descender) για να επιδείξει τη διαφορά μεταξύ baseline και bottom στοίχισης. Η διαθεσιμότητα γραμματοσειράς και η υποκατάσταση, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στα μεγέθη γραμματοσειράς επηρεάζουν το αποτέλεσμα. Οι διαστάσεις του πλαισίου, τα περιθώρια, το διάστημα γραμμών, η συσπαίρωση και το autofit επίσης επηρεάζουν τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε λειτουργίες.
+Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι οι ορατές άκρες των ατομικών χαρακτήρων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει τόσο κεφαλαίο γράμμα όσο και κατάληξη για να δείξει τη διαφορά μεταξύ στοίχισης baseline και bottom. Η διαθεσιμότητα και η αντικατάσταση γραμματοσειράς, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στα μεγέθη γραμματοσειράς επηρεάζουν το αποτέλεσμα. Οι διαστάσεις πλαισίου, τα περιθώρια, η απόσταση γραμμής, η αναδίπλωση και το autofit επηρεάζουν επίσης τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε τις λειτουργίες.
 
-Αυτή η ρύθμιση διαφέρει από το [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), το οποίο ελέγχει οριζόντια στοίχιση παραγράφου, και το [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), το οποίο τοποθετεί το μπλοκ κειμένου κατακόρυφα μέσα στο σχήμα του. Η μορφοποίηση εκθέτη (superscript) και δείκτη (subscript) μέσω του [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) μετατοπίζει ατομικές περιοχές σε σχέση με τη βάση αντί να ορίζει στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
+Αυτή η ρύθμιση διαφέρει από το [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), το οποίο ελέγχει οριζόντια στοίχιση παραγράφου, και το [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), το οποίο τοποθετεί το μπλοκ κειμένου κάθετα μέσα στο σχήμα του. Η υπερ-και υπο-δεύση μέσω του [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) μετακινεί τα μεμονωμένα τμήματα ως προς τη baseline αντί να ορίζει στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
 
-## **Ορισμός Διαφάνειας για Κείμενο**
+## **Ορισμός Διαφάνειας Κειμένου**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα-συστατικού του χρώματος που ορίζεται μέσω του [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Στα παραδείγματα παρακάτω, `alpha = 50` είναι μια τιμή καναλιού αλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα-συστατικού του χρώματος που ορίζεται με το [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Στα παραδείγματα παρακάτω, `alpha = 50` είναι τιμή καναλιού αλφα ARGB στη κλίμακα 0–255, όχι ποσοστό διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στο **ολόκληρο το τμήμα**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -306,7 +306,7 @@ presentation->Dispose();
 
 ![Η διαφανής παράγραφος](transparent_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **με έντονη γραμματοσειρά**:
+Το επόμενο παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -344,7 +344,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Ορίστε τη διαφάνεια της περιοχής κειμένου.
+        // Ορίστε τη διαφάνεια του τμήματος κειμένου.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -358,13 +358,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι διαφανείς περιοχές κειμένου](transparent_text_portions.png)
+![Τα διαφανή τμήματα κειμένου](transparent_text_portions.png)
 
-## **Ορισμός Διαστημάτων Χαρακτήρων για Κείμενο**
+## **Ορισμός Απόστασης Χαρακτήρων Κειμένου**
 
-Χρησιμοποιήστε [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία διαστήματος· οι αρνητικές τιμές συμπυκνώνουν το κείμενο.
+Χρησιμοποιήστε [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία απόστασης· οι αρνητικές τιμές μειώνουν το κείμενο.
 
-Το παρακάτω παράδειγμα C++ δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στο **ολόκληρο το τμήμα**:
+Το παρακάτω παράδειγμα C++ δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων στο **ολόκληρο το παράγραφο**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -385,8 +385,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα των χαρακτήρων.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Αύξηση διαστήματος χαρακτήρων.
+// Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Αυξήστε το διάστημα χαρακτήρων.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -394,9 +394,9 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
+![Η απόσταση χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων σε **με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -428,8 +428,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα των χαρακτήρων.
-        portionFormat->set_Spacing(3.0f); // Αύξηση διαστήματος χαρακτήρων.
+        // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+        portionFormat->set_Spacing(3.0f); // Αυξήστε το διάστημα χαρακτήρων.
     }
 }
 
@@ -439,13 +439,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στις περιοχές κειμένου](character_spacing_in_text_portions.png)
+![Η απόσταση χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
 ### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενά από το ίδιο κείμενο σε PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint μπορεί να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρα δεδομένα kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενό από το ίδιο κείμενο στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρα δεδομένα kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
 
-Για να φέρετε το αποτέλεσμα πιο κοντά στο PowerPoint, μπορείτε να απενεργοποιήσετε το kerning για περιοχές κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Χρησιμοποιήστε το [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) για να ορίσετε μια τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Αυτό το παράδειγμα απαιτεί το «presentation.pptx» με ένα πεδίο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων γραμματοσειρών, και ορίζει ένα κατώφλι 100 σημείων για περιοχές που χρησιμοποιούν το Roboto. Αυτό απενεργοποιεί το kerning για τις ταιριαστές περιοχές με μέγεθος γραμματοσειράς κάτω από 100 σημεία:
+Για να κάνετε το αποτέλεσμα πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν την επηρεαζόμενη γραμματοσειρά. Χρησιμοποιήστε το [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) για να ορίσετε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Το παράδειγμα απαιτεί το «presentation.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειράς, συμπεριλαμβανομένων των κληρονομημένων, και ορίζει όριο 100 σημείων για τμήματα που χρησιμοποιούν Roboto. Αυτό απενεργοποιεί το kerning για τμήματα που έχουν μέγεθος γραμματοσειράς κάτω από 100 σημεία:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -503,13 +503,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Για το ταιριαστό κείμενο κάτω από το κατώφλι, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει στη στοίχιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά του PowerPoint.
+Για τμήματα κειμένου κάτω από το όριο, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει την απόδοση του Aspose.Slides να ταιριάζει με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) ή σε ατομικές περιοχές μέσω του [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω του [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) ή σε μεμονωμένα τμήματα μέσω του [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
 
-Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και υπογράμμιση με κουκκίδες. Η ρητή μορφοποίηση σε ατομικές περιοχές έχει προτεραιότητα έναντι αυτών των προεπιλογών.
+Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και υπογραμμισμένη με κουκκίδες μορφοποίηση. Η ρητή μορφοποίηση σε μεμονωμένα τμήματα έχει προτεραιότητα επί των προεπιλογών.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -533,6 +533,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+
 // Ορίστε τις ιδιότητες γραμματοσειράς για την παράγραφο.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
@@ -549,7 +550,7 @@ presentation->Dispose();
 
 ![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημεία, πλάγια μορφοποίηση και υπογράμμιση με κουκκίδες σε περιοχές των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
+Το επόμενο παράδειγμα εφαρμόζει Times New Roman 13 σημεία, πλάγια μορφοποίηση και υπογράμμιση με κουκκίδες σε τμήματα των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -584,7 +585,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Ορίστε τις ιδιότητες γραμματοσειράς για την περιοχή κειμένου.
+        // Ορίστε τις ιδιότητες γραμματοσειράς για το τμήμα κειμένου.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -598,15 +599,15 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι ιδιότητες γραμματοσειράς για τις περιοχές κειμένου](font_properties_for_text_portions.png)
+![Οι ιδιότητες γραμματοσειράς για τμήματα κειμένου](font_properties_for_text_portions.png)
 
 ## **Έλεγχος Κανονικοποίησης Ύψους Κειμένου**
 
-Χρησιμοποιήστε το [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) όταν αναπαράγετε τυπογραφία προτύπου ή ερευνάτε διαφορές στο ύψος χαρακτήρων. Στο PowerPoint, η ενεργοποίηση της κανονικοποίησης τεντώνει ή συμπιέζει ατομικούς χαρακτήρες κατακόρυφα ώστε να έχουν ομοιόμορφο ορατό ύψος μέσα στην περιοχή κειμένου. Δεν εγγυάται ίσο ύψος κειμένου μεταξύ διαφορετικών γραμματοσειρών.
+Χρησιμοποιήστε [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) όταν επαναλαμβάνετε τυπογραφία προτύπου ή ερευνάτε διαφορές στο ύψος χαρακτήρων. Στο PowerPoint, η ενεργοποίηση της κανονικοποίησης τεντώνει ή συμπιέζει τους μεμονωμένους χαρακτήρες κάθετα ώστε να έχουν ενιαίο ορατό ύψος μέσα στο τμήμα κειμένου. Δεν εγγυάται ίσες υψηλότητες κειμένου μεταξύ διαφορετικών γραμματοσειρών.
 
-Ορίστε την ιδιότητα σε [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) για να ενεργοποιήσετε ή να απενεργοποιήσετε ρητά την κανονικοποίηση. `NullableBool::NotDefined` αφήνει την τοπική ρύθμιση ακαθορισμένη ώστε η περιοχή να κληρονομήσει την τιμή της, για παράδειγμα, από το [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Δεν σημαίνει `False`. Χρησιμοποιήστε το [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) και αναγγείλετε το [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) για να λάβετε την τελική λογική τιμή.
+Ορίστε την ιδιότητα σε [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) για ρητή ενεργοποίηση ή απενεργοποίηση της κανονικοποίησης. `NullableBool::NotDefined` αφήνει την τοπική ρύθμιση ακαθόριστη ώστε το τμήμα να κληρονομήσει την τιμή του, π.χ., από το [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Δεν σημαίνει `False`. Χρησιμοποιήστε το [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) και διαβάστε το [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) για την επιλυμένη Boolean τιμή.
 
-Το παρακάτω αυτό-συμπεριλαμβανόμενο παράδειγμα απαιτεί **Arial** εγκατεστημένο. Δημιουργεί δύο μπλοκ κειμένου που περιέχουν τα ίδια κεφαλαία γράμματα, πεζά γράμματα, descenders και διακριτικά χαρακτήρες σε 54 σημεία. Και οι δύο παράγραφοι ενεργοποιούν την κανονικοποίηση από προεπιλογή. Η πάνω περιοχή την απενεργοποιεί ρητά· η κάτω περιοχή την κληρονομεί. Τα μεγέθη των πλαισίων, τα περιθώρια και το διάστημα παραγράφων είναι τα ίδια, με συσπαίρωση και autofit απενεργοποιημένα για σταθερή σύγκριση. Το παράδειγμα εκτυπώνει `False: False` και `NotDefined: True`, έπειτα αποθηκεύει το «text_height_normalization.pptx».
+Το παρακάτω αυτόνομο παράδειγμα απαιτεί την εγκατάσταση του **Arial**. Δημιουργεί δύο μπλοκ κειμένου που περιέχουν τα ίδια κεφαλαία, πεζά, καταλήξεις και χαρακτήρες με τόνους στα 54 σημεία. Και οι δύο παράγραφοι ενεργοποιούν την κανονικοποίηση εξ ορισμού. Το πάνω τμήμα απενεργοποιεί ρητά την κανονικοποίηση· το κάτω τμήμα κληρονομεί. Τα μεγέθη πλαισίου, τα περιθώρια και η απόσταση παραγράφων είναι τα ίδια, με απενεργοποιημένη αναδίπλωση και autofit για σταθερή σύγκριση. Το παράδειγμα εκτυπώνει `False: False` και `NotDefined: True`, στη συνέχεια αποθηκεύει το «text_height_normalization.pptx».
 
 ```cpp
 #include <DOM/FillType.h>
@@ -680,19 +681,19 @@ presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Η σύγκριση παρακάτω εξήχθη από την αποθηκευμένη παρουσίαση. Η πάνω σειρά έχει την κανονικοποίηση απενεργοποιημένη (`False`); η κάτω σειρά κληρονομεί τη ενεργοποιημένη ρύθμιση (`NotDefined` → `True`). Κρατήστε το Arial εγκατεστημένο για να αναπαράγετε αυτήν την εμφάνιση.
+Η σύγκριση παρακάτω εξήχθη από την αποθηκευμένη παρουσίαση. Η πάνω σειρά έχει την κανονικοποίηση απενεργοποιημένη (`False`); η κάτω σειρά κληρονομεί τη ρυθμισμένη τιμή (`NotDefined` → `True`). Κρατήστε το Arial εγκατεστημένο για να αναπαραγάγετε αυτή την εμφάνιση.
 
-![Κείμενο Arial 54 σημείων με απενεργοποιημένη κανονικοποίηση επάνω και κληρονομική ενεργοποιημένη κάτω](text_height_normalization.png)
+![Κείμενο Arial 54 σημείων με κανονικοποίηση απενεργοποιημένη πάνω και κληρονομημένη κανονικοποίηση κάτω](text_height_normalization.png)
 
-Η κανονικοποίηση αλλάζει το ύψος των χαρακτήρων χωρίς να αλλάζει την τιμή του [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/) που ορίζει το μέγεθος γραμματοσειράς σε σημεία. Η παράγραφος [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) ελέγχει το διάστημα γραμμών, ενώ το πλαίσιο κειμένου [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) ελέγχει πώς το κείμενο ή το δοχείο του προσαρμόζεται. Αυτές οι ρυθμίσεις εξυπηρετούν διαφορετικούς σκοπούς και μπορούν ανεξάρτητα να επηρεάσουν τη συνολική διάταξη. Για περισσότερα σχετικά με τη μορφοποίηση παραγράφων και την κληρονομικότητα, δείτε [Διαχείριση Παραγράφου](/slides/el/cpp/manage-paragraph/).
+Η κανονικοποίηση αλλάζει το ύψος των χαρακτήρων χωρίς να αλλάζει την τιμή του [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/), η οποία ορίζει το μέγεθος γραμματοσειράς σε σημεία. Η παράγραφος [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) ελέγχει την απόσταση γραμμής, ενώ το [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) ελέγχει πώς το κείμενο ή το περιέκτη του προσαρμόζεται. Αυτές οι ρυθμίσεις εξυπηρετούν διαφορετικούς σκοπούς και μπορούν ανεξάρτητα να επηρεάσουν τη διάταξη. Για περισσότερα σχετικά με τη μορφοποίηση παραγράφων και την κληρονομικότητα, δείτε [Manage Paragraph](/slides/el/cpp/manage-paragraph/).
 
 ## **Εφαρμογή και Αφαίρεση Διακριτής Γραμμής (Strikethrough)**
 
-Χρησιμοποιήστε το [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) σε μια περιοχή κειμένου για να εμφανίσετε διορθώσεις, ακυρωμένες εκφράσεις ή παλαιές τιμές χωρίς να διαγράψετε το αρχικό κείμενο. Ορίστε το σε [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) για μία ή δύο γραμμές διαμέσου του κειμένου.
+Χρησιμοποιήστε [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) σε τμήμα κειμένου για να εμφανίσετε διορθώσεις, ακυρωμένους όρους ή προηγούμενες τιμές χωρίς να διαγράψετε το αρχικό κείμενο. Ορίστε το σε [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) για μία ή δύο γραμμές μέσα από το κείμενο.
 
-Για να αφαιρέσετε τη διακριτή γραμμή, ορίστε `TextStrikethroughType::None`. Αυτό απενεργοποιεί ρητά το εφέ, ακόμη και αν η περιβάλλουσα μορφοποίηση το καθορίζει. Αντίστοιχα, `TextStrikethroughType::NotDefined` αφήνει την τοπική ρύθμιση ακαθόριστη, επιτρέποντας στην περιοχή να κληρονομήσει τη μορφοποίηση, π.χ. από την παράγραφο. Δεν εγγυάται ότι η διακριτή γραμμή αφαιρείται. Χρησιμοποιήστε το [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) για να διαβάσετε τη τελική μορφοποίηση, συμπεριλαμβανομένων των κληρονομημένων τιμών.
+Για να αφαιρέσετε τη διακριτή γραμμή, ορίστε `TextStrikethroughType::None`. Αυτό απενεργοποιεί ρητά το εφέ, ακόμη και αν η περιβάλλουσα μορφοποίηση το καθορίζει. Αντίθετα, `TextStrikethroughType::NotDefined` αφήνει την τοπική ρύθμιση ακαθόριστη, επιτρέποντας στο τμήμα να κληρονομήσει τη μορφοποίηση, π.χ., από την παράγραφο. Δεν εγγυάται ότι η διακριτή γραμμή έχει αφαιρεθεί. Χρησιμοποιήστε το [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) για να διαβάσετε τη μορφοποίηση που προκύπτει, συμπεριλαμβανομένων των κληρονομημένων τιμών.
 
-Το παρακάτω αυτό-συμπεριλαμβανόμενο παράδειγμα δημιουργεί τρεις συγκρίσεις τιμών. Κάθε παράγραφος έχει ξεχωριστές περιοχές για την ετικέτα, την παλιά τιμή και την τρέχουσα τιμή, έτσι μόνο η παλιά τιμή επηρεάζεται. Η πρώτη σειρά εφαρμόζει και μετά αφαιρεί τη διακριτή γραμμή· οι άλλες σειρές διατηρούν ενιαία και διπλή διακριτή γραμμή. Η αλλαγή αυτής της ιδιότητας διατηρεί το κείμενο και τις υπόλοιπες μορφοποιήσεις του, συμπεριλαμβανομένης της έντονης παλιάς τιμής.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τρεις συγκρίσεις τιμών. Κάθε παράγραφος έχει ξεχωριστά τμήματα για την ετικέτα, την προηγούμενη τιμή και την τρέχουσα τιμή, ώστε να επηρεάζεται μόνο η προηγούμενη τιμή. Η πρώτη σειρά εφαρμόζει και μετά αφαιρεί τη διακριτή γραμμή· οι άλλες σειρές διατηρούν τη μονή ή τη διπλή διακριτή γραμμή. Η αλλαγή αυτής της ιδιότητας διατηρεί το κείμενο και τις υπόλοιπες μορφοποίησές του, συμπεριλαμβανομένης της έντονης προηγούμενης τιμής.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -761,7 +762,7 @@ for (auto label : labels)
     textFrame->get_Paragraphs()->Add(paragraph);
 }
 
-// Εφαρμόστε διακριτή γραμμή, έπειτα αφαιρέστε την ρητά από την πρώτη προηγούμενη τιμή.
+// Εφαρμόστε διακριτή γραμμή, στη συνέχεια αφαιρέστε την ρητά από την πρώτη προηγούμενη τιμή.
 auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
 firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
 firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
@@ -773,15 +774,16 @@ presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Το αποτέλεσμα, από πάνω προς τα κάτω: χωρίς διακριτική γραμμή, με ενιαία διακριτική γραμμή και με διπλή διακριτική γραμμή.
+Το αποτέλεσμα, από πάνω προς τα κάτω: χωρίς διακριτή γραμμή, με μονή διακριτή γραμμή, και με διπλή διακριτή γραμμή.
 
-![Παλαιές τιμές χωρίς, με ενιαία και με διπλή διακριτική γραμμή](strikethrough.png)
+![Προηγούμενες τιμές χωρίς διακριτή γραμμή, με μονή διακριτή γραμμή και με διπλή διακριτή γραμμή](strikethrough.png)
+
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) για να ορίσετε προκαθορισμένη προσανατολισμό κειμένου μέσα σε σχήμα.
+Χρησιμοποιήστε [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) για να ορίσετε προκαθορισμένη προσανατολισμό κειμένου μέσα σε σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερά**:
+Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα στο [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), το οποίο περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -809,9 +811,9 @@ presentation->Dispose();
 
 ![Η περιστροφή του κειμένου](text_rotation.png)
 
-## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
+## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαισίους Κειμένου**
 
-Χρησιμοποιήστε το [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
+Χρησιμοποιήστε [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
 
 Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
@@ -838,16 +840,16 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
+![Η προσαρμοσμένη περιστροφή του κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Διαστήματος Γραμμής Παραγράφων**
+## **Ορισμός Απόστασης Γραμμής Παραγράφων**
 
-Το Aspose.Slides παρέχει τις μεθόδους [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) και [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) για να ελέγξετε το διάστημα παραγράφων. Οι μέθοδοι χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) και [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) για έλεγχο απόστασης παραγράφων. Αυτές οι μέθοδοι χρησιμοποιούνται ως εξής:
 
-* Χρησιμοποιήστε θετική τιμή για να καθορίσετε το διάστημα γραμμής ως ποσοστό του ύψους γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να καθορίσετε το διάστημα γραμμής σε σημεία.
+* Χρησιμοποιήστε θετική τιμή για να ορίσετε την απόσταση γραμμής ως ποσοστό του ύψους γραμμής.
+* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε την απόσταση γραμμής σε σημεία.
 
-Το παρακάτω παράδειγμα ορίζει διάστημα μέσα στην πρώτη παράγραφο στο 200 % του ύψους γραμμής (διπλό διάστημα):
+Το παρακάτω παράδειγμα ορίζει την απόσταση εντός της πρώτης παραγράφου στο 200 % του ύψους γραμμής (διπλή διαστήση):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -875,18 +877,18 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Η απόσταση γραμμής στην παράγραφο](line_spacing.png)
 
-## **Έλεγχος Συμπίεσης Γραμμών**
+## **Έλεγχος Μελίωσης Γραμμών**
 
-Οι κανόνες συμπίεσης γραμμών παραγράφου είναι χρήσιμοι σε στενά πλαίσια κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και Ανατολικοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), έτσι εφαρμόζονται σε ολόκληρη την παράγραφο:
+Οι κανόνες μελίωσης γραμμών παραγράφου είναι χρήσιμοι σε στενά πλαίσια κειμένου και παρουσιάσεις που αναμειγνύουν λατινικό και ανατολικοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), οπότε εφαρμόζονται σε ολόκληρη την παράγραφο:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) ελέγχει τους κανόνες συστοιχίας γραμμής για λατινικό κείμενο. Σε ανάμικτο κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το γειτονικό Ανατολικοασιατικό κείμενο και η στίξη αναδιπλώνονται.
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ελέγχει τους κανόνες συστοιχίας γραμμής για Ανατολικοασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών στους χαρακτήρες στην αρχή και στο τέλος μιας γραμμής.
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) ελέγχει τους κανόνες μελίωσης για λατινικό κείμενο. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το γειτονικό ανατολικοασιατικό κείμενο και τα σημεία στίξης τυλίγονται.
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) ελέγχει τους κανόνες μελίωσης για ανατολικοασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών χαρακτήρων στην αρχή και στο τέλος μιας γραμμής.
 
-Αυτοί οι κανόνες δεν αντικαθιστούν το [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), το οποίο ενεργοποιεί αυτόματη αναδίπλωση μέσα σε ένα πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν υπάρχει αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μία ρητή αλλαγή γραμμής αναγκάζει νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
+Αυτοί οι κανόνες δεν αντικαθιστούν το [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), που ενεργοποιεί αυτόματη αναδίπλωση μέσα σε πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν συμβαίνει η αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής εξαναγκάζει νέα γραμμή στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
 
-Το παρακάτω αυτό-συμπεριλαμβανόμενο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει κινέζικο και λατινικό κείμενο. Ορίζει και τους δύο κανόνες συστοιχίας γραμμής ρητά και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με κάποιον από τους κανόνες, αλλάξτε την τιμή που περνάτε στη συνάρτηση setter ενώ διατηρείτε τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημεία και SimSun με πλαίσιο πλάτους 160 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) καλείται με [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και το πλάτος πλαισίου να παραμείνουν αμετάβλητα.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί στενό μπλοκ κειμένου που περιέχει κινέζικο και λατινικό κείμενο. Ορίζει ρητά και τους δύο κανόνες μελίωσης και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με οποιονδήποτε κανόνα, αλλάξτε την τιμή που περνιέται στην αντίστοιχη μέθοδο διατηρώντας τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημεία και SimSun με πλάτος πλαισίου 160 σημεία και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) καλείται με [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις του πλαισίου να παραμένουν σταθερά.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -944,11 +946,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Έλεγχος Κρεμαστής Στίξης**
+## **Έλεγχος Κρεμαστού Στίγματος (Hanging Punctuation)**
 
-Το [IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) επιτρέπει στην επιλέξιμη στίξη να εκτείνεται πέρα από το δεξιό άκρο της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από την κρεμαστή εσοχή.
+Το [IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) επιτρέπει σε επιλέξιμα σημεία στίγματος να εκτείνονται πέρα από την δεξιά άκρη της γραμμής κειμένου αντί να καταλαμβάνουν την επόμενη γραμμή. Είναι εφαρμόσιμο σε όλη την παράγραφο και διαφέρει από το κρεμαστό εσοχή.
 
-Το παρακάτω αυτό-συμπεριλαμβανόμενο παράδειγμα ενεργοποιεί την κρεμαστή στίξη σε πλαίσιο κειμένου 100 σημείων και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημεία και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, το τελικό τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από το δεξιό άκρο του κειμένου. Περάστε [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) στην setter για να συγκρίνετε: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργή και το autofit απενεργοποιημένο για να διατηρηθεί το διαθέσιμο πλάτος σταθερό.
+Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί το κρεμαστό στίγμα σε πλαίσιο κειμένου πλάτους 100 σημεία και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημεία και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, η τελική τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από τη δεξιά άκρη. Περνάτε [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) στη μέθοδο για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργοποιημένη και το autofit απενεργοποιημένο για σταθερό διαθέσιμο πλάτος.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -999,20 +1001,20 @@ portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
 format->set_HangingPunctuation(NullableBool::True);
 
-presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
+presentation->Save(u"hhanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Δεν μπορεί να κρεμαστεί κάθε σήμα στίξης. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφονται παραπάνω](#control-line-breaking) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων autofit μπορεί να αφαιρέσει την οπτική διαφορά.
+Δεν μπορεί να κρεμαστεί κάθε σημάδι στίγματος. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφηκαν παραπάνω](#control-line-breaking) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων autofit μπορεί να αφαιρέσει τη διακριτή διαφορά.
 
-## **Ορισμός Τύπου Autofit για Πλαίσια Κειμένου**
+## **Ορισμός Τύπου Autofit για Πλαισίους Κειμένου**
 
-Το [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) καθορίζει πώς το κείμενο συμπεριφέρεται όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο θα μικρύνει, θα υπερχειλίσει ή θα αλλάξει μέγεθος του σχήματος αυτόματα. Το παρακάτω παράδειγμα ρυθμίζει το σχήμα ώστε να αλλάζει μέγεθος ώστε να χωρά το κείμενο και αποθηκεύει το αποτέλεσμα στο «autofit_type.pptx».
+Το [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε εάν το κείμενο θα συρρικνωθεί, θα υπερχειλίσει ή το σχήμα θα προσαρμοστεί αυτόματα. Το παρακάτω παράδειγμα ρυθμίζει το σχήμα ώστε να αλλάζει μέγεθος ώστε να χωρά το κείμενο και αποθηκεύει το αποτέλεσμα στο «autofit_type.pptx».
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrame> 
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/TextAutofitType.h>
@@ -1025,17 +1027,15 @@ auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
-autoShape->get_TextFrame()->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+autoShape->get_TextFrame()->get_TextFrameFormat()->set_Autdown; // This line should not have  ; 
 
-presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς το πλάτος κειμένου ή σχήματος αλλάζει το αποτέλεσμα, δείτε το [Count Rendered Lines](/slides/el/cpp/manage-paragraph/). Ο μόνος αριθμός γραμμών δεν υποδεικνύει εάν το κείμενο υπερχειλίζει το περιέκτη του.
+Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς η αλλαγή του πλάτους κειμένου ή σχήματος επηρεάζει το αποτέλεσμα, δείτε [Count Rendered Lines](/slides/el/cpp/manage-paragraph/). Ο μόνος αριθμός γραμμών δεν υποδεικνύει αν το κείμενο υπερχειλίζει το περιέκτη του.
 
-## **Ορισμός Άγκρωσης Πλαισίων Κειμένου**
+## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-Το [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) ορίζει πώς το κείμενο τοποθετείται κατακόρυφα μέσα σε σχήμα, π.χ. στην κορυφή, το κέντρο ή το κάτω μέρος. Το παρακάτω παράδειγμα αγγίζει το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα στο «text_anchor.pptx».
+Το [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) ορίζει πώς το κείμενο τοποθετείται κάθετα μέσα σε σχήμα, π.χ., στο πάνω, στη μέση ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα στο «text_anchor.pptx».
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1059,9 +1059,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ορισμός Καρτελών Κειμένου**
+## **Ορισμός Στηλοθετών Κειμένου**
 
-Χρησιμοποιήστε τα [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) και [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) για να ρυθμίσετε τα σημεία τερματισμού (tab stops) σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα καρτέλας σε 100 σημεία και προσθέτει μια αριστερή καρτέλα στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν το κείμενο που περιέχει χαρακτήρες καρτέλας.
+Χρησιμοποιήστε [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) και [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) για να διαμορφώσετε στάσεις στηλοθετών σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα στηλοθέτη στα 100 σημεία και προσθέτει αριστερά στοχευμένη στάση στηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν κείμενο που περιέχει χαρακτήρες στηλοθέτη.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1092,13 +1092,13 @@ presentation->Dispose();
 
 Το αποτέλεσμα:
 
-![Οι καρτέλες της παραγράφου](paragraph_tabs.png)
+![Οι στηλοθέτες της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός Γλώσσας Διόρθωσης**
+## **Ορισμός Γλώσσας Ελέγχου Συγγραφής**
 
-Το Aspose.Slides παρέχει το [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα διόρθωσης για μια περιοχή κειμένου. Η γλώσσα διόρθωσης καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικούς και γραμματικούς ελέγχους στο PowerPoint.
+Το Aspose.Slides παρέχει [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), το οποίο επιτρέπει τον ορισμό της γλώσσας ελέγχου συγγραφής για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για έλεγχο ορθογραφίας και γραμματικής στο PowerPoint.
 
-Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με πεδίο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά του και αναθέτει τη γλώσσα διόρθωσης Απλουστικής Κινέζικης (`zh-CN`). Αποθηκεύει το αποτέλεσμα στο «proofing_language.pptx»:
+Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά της και ορίζει τη γλώσσα ελέγχου Simplified Chinese (`zh-CN`). Αποθηκεύει το αποτέλεσμα στο «proofing_language.pptx»:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -1131,7 +1131,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Ορίστε τη γλώσσα ελέγχου σε απλουστικά κινέζικα.
+// Ορίστε τη γλώσσα ελέγχου σε Απλοποιημένα κινέζικα.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -1141,9 +1141,55 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Αντιγραφή Μεταδεδομένων Γλώσσας**
+
+Κατά την αντιγραφή πολύγλωσσου κειμένου από ένα πρότυπο, διατηρήστε και τα δύο αναγνωριστικά γλώσσας χρησιμοποιώντας το [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) και το [IBasePortionFormat::set_AlternativeLanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_alternativelanguageid/). Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τμήμα προέλευσης με αγγλικά ΗΠΑ ως γλώσσα και γαλλικά ως εναλλακτική γλώσσα και αντιγράφει το κείμενο και τα αναγνωριστικά σε τμήμα σε νέα παρουσίαση.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto source = System::MakeObject<Portion>(u"Hello! Bonjour!");
+source->get_PortionFormat()->set_LanguageId(u"en-US");
+source->get_PortionFormat()->set_AlternativeLanguageId(u"fr-FR");
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 80.0f);
+auto paragraph = shape->get_TextFrame()->get_Paragraph(0);
+paragraph->get_Portions()->Clear();
+
+auto destination = System::MakeObject<Portion>();
+destination->set_Text(source->get_Text());
+destination->get_PortionFormat()->set_LanguageId(source->get_PortionFormat()->get_LanguageId());
+// Αν η πηγή δεν έχει εναλλακτική γλώσσα, μια κενή συμβολοσειρά ακυρώνει την τιμή προορισμού.
+destination->get_PortionFormat()->set_AlternativeLanguageId(source->get_PortionFormat()->get_AlternativeLanguageId());
+paragraph->get_Portions()->Add(destination);
+
+presentation->Save(u"copied_language_metadata.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Για να δοκιμάσετε μια προέλευση χωρίς εναλλακτική γλώσσα, παραλείψτε την ανάθεση του `u"fr-FR"`. Το εναλλακτικό αναγνωριστικό θα είναι τότε μια κενή συμβολοσειρά, και η ίδια εντολή αντιγραφής διατηρεί την απουσία του χωρίς να εισάγει προεπιλεγμένη τιμή, ακόμη και αν η προορισμός είχε προηγουμένως οριστεί εναλλακτική γλώσσα.
+
+Αυτά τα αναγνωριστικά αποθηκεύουν μεταδεδομένα γλώσσας. Η διατήρησή τους δεν καθορίζει ποιο λεξικό θα επιλέξει το PowerPoint για ορθογραφικό ή γραμματικό έλεγχο.
+
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) για να ορίσετε τη προεπιλεγμένη γλώσσα κειμένου κατά τη φόρτωση ή δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με US English ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πεδίο κειμένου και εκτυπώνει `en-US` για την πρώτη περιοχή κειμένου.
+Χρησιμοποιήστε το [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή δημιουργία παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί παρουσίαση με αγγλικά ΗΠΑ ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει πλαίσιο κειμένου και εκτυπώνει `en-US` για το πρώτο τμήμα κειμένου του.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1166,11 +1212,11 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα νέο σχήμα ορθογώνιο με κείμενο.
+// Add a new rectangle shape with text.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Ελέγξτε τη γλώσσα της πρώτης περιοχής.
+// Check the first portion language.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -1182,7 +1228,7 @@ presentation->Dispose();
 
 Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Το παρακάτω παράδειγμα ορίζει γραμματοσειρά 14 σημείων με έντονη μορφή ως προεπιλογή για παραγράφους κορυφαίου επιπέδου σε νέα παρουσίαση και το αποθηκεύει στο «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις παρακάμπτει.
+Το παρακάτω παράδειγμα ορίζει γραμματοσειρά 14 σημεία με έντονο στυλ ως προεπιλογή για παραγράφους κορυφαίου επιπέδου σε νέα παρουσίαση και το αποθηκεύει στο «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις αντικαταστήσει.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -1197,7 +1243,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Αποκτήστε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+// Λάβετε τη μορφοποίηση της παραγράφου του ανώτερου επιπέδου.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -1211,15 +1257,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Εξαγωγή Κειμένου με Το Εφέ Όλων σε Κεφαλαία (All‑Caps)**
+## **Εξαγωγή Κειμένου με Εφέ Όλων Κεφαλαίων (All‑Caps)**
 
-Στο PowerPoint, η εφαρμογή του εφέ **All Caps** στη γραμματοσειρά κάνει το κείμενο να εμφανίζεται σε κεφαλαία στη διαφάνεια ακόμα και αν αρχικά είχε πληκτρολογηθεί σε πεζά. Όταν ανακτάτε μια τέτοια περιοχή κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως δόθηκε. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
+Στο PowerPoint, η εφαρμογή του εφέ **All Caps** στην γραμματοσειρά κάνει το κείμενο να εμφανίζεται με κεφαλαία στην διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με πεζά. Όταν ανακτάτε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) και μετατρέψτε τη επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
 
-Αυτό το παράδειγμα απαιτεί το «sample2.pptx» με πεδίο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη παράγραφος της πρώτης περιοχής της περιέχει το «Hello, Aspose!» με εφαρμοσμένο το εφέ All Caps, όπως φαίνεται παρακάτω.
+Αυτό το παράδειγμα απαιτεί το «sample2.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη παράγραφος του πρώτου τμήματος περιέχει το «Hello, Aspose!» με το εφέ All Caps εφαρμοσμένο, όπως φαίνεται παρακάτω.
 
 ![Το εφέ All Caps](all_caps_effect.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξαγάγετε το κείμενο με το **All Caps** εφέ εφαρμοσμένο:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφέ **All Caps** εφαρμοσμένο:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1261,14 +1307,14 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Πώς μπορώ να τροποποιήσω το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς τροποποιώ κείμενο σε πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Επανάληψη μέσω των κελιών και ενημέρωση κάθε κελιού μέσω του [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) και μορφοποίηση παραγράφων μέσω του [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Για να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) και τη μορφοποίηση παραγράφου μέσω του [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Πώς μπορώ να εφαρμόσω ένα gradient χρώμα σε κείμενο σε μια διαφάνεια PowerPoint;**
+**Πώς εφαρμόζω διαβάθμιση χρώματος σε κείμενο σε διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε ένα gradient χρώμα σε κείμενο, χρησιμοποιήστε το [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Ορίστε το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) σε [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) και διαμορφώστε τα σημεία gradient, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε διαβάθμιση χρώματος σε κείμενο, χρησιμοποιήστε το [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Ορίστε το [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) σε [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) και ρυθμίστε τα στάδια διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
 
 Σχετικό χαρακτηριστικό: [Format text within slides](/slides/el/features/text-formatting/).

@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunum Metnini Biçimlendir
+title: Android'de Sunum Metnini Biçimlendirme
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
@@ -17,7 +17,7 @@ keywords:
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi çapa
+- metin çerçevesi ankrajı
 - metin sekmesi
 - varsayılan dil
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni biçimlendirin ve stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
+description: "Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni biçimlendirip stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin yerleştirme, sekme durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin yerleştirme, sek durakları ve dil ayarları ele alınmaktadır.
 
-Özel bir şey belirtilmedikçe, örneklerde [sample.pptx](sample.pptx) kullanılır. İlk slaydındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır tabanlıdır. Kalın bölümleri seçen örnekler, etkili biçimlendirme kullanır; buna kalıtsal kalın biçimlendirme de dahildir:
+Unless stated otherwise, the examples use [sample.pptx](sample.pptx). The first shape on its first slide is a text box, and its first paragraph contains the text shown below. Both slide and shape indices are zero-based. Examples that select bold portions use effective formatting, including inherited bold formatting:
 
 ![Örnek metin](sample_text.png)
 
-Harf dizilerini veya düzenli ifade eşleşmelerini bulmak ve vurgulamak için [Metin Arama ve Değiştirme](/slides/tr/androidjava/search-and-replace-text/) bölümüne bakın.
+To find and highlight literal text or regular-expression matches, see [Metin Arama ve Değiştirme](/slides/tr/androidjava/search-and-replace-text/).
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragraf için varsayılan vurgulama rengini ayarlamak üzere [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) kullanın veya bireysel metin bölümleri için [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) kullanın veya bireysel metin bölümleri için [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerde belirtilen vurgulama renkleri bu varsayılanın üzerine yazılır:
+The following example sets a light gray highlight as the default for the first paragraph. Explicit highlight colors on individual portions take precedence over this default:
 
 ```java
 import com.aspose.slides.*;
@@ -68,7 +68,7 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
+The code example below demonstrates how to set the background color for **kalın yazı tipine sahip metin bölümleri**:
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +100,9 @@ Sonuç:
 
 ## **Metin Paragraflarını Hizala**
 
-Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) kullanın. Değer merkezi, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
+Use [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) to set paragraph alignment within a text frame. The value can be centered, left-aligned, right-aligned, justified, and so on.
 
-Aşağıdaki kod örneği, paragrafı **ortaya** hizalamanın yolunu gösterir:
+The following code example shows how to align the paragraph to the **ortaya**:
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +127,11 @@ Sonuç:
 
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
-## **Satır İçinde Yazı Tiplerini Hizala**
+## **Satır İçinde Yazı Tipi Hizalama**
 
-Farklı yazı tipi boyutlarına sahip metin bölümlerini bir satır içinde dikey olarak hizalamak için [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) kullanın. Bu ayar tüm paragrafı kapsar ve her satır içindeki hizalamayı kontrol eder.
+Use [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) to vertically align text portions of different font sizes within a line. This setting applies to the entire paragraph and controls alignment within each of its lines.
 
-Aşağıdaki bağımsız örnek, bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puan boyutlarında içerir ve farklı bir yazı tipi hizalaması kullanır. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar:
+The following self-contained example creates four labeled text boxes on one slide. Each paragraph contains the same text at 18, 36, and 54 points, with a different font alignment. It uses Arial, disables autofit and wrapping, and keeps the text frames large enough for a single line.
 
 ```java
 import com.aspose.slides.*;
@@ -187,17 +187,17 @@ try {
 
 Sonuç:
 
-![Alt Çizgi, Üst, Merkez ve Alt hizalama karşılaştırması](font_alignment.png)
+![Alt Çizgi, Üst, Orta ve Alt hizalama karşılaştırması, karışık yazı tipi boyutlarıyla](font_alignment.png)
 
-Yazı tipi hizalaması yazı tipi metriklerini kullanır, bu yüzden kişisel harflerin görünür kenarları kesin olarak hizalanmayabilir. Örnek, alt çizgi ve bir alt karakter içerir, böylece alt çizgi ve alt hizalama arasındaki fark gösterilir. Yazı tipi bulunabilirliği, karakter seçimi ve boyut farkları sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; karşılaştırma yaparken aynı yazı tipleri ve düzen ayarları kullanılmalıdır.
+Font alignment uses font metrics, so the visible edges of individual letters do not necessarily line up exactly. The example includes both an uppercase letter and a descender to help show the difference between baseline and bottom alignment. Font availability and substitution, the characters used, and the difference in font sizes affect the result. Frame dimensions, margins, line spacing, wrapping, and autofit also affect layout; use the same fonts and layout settings when comparing modes.
 
-Bu ayar, yatay paragraf hizalamasını kontrol eden [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve şekil içinde metin bloğunu dikey olarak konumlandıran [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ayarlarından farklıdır. [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) ile üst ve alt karakter biçimlendirmesi, paragraf satırlarının alt çizgisine göre bireysel bölümleri kaydırır; yazı tipi hizalaması ayarlanmaz.
+This setting differs from [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), which controls horizontal paragraph alignment, and [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), which positions the text block vertically within its shape. Superscript and subscript formatting through [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) shifts individual portions relative to the baseline instead of setting font alignment for the paragraph's lines.
 
 ## **Metin Şeffaflığını Ayarla**
 
-Metin şeffaflığı, [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--)'a atanan rengin alfa bileşeni aracılığıyla kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde şeffaflık değildir.
+Text transparency is controlled through the alpha component of the color assigned to [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). In the examples below, `alpha = 50` is an ARGB alpha-channel value on the 0–255 scale, not a transparency percentage.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığı nasıl uygular gösterir:
+The code example below shows how to apply transparency to the **entire paragraph**:
 
 ```java
 import com.aspose.slides.*;
@@ -212,7 +212,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Metnin dolgu rengini şeffaf renge ayarla.
+    // Metnin dolgu rengini şeffaf renk olarak ayarla.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -226,7 +226,7 @@ Sonuç:
 
 ![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflığı nasıl uygular gösterir:
+The following code example shows how to apply transparency to **kalın yazı tipine sahip metin bölümleri**:
 
 ```java
 import com.aspose.slides.*;
@@ -261,9 +261,9 @@ Sonuç:
 
 ## **Metin Karakter Aralığını Ayarla**
 
-Bir metin kutusunda karakterler arasındaki boşluğu genişletmek veya sıkıştırmak için [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) kullanın. Örneklerde 3 puan aralık eklenir; negatif değerler metni sıkıştırır.
+Use [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) to expand or condense spacing between characters in a text box. The examples add 3 points of spacing; negative values condense the text.
 
-Aşağıdaki Java kodu, **tüm paragraf** içinde karakter aralığını nasıl genişleteceğinizi gösterir:
+The following Java code shows how to expand the character spacing in the **entire paragraph**:
 
 ```java
 import com.aspose.slides.*;
@@ -288,7 +288,7 @@ Sonuç:
 
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** içinde karakter aralığını nasıl genişleteceğinizi gösterir:
+The code example below shows how to expand the character spacing in **kalın yazı tipine sahip metin bölümleri**:
 
 ```java
 import com.aspose.slides.*;
@@ -319,9 +319,9 @@ Sonuç:
 
 ### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
 
-Bazı durumlarda Aspose.Slides tarafından render edilen metin, PowerPoint'te aynı metinden biraz daha sık görünebilir. PowerPoint, bazı yazı tipleri için kerning verilerini göz ardı edebilir; bu, yazı tipinde geçerli kerning bilgisi olsa bile ve PowerPoint ayarlarında kerning etkin olsa bile gerçekleşebilir.
+In some cases, text rendered by Aspose.Slides may look slightly tighter than the same text displayed in PowerPoint. This can happen because PowerPoint may ignore kerning data for certain fonts, even when the font contains valid kerning information and kerning is enabled in PowerPoint settings.
 
-Bu durumlarda render çıktısını PowerPoint'e daha yakın hale getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) değerini gerçek yazı tipi boyutundan daha büyük bir değere ayarlayın. Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "presentation.pptx" dosyasını gerektirir. Etkili yazı tipi adlarını (kalıtsal yazı tipleri dahil) kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri belirler. Bu, 100 puanın altında bir yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
+To make the rendered output closer to PowerPoint in such cases, you can disable kerning for text portions that use the affected font. Set [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) to a value larger than the actual font size. This example requires "presentation.pptx" with a text box as the first shape on the first slide. It checks effective font names, including inherited fonts, and sets a 100-point threshold for portions that use Roboto. This disables kerning for matching portions with a font size below 100 points:
 
 ```java
 import com.aspose.slides.*;
@@ -354,13 +354,13 @@ try {
 }
 ```
 
-Eşik değerinin altındaki eşleşen metinler için bu ayar kerning'i önler ve PowerPoint'in bu özel davranışı nedeniyle etkilenmiş yazı tiplerinin görsel çıktısını Aspose.Slides renderiyle uyumlu hâle getirebilir.
+For matching text below the threshold, this setting prevents kerning and can help align Aspose.Slides rendering with PowerPoint’s visual output for fonts affected by this PowerPoint-specific behavior.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, paragraf düzeyinde [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) aracılığıyla veya bireysel bölümlerde [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/) aracılığıyla ayarlanabilir.
+Font properties can be set at the paragraph level through [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) or on individual portions through [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/).
 
-Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman olarak, kalın, italik ve noktalı alt çizgi ile ayarlar. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine yazılır:
+The following example sets the first paragraph’s default font to 12-point Times New Roman with bold, italic, and dotted underline formatting. Explicit formatting on individual portions takes precedence over these defaults.
 
 ```java
 import com.aspose.slides.*;
@@ -389,7 +389,7 @@ Sonuç:
 
 ![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik ve noktalı alt çizgi uygular:
+The following example applies 13-point Times New Roman, italic formatting, and a dotted underline to portions whose effective formatting is bold:
 
 ```java
 import com.aspose.slides.*;
@@ -423,11 +423,11 @@ Sonuç:
 
 ## **Metin Yüksekliği Normalizasyonunu Kontrol Et**
 
-Şablon tipografisini yeniden üretirken veya karakter yüksekliği farklarını incelerken [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) kullanın. PowerPoint’te normalizasyonu etkinleştirmek, bireysel karakterleri dikey olarak esnetir veya sıkıştırır; böylece metin bölümü içinde görünür yükseklik tek tip hâle gelir. Farklı yazı tipleri arasında eşit metin yüksekliği garantilenmez.
+Use [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
 
-Özelliği açıkça etkinleştirmek veya devre dışı bırakmak için [NullableBool.True or False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) kullanın. `NullableBool.NotDefined` yerel ayarı boş bırakır; böylece bölüm, örneğin paragrafın [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) değerini devralır. Bu `False` anlamına gelmez. Çözülmüş Boolean değeri elde etmek için [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) ve [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) kullanın.
+Set the property to [NullableBool.True or False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool.NotDefined` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--). It does not mean `False`. Use [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) and read [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) to obtain the resolved Boolean value.
 
-Aşağıdaki bağımsız örnek **Arial** yüklü olmasını gerektirir. Aynı büyük harf, küçük harf, alt karakter ve aksanlı karakterleri 54 puan boyutunda iki metin bloğu oluşturur. Her iki paragraf da varsayılan olarak normalizasyonu etkinleştirir. Üst bölüm bunu açıkça devre dışı bırakır; alt bölüm devralır. Çerçeve boyutları, kenar boşlukları ve paragraf aralığı aynı olup, kaydırma ve otomatik sığdırma devre dışı bırakılmıştır; böylece karşılaştırma tutarlı olur. Örnek `False: false` ve `NotDefined: true` çıktısını verir, ardından "text_height_normalization.pptx" dosyasını kaydeder.
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `False: false` and `NotDefined: true`, then saves "text_height_normalization.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -477,19 +477,19 @@ try {
 }
 ```
 
-Aşağıdaki karşılaştırma kaydedilen sunumdan dışa aktarılmıştır. Üst satır normalizasyon devre dışı (`False`); alt satır etkin ayarı devralır (`NotDefined` → `True`). Bu görünümü yeniden üretmek için Arial yüklü olmalıdır.
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`False`); the bottom row inherits the enabled setting (`NotDefined` → `True`). Keep Arial installed to reproduce this appearance.
 
-![Arial 54-punkt metin, üstte normalizasyon devre dışı, altta devralınmış normalizasyon etkin](text_height_normalization.png)
+![Arial 54 noktalı metin, üstte normalizasyon devre dışı ve altta devralınan normalizasyon etkin](text_height_normalization.png)
 
-Normalizasyon, atanmış [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) değerini değiştirmeden karakter yüksekliğini değiştirir; bu değer puan cinsinden yazı tipi boyutunu belirtir. Paragraf [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) satır aralığını kontrol eder, metin çerçevesi [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) ise metnin ya da kapsayıcının nasıl ayarlanacağını belirler. Bu ayarlar farklı amaçlara hizmet eder ve düzeni bağımsız olarak etkileyebilir. Paragraf biçimlendirme ve kalıtım hakkında daha fazla bilgi için [Paragrafı Yönet](/slides/tr/androidjava/manage-paragraph/) bölümüne bakın.
+Normalization changes character height without changing the assigned [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) value, which specifies the font size in points. Paragraph [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) controls line spacing, while text-frame [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/tr/androidjava/manage-paragraph/).
 
-## **Üst Çizgi Uygula ve Kaldır**
+## **Üstü Çizili Uygula ve Kaldır**
 
-Bir metin bölümü üzerinde düzeltmeler, iptal edilen ifadeler veya önceki fiyatları silmeden göstermek için [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) kullanın. Tek veya çift çizgi için [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) ayarlayın.
+Use [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) for one or two lines through the text.
 
-Üst çizgiyi kaldırmak için [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None) gönderin. Bu, çevreleyen biçimlendirme üst çizgi belirtiyor olsa bile etkisi açıkça devre dışı bırakır. Buna karşılık, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) yerel ayarı tanımsız bırakır; böylece paragraftan devralınan biçimlendirme kullanılabilir. Üst çizginin kaldırıldığını garanti etmez. Sonucu, devralınan değerler dahil olmak üzere okumak için [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) kullanın.
+To remove strikethrough, pass [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None). This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) to read the resulting formatting, including inherited values.
 
-Aşağıdaki bağımsız örnek üç fiyat karşılaştırması oluşturur. Her paragrafta etiket, önceki fiyat ve güncel fiyat için ayrı bölümler bulunur; böylece yalnızca önceki fiyat etkilenir. İlk satır üst çizgiyi uygular ve ardından kaldırır; diğer satırlar tek ve çift üst çizgiyi korur. Bu ayarı değiştirmek, metni ve diğer biçimlendirmeleri, özellikle kalın önceki fiyatı, korur.
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this setting preserves the text and its other formatting, including the bold previous price.
 
 ```java
 import com.aspose.slides.*;
@@ -532,7 +532,7 @@ try {
 
     IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Üst çizgiyi uygula, ardından ilk önceki fiyattan açıkça kaldır.
+    // Üstü çizme uygula, ardından ilk önceki fiyatın üzerindeki üstü çizme efektini açıkça kaldır.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
 
@@ -545,15 +545,15 @@ try {
 }
 ```
 
-Sonuç, üstten aşağıya: üst çizgi yok, tek üst çizgi, çift üst çizgi.
+Sonuç, üstten alta: üstü çizili olmayan önceki fiyatlar, tek çizgili ve çift çizgili üstü çizili fiyatlar.
 
-![Üst çizgi olmayan, tek üst çizgili ve çift üst çizgili önceki fiyatlar](strikethrough.png)
+![Üstü çizili olmayan önceki fiyatlar, tek çizgili ve çift çizgili üstü çizili fiyatlar](strikethrough.png)
 
 ## **Metin Döndürmesini Ayarla**
 
-Bir şekil içinde önceden tanımlı bir metin yönünü ayarlamak için [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) kullanın.
+Use [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) to set a predefined text orientation within a shape.
 
-Aşağıdaki kod örneği, şekildeki metin yönünü [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+The following code example sets the text orientation in the shape to [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), which rotates the text **90 degrees counterclockwise**:
 
 ```java
 import com.aspose.slides.*;
@@ -575,11 +575,11 @@ Sonuç:
 
 ![Metin döndürmesi](text_rotation.png)
 
-## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
+## **Metin Çerçeveleri için Özel Döndürme Ayarla**
 
-[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) kullanarak bir [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) için özel bir döndürme açısı ayarlayabilirsiniz.
+Use [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) to set a custom rotation angle for an [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/).
 
-Aşağıdaki kod örneği, şekil içinde metin çerçevesini saat yönünde 3 derece döndürür:
+The code example below rotates the text frame by 3 degrees clockwise within the shape:
 
 ```java
 import com.aspose.slides.*;
@@ -603,12 +603,12 @@ Sonuç:
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) sağlar. Bu özellikler şu şekilde kullanılır:
+Aspose.Slides provides [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), and [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) to control paragraph spacing. These properties are used as follows:
 
-* Pozitif bir değer, satır yüksekliğinin yüzdesi olarak satır aralığını belirtmek için kullanılır.  
-* Negatif bir değer, satır aralığını puan olarak belirtmek için kullanılır.
+* Use a positive value to specify line spacing as a percentage of the line height.
+* Use a negative value to specify line spacing in points.
 
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200’üne (çift satır aralığı) ayarlar:
+The following example sets spacing within the first paragraph to 200% of the line height (double spacing):
 
 ```java
 import com.aspose.slides.*;
@@ -634,14 +634,14 @@ Sonuç:
 
 ## **Satır Kesilmesini Kontrol Et**
 
-Dar metin bloklarında ve Latin ile Doğu Asya metni karışık kullanılan sunumlarda paragraf satır kesme kuralları yararlıdır. Aşağıdaki yöntemler [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/)’a aittir; bu nedenle tüm paragraf için geçerlidir:
+Paragraph line-breaking rules are useful in narrow text blocks and presentations that mix Latin and East Asian text. The following methods belong to [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), so they apply to an entire paragraph:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) Latin satır kesme kurallarını kontrol eder. Karışık metinde değiştirilmesi, bitişik Doğu Asya metni ve noktalama işaretlerinin kayma noktasını da etkileyebilir.  
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) Doğu Asya satır kesme kurallarını kontrol eder; satır başı ve sonu karakterlerine kısıtlamalar getirir.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) controls Latin line-breaking rules. In mixed text, changing it can also change where adjacent East Asian text and punctuation wrap.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) controls East Asian line-breaking rules, including restrictions on characters at the beginning and end of a line.
 
-Bu kurallar, [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-)’yi değiştirmez; bu, metin çerçevesinde otomatik kaydırmayı etkinleştirir. Kurallar, kaydırma gerçekleştiğinde düzeni etkiler; satır sonu karakteri eklemezler. Açık bir satır kesmesi, paragrafta mevcut genişliğe bakılmaksızın yeni bir satır başlatır.
+These rules do not replace [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), which enables automatic wrapping within a text frame. They influence the layout when wrapping occurs; they do not insert line-break characters. An explicit line break forces a new line within the paragraph independently of the available width.
 
-Aşağıdaki bağımsız örnek, Çin ve Latin metni içeren dar bir metin bloğu oluşturur. Her iki satır kesme seçeneği açıkça ayarlanır ve "line_breaking.pptx" olarak kaydedilir. Her iki kuralı ayrı ayrı denemek için birini değiştirin, diğerini aynı tutun. Örnek, 24 puan Arial ve SimSun, 160 puan çerçeve genişliği ve sıfır yatay kenar boşluğu kullanır. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve boyutları sabit kalır.
+The following self-contained example creates a narrow text block containing Chinese and Latin text. It sets both line-breaking options explicitly and saves "line_breaking.pptx". To experiment with either rule, change the corresponding value while keeping the other settings fixed. The example uses 24-point Arial and SimSun with a 160-point frame width and zero horizontal text-frame margins. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) is called with [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) so that text size and frame dimensions remain fixed.
 
 ```java
 import com.aspose.slides.*;
@@ -681,11 +681,11 @@ try {
 }
 ```
 
-## **Askıya Alınan Noktalama İşaretlerini Kontrol Et**
+## **Asılı Noktalama İşaretlerini Kontrol Et**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) uygun noktalama işaretlerinin metin satırının sağ kenarının ötesine uzanmasına izin verir; bir sonraki satırı işgal etmez. Tüm paragrafı etkiler ve asılı girintiden farklıdır.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) allows eligible punctuation to extend beyond the text line's right edge instead of occupying the next line. It applies to the entire paragraph and is different from a hanging indent.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde askıya alınan noktalama işaretini etkinleştirir ve "hanging_punctuation.pptx" olarak kaydeder. 24 puan Arial ve sıfır yatay kenar boşluğu ile son nokta "sentence" kelimesinden sonra kalır ve sağ kenarın ötesine uzanır. Özelliği [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) olarak ayarlayın; bu ayarlarla nokta ayrı bir satırda yer alır. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır; böylece kullanılabilir genişlik sabit kalır.
+The following self-contained example enables hanging punctuation in a 100-point-wide text frame and saves "hanging_punctuation.pptx". With 24-point Arial and zero horizontal text-frame margins, the final period stays after "sentence" and extends beyond the right text edge. Set the property to [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) to compare: with these settings, the period occupies a separate line. Wrapping is enabled and autofit is disabled to keep the available width fixed.
 
 ```java
 import com.aspose.slides.*;
@@ -722,11 +722,11 @@ try {
 }
 ```
 
-Her noktalama işareti asılı kalamaz. Yukarıda açıklanan [font ve düzen koşulları](#control-line-breaking) bu karşılaştırmaya da uygulanır; yazı tipi, kullanılabilir genişlik, kenar boşlukları veya otomatik sığdırma ayarları değiştirilirse görünür fark kaybolabilir.
+Not every punctuation mark can hang. The [font and layout conditions described above](#control-line-breaking) also apply to this comparison: changing the font, available width, margins, or autofit settings can remove the visible difference.
 
-## **Metin Çerçeveleri İçin Otomatik Sığdırma Tipini Ayarla**
+## **Metin Çerçeveleri İçin Otomatik Sığdırma Tipi Ayarla**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) metnin kapsayıcısının sınırlarını aştığında metnin nasıl davranacağını belirler. Metnin küçülmesi, taşması veya şeklin otomatik olarak yeniden boyutlandırılması gibi davranışları kontrol etmek için kullanılır. Aşağıdaki örnek, şekli metnine göre yeniden boyutlandırır ve sonucu "autofit_type.pptx" olarak kaydeder.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determines how text behaves when it exceeds the boundaries of its container. Use it to control whether the text shrinks, overflows, or resizes the shape automatically. The following example configures the shape to resize to fit its text and saves the result to "autofit_type.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -744,11 +744,11 @@ try {
 }
 ```
 
-Otomatik kaydırma sonrası satır sayısını saymak ve metin ya da şekil genişliğinin sonuca etkisini görmek için [Çizilmiş Satırları Sayma](/slides/tr/androidjava/manage-paragraph/) bölümüne bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
+To count lines after automatic wrapping and see how text or shape width changes the result, see [Count Rendered Lines](/slides/tr/androidjava/manage-paragraph/). Line count alone does not indicate whether text overflows its container.
 
-## **Metin Çerçevelerinin Çapası Ayarla**
+## **Metin Çerçevelerinin Bağlantı Noktasını Ayarla**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) bir şekil içinde metnin dikey konumunu tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, ilk şeklin metnini alta çapar ve sonucu "text_anchor.pptx" olarak kaydeder.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) defines how text is positioned vertically inside a shape, for example, at the top, middle, or bottom. The following example anchors the text to the bottom of the first shape and saves the result to "text_anchor.pptx".
 
 ```java
 import com.aspose.slides.*;
@@ -768,7 +768,7 @@ try {
 
 ## **Metin Sekmelerini Ayarla**
 
-Bir paragrafta sekme duraklarını yapılandırmak için [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) ve [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) kullanın. Aşağıdaki örnek, varsayılan sekme aralığını 100 puan olarak ayarlar ve 30 puanda sola hizalı bir sekme durak ekler. Bu ayarlar sekme karakteri içeren metni etkiler.
+Use [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) and [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) to configure tab stops in a paragraph. The following example sets the default tab interval to 100 points and adds a left-aligned tab stop at 30 points. These settings affect text containing tab characters.
 
 ```java
 import com.aspose.slides.*;
@@ -793,11 +793,11 @@ Sonuç:
 
 ![Paragraf sekmeleri](paragraph_tabs.png)
 
-## **Denetleme Dilini Ayarla**
+## **Düzeltme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) sunar. Denetleme dili, PowerPoint’te yazım ve dilbilgisi denetimi için kullanılan dili belirler.
+Aspose.Slides provides [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), which allows you to set the proofing language for a text portion. The proofing language determines the language used for spelling and grammar checks in PowerPoint.
 
-Aşağıdaki örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "presentation.pptx" dosyasını ve en az bir paragrafı gerektirir. İlk paragrafın içeriğini "1。" olarak değiştirir, SimSun’u yazı tipi olarak ayarlar ve Basitleştirilmiş Çince denetleme dili (`zh-CN`) atar. Sonuç "proofing_language.pptx" olarak kaydedilir:
+The following example requires "presentation.pptx" with a text box as the first shape on the first slide and at least one paragraph. It replaces the first paragraph’s contents with "1。", sets SimSun as its font, and assigns the Simplified Chinese proofing language (`zh-CN`). It saves the result to "proofing_language.pptx":
 
 ```java
 import com.aspose.slides.*;
@@ -818,7 +818,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Denetleme dilinin Id'sini ayarla.
+    // Denetleme dilinin kimliğini ayarla.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -830,9 +830,45 @@ try {
 }
 ```
 
+### **Dil Metaverisini Kopyala**
+
+When copying multilingual text from a template, preserve both [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) and [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--). The following self-contained example creates a source portion with US English as its language and French as its alternative language and copies the text and identifiers to a portion in a new presentation.
+
+```java
+import com.aspose.slides.*;
+
+Portion source = new Portion("Hello! Bonjour!");
+source.getPortionFormat().setLanguageId("en-US");
+source.getPortionFormat().setAlternativeLanguageId("fr-FR");
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80);
+    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    Portion destination = new Portion();
+    destination.setText(source.getText());
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
+    // Kaynağın alternatif dili yoksa, null hedef değerini temizler.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
+    paragraph.getPortions().add(destination);
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+To try a source without an alternative language, omit the assignment of `"fr-FR"`. The alternative identifier is then `null`, and the same copy statement preserves its absence without introducing a default value, even if the destination previously had an alternative language assigned.
+
+These identifiers are stored language metadata. Preserving them does not establish which dictionary PowerPoint selects for spelling or grammar checks.
+
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) kullanılarak bir sunum yüklenirken veya oluşturulurken oluşturulan metnin varsayılan dili tanımlanabilir. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi belirler, bir metin kutusu ekler ve ilk metin bölümünün dili olarak `en-US` yazdırır.
+Use [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) to define the default language for text created while loading or creating a presentation. The following example creates a presentation with US English as the default text language, adds a text box, and prints `en-US` for its first text portion.
 
 ```java
 import com.aspose.slides.*;
@@ -844,7 +880,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Metin içeren yeni bir dikdörtgen şekil ekle.
+    // Metin içeren yeni bir dikdörtgen şekli ekle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -856,18 +892,18 @@ try {
 }
 ```
 
-## **Varsayılan Metin Stilini Ayarla**
+## **Varsayılan Metin Stili Ayarla**
 
-Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--) kullanın.
+To apply default text formatting at the presentation level, use [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve "default_text_style.pptx" olarak kaydeder. Metin, daha belirgin biçimlendirme geçerli olmadıkça bu varsayılanları devralabilir.
+The following example sets a 14-point bold font as the default for top-level paragraphs in a new presentation and saves it to "default_text_style.pptx". Text can inherit these defaults unless more specific formatting overrides them.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Üst seviye paragraf biçimini al.
+    // Üst düzey paragraf formatını al.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -881,15 +917,15 @@ try {
 }
 ```
 
-## **Tüm Büyük Harf Etkisiyle Metni Çıkar**
+## **Tüm Büyük Harf Etkisiyle Metin Çıkar**
 
-PowerPoint’te **All Caps** (Tüm Büyük Harf) yazı tipi etkisi uygulandığında, metin slaytta büyük harf olarak görünür, ancak Aspose.Slides ile bu bölüm alınırken metin girildiği gibi döner. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) kontrol edilmeli ve değer `All` olduğunda döndürülen dize büyük harfe dönüştürülmelidir.
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To match the displayed text, check [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) and convert the returned string to uppercase when the value is `All`.
 
-Aşağıdaki örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "sample2.pptx" dosyasını gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış **“Hello, Aspose!”** içerir.
+This example requires "sample2.pptx" with a text box as the first shape on the first slide. Its first paragraph’s first portion contains "Hello, Aspose!" with the All Caps effect applied, as shown below.
 
 ![Tüm Büyük Harf etkisi](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
+The code example below shows how to extract the text with the **All Caps** effect applied:
 
 ```java
 import com.aspose.slides.*;
@@ -913,7 +949,7 @@ try {
 }
 ```
 
-Çıktı:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -922,10 +958,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tablo içinde metni nasıl değiştiririm?**
+**PowerPoint slaytındaki bir tabloda metni nasıl değiştiririm?**
 
-Bir slayttaki tablo içinde metni değiştirmek için [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) kullanın. Hücreler üzerinde dolaşın ve her hücreyi [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) ile güncelleyin; paragraf biçimlendirmesini ise [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) ile ayarlayın.
+PowerPoint slaytındaki bir tabloda metni değiştirmek için [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) kullanın. Hücreleri dolaşın ve her bir hücreyi [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) üzerinden güncelleyin ve paragraf biçimlendirmesini [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) ile ayarlayın.
 
-**PowerPoint slaytındaki metne degrade renk (gradient) nasıl uygularım?**
+**PowerPoint slaytındaki metne nasıl bir degrade renk uygularım?**
 
-Metne degrade renk uygulamak için [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) kullanın. [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) değerini [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) olarak ayarlayın ve degrade durakları, yön ve şeffaflığı yapılandırın.
+Metne degrade renk uygulamak için [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) kullanın. [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) değerini [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.

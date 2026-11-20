@@ -17,7 +17,7 @@ keywords:
 - textram
 - radavstånd
 - autofit-egenskap
-- textram-ankare
+- ankare för textram
 - texttabulering
 - standardspråk
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formatera och formge text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Node.js via Java. Anpassa teckensnitt, färger, justering och mer."
+description: "Formatera och stilisera text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Node.js via Java. Anpassa teckensnitt, färger, justering och mer."
 ---
 ## **Översikt**
 
-Denna artikel visar hur man formaterar text i PowerPoint‑ och OpenDocument‑presentationer med Aspose.Slides för Node.js via Java. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, textankring, tabbstopp och språkinställningar.
+Den här artikeln visar hur man formaterar text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Node.js via Java. Den täcker bakgrundsfärger, transparens, teckenavstånd, teckensnittsegenskaper, rotation, styckeavstånd, autofit‑beteende, textankring, tabbstopp och språkinställningar.
 
-Om inget annat anges använder exemplen [sample.pptx](sample.pptx). Den första formen på den första bilden är en textruta, och dess första stycke innehåller texten som visas nedan. Både bild‑ och formindex är nollbaserade. Exempel som markerar fetstilta delar använder effektiv formatering, inklusive ärvd fetformatering:
+Om inte annat anges använder exemplen [sample.pptx](sample.pptx). Den första formen på dess första bild är en textruta, och dess första stycke innehåller texten som visas nedan. Både bild‑ och formindex är nollbaserade. Exempel som markerar feta delar använder effektiv formatering, inklusive ärvd fet formatering:
 
-![Sample text](sample_text.png)
+![Exempeltext](sample_text.png)
 
-För att hitta och markera bokstavlig text eller reguljära uttryck, se [Search and Replace Text](/slides/sv/nodejs-java/search-and-replace-text/).
+För att hitta och markera bokstavlig text eller reguljära uttryck‑träffar, se [Sök och ersätt text](/slides/sv/nodejs-java/search-and-replace-text/).
 
 ## **Ange bakgrundsfärg för text**
 
 Använd [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) för att ange standardmarkeringsfärgen för ett stycke, eller använd [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) för enskilda textdelar.
 
-Följande exempel anger en ljusgrå markering som standard för det första stycket. Explcita markeringsfärger på enskilda delar har företräde framför detta standardvärde:
+Följande exempel anger en ljusgrå markering som standard för det första stycket. Explicita markeringsfärger på enskilda delar har företräde framför denna standard:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -55,7 +55,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Sätt markeringsfärgen för hela stycket.
+    // Ange markeringsfärgen för hela stycket.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -66,9 +66,9 @@ try {
 
 Resultatet:
 
-![The gray paragraph](gray_paragraph.png)
+![Det grå stycket](gray_paragraph.png)
 
-Kodexemplet nedan visar hur man anger bakgrundsfärg för **textdelar med fet stil**:
+Kodexemplet nedan visar hur man anger bakgrundsfärgen för **textdelar med ett fetstilat teckensnitt**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Sätt markeringsfärgen för textdelen.
+            // Ange markeringsfärgen för textdelen.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -99,13 +99,13 @@ try {
 
 Resultatet:
 
-![The gray text portions](gray_text_portions.png)
+![De grå textdelarna](gray_text_portions.png)
 
 ## **Justera textstycken**
 
 Använd [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) för att ange styckejustering inom en textram. Värdet kan vara centrerat, vänsterjusterat, högerjusterat, justerat osv.
 
-Följande kodexempel visar hur man justerar stycket till **center**:
+Följande kodexempel visar hur man justerar stycket till **centret**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -117,7 +117,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Ställ in styckets justering till centrerad.
+    // Ange styckets justering till centrerat.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -128,13 +128,13 @@ try {
 
 Resultatet:
 
-![The aligned paragraph](aligned_paragraph.png)
+![Det justerade stycket](aligned_paragraph.png)
 
 ## **Justera teckensnitt inom en rad**
 
 Använd [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) för att vertikalt justera textdelar med olika teckensnittsstorlekar inom en rad. Denna inställning gäller hela stycket och styr justeringen inom varje rad.
 
-Följande självständiga exempel skapar fyra märkta textrutor på en bild. Varje stycke innehåller samma text i 18, 36 och 54 punkter, med olika teckensnittjustering. Det använder Arial, inaktiverar autofit och radbrytning och håller textramarna tillräckligt stora för en enda rad.
+Följande fristående exempel skapar fyra märkta textrutor på en bild. Varje stycke innehåller samma text i 18, 36 och 54 punkter, med olika teckensnittjustering. Det använder Arial, inaktiverar autofit och radbrytning, och håller textramarna tillräckligt stora för en enda rad.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,17 +190,17 @@ try {
 
 Resultatet:
 
-![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+![Jämförelse av Baslinje, Top, Center och Botten teckensnittjustering med blandade storlekar](font_alignment.png)
 
-Teckensnittjustering använder teckensnittsmetrik, så de synliga kanterna på enskilda bokstäver nödvändigtvis inte ligger exakt i linje. Exemplet innehåller både en versal bokstav och en nedstigande del för att visa skillnaden mellan baslinje‑ och bottenjustering. Tillgänglighet och ersättning av teckensnitt, de använda tecknen samt skillnaden i teckensnittsstorlek påverkar resultatet. Ramstorlek, marginaler, radavstånd, radbrytning och autofit påverkar också layouten; använd samma teckensnitt och layoutinställningar när du jämför lägen.
+Teckensnittjustering använder teckensnittsmått, så de synliga kanterna på enskilda bokstäver nödvändigtvis inte linjerar exakt. Exemplet inkluderar både en versal bokstav och en nedre påskrift för att tydligt visa skillnaden mellan baslinje‑ och bottenjustering. Tillgänglighet av teckensnitt och ersättning, de använda tecknen samt skillnaden i teckensnittsstorlekar påverkar resultatet. Ramens dimensioner, marginaler, radavstånd, radbrytning och autofit påverkar också layouten; använd samma teckensnitt och layoutinställningar när du jämför lägen.
 
-Denna inställning skiljer sig från [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment), som styr horisontell styckejustering, och [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType), som placerar textblocket vertikalt inom sin form. Upphöjd och nedsänkt formatering via [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) flyttar enskilda delar relativt baslinjen istället för att ställa in teckensnittjustering för styckets rader.
+Denna inställning skiljer sig från [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment), som styr horisontell styckejustering, och [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType), som placerar textblocket vertikalt inom sin form. Upphöjd och nedsänkt formatering via [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) skiftar enskilda delar i förhållande till baslinjen istället för att ställa in teckensnittjustering för styckets rader.
 
 ## **Ange transparens för text**
 
-Transparens för text styrs via alfa‑komponenten i färgen som tilldelas [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). I exemplen nedan är `alpha = 50` ett ARGB‑alfa‑värde på skalan 0–255, inte ett transparensprocenttal.
+Texttransparens styrs genom alfakomponenten i färgen som tilldelas [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). I exemplen nedan är `alpha = 50` ett ARGB‑alfavärde på 0–255‑skalan, inte en transparensprocent.
 
-Kodexemplet nedan visar hur man tillämpar transparens på **hela stycket**:
+Kodexemplet nedan visar hur man applicerar transparens på **hela stycket**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,7 +216,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Sätt fyllnadsfärgen för texten till transparent färg.
+    // Ställ in fyllningsfärgen för texten till en transparent färg.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -228,9 +228,9 @@ try {
 
 Resultatet:
 
-![The transparent paragraph](transparent_paragraph.png)
+![Det transparenta stycket](transparent_paragraph.png)
 
-Följande kodexempel visar hur man tillämpar transparens på **textdelar med fet stil**:
+Följande kodexempel visar hur man applicerar transparens på **textdelar med ett fetstilat teckensnitt**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -252,7 +252,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // Sätt transparensen för textdelen.
+            // Ställ in transparensen för textdelen.
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -266,13 +266,13 @@ try {
 
 Resultatet:
 
-![The transparent text portions](transparent_text_portions.png)
+![De transparenta textdelarna](transparent_text_portions.png)
 
 ## **Ange teckenavstånd för text**
 
-Använd [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) för att öka eller minska avståndet mellan tecken i en textram. Exemplen lägger till 3 punkters avstånd; negativa värden minskar avståndet.
+Använd [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) för att utöka eller komprimera avståndet mellan tecken i en textruta. Exemplen lägger till 3 punkters avstånd; negativa värden komprimerar texten.
 
-Följande JavaScript‑kod visar hur man ökar teckenavståndet i **hela stycket**:
+Följande JavaScript‑kod visar hur man utökar teckenavståndet i **hela stycket**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,9 +295,9 @@ try {
 
 Resultatet:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![Teckenavståndet i stycket](character_spacing_in_paragraph.png)
 
-Kodexemplet nedan visar hur man ökar teckenavståndet i **textdelar med fet stil**:
+Kodexemplet nedan visar hur man utökar teckenavståndet i **textdelar med ett fetstilat teckensnitt**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -327,13 +327,13 @@ try {
 
 Resultatet:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![Teckenavståndet i textdelarna](character_spacing_in_text_portions.png)
 
 ### **Inaktivera kerning för specifika teckensnitt**
 
-I vissa fall kan text som renderas av Aspose.Slides se något tajtare ut än samma text i PowerPoint. Detta kan ske eftersom PowerPoint ibland ignorerar kerningdata för vissa teckensnitt, även när teckensnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoints inställningar.
+I vissa fall kan text som renderas av Aspose.Slides se något tajtare ut än samma text i PowerPoint. Detta kan ske eftersom PowerPoint kan ignorera kerning‑data för vissa teckensnitt, även när teckensnittet innehåller giltig kerninginformation och kerning är aktiverat i PowerPoints inställningar.
 
-För att få den renderade utskriften att ligga närmare PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det berörda teckensnittet. Ställ in [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) på ett värde som är större än den faktiska teckensnittsstorleken. Detta exempel kräver “presentation.pptx” med en textram som den första formen på den första bilden. Det kontrollerar effektiva teckensnittsnamn, inklusive ärvda teckensnitt, och sätter ett tröskelvärde på 100 punkter för delar som använder Roboto. Detta inaktiverar kerning för matchande delar med en teckensnittsstorlek under 100 punkter:
+För att få den renderade utdata närmare PowerPoint i sådana fall kan du inaktivera kerning för textdelar som använder det påverkade teckensnittet. Ställ in [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) till ett värde som är större än den faktiska teckensnittsstorleken. Detta exempel kräver "presentation.pptx" med en textruta som den första formen på den första bilden. Det kontrollerar effektiva teckensnittsnamn, inklusive ärvda teckensnitt, och sätter ett tröskelvärde på 100 punkter för delar som använder Roboto. Detta inaktiverar kerning för matchande delar med en teckensnittsstorlek under 100 punkter:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +372,13 @@ try {
 }
 ```
 
-För matchande text under tröskeln förhindrar denna inställning kerning och kan hjälpa Aspose.Slides‑renderingen att bättre matcha PowerPoints visuella utslag för teckensnitt som påverkas av detta PowerPoint‑specifika beteende.
+För matchande text under tröskelvärdet förhindrar den här inställningen kerning och kan hjälpa till att anpassa Aspose.Slides‑renderingen till PowerPoints visuella resultat för teckensnitt som påverkas av detta PowerPoint‑specifika beteende.
 
-## **Hantera teckensnitts‑egenskaper för text**
+## **Hantera textteckensnittsegenskaper**
 
-Teckensnitts‑egenskaper kan anges på stycknivå via [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) eller på enskilda delar via [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/).
+Teckensnittsegenskaper kan sättas på styckelnivå via [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) eller på enskilda delar via [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/).
 
-Följande exempel anger standardteckensnittet för det första stycket till 12‑punkt Times New Roman med fet, kursiv och prickad understrykning. Explicit formatering på enskilda delar har företräde framför dessa standardvärden.
+Följande exempel anger det första styckets standardteckensnitt till 12‑punkts Times New Roman med fet, kursiv och streckad understrykning. Explicita formateringar på enskilda delar har företräde framför dessa standardvärden:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -392,7 +392,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Ställ in teckensnittsegenskaperna för stycket.
+    // Ange teckensnittsegenskaperna för stycket.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -407,9 +407,9 @@ try {
 
 Resultatet:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![Teckensnittsegenskaperna för stycket](font_properties_for_paragraph.png)
 
-Följande exempel applicerar 13‑punkt Times New Roman, kursiv formatering och en prickad understrykning på delar vars effektiva formatering är fet:
+Följande exempel applicerar 13‑punkts Times New Roman, kursiv formatering och streckad understrykning på de delar vars effektiva formatering är fet:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -429,7 +429,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Ställ in teckensnittsegenskaperna för textdelen.
+            // Ange teckensnittsegenskaperna för textdelen.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -445,15 +445,15 @@ try {
 
 Resultatet:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![Teckensnittsegenskaper för textdelar](font_properties_for_text_portions.png)
 
-## **Kontrollera normalisering av texthöjd**
+## **Styr normalisering av texthöjd**
 
-Använd [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) när du återproducerar mall‑typografi eller undersöker skillnader i teckenhöjd. I PowerPoint sträcker eller komprimerar aktivering av normalisering enskilda tecken vertikalt så att de får en enhetlig synlig höjd inom textdelen. Det garanterar inte lika texthöjder mellan olika teckensnitt.
+Använd [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) när du återger malltypografi eller undersöker skillnader i teckenhöjd. I PowerPoint sträcker eller komprimerar aktivering av normalisering enskilda tecken vertikalt för att ge dem en enhetlig synlig höjd inom textdelen. Det garanterar inte lika texthöjder mellan olika teckensnitt.
 
-Ställ in egenskapen till [NullableBool.True eller False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) för att explicit aktivera eller inaktivera normalisering. `NullableBool.NotDefined` lämnar den lokala inställningen odefinierad så att delen ärver värdet, till exempel från styckets [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). Det betyder inte `False`. Använd [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) och läs [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) för att få det lösta booleska värdet.
+Ställ in egenskapen till [NullableBool.True or False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) för att explicit aktivera eller inaktivera normalisering. `NullableBool.NotDefined` lämnar den lokala inställningen odefinierad så att delen ärver värdet, till exempel från styckets [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). Det betyder inte `False`. Använd [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) och läs [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) för att erhålla det lösta booleska värdet.
 
-Följande självständiga exempel kräver att **Arial** är installerat. Det skapar två textblock som innehåller samma versaler, gemener, nedstigande tecken och accentuerade tecken i 54 punkter. Båda styckena har normalisering aktiverad som standard. Den övre delen inaktiverar den explicit; den nedre ärver den. Ramstorlekar, marginaler och styckeavstånd är identiska, med radbrytning och autofit inaktiverade för att hålla jämförelsen konsekvent. Exemplet skriver ut `False: false` och `NotDefined: true` och sparar “text_height_normalization.pptx”.
+Följande fristående exempel kräver **Arial** installerat. Det skapar två textblock med samma stora bokstäver, små bokstäver, nedåtriktade tecken och accentuerade tecken i 54 punkter. Båda styckena har normalisering aktiverad som standard. Den övre delen inaktiverar den explicit; den nedre ärver den. Ramstorlekar, marginaler och styckeavstånd är identiska, med radbrytning och autofit inaktiverade för att hålla jämförelsen konsekvent. Exemplet skriver ut `False: false` och `NotDefined: true` och sparar "text_height_normalization.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -504,19 +504,19 @@ try {
 }
 ```
 
-Jämförelsen nedan exporterades från den sparade presentationen. Översta raden har normalisering inaktiverad (`False`); nedre raden ärver den aktiverade inställningen (`NotDefined` → `True`). Se till att Arial är installerat för att återskapa detta utseende.
+Jämförelsen nedan exporterades från den sparade presentationen. Den övre raden har normalisering inaktiverad (`False`); den nedre raden ärver den aktiverade inställningen (`NotDefined` → `True`). Behåll Arial installerat för att reproducera utseendet.
 
-![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+![Arial 54‑punkts text med normalisering inaktiverad ovan och ärvd normalisering aktiverad nedan](text_height_normalization.png)
 
-Normalisering ändrar teckenhöjd utan att ändra det tilldelade värdet för [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight), som specificerar teckensnittsstorlek i punkter. Stycke‑[setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) styr radavstånd, medan textram‑[setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) styr hur text eller dess behållare anpassas. Dessa inställningar har olika syften och kan påverka layouten oberoende av varandra. Läs mer om styckeformatering och arv under [Manage Paragraph](/slides/sv/nodejs-java/manage-paragraph/).
+Normalisering ändrar teckenhöjd utan att ändra det tilldelade [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight)-värdet, som anger teckensnittsstorlek i punkter. Stycke‑[setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) styr radavstånd, medan textram‑[setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) styr hur text eller dess behållare justeras för att passa. Dessa inställningar har olika syften och kan påverka den övergripande layouten oberoende av varandra. För mer om styckeformatering och arv, se [Hantera stycke](/slides/sv/nodejs-java/manage-paragraph/).
 
 ## **Applicera och ta bort genomstrykning**
 
-Använd [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) på en textdel för att visa korrigeringar, annullerade termer eller tidigare priser utan att radera originaltexten. Ställ in den på [TextStrikethroughType.Single eller Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) för en eller två linjer genom texten.
+Använd [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) på en textdel för att visa korrigeringar, annullerade termer eller tidigare priser utan att ta bort originaltexten. Ställ in den på [TextStrikethroughType.Single eller Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) för en eller två linjer genom texten.
 
-För att ta bort genomstrykning, ange [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None). Detta inaktiverar effekten explicit, även om omgivande formatering anger genomstrykning. Däremot lämnar [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) den lokala inställningen odefinierad, så att delen kan ärva formatering, exempelvis från stycket. Det garanterar inte att genomstrykning tas bort. Använd [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) för att läsa den resulterande formateringen, inklusive ärvda värden.
+För att ta bort genomstrykning, skicka [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None). Detta inaktiverar effekten explicit, även om den omgivande formateringen anger genomstrykning. Däremot lämnar [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) den lokala inställningen odefinierad, så att delen kan ärva formatering, exempelvis från stycket. Det garanterar inte att genomstrykning tas bort. Använd [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) för att läsa den resulterande formateringen, inklusive ärvda värden.
 
-Följande självständiga exempel skapar tre prisjämförelser. Varje stycke har separata delar för etikett, tidigare pris och aktuellt pris, så endast det tidigare priset påverkas. Den första raden applicerar och tar sedan bort genomstrykning; de andra raderna behåller enkel respektive dubbel genomstrykning. Att ändra denna inställning bevarar texten och dess övriga formatering, inklusive det bolda tidigare priset.
+Följande fristående exempel skapar tre prisjämförelser. Varje stycke har separata delar för etikett, tidigare pris och aktuellt pris, så endast det tidigare priset påverkas. Den första raden applicerar och sedan tar bort genomstrykning; de andra raderna behåller enkel respektive dubbel genomstrykning. Ändring av denna inställning bevarar texten och dess övriga formatering, inklusive det feta tidigare priset.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -560,7 +560,7 @@ try {
 
     const paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Applicera genomstrykning, sedan ta bort den explicit från det första föregående priset.
+    // Applicera genomstrykning, och ta sedan bort den explicit från det första föregående priset.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
 
@@ -575,13 +575,13 @@ try {
 
 Resultatet, från topp till botten: ingen genomstrykning, enkel genomstrykning och dubbel genomstrykning.
 
-![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+![Tidigare priser utan genomstrykning, med enkel genomstrykning och med dubbel genomstrykning](strikethrough.png)
 
 ## **Ange textrotation**
 
 Använd [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) för att ange en fördefinierad textorientering inom en form.
 
-Följande kodexempel sätter textorienteringen i formen till [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/), vilket roterar texten **90 grader moturs**:
+Följande kodexempel ställer in textorienteringen i formen till [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/), vilket roterar texten **90 grader moturs**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -602,11 +602,11 @@ try {
 
 Resultatet:
 
-![The text rotation](text_rotation.png)
+![Textrotation](text_rotation.png)
 
 ## **Ange anpassad rotation för textramar**
 
-Använd [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) för att ange en anpassad rotationsvinkel för en [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+Använd [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) för att ange en anpassad rotationsvinkel för ett [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 
 Kodexemplet nedan roterar textramen 3 grader medurs inom formen:
 
@@ -628,16 +628,16 @@ try {
 
 Resultatet:
 
-![The custom text rotation](custom_text_rotation.png)
+![Anpassad textrotation](custom_text_rotation.png)
 
 ## **Ange radavstånd för stycken**
 
-Aspose.Slides erbjuder [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) och [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) för att styra styckeavstånd. Dessa egenskaper används så här:
+Aspose.Slides erbjuder [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) och [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) för att kontrollera styckeavstånd. Dessa egenskaper används enligt följande:
 
 * Använd ett positivt värde för att ange radavstånd som en procentandel av radhöjden.
 * Använd ett negativt värde för att ange radavstånd i punkter.
 
-Följande exempel sätter avståndet inom det första stycket till 200 % av radhöjden (dubbel radavstånd):
+Följande exempel sätter avståndet inom det första stycket till 200 % av radhöjden (dubbelradavstånd):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -659,18 +659,18 @@ try {
 
 Resultatet:
 
-![The line spacing within the paragraph](line_spacing.png)
+![Radavståndet inom stycket](line_spacing.png)
 
-## **Kontrollera radbrytning**
+## **Styr radbrytning**
 
-Regler för radbrytning i stycken är användbara i smala textblock och presentationer som blandar latinsk och östasiatisk text. Följande metoder tillhör [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/), så de gäller hela stycket:
+Regler för radbrytning i stycken är användbara i smala textblock och presentationer som blandar latin och östasiatisk text. Följande metoder tillhör [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/), så de gäller hela stycket:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) styr latiniska radbrytningsregler. I blandad text kan en förändring också påverka var angränsande östasiatisk text och skiljetecken radbryts.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) styr östasiatiska radbrytningsregler, inklusive begränsningar för tecken i början och slutet av en rad.
+- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) kontrollerar latinska radbrytningsregler. I blandad text kan förändring också ändra var intilliggande östasiatisk text och skiljetecken bryts.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) kontrollerar östasiatiska radbrytningsregler, inklusive restriktioner för tecken i början och slutet av en rad.
 
-Dessa regler ersätter inte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText), som aktiverar automatisk radbrytning inom en textram. De påverkar layouten när radbrytning sker; de infogar inga radbrytningstecken. En explicit radbrytning tvingar en ny rad i stycket oberoende av tillgänglig bredd.
+Dessa regler ersätter inte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText), som aktiverar automatisk radbrytning inom en textram. De påverkar layouten när radbrytning sker; de infogar inte radbrytningstecken. En explicit radbrytning tvingar en ny rad i stycket oberoende av tillgänglig bredd.
 
-Följande självständiga exempel skapar ett smalt textblock som innehåller kinesisk och latinisk text. Det ställer in båda radbrytningsalternativen explicit och sparar “line_breaking.pptx”. För att experimentera med någon av reglerna, ändra motsvarande värde medan du behåller den andra inställningen oförändrad. Exemplet använder 24‑punkt Arial och SimSun med en rambredd på 160 punkter och noll horisontella textram‑marginaler. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) anropas med [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) så att textstorlek och ramdimensioner förblir fasta.
+Följande fristående exempel skapar ett smalt textblock som innehåller kinesisk och latinsk text. Det ställer explicit in båda radbrytningsalternativen och sparar "line_breaking.pptx". För att experimentera med någon av reglerna, ändra motsvarande värde medan de andra inställningarna hålls fasta. Exemplet använder 24‑punkts Arial och SimSun med en rambredd på 160 punkter och noll horisontella marginaler för textramen. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) anropas med [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) så att textstorlek och ramdimensioner förblir oförändrade.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -711,11 +711,11 @@ try {
 }
 ```
 
-## **Kontrollera hängande interpunktion**
+## **Styr hängande interpunktion**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) låter behörig interpunkt sträcka sig bortom textlinjens högra kant istället för att hamna på nästa rad. Det gäller hela stycket och skiljer sig från ett hängande indrag.
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) låter berättigad interpunktion sträcka sig utanför textradens högra kant istället för att placeras på nästa rad. Det gäller hela stycket och skiljer sig från ett hängande indrag.
 
-Följande självständiga exempel aktiverar hängande interpunktion i en 100‑punkt bred textram och sparar “hanging_punctuation.pptx”. Med 24‑punkt Arial och noll horisontella textram‑marginaler förblir den sista punkten efter ordet “sentence” och sträcker sig bortom den högra textkanten. Ställ in egenskapen på [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) för att jämföra: med dessa inställningar hamnar punkten på en egen rad. Radbrytning är aktiverad och autofit inaktiverad för att hålla den tillgängliga bredden fast.
+Följande fristående exempel aktiverar hängande interpunktion i en 100‑punkts bred textram och sparar "hanging_punctuation.pptx". Med 24‑punkts Arial och noll horisontella marginaler för textramen stannar den sista punkten efter "sentence" och sträcker sig bortom den högra kanten. Ställ in egenskapen till [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) för att jämföra: med dessa inställningar hamnar punkten på en egen rad. Radbrytning är aktiverad och autofit inaktiverad för att hålla den tillgängliga bredden fast.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -753,11 +753,11 @@ try {
 }
 ```
 
-Inte varje skiljetecken kan hänga. De [teckensnitt‑ och layoutvillkor som beskrivits ovan](#control-line-breaking) gäller också för denna jämförelse: förändring av teckensnitt, tillgänglig bredd, marginaler eller autofit‑inställningar kan ta bort den synliga skillnaden.
+Inte varje skiljetecken kan hänga. De [font‑ och layoutvillkor som beskrivits ovan](#control-line-breaking) gäller även för denna jämförelse: förändring av teckensnitt, tillgänglig bredd, marginaler eller autofit‑inställningar kan ta bort den synliga skillnaden.
 
 ## **Ange autofit‑typ för textramar**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att styra om texten ska krympas, rinna över eller om formen automatiskt ska ändras storlek för att passa texten. Följande exempel konfigurerar formen så att den ändrar storlek för att passa sin text och sparar resultatet till “autofit_type.pptx”.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) bestämmer hur text beter sig när den överskrider behållarens gränser. Använd den för att styra om texten krymper, flyter över eller om formen automatiskt anpassas. Följande exempel konfigurerar formen så att den ändrar storlek för att passa sin text och sparar resultatet till "autofit_type.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -776,11 +776,11 @@ try {
 }
 ```
 
-För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredd ändrar resultatet, se [Count Rendered Lines](/slides/sv/nodejs-java/manage-paragraph/). Radräkning ensam visar inte om text rinner över sin behållare.
+För att räkna rader efter automatisk radbrytning och se hur text‑ eller formbredd förändrar resultatet, se [Räkna renderade rader](/slides/sv/nodejs-java/manage-paragraph/). Antal rader indikerar inte om texten överskrider sin behållare.
 
 ## **Ange ankare för textramar**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) definierar hur text placeras vertikalt inuti en form, exempelvis högst upp, i mitten eller längst ner. Följande exempel förankrar texten längst ner i den första formen och sparar resultatet till “text_anchor.pptx”.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) definierar hur text placeras vertikalt inuti en form, exempelvis högst, i mitten eller längst ner. Följande exempel ankra texten till botten av den första formen och sparar resultatet till "text_anchor.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -799,9 +799,9 @@ try {
 }
 ```
 
-## **Ange tabulering för text**
+## **Ange texttabulering**
 
-Använd [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) och [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) för att konfigurera tabbstopp i ett stycke. Följande exempel sätter standardtabbsteg till 100 punkter och lägger till ett vänsterjusterat tabbstopp vid 30 punkter. Dessa inställningar påverkar text som innehåller tabulatortecken.
+Använd [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) och [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) för att konfigurera tabbstopp i ett stycke. Följande exempel sätter standardtabbsteg på 100 punkter och lägger till ett vänsterjusterat tabbstopp på 30 punkter. Dessa inställningar påverkar text som innehåller tabb‑tecken.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -825,13 +825,13 @@ try {
 
 Resultatet:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Styckets tabbar](paragraph_tabs.png)
 
-## **Ange språk för korrekturläsning**
+## **Ange språk för rättstavning**
 
-Aspose.Slides erbjuder [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId), som låter dig ange korrekturläsningsspråket för en textdel. Korrekturläsningsspråket bestämmer vilket språk som används för stavnings‑ och grammatikkontroller i PowerPoint.
+Aspose.Slides tillhandahåller [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId), vilket låter dig ange rättstavningsspråket för en textdel. Rättstavningsspråket bestämmer vilket språk som används för stavnings- och grammatikgranskning i PowerPoint.
 
-Följande exempel kräver “presentation.pptx” med en textram som den första formen på den första bilden och minst ett stycke. Det ersätter det första stycket med “1。”, sätter SimSun som teckensnitt och tilldelar det förenklade kinesiska korrekturläsningsspråket (`zh-CN`). Det sparar resultatet till “proofing_language.pptx”:
+Följande exempel kräver "presentation.pptx" med en textruta som den första formen på den första bilden och minst ett stycke. Det ersätter det första styckets innehåll med "1。", sätter SimSun som teckensnitt och tilldelar det förenklade kinesiska rättstavningsspråket (`zh-CN`). Det sparar resultatet till "proofing_language.pptx":
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -851,7 +851,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Ange Id för ett korrekturläsningsspråk.
+    // Ange Id för ett korrekturspråk.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -863,9 +863,45 @@ try {
 }
 ```
 
+### **Kopiera språkmmetadata**
+
+När du kopierar flerspråkig text från en mall, bevara både [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getLanguageId) och [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Följande fristående exempel skapar en käll-del med US English som språk och French som alternativt språk och kopierar texten och identifierarna till en del i en ny presentation.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const source = new aspose.slides.Portion("Hello! Bonjour!");
+source.getPortionFormat().setLanguageId("en-US");
+source.getPortionFormat().setAlternativeLanguageId("fr-FR");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 80);
+    const paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    const destination = new aspose.slides.Portion();
+    destination.setText(source.getText());
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
+    // Om källan inte har något alternativt språk, rensar null destinationsvärdet.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
+    paragraph.getPortions().add(destination);
+
+    presentation.save("copied_language_metadata.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+För att prova en källa utan alternativt språk, utelämna tilldelningen av `"fr-FR"`. Det alternativa identifieraren blir då `null`, och samma kopieringsuttryck bevarar dess frånvaro utan att införa ett standardvärde, även om destinationen tidigare hade ett alternativt språk tilldelat.
+
+Dessa identifierare lagras som språkmmetadata. Att bevara dem fastställer inte vilket lexikon PowerPoint väljer för stavnings‑ eller grammatikgranskning.
+
 ## **Ange standardspråk**
 
-Använd [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) för att definiera standardspråk för text som skapas vid inläsning eller skapande av en presentation. Följande exempel skapar en presentation med amerikansk engelska som standardspråk för text, lägger till en textram och skriver ut `en-US` för dess första textdel.
+Använd [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) för att definiera standardspråket för text som skapas vid inläsning eller skapande av en presentation. Följande exempel skapar en presentation med US English som standardtextspråk, lägger till en textruta och skriver ut `en-US` för dess första textdel.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -881,7 +917,7 @@ try {
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Kontrollera det första delens språk.
+    // Kontrollera språk för den första textdelen.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -891,9 +927,9 @@ try {
 
 ## **Ange standardtextstil**
 
-För att tillämpa standardformatering på presentation‑nivå, använd [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle).
+För att tillämpa standardtextformatering på presentationsnivå, använd [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Följande exempel anger ett 14‑punkt fetstilteckensnitt som standard för toppnivå‑stycken i en ny presentation och sparar den till “default_text_style.pptx”. Text kan ärva dessa standarder såvida inte mer specifik formatering åsidosätter dem.
+Följande exempel sätter ett 14‑punkts fet stil som standard för top‑nivåstycken i en ny presentation och sparar den till "default_text_style.pptx". Text kan ärva dessa standardvärden såvida inte mer specifik formatering åsidosätter dem.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -901,7 +937,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Hämta styckeformat för översta nivån.
+    // Hämta topnivåns styckeformat.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -915,15 +951,15 @@ try {
 }
 ```
 
-## **Extrahera text med versal‑effekt**
+## **Extrahera text med stora bokstäver‑effekt**
 
-I PowerPoint gör **All Caps**‑teckenseffekt att text visas med versaler på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket exakt den text som matades in. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) och konvertera den returnerade strängen till versaler när värdet är `All`.
+I PowerPoint får texten med **All Caps**‑effekten att visas med stora bokstäver på bilden även om den ursprungligen skrevs med gemener. När du hämtar en sådan textdel med Aspose.Slides returnerar biblioteket exakt den text som matades in. För att matcha den visade texten, kontrollera [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) och om värdet är `All`, konvertera den returnerade strängen till versaler.
 
-Detta exempel kräver “sample2.pptx” med en textram som den första formen på den första bilden. Dess första stycke‑första del innehåller “Hello, Aspose!” med All Caps‑effekt applicerad, som visas nedan.
+Detta exempel kräver "sample2.pptx" med en textruta som den första formen på den första bilden. Dess första stycke‑första del innehåller "Hello, Aspose!" med All Caps‑effekten applicerad, som visas nedan.
 
-![The All Caps effect](all_caps_effect.png)
+![All Caps‑effekten](all_caps_effect.png)
 
-Kodexemplet nedan visar hur man extraherar texten med **All Caps**‑effekt applicerad:
+Kodexemplet nedan visar hur man extraherar texten med **All Caps**‑effekten applicerad:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -962,4 +998,4 @@ För att ändra text i en tabell på en bild, använd [Table](https://reference.
 
 **Hur applicerar jag en gradientfärg på text i en PowerPoint‑bild?**
 
-För att applicera en gradientfärg på text, använd [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Ställ in [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) på [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.
+För att applicera en gradientfärg på text, använd [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Ställ in [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) till [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) och konfigurera gradientstopp, riktning och transparens.
