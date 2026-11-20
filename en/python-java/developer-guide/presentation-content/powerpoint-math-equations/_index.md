@@ -643,6 +643,55 @@ finally:
     presentation.dispose()
 ```
 
+### **Align Right Subscripts and Superscripts**
+
+When a subscript and a superscript share the same base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/). Its [setAlignScripts](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) method controls their horizontal positions. With the default value of `False`, each script follows the contour of the base. With `True`, the scripts start at the same horizontal position.
+
+This example places two copies of the same editable expression side by side. Both use a mathematical italic f (U+1D453) with subscript 1 and superscript 2 in 72-point Cambria Math. The slope of the f makes the difference visible in PowerPoint. Install Cambria Math before running the example.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, MathBlock, MathematicalText, MathRightSubSuperscriptElement
+from asposeslides.api import PortionFormat, Presentation, SaveFormat, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(900, 250, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    text_format = PortionFormat()
+    font = FontData("Cambria Math")
+    text_format.setFontHeight(72)
+    text_format.setLatinFont(font)
+
+    for left, align_scripts in [(40, False), (480, True)]:
+        shape = slide.getShapes().addMathShape(left, 75, 380, 150)
+        base = MathematicalText("\U0001D453", text_format)
+        subscript = MathematicalText("1", text_format)
+        superscript = MathematicalText("2", text_format)
+        scripts = MathRightSubSuperscriptElement(base, subscript, superscript)
+        scripts.setAlignScripts(align_scripts)
+
+        portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        portion.getPortionFormat().setFontHeight(text_format.getFontHeight())
+        portion.getPortionFormat().setLatinFont(font)
+        block = MathBlock(scripts)
+        portion.getMathParagraph().add(block)
+
+    presentation.save("aligned-scripts.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Two editable expressions in PowerPoint with setAlignScripts set to False on the left and True on the right](aligned-scripts.png)
+
+On the left, the subscript starts farther left than the superscript, following the contour of the f. On the right, the left edges of the two scripts align.
+
 ## **Add Delimiters**
 
 Use [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.

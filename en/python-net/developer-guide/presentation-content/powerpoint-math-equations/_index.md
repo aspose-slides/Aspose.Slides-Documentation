@@ -522,6 +522,46 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Align Right Subscripts and Superscripts**
+
+When both scripts belong to the same base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Its [align_scripts](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/align_scripts/) property controls their horizontal positions: `False` (the default) lets them follow the contour of the base, while `True` aligns the scripts horizontally with each other.
+
+This example places two copies of the same editable expression side by side. Both use mathematical italic f (U+1D453), a lower script of 1, an upper script of 2, and Cambria Math at 72 points. The sloping base makes the difference visible in PowerPoint. Install Cambria Math before running the example.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(900, 250, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    text_format = slides.PortionFormat()
+    text_format.font_height = 72
+    text_format.latin_font = slides.FontData("Cambria Math")
+
+    for i in range(2):
+        left = 40 + i * 440
+        shape = slide.shapes.add_math_shape(left, 75, 380, 150)
+
+        base_text = math.MathematicalText("\U0001D453", text_format)
+        subscript = math.MathematicalText("1", text_format)
+        superscript = math.MathematicalText("2", text_format)
+        scripts = math.MathRightSubSuperscriptElement(base_text, subscript, superscript)
+        scripts.align_scripts = i == 1
+
+        portion = shape.text_frame.paragraphs[0].portions[0]
+        portion.portion_format.font_height = text_format.font_height
+        portion.portion_format.latin_font = text_format.latin_font
+        portion.math_paragraph.add(math.MathBlock(scripts))
+
+    presentation.save("aligned-scripts.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Two editable expressions in PowerPoint with align_scripts set to False on the left and True on the right](aligned-scripts.png)
+
+On the left, the lower script starts farther left than the upper script, following the base contour. On the right, the two scripts align horizontally with each other.
+
 ## **Add Delimiters**
 
 Use [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
