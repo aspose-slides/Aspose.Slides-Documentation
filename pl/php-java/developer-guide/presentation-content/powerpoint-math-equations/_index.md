@@ -17,27 +17,27 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Wstawiaj i edytuj równania matematyczne w prezentacjach PowerPoint PPT i PPTX przy użyciu Aspose.Slides dla PHP via Java, obsługując OMML, kontrolę formatowania oraz przejrzyste przykłady kodu PHP."
+description: "Wstawiaj i edytuj równania matematyczne w PowerPoint PPT i PPTX przy użyciu Aspose.Slides dla PHP via Java, obsługując OMML, kontrolę formatowania oraz przejrzyste przykłady kodu PHP."
 ---
 ## **Przegląd**
 
-PowerPoint przechowuje równania jako Office Math Markup Language (OMML). Dzięki Aspose.Slides for PHP via Java można programowo tworzyć tego samego rodzaju treści matematyczne: ułamki, pierwiastki, funkcje, granice, operatory N-ary, macierze, tablice i sformatowane bloki matematyczne.
+PowerPoint przechowuje równania jako Office Math Markup Language (OMML). Dzięki Aspose.Slides dla PHP via Java możesz programowo tworzyć taką samą treść matematyczną: ułamki, pierwiastki, funkcje, granice, operatory N‑ary, macierze, tablice i sformatowane bloki matematyczne.
 
-W PowerPoint, użytkownicy zazwyczaj dodają równania z **Insert > Equation**:
+W programie PowerPoint użytkownicy zazwyczaj dodają równania z **Wstaw > Równanie**:
 
-![Karta Wstawianie w PowerPoint z wybranym poleceniem Równanie](powerpoint-math-equations_1.png)
+![Karta Wstawianie programu PowerPoint z wybranym poleceniem Równanie](powerpoint-math-equations_1.png)
 
 Rezultatem jest edytowalny tekst matematyczny na slajdzie:
 
-![Slajd PowerPoint zawierający edytowalne równanie matematyczne](powerpoint-math-equations_2.png)
+![Slajd PowerPoint zawierający edytowalny równanie matematyczne](powerpoint-math-equations_2.png)
 
-Aspose.Slides buduje ten tekst matematyczny przy użyciu trzech głównych obiektów:
+Aspose.Slides tworzy ten tekst matematyczny za pomocą trzech głównych obiektów:
 
 - Kształt matematyczny, tworzony za pomocą [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape), jest kształtem zawierającym równanie.
-- Obiekt [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) przechowuje zawartość matematyczną w ramce tekstowej kształtu.
-- Obiekt [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) zawiera jeden lub więcej obiektów [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) przechowuje treść matematyczną wewnątrz ramki tekstowej kształtu.
+- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) zawiera jeden lub więcej obiektów [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
 
-Większość poniższych przykładów używa [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) oraz metod fluent z [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), aby kod był krótki i czytelny.
+Większość przykładów poniżej używa [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) oraz płynnych metod z [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), aby kod był krótki i czytelny.
 
 W scenariuszach eksportu MathML zobacz [Export Math Equations from Presentations in PHP via Java](/slides/pl/php-java/exporting-math-equations/).
 
@@ -73,13 +73,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) tworzy kształt, który już zawiera akapit matematyczny. Uzyskaj dostęp do pierwszego [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), wywołaj [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) i dodaj bloki matematyczne lub elementy matematyczne.
+{{% alert color="info" title="Uwaga" %}}
+
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) tworzy kształt, który już zawiera akapit matematyczny. Uzyskaj dostęp do pierwszego [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), wywołaj [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) i dodaj bloki lub elementy matematyczne.
+
 {{% /alert %}}
 
 ### **Łączenie bloków matematycznych**
 
-Kiedy części równania są budowane niezależnie jako obiekty [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/), użyj [joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock), aby je połączyć. Przykład tworzy `c² =` w lewym bloku i `a² + b²` w prawym bloku. [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSuperscript) tworzy edytowalne superskrypty matematyczne dla wszystkich trzech potęg.
+Gdy części równania są budowane niezależnie jako obiekty [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/), użyj [joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) do połączenia ich. Przykład buduje `c² =` w lewym bloku i `a² + b²` w prawym bloku. [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSuperscript) tworzy edytowalne indeksy górne dla wszystkich trzech potęg.
 
 ```php
 use aspose\slides\MathBlock;
@@ -113,15 +115,15 @@ try {
 }
 ```
 
-[joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) zwraca sam `$leftBlock`, który teraz zawiera obie części w kolejności, a `$rightBlock` pozostaje pusty. Dodaj połączony blok do [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) tylko raz. Po ponownym otwarciu `equation.pptx` akapit zawiera jeden blok reprezentujący `c² = a² + b²`, przy zachowaniu wszystkich trzech potęg jako superskryptów.
+[joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) zwraca `$leftBlock` sam, teraz zawierający obie części w kolejności, a `$rightBlock` pozostaje pusty. Dodaj połączony blok do [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) tylko raz. Po ponownym otwarciu `equation.pptx` akapit zawiera jeden blok reprezentujący `c² = a² + b²`, przy zachowaniu wszystkich trzech potęg jako indeksów górnych.
 
-Wywołanie [add](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#add) jako `$leftBlock->add($rightBlock)` próbuje zagnieździć jeden blok bezpośrednio w drugim i powoduje `InvalidOperationException`.
+Wywołanie [add](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#add) jako `$leftBlock->add($rightBlock)` próbuje zagnieździć jeden blok bezpośrednio wewnątrz drugiego i powoduje `InvalidOperationException`.
 
 ## **Dodawanie ułamków**
 
-Użyj [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide), aby utworzyć ułamek. Możesz wybrać styl ułamka przy pomocy [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
+Użyj [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide), aby utworzyć ułamek. Możesz wybrać styl ułamka za pomocą [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
-![Ukośny ułamek matematyczny pokazujący jedną podzieloną przez x](powerpoint-math-equations_4.png)
+![Ułamek skośny pokazujący jeden podzielony przez x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -145,7 +147,7 @@ try {
 }
 ```
 
-Dla ułamka ze stosem, użyj [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
+Dla ułamka w postaci stosu użyj [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -155,7 +157,7 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 Użyj [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical), aby utworzyć pierwiastek kwadratowy, sześcienny lub inny. Aktualny element staje się podstawą, a argument określa stopień.
 
-![Wyrażenie pierwiastka n-tego stopnia z x pod znakiem pierwiastka](powerpoint-math-equations_5.png)
+![Wyrażenie pierwiastkowe n‑tego stopnia z x pod znakiem pierwiastka](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -179,13 +181,13 @@ try {
 }
 ```
 
-### **Pokazywanie lub ukrywanie stopnia pierwiastka kwadratowego**
+### **Pokaż lub ukryj stopień pierwiastka kwadratowego**
 
-Pierwiastek kwadratowy może wyświetlać jawny 2 lub używać konwencjonalnej notacji √x. Metoda [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) obiektu [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) kontroluje, która forma się pojawia. Obie formy zachowują stopień 2 oraz radicand x w edytowalnym równaniu.
+Pierwiastek kwadratowy może wyświetlać explicite 2 lub używać konwencjonalnego zapisu √x. Metoda [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) klasy [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) kontroluje, która forma się pojawi. Obie formy zachowują stopień 2 i radicand x w edytowalnym równaniu.
 
 ![Ten sam pierwiastek kwadratowy z widocznym stopniem po lewej i ukrytym po prawej](square-root-degree.png)
 
-Przykład zapisuje ten sam pierwiastek dwukrotnie. W `visible-degree.pptx` 2 jest widoczny. W `hidden-degree.pptx` jest ukryty.
+Przykład zapisuje ten sam pierwiastek dwa razy. W `visible-degree.pptx` 2 jest widoczne. W `hidden-degree.pptx` jest ukryte.
 
 ```php
 use aspose\slides\MathBlock;
@@ -215,7 +217,7 @@ try {
 
 ## **Dodawanie funkcji i granic**
 
-Użyj [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) lub [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) dla funkcji takich jak `sin(x)`, `log(x)` lub własnych nazw funkcji. Dla granic, umieść `lim` w obiekcie [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) lub użyj [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
+Użyj [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) lub [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) dla funkcji takich jak `sin(x)`, `log(x)` lub nazw własnych funkcji. Dla granic umieść `lim` w [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) lub użyj [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
 ![Granica x gdy x dąży do nieskończoności](powerpoint-math-equations_8.png)
 
@@ -242,17 +244,17 @@ try {
 }
 ```
 
-Dla własnej nazwy funkcji, ustaw nazwę funkcji jako aktualny element i wywołaj [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) z jej argumentem:
+Dla własnej nazwy funkcji ustaw nazwę jako bieżący element i wywołaj [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) z jej argumentem:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Dodawanie operatorów N-ary i całek**
+## **Dodawanie operatorów N‑ary i całek**
 
-Użyj [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) dla sum, unii, przecięć i innych dużych operatorów. Użyj [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) dla całek. Obie metody umożliwiają ustawienie granic dolnych i górnych.
+Użyj [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) dla sumacji, unii, przecięć i innych dużych operatorów. Użyj [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) dla całek. Obie metody pozwalają ustawić limity dolny i górny.
 
-![Sumowanie z granicami dolnymi i górnymi](powerpoint-math-equations_7.png)
+![Sumacja z limitami dolnym i górnym](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -279,9 +281,9 @@ try {
 }
 ```
 
-Operatory N-ary służą do dużych operatorów z opcjonalnymi granicami. Proste operatory takie jak `+`, `-` i `=` zazwyczaj dodaje się jako [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) i łączy w wyrażeniu.
+Operatory N‑ary służą do dużych operatorów z opcjonalnymi limitami. Proste operatory takie jak `+`, `-` i `=` zazwyczaj dodaje się jako [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) i łączy w wyrażeniu.
 
-Dla całki, użyj [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
+Dla całki użyj [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
@@ -290,7 +292,7 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **Dodawanie macierzy**
 
-Użyj [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) dla wierszy i kolumn. Macierze domyślnie nie zawierają nawiasów, więc otaczaj macierz, gdy potrzebne są nawiasy okrągłe, kwadratowe lub klamrowe.
+Użyj [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) dla wierszy i kolumn. Domyślnie macierze nie zawierają nawiasów, więc otaczaj macierz, gdy potrzebujesz nawiasów okrągłych, kwadratowych lub klamrowych.
 
 ![Macierz matematyczna z dwoma wierszami i jedną pustą komórką](powerpoint-math-equations_10.png)
 
@@ -322,11 +324,11 @@ try {
 
 ### **Edycja istniejącej macierzy**
 
-Załóżmy, że lekcja algebry liniowej zaczyna się od macierzy współczynników w `matrix.pptx`, zapisanej w poprzednim przykładzie. Dla kolejnego ćwiczenia zachowaj pierwsze równanie, zastąp drugie dwoma nowymi równaniami i zmień zestaw zmiennych. Otwórz istniejącą macierz przez [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/), aby zachować współczynniki, które nadal obowiązują.
+Załóżmy, że lekcja algebry liniowej zaczyna się od macierzy współczynników w `matrix.pptx`, zapisanej w poprzednim przykładzie. Dla kolejnego ćwiczenia zachowaj pierwsze równanie, zamień drugie na dwa nowe oraz zaktualizuj zestaw zmiennych. Otwórz istniejącą macierz przez [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/), aby zachować współczynniki, które nadal obowiązują.
 
-![Oryginalna macierz współczynników z dwoma wierszami, elementami 1, x i pustą komórkę w pierwszym wierszu oraz x, 2 i y w drugim](matrix-before-edit.png)
+![Oryginalna macierz współczynników z dwoma wierszami, z wpisami 1, x i pustą komórką w pierwszym wierszu oraz x, 2 i y w drugim](matrix-before-edit.png)
 
-Indeksy wierszy i kolumn zaczynają się od zera i odnoszą do aktualnego stanu macierzy przy każdym wywołaniu. Wstawienie wiersza przed indeksem 1 przesuwa oryginalny drugi wiersz na indeks 2. Wstawienie po indeksie 2 dodaje kolejny wiersz. Usunięcie wiersza 2 usuwa oryginalne drugie równanie i przesuwa dodany wiersz w górę. Kolumny przesuwają się w ten sam sposób.
+Indeksy wierszy i kolumn zaczynają się od zera i odnoszą się do aktualnego stanu macierzy przy każdym wywołaniu. Wstawienie wiersza przed indeksem 1 przesuwa oryginalny drugi wiersz na indeks 2. Wstawienie po indeksie 2 dodaje kolejny wiersz. Usunięcie wiersza 2 usuwa oryginalne drugie równanie i przesuwa do góry wstawiony wiersz. Kolumny przesuwają się analogicznie.
 
 ```php
 use aspose\slides\MathematicalText;
@@ -374,9 +376,9 @@ try {
 }
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnAlignment) wyrównuje pierwszą kolumnę do lewej. [setColumnsAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnsAlignment) wyrównuje trzy kolejne kolumny do prawej, zaczynając od indeksu 1. W `updated-matrix.pptx` macierz ma trzy równania i cztery zmienne. Oryginalne współczynniki pierwszego wiersza `1` i `x` pojawiają się teraz w pierwszej i trzeciej kolumnie.
+[setColumnAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnAlignment) ustawia wyrównanie pierwszej kolumny do lewej. [setColumnsAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnsAlignment) wyrównuje trzy kolejne kolumny do prawej, zaczynając od indeksu 1. W `updated-matrix.pptx` macierz ma trzy równania i cztery zmienne. Oryginalne współczynniki pierwszego wiersza `1` i `x` pojawiają się teraz w pierwszej i trzeciej kolumnie.
 
-![Zaktualizowana macierz trzywierszowa pokazująca wiersze 1, 0, x, 0; 12, 1, 0, 0; oraz 0, 0, 10, 1](matrix-after-edit.png)
+![Zaktualizowana macierz trzech wierszy pokazująca wiersze 1, 0, x, 0; 12, 1, 0, 0; oraz 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Dodawanie tablic równań**
 
@@ -407,11 +409,11 @@ try {
 }
 ```
 
-### **Wyrównanie tablicy z otaczającymi elementami**
+### **Wyrównanie tablicy do otaczających elementów**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) kontroluje pionowe wyrównanie tablicy względem elementów matematycznych po jej bokach. Poniższy przykład porównuje wyrównanie pierwszego wiersza, środka tablicy i ostatniego wiersza.
+[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) kontroluje pionowe wyrównanie tablicy względem elementów matematycznych obok niej. Poniższy przykład porównuje wyrównanie do pierwszego wiersza, środka tablicy i ostatniego wiersza.
 
-Poniższy przykład tworzy trzy identyczne tablice, każda z trzema wierszami i sąsiadującymi elementami `A=` oraz `=B`. Cały tekst matematyczny używa czcionki Cambria Math o rozmiarze 24 punkty. Zmieniane jest tylko wyrównanie tablicy.
+Poniższy przykład tworzy trzy identyczne tablice, każda z trzema wierszami i sąsiednimi elementami `A=` oraz `=B`. Wszystki tekst matematyczny używa czcionki Cambria Math 24 pt. Zmieniona zostaje jedynie metoda wyrównania tablicy.
 
 ```php
 use aspose\slides\FillType;
@@ -475,17 +477,17 @@ try {
 }
 ```
 
-Poniższe porównanie pokazuje zapis prezentacji w PowerPoint. Zwróć uwagę na pozycję `A=` i `=B` obok każdej tablicy.
+Poniższe porównanie pokazuje zapisane w PowerPoint prezentację. Zwróć uwagę na pozycję `A=` i `=B` obok każdej tablicy.
 
-![Tablice równań w PowerPoint z wyrównaniem Góra, Środek i Dół oraz identycznymi elementami sąsiadującymi](equation-array-alignment.png)
+![Tablice równań w PowerPoint z wyrównaniem Góra, Środek i Dół i identycznymi elementami sąsiednimi](equation-array-alignment.png)
 
 ### **Konfiguracja odstępu wierszy**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) wybiera regułę odstępu dla wierszy w tablicy. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) podaje wartość numeryczną dla wyraźnej reguły i jest ignorowane przy użyciu reguł wbudowanych.
+[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) wybiera regułę odstępu dla wierszy w tablicy. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) podaje wartość numeryczną dla explicite reguły odstępu i jest ignorowane przy użyciu reguł wstępnych.
 
-Dla dokładnego odstępu wartość jest podawana w punktach. Dla odstępu proporcjonalnego jest podawana w półliniach: wartość `3` w przykładzie oznacza 1,5 linii. Ustaw oba właściwości, gdy podajesz wyraźną wartość; zmiana samej wartości liczbowej nie wybiera reguły odstępu.
+Dla dokładnego odstępu wartość jest podawana w punktach. Dla odstępu proporcjonalnego używa się pół‑linii: wartość `3` w przykładzie oznacza 1,5 linii. Ustaw oba właściwości, gdy określasz wartość explicite; zmiana samej wartości liczbowej nie wybiera reguły odstępu.
 
-Poniższy przykład zapisuje pięć prezentacji z tymi samymi równaniami, wyrównaniem i ustawieniami czcionki. Pierwsze trzy używają presetów; ostatnie dwa pokazują wartości wyraźne.
+Poniższy przykład zapisuje pięć prezentacji z tymi samymi równaniami, wyrównaniem i ustawieniami czcionki. Pierwsze trzy używają wstępnych ustawień; ostatnie dwa pokazują wartości explicite.
 
 ```php
 use aspose\slides\FontData;
@@ -543,7 +545,7 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-Odstęp wierszy w tablicy jest oddzielny od odstępu akapitu. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) i [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) dodają odstęp wokół całego akapitu, nie między wierszami tablicy. Podobnie [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) pozycjonuje cały akapit matematyczny w poziomie; nie zastępuje ustawienia pionowego wyrównania tablicy.
+Odstęp wierszy tablicy jest oddzielny od odstępu akapitu. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) i [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) dodają odstęp wokół całego akapitu, nie pomiędzy wierszami tablicy. Podobnie [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) pozycjonuje cały akapit matematyczny w poziomie; nie zastępuje ustawienia pionowego wyrównania tablicy.
 
 ## **Dodawanie funkcji trygonometrycznych**
 
@@ -573,11 +575,11 @@ try {
 }
 ```
 
-## **Dodawanie indeksów i potęg**
+## **Dodawanie indeksów dolnych i górnych**
 
-Użyj pomocników indeksu i potęgi dla indeksów i wykładników. Gdy indeksy mają pojawiać się po lewej stronie podstawy, użyj [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Użyj pomocników indeksu dolnego i górnego dla indeksów i potęg. Gdy indeksy mają znajdować się po lewej stronie podstawy, użyj [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Wielka litera Y z lewostronnym indeksem 1 i potęgą n](powerpoint-math-equations_9.png)
+![Duże Y z lewostronnym indeksem dolnym 1 i górnym n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -601,11 +603,64 @@ try {
 }
 ```
 
-## **Dodawanie delimiterów**
+### **Wyrównanie prawych indeksów dolnych i górnych**
 
-Użyj [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose), aby umieścić wyrażenie w delimitatorach. Możesz także ustawić znak separatora dla wyrażeń delimiterów zawierających kilka elementów.
+Gdy oba indeksy należą do tej samej podstawy, użyj [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/). Jego metoda [setAlignScripts](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) steruje ich pozycjami poziomymi: `false` (wartość domyślna) pozwala im podążać za konturem podstawy, natomiast `true` wyrównuje je poziomo względem siebie.
 
-![Wyrażenie delimiterów zawierające x, y i z oddzielone pionowymi kreskami](powerpoint-math-equations_13.png)
+Przykład umieszcza dwie kopie tego samego edytowalnego wyrażenia obok siebie. Oba używają matematycznej kursywy f (U+1D453), indeksu dolnego 1, indeksu górnego 2 i czcionki Cambria Math 72 pt. Pochyła podstawa uwidacznia różnicę w PowerPoint. Zainstaluj Cambria Math przed uruchomieniem przykładu.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\MathRightSubSuperscriptElement;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(900, 250, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $format = new PortionFormat();
+    $format->setFontHeight(72);
+    $font = new FontData("Cambria Math");
+    $format->setLatinFont($font);
+
+    for ($i = 0; $i < 2; $i++) {
+        $left = 40 + $i * 440;
+        $shape = $slide->getShapes()->addMathShape($left, 75, 380, 150);
+
+        $baseText = new MathematicalText("\u{1D453}", $format);
+        $subscript = new MathematicalText("1", $format);
+        $superscript = new MathematicalText("2", $format);
+        $scripts = new MathRightSubSuperscriptElement($baseText, $subscript, $superscript);
+        $scripts->setAlignScripts($i === 1);
+
+        $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $portion->getPortionFormat()->setFontHeight($format->getFontHeight());
+        $portion->getPortionFormat()->setLatinFont($format->getLatinFont());
+        $mathBlock = new MathBlock($scripts);
+        $portion->getMathParagraph()->add($mathBlock);
+    }
+
+    $presentation->save("aligned-scripts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Dwa edytowalne wyrażenia w PowerPoint z setAlignScripts ustawionym na false po lewej i true po prawej](aligned-scripts.png)
+
+Po lewej dolny indeks zaczyna się dalej w lewo niż górny, podążając za konturem podstawy. Po prawej oba indeksy są wyrównane poziomo względem siebie.
+
+## **Dodawanie delimitatorów**
+
+Użyj [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose), aby umieścić wyrażenie wewnątrz delimitatorów. Możesz także ustawić znak separatora dla wyrażeń delimiterowych zawierających kilka elementów.
+
+![Wyrażenie delimiterowe zawierające x, y i z oddzielone pionowymi kreskami](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -634,9 +689,9 @@ try {
 
 ### **Rozmiar i wyrównanie delimiterów**
 
-Przekaż `true` do [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight), aby nawiasy rozciągały się wokół wysokiego operandu, lub `false`, aby zachować ich normalny rozmiar. Użyj [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) z jedną z dwóch wartości [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` centruje nawiasy na osi matematycznej, która przechodzi przez środek znaku równości. `Match` wyrównuje je z zawartością. Oba ustawienia wpływają tylko na delimitery. Wyrażenie wewnątrz pozostaje niezmienione.
+Przekaż `true` do [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight), aby nawiasy rosły wokół wysokiego operanda, lub `false`, aby pozostały w normalnym rozmiarze. Użyj [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) z jedną z dwóch wartości [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` wyśrodkowuje nawiasy na osi matematycznej, która przechodzi przez środek znaku równości. `Match` wyrównuje je do zawartości. Oba ustawienia wpływają tylko na delimitery. Wyrażenie wewnątrz pozostaje niezmienione.
 
-Przykład umieszcza ułamek w wykładniku `x`, tak że wyrażenie rozciąga się wyżej nad linią bazową niż pod nią. Wszystkie cztery równania używają tych samych nawiasów i ustawień czcionki.
+Przykład umieszcza ułamek w wykładniku `x`, tak że wyrażenie rozciąga się wyżej nad linią bazową niż poniżej. Wszystkie cztery równania używają tych samych nawiasów i ustawień czcionki.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -670,15 +725,15 @@ try {
 }
 ```
 
-W PowerPoint porównaj wiersze, aby zobaczyć efekt rozciągania. W górnym wierszu nawiasy rosną, aby objąć wykładnik i wyglądają tak samo dla obu kształtów. W dolnym wierszu rozciąganie jest wyłączone. Mniejsze nawiasy po lewej (`Centered`) wyrównują się ze znakiem równości, natomiast po prawej (`Match`) siedzą wyżej wokół wyrażenia.
+W PowerPoint porównaj wiersze, aby zauważyć efekt rozrostu. W górnym wierszu nawiasy rosną, aby otoczyć wykładnik i wyglądają tak samo dla obu kształtów. W dolnym wierszu rozrost jest wyłączony. Mniejsze nawiasy po lewej (`Centered`) są wyrównane do znaku równości, a po prawej (`Match`) siedzą wyżej wokół wyrażenia.
 
-![Cztery równania w PowerPoint z włączonym rozciąganiem delimiterów w górze i wyłączonym w dole, oraz Centered po lewej i Match po prawej](delimiter-sizing.png)
+![Cztery równania w PowerPoint z włączonym rozrostem delimitera u góry i wyłączonym u dołu, oraz Centered po lewej i Match po prawej](delimiter-sizing.png)
 
 ## **Dodawanie ramki obramowania**
 
-Wywołaj [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) na ułamku, aby obramować całe wyrażenie. Zwrócony [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) domyślnie pokazuje wszystkie cztery strony. Użyj [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) i [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight), aby usunąć poszczególne strony.
+Wywołaj [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) na ułamku, aby objąć całe wyrażenie ramką. Zwrócony [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) domyślnie wyświetla wszystkie cztery strony. Użyj [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) i [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight), aby usunąć poszczególne strony.
 
-Przykład umieszcza sześć kopii tego samego ułamka na jednym slajdzie. Aby pokazać anulowanie, ukryj wszystkie cztery strony i przekaż `true` do [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) dla rosnącej przekątnej (↗) lub [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) dla opadającej przekątnej (↘). Możesz także użyć [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) lub [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) z dowolną kombinacją widocznych stron.
+Przykład umieszcza sześć kopii tego samego ułamka na jednym slajdzie. Aby pokazać anulowanie, ukryj wszystkie cztery strony i przekaż `true` do [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) dla rosnącej przekątnej (↗) lub [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) dla opadającej przekątnej (↘). Można także użyć [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) lub [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) z dowolną kombinacją widocznych stron.
 
 ```php
 use aspose\slides\MathBlock;
@@ -725,24 +780,24 @@ try {
 }
 ```
 
-![Sześć edytowalnych ułamków w PowerPoint. Górny wiersz: pełna ramka, dolna i lewa strona, rosnąca przekątna. Dolny wiersz: opadająca przekątna, poziome przekreślenie, pionowe przekreślenie z pełną ramką](border-box-fractions.png)
+![Sześć edytowalnych ułamków w PowerPoint. Górny wiersz: pełna ramka, dolna i lewa strona, rosnąca przekątna. Dolny wiersz: opadająca przekątna, poziomy przekrój, pionowy przekrój z pełną ramką](border-box-fractions.png)
 
-Na tym ułamku poziome przekreślenie zachodzi na kreskę ułamka. Pionowe przekreślenie przecina zarówno licznik, jak i mianownik, podczas gdy otaczająca ramka pozostaje widoczna. Te linie dekorują całe wyrażenie. Zwykłe przekreślenie tekstu dotyczy znaków w segmencie tekstowym. Po ponownym otwarciu prezentacji w PowerPoint wciąż można edytować licznik i mianownik niezależnie.
+Na tym ułamku poziomy przekrój zachodzi na kreskę ułamkową. Pionowy przekrój przecina zarówno licznik, jak i mianownik, podczas gdy otaczająca ramka pozostaje widoczna. Te linie ozdabiają całe wyrażenie. Zwykłe przekreślenie tekstu dotyczy znaków w biegu tekstowym. Po ponownym otwarciu prezentacji w PowerPoint nadal można edytować licznik i mianownik oddzielnie.
 
-## **Kontrola widoczności i układu za pomocą elementów Phantom**
+## **Kontrola widoczności i układu za pomocą elementów fantomowych**
 
-Umieść wyrażenie w [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/), aby kontrolować jego widoczność i przestrzeń, jaką przyczynia się do równania, niezależnie. Metody [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) kontrolują następujące:
+Otocz wyrażenie w [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/), aby niezależnie kontrolować jego widoczność i zajmowaną przestrzeń w równaniu. Metody [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) sterują następującymi właściwościami:
 
-| Method | Effect |
+| Metoda | Efekt |
 | --- | --- |
 | [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | Przekaż `false`, aby ukryć wyrażenie. Jego wymiary nadal wpływają na układ, chyba że poniższe metody otrzymają `true`. |
-| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | Traktuj szerokość poziomą wyrażenia jako zero, pozwalając sąsiadującym elementom zbliżyć się do siebie. |
-| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Traktuj wznoszenie (wysokość powyżej linii bazowej) jako zero. Może to zmniejszyć przestrzeń powyżej sąsiadujących elementów. |
-| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | Traktuj opadanie (głębokość poniżej linii bazowej) jako zero. Może to przybliżyć kreskę ułamka lub inną zawartość pod wyrażeniem do sąsiadów. |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | Traktuj szerokość poziomą wyrażenia jako zero, umożliwiając bliższe zbliżenie sąsiadujących elementów. |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Traktuj jego wzniesienie (wysokość powyżej linii bazowej) jako zero. Może to zmniejszyć przestrzeń nad sąsiadującymi elementami. |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | Traktuj jego opad (głębokość pod linią bazową) jako zero. Może to przybliżyć pasek ułamka lub inny element poniżej wyrażenia do sąsiadów. |
 
-Linia bazowa to linia odniesienia, na której stoją zwykłe litery matematyczne. Ukrywanie treści nie usuwa jej wymiarów, a traktowanie wymiaru jako zero nie usuwa wyrażenia. Źródłowe wyrażenie pozostaje dostępne przez [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase). Przekaż `true` do [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow), aby ponownie je wyświetlić; ustawienia wymiarów pozostają niezmienione.
+Linia bazowa jest odniesieniem, na którym spoczywają zwykłe litery matematyczne. Ukrycie treści nie usuwa jej wymiarów, a traktowanie wymiaru jako zero nie usuwa wyrażenia. Podstawowe wyrażenie pozostaje dostępne przez [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase). Przekaż `true` do [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow), aby wyświetlić je ponownie; ustawienia wymiarów pozostają niezmienione.
 
-Poniższy przykład tworzy pięć wariantów obok siebie: widoczny ułamek, ukryty ułamek rezerwujący miejsce oraz trzy ukryte ułamki, w których jeden wymiar jest traktowany jako zero. Każdy wariant używa tego samego otaczającego wyrażenia i czcionki Cambria Math 24 punkty. Wszystkie kształty równań mają ten sam górny poziom, oznaczony szarym prowadnikiem. Umieszczenie phantom w liczniku zewnętrznego ułamka ułatwia zauważenie zmian w układzie pionowym.
+Poniższy przykład tworzy pięć wariantów obok siebie: widoczny ułamek, ukryty ułamek zachowujący przestrzeń oraz trzy ukryte ułamki z jedną wymiarowością ustawioną na zero. Każdy wariant używa tego samego otaczającego wyrażenia i czcionki Cambria Math 24 pt. Wszystkie kształty równań mają tę samą pozycję górną, oznaczoną szarym prowadnikiem. Umieszczenie fantomu w liczniku zewnętrznego ułamka ułatwia zauważenie zmian układu pionowego.
 
 ```php
 use aspose\slides\FillType;
@@ -818,13 +873,13 @@ try {
 }
 ```
 
-![Pięć równań w PowerPoint porównujących widoczny ułamek, ukryty ułamek rezerwujący miejsce oraz ukryte ułamki z ZeroWidth, ZeroAsc lub ZeroDesc włączonymi](math-phantom.png)
+![Pięć równań w PowerPoint porównujących widoczny ułamek, ukryty ułamek zachowujący przestrzeń oraz ukryte ułamki z ZeroWidth, ZeroAsc lub ZeroDesc włączonymi](math-phantom.png)
 
-## **Grupowanie terminów**
+## **Grupowanie wyrazów**
 
-Użyj [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group), aby umieścić znak grupujący nad lub pod wyrażeniem. Dodaj granicę, aby oznaczyć grupowane terminy.
+Użyj [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group), aby umieścić znak grupujący powyżej lub poniżej wyrażenia. Dodaj limit, aby oznaczyć grupowane wyrazy.
 
-![Wyrażenie x plus y grupowane z etykietą dowolny tekst pod nim](powerpoint-math-equations_15.png)
+![Wyrażenie x + y grupowane z etykietą dowolny tekst poniżej](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -851,9 +906,9 @@ try {
 
 ## **Formatowanie elementów matematycznych**
 
-Używaj pomocników formatowania tylko tam, gdzie wyjaśniają formułę. Na przykład [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) umieszcza pasek nad elementem matematycznym.
+Używaj pomocników formatowania wyłącznie tam, gdzie wyjaśniają formułę. Na przykład [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) umieszcza kreskę nad elementem matematycznym.
 
-![Wyrażenie matematyczne ABC z nadkreśleniem](powerpoint-math-equations_14.png)
+![Wyrażenie matematyczne ABC z kreską nad nim](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -878,9 +933,9 @@ try {
 
 ### **Formatowanie tekstu w istniejącym równaniu**
 
-Aby sformatować tekst w całym istniejącym równaniu, przejdź po drzewie elementów każdego bloku matematycznego. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) zwraca tylko bezpośrednie dzieci, więc wywołaj go rekurencyjnie, aby dotrzeć do tekstu wewnątrz ułamków, skryptów, pierwiastków i innych zagnieżdżonych struktur. Sprawdź aktualny element oraz jego dzieci, aby uwzględnić element początkowy, gdy jest [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
+Aby sformatować tekst w całym istniejącym równaniu, przejdź po drzewie elementów każdego bloku matematycznego. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) zwraca jedynie bezpośrednie potomki, więc wywołaj ją rekurencyjnie, aby dotrzeć do tekstu wewnątrz ułamków, indeksów, pierwiastków i innych zagnieżdżonych struktur. Sprawdź bieżący element oraz jego dzieci, aby uwzględnić element startowy, gdy jest on [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
 
-Ten przykład zakłada, że `input.pptx` zawiera równanie takie jak `z = xᵢ / ∛y`, z ułamkiem zawierającym indeks w liczniku i pierwiastek w mianowniku. Przetwarzanie tylko elementów najwyższego poziomu bloku pominęłoby tekst wewnątrz ułamka. Przykład znajduje części matematyczne w ramkach tekstowych slajdów, uzyskuje dostęp do ich bloków przez [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) i używa [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight), aby ustawić rozmiar czcionki na 28 punktów poprzez metodę [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) każdego elementu tekstowego.
+Przykład zakłada, że `input.pptx` zawiera równanie takie jak `z = xᵢ / ∛y`, z ułamkiem zawierającym indeks dolny w liczniku i pierwiastek w mianowniku. Przetwarzanie jedynie elementów najwyższego poziomu bloku pominęłoby tekst wewnątrz ułamka. Przykład znajduje części matematyczne w ramkach tekstowych slajdów, uzyskuje ich bloki przez [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) i używa [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight), aby ustawić rozmiar czcionki na 28 pt poprzez metodę [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) każdego elementu tekstowego.
 
 ```php
 use aspose\slides\Presentation;
@@ -936,37 +991,37 @@ try {
 }
 ```
 
-Zapisana prezentacja zawiera zaktualizowane formatowanie tekstu na każdym poziomie przetworzonych równań, zachowując jednocześnie zawartość tekstową i strukturę matematyczną.
+Zapisana prezentacja zawiera zaktualizowane formatowanie tekstu na każdym poziomie każdego przetworzonego równania, zachowując jego treść i strukturę matematyczną.
 
 ## **Szybkie odniesienie**
 
-| Task | Main API |
+| Zadanie | Główne API |
 | --- | --- |
 | Tworzenie tekstu matematycznego | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
 | Łączenie elementów | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Tworzenie ułamków | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Dodawanie superskryptu lub indeksu | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Dodawanie indeksu górnego lub dolnego | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie funkcji | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie pierwiastków | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie granic | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie skryptów po lewej stronie | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Dodawanie sum i całek | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Dodawanie sumacji i całek | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie macierzy | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
 | Dodawanie tablic równań | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Dodawanie delimiterów | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Dodawanie pasków i obramowań | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Grupowanie terminów | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Dodawanie kresek i ramek | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Grupowanie wyrazów | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **FAQ**
 
-**Czy mogę edytować istniejące równanie PowerPoint?**
+**Czy mogę edytować istniejące równanie w PowerPoint?**
 
 Tak. Otwórz prezentację, znajdź kształt zawierający [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), wywołaj [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) i zaktualizuj bloki matematyczne w tym akapicie.
 
-**Czy równania są zapisywane jako edytowalna matematyka PowerPoint?**
+**Czy równania są zapisywane jako edytowalny matematyczny Office?**
 
-Tak. Przy zapisie do PPTX Aspose.Slides zapisuje równanie jako edytowalną treść Office Math.
+Tak. Gdy zapisujesz do PPTX, Aspose.Slides zapisuje równanie jako edytowalną treść matematyczną Office.
 
 **Czy mogę wyeksportować równania do LaTeX?**
 
-Tak. Pobierz [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) z [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), a następnie wywołaj [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex), aby wyeksportować go bezpośrednio. Pełny przykład znajdziesz w [Export Math Equations from Presentations in PHP via Java](/slides/pl/php-java/exporting-math-equations/#export-math-equations-to-latex).
+Tak. Pobierz [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) z jego [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), a następnie wywołaj [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex), aby wyeksportować je bezpośrednio. Pełny przykład znajduje się w [Export Math Equations from Presentations in PHP via Java](/slides/pl/php-java/exporting-math-equations/#export-math-equations-to-latex).

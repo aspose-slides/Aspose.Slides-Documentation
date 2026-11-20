@@ -17,35 +17,35 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Menyisipkan dan mengedit persamaan matematika dalam PPT dan PPTX PowerPoint dengan Aspose.Slides untuk Python via .NET, mendukung OMML, kontrol pemformatan, dan contoh kode Python yang jelas."
+description: "Sisipkan dan edit persamaan matematika di PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Python via .NET, mendukung OMML, kontrol pemformatan, dan contoh kode Python yang jelas."
 ---
 ## **Gambaran Umum**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Python via .NET, Anda dapat membuat konten matematika yang sama secara programatik: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Python via .NET, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
 Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
 
-![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-Hasilnya adalah teks matematika yang dapat diedit pada slide:
+Hasilnya adalah teks matematika yang dapat disunting pada slide:
 
-![Slide PowerPoint yang berisi persamaan matematika yang dapat diedit](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah shape matematika, dibuat dengan [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), adalah shape yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) menyimpan konten matematika di dalam bingkai teks shape.
-- [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) berisi satu atau beberapa objek [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/).
+- Sebuah bentuk matematika, dibuat dengan [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), adalah bentuk yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) menyimpan konten matematika di dalam frame teks bentuk.
+- [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/).
 
-Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) dan metode fluent dari [MathElementBase](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
+Sebagian besar contoh di bawah ini menggunakan [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) dan metode fluent dari [MathElementBase](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
 
 Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi di Python via .NET](/slides/id/python-net/exporting-math-equations/).
 
 ## **Buat Persamaan**
 
-Contoh ini menggunakan [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) untuk membuat shape matematika dan menambahkan teorema Pythagoras:
+Contoh ini menggunakan [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) untuk membuat sebuah bentuk matematika dan menambahkan teorema Pythagoras:
 
-![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,12 +72,12 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) membuat shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) pertama, dapatkan [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) membuat sebuah shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), dapatkan [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 {{% /alert %}}
 
 ### **Gabungkan Blok Matematika**
 
-Ketika bagian-bagian persamaan dibangun secara terpisah sebagai objek [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/), gunakan [join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) untuk menggabungkannya. Contoh ini membuat `c² =` di blok kiri dan `a² + b²` di blok kanan. [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/) membuat superskrip matematika yang dapat diedit untuk ketiga pangkat.
+Ketika bagian-bagian persamaan dibangun secara independen sebagai objek [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) , gunakan [join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) untuk menggabungkannya. Contoh ini membangun `c² =` di blok kiri dan `a² + b²` di blok kanan. [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/) membuat superskrip matematika yang dapat disunting untuk ketiga pangkat.
 
 ```py
 import aspose.slides as slides
@@ -104,15 +104,15 @@ with slides.Presentation() as presentation:
     presentation.save("equation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) mengembalikan `left_block` itu sendiri, yang kini berisi kedua bagian secara berurutan, dan meninggalkan `right_block` kosong. Tambahkan blok yang digabungkan ke [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) hanya sekali. Setelah membuka kembali `equation.pptx`, paragraf berisi satu blok yang mewakili `c² = a² + b²`, dengan ketiga pangkat tetap sebagai superskrip matematika.
+[join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) mengembalikan `left_block` itu sendiri, kini berisi kedua bagian secara berurutan, dan meninggalkan `right_block` kosong. Tambahkan blok gabungan ke [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) hanya sekali. Setelah membuka kembali `equation.pptx`, paragraf berisi satu blok yang mewakili `c² = a² + b²`, dengan ketiga pangkat tetap sebagai superskrip matematika.
 
-Memanggil [add](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/add/) sebagai `left_block.add(right_block)` justru mencoba menanam satu blok langsung di dalam blok lain dan menghasilkan `RuntimeError` yang membungkus .NET `InvalidOperationException`.
+Memanggil [add](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/add/) sebagai `left_block.add(right_block)` malah mencoba menanam satu blok langsung di dalam blok lain dan memunculkan `RuntimeError` yang membungkus .NET `InvalidOperationException`.
 
 ## **Tambahkan Pecahan**
 
 Gunakan [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Pecahan matematika miring yang menunjukkan satu dibagi x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -131,7 +131,7 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk pecahan bertumpuk, gunakan [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/):
+Untuk pecahan bertumpuk, gunakan [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/) :
 
 ```py
 import aspose.slides.mathtext as math
@@ -141,9 +141,9 @@ stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFract
 
 ## **Tambahkan Radikal**
 
-Gunakan [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
+Gunakan [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) untuk membuat akar kuadrat, akar pangkat tiga, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
 
-![Ekspresi radikal akar ke-n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -164,11 +164,11 @@ with slides.Presentation() as presentation:
 
 ### **Tampilkan atau Sembunyikan Derajat Akar Kuadrat**
 
-Akar kuadrat dapat menampilkan angka 2 secara eksplisit atau menggunakan notasi √x konvensional. Properti [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/hide_degree/) dari [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) mengontrol bentuk yang muncul. Kedua bentuk tetap mempertahankan derajat 2 dan radikand x dalam persamaan yang dapat diedit.
+Akar kuadrat dapat menampilkan angka 2 secara eksplisit atau menggunakan notasi √x konvensional. Properti [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/hide_degree/) dari [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) mengontrol bentuk yang muncul. Kedua bentuk mempertahankan derajat 2 dan radikand x dalam persamaan yang dapat disunting.
 
-![Akar kuadrat x dengan derajat 2 terlihat di kiri dan disembunyikan di kanan](square-root-degree.png)
+![The square root of x with the degree 2 visible on the left and hidden on the right](square-root-degree.png)
 
-Contoh ini menyimpan akar kuadrat yang sama dua kali. Angka 2 terlihat pada `visible-degree.pptx` dan disembunyikan pada `hidden-degree.pptx`.
+Contoh ini menyimpan akar kuadrat yang sama dua kali. Angka 2 terlihat di `visible-degree.pptx` dan tersembunyi di `hidden-degree.pptx`.
 
 ```py
 import aspose.slides as slides
@@ -192,9 +192,9 @@ with slides.Presentation() as presentation:
 
 ## **Tambahkan Fungsi dan Batas**
 
-Gunakan [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) atau [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk batas, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) atau gunakan [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/).
+Gunakan [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) atau [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk batas, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) atau gunakan [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/) .
 
-![Batas x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -217,7 +217,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk nama fungsi kustom, jadikan nama fungsi sebagai elemen saat ini dan panggil [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) dengan argumennya:
+Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini dan panggil [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) dengan argumennya:
 
 ```py
 import aspose.slides.mathtext as math
@@ -227,9 +227,9 @@ custom_function = math.MathematicalText("f").function("x + 1")
 
 ## **Tambahkan Operator N-ary dan Integral**
 
-Gunakan [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/) untuk penjumlahan, unifikasi, interseksi, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
+Gunakan [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/) untuk penjumlahan, unifikasi, interseksi, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) untuk integral. Kedua metode memungkinkan Anda menetapkan batas bawah dan atas.
 
-![Sebuah penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -256,7 +256,7 @@ with slides.Presentation() as presentation:
 
 Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) dan digabungkan ke dalam ekspresi.
 
-Untuk integral, gunakan [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/):
+Untuk integral, gunakan [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) :
 
 ```py
 import aspose.slides.mathtext as math
@@ -267,9 +267,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) untuk baris dan kolom. Matriks secara default tidak menyertakan kurung, jadi balut matriks dengan tanda kurung, kurung siku, atau kurung kurawal bila diperlukan.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) untuk baris dan kolom. Matriks secara default tidak menyertakan kurung, jadi balut matriks dengan tanda kurung, siku, atau kurawal bila diperlukan.
 
-![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -295,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ### **Sunting Matriks yang Ada**
 
-Misalkan pelajaran aljabar linear dimulai dengan matriks koefisien dalam `matrix.pptx`, yang disimpan oleh contoh sebelumnya. Untuk latihan berikutnya, pertahankan persamaan pertama, ganti yang kedua dengan dua persamaan baru, dan revisi himpunan variabel. Akses matriks yang ada sebagai [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) untuk mempertahankan koefisien yang masih berlaku.
+Misalkan pelajaran aljabar linear dimulai dengan matriks koefisien di `matrix.pptx`, yang disimpan oleh contoh sebelumnya. Untuk latihan berikutnya, pertahankan persamaan pertama, ganti yang kedua dengan dua persamaan baru, dan revisi kumpulan variabel. Akses matriks yang ada sebagai [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) untuk mempertahankan koefisien yang masih berlaku.
 
-![Matriks koefisien dua baris asli dengan entri 1, x, dan satu sel kosong pada baris pertama serta x, 2, dan y pada baris kedua](matrix-before-edit.png)
+![Original two-row coefficient matrix with entries 1, x, and an empty cell in the first row and x, 2, and y in the second](matrix-before-edit.png)
 
-Baris dan kolom indeks dimulai dari nol dan merujuk pada matriks pada setiap pemanggilan. Menyisipkan baris sebelum indeks 1 memindahkan baris kedua asli ke indeks 2. Menyisipkan setelah indeks 2 kemudian menambahkan satu baris. Menghapus baris 2 menghapus persamaan kedua asli dan memindahkan baris yang ditambahkan naik satu posisi. Kolom bergeser dengan cara yang sama.
+Indeks baris dan kolom dimulai dari nol dan mengacu pada matriks pada setiap pemanggilan. Menyisipkan baris sebelum indeks 1 memindahkan baris kedua asli ke indeks 2. Menyisipkan setelah indeks 2 kemudian menambahkan sebuah baris. Menghapus baris 2 menghilangkan persamaan kedua asli dan memindahkan baris yang ditambahkan naik satu posisi. Kolom bergeser dengan cara yang sama.
 
 ```py
 import aspose.slides as slides
@@ -333,15 +333,15 @@ with slides.Presentation("matrix.pptx") as presentation:
     presentation.save("updated-matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[set_column_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_column_alignment/) menyelaraskan kolom pertama ke kiri. [set_columns_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_columns_alignment/) menyelaraskan tiga kolom berurutan ke kanan, mulai dari indeks 1. Dalam `updated-matrix.pptx`, matriks memiliki tiga persamaan dan empat variabel. Koefisien baris pertama asli `1` dan `x` kini muncul di kolom pertama dan ketiga.
+[set_column_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_column_alignment/) menyelaraskan kolom pertama ke kiri. [set_columns_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_columns_alignment/) menyelaraskan tiga kolom berurutan ke kanan, dimulai dari indeks 1. Di `updated-matrix.pptx`, matriks memiliki tiga persamaan dan empat variabel. Koefisien baris pertama asli `1` dan `x` kini muncul di kolom pertama dan ketiga.
 
-![Matriks tiga baris yang diperbarui menampilkan baris 1, 0, x, 0; 12, 1, 0, 0; dan 0, 0, 10, 1](matrix-after-edit.png)
+![Updated three-row matrix showing the rows 1, 0, x, 0; 12, 1, 0, 0; and 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Tambahkan Array Persamaan**
 
-Gunakan [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) ketika Anda membutuhkan persamaan yang sejajar atau tumpukan vertikal ekspresi.
+Gunakan [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) ketika Anda membutuhkan persamaan yang diratakan atau tumpukan vertikal ekspresi.
 
-![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -364,11 +364,11 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Menyelaraskan Array dengan Elemen Sekitar**
+### **Ratakan Array dengan Elemen Sekitar**
 
-[MathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/base_justification/) mengontrol perataan vertikal array relatif terhadap elemen matematika di sampingnya. Contoh di bawah membandingkan perataan dengan baris pertama, tengah array, dan baris terakhir.
+[MathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/base_justification/) mengontrol perataan vertikal sebuah array relatif terhadap elemen matematika di sekitarnya. Contoh di bawah membandingkan perataan dengan baris pertama, tengah array, dan baris terakhir.
 
-Contoh berikut membuat tiga array identik, masing‑masing tiga baris dan elemen tetangga `A=` serta `=B`. Semua teks matematika menggunakan Cambria Math ukuran 24 poin. Hanya perataan array yang berubah.
+Contoh berikut membuat tiga array identik, masing-masing dengan tiga baris dan elemen tetangga `A=` dan `=B`. Semua teks matematika menggunakan Cambria Math ukuran 24 poin. Hanya perataan array yang berubah.
 
 ```py
 import aspose.slides as slides
@@ -414,15 +414,15 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array-alignment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Perbandingan berikut menunjukkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di sebelah masing‑masing array.
+Perbandingan berikut menampilkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di samping setiap array.
 
-![Array persamaan di PowerPoint dengan perataan Atas, Tengah, dan Bawah serta elemen tetangga yang identik](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
 ### **Konfigurasi Jarak Baris**
 
 [row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing_rule/) memilih aturan jarak untuk baris dalam array. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing/) memberikan nilai numerik untuk aturan jarak eksplisit dan diabaikan oleh aturan preset.
 
-Untuk jarak tepat, nilai diukur dalam poin. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` pada contoh berarti 1,5 baris. Tetapkan kedua properti saat menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
+Untuk jarak tepat, nilai diukur dalam point. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` pada contoh menentukan 1,5 baris. Atur kedua properti ketika menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
 
 Contoh di bawah menyimpan lima presentasi dengan persamaan, perataan, dan pengaturan font yang sama. Tiga pertama menggunakan preset; dua terakhir menunjukkan nilai eksplisit.
 
@@ -469,13 +469,13 @@ for rule, spacing in settings:
         presentation.save(file_name, slides.export.SaveFormat.PPTX)
 ```
 
-Jarak baris array terpisah dari jarak paragraf. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) dan [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/) menambah ruang di sekitar paragraf yang membungkus, bukan di antara baris array. Demikian pula, [MathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/justification/) memposisikan seluruh paragraf matematika secara horizontal; ini tidak menggantikan pengaturan perataan vertikal array.
+Jarak baris array terpisah dari jarak paragraf. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) dan [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/) menambahkan ruang di sekitar paragraf yang berisi, bukan antara baris array. Demikian pula, [MathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/justification/) memposisikan seluruh paragraf matematika secara horizontal; itu tidak menggantikan pengaturan perataan vertikal array.
 
 ## **Tambahkan Fungsi Trigonometri**
 
-Gunakan [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
+Gunakan [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) ketika argumen adalah elemen saat ini dan nama fungsi diketahui.
 
-![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```py
 import aspose.slides as slides
@@ -498,9 +498,9 @@ with slides.Presentation() as presentation:
 
 ## **Tambahkan Subskrip dan Superskrip**
 
-Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/).
+Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/) .
 
-![Huruf Y kapital dengan subskrip 1 di sisi kiri dan superskrip n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -519,11 +519,51 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tambahkan Pembatas**
+### **Ratakan Subskrip dan Superskrip Kanan**
 
-Gunakan [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat menetapkan karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Ketika kedua skrip milik basis yang sama, gunakan [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/) . Properti [align_scripts](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/align_scripts/) mengontrol posisi horizontal mereka: `False` (default) membiarkan mereka mengikuti kontur basis, sementara `True` menyelaraskan skrip secara horizontal satu sama lain.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh bar vertikal](powerpoint-math-equations_13.png)
+Contoh ini menempatkan dua salinan ekspresi yang dapat disunting berdampingan. Keduanya menggunakan f miring matematika (U+1D453), subskrip 1, superskrip 2, dan Cambria Math ukuran 72 poin. Basis miring membuat perbedaan terlihat di PowerPoint. Instal Cambria Math sebelum menjalankan contoh.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(900, 250, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    text_format = slides.PortionFormat()
+    text_format.font_height = 72
+    text_format.latin_font = slides.FontData("Cambria Math")
+
+    for i in range(2):
+        left = 40 + i * 440
+        shape = slide.shapes.add_math_shape(left, 75, 380, 150)
+
+        base_text = math.MathematicalText("\U0001D453", text_format)
+        subscript = math.MathematicalText("1", text_format)
+        superscript = math.MathematicalText("2", text_format)
+        scripts = math.MathRightSubSuperscriptElement(base_text, subscript, superscript)
+        scripts.align_scripts = i == 1
+
+        portion = shape.text_frame.paragraphs[0].portions[0]
+        portion.portion_format.font_height = text_format.font_height
+        portion.portion_format.latin_font = text_format.latin_font
+        portion.math_paragraph.add(math.MathBlock(scripts))
+
+    presentation.save("aligned-scripts.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Two editable expressions in PowerPoint with align_scripts set to False on the left and True on the right](aligned-scripts.png)
+
+Di kiri, subskrip mulai lebih ke kiri dibanding superskrip, mengikuti kontur basis. Di kanan, kedua skrip diselaraskan secara horizontal satu sama lain.
+
+## **Tambahkan Delimiter**
+
+Gunakan [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) untuk menempatkan sebuah ekspresi di dalam delimiter. Anda juga dapat mengatur karakter pemisah untuk ekspresi delimiter yang berisi beberapa elemen.
+
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -548,11 +588,11 @@ with slides.Presentation() as presentation:
     presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ukuran dan Penjajaran Pembatas**
+### **Ukuran dan Rata Delimiter**
 
-Setel [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/grow_to_match_operand_height/) ke `True` agar tanda kurung tumbuh di sekitar operand tinggi, atau ke `False` agar tetap pada ukuran normal. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/delimiter_shape/) menerima salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` menempatkan tanda kurung di tengah sumbu matematika, yang melintasi tengah tanda sama dengan. `MATCH` menyelaraskan tanda kurung dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalam tetap sama.
+Atur [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/grow_to_match_operand_height/) ke `True` agar tanda kurung memperbesar di sekitar operand tinggi, atau ke `False` agar tetap pada ukuran normal. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/delimiter_shape/) mengambil salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) . `CENTERED` menengahkan kurung pada sumbu matematika, yang melintasi tengah tanda sama dengan. `MATCH` menyelaraskan mereka dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi delimiter. Ekspresi di dalam tetap sama.
 
-Contoh menempatkan pecahan pada eksponen `x` sehingga ekspresi memanjang lebih tinggi di atas garis dasar daripada di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
+Contoh ini menempatkan pecahan dalam eksponen `x` sehingga ekspresi memanjang lebih tinggi di atas baseline dibanding di bawahnya. Semua empat persamaan menggunakan kurung dan pengaturan font yang sama.
 
 ```python
 import aspose.slides as slides
@@ -583,15 +623,15 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Di PowerPoint, bandingkan baris‑baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung tumbuh menutupi eksponen dan tampak serupa untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung kecil di kiri (`CENTERED`) sejajar dengan tanda sama dengan, sementara yang di kanan (`MATCH`) berada lebih tinggi di sekitar ekspresi.
+Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, kurung memperbesar untuk membungkus eksponen dan terlihat sama untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Kurung lebih kecil di kiri (`CENTERED`) menyelaraskan dengan tanda sama dengan, sementara di kanan (`MATCH`) berada lebih tinggi di sekitar ekspresi.
 
-![Empat persamaan di PowerPoint dengan pertumbuhan pembatas diaktifkan di atas dan dinonaktifkan di bawah, serta Centered di kiri dan Match di kanan](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **Tambahkan Kotak Bingkai**
+## **Tambahkan Kotak Garis Batas**
 
-Panggil [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) pada sebuah pecahan untuk membingkai seluruh ekspresi. [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) yang dikembalikan menampilkan keempat sisi secara default. Gunakan [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_left/), dan [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_right/) untuk menghapus sisi tertentu.
+Panggil [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) pada sebuah pecahan untuk membingkai seluruh ekspresi. [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) yang dikembalikan menampilkan keempat sisi secara default. Gunakan [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_left/), dan [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_right/) untuk menghapus sisi individual.
 
-Contoh menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan keempat sisi dan atur [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_bottom_left_to_top_right/) untuk diagonal naik (↗) atau [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_top_left_to_bottom_right/) untuk diagonal turun (↘). Anda juga dapat menggunakan [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_horizontal/) atau [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_vertical/) dengan kombinasi sisi yang terlihat.
+Contoh ini menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan keempat sisi dan atur [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_bottom_left_to_top_right/) untuk diagonal naik (↗) atau [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_top_left_to_bottom_right/) untuk diagonal turun (↘). Anda juga dapat menggunakan [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_horizontal/) atau [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_vertical/) dengan kombinasi sisi yang terlihat.
 
 ```py
 import aspose.slides as slides
@@ -628,24 +668,24 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Enam pecahan dapat diedit di PowerPoint. Baris atas: bingkai penuh, sisi bawah dan kiri, diagonal naik. Baris bawah: diagonal turun, garis horizontal, garis vertikal dengan bingkai penuh.](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-Pada pecahan ini, garis horizontal menutupi garis pecahan. Garis vertikal melintasi pembilang dan penyebut sekaligus sementara bingkai di sekeliling tetap terlihat. Garis‑garis ini menghias seluruh ekspresi. Coret teks biasa hanya berlaku pada karakter dalam satu run teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat menyunting pembilang dan penyebut secara terpisah.
+Pada pecahan ini, goresan horizontal menutupi bar pecahan. Goresan vertikal melintasi pembilang dan penyebut sementara batas di sekitarnya tetap terlihat. Garis-garis ini menghias seluruh ekspresi. Strikethrough teks biasa berlaku pada karakter dalam satu run teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat menyunting pembilang dan penyebut secara terpisah.
 
-## **Kontrol Visibilitas dan Tata Letak dengan Elemen Phantom**
+## **Kendalikan Visibilitas dan Tata Letak dengan Elemen Phantom**
 
-Balut sebuah ekspresi dengan [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) untuk mengontrol visibilitasnya serta ruang yang disumbangkannya pada persamaan secara terpisah. Properti‑nya mengontrol hal berikut:
+Bungkus sebuah ekspresi dalam [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) untuk mengontrol visibilitasnya dan ruang yang ia kontribusikan pada persamaan secara independen. Properti-propertinya mengontrol hal berikut:
 
 | Property | Effect |
 | --- | --- |
-| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) | Atur ke `False` untuk menyembunyikan ekspresi. Dimensinya tetap berkontribusi pada tata letak kecuali properti terkait di bawah diatur ke `True`. |
-| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_width/) | Perlakukan lebar horizontal ekspresi sebagai nol, memungkinkan elemen tetangga mendekat. |
-| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_asc/) | Perlakukan ascent‑nya (tinggi di atas garis dasar) sebagai nol. Ini dapat mengurangi ruang yang dicadangkan di atas elemen tetangga. |
-| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_desc/) | Perlakukan descent‑nya (kedalaman di bawah garis dasar) sebagai nol. Ini dapat memindahkan batang pecahan atau konten lain di bawah ekspresi lebih dekat ke tetangganya. |
+| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) | Atur ke `False` untuk menyembunyikan ekspresi. Dimensinya tetap berkontribusi pada tata letak kecuali properti terkait di bawah ini `True`. |
+| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_width/) | Anggap lebar horizontal ekspresi sebagai nol, memungkinkan elemen tetangga bergerak lebih dekat. |
+| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_asc/) | Anggap asennya, tinggi di atas baseline, sebagai nol. Ini dapat mengurangi ruang yang disisakan di atas elemen tetangga. |
+| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_desc/) | Anggap desennya, kedalaman di bawah baseline, sebagai nol. Ini dapat memindahkan bar pecahan atau konten lain di bawah ekspresi lebih dekat ke tetangganya. |
 
-Garis dasar adalah garis referensi tempat huruf‑huruf matematika biasa berbaris. Menyembunyikan konten tidak menghapus dimensinya, dan memperlakukan suatu dimensi sebagai nol tidak menghapus ekspresi. Ekspresi dasar tetap tersedia melalui [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/base/). Atur [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) kembali ke `True` untuk menampilkannya lagi; pengaturan dimensi tetap tidak berubah.
+Baseline adalah garis referensi tempat huruf matematika biasa berada. Menyembunyikan konten tidak menghapus dimensinya, dan memperlakukan dimensi sebagai nol tidak menghapus ekspresi. Ekspresi yang mendasari tetap tersedia melalui [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/base/) . Atur [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) kembali ke `True` untuk menampilkannya lagi; pengaturan dimensi tetap tidak berubah.
 
-Contoh di bawah menciptakan lima varian berdampingan: sebuah pecahan terlihat, pecahan tersembunyi yang menahan ruang, dan tiga pecahan tersembunyi dengan satu dimensi diperlakukan sebagai nol. Setiap varian menggunakan ekspresi di sekitarnya yang sama serta Cambria Math ukuran 24 poin. Semua shape persamaan memiliki posisi atas yang sama, ditandai oleh panduan abu‑abu. Menempatkan phantom pada pembilang pecahan luar memudahkan melihat perubahan tata letak vertikal.
+Contoh di bawah membuat lima varian berdampingan: sebuah pecahan terlihat, pecahan tersembunyi yang tetap memesan ruang, dan tiga pecahan tersembunyi dengan satu dimensi diperlakukan sebagai nol. Setiap varian menggunakan ekspresi sekitarnya yang sama dan Cambria Math ukuran 24 poin. Semua bentuk persamaan memiliki posisi atas yang sama, ditandai dengan panduan abu-abu. Menempatkan phantom di pembilang pecahan luar memudahkan melihat perubahan tata letak vertikal.
 
 ```py
 import aspose.slides as slides
@@ -702,13 +742,13 @@ with slides.Presentation() as presentation:
     presentation.save("math-phantom.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Lima persamaan di PowerPoint membandingkan pecahan terlihat, pecahan tersembunyi yang menahan ruang, dan pecahan tersembunyi dengan ZeroWidth, ZeroAsc, atau ZeroDesc diaktifkan](math-phantom.png)
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
 
 ## **Kelompokkan Istilah**
 
-Gunakan [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah‑istilah yang dikelompokkan.
+Gunakan [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
 
-![Ekspresi x plus y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -733,9 +773,9 @@ with slides.Presentation() as presentation:
 
 ## **Format Elemen Matematika**
 
-Gunakan pembantu format hanya di tempat yang memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/) menempatkan sebuah bar di atas elemen matematika.
+Gunakan pembantu pemformatan hanya di mana mereka memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/) menempatkan garis di atas elemen matematika.
 
-![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -756,9 +796,9 @@ with slides.Presentation() as presentation:
 
 ### **Format Teks dalam Persamaan yang Ada**
 
-Untuk memformat teks di seluruh persamaan yang ada, telusuri setiap pohon elemen blok matematika. [MathElementBase.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/get_children/) mengembalikan hanya anak‑anak langsung, sehingga panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑nya untuk menyertakan elemen awal bila itu adalah [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
+Untuk memformat teks di seluruh persamaan yang ada, telusuri setiap pohon elemen blok matematika. [MathElementBase.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/get_children/) mengembalikan hanya anak langsung, sehingga panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anaknya untuk menyertakan elemen awal ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) .
 
-Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memuat subskrip di pembilangnya dan radikal di penyebutnya. Memproses hanya elemen‑elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian‑bagian matematika dalam frame teks slide, mengakses blok‑blaknya melalui [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan menetapkan [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) ke 28 poin melalui properti [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) masing‑masing elemen teks.
+Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilang dan radikal di penyebut. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh ini menemukan bagian matematika dalam frame teks slide, mengakses bloknya melalui [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan mengatur [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) ke 28 poin melalui properti [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) setiap elemen teks.
 
 ```py
 import aspose.slides as slides
@@ -788,7 +828,7 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Presentasi yang disimpan berisi format teks yang diperbarui di setiap tingkat masing‑masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematika.
+Presentasi yang disimpan berisi pemformatan teks yang diperbarui pada setiap tingkat setiap persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematikanya.
 
 ## **Referensi Cepat**
 
@@ -805,20 +845,20 @@ Presentasi yang disimpan berisi format teks yang diperbarui di setiap tingkat ma
 | Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) |
 | Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) |
 | Tambahkan array persamaan | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) |
-| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) |
-| Tambahkan bar dan bingkai | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) |
+| Tambahkan delimiter | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) |
+| Tambahkan garis dan border | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) |
 | Kelompokkan istilah | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) |
 
 ## **Tanya Jawab**
 
 **Apakah saya dapat menyunting persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), dapatkan [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan perbarui blok‑blok matematika dalam paragraf tersebut.
+Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), dapatkan [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), dan perbarui blok matematika dalam paragraf tersebut.
 
-**Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
+**Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat disunting?**
 
-Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menuliskan persamaan sebagai konten Office math yang dapat diedit.
+Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office math yang dapat disunting.
 
 **Apakah saya dapat mengekspor persamaan ke LaTeX?**
 
-Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), lalu panggil [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) untuk mengekspornya langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi di Python via .NET](/slides/id/python-net/exporting-math-equations/#export-math-equations-to-latex).
+Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), lalu panggil [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi di Python via .NET](/slides/id/python-net/exporting-math-equations/#export-math-equations-to-latex).

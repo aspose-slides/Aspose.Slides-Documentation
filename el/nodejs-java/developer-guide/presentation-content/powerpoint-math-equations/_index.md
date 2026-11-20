@@ -1,5 +1,5 @@
 ---
-title: Προσθήκη Μαθηματικών Εξισώσεων σε Παρουσιάσεις PowerPoint σε JavaScript
+title: Προσθήκη μαθηματικών εξισώσεων σε παρουσιάσεις PowerPoint με JavaScript
 linktitle: Μαθηματικές Εξισώσεις PowerPoint
 type: docs
 weight: 80
@@ -18,35 +18,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για Node.js μέσω Java, με υποστήριξη OMML, ελέγχων μορφοποίησης και σαφείς παραδείγματα κώδικα JavaScript."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για Node.js μέσω Java, υποστηρίζοντας OMML, ελέγχους μορφοποίησης και σαφή παραδείγματα κώδικα JavaScript."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για Node.js μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ριζικά, συναρτήσεις, όρια, N-ary τελεστές, πίνακες, ακολουθίες και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για Node.js μέσω Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ρίζες, συναρτήσεις, όρια, N‑ary τελεστές, πίνακες, διαμορφωμένα μαθηματικά μπλοκ.
 
 Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
-![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
+![Καρτέλα Insert του PowerPoint με την εντολή Equation επιλεγμένη](powerpoint-math-equations_1.png)
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
-![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
+![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
 Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, δημιουργημένο με [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
-- Το [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
-- Το [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
+- Ένα μαθηματικό σχήμα, που δημιουργείται με [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) αποθηκεύει μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
 
-Οι περισσότερες παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
+Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) και τις αλύσιμες μεθόδους από το [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) για να διατηρούν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε [Export Math Equations from Presentations in Node.js via Java](/slides/el/nodejs-java/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Node.js μέσω Java](/slides/el/nodejs-java/exporting-math-equations/).
 
 ## **Δημιουργία Εξίσωσης**
 
 Αυτό το παράδειγμα χρησιμοποιεί το [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) για να δημιουργήσει ένα μαθηματικό σχήμα και προσθέτει το Πυθαγόρειο θεώρημα:
 
-![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
+![Η εξίσωση c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -76,14 +76,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Αποκτήστε την πρώτη [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), καλέστε [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) και προσθέστε μαθηματικά μπλοκ ή μαθηματικά στοιχεία σε αυτήν.
-
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) δημιουργεί ένα σχήμα που περιέχει ήδη μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), κλήση του [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), και προσθήκη μαθηματικών μπλοκ ή μαθηματικών στοιχείων σε αυτό.
 {{% /alert %}}
 
 ### **Συνδυασμός Μαθηματικών Μπλοκ**
 
-Όταν τμήματα μιας εξίσωσης δημιουργούνται ανεξάρτητα ως αντικείμενα [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/), χρησιμοποιήστε το [joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) για να τα συνδυάσετε. Το παράδειγμα δημιουργεί `c² =` στο αριστερό μπλοκ και `a² + b²` στο δεξιό μπλοκ. Το [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSuperscript) δημιουργεί επεξεργάσιμα μαθηματικά εκθέτες για όλες τις τρείς δυνάμεις.
+Όταν τμήματα μιας εξίσωσης δημιουργούνται ανεξάρτητα ως αντικείμενα [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) , χρησιμοποιήστε το [joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) για να τα συνδυάσετε. Το παράδειγμα δημιουργεί `c² =` στο αριστερό μπλοκ και `a² + b²` στο δεξιό μπλοκ. Το [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSuperscript) δημιουργεί επεξεργάσιμα μαθηματικά εκθέτες για και τις τρεις δυνάμεις.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -114,15 +112,15 @@ try {
 }
 ```
 
-[joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) επιστρέφει το ίδιο το `leftBlock`, που τώρα περιέχει και τα δύο τμήματα με τη σωστή σειρά, και αφήνει το `rightBlock` άδειο. Προσθέστε το συνδυασμένο μπλοκ στο [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) μόνο μία φορά. Αφού ξαναανοίξετε το `equation.pptx`, η παράγραφος περιέχει ένα μπλοκ που αντιπροσωπεύει το `c² = a² + b²`, με όλες τις τρεις δυνάμεις διατηρημένες ως μαθηματικοί εκθέτες.
+[joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) επιστρέφει το ίδιο το `leftBlock`, το οποίο τώρα περιέχει και τα δύο μέρη με τη σωστή σειρά, ενώ αφήνει το `rightBlock` άδειο. Προσθέστε το συνδυασμένο μπλοκ στο [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) μόνο μία φορά. Μετά το άνοιγμα ξανά του `equation.pptx`, η παράγραφος περιέχει ένα μπλοκ που αντιπροσωπεύει `c² = a² + b²`, με τους τρεις εκθέτες διατηρημένους ως μαθηματικά εκθέτες.
 
-Η κλήση του [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#add) ως `leftBlock.add(rightBlock)` προσπαθεί να ενσωματώσει ένα μπλοκ μέσα σε άλλο και ρίχνει `InvalidOperationException`.
+Καλώντας το [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#add) ως `leftBlock.add(rightBlock)` προσπαθεί να ενσωματώσει ένα μπλοκ απευθείας μέσα σε άλλο και προκαλεί `InvalidOperationException`.
 
 ## **Προσθήκη Κλασμάτων**
 
-Χρησιμοποιήστε το [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλασμάτων με το [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
+Χρησιμοποιήστε το [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
-![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
+![Ένα λοξό μαθηματικό κλάσμα που δείχνει 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -147,7 +145,7 @@ try {
 }
 ```
 
-Για στοματικό κλάσμα, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar):
+Για ένα στοιβαγμένο κλάσμα, χρησιμοποιήστε το [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```javascript
 var aspose = aspose || {};
@@ -156,11 +154,11 @@ aspose.slides = require("aspose.slides.via.java");
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **Προσθήκη Ριζικών**
+## **Προσθήκη Ριζών**
 
-Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
+Χρησιμοποιήστε το [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) για να δημιουργήσετε μια τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση και το όρισμα γίνεται ο βαθμός.
 
-![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
+![Μία έκφραση n-οστού ριζικού με x κάτω από το σύμβολο του ριζικού](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -185,13 +183,13 @@ try {
 }
 ```
 
-### **Εμφάνιση ή Απόκρυψη Εκθέτη Τετραγωνικής Ριζας**
+### **Εμφάνιση ή Απόκρυψη του Βαθμού μιας Τετραγωνικής Ριζας**
 
-Μια τετραγωνική ρίζα μπορεί να εμφανίζει τον ρητό αριθμό 2 ή να χρησιμοποιεί τη συμβατική σημειογραφία √x. Η μέθοδος [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) του [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) ελέγχει ποια μορφή εμφανίζεται. Και οι δύο μορφές διατηρούν τον εκθέτη 2 και το ριζικό x στην επεξεργάσιμη εξίσωση.
+Μια τετραγωνική ρίζα μπορεί να εμφανίσει τον 2 ρητά ή να χρησιμοποιήσει τη συμβατική σημειογραφία √x. Η μέθοδος [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) του [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) ελέγχει ποια μορφή εμφανίζεται. Και οι δύο μορφές διατηρούν τον βαθμό 2 και το ριζικό x στην επεξεργάσιμη εξίσωση.
 
-![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
+![Η ίδια τετραγωνική ρίζα με τον βαθμό ορατό στα αριστερά και κρυφό στα δεξιά](square-root-degree.png)
 
-Το παράδειγμα αποθηκεύει την ίδια τετραγωνική ρίζα δύο φορές. Στο `visible-degree.pptx`, το 2 είναι ορατό. Στο `hidden-degree.pptx`, είναι κρυφό.
+Το παράδειγμα αποθηκεύει την ίδια τετραγωνική ρίζα δύο φορές. Στο `visible-degree.pptx`, ο 2 είναι ορατός. Στο `hidden-degree.pptx`, είναι κρυφός.
 
 ```javascript
 var aspose = aspose || {};
@@ -221,7 +219,7 @@ try {
 
 Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ή το [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) για συναρτήσεις όπως `sin(x)`, `log(x)` ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε το `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) ή χρησιμοποιήστε το [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
+![Το όριο του x καθώς το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -258,9 +256,9 @@ let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 
 ## **Προσθήκη N-ary Τελεστών και Ολοκληρωμάτων**
 
-Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν τον καθορισμό κατώτερου και ανώτερου ορίου.
+Χρησιμοποιήστε το [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) για ολοκληρώματα. Και οι δύο μέθοδοι σας επιτρέπουν να ορίσετε τα κάτω και άνω όρια.
 
-![A summation with lower and upper limits](powerpoint-math-equations_7.png)
+![Μια άθροιση με κάτω και πάνω όρια](powerpoint-math-equations_7.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -288,9 +286,9 @@ try {
 }
 ```
 
-Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) και ενώνονται στην έκφραση.
+Οι N‑ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` προστίθενται συνήθως ως [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) και ενώνονται στην έκφραση.
 
-Για ολοκλήρωμα, χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
+Για ένα ολοκλήρωμα, χρησιμοποιήστε το [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
 ```javascript
 var aspose = aspose || {};
@@ -300,11 +298,11 @@ let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slide
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Προσθήκη Πινάκων**
+## **Προσθήκη Πινακών**
 
-Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, οπότε τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) για σειρές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, οπότε τυλίξτε τον πίνακα όταν χρειάζεστε παρενθέσεις, αγκύλες ή άγκυρες.
 
-![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
+![Ένας μαθηματικός πίνακας δύο γραμμών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -335,11 +333,9 @@ try {
 
 ### **Επεξεργασία Υπάρχοντος Πίνακα**
 
-Ας υποθέσουμε ότι ένα μάθημα γραμμικής άλγεβρας ξεκινά με τον πίνακα συντελεστών στο `matrix.pptx`, αποθηκευμένο από το προηγούμενο παράδειγμα. Για την επόμενη άσκηση, διατηρήστε την πρώτη εξίσωση, αντικαταστήστε τη δεύτερη με δύο νέες εξισώσεις και αναθεωρήστε το σύνολο των μεταβλητών. Ανοίξτε τον υπάρχοντα πίνακα μέσω του [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) για να διατηρήσετε τους συντελεστές που εξακολουθούν να ισχύουν.
+Έστω ότι ένα μάθημα γραμμικής άλγεβρας αρχίζει με τον πίνακα συντελεστών στο `matrix.pptx`, αποθηκευμένο από το προηγούμενο παράδειγμα. Για την επόμενη άσκηση, διατηρήστε την πρώτη εξίσωση, αντικαταστήστε τη δεύτερη με δύο νέες εξισώσεις και αναθεωρήστε το σύνολο των μεταβλητών. Ανοίξτε τον υπάρχοντα πίνακα μέσω του [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) για να διατηρήσετε τους συντελεστές που εξακολουθούν να ισχύουν.
 
-![Original two-row coefficient matrix with entries 1, x, and an empty cell in the first row and x, 2, and y in the second](matrix-before-edit.png)
-
-Οι δείκτες γραμμών και στηλών ξεκινούν από το μηδέν και αναφέρονται στον πίνακα όπως υπάρχει σε κάθε κλήση. Η εισαγωγή μιας γραμμής πριν από το δείκτη 1 μετατοπίζει την αρχική δεύτερη γραμμή στο δείκτη 2. Η εισαγωγή μετά το δείκτη 2 προσθέτει μια γραμμή. Η διαγραφή της γραμμής 2 αφαιρεί την αρχική δεύτερη εξίσωση και μετακινεί την προστιθέμενη γραμμή μία θέση πάνω. Οι στήλες μετατοπίζονται με τον ίδιο τρόπο.
+![Αρχικός πίνακας συντελεστών δύο γραμμών με τιμές 1, x και ένα κενό κελί στην πρώτη γραμμή και x, 2, y στη δεύτερη](matrix-before-edit.png)
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -358,7 +354,7 @@ try {
     matrix.insertColumnAfter(3);
     matrix.deleteColumn(3);
 
-    // Οι νέες κελιά αρχικά είναι null. Ορίστε πρώτα τους μη μηδενικούς συντελεστές.
+    // Τα νέα κελιά είναι αρχικά κενά. Ορίστε πρώτα τους μη μηδενικούς συντελεστές.
     matrix.set_Item(1, 0, new slides.MathematicalText("12"));
     matrix.set_Item(1, 1, new slides.MathematicalText("1"));
     matrix.set_Item(2, 2, new slides.MathematicalText("10"));
@@ -380,15 +376,15 @@ try {
 }
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnAlignment) ευθυγραμμίζει την πρώτη στήλη αριστερά. [setColumnsAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnsAlignment) ευθυγραμμίζει τρεις διαδοχικές στήλες δεξιά, ξεκινώντας από το δείκτη 1. Στο `updated-matrix.pptx`, ο πίνακας έχει τρεις εξισώσεις και τέσσερις μεταβλητές. Οι αρχικοί συντελεστές της πρώτης γραμμής `1` και `x` εμφανίζονται τώρα στην πρώτη και τρίτη στήλη.
+[setColumnAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnAlignment) ευθυγραμμίζει την πρώτη στήλη στα αριστερά. [setColumnsAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnsAlignment) ευθυγραμμίζει τρεις διαδοχικές στήλες στα δεξιά, ξεκινώντας από το δείκτη 1. Στο `updated-matrix.pptx`, ο πίνακας έχει τρεις εξισώσεις και τέσσερις μεταβλητές. Οι αρχικοί συντελεστές της πρώτης γραμμής `1` και `x` εμφανίζονται τώρα στην πρώτη και τρίτη στήλη.
 
-![Updated three-row matrix showing the rows 1, 0, x, 0; 12, 1, 0, 0; and 0, 0, 10, 1](matrix-after-edit.png)
+![Ενημερωμένος πίνακας τριών γραμμών που δείχνει τις γραμμές 1, 0, x, 0· 12, 1, 0, 0· και 0, 0, 10, 1](matrix-after-edit.png)
 
-## **Προσθήκη Συνολοτήτων Εξισώσεων**
+## **Προσθήκη Πινάκων Εξισώσεων**
 
 Χρησιμοποιήστε το [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κατακόρυφο σύνολο εκφράσεων.
 
-![A vertical math array with x above y](powerpoint-math-equations_11.png)
+![Μία κατακόρυφη μαθηματική σειρά με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -414,11 +410,11 @@ try {
 }
 ```
 
-### **Ευθυγράμμιση Συνολοτήτων με Γειτονικά Στοιχεία**
+### **Στοίχιση μιας Σειράς με τα Περικείμενα Στοιχεία**
 
-[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) ελέγχει την κατακόρυφη ευθυγράμμιση μιας ακολουθίας σε σχέση με τα μαθηματικά στοιχεία που τη συνοδεύουν. Το παρακάτω παράδειγμα συγκρίνει την ευθυγράμμιση με την πρώτη γραμμή, το κέντρο της ακολουθίας και την τελευταία γραμμή.
+[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) ελέγχει την κατακόρυφη στοίχιση μιας σειράς σε σχέση με τα μαθηματικά στοιχεία δίπλα της. Το παρακάτω παράδειγμα συγκρίνει την στοίχιση με την πρώτη γραμμή, το κέντρο της σειράς και την τελευταία γραμμή.
 
-Το παράδειγμα δημιουργεί τρεις ισάριθμες ακολουθίες, η καθεμία με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε μέγεθος 24 pt. Μόνο η ευθυγράμμιση της ακολουθίας αλλάζει.
+Το παρακάτω παράδειγμα δημιουργεί τρεις ταυτόσημες σειρές, η καθεμία με τρεις γραμμές και τα γειτονικά στοιχεία `A=` και `=B`. Όλο το μαθηματικό κείμενο χρησιμοποιεί Cambria Math σε 24 σημεία. Μόνο η στοίχιση της σειράς αλλάζει.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -471,17 +467,17 @@ try {
 }
 ```
 
-Η ακόλουθη σύγκριση δείχνει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση του `A=` και του `=B` δίπλα σε κάθε ακολουθία.
+Η παρακάτω σύγκριση παρουσιάζει την αποθηκευμένη παρουσίαση στο PowerPoint. Παρατηρήστε τη θέση του `A=` και `=B` δίπλα σε κάθε σειρά.
 
-![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
+![Σειρές εξισώσεων στο PowerPoint με στοίχιση Πάνω, Κέντρο και Κάτω και τα ίδια περαστικά στοιχεία](equation-array-alignment.png)
 
 ### **Διαμόρφωση Απόστασης Γραμμών**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στην ακολουθία. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) παρέχει έναν αριθμητικό τιμή για έναν ρητό κανόνα απόστασης και αγνοείται από τους προεπιλεγμένους κανόνες.
+[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) επιλέγει τον κανόνα απόστασης για τις γραμμές μέσα στη σειρά. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) παρέχει αριθμητική τιμή για ρητό κανόνα απόστασης και αγνοείται από τους προκαθορισμένους κανόνες.
 
-Για ακριβή απόσταση, η τιμή μετράται σε πόντους. Για αναλογική απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα υποδηλώνει 1,5 γραμμές. Ορίστε και τις δύο ιδιότητες όταν ορίζετε ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
+Για ακριβή απόσταση, η τιμή μετράται σε σημεία. Για ανάλογη απόσταση, μετράται σε μισές γραμμές: η τιμή `3` στο παράδειγμα αντιστοιχεί σε 1.5 γραμμές. Ορίστε και τις δύο ιδιότητες όταν καθορίζετε ρητή τιμή· η αλλαγή μόνο της αριθμητικής τιμής δεν επιλέγει κανόνα απόστασης.
 
-Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, ευθυγράμμιση και ρυθμίσεις γραμματοσειράς. Τα πρώτα τρία χρησιμοποιούν προεπιλογές· τα τελευταία δύο δείχνουν ρητές τιμές.
+Το παρακάτω παράδειγμα αποθηκεύει πέντε παρουσιάσεις με τις ίδιες εξισώσεις, στοίχιση και ρυθμίσεις γραμματοσειράς. Οι πρώτες τρεις χρησιμοποιούν προκαθορισμένα πρότυπα· οι τελευταίες δύο δείχνουν ρητές τιμές.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -528,13 +524,13 @@ for (let i = 0; i < rules.length; i++) {
 }
 ```
 
-Η απόσταση γραμμών της ακολουθίας είναι ξεχωριστή από την απόσταση παραγράφου. Τα [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) και [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) προσθέτουν χώρο γύρω από την παράγραφο-γονέα, όχι μεταξύ των γραμμών της ακολουθίας. Ομοίως, το [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) θέτει οριζόντια τη θέση ολόκληρης της μαθηματικής παραγράφου· δεν αντικαθιστά τη ρύθμιση κατακόρυφης ευθυγράμμισης της ακολουθίας.
+Η απόσταση γραμμών της σειράς είναι ξεχωριστή από την απόσταση παραγράφου. Τα [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) και [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) προσθέτουν χώρο γύρω από την περιβάλλουσα παράγραφο, όχι μεταξύ των γραμμών της σειράς. Ομοίως, το [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) τοποθετεί ολόκληρη την μαθηματική παράγραφο οριζόντια· δεν αντικαθιστά την κατακόρυφη ρύθμιση στοίχισης της σειράς.
 
 ## **Προσθήκη Τριγωνομετρικών Συναρτήσεων**
 
 Χρησιμοποιήστε το [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
-![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
+![Η τριγωνομετρική συνάρτηση cos εφαρμοσμένη στο 2x](powerpoint-math-equations_6.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -559,11 +555,11 @@ try {
 }
 ```
 
-## **Προσθήκη Δεικτών και Εκθέτων**
+## **Προσθήκη Δεικτών και Εκθετών**
 
-Χρησιμοποιήστε τους βοηθητικούς τύπους δεικτών και εκθέτων για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Χρησιμοποιήστε τους βοηθούς για δείκτες και εκθέτες για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανιστούν στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
+![Ένα κεφαλαίο Y με αριστερό δείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -588,11 +584,57 @@ try {
 }
 ```
 
-## **Προσθήκη Οριοθετητών**
+### **Στοίχιση Δεξιών Δεικτών και Εκθετών**
 
-Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) για να τοποθετήσετε μια έκφραση μέσα σε οριοθετητές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστικού για εκφράσεις με πολλαπλά στοιχεία.
+Όταν και τα δύο scripts ανήκουν στην ίδια βάση, χρησιμοποιήστε το [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathrightsubsuperscriptelement/). Η μέθοδος [setAlignScripts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) ελέγχει τις οριζόντιες θέσεις τους: `false` (η προεπιλογή) επιτρέπει να ακολουθούν το περίγραμμα της βάσης, ενώ `true` ευθυγραμμίζει τα scripts οριζόντια μεταξύ τους.
 
-![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
+Αυτό το παράδειγμα τοποθετεί δύο αντίγραφα της ίδιας επεξεργάσιμης έκφρασης πλάι-πλάι. Και τα δύο χρησιμοποιούν μαθηματικό πλάγιο f (U+1D453), κάτω δείκτη 1, πάνω εκθέτη 2 και Cambria Math σε 72 σημεία. Η κεκλιμένη βάση κάνει τη διαφορά ορατή στο PowerPoint. Εγκαταστήστε το Cambria Math πριν τρέξετε το παράδειγμα.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(900, 250, slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const format = new slides.PortionFormat();
+    format.setFontHeight(72);
+    const font = new slides.FontData("Cambria Math");
+    format.setLatinFont(font);
+
+    for (let i = 0; i < 2; i++) {
+        const left = 40 + i * 440;
+        const shape = slide.getShapes().addMathShape(left, 75, 380, 150);
+
+        const baseText = new slides.MathematicalText("\uD835\uDC53", format);
+        const subscript = new slides.MathematicalText("1", format);
+        const superscript = new slides.MathematicalText("2", format);
+        const scripts = new slides.MathRightSubSuperscriptElement(baseText, subscript, superscript);
+        scripts.setAlignScripts(i === 1);
+
+        const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        portion.getPortionFormat().setFontHeight(format.getFontHeight());
+        portion.getPortionFormat().setLatinFont(format.getLatinFont());
+        const block = new slides.MathBlock(scripts);
+        portion.getMathParagraph().add(block);
+    }
+
+    presentation.save("aligned-scripts.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Δύο επεξεργάσιμες εκφράσεις στο PowerPoint με το setAlignScripts ορισμένο σε false στα αριστερά και true στα δεξιά](aligned-scripts.png)
+
+Στα αριστερά, ο κάτω δείκτης αρχίζει πιο πολύ αριστερά από τον πάνω δείκτη, ακολουθώντας το περίγραμμα της βάσης. Στα δεξιά, τα δύο scripts ευθυγραμμίζονται οριζόντια μεταξύ τους.
+
+## **Προσθήκη Διαχωριστικών**
+
+Χρησιμοποιήστε το [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) για να τοποθετήσετε μια έκφραση μέσα σε διαχωριστές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις διαχωριστών που περιέχουν πολλά στοιχεία.
+
+![Μια έκφραση διαχωριστή που περιέχει x, y και z διαχωρισμένα με κατακόρυφες γραμμές](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -621,11 +663,11 @@ try {
 }
 ```
 
-### **Μέγεθος και Ευθυγράμμιση Οριοθετητών**
+### **Μέγεθος και Στοίχιση Διαχωριστών**
 
-Πληκτρολογήστε `true` στην [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) για να επιτρέψετε στα παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό όργανο, ή `false` για να διατηρηθούν στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). Το `Centered` κεντράρει τις παρενθέσεις στον μαθηματικό άξονα, ο οποίος περνά από το μέσο του ίσου. Το `Match` τις ευθυγραμμίζει με το περιεχόμενο που περιβάλλεται. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τους οριοθετητές. Η έκφραση μέσα παραμένει η ίδια.
+Πρόσθεστε `true` στο [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) για να επιτρέψετε στις παρενθέσεις να μεγαλώσουν γύρω από ένα ψηλό όργανο, ή `false` για να τις κρατήσετε στο κανονικό τους μέγεθος. Χρησιμοποιήστε το [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) με μία από τις δύο τιμές του [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). Το `Centered` κεντράρει τις παρενθέσεις στον άξονα των μαθηματικών, που διέρχεται από το μέσο του ίσου. Το `Match` τις ευθυγραμμίζει με το περιεχόμενο που περικλείουν. Και οι δύο ρυθμίσεις επηρεάζουν μόνο τις διαχωριστές. Η έκφραση μέσα παραμένει η ίδια.
 
-Το παράδειγμα τοποθετεί ένα κλάσμα στο εκθέτη του `x` έτσι ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη γραμμή βάσης από ό,τι κάτω. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
+Το παράδειγμα τοποθετεί ένα κλάσμα στον εκθέτη του `x` ώστε η έκφραση να εκτείνεται περισσότερο πάνω από τη γραμμή βάσης από ότι κάτω. Όλες οι τέσσερις εξισώσεις χρησιμοποιούν τις ίδιες παρενθέσεις και ρυθμίσεις γραμματοσειράς.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -655,15 +697,15 @@ try {
 }
 ```
 
-Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε το αποτέλεσμα της ανάπτυξης. Στην επάνω γραμμή, οι παρενθέσεις μεγαλώνουν για να περικλείσουν τον εκθέτη και φαίνονται παρόμοιες για τα δύο σχήματα. Στην κάτω γραμμή, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το ίσο, ενώ αυτές στα δεξιά (`Match`) κάθονται υψηλότερα γύρω από την έκφραση.
+Στο PowerPoint, συγκρίνετε τις γραμμές για να δείτε το αποτέλεσμα της ανάπτυξης. Στην πάνω γραμμή, οι παρενθέσεις μεγαλώνουν για να περιβάλουν τον εκθέτη και φαίνονται παρόμοιες για τις δύο μορφές. Στην κάτω γραμμή, η ανάπτυξη είναι απενεργοποιημένη. Οι μικρότερες παρενθέσεις στα αριστερά (`Centered`) ευθυγραμμίζονται με το ίσον, ενώ αυτές στα δεξιά (`Match`) βρίσκονται ψηλότερα γύρω από την έκφραση.
 
-![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
+![Τέσσερις εξισώσεις στο PowerPoint με ενεργοποιημένη ανάπτυξη διαχωριστών επάνω και απενεργοποιημένη κάτω, και Centered στα αριστερά και Match στα δεξιά](delimiter-sizing.png)
 
 ## **Προσθήκη Πλαισίου Περιγράμματος**
 
 Καλέστε το [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) σε ένα κλάσμα για να περιγράψετε ολόκληρη την έκφραση. Το επιστρεφόμενο [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) εμφανίζει όλες τις τέσσερις πλευρές από προεπιλογή. Χρησιμοποιήστε τα [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) και [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) για να αφαιρέσετε μεμονωμένες πλευρές.
 
-Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλασίου σε μία διαφάνεια. Για να δείξετε ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και περάστε `true` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) για μια ανυψωτική διαγώνιο (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) για μια κατιούσα διαγώνιο (↘). Μπορείτε επίσης να χρησιμοποιήσετε το [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) ή το [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) με οποιονδήποτε συνδυασμό ορατών πλευρών.
+Το παράδειγμα τοποθετεί έξι αντίγραφα του ίδιου κλάσματος σε μία διαφάνεια. Για να δείξετε την ακύρωση, κρύψτε όλες τις τέσσερις πλευρές και προσθέστε `true` στο [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) για ανερχόμενη διαγώνια (↗) ή στο [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) για καθοδική διαγώνια (↘). Μπορείτε επίσης να χρησιμοποιήσετε τα [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) ή [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) με οποιονδήποτε συνδυασμό ορατών πλευρών.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -706,24 +748,24 @@ try {
 }
 ```
 
-![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
+![Έξι επεξεργάσιμα κλάσματα στο PowerPoint. Άνω σειρά: πλήρες περίγραμμα, κάτω και αριστερά πλευρά, ανερχόμενη διαγώνια. Κάτω σειρά: καθοδική διαγώνια, οριζόντια γραμμή, κάθετη γραμμή με πλήρες περίγραμμα](border-box-fractions.png)
 
-Σε αυτό το κλάσμα, η οριζόντια διαγώνιος διαγώνιος επικαλύπτει τη γραμμή του κλασίου. Η κατακόρυφη διαγώνιος διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή ενώ το περιβάλλον περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η κανονική διαγραφή κειμένου εφαρμόζεται σε χαρακτήρες μέσα σε ένα τμήμα κειμένου. Αφού ξαναανοίξετε την παρουσίαση στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε τον αριθμητή και τον παρονομαστή ανεξάρτητα.
+Σε αυτό το κλάσμα, η οριζόντια γραμμή υπερκαλύπτει τη γραμμή του κλάσματος. Η κάθετη γραμμή διασχίζει τόσο τον αριθμητή όσο και τον παρονομαστή, ενώ το περίγραμμα παραμένει ορατό. Αυτές οι γραμμές διακοσμούν ολόκληρη την έκφραση. Η κανονική διαγραφή κειμένου εφαρμόζεται σε χαρακτήρες μιας ακολουθίας κειμένου. Μετά το άνοιγμα ξανά της παρουσίασης στο PowerPoint, μπορείτε ακόμη να επεξεργαστείτε τον αριθμητή και τον παρονομαστή ανεξάρτητα.
 
-## **Έλεγχος Ορατότητας και Διάταξης με Phantom Στοιχεία**
+## **Έλεγχος Ορατότητας και Διάταξης με Φανταστικά Στοιχεία**
 
-Τυλίξτε μια έκφραση σε [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) για να ελέγξετε την ορατότητά της και τον χώρο που συνεισφέρει σε μια εξίσωση ανεξάρτητα. Οι μέθοδοι του [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) ελέγχουν τα εξής:
+Τυλίξτε μια έκφραση στο [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) για να ελέγξετε την ορατότητά της και το χώρο που συνεισφέρει σε μια εξίσωση ανεξάρτητα. Οι μέθοδοι του [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) ελέγχουν τα παρακάτω:
 
-| Method | Effect |
+| Μέθοδος | Αποτέλεσμα |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Pass `false` to hide the expression. Its dimensions still contribute to layout unless the corresponding methods below receive `true`. |
-| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Treat the expression's horizontal width as zero, allowing neighboring elements to move closer together. |
-| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Treat its ascent, the height above the baseline, as zero. This can reduce the space reserved above neighboring elements. |
-| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Treat its descent, the depth below the baseline, as zero. This can move a fraction bar or other content below the expression closer to its neighbors. |
+| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Ορίστε `false` για απόκρυψη της έκφρασης. Οι διαστάσεις της εξακολουθούν να συμβάλλουν στη διάταξη, εκτός εάν οι αντίστοιχες μέθοδοι παρακάτω λάβουν `true`. |
+| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Θεωρεί το οριζόντιο πλάτος της έκφρασης ως μηδέν, επιτρέποντας στα γειτονικά στοιχεία να πλησιάσουν περισσότερο. |
+| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Θεωρεί την ανάληψη της έκφρασης (το ύψος πάνω από τη γραμμή βάσης) ως μηδέν. Αυτό μπορεί να μειώσει το χώρο που διατηρείται πάνω από τα γειτονικά στοιχεία. |
+| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Θεωρεί την κατώτατη του (το βάθος κάτω από τη γραμμή βάσης) ως μηδέν. Αυτό μπορεί να φέρει πιο κοντά τη μπάρα κλάσματος ή άλλο περιεχόμενο κάτω από την έκφραση στα γειτονικά στοιχεία. |
 
-Η γραμμή βάσης είναι η αναφορά στην οποία ξεκουράζονται τα κανονικά μαθηματικά γράμματα. Η απόκρυψη του περιεχομένου δεν αφαιρεί τις διαστάσεις του, και η μετατροπή μιας διάστασης σε μηδέν δεν διαγράφει την έκφραση. Η υποκείμενη έκφραση παραμένει διαθέσιμη μέσω του [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Περάστε `true` στο [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) για να την εμφανίσετε ξανά· οι ρυθμίσεις διάστασης παραμένουν αμετάβλητες.
+Η γραμμή βάσης είναι η αναφορά στην οποία καθίστανται τα κανονικά μαθηματικά γράμματα. Η απόκρυψη περιεχομένου δεν αφαιρεί τις διαστάσεις του, και η αντιμετώπιση μιας διάστασης ως μηδέν δεν διαγράφει την έκφραση. Η υποκείμενη έκφραση παραμένει διαθέσιμη μέσω του [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Ορίστε `true` στο [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) για να τη δείξετε ξανά· οι ρυθμίσεις διάστασης παραμένουν αμετάβλητες.
 
-Το παρακάτω παράδειγμα δημιουργεί πέντε παραλλαγές πλάι-πλάι: ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο, και τρία κρυφά κλάσματα με μία διάσταση να θεωρείται μηδέν. Κάθε παραλλαγή χρησιμοποιεί την ίδια γειτονική έκφραση και Cambria Math σε 24 pt. Όλα τα σχήματα εξίσωσης έχουν την ίδια κορυφαία θέση, σημειωμένη με τον γκρι οδηγό. Η τοποθέτηση του phantom στο αριθμητή ενός εξωτερικού κλασίου κάνει τις κατακόρυφες αλλαγές διάταξης πιο εύκολα παρατηρήσιμες.
+Το παράδειγμα παρακάτω δημιουργεί πέντε παραλλαγές πλάι-πλάι: ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο και τρία κρυφά κλάσματα με μια διάσταση να θεωρείται μηδέν. Κάθε παραλλαγή χρησιμοποιεί την ίδια περιβάλλουσα έκφραση και Cambria Math σε 24 σημεία. Όλα τα σχήματα εξίσωσης έχουν την ίδια ανώτερη θέση, σηματοδοτημένη από τον γκρίζο οδηγό. Η τοποθέτηση του φανταστικού στον αριθμητή ενός εξωτερικού κλάσματος κάνει τις κατακόρυφες αλλαγές διάταξης πιο εύκολα ορατές.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -789,13 +831,13 @@ try {
 }
 ```
 
-![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
+![Πέντε εξισώσεις στο PowerPoint συγκρίνοντας ένα ορατό κλάσμα, ένα κρυφό κλάσμα που διατηρεί χώρο, και κρυφά κλάσματα με ZeroWidth, ZeroAsc ή ZeroDesc ενεργοποιημένα](math-phantom.png)
 
 ## **Ομαδοποίηση Όρων**
 
-Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να ετικετοποιήσετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε ένα όριο για να ετικετοφορήσετε τους ομαδοποιημένους όρους.
 
-![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
+![Η έκφραση x + y ομαδοποιημένη με την ετικέτα any text κάτω από αυτήν](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -824,9 +866,9 @@ try {
 
 ## **Μορφοποίηση Μαθηματικών Στοιχείων**
 
-Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο όταν διευκρινίζουν τον τύπο. Για παράδειγμα, το [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
 
-![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
+![Μια μαθηματική έκφραση ABC με πάνω γραμμή](powerpoint-math-equations_14.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -852,9 +894,9 @@ try {
 
 ### **Μορφοποίηση Κειμένου σε Υπάρχουσα Εξίσωση**
 
-Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, περιηγηθείτε στο δέντρο των στοιχείων κάθε μαθηματικού μπλοκ. Η [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) επιστρέφει μόνο τα άμεσα παιδιά, οπότε καλέστε την επαναληπτικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, εκθέτες, ριζικά και άλλες ένθετες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του ώστε να συμπεριλάβετε το αρχικό στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
+Για να μορφοποιήσετε κείμενο σε όλη μια υπάρχουσα εξίσωση, διασχίστε το δέντρο στοιχείων κάθε μαθηματικού μπλοκ. Το [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) επιστρέφει μόνο τα άμεσα παιδιά, επομένως καλέστε το αναδρομικά για να φτάσετε σε κείμενο μέσα σε κλάσματα, εκθέτες, ρίζες και άλλες ενσωματωμένες δομές. Ελέγξτε το τρέχον στοιχείο καθώς και τα παιδιά του για να συμπεριλάβετε το αρχικοποιημένο στοιχείο όταν είναι [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
 
-Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιέχει δεικτή στο αριθμητή και ριζικό στον παρονομαστή. Η επεξεργασία μόνο των κορυφαίων στοιχείων του μπλοκ θα παραλείπει το κείμενο μέσα στο κλάσμα. Το παράδειγμα βρίσκει μαθηματικά τμήματα σε πλαίσια κειμένου διαφανειών, αποκτά πρόσβαση στα μπλοκ μέσω του [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσει το μέγεθος γραμματοσειράς σε 28 pt μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) κάθε στοιχείου κειμένου.
+Αυτό το παράδειγμα υποθέτει ότι το `input.pptx` περιέχει μια εξίσωση όπως `z = xᵢ / ∛y`, με ένα κλάσμα που περιέχει δείκτη στον αριθμητή και ρίζα στον παρονομαστή. Η επεξεργασία μόνο των στοιχείων κορυφής του μπλοκ θα χάσει το κείμενο μέσα στο κλάσμα. Το παράδειγμα εντοπίζει μαθηματικές περιοχές σε πλαίσια κειμένου διαφανειών, προσπελάζει τα μπλοκ τους μέσω του [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) και χρησιμοποιεί το [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) για να ορίσει το μέγεθος γραμματοσειράς σε 28 σημεία σε κάθε στοιχείο κειμένου μέσω της μεθόδου [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat).
 
 ```javascript
 var aspose = aspose || {};
@@ -908,37 +950,37 @@ try {
 }
 ```
 
-Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο κειμένου και τη μαθηματική δομή.
+Η αποθηκευμένη παρουσίαση περιέχει την ενημερωμένη μορφοποίηση κειμένου σε κάθε επίπεδο κάθε επεξεργασμένης εξίσωσης, διατηρώντας το περιεχόμενο του κειμένου και τη μαθηματική δομή.
 
-## **Σύντομος Οδηγός**
+## **Γρήγορη Αναφορά**
 
-| Task | Main API |
+| Καθήκον | Κύριο API |
 | --- | --- |
-| Create math text | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| Combine elements | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Create fractions | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add superscript or subscript | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add functions | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add radicals | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add limits | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add left-side scripts | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add summations and integrals | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add matrices | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
-| Add equation arrays | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add delimiters | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Add bars and borders | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Group terms | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
+| Συνδυασμός στοιχείων | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Δημιουργία κλασμάτων | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη εκθέτη ή δείκτη | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη συναρτήσεων | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη ριζών | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη ορίων | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη αριστερών δεικτών | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη αθροίσεων και ολοκληρωμάτων | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
+| Προσθήκη σειρών εξισώσεων | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη διαχωριστών | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Προσθήκη μπαρών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Ομαδοποίηση όρων | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **FAQ**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, εντοπίστε το σχήμα που περιέχει μια [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), καλέστε το [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), καλέστε το [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο Math του PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο PowerPoint math;**
 
 Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
-**Μπορώ να εξαγάγω εξισώσεις σε LaTeX;**
+**Μπορώ να εξάγω τις εξισώσεις σε LaTeX;**
 
-Ναι. Λάβετε το [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) της [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) και καλέστε το [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) για άμεση εξαγωγή. Για πλήρες παράδειγμα, δείτε [Export Math Equations from Presentations in Node.js via Java](/slides/el/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+Ναι. Λάβετε το [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) της [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), και καλέστε το [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) για άμεση εξαγωγή. Για πλήρες παράδειγμα, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε Node.js μέσω Java](/slides/el/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).

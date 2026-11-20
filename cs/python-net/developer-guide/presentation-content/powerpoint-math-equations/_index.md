@@ -1,5 +1,5 @@
 ---
-title: Přidat matematické rovnice do prezentací PowerPoint v Pythonu
+title: Přidání matematických rovnic do prezentací PowerPoint v Pythonu
 linktitle: Matematické rovnice PowerPoint
 type: docs
 weight: 80
@@ -17,19 +17,19 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Vkládat a upravovat matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Python přes .NET, s podporou OMML, ovládání formátování a přehlednými ukázkami kódu v Pythonu."
+description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Python přes .NET, s podporou OMML, řízením formátování a přehlednými ukázkami kódu v Pythonu."
 ---
 ## **Přehled**
 
-PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro Python via .NET můžete programově vytvářet stejný typ matematického obsahu: zlomky, radikály, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
+PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro Python přes .NET můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
 
-V PowerPointu uživatelé obvykle přidávají rovnice přes **Insert > Equation**:
+V PowerPointu uživatelé obvykle přidávají rovnice z **Insert > Equation**:
 
 ![Karta Vložení v PowerPointu s vybraným příkazem Rovnice](powerpoint-math-equations_1.png)
 
-Výsledek je editovatelný matematický text na snímku:
+Výsledkem je upravitelný matematický text na snímku:
 
-![Snímek PowerPointu obsahující editovatelnou matematickou rovnici](powerpoint-math-equations_2.png)
+![Snímek PowerPointu obsahující upravitelnou matematickou rovnici](powerpoint-math-equations_2.png)
 
 Aspose.Slides vytváří tento matematický text pomocí tří hlavních objektů:
 
@@ -37,15 +37,15 @@ Aspose.Slides vytváří tento matematický text pomocí tří hlavních objekt�
 - [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) ukládá matematický obsah do textového rámce tvaru.
 - [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/).
 
-Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) a řetězcové metody z [MathElementBase](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/) pro udržení kódu krátkého a čitelného.
+Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) a řetězené metody z [MathElementBase](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/), aby byl kód krátký a přehledný.
 
-Pro scénáře exportu MathML viz [Exportovat matematické rovnice z prezentací v Pythonu prostřednictvím .NET](/slides/cs/python-net/exporting-math-equations/).
+Pro scénáře exportu MathML viz [Exportovat matematické rovnice z prezentací v Pythonu pomocí .NET](/slides/cs/python-net/exporting-math-equations/).
 
-## **Vytvořit rovnici**
+## **Vytvoření rovnice**
 
-Tento příklad používá [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) k vytvoření matematického tvaru a přidává Pythagorovu větu:
+Tento příklad používá [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), k vytvoření matematického tvaru a přidává Pythagorovu větu:
 
-![Rovnice c na druhou se rovná a na druhou plus b na druhou](powerpoint-math-equations_3.png)
+![Rovnice c na druhou rovná se a na druhou plus b na druhou](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,12 +72,12 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) vytváří tvar, který již obsahuje matematický odstavec. Získejte první [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), načtěte jeho [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a přidejte matematické bloky nebo matematické prvky.
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) vytváří tvar, který již obsahuje matematický odstavec. Přistupte k prvnímu [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), získejte jeho [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a přidejte k němu matematické bloky nebo elementy.
 {{% /alert %}}
 
 ### **Kombinovat matematické bloky**
 
-Když jsou části rovnice vytvořeny samostatně jako objekty [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/), použijte [join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) k jejich sloučení. Příklad vytvoří `c² =` v levém bloku a `a² + b²` v pravém bloku. [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/) vytvoří editovatelné matematické horní indexy pro všechny tři mocniny.
+Pokud jsou části rovnice vytvářeny nezávisle jako objekty [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/), použijte [join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/), abyste je spojili. Příklad vytvoří `c² =` v levém bloku a `a² + b²` v pravém bloku. [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/) vytváří upravitelná matematická horní indexy pro všechny tři mocniny.
 
 ```py
 import aspose.slides as slides
@@ -104,15 +104,15 @@ with slides.Presentation() as presentation:
     presentation.save("equation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) vrací samotný `left_block`, který nyní obsahuje obě části v pořadí, a zanechává `right_block` prázdný. Přidejte sloučený blok do [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) pouze jednou. Po opětovném otevření `equation.pptx` odstavec obsahuje jeden blok představující `c² = a² + b²`, přičemž všechny tři mocniny jsou zachovány jako matematické horní indexy.
+[join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) vrací samotný `left_block`, který nyní obsahuje obě části v pořadí, a nechává `right_block` prázdný. Přidejte spojený blok do [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) pouze jednou. Po znovuotevření `equation.pptx` odstavec obsahuje jeden blok představující `c² = a² + b²`, přičemž všechny tři mocniny zůstávají jako matematické horní indexy.
 
-Volání [add](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/add/) jako `left_block.add(right_block)` se místo toho pokouší vložit jeden blok přímo do druhého a vyvolá `RuntimeError` zabalený .NET `InvalidOperationException`.
+Volání [add](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/add/) jako `left_block.add(right_block)` se místo toho pokusí vložit jeden blok přímo do druhého a vyvolá `RuntimeError` obsahující .NET `InvalidOperationException`.
 
 ## **Přidat zlomky**
 
-Použijte [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) k vytvoření zlomku. Můžete zvolit styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
+Použijte [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/)..., aby jste vytvořili zlomek. Můžete si vybrat styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Šikmý matematický zlomek ukazující jeden dělený x](powerpoint-math-equations_4.png)
+![Šikmý matematický zlomek ukazující 1 děleno x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -131,7 +131,7 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro vrstevnatý zlomek použijte [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/):
+Pro svislý zlomek použijte [MathFractionTypes.BAR](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```py
 import aspose.slides.mathtext as math
@@ -139,11 +139,11 @@ import aspose.slides.mathtext as math
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Přidat radikály**
+## **Přidat odmocniny**
 
-Použijte [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) k vytvoření druhé odmocniny, třetí odmocniny nebo jiného kořene. Aktuální prvek se stane základem a argument se stane stupněm.
+Použijte [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/)..., abyste vytvořili druhou odmocninu, třetí odmocninu nebo jiný kořen. Aktuální element se stane základem a argument se stane stupněm.
 
-![Výraz n‑té odmocniny s x pod radikálovým znakem](powerpoint-math-equations_5.png)
+![Výraz n-té odmocniny s x pod znakem odmocniny](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -164,11 +164,11 @@ with slides.Presentation() as presentation:
 
 ### **Zobrazit nebo skrýt stupeň druhé odmocniny**
 
-Druhá odmocnina může zobrazovat explicitní 2 nebo použít konvenční zápis √x. Vlastnost [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/hide_degree/) třídy [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) řídí, která forma se objeví. Obě formy zachovávají stupeň 2 a radikand x v editovatelné rovnici.
+Druhá odmocnina může zobrazovat explicitní 2 nebo používat konvenční zápis √x. Vlastnost [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/hide_degree/) třídy [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) řídí, která forma se zobrazí. Obě formy zachovávají stupeň 2 a radikand x v upravitelném výrazu.
 
 ![Druhá odmocnina x se stupněm 2 viditelným vlevo a skrytým vpravo](square-root-degree.png)
 
-Příklad uloží stejnou druhou odmocninu dvakrát. 2 je viditelná v `visible-degree.pptx` a skrytá v `hidden-degree.pptx`.
+Příklad uloží stejnou druhou odmocninu dvakrát. 2 je viditelné v `visible-degree.pptx` a skryté v `hidden-degree.pptx`.
 
 ```py
 import aspose.slides as slides
@@ -192,9 +192,9 @@ with slides.Presentation() as presentation:
 
 ## **Přidat funkce a limity**
 
-Použijte [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) nebo [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity vložte `lim` do [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) nebo použijte [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/).
+Použijte [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) nebo [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity umístěte `lim` do [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) nebo použijte [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/).
 
-![Limit x při x jdoucím k nekonečnu](powerpoint-math-equations_8.png)
+![Limit x, když x směřuje k nekonečnu](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -217,7 +217,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro vlastní název funkce nastavte název funkce jako aktuální prvek a zavolejte [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) s jeho argumentem:
+Pro vlastní název funkce nastavte název funkce jako aktuální element a zavolejte [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) s jejím argumentem:
 
 ```py
 import aspose.slides.mathtext as math
@@ -225,11 +225,11 @@ import aspose.slides.mathtext as math
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **Přidat N‑ary operátory a integrály**
+## **Přidat N-ární operátory a integrály**
 
-Použijte [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/) pro součty, unie, průniky a další velké operátory. Použijte [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) pro integrály. Obě metody umožňují nastavit dolní a horní limity.
+Použijte [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/) pro součty, sjednocení, průniky a další velké operátory. Použijte [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) pro integrály. Obě metody umožňují nastavit dolní a horní limity.
 
-![Součet s dolní a horní mezí](powerpoint-math-equations_7.png)
+![Součet s dolní a horní limitou](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -254,7 +254,7 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N‑ary operátory slouží pro velké operátory s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají pomocí [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) a spojují do výrazu.
+N-ární operátory slouží k velkým operátorům s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) a spojují do výrazu.
 
 Pro integrál použijte [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/):
 
@@ -267,7 +267,7 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Přidat matice**
 
-Použijte [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) pro řádky a sloupce. Matice standardně neobsahují závorky, takže je obklopte, pokud potřebujete závorky, hranaté závorky nebo složené závorky.
+Použijte [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) pro řádky a sloupce. Matice standardně neobsahují závorky, takže je obalte, pokud potřebujete závorky, hranaté závorky nebo složené závorky.
 
 ![Matematická matice se dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
 
@@ -295,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ### **Upravit existující matici**
 
-Předpokládejme, že lekce lineární algebry začíná koeficientovou maticí v `matrix.pptx`, uloženou předchozím příkladem. Pro další cvičení zachovejte první rovnici, nahraďte druhou dvěma novými rovnicemi a upravte sadu proměnných. Přístup k existující matici jako k [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) umožní zachovat koeficienty, které stále platí.
+Předpokládejme, že lekce lineární algebry začíná maticí koeficientů v `matrix.pptx`, uloženou předchozím příkladem. Pro další cvičení zachovejte první rovnici, nahraďte druhou dvěma novými rovnicemi a upravte sadu proměnných. Přístup k existující matici jako [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) vám umožní zachovat koeficienty, které stále platí.
 
-![Původní dvouřádková koeficientová matice s položkami 1, x a prázdnou buňkou v prvním řádku a x, 2, y ve druhém řádku](matrix-before-edit.png)
+![Původní dvouřádková koeficientová matice s položkami 1, x a prázdnou buňkou v prvním řádku a x, 2, y ve druhém](matrix-before-edit.png)
 
-Indexy řádků a sloupců začínají nulou a odkazují na matici tak, jak existuje při každém volání. Vložení řádku před index 1 přesune původní druhý řádek na index 2. Vložení po indexu 2 pak přidá řádek. Odstranění řádku 2 odstraní původní druhou rovnici a posune přidaný řádek o jednu pozici nahoru. Sloupce se posunou stejným způsobem.
+Indexy řádků a sloupců začínají nulou a odkazují na matici tak, jak existuje při každém volání. Vložení řádku před index 1 posune původní druhý řádek na index 2. Vložení za index 2 pak přidá řádek. Smazání řádku 2 odstraní původní druhou rovnici a posune přidaný řádek o jednu pozici výš. Sloupce se posunou stejným způsobem.
 
 ```py
 import aspose.slides as slides
@@ -333,15 +333,15 @@ with slides.Presentation("matrix.pptx") as presentation:
     presentation.save("updated-matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[set_column_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_column_alignment/) zarovnává první sloupec doleva. [set_columns_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_columns_alignment/) zarovnává tři po sobě jdoucí sloupce vpravo, počínaje indexem 1. V `updated-matrix.pptx` má matice tři rovnice a čtyři proměnné. Původní koeficienty v první řadě `1` a `x` se nyní objevují v prvním a třetím sloupci.
+[set_column_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_column_alignment/) zarovnává první sloupec doleva. [set_columns_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_columns_alignment/) zarovnává tři po sobě jdoucí sloupce doprava, počínaje indexem 1. V `updated-matrix.pptx` má matice tři rovnice a čtyři proměnné. Původní koeficienty prvního řádku `1` a `x` se nyní objevují v prvním a třetím sloupci.
 
-![Aktualizovaná třířádková matice zobrazující řádky 1, 0, x, 0; 12, 1, 0, 0; a 0, 0, 10, 1](matrix-after-edit.png)
+![Aktualizovaná matice se třemi řádky zobrazující řádky 1, 0, x, 0; 12, 1, 0, 0; a 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Přidat pole rovnic**
 
-Použijte [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) když potřebujete zarovnané rovnice nebo svislý zásobník výrazů.
+Použijte [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/)..., když potřebujete zarovnané rovnice nebo svislý zásobník výrazů.
 
-![Vertikální matematické pole s x nad y](powerpoint-math-equations_11.png)
+![Svislé matematické pole s x nad y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -366,9 +366,9 @@ with slides.Presentation() as presentation:
 
 ### **Zarovnat pole s okolními prvky**
 
-[MathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/base_justification/) řídí svislé zarovnání pole vzhledem k matematickým prvkům po jeho straně. Níže uvedený příklad porovnává zarovnání s první řádkou, středem pole a poslední řádkou.
+[MathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/base_justification/) řídí svislé zarovnání pole vzhledem k matematickým prvkům vedle něj. Následující příklad porovnává zarovnání s prvním řádkem, středem pole a posledním řádkem.
 
-Následující příklad vytváří tři identická pole, každé se třemi řádky a sousedními prvky `A=` a `=B`. Veškerý matematický text používá Cambria Math o velikosti 24 bodů. Pouze zarovnání pole se mění.
+Následující příklad vytvoří tři identická pole, každé se třemi řádky a sousedními prvky `A=` a `=B`. Veškerý matematický text používá písmo Cambria Math o velikosti 24 bodů. Pouze zarovnání pole se mění.
 
 ```py
 import aspose.slides as slides
@@ -416,15 +416,15 @@ with slides.Presentation() as presentation:
 
 Následující srovnání ukazuje uloženou prezentaci v PowerPointu. Všimněte si pozice `A=` a `=B` vedle každého pole.
 
-![Pole rovnic v PowerPointu se zarovnáním Horní, Střed a Dolní a identickými sousedními prvky](equation-array-alignment.png)
+![Pole rovnic v PowerPointu s horním, středním a spodním zarovnáním a identickými sousedními prvky](equation-array-alignment.png)
 
-### **Nastavit rozestup řádků**
+### **Nastavit mezery řádků**
 
-[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing_rule/) vybírá pravidlo rozestupu řádků v poli. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing/) poskytuje číselnou hodnotu pro explicitní pravidlo a je ignorováno přednastavenými pravidly.
+[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing_rule/) vybírá pravidlo mezery pro řádky v rámci pole. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing/) poskytuje číselnou hodnotu pro explicitní pravidlo mezery a je ignorováno předdefinovanými pravidly.
 
-Pro přesný rozestup se hodnota měří v bodech. Pro poměrný rozestup se měří v polovinách řádků: hodnota `3` v příkladu udává 1,5 řádku. Nastavte obě vlastnosti, když specifikujete explicitní hodnotu; změna jen číselné hodnoty nevybírá pravidlo rozestupu.
+Pro přesnou mezeru se hodnota měří v bodech. Pro proporční mezeru se měří v půlřádcích: hodnota `3` v příkladu udává 1,5 řádku. Nastavte obě vlastnosti při zadání explicitní hodnoty; změna pouze číselné hodnoty nevybírá pravidlo mezery.
 
-Níže uvedený příklad uloží pět prezentací se stejnými rovnicemi, zarovnáním a nastavením písma. První tři používají přednastavení; poslední dvě ukazují explicitní hodnoty.
+Příklad níže uloží pět prezentací se stejnými rovnicemi, zarovnáním a nastavením písma. První tři používají přednastavené hodnoty; poslední dva ukazují explicitní hodnoty.
 
 ```py
 import aspose.slides as slides
@@ -469,11 +469,11 @@ for rule, spacing in settings:
         presentation.save(file_name, slides.export.SaveFormat.PPTX)
 ```
 
-Rozestup řádků v poli je oddělený od rozestupu odstavců. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) a [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/) přidávají prostor kolem obsahujícího odstavce, ne mezi řádky pole. Podobně [MathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/justification/) umisťuje celý matematický odstavec horizontálně; nenahrazuje nastavení svislého zarovnání pole.
+Mezera řádků v poli je oddělena od mezery odstavce. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) a [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/) přidávají prostor kolem obsahujícího odstavce, ne mezi řádky pole. Podobně [MathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/justification/) umisťuje celý matematický odstavec horizontálně; nenahrazuje nastavení svislého zarovnání pole.
 
 ## **Přidat trigonometrické funkce**
 
-Použijte [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) když je argument aktuální prvek a název funkce je znám.
+Použijte [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/)..., když je argument aktuální element a název funkce je znám.
 
 ![Trigonometrická funkce cos aplikovaná na 2x](powerpoint-math-equations_6.png)
 
@@ -498,7 +498,7 @@ with slides.Presentation() as presentation:
 
 ## **Přidat dolní a horní indexy**
 
-Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když mají indexy být na levé straně základu, použijte [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/).
+Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když se indexy musí objevit na levé straně základu, použijte [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/)...
 
 ![Velké Y s levým dolním indexem 1 a horním indexem n](powerpoint-math-equations_9.png)
 
@@ -519,11 +519,51 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidat ohraničovače**
+### **Zarovnat pravé dolní a horní indexy**
 
-Použijte [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) k vložení výrazu do ohraničovačů. Můžete také nastavit oddělovací znak pro výrazy s více prvky.
+Když patří oba indexy ke stejnému základu, použijte [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Jeho vlastnost [align_scripts](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathrightsubsuperscriptelement/align_scripts/) řídí jejich horizontální polohu: `False` (výchozí) je nechá následovat obrys základu, zatímco `True` zarovnává indexy horizontálně vůči sobě.
 
-![Výraz s ohraničovači obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
+Tento příklad umístí dva kopie stejného upravitelného výrazu vedle sebe. Oba používají matematický kurzíva f (U+1D453), dolní index 1, horní index 2 a písmo Cambria Math o velikosti 72 bodů. Šikmý základ dělá rozdíl viditelný v PowerPointu. Před spuštěním příkladu nainstalujte písmo Cambria Math.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(900, 250, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    text_format = slides.PortionFormat()
+    text_format.font_height = 72
+    text_format.latin_font = slides.FontData("Cambria Math")
+
+    for i in range(2):
+        left = 40 + i * 440
+        shape = slide.shapes.add_math_shape(left, 75, 380, 150)
+
+        base_text = math.MathematicalText("\U0001D453", text_format)
+        subscript = math.MathematicalText("1", text_format)
+        superscript = math.MathematicalText("2", text_format)
+        scripts = math.MathRightSubSuperscriptElement(base_text, subscript, superscript)
+        scripts.align_scripts = i == 1
+
+        portion = shape.text_frame.paragraphs[0].portions[0]
+        portion.portion_format.font_height = text_format.font_height
+        portion.portion_format.latin_font = text_format.latin_font
+        portion.math_paragraph.add(math.MathBlock(scripts))
+
+    presentation.save("aligned-scripts.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Dvě upravitelné výrazy v PowerPointu s align_scripts nastaveným na False vlevo a True vpravo](aligned-scripts.png)
+
+Vlevo dolní index začíná dále vlevo než horní index, následujíc obrys základu. Vpravo se oba indexy horizontálně zarovnají.
+
+## **Přidat ohraničení**
+
+Použijte [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/)..., abyste vložili výraz do ohraničovačů. Můžete také nastavit znak oddělovače pro výrazy s několika prvky.
+
+![Výraz ohraničený obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -550,9 +590,9 @@ with slides.Presentation() as presentation:
 
 ### **Velikost a zarovnání ohraničovačů**
 
-Nastavte [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/grow_to_match_operand_height/) na `True`, aby se závorky roztáhly kolem vysokého operandu, nebo na `False`, aby zůstaly standardní velikosti. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/delimiter_shape/) přijímá jednu ze dvou hodnot [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` centrovává závorky na matematické ose, která prochází středem znaménka rovnosti. `MATCH` je zarovnává s obsahem. Obě nastavení ovlivňují jen ohraničovače. Výraz uvnitř zůstává stejný.
+Nastavte [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/grow_to_match_operand_height/) na `True`, aby závorky růst kolem vysokého operandu, nebo na `False`, aby zůstaly normální velikosti. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/delimiter_shape/) přijímá hodnotu z [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` centrová závorky na matematické ose, která prochází středem znaménka rovnosti. `MATCH` zarovná je s obsahem. Obě nastavení ovlivňují jen ohraničovače. Výraz uvnitř zůstává stejný.
 
-Příklad umístí zlomek do exponentu `x`, takže výraz sahá výš nad základní linku než pod ni. Všechny čtyři rovnice používají stejné závorky a nastavení písma.
+Příklad umístí zlomek do exponentu `x`, takže výraz se rozšiřuje výše nad základní čáru než pod ní. Všechny čtyři rovnice používají stejné závorky a nastavení písma.
 
 ```python
 import aspose.slides as slides
@@ -583,15 +623,15 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-V PowerPointu porovnejte řádky, abyste viděli efekt růstu. V horním řádku se závorky roztáhnou, aby obklopily exponent, a vypadají stejně pro oba tvary. Ve spodním řádku je růst vypnutý. Menší závorky vlevo (`CENTERED`) jsou zarovnány se znaménkem rovnosti, zatímco ty vpravo (`MATCH`) sedí výše kolem výrazu.
+V PowerPointu porovnejte řádky, abyste viděli efekt růstu. V horním řádku se závorky rozšiřují, aby obklopily exponent a vypadají podobně pro oba tvary. Ve spodním řádku je růst vypnutý. Menší závorky vlevo (`CENTERED`) jsou zarovnány se znaménkem rovnosti, zatímco pravé (`MATCH`) jsou výše kolem výrazu.
 
-![Čtyři rovnice v PowerPointu s povoleným růstem ohraničovačů nahoře a zakázaným dole, a s `CENTERED` vlevo a `MATCH` vpravo](delimiter-sizing.png)
+![Čtyři rovnice v PowerPointu s povoleným růstem ohraničovačů nahoře a zakázaným dole, a Centrované vlevo a Match vpravo](delimiter-sizing.png)
 
-## **Přidat okrajové pole**
+## **Přidat ohraničený rámeček**
 
-Zavolejte [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) na zlomek, aby se ohraničilo celé vyjádření. Vrácený [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) zobrazuje všechny čtyři strany ve výchozím nastavení. Použijte [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_left/) a [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_right/) k odebrání jednotlivých stran.
+Zavolejte [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) na zlomek, aby se ohraničil celý výraz. Vrácený [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) zobrazuje všechny čtyři strany ve výchozím nastavení. Použijte [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_left/) a [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_right/) k odstranění jednotlivých stran.
 
-Příklad umístí šest kopií stejného zlomku na jeden snímek. Pro zobrazení zrušení skryjte všechny čtyři strany a nastavte [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_bottom_left_to_top_right/) pro stoupající diagonálu (↗) nebo [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_top_left_to_bottom_right/) pro klesající diagonálu (↘). Můžete také použít [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_horizontal/) nebo [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_vertical/) s libovolnou kombinací viditelných stran.
+Příklad umístí šest kopií stejného zlomku na jeden snímek. Pro zobrazení zrušení skryjte všechny čtyři strany a nastavte [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_bottom_left_to_top_right/) pro rostoucí diagonálu (↗) nebo [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_top_left_to_bottom_right/) pro klesající diagonálu (↘). Můžete také použít [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_horizontal/) nebo [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_vertical/) s libovolnou kombinací viditelných stran.
 
 ```py
 import aspose.slides as slides
@@ -628,24 +668,24 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Šest editovatelných zlomků v PowerPointu. Horní řada: plný okraj, spodní a levá strana, stoupající diagonála. Dolní řada: klesající diagonála, vodorovná překřížení, svislá překřížení s plným okrajem](border-box-fractions.png)
+![Šest upravitelných zlomků v PowerPointu. Horní řada: celý rámeček, dolní a levá strana, rostoucí diagonála. Dolní řada: klesající diagonála, horizontální čára, vertikální čára s plným rámečkem](border-box-fractions.png)
 
-Na tomto zlomku se vodorovná překřížení překrývá s čárou zlomku. Svislé překřížení prochází jak čitatel, tak jmenovatel, zatímco okolní okraj zůstává viditelný. Tyto čáry zdobí celý výraz. Běžné překřížení textu se vztahuje na znaky v textovém úseku. Po opětovném otevření prezentace v PowerPointu můžete nadále editovat čitatel a jmenovatel nezávisle.
+Na tomto zlomku horizontální čára překrývá čáru zlomku. Vertikální čára protíná čitatel i jmenovatel, zatímco okolní rámeček zůstává viditelný. Tyto čáry zdobí celý výraz. Běžné přeškrtnutí textu se vztahuje na znaky v textovém úseku. Po znovuotevření prezentace v PowerPointu můžete i nadále upravovat čitatel a jmenovatel samostatně.
 
-## **Řídit viditelnost a rozvržení pomocí phantom prvků**
+## **Ovládání viditelnosti a rozvržení pomocí phantom prvků**
 
-Zabalte výraz do [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/), abyste řídili jeho viditelnost a prostor, který do rovnice přispívá, nezávisle. Jeho vlastnosti řídí následující:
+Obalte výraz v [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/)..., aby se nezávisle řídila jeho viditelnost a prostor, který přispívá k rovnici. Jeho vlastnosti řídí následující:
 
-| Property | Effect |
+| Vlastnost | Efekt |
 | --- | --- |
-| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) | Nastavte na `False` pro skrytí výrazu. Jeho rozměry stále přispívají k rozvržení, pokud nejsou podřízené vlastnosti níže nastaveny na `True`. |
-| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_width/) | Považuje horizontální šířku výrazu za nulu, což umožňuje sousedním prvkům přiblížit se k sobě. |
-| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_asc/) | Považuje jeho výšku nad základní linkou za nulu. To může snížit prostor vyhrazený nad sousedními prvky. |
-| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_desc/) | Považuje jeho výšku pod základní linkou za nulu. To může posunout čáru zlomku nebo jiný obsah pod výraz blíže k sousedům. |
+| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) | Nastavte na `False` pro skrytí výrazu. Jeho rozměry stále přispívají k rozvržení, pokud následující vlastnosti nejsou `True`. |
+| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_width/) | Považuje horizontální šířku výrazu za nulu, což umožňuje sousedním prvkům přiblížit se. |
+| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_asc/) | Považuje výšek výrazu nad základní čárou za nulu. To může snížit prostor nad sousedními prvky. |
+| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_desc/) | Považuje hloubku výrazu pod základní čárou za nulu. To může posunout čáru zlomku nebo jiný obsah pod výraz blíže k sousedům. |
 
-Základní linka je referenční čára, na které leží běžná matematická písmena. Skrytí obsahu neodstraňuje jeho rozměry a považování rozměru za nulu neodstraňuje výraz. Základní výraz zůstává dostupný přes [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/base/). Nastavte [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) zpět na `True` pro opětovné zobrazení; nastavení rozměrů zůstává nezměněno.
+Základní čára je referenční linie, na které leží běžná matematická písmena. Skrytí obsahu neodstraňuje jeho rozměry a považování rozměru za nulu neodstraňuje výraz. Vnitřní výraz zůstává dostupný přes [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/base/). Nastavte [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) zpět na `True`, aby se znovu zobrazil; nastavení rozměrů zůstává nezměněno.
 
-Níže uvedený příklad vytvoří pět variant vedle sebe: viditelný zlomek, skrytý zlomek, který rezervuje prostor, a tři skryté zlomky s jedním rozměrem nastaveným na nulu. Každá varianta používá stejný okolní výraz a Cambria Math o velikosti 24 bodů. Všechny tvary rovnic mají stejnou horní pozici, označenou šedým vodítkem. Umístění phantom prvku v čitateli vnějšího zlomku usnadňuje vidět změny ve svislém rozvržení.
+Příklad níže vytvoří pět variant vedle sebe: viditelný zlomek, skrytý zlomek, který rezervuje místo, a tři skryté zlomky, kde jeden rozměr je nulový. Každá varianta používá stejný okolní výraz a písmo Cambria Math o velikosti 24 bodů. Všechny tvary rovnic mají stejnou horní pozici, označenou šedým vodítkem. Umístění phantom v čitateli vnějšího zlomku usnadňuje vidět změny ve svislém rozvržení.
 
 ```py
 import aspose.slides as slides
@@ -702,11 +742,11 @@ with slides.Presentation() as presentation:
     presentation.save("math-phantom.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Pět rovnic v PowerPointu porovnávajících viditelný zlomek, skrytý zlomek rezervující prostor, a skryté zlomky s ZeroWidth, ZeroAsc nebo ZeroDesc povoleny](math-phantom.png)
+![Pět rovnic v PowerPointu porovnávajících viditelný zlomek, skrytý zlomek, který rezervuje místo, a skryté zlomky se zapnutým ZeroWidth, ZeroAsc nebo ZeroDesc](math-phantom.png)
 
 ## **Seskupit termíny**
 
-Použijte [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) k umístění seskupovacího znaku nad nebo pod výraz. Přidejte limitu pro popisek seskupených termínů.
+Použijte [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/)..., abyste umístili skupinový znak nad nebo pod výraz. Přidejte limitu pro popisek seskupených termínů.
 
 ![Výraz x plus y seskupený s popiskem libovolný text pod ním](powerpoint-math-equations_15.png)
 
@@ -731,11 +771,11 @@ with slides.Presentation() as presentation:
     presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Formátovat matematické prvky**
+## **Formátovat matematické elementy**
 
-Používejte pomocníky formátování jen tam, kde upřesňují vzorec. Například [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/) umístí čáru nad matematický prvek.
+Používejte pomocníky formátování pouze tam, kde objasňují vzorec. Například [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/) umístí čáru nad matematický element.
 
-![Matematický výraz ABC s čarou nad ním](powerpoint-math-equations_14.png)
+![Matematický výraz ABC s čárou nad ním](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -756,9 +796,9 @@ with slides.Presentation() as presentation:
 
 ### **Formátovat text v existující rovnici**
 
-Pro formátování textu v celé existující rovnici projděte strom elementů každého matematického bloku. [MathElementBase.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/get_children/) vrací pouze okamžité potomky, takže jej volajte rekurzivně, abyste se dostali k textu uvnitř zlomků, indexů, radikálů a dalších vnořených struktur. Zkontrolujte aktuální prvek i jeho potomky, abyste zahrnuli počáteční prvek, když je [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
+Aby se formátoval text v celé existující rovnici, procházejte strom elementů každého matematického bloku. [MathElementBase.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/get_children/) vrací jen přímé potomky, takže ji volajte rekurzivně, abyste dosáhli textu uvnitř zlomků, indexů, odmocnin a dalších vnořených struktur. Zkontrolujte aktuální element i jeho potomky, aby byl zahrnut i výchozí element, pokud je [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/)...
 
-Tento příklad předpokládá, že `input.pptx` obsahuje rovnici jako `z = xᵢ / ∛y`, se zlomkem obsahujícím dolní index v čitateli a radikálem v jmenovateli. Zpracování pouze prvků nejvyšší úrovně bloku by opomenulo text uvnitř zlomku. Příklad nachází matematické části v textových rámcích snímků, přistupuje k jejich blokům přes [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a nastavuje [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) na 28 bodů přes každou textovou vlastnost [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/).
+Tento příklad předpokládá, že `input.pptx` obsahuje rovnici jako `z = xᵢ / ∛y`, kde zlomek má dolní index v čitateli a odmocninu ve jmenovateli. Zpracování jen elementů nejvyšší úrovně bloku by přehlédlo text uvnitř zlomku. Příklad najde matematické části v textových rámech snímků, přistoupí k jejich blokům přes [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a nastaví [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) na 28 bodů pro každý textový element přes jeho [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) vlastnost.
 
 ```py
 import aspose.slides as slides
@@ -790,35 +830,35 @@ with slides.Presentation("input.pptx") as presentation:
 
 Uložená prezentace obsahuje aktualizované formátování textu na každé úrovni každé zpracované rovnice, přičemž zachovává její textový obsah i matematickou strukturu.
 
-## **Rychlý přehled**
+## **Rychlá reference**
 
 | Úkol | Hlavní API |
 | --- | --- |
 | Vytvořit matematický text | [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) |
-| Kombinovat prvky | [MathElementBase.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/join/) |
+| Kombinovat elementy | [MathElementBase.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/join/) |
 | Vytvořit zlomky | [MathElementBase.divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) |
 | Přidat horní nebo dolní index | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_subscript/) |
 | Přidat funkce | [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/), [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) |
-| Přidat radikály | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) |
+| Přidat odmocniny | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) |
 | Přidat limity | [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_upper_limit/) |
-| Přidat levostranné indexy | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/) |
+| Přidat levé indexy | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/) |
 | Přidat součty a integrály | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) |
 | Přidat matice | [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) |
 | Přidat pole rovnic | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) |
 | Přidat ohraničovače | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) |
-| Přidat čáry a okraje | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) |
+| Přidat čáry a rámečky | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) |
 | Seskupit termíny | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) |
 
 ## **Často kladené otázky**
 
 **Mohu upravit existující rovnici v PowerPointu?**
 
-Ano. Otevřete prezentaci, najděte tvar, který obsahuje [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), získejte jeho [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a aktualizujte matematické bloky v tomto odstavci.
+Ano. Otevřete prezentaci, vyhledejte tvar, který obsahuje [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), získejte jeho [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), a aktualizujte matematické bloky v tomto odstavci.
 
-**Ukládají se rovnice jako editovatelný PowerPoint math?**
+**Jsou rovnice uloženy jako upravitelná matematika v PowerPointu?**
 
-Ano. Při uložení do PPTX Aspose.Slides zapisuje rovnici jako editovatelný Office math obsah.
+Ano. Když uložíte do PPTX, Aspose.Slides zapíše rovnici jako upravitelný obsah Office Math.
 
 **Mohu exportovat rovnice do LaTeXu?**
 
-Ano. Získejte [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) rovnice z jejího [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), a zavolejte [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) pro přímý export. Kompletní příklad viz [Export Math Equations from Presentations in Python via .NET](/slides/cs/python-net/exporting-math-equations/#export-math-equations-to-latex).
+Ano. Získejte [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) rovnice z jeho [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), a zavolejte [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) pro přímý export. Kompletní příklad najdete v [Exportovat rovnice z prezentací v Pythonu pomocí .NET](/slides/cs/python-net/exporting-math-equations/#export-math-equations-to-latex).

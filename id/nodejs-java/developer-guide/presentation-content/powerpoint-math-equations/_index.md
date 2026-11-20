@@ -1,5 +1,5 @@
 ---
-title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint dalam JavaScript
+title: Tambahkan Persamaan Matematika ke Presentasi PowerPoint dalam JavaScript
 linktitle: Persamaan Matematika PowerPoint
 type: docs
 weight: 80
@@ -20,11 +20,11 @@ keywords:
 - Aspose.Slides
 description: "Menyisipkan dan mengedit persamaan matematika dalam PowerPoint PPT dan PPTX dengan Aspose.Slides untuk Node.js via Java, mendukung OMML, kontrol pemformatan, dan contoh kode JavaScript yang jelas."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Node.js via Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Node.js via Java, Anda dapat membuat konten matematika serupa secara terprogram: pecahan, radikal, fungsi, batas, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
-Di PowerPoint, pengguna biasanya menambahkan persamaan lewat **Insert > Equation**:
+Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
 
 ![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
 
@@ -34,17 +34,17 @@ Hasilnya adalah teks matematika yang dapat diedit pada slide:
 
 Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 
-- Sebuah bentuk matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), adalah bentuk yang berisi persamaan.
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks bentuk.
-- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
+- Sebuah shape matematika, dibuat dengan [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), adalah shape yang berisi persamaan.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) menyimpan konten matematika di dalam bingkai teks shape.
+- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) berisi satu atau beberapa objek [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/).
 
-Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) dan metode fluently dari [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
+Sebagian besar contoh di bawah ini menggunakan [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) dan metode fluent dari [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) untuk menjaga kode tetap singkat dan mudah dibaca.
 
-Untuk skenario ekspor MathML, lihat [Export Math Equations from Presentations in Node.js via Java](/slides/id/nodejs-java/exporting-math-equations/).
+Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi di Node.js via Java](/slides/id/nodejs-java/exporting-math-equations/).
 
-## **Membuat Persamaan**
+## **Buat Persamaan**
 
-Contoh ini menggunakan [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) untuk membuat bentuk matematika dan menambahkan teorema Pythagoras:
+Contoh ini menggunakan [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) untuk membuat shape matematika dan menambahkan teorema Pythagoras:
 
 ![Persamaan c kuadrat sama dengan a kuadrat ditambah b kuadrat](powerpoint-math-equations_3.png)
 
@@ -75,13 +75,48 @@ try {
 }
 ```
 
-{{% alert color="info" title="Catatan" %}}
-
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) membuat sebuah bentuk yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) pertama, panggil [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan tambahkan blok atau elemen matematika ke dalamnya.
-
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) membuat shape yang sudah berisi paragraf matematika. Akses [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) pertama, panggil [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 {{% /alert %}}
 
-## **Menambahkan Pecahan**
+### **Gabungkan Blok Matematika**
+
+Ketika bagian-bagian persamaan dibangun secara independen sebagai objek [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) , gunakan [joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) untuk menggabungkannya. Contoh ini membuat `c² =` di blok kiri dan `a² + b²` di blok kanan. [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSuperscript) membuat superskrip matematika yang dapat diedit untuk ketiga pangkat.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addMathShape(20, 20, 600, 100);
+    const mathPortion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const mathParagraph = mathPortion.getMathParagraph();
+
+    const leftBlock = new slides.MathBlock();
+    leftBlock.add(new slides.MathematicalText("c").setSuperscript("2"));
+    leftBlock.add(new slides.MathematicalText("="));
+
+    const rightBlock = new slides.MathBlock();
+    rightBlock.add(new slides.MathematicalText("a").setSuperscript("2"));
+    rightBlock.add(new slides.MathematicalText("+"));
+    rightBlock.add(new slides.MathematicalText("b").setSuperscript("2"));
+
+    const combinedBlock = leftBlock.joinBlock(rightBlock);
+    mathParagraph.add(combinedBlock);
+
+    presentation.save("equation.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[joinBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#joinBlock) mengembalikan `leftBlock` itu sendiri, kini berisi kedua bagian secara berurutan, dan meninggalkan `rightBlock` kosong. Tambahkan blok gabungan ke [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) hanya sekali. Setelah membuka kembali `equation.pptx`, paragraf berisi satu blok yang mewakili `c² = a² + b²`, dengan ketiga pangkat tetap sebagai superskrip matematika.
+
+Memanggil [add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/#add) sebagai `leftBlock.add(rightBlock)` malah mencoba menanamkan satu blok langsung di dalam blok lain dan melempar `InvalidOperationException`.
+
+## **Tambahkan Pecahan**
 
 Gunakan [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
@@ -119,11 +154,11 @@ aspose.slides = require("aspose.slides.via.java");
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **Menambahkan Radikal**
+## **Tambahkan Radikal**
 
-Gunakan [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) untuk membuat akar kuadrat, akar pangkat tiga, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
+Gunakan [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajat.
 
-![Ekspresi radikal akar ke‑n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
+![Ekspresi radikal akar ke-n dengan x di bawah tanda radikal](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -148,13 +183,13 @@ try {
 }
 ```
 
-### **Menampilkan atau Menyembunyikan Derajat Akar Kuadrat**
+### **Tampilkan atau Sembunyikan Derajat Akar Kuadrat**
 
-Akar kuadrat dapat menampilkan angka 2 secara eksplisit atau menggunakan notasi √x konvensional. Metode [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) pada [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) mengontrol bentuk yang muncul. Kedua bentuk mempertahankan derajat 2 dan radikand x dalam persamaan yang dapat diedit.
+Akar kuadrat dapat menampilkan angka 2 secara eksplisit atau menggunakan notasi konvensional √x. Metode [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) dari [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) mengontrol bentuk mana yang muncul. Kedua bentuk mempertahankan derajat 2 dan radikand x dalam persamaan yang dapat diedit.
 
-![Akar kuadrat yang sama dengan derajat terlihat di sebelah kiri dan tersembunyi di sebelah kanan](square-root-degree.png)
+![Akar kuadrat yang sama dengan derajat terlihat di kiri dan tersembunyi di kanan](square-root-degree.png)
 
-Contoh menyimpan akar kuadrat yang sama dua kali. Pada `visible-degree.pptx`, 2 terlihat. Pada `hidden-degree.pptx`, 2 disembunyikan.
+Contoh menyimpan akar kuadrat yang sama dua kali. Pada `visible-degree.pptx`, angka 2 terlihat. Pada `hidden-degree.pptx`, ia tersembunyi.
 
 ```javascript
 var aspose = aspose || {};
@@ -180,11 +215,11 @@ try {
 }
 ```
 
-## **Menambahkan Fungsi dan Limit**
+## **Tambahkan Fungsi dan Batas**
 
-Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) atau [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi kustom. Untuk limit, letakkan `lim` dalam [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) atau gunakan [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) atau [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi kustom. Untuk batas, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) atau gunakan [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Limit x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
+![Batas x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -219,11 +254,11 @@ aspose.slides = require("aspose.slides.via.java");
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **Menambahkan Operator N‑ary dan Integral**
+## **Tambahkan Operator N-ary dan Integral**
 
-Gunakan [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) untuk penjumlahan, union, irisan, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) untuk integral. Kedua metode memungkinkan Anda menetapkan limit bawah dan atas.
+Gunakan [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) untuk penjumlahan, irisan, gabungan, dan operator besar lainnya. Gunakan [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
 
-![Sebuah penjumlahan dengan limit bawah dan atas](powerpoint-math-equations_7.png)
+![Sebuah penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -251,7 +286,7 @@ try {
 }
 ```
 
-Operator N‑ary digunakan untuk operator besar dengan limit opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) dan digabungkan ke dalam ekspresi.
+Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) dan digabungkan ke dalam ekspresi.
 
 Untuk integral, gunakan [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
@@ -263,9 +298,9 @@ let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slide
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Menambahkan Matriks**
+## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi balut matriks ketika Anda memerlukan tanda kurung, siku, atau kurawal.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi bungkus matriks ketika Anda membutuhkan tanda kurung, kurung siku, atau kurung kurawal.
 
 ![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
@@ -296,13 +331,13 @@ try {
 }
 ```
 
-### **Mengedit Matriks yang Ada**
+### **Edit Matriks yang Ada**
 
-Misalkan pelajaran aljabar linear dimulai dengan matriks koefisien dalam `matrix.pptx`, yang disimpan oleh contoh sebelumnya. Untuk latihan berikutnya, pertahankan persamaan pertama, ganti yang kedua dengan dua persamaan baru, dan revisi kumpulan variabel. Buka matriks yang ada melalui [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) untuk mempertahankan koefisien yang masih berlaku.
+Misalkan pelajaran aljabar linear dimulai dengan matriks koefisien dalam `matrix.pptx`, yang disimpan oleh contoh sebelumnya. Untuk latihan selanjutnya, pertahankan persamaan pertama, ganti yang kedua dengan dua persamaan baru, dan revisi kumpulan variabel. Buka matriks yang ada melalui [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) untuk mempertahankan koefisien yang masih berlaku.
 
-![Matriks koefisien dua baris asli dengan entri 1, x, dan sel kosong pada baris pertama serta x, 2, dan y pada baris kedua](matrix-before-edit.png)
+![Matriks koefisien dua baris asli dengan entri 1, x, dan satu sel kosong di baris pertama serta x, 2, dan y di baris kedua](matrix-before-edit.png)
 
-Indeks baris dan kolom dimulai dari nol dan mengacu pada matriks sebagaimana adanya pada setiap pemanggilan. Menyisipkan baris sebelum indeks 1 memindahkan baris kedua asli ke indeks 2. Menyisipkan setelah indeks 2 kemudian menambahkan baris. Menghapus baris 2 menghilangkan persamaan kedua asli dan memindahkan baris yang ditambahkan naik satu posisi. Kolom bergeser dengan cara yang sama.
+Indeks baris dan kolom dimulai dari nol dan mengacu pada matriks sebagaimana pada setiap pemanggilan. Menyisipkan baris sebelum indeks 1 memindahkan baris kedua asli ke indeks 2. Menyisipkan setelah indeks 2 kemudian menambahkan sebuah baris. Menghapus baris 2 menghilangkan persamaan kedua asli dan memindahkan baris yang ditambahkan naik satu posisi. Kolom bergeser dengan cara yang sama.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -321,7 +356,7 @@ try {
     matrix.insertColumnAfter(3);
     matrix.deleteColumn(3);
 
-    // Sel baru awalnya null. Tetapkan koefisien yang tidak nol terlebih dahulu.
+    // Sel baru awalnya null. Set koefisien non-zero terlebih dahulu.
     matrix.set_Item(1, 0, new slides.MathematicalText("12"));
     matrix.set_Item(1, 1, new slides.MathematicalText("1"));
     matrix.set_Item(2, 2, new slides.MathematicalText("10"));
@@ -347,7 +382,7 @@ try {
 
 ![Matriks tiga baris yang diperbarui menampilkan baris 1, 0, x, 0; 12, 1, 0, 0; dan 0, 0, 10, 1](matrix-after-edit.png)
 
-## **Menambahkan Array Persamaan**
+## **Tambahkan Array Persamaan**
 
 Gunakan [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) ketika Anda memerlukan persamaan yang disejajarkan atau tumpukan vertikal ekspresi.
 
@@ -377,11 +412,11 @@ try {
 }
 ```
 
-### **Menyelaraskan Array dengan Elemen Sekitar**
+### **Sejajarkan Array dengan Elemen Sekitar**
 
 [setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) mengontrol penyelarasan vertikal array relatif terhadap elemen matematika di sebelahnya. Contoh di bawah membandingkan penyelarasan dengan baris pertama, tengah array, dan baris terakhir.
 
-Contoh berikut membuat tiga array identik, masing‑masing dengan tiga baris dan elemen tetangga `A=` serta `=B`. Semua teks matematika menggunakan Cambria Math dengan ukuran 24 poin. Hanya penyelarasan array yang berubah.
+Contoh berikut membuat tiga array identik, masing-masing dengan tiga baris dan elemen tetangga `A=` dan `=B`. Semua teks matematika menggunakan Cambria Math ukuran 24 poin. Hanya penyelarasan array yang berubah.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -434,17 +469,17 @@ try {
 }
 ```
 
-Perbandingan berikut memperlihatkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di samping setiap array.
+Perbandingan berikut menampilkan presentasi yang disimpan di PowerPoint. Perhatikan posisi `A=` dan `=B` di samping setiap array.
 
 ![Array persamaan di PowerPoint dengan penyelarasan Atas, Tengah, dan Bawah serta elemen tetangga yang identik](equation-array-alignment.png)
 
-### **Mengonfigurasi Jarak Baris**
+### **Konfigurasi Jarak Baris**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) memilih aturan jarak untuk baris dalam array. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) menyediakan nilai numerik untuk aturan jarak eksplisit dan diabaikan oleh aturan preset.
+[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) memilih aturan jarak untuk baris dalam array. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) memberikan nilai numerik untuk aturan jarak eksplisit dan diabaikan oleh aturan preset.
 
-Untuk jarak tepat, nilai diukur dalam poin. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` dalam contoh berarti 1,5 baris. Tetapkan kedua properti ketika menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
+Untuk jarak tepat, nilai diukur dalam poin. Untuk jarak proporsional, diukur dalam setengah baris: nilai `3` dalam contoh menentukan 1,5 baris. Atur kedua properti saat menentukan nilai eksplisit; mengubah nilai numerik saja tidak memilih aturan jarak.
 
-Contoh di bawah menyimpan lima presentasi dengan persamaan, penyelarasan, dan pengaturan font yang sama. Tiga pertama menggunakan preset; dua terakhir menunjukkan nilai eksplisit.
+Contoh di bawah menyimpan lima presentasi dengan persamaan, penyelarasan, dan pengaturan font yang sama. Tiga pertama menggunakan preset; dua terakhir menampilkan nilai eksplisit.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -491,11 +526,11 @@ for (let i = 0; i < rules.length; i++) {
 }
 ```
 
-Jarak baris array terpisah dari jarak paragraf. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) dan [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) menambah ruang di sekitar paragraf yang membungkus, bukan di antara baris array. Demikian pula, [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) memposisikan seluruh paragraf matematika secara horizontal; ia tidak menggantikan pengaturan penyelarasan vertikal array.
+Jarak baris array terpisah dari jarak paragraf. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) dan [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) menambahkan ruang di sekitar paragraf yang menampung, bukan di antara baris array. Demikian pula, [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) memposisikan seluruh paragraf matematika secara horizontal; ini tidak menggantikan pengaturan penyelarasan vertikal array.
 
-## **Menambahkan Fungsi Trigonometri**
+## **Tambahkan Fungsi Trigonometri**
 
-Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
+Gunakan [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) ketika argumen adalah elemen saat ini dan nama fungsi telah diketahui.
 
 ![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
 
@@ -522,11 +557,11 @@ try {
 }
 ```
 
-## **Menambahkan Subskrip dan Superskrip**
+## **Tambahkan Subskrip dan Superskrip**
 
 Gunakan pembantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Huruf Y kapital dengan subskrip 1 di sisi kiri dan superskrip n](powerpoint-math-equations_9.png)
+![Huruf kapital Y dengan subskrip sisi kiri 1 dan superskrip n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -551,11 +586,57 @@ try {
 }
 ```
 
-## **Menambahkan Pembatas**
+### **Sejajarkan Subskrip dan Superskrip Kanan**
 
-Gunakan [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat menetapkan karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Ketika kedua skrip milik basis yang sama, gunakan [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathrightsubsuperscriptelement/). Metode [setAlignScripts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) mengontrol posisi horizontalnya: `false` (default) membiarkannya mengikuti kontur basis, sementara `true` menyelaraskan skrip secara horizontal satu sama lain.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh batang vertikal](powerpoint-math-equations_13.png)
+Contoh ini menempatkan dua salinan ekspresi dapat diedit yang sama berdampingan. Kedua menggunakan f miring matematika (U+1D453), subskrip rendah 1, superskrip atas 2, dan Cambria Math ukuran 72 poin. Basis yang miring membuat perbedaan terlihat di PowerPoint. Instal Cambria Math sebelum menjalankan contoh.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(900, 250, slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const format = new slides.PortionFormat();
+    format.setFontHeight(72);
+    const font = new slides.FontData("Cambria Math");
+    format.setLatinFont(font);
+
+    for (let i = 0; i < 2; i++) {
+        const left = 40 + i * 440;
+        const shape = slide.getShapes().addMathShape(left, 75, 380, 150);
+
+        const baseText = new slides.MathematicalText("\uD835\uDC53", format);
+        const subscript = new slides.MathematicalText("1", format);
+        const superscript = new slides.MathematicalText("2", format);
+        const scripts = new slides.MathRightSubSuperscriptElement(baseText, subscript, superscript);
+        scripts.setAlignScripts(i === 1);
+
+        const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        portion.getPortionFormat().setFontHeight(format.getFontHeight());
+        portion.getPortionFormat().setLatinFont(format.getLatinFont());
+        const block = new slides.MathBlock(scripts);
+        portion.getMathParagraph().add(block);
+    }
+
+    presentation.save("aligned-scripts.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Dua ekspresi dapat diedit di PowerPoint dengan setAlignScripts bernilai false di kiri dan true di kanan](aligned-scripts.png)
+
+Di sebelah kiri, subskrip bawah mulai lebih ke kiri dibandingkan superskrip atas, mengikuti kontur basis. Di sebelah kanan, kedua skrip diselaraskan secara horizontal satu sama lain.
+
+## **Tambahkan Pembatas**
+
+Gunakan [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) untuk menempatkan sebuah ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+
+![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh bar vertikal](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -586,9 +667,9 @@ try {
 
 ### **Ukuran dan Penyelarasan Pembatas**
 
-Berikan `true` ke [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) agar tanda kurung membesar mengelilingi operand tinggi, atau berikan `false` agar tetap pada ukuran normal. Gunakan [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) dengan salah satu nilai [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` menempatkan tanda kurung di tengah sumbu matematika, yang melewati tengah tanda sama dengan. `Match` menyelaraskannya dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalam tetap sama.
+Berikan `true` ke [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) untuk membiarkan tanda kurung menyesuaikan tinggi operand yang tinggi, atau berikan `false` untuk mempertahankan ukuran normalnya. Gunakan [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) dengan salah satu dari dua nilai [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/). `Centered` menempatkan tanda kurung di tengah sumbu matematika, yang melintang melalui tengah tanda sama dengan. `Match` menyelaraskan mereka dengan konten yang dibungkus. Kedua pengaturan hanya memengaruhi pembatas. Ekspresi di dalamnya tetap sama.
 
-Contoh menempatkan pecahan di eksponen `x` sehingga ekspresi menonjol lebih tinggi di atas garis dasar daripada di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
+Contoh menempatkan pecahan pada eksponen `x` sehingga ekspresi memanjang lebih jauh di atas garis dasar daripada di bawahnya. Semua empat persamaan menggunakan tanda kurung dan pengaturan font yang sama.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -618,15 +699,15 @@ try {
 }
 ```
 
-Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung membesar untuk mengelilingi eksponen dan terlihat serupa untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung kecil di kiri (`Centered`) selaras dengan tanda sama dengan, sedangkan yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
+Di PowerPoint, bandingkan baris untuk melihat efek pertumbuhan. Pada baris atas, tanda kurung menyesuaikan untuk membungkus eksponen dan terlihat serupa untuk kedua bentuk. Pada baris bawah, pertumbuhan dimatikan. Tanda kurung yang lebih kecil di kiri (`Centered`) selaras dengan tanda sama dengan, sementara yang di kanan (`Match`) berada lebih tinggi di sekitar ekspresi.
 
 ![Empat persamaan di PowerPoint dengan pertumbuhan pembatas diaktifkan di atas dan dinonaktifkan di bawah, serta Centered di kiri dan Match di kanan](delimiter-sizing.png)
 
-## **Menambahkan Kotak Bingkai**
+## **Tambahkan Kotak Batas**
 
-Panggil [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) pada sebuah pecahan untuk membingkai seluruh ekspresi. [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) yang dikembalikan menampilkan keempat sisi secara default. Gunakan [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft), dan [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) untuk menghapus sisi individual.
+Panggil [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) pada sebuah pecahan untuk membingkai seluruh ekspresi. [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) yang dikembalikan menampilkan keempat sisi secara default. Gunakan [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft), dan [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) untuk menghapus sisi tertentu.
 
-Contoh menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan semua empat sisi dan berikan `true` ke [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) untuk diagonal naik (↗) atau [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) untuk diagonal turun (↘). Anda juga dapat menggunakan [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) atau [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) dengan kombinasi sisi yang terlihat mana pun.
+Contoh ini menempatkan enam salinan pecahan yang sama pada satu slide. Untuk menunjukkan pembatalan, sembunyikan keempat sisi dan berikan `true` ke [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) untuk diagonal naik (↗) atau [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) untuk diagonal turun (↘). Anda juga dapat menggunakan [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) atau [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) dengan kombinasi sisi yang terlihat apa pun.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -669,24 +750,24 @@ try {
 }
 ```
 
-![Enam pecahan yang dapat diedit di PowerPoint. Baris atas: bingkai penuh, sisi bawah dan kiri, diagonal naik. Baris bawah: diagonal turun, goresan horizontal, goresan vertikal dengan bingkai penuh](border-box-fractions.png)
+![Enam pecahan dapat diedit di PowerPoint. Baris atas: border penuh, sisi bawah dan kiri, diagonal naik. Baris bawah: diagonal turun, coretan horizontal, coretan vertikal dengan border penuh](border-box-fractions.png)
 
-Pada pecahan ini, goresan horizontal menutupi batang pecahan. Goresan vertikal melintasi pembilang dan penyebut sekaligus bingkai di sekitarnya tetap terlihat. Garis‑garis ini menghias seluruh ekspresi. Goresan teks biasa hanya berlaku pada karakter dalam satu run teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat mengedit pembilang dan penyebut secara terpisah.
+Pada pecahan ini, coretan horizontal menutupi batang pecahan. Coretan vertikal melintasi baik pembilang maupun penyebut sementara border di sekitarnya tetap terlihat. Garis-garis ini menghias seluruh ekspresi. Coretan teks biasa berlaku pada karakter dalam rangkaian teks. Setelah membuka kembali presentasi di PowerPoint, Anda masih dapat mengedit pembilang dan penyebut secara terpisah.
 
-## **Mengontrol Visibilitas dan Tata Letak dengan Elemen Phantom**
+## **Kontrol Visibilitas dan Tata Letak dengan Elemen Phantom**
 
-Balut ekspresi dalam [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) untuk mengontrol visibilitasnya dan ruang yang disumbangkan ke persamaan secara independen. Metode [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) mengontrol hal berikut:
+Bungkus sebuah ekspresi dalam [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) untuk mengontrol visibilitasnya dan ruang yang disumbangkannya ke persamaan secara independen. Metode [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) mengontrol hal berikut:
 
 | Method | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Beri `false` untuk menyembunyikan ekspresi. Dimensinya tetap berkontribusi pada tata letak kecuali metode terkait di bawah menerima `true`. |
+| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Berikan `false` untuk menyembunyikan ekspresi. Dimensinya tetap berkontribusi pada tata letak kecuali metode terkait di bawah menerima `true`. |
 | [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Anggap lebar horizontal ekspresi sebagai nol, memungkinkan elemen tetangga bergerak lebih dekat. |
-| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Anggap ascennya (tinggi di atas garis dasar) sebagai nol. Ini dapat mengurangi ruang yang dipesan di atas elemen tetangga. |
-| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Anggap descendennya (kedalaman di bawah garis dasar) sebagai nol. Ini dapat memindahkan batang pecahan atau konten lain di bawah ekspresi lebih dekat ke tetangganya. |
+| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Anggap asennya, tinggi di atas garis dasar, sebagai nol. Ini dapat mengurangi ruang yang disisihkan di atas elemen tetangga. |
+| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Anggap desentrnya, kedalaman di bawah garis dasar, sebagai nol. Ini dapat memindahkan batang pecahan atau konten lain di bawah ekspresi lebih dekat ke tetangganya. |
 
-Garis dasar adalah garis referensi tempat huruf‑huruf matematika biasanya berada. Menyembunyikan konten tidak menghapus dimensinya, dan memperlakukan dimensi sebagai nol tidak menghapus ekspresi. Ekspresi dasar tetap tersedia melalui [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Beri `true` pada [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) untuk menampilkannya kembali; pengaturan dimensi tetap tidak berubah.
+Garis dasar adalah garis referensi tempat huruf matematika biasa berada. Menyembunyikan konten tidak menghapus dimensinya, dan memperlakukan dimensi sebagai nol tidak menghapus ekspresi. Ekspresi dasar tetap tersedia melalui [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Berikan `true` ke [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) untuk menampilkannya kembali; pengaturan dimensi tetap tidak berubah.
 
-Contoh di bawah menciptakan lima varian berdampingan: pecahan terlihat, pecahan tersembunyi yang tetap memesan ruang, dan tiga pecahan tersembunyi dengan satu dimensi diperlakukan sebagai nol. Setiap varian menggunakan ekspresi di sekitarnya yang sama dan Cambria Math dengan ukuran 24 poin. Semua bentuk persamaan memiliki posisi atas yang sama, ditandai dengan panduan abu‑abu. Menempatkan phantom di pembilang pecahan luar membuat perubahan tata letak vertikal lebih mudah terlihat.
+Contoh di bawah membuat lima varian berdampingan: sebuah pecahan terlihat, pecahan tersembunyi yang tetap menyisakan ruang, dan tiga pecahan tersembunyi dengan satu dimensi diperlakukan sebagai nol. Setiap varian menggunakan ekspresi di sekitarnya yang sama dan Cambria Math ukuran 24 poin. Semua shape persamaan memiliki posisi atas yang sama, ditandai dengan panduan abu-abu. Menempatkan phantom di pembilang pecahan luar memudahkan melihat perubahan tata letak vertikal.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -752,13 +833,13 @@ try {
 }
 ```
 
-![Lima persamaan di PowerPoint yang membandingkan pecahan terlihat, pecahan tersembunyi yang memesan ruang, dan pecahan tersembunyi dengan ZeroWidth, ZeroAsc, atau ZeroDesc diaktifkan](math-phantom.png)
+![Lima persamaan di PowerPoint membandingkan pecahan terlihat, pecahan tersembunyi yang menyisakan ruang, dan pecahan tersembunyi dengan ZeroWidth, ZeroAsc, atau ZeroDesc diaktifkan](math-phantom.png)
 
-## **Mengelompokkan Istilah**
+## **Grupkan Istilah**
 
-Gunakan [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) untuk menempatkan karakter pengelompokan di atas atau di bawah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
+Gunakan [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
 
-![Ekspresi x ditambah y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
+![Ekspresi x plus y dikelompokkan dengan label teks apa saja di bawahnya](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -785,9 +866,9 @@ try {
 }
 ```
 
-## **Memformat Elemen Matematika**
+## **Format Elemen Matematika**
 
-Gunakan pembantu pemformatan hanya di mana mereka memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) menempatkan garis di atas elemen matematika.
+Gunakan pembantu pemformatan hanya di tempat yang memperjelas rumus. Misalnya, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) menempatkan bar di atas elemen matematika.
 
 ![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
@@ -813,11 +894,11 @@ try {
 }
 ```
 
-### **Memformat Teks dalam Persamaan yang Ada**
+### **Format Teks dalam Persamaan yang Ada**
 
-Untuk memformat teks di seluruh persamaan yang ada, telusuri pohon elemen setiap blok matematika. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) hanya mengembalikan anak‑anak langsung, jadi panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen mulai ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
+Untuk memformat teks di seluruh persamaan yang ada, jelajahi pohon elemen setiap blok matematika. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) mengembalikan hanya anak langsung, jadi panggil secara rekursif untuk mencapai teks di dalam pecahan, skrip, radikal, dan struktur bersarang lainnya. Periksa elemen saat ini serta anak‑anaknya untuk menyertakan elemen awal ketika itu adalah [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/).
 
-Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilangnya dan radikal di penyebutnya. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam bingkai teks slide, mengakses blok‑nya melalui [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan menggunakan [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) untuk menetapkan ukuran font menjadi 28 poin melalui metode [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) setiap elemen teks.
+Contoh ini mengasumsikan bahwa `input.pptx` berisi persamaan seperti `z = xᵢ / ∛y`, dengan pecahan yang memiliki subskrip di pembilangnya dan radikal di penyebutnya. Memproses hanya elemen tingkat atas blok akan melewatkan teks di dalam pecahan. Contoh menemukan bagian matematika dalam bingkai teks slide, mengakses blok mereka melalui [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan menggunakan [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) untuk mengatur ukuran font menjadi 28 poin melalui metode [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) pada setiap elemen teks.
 
 ```javascript
 var aspose = aspose || {};
@@ -871,37 +952,37 @@ try {
 }
 ```
 
-Presentasi yang disimpan berisi pemformatan teks yang diperbarui pada setiap tingkat masing‑masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematikanya.
+Presentasi yang disimpan berisi pemformatan teks yang diperbarui di setiap tingkat masing-masing persamaan yang diproses, sambil mempertahankan konten teks dan struktur matematika.
 
 ## **Referensi Cepat**
 
-| Task | Main API |
+| Tugas | API Utama |
 | --- | --- |
-| Membuat teks matematika | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| Menggabungkan elemen | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Membuat pecahan | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan superskript atau subskript | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan fungsi | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan radikal | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan limit | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
-| Menambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan pembatas | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Menambahkan bar dan bingkai | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Mengelompokkan istilah | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
+| Gabungkan elemen | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Buat pecahan | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan superskrip atau subskrip | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan fungsi | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan radikal | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan batas | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
+| Tambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Tambahkan bar dan border | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Kelompokkan istilah | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat mengedit persamaan PowerPoint yang sudah ada?**
+**Apakah saya dapat mengedit persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan bentuk yang berisi [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), panggil [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan perbarui blok‑blok matematika dalam paragraf tersebut.
+Ya. Buka presentasi, temukan shape yang berisi [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), panggil [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), dan perbarui blok matematika di paragraf tersebut.
 
 **Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
-Ya. Ketika Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office Math yang dapat diedit.
+Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten Office math yang dapat diedit.
 
 **Apakah saya dapat mengekspor persamaan ke LaTeX?**
 
-Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)‑nya, dan panggil [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Export Math Equations from Presentations in Node.js via Java](/slides/id/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+Ya. Dapatkan [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) persamaan dari [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), dan panggil [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Ekspor Persamaan Matematika dari Presentasi di Node.js via Java](/slides/id/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
