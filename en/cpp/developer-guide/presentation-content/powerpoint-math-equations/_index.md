@@ -808,6 +808,70 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Align Right Subscripts and Superscripts**
+
+When both scripts belong to the same base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Its [set_AlignScripts](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathrightsubsuperscriptelement/set_alignscripts/) method controls their horizontal positions: `false` (the default) lets them follow the contour of the base, while `true` aligns the scripts horizontally with each other.
+
+This example places two copies of the same editable expression side by side. Both use mathematical italic f (U+1D453), a lower script of 1, an upper script of 2, and Cambria Math at 72 points. The sloping base makes the difference visible in PowerPoint. Install Cambria Math before running the example.
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathRightSubSuperscriptElement.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(900, 250, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+auto format = System::MakeObject<PortionFormat>();
+format->set_FontHeight(72);
+auto font = System::MakeObject<FontData>(u"Cambria Math");
+format->set_LatinFont(font);
+
+for (auto i = 0; i < 2; i++)
+{
+    auto left = 40 + i * 440;
+    auto shape = slide->get_Shapes()->AddMathShape(left, 75, 380, 150);
+
+    auto baseText = System::MakeObject<MathematicalText>(u"\U0001D453", format);
+    auto subscript = System::MakeObject<MathematicalText>(u"1", format);
+    auto superscript = System::MakeObject<MathematicalText>(u"2", format);
+    auto scripts = System::MakeObject<MathRightSubSuperscriptElement>(baseText, subscript, superscript);
+    scripts->set_AlignScripts(i == 1);
+
+    auto portion = System::ExplicitCast<MathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+    portion->get_PortionFormat()->set_FontHeight(format->get_FontHeight());
+    portion->get_PortionFormat()->set_LatinFont(format->get_LatinFont());
+    auto mathBlock = System::MakeObject<MathBlock>(scripts);
+    portion->get_MathParagraph()->Add(mathBlock);
+}
+
+presentation->Save(u"aligned-scripts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+![Two editable expressions in PowerPoint with AlignScripts set to false on the left and true on the right](aligned-scripts.png)
+
+On the left, the lower script starts farther left than the upper script, following the base contour. On the right, the two scripts align horizontally with each other.
+
 ## **Add Delimiters**
 
 Use [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.

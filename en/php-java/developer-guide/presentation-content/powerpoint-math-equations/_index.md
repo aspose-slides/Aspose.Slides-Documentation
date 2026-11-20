@@ -604,6 +604,59 @@ try {
 }
 ```
 
+### **Align Right Subscripts and Superscripts**
+
+When both scripts belong to the same base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/). Its [setAlignScripts](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) method controls their horizontal positions: `false` (the default) lets them follow the contour of the base, while `true` aligns the scripts horizontally with each other.
+
+This example places two copies of the same editable expression side by side. Both use mathematical italic f (U+1D453), a lower script of 1, an upper script of 2, and Cambria Math at 72 points. The sloping base makes the difference visible in PowerPoint. Install Cambria Math before running the example.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\MathRightSubSuperscriptElement;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(900, 250, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $format = new PortionFormat();
+    $format->setFontHeight(72);
+    $font = new FontData("Cambria Math");
+    $format->setLatinFont($font);
+
+    for ($i = 0; $i < 2; $i++) {
+        $left = 40 + $i * 440;
+        $shape = $slide->getShapes()->addMathShape($left, 75, 380, 150);
+
+        $baseText = new MathematicalText("\u{1D453}", $format);
+        $subscript = new MathematicalText("1", $format);
+        $superscript = new MathematicalText("2", $format);
+        $scripts = new MathRightSubSuperscriptElement($baseText, $subscript, $superscript);
+        $scripts->setAlignScripts($i === 1);
+
+        $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $portion->getPortionFormat()->setFontHeight($format->getFontHeight());
+        $portion->getPortionFormat()->setLatinFont($format->getLatinFont());
+        $mathBlock = new MathBlock($scripts);
+        $portion->getMathParagraph()->add($mathBlock);
+    }
+
+    $presentation->save("aligned-scripts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![Two editable expressions in PowerPoint with setAlignScripts set to false on the left and true on the right](aligned-scripts.png)
+
+On the left, the lower script starts farther left than the upper script, following the base contour. On the right, the two scripts align horizontally with each other.
+
 ## **Add Delimiters**
 
 Use [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.

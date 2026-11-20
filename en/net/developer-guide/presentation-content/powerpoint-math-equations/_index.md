@@ -541,6 +541,51 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
+### **Align Right Subscripts and Superscripts**
+
+When both scripts belong to the same base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Its [AlignScripts](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathrightsubsuperscriptelement/alignscripts/) property controls their horizontal positions: `false` (the default) lets them follow the contour of the base, while `true` aligns the scripts horizontally with each other.
+
+This example places two copies of the same editable expression side by side. Both use mathematical italic f (U+1D453), a lower script of 1, an upper script of 2, and Cambria Math at 72 points. The sloping base makes the difference visible in PowerPoint. Install Cambria Math before running the example.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(900, 250, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var format = new PortionFormat
+{
+    FontHeight = 72,
+    LatinFont = new FontData("Cambria Math")
+};
+
+for (var i = 0; i < 2; i++)
+{
+    var left = 40 + i * 440;
+    var shape = slide.Shapes.AddMathShape(left, 75, 380, 150);
+
+    var baseText = new MathematicalText("\U0001D453", format);
+    var subscript = new MathematicalText("1", format);
+    var superscript = new MathematicalText("2", format);
+    var scripts = new MathRightSubSuperscriptElement(baseText, subscript, superscript);
+    scripts.AlignScripts = i == 1;
+
+    var portion = (MathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+    portion.PortionFormat.FontHeight = format.FontHeight;
+    portion.PortionFormat.LatinFont = format.LatinFont;
+    portion.MathParagraph.Add(new MathBlock(scripts));
+}
+
+presentation.Save("aligned-scripts.pptx", SaveFormat.Pptx);
+```
+
+![Two editable expressions in PowerPoint with AlignScripts set to false on the left and true on the right](aligned-scripts.png)
+
+On the left, the lower script starts farther left than the upper script, following the base contour. On the right, the two scripts align horizontally with each other.
+
 ## **Add Delimiters**
 
 Use [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
