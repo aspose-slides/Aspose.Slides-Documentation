@@ -1,5 +1,5 @@
 ---
-title: Wiskundige vergelijkingen toevoegen aan PowerPoint-presentaties in .NET
+title: Wiskundige vergelijkingen toevoegen aan PowerPoint‑presentaties in .NET
 linktitle: PowerPoint wiskundige vergelijkingen
 type: docs
 weight: 80
@@ -18,33 +18,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor .NET, met ondersteuning voor OMML, opmaakbesturingen en duidelijke C# codevoorbeelden."
+description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor .NET, met ondersteuning voor OMML, opmaakbesturingen en duidelijke C#-codevoorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor .NET kunt u dezelfde soort wiskundige inhoud programmatig creëren: breuken, radicalen, functies, limieten, N‑aire operatoren, matrices, arrays en opgemaakte wiskundige blokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor .NET kunt u dezelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N-aire operatoren, matrices, arrays en opgemaakte wiskundeblokken.
 
 In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Insert > Equation**:
 
-![PowerPoint Invoegen-tabblad met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint Invoegen-tab met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
 Het resultaat is bewerkbare wiskundige tekst op de dia:
 
 ![Een PowerPoint-dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
 
-Aspose.Slides bouwt die wiskundige tekst via drie hoofdobjecten:
+Aspose.Slides bouwt die wiskundige tekst op via drie hoofdobjecten:
 
 - Een wiskundige vorm, gemaakt met [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), is de vorm die de vergelijking bevat.
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) slaat wiskundige inhoud op binnen het tekstvak van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/) objecten.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) slaat wiskundige inhoud op in het tekstframe van de vorm.
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) bevat een of meer [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/) objecten.
 
-De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) en de fluent‑methoden van [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) en de vloeiende methoden van [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) om de code kort en leesbaar te houden.
 
-Voor MathML‑exportscenario's, zie [Exporteer wiskundige vergelijkingen uit presentaties in .NET](/slides/nl/net/exporting-math-equations/).
+Voor MathML-exportscenario's, zie [Exporteer wiskundige vergelijkingen uit presentaties in .NET](/slides/nl/net/exporting-math-equations/).
 
 ## **Maak een vergelijking**
 
-Dit voorbeeld gebruikt [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) om een wiskundige vorm te maken en voegt het Pythagoras‑theorema toe:
+Dit voorbeeld gebruikt [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) om een wiskundige vorm te maken en voegt de stelling van Pythagoras toe:
 
 ![De vergelijking c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -71,15 +71,13 @@ mathParagraph.Add(equation);
 presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="Opmerking" %}}
-
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) maakt een vorm die al een wiskundige alinea bevat. Open de eerste [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), haal zijn [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) op, en voeg wiskundige blokken of wiskundige elementen toe.
-
+{{% alert color="info" title="Note" %}}
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), haal zijn [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), en voeg wiskundeblokken of wiskundige elementen toe.
 {{% /alert %}}
 
-### **Combineer wiskundige blokken**
+### **Combineer wiskundeblokken**
 
-Wanneer delen van een vergelijking onafhankelijk worden opgebouwd als [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/)‑objecten, gebruik dan [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) om ze te combineren. Het voorbeeld bouwt `c² =` in het linkse blok en `a² + b²` in het rechtse blok. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) maakt bewerkbare wiskundige superscripten voor alle drie de machten.
+Wanneer delen van een vergelijking onafhankelijk worden opgebouwd als [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/) objecten, gebruik dan [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) om ze te combineren. Het voorbeeld bouwt `c² =` in het linkse blok en `a² + b²` in het rechtse blok. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) maakt bewerkbare wiskundige superscripten voor alle drie de machten.
 
 ```csharp
 using Aspose.Slides;
@@ -107,15 +105,15 @@ mathParagraph.Add(combinedBlock);
 presentation.Save("equation.pptx", SaveFormat.Pptx);
 ```
 
-[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) retourneert `leftBlock` zelf, nu met beide delen in de juiste volgorde, en laat `rightBlock` leeg. Voeg het gecombineerde blok één keer toe aan de [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/). Na het opnieuw openen van `equation.pptx` bevat de alinea één blok dat `c² = a² + b²` voorstelt, met alle drie de machten bewaard als wiskundige superscripten.
+[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) geeft `leftBlock` zelf terug, nu met beide delen in volgorde, en laat `rightBlock` leeg. Voeg het gecombineerde blok één keer toe aan de [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/). Na het heropenen van `equation.pptx` bevat de alinea één blok dat `c² = a² + b²` voorstelt, waarbij alle drie de machten behouden blijven als wiskundige superscripten.
 
-Het aanroepen van [Add](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelementcollection/add/) als `leftBlock.Add(rightBlock)` probeert één blok direct binnen een ander te nestelen en veroorzaakt een `InvalidOperationException`.
+Het aanroepen van [Add](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelementcollection/add/) als `leftBlock.Add(rightBlock)` probeert één blok direct in een ander te nesten en geeft een `InvalidOperationException`.
 
 ## **Voeg breuken toe**
 
 Gebruik [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) om een breuk te maken. U kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Een scheve wiskundige breuk waarin één gedeeld wordt door x](powerpoint-math-equations_4.png)
+![Een scheve wiskundige breuk die één gedeeld door x toont](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -144,11 +142,11 @@ using Aspose.Slides.MathText;
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Voeg radicalen toe**
+## **Voeg wortels toe**
 
-Gebruik [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) om een vierkantswortel, derdemachtswortel of een andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
+Gebruik [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) om een vierkantswortel, kubuswortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
 
-![Een n-de wortel met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n-de wortelradicale expressie met x onder het wortelteken](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -171,9 +169,9 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ### **Toon of verberg de graad van een vierkantswortel**
 
-Een vierkantswortel kan een expliciete 2 tonen of de conventionele √x‑notatie gebruiken. De eigenschap [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) van [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) bepaalt welke vorm verschijnt. Beide vormen behouden graad 2 en radicand x in de bewerkbare vergelijking.
+Een vierkantswortel kan een expliciete 2 weergeven of de conventionele √x-notatie gebruiken. De [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) eigenschap van [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) bepaalt welke vorm verschijnt. Beide vormen behouden graad 2 en radicand x in de bewerkbare vergelijking.
 
-![Dezelfde vierkantswortel met HideDegree ingesteld op false links en true rechts](square-root-degree.png)
+![Dezelfde vierkantswortel met HideDegree ingesteld op false aan de linkerkant en true aan de rechterkant](square-root-degree.png)
 
 Het voorbeeld slaat dezelfde vierkantswortel twee keer op. In `visible-degree.pptx` is de 2 zichtbaar. In `hidden-degree.pptx` is hij verborgen.
 
@@ -200,7 +198,7 @@ presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
 
 ## **Voeg functies en limieten toe**
 
-Gebruik [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) of [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) voor functies zoals `sin(x)`, `log(x)` of zelfgekozen functienamen. Voor limieten, plaats `lim` in een [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) of gebruik [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Gebruik [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) of [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) voor functies zoals `sin(x)`, `log(x)` of aangepaste functienamen. Voor limieten, plaats `lim` in een [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) of gebruik [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
 
@@ -224,7 +222,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-Voor een eigen functienaam, maak de functienaam het huidige element en roep [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) aan met zijn argument:
+Voor een aangepaste functienaam maakt u de functienaam tot het huidige element en roept u [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) aan met het argument:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -232,11 +230,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Voeg N‑aire operatoren en integralen toe**
+## **Voeg N-aire operatoren en integralen toe**
 
-Gebruik [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) voor sommaties, unies, sneden en andere grote operatoren. Gebruik [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) voor integralen. Beide methoden laten u onder‑ en bovengrenzen instellen.
+Gebruik [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) voor sommaties, unies, intersecties en andere grote operatoren. Gebruik [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) voor integralen. Beide methoden laten u onder- en bovengrenzen instellen.
 
-![Een sommeteken met onder‑ en bovengrenzen](powerpoint-math-equations_7.png)
+![Een sommatie met onder- en bovengrens](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -260,7 +258,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-N‑aire operatoren zijn voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden gewoonlijk toegevoegd als [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) en samengevoegd in de expressie.
+N-aire operatoren zijn voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) en samengevoegd in de expressie.
 
 Voor een integraal, gebruik [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
@@ -273,9 +271,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **Voeg matrices toe**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omsluit de matrix wanneer u haakjes, vierkante haken of accolades nodig heeft.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omring de matrix wanneer u haakjes, vierkante haken of accolades nodig heeft.
 
-![Een matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
+![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -302,11 +300,11 @@ presentation.Save("matrix.pptx", SaveFormat.Pptx);
 
 ### **Bewerk een bestaande matrix**
 
-Stel dat een lineaire‑algebra‑les begint met de coëfficiëntenmatrix in `matrix.pptx`, opgeslagen door het voorgaande voorbeeld. Voor de volgende oefening behoudt u de eerste vergelijking, vervangt u de tweede door twee nieuwe vergelijkingen, en past u de set variabelen aan. Open de bestaande matrix via [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) om de nog geldige coëfficiënten te behouden.
+Stel dat een les lineaire algebra begint met de coefficientmatrix in `matrix.pptx`, opgeslagen door het vorige voorbeeld. Voor de volgende oefening behoudt u de eerste vergelijking, vervangt u de tweede door twee nieuwe vergelijkingen en past u de set variabelen aan. Open de bestaande matrix via [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) om de nog geldige coëfficiënten te behouden.
 
-![Originele matrix met twee rijen, invoer 1, x en een lege cel in de eerste rij en x, 2 en y in de tweede rij](matrix-before-edit.png)
+![Originele coefficientmatrix met twee rijen met waarden 1, x, en een lege cel in de eerste rij en x, 2, en y in de tweede](matrix-before-edit.png)
 
-Rij‑ en kolomindexen beginnen bij nul en verwijzen naar de matrix zoals die op elk moment bestaat. Een rij invoegen vóór index 1 verschuift de oorspronkelijke tweede rij naar index 2. Invoegen na index 2 voegt vervolgens een rij toe. Het verwijderen van rij 2 verwijdert de oorspronkelijke tweede vergelijking en verschuift de toegevoegde rij één positie omhoog. Kolommen verschuiven op dezelfde manier.
+Rij- en kolomindices beginnen bij nul en verwijzen naar de matrix zoals die op dat moment bestaat. Het invoegen van een rij vóór index 1 verplaatst de oorspronkelijke tweede rij naar index 2. Het invoegen na index 2 voegt vervolgens een rij toe. Het verwijderen van rij 2 verwijdert de oorspronkelijke tweede vergelijking en verplaatst de toegevoegde rij één positie omhoog. Kolommen verschuiven op dezelfde manier.
 
 ```csharp
 using Aspose.Slides;
@@ -348,9 +346,9 @@ presentation.Save("updated-matrix.pptx", SaveFormat.Pptx);
 
 [SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) lijnt de eerste kolom links uit. [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) lijnt drie opeenvolgende kolommen rechts uit, beginnend bij index 1. In `updated-matrix.pptx` heeft de matrix drie vergelijkingen en vier variabelen. De oorspronkelijke coëfficiënten `1` en `x` van de eerste rij verschijnen nu in de eerste en derde kolom.
 
-![Bijgewerkte matrix met drie rijen: 1, 0, x, 0; 12, 1, 0, 0; en 0, 0, 10, 1](matrix-after-edit.png)
+![Bijgewerkte matrix met drie rijen die de rijen 1, 0, x, 0; 12, 1, 0, 0; en 0, 0, 10, 1 toont](matrix-after-edit.png)
 
-## **Voeg vergelijking‑arrays toe**
+## **Voeg vergelijkingarrays toe**
 
 Gebruik [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) wanneer u uitgelijnde vergelijkingen of een verticale stapel expressies nodig heeft.
 
@@ -378,9 +376,9 @@ presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 
 ### **Lijn een array uit met omringende elementen**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) bepaalt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het onderstaande voorbeeld vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) bepaalt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het voorbeeld hieronder vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
 
-Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de naastliggende elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math met 24 pt. Alleen de array‑uitlijning verschuift.
+Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de naastliggende elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math op 24 punten. Alleen de array‑uitlijning verandert.
 
 ```csharp
 using Aspose.Slides;
@@ -429,15 +427,15 @@ MathematicalText CreateText(string value)
 
 De volgende vergelijking toont de opgeslagen presentatie in PowerPoint. Let op de positie van `A=` en `=B` naast elke array.
 
-![Vergelijking‑arrays in PowerPoint met boven‑, midden‑ en onder‑uitlijning en identieke naburige elementen](equation-array-alignment.png)
+![Vergelijkingarrays in PowerPoint met uitlijning Boven, Midden en Onder en identieke omringende elementen](equation-array-alignment.png)
 
-### **Stel rij‑spatiëring in**
+### **Configureer rijspatiëring**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) kiest de spatiëringsregel voor rijen binnen de array. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) geeft een numerieke waarde voor een expliciete spatiëringsregel en wordt genegeerd door de voorinstellingen.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) selecteert de spatiëringsregel voor rijen binnen de array. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) levert een numerieke waarde voor een expliciete spatiëringsregel en wordt genegeerd door de vooraf ingestelde regels.
 
-Voor exacte spatiëring wordt de waarde gemeten in punten. Voor proportionele spatiëring wordt gemeten in halve regels: de waarde `3` in het voorbeeld betekent 1,5 regels. Stel beide eigenschappen in wanneer u een expliciete waarde opgeeft; het alleen wijzigen van de numerieke waarde selecteert de spatiëringsregel niet.
+Voor exacte spatiëring wordt de waarde gemeten in punten. Voor proportionele spatiëring wordt gemeten in halve regels: de waarde `3` in het voorbeeld geeft 1,5 regels aan. Stel beide eigenschappen in wanneer u een expliciete waarde opgeeft; alleen de numerieke waarde wijzigen selecteert geen spatiëringsregel.
 
-Het voorbeeld hieronder slaat vijf presentaties op met dezelfde vergelijkingen, uitlijning en lettertype‑instellingen. De eerste drie gebruiken voorinstellingen; de laatste twee tonen expliciete waarden.
+Het voorbeeld hieronder slaat vijf presentaties op met dezelfde vergelijkingen, uitlijning en lettertype‑instellingen. De eerste drie gebruiken presets; de laatste twee tonen expliciete waarden.
 
 ```csharp
 using Aspose.Slides;
@@ -487,11 +485,11 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Array‑rij‑spatiëring staat los van alinea‑spatiëring. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) en [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) voegen ruimte toe rond de omvattende alinea, niet tussen array‑rijen. Evenzo positioneert [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) de hele wiskundige alinea horizontaal; het vervangt niet de verticale uitlijningsinstelling van de array.
+Array‑rijspatiëring is gescheiden van alinea‑spatiëring. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) en [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) voegen ruimte toe rond de omsluitende alinea, niet tussen array‑rijen. Evenzo positioneert [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) de hele wiskundige alinea horizontaal; het vervangt niet de verticale uitlijningsinstelling van de array.
 
 ## **Voeg trigonometrische functies toe**
 
-Gebruik [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) wanneer het argument het huidige element is en de functienaam bekend.
+Gebruik [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) wanneer het argument het huidige element is en de functienaam bekend is.
 
 ![De trigonometrische functie cos toegepast op 2x](powerpoint-math-equations_6.png)
 
@@ -514,11 +512,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Voeg sub‑ en superscripten toe**
+## **Voeg subscript en superscript toe**
 
-Gebruik de sub‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen links van de basis moeten staan, gebruik dan [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten staan, gebruik dan [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![Een hoofdletter Y met links‑subscript 1 en superscript n](powerpoint-math-equations_9.png)
+![Een hoofdletter Y met subscript 1 aan de linkerkant en superscript n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -539,11 +537,56 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **Voeg begrenzers toe**
+### **Lijn rechter subscript en superscript uit**
 
-Gebruik [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) om een expressie binnen begrenzers te plaatsen. U kunt ook een scheidingsteken definiëren voor begrenzer‑expressies die meerdere elementen bevatten.
+Wanneer beide scripts tot dezelfde basis behoren, gebruik [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Zijn [AlignScripts](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathrightsubsuperscriptelement/alignscripts/) eigenschap bepaalt hun horizontale positie: `false` (standaard) laat ze de contour van de basis volgen, terwijl `true` de scripts horizontaal op één lijn zet.
 
-![Een begrenzer‑expressie met x, y en z gescheiden door verticale streepjes](powerpoint-math-equations_13.png)
+Dit voorbeeld plaatst twee kopieën van dezelfde bewerkbare expressie naast elkaar. Beide gebruiken wiskundig cursief f (U+1D453), een subscript van 1, een superscript van 2 en Cambria Math op 72 punten. De schuine basis maakt het verschil zichtbaar in PowerPoint. Installeer Cambria Math vóór het uitvoeren van het voorbeeld.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(900, 250, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var format = new PortionFormat
+{
+    FontHeight = 72,
+    LatinFont = new FontData("Cambria Math")
+};
+
+for (var i = 0; i < 2; i++)
+{
+    var left = 40 + i * 440;
+    var shape = slide.Shapes.AddMathShape(left, 75, 380, 150);
+
+    var baseText = new MathematicalText("\U0001D453", format);
+    var subscript = new MathematicalText("1", format);
+    var superscript = new MathematicalText("2", format);
+    var scripts = new MathRightSubSuperscriptElement(baseText, subscript, superscript);
+    scripts.AlignScripts = i == 1;
+
+    var portion = (MathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+    portion.PortionFormat.FontHeight = format.FontHeight;
+    portion.PortionFormat.LatinFont = format.LatinFont;
+    portion.MathParagraph.Add(new MathBlock(scripts));
+}
+
+presentation.Save("aligned-scripts.pptx", SaveFormat.Pptx);
+```
+
+![Twee bewerkbare expressies in PowerPoint met AlignScripts ingesteld op false links en true rechts](aligned-scripts.png)
+
+Aan de linkerkant begint de lagere script verder links dan de hogere, volgens de basiscontour. Aan de rechterkant staan beide scripts horizontaal op één lijn.
+
+## **Voeg delimiters toe**
+
+Gebruik [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) om een expressie binnen delimiters te plaatsen. U kunt ook een scheidingsteken definiëren voor delimiter‑expressies die meerdere elementen bevatten.
+
+![Een delimiter‑expressie met x, y en z gescheiden door verticale staven](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -567,11 +610,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **Grootte en uitlijning van begrenzers**
+### **Grootte en uitlijning van delimiters**
 
-Stel [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) in op `true` om de haakjes te laten groeien rondom een hoge operand, of op `false` om de normale grootte te behouden. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) accepteert één van twee waarden van [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` centreert de haakjes op de wiskundige as, die door het midden van het =‑teken loopt. `Match` lijnt ze uit met de ingesloten inhoud. Beide instellingen beïnvloeden uitsluitend de begrenzers. De expressie binnen blijft gelijk.
+Stel [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) in op `true` om de haakjes te laten groeien rond een hoog operanden, of op `false` om ze op normale grootte te houden. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) neemt een van twee [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) waarden. `Centered` centreert de haakjes op de wiskunde‑as, die door het midden van het gelijkteken loopt. `Match` lijnt ze uit met de ingesloten inhoud. Beide instellingen beïnvloeden alleen de delimiters. De expressie binnen blijft gelijk.
 
-Het voorbeeld plaatst een breuk in de exponent van `x` zodat de expressie verder boven de basislijn uitsteekt dan eronder. Alle vier vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
+Het voorbeeld plaatst een breuk in de exponent van `x` zodat de expressie hoger uitsteekt boven de basislijn dan eronder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
 
 ```csharp
 using Aspose.Slides;
@@ -604,15 +647,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-In PowerPoint vergelijkt u de rijen om het effect van groei te zien. In de bovenste rij groeien de haakjes om de exponent en zien er identiek uit voor beide vormen. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`Centered`) lijnen uit met het =‑teken, terwijl die rechts (`Match`) hoger staan rond de uitdrukking.
+In PowerPoint vergelijkt u de rijen om het groeieffect te zien. In de bovenste rij groeien de haakjes om de exponent en zien er hetzelfde uit voor beide vormen. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`Centered`) lijnen zich uit met het gelijkteken, terwijl die rechts (`Match`) hoger rond de expressie zitten.
 
-![Vier vergelijkingen in PowerPoint met begrenzer‑groei ingeschakeld boven en uitgeschakeld hieronder, en Centered links en Match rechts](delimiter-sizing.png)
+![Vier vergelijkingen in PowerPoint met delimitergroei ingeschakeld boven en uitgeschakeld beneden, en Centered links en Match rechts](delimiter-sizing.png)
 
 ## **Voeg een randvak toe**
 
-Roep [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) aan op een breuk om de gehele expressie te omlijsten. Het geretourneerde [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) toont standaard alle vier zijden. Gebruik [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/) en [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) om individuele zijden te verwijderen.
+Roep [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) aan op een breuk om de volledige expressie in een kader te plaatsen. Het geretourneerde [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) toont standaard alle vier de zijden. Gebruik [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/) en [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) om individuele zijden te verwijderen.
 
-Het voorbeeld plaatst zes kopieën van dezelfde breuk op één dia. Om annulering te tonen, verberg alle vier de zijden en stel [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) in voor een stijgende diagonale lijn (↗) of [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) voor een dalende diagonale lijn (↘). U kunt ook [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) of [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) gebruiken met elke combinatie van zichtbare zijden.
+Het voorbeeld plaatst zes kopieën van dezelfde breuk op één dia. Om annulering te tonen, verberg alle vier de zijden en stel [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) in voor een stijgende diagonale (↗) of [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) voor een dalende diagonale (↘). U kunt ook [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) of [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) gebruiken met elke combinatie van zichtbare zijden.
 
 ```csharp
 using Aspose.Slides;
@@ -626,7 +669,7 @@ var slide = presentation.Slides[0];
 IMathBorderBox AddFraction(float x, float y, bool hideBorder = false)
 {
     var fraction = new MathematicalText("x+1").Divide("y+2");
-    var box = fraction.ToBorderBox();
+    var box = fraction ToBorderBox();
     box.HideTop = box.HideBottom = box.HideLeft = box.HideRight = hideBorder;
 
     var shape = slide.Shapes.AddMathShape(x, y, 160, 90);
@@ -650,24 +693,24 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerseiten, stijgende diagonale lijn. Onderste rij: dalende diagonale lijn, horizontale lijn, verticale lijn met volledige rand.](border-box-fractions.png)
+![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerkanten, stijgende diagonale. Onderste rij: dalende diagonale, horizontale doorstreping, verticale doorstreping met volledige rand](border-box-fractions.png)
 
-Op deze breuk overlapt de horizontale streep de breukstreep. De verticale streep doorsnijdt zowel de teller als de noemer terwijl de omringende rand zichtbaar blijft. Deze lijnen sieren de volledige expressie. Normale doorhaling van tekst geldt alleen voor karakters in een tekstrun. Na het opnieuw openen van de presentatie in PowerPoint kunt u de teller en noemer nog steeds onafhankelijk bewerken.
+Op deze breuk overlapt de horizontale doorstreping de breukstreep. De verticale doorstreping kruist zowel de teller als de noemer terwijl de omringende rand zichtbaar blijft. Deze lijnen decoreren de hele expressie. Gewone tekst‑doorstreping geldt voor tekens in een tekstreeks. Na het heropenen van de presentatie in PowerPoint kunt u de teller en noemer nog steeds onafhankelijk bewerken.
 
-## **Beheer zichtbaarheid en opmaak met phantom‑elementen**
+## **Controleer zichtbaarheid en lay‑out met Phantom‑elementen**
 
-Wikkel een expressie in [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) om de zichtbaarheid en de ruimte die het bijdraagt aan een vergelijking onafhankelijk te regelen. De eigenschappen van [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) bepalen het volgende:
+Omhul een expressie in [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) om de zichtbaarheid en de ruimte die hij bijdraagt aan een vergelijking onafhankelijk te regelen. De eigenschappen van [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) bepalen het volgende:
 
 | Eigenschap | Effect |
 | --- | --- |
-| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Zet op `false` om de expressie te verbergen. De afmetingen blijven bijdragen aan de lay-out tenzij de bijbehorende eigenschappen hieronder op `true` staan. |
-| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Behandelt de horizontale breedte van de expressie als nul, zodat naburige elementen dichter bij elkaar kunnen komen. |
-| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Behandelt de stijging (hoogte boven de basislijn) als nul. Dit kan de ruimte boven naburige elementen verminderen. |
-| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Behandelt de daling (diepte onder de basislijn) als nul. Dit kan een breukstreep of andere inhoud onder de expressie dichter bij de buren plaatsen. |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Zet op `false` om de expressie te verbergen. Zijn afmetingen blijven bijdragen aan de lay‑out tenzij de onderliggende eigenschappen hieronder op `true` staan. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Behandel de horizontale breedte van de expressie als nul, waardoor aangrenzende elementen dichter bij elkaar kunnen komen. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Behandel de ascender (hoogte boven de basislijn) als nul. Dit kan de ruimte boven aangrenzende elementen verkleinen. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Behandel de descender (diepte onder de basislijn) als nul. Dit kan een breukstreep of andere inhoud onder de expressie dichter bij zijn buren plaatsen. |
 
-De basislijn is de referentielijn waarop gewone wiskundige letters rusten. Het verbergen van inhoud verwijdert niet de afmetingen, en een afmeting op nul zetten verwijdert de expressie niet. De onderliggende expressie blijft beschikbaar via [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Zet [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) terug op `true` om hem weer te tonen; de dimensioneringsinstellingen blijven behouden.
+De basislijn is de referentielijn waarop gewone wiskundige letters staan. Het verbergen van inhoud verwijdert de afmetingen niet, en het behandelen van een afmeting als nul verwijdert de expressie niet. De onderliggende expressie blijft beschikbaar via [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Zet [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) terug op `true` om hem opnieuw weer te geven; de afmetingsinstellingen blijven behouden.
 
-Het voorbeeld hieronder creëert vijf varianten naast elkaar: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken met één dimensie op nul. Elke variant gebruikt dezelfde omringende expressie en Cambria Math met 24 pt. Alle vergelijking‑vormen hebben dezelfde bovenste positie, gemarkeerd door de grijze hulplijn. Het plaatsen van de phantom in de teller van een buitenste breuk maakt de verticale lay‑outveranderingen duidelijker.
+Het voorbeeld hieronder maakt vijf varianten naast elkaar: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken met één dimensie op nul gezet. Elke variant gebruikt dezelfde omringende expressie en Cambria Math op 24 punten. Alle vergelijking‑vormen hebben dezelfde boven‑positie, gemarkeerd door de grijze hulplijn. Het plaatsen van de phantom in de teller van een buitenste breuk maakt de verticale lay‑out‑veranderingen beter zichtbaar.
 
 ```csharp
 using Aspose.Slides;
@@ -726,13 +769,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-![Vijf vergelijkingen in PowerPoint die een zichtbare breuk, een verborgen breuk die ruimte reserveert, en verborgen breuken met ZeroWidth, ZeroAsc of ZeroDesc tonen](math-phantom.png)
+![Vijf vergelijkingen in PowerPoint die een zichtbare breuk, een verborgen breuk die ruimte reserveert, en verborgen breuken met ZeroWidth, ZeroAsc of ZeroDesc geactiveerd vergelijken](math-phantom.png)
 
-## **Groeperen van termen**
+## **Groeper termen**
 
-Gebruik [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) om een groeperings‑teken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Gebruik [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) om een groepeerteken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
 
-![De expressie x + y gegroepeerd met het label enige tekst eronder](powerpoint-math-equations_15.png)
+![De expressie x plus y gegroepeerd met het label willekeurige tekst eronder](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -754,11 +797,11 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **Opmaak van wiskunde‑elementen**
+## **Formatteer wiskundige elementen**
 
-Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) plaatst een balk boven een wiskundig element.
+Gebruik formatteringshelpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) plaatst een balk boven een wiskundig element.
 
-![Een wiskundige expressie ABC met een overbar](powerpoint-math-equations_14.png)
+![Een wiskundige expressie ABC met een overbalk](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -778,11 +821,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **Opmaak van tekst in een bestaande vergelijking**
+### **Formatteer tekst in een bestaande vergelijking**
 
-Om tekst door een bestaande vergelijking heen te formatteren, doorloopt u elke wiskundige blok‑elementboom. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) retourneert alleen de directe kinderen, dus roep het recursief aan om tekst in breuken, script‑elementen, radicalen en andere geneste structuren te bereiken. Controleer zowel het huidige element als zijn kinderen om ook het start‑element mee te nemen wanneer het [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) is.
+Om tekst door de gehele bestaande vergelijking te formatteren, doorloop u de elementboom van elk wiskundeblok. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) retourneert alleen de directe kinderen, dus roep het recursief aan om tekst binnen breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer zowel het huidige element als zijn kinderen om het start‑element op te nemen wanneer het [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) is.
 
-Dit voorbeeld gaat uit van een presentatie met een vergelijking zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een radicaal in de noemer. Het verwerken van alleen de top‑level elementen van het blok zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige porties in dia‑tekstkaders, opent hun blokken via [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), en stelt [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) in op 28 pt via elke tekstelement‑[Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/).
+Dit voorbeeld gaat ervan uit dat een presentatie een vergelijking bevat, bijvoorbeeld `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een wortel in de noemer. Alleen de boven‑niveau‑elementen van het blok verwerken zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige porties in dia‑tekstframes, krijgt hun blokken via [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), en stelt [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) in op 28 punten via elke tekst‑element‑[Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) eigenschap.
 
 ```csharp
 using Aspose.Slides;
@@ -835,26 +878,26 @@ De opgeslagen presentatie bevat de bijgewerkte tekstopmaak op elk niveau van elk
 | Maak breuken | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
 | Voeg superscript of subscript toe | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Voeg functies toe | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Voeg radicalen toe | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| Voeg wortels toe | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
 | Voeg limieten toe | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Voeg links‑scripts toe | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Voeg sommaties en integralen toe | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| Voeg scripts aan de linkerkant toe | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Voeg sommatie‑ en integralen toe | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
 | Voeg matrices toe | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| Voeg vergelijking‑arrays toe | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Voeg begrenzers toe | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Voeg vergelijkingarrays toe | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Voeg delimiters toe | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
 | Voeg balken en randen toe | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Groepeer termen | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
+| Groeperen van termen | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
 **Kan ik een bestaande PowerPoint‑vergelijking bewerken?**
 
-Ja. Open de presentatie, vind de vorm die een [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) bevat, haal de bijbehorende [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) op, en werk de wiskundige blokken in die alinea bij.
+Ja. Open de presentatie, zoek de vorm die een [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) bevat, haal de [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) op en werk de wiskundeblokken in die alinea bij.
 
-**Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
+**Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑math?**
 
-Ja. Wanneer u naar PPTX opslaat, schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskunde‑inhoud.
+Ja. Wanneer u opslaat naar PPTX schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑math‑inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 
-Ja. Haal de [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) van de [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) op, en roep [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) aan om rechtstreeks te exporteren. Voor een volledig voorbeeld, zie [Exporteer wiskundige vergelijkingen uit presentaties in .NET](/slides/nl/net/exporting-math-equations/#export-math-equations-to-latex).
+Ja. Haal de [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) van de [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) op en roep [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) aan om direct te exporteren. Voor een volledig voorbeeld, zie [Export Math Equations from Presentations in .NET](/slides/nl/net/exporting-math-equations/#export-math-equations-to-latex).

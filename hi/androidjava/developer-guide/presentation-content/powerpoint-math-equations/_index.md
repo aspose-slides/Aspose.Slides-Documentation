@@ -6,11 +6,11 @@ weight: 80
 url: /hi/androidjava/powerpoint-math-equations/
 keywords:
 - गणितीय समीकरण
-- गणितीय चिह्न
+- गणितीय संकेत
 - गणितीय सूत्र
 - गणितीय पाठ
 - गणितीय समीकरण जोड़ें
-- गणितीय चिह्न जोड़ें
+- गणितीय संकेत जोड़ें
 - गणितीय सूत्र जोड़ें
 - गणितीय पाठ जोड़ें
 - PowerPoint
@@ -18,35 +18,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Java कोड उदाहरण प्रदान करता है।"
+description: "Aspose.Slides for Android के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Java कोड नमूनों के साथ।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Android via Java के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर, मैट्रिक्स, एरे और स्वरूपित गणित ब्लॉक्स।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में सहेजता है। Aspose.Slides for Android via Java के साथ आप प्रोग्रामैटिक रूप से उसी प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमाएँ, N-ary ऑपरेटर, मैट्रिक्स, एरे, और स्वरूपित गणित ब्लॉक।
 
-PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
+PowerPoint में, उपयोगकर्ता सामान्य रूप से **Insert > Equation** से समीकरण जोड़ते हैं:
 
-![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
+![PowerPoint Insert टैब में Equation कमांड चयनित है](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय टेक्स्ट होता है:
+परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ होगा:
 
-![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
+![एक PowerPoint स्लाइड जिसमें एक संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
 
-Aspose.Slides उस गणितीय टेक्स्ट को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
+Aspose.Slides उस गणितीय पाठ को तीन मुख्य ऑब्जेक्ट्स के माध्यम से बनाता है:
 
-- एक गणितीय आकृति, जिसे [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) द्वारा बनाया जाता है, वह आकृति है जिसमें समीकरण शामिल होता है।
-- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) आकृति के टेक्स्ट फ्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) वस्तुओं को शामिल करता है।
+- एक गणितीय आकार, जिसे [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) से बनाया जाता है, वह आकार है जिसमें समीकरण होता है।
+- [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) आकार के टेक्स्ट फ़्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
+- [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) में एक या अधिक [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) ऑब्जेक्ट होते हैं।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) की प्रवाहमयी विधियों का उपयोग करके कोड को छोटा और पठनीय रखते हैं।
+नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) की फ्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
 
-[Android पर प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/androidjava/exporting-math-equations/)
+MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations on Android](/slides/hi/androidjava/exporting-math-equations/)।
 
-## **एक समीकरण बनाएं**
+## **समीकरण बनाएं**
 
-यह उदाहरण [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) का उपयोग करके एक गणितीय आकृति बनाता है और पाइथागोरस प्रमेय जोड़ता है:
+यह उदाहरण [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) का प्रयोग करके एक गणितीय आकार बनाता है और पायथागोरस प्रमेय जोड़ता है:
 
-![c² = a² + b² समीकरण](powerpoint-math-equations_3.png)
+![समीकरण c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -75,12 +75,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) एक ऐसी आकृति बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ शामिल होता है। पहले [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) को एक्सेस करें, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) को कॉल करें, और उसमें गणितीय ब्लॉक्स या गणितीय तत्व जोड़ें।
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहले [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) तक पहुंचें, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) को कॉल करें, और उसमें गणितीय ब्लॉक या तत्व जोड़ें।
 {{% /alert %}}
 
-### **गणितीय ब्लॉक्स को मिलाएं**
+### **गणित ब्लॉकों को मिलाएं**
 
-जब समीकरण के भाग स्वतंत्र रूप से [IMathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/) वस्तुओं के रूप में निर्मित होते हैं, तो उन्हें मिलाने के लिए [joinBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) का उपयोग करें। यह उदाहरण बाएँ ब्लॉक में `c² =` और दाएँ ब्लॉक में `a² + b²` बनाता है। [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSuperscript-java.lang.String-) सभी तीन घातों के लिए संपादन योग्य गणितीय सुपरस्क्रिप्ट बनाता है।
+जब समीकरण के भाग स्वतंत्र रूप से [IMathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/) ऑब्जेक्ट्स के रूप में बनते हैं, तो उन्हें मिलाने के लिए [joinBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) का उपयोग करें। यह उदाहरण बाएँ ब्लॉक में `c² =` और दाएँ ब्लॉक में `a² + b²` बनाता है। [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSuperscript-java.lang.String-) सभी तीन पावर के लिए संपादन योग्य गणितीय सुपरस्क्रिप्ट बनाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -111,15 +111,15 @@ try {
 }
 ```
 
-[joinBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) `leftBlock` को स्वयं लौटाता है, अब क्रम में दोनों भागों को शामिल करता है, और `rightBlock` को खाली छोड़ देता है। संयोजित ब्लॉक को केवल एक बार [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) में जोड़ें। `equation.pptx` को पुनः खोलने पर, पैराग्राफ में `c² = a² + b²` को दर्शाने वाला एक ब्लॉक होता है, जिसमें सभी तीन घातें गणितीय सुपरस्क्रिप्ट के रूप में संरक्षित रहती हैं।
+[joinBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) `leftBlock` स्वयं को लौटाता है, अब क्रम में दोनों भाग शामिल होते हैं, और `rightBlock` को खाली छोड़ देता है। मिलाए गए ब्लॉक को केवल एक बार [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) में जोड़ें। `equation.pptx` को पुनः खोलने के बाद, पैराग्राफ में एक ब्लॉक होगा जो `c² = a² + b²` का प्रतिनिधित्व करता है, जिसमें सभी तीन पावर गणितीय सुपरस्क्रिप्ट के रूप में संरक्षित रहते हैं।
 
-[leftBlock.add(rightBlock)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelementcollection/#add-com.aspose.slides.IMathElement-) को `leftBlock.add(rightBlock)` के रूप में कॉल करने पर यह एक ब्लॉक को सीधे दूसरे के अंदर नेस्ट करने का प्रयास करता है और `InvalidOperationException` फेंकता है।
+[add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelementcollection/#add-com.aspose.slides.IMathElement-) को `leftBlock.add(rightBlock)` के रूप में कॉल करने से एक ब्लॉक को सीधे दूसरे के भीतर नेस्ट करने की कोशिश की जाती है और यह `InvalidOperationException` उत्पन्न करता है।
 
 ## **भिन्न जोड़ें**
 
-[divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) का उपयोग करके एक भिन्न बनाएं। आप [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) के साथ एक भिन्न शैली चुन सकते हैं।
+एक भिन्न बनाने के लिए [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) का उपयोग करें। आप [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) से एक भिन्न शैली चुन सकते हैं।
 
-![एक तिरछा गणितीय भिन्न जो 1 को x से विभाजित दिखा रहा है](powerpoint-math-equations_4.png)
+![एक विकृत गणितीय भिन्न जहाँ एक को x से विभाजित किया गया है](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -143,7 +143,7 @@ try {
 }
 ```
 
-एक स्टैक्ड (ऊँचा) भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) का उपयोग करें:
+स्टैक्ड भिन्न के लिए, [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar) का उपयोग करें:
 
 ```java
 import com.aspose.slides.*;
@@ -151,11 +151,11 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **रैडिकल जोड़ें**
+## **मूल जोड़ें**
 
-[radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बनाएं। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
+एक वर्गमूल, घनमूल या अन्य मूल बनाने के लिए [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) का प्रयोग करें। वर्तमान तत्व बेस बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक n-थ मूल अभिव्यक्ति जिसमें x रैडिकल चिन्ह के नीचे है](powerpoint-math-equations_5.png)
+![एक n-थ मूल अभिव्यक्ति जहाँ x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -179,13 +179,13 @@ try {
 }
 ```
 
-### **वर्गमूल की डिग्री दिखाएँ या छिपाएँ**
+### **वर्गमूल की डिग्री दिखाएं या छिपाएं**
 
-वर्गमूल स्पष्ट 2 दिखा सकता है या पारंपरिक √x नोटेशन का उपयोग कर सकता है। [IMathRadical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/) की [setHideDegree](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/#setHideDegree-boolean-) विधि यह नियंत्रित करती है कि कौन सा रूप दिखे। दोनों रूप संपादन योग्य समीकरण में डिग्री 2 और रैडिकेंड x को बनाए रखते हैं।
+एक वर्गमूल स्पष्ट 2 दिखा सकता है या पारम्परिक √x स्वरूप का उपयोग कर सकता है। [IMathRadical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/) की [setHideDegree](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/#setHideDegree-boolean-) मेथड यह नियंत्रित करती है कि कौन सा रूप दिखाई दे। दोनों रूप में डिग्री 2 और radicand x संपादन योग्य समीकरण में बने रहते हैं।
 
-![एक ही वर्गमूल जिसका डिग्री बाएँ दिख रहा है और दाएँ छिपा हुआ है](square-root-degree.png)
+![एक ही वर्गमूल जहाँ बाएँ में डिग्री दिखाई देती है और दाएँ में छिपी हुई है](square-root-degree.png)
 
-उदाहरण समान वर्गमूल को दो बार सहेजता है। `visible-degree.pptx` में, 2 दिखाई देता है। `hidden-degree.pptx` में, यह छिपा हुआ है।
+उदाहरण समान वर्गमूल को दो बार सहेजता है। `visible-degree.pptx` में 2 दिखाई देता है। `hidden-degree.pptx` में यह छिपा हुआ है।
 
 ```java
 import com.aspose.slides.*;
@@ -212,9 +212,9 @@ try {
 
 ## **फ़ंक्शन और सीमाएँ जोड़ें**
 
-फ़ंक्शन जैसे `sin(x)`, `log(x)`, या कस्टम फ़ंक्शन नामों के लिए [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) या [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) का उपयोग करें। सीमाओं के लिए, `lim` को [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) में रखें या [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) का उपयोग करें।
+[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) या [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) का उपयोग कर `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नाम जोड़ सकते हैं। सीमाओं के लिये, `lim` को एक [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) में रखें या [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) का प्रयोग करें।
 
-![जब x अनन्त की ओर बढ़ता है तो x की सीमा](powerpoint-math-equations_8.png)
+![x की सीमा जब x अनंत की ओर बढ़ता है](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -239,7 +239,7 @@ try {
 }
 ```
 
-कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं और इसके तर्क के साथ [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) को कॉल करें:
+कस्टम फ़ंक्शन नाम के लिये, फ़ंक्शन नाम को वर्तमान तत्व बनाएं और उसके तर्क के साथ [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) को कॉल करें:
 
 ```java
 import com.aspose.slides.*;
@@ -247,11 +247,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-ary ऑपरेटर और समाकल जोड़ें**
+## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
 
-[nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का उपयोग समिश्रण, संघ, प्रतिच्छेदन और अन्य बड़े ऑपरेटरों के लिए करें। [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का उपयोग समाकलों के लिए करें। दोनों विधियों से आप निचली और ऊपरी सीमाएँ सेट कर सकते हैं।
+समेशन, संघ, प्रतिच्छेदन और अन्य बड़े ऑपरेटरों के लिये [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का प्रयोग करें। इंटीग्रल के लिये [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का प्रयोग करें। दोनों मेथड्स आपको निचली और ऊपरी सीमाएँ सेट करने देते हैं।
 
-![निचली और ऊपरी सीमाओं के साथ एक समिश्रण](powerpoint-math-equations_7.png)
+![एक समेशन जिसमें निचली और ऊपरी सीमाएँ हैं](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -278,9 +278,9 @@ try {
 }
 ```
 
-N-ary ऑपरेटर बड़े ऑपरेटरों के लिए होते हैं जिनमें वैकल्पिक सीमाएँ होती हैं। सरल ऑपरेटर जैसे `+`, `-`, और `=` आमतौर पर [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर बड़े ऑपरेटर होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। साधारण ऑपरेटर जैसे `+`, `-`, और `=` सामान्यतः [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
 
-समाकल के लिए, [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का उपयोग करें:
+इंटीग्रल के लिये, [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का प्रयोग करें:
 
 ```java
 import com.aspose.slides.*;
@@ -291,9 +291,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **मैट्रिक्स जोड़ें**
 
-[MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) का उपयोग पंक्तियों और स्तंभों के लिए करें। डिफ़ॉल्ट रूप में मैट्रिक्स में कोष्ठक नहीं होते, इसलिए यदि आपको कोष्ठक, ब्रैकेट या ब्रेस की आवश्यकता हो तो मैट्रिक्स को बंधें।
+पंक्तियों और स्तंभों के लिये [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) का प्रयोग करें। डिफ़ॉल्ट रूप से मैट्रिक्स में ब्रैक्ट नहीं होते, इसलिए यदि आपको कोष्ठक, ब्रैकेट या कर्ली ब्रेसेस चाहिए तो मैट्रिक्स को उनमें घेरें।
 
-![एक दो-पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
+![दो पंक्तियों वाला एक गणितीय मैट्रिक्स जहाँ एक सेल खाली है](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -323,11 +323,11 @@ try {
 
 ### **मौजूदा मैट्रिक्स को संपादित करें**
 
-मान लीजिए एक रैखिक बीजगणित पाठ `matrix.pptx` में गुणांक मैट्रिक्स से शुरू होता है, जिसे पिछले उदाहरण ने सेव किया था। अगले अभ्यास के लिए, पहली समीकरण रखें, दूसरी को दो नई समीकरणों से बदलें, और चर सेट को संशोधित करें। लागू रहने वाले गुणांक रखने के लिए मौजूदा मैट्रिक्स को [IMathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/) के माध्यम से खोलें।
+मान लीजिए एक रैखिक बीजगणित पाठ में `matrix.pptx` में गुणांक मैट्रिक्स है, जो पिछले उदाहरण से सहेजा गया है। अगले अभ्यास में, पहली समीकरण रखें, दूसरी को दो नई समीकरणों से बदलें, और चर सेट को संशोधित करें। मौजूदा मैट्रिक्स को खोलने के लिये [IMathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/) का प्रयोग करें ताकि लागू होने वाले गुणांक बरकरार रहें।
 
-![मूल दो-पंक्तियों वाला गुणांक मैट्रिक्स जिसमें पहली पंक्ति में 1, x और एक खाली सेल है और दूसरी पंक्ति में x, 2, और y हैं](matrix-before-edit.png)
+![दो पंक्तियों वाला मूल गुणांक मैट्रिक्स जहाँ पहली पंक्ति में 1, x और एक खाली सेल है तथा दूसरी पंक्ति में x, 2 और y हैं](matrix-before-edit.png)
 
-पंक्ति और स्तंभ सूचकांक शून्य से शुरू होते हैं और प्रत्येक कॉल पर मैट्रिक्स की वर्तमान स्थिति को दर्शाते हैं। सूचकांक 1 से पहले एक पंक्ति जोड़ने से मूल दूसरी पंक्ति सूचकांक 2 पर चली जाती है। सूचकांक 2 के बाद जोड़ने से एक पंक्ति जोड़ दी जाती है। पंक्ति 2 को हटाने से मूल दूसरी समीकरण हट जाता है और जोड़ी गई पंक्ति एक स्थान ऊपर आ जाती है। स्तंभ भी इसी प्रकार शिफ्ट होते हैं।
+पंक्ति और स्तंभ सूचक शून्य से शुरू होते हैं और प्रत्येक कॉल पर मैट्रिक्स की वर्तमान स्थिति को दर्शाते हैं। सूचक 1 से पहले पंक्ति डालने से मूल दूसरी पंक्ति सूचक 2 पर चली जाती है। सूचक 2 के बाद डालने से एक पंक्ति जोड़ दी जाती है। पंक्ति 2 को हटाने से मूल दूसरी समीकरण हट जाता है और जोड़ी गई पंक्ति एक स्थान ऊपर आ जाती है। स्तंभ भी उसी प्रकार शिफ्ट होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -346,7 +346,7 @@ try {
     matrix.insertColumnAfter(3);
     matrix.deleteColumn(3);
 
-    // नई कोशिकाएँ शुरू में null होती हैं। पहले गैर-शून्य गुणांक सेट करें।
+    // नई कोशिकाएँ प्रारंभ में null होती हैं। गैर-शून्य गुणांक पहले सेट करें।
     matrix.set_Item(1, 0, new MathematicalText("12"));
     matrix.set_Item(1, 1, new MathematicalText("1"));
     matrix.set_Item(2, 2, new MathematicalText("10"));
@@ -368,15 +368,15 @@ try {
 }
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) पहली कॉलम को बाएँ संरेखित करता है। [setColumnsAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) तीन क्रमिक कॉलम को दाएँ संरेखित करता है, जो सूचकांक 1 से शुरू होते हैं। `updated-matrix.pptx` में, मैट्रिक्स में तीन समीकरण और चार चर हैं। मूल पहली पंक्ति के गुणांक `1` और `x` अब पहली और तीसरी कॉलम में दिखते हैं।
+[setColumnAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) पहला स्तंभ बाएँ संरेखित करता है। [setColumnsAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) तीन लगातार स्तंभों को दाएँ संरेखित करता है, सूचक 1 से शुरू करके। `updated-matrix.pptx` में, मैट्रिक्स में तीन समीकरण और चार चर हैं। मूल पहली पंक्ति के गुणांक `1` और `x` अब पहले और तीसरे स्तंभ में दिखते हैं।
 
-![अद्यतन तीन-पंक्तियों वाला मैट्रिक्स जिसमें पंक्तियाँ 1, 0, x, 0; 12, 1, 0, 0; और 0, 0, 10, 1 दिखती हैं](matrix-after-edit.png)
+![अपडेट किया गया तीन पंक्तियों वाला मैट्रिक्स जहाँ पंक्तियाँ 1, 0, x, 0; 12, 1, 0, 0; और 0, 0, 10, 1 हैं](matrix-after-edit.png)
 
 ## **समीकरण एरे जोड़ें**
 
-[toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) का उपयोग तब करें जब आपको संरेखित समीकरणों या अभिव्यक्तियों के ऊर्ध्वाधर स्टैक की आवश्यकता हो।
+जब आपको संरेखित समीकरण या अभिव्यक्तियों का एक लंबवत स्टैक चाहिए, तो [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--) का प्रयोग करें।
 
-![एक ऊर्ध्वाधर गणित एरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
+![एक लंबवत गणितीय एरे जहाँ x ऊपर और y नीचे है](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -401,11 +401,11 @@ try {
 }
 ```
 
-### **परिचित तत्वों के साथ एरे को संरेखित करें**
+### **परिधीय तत्वों के साथ एरे संरेखित करें**
 
-[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) एरे की ऊर्ध्वाधर संरेखण को उसके बगल के गणितीय तत्वों के सापेक्ष नियंत्रित करता है। नीचे का उदाहरण पहली पंक्ति, एरे के बीच, और अंतिम पंक्ति के साथ संरेखण की तुलना करता है।
+[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) एरे की लंबवत संरेखण को उसके बगल में स्थित गणितीय तत्वों के सापेक्ष नियंत्रित करता है। नीचे का उदाहरण पहला पंक्ति, एरे का मध्य, और अंतिम पंक्ति के साथ संरेखण की तुलना करता है।
 
-निम्न उदाहरण तीन समान एरे बनाता है, प्रत्येक में तीन पंक्तियां और पड़ोसी तत्व `A=` और `=B` हैं। सभी गणितीय टेक्स्ट Cambria Math 24 पॉइंट पर उपयोग होते हैं। केवल एरे का संरेखण बदलता है।
+निम्नलिखित उदाहरण तीन समान एरे बनाता है, प्रत्येक में तीन पंक्तियाँ और पड़ोसी तत्व `A=` और `=B` हैं। सभी गणितीय पाठ Cambria Math में 24 पॉइंट आकार के हैं। केवल एरे की संरेखण बदलती है।
 
 ```java
 import com.aspose.slides.*;
@@ -461,17 +461,17 @@ try {
 }
 ```
 
-निम्न तुलनात्मक चित्र PowerPoint में सहेजी गई प्रस्तुति को दिखाता है। प्रत्येक एरे के बगल में `A=` और `=B` की स्थिति पर ध्यान दें।
+नीचे का तुलना PowerPoint में सहेजे गए प्रस्तुति को दर्शाता है। देखें कि प्रत्येक एरे के बगल में `A=` और `=B` की स्थिति कैसे है।
 
-![PowerPoint में शीर्ष, मध्य और नीचे संरेखण के साथ समीकरण एरे और समान पड़ोसी तत्व](equation-array-alignment.png)
+![PowerPoint में समीकरण एरे जिसमें Top, Center, और Bottom संरेखण हैं और समान पड़ोसी तत्व हैं](equation-array-alignment.png)
 
-### **पंक्तियों के अंतराल को कॉन्फ़िगर करें**
+### **पंक्ति स्पेसिंग कॉन्फ़िगर करें**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) एरे के भीतर पंक्तियों के लिए अंतराल नियम चुनता है। [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) स्पष्ट अंतराल नियम के लिए एक संख्यात्मक मान देता है और प्रीसेट नियमों द्वारा अनदेखा किया जाता है।
+[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) एरे की पंक्तियों के भीतर स्पेसिंग नियम चुनता है। [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) स्पष्ट स्पेसिंग नियम के लिये संख्यात्मक मान प्रदान करता है और प्रीसेट नियमों द्वारा अनदेखा किया जाता है।
 
-सटीक अंतराल के लिए, मान पॉइंट में मापा जाता है। अनुपातिक अंतराल के लिए, इसे आधी लाइनों में मापा जाता है: उदाहरण में मान `3` 1.5 लाइनों को दर्शाता है। जब स्पष्ट मान निर्दिष्ट किया जाता है तो दोनों गुणधर्म सेट करें; केवल संख्यात्मक मान बदलने से अंतराल नियम चयनित नहीं होता।
+सटीक स्पेसिंग के लिये मान को पॉइंट में मापा जाता है। अनुपाती स्पेसिंग के लिये इसे आधी-रेखाओं में मापा जाता है: उदाहरण में `3` मान 1.5 रेखाओं को दर्शाता है। स्पष्ट मान निर्दिष्ट करते समय दोनों गुणधर्म सेट करें; केवल संख्यात्मक मान बदलने से स्पेसिंग नियम नहीं बदलता।
 
-नीचे का उदाहरण समान समीकरणों, संरेखण और फ़ॉन्ट सेटिंग्स के साथ पाँच प्रस्तुतियाँ सहेजता है। पहले तीन प्रीसेट उपयोग करते हैं; आखिरी दो स्पष्ट मान दिखाते हैं।
+नीचे का उदाहरण समान समीकरण, संरेखण और फ़ॉन्ट सेटिंग्स के साथ पाँच प्रस्तुति सहेजता है। पहले तीन प्रीसेट हैं; अंतिम दो स्पष्ट मान दिखाते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -520,13 +520,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-एरे पंक्ति अंतराल पैराग्राफ अंतराल से अलग है। [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) और [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) कंटेनर पैराग्राफ के चारों ओर स्थान जोड़ते हैं, एरे पंक्तियों के बीच नहीं। इसी तरह, [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थित करता है; यह एरे के ऊर्ध्वाधर संरेखण सेटिंग को प्रतिस्थापित नहीं करता।
+एरे पंक्ति स्पेसिंग पैराग्राफ स्पेसिंग से अलग है। [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) और [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) कंटेनिंग पैराग्राफ के चारों ओर स्थान जोड़ते हैं, न कि एरे पंक्तियों के बीच। इसी तरह, [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) पूरे गणितीय पैराग्राफ को क्षैतिज रूप से स्थित करता है; यह एरे की लंबवत संरेखण सेटिंग को बदलता नहीं है।
 
 ## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
-[asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) का उपयोग तब करें जब तर्क वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो।
+जब तर्क वर्तमान तत्व है और फ़ंक्शन नाम ज्ञात है, तब [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) का उपयोग करें।
 
-![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया](powerpoint-math-equations_6.png)
+![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया है](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -550,11 +550,11 @@ try {
 }
 ```
 
-## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
+## **सबस्क्रिप्ट और सुपरसक्रिप्ट जोड़ें**
 
-सूचकांक और घातों के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट सहायक का उपयोग करें। जब सूचकांक आधार के बाएँ पक्ष पर दिखना आवश्यक हो, तो [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का उपयोग करें।
+इंडेक्स और पावर के लिये सबस्क्रिप्ट और सुपरसक्रिप्ट हेल्पर का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष में दिखना चाहिए, तो [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) का प्रयोग करें।
 
-![बाएँ‑साइड सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n के साथ शब्द Y](powerpoint-math-equations_9.png)
+![एक बड़े Y के बाएँ‑साइड सबस्क्रिप्ट 1 और सुपरसक्रिप्ट n के साथ](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -578,11 +578,55 @@ try {
 }
 ```
 
-## **डिलिमीटर जोड़ें**
+### **दाएँ‑साइड सबस्क्रिप्ट और सुपरसक्रिप्ट संरेखित करें**
 
-[enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) का उपयोग करके अभिव्यक्ति को डिलिमीटर के भीतर रखें। आप कई तत्वों वाली डिलिमीटर अभिव्यक्तियों के लिए एक विभाजक अक्षर भी सेट कर सकते हैं।
+जब दोनों स्क्रिप्ट एक ही बेस से जुड़ी हों, तो [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathrightsubsuperscriptelement/) का प्रयोग करें। इसकी [setAlignScripts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathrightsubsuperscriptelement/#setAlignScripts-boolean-) मेथड उनके क्षैतिज स्थान को नियंत्रित करती है: `false` (डिफ़ॉल्ट) उन्हें बेस की रूपरेखा के अनुसार रखती है, जबकि `true` दोनों स्क्रिप्ट को आपस में क्षैतिज रूप से संरेखित करती है।
 
-![एक डिलिमीटर अभिव्यक्ति जिसमें x, y, और z को लंबवत बार द्वारा अलग किया गया है](powerpoint-math-equations_13.png)
+यह उदाहरण दो समान संपादन योग्य अभिव्यक्तियों को बगल‑बगल रखता है। दोनों में गणितीय इटैलिक f (U+1D453), नीचे‑स्क्रिप्ट 1, ऊपर‑स्क्रिप्ट 2, और Cambria Math 72 पॉइंट है। ढलान वाला बेस PowerPoint में अंतर को स्पष्ट दिखाता है। उदाहरण चलाने से पहले Cambria Math स्थापित करें।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(900, 250, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    PortionFormat format = new PortionFormat();
+    format.setFontHeight(72);
+    format.setLatinFont(new FontData("Cambria Math"));
+
+    for (int i = 0; i < 2; i++) {
+        int left = 40 + i * 440;
+        IAutoShape shape = slide.getShapes().addMathShape(left, 75, 380, 150);
+
+        MathematicalText baseText = new MathematicalText("\uD835\uDC53", format);
+        MathematicalText subscript = new MathematicalText("1", format);
+        MathematicalText superscript = new MathematicalText("2", format);
+        MathRightSubSuperscriptElement scripts = new MathRightSubSuperscriptElement(baseText, subscript, superscript);
+        scripts.setAlignScripts(i == 1);
+
+        MathPortion portion = (MathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        portion.getPortionFormat().setFontHeight(format.getFontHeight());
+        portion.getPortionFormat().setLatinFont(format.getLatinFont());
+        portion.getMathParagraph().add(new MathBlock(scripts));
+    }
+
+    presentation.save("aligned-scripts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![दो संपादन योग्य अभिव्यक्तियाँ जहाँ बाएँ पर setAlignScripts false है और दाएँ पर true है](aligned-scripts.png)
+
+बाएँ पर, निचला स्क्रिप्ट बेस की रूपरेखा के अनुसार अधिक बाएँ शुरू होता है। दाएँ पर, दोनों स्क्रिप्ट एक‑दूसरे के साथ क्षैतिज रूप से संरेखित होते हैं।
+
+## **डिलिमिटर जोड़ें**
+
+एक अभिव्यक्ति को डिलिमिटर के भीतर रखने के लिये [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) का प्रयोग करें। आप कई तत्वों वाली अभिव्यक्तियों के लिये एक विभाजक वर्ण भी सेट कर सकते हैं।
+
+![एक डिलिमिटर अभिव्यक्ति जिसमें x, y और z को लंबवत बार से अलग किया गया है](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -609,11 +653,11 @@ try {
 }
 ```
 
-### **डिलिमीटर का आकार और संरेखण**
+### **डिलिमिटर के आकार और संरेखण**
 
-[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) को `true` पास करने से बड़ी ऑपरेण्ड के चारों ओर कोष्ठक बढ़ते हैं, या `false` पास करने से वे सामान्य आकार में रहते हैं। दो [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) मानों में से एक के साथ [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) का उपयोग करें। `Centered` कोष्ठकों को गणितीय अक्ष पर केंद्रित करता है, जो बराबर चिह्न के मध्य से गुजरता है। `Match` उन्हें संलग्न सामग्री के साथ संरेखित करता है। दोनों सेटिंग्स केवल डिलिमीटर को प्रभावित करती हैं। अंदर की अभिव्यक्ति वही रहती है।
+[parentheses] को लंबे ऑपरेन्ड के चारों ओर बढ़ाने हेतु [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) को `true` पास करें, या सामान्य आकार रखने हेतु `false` पास करें। [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) के साथ दो में से एक [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) मान चुनें। `Centered` पैरेंथिसिस को गणित अक्ष पर केंद्रित करता है, जो बराबर‐चिह्न के मध्य से गुजरता है। `Match` उन्हें संलग्न सामग्री के साथ संरेखित करता है। दोनों सेटिंग केवल डिलिमिटर को प्रभावित करती है; अंदर की अभिव्यक्ति समान रहती है।
 
-उदाहरण `x` के एक्सपोनेंट में एक भिन्न रखता है जिससे अभिव्यक्ति बेसलाइन के ऊपर अधिक फैलती है बनिस्बत नीचे। सभी चार समीकरण समान कोष्ठक और फ़ॉन्ट सेटिंग्स का उपयोग करते हैं।
+उदाहरण में `x` के एक्सपोनेंट में एक भिन्न रखा गया है ताकि अभिव्यक्ति बेसलाइन से ऊपर अधिक विस्तारित हो। सभी चार समीकरण एक ही पैरेंथिसिस और फ़ॉन्ट सेटिंग्स उपयोग करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -642,15 +686,15 @@ try {
 }
 ```
 
-PowerPoint में, प्रभाव देखने के लिए पंक्तियों की तुलना करें। शीर्ष पंक्ति में, कोष्ठक एक्सपोनेंट को बंधने के लिए बढ़ते हैं और दोनों आकार समान दिखते हैं। नीचे पंक्ति में, वृद्धि बंद है। बाएँ छोटे कोष्ठक (`Centered`) बराबर चिह्न के साथ संरेखित होते हैं, जबकि दाएँ (`Match`) अभिव्यक्ति के आसपास ऊँचे स्थित होते हैं।
+PowerPoint में पंक्तियों की तुलना करके वृद्धि प्रभाव देखें। शीर्ष पंक्ति में पैरेंथिसिस एक्सपोनेंट को घेरता है और दोनों आकृतियों में समान दिखता है। निचली पंक्ति में वृद्धि बंद है। बाएँ (`Centered`) पैरेंथिसिस बराबर‑चिह्न के साथ संरेखित है, जबकि दाएँ (`Match`) अभिव्यक्ति के चारों ओर ऊँचा स्थित है।
 
-![PowerPoint में चार समीकरण जिसमें डिलिमीटर वृद्धि ऊपर सक्रिय और नीचे निष्क्रिय है, बाएँ `Centered` और दाएँ `Match`](delimiter-sizing.png)
+![चार समीकरण PowerPoint में जहाँ डिलिमिटर वृद्धि ऊपर सक्षम है और नीचे निष्क्रिय, बाएँ `Centered` और दाएँ `Match`](delimiter-sizing.png)
 
 ## **बॉर्डर बॉक्स जोड़ें**
 
-भिन्न पर [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) को कॉल करके पूरी अभिव्यक्ति को फ्रेम करें। लौटाया गया [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) डिफ़ॉल्ट रूप से चारों पक्ष दिखाता है। व्यक्तिगत पक्षों को हटाने के लिए [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), और [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) का उपयोग करें।
+एक भिन्न पर [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) कॉल करके पूरी अभिव्यत्ति को फ्रेम करें। लौटाया गया [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) डिफ़ॉल्ट रूप से चारों पक्ष दिखाता है। व्यक्तिगत पक्षों को हटाने के लिये [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), और [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) का प्रयोग करें।
 
-उदाहरण एक ही भिन्न की छः प्रतिलिपियां एक स्लाइड पर रखता है। रद्द करने के लिए, सभी चार पक्ष छिपाएं और [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) को `true` पास करके उठते हुए विकर्ण (↗) या [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) को `true` पास करके गिरते हुए विकर्ण (↘) बनाएं। आप किसी भी दृश्य पक्ष के संयोजन के साथ [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) या [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) का उपयोग भी कर सकते हैं।
+उदाहरण में एक ही भिन्न के छह कॉपी एक स्लाइड पर रखे गये हैं। रद्दीकरण दिखाने के लिये सभी चार पक्ष छिपाएँ और उठती विकर्ण (↗) के लिये [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) या गिरती विकर्ण (↘) के लिये [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) पास करें। आप किसी भी संयोजन में दृश्यमान पक्षों के साथ [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) या [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) का भी प्रयोग कर सकते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -695,24 +739,24 @@ try {
 }
 ```
 
-![PowerPoint में छह संपादन योग्य भिन्न। शीर्ष पंक्ति: पूर्ण बॉर्डर, नीचे और बाएँ पक्ष, उठता हुआ विकर्ण। नीचे पंक्ति: गिरता हुआ विकर्ण, क्षैतिज स्ट्राइक, पूर्ण बॉर्डर के साथ लंबवत स्ट्राइक।](border-box-fractions.png)
+![छह संपादन योग्य भिन्न PowerPoint में। शीर्ष पंक्ति: पूर्ण बॉर्डर, नीचे व बाएँ पक्ष, उठती विकर्ण। निचली पंक्ति: गिरती विकर्ण, क्षैतिज स्ट्राइक, लंबवत स्ट्राइक पूर्ण बॉर्डर के साथ](border-box-fractions.png)
 
-इस भिन्न पर, क्षैतिज स्ट्राइक भिन्न रेखा को ओवरलैप करता है। लंबवत स्ट्राइक अंश और हर दोनों को काटता है जबकि बाउंडर दिखा रहता है। ये रेखाएँ पूरी अभिव्यक्ति को सजाती हैं। सामान्य टेक्स्ट स्ट्राइकथ्रू टेक्स्ट रन के अक्षरों पर लागू होता है। PowerPoint में प्रस्तुति को पुनः खोलने के बाद भी आप अंश और हर को स्वतंत्र रूप से संपादित कर सकते हैं।
+इस भिन्न पर, क्षैतिज स्ट्राइक भिन्न बार के ऊपर ओवरलैप करता है। लंबवत स्ट्राइक अंश तथा हर (numerator और denominator) दोनों को काटता है, जबकि आसपास का बॉर्डर दृश्यमान रहता है। ये रेखाएँ पूरी अभिव्यत्ति को सजाती हैं। साधारण टेक्स्ट स्ट्राइक‑थ्रू केवल टेक्स्ट रन के वर्णों पर लागू होता है। प्रस्तुति को PowerPoint में पुनः खोलने पर आप अंश और हर को स्वतंत्र रूप से संपादित कर सकते हैं।
 
 ## **फ़ैंटम तत्वों के साथ दृश्यता और लेआउट नियंत्रित करें**
 
-[MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/) में अभिव्यक्ति को रैप करके आप उसकी दृश्यता और समीकरण में योगदानित स्थान को स्वतंत्र रूप से नियंत्रित कर सकते हैं। [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) विधियां निम्नलिखित को नियंत्रित करती हैं:
+एक अभिव्यक्ति को [MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/) में घेरें ताकि उसकी दृश्यता और समीकरण में उसका योगदान स्वतंत्र रूप से नियंत्रित हो। [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) की मेथड्स निम्नलिखित को नियंत्रित करती हैं:
 
-| विधि | प्रभाव |
+| Method | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | अभिव्यक्ति को छिपाने के लिए `false` पास करें। इसके आयाम लेआउट में योगदान देते रहें जब तक नीचे के संबंधित विधियों को `true` न दिया जाए। |
-| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | अभिव्यक्ति की क्षैतिज चौड़ाई को शून्य मानें, जिससे पास के तत्व निकट आ सकें। |
-| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | इसकी अधोगामी (baseline के ऊपर की ऊँचाई) को शून्य मानें। इससे पड़ोसी तत्वों के ऊपर आरक्षित स्थान घट सकता है। |
-| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | इसकी अवनत (baseline के नीचे की गहराई) को शून्य मानें। इससे अभिव्यक्ति के नीचे की भिन्न रेखा या अन्य सामग्री पड़ोसियों के करीब आ सकती है। |
+| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` पास करने से अभिव्यक्ति छिप जाती है। इसके आयाम लेआउट में योगदान देते रहते हैं जब तक कि नीचे की मेथड्स `true` न हों। |
+| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | अभिव्यक्ति की क्षैतिज चौड़ाई को शून्य मानें, जिससे पड़ोसी तत्व करीब आ सकते हैं। |
+| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | उसके ऊपर‑उठान (baseline के ऊपर की ऊँचाई) को शून्य मानें। यह पड़ोसी तत्वों के ऊपर आरक्षित स्थान को कम कर सकता है। |
+| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | उसके नीचे‑गिरावट (baseline के नीचे की गहराई) को शून्य मानें। यह भिन्न बार या अन्य सामग्री को नीचे की अभिव्यक्ति से करीब लाने में मदद करता है। |
 
-बेसलाइन वह रेफरेंस लाइन है जिस पर सामान्य गणितीय अक्षर स्थित होते हैं। सामग्री को छिपाने से उसके आयाम नहीं हटते, और आयाम को शून्य मानने से अभिव्यक्ति नहीं हटती। अंतर्निहित अभिव्यक्ति [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--) के माध्यम से उपलब्ध रहती है। इसे फिर से दिखाने के लिए [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) को `true` पास करें; आयाम सेटिंग्स अपरिवर्तित रहती हैं।
+baseline वह संदर्भ रेखा है जिस पर सामान्य गणितीय अक्षर स्थित होते हैं। सामग्री को छिपाने से उसके आयाम हटते नहीं हैं, और आयाम को शून्य करने से अभिव्यक्ति हटती नहीं है। मूल अभिव्यक्ति अभी भी [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--) के द्वारा उपलब्ध है। इसे फिर से दिखाने के लिये [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) को `true` पास करें; आयाम सेटिंग्स अपरिवर्तित रहती हैं।
 
-नीچے का उदाहरण पाँच समानांतर रूप बनाता है: एक दृश्यमान भिन्न, एक छिपा भिन्न जो स्थान रखता है, और एक आयाम को शून्य मानकर तीन छिपे हुए भिन्न। प्रत्येक रूप समान surrounding अभिव्यक्ति और 24 पॉइंट Cambria Math का उपयोग करता है। सभी समीकरण आकृतियों की शीर्ष स्थिति समान है, जिसे ग्रे गाइड द्वारा चिह्नित किया गया है। बाहरी भिन्न के अंश में फ़ैंटम रखने से लंबवत लेआउट परिवर्तन आसानी से देखे जा सकते हैं।
+नीचे का उदाहरण पाँच बगल‑बगल विविधताएँ बनाता है: एक दृश्यमान भिन्न, एक छिपा हुआ भिन्न जो स्थान आरक्षित करता है, और तीन छिपे हुए भिन्न जहाँ एक आयाम को शून्य किया गया है। प्रत्येक विविधता समान परिधीय अभिव्यक्ति और Cambria Math 24 पॉइंट में है। सभी समीकरण आकार समान शीर्ष स्थिति से शुरू होते हैं, जो ग्रे गाइड द्वारा चिह्नित है। बाहरी भिन्न के अंश में फ़ैंटम रखने से लंबवत लेआउट परिवर्तन और स्पष्ट होते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -781,13 +825,13 @@ try {
 }
 ```
 
-![PowerPoint में पाँच समीकरण जो एक दृश्यमान भिन्न, स्थान रखने वाला छिपा भिन्न, और ZeroWidth, ZeroAsc, या ZeroDesc सक्रिय छिपे भिन्नों की तुलना करते हैं](math-phantom.png)
+![PowerPoint में पाँच समीकरण जो एक दृश्यमान भिन्न, एक छिपा हुआ भिन्न जो स्थान रखता है, और ZeroWidth, ZeroAsc, या ZeroDesc सक्रिय वाले छिपे हुए भिन्नों की तुलना करते हैं](math-phantom.png)
 
-## **शब्दों को ग्रुप करें**
+## **शब्द समूह बनाएं**
 
-[group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) का उपयोग करके अभिव्यक्ति के ऊपर या नीचे एक ग्रुपिंग कैरेक्टर रखें। समूहित शब्दों को लेबल करने के लिए एक सीमा जोड़ें।
+[group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) का प्रयोग करके अभिव्यक्ति के ऊपर या नीचे एक समूहिंग वर्ण रखें। समूहित शब्दों को लेबल करने के लिये एक सीमा (limit) जोड़ें।
 
-![अभिव्यक्ति x + y को लेबल any text के साथ नीचे समूहित किया गया](powerpoint-math-equations_15.png)
+![एक अभिव्यक्ति x + y को समूहित किया गया है जिसमें नीचे लेबल 'any text' है](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -812,9 +856,9 @@ try {
 }
 ```
 
-## **गणितीय तत्वों को स्वरूपित करें**
+## **गणितीय तत्वों का स्वरूपित करें**
 
-फ़ॉर्मेटिंग सहायक का उपयोग केवल तब करें जब वे सूत्र को स्पष्ट करते हों। उदाहरण के लिए, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) गणितीय तत्व के ऊपर एक बार रखता है।
+सिर्फ तब स्वरूपण हेल्पर का प्रयोग करें जब वे सूत्र को स्पष्ट बनाते हों। उदाहरण के लिये, [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) एक तत्व के ऊपर एक रेखा रखता है।
 
 ![एक गणितीय अभिव्यक्ति ABC जिसके ऊपर overbar है](powerpoint-math-equations_14.png)
 
@@ -839,11 +883,11 @@ try {
 }
 ```
 
-### **मौजूदा समीकरण में टेक्स्ट को स्वरूपित करें**
+### **मौजूदा समीकरण में पाठ का स्वरूपण करें**
 
-मौजूदा समीकरण में पूरे टेक्स्ट को स्वरूपित करने के लिए, प्रत्येक गणित ब्लॉक के तत्व वृक्ष को ट्रैवर्स करें। [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) केवल सीधे बच्चों को लौटाता है, इसलिए फ्रैक्शन, स्क्रिप्ट, रैडिकल और अन्य नेस्टेड संरचनाओं के भीतर टेक्स्ट तक पहुंचने के लिए इसे पुनरावर्ती रूप से कॉल करें। वर्तमान तत्व और उसके बच्चों दोनों को जांचें ताकि जब वह [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) हो तो प्रारंभिक तत्व भी शामिल हो।
+मौजूदा समीकरण में संपूर्ण पाठ को स्वरूपित करने के लिये, प्रत्येक गणितीय ब्लॉक के तत्व वृक्ष को ट्रवर्स करें। [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) केवल तत्काल बच्चों को लौटाता है, इसलिए फ़्रैक्शन, स्क्रिप्ट, मूल आदि में भीतर के पाठ तक पहुँचने के लिये इसे पुनरावर्ती रूप से कॉल करें। मौजूदा तत्व के साथ-साथ उसके बच्चों को भी देखें ताकि जब वह [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) हो तो उसे भी शामिल किया जा सके।
 
-यह उदाहरण मानता है कि `input.pptx` में `z = xᵢ / ∛y` जैसी समीकरण है, जिसमें अंश के अंश में सबस्क्रिप्ट और हर में रैडिकल है। केवल ब्लॉक के शीर्ष-स्तर तत्वों को प्रोसेस करने से अंश के भीतर का टेक्स्ट छूट जाएगा। उदाहरण स्लाइड टेक्स्ट फ्रेम में गणितीय हिस्सों को खोजता है, उनके ब्लॉक्स को [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) के माध्यम से एक्सेस करता है, और प्रत्येक टेक्स्ट तत्व की [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) विधि द्वारा [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) का उपयोग करके फ़ॉन्ट आकार 28 पॉइंट सेट करता है।
+यह उदाहरण मानता है कि `input.pptx` में ऐसा समीकरण है जैसे `z = xᵢ / ∛y`, जहाँ भिन्न के अंश में सबस्क्रिप्ट और हर में मूल है। केवल ब्लॉक के शीर्ष‑स्तर के तत्वों को प्रोसेस करने से भिन्न के भीतर के पाठ छूट जाता। उदाहरण स्लाइड टेक्स्ट फ़्रेम में गणितीय भागों को खोजता है, उनके ब्लॉकों को [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) से एक्सेस करता है, और प्रत्येक टेक्स्ट तत्व के [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) मेथड के साथ [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) को 28 पॉइंट पर सेट करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -894,37 +938,37 @@ try {
 }
 ```
 
-सहेजी गई प्रस्तुति में प्रत्येक प्रोसेस की गई समीकरण के प्रत्येक स्तर पर अद्यतन टेक्स्ट फ़ॉर्मेटिंग शामिल है, जबकि उसका टेक्स्ट कंटेंट और गणितीय संरचना संरक्षित रहती है।
+सहेजी गई प्रस्तुति प्रत्येक प्रोसेस किए गये समीकरण के सभी स्तरों पर अद्यतित फ़ॉन्ट आकार रखती है, जबकि उसके पाठ सामग्री और गणितीय संरचना को बरकरार रखती है।
 
 ## **त्वरित संदर्भ**
 
-| कार्य | मुख्य API |
+| Task | Main API |
 | --- | --- |
-| गणितीय टेक्स्ट बनाएं | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
-| तत्वों को मिलाएं | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
+| तत्व मिलाएं | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | भिन्न बनाएं | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| सुपर‑स्क्रिप्ट या सब‑स्क्रिप्ट जोड़ें | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| रैडिकल जोड़ें | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| मूल जोड़ें | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | सीमाएँ जोड़ें | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | बाएँ‑साइड स्क्रिप्ट जोड़ें | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| समिश्रण और समाकल जोड़ें | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| समेशन और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
 | समीकरण एरे जोड़ें | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| डिलिमीटर जोड़ें | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| डिलिमिटर जोड़ें | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| शब्दों को ग्रुप करें | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| शब्द समूह बनाएं | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हां। प्रस्तुति खोलें, उस आकृति को खोजें जिसमें [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) शामिल है, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) कॉल करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अद्यतन करें।
+हां। प्रस्तुति खोलें, वह आकार खोजें जिसमें एक [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) है, [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) को कॉल करें, और उस पैराग्राफ में गणितीय ब्लॉकों को अपडेट करें।
 
-**क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
+**क्या समीकरण को संपादन योग्य PowerPoint गणित के रूप में सहेजा जाता है?**
 
-हां। जब आप PPTX में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हां। PPTX में सहेजते समय, Aspose.Slides समीकरण को संपादन योग्य Office math सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-हां। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) को उसके [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) से प्राप्त करें, और सीधे निर्यात के लिए [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) को कॉल करें। पूर्ण उदाहरण के लिए देखें [Android पर Java के माध्यम से प्रस्तुतियों से गणितीय समीकरण निर्यात](/slides/hi/androidjava/exporting-math-equations/#export-math-equations-to-latex)।
+हां। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) को उसके [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) से प्राप्त करें, और [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) को कॉल करके सीधे निर्यात करें। एक पूर्ण उदाहरण के लिये देखें [Export Math Equations from Presentations in Android via Java](/slides/hi/androidjava/exporting-math-equations/#export-math-equations-to-latex)।

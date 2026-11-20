@@ -1,6 +1,6 @@
 ---
-title: Matematikai egyenletek hozzáadása PowerPoint prezentációkhoz Pythonban
-linktitle: PowerPoint matematikai egyenletek
+title: Matematikai képletek hozzáadása PowerPoint prezentációkhoz Pythonban
+linktitle: PowerPoint matematikai képletek
 type: docs
 weight: 80
 url: /hu/python-java/powerpoint-math-equations/
@@ -18,35 +18,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Matematikai egyenletek beillesztése és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Python via Java segítségével, OMML támogatással, formázási vezérléssel és átlátható Python kódrészletekkel."
+description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokba az Aspose.Slides for Python via Java segítségével, OMML támogatással, formázási vezérlőkkel és átlátható Python kódrészletekkel."
 ---
 ## **Áttekintés**
 
-A PowerPoint egyenleteket Office Math Markup Language (OMML) formátumban tárol. Az Aspose.Slides for Python via Java segítségével programozottan hozhat létre ugyanolyan típusú matematikai tartalmakat: törtöket, gyököket, függvényeket, határokat, N-áris operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
+A PowerPoint a képleteket Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Python via Java segítségével programozottan hozhat létre ugyanilyen matematikai tartalmat: törtöket, gyököket, függvényeket, határokat, N-áris operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
 
-PowerPointben a felhasználók általában az **Insert > Equation** menüpontból adnak hozzá egyenleteket:
+PowerPointban a felhasználók általában a **Insert > Equation** menüpontból adnak hozzá képleteket:
 
-![PowerPoint Insert lap az Equation parancs kiválasztva](powerpoint-math-equations_1.png)
+![PowerPoint Insert lapfül a Képlet parancs kiválasztásával](powerpoint-math-equations_1.png)
 
-Az eredmény szerkeszthető matematikai szöveg a dián:
+Az eredmény egy szerkeszthető matematikai szöveg a dián:
 
-![PowerPoint dia szerkeszthető matematikai egyenlettel](powerpoint-math-equations_2.png)
+![PowerPoint dia szerkeszthető matematikai képlettel](powerpoint-math-equations_2.png)
 
-Az Aspose.Slides a matematikai szöveget három fő objektumon keresztül építi fel:
+Az Aspose.Slides három fő objektum segítségével építi fel a matematikai szöveget:
 
-- A matematikai alakzat, amelyet az [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) hoz létre, az az alakzat, amely tartalmazza az egyenletet.
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegkeretében.
-- [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) objektumot tartalmaz.
+- A matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) hoz létre, az az alakzat, amely a képletet tartalmazza.
+- A [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) a matematikai tartalmat tárolja az alakzat szövegkeretében.
+- A [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) objektumot tartalmaz.
 
-Az alábbi legtöbb példában a [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) és a [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) folyékony metódusait használjuk a kód rövid és olvasható tartásához.
+Az alábbi példák a [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) és a [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) folyékony metódusait használják a kód rövid és olvasható tartásához.
 
-MathML export esetekhez tekintse meg a [Export Math Equations from Presentations in Python](/slides/hu/python-java/exporting-math-equations/) oldalt.
+MathML export szcenáriókhoz lásd a [Matematikai képletek exportálása bemutatókból Pythonban](/slides/hu/python-java/exporting-math-equations/).
 
-## **Egyenlet létrehozása**
+## **Képlet létrehozása**
 
-Ez a példa a [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz‑tételt:
+Ez a példa a [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz-tételt:
 
-![Az egyenlet c² = a² + b²](powerpoint-math-equations_3.png)
+![A c² = a² + b² egyenlet](powerpoint-math-equations_3.png)
 
 ```python
 import jpype
@@ -76,12 +76,12 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), és hozzáadja a matematikai blokkokat vagy elemeket.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) létrehoz egy alakzatot, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) metódust, és hozzáadja a math blokkokat vagy math elemeket.
 {{% /alert %}}
 
-### **Matematikai blokkok összekapcsolása**
+### **Matematikai blokkok kombinálása**
 
-Ha az egyenlet részei önállóan [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) objektumként épülnek, a [joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) segítségével kombinálhatók. A példa a bal blokkban a `c² =`-t, a jobb blokkban az `a² + b²`-t építi. A [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript) szerkeszthető matematikai felsőindexeket hoz létre a három hatványhoz.
+Amikor egy egyenlet részei önállóan [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) objektumokként épülnek, használja a [joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) metódust a kombináláshoz. A példa a `c² =` bal blokkba, és `a² + b²` jobb blokkba építi. A [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript) szerkeszthető matematikai felső indexeket hoz létre mindhárom hatványhoz.
 
 ```python
 import jpype
@@ -117,15 +117,15 @@ finally:
     presentation.dispose()
 ```
 
-[joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) visszaadja a `left_block`-ot magát, amely most már tartalmazza a két részt sorrendben, és a `right_block`-ot üresen hagyja. Adja hozzá az összekapcsolt blokkot a [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) csak egyszer. A `equation.pptx` újranyitása után a bekezdés egy blokkot tartalmaz, amely a `c² = a² + b²`-t ábrázolja, a három hatvány matematikai felsőindexeként megőrizve.
+[joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) visszaadja magát a `left_block`‑ot, amely most a két részt sorrendben tartalmazza, míg a `right_block` üres marad. A kombinált blokkot csak egyszer adja hozzá a [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/)-hez. Az `equation.pptx` újbóli megnyitása után a bekezdés egyetlen blokkot tartalmaz, amely a `c² = a² + b²` kifejezést képviseli, a három hatvány matematikai felső indexként megmarad.
 
-A [add](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#add) `left_block.add(right_block)` hívása helyette megpróbál egy blokkot közvetlenül egy másikba ágyazni, és `InvalidOperationException`-t vált ki.
+A [add](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#add) metódus `left_block.add(right_block)` formában való hívása ehelyett közvetlenül egy blokkot próbál beágyazni egy másikba, és `InvalidOperationException` kivételt dob.
 
-## **Törtök hozzáadása**
+## **Törtek hozzáadása**
 
-Használja a [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) függvényt tört létrehozásához. A tört stílusát a [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) segítségével választhatja ki.
+A [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) metódussal hozhat létre törteket. A tört stílusát a [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) segítségével választhatja.
 
-![Döntött matematikai tört, amelyben 1 osztva x-szel](powerpoint-math-equations_4.png)
+![Egy ferde matematikai tört, ahol az egyet x osztja](powerpoint-math-equations_4.png)
 
 ```python
 import jpype
@@ -153,7 +153,7 @@ finally:
     presentation.dispose()
 ```
 
-Halmozott tört esetén használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar)-t:
+Halmozott tört esetén használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) értéket:
 
 ```python
 import jpype
@@ -169,9 +169,9 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 ## **Gyökök hozzáadása**
 
-Használja a [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) függvényt négyzetgyök, köbgyök vagy egyéb gyök létrehozásához. Az aktuális elem lesz az alap, és a paraméter a gyök fokát jelöli.
+A [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) metódussal hozhat létre négyzetgyököt, köbgyököt vagy egyéb gyököt. Az aktuális elem lesz az alap, a paraméter a kitevő.
 
-![n-dik gyök kifejezés, ahol az x a gyökjel alatt](powerpoint-math-equations_5.png)
+![n-dik gyökös kifejezés, ahol az x a gyökjel alatti operandus](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -199,11 +199,11 @@ finally:
     presentation.dispose()
 ```
 
-### **A négyzetgyök fokának megjelenítése vagy elrejtése**
+### **A négyzetgyök kitevőjének megjelenítése vagy elrejtése**
 
-A négyzetgyök megjeleníthet egy kifejezett 2-t, vagy a hagyományos √x jelölést használhatja. A [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/) [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) metódusa szabályozza, hogy melyik forma jelenik meg. Mindkét forma megőrzi a 2 fokát és az x radikandját a szerkeszthető egyenletben.
+A négyzetgyök megjeleníthet egy explicit 2‑t, vagy használhatja a megszokott √x jelölést. A [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) metódus a [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/)‑ban szabályozza, melyik forma jelenik meg. Mindkét forma megtartja a 2‑es kitevőt és az x alapot a szerkeszthető egyenletben.
 
-![Ugyanaz a négyzetgyök, bal oldalon a fok látható, jobb oldalon rejtett](square-root-degree.png)
+![Ugyanaz a négyzetgyök, balra a kitevő látható, jobbra rejtett](square-root-degree.png)
 
 A példa ugyanazt a négyzetgyököt kétszer menti. A `visible-degree.pptx` fájlban a 2 látható. A `hidden-degree.pptx` fájlban rejtett.
 
@@ -238,7 +238,7 @@ finally:
 
 ## **Függvények és határok hozzáadása**
 
-Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) vagy a [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) metódusokat olyan függvényekhez, mint a `sin(x)`, `log(x)`, vagy egyedi függvénynevek. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) objektumba, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
+Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) vagy a [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) metódust függvényekhez, például `sin(x)`, `log(x)`, vagy egyéni függvénynevekhez. Határok esetén helyezze a `lim`‑et egy [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) objektumba, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) metódust.
 
 ![x határértéke, amikor x a végtelen felé tart](powerpoint-math-equations_8.png)
 
@@ -268,7 +268,7 @@ finally:
     presentation.dispose()
 ```
 
-Egy egyedi függvényneknél tegye a függvénynevet az aktuális elemmé, és hívja meg a [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function)-t a paraméterével:
+Egy egyéni függvénynév esetén a függvény nevét tegye az aktuális elemé, majd hívja a [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function)‑t az argumentummal:
 
 ```python
 import jpype
@@ -284,9 +284,9 @@ custom_function = MathematicalText("f").function("x + 1")
 
 ## **N-áris operátorok és integrálok hozzáadása**
 
-Használja a [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) függvényt összegeknél, unióknál, metszetnél és egyéb nagy operátoroknál. A [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) használható integrálokhoz. Mindkét módszer lehetővé teszi a alsó és felső határ megadását.
+Használja az [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) metódust összegekre, uniókra, metszetekre és egyéb nagy operátorokra. Az [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) metódust integrálokhoz. Mindkét módszerrel megadhatja az alsó és felső határokat.
 
-![Összeg alsó és felső határokkal](powerpoint-math-equations_7.png)
+![Összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -317,9 +317,9 @@ finally:
     presentation.dispose()
 ```
 
-Az N-áris operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-` és `=` általában [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) használatával kerülnek a kifejezésbe.
+Az N-áris operátorok nagy operátorok opcionális határokkal. Egyszerű operátorok, mint a `+`, `-`, és `=`, általában a [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/)‑vel kerülnek hozzáadásra, majd egyesítve a kifejezést.
 
-Integrálhoz használja a [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral)-t:
+Integrál esetén használja az [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral)‑t:
 
 ```python
 import jpype
@@ -337,7 +337,7 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 ## **Mátrixok hozzáadása**
 
-Használja a [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) sorok és oszlopok kezeléséhez. A mátrixok alapértelmezés szerint nem tartalmaznak zárójeleket, ezért szükség esetén zárja be a mátrixot zárójelbe, szögletes vagy kapcsos zárójelekbe.
+Használja a [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/)‑t sorok és oszlopok kezelésére. A mátrixok alapértelmezés szerint nem tartalmaznak zárójeleket, ezért szükség esetén zárójelezze a mátrixot, ha zárójelekre, szögletes vagy kapcsos zárójelekre van szükség.
 
 ![Két soros matematikai mátrix egy üres cellával](powerpoint-math-equations_10.png)
 
@@ -377,13 +377,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Létező mátrix szerkesztése**
+### **Meglévő mátrix szerkesztése**
 
-Tegyük fel, hogy egy lineáris algebra óra a `matrix.pptx` fájlban található koefficiens mátrixszal kezdődik, amelyet az előző példa mentett. A következő feladathoz tartsa meg az első egyenletet, cserélje le a másodikat két új egyenletre, és módosítsa a változók halmazát. Nyissa meg a meglévő mátrixot a [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) segítségével, hogy megtartsa a még alkalmazható koefficiens értékeket.
+Tegyük fel, hogy egy lineáris algebra óra a `matrix.pptx`‑ben lévő koefficiens mátrixszal kezdődik, amelyet az előző példa mentett. A következő feladatnál tartsa meg az első egyenletet, cserélje le a másodikat két új egyenletre, és módosítsa a változók halmazát. Nyissa meg a meglévő mátrixot a [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) segítségével, hogy megőrizze a még érvényes koefficiens értékeket.
 
-![Eredeti két soros koefficiens mátrix: első sorban 1, x, és egy üres cella; második sorban x, 2, és y](matrix-before-edit.png)
+![Eredeti két soros koefficiens mátrix 1, x és egy üres cellával az első sorban, valamint x, 2 és y a második sorban](matrix-before-edit.png)
 
-A sor- és oszlopindexek nullától indulnak, és a hívás pillanatában létező mátrixra vonatkoznak. Sor beszúrása az 1-es index előtt áthelyezi az eredeti második sort a 2-es indexre. Beszúrás az 2-es index után egy új sorral bővíti a mátrixot. A 2-es sor törlése eltávolítja az eredeti második egyenletet, és felfelé mozgatja a hozzáadott sort. Az oszlopok ugyanezen szabály szerint tolódnak.
+A sor‑ és oszlop‑indexelés nulláról indul, és az aktuális hívás időpontjában létező mátrixra vonatkozik. Sor beszúrása az 1‑es index előtt az eredeti második sort a 2‑es indexre helyezi. Beszúrás után index 2‑nél egy új sor kerül hozzáadásra. A 2‑es sor törlése eltávolítja az eredeti második egyenletet, és a hozzáadott sort egy pozícióval feljebb hozza. Az oszlopok is ugyanígy eltolódnak.
 
 ```python
 import jpype
@@ -408,7 +408,7 @@ try:
     matrix.insertColumnAfter(3)
     matrix.deleteColumn(3)
 
-    # Az új cellák kezdetben üresek. Először állítsa be a nem nulla együtthatókat.
+    # Az új cellák kezdetben üresek. Előbb állítsa be a nem nulla koefficienseket.
     matrix.set_Item(1, 0, MathematicalText("12"))
     matrix.set_Item(1, 1, MathematicalText("1"))
     matrix.set_Item(2, 2, MathematicalText("10"))
@@ -426,15 +426,15 @@ finally:
     presentation.dispose()
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnAlignment) az első oszlopot balra igazítja. [setColumnsAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnsAlignment) a maradék három oszlopot jobbra igazítja, az 1-es indextől kezdve. Az `updated-matrix.pptx` fájlban a mátrix három egyenletet és négy változót tartalmaz. Az eredeti első sor koefficiensei `1` és `x` most az első és a harmadik oszlopban jelennek meg.
+[setColumnAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnAlignment) balra igazítja az első oszlopot. [setColumnsAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnsAlignment) a maradék három oszlopot jobbra igazítja, az 1‑es indextől kezdve. A `updated-matrix.pptx`‑ben a mátrix három egyenletet és négy változót tartalmaz. Az eredeti első sor koefficiens‑értékei `1` és `x` most már az első és a harmadik oszlopban jelennek meg.
 
 ![Frissített három soros mátrix, sorok: 1, 0, x, 0; 12, 1, 0, 0; és 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Egyenlet tömbök hozzáadása**
 
-Használja a [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) függvényt, ha összehangolt egyenletekre vagy függőleges kifejezésstackre van szükség.
+Használja a [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray)‑t, ha igazított egyenletekre vagy függőleges kifejezés‑veremre van szükség.
 
-![Függőleges matematikai tömb, x felül y alatt](powerpoint-math-equations_11.png)
+![Függőleges matematikai tömb x felső, y alsó elhelyezkedéssel](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -462,11 +462,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Tömb igazítása a környező elemekhez**
+### **Tömb igazítása környező elemekkel**
 
-[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) szabályozza egy tömb függőleges igazítását a mellette elhelyezkedő matematikai elemekhez képest. Az alábbi példa a felső, középső és alsó sorok igazítását hasonlítja össze.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) szabályozza a tömb függőleges igazítását a mellette lévő matematikai elemekhez képest. Az alábbi példa összehasonlítja az első sor, a tömb középpontja és az utolsó sor igazítását.
 
-Az alábbi példa három azonos tömböt hoz létre, mindegyik három soros, a szomszédos elemek `A=` és `=B`. Minden matematikai szöveg Cambria Math betűtípust használ 24 pontos mérettel. Csak a tömb igazítása változik.
+Az alábbi példa három azonos tömböt hoz létre, mindegyik három soros, és a szomszédos elemek `A=` és `=B`. Minden matematikai szöveg Cambria Math 24 pont méretű, csak a tömb igazítása változik.
 
 ```python
 import jpype
@@ -520,17 +520,17 @@ finally:
     presentation.dispose()
 ```
 
-Az alábbi összehasonlítás mutatja a mentett bemutatót PowerPointban. Figyelje meg a `A=` és `=B` elemek helyzetét minden tömb mellett.
+Az alábbi összehasonlítás a PowerPointban mentett prezentációt mutatja. Figyelje meg az `A=` és `=B` elhelyezkedését minden tömb mellett.
 
-![Egyenlet tömbök PowerPointban felső, középső és alsó igazítással és azonos szomszédos elemekkel](equation-array-alignment.png)
+![Egyenlet tömbök PowerPointban felső, középső és alsó igazítással, azonos környező elemekkel](equation-array-alignment.png)
 
-### **Sorok távolságának beállítása**
+### **Sor távolságának beállítása**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) kiválasztja a sorok közti távolság szabályát a tömbön belül. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) numerikus értéket ad meg egy explicit szabályhoz, a beépített szabályok ezt figyelmen kívül hagyják.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) kiválasztja a sorok közötti távolság szabályát a tömbben. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) numerikus értéket ad meg egy explicit távolság szabálynál, és a preset szabályok ignorálják.
 
-Az exakt távolságnál az értéket pontban mérik. Arányos távolságnál fél sorban: a példában a `3` érték 1,5 sort jelent. Mindkét tulajdonságot állítsa be, ha explicit értéket ad meg; csak a numerikus érték módosítása nem választ szabályt.
+A pontos távolság pontban van megadva. Az arányos távolság fél‑sorban mérve: a példában a `3` érték 1,5 sort jelent. Explicit érték megadásakor mindkét tulajdonságot be kell állítani; csak a numerikus érték módosítása nem választ szabályt.
 
-Az alábbi példa öt bemutatót ment ugyanazokkal az egyenletekkel, igazítással és betűtípus-beállításokkal. Az első három előre definiált beállítást használ, az utolsó kettő explicit értékeket mutat.
+Az alábbi példa öt prezentációt ment ugyanazzal az egyenlettel, igazítással és betűtípus‑beállítással. Az első három preset‑et használ, az utolsó két példában explicit értékek láthatók.
 
 ```python
 import jpype
@@ -574,13 +574,13 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-A tömb sorok távolsága különbözik a bekezdés távolságtól. A [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) és [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) a környező bekezdés körül adnak helyet, nem a tömb sorok között. Hasonlóan, a [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) a teljes matematikai bekezdést igazítja vízszintesen; nem helyettesíti a tömb függőleges igazítási beállítását.
+A tömb sor távolsága különbözik a bekezdés távolságtól. A [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) és a [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) a tartalmazó bekezdés köré ad helyet, nem a sorok közé. Hasonlóképpen a [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) a teljes matematikai bekezdést vízszintesen helyezi el, nem helyettesíti a tömb függőleges igazítási beállítását.
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) metódust, ha az argumentum az aktuális elem és a függvény neve ismert.
+Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction)‑t, amikor az argumentum az aktuális elem, és a függvény neve ismert.
 
-![Trigonometrikus függvény cos alkalmazva 2x-re](powerpoint-math-equations_6.png)
+![A trigonometrikus cos függvény 2x-re alkalmazva](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -608,11 +608,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Alsó- és felsőindexek hozzáadása**
+## **Alsó- és felső indexek hozzáadása**
 
-Használja az alsó- és felsőindex segédfüggvényeit indexek és hatványok kezelésére. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)‑t.
+Használja az alsó‑ és felső‑index segédfüggvényeket indexekhez és hatványokhoz. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)‑t.
 
-![Nagy Y baloldali alsóindex 1 és felsőindex n](powerpoint-math-equations_9.png)
+![Nagy Y baloldali alsó index 1 és felső index n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -640,11 +640,60 @@ finally:
     presentation.dispose()
 ```
 
-## **Határolójelek hozzáadása**
+### **Jobb oldali alsó és felső indexek igazítása**
 
-Használja a [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) függvényt egy kifejezés határolójelek közé helyezéséhez. Több elemet tartalmazó határolójelekhez beállíthat elválasztó karaktert is.
+Amikor egy alsó‑ és egy felső‑index ugyanazt a bázist osztja, használja a [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/)‑et. A [setAlignScripts](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) metódus szabályozza azok vízszintes pozícióját. Alapértelmezett `False` esetén minden szkript követi a bázis körvonalát. `True` esetén a szkriptek ugyanabban a vízszintes pozícióban indulnak.
 
-![Határolójel kifejezés x, y és z függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+Ez a példa két példányban helyezi el ugyanazt a szerkeszthető kifejezést egymás mellett. Mindkettő 72 pont Cambria Math betűtípussal, matematikai dőlt f (U+1D453) karakterrel, alindex 1‑gyel és felső index 2‑vel. Az f dőlésszöge teszi láthatóvá a különbséget a PowerPointban. Futtatás előtt telepítse a Cambria Math betűtípust.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, MathBlock, MathematicalText, MathRightSubSuperscriptElement
+from asposeslides.api import PortionFormat, Presentation, SaveFormat, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(900, 250, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    text_format = PortionFormat()
+    font = FontData("Cambria Math")
+    text_format.setFontHeight(72)
+    text_format.setLatinFont(font)
+
+    for left, align_scripts in [(40, False), (480, True)]:
+        shape = slide.getShapes().addMathShape(left, 75, 380, 150)
+        base = MathematicalText("\U0001D453", text_format)
+        subscript = MathematicalText("1", text_format)
+        superscript = MathematicalText("2", text_format)
+        scripts = MathRightSubSuperscriptElement(base, subscript, superscript)
+        scripts.setAlignScripts(align_scripts)
+
+        portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        portion.getPortionFormat().setFontHeight(text_format.getFontHeight())
+        portion.getPortionFormat().setLatinFont(font)
+        block = MathBlock(scripts)
+        portion.getMathParagraph().add(block)
+
+    presentation.save("aligned-scripts.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Két szerkeszthető kifejezés PowerPointban, bal oldalon setAlignScripts False, jobb oldalon True](aligned-scripts.png)
+
+Bal oldalon az alsó index tovább balra kezd, követve az f körvonalát. Jobb oldalon a két szkript bal széle egymásra igazodik.
+
+## **Elválasztók hozzáadása**
+
+Használja a [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose)‑t, hogy egy kifejezést elválasztók közé tegye. Több elemet tartalmazó elválasztó kifejezéseknél megadhat elválasztó karaktert is.
+
+![Elválasztó kifejezés, amely x, y és z-ot függőleges vonalakkal választ el](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -673,11 +722,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Határolójelek mérete és igazítása**
+### **Elválasztók mérete és igazítása**
 
-A [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) `True` értéke esetén a zárójelek nőnek egy magas operandus körül, `False` esetén normál méretűek maradnak. Használja a [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape)‑t a két [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) érték egyikével. A `Centered` a zárójeleket a matematikai tengely közepére helyezi, amely áthalad az egyenlőség jel közepén. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak a határolójelekre hat, a kifejezés inna marad.
+Az [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)‑nek `True` értéket adva a zárójelek növekednek a magas operandus körül, `False` esetén normál méretűek maradnak. Használja az [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape)‑et az egyik [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) értékkel. A `Centered` középre helyezi a zárójeleket a matematikai tengelyen, amely átmegy az egyenlőségjel közepén. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak a zárójeleket érinti; a kifejezés maga változatlan marad.
 
-A példa a `x` kitevőjébe egy törtet helyez, így a kifejezés a kiinduló vonal fölött magasabb, mint alatta. Mind a négy egyenlet ugyanazt a zárójelet és betűtípust használja.
+A példa egy törtet helyez az `x` kitevőjébe, így a kifejezés magasabbra nyúlik a vonal alatti résznél. Négy egyenlet ugyanazt a zárójelet és betűtípust használja.
 
 ```python
 import jpype
@@ -710,15 +759,15 @@ finally:
     presentation.dispose()
 ```
 
-PowerPointban hasonlítsa össze a sorokat, hogy lássa a növekedés hatását. A felső sorban a zárójelek nőnek, hogy befoglalják a kitevőt, és mindkét forma egyforma. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójel (`Centered`) az egyenlőség jelhez igazodik, míg a jobb oldali (`Match`) magasabban helyezkedik el a kifejezés körül.
+PowerPointban hasonlítsa össze a sorokat a növekedés hatásának megtekintéséhez. A felső sorban a zárójelek növekednek az exponens körül, és mindkét forma hasonló. Az alsó sorban a növekedés ki van kapcsolva. A bal oldali kisebb zárójelek (`Centered`) az egyenlőségjelhez igazodnak, a jobb oldali (`Match`) a kifejezés felett magasabban helyezkednek el.
 
-![Négy egyenlet PowerPointban, ahol a határolójelek növekedése felül engedélyezett, alul letiltott, bal oldalon `Centered`, jobb oldalon `Match`](delimiter-sizing.png)
+![Négy egyenlet PowerPointban, ahol a zárójelek növekedése be van kapcsolva felül, le van tiltva alul, bal oldalon Centered, jobb oldalon Match](delimiter-sizing.png)
 
-## **Határdoboz hozzáadása**
+## **Szegélyes doboz hozzáadása**
 
-Hívja meg a [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox)‑t egy törtön, hogy a teljes kifejezést keretbe foglalja. A visszaadott [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) alapértelmezés szerint a négy oldalt is megjeleníti. A [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) és [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) egyes oldalak eltávolítására szolgálnak.
+Hívja a [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) metódust egy törtön, hogy a teljes kifejezést keretezze. Az eredményül kapott [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) alapértelmezés szerint mind a négy oldalt megjeleníti. A [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) és [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) metódusokkal egyes oldalakat is eltávolíthat.
 
-A példa hat példányban helyezi el ugyanazt a törtet egy diára. A törlés megmutatásához rejtse el a négy oldalt, és adja át a `True` értéket a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight)‑nek egy emelkedő átló (↗) vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight)‑nek egy csökkenő átló (↘) esetén. Használhatja a [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) vagy a [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) függvényeket is, tetszőleges látható oldal kombinációval.
+A példa hat példányban helyezi el ugyanazt a törtet egy dián. A törlés megjelenítéséhez rejtse el mind a négy oldalt, és adjon `True` értéket a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight)‑nek egy emelkedő átló (↗) vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight)‑nek egy csökkenő átló (↘) esetén. Használhatja a [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) vagy a [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) metódusokat is, tetszőleges kombinációval a látható oldalakra.
 
 ```python
 import jpype
@@ -765,24 +814,24 @@ finally:
     presentation.dispose()
 ```
 
-![Hat szerkeszthető tört PowerPointban. Felső sor: teljes keret, alsó és bal oldali szél, emelkedő átló. Alsó sor: csökkenő átló, vízszintes áthúzás, függőleges áthúzás teljes kerettel.](border-box-fractions.png)
+![Hat szerkeszthető tört PowerPointban. Felső sor: teljes körvonal, alsó és bal oldal, emelkedő átló. Alsó sor: csökkenő átló, vízszintes áthúzás, függőleges áthúzás teljes körvonallal](border-box-fractions.png)
 
-Ezen tört esetében a vízszintes áthúzás átfedi a törtvonalat. A függőleges áthúzás áthalad a számláló és a nevező felett, miközben a környező keret látható marad. Ezek a vonalak a teljes kifejezést díszítik. A szokásos szöveg áthúzás karakterekre vonatkozik. A bemutató újbóli megnyitása után a számláló és a nevező továbbra is szerkeszthető marad.
+Ezen tört esetén a vízszintes áthúzás átfedi a törtvonalat. A függőleges áthúzás áthalad a számláló és a nevező felett, míg a körvonal látható marad. Ezek a vonalak a teljes kifejezést díszítik. Az egyszerű szöveg áthúzása csak a szövegkarakterekre vonatkozik. A prezentáció újbóli megnyitása után a számlálót és a nevezőt továbbra is önállóan szerkesztheti.
 
 ## **Láthatóság és elrendezés vezérlése fantom elemekkel**
 
-Csomagolja be a kifejezést egy [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/)‑be, hogy függetlenül szabályozza láthatóságát és az egyenlethez járuló helyet. A [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) metódusai a következőt irányítják:
+Tegye az egész kifejezést egy [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/)‑ba, hogy önállóan szabályozza a láthatóságát és a helyet, amelyet az egyenlethez hozzájárul. A [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) metódusai a következőket szabályozzák:
 
-| Metódus | Hatás |
+| Method | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | A `False` átadása elrejti a kifejezést. Méretei továbbra is hozzájárulnak az elrendezéshez, hacsak az alábbi megfelelő metódusok nem kapnak `True` értéket. |
-| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | A kifejezés vízszintes szélességét nullának tekinti, így a szomszédos elemek közelebb kerülhetnek egymáshoz. |
-| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | A felmenet (a baseline fölötti magasság) nullának tekinti. Ez csökkentheti a szomszédos elemek fölött fenntartott helyet. |
-| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | A lemenet (a baseline alatti mélység) nullának tekinti. Ez a törtvonalat vagy más tartalmat a kifejezés alatti részen közelebb hozhat a szomszédokhoz. |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | `False` megadása elrejti a kifejezést. Méretei továbbra is részt vesznek az elrendezésben, hacsak az alábbi módszerek nem kapnak `True` értéket. |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | A kifejezés vízszintes szélességét nullának tekinti, így a szomszédos elemek közelebb helyezkedhetnek el. |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | A felmenet (a baseline fölötti magasság) nullának tekinthető, ez csökkentheti a szomszédos elemek fölött fenntartott helyet. |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | A leszállás (a baseline alatti mélység) nullának tekinthető, ez a törtvonal vagy egyéb tartalom a kifejezés alatti részét közelebb hozhatja a szomszédos elemekhez. |
 
-A baseline az a referenciavonal, amelyen a szokásos matematikai betűk állnak. A tartalom elrejtése nem távolítja el a méreteket, és egy dimenzió nullának tekintése sem törli a kifejezést. Az alapkifejezés továbbra is elérhető a [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase)‑on keresztül. A [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow)‑nek `True` átadása újra megjeleníti; a dimenzió beállítások változatlanok maradnak.
+A baseline az a referencia vonal, amelyen a szokásos matematikai betűk elhelyezkednek. A tartalom elrejtése nem távolítja el a méreteket, és egy dimenzió nullára állítása sem törli a kifejezést. Az alap kifejezés a [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase)‑on keresztül továbbra is elérhető. A [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow)‑nek `True` értéket adva újra megjelenítheti, a dimenzió‑beállítások változatlanok maradnak.
 
-Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy rejtett tört, amely helyet foglal, valamint három rejtett tört, ahol egy dimenzió nullaként van kezelve. Minden változat ugyanazt a környező kifejezést és a Cambria Math 24 pontos betűtípust használja. Az összes egyenlet alakzat ugyanabban a felső pozícióban van, amelyet a szürke segédvonal jelöl. A fantom elhelyezése egy külső tört számlálójába megkönnyíti a függőleges elrendezési változások láthatóságát.
+Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy elrejtett, helyet fenntartó tört, valamint három elrejtett tört, amelynél egy dimenzió nullára van állítva. Minden változat ugyanazt a környező kifejezést és 24 pont Cambria Math betűtípust használja. Az összes egyenlet alakzat ugyanabban a felső pozícióban van, egy szürke segédvonal jelöli. A fantom elhelyezése egy külső tört számlálójában megkönnyíti a függőleges elrendezés változásainak megfigyelését.
 
 ```python
 import jpype
@@ -852,13 +901,13 @@ finally:
     presentation.dispose()
 ```
 
-![Öt egyenlet PowerPointban, összehasonlítva látható törtet, helyet foglaló rejtett törtet, valamint ZeroWidth, ZeroAsc vagy ZeroDesc engedélyezett rejtett törteket](math-phantom.png)
+![Öt egyenlet PowerPointban, összehasonlítva egy látható törtet, egy elrejtett, helyet fenntartó törtet, és ZeroWidth, ZeroAsc vagy ZeroDesc beállítású elrejtett törteket](math-phantom.png)
 
-## **Kifejezések csoportosítása**
+## **Tagok csoportosítása**
 
-Használja a [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) függvényt, hogy egy csoportosító karaktert helyezzen a kifejezés fölé vagy alá. Adjon meg egy határt a csoportosított elemek megnevezéséhez.
+Használja a [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group)‑t, hogy egy csoportosító karaktert helyezzen egy kifejezés fölé vagy alá. Határonként hozzáadhat címkét a csoportosított tagok megjelöléséhez.
 
-![A kifejezés x + y csoportosítva az alatta lévő címkével](powerpoint-math-equations_15.png)
+![Az x + y kifejezés csoportosítva, alatta a „valamennyi szöveg” címkével](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -888,41 +937,26 @@ finally:
 
 ## **Matematikai elemek formázása**
 
-Használjon formázó segédfüggvényeket csak ott, ahol a képletet egyértelművé teszik. Például a [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) egy vonalat helyez az elem fölé.
+Használjon formázó segédmetódusokat csak ott, ahol az egyenletet egyértelműbbé teszik. Például a [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) egy vonalat helyez el egy matematikai elem felett.
 
-![Matematikai kifejezés ABC felül vonallal](powerpoint-math-equations_14.png)
+![Matematikai kifejezés ABC felül egy vonallal](powerpoint-math-equations_14.png)
 
 ```python
 import jpype
+ 
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-
-    math_shape = slide.getShapes().addMathShape(20, 20, 700, 100)
-    math_paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph()
-
-    overbar = MathematicalText("ABC").overbar()
-
-    math_block = MathBlock(overbar)
-    math_paragraph.add(math_block)
-
-    presentation.save("overbar.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
+from Asplos… (omitted…)
 ```
 
 ### **Szöveg formázása meglévő egyenletben**
 
-A meglévő egyenlet szövegének formázásához járjon végig minden matematikai blokk elemes fáján. A [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) csak a közvetlen gyerekeket adja vissza, ezért rekurzívan kell hívni a szöveg eléréséhez a törtekben, indexekben, gyökökben és más beágyazott struktúrákban. Ellenőrizze az aktuális elemet és annak gyerekeit is, hogy a kiinduló elem is bekerüljön, ha az [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) típusú.
+A meglévő egyenlet szövegének formázásához járja be az egyes matematikai blokkok elemtűzét. A [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell hívni a törtek, szkriptek, gyökök és egyéb beágyazott szerkezetek szövegének eléréséhez. Ellenőrizze az aktuális elemet, valamint annak gyermekeit, hogy a [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) is be legyen vonva.
 
-Ez a példa feltételezi, hogy a `input.pptx` tartalmaz egy olyan egyenletet, mint `z = xᵢ / ∛y`, egy törtet, amelynek számlálójában alsóindex, nevezőjében gyök van. Ha csak a blokk felső szintű elemeit dolgozza fel, a törtben lévő szöveget kihagyja. A példa megtalálja a matematikai részeket a diák szövegkereteiben, a [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) segítségével eléri a blokkokat, és a [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight)‑et használja a betűméret 28 pontra állításához minden szövegelem [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) metódusán keresztül.
+Ez a példa azt feltételezi, hogy az `input.pptx` egy olyan egyenletet tartalmaz, például `z = xᵢ / ∛y`, ahol a tört számlálójában alsó index, a nevezőben gyök található. Csak a blokk felső‑szintű elemeinek feldolgozása kihagyja a törten belüli szöveget. A példa a diák szövegkereteiben talál matematikai részeket, a blokkokat a [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph)‑vel éri el, és a [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight)‑vel 28 pont betűméretet állít be minden szövegelem [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) metódusán keresztül.
 
 ```python
 import jpype
@@ -963,37 +997,37 @@ finally:
     presentation.dispose()
 ```
 
-A mentett bemutató minden szintjén frissített szövegformázást tartalmaz az egyes feldolgozott egyenletekben, miközben megőrzi a szövegtartalmat és a matematikai struktúrát.
+Az elmentett prezentáció minden feldolgozott egyenlet minden szintjén frissített szövegformázást tartalmaz, miközben megőrzi a szöveges tartalmat és a matematikai struktúrát.
 
 ## **Gyorsreferencia**
 
-| Feladat | Fő API |
+| Task | Main API |
 | --- | --- |
-| Matematikai szöveg létrehozása | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
-| Elemek összekapcsolása | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
-| Törtök létrehozása | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| Felső- vagy alsóindex hozzáadása | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
-| Függvények hozzáadása | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
-| Gyökök hozzáadása | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
-| Határok hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| Baloldali indexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| Összegeket és integrálokat hozzáadása | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
-| Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
-| Egyenlet tömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| Határolójelek hozzáadása | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
-| Vonalak és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
-| Kifejezések csoportosítása | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
+| Create math text | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
+| Combine elements | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
+| Create fractions | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
+| Add superscript or subscript | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| Add functions | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
+| Add radicals | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
+| Add limits | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
+| Add left-side scripts | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| Add summations and integrals | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| Add matrices | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
+| Add equation arrays | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
+| Add delimiters | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| Add bars and borders | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
+| Group terms | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
-## **FAQ**
+## **GYIK**
 
-**Szerkeszthetek egy létező PowerPoint egyenletet?**
+**Szerkeszthetek meglévő PowerPoint egyenletet?**
 
-Igen. Nyissa meg a bemutatót, keresse meg azt az alakzatot, amelyik [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/)‑t tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph)-t, és frissítse a bekezdésben lévő matematikai blokkokat.
+Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amelyben [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) található, hívja a [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph)‑t, és frissítse a bekezdésben lévő matematikai blokkokat.
 
 **Az egyenletek szerkeszthető PowerPoint matematikaként vannak mentve?**
 
-Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office math tartalomként írja.
+Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office‑math tartalomként írja.
 
 **Exportálhatok egyenleteket LaTeX‑be?**
 
-Igen. Szerezze meg az egyenlet [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/)‑ját a [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/)‑ból, majd hívja meg a [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex)‑t a közvetlen exportáláshoz. Teljes példáért tekintse meg a [Export Math Equations from Presentations in Python](/slides/hu/python-java/exporting-math-equations/#export-math-equations-to-latex) oldalt.
+Igen. Szerezze meg az egyenlet [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/)‑ját a [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/)‑ból, majd hívja a [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex)‑t a közvetlen exportáláshoz. Teljes példáért lásd a [Matematikai képletek exportálása bemutatókból Pythonban](/slides/hu/python-java/exporting-math-equations/#export-math-equations-to-latex).

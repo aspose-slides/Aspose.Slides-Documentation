@@ -9,28 +9,28 @@ keywords:
 - símbolo matemático
 - fórmula matemática
 - texto matemático
-- añadir ecuación matemática
-- añadir símbolo matemático
-- añadir fórmula matemática
-- añadir texto matemático
+- agregar ecuación matemática
+- agregar símbolo matemático
+- agregar fórmula matemática
+- agregar texto matemático
 - PowerPoint
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para .NET, con soporte para OMML, controles de formato y ejemplos de código C# claros."
+description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para .NET, compatible con OMML, controles de formato y ejemplos de código C# claros."
 ---
-## **Descripción general**
+## **Visión general**
 
-PowerPoint almacena ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para .NET, puede crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores N‑arios, matrices, arreglos y bloques matemáticos con formato.
+PowerPoint almacena ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para .NET, puede crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores N-ario, matrices, arreglos y bloques de matemáticas con formato.
 
-En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insertar > Ecuación**:
+En PowerPoint, los usuarios normalmente añaden ecuaciones mediante **Insert > Equation**:
 
 ![Pestaña Insertar de PowerPoint con el comando Ecuación seleccionado](powerpoint-math-equations_1.png)
 
 El resultado es texto matemático editable en la diapositiva:
 
-![Diapositiva de PowerPoint que contiene una ecuación matemática editable](powerpoint-math-equations_2.png)
+![Una diapositiva de PowerPoint que contiene una ecuación matemática editable](powerpoint-math-equations_2.png)
 
 Aspose.Slides construye ese texto matemático mediante tres objetos principales:
 
@@ -38,13 +38,13 @@ Aspose.Slides construye ese texto matemático mediante tres objetos principales:
 - [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) almacena el contenido matemático dentro del marco de texto de la forma.
 - [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
-La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) para mantener el código corto y legible.
+La mayoría de los ejemplos siguientes utilizan [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) para mantener el código corto y legible.
 
 Para escenarios de exportación a MathML, consulte [Exportar ecuaciones matemáticas desde presentaciones en .NET](/slides/es/net/exporting-math-equations/).
 
 ## **Crear una ecuación**
 
-Este ejemplo utiliza [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) para crear una forma matemática y agrega el teorema de Pitágoras:
+Este ejemplo utiliza [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) para crear una forma matemática y añade el teorema de Pitágoras:
 
 ![La ecuación c al cuadrado es igual a a al cuadrado más b al cuadrado](powerpoint-math-equations_3.png)
 
@@ -77,7 +77,7 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 
 ### **Combinar bloques matemáticos**
 
-Cuando las partes de una ecuación se construyen de forma independiente como objetos [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/) use [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) para combinarlas. El ejemplo construye `c² =` en el bloque izquierdo y `a² + b²` en el bloque derecho. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) crea superíndices matemáticos editables para los tres exponentes.
+Cuando las partes de una ecuación se construyen independientemente como objetos [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/) , utilice [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) para combinarlas. El ejemplo construye `c² =` en el bloque izquierdo y `a² + b²` en el bloque derecho. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) crea superíndices matemáticos editables para los tres exponentes.
 
 ```csharp
 using Aspose.Slides;
@@ -105,15 +105,15 @@ mathParagraph.Add(combinedBlock);
 presentation.Save("equation.pptx", SaveFormat.Pptx);
 ```
 
-[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) devuelve el propio `leftBlock`, que ahora contiene ambas partes en orden, y deja `rightBlock` vacío. Añada el bloque combinado al [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) solo una vez. Después de volver a abrir `equation.pptx`, el párrafo contiene un bloque que representa `c² = a² + b²`, con los tres exponentes preservados como superíndices matemáticos.
+[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) devuelve `leftBlock` mismo, que ahora contiene ambas partes en orden, y deja `rightBlock` vacío. Añada el bloque combinado al [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) solo una vez. Después de volver a abrir `equation.pptx`, el párrafo contiene un bloque que representa `c² = a² + b²`, con los tres exponentes conservados como superíndices matemáticos.
 
 Llamar a [Add](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelementcollection/add/) como `leftBlock.Add(rightBlock)` en su lugar intenta anidar un bloque directamente dentro de otro y lanza `InvalidOperationException`.
 
 ## **Añadir fracciones**
 
-Use [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) para crear una fracción. Puede elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
+Utilice [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) para crear una fracción. Puede elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Una fracción matemática sesgada que muestra uno dividido por x](powerpoint-math-equations_4.png)
+![Una fracción matemática inclinada que muestra uno dividido por x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -134,7 +134,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-Para una fracción apilada, use [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
+Para una fracción apilada, utilice [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -144,9 +144,9 @@ var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFraction
 
 ## **Añadir radicales**
 
-Use [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) para crear una raíz cuadrada, cúbica u otra raíz. El elemento actual se convierte en la base, y el argumento se convierte en el grado.
+Utilice [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) para crear una raíz cuadrada, raíz cúbica u otra raíz. El elemento actual se convierte en la base, y el argumento se convierte en el grado.
 
-![Una expresión radical n‑ésima con x bajo el signo radical](powerpoint-math-equations_5.png)
+![Una expresión radical de n‑ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -169,9 +169,9 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ### **Mostrar u ocultar el grado de una raíz cuadrada**
 
-Una raíz cuadrada puede mostrar un 2 explícito o usar la notación convencional √x. La propiedad [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) de [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) controla qué forma aparece. Ambas formas conservan el grado 2 y el radicando x en la ecuación editable.
+Una raíz cuadrada puede mostrar un 2 explícito o usar la notación convencional √x. La propiedad [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) de [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) controla qué forma se muestra. Ambas formas conservan el grado 2 y el radicando x en la ecuación editable.
 
-![La misma raíz cuadrada con HideDegree establecido a false a la izquierda y true a la derecha](square-root-degree.png)
+![La misma raíz cuadrada con HideDegree configurado a false a la izquierda y true a la derecha](square-root-degree.png)
 
 El ejemplo guarda la misma raíz cuadrada dos veces. En `visible-degree.pptx` el 2 es visible. En `hidden-degree.pptx` está oculto.
 
@@ -198,7 +198,7 @@ presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
 
 ## **Añadir funciones y límites**
 
-Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) o [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, ponga `lim` en un [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) o use [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Utilice [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) o [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) para funciones como `sin(x)`, `log(x)`, o nombres de funciones personalizados. Para límites, coloque `lim` en un [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) o use [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![El límite de x cuando x tiende a infinito](powerpoint-math-equations_8.png)
 
@@ -222,7 +222,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-Para un nombre de función personalizado, haga que el nombre de la función sea el elemento actual y llame a [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) con su argumento:
+Para un nombre de función personalizado, convierta el nombre de la función en el elemento actual y llame a [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) con su argumento:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -230,9 +230,9 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Añadir operadores N‑arios e integrales**
+## **Añadir operadores N‑ario e integrales**
 
-Use [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) para sumas, uniones, intersecciones y otros operadores grandes. Use [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) para integrales. Ambos métodos le permiten establecer límites inferior y superior.
+Utilice [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) para sumas, uniones, intersecciones y otros operadores grandes. Utilice [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) para integrales. Ambos métodos le permiten establecer límites inferior y superior.
 
 ![Una sumatoria con límites inferior y superior](powerpoint-math-equations_7.png)
 
@@ -258,7 +258,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-Los operadores N‑arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` se añaden normalmente como [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) y se unen a la expresión.
+Los operadores N‑ario son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` se añaden normalmente como [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) y se unen a la expresión.
 
 Para una integral, use [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
@@ -271,7 +271,7 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **Añadir matrices**
 
-Use [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, por lo que debe encerrar la matriz cuando necesite paréntesis, corchetes o llaves.
+Utilice [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes de manera predeterminada, por lo que envuelva la matriz cuando necesite paréntesis, corchetes o llaves.
 
 ![Una matriz matemática de dos filas con una celda vacía](powerpoint-math-equations_10.png)
 
@@ -300,11 +300,11 @@ presentation.Save("matrix.pptx", SaveFormat.Pptx);
 
 ### **Editar una matriz existente**
 
-Suponga que una lección de álgebra lineal comienza con la matriz de coeficientes en `matrix.pptx`, guardada por el ejemplo anterior. Para el siguiente ejercicio, mantenga la primera ecuación, reemplace la segunda por dos nuevas ecuaciones y revise el conjunto de variables. Abra la matriz existente a través de [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) para conservar los coeficientes que aún son válidos.
+Supongamos que una lección de álgebra lineal comienza con la matriz de coeficientes en `matrix.pptx`, guardada por el ejemplo anterior. Para el siguiente ejercicio, conserve la primera ecuación, reemplace la segunda con dos nuevas ecuaciones y revise el conjunto de variables. Abra la matriz existente mediante [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) para mantener los coeficientes que aún se aplican.
 
-![Matriz de coeficientes original de dos filas con entradas 1, x y una celda vacía en la primera fila, y x, 2 y y en la segunda](matrix-before-edit.png)
+![Matriz de coeficientes original de dos filas con entradas 1, x, y una celda vacía en la primera fila y x, 2, y y en la segunda](matrix-before-edit.png)
 
-Los índices de fila y columna empiezan en cero y se refieren a la matriz tal como está en cada llamada. Insertar una fila antes del índice 1 mueve la segunda fila original al índice 2. Insertar después del índice 2 añade una fila al final. Eliminar la fila 2 quita la ecuación original de la segunda fila y desplaza la fila añadida una posición arriba. Las columnas se desplazan de la misma manera.
+Los índices de fila y columna empiezan en cero y se refieren a la matriz tal como está en cada llamada. Insertar una fila antes del índice 1 mueve la segunda fila original al índice 2. Insertar después del índice 2 añade entonces una fila. Eliminar la fila 2 quita la segunda ecuación original y mueve la fila añadida una posición arriba. Las columnas se desplazan de la misma manera.
 
 ```csharp
 using Aspose.Slides;
@@ -325,7 +325,7 @@ matrix.InsertColumnBefore(1);
 matrix.InsertColumnAfter(3);
 matrix.DeleteColumn(3);
 
-// Nuevas celdas son inicialmente nulas. Establezca primero los coeficientes distintos de cero.
+// Las nuevas celdas son inicialmente nulas. Establezca primero los coeficientes diferentes de cero.
 matrix[1, 0] = new MathematicalText("12");
 matrix[1, 1] = new MathematicalText("1");
 matrix[2, 2] = new MathematicalText("10");
@@ -344,15 +344,15 @@ matrix.SetColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
 presentation.Save("updated-matrix.pptx", SaveFormat.Pptx);
 ```
 
-[SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) alinea la primera columna a la izquierda. [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) alinea tres columnas consecutivas a la derecha, empezando en el índice 1. En `updated-matrix.pptx`, la matriz tiene tres ecuaciones y cuatro variables. Los coeficientes originales de la primera fila `1` y `x` aparecen ahora en la primera y tercera columna.
+[SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) alinea la primera columna a la izquierda. [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) alinea tres columnas consecutivas a la derecha, comenzando en el índice 1. En `updated-matrix.pptx`, la matriz tiene tres ecuaciones y cuatro variables. Los coeficientes de la primera fila original `1` y `x` ahora aparecen en la primera y tercera columnas.
 
-![Matriz actualizada de tres filas mostrando las filas 1, 0, x, 0; 12, 1, 0, 0; y 0, 0, 10, 1](matrix-after-edit.png)
+![Matriz actualizada de tres filas que muestra las filas 1, 0, x, 0; 12, 1, 0, 0; y 0, 0, 10, 1](matrix-after-edit.png)
 
-## **Añadir matrices de ecuaciones**
+## **Añadir arreglos de ecuaciones**
 
-Use [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) cuando necesite ecuaciones alineadas o una pila vertical de expresiones.
+Utilice [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) cuando necesite ecuaciones alineadas o una pila vertical de expresiones.
 
-![Una matriz matemática vertical con x sobre y](powerpoint-math-equations_11.png)
+![Un arreglo matemático vertical con x sobre y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -374,11 +374,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **Alinear una matriz con los elementos circundantes**
+### **Alinear un arreglo con los elementos circundantes**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) controla la alineación vertical de una matriz respecto a los elementos matemáticos a su lado. El ejemplo siguiente compara la alineación con la primera fila, el centro de la matriz y la última fila.
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) controla la alineación vertical de un arreglo respecto a los elementos matemáticos a su lado. El ejemplo a continuación compara la alineación con la primera fila, el centro del arreglo y la última fila.
 
-El siguiente ejemplo crea tres matrices idénticas, cada una con tres filas y los elementos vecinos `A=` y `=B`. Todo el texto matemático usa Cambria Math a 24 puntos. Sólo cambia la alineación de la matriz.
+El siguiente ejemplo crea tres arreglos idénticos, cada uno con tres filas y los elementos vecinos `A=` y `=B`. Todo el texto matemático usa Cambria Math a 24 puntos. Sólo cambia la alineación del arreglo.
 
 ```csharp
 using Aspose.Slides;
@@ -425,17 +425,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-La siguiente comparación muestra la presentación guardada en PowerPoint. Observe la posición de `A=` y `=B` junto a cada matriz.
+La siguiente comparación muestra la presentación guardada en PowerPoint. Observe la posición de `A=` y `=B` junto a cada arreglo.
 
-![Matrices de ecuaciones en PowerPoint con alineación Superior, Centro e Inferior y elementos circundantes idénticos](equation-array-alignment.png)
+![Arreglos de ecuaciones en PowerPoint con alineación Superior, Centro e Inferior y elementos vecinos idénticos](equation-array-alignment.png)
 
-### **Configurar espaciado de filas**
+### **Configurar el espaciado de filas**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) selecciona la regla de espaciado para las filas dentro de la matriz. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) proporciona un valor numérico para una regla explícita y se ignora cuando se usan reglas predefinidas.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) selecciona la regla de espaciado para filas dentro del arreglo. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) proporciona un valor numérico para una regla de espaciado explícita y se ignora con las reglas predefinidas.
 
-Para un espaciado exacto, el valor se mide en puntos. Para un espaciado proporcional, se mide en medio‑líneas: el valor `3` en el ejemplo especifica 1,5 líneas. Defina ambas propiedades cuando indique un valor explícito; cambiar sólo el valor numérico no selecciona una regla de espaciado.
+Para un espaciado exacto, el valor se mide en puntos. Para un espaciado proporcional, se mide en media líneas: el valor `3` en el ejemplo especifica 1,5 líneas. Establezca ambas propiedades al especificar un valor explícito; cambiar sólo el valor numérico no selecciona una regla de espaciado.
 
-El ejemplo siguiente guarda cinco presentaciones con las mismas ecuaciones, alineación y configuración de fuente. Las tres primeras usan valores predefinidos; las dos últimas muestran valores explícitos.
+El ejemplo a continuación guarda cinco presentaciones con las mismas ecuaciones, alineación y configuración de fuente. Las tres primeras usan valores predefinidos; las dos últimas muestran valores explícitos.
 
 ```csharp
 using Aspose.Slides;
@@ -485,11 +485,11 @@ MathematicalText CreateText(string value)
 }
 ```
 
-El espaciado de filas de la matriz es independiente del espaciado de párrafo. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) y [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) añaden espacio alrededor del párrafo contenedor, no entre filas de la matriz. De forma similar, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) posiciona horizontalmente todo el párrafo matemático; no sustituye la configuración de alineación vertical de la matriz.
+El espaciado de filas del arreglo es independiente del espaciado de párrafos. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) y [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) añaden espacio alrededor del párrafo contenedor, no entre filas del arreglo. Asimismo, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) posiciona todo el párrafo matemático horizontalmente; no reemplaza la configuración de alineación vertical del arreglo.
 
 ## **Añadir funciones trigonométricas**
 
-Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) cuando el argumento es el elemento actual y el nombre de la función es conocido.
+Utilice [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) cuando el argumento es el elemento actual y el nombre de la función es conocido.
 
 ![La función trigonométrica cos aplicada a 2x](powerpoint-math-equations_6.png)
 
@@ -514,7 +514,7 @@ presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 
 ## **Añadir subíndices y superíndices**
 
-Use los ayudantes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer en el lado izquierdo de la base, use [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+Utilice los asistentes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer al lado izquierdo de la base, use [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
 ![Una Y mayúscula con subíndice 1 a la izquierda y superíndice n](powerpoint-math-equations_9.png)
 
@@ -537,11 +537,56 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
+### **Alinear subíndices y superíndices a la derecha**
+
+Cuando ambos scripts pertenecen a la misma base, use [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathrightsubsuperscriptelement/). Su propiedad [AlignScripts](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathrightsubsuperscriptelement/alignscripts/) controla sus posiciones horizontales: `false` (por defecto) les permite seguir el contorno de la base, mientras que `true` alinea los scripts horizontalmente entre sí.
+
+Este ejemplo coloca dos copias de la misma expresión editable una al lado de la otra. Ambas usan la f itálica matemática (U+1D453), un subíndice de 1, un superíndice de 2 y Cambria Math a 72 puntos. La base inclinada hace visible la diferencia en PowerPoint. Instale Cambria Math antes de ejecutar el ejemplo.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(900, 250, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var format = new PortionFormat
+{
+    FontHeight = 72,
+    LatinFont = new FontData("Cambria Math")
+};
+
+for (var i = 0; i < 2; i++)
+{
+    var left = 40 + i * 440;
+    var shape = slide.Shapes.AddMathShape(left, 75, 380, 150);
+
+    var baseText = new MathematicalText("\U0001D453", format);
+    var subscript = new MathematicalText("1", format);
+    var superscript = new MathematicalText("2", format);
+    var scripts = new MathRightSubSuperscriptElement(baseText, subscript, superscript);
+    scripts.AlignScripts = i == 1;
+
+    var portion = (MathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+    portion.PortionFormat.FontHeight = format.FontHeight;
+    portion.PortionFormat.LatinFont = format.LatinFont;
+    portion.MathParagraph.Add(new MathBlock(scripts));
+}
+
+presentation.Save("aligned-scripts.pptx", SaveFormat.Pptx);
+```
+
+![Dos expresiones editables en PowerPoint con AlignScripts configurado a false a la izquierda y true a la derecha](aligned-scripts.png)
+
+A la izquierda, el subíndice comienza más a la izquierda que el superíndice, siguiendo el contorno de la base. A la derecha, los dos scripts se alinean horizontalmente entre sí.
+
 ## **Añadir delimitadores**
 
-Use [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) para colocar una expresión dentro de delimitadores. También puede establecer un carácter separador para expresiones delimitadoras que contengan varios elementos.
+Utilice [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) para colocar una expresión dentro de delimitadores. También puede establecer un carácter separador para expresiones delimitadoras que contengan varios elementos.
 
-![Una expresión delimitadora que contiene x, y y z separados por barras verticales](powerpoint-math-equations_13.png)
+![Una expresión delimitadora que contiene x, y, y z separados por barras verticales](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -567,9 +612,9 @@ presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 
 ### **Tamaño y alineación de delimitadores**
 
-Establezca [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) a `true` para que los paréntesis crezcan alrededor de un operando alto, o a `false` para mantener su tamaño normal. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) acepta uno de dos valores [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` centra los paréntesis en el eje matemático, que pasa por el centro del signo igual. `Match` los alinea con el contenido incluido. Ambas configuraciones afectan sólo a los delimitadores. La expresión interna permanece sin cambios.
+Establezca [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) a `true` para que los paréntesis se expandan alrededor de un operando alto, o a `false` para mantener su tamaño normal. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) acepta uno de dos valores [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` centra los paréntesis en el eje matemático, que pasa por el medio del signo igual. `Match` los alinea con el contenido incluido. Ambas configuraciones afectan sólo a los delimitadores. La expresión interior permanece igual.
 
-El ejemplo coloca una fracción en el exponente de `x` de modo que la expresión se extienda más arriba de la línea base que abajo. Las cuatro ecuaciones usan los mismos paréntesis y la misma configuración de fuente.
+El ejemplo coloca una fracción en el exponente de `x` de modo que la expresión se extienda más arriba de la línea base que debajo. Las cuatro ecuaciones usan los mismos paréntesis y la misma configuración de fuente.
 
 ```csharp
 using Aspose.Slides;
@@ -602,15 +647,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-En PowerPoint, compare las filas para ver el efecto del crecimiento. En la fila superior, los paréntesis crecen para encerrar el exponente y se ven iguales en ambas formas. En la fila inferior, el crecimiento está desactivado. Los paréntesis más pequeños de la izquierda (`Centered`) se alinean con el signo igual, mientras que los de la derecha (`Match`) quedan más altos alrededor de la expresión.
+En PowerPoint, compare las filas para ver el efecto del crecimiento. En la fila superior, los paréntesis crecen para encerrar el exponente y se ven iguales en ambas formas. En la fila inferior, el crecimiento está desactivado. Los paréntesis más pequeños a la izquierda (`Centered`) se alinean con el signo igual, mientras que los de la derecha (`Match`) se sitúan más arriba alrededor de la expresión.
 
 ![Cuatro ecuaciones en PowerPoint con crecimiento de delimitadores activado arriba y desactivado abajo, y Centered a la izquierda y Match a la derecha](delimiter-sizing.png)
 
 ## **Añadir un cuadro de borde**
 
-Llame a [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) sobre una fracción para enmarcar toda la expresión. El [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) devuelto muestra los cuatro lados por defecto. Use [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/) y [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) para eliminar lados individuales.
+Llame a [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) sobre una fracción para enmarcar toda la expresión. El [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) devuelto muestra los cuatro lados por defecto. Use [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), y [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) para eliminar lados individuales.
 
-El ejemplo coloca seis copias de la misma fracción en una diapositiva. Para mostrar una cancelación, oculte los cuatro lados y establezca [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) para una diagonal ascendente (↗) o [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) para una diagonal descendente (↘). También puede usar [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) o [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) con cualquier combinación de lados visibles.
+El ejemplo coloca seis copias de la misma fracción en una diapositiva. Para mostrar cancelación, oculte los cuatro lados y establezca [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) para una diagonal ascendente (↗) o [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) para una diagonal descendente (↘). También puede usar [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) o [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) con cualquier combinación de lados visibles.
 
 ```csharp
 using Aspose.Slides;
@@ -648,24 +693,24 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![Seis fracciones editables en PowerPoint. Fila superior: borde completo, lados inferior e izquierdo, diagonal ascendente. Fila inferior: diagonal descendente, tachado horizontal, tachado vertical con borde completo](border-box-fractions.png)
+![Seis fracciones editables en PowerPoint. Fila superior: borde completo, lados inferior e izquierdo, diagonal ascendente. Fila inferior: diagonal descendente, raya horizontal, raya vertical con borde completo](border-box-fractions.png)
 
-En esta fracción, el tachado horizontal se superpone a la barra de la fracción. El tachado vertical cruza tanto el numerador como el denominador mientras el borde circundante sigue visible. Estas líneas decoran toda la expresión. El tachado de texto ordinario se aplica a los caracteres de una ejecución de texto. Después de volver a abrir la presentación en PowerPoint, aún puede editar el numerador y el denominador de forma independiente.
+En esta fracción, la barra horizontal se superpone a la barra de la fracción. La barra vertical cruza tanto el numerador como el denominador mientras el borde circundante sigue visible. Estas líneas decoran toda la expresión. El tachado de texto ordinario se aplica a los caracteres en una ejecución de texto. Después de volver a abrir la presentación en PowerPoint, aún puede editar el numerador y el denominador de forma independiente.
 
 ## **Controlar la visibilidad y el diseño con elementos fantasma**
 
-Encierre una expresión en [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) para controlar su visibilidad y el espacio que aporta a una ecuación de forma independiente. Las propiedades de [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) controlan lo siguiente:
+Envuelva una expresión en [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) para controlar su visibilidad y el espacio que aporta a una ecuación de forma independiente. Las propiedades de [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) controlan lo siguiente:
 
-| Property | Effect |
+| Propiedad | Efecto |
 | --- | --- |
 | [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Establecer a `false` para ocultar la expresión. Sus dimensiones siguen contribuyendo al diseño a menos que las propiedades correspondientes a continuación sean `true`. |
-| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Tratar la anchura horizontal de la expresión como cero, permitiendo que los elementos vecinos se acerquen más. |
-| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Tratar su ascenso, la altura por encima de la línea base, como cero. Esto puede reducir el espacio reservado sobre los elementos vecinos. |
-| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Tratar su descenso, la profundidad debajo de la línea base, como cero. Esto puede mover una barra de fracción u otro contenido bajo la expresión más cerca de sus vecinos. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Trata el ancho horizontal de la expresión como cero, permitiendo que los elementos vecinos se acerquen más. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Trata su ascenso, la altura por encima de la línea base, como cero. Esto puede reducir el espacio reservado sobre los elementos vecinos. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Trata su descenso, la profundidad bajo la línea base, como cero. Esto puede acercar la barra de fracción u otro contenido bajo la expresión a sus vecinos. |
 
-La línea base es la línea de referencia sobre la que se sitúan las letras matemáticas normales. Ocultar contenido no elimina sus dimensiones, y tratar una dimensión como cero no borra la expresión. La expresión subyacente sigue disponible a través de [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Restablezca [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) a `true` para volver a mostrarla; la configuración de dimensiones permanece sin cambios.
+La línea base es la línea de referencia sobre la que se apoyan las letras matemáticas ordinarias. Ocultar contenido no elimina sus dimensiones, y tratar una dimensión como cero no borra la expresión. La expresión subyacente sigue disponible a través de [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Restablezca [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) a `true` para mostrarla de nuevo; la configuración de dimensiones permanece sin cambios.
 
-El ejemplo a continuación crea cinco variantes lado a lado: una fracción visible, una fracción oculta que reserva espacio y tres fracciones ocultas con una dimensión tratada como cero. Cada variante usa la misma expresión circundante y Cambria Math a 24 puntos. Todas las formas de ecuación tienen la misma posición superior, marcada por la guía gris. Colocar el fantasma en el numerador de una fracción externa facilita la visualización de los cambios de diseño vertical.
+El ejemplo a continuación crea cinco variantes una al lado de la otra: una fracción visible, una fracción oculta que reserva espacio, y tres fracciones ocultas con una dimensión tratada como cero. Cada variante usa la misma expresión circundante y Cambria Math a 24 puntos. Todas las formas de ecuación tienen la misma posición superior, marcada por la guía gris. Colocar el fantasma en el numerador de una fracción externa facilita la visualización de los cambios de diseño vertical.
 
 ```csharp
 using Aspose.Slides;
@@ -728,9 +773,9 @@ MathematicalText CreateText(string value)
 
 ## **Agrupar términos**
 
-Use [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) para colocar un carácter de agrupación arriba o abajo de una expresión. Añada un límite para etiquetar los términos agrupados.
+Utilice [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) para colocar un carácter de agrupación encima o debajo de una expresión. Añada un límite para etiquetar los términos agrupados.
 
-![La expresión x más y agrupada con la etiqueta cualquier texto debajo](powerpoint-math-equations_15.png)
+![La expresión x más y agrupada con la etiqueta cualquier texto debajo de ella](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -752,9 +797,9 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **Formatear elementos matemáticos**
+## **Dar formato a los elementos matemáticos**
 
-Use los ayudantes de formato solo donde clarifiquen la fórmula. Por ejemplo, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) coloca una barra encima de un elemento matemático.
+Utilice los asistentes de formato sólo donde aclaren la fórmula. Por ejemplo, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) coloca una barra sobre un elemento matemático.
 
 ![Una expresión matemática ABC con una barra superior](powerpoint-math-equations_14.png)
 
@@ -776,11 +821,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **Formatear texto en una ecuación existente**
+### **Dar formato al texto en una ecuación existente**
 
-Para formatear texto a lo largo de una ecuación existente, recorra el árbol de elementos de cada bloque matemático. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) devuelve solo los hijos inmediatos, por lo que debe llamarlo recursivamente para alcanzar el texto dentro de fracciones, scripts, radicales y otras estructuras anidadas. Verifique el elemento actual así como sus hijos para incluir el elemento inicial cuando sea [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+Para dar formato al texto en toda una ecuación existente, recorra el árbol de elementos de cada bloque matemático. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) devuelve sólo los hijos inmediatos, por lo que debe llamarse recursivamente para alcanzar texto dentro de fracciones, scripts, radicales y otras estructuras anidadas. Verifique el elemento actual así como sus hijos para incluir el elemento inicial cuando sea [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
 
-Este ejemplo asume que una presentación contiene una ecuación como `z = xᵢ / ∛y`, con una fracción que contiene un subíndice en su numerador y un radical en su denominador. Procesar solo los elementos de nivel superior del bloque omitirá el texto dentro de la fracción. El ejemplo encuentra porciones matemáticas en los marcos de texto de las diapositivas, accede a sus bloques a través de [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), y establece [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) a 28 puntos mediante la propiedad [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) de cada elemento de texto.
+Este ejemplo asume que una presentación contiene una ecuación como `z = xᵢ / ∛y`, con una fracción que contiene un subíndice en su numerador y un radical en su denominador. Procesar sólo los elementos de nivel superior del bloque omitiría el texto dentro de la fracción. El ejemplo encuentra porciones matemáticas en los marcos de texto de diapositivas, accede a sus bloques mediante [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), y establece [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) a 28 puntos mediante la propiedad [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) de cada elemento de texto.
 
 ```csharp
 using Aspose.Slides;
@@ -835,24 +880,24 @@ La presentación guardada contiene el formato de texto actualizado en cada nivel
 | Añadir funciones | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | Añadir radicales | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
 | Añadir límites | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Añadir scripts del lado izquierdo | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Añadir sumatorios e integrales | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| Añadir scripts a la izquierda | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Añadir sumas e integrales | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
 | Añadir matrices | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| Añadir matrices de ecuaciones | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Añadir arreglos de ecuaciones | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
 | Añadir delimitadores | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
 | Añadir barras y bordes | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Agrupar términos | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Preguntas frecuentes**
 
-**¿Puedo editar una ecuación PowerPoint existente?**
+**¿Puedo editar una ecuación de PowerPoint existente?**
 
-Sí. Abra la presentación, encuentre la forma que contiene una [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), obtenga su [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), y actualice los bloques matemáticos en ese párrafo.
+Sí. Abra la presentación, encuentre la forma que contiene un [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), obtenga su [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), y actualice los bloques matemáticos en ese párrafo.
 
-**¿Se guardan las ecuaciones como matemáticas de PowerPoint editables?**
+**¿Se guardan las ecuaciones como matemáticas editables de PowerPoint?**
 
-Sí. Cuando guarda en PPTX, Aspose.Slides escribe la ecuación como contenido de Office Math editable.
+Sí. Cuando guarda a PPTX, Aspose.Slides escribe la ecuación como contenido matemático editable de Office.
 
 **¿Puedo exportar ecuaciones a LaTeX?**
 
-Sí. Obtenga el [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) de la ecuación a partir de su [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), y llame a [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) para exportarla directamente. Para un ejemplo completo, consulte [Exportar ecuaciones matemáticas desde presentaciones en .NET](/slides/es/net/exporting-math-equations/#export-math-equations-to-latex).
+Sí. Obtenga el [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) de su [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), y llame a [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) para exportarla directamente. Para un ejemplo completo, consulte [Exportar ecuaciones matemáticas desde presentaciones en .NET](/slides/es/net/exporting-math-equations/#export-math-equations-to-latex).

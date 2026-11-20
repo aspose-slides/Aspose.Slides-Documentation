@@ -10,20 +10,20 @@ keywords:
 - สูตรคณิตศาสตร์
 - ข้อความคณิตศาสตร์
 - เพิ่มสมการคณิตศาสตร์
-- เพิ่มสัญลักษณ์คณیتศาสตร์
+- เพิ่มสัญลักษณ์คณิตศาสตร์
 - เพิ่มสูตรคณิตศาสตร์
 - เพิ่มข้อความคณิตศาสตร์
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides for Java รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด Java ที่ชัดเจน."
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ในไฟล์ PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ Java รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด Java ที่ชัดเจน"
 ---
 ## **ภาพรวม**
 
-PowerPoint จัดเก็บสมการในรูปแบบ Office Math Markup Language (OMML). ด้วย Aspose.Slides for Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์แบบเดียวกันโดยโปรแกรมได้: เศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาเรย์, และบล็อกคณิตศาสตร์ที่ฟอร์แมตไว้
+PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML) โดยใช้ Aspose.Slides for Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันด้วยโปรแกรมได้ ได้แก่ เศษส่วน ราก ฟังก์ชัน ขีดจำกัด ตัวดำเนินการ N-ary แม่พิมพ์ และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
 
-ใน PowerPoint ผู้ใช้มักเพิ่มสมการจาก **Insert > Equation**:
+ใน PowerPoint ผู้ใช้มักเพิ่มสมการโดยใช้ **Insert > Equation**:
 
 ![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
@@ -31,19 +31,19 @@ PowerPoint จัดเก็บสมการในรูปแบบ Office M
 
 ![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นโดยใช้วัตถุหลักสามประเภท:
+Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านสามอ็อบเจ็กต์หลัก:
 
-- รูปร่างคณิตศาสตร์ที่สร้างด้วย [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), เป็นรูปร่างที่บรรจุสมการ
-- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง
-- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) ประกอบด้วยหนึ่งหรือหลายวัตถุ [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/)
+- รูปคณิตศาสตร์ที่สร้างด้วย [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), คือรูปที่บรรจุสมการ
+- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) จัดเก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูป
+- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) มีอยู่หนึ่งหรือหลายอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/)
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) และเมธอดเชิงลำดับจาก [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) เพื่อให้โค้ดสั้นและอ่านง่าย
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) และเมธอดแบบ fluent จาก [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) เพื่อทำให้โค้ดสั้นและอ่านง่าย
 
-สำหรับกรณีการส่งออก MathML, ดู [Export Math Equations from Presentations in Java](/slides/th/java/exporting-math-equations/)
+สำหรับสถานการณ์ส่งออก MathML ดูที่ [Export Math Equations from Presentations in Java](/slides/th/java/exporting-math-equations/)
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มทฤษฎีพีทาโกรัส:
+ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) เพื่อสร้างรูปคณิตศาสตร์และเพิ่มสูตรพีธากอรัส:
 
 ![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
@@ -74,12 +74,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) สร้างรูปร่างที่มีย่อหน้าคณิตศาสตร์อยู่แล้ว. เข้าถึง [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) แรก, เรียก [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), และเพิ่มบล็อกคณิตศาสตร์หรือองค์ประกอบคณิตศาสตร์ลงไป
+[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) สร้างรูปที่มี MathParagraph อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) ตัวแรก, เรียก [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), และเพิ่มบล็อคคณิตศาสตร์หรืออิลิเมนต์คณิตศาสตร์ลงไป
 {{% /alert %}}
 
 ### **รวมบล็อกคณิตศาสตร์**
 
-เมื่อส่วนต่าง ๆ ของสมการถูกสร้างแยกกันเป็นวัตถุ [IMathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/) ใช้ [joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) เพื่อรวมเข้าด้วยกัน. ตัวอย่างสร้าง `c² =` ในบล็อกด้านซ้ายและ `a² + b²` ในบล็อกด้านขวา. [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-java.lang.String-) สร้างซูเปอร์สคริปต์คณิตศาสตร์ที่สามารถแก้ไขได้สำหรับกำลังทั้งสาม
+เมื่อส่วนของสมการถูกสร้างแยกกันเป็นอ็อบเจ็กต์ [IMathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/) ให้ใช้ [joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) เพื่อรวมเข้าด้วยกัน ตัวอย่างสร้าง `c² =` ในบล็อกซ้ายและ `a² + b²` ในบล็อกขวา [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-java.lang.String-) สร้างซูพอร์สคริปต์คณิตศาสตร์ที่แก้ไขได้สำหรับกำลังทั้งสาม
 
 ```java
 import com.aspose.slides.*;
@@ -110,13 +110,13 @@ try {
 }
 ```
 
-[joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) คืนค่า `leftBlock` เอง, ตอนนี้บรรจุส่วนทั้งสองตามลำดับและทำให้ `rightBlock` ว่าง. เพิ่มบล็อกที่รวมแล้วลงใน [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) เพียงครั้งเดียว. หลังจากเปิด `equation.pptx` อีกครั้ง ย่อหน้าจะมีบล็อกเดียวที่แสดง `c² = a² + b²`, โดยกำลังทั้งสามคงอยู่เป็นซูเปอร์สคริปต์คณิตศาสตร์
+[joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) คืนค่า `leftBlock` เอง ซึ่งตอนนี้มีทั้งสองส่วนเรียงลำดับแล้ว และทำให้ `rightBlock` ว่างเปล่า เพิ่มบล็อกที่รวมแล้วลงใน [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) เพียงครั้งเดียว หลังจากเปิด `equation.pptx` ใหม่ พารากราฟจะมีบล็อคเดียวที่แสดง `c² = a² + b²` โดยกำลังทั้งสามคงอยู่เป็นซูพอร์สคริปต์คณิตศาสตร์
 
-การเรียก [add](https://reference.aspose.com/slides/java/com.aspose.slides/imathelementcollection/#add-com.aspose.slides.IMathElement-) เป็น `leftBlock.add(rightBlock)` พยายามใส่บล็อกหนึ่งภายในอีกบล็อกหนึ่งโดยตรงและทำให้เกิด `InvalidOperationException`
+การเรียก [add](https://reference.aspose.com/slides/java/com.aspose.slides/imathelementcollection/#add-com.aspose.slides.IMathElement-) เป็น `leftBlock.add(rightBlock)` จะพยายามใส่บล็อกหนึ่งอยู่ภายในอีกบล็อกหนึ่งโดยตรงและจะโยน `InvalidOperationException`
 
 ## **เพิ่มเศษส่วน**
 
-ใช้ [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) เพื่อสร้างเศษส่วน. คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/)
+ใช้ [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/)
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -142,7 +142,7 @@ try {
 }
 ```
 
-สำหรับเศษส่วนแบบซ้อนชั้น ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar):
+สำหรับเศษส่วนแบบซ้อน ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
 import com.aspose.slides.*;
@@ -150,9 +150,9 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **เพิ่มรากคณิตศาสตร์**
+## **เพิ่มรากที่เป็นเกลียว**
 
-ใช้ [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) เพื่อสร้างรากกำลังสอง, รากกำลังสาม หรือรากอื่น ๆ. องค์ประกอบปัจจุบันจะเป็นฐานและอาร์กิวเมนต์จะเป็นดีกรี
+ใช้ [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) เพื่อสร้างรากที่สอง รากที่สาม หรือรากอื่น ๆ อิลิเมนต์ปัจจุบันจะกลายเป็นฐานและอาร์กิวเมนต์จะเป็นดีกรี
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -178,13 +178,13 @@ try {
 }
 ```
 
-### **แสดงหรือซ่อนดีกรีของรากกำลังสอง**
+### **แสดงหรือซ่อนดีกรีของรากที่สอง**
 
-รากกำลังสองสามารถแสดงเลข 2 อย่างชัดเจนหรือใช้สัญลักษณ์ √x ตามแบบดั้งเดิม. วิธี [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) ของ [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) ควบคุมรูปแบบที่ปรากฏ. ทั้งสองรูปแบบคงดีกรี 2 และราดิกันด์ x ไว้ในสมการที่แก้ไขได้
+รากที่สองสามารถแสดงเลข 2 ชัดเจนหรือใช้สัญลักษณ์ √x ตามแบบดั้งเดิม เมธอด [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) ของ [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) ควบคุมว่ารูปแบบใดจะแสดง ทั้งสองรูปแบบยังคงเก็บดีกรี 2 และราดิคันด์ x ไว้ในสมการที่แก้ไขได้
 
 ![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
 
-ตัวอย่างบันทึกรากกำลังสองเดียวกันสองครั้ง. ใน `visible-degree.pptx` ตัวเลข 2 ปรากฏ. ใน `hidden-degree.pptx` ตัวเลข 2 ถูกซ่อน
+ตัวอย่างบันทึกรากที่สองเดียวกันสองครั้ง ใน `visible-degree.pptx` ดีกรี 2 แสดงผล ใน `hidden-degree.pptx` ดีกรีถูกซ่อน
 
 ```java
 import com.aspose.slides.*;
@@ -211,7 +211,7 @@ try {
 
 ## **เพิ่มฟังก์ชันและขีดจำกัด**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) หรือ [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันที่กำหนดเอง. สำหรับขีดจำกัดให้ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-)
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) หรือ [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อตำแหน่งฟังก์ชันที่กำหนดเอง สำหรับขีดจำกัด ให้วาง `lim` ใน [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-)
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -238,7 +238,7 @@ try {
 }
 ```
 
-สำหรับชื่อฟังก์ชันที่กำหนดเอง ให้ทำให้ชื่อฟังก์ชันเป็นองค์ประกอบปัจจุบันและเรียก [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) พร้อมอาร์กิวเมนต์ของมัน:
+สำหรับฟังก์ชันกำหนดเอง ให้ทำให้ชื่อฟังก์ชันเป็นอิลิเมนต์ปัจจุบันและเรียก [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) พร้อมอาร์กิวเมนต์ของมัน:
 
 ```java
 import com.aspose.slides.*;
@@ -248,7 +248,7 @@ IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 
 ## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
 
-ใช้ [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) สำหรับการบวกผลรวม, ยูเนียน, อินเทอร์เซคชันและตัวดำเนินการใหญ่อื่น ๆ. ใช้ [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) สำหรับอินทิกรัล. ทั้งสองวิธีให้คุณกำหนดขีดจำกัดลัดและบน
+ใช้ [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) สำหรับผลบวก ผลคูณ การรวม การตัดกัน และตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) สำหรับอินทิกรัล ทั้งสองเมธอดให้คุณตั้งค่าขีดจำกัดล่างและบน
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -277,9 +277,9 @@ try {
 }
 ```
 
-ตัวดำเนินการ N-ary ใช้กับตัวดำเนินการใหญ่ที่มีขีดจำกัดได้ตามต้องการ. ตัวดำเนินการธรรมดาเช่น `+`, `-` และ `=` มักจะเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) แล้วต่อเข้ากับนิพจน์
+ตัวดำเนินการ N-ary ใช้สำหรับเครื่องหมายขนาดใหญ่ที่อาจมีขีดจำกัด ตัวดำเนินการธรรมดาเช่น `+`, `-`, `=` มักจะเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) แล้วเชื่อมต่อเข้ากับนิพจน์
 
-สำหรับอินทิกรัล ใช้ [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
+สำหรับอินทิกรัล ให้ใช้ [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
 ```java
 import com.aspose.slides.*;
@@ -290,7 +290,7 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์. เมทริกซ์ไม่มีวงเล็บโดยค่าเริ่มต้น, ดังนั้นให้ใส่วงเล็บ, กรอบหรือเครื่องหมายปีกการอบเมทริกซ์เมื่อจำเป็น
+ใช้ [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยทั่วไปไม่มีวงเล็บ จึงต้องหุ้มเมทริกซ์ด้วยวงกลม วงเหลี่ยม หรือวงโค้งเมื่อต้องการ
 
 ![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
@@ -322,11 +322,11 @@ try {
 
 ### **แก้ไขเมทริกซ์ที่มีอยู่**
 
-สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์สัมประสิทธิ์ใน `matrix.pptx` ที่บันทึกโดยตัวอย่างก่อนหน้า. สำหรับแบบฝึกหัดต่อไป ให้คงสมการแรกไว้, แทนที่สมการที่สองด้วยสองสมการใหม่, และปรับชุดตัวแปรใหม่. เปิดเมทริกซ์ที่มีอยู่ผ่าน [IMathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/) เพื่อคงสัมประสิทธิ์ที่ยังใช้ได้
+สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์สัมประสิทธิ์ใน `matrix.pptx` ซึ่งได้บันทึกโดยตัวอย่างก่อนหน้า สำหรับแบบฝึกหัดต่อไป ให้เก็บสมการแรกไว้ แทนที่สมการที่สองด้วยสองสมการใหม่ และแก้ไขชุดตัวแปร เปิดเมทริกซ์ที่มีอยู่ผ่าน [IMathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/) เพื่อรักษาสัมประสิทธิ์ที่ยังคงใช้ได้
 
 ![Original two-row coefficient matrix with entries 1, x, and an empty cell in the first row and x, 2, and y in the second](matrix-before-edit.png)
 
-ดัชนีแถวและคอลัมน์เริ่มต้นที่ศูนย์และอ้างอิงเมทริกซ์ตามสภาพในแต่ละคำเรียก. การแทรกแถวก่อนดัชนี 1 จะย้ายแถวที่สองเดิมไปเป็นดัชนี 2. การแทรกหลังดัชนี 2 จะเพิ่มแถวใหม่. การลบแถว 2 จะลบสมการที่สองเดิมและย้ายแถวที่เพิ่มขึ้นขึ้นหนึ่งตำแหน่ง. คอลัมน์ก็เลื่อนในลักษณะเดียวกัน
+ดัชนีแถวและคอลัมน์เริ่มที่ศูนย์และอ้างอิงเมทริกซ์ตามสถานะขณะเรียก การแทรกแถวก่อนดัชนี 1 จะย้ายแถวที่สองเดิมไปเป็นดัชนี 2 การแทรกหลังดัชนี 2 จะเพิ่มแถว การลบแถวที่ 2 จะลบสมการที่สองเดิมและย้ายแถวที่เพิ่มขึ้นมาขึ้นหนึ่งตำแหน่ง คอลัมน์ก็เปลี่ยนเช่นเดียวกัน
 
 ```java
 import com.aspose.slides.*;
@@ -345,7 +345,7 @@ try {
     matrix.insertColumnAfter(3);
     matrix.deleteColumn(3);
 
-    // เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน
+    // เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน.
     matrix.set_Item(1, 0, new MathematicalText("12"));
     matrix.set_Item(1, 1, new MathematicalText("1"));
     matrix.set_Item(2, 2, new MathematicalText("10"));
@@ -367,13 +367,13 @@ try {
 }
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) จัดแนวคอลัมน์แรกไปด้านซ้าย. [setColumnsAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) จัดแนวสามคอลัมน์ต่อเนื่องไปด้านขวา, เริ่มจากดัชนี 1. ใน `updated-matrix.pptx` เมทริกซ์มีสามสมการและสี่ตัวแปร. สัมประสิทธิ์ของแถวแรกเดิม `1` และ `x` ปรากฏในคอลัมน์แรกและคอลัมน์ที่สาม
+[setColumnAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) จัดแนวคอลัมน์แรกไปด้านซ้าย [setColumnsAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) จัดแนวสามคอลัมน์ต่อเนื่องไปด้านขวา เริ่มที่ดัชนี 1 ใน `updated-matrix.pptx` เมทริกซ์มีสามสมการและสี่ตัวแปร สัมประสิทธิ์แถวแรก `1` และ `x` ปรากฏในคอลัมน์แรกและคอลัมน์ที่สาม
 
 ![Updated three-row matrix showing the rows 1, 0, x, 0; 12, 1, 0, 0; and 0, 0, 10, 1](matrix-after-edit.png)
 
-## **เพิ่มอาเรย์สมการ**
+## **เพิ่มอาร์เรย์สมการ**
 
-ใช้ [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) เมื่อคุณต้องการสมการที่จัดแนวหรือสแตกแนวดิ่งของนิพจน์
+ใช้ [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) เมื่อคุณต้องการสมการที่จัดตำแหน่งหรือสแตกแนวตั้งของนิพจน์
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -400,11 +400,11 @@ try {
 }
 ```
 
-### **จัดตำแหน่งอาเรย์กับองค์ประกอบโดยรอบ**
+### **จัดแนวอาร์เรย์ร่วมกับอิลิเมนต์รอบข้าง**
 
-[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) ควบคุมการจัดแนวแนวตั้งของอาเรย์เทียบกับองค์ประกอบคณิตศาสตร์ที่อยู่ข้าง ๆ. ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์กลางของอาเรย์, และแถวสุดท้าย
+[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) ควบคุมการจัดแนวแนวตั้งของอาร์เรย์เทียบกับอิลิเมนต์คณิตศาสตร์ข้างเคียง ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก ศูนย์กลางอาร์เรย์ และแถวสุดท้าย
 
-ตัวอย่างต่อไปนี้สร้างอาเรย์สามอันที่เหมือนกัน, แต่ละอันมีสามแถวและองค์ประกอบข้างเคียง `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้แบบอักษร Cambria Math ขนาด 24 จุด. มีเพียงการจัดแนวอาเรย์ที่เปลี่ยน
+ตัวอย่างต่อไปสร้างอาร์เรย์สามอันที่เหมือนกัน แต่ละอาร์เรย์มีสามแถวและอิลิเมนต์ข้างเคียง `A=` และ `=B` ข้อความคณิตศาสตร์ทั้งหมดใช้แบบอักษร Cambria Math ขนาด 24 pt มีเพียงการจัดแนวอาร์เรย์ที่เปลี่ยน
 
 ```java
 import com.aspose.slides.*;
@@ -460,17 +460,17 @@ try {
 }
 ```
 
-การเปรียบเทียบต่อไปนี้แสดงการบันทึกการนำเสนอใน PowerPoint. สังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาเรย์
+การเปรียบเทียบต่อไปแสดงการบันทึกงานนำเสนอใน PowerPoint ให้สังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาร์เรย์
 
 ![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **กำหนดระยะห่างแถว**
+### **กำหนดค่าการเว้นระยะแถว**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) เลือกรูปแบบการเว้นระยะสำหรับแถวภายในอาเรย์. [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) ให้ค่าตัวเลขสำหรับรูปแบบการเว้นระยะแบบชัดเจนและจะถูกละเลยหากใช้รูปแบบตั้งไว้
+[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) เลือกกฎการเว้นระยะสำหรับแถวภายในอาร์เรย์ [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) ให้ค่าตัวเลขสำหรับกฎการเว้นระยะอย่างชัดเจนและจะถูกละเลยโดยกฎสำเร็จรูป
 
-สำหรับการเว้นระยะที่แม่นยำ ค่าจะวัดเป็นจุด. สำหรับการเว้นระยะเชิงสัดส่วน ค่าจะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด. ตั้งค่าทั้งสองคุณสมบัติเมื่อต้องการกำหนดค่าชัดเจน; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวจะไม่เลือกรูปแบบการเว้นระยะ
+สำหรับการเว้นระยะที่แม่นยำ ค่าจะวัดเป็นจุด สำหรับการเว้นระยะตามสัดส่วน จะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด ตั้งค่าทั้งสองคุณสมบัติเมื่อระบุค่าชัดเจน; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวไม่เลือกกฎการเว้นระยะ
 
-ตัวอย่างด้านล่างบันทึกการนำเสนอห้าไฟล์โดยใช้สมการเดียวกัน, การจัดแนวเดียวกัน, และการตั้งค่าฟอนต์เดียวกัน. สามไฟล์แรกใช้รูปแบบตั้งไว้; สองไฟล์สุดท้ายแสดงค่าชัดเจน
+ตัวอย่างต่อไปบันทึกงานนำเสนอห้าฉบับด้วยสมการ การจัดแนวและการตั้งค่าแบบอักษรเดียวกัน สามแรกใช้ค่ากำหนดล่วงหน้า; สองสุดท้ายแสดงค่าชัดเจน
 
 ```java
 import com.aspose.slides.*;
@@ -519,11 +519,11 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-การเว้นระยะแถวของอาเรย์แยกจากการเว้นระยะของย่อหน้า. [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) และ [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) เพิ่มช่องว่างรอบย่อหน้าที่บรรจุ, ไม่ได้อยู่ระหว่างแถวของอาเรย์. อีกเช่น, [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) กำหนดตำแหน่งของย่อหน้าคณิตศาสตร์ทั้งหมดในแนวนอน; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์
+การเว้นระยะแถวของอาร์เรย์แยกจากการเว้นระยะของย่อหน้าต่าง ๆ [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) และ [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) เพิ่มระยะรอบย่อหน้าที่บรรจุอาร์เรย์ ไม่ได้เพิ่มระหว่างแถวอาร์เรย์เช่นกัน เช่นเดียวกับ [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) ที่จัดตำแหน่งแนวนอนของย่อหน้าคณิตศาสตร์ทั้งหมด; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาร์เรย์
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) เมื่ออาร์กิวเมนต์เป็นองค์ประกอบปัจจุบันและชื่อฟังก์ชันทราบ
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) เมื่ออาร์กิวเมนต์คืออิลิเมนต์ปัจจุบันและชื่อฟังก์ชันทราบ
 
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
@@ -549,9 +549,9 @@ try {
 }
 ```
 
-## **เพิ่มตัวห้อยและตัวหัว**
+## **เพิ่มล่างและซูพอร์สคริปต์**
 
-ใช้ตัวช่วยสำหรับตัวห้อยและตัวหัวสำหรับดัชนีและกำลัง. เมื่อดัชนีต้องแสดงทางด้านซ้ายของฐาน, ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
+ใช้ตัวช่วยล่างและซูพอร์สคริปต์สำหรับดัชนีและกำลัง เมื่อดัชนีต้องอยู่ด้านซ้ายของฐาน ให้ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -577,9 +577,53 @@ try {
 }
 ```
 
-## **เพิ่มตัวคั่น**
+### **จัดแนวล่างและซูพอร์สคริปต์ด้านขวา**
 
-ใช้ [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) เพื่อใส่นิพจน์ภายในตัวคั่น. คุณยังสามารถกำหนดอักขระคั่นสำหรับนิพจน์ตัวคั่นที่มีหลายองค์ประกอบได้
+เมื่อสคริปต์ทั้งสองเป็นของฐานเดียวกัน ให้ใช้ [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/java/com.aspose.slides/mathrightsubsuperscriptelement/) เมธอด [setAlignScripts](https://reference.aspose.com/slides/java/com.aspose.slides/imathrightsubsuperscriptelement/#setAlignScripts-boolean-) ควบคุมตำแหน่งแนวนอน: `false` (ค่าเริ่มต้น) ให้สคริปต์ตามโค้งของฐาน, `true` จัดแนวสคริปต์ให้อยู่ในแนวเดียวกัน
+
+ตัวอย่างนี้วางสำเนาสองชุดของนิพจน์ที่แก้ไขได้ข้างกัน ทั้งสองใช้ตัวอักษรเอียงคณิตศาสตร์ f (U+1D453) ล่างสคริปต์ 1 บนสคริปต์ 2 และแบบอักษร Cambria Math ขนาด 72 pt ฐานที่เอียงทำให้เห็นความแตกต่างใน PowerPoint ให้ติดตั้ง Cambria Math ก่อนรันตัวอย่าง
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(900, 250, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    PortionFormat format = new PortionFormat();
+    format.setFontHeight(72);
+    format.setLatinFont(new FontData("Cambria Math"));
+
+    for (int i = 0; i < 2; i++) {
+        int left = 40 + i * 440;
+        IAutoShape shape = slide.getShapes().addMathShape(left, 75, 380, 150);
+
+        MathematicalText baseText = new MathematicalText("\uD835\uDC53", format);
+        MathematicalText subscript = new MathematicalText("1", format);
+        MathematicalText superscript = new MathematicalText("2", format);
+        MathRightSubSuperscriptElement scripts = new MathRightSubSuperscriptElement(baseText, subscript, superscript);
+        scripts.setAlignScripts(i == 1);
+
+        MathPortion portion = (MathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+        portion.getPortionFormat().setFontHeight(format.getFontHeight());
+        portion.getPortionFormat().setLatinFont(format.getLatinFont());
+        portion.getMathParagraph().add(new MathBlock(scripts));
+    }
+
+    presentation.save("aligned-scripts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![Two editable expressions in PowerPoint with setAlignScripts set to false on the left and true on the right](aligned-scripts.png)
+
+ด้านซ้าย ล่างสคริปต์เริ่มอยู่ด้านซ้ายไกลกว่าบนสคริปต์ ตามโค้งฐาน ด้านขวา สคริปต์สองตัวจัดแนวแนวนอนตรงกัน
+
+## **เพิ่มเครื่องหมายขอบเขต**
+
+ใช้ [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) เพื่อตัวอักษรในเครื่องหมายขอบเขต คุณยังสามารถกำหนดอักขระคั่นสำหรับนิพจน์ที่มีหลายอิลิเมนต์
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -608,11 +652,11 @@ try {
 }
 ```
 
-### **ขนาดและการจัดตำแหน่งตัวคั่น**
+### **ขนาดและการจัดแนวเครื่องหมายขอบเขต**
 
-ใส่ค่า `true` ให้กับ [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) เพื่อให้วงเล็บขยายตามโอเปอแรนด์สูง, หรือใส่ค่า `false` เพื่อคงขนาดปกติ. ใช้ [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) กับค่าหนึ่งจากสองค่าใน [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/). `Centered` จัดศูนย์วงเล็บบนแกนคณิตศาสตร์ซึ่งวิ่งผ่านส่วนกลางของเครื่องหมายเท่ากับ. `Match` จัดให้ตรงกับเนื้อหาที่ล้อมรอบ. ทั้งสองการตั้งค่ามีผลเฉพาะกับตัวคั่น. นิพจน์ภายในคงเดิม
+ส่งค่า `true` ไปยัง [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) เพื่อให้วงเล็บขยายตามตัวประกอบที่สูง, หรือส่ง `false` เพื่อคงขนาดปกติ ใช้ [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) กับค่าใดค่าหนึ่งของ [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) `Centered` จัดศูนย์วงเล็บบนแกนอักษรคณิตศาสตร์, `Match` จัดให้ตรงกับเนื้อหาที่ห่อหุ้ม ทั้งสองการตั้งค่าเพียงมีผลต่อวงเล็บ ส่วนนิพจน์ภายในคงเดิม
 
-ตัวอย่างใส่เศษส่วนในรูปลำดับของ `x` ทำให้นิพจน์ยืดออกเหนือฐานมากกว่าต่ำลง. ทั้งสี่สมการใช้วงเล็บและการตั้งค่าฟอนต์เดียวกัน
+ตัวอย่างวางเศษส่วนในดีกรีของ `x` ทำให้นิพจน์ขยายสูงกว่าบรรทัดฐานทั้งด้านบนและล่าง ทุกสมการสี่สมการใช้วงเล็บและการตั้งค่าแบบอักษรเดียวกัน
 
 ```java
 import com.aspose.slides.*;
@@ -641,15 +685,15 @@ try {
 }
 ```
 
-ใน PowerPoint ให้เปรียบเทียบแถวเพื่อดูผลของการขยาย. ในแถวบน, วงเล็บขยายเพื่อครอบลำดับและดูเหมือนกันสำหรับทั้งสองรูปแบบ. ในแถวล่าง, การขยายปิด. วงเล็บเล็กกว่าด้านซ้าย (`Centered`) จะจัดกับเครื่องหมายเท่ากับ, ส่วนด้านขวา (`Match`) จะอยู่สูงกว่ารอบนิพจน์
+ใน PowerPoint ให้เปรียบเทียบแถวเพื่อดูผลของการขยาย แถวบนวงเล็บขยายเพื่อห่อดีกรีและดูคล้ายกันสำหรับทั้งสองรูปแบบ แถวล่างการขยายปิด การวงเล็บเล็กด้านซ้าย (`Centered`) จัดกับสัญลักษณ์เท่ากับ, ส่วนด้านขวา (`Match`) อยู่สูงกว่ารอบนิพจน์
 
 ![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
 ## **เพิ่มกล่องขอบ**
 
-เรียก [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) บนเศษส่วนเพื่อใส่กรอบรอบนิพจน์ทั้งหมด. [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) ที่คืนค่ามีสี่ด้านแสดงโดยค่าเริ่มต้น. ใช้ [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), และ [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) เพื่อลบด้านแต่ละด้าน
+เรียก [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) บนเศษส่วนเพื่อกรอบนิพจน์ทั้งหมด ผลลัพธ์ [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) แสดงสี่ด้านโดยค่าเริ่มต้น ใช้ [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), และ [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) เพื่อลบด้านใดด้านหนึ่ง
 
-ตัวอย่างวางสำเนาเศษส่วนเดียวกันหกอันบนสไลด์เดียว. เพื่อแสดงการยกเลิก, ซ่อนสี่ด้านทั้งหมดและใส่ค่า `true` ให้กับ [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) เพื่อให้ได้เส้นทแยงขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) เพื่อให้ได้เส้นทแยงลง (↘). คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) ร่วมกับการแสดงผลของด้านใดด้านหนึ่งได้ตามต้องการ
+ตัวอย่างวางสำเนาเศษส่วนเดียวกันหกครั้งบนสไลด์เดียว เพื่อแสดงการยกเลิก ให้ซ่อนสี่ด้านทั้งหมดและส่งค่า `true` ไปยัง [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) สำหรับทแยงมุมขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) สำหรับทแยงมุมลง (↘) คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) พร้อมการผสมผสานของด้านที่แสดงได้
 
 ```java
 import com.aspose.slides.*;
@@ -694,24 +738,24 @@ try {
 }
 ```
 
-![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border](border-box-fractions.png)
 
-บนเศษส่วนนี้, เส้นขีดแนวนอนซ้อนกับเส้นบาร์ของเศษส่วน. เส้นขีดแนวตั้งตัดทั้งตัวเศษและส่วนหารในขณะที่กรอบรอบ ๆ ยังคงมองเห็นได้. เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด. การขีดเส้นตรงในข้อความทั่วไปใช้กับอักขระในรันของข้อความ. หลังจากเปิดการนำเสนอใหม่ใน PowerPoint, คุณยังคงแก้ไขตัวเศษและส่วนหารได้โดยอิสระ
+บนเศษส่วนนี้ เส้นขีดแนวนอนทับแถบเศษส่วน เส้นขีดแนวตั้งครอบนัมเมอเรเตอร์และเดนนอมิเนเตอร์ในขณะเดียวกันกรอบรอบข้างยังคงมองเห็นได้ เส้นเหล่านี้ประดับให้กับนิพจน์ทั้งหมด ขีดเส้นทับข้อความทั่วไปใช้กับอักขระในรันข้อความ หลังจากเปิดงานนำเสนอใหม่ใน PowerPoint คุณยังสามารถแก้ไขนัมเมอเรเตอร์และเดนนอมิเนเตอร์แยกกันได้
 
-## **ควบคุมการมองเห็นและเลย์เอาต์ด้วยองค์ประกอบแฟนท์ม**
+## **ควบคุมการมองเห็นและการจัดวางด้วย Phantom Elements**
 
-ห่อหุ้มนิพจน์ใน [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันทำให้สมการขยายโดยอิสระ. วิธีของ [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) ควบคุมสิ่งต่อไปนี้
+หุ้มนิพจน์ด้วย [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันมีผลต่อสมการอย่างอิสระ วิธีการของ [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) ควบคุมดังต่อไปนี้
 
-| วิธี | ผล |
+| วิธีการ | ผล |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | ใส่ค่า `false` เพื่อซ่อนนิพจน์. มิติของมันยังคงส่งผลต่อเลย์เอาต์จนกว่าวิธีต่อไปนี้จะรับค่า `true` |
-| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | ปฏิบัติต่อความกว้างแนวนอนของนิพจน์เป็นศูนย์, ทำให้องค์ประกอบใกล้เคียงย้ายเข้ามาใกล้กัน |
-| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | ปฏิบัติต่อส่วนที่ยกขึ้นเหนือเส้นฐานเป็นศูนย์, ลดพื้นที่ที่สงวนไว้เหนือองค์ประกอบใกล้เคียง |
-| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | ปฏิบัติต่อส่วนที่ลงต่ำกว่าเส้นฐานเป็นศูนย์, ทำให้บาร์ของเศษส่วนหรือเนื้อหาอื่น ๆ ที่อยู่นี่ต่ำลงและเข้าใกล้องค์ประกอบข้างเคียง |
+| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | ส่งค่า `false` เพื่อซ่อนนิพจน์ มิติของมันยังคงมีผลต่อการจัดวาง ยกเว้นว่าวิธีการด้านล่างจะรับค่า `true` |
+| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | ปรับความกว้างแนวนอนได้เป็นศูนย์ ทำให้อิลิเมนต์ข้างเคียงเคลื่อนเข้ามาใกล้กัน |
+| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | ปรับส่วนบรรทัดบน (ความสูงเหนือเส้นฐาน) เป็นศูนย์ ลดพื้นที่ที่สงวนไว้เหนืออิลิเมนต์ข้างเคียง |
+| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | ปรับส่วนบรรทัดล่าง (ความลึกใต้เส้นฐาน) เป็นศูนย์ ทำให้แถบเศษส่วนหรือเนื้อหาอื่น ๆ ใต้นิพจน์เข้ามาใกล้กับเพื่อนบ้าน |
 
-Baseline คือเส้นอ้างอิงที่อักษรคณิตศาสตร์ปกตินั่งลงบน. การซ่อนเนื้อหาไม่ทำให้มิติหายไป, และการตั้งค่ามิติเป็นศูนย์ไม่ลบล้างนิพจน์. นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--). ใส่ค่า `true` ให้กับ [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติยังคงเหมือนเดิม
+เส้นฐานคือเส้นอ้างอิงที่อักษรคณิตศาสตร์ทั่วไปวางอยู่ การซ่อนเนื้อหาไม่ได้ลบมิติออก และการตั้งค่ามิติเป็นศูนย์ไม่ได้ลบนิพจน์ออก นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--) ส่งค่า `true` ไปยัง [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติยังคงเหมือนเดิม
 
-ตัวอย่างด้านล่างสร้างห้าแบบที่วางข้างกัน: เศษส่วนที่มองเห็น, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และสามเศษส่วนที่ซ่อนโดยตั้งค่ามิติหนึ่งเป็นศูนย์. แต่ละแบบใช้นิพจน์รอบข้างเดียวกันและ Cambria Math ขนาด 24 จุด. ทุกรูปร่างสมการมีตำแหน่งบนเดียวกัน, ทำเครื่องหมายด้วยไกด์สีเทา. การใส่ phantom ในตัวเศษของเศษส่วนภายนอกทำให้การเปลี่ยนแปลงเลย์เอาต์แนวตั้งเห็นได้ชัด
+ตัวอย่างต่อไปสร้างห้าตัวแปรแบบข้างเคียงกัน: เศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่ยังจองพื้นที่, และสามเศษส่วนที่ซ่อนโดยตั้งค่ามิติหนึ่งเป็นศูนย์ แต่ละตัวใช้นิพจน์รอบข้างเดียวกันและแบบอักษร Cambria Math ขนาด 24 pt รูปร่างสมการทั้งหมดมีตำแหน่งแนวบนเดียวกันโดยมีไกด์สีเทาประทับตำแหน่ง การวาง phantom ในนัมเมอเรเตอร์ของเศษส่วนภายนอกทำให้เห็นการเปลี่ยนแปลงการจัดวางแนวตั้งได้ง่ายขึ้น
 
 ```java
 import com.aspose.slides.*;
@@ -784,7 +828,7 @@ try {
 
 ## **จัดกลุ่มเทอม**
 
-ใช้ [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) เพื่อวางอักขระจัดกลุ่มเหนือหรือใต้นิพจน์. เพิ่มขีดจำกัดเพื่อทำป้ายกำกับให้กับเทอมที่จัดกลุ่ม
+ใช้ [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) เพื่อวางตัวอักษรการจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มขีดจำกัดเพื่อระบุเทอมที่จัดกลุ่ม
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -811,9 +855,9 @@ try {
 }
 ```
 
-## **กำหนดรูปแบบองค์ประกอบคณิตศาสตร์**
+## **จัดรูปแบบอิลิเมนต์คณิตศาสตร์**
 
-ใช้ตัวช่วยการจัดรูปแบบเมื่อมันช่วยทำให้สูตรชัดเจน. ตัวอย่างเช่น, [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) ใส่บาร์เหนือองค์ประกอบคณิตศาสตร์
+ใช้ตัวช่วยจัดรูปแบบเฉพาะเมื่อทำให้สูตรชัดเจน ตัวอย่างเช่น [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) วางแถบบาร์เหนืออิลิเมนต์คณิตศาสตร์
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -838,11 +882,11 @@ try {
 }
 ```
 
-### **กำหนดรูปแบบข้อความในสมการที่มีอยู่**
+### **จัดรูปแบบข้อความในสมการที่มีอยู่**
 
-เพื่อกำหนดรูปแบบข้อความทั่วทั้งสมการที่มีอยู่, ให้เดินสำรวจต้นไม้ขององค์ประกอบในแต่ละบล็อกคณิตศาสตร์. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) คืนค่าตัวลูกโดยตรงเท่านั้น, ดังนั้นจึงต้องเรียกแบบรีเคอร์ซีฟเพื่อเข้าถึงข้อความภายในเศษส่วน, ตัวสคริปต์, ราก, และโครงสร้างซ้อนอื่น ๆ. ตรวจสอบองค์ประกอบปัจจุบันและลูกของมันเพื่อรวมองค์ประกอบเริ่มต้นเมื่อมันเป็น [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/)
+เพื่อจัดรูปแบบข้อความทั่วทั้งสมการที่มีอยู่ ให้เดินทางผ่านต้นไม้ของอิลิเมนต์ในแต่ละบล็อกคณิตศาสตร์ [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) คืนค่าลูกเมื่อตรงต่อ ซึ่งต้องเรียกซ้ำแบบแบบรีเคอร์ซีฟเพื่อเข้าถึงข้อความภายในเศษส่วน สคริปต์ รากและโครงสร้างซ้อนอื่น ๆ ตรวจสอบอิลิเมนต์ปัจจุบันและลูกเมื่อต้องรวมอิลิเมนต์เริ่มต้นที่เป็น [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/)
 
-ตัวอย่างนี้ถือว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y`, โดยมีเศษส่วนที่มีตัวห้อยในตัวเศษและรากในส่วนหาร. การประมวลผลเฉพาะองค์ประกอบระดับบนของบล็อกจะพลาดข้อความภายในเศษส่วน. ตัวอย่างค้นหาส่วนคณิตศาสตร์ในกรอบข้อความของสไลด์, เข้าถึงบล็อกผ่าน [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), และใช้ [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) เพื่อตั้งขนาดฟอนต์เป็น 28 จุดผ่านวิธี [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) ของแต่ละองค์ประกอบข้อความ
+ตัวอย่างสมมติว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y` โดยมีเศษส่วนที่มีล่างในนัมเมอเรเตอร์และรากในเดนนอมิเนเตอร์ การประมวลผลเพียงอิลิเมนต์ระดับบนของบล็อกจะพลาดข้อความภายในเศษส่วน ตัวอย่างค้นหาส่วนคณิตศาสตร์ในเฟรมข้อความสไลด์, เข้าถึงบล็อกผ่าน [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), และใช้ [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) ตั้งขนาดฟอนต์เป็น 28 pt ผ่านเมธอด [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) ของแต่ละอิลิเมนต์ข้อความ
 
 ```java
 import com.aspose.slides.*;
@@ -893,37 +937,37 @@ try {
 }
 ```
 
-การบันทึกการนำเสนอจะมีการจัดรูปแบบข้อความที่อัปเดตในทุกระดับของแต่ละสมการที่ประมวลผล, พร้อมคงเนื้อหาข้อความและโครงสร้างคณิตศาสตร์
+งานนำเสนอที่บันทึกไว้จะมีการอัปเดตรูปแบบข้อความในทุกระดับของแต่ละสมการที่ประมวลผล ขณะเดียวกันยังคงรักษาเนื้อหาและโครงสร้างคณิตศาสตร์ไว้
 
 ## **อ้างอิงอย่างรวดเร็ว**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
-| รวมองค์ประกอบ | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| รวมอิลิเมนต์ | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | สร้างเศษส่วน | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| เพิ่มตัวหัวหรือหัวย่อย | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| เพิ่มซูพอร์สคริปต์หรือล่างสคริปต์ | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
 | เพิ่มฟังก์ชัน | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| เพิ่มราก | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| เพิ่มรากที่เป็นเกลียว | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
 | เพิ่มขีดจำกัด | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
 | เพิ่มสคริปต์ด้านซ้าย | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | เพิ่มผลบวกและอินทิกรัล | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
-| เพิ่มอาเรย์สมการ | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
-| เพิ่มตัวคั่น | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| เพิ่มบาร์และขอบ | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| เพิ่มอาร์เรย์สมการ | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
+| เพิ่มเครื่องหมายขอบเขต | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| เพิ่มแถบและขอบ | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | จัดกลุ่มเทอม | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
+**ฉันแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
 
-ใช่. เปิดการนำเสนอ, ค้นหารูปร่างที่บรรจุ [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), เรียก [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), และอัปเดตบล็อกคณิตศาสตร์ในย่อหน้านั้น
+ได้ เปิดงานนำเสนอ ค้นหารูปที่มี [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), เรียก [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), แล้วอัปเดตบล็อกคณิตศาสตร์ในพารากราฟนั้น
 
 **สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
 
-ใช่. เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่สามารถแก้ไขได้
+ใช่ เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่แก้ไขได้
 
 **ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
 
-ใช่. รับ [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) ของสมการจาก [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/), แล้วเรียก [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) เพื่อส่งออกโดยตรง. สำหรับตัวอย่างเต็ม, ดู [Export Math Equations from Presentations in Java](/slides/th/java/exporting-math-equations/#export-math-equations-to-latex)
+ได้ เรียก [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) จาก [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) ของ [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/) เพื่อส่งออกโดยตรง ตัวอย่างเต็มดูที่ [Export Math Equations from Presentations in Java](/slides/th/java/exporting-math-equations/#export-math-equations-to-latex)

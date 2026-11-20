@@ -1,6 +1,6 @@
 ---
-title: "Aggiungi Equazioni Matematiche alle Presentazioni PowerPoint in Python"
-linktitle: "Equazioni Matematiche PowerPoint"
+title: Aggiungi equazioni matematiche alle presentazioni PowerPoint in Python
+linktitle: Equazioni matematiche PowerPoint
 type: docs
 weight: 80
 url: /it/python-java/powerpoint-math-equations/
@@ -18,21 +18,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Inserisci e modifica equazioni matematiche nei file PowerPoint PPT e PPTX con Aspose.Slides per Python tramite Java, supportando OMML, controlli di formattazione e chiari esempi di codice Python."
+description: "Inserisci e modifica equazioni matematiche in PowerPoint PPT e PPTX con Aspose.Slides per Python via Java, supportando OMML, controlli di formattazione e chiari esempi di codice Python."
 ---
 ## **Panoramica**
 
-PowerPoint memorizza le equazioni come Office Math Markup Language (OMML). Con Aspose.Slides per Python tramite Java, è possibile creare lo stesso tipo di contenuto matematico in modo programmatico: frazioni, radicali, funzioni, limiti, operatori N-ario, matrici, array e blocchi matematici formattati.
+PowerPoint memorizza le equazioni come Office Math Markup Language (OMML). Con Aspose.Slides per Python tramite Java, è possibile creare lo stesso tipo di contenuto matematico in modo programmatico: frazioni, radicali, funzioni, limiti, operatori N-ari, matrici, array e blocchi matematici formattati.
 
 In PowerPoint, gli utenti normalmente aggiungono le equazioni da **Insert > Equation**:
 
 ![Scheda Inserisci di PowerPoint con il comando Equazione selezionato](powerpoint-math-equations_1.png)
 
-Il risultato è del testo matematico modificabile nella diapositiva:
+La risultante è del testo matematico modificabile nella diapositiva:
 
 ![Una diapositiva PowerPoint contenente un'equazione matematica modificabile](powerpoint-math-equations_2.png)
 
-Aspose.Slides costruisce quel testo matematico tramite tre oggetti principali:
+Aspose.Slides costruisce quel testo matematico attraverso tre oggetti principali:
 
 - Una forma matematica, creata con [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape), è la forma che contiene l'equazione.
 - [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) memorizza il contenuto matematico all'interno del riquadro di testo della forma.
@@ -40,7 +40,7 @@ Aspose.Slides costruisce quel testo matematico tramite tre oggetti principali:
 
 La maggior parte degli esempi seguenti utilizza [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) e i metodi fluenti di [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) per mantenere il codice breve e leggibile.
 
-Per scenari di esportazione MathML, vedere [Export Math Equations from Presentations in Python](/slides/it/python-java/exporting-math-equations/).
+Per scenari di esportazione MathML, vedere [Esporta equazioni matematiche da presentazioni in Python](/slides/it/python-java/exporting-math-equations/).
 
 ## **Crea un'equazione**
 
@@ -75,13 +75,13 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) crea una forma che contiene già un paragrafo matematico. Accedi al primo [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), chiama [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), e aggiungi blocchi matematici o elementi matematici.
+{{% alert color="info" title="Nota" %}}
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) crea una forma che contiene già un paragrafo matematico. Accedi al primo [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), chiama [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), e aggiungi blocchi matematici o elementi matematici ad esso.
 {{% /alert %}}
 
 ### **Combina blocchi matematici**
 
-Quando le parti di un'equazione sono costruite indipendentemente come oggetti [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) , usa [joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) per combinarle. L'esempio costruisce `c² =` nel blocco sinistro e `a² + b²` nel blocco destro. [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript) crea superscript matematici modificabili per tutti e tre i poteri.
+Quando le parti di un'equazione sono costruite indipendentemente come oggetti [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/), usa [joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) per combinarle. L'esempio costruisce `c² =` nel blocco sinistro e `a² + b²` nel blocco destro. [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript) crea superscript matematici modificabili per tutte e tre le potenze.
 
 ```python
 import jpype
@@ -117,9 +117,9 @@ finally:
     presentation.dispose()
 ```
 
-[joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) restituisce lo stesso `left_block`, ora contenente entrambe le parti in ordine, e lascia `right_block` vuoto. Aggiungi il blocco combinato al [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) una sola volta. Dopo aver riaperto `equation.pptx`, il paragrafo contiene un blocco che rappresenta `c² = a² + b²`, con tutti e tre i poteri preservati come superscript matematici.
+[joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) restituisce lo stesso `left_block`, ora contenente entrambe le parti in ordine, e lascia `right_block` vuoto. Aggiungi il blocco combinato a [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) una sola volta. Dopo aver riaperto `equation.pptx`, il paragrafo contiene un unico blocco che rappresenta `c² = a² + b²`, con tutti e tre i gradi preservati come superscript matematici.
 
-Chiamare [add](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#add) come `left_block.add(right_block)` invece tenta di annidare un blocco direttamente dentro un altro e genera `InvalidOperationException`.
+La chiamata a [add](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#add) come `left_block.add(right_block)` tenta invece di annidare un blocco direttamente dentro un altro e genera `InvalidOperationException`.
 
 ## **Aggiungi frazioni**
 
@@ -171,7 +171,7 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 Usa [radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) per creare una radice quadrata, radice cubica o altra radice. L'elemento corrente diventa la base, e l'argomento diventa il grado.
 
-![Un'espressione radicale di n-esima radice con x sotto il segno radicale](powerpoint-math-equations_5.png)
+![Un'espressione radicale n-esima con x sotto il segno radicale](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -201,7 +201,7 @@ finally:
 
 ### **Mostra o nascondi il grado di una radice quadrata**
 
-Una radice quadrata può visualizzare un 2 esplicito o usare la notazione convenzionale √x. Il metodo [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) di [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/) controlla quale forma appare. Entrambe le forme conservano il grado 2 e il radicando x nell'equazione modificabile.
+Una radice quadrata può visualizzare un 2 esplicito o usare la notazione convenzionale √x. Il metodo [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) di [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/) controlla quale forma appare. Entrambe le forme mantengono il grado 2 e il radicando x nell'equazione modificabile.
 
 ![La stessa radice quadrata con il grado visibile a sinistra e nascosto a destra](square-root-degree.png)
 
@@ -284,9 +284,9 @@ custom_function = MathematicalText("f").function("x + 1")
 
 ## **Aggiungi operatori N-ari e integrali**
 
-Usa [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) per sommatorie, unioni, intersezioni e altri operatori grandi. Usa [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) per gli integrali. Entrambi i metodi consentono di impostare i limiti inferiori e superiori.
+Usa [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) per sommatorie, unioni, intersezioni e altri grandi operatori. Usa [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) per gli integrali. Entrambi i metodi consentono di impostare i limiti inferiore e superiore.
 
-![Una sommatoria con limiti inferiore e superiore](powerpoint-math-equations_7.png)
+![Una sommatoria con limiti inferiori e superiori](powerpoint-math-equations_7.png)
 
 ```python
 import jpype
@@ -317,7 +317,7 @@ finally:
     presentation.dispose()
 ```
 
-Gli operatori N-ari sono per operatori grandi con limiti opzionali. Gli operatori semplici come `+`, `-` e `=` sono solitamente aggiunti come [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) e uniti all'espressione.
+Gli operatori N-ari sono per grandi operatori con limiti opzionali. Operatori semplici come `+`, `-` e `=` sono solitamente aggiunti come [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) e uniti all'espressione.
 
 Per un integrale, usa [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral):
 
@@ -337,7 +337,7 @@ integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 
 ## **Aggiungi matrici**
 
-Usa [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) per righe e colonne. Le matrici non includono parentesi quadre per impostazione predefinita, quindi racchiudi la matrice quando hai bisogno di parentesi tonde, quadre o graffe.
+Usa [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) per righe e colonne. Le matrici non includono parentesi per impostazione predefinita, quindi racchiudi la matrice quando ti servono parentesi tonde, quadre o graffe.
 
 ![Una matrice matematica a due righe con una cella vuota](powerpoint-math-equations_10.png)
 
@@ -379,14 +379,14 @@ finally:
 
 ### **Modifica una matrice esistente**
 
-Supponiamo che una lezione di algebra lineare inizi con la matrice dei coefficienti in `matrix.pptx`, salvata dall'esempio precedente. Per il prossimo esercizio, conserva la prima equazione, sostituisci la seconda con due nuove equazioni e revisa l'insieme di variabili. Apri la matrice esistente tramite [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) per mantenere i coefficienti ancora validi.
+Supponi che una lezione di algebra lineare inizi con la matrice dei coefficienti in `matrix.pptx`, salvata dall'esempio precedente. Per il prossimo esercizio, mantieni la prima equazione, sostituisci la seconda con due nuove equazioni e rivedi l'insieme delle variabili. Apri la matrice esistente tramite [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) per conservare i coefficienti ancora validi.
 
 ![Matrice originale a due righe di coefficienti con voci 1, x e una cella vuota nella prima riga e x, 2 e y nella seconda](matrix-before-edit.png)
 
-Gli indici di riga e colonna partono da zero e si riferiscono alla matrice così com'è ad ogni chiamata. Inserire una riga prima dell'indice 1 sposta la seconda riga originale all'indice 2. Inserire dopo l'indice 2 aggiunge poi una riga. Eliminare la riga 2 rimuove la seconda equazione originale e sposta la riga aggiunta su di una posizione. Le colonne si spostano allo stesso modo.
+Gli indici di riga e colonna partono da zero e si riferiscono alla matrice così com'è in ogni chiamata. Inserire una riga prima dell'indice 1 sposta la seconda riga originale all'indice 2. Inserire dopo l'indice 2 aggiunge una riga. Eliminare la riga 2 rimuove la seconda equazione originale e sposta la riga aggiunta verso l'alto di una posizione. Le colonne si spostano allo stesso modo.
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -426,13 +426,13 @@ finally:
     presentation.dispose()
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnAlignment) allinea la prima colonna a sinistra. [setColumnsAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnsAlignment) allinea le restanti tre colonne a destra, a partire dall'indice 1. In `updated-matrix.pptx`, la matrice ha tre equazioni e quattro variabili. I coefficienti originali della prima riga `1` e `x` ora appaiono nella prima e nella terza colonna.
+[setColumnAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnAlignment) allinea la prima colonna a sinistra. [setColumnsAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/#setColumnsAlignment) allinea le tre colonne successive a destra, a partire dall'indice 1. In `updated-matrix.pptx`, la matrice ha tre equazioni e quattro variabili. I coefficienti originali della prima riga `1` e `x` ora compaiono nella prima e nella terza colonna.
 
 ![Matrice aggiornata a tre righe che mostra le righe 1, 0, x, 0; 12, 1, 0, 0; e 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Aggiungi array di equazioni**
 
-Usa [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) quando hai bisogno di equazioni allineate o di una pila verticale di espressioni.
+Usa [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) quando ti servono equazioni allineate o una pila verticale di espressioni.
 
 ![Un array matematico verticale con x sopra y](powerpoint-math-equations_11.png)
 
@@ -466,7 +466,7 @@ finally:
 
 [setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) controlla l'allineamento verticale di un array rispetto agli elementi matematici accanto. L'esempio seguente confronta l'allineamento con la prima riga, il centro dell'array e l'ultima riga.
 
-Il seguente esempio crea tre array identici, ciascuno con tre righe e gli elementi vicini `A=` e `=B`. Tutto il testo matematico utilizza Cambria Math a 24 punti. Solo l'allineamento dell'array cambia.
+L'esempio successivo crea tre array identici, ognuno con tre righe e gli elementi adiacenti `A=` e `=B`. Tutto il testo matematico usa Cambria Math a 24 punti. Solo l'allineamento dell'array cambia.
 
 ```python
 import jpype
@@ -522,13 +522,13 @@ finally:
 
 Il confronto seguente mostra la presentazione salvata in PowerPoint. Nota la posizione di `A=` e `=B` accanto a ciascun array.
 
-![Array di equazioni in PowerPoint con allineamento Superiore, Centro e Inferiore e elementi vicini identici](equation-array-alignment.png)
+![Array di equazioni in PowerPoint con allineamento Superiore, Centrale e Inferiore e elementi vicini identici](equation-array-alignment.png)
 
-### **Configura spaziatura delle righe**
+### **Configura la spaziatura delle righe**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) sceglie la regola di spaziatura per le righe all'interno dell'array. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) fornisce un valore numerico per una regola di spaziatura esplicita ed è ignorato dalle regole predefinite.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) seleziona la regola di spaziatura per le righe all'interno dell'array. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) fornisce un valore numerico per una regola esplicita e viene ignorato dalle regole predefinite.
 
-Per una spaziatura esatta, il valore è misurato in punti. Per una spaziatura proporzionale, è misurata in mezze linee: il valore `3` nell'esempio specifica 1,5 linee. Imposta entrambe le proprietà quando specifichi un valore esplicito; modificare solo il valore numerico non seleziona una regola di spaziatura.
+Per una spaziatura esatta, il valore è misurato in punti. Per una spaziatura proporzionale, è misurato in mezze linee: il valore `3` nell'esempio specifica 1,5 linee. Imposta entrambe le proprietà quando specifichi un valore esplicito; cambiare solo il valore numerico non seleziona una regola di spaziatura.
 
 L'esempio seguente salva cinque presentazioni con le stesse equazioni, allineamento e impostazioni di carattere. Le prime tre usano preset; le ultime due mostrano valori espliciti.
 
@@ -574,7 +574,7 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-La spaziatura delle righe dell'array è separata dalla spaziatura dei paragrafi. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) e [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) aggiungono spazio attorno al paragrafo contenitore, non tra le righe dell'array. Allo stesso modo, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) posiziona l'intero paragrafo matematico orizzontalmente; non sostituisce l'impostazione di allineamento verticale dell'array.
+La spaziatura delle righe dell'array è separata dalla spaziatura del paragrafo. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) e [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) aggiungono spazio attorno al paragrafo contenitore, non tra le righe dell'array. Allo stesso modo, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) posiziona l'intero paragrafo matematico orizzontalmente; non sostituisce l'impostazione di allineamento verticale dell'array.
 
 ## **Aggiungi funzioni trigonometriche**
 
@@ -612,7 +612,7 @@ finally:
 
 Usa gli assistenti per pedice e apice per indici e potenze. Quando gli indici devono apparire sul lato sinistro della base, usa [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Una Y maiuscola con pedice sinistro 1 e apice n](powerpoint-math-equations_9.png)
+![Una Y maiuscola con pedice laterale sinistro 1 e apice n](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -640,11 +640,58 @@ finally:
     presentation.dispose()
 ```
 
+### **Allinea pedici e apici a destra**
+
+Quando un pedice e un apice condividono la stessa base, usa [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/). Il suo metodo [setAlignScripts](https://reference.aspose.com/slides/python-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) controlla le loro posizioni orizzontali. Con il valore predefinito `False`, ogni script segue il contorno della base. Con `True`, gli script iniziano alla stessa posizione orizzontale.
+
+Questo esempio posiziona due copie della stessa espressione modificabile una accanto all'altra. Entrambe usano una f matematica in corsivo (U+1D453) con pedice 1 e apice 2 in Cambria Math da 72 punti. L'inclinazione della f rende la differenza visibile in PowerPoint. Installa Cambria Math prima di eseguire l'esempio.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, MathBlock, MathematicalText, MathRightSubSuperscriptElement
+from asposeslides.api import PortionFormat, Presentation, SaveFormat, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(900, 250, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    text_format = PortionFormat()
+    font = FontData("Cambria Math")
+    text_format.setFontHeight(72)
+    text_format.setLatinFont(font)
+
+    for left, align_scripts in [(40, False), (480, True)]:
+        shape = slide.getShapes().addMathShape(left, 75, 380, 150)
+        base = MathematicalText("\U0001D453", text_format)
+        subscript = MathematicalText("1", text_format)
+        superscript = MathematicalText("2", text_format)
+        scripts = MathRightSubSuperscriptElement(base, subscript, superscript)
+        scripts.setAlignScripts(align_scripts)
+
+        portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+        portion.getPortionFormat().setFontHeight(text_format.getFontHeight())
+        portion.getPortionFormat().setLatinFont(font)
+        block = MathBlock(scripts)
+        portion.getMathParagraph().add(block)
+
+    presentation.save("aligned-scripts.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![Due espressioni modificabili in PowerPoint con setAlignScripts impostato su False a sinistra e True a destra](aligned-scripts.png)
+
 ## **Aggiungi delimitatori**
 
-Usa [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) per inserire un'espressione dentro delimitatori. Puoi anche impostare un carattere separatore per le espressioni delimitate che contengono più elementi.
+Usa [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) per inserire un'espressione tra delimitatori. Puoi anche impostare un carattere separatore per espressioni delimitate che contengono più elementi.
 
-![Un'espressione delimitata contenente x, y e z separati da barre verticali](powerpoint-math-equations_13.png)
+![Un'espressione delimitatrice contenente x, y e z separati da barre verticali](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -675,9 +722,9 @@ finally:
 
 ### **Dimensiona e allinea i delimitatori**
 
-Passa `True` a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) per far crescere le parentesi attorno a un operando alto, o passa `False` per mantenerle alla dimensione normale. Usa [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) con uno dei due valori [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). `Centered` centra le parentesi sull'asse matematico, che attraversa il centro del segno di uguale. `Match` le allinea al contenuto racchiuso. Entrambe le impostazioni influenzano solo i delimitatori. L'espressione interna rimane invariata.
+Passa `True` a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) per consentire alle parentesi di crescere attorno a un operando alto, o passa `False` per mantenerle della dimensione normale. Usa [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape) con uno dei due valori di [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/). `Centered` centra le parentesi sull'asse matematico, che attraversa il centro del segno di uguaglianza. `Match` le allinea al contenuto racchiuso. Entrambe le impostazioni influenzano solo i delimitatori. L'espressione interna rimane invariata.
 
-L'esempio inserisce una frazione nell'esponente di `x` così l'espressione si estende più sopra la linea di base rispetto al di sotto. Tutte e quattro le equazioni usano le stesse parentesi e impostazioni di carattere.
+L'esempio inserisce una frazione nell'esponente di `x` così l'espressione si estende più in alto rispetto alla linea di base rispetto a quella inferiore. Tutte e quattro le equazioni usano le stesse parentesi e impostazioni di carattere.
 
 ```python
 import jpype
@@ -710,15 +757,15 @@ finally:
     presentation.dispose()
 ```
 
-In PowerPoint, confronta le righe per vedere l'effetto della crescita. Nella riga superiore, le parentesi crescono per racchiudere l'esponente e hanno lo stesso aspetto per entrambe le forme. Nella riga inferiore, la crescita è disattivata. Le parentesi più piccole a sinistra (`Centered`) si allineano con il segno di uguale, mentre quelle a destra (`Match`) sono più alte attorno all'espressione.
+In PowerPoint, confronta le righe per vedere l'effetto della crescita. Nella riga superiore, le parentesi crescono per racchiudere l'esponente e appaiono simili per entrambe le forme. Nella riga inferiore, la crescita è disattivata. Le parentesi più piccole a sinistra (`Centered`) si allineano al segno di uguaglianza, mentre quelle a destra (`Match`) si posizionano più in alto attorno all'espressione.
 
-![Quattro equazioni in PowerPoint con crescita del delimitatore attivata sopra e disattivata sotto, e Centered a sinistra e Match a destra](delimiter-sizing.png)
+![Quattro equazioni in PowerPoint con crescita dei delimitatori abilitata sopra e disabilitata sotto, e Centered a sinistra e Match a destra](delimiter-sizing.png)
 
 ## **Aggiungi una cornice**
 
-Chiama [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) su una frazione per incorniciare l'intera espressione. Il [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) restituito mostra tutti e quattro i lati per impostazione predefinita. Usa [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft), e [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) per rimuovere i singoli lati.
+Chiama [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) su una frazione per inquadrare l'intera espressione. Il [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) restituito mostra tutti e quattro i lati per impostazione predefinita. Usa [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) e [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) per rimuovere lati individuali.
 
-L'esempio posiziona sei copie della stessa frazione su una diapositiva. Per mostrare la cancellazione, nascondi tutti e quattro i lati e passa `True` a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) per una diagonale ascendente (↗) o [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) per una diagonale discendente (↘). Puoi anche usare [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) o [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) con qualsiasi combinazione di lati visibili.
+L'esempio posiziona sei copie della stessa frazione su una diapositiva. Per mostrare l'annullamento, nascondi tutti e quattro i lati e passa `True` a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) per una diagonale ascendente (↗) o a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) per una diagonale discendente (↘). Puoi anche usare [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) o [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) con qualsiasi combinazione di lati visibili.
 
 ```python
 import jpype
@@ -767,22 +814,20 @@ finally:
 
 ![Sei frazioni modificabili in PowerPoint. Riga superiore: bordo completo, lati inferiore e sinistro, diagonale ascendente. Riga inferiore: diagonale discendente, barra orizzontale, barra verticale con bordo completo](border-box-fractions.png)
 
-Su questa frazione, la barra orizzontale si sovrappone alla barra della frazione. La barra verticale attraversa sia il numeratore sia il denominatore mentre il bordo circostante rimane visibile. Queste linee decorano l'intera espressione. Il barrato di testo ordinario si applica ai caratteri in un run di testo. Dopo aver riaperto la presentazione in PowerPoint, puoi ancora modificare il numeratore e il denominatore in modo indipendente.
+Su questa frazione, la barra orizzontale si sovrappone alla barra della frazione. La barra verticale attraversa sia il numeratore che il denominatore mentre il bordo circostante resta visibile. Queste linee decorano l'intera espressione. La barratura del testo normale si applica ai caratteri di un run di testo. Dopo aver riaperto la presentazione in PowerPoint, è ancora possibile modificare indipendentemente numeratore e denominatore.
 
 ## **Controlla visibilità e layout con elementi fantasma**
 
-Avvolgi un'espressione in [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) per controllare la sua visibilità e lo spazio che contribuisce a un'equazione in modo indipendente. I metodi di [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) controllano quanto segue:
+Racchiudi un'espressione in [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) per controllare la sua visibilità e lo spazio che contribuisce a un'equazione in modo indipendente. I metodi di [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) controllano quanto segue:
 
 | Metodo | Effetto |
 | --- | --- |
 | [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | Passa `False` per nascondere l'espressione. Le sue dimensioni contribuiscono comunque al layout a meno che i metodi corrispondenti qui sotto non ricevano `True`. |
-| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | Considera la larghezza orizzontale dell'espressione come zero, permettendo agli elementi vicini di avvicinarsi. |
-| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Considera la sua ascensione, l'altezza sopra la linea di base, come zero. Questo può ridurre lo spazio riservato sopra gli elementi vicini. |
-| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Considera la sua discesa, la profondità sotto la linea di base, come zero. Questo può avvicinare una barra di frazione o altro contenuto sotto l'espressione ai suoi vicini. |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | Tratta la larghezza orizzontale dell'espressione come zero, consentendo agli elementi vicini di avvicinarsi. |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Tratta la sua ascesa, l'altezza sopra la linea di base, come zero. Questo può ridurre lo spazio riservato sopra gli elementi vicini. |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Tratta la sua discesa, la profondità sotto la linea di base, come zero. Questo può avvicinare una barra di frazione o altro contenuto sotto l'espressione ai suoi vicini. |
 
-La linea di base è la linea di riferimento su cui si posizionano le lettere matematiche ordinarie. Nascondere il contenuto non rimuove le sue dimensioni, e trattare una dimensione come zero non elimina l'espressione. L'espressione sottostante rimane disponibile tramite [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase). Passa `True` a [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) per visualizzarla nuovamente; le impostazioni di dimensione rimangono invariate.
-
-L'esempio qui sotto crea cinque varianti affiancate: una frazione visibile, una frazione nascosta che riserva spazio e tre frazioni nascoste con una dimensione trattata come zero. Ogni variante utilizza la stessa espressione circostante e Cambria Math a 24 punti. Tutte le forme dell'equazione hanno la stessa posizione superiore, segnata dalla guida grigia. Posizionare il phantom nel numeratore di una frazione esterna rende più facili da vedere i cambiamenti del layout verticale.
+La linea di base è la linea di riferimento su cui si appoggiano i normali caratteri matematici. Nascondere il contenuto non rimuove le sue dimensioni, e trattare una dimensione come zero non elimina l'espressione. L'espressione sottostante resta disponibile tramite [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase). Passa `True` a [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) per visualizzarla nuovamente; le impostazioni di dimensione rimangono inalterate.
 
 ```python
 import jpype
@@ -852,7 +897,7 @@ finally:
     presentation.dispose()
 ```
 
-![Cinque equazioni in PowerPoint che confrontano una frazione visibile, una frazione nascosta che riserva spazio e frazioni nascoste con ZeroWidth, ZeroAsc o ZeroDesc abilitati](math-phantom.png)
+![Cinque equazioni in PowerPoint che confrontano una frazione visibile, una frazione nascosta che riserva spazio, e frazioni nascoste con ZeroWidth, ZeroAsc o ZeroDesc abilitati](math-phantom.png)
 
 ## **Raggruppa termini**
 
@@ -888,7 +933,7 @@ finally:
 
 ## **Formatta elementi matematici**
 
-Usa gli assistenti di formattazione solo dove chiariscono la formula. Per esempio, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) posiziona una barra sopra un elemento matematico.
+Usa gli assistenti di formattazione solo dove chiariscono la formula. Per esempio, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) pone una barra sopra un elemento matematico.
 
 ![Un'espressione matematica ABC con una barra sopra](powerpoint-math-equations_14.png)
 
@@ -918,11 +963,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Formatta testo in un'equazione esistente**
+### **Formatta il testo in un'equazione esistente**
 
-Per formattare il testo in tutta un'equazione esistente, attraversa l'albero degli elementi di ogni blocco matematico. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) restituisce solo i figli immediati, quindi chiamalo ricorsivamente per raggiungere il testo all'interno di frazioni, script, radicali e altre strutture nidificate. Controlla l'elemento corrente così come i suoi figli per includere l'elemento di partenza quando è [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
+Per formattare il testo in tutta un'equazione esistente, attraversa l'albero degli elementi di ciascun blocco matematico. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) restituisce solo i figli immediati, quindi chiamalo ricorsivamente per raggiungere il testo all'interno di frazioni, script, radicali e altre strutture annidate. Controlla l'elemento corrente così come i suoi figli per includere l'elemento di partenza quando è [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/).
 
-Questo esempio assume che `input.pptx` contenga un'equazione come `z = xᵢ / ∛y`, con una frazione che contiene un pedice nel numeratore e un radicale nel denominatore. Elaborare solo gli elementi di livello superiore del blocco perderebbe il testo all'interno della frazione. L'esempio trova le parti matematiche nei riquadri di testo delle diapositive, accede ai loro blocchi tramite [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), e usa [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) per impostare la dimensione del carattere a 28 punti attraverso il metodo [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) di ogni elemento di testo.
+Questo esempio presume che `input.pptx` contenga un'equazione come `z = xᵢ / ∛y`, con una frazione contenente un pedice nel numeratore e un radicale nel denominatore. Processare solo gli elementi di alto livello del blocco perderebbe il testo dentro la frazione. L'esempio trova le porzioni matematiche nei riquadri di testo delle diapositive, accede ai loro blocchi tramite [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph), e usa [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) per impostare la dimensione del carattere a 28 punti tramite il metodo [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) di ciascun elemento di testo.
 
 ```python
 import jpype
@@ -963,7 +1008,7 @@ finally:
     presentation.dispose()
 ```
 
-La presentazione salvata contiene la formattazione del testo aggiornata a tutti i livelli di ogni equazione elaborata, preservando il contenuto testuale e la struttura matematica.
+La presentazione salvata contiene la formattazione del testo aggiornata a ogni livello di ogni equazione elaborata, preservando il contenuto testuale e la struttura matematica.
 
 ## **Riferimento rapido**
 
@@ -976,8 +1021,8 @@ La presentazione salvata contiene la formattazione del testo aggiornata a tutti 
 | Aggiungi funzioni | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
 | Aggiungi radicali | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
 | Aggiungi limiti | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| Aggiungi script lato sinistro | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
-| Aggiungi somme e integrali | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
+| Aggiungi script a sinistra | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| Aggiungi sommatorie e integrali | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | Aggiungi matrici | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
 | Aggiungi array di equazioni | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
 | Aggiungi delimitatori | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
@@ -990,10 +1035,10 @@ La presentazione salvata contiene la formattazione del testo aggiornata a tutti 
 
 Sì. Apri la presentazione, trova la forma che contiene una [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), chiama [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) e aggiorna i blocchi matematici in quel paragrafo.
 
-**Le equazioni sono salvate come PowerPoint math modificabile?**
+**Le equazioni vengono salvate come math modificabile di PowerPoint?**
 
 Sì. Quando salvi in PPTX, Aspose.Slides scrive l'equazione come contenuto Office math modificabile.
 
 **Posso esportare le equazioni in LaTeX?**
 
-Sì. Ottieni il [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) dell'equazione dal suo [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) e chiama [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) per esportarlo direttamente. Per un esempio completo, vedere [Export Math Equations from Presentations in Python](/slides/it/python-java/exporting-math-equations/#export-math-equations-to-latex).
+Sì. Ottieni il [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) dall'[MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/), e chiama [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) per esportarlo direttamente. Per un esempio completo, vedi [Esporta equazioni matematiche da presentazioni in Python](/slides/it/python-java/exporting-math-equations/#export-math-equations-to-latex).

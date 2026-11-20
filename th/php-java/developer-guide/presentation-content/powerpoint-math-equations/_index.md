@@ -1,5 +1,5 @@
 ---
-title: เพิ่มสมการคณิตศาสตร์ในงานนำเสนอ PowerPoint ด้วย PHP
+title: เพิ่มสมการคณิตศาสตร์ไปยังงานนำเสนอ PowerPoint ใน PHP
 linktitle: สมการคณิตศาสตร์ PowerPoint
 type: docs
 weight: 80
@@ -9,41 +9,41 @@ keywords:
 - สัญลักษณ์คณิตศาสตร์
 - สูตรคณิตศาสตร์
 - ข้อความคณิตศาสตร์
-- เพิ่มสมการคณितศาสตร์
+- เพิ่มสมการคณิตศาสตร์
 - เพิ่มสัญลักษณ์คณิตศาสตร์
 - เพิ่มสูตรคณิตศาสตร์
 - เพิ่มข้อความคณิตศาสตร์
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ในไฟล์ PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด PHP ที่ชัดเจน"
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด PHP ที่ชัดเจน"
 ---
 ## **ภาพรวม**
 
-PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML) และด้วย Aspose.Slides for PHP via Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์แบบเดียวกันได้โดยใช้โค้ด: เศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาเรย์, และบล็อคคณิตศาสตร์ที่จัดรูปแบบ
+PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML). ด้วย Aspose.Slides for PHP via Java คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันโดยใช้โปรแกรมได้: เศษส่วน, รัศมี, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการแบบ N-ary, เมทริกซ์, อาเรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ.
 
 ใน PowerPoint ผู้ใช้มักเพิ่มสมการจาก **Insert > Equation**:
 
-![แท็บ Insert ของ PowerPoint พร้อมคำสั่ง Equation ที่เลือกอยู่](powerpoint-math-equations_1.png)
+![แท็บ Insert ของ PowerPoint ที่เลือกคำสั่ง Equation](powerpoint-math-equations_1.png)
 
-ผลลัพธ์คือข้อความคณิตศาสตร์ที่สามารถแก้ไขได้บนสไลด์:
+ผลลัพธ์คือตัวอักษรคณิตศาสตร์ที่แก้ไขได้บนสไลด์:
 
 ![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่แก้ไขได้](powerpoint-math-equations_2.png)
 
-Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านวัตถุหลักสามประเภท:
+Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านออบเจ็กต์หลักสามตัว:
 
-- รูปคณิตศาสตร์ที่สร้างด้วย [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) คือรูปร่างที่บรรจุสมการ
-- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในเฟรมข้อความของรูป
-- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) มีหนึ่งหรือหลายอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/)
+- รูปร่างคณิตศาสตร์ที่สร้างด้วย [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) คือรูปร่างที่บรรจุสมการ.
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในเฟรมข้อความของรูปร่าง.
+- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) มีหนึ่งหรือหลายอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/).
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) และวิธีเชิง fluent จาก [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) เพื่อให้โค้ดสั้นและอ่านง่าย
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) และเมธอด fluent จาก [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) เพื่อให้โค้ดสั้นและอ่านง่าย.
 
-สำหรับการส่งออก MathML โปรดดู [Export Math Equations from Presentations in PHP via Java](/slides/th/php-java/exporting-math-equations/)
+สำหรับกรณีการส่งออก MathML ดู [ส่งออกสมการคณิตศาสตร์จากงานพรีเซนเทชันใน PHP ผ่าน Java](/slides/th/php-java/exporting-math-equations/).
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) เพื่อสร้างรูปคณิตศาสตร์และเพิ่มสูตรพีทากอรัส:
+ตัวอย่างนี้ใช้ [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มสูตรพีทากอรัส:
 
 ![สมการ c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -73,13 +73,13 @@ try {
 }
 ```
 
-{{% alert color="info" title="หมายเหตุ" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) สร้างรูปร่างที่มี MathParagraph อยู่แล้ว ให้เข้าถึง [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) ตัวแรก เรียก [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) แล้วเพิ่มบล็อคหรืออิลีเมนต์คณิตศาสตร์เข้าไป
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) สร้างรูปร่างที่มีย่อหน้าคณิตศาสตร์อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) แรก, เรียก [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), และเพิ่มบล็อกคณิตศาสตร์หรืออิลิเมนต์คณิตศาสตร์เข้าไป
 {{% /alert %}}
 
-### **รวม Math Blocks**
+### **รวมบล็อกคณิตศาสตร์**
 
-เมื่อส่วนของสมการถูกสร้างแยกเป็นอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) ให้ใช้ [joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) เพื่อรวมเข้าด้วยกัน ตัวอย่างสร้าง `c² =` ในบล็อคซ้ายและ `a² + b²` ในบล็อคขวา [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSuperscript) สร้างซูเปอร์สคริปต์คณิตศาสตร์ที่แก้ไขได้สำหรับทั้งสามพาวเวอร์
+เมื่อส่วนของสมการถูกสร้างแยกกันเป็นอ็อบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) ให้ใช้ [joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) เพื่อรวมเข้าด้วยกัน ตัวอย่างสร้าง `c² =` ในบล็อกซ้ายและ `a² + b²` ในบล็อกขวา [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSuperscript) สร้างซูเปอร์สคริปต์คณิตศาสตร์ที่แก้ไขได้สำหรับทั้งสามพลัง.
 
 ```php
 use aspose\slides\MathBlock;
@@ -113,15 +113,15 @@ try {
 }
 ```
 
-[joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) คืนค่า `$leftBlock` เอง โดยตอนนี้บรรจุส่วนทั้งสองเรียงตามลำดับ และทำให้ `$rightBlock` ว่างเปล่า เพิ่มบล็อคที่รวมแล้วไปที่ [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) เพียงครั้งเดียว หลังจากเปิดไฟล์ `equation.pptx` ใหม่ ย่อหน้ามีบล็อคเดียวแทน `c² = a² + b²` โดยซูเปอร์สคริปต์ทั้งสามยังคงอยู่
+[joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) คืนค่า `$leftBlock` ตัวเอง, ตอนนี้บรรจุทั้งสองส่วนตามลำดับ, และทำให้ `$rightBlock` ว่างเปล่า. เพิ่มบล็อกที่รวมแล้วไปที่ [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) เพียงครั้งเดียว. หลังจากเปิด `equation.pptx` อีกครั้ง, ย่อหน้ามีบล็อกเดียวที่แสดง `c² = a² + b²`, โดยทั้งสามพลังคงสภาพเป็นซูเปอร์สคริปต์คณิตศาสตร์.
 
-การเรียก [add](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#add) เป็น `$leftBlock->add($rightBlock)` จะพยายามใส่บล็อคหนึ่งเข้าไปในอีกบล็อคหนึ่งโดยตรงและจะโยน `InvalidOperationException`
+การเรียก [add](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#add) เป็น `$leftBlock->add($rightBlock)` แทนจะพยายามใส่บล็อกหนึ่งตรงในอีกบล็อกหนึ่งและจะโยน `InvalidOperationException`.
 
 ## **เพิ่มเศษส่วน**
 
-ใช้ [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนได้ด้วย [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/)
+ใช้ [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) เพื่อสร้างเศษส่วน. คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
-![เศษส่วนเอียงที่แสดงหนึ่งหารด้วย x](powerpoint-math-equations_4.png)
+![เศษส่วนคณิตศาสตร์เอียงที่แสดง 1 หาร x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -145,7 +145,7 @@ try {
 }
 ```
 
-สำหรับเศษส่วนแบบซ้อน ใช้ [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
+สำหรับเศษส่วนแบบซ้อน, ใช้ [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -153,9 +153,9 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **เพิ่มราก**
 
-ใช้ [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) เพื่อสร้างรากที่สอง, รากที่สาม หรือรากชนิดอื่นๆ อิลีเมนต์ปัจจุบันจะเป็นฐานและอาร์กิวเมนต์จะเป็นดีกรี
+ใช้ [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) เพื่อสร้างรากกำลังสอง, รากกำลังสาม, หรือรากอื่น. อิลิเมนต์ปัจจุบันจะเป็นฐาน, และอาร์กิวเมนต์จะเป็นดีกรี.
 
-![นิพจน์ราก n‑th ที่มี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
+![นิพจน์ราก n-th ที่มี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -179,13 +179,13 @@ try {
 }
 ```
 
-### **แสดงหรือซ่อนดีกรีของรากที่สอง**
+### **แสดงหรือซ่อนดีกรีของรากกำลังสอง**
 
-รากที่สองสามารถแสดงเลข 2 อย่างชัดเจนหรือใช้สัญลักษณ์ √x ตามปกติ วิธี [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) ของ [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) ควบคุมรูปแบบที่แสดง ทั้งสองรูปแบบยังคงเก็บดีกรี 2 และ radicand x ไว้ในสมการที่แก้ไขได้
+รากกำลังสองสามารถแสดงเลข 2 อย่างชัดเจนหรือใช้สัญลักษณ์ √x ตามธรรมชาติ. เมธอด [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) ของ [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) ควบคุมรูปแบบที่แสดง. ทั้งสองรูปแบบคงดีกรี 2 และ radicand x ในสมการที่แก้ไขได้.
 
-![รากที่สองเดียวกันโดยดีกรีที่มองเห็นได้ทางซ้ายและซ่อนทางขวา](square-root-degree.png)
+![รากกำลังสองเดียวกันที่ด้านซ้ายแสดงดีกรีและด้านขวาซ่อนดีกรี](square-root-degree.png)
 
-ตัวอย่างบันทึกรากเดียวกันสองครั้ง ในไฟล์ `visible-degree.pptx` ดีกรี 2 แสดงผล ในไฟล์ `hidden-degree.pptx` ดีกรีถูกซ่อน
+ตัวอย่างบันทึกรากเดียวกันสองครั้ง. ใน `visible-degree.pptx`, ตัวเลข 2 แสดง. ใน `hidden-degree.pptx`, ตัวเลข 2 ถูกซ่อน.
 
 ```php
 use aspose\slides\MathBlock;
@@ -215,9 +215,9 @@ try {
 
 ## **เพิ่มฟังก์ชันและขีดจำกัด**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) หรือ [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันกำหนดเอง สำหรับขีดจำกัด ให้ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit)
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) หรือ [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)`, หรือชื่อฟังก์ชันที่กำหนดเอง. สำหรับขีดจำกัด, ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) หรือใช้ [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![ขีดจำกัดของ x เมื่อ x ใกล้อนันต์](powerpoint-math-equations_8.png)
+![ขีดจำกัดของ x ขณะ x เข้าหาอนันต์](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -242,17 +242,17 @@ try {
 }
 ```
 
-สำหรับชื่อฟังก์ชันกำหนดเอง ให้ทำให้ชื่อฟังก์ชันเป็นอิลีเมนต์ปัจจุบันและเรียก [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) พร้อมอาร์กิวเมนต์ของมัน:
+สำหรับชื่อฟังก์ชันที่กำหนดเอง, ทำให้ชื่อฟังก์ชันเป็นอิลิเมนต์ปัจจุบันและเรียก [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) พร้อมอาร์กิวเมนต์ของมัน:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **เพิ่มตัวดำเนินการ N‑ary และอินทิกรัล**
+## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
 
-ใช้ [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) สำหรับผลบวก, ยูเนียน, อินเตอร์เซกชัน และตัวดำเนินการขนาดใหญ่อื่นๆ ใช้ [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) สำหรับอินทิกรัล วิธีทั้งสองให้คุณตั้งค่าขีดจำกัดด้านล่างและด้านบน
+ใช้ [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) สำหรับผลบวก, ยูเนียน, อินเตอร์เซคชัน, และตัวดำเนินการใหญ่อื่น. ใช้ [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) สำหรับอินทิกรัล. ทั้งสองวิธีให้คุณตั้งค่าขีดจำกัดล่างและบน.
 
-![ผลบวกที่มีขีดจำกัดบนและล่าง](powerpoint-math-equations_7.png)
+![ผลบวกที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -279,9 +279,9 @@ try {
 }
 ```
 
-ตัวดำเนินการ N‑ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่มีขีดจำกัดเป็นตัวเลือก ตัวดำเนินการง่ายเช่น `+`, `-`, `=` มักเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) แล้วเชื่อมต่อเข้ากับนิพจน์
+ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการใหญ่ที่มีขีดจำกัดตามต้องการ. ตัวดำเนินการง่ายเช่น `+`, `-`, และ `=` มักเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) แล้วรวมเข้ากับนิพจน์.
 
-สำหรับอินทิกรัล ให้ใช้ [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
+สำหรับอินทิกรัล, ใช้ [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral):
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
@@ -290,7 +290,7 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยค่าเริ่มต้นไม่มีวงเล็บ ดังนั้นเมื่อจำเป็นต้องใส่วงเล็บ ปีกกา หรือ {} ให้ใส่เมทริกซ์ไว้ภายใน
+ใช้ [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) สำหรับแถวและคอลัมน์. เมทริกซ์โดยปกติไม่รวมวงเล็บ, ดังนั้นให้ใส่วงเล็บเมื่อคุณต้องการวงเล็บปีกกา หรือวงเล็บก้ามบัง.
 
 ![เมทริกซ์คณิตศาสตร์สองแถวที่มีเซลล์ว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
 
@@ -322,11 +322,11 @@ try {
 
 ### **แก้ไขเมทริกซ์ที่มีอยู่**
 
-สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์สัมประสิทธิ์ใน `matrix.pptx` ที่บันทึกจากตัวอย่างก่อนหน้า สำหรับแบบฝึกหัดต่อไป ให้เก็บสมการแรกไว้ เปลี่ยนสมการที่สองเป็นสองสมการใหม่ และแก้ไขชุดตัวแปร เปิดเมทริกซ์ที่มีอยู่ผ่าน [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) เพื่อคงสัมประสิทธิ์ที่ยังใช้ได้
+สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์สัมประสิทธิ์ใน `matrix.pptx`, ที่บันทึกโดยตัวอย่างก่อนหน้า. สำหรับแบบฝึกหัดต่อไป, ให้คงสมการแรก, แทนที่สมการที่สองด้วยสองสมการใหม่, และปรับชุดตัวแปร. เปิดเมทริกซ์ที่มีอยู่ผ่าน [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) เพื่อคงสัมประสิทธิ์ที่ยังใช้ได้.
 
-![เมทริกซ์สัมประสิทธิ์สองแถวดั้งเดิมที่มีค่า 1, x และเซลล์ว่างในแถวแรก และ x, 2, y ในแถวสอง](matrix-before-edit.png)
+![เมทริกซ์สัมประสิทธิ์สองแถวต้นฉบับที่มีค่า 1, x, และเซลล์ว่างในแถวแรก และ x, 2, และ y ในแถวที่สอง](matrix-before-edit.png)
 
-ดัชนีแถวและคอลัมน์เริ่มจากศูนย์และอ้างอิงเมทริกซ์ตามสภาพในแต่ละครั้ง การแทรกแถวก่อนดัชนี 1 จะย้ายแถวที่สองเดิมไปที่ดัชนี 2 การแทรกหลังดัชนี 2 จะเพิ่มแถวใหม่ การลบแถว 2 จะลบสมการที่สองเดิมและย้ายแถวที่เพิ่มเข้ามาขึ้นหนึ่งตำแหน่ง คอลัมน์ก็เลื่อนเช่นกัน
+ดัชนีแถวและคอลัมน์เริ่มจากศูนย์และอ้างอิงเมทริกซ์ตามสถานะของแต่ละการเรียก. การแทรกแถวก่อนดัชนี 1 จะทำให้แถวที่สองเดิมย้ายไปที่ดัชนี 2. การแทรกหลังดัชนี 2 จะเพิ่มแถวใหม่. การลบแถว 2 จะลบสมการที่สองเดิมและย้ายแถวที่เพิ่มเข้ามาขึ้นหนึ่งตำแหน่ง. คอลัมน์จะเปลี่ยนเช่นเดียวกัน.
 
 ```php
 use aspose\slides\MathematicalText;
@@ -349,7 +349,7 @@ try {
     $matrix->insertColumnAfter(3);
     $matrix->deleteColumn(3);
 
-    // เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน
+    // เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน.
     $matrix->set_Item(1, 0, new MathematicalText("12"));
     $matrix->set_Item(1, 1, new MathematicalText("1"));
     $matrix->set_Item(2, 2, new MathematicalText("10"));
@@ -374,13 +374,13 @@ try {
 }
 ```
 
-[setColumnAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnAlignment) จัดแนวคอลัมน์แรกไปซ้าย [setColumnsAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnsAlignment) จัดแนวสามคอลัมน์ต่อเนื่องไปขวา เริ่มที่ดัชนี 1 ในไฟล์ `updated-matrix.pptx` เมทริกซ์มีสามสมการและสี่ตัวแปร สัมประสิทธิ์แถวแรก `1` และ `x` ตอนนี้ปรากฏในคอลัมน์แรกและคอลัมน์ที่สาม
+[setColumnAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnAlignment) จัดแนวคอลัมน์แรกไปทางซ้าย. [setColumnsAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/#setColumnsAlignment) จัดแนวสามคอลัมน์ต่อเนื่องไปทางขวา, เริ่มจากดัชนี 1. ใน `updated-matrix.pptx`, เมทริกซ์มีสามสมการและสี่ตัวแปร. สัมประสิทธิ์แถวแรกต้นฉบับ `1` และ `x` ปรากฏในคอลัมน์แรกและคอลัมน์ที่สาม.
 
-![เมทริกซ์สามแถวที่อัปเดต แสดงแถว 1,0,x,0; 12,1,0,0; และ 0,0,10,1](matrix-after-edit.png)
+![เมทริกซ์สามแถวที่อัปเดต แสดงแถว 1, 0, x, 0; 12, 1, 0, 0; และ 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **เพิ่มอาเรย์สมการ**
 
-ใช้ [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) เมื่อคุณต้องการสมการที่จัดแนวกันหรือสแต็กแนวตั้งของนิพจน์
+ใช้ [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) เมื่อคุณต้องการสมการที่จัดแนวหรือสแต็กแนวตั้งของนิพจน์.
 
 ![อาเรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
 
@@ -407,11 +407,11 @@ try {
 }
 ```
 
-### **จัดแนวอาเรย์กับอิลีเมนต์โดยรอบ**
+### **จัดแนวอาเรย์กับอิลิเมนต์โดยรอบ**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) ควบคุมการจัดแนวแนวตั้งของอาเรย์สัมพันธ์กับอิลีเมนต์คณิตศาสตร์ที่อยู่ข้างเคียง ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์กลางของอาเรย์, และแถวสุดท้าย
+[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) ควบคุมการจัดแนวแนวตั้งของอาเรย์สัมพันธ์กับอิลิเมนต์คณิตศาสตร์ที่อยู่ข้าง ๆ. ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์ของอาเรย์, และแถวสุดท้าย.
 
-ตัวอย่างต่อไปนี้สร้างอาเรย์สามชุดที่เหมือนกัน แต่ละอาเรย์มีสามแถวและอิลีเมนต์ข้างเคียง `A=` และ `=B` ข้อความคณิตศาสตร์ทั้งหมดใช้ Cambria Math ขนาด 24 จุด มีเพียงการจัดแนวอาเรย์ที่เปลี่ยน
+ตัวอย่างต่อไปนี้สร้างอาเรย์สามอาเรย์ที่เหมือนกัน, แต่ละอาเรย์มีสามแถวและอิลิเมนต์โดยรอบ `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้ Cambria Math ขนาด 24 pt. มีเพียงการจัดแนวอาเรย์ที่เปลี่ยน.
 
 ```php
 use aspose\slides\FillType;
@@ -475,17 +475,17 @@ try {
 }
 ```
 
-การเปรียบเทียบต่อไปนี้แสดงการบันทึกงานนำเสนอใน PowerPoint ให้สังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาเรย์
+การเปรียบเทียบต่อไปนี้แสดงงานนำเสนอที่บันทึกใน PowerPoint. สังเกตตำแหน่งของ `A=` และ `=B` ข้างอาเรย์แต่ละอัน.
 
-![อาเรย์สมการใน PowerPoint ที่จัดแนวบน, กลาง, และล่าง พร้อมอิลีเมนต์ข้างเคียงที่เหมือนกัน](equation-array-alignment.png)
+![อาเรย์สมการใน PowerPoint พร้อมการจัดแนวบน, กลาง, และล่าง และอิลิเมนต์โดยรอบที่เหมือนกัน](equation-array-alignment.png)
 
-### **กำหนดระยะห่างระหว่างแถว**
+### **กำหนดการเว้นบรรทัดของแถว**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) เลือกกฎการเว้นระยะระหว่างแถวในอาเรย์ [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) ให้ค่าตัวเลขสำหรับกฎระยะห่างที่กำหนดเองและจะถูกละเลยเมื่อใช้กฎตั้งต้น
+[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) เลือกกฎการเว้นบรรทัดสำหรับแถวภายในอาเรย์. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) ให้ค่าตัวเลขสำหรับกฎการเว้นบรรทัดแบบเจาะจงและจะถูกละเลยโดยกฎตั้งต้น.
 
-สำหรับระยะห่างที่แม่นยำ ค่าจะวัดเป็นพ้อยต์ สำหรับระยะห่างสัดส่วน ค่าจะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด ตั้งค่าทั้งสองคุณสมบัติเมื่อต้องการระยะห่างที่กำหนดเอง; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวจะไม่เลือกกฎระยะห่าง
+สำหรับการเว้นบรรทัดที่แม่นยำ, ค่าจะวัดเป็นพ้อยท์. สำหรับการเว้นบรรทัดเป็นสัดส่วน, ค่าจะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด. ตั้งค่าทั้งสองคุณสมบัติเมื่อกำหนดค่าจำเพาะ; การเปลี่ยนค่าตัวเลขอย่างเดียวจะไม่เลือกกฎการเว้นบรรทัด.
 
-ตัวอย่างต่อไปนี้บันทึกงานนำเสนอห้าไฟล์ที่มีสมการ, การจัดแนว, และการตั้งค่าแบบอักษรเดียวกัน สามไฟล์แรกใช้ค่าตั้งต้น; สองไฟล์สุดท้ายแสดงค่าที่กำหนดเอง
+ตัวอย่างด้านล่างบันทึกงานนำเสนอห้าฉบับที่มีสมการ, การจัดแนว, และการตั้งค่าแบบอักษรเดียวกัน. สามแรกใช้ค่าที่ตั้งไว้; สองอันสุดท้ายแสดงค่าจำเพาะ.
 
 ```php
 use aspose\slides\FontData;
@@ -543,11 +543,11 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-ระยะห่างของแถวอาเรย์แยกจากระยะห่างของย่อหน้า [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) เพิ่มพื้นที่รอบย่อหน้าที่บรรจุอาเรย์ ไม่ได้เพิ่มระยะห่างระหว่างแถวของอาเรย์เช่นกัน เช่นเดียวกับ [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) จะจัดตำแหน่งแนวนอนของย่อหน้า Math ทั้งหมด; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์
+การเว้นบรรทัดของแถวอาเรย์แยกจากการเว้นบรรทัดของย่อหน้า. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) เพิ่มช่องว่างรอบย่อหน้าที่บรรจุ, ไม่ได้ระหว่างแถวอาเรย์. เช่นเดียวกัน, [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) กำหนดตำแหน่งย่อหน้าคณิตศาสตร์ทั้งหมดในแนวนอน; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์.
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) เมื่ออาร์กิวเมนต์เป็นอิลีเมนต์ปัจจุบันและชื่อฟังก์ชันเป็นที่ทราบ
+ใช้ [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) เมื่ออาร์กิวเมนต์เป็นอิลิเมนต์ปัจจุบันและรู้ชื่อฟังก์ชัน.
 
 ![ฟังก์ชันตรีโกณมิติ cos ที่ใช้กับ 2x](powerpoint-math-equations_6.png)
 
@@ -575,9 +575,9 @@ try {
 
 ## **เพิ่มตัวห้อยและตัวบน**
 
-ใช้ตัวช่วยสำหรับตัวห้อยและตัวบนสำหรับดัชนีและพาวเวอร์ เมื่อดัชนีต้องอยู่ด้านซ้ายของฐาน ให้ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)
+ใช้ตัวช่วยสำหรับตัวห้อยและตัวบนสำหรับดัชนีและพลัง. เมื่อดัชนีต้องแสดงทางด้านซ้ายของฐาน, ใช้ [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![อักษร Y ตัวพิมพ์ใหญ่ที่มีตัวห้อย 1 ด้านซ้ายและตัวบน n ด้านขวา](powerpoint-math-equations_9.png)
+![ตัวอักษร Y ตัวพิมพ์ใหญ่ที่มีตัวห้อยด้านซ้าย 1 และตัวบน n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -601,11 +601,64 @@ try {
 }
 ```
 
-## **เพิ่มเครื่องหมายคั่น**
+### **จัดแนวตัวห้อยและตัวบนด้านขวา**
 
-ใช้ [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) เพื่อใส่นิพจน์ไว้ในเครื่องหมายคั่น คุณสามารถตั้งค่าตัวคั่นสำหรับนิพจน์ที่มีหลายองค์ประกอบได้เช่นกัน
+เมื่อสคริปต์ทั้งสองเป็นของฐานเดียวกัน, ใช้ [MathRightSubSuperscriptElement](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/). เมธอด [setAlignScripts](https://reference.aspose.com/slides/php-java/aspose.slides/mathrightsubsuperscriptelement/#setAlignScripts) ควบคุมตำแหน่งแนวนอนของสคริปต์: `false` (ค่าเริ่มต้น) ให้สคริปต์ตามรูปร่างของฐาน, ในขณะที่ `true` จัดแนวสคริปต์ให้เท่าแนวนอนกัน.
 
-![นิพจน์ที่คั่นด้วย x, y, และ z ที่แยกด้วยเส้นตั้ง](powerpoint-math-equations_13.png)
+ตัวอย่างนี้วางสำเนาสองชุดของนิพจน์ที่แก้ไขได้ข้างกัน. ทั้งสองใช้ตัวอักษรคณิตศาสตร์อิตาลิก f (U+1D453), ตัวห้อย 1, ตัวบน 2, และ Cambria Math ขนาด 72 pt. ฐานเอียงทำให้ความแตกต่างชัดใน PowerPoint. ติดตั้ง Cambria Math ก่อนรันตัวอย่าง.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\MathRightSubSuperscriptElement;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(900, 250, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $format = new PortionFormat();
+    $format->setFontHeight(72);
+    $font = new FontData("Cambria Math");
+    $format->setLatinFont($font);
+
+    for ($i = 0; $i < 2; $i++) {
+        $left = 40 + $i * 440;
+        $shape = $slide->getShapes()->addMathShape($left, 75, 380, 150);
+
+        $baseText = new MathematicalText("\u{1D453}", $format);
+        $subscript = new MathematicalText("1", $format);
+        $superscript = new MathematicalText("2", $format);
+        $scripts = new MathRightSubSuperscriptElement($baseText, $subscript, $superscript);
+        $scripts->setAlignScripts($i === 1);
+
+        $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+        $portion->getPortionFormat()->setFontHeight($format->getFontHeight());
+        $portion->getPortionFormat()->setLatinFont($format->getLatinFont());
+        $mathBlock = new MathBlock($scripts);
+        $portion->getMathParagraph()->add($mathBlock);
+    }
+
+    $presentation->save("aligned-scripts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+![สองนิพจน์ที่แก้ไขได้ใน PowerPoint ที่มี setAlignScripts เป็น false ด้านซ้ายและ true ด้านขวา](aligned-scripts.png)
+
+ด้านซ้าย, ตัวห้อยเริ่มอยู่ซ้ายกว่าตัวบน, ตามรูปร่างของฐาน. ด้านขวา, สคริปต์สองตัวจัดแนวแนวนอนกัน.
+
+## **เพิ่มตัวคั่น**
+
+ใช้ [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) เพื่อใส่นิพจน์ภายในตัวคั่น. คุณยังสามารถกำหนดอักขระคั่นสำหรับนิพจน์ที่มีหลายอิลิเมนต์ได้.
+
+![นิพจน์ตัวคั่นที่มี x, y, และ z คั่นด้วยเครื่องหมายบาร์แนวตั้ง](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -632,11 +685,11 @@ try {
 }
 ```
 
-### **ขนาดและการจัดแนวเครื่องหมายคั่น**
+### **ขนาดและการจัดแนวตัวคั่น**
 
-ส่งค่า `true` ไปที่ [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) เพื่อให้วงเล็บขยายตามโอเปอแรนด์สูง หรือส่งค่า `false` เพื่อคงขนาดปกติ ใช้ [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) กับค่าหนึ่งในสองค่าของ [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) `Centered` จัดกึ่งกลางวงเล็บบนแกนคณิตศาสตร์ที่วิ่งผ่านเครื่องหมายเท่ากัน `Match` จัดให้ตรงกับเนื้อหาภายใน ทั้งสองการตั้งค่าเป็นผลต่อเพียงเครื่องหมายคั่น ส่วนนิพจน์ภายในคงเดิม
+ส่ง `true` ไปยัง [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) เพื่อให้วงเล็บขยายตามตัวดำเนินการยาว, หรือส่ง `false` เพื่อคงขนาดปกติ. ใช้ [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) กับหนึ่งในสองค่า [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/). `Centered` ทำให้วงเล็บอยู่ตรงกลางแกนคณิตศาสตร์, ซึ่งวิ่งผ่านกลางเครื่องหมายเท่ากับ. `Match` จัดแนวกับเนื้อหาที่อยู่ภายใน. ทั้งสองตั้งค่าใช้กับตัวคั่นเท่านั้น. นิพจน์ภายในคงเดิม.
 
-ตัวอย่างวางเศษส่วนในดีกรีของ `x` ทำให้นิพจน์ยืดออกเหนือบรรทัดฐานมากกว่าต่ำกว่า ทั้งสี่สมการใช้วงเล็บและการตั้งค่าแบบอักษรเดียวกัน
+ตัวอย่างวางเศษส่วนในเลขชี้กำลังของ `x` เพื่อให้นิพจน์ยืดออกเหนือบรรทัดฐานมากกว่าด้านล่าง. สี่สมการทั้งหมดใช้วงเล็บและการตั้งค่าแบบอักษรเดียวกัน.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -670,15 +723,15 @@ try {
 }
 ```
 
-ใน PowerPoint เปรียบเทียบแถวเพื่อดูผลของการขยาย ในแถวบน วงเล็บขยายเพื่อปกคลุมดีกรีและดูเหมือนกันสำหรับทั้งสองรูปร่าง ในแถวล่าง การขยายถูกปิด วงเล็บเล็กด้านซ้าย (`Centered`) จัดกับเครื่องหมายเท่า ส่วนวงเล็บขวา (`Match`) อยู่สูงขึ้นรอบนิพจน์
+ใน PowerPoint, เปรียบเทียบแถวเพื่อดูผลของการขยาย. แถวบน, วงเล็บขยายเพื่อครอบเลขชี้กำลังและมีลักษณะเดียวกันสำหรับรูปแบบทั้งสอง. แถวล่าง, การขยายปิด. วงเล็บเล็กกว่าด้านซ้าย (`Centered`) จัดแนวกับเครื่องหมายเท่ากับ, ส่วนด้านขวา (`Match`) อยู่สูงกว่ารอบนิพจน์.
 
-![สี่สมการใน PowerPoint ที่เปิด/ปิดการขยายเครื่องหมายคั่น และจัด `Centered` ด้านซ้ายและ `Match` ด้านขวา](delimiter-sizing.png)
+![สี่สมการใน PowerPoint ที่เปิดใช้งานการเติบโตของตัวคั่นด้านบนและปิดด้านล่าง, และ Centered ด้านซ้ายและ Match ด้านขวา](delimiter-sizing.png)
 
 ## **เพิ่มกล่องขอบ**
 
-เรียก [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) บนเศษส่วนเพื่อกรอบนิพจน์ทั้งหมด [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) ที่คืนค่ามีสี่ด้านโดยค่าเริ่มต้น ใช้ [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft), และ [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) เพื่อลบด้านที่ต้องการ
+เรียก [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) บนเศษส่วนเพื่อกรอบนิพจน์ทั้งหมด. [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) ที่คืนค่ามีสี่ด้านแสดงโดยค่าเริ่มต้น. ใช้ [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft), และ [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) เพื่อลบด้านแต่ละด้าน.
 
-ตัวอย่างวางสำเนาเศษส่วนเดียวกันหกชุดบนสไลด์เดียว เพื่อแสดงการยกเลิก ให้ซ่อนสี่ด้านทั้งหมดและส่งค่า `true` ไปที่ [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) เพื่อสร้างเส้นทแยงมุมขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) เพื่อสร้างเส้นทแยงมุมลง (↘) คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) พร้อมการผสมผสานของด้านที่แสดงได้
+ตัวอย่างวางเศษส่วนเดียวกันหกสำเนาบนสไลด์เดียว. เพื่อแสดงการยกเลิก, ซ่อนสี่ด้านและส่ง `true` ไปยัง [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) เพื่อเส้นทแยงขึ้น (↗) หรือ [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) เพื่อเส้นทแยงลง (↘). คุณยังสามารถใช้ [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) หรือ [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) พร้อมการผสมผสานของด้านที่มองเห็นได้.
 
 ```php
 use aspose\slides\MathBlock;
@@ -725,24 +778,24 @@ try {
 }
 ```
 
-![หกเศษส่วนที่แก้ไขได้ใน PowerPoint แถวบน: กรอบเต็ม, ด้านล่างและด้านซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เส้นขวาง, เส้นตั้งกับกรอบเต็ม](border-box-fractions.png)
+![หกส่วนเศษส่วนที่แก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เส้นตัดแนวนอน, เส้นตัดแนวตั้งพร้อมกรอบเต็ม](border-box-fractions.png)
 
-บนเศษส่วนนี้ เส้นขวางแนวนอนทับแถบเศษ ส่วนเส้นตั้งแนวตั้งตัดทั้งเศษและส่วนตัวส่วนในขณะที่กรอบโดยรอบยังคงมองเห็นได้ เส้นเหล่านี้เป็นการตกแต่งนิพจน์ทั้งหมด การขีดเส้นลายบนข้อความทั่วไปจะทำกับอักขระในรันข้อความ หลังจากเปิดงานนำเสนอใน PowerPoint อีกครั้ง คุณยังคงแก้ไขเศษและส่วนได้อิสระ
+บนเศษส่วนนี้, เส้นตัดแนวนอนทับบาร์ของเศษส่วน. เส้นตัดแนวตั้งครอบทั้งเศษและส่วนล่างขณะที่กรอบรอบ ๆ ยังคงมองเห็น. เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด. การขีดข้อความธรรมดาใช้กับอักขระในรันข้อความ. หลังจากเปิดงานนำเสนอใน PowerPoint อีกครั้ง, คุณยังสามารถแก้ไขเศษและส่วนล่างแยกกันได้.
 
 ## **ควบคุมการมองเห็นและการจัดวางด้วย Phantom Elements**
 
-ห่อใส่นิพจน์ด้วย [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันทำให้สมการเปลี่ยนแปลงได้อย่างอิสระ วิธีของ [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) ควบคุมดังนี้
+ห่อหุ้มนิพจน์ใน [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันทำให้สมการเปลี่ยนแปลงโดยอิสระ. เมธอดของ [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) ควบคุมดังต่อไปนี้:
 
-| วิธี | ผล |
+| เมธอด | ผล |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | ส่งค่า `false` เพื่อซ่อนนิพจน์ มิติของมันยังคงมีผลต่อการจัดวางเว้นแต่เมธอดต่อไปนี้รับค่า `true` |
-| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | ถือความกว้างแนวนอนของนิพจน์เป็นศูนย์ ทำให้อิลีเมนต์ข้างเคียงเคลื่อนเข้ามาใกล้กัน |
-| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | ถือส่วนขึ้นเหนือบรรทัดฐานของนิพจน์เป็นศูนย์ ลดพื้นที่ที่สงวนไว้เหนืออิลีเมนต์ข้างเคียง |
-| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | ถือส่วนลงล่างบรรทัดฐานของนิพจน์เป็นศูนย์ ทำให้แถบเศษส่วนหรือเนื้อหาอื่นๆ ใต้นิพจน์เคลื่อนเข้ามาใกล้กว่า |
+| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | ส่ง `false` เพื่อซ่อนนิพจน์. มิติต่าง ๆ ยังมีส่วนในการจัดวางเว้นแต่เมธอดที่เกี่ยวข้องด้านล่างรับ `true`. |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | ปรับความกว้างแนวนอนของนิพจน์เป็นศูนย์, ทำให้อิลิเมนต์ข้างเคียงเคลื่อนเข้ามาใกล้กัน. |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | ปรับค่า ascent (ความสูงเหนือบรรทัดฐาน) เป็นศูนย์. สามารถลดพื้นที่ที่สงวนไว้เหนืออิลิเมนต์ข้างเคียง. |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | ปรับค่า descent (ความลึกต่ำกว่าบรรทัดฐาน) เป็นศูนย์. สามารถเลื่อนบาร์ของเศษส่วนหรือเนื้อหาอื่น ๆ ใต้นิพจน์ให้ใกล้กับข้างเคียงมากขึ้น. |
 
-บรรทัดฐานคือเส้นอ้างอิงที่ตัวอักษรคณิตศาสตร์ทั่วไปวางอยู่ การซ่อนเนื้อหาไม่ได้ลบมิติออก และการถือมิติเป็นศูนย์ไม่ได้ลบนิพจน์ออก นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) ส่งค่า `true` ไปที่ [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติจะคงเดิม
+Baseline คือเส้นอ้างอิงที่อักษรคณิตศาสตร์ทั่วไปวางอยู่. การซ่อนเนื้อหาไม่ลบมิติของมัน, และการทำมิติเป็นศูนย์ไม่ลบนิพจน์. นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase). ส่ง `true` ไปยัง [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติเบี่ยบคงเดิม.
 
-ตัวอย่างด้านล่างสร้างห้าตัวแปรแบบข้างกัน: เศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และสามเศษส่วนที่ซ่อนโดยหนึ่งมิติเป็นศูนย์ ทุกตัวแปรใช้นิพจน์รอบข้างเดียวกันและ Cambria Math ขนาด 24 จุด ทั้งรูปสมการทั้งหมดมีตำแหน่งบนเดียวกันที่แสดงด้วยไกด์สีเทา การวาง Phantom ในส่วนบนของเศษส่วนภายนอกทำให้การเปลี่ยนแปลงการจัดวางแนวตั้งเห็นได้ง่ายขึ้น
+ตัวอย่างต่อไปนี้สร้างรูปแบบห้าตัวที่อยู่เคียงข้างกัน: ส่วนเศษส่วนที่มองเห็น, ส่วนที่ซ่อนแต่สงวนพื้นที่, และสามส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc, หรือ ZeroDesc เปิดใช้งาน. แต่ละรูปแบบใช้นิพจน์โดยรอบเดียวกันและ Cambria Math ขนาด 24 pt. รูปร่างสมการทั้งหมดมีตำแหน่งบนเดียวกัน, ทำเครื่องหมายด้วยแนวนำสีเทา. การวาง phantom ในเศษส่วนด้านบนของเศษส่วนภายนอกทำให้การเปลี่ยนแปลงการจัดวางแนวตั้งเห็นได้ง่ายขึ้น.
 
 ```php
 use aspose\slides\FillType;
@@ -818,13 +871,13 @@ try {
 }
 ```
 
-![ห้าสมการใน PowerPoint เปรียบเทียบระหว่างเศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc, หรือ ZeroDesc เปิดใช้งาน](math-phantom.png)
+![ห้าสมการใน PowerPoint ที่เปรียบเทียบส่วนเศษส่วนที่มองเห็น, ส่วนที่ซ่อนแต่สงวนพื้นที่, และส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc หรือ ZeroDesc เปิดใช้งาน](math-phantom.png)
 
-## **จัดกลุ่มเทอม**
+## **จัดกลุ่มพจน์**
 
-ใช้ [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) เพื่อวางอักขระการจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มขีดจำกัดเพื่อทำป้ายชื่อให้กับเทอมที่จัดกลุ่ม
+ใช้ [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) เพื่อใส่อักขระจัดกลุ่มเหนือหรือใต้นิพจน์. เพิ่มขีดจำกัดเพื่อทำป้ายกำกับพจน์ที่จัดกลุ่ม.
 
-![นิพจน์ x + y ที่จัดกลุ่มพร้อมป้าย any text ใต้มัน](powerpoint-math-equations_15.png)
+![นิพจน์ x + y ที่จัดกลุ่มพร้อมป้ายกำกับข้อความใด ๆ ด้านล่าง](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -849,9 +902,9 @@ try {
 }
 ```
 
-## **จัดรูปแบบอิลีเมนต์คณิตศาสตร์**
+## **จัดรูปแบบอิลิเมนต์คณิตศาสตร์**
 
-ใช้ตัวช่วยจัดรูปแบบเฉพาะเมื่อช่วยให้สูตรชัดเจน ตัวอย่างเช่น [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) วางเส้นบาร์เหนืออิลีเมนต์คณิตศาสตร์
+ใช้ตัวช่วยการจัดรูปแบบเฉพาะเมื่อช่วยทำให้สูตรชัดเจน. ตัวอย่างเช่น, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) วางแถบเหนืออิลิเมนต์คณิตศาสตร์.
 
 ![นิพจน์คณิตศาสตร์ ABC ที่มีเส้นบาร์เหนือ](powerpoint-math-equations_14.png)
 
@@ -878,9 +931,9 @@ try {
 
 ### **จัดรูปแบบข้อความในสมการที่มีอยู่**
 
-เพื่อจัดรูปแบบข้อความทั่วสมการที่มีอยู่ ให้วนรอบต้นไม้อิลีเมนต์ของแต่ละ MathBlock [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) ให้เฉพาะลูกโดยตรง ดังนั้นต้องเรียกแบบเรียกซ้ำเพื่อเข้าถึงข้อความภายในเศษส่วน, ตัวห้อย/บน, ราก, และโครงสร้างซ้อนอื่นๆ ตรวจสอบอิลีเมนต์ปัจจุบันและลูกของมันเพื่อรวมอิลีเมนต์เริ่มต้นเมื่อมันเป็น [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/)
+เพื่อจัดรูปแบบข้อความทั่วทั้งสมการที่มีอยู่, ให้ไล่ผ่านต้นไม้ของอิลิเมนต์แต่ละบล็อกคณิตศาสตร์. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) คืนค่าเฉพาะลูกโดยตรง, ดังนั้นให้เรียกแบบรีเคอร์ซีฟเพื่อเข้าถึงข้อความภายในเศษส่วน, สคริปต์, รัศมี, และโครงสร้างซ้อนอื่น. ตรวจสอบอิลิเมนต์ปัจจุบันและลูกของมันเพื่อรวมอิลิเมนต์เริ่มต้นเมื่อมันเป็น [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
 
-ตัวอย่างนี้สมมติว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y` โดยเศษส่วนมีตัวห้อยในเศษและรากในส่วนล่าง การประมวลผลเฉพาะอิลีเมนต์ระดับบนของบล็อคจะพลาดข้อความภายในเศษส่วน ตัวอย่างค้นหา MathPortion ในเฟรมข้อความสไลด์, เข้าถึงบล็อคผ่าน [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) และใช้ [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) ตั้งขนาดตัวอักษรเป็น 28 จุดผ่านเมธอด [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) ของแต่ละอิลีเมนต์ข้อความ
+ตัวอย่างนี้สมมติว่า `input.pptx` มีสมการเช่น `z = xᵢ / ∛y`, โดยเศษส่วนมีตัวห้อยในตัวเศษและรัศมีในตัวส่วน. การประมวลผลเฉพาะอิลิเมนต์ระดับบนของบล็อกจะพลาดข้อความในเศษส่วน. ตัวอย่างค้นหาส่วนคณิตศาสตร์ในเฟรมข้อความสไลด์, เข้าถึงบล็อกผ่าน [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), และใช้ [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) เพื่อตั้งขนาดฟอนต์เป็น 28 pt ผ่านเมธอด [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) ของแต่ละอิลิเมนต์ข้อความ.
 
 ```php
 use aspose\slides\Presentation;
@@ -936,14 +989,14 @@ try {
 }
 ```
 
-งานนำเสนอที่บันทึกจะมีการจัดรูปแบบข้อความที่อัปเดตในทุกระดับของสมการที่ประมวลผล ทั้งยังคงเนื้อหาและโครงสร้างคณิตศาสตร์เดิม
+งานนำเสนอที่บันทึกมีการอัปเดตรูปแบบข้อความที่ทุกระดับของสมการที่ประมวลผล, พร้อมคงเนื้อหาและโครงสร้างคณิตศาสตร์เดิม.
 
-## **อ้างอิงสั้น**
+## **อ้างอิงอย่างรวดเร็ว**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
-| รวมอิลีเมนต์ | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| รวมอิลิเมนต์ | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | สร้างเศษส่วน | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | เพิ่มซูเปอร์สคริปต์หรือซับสคริปต์ | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | เพิ่มฟังก์ชัน | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
@@ -953,20 +1006,20 @@ try {
 | เพิ่มผลบวกและอินทิกรัล | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
 | เพิ่มอาเรย์สมการ | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| เพิ่มเครื่องหมายคั่น | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| เพิ่มตัวคั่น | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | เพิ่มบาร์และกรอบ | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| จัดกลุ่มเทอม | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| จัดกลุ่มพจน์ | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **คำถามที่พบบ่อย**
 
 **ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
 
-ได้ เปิดงานนำเสนอ ค้นหารูปร่างที่บรรจุ [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) เรียก [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) แล้วอัปเดตบล็อคคณิตศาสตร์ในย่อหน้านั้น
+ใช่. เปิดงานนำเสนอ, ค้นหารูปร่างที่บรรจุ [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), เรียก [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), และอัปเดตบล็อกคณิตศาสตร์ในย่อหน้านั้น.
 
 **สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
 
-ใช่ เมื่อบันทึกเป็น PPTX Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่แก้ไขได้
+ใช่. เมื่อคุณบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office math ที่แก้ไขได้.
 
-**ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
+**ฉันสามารถส่งออกรสมการเป็น LaTeX ได้หรือไม่?**
 
-ได้ รับ [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) ของสมการจาก [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) แล้วเรียก [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) เพื่อส่งออกโดยตรง ตัวอย่างเต็มดูได้ที่ [Export Math Equations from Presentations in PHP via Java](/slides/th/php-java/exporting-math-equations/#export-math-equations-to-latex)
+ใช่. รับ [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) ของสมการจาก [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), แล้วเรียก [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) เพื่อส่งออกโดยตรง. สำหรับตัวอย่างครบถ้วน, ดู [ส่งออกสมการคณิตศาสตร์จากงานพรีเซนเทชันใน PHP ผ่าน Java](/slides/th/php-java/exporting-math-equations/#export-math-equations-to-latex).
