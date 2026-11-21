@@ -1,52 +1,54 @@
 ---
-title: Dia méret módosítása Pythonon keresztül Java-val
-linktitle: Dia Méret
+title: "A prezentáció dia méretének módosítása Pythonban Java segítségével"
+linktitle: "Dia mérete"
 type: docs
 weight: 70
 url: /hu/python-java/slide-size/
 keywords:
-- dia méret
-- képarány
-- standard
-- szélesvásznú
-- 4:3
-- 16:9
-- dia méret beállítása
-- dia méret módosítása
-- egyedi dia méret
-- különleges dia méret
-- különálló dia méret
-- teljes méretű dia
-- képernyő típus
-- ne skálázza
-- illeszkedés biztosítása
-- maximalizálás
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Python
-- Java
-- Aspose.Slides
-description: "Ismerje meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Pythonon keresztül Java-val és az Aspose.Slides használatával, valamint optimalizálni a prezentációkat bármely képernyőre a minőség elvesztése nélkül."
+- "dia méret"
+- "képarány"
+- "szabványos"
+- "szélesvászon"
+- "4:3"
+- "16:9"
+- "dia méretének beállítása"
+- "dia méretének módosítása"
+- "egyedi dia méret"
+- "különleges dia méret"
+- "egyedi dia méret"
+- "teljes méretű dia"
+- "képernyő típusa"
+- "ne skálázza"
+- "illeszkedés biztosítása"
+- "maximalizálás"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Ismerje meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Pythonon keresztül Java és az Aspose.Slides használatával, és optimalizálni a prezentációkat bármilyen képernyőre anélkül, hogy a minőség romlana."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides átfogó eszközöket biztosít a dia méretének és képarányának beállításához a PowerPoint előadásokban, ami mind a nyomtatás, mind a képernyőn való megjelenítés szempontjából kritikus.
+Az Aspose.Slides átfogó eszközöket biztosít a dia méretének és képarányának beállításához PowerPoint‑prezentációkban, ami a nyomtatás és a képernyőn megjelenítés szempontjából is kritikus.
 
 Népszerű dia méretek és arányok:
 
-- **Standard (4:3 képarány)**: Ideális a régebbi képernyők és eszközök számára.
-- **Widescreen (16:9 képarány)**: Ajánlott a modern projektorok és kijelzők számára.
+- **Standard (4:3 képarány)**: Ideális régebbi képernyők és eszközök számára.
+- **Szélesvászon (16:9 képarány)**: Ajánlott modern projektorok és kijelzők számára.
 
-Biztosítsa a konzisztenciát az előadás során, mivel egyetlen dia méret és képarány vonatkozik az összes diára. A legjobb eredmény érdekében állítsa be a dia méreteket az előadás létrehozásának kezdetén, hogy elkerülje a komplikációkat.
+Biztosítsa a konzisztenciát a teljes prezentáció során, mivel egyetlen dia méret és képarány vonatkozik az összes diára. Az optimális eredmény érdekében a prezentáció létrehozásának kezdetén állítsa be a dia méreteket, hogy elkerülje a problémákat.
 
 {{% alert color="info" title="Note" %}}
-Alapértelmezés szerint az Aspose.Slides-szel létrehozott előadások a standard 4:3 képarányt használják.
+Alapértelmezés szerint az Aspose.Slides‑kel létrehozott prezentációk a standard 4:3 képarányt használják.
 {{% /alert %}}
 
-## **Dia méretének módosítása az előadásokban**
+A jegyzetek és a kézikönyv oldalak mérete különbözik a normál diákétól. Lásd a [Jegyzetoldal mérete](/slides/hu/python-java/notes-size/) szakaszt a méret és tájolás módosításához.
 
-Ez a mintakód bemutatja, hogyan változtathatja meg a dia méretét egy előadásban Pythonon keresztül Java használatával az Aspose.Slides segítségével:
+## **A dia méretének módosítása a prezentációkban**
+
+Ez a példakód megmutatja, hogyan lehet módosítani a dia méretét egy prezentációban Python‑ban Java‑n keresztül az Aspose.Slides használatával:
 
 ```python
 import jpype
@@ -65,11 +67,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Egyéni dia méretek megadása az előadásokban**
+## **Egyéni dia méretek megadása a prezentációkban**
 
-Ha úgy találja, hogy a gyakori dia méretek (4:3 és 16:9) nem alkalmasak a munkájához, dönthet úgy, hogy egy specifikus vagy egyedi dia méretet használ. Például, ha teljes méretű diák nyomtatását tervezi egy előadásból egy egyedi oldalelrendezésre, vagy ha bizonyos képernyőtípusokon szeretné megjeleníteni az előadást, valószínűleg hasznos lesz egy egyedi méret beállítása az előadáshoz.
+Ha a gyakori dia méretek (4:3 és 16:9) nem megfelelőek az Ön munkájához, dönthet úgy, hogy egy meghatározott vagy egyedi dia méretet használ. Például, ha a prezentációjából teljes méretű diákat szeretne nyomtatni egy egyedi oldalelrendezésre, vagy ha a prezentációt bizonyos képernyőtípusokon kívánja megjeleníteni, akkor valószínűleg hasznára lesz az egyedi méretbeállítás használata.
 
-Ez a mintakód bemutatja, hogyan használja az Aspose.Slides for Python on Java-t egy egyéni dia méret megadásához egy előadásban:
+Ez a példakód megmutatja, hogyan használható az Aspose.Slides for Python Java‑n keresztül egy egyedi dia méret megadásához egy prezentációban:
 
 ```python
 import jpype
@@ -88,25 +90,22 @@ finally:
     presentation.dispose()
 ```
 
-## **Dia tartalmának kezelése átméretezés után**
+## **Dia tartalom kezelése átméretezés után**
 
-Miután megváltoztatja egy előadás dia méretét, a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új dia mérethez. Azonban a dia méretének módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
+Miután megváltoztatta egy prezentáció dia méretét, a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új dia mérethez. Azonban a prezentáció dia méretének módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
 
-Attól függően, hogy mit szeretne elérni, az alábbi beállítások bármelyikét használhatja:
+Attól függően, hogy mit kíván elérni, az alábbi beállítások bármelyikét használhatja:
 
 - [DoNotScale](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/#DoNotScale)
-
   Ha NEM szeretné, hogy a diákon lévő objektumok átméreteződjenek, használja ezt a beállítást.
 
 - [EnsureFit](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/#EnsureFit)
-
-  Ha kisebb dia méretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mindegyik elférjen a diákon (így elkerülhető a tartalom elvesztése), használja ezt a beállítást.
+  Ha kisebb dia méretre szeretne skálázni, és szüksége van arra, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mind elférjenek a diákon (ezzel elkerülve a tartalom elvesztését), használja ezt a beállítást.
 
 - [Maximize](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/#Maximize)
+  Ha nagyobb dia méretre szeretne skálázni, és szüksége van arra, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új dia mérettel, használja ezt a beállítást.
 
-  Ha nagyobb dia méretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides nagyobbá tegye a diák objektumait, hogy arányosak legyenek az új dia mérettel, használja ezt a beállítást.
-
-Ez a mintakód bemutatja, hogyan használja a [Maximize](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/#Maximize) beállítást egy előadás dia méretének módosításakor:
+Ez a példakód megmutatja, hogyan használható a [Maximize](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/#Maximize) beállítás egy prezentáció dia méretének módosításakor:
 
 ```python
 import jpype
@@ -126,14 +125,18 @@ finally:
 
 ## **GYIK**
 
-**Beállíthatok egyedi dia méretet olyan egységek használatával, amelyek nem hüvelyk (például pont vagy milliméter)?**  
-Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely egységet (például millimétert vagy centimétert) átalakíthat pontokba, és a konvertált értékeket felhasználhatja a dia szélességének és magasságának meghatározásához.
+**Beállíthatok egyedi dia méretet hüvelyk mellett más egységekben (például pontok vagy milliméterek) is?**
 
-**Egy nagyon nagy egyedi dia méret hatással lesz a teljesítményre és a memóriahasználatra a renderelés során?**  
-Igen. A nagyobb dia méretek (pontban) a magasabb renderelési skálával együtt növelik a memóriafogyasztást és meghosszabbítják a feldolgozási időt. Törekedjen egy praktikus dia méretre, és csak szükség szerint állítsa a renderelési skálát a kívánt kimeneti minőség eléréséhez.
+Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyknek felel meg. Bármely egységet (például millimétert vagy centimétert) átalakíthat pontokra, és a konvertált értékeket felhasználhatja a dia szélességének és magasságának meghatározásához.
 
-**Megadhatok egy nem szabványos dia méretet, majd összevonhatok diákot olyan előadásokból, amelyek különböző méretekkel rendelkeznek?**  
-Nem [vonhat össze előadásokat](/slides/hu/python-java/merge-presentation/) különböző dia méretek esetén — először méretezze át az egyik előadást, hogy egyezzen a másikkal. A dia méretének módosításakor kiválaszthatja, hogyan kezelje a meglévő tartalmat a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/) opcióval. A méretek egyeztetése után összevonhatja a diákot, miközben megőrzi a formázást.
+**Egy nagyon nagy egyedi dia méret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?**
 
-**Generálhatok előnézeti képeket egyedi alakzatokhoz vagy egy dián belüli meghatározott területekhez, és tiszteletben tartják majd az új dia méretet?**  
-Igen. Az Aspose.Slides előnézeti képeket tud generálni [egész diákhoz](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) valamint [kijelölt alakzatokhoz](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage). A kapott képek tükrözik a jelenlegi dia méretet és képarányt, biztosítva az egységes keretezést és geometriát.
+Igen. A nagyobb dia méretek (pontokban) magasabb renderelési skálával együtt növelik a memóriafogyasztást és meghosszabbítják a feldolgozási időt. Törekedjen egy gyakorlati dia méretre, és csak szükség szerint állítsa be a renderelési skálát a kívánt kimeneti minőség eléréséhez.
+
+**Meghatározhatok egy nem szabványos dia méretet, majd összevonhatok diákat olyan prezentációkból, amelyek különböző méretekkel rendelkeznek?**
+
+Nem [vonhat össze prezentációkat](/slides/hu/python-java/merge-presentation/) különböző dia méretek esetén – először méretezze át az egyiket, hogy egyezzen a másikkal. A dia méretének módosításakor a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidesizescaletype/) opcióval választhatja ki, hogyan kezelje a meglévő tartalmat. A méretek egyeztetése után összevonhatja a diákot a formázás megőrzésével.
+
+**Generálhatok bélyegképeket egyedi alakzatokhoz vagy a dia meghatározott részeihez, és azok tiszteletben tartják az új dia méretet?**
+
+Igen. Az Aspose.Slides képes bélyegképeket renderelni [teljes diákra](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) és [kiválasztott alakzatokra](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage). A kapott képek tükrözik az aktuális dia méretet és képarányt, biztosítva a következetes keretezést és geometriát.

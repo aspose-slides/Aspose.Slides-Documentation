@@ -3,35 +3,37 @@ title: PHP का उपयोग करके हैंडआउट मोड �
 linktitle: हैंडआउट मोड
 type: docs
 weight: 150
-url: /hi/php-java/convert-powerpoint-in-Handout-mode/
+url: /hi/php-java/convert-powerpoint-in-handout-mode/
 keywords:
 - PowerPoint परिवर्तित करें
-- प्रेज़ेंटेशन को परिवर्तित करें
+- प्रस्तुति परिवर्तित करें
 - हैंडआउट मोड
 - हैंडआउट
 - PPT
 - PPTX
 - PowerPoint
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "PHP में प्रस्तुतियों को हैंडआउट में परिवर्तित करें। प्रति पृष्ठ स्लाइड्स सेट करें, नोट्स रखें, Aspose.Slides for PHP के साथ PDF या इमेज में निर्यात करें, नमूना कोड सहित। इसे मुफ्त में आज़माएँ।"
+description: "PHP में प्रस्तुतियों को हैंडआउट में बदलें। प्रति पृष्ठ स्लाइड्स सेट करें, नोट्स रखें, Aspose.Slides for PHP के साथ PDF या इमेज़ में निर्यात करें, नमूना कोड सहित। इसे मुफ्त में आज़माएँ।"
 ---
 ## **परिचय**
 
-Aspose.Slides विभिन्न फ़ॉर्मैट में प्रस्तुतियों को परिवर्तित करने की क्षमता प्रदान करता है, जिसमें Handout मोड में प्रिंटिंग के लिए हैंडआउट बनाना शामिल है। यह मोड आपको एक पृष्ठ पर कई स्लाइड्स कैसे दिखें, इसे कॉन्फ़िगर करने की सुविधा देता है, जिससे यह सम्मेलनों, सेमिनारों और अन्य आयोजनों के लिए उपयोगी बनता है। आप इस मोड को `setSlidesLayoutOptions` मेथड को सेट करके सक्षम कर सकते हैं, जैसा कि [PdfOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/htmloptions/), और [TiffOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/) क्लास में कर सकते हैं।
+Aspose.Slides प्रस्तुतियों को विभिन्न स्वरूपों में बदलने की सुविधा प्रदान करता है, जिसमें Handout मोड में प्रिंट करने के लिए हैंडआउट बनाना भी शामिल है। यह मोड आपको कॉन्फ़्रेंस, सेमिनार और अन्य कार्यक्रमों के लिए उपयोगी बनाते हुए, एक पृष्ठ पर कई स्लाइड्स को कैसे दिखाया जाएगा इसे कॉन्फ़िगर करने की अनुमति देता है। आप इस मोड को `setSlidesLayoutOptions` मेथड को सेट करके सक्रिय कर सकते हैं, जो [PdfOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/htmloptions/), और [TiffOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/) क्लासेज़ में उपलब्ध है।
 
-## **Handout Mode निर्यात**
+निर्यात से पहले हैंडआउट पेज के आयाम और अभिविन्यास सेट करने के लिए, देखें [नोट्स पेज आकार](/slides/hi/php-java/notes-size/)।
 
-Handout मोड को कॉन्फ़िगर करने के लिए, आप [HandoutLayoutingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handoutlayoutingoptions/) ऑब्जेक्ट का उपयोग करें, जो निर्धारित करता है कि एक पृष्ठ पर कितनी स्लाइड्स रखी जाएँगी और अन्य प्रदर्शन पैरामीटर।
+## **हैंडआउट मोड निर्यात**
 
-नीचे एक कोड उदाहरण दिया गया है जो दिखाता है कि Handout मोड में प्रस्तुति को PDF में कैसे बदलें।
+हैंडआउट मोड को कॉन्फ़िगर करने के लिए, आप [HandoutLayoutingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handoutlayoutingoptions/) ऑब्जेक्ट का उपयोग करें, जो निर्धारित करता है कि एक पृष्ठ पर कितनी स्लाइड्स रखी जाएँगी तथा अन्य प्रदर्शन पैरामीटर।
+
+नीचे एक कोड उदाहरण दिया गया है जो दिखाता है कि कैसे प्रस्तुति को Handout मोड में PDF में परिवर्तित किया जाए।
 
 ```php
 // एक प्रस्तुति लोड करें।
 $presentation = new Presentation("sample.pptx");
 
-// निर्यात विकल्प सेट करें।
+// Set the export options.
 $slidesLayoutOptions = new HandoutLayoutingOptions();
 $slidesLayoutOptions->setHandout(HandoutType::Handouts4Horizontal);  // एक पृष्ठ पर क्षैतिज रूप से 4 स्लाइड्स
 $slidesLayoutOptions->setPrintSlideNumbers(true);                    // स्लाइड नंबर प्रिंट करें
@@ -41,27 +43,25 @@ $slidesLayoutOptions->setPrintComments(false);                       // को�
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($slidesLayoutOptions);
 
-// चुने हुए लेआउट के साथ प्रस्तुति को PDF में निर्यात करें।
+// Export the presentation to PDF with the chosen layout.
 $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="warning" %}} 
-
-ध्यान रखें कि `setSlidesLayoutOptions` मेथड केवल कुछ आउटपुट फ़ॉर्मैट्स, जैसे PDF, HTML, TIFF, और जब छवियों के रूप में रेंडर किया जाता है, के लिए उपलब्ध है।
-
+{{% alert color="warning" title="Warning" %}}
+ध्यान रखें कि `setSlidesLayoutOptions` मेथड केवल कुछ आउटपुट फ़ॉर्मैट्स के लिए उपलब्ध है, जैसे PDF, HTML, TIFF, और जब इमेज़ के रूप में रेंडर किया जाए।
 {{% /alert %}} 
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Handout मोड में प्रति पृष्ठ अधिकतम स्लाइड थंबनेल की संख्या क्या है?**
+**हैंडआउट मोड में प्रति पृष्ठ अधिकतम स्लाइड थंबनेल की संख्या क्या है?**
 
-Aspose.Slides [presets](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handouttype/) का समर्थन करता है जिनमें अधिकतम 9 थंबनेल प्रति पृष्ठ हो सकते हैं, क्षैतिज या ऊर्ध्वाधर क्रम में: 1, 2, 3, 4 (क्षैतिज/ऊर्ध्वाधर), 6 (क्षैतिज/ऊर्ध्वाधर), और 9 (क्षैतिज/ऊर्ध्वाधर)।
+Aspose.Slides [presets](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handouttype/) का समर्थन करता है, जिससे एक पृष्ठ पर अधिकतम 9 थंबनेल क्षैतिज या लंबवत क्रम में रखे जा सकते हैं: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical), और 9 (horizontal/vertical).
 
-**क्या मैं 5 या 8 स्लाइड्स प्रति पृष्ठ जैसे कस्टम ग्रिड को परिभाषित कर सकता हूँ?**
+**क्या मैं 5 या 8 स्लाइड्स प्रति पृष्ठ जैसी कस्टम ग्रिड परिभाषित कर सकता हूँ?**
 
-नहीं। थंबनेल की संख्या और क्रम को सख्ती से [HandoutType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handouttype/) क्लास द्वारा नियंत्रित किया जाता है; मनमाने लेआउट समर्थित नहीं हैं।
+नहीं। थंबनेल की संख्या और क्रम को पूरी तरह से [HandoutType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/handouttype/) क्लास द्वारा नियंत्रित किया जाता है; मनमाने लेआउट का समर्थन नहीं किया जाता।
 
-**क्या मैं Handout आउटपुट में छिपी हुई स्लाइड्स को शामिल कर सकता हूँ?**
+**क्या मैं हैंडआउट आउटपुट में छिपी हुई स्लाइड्स शामिल कर सकता हूँ?**
 
-हाँ। लक्ष्य फ़ॉर्मैट के निर्यात सेटिंग्स में, जैसे कि [PdfOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/htmloptions/), या [TiffOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/), `setShowHiddenSlides` मेथड को सक्षम करके छिपी हुई स्लाइड्स को शामिल करें।
+हां। लक्ष्य फ़ॉर्मैट के निर्यात सेटिंग्स में `setShowHiddenSlides` मेथड का उपयोग करके छिपी हुई स्लाइड्स को सक्षम किया जा सकता है, जैसे कि [PdfOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/htmloptions/), या [TiffOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/tiffoptions/).

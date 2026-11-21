@@ -10,25 +10,27 @@ keywords:
 - добавить заметки
 - удалить заметки
 - стиль заметок
-- мастер заметок
+- мастер-записки
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Настройте заметки презентации с помощью Aspose.Slides для Python через Java. Беспрепятственно работайте с заметками PowerPoint и OpenDocument, повышая продуктивность."
+description: "Настройте заметки презентации с помощью Aspose.Slides для Python через Java. Беспрепятственно работайте с заметками PowerPoint и OpenDocument, повышая свою продуктивность."
 ---
 ## **Обзор**
 
-Aspose.Slides поддерживает удаление слайдов с заметками из презентации. В этой статье рассматривается данная возможность, включая способы удаления заметок и применения стиля к слайдам заметок в презентации. Aspose.Slides позволяет удалять заметки с любого слайда и применять оформление к существующим заметкам. Разработчики могут удалять заметки следующими способами:
+Aspose.Slides поддерживает удаление слайдов‑записок из презентации. В этой статье рассматривается эта возможность, включая способы удаления записок и применения стиля к слайдам‑запискам в презентации. Aspose.Slides позволяет удалять записки с любого слайда и применять стили к существующим запискам. Разработчики могут удалять записки следующими способами:
 
-- Удалить заметки с конкретного слайда в презентации.
-- Удалить заметки со всех слайдов в презентации.
+- Удалить записки с конкретного слайда в презентации.
+- Удалить записки со всех слайдов в презентации.
 
-## **Удаление заметок со слайда**
+Чтобы прочитать или изменить размеры страницы записок, поменять ориентацию и проверить поведение при экспорте, см. [Размер страницы заметок](/slides/ru/python-java/notes-size/).
 
-Заметки с конкретного слайда можно удалить, как показано в примере ниже:
+## **Удаление записок со слайда**
+
+Записки с конкретного слайда можно удалить, как показано в примере ниже:
 
 ```python
 import jpype
@@ -39,22 +41,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Создайте объект Presentation, который представляет файл презентации.
+# Создайте объект Presentation, представляющий файл презентации.
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # Удалить заметки с первого слайда.
+    # Удалите заметки с первого слайда.
     notes_manager = presentation.getSlides().get_Item(0).getNotesSlideManager()
     notes_manager.removeNotesSlide()
 
-    # Сохранить презентацию на диск.
+    # Сохраните презентацию на диск.
     presentation.save("test.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Удаление заметок из презентации**
+## **Удаление записок из презентации**
 
-Заметки со всех слайдов в презентации можно удалить, как показано в примере ниже:
+Записки со всех слайдов в презентации можно удалить, как показано в примере ниже:
 
 ```python
 import jpype
@@ -65,23 +67,23 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Создайте объект Presentation, который представляет файл презентации.
+# Создайте объект Presentation, представляющий файл презентации.
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # Удалить заметки со всех слайдов.
+    # Удалите заметки со всех слайдов.
     for i in range(presentation.getSlides().size()):
         notes_manager = presentation.getSlides().get_Item(i).getNotesSlideManager()
         notes_manager.removeNotesSlide()
 
-    # Сохранить презентацию на диск.
+    # Сохраните презентацию на диск.
     presentation.save("test.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Добавление стиля заметок**
+## **Добавление стиля записок**
 
-Метод [getNotesStyle](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masternotesslide/#getNotesStyle) класса [MasterNotesSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masternotesslide/) предоставляет доступ к стилю текста заметок. Реализация демонстрируется в примере ниже.
+Метод [getNotesStyle](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masternotesslide/#getNotesStyle) класса [MasterNotesSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/masternotesslide/) предоставляет доступ к стилю текста записок. Реализация продемонстрирована в примере ниже.
 
 ```python
 import jpype
@@ -98,10 +100,10 @@ try:
     notes_master = presentation.getMasterNotesSlideManager().getMasterNotesSlide()
 
     if notes_master is not None:
-        # Получите стиль текста главного слайда заметок.
+        # Получите стиль текста мастер-слайда заметок.
         notes_style = notes_master.getNotesStyle()
 
-        # Установите символьные маркеры для абзацев первого уровня.
+        # Установите символные маркеры для абзацев первого уровня.
         paragraph_format = notes_style.getLevel(0)
         paragraph_format.getBullet().setType(BulletType.Symbol)
 
@@ -110,12 +112,12 @@ finally:
     presentation.dispose()
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Какой объект API предоставляет доступ к заметкам конкретного слайда?**
+**Какой объект API предоставляет доступ к запискам конкретного слайда?**
 
-Заметками управляет менеджер заметок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notesslidemanager/) и метод [getNotesSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notesslidemanager/#getNotesSlide), который возвращает объект заметок или `None`, если заметок нет.
+Запискам можно получить доступ через менеджер записок слайда: у слайда есть [NotesSlideManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notesslidemanager/) и метод [getNotesSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notesslidemanager/#getNotesSlide), который возвращает объект записок или `None`, если записок нет.
 
-**Есть ли различия в поддержке заметок в разных версиях PowerPoint, с которыми работает библиотека?**
+**Есть ли различия в поддержке записок в разных версиях PowerPoint, с которыми работает библиотека?**
 
-Библиотека ориентирована на широкий спектр форматов Microsoft PowerPoint (97 и новее) и ODP; заметки поддерживаются в этих форматах без зависимости от установленной копии PowerPoint.
+Библиотека ориентирована на широкий диапазон форматов Microsoft PowerPoint (97 и новее) и ODP; поддержка записок реализована во всех этих форматах без зависимости от установленной копии PowerPoint.

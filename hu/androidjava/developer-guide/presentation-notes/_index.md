@@ -1,5 +1,5 @@
 ---
-title: Prezentációs jegyzetek kezelése Androidon
+title: Androidon a prezentációs jegyzetek kezelése
 linktitle: Prezentációs jegyzetek
 type: docs
 weight: 110
@@ -9,46 +9,52 @@ keywords:
 - jegyzet dia
 - jegyzetek hozzáadása
 - jegyzetek eltávolítása
-- jegyzet stílus
-- főjegyzetek
+- jegyzetstílus
+- mester jegyzetek
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Testre szabhatja a prezentációs jegyzeteket az Aspose.Slides for Android segítségével Java nyelven. Zökkenőmentesen dolgozhat a PowerPoint és OpenDocument jegyzetekkel a termelékenység növelése érdekében."
+description: "Testreszabhatja a prezentációs jegyzeteket az Androidra készült Aspose.Slides segítségével Java nyelven. Zökkenőmentesen dolgozhat a PowerPoint és OpenDocument jegyzetekkel, hogy növelje produktivitását."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides támogatja a jegyzet diák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolítását és a jegyzet diák stílusának alkalmazását a prezentációban. Az Aspose.Slides lehetővé teszi, hogy jegyzeteket távolítson el bármely diáról, illetve stílusokat alkalmazzon a meglévő jegyzetekre. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
+Az Aspose.Slides támogatja a jegyzetdia eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolítását és a jegyzetdiákra való stílus alkalmazását egy prezentációban. Az Aspose.Slides lehetővé teszi, hogy bármely diáról eltávolítsa a jegyzeteket, és alkalmazzon stílust a meglévő jegyzetekre. A fejlesztők a következő módon távolíthatják el a jegyzeteket:
 
-- Jegyzetek eltávolítása egy meghatározott diáról a prezentációban.
-- Jegyzetek eltávolítása minden diáról a prezentációban.
+- Jegyzetek eltávolítása egy adott diáról egy prezentációban.
+- Jegyzetek eltávolítása az összes diáról egy prezentációban.
+
+A jegyzetoldal méretének olvasásához vagy módosításához, az orientáció váltásához és az export viselkedés ellenőrzéséhez lásd [Jegyzetoldal Mérete](/slides/hu/androidjava/notes-size/).
 
 ## **Jegyzetek eltávolítása egy diáról**
-Egy adott diára vonatkozó jegyzetek eltávolíthatók az alábbi példában bemutatott módon:
+Egy adott diáról a jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
 
 ```java
-// Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // Az első dia jegyzeteinek eltávolítása
     INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
 
-    // Prezentáció mentése lemezre
+    // A prezentáció mentése lemezre
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Jegyzetek eltávolítása a prezentációból**
-A prezentáció összes diájáról eltávolíthatók a jegyzetek, ahogyan az alábbi példában látható:
+## **Jegyzetek eltávolítása egy prezentációból**
+Az összes diáról a jegyzetek eltávolíthatók, ahogyan az alábbi példában látható:
 
 ```java
-// Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
     // Az összes dia jegyzeteinek eltávolítása
@@ -58,7 +64,7 @@ try {
         mgr.removeNotesSlide();
     }
     
-    // Prezentáció mentése lemezre
+    // A prezentáció mentése lemezre
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -66,10 +72,12 @@ try {
 ```
 
 ## **Jegyzetstílus hozzáadása**
-[getNotesStyle](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metódus került hozzáadásra a [IMasterNotesSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IMasterNotesSlide) interfészhez és a [MasterNotesSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság a jegyzet szövegének stílusát határozza meg. A megvalósítás az alábbi példában van bemutatva.
+[getNotesStyle](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metódust hozzáadták az [IMasterNotesSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IMasterNotesSlide) interfészhez és a [MasterNotesSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság meghatározza a jegyzet szövegének stílusát. A megvalósítást az alábbi példában mutatjuk be.
 
 ```java
-// Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+import com.aspose.slides.*;
+
+// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("demo.pptx");
 try {
     IMasterNotesSlide notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
@@ -79,7 +87,7 @@ try {
         // A MasterNotesSlide szövegstílusának lekérése
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Szimbólum golyót állít be az első szintű bekezdésekhez
+        //Szimbólum felsorolást állít be az első szintű bekezdésekhez
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -91,10 +99,10 @@ try {
 
 ## **GYIK**
 
-**Melyik API-elem biztosít hozzáférést egy adott dia jegyzeteihez?**
+**Mely API entitás biztosítja a hozzáférést egy adott dia jegyzeteihez?**
 
-A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diának van egy [NotesSlideManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/notesslidemanager/) és egy [method](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) amely visszaadja a jegyzet objektumot, vagy `null`‑t, ha nincs jegyzet.
+A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diának van egy [NotesSlideManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/notesslidemanager/) és egy [method](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) amely visszaadja a jegyzet objektumot, vagy `null`, ha nincsenek jegyzetek.
 
-**Vannak-e különbségek a jegyzetek támogatásában a PowerPoint különböző verziói között, amelyekkel a könyvtár működik?**
+**Vannak-e különbségek a jegyzetek támogatásában a különböző PowerPoint verziók között, amelyekkel a könyvtár működik?**
 
-A könyvtár a Microsoft PowerPoint széles körű formátumtartományát (97‑újabb) és az ODP‑t célozza; a jegyzetek támogatottak ezekben a formátumokban, anélkül hogy a PowerPoint telepített példányára lenne szükség.
+A könyvtár széles körű Microsoft PowerPoint formátumokat (97‑újabb) és ODP‑t céloz meg; a jegyzetek támogatottak ezekben a formátumokban, anélkül, hogy telepített PowerPoint példányra lenne szükség.

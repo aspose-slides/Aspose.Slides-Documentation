@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Sunumlarını Notlarla .NET'te PDF'ye Dönüştür
-linktitle: PowerPoint'ten PDF'ye Notlarla
+title: PowerPoint Sunumlarını Notlarla PDF'e Dönüştür .NET'te
+linktitle: Notlu PowerPoint PDF
 type: docs
 weight: 50
 url: /tr/net/convert-powerpoint-to-pdf-with-notes/
@@ -8,53 +8,58 @@ keywords:
 - PowerPoint dönüştür
 - sunumu dönüştür
 - slaytı dönüştür
-- PPT'yi dönüştür
-- PPTX'i dönüştür
-- PowerPoint'ten PDF'ye
-- sunumu PDF'ye
-- slaytı PDF'ye
-- PPT'den PDF'ye
-- PPTX'den PDF'ye
+- PPT dönüştür
+- PPTX dönüştür
+- PowerPoint'ten PDF'e
+- sunumdan PDF'e
+- slayttan PDF'e
+- PPT'den PDF'e
+- PPTX'den PDF'e
 - sunumu PDF olarak kaydet
 - PPT'yi PDF olarak kaydet
 - PPTX'i PDF olarak kaydet
-- PPT'yi PDF'ye aktar
-- PPTX'i PDF'ye aktar
+- PPT'yi PDF'e dışa aktar
+- PPTX'i PDF'e dışa aktar
 - konuşmacı notları
 - notlu PDF
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PPT ve PPTX formatlarını notlarla PDF'ye dönüştürün. Profesyonel sunumlar için düzenleri ve konuşmacı notlarını koruyun."
+description: "Aspose.Slides for .NET kullanarak PPT ve PPTX formatlarını notlarla PDF'e dönüştürün. Profesyonel sunumlar için düzenleri ve konuşmacı notlarını koruyun."
 ---
 ## **Genel Bakış**
 
-Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu rehber gerekli adımları kapsayacak ve bu görevi verimli bir şekilde gerçekleştirmenize yardımcı olacak kod örnekleri sağlayacaktır. Makalenin sonunda, şunları yapabilecek durumda olacaksınız:
+Bu makalede, Aspose.Slides kullanarak PowerPoint sunumlarını konuşmacı notlarıyla PDF formatına nasıl dönüştüreceğinizi öğreneceksiniz. Bu rehber, gerekli adımları kapsar ve bu görevi verimli bir şekilde gerçekleştirmenize yardımcı olacak kod örnekleri sağlar. Makalenin sonunda şunları yapabileceksiniz:
 
 - Konuşmacı notlarını koruyarak PowerPoint slaytlarını PDF belgelerine dönüştürme sürecini uygulayın.
-- Çıktı PDF'yi, konuşmacı notlarının dahil edildiğinden ve gereksinimlerinize göre biçimlendirildiğinden emin olmak için özelleştirin.
+- Çıktı PDF'yi, konuşmacı notlarının dahil edildiğinden ve gereksinimlerinize göre biçimlendirildiğinden emin olmak üzere özelleştirin.
 
-## **Notlarla PowerPoint'i PDF'ye Dönüştür**
+Dışa aktarmadan önce not sayfası boyutlarını ve yönünü ayarlamak için, [Not Sayfası Boyutu](/slides/tr/net/notes-size/) bölümüne bakın.
 
-`Save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfında, PPT veya PPTX sunumunu konuşmacı notlarıyla PDF'ye dönüştürmek için kullanılabilir. Aspose.Slides ile, sunumu sadece yükler, konuşmacı notlarını eklemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırırsınız ve ardından dosyayı PDF olarak kaydedersiniz. Aşağıdaki kod parçacığı, örnek bir sunumu Notlu Slayt görünümünde PDF'ye nasıl dönüştüreceğinizi gösterir.
+## **Konuşmacı Notlarıyla PowerPoint'i PDF'e Dönüştür**
+
+`Save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfında PPT veya PPTX sunumunu konuşmacı notlarıyla PDF'e dönüştürmek için kullanılabilir. Aspose.Slides ile sadece sunumu yükleyip, konuşmacı notlarını dahil etmek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanarak düzen seçeneklerini yapılandırırsınız ve ardından dosyayı PDF olarak kaydedersiniz. Aşağıdaki kod parçacığı, örnek bir sunumu Not Slaytı görünümünde PDF'e nasıl dönüştüreceğinizi gösterir.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Konuşmacı notlarını işlemek için PDF seçeneklerini yapılandır.
+    // Konuşmacı notlarını renderlamak için PDF seçeneklerini yapılandırın.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Slaytın altına konuşmacı notlarını ekle.
+            NotesPosition = NotesPositions.BottomFull // Konuşmacı notlarını slaytın altında renderla.
         }
     };
 
-    // Sunumu konuşmacı notlarıyla PDF olarak kaydet.
+    // Sunumu konuşmacı notlarıyla PDF olarak kaydedin.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-{{% alert color="primary" %}} 
-Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/tr/conversion) aracını incelemek isteyebilirsiniz. 
+{{% alert color="info" %}} 
+Aspose [Çevrimiçi PowerPoint PDF Dönüştürücü](https://products.aspose.app/slides/tr/conversion) adresine göz atabilirsiniz. 
 {{% /alert %}}

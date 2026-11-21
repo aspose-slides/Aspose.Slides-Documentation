@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie notatkami prezentacji w Pythonie przy użyciu Java
+title: Zarządzanie notatkami prezentacji w Pythonie przy użyciu Javy
 linktitle: Notatki prezentacji
 type: docs
 weight: 110
@@ -7,8 +7,8 @@ url: /pl/python-java/presentation-notes/
 keywords:
 - notatki
 - slajd notatek
-- dodawanie notatek
-- usuwanie notatek
+- dodaj notatki
+- usuń notatki
 - styl notatek
 - notatki główne
 - PowerPoint
@@ -17,18 +17,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla Pythona przy użyciu Java. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
+description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla Pythona przy użyciu Javy. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. Ten temat wprowadza tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usunąć notatki z dowolnego slajdu i zastosować formatowanie do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. Ten temat wprowadza tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides pozwala usunąć notatki z dowolnego slajdu oraz zastosować stylizację do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
 
-- Usunięcie notatek z określonego slajdu w prezentacji.
-- Usunięcie notatek ze wszystkich slajdów w prezentacji.
+- Usuń notatki z określonego slajdu w prezentacji.
+- Usuń notatki ze wszystkich slajdów w prezentacji.
+
+Aby odczytać lub zmienić wymiary strony notatek, przełączyć orientację i sprawdzić zachowanie przy eksporcie, zobacz [Rozmiar strony notatek](/slides/pl/python-java/notes-size/).
 
 ## **Usuwanie notatek ze slajdu**
 
-Notatki z określonego slajdu można usunąć, tak jak pokazano w poniższym przykładzie:
+Notatki z określonego slajdu można usunąć, jak pokazano w przykładzie poniżej:
 
 ```python
 import jpype
@@ -54,7 +56,7 @@ finally:
 
 ## **Usuwanie notatek z prezentacji**
 
-Notatki ze wszystkich slajdów w prezentacji można usunąć, tak jak pokazano w poniższym przykładzie:
+Notatki ze wszystkich slajdów w prezentacji można usunąć, jak pokazano w przykładzie poniżej:
 
 ```python
 import jpype
@@ -79,9 +81,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Dodanie stylu notatek**
+## **Dodaj styl notatek**
 
-Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masternotesslide/#getNotesStyle) klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masternotesslide/) zapewnia dostęp do stylu tekstu notatek. Implementacja została przedstawiona w poniższym przykładzie.
+Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masternotesslide/#getNotesStyle) klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/masternotesslide/) zapewnia dostęp do stylu tekstu notatek. Implementacja została zaprezentowana w przykładzie poniżej.
 
 ```python
 import jpype
@@ -98,10 +100,10 @@ try:
     notes_master = presentation.getMasterNotesSlideManager().getMasterNotesSlide()
 
     if notes_master is not None:
-        # Pobierz styl tekstu master slajdu notatek.
+        # Pobierz styl tekstu głównego slajdu z notatkami.
         notes_style = notes_master.getNotesStyle()
 
-        # Ustaw wypunktowanie symbolem dla akapitów pierwszego poziomu.
+        # Ustaw symboliczne wypunktowanie dla akapitów pierwszego poziomu.
         paragraph_format = notes_style.getLevel(0)
         paragraph_format.getBullet().setType(BulletType.Symbol)
 
@@ -114,8 +116,8 @@ finally:
 
 **Który element API zapewnia dostęp do notatek określonego slajdu?**
 
-Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notesslidemanager/) oraz metodę [getNotesSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notesslidemanager/#getNotesSlide), która zwraca obiekt notatek lub `None`, jeśli notatki nie istnieją.
+Notatki są dostępne przez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notesslidemanager/) oraz metodę [getNotesSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/notesslidemanager/#getNotesSlide), która zwraca obiekt notatek lub `None`, jeśli notatek nie ma.
 
-**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi współpracuje biblioteka?**
+**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi działa biblioteka?**
 
-Biblioteka obsługuje szeroką gamę formatów Microsoft PowerPoint (97 i późniejsze) oraz ODP; notatki są wspierane w tych formatach bez konieczności posiadania zainstalowanej kopii programu PowerPoint.
+Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97 i nowsze) oraz ODP; notatki są obsługiwane w tych formatach bez konieczności posiadania zainstalowanej kopii PowerPoint.

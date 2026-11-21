@@ -7,7 +7,7 @@ url: /es/java/presentation-notes/
 keywords:
 - notas
 - diapositiva de notas
-- agregar notas
+- añadir notas
 - eliminar notas
 - estilo de notas
 - notas maestras
@@ -16,24 +16,23 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Personaliza las notas de la presentación con Aspose.Slides para Java. Trabaja sin problemas con notas de PowerPoint y OpenDocument para aumentar tu productividad."
+description: "Personaliza las notas de la presentación con Aspose.Slides para Java. Trabaja sin problemas con notas de PowerPoint y OpenDocument para mejorar tu productividad."
 ---
+## **Descripción general**
 
-{{% alert color="primary" %}} 
+Aspose.Slides permite eliminar diapositivas de notas de una presentación. En este tema, presentaremos esta característica, incluyendo cómo eliminar notas y cómo aplicar un estilo a las diapositivas de notas en una presentación. Aspose.Slides permite eliminar notas de cualquier diapositiva y también aplicar estilo a notas existentes. Los desarrolladores pueden eliminar notas de las siguientes maneras:
 
-Aspose.Slides admite la eliminación de diapositivas de notas de una presentación. En este tema, introduciremos esta nueva función de eliminar notas y también de añadir diapositivas de estilo de notas a cualquier presentación. 
+- Eliminar notas de una diapositiva específica en una presentación.
+- Eliminar notas de todas las diapositivas de una presentación.
 
-{{% /alert %}} 
+Para leer o cambiar las dimensiones de la página de notas, cambiar la orientación y comprobar el comportamiento de exportación, consulte [Tamaño de página de notas](/slides/es/java/notes-size/).
 
-Aspose.Slides para Java ofrece la funcionalidad de eliminar notas de cualquier diapositiva, así como añadir estilo a notas existentes. Los desarrolladores pueden eliminar notas de las siguientes maneras:
-
-* Eliminar notas de una diapositiva específica de una presentación.
-* Eliminar notas de todas las diapositivas de una presentación
-
-
-## **Remove Notes from a Slide**
+## **Eliminar notas de una diapositiva**
 Las notas de una diapositiva específica pueden eliminarse como se muestra en el ejemplo a continuación:
+
 ```java
+import com.aspose.slides.*;
+
 // Instanciar un objeto Presentation que representa un archivo de presentación
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -48,10 +47,12 @@ try {
 }
 ```
 
-
-## **Remove Notes from a Presentation**
+## **Eliminar notas de una presentación**
 Las notas de todas las diapositivas de una presentación pueden eliminarse como se muestra en el ejemplo a continuación:
+
 ```java
+import com.aspose.slides.*;
+
 // Instanciar un objeto Presentation que representa un archivo de presentación
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -69,10 +70,12 @@ try {
 }
 ```
 
+## **Añadir un estilo de notas**
+El método [getNotesStyle](https://reference.aspose.com/slides/es/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) se ha añadido a la interfaz [IMasterNotesSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/IMasterNotesSlide) y a la clase [MasterNotesSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/MasterNotesSlide) respectivamente. Esta propiedad especifica el estilo del texto de notas. La implementación se muestra en el ejemplo a continuación.
 
-## **Add a Notes Style**
-El método[getNotesStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) se ha añadido a la interfaz[IMasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) y a la clase[MasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) respectivamente. Esta propiedad especifica el estilo del texto de las notas. La implementación se muestra en el ejemplo a continuación.
 ```java
+import com.aspose.slides.*;
+
 // Instanciar un objeto Presentation que representa un archivo de presentación
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -83,7 +86,7 @@ try {
         // Obtener el estilo de texto de MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        //Establecer viñeta de símbolo para los párrafos de primer nivel
+        //Establecer viñeta símbolo para los párrafos de primer nivel
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -93,13 +96,12 @@ try {
 }
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+**¿Qué entidad de la API proporciona acceso a las notas de una diapositiva específica?**
 
-**Which API entity provides access to the notes of a specific slide?**
+Las notas se acceden a través del gestor de notas de la diapositiva: la diapositiva tiene un [NotesSlideManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/notesslidemanager/) y un [método](https://reference.aspose.com/slides/es/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) que devuelve el objeto de notas, o `null` si no existen notas.
 
-Las notas se acceden a través del administrador de notas de la diapositiva: la diapositiva tiene un[NotesSlideManager](https://reference.aspose.com/slides/java/com.aspose.slides/notesslidemanager/) y un[método](https://reference.aspose.com/slides/java/com.aspose.slides/notesslidemanager/#getNotesSlide--) que devuelve el objeto de notas, o `null` si no existen notas.
+**¿Existen diferencias en el soporte de notas entre las versiones de PowerPoint con las que funciona la biblioteca?**
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
-
-La biblioteca está dirigida a una amplia gama de formatos de Microsoft PowerPoint (97‑más recientes) y ODP; las notas son compatibles en estos formatos sin depender de una copia instalada de PowerPoint.
+La biblioteca es compatible con una amplia gama de formatos de Microsoft PowerPoint (de 97 en adelante) y ODP; las notas están soportadas en estos formatos sin depender de una copia instalada de PowerPoint.

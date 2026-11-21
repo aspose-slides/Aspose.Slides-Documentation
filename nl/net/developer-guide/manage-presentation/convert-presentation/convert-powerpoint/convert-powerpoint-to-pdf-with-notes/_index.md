@@ -1,44 +1,49 @@
 ---
-title: Convert PowerPoint Presentaties naar PDF met Notities in .NET
-linktitle: PowerPoint naar PDF met Notities
+title: PowerPoint-presentaties converteren naar PDF met notities in .NET
+linktitle: PowerPoint naar PDF met notities
 type: docs
 weight: 50
 url: /nl/net/convert-powerpoint-to-pdf-with-notes/
 keywords:
-  - PowerPoint converteren
-  - presentatie converteren
-  - dia converteren
-  - PPT converteren
-  - PPTX converteren
-  - PowerPoint naar PDF
-  - presentatie naar PDF
-  - dia naar PDF
-  - PPT naar PDF
-  - PPTX naar PDF
-  - presentatie opslaan als PDF
-  - PPT opslaan als PDF
-  - PPTX opslaan als PDF
-  - PPT exporteren naar PDF
-  - PPTX exporteren naar PDF
-  - spreker notities
-  - PDF met notities
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Converteer de formaten PPT en PPTX naar PDF met notities met behulp van Aspose.Slides voor .NET. Behoud de lay-outs en spreker-notities voor professionele presentaties."
+- PowerPoint converteren
+- presentatie converteren
+- dia converteren
+- PPT converteren
+- PPTX converteren
+- PowerPoint naar PDF
+- presentatie naar PDF
+- dia naar PDF
+- PPT naar PDF
+- PPTX naar PDF
+- presentatie opslaan als PDF
+- PPT opslaan als PDF
+- PPTX opslaan als PDF
+- PPT exporteren naar PDF
+- PPTX exporteren naar PDF
+- spreker-notities
+- PDF met notities
+- .NET
+- C#
+- Aspose.Slides
+description: "Converteer de formaten PPT en PPTX naar PDF met notities met behulp van Aspose.Slides voor .NET. Behoud de layout en spreker-notities voor professionele presentaties."
 ---
 ## **Overzicht**
 
-In dit artikel leert u hoe u PowerPoint‑presentaties kunt converteren naar PDF‑formaat met spreker­notities met behulp van Aspose.Slides. Deze gids behandelt de benodigde stappen en biedt code‑voorbeelden om deze taak efficiënt uit te voeren. Aan het einde van dit artikel kunt u:
+In dit artikel leert u hoe u PowerPoint-presentaties kunt converteren naar PDF-formaat met spreker‑notities met behulp van Aspose.Slides. Deze gids behandelt de benodigde stappen en biedt code‑voorbeelden om deze taak efficiënt uit te voeren. Aan het einde van dit artikel kunt u:
 
-- Het conversieproces implementeren om PowerPoint‑dia’s om te zetten in PDF‑documenten, waarbij de spreker­notities behouden blijven.
-- De uitvoer‑PDF aanpassen zodat de spreker­notities worden opgenomen en opgemaakt volgens uw wensen.
+- Het conversieproces implementeren om PowerPoint-dia's te transformeren naar PDF‑documenten terwijl de spreker‑notities behouden blijven.
+- De gegenereerde PDF aanpassen zodat de spreker‑notities zijn inbegrepen en opgemaakt volgens uw vereisten.
+
+Om de afmetingen en oriëntatie van de notitiepagina vóór export in te stellen, zie [Notitiepaginaformaat](/slides/nl/net/notes-size/).
 
 ## **PowerPoint naar PDF converteren met notities**
 
-De `Save`‑methode in de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse kan worden gebruikt om een PPT‑ of PPTX‑presentatie te converteren naar een PDF met spreker­notities. Met Aspose.Slides laadt u eenvoudig de presentatie, configureert u de lay‑outopties met behulp van de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/)‑klasse om spreker­notities op te nemen, en slaat u vervolgens het bestand op als PDF. Het volgende code‑fragment toont hoe u een voorbeeldpresentatie kunt omzetten naar een PDF in de Notities‑diaweergave.
+De `Save`‑methode in de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse kan worden gebruikt om een PPT‑ of PPTX‑presentatie te converteren naar een PDF met spreker‑notities. Met Aspose.Slides laadt u eenvoudig de presentatie, configureert u de lay‑outopties met behulp van de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/)‑klasse om spreker‑notities op te nemen, en slaat u vervolgens het bestand op als PDF. Het onderstaande code‑fragment toont hoe u een voorbeeldpresentatie kunt converteren naar een PDF in weergave Notities‑dia.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Configureer PDF-opties voor het renderen van spreker-notities.
@@ -55,8 +60,6 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-{{% alert color="primary" %}} 
-
-U wilt misschien de Aspose [Online PowerPoint naar PDF Converter](https://products.aspose.app/slides/nl/conversion) bekijken. 
-
+{{% alert color="info" %}} 
+U wilt misschien de Aspose [Online PowerPoint naar PDF-converter](https://products.aspose.app/slides/nl/conversion) bekijken. 
 {{% /alert %}}

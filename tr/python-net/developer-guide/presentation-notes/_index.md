@@ -1,5 +1,5 @@
 ---
-title: Python'da Sunum Notlarını Yönet
+title: Python'da Sunum Notlarını Yönetme
 linktitle: Sunum Notları
 type: docs
 weight: 110
@@ -20,20 +20,21 @@ description: "Aspose.Slides for Python via .NET ile sunum notlarını özelleşt
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumdan not slaytlarını kaldırmayı destekler. Bu bölümde, bu özelliği, notların nasıl kaldırılacağını ve bir sunumdaki not slaytlarına nasıl stil uygulanacağını tanıtacağız. Aspose.Slides, herhangi bir slayttan notları kaldırmanıza ve mevcut notlara stil uygulamanıza olanak tanır. Geliştiriciler notları aşağıdaki yollarla kaldırabilir:
+Aspose.Slides, bir sunumdan not slaytlarını kaldırmayı destekler. Bu konuda, notları nasıl kaldıracağınızı ve bir sunumdaki not slaytlarına nasıl stil uygulayacağınızı içeren bu özelliği tanıtacağız. Aspose.Slides, herhangi bir slayttan notları kaldırmanıza ve mevcut notlara stil uygulamanıza olanak tanır. Geliştiriciler notları aşağıdaki şekillerde kaldırabilir:
 
-- Bir sunumdaki belirli bir slayttan notları kaldırın.
-- Bir sunumdaki tüm slaytlardan notları kaldırın.
+- Belirli bir slayttan notları kaldırın.
+- Sunumdaki tüm slaytlardan notları kaldırın.
 
-## **Slayttan Notları Kaldır**
+Not sayfası boyutlarını okumak veya değiştirmek, yönlendirmeyi değiştirmek ve dışa aktarma davranışını kontrol etmek için, bakınız [Not Sayfası Boyutu](/slides/tr/python-net/notes-size/).
 
-Aşağıdaki örnekte gösterildiği gibi belirli bir slayttan notlar kaldırılabilir:
+## **Bir Slayttan Notları Kaldırma**
+Belirli bir slayttan notlar, aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden bir Presentation nesnesi oluşturun 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Bir sunum dosyasını temsil eden Presentation nesnesini örnekleyin
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # İlk slaytın notlarını kaldırma
     mgr = presentation.slides[0].notes_slide_manager
     mgr.remove_notes_slide()
@@ -42,15 +43,14 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("RemoveNotesAtSpecificSlide_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tüm Slaytlardan Notları Kaldır**
-
-Aşağıdaki örnekte gösterildiği gibi bir sunumdaki tüm slaytlardan notlar kaldırılabilir:
+## **Tüm Slaytlardan Notları Kaldırma**
+Sunumdaki tüm slaytlardan notlar, aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden bir Presentation nesnesi oluşturun 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Bir sunum dosyasını temsil eden Presentation nesnesini oluştur 
+with slides.Presentation("AccessSlides.pptx") as presentation:
     # Tüm slaytların notlarını kaldırma
     for i in range(len(presentation.slides)):
         mgr = presentation.slides[i].notes_slide_manager
@@ -59,21 +59,20 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
     presentation.save("RemoveNotesFromAllSlides_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **NotesStyle Ekle**
-
-[notes_style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masternotesslide/notes_style/) özelliği, [MasterNotesSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masternotesslide/) sınıfına eklenmiştir. Bu özellik, bir not metninin stilini belirtir. Uygulama aşağıdaki örnekte gösterilmiştir.
+## **Bir Not Stili Uygulama**
+Bu [notes_style](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masternotesslide/notes_style/) özelliği, [MasterNotesSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masternotesslide/) sınıfına eklenmiştir. Bu özellik, not metninin stilini belirler. Uygulama aşağıdaki örnekte gösterilmiştir.
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
+# Sunum dosyasını temsil eden Presentation sınıfını örnekle
+with slides.Presentation("AccessSlides.pptx") as presentation:
     notesMaster = presentation.master_notes_slide_manager.master_notes_slide
     if notesMaster != None:
         # MasterNotesSlide metin stilini al
         notesStyle = notesMaster.notes_style
 
-        #İlk seviye paragraflar için sembol madde işareti ayarla
+        # İlk seviye paragraflar için sembol madde işareti ayarla
         paragraphFormat = notesStyle.get_level(0)
         paragraphFormat.bullet.type = slides.BulletType.SYMBOL
 
@@ -83,10 +82,10 @@ with slides.Presentation(path + "AccessSlides.pptx") as presentation:
 
 ## **SSS**
 
-**Belirli bir slaydın notlarına erişimi sağlayan API varlığı nedir?**
+**Belirli bir slaytın notlarına erişimi sağlayan API varlığı nedir?**
 
-Notlara, slaydın not yöneticisi aracılığıyla erişilir: slayt bir [NotesSlideManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/notesslidemanager/) ve not nesnesini döndüren bir [property](https://reference.aspose.com/slides/tr/python-net/aspose.slides/notesslidemanager/notes_slide/) (not yoksa `None`) içerir.
+Notlara, slaytın not yöneticisi aracılığıyla erişilir: slayt, bir [NotesSlideManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/notesslidemanager/) ve not nesnesini döndüren bir [property](https://reference.aspose.com/slides/tr/python-net/aspose.slides/notesslidemanager/notes_slide/) içerir; not yoksa `None` döndürülür.
 
-**Kütüphanenin çalıştığı PowerPoint sürümleri arasında not desteği açısından farklılıklar var mı?**
+**Kütüphanenin çalıştığı PowerPoint sürümleri arasında not desteği konusunda farklılıklar var mı?**
 
-Kütüphane, geniş bir Microsoft PowerPoint (97–yeni) ve ODP formatı yelpazesini hedefler; notlar, bu formatlarda PowerPoint'in kurulu bir kopyasına bağımlı olmaksızın desteklenir.
+Kütüphane, Microsoft PowerPoint formatlarının (97‑yeni) ve ODP'nin geniş bir yelpazesini hedefler; notlar, bu formatlar içinde PowerPoint'in kurulu bir kopyasına bağımlı olmadan desteklenir.

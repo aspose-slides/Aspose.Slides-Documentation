@@ -1,5 +1,5 @@
 ---
-title: Конвертируйте презентации в PDF с заметками на Python
+title: Конвертировать презентации в PDF с заметками на Python
 linktitle: Презентация в PDF с заметками
 type: docs
 weight: 50
@@ -21,33 +21,37 @@ keywords:
 - PDF с заметками
 - Python
 - Aspose.Slides
-description: "Конвертируйте форматы PPT, PPTX и ODP в PDF с заметками с помощью Aspose.Slides для Python. Сохраняйте макеты и заметки докладчика для профессиональных презентаций."
+description: "Конвертировать форматы PPT, PPTX и ODP в PDF с заметками с помощью Aspose.Slides для Python. Сохранить макеты и заметки докладчика для профессиональных презентаций."
 ---
+## **Обзор**
 
-Метод [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) класса Presentation можно использовать для конвертации презентации PowerPoint PPT или PPTX в PDF с заметками. Сохранение презентации Microsoft PowerPoint в PDF с заметками с помощью Aspose.Slides для Python через .NET — это процесс из двух строк. Вы просто открываете презентацию и сохраняете её в формате PDF с заметками. Ниже приведены фрагменты кода, которые обновляют пример презентации в формате PDF в режиме заметок:
+В этой статье вы узнаете, как с помощью Aspose.Slides преобразовать презентации PowerPoint в формат PDF с заметками докладчика. В руководстве описаны необходимые шаги и приведены примеры кода, которые помогут выполнить задачу эффективно. По окончании статьи вы сможете:
+
+- Реализовать процесс конвертации, преобразуя слайды PowerPoint в PDF‑документы с сохранением заметок докладчика.
+- Настроить выходной PDF так, чтобы заметки докладчика были включены и отформатированы в соответствии с вашими требованиями.
+
+Чтобы задать размеры и ориентацию страницы заметок перед экспортом, см. [Notes Page Size](/slides/ru/python-net/notes-size/).
+
+## **Конвертация PowerPoint в PDF с заметками**
+
+Метод `save` класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) можно использовать для преобразования презентации PPT или PPTX в PDF с заметками докладчика. С Aspose.Slides вы просто загружаете презентацию, настраиваете параметры макета с помощью класса [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/python-net/aspose.slides.export/notescommentslayoutingoptions/) для включения заметок, а затем сохраняете файл в формате PDF. Следующий фрагмент кода демонстрирует, как конвертировать пример презентации в PDF в режиме слайдов заметок.
 
 ```py
 import aspose.slides as slides
 
-# Создаем объект Presentation, представляющий файл презентации 
-presentation = slides.Presentation("SelectedSlides.pptx")
-auxPresentation = slides.Presentation()
+with slides.Presentation("sample.pptx") as presentation:
 
-slide = presentation.slides[0]
+    # Настройте параметры PDF для рендеринга заметок докладчика.
+    notes_options = slides.export.NotesCommentsLayoutingOptions()
+    notes_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-auxPresentation.slides.insert_clone(0, slide)
+    pdf_options = slides.export.PdfOptions()
+    pdf_options.slides_layout_options = notes_options
 
-# Установка типа и размера слайда 
-auxPresentation.slide_size.set_size(612, 792, slides.SlideSizeScaleType.ENSURE_FIT)
-
-pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
-
-auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
+    # Сохраните презентацию в PDF с заметками докладчика.
+    presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="primary" %}} 
-
-Вам может быть интересно ознакомиться с конвертером Aspose [PowerPoint в PDF](https://products.aspose.app/slides/conversion) или [PPT в PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
+{{% alert color="info" title="Note" %}}
+Вы можете попробовать онлайн‑конвертер Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ru/conversion).
 {{% /alert %}}

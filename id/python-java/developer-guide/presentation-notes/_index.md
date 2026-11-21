@@ -10,14 +10,14 @@ keywords:
 - tambahkan catatan
 - hapus catatan
 - gaya catatan
-- master catatan
+- catatan master
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Python via Java. Bekerja mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
+description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Python via Java. Bekerja secara mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
 ---
 ## **Gambaran Umum**
 
@@ -25,6 +25,8 @@ Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Topik 
 
 - Menghapus catatan dari slide tertentu dalam sebuah presentasi.
 - Menghapus catatan dari semua slide dalam sebuah presentasi.
+
+Untuk membaca atau mengubah dimensi halaman catatan, mengubah orientasi, dan memeriksa perilaku ekspor, lihat [Ukuran Halaman Catatan](/slides/id/python-java/notes-size/).
 
 ## **Hapus Catatan dari Slide**
 
@@ -81,7 +83,7 @@ finally:
 
 ## **Tambahkan Gaya Catatan**
 
-Metode [getNotesStyle](https://reference.aspose.com/slides/id/python-java/aspose.slides/masternotesslide/#getNotesStyle) dari kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/python-java/aspose.slides/masternotesslide/) memberikan akses ke gaya teks catatan. Implementasinya ditunjukkan dalam contoh di bawah ini.
+Metode [getNotesStyle](https://reference.aspose.com/slides/id/python-java/aspose.slides/masternotesslide/#getNotesStyle) pada kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/python-java/aspose.slides/masternotesslide/) menyediakan akses ke gaya teks catatan. Implementasinya ditunjukkan pada contoh di bawah ini.
 
 ```python
 import jpype
@@ -98,10 +100,10 @@ try:
     notes_master = presentation.getMasterNotesSlideManager().getMasterNotesSlide()
 
     if notes_master is not None:
-        # Dapatkan gaya teks master notes slide.
+        # Dapatkan gaya teks slide catatan master.
         notes_style = notes_master.getNotesStyle()
 
-        # Atur bullet simbol untuk paragraf tingkat pertama.
+        # Atur bullet simbol untuk paragraf level pertama.
         paragraph_format = notes_style.getLevel(0)
         paragraph_format.getBullet().setType(BulletType.Symbol)
 
@@ -114,8 +116,8 @@ finally:
 
 **Entitas API mana yang menyediakan akses ke catatan slide tertentu?**
 
-Catatan dapat diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/python-java/aspose.slides/notesslidemanager/) dan metode [getNotesSlide](https://reference.aspose.com/slides/id/python-java/aspose.slides/notesslidemanager/#getNotesSlide) yang mengembalikan objek catatan, atau `None` jika tidak ada catatan.
+Catatan diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/python-java/aspose.slides/notesslidemanager/) dan metode [getNotesSlide](https://reference.aspose.com/slides/id/python-java/aspose.slides/notesslidemanager/#getNotesSlide) yang mengembalikan objek catatan, atau `None` jika tidak ada catatan.
 
-**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung library?**
+**Apakah ada perbedaan dukungan catatan di antara versi PowerPoint yang didukung oleh perpustakaan?**
 
-Library ini menargetkan berbagai format Microsoft PowerPoint (versi 97 ke atas) dan ODP; catatan didukung dalam format tersebut tanpa bergantung pada instalasi PowerPoint.
+Perpustakaan menargetkan berbagai format Microsoft PowerPoint (versi 97 dan setelahnya) serta ODP; catatan didukung dalam format tersebut tanpa bergantung pada instalasi PowerPoint yang ada.

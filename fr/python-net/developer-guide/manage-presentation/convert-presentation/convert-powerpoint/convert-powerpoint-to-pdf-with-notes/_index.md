@@ -1,36 +1,57 @@
 ---
-title: Convertir PowerPoint en PDF avec des notes
+title: Convertir des présentations en PDF avec notes en Python
+linktitle: Présentation en PDF avec notes
 type: docs
 weight: 50
 url: /fr/python-net/convert-powerpoint-to-pdf-with-notes/
-keywords: "convertir PowerPoint, Présentation, PowerPoint en PDF, notes, Python, Aspose.Slides"
-description: "Convertir PowerPoint en PDF avec des notes en utilisant Python"
+keywords:
+- convertir PowerPoint
+- convertir OpenDocument
+- convertir présentation
+- convertir PPT
+- convertir PPTX
+- convertir ODP
+- PowerPoint en PDF
+- OpenDocument en PDF
+- présentation en PDF
+- PPT en PDF
+- PPTX en PDF
+- ODP en PDF
+- notes du présentateur
+- PDF avec notes
+- Python
+- Aspose.Slides
+description: "Convertir les formats PPT, PPTX et ODP en PDF avec notes à l'aide d'Aspose.Slides pour Python. Conserver les mises en page et les notes du présentateur pour des présentations professionnelles."
 ---
+## **Vue d'ensemble**
 
-La méthode [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) exposée par la classe Presentation peut être utilisée pour convertir une présentation PowerPoint PPT ou PPTX en PDF avec des notes. Sauvegarder une présentation Microsoft PowerPoint en PDF avec des notes en utilisant Aspose.Slides pour Python via .NET est un processus en deux lignes. Vous ouvrez simplement la présentation et la sauvegardez en PDF avec des notes. Les extraits de code ci-dessous mettent à jour la présentation d'exemple en PDF en vue des notes de diapositive :
+Dans cet article, vous apprendrez comment convertir des présentations PowerPoint au format PDF avec les notes du présentateur à l'aide d'Aspose.Slides. Ce guide couvrira les étapes nécessaires et fournira des exemples de code pour vous aider à réaliser cette tâche efficacement. À la fin de cet article, vous serez capable de :
+
+- Mettre en œuvre le processus de conversion pour transformer les diapositives PowerPoint en documents PDF tout en conservant les notes du présentateur.
+- Personnaliser le PDF de sortie afin que les notes du présentateur soient incluses et formatées selon vos exigences.
+
+Pour définir les dimensions et l'orientation de la page des notes avant l'exportation, consultez [Taille de la page des notes](/slides/fr/python-net/notes-size/).
+
+## **Convertir PowerPoint en PDF avec notes**
+
+La méthode `save` de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) peut être utilisée pour convertir une présentation PPT ou PPTX en PDF avec les notes du présentateur. Avec Aspose.Slides, il suffit de charger la présentation, de configurer les options de mise en page à l'aide de la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides.export/notescommentslayoutingoptions/) pour inclure les notes du présentateur, puis d’enregistrer le fichier au format PDF. Le fragment de code suivant montre comment convertir une présentation d'exemple en PDF en vue des diapositives de notes.
 
 ```py
 import aspose.slides as slides
 
-# Instancier un objet Presentation qui représente un fichier de présentation 
-presentation = slides.Presentation("SelectedSlides.pptx")
-auxPresentation = slides.Presentation()
+with slides.Presentation("sample.pptx") as presentation:
 
-slide = presentation.slides[0]
+    # Configurez les options PDF pour le rendu des notes du présentateur.
+    notes_options = slides.export.NotesCommentsLayoutingOptions()
+    notes_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-auxPresentation.slides.insert_clone(0, slide)
+    pdf_options = slides.export.PdfOptions()
+    pdf_options.slides_layout_options = notes_options
 
-# Définir le type et la taille de la diapositive 
-auxPresentation.slide_size.set_size(612, 792, slides.SlideSizeScaleType.ENSURE_FIT)
-
-pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
-
-auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
+    # Enregistrez la présentation en PDF avec les notes du présentateur.
+    presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="primary" %}} 
-
-Vous voudrez peut-être consulter Aspose [PowerPoint en PDF](https://products.aspose.app/slides/conversion) ou [PPT en PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) convertisseur. 
-
+{{% alert color="info" title="Note" %}}
+Vous pouvez consulter le [Convertisseur PowerPoint en PDF en ligne d'Aspose](https://products.aspose.app/slides/fr/conversion).
 {{% /alert %}}

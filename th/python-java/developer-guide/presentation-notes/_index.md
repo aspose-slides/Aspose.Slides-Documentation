@@ -1,6 +1,6 @@
 ---
 title: จัดการโน้ตงานนำเสนอใน Python ผ่าน Java
-linktitle: โน้ตงานนำเสนอ
+linktitle: โน้ตการนำเสนอ
 type: docs
 weight: 110
 url: /th/python-java/presentation-notes/
@@ -21,13 +21,16 @@ description: "ปรับแต่งโน้ตงานนำเสนอด
 ---
 ## **ภาพรวม**
 
-Aspose.Slides รองรับการลบโน้ตสไลด์ออกจากงานนำเสนอ หัวข้อนี้แนะนำคุณลักษณะนี้ รวมถึงวิธีลบโน้ตและวิธีใช้สไตล์กับโน้ตสไลด์ในงานนำเสนอ Aspose.Slides ให้คุณลบโน้ตจากสไลด์ใดก็ได้และใช้สไตล์กับโนตที่มีอยู่ นักพัฒนาสามารถลบโน้ตได้ตามวิธีต่อไปนี้:
-- ลบโน้ตจากสไลด์เฉพาะในงานนำเสนอ.
-- ลบโน้ตจากสไลด์ทั้งหมดในงานนำเสนอ.
+Aspose.Slides รองรับการลบโน้ตสไลด์ออกจากงานนำเสนอ หัวข้อนี้แนะนำคุณลักษณะนี้ รวมถึงวิธีการลบโน้ตและวิธีการใช้สไตล์กับโน้ตสไลด์ในงานนำเสนอ Aspose.Slides ให้คุณลบโน้ตจากสไลด์ใดก็ได้และนำสไตล์ไปใช้กับโน้ตที่มีอยู่แล้ว นักพัฒนาสามารถลบโน้ตได้ด้วยวิธีต่อไปนี้:
+
+- ลบโน้ตจากสไลด์เฉพาะในงานนำเสนอ
+- ลบโน้ตจากสไลด์ทั้งหมดในงานนำเสนอ
+
+เพื่ออ่านหรือเปลี่ยนขนาดหน้โน้ต, สวิตช์การวางแนว, และตรวจสอบพฤติกรรมการส่งออก ดูที่ [Notes Page Size](/slides/th/python-java/notes-size/).
 
 ## **ลบโน้ตจากสไลด์**
 
-สามารถลบโน้ตจากสไลด์เฉพาะได้ตามตัวอย่างด้านล่าง:
+โน้ตจากสไลด์เฉพาะสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```python
 import jpype
@@ -38,14 +41,14 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# สร้างอ็อบเจกต์ Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
+# สร้างอ็อบเจกต์ Presentation ที่แสดงไฟล์งานนำเสนอ
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # ลบโน้ตจากสไลด์แรก.
+    # ลบโน้ตจากสไลด์แรก
     notes_manager = presentation.getSlides().get_Item(0).getNotesSlideManager()
     notes_manager.removeNotesSlide()
 
-    # บันทึกงานนำเสนอลงดิสก์.
+    # บันทึกงานนำเสนอลงดิสก์
     presentation.save("test.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -53,7 +56,7 @@ finally:
 
 ## **ลบโน้ตจากงานนำเสนอ**
 
-สามารถลบโน้ตจากสไลด์ทั้งหมดในงานนำเสนอได้ตามตัวอย่างด้านล่าง:
+โน้ตจากสไลด์ทั้งหมดในงานนำเสนอสามารถลบได้ตามตัวอย่างด้านล่าง:
 
 ```python
 import jpype
@@ -64,15 +67,15 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# สร้างอ็อบเจกต์ Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
+# สร้างอ็อบเจกต์ Presentation ที่แสดงไฟล์งานนำเสนอ
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # ลบโน้ตจากสไลด์ทั้งหมด.
+    # ลบโน้ตจากสไลด์ทั้งหมด
     for i in range(presentation.getSlides().size()):
         notes_manager = presentation.getSlides().get_Item(i).getNotesSlideManager()
         notes_manager.removeNotesSlide()
 
-    # บันทึกงานนำเสนอลงดิสก์.
+    # บันทึกงานนำเสนอลงดิสก์
     presentation.save("test.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -80,7 +83,7 @@ finally:
 
 ## **เพิ่มสไตล์โน้ต**
 
-เมธอด [getNotesStyle](https://reference.aspose.com/slides/th/python-java/aspose.slides/masternotesslide/#getNotesStyle) ของคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masternotesslide/) ให้การเข้าถึงสไตล์ของข้อความโน้ต ตัวอย่างการใช้งานแสดงในโค้ดด้านล่าง.
+เมธอด [getNotesStyle](https://reference.aspose.com/slides/th/python-java/aspose.slides/masternotesslide/#getNotesStyle) ของคลาส [MasterNotesSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/masternotesslide/) ให้การเข้าถึงสไตล์ของข้อความโน้ต การใช้งานจะแสดงในตัวอย่างด้านล่าง
 
 ```python
 import jpype
@@ -91,16 +94,16 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import BulletType, Presentation, SaveFormat
 
-# สร้างอ็อบเจกต์ Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
+# สร้างอ็อบเจกต์ Presentation ที่แสดงไฟล์งานนำเสนอ
 presentation = Presentation("demo.pptx")
 try:
     notes_master = presentation.getMasterNotesSlideManager().getMasterNotesSlide()
 
     if notes_master is not None:
-        # รับสไตล์ข้อความของสไลด์โน้ตหลัก.
+        # ดึงสไตล์ข้อความของสไลด์โน้ตหลัก
         notes_style = notes_master.getNotesStyle()
 
-        # ตั้งสัญลักษณ์ bullet สำหรับย่อหน้าระดับแรก.
+        # กำหนดสัญลักษณ์บูลเล็ทสำหรับย่อหน้าระดับแรก
         paragraph_format = notes_style.getLevel(0)
         paragraph_format.getBullet().setType(BulletType.Symbol)
 
@@ -109,12 +112,34 @@ finally:
     presentation.dispose()
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ใครเป็นเอนทิตี้ API ที่ให้การเข้าถึงโน้ตของสไลด์เฉพาะ?**
+**เอนทิตี API ใดที่ให้การเข้าถึงโน้ตของสไลด์เฉพาะ?**
 
-โน้ตจะเข้าถึงผ่านผู้จัดการโน้ตของสไลด์: แต่ละสไลด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/notesslidemanager/) และเมธอด [getNotesSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/notesslidemanager/#getNotesSlide) ซึ่งจะคืนค่าออบเจ็กต์โน้ต หรือ `None` หากไม่มีโนต.
+โน้ตเข้าถึงผ่านผู้จัดการโน้ตของสไลด์: สไลด์มี [NotesSlideManager](https://reference.aspose.com/slides/th/python-java/aspose.slides/notesslidemanager/) และเมธอด [getNotesSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/notesslidemanager/#getNotesSlide) ที่คืนค่าอ็อบเจกต์โน้ต, หรือ `None` หากไม่มีโน้ต
 
 **มีความแตกต่างในการสนับสนุนโน้ตระหว่างเวอร์ชัน PowerPoint ที่ไลบรารีทำงานด้วยหรือไม่?**
 
-ไลบรารีนี้รองรับรูปแบบไฟล์ Microsoft PowerPoint ช่วงกว้าง (ตั้งแต่เวอร์ชัน 97 เป็นต้นไป) รวมถึง ODP; โน้ตได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องอิงกับการติดตั้ง PowerPoint อยู่แล้ว.
+ไลบรารีรองรับรูปแบบ Microsoft PowerPoint ช่วงกว้าง (ตั้งแต่ 97 เป็นต้นไป) และ ODP; โน้ตได้รับการสนับสนุนในรูปแบบเหล่านี้โดยไม่ต้องพึ่งพาการติดตั้ง PowerPoint อยู่บนเครื่อง
+
+---
+title: จัดการโน้ตงานนำเสนอใน Python ผ่าน Java
+linktitle: โน้ตการนำเสนอ
+type: docs
+weight: 110
+url: /th/python-java/presentation-notes/
+keywords:
+- โน้ต
+- สไลด์โน้ต
+- เพิ่มโน้ต
+- ลบโน้ต
+- สไตล์โน้ต
+- โน้ตหลัก
+- PowerPoint
+- OpenDocument
+- งานนำเสนอ
+- Python
+- Java
+- Aspose.Slides
+description: "ปรับแต่งโน้ตงานนำเสนอด้วย Aspose.Slides สำหรับ Python ผ่าน Java ทำงานกับโน้ต PowerPoint และ OpenDocument อย่างราบรื่นเพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
+---

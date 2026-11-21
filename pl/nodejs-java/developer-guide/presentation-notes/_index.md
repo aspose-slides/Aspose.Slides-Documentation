@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie notatkami prezentacji w JavaScript
+title: Zarządzaj notatkami prezentacji w JavaScript
 linktitle: Notatki prezentacji
 type: docs
 weight: 110
@@ -7,8 +7,8 @@ url: /pl/nodejs-java/presentation-notes/
 keywords:
 - notatki
 - slajd notatek
-- dodawanie notatek
-- usuwanie notatek
+- dodaj notatki
+- usuń notatki
 - styl notatek
 - główne notatki
 - PowerPoint
@@ -17,26 +17,31 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dostosuj notatki prezentacji w JavaScript przy użyciu Aspose.Slides dla Node.js. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją produktywność."
+description: "Dostosuj notatki prezentacji w JavaScript przy użyciu Aspose.Slides dla Node.js. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
 ---
-## **Overview**
+## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów notatek z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów notatek w prezentacji. Aspose.Slides umożliwia usuwanie notatek z dowolnego slajdu oraz stosowanie formatowania do istniejących notatek. Deweloperzy mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak stosować styl do slajdów z notatkami w prezentacji. Aspose.Slides umożliwia usunięcie notatek z dowolnego slajdu oraz zastosowanie stylizacji istniejącym notatkom. Programiści mogą usuwać notatki w następujący sposób:
 
-- Usunięcie notatek z określonego slajdu w prezentacji.
-- Usunięcie notatek ze wszystkich slajdów w prezentacji.
+- Usuwanie notatek z określonego slajdu w prezentacji.  
+- Usuwanie notatek ze wszystkich slajdów w prezentacji.
 
-## **Remove Notes from Slide**
-Notatki wybranego slajdu można usunąć, jak pokazano w poniższym przykładzie:
+Aby przeczytać lub zmienić wymiary strony notatek, przełączyć orientację oraz sprawdzić zachowanie eksportu, zobacz [Rozmiar strony notatek](/slides/pl/nodejs-java/notes-size/).
+
+## **Usuwanie notatek ze slajdu**
+Notatki z określonego slajdu można usunąć, jak pokazano w poniższym przykładzie:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Usuwanie notatek z pierwszego slajdu
+    // Usuwanie notatek pierwszego slajdu
     var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
-    // Zapis prezentacji na dysku
+    // Zapisywanie prezentacji na dysku
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -45,10 +50,13 @@ try {
 }
 ```
 
-## **Remove Notes from Presentation**
-Notatki ze wszystkich slajdów prezentacji można usunąć, jak pokazano w poniższym przykładzie:
+## **Usuwanie notatek z prezentacji**
+Notatki ze wszystkich slajdów w prezentacji można usunąć, jak pokazano w poniższym przykładzie:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
@@ -58,7 +66,7 @@ try {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
         mgr.removeNotesSlide();
     }
-    // Zapis prezentacji na dysku
+    // Zapisywanie prezentacji na dysku
     pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -67,10 +75,14 @@ try {
 }
 ```
 
-## **Add NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) metoda została dodana do klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide) oraz klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide). Ta właściwość określa styl tekstu notatek. Implementacja jest przedstawiona w poniższym przykładzie.
+## **Dodaj NotesStyle**
+Metoda [getNotesStyle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) została dodana do klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide) i klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MasterNotesSlide). Ta właściwość określa styl tekstu notatek. Implementację przedstawiono w poniższym przykładzie.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
@@ -80,7 +92,7 @@ try {
         var notesStyle = notesMaster.getNotesStyle();
         // Ustaw symbol wypunktowania dla akapitów pierwszego poziomu
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -92,10 +104,10 @@ try {
 
 ## **FAQ**
 
-**Which API entity provides access to the notes of a specific slide?**
+**Jakie API zapewnia dostęp do notatek określonego slajdu?**
 
-Notatki są dostępne przez menedżera notatek slajdu: slajd ma [NotesSlideManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notesslidemanager/) oraz [method](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) który zwraca obiekt notatek, lub `null` jeśli notatek nie ma.
+Notatki są dostępne za pośrednictwem menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notesslidemanager/) i [method](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), który zwraca obiekt notatek lub `null`, jeśli notatki nie istnieją.
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
+**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi działa biblioteka?**
 
-Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97‑nowe) oraz ODP; notatki są obsługiwane w tych formatach bez konieczności posiadania zainstalowanej kopii PowerPointa.
+Biblioteka obsługuje szeroką gamę formatów Microsoft PowerPoint (97‑nowsze) oraz ODP; notatki są wspierane w tych formatach niezależnie od zainstalowanej kopii PowerPoint.

@@ -14,56 +14,62 @@ keywords:
 - atur ukuran slide
 - ubah ukuran slide
 - ukuran slide khusus
-- ukuran slide spesial
+- ukuran slide istimewa
 - ukuran slide unik
 - slide ukuran penuh
 - tipe layar
 - jangan skala
-- pastikan muat
+- memastikan cocok
 - maksimalkan
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-descriptions: "Pelajari cara cepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP dengan Java dan Aspose.Slides, mengoptimalkan presentasi untuk layar apa pun tanpa kehilangan kualitas."
+description: "Pelajari cara dengan cepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP menggunakan Java dan Aspose.Slides, mengoptimalkan presentasi untuk layar apa pun tanpa kehilangan kualitas."
 ---
-## **Introduction**
+## **Pendahuluan**
 
-Aspose.Slides menyediakan alat lengkap untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, penting untuk pencetakan maupun tampilan di layar. 
+Aspose.Slides menyediakan alat lengkap untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, yang penting untuk pencetakan dan tampilan di layar. 
 
-Popular Slide Sizes and Ratios:
+Ukuran Slide Populer dan Rasio:
 
-- **Standard (Rasio Aspek 4:3)**: Ideal untuk layar dan perangkat lama.
-- **Widescreen (Rasio Aspek 16:9)**: Disarankan untuk proyektor dan tampilan modern.
+- **Standar (Rasio Aspek 4:3)**: Ideal untuk layar dan perangkat lama.
+- **Layar Lebar (Rasio Aspek 16:9)**: Disarankan untuk proyektor dan tampilan modern.
 
-Pastikan konsistensi di seluruh presentasi Anda karena satu ukuran slide dan rasio aspek diterapkan ke semua slide. Untuk hasil optimal, atur dimensi slide di awal proses pembuatan presentasi untuk menghindari komplikasi.
+Pastikan konsistensi di seluruh presentasi Anda karena satu ukuran slide dan rasio aspek diterapkan pada semua slide. Untuk hasil optimal, atur dimensi slide di awal proses pembuatan presentasi Anda untuk menghindari komplikasi.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Secara default, presentasi yang dibuat dengan Aspose.Slides menggunakan rasio aspek standar 4:3.
 {{% /alert %}}
 
-## **Change the Slide Size in Presentations**
+Halaman catatan dan lembaran tangan memiliki dimensi terpisah dari slide reguler. Lihat [Ukuran Halaman Catatan](/slides/id/java/notes-size/) untuk mengubah ukuran dan orientasinya.
 
-Kode contoh ini menunjukkan cara mengubah ukuran slide dalam presentasi di Java menggunakan Aspose.Slides:
+## **Mengubah Ukuran Slide dalam Presentasi**
+
+Kode contoh ini menunjukkan cara mengubah ukuran slide dalam presentasi Java menggunakan Aspose.Slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.save("pres-16x9-aspect-ratio.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Specify Custom Slide Sizes in Presentations**
+## **Menentukan Ukuran Slide Kustom dalam Presentasi**
 
-Jika ukuran slide umum (4:3 dan 16:9) tidak cocok untuk pekerjaan Anda, Anda dapat memilih ukuran slide yang spesifik atau unik. Misalnya, jika Anda berencana mencetak slide berukuran penuh dari presentasi pada tata letak halaman khusus atau jika Anda ingin menampilkan presentasi pada tipe layar tertentu, Anda kemungkinan akan mendapat manfaat dari pengaturan ukuran khusus untuk presentasi Anda. 
+Jika Anda menemukan ukuran slide umum (4:3 dan 16:9) tidak cocok untuk pekerjaan Anda, Anda dapat memutuskan menggunakan ukuran slide tertentu atau unik. Misalnya, jika Anda berencana mencetak slide berukuran penuh dari presentasi pada tata letak halaman kustom atau jika Anda ingin menampilkan presentasi pada jenis layar tertentu, Anda mungkin akan mendapat manfaat dari menggunakan pengaturan ukuran kustom untuk presentasi Anda. 
 
-Kode contoh ini menunjukkan cara menggunakan Aspose.Slides untuk Java untuk menentukan ukuran slide khusus untuk sebuah presentasi di Java:
+Kode contoh ini menunjukkan cara menggunakan Aspose.Slides untuk Java untuk menentukan ukuran slide kustom untuk sebuah presentasi dalam Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // Ukuran kertas A4
@@ -73,27 +79,23 @@ try {
 }
 ```
 
-## **Handle Slide Content After Resizing**
+## **Menangani Konten Slide Setelah Mengubah Ukuran**
 
-Setelah Anda mengubah ukuran slide untuk sebuah presentasi, konten slide (gambar atau objek, misalnya) dapat menjadi terdistorsi. Secara default, objek secara otomatis diubah ukuran agar sesuai dengan ukuran slide yang baru. Namun, saat mengubah ukuran slide presentasi, Anda dapat menentukan pengaturan yang menentukan bagaimana Aspose.Slides menangani konten pada slide. 
+Setelah Anda mengubah ukuran slide untuk sebuah presentasi, konten slide (gambar atau objek, misalnya) dapat menjadi terdistorsi. Secara default, objek secara otomatis diubah ukurannya agar sesuai dengan ukuran slide baru. Namun, ketika mengubah ukuran slide presentasi, Anda dapat menentukan pengaturan yang menentukan bagaimana Aspose.Slides menangani konten pada slide.
 
-Bergantung pada apa yang ingin Anda lakukan atau capai, Anda dapat menggunakan salah satu pengaturan berikut:
+Bergantung pada apa yang Anda ingin lakukan atau capai, Anda dapat menggunakan salah satu dari pengaturan berikut:
 
-- `DoNotScale`
+- `DoNotScale`  Jika Anda TIDAK ingin objek pada slide diubah ukurannya, gunakan pengaturan ini.
 
-  Jika Anda TIDAK ingin objek pada slide diubah ukurannya, gunakan pengaturan ini.
+- `EnsureFit`  Jika Anda ingin memperkecil ukuran slide dan memerlukan Aspose.Slides untuk memperkecil objek slide agar semua muat pada slide (dengan cara ini, Anda menghindari kehilangan konten), gunakan pengaturan ini. 
 
-- `EnsureFit`
-
-  Jika Anda ingin memperkecil ke ukuran slide yang lebih kecil dan membutuhkan Aspose.Slides untuk mengecilkan objek slide agar semuanya muat pada slide (dengan cara ini, Anda menghindari kehilangan konten), gunakan pengaturan ini. 
-
-- `Maximize`
-
-  Jika Anda ingin memperbesar ke ukuran slide yang lebih besar dan membutuhkan Aspose.Slides untuk memperbesar objek slide agar proporsional dengan ukuran slide baru, gunakan pengaturan ini. 
+- `Maximize`  Jika Anda ingin memperbesar ukuran slide dan memerlukan Aspose.Slides untuk memperbesar objek slide agar proporsional dengan ukuran slide baru, gunakan pengaturan ini. 
 
 Kode contoh ini menunjukkan cara menggunakan pengaturan `Maximize` saat mengubah ukuran slide presentasi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -104,18 +106,18 @@ try {
 
 ## **FAQ**
 
-**Can I set a custom slide size using units other than inches (for example, points or millimeters)?**
+**Apakah saya dapat menetapkan ukuran slide kustom menggunakan satuan selain inci (misalnya, poin atau milimeter)?**
 
-Ya. Aspose.Slides menggunakan poin secara internal, di mana 1 poin sama dengan 1/72 inci. Anda dapat mengonversi unit apa pun (seperti milimeter atau sentimeter) ke poin dan menggunakan nilai yang dikonversi untuk mendefinisikan lebar dan tinggi slide.
+Ya. Aspose.Slides menggunakan poin secara internal, di mana 1 poin sama dengan 1/72 inci. Anda dapat mengonversi satuan apa pun (seperti milimeter atau sentimeter) ke poin dan menggunakan nilai yang dikonversi untuk menentukan lebar dan tinggi slide.
 
-**Will a very large custom slide size affect performance and memory usage during rendering?**
+**Apakah ukuran slide kustom yang sangat besar akan memengaruhi kinerja dan penggunaan memori selama proses rendering?**
 
-Ya. Dimensi slide yang lebih besar (dalam poin) dikombinasikan dengan skala rendering yang lebih tinggi menyebabkan peningkatan konsumsi memori dan waktu pemrosesan yang lebih lama. Tujuilah ukuran slide yang praktis dan sesuaikan skala rendering hanya bila diperlukan untuk mencapai kualitas output yang diinginkan.
+Ya. Dimensi slide yang lebih besar (dalam poin) dikombinasikan dengan skala rendering yang lebih tinggi menyebabkan peningkatan konsumsi memori dan waktu pemrosesan yang lebih lama. Tetapkan ukuran slide yang praktis dan sesuaikan skala rendering hanya bila diperlukan untuk mencapai kualitas output yang diinginkan.
 
-**Can I define one non-standard slide size and then merge slides from presentations that have different sizes?**
+**Apakah saya dapat menentukan satu ukuran slide non-standar dan kemudian menggabungkan slide dari presentasi yang memiliki ukuran berbeda?**
 
-Anda tidak dapat [merge presentations](/slides/id/java/merge-presentation/) ketika mereka memiliki ukuran slide yang berbeda — pertama, ubah ukuran satu presentasi agar cocok dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih bagaimana konten yang ada ditangani melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/). Setelah menyelaraskan ukuran, Anda dapat menggabungkan slide sambil mempertahankan format.
+Anda tidak dapat [menggabungkan presentasi](/slides/id/java/merge-presentation/) ketika mereka memiliki ukuran slide yang berbeda — pertama, ubah ukuran salah satu presentasi agar cocok dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih cara penanganan konten yang ada melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/). Setelah menyelaraskan ukuran, Anda dapat menggabungkan slide sambil mempertahankan format.
 
-**Can I generate thumbnails for individual shapes or specific regions of a slide, and will they respect the new slide size?**
+**Apakah saya dapat menghasilkan thumbnail untuk bentuk individu atau wilayah tertentu dari sebuah slide, dan apakah mereka akan menghormati ukuran slide baru?**
 
-Ya. Aspose.Slides dapat merender thumbnail untuk [entire slides](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) serta untuk [selected shapes](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getImage-int-float-float-). Gambar yang dihasilkan mencerminkan ukuran slide dan rasio aspek saat ini, memastikan bingkai dan geometri yang konsisten.
+Ya. Aspose.Slides dapat merender thumbnail untuk [seluruh slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) serta untuk [bentuk yang dipilih](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getImage-int-float-float-). Gambar yang dihasilkan mencerminkan ukuran slide dan rasio aspek saat ini, memastikan bingkai dan geometri yang konsisten.

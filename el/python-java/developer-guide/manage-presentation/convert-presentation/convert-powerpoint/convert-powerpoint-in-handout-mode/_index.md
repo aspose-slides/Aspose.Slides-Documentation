@@ -1,14 +1,14 @@
 ---
-title: Μετατροπή παρουσιάσεων PowerPoint σε λειτουργία φυλλάδιου χρησιμοποιώντας Python
-linktitle: Λειτουργία φυλλάδιου
+title: Μετατροπή παρουσιάσεων PowerPoint σε λειτουργία σημειώματος χρησιμοποιώντας Python
+linktitle: Λειτουργία Σημειώματος
 type: docs
 weight: 150
 url: /el/python-java/convert-powerpoint-in-handout-mode/
 keywords:
 - μετατροπή PowerPoint
 - μετατροπή παρουσίασης
-- λειτουργία φυλλάδιου
-- φυλλάδιο
+- λειτουργία σημειώματος
+- σημείωμα
 - PPT
 - PPTX
 - PowerPoint
@@ -16,19 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε τις παρουσιάσεις PowerPoint σε φυλλάδια σε Python μέσω Java. Τακτοποιήστε πολλές διαφάνειες ανά σελίδα και εξάγετε σε PDF με Aspose.Slides."
+description: "Μετατρέψτε τις παρουσιάσεις PowerPoint σε σημειώματα με Python μέσω Java. Τακτοποιήστε πολλαπλές διαφάνειες ανά σελίδα και εξάγετε σε PDF με Aspose.Slides."
 ---
 ## **Εισαγωγή**
 
-Aspose.Slides for Python via Java σάς επιτρέπει να εξάγετε παρουσιάσεις σε λειτουργία φυλλάδιου, τοποθετώντας πολλές διαφάνειες σε μία σελίδα. Αυτό είναι χρήσιμο για εκτύπωση υλικού παρουσίασης για συνέδρια, σεμινάρια και παρόμοιες εκδηλώσεις.
+Το Aspose.Slides for Python μέσω Java σας επιτρέπει να εξάγετε παρουσιάσεις σε λειτουργία σημειώματος, τοποθετώντας πολλαπλές διαφάνειες σε μία σελίδα. Αυτό είναι χρήσιμο για την εκτύπωση υλικού παρουσίασης για συνέδρια, σεμινάρια και παρόμοια γεγονότα.
 
-Ρυθμίστε τη διάταξη μέσω της μεθόδου [setSlidesLayoutOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Οι διατάξεις φυλλάδιου υποστηρίζονται από [PdfOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/htmloptions/), και [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/). Χρησιμοποιήστε ένα αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/handoutlayoutingoptions/) για τον καθορισμό των ρυθμίσεων διάταξης και εμφάνισης.
+Διαμορφώστε τη διάταξη μέσω της μεθόδου [setSlidesLayoutOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions). Οι διατάξεις σημειώματος υποστηρίζονται από τα [PdfOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/htmloptions/) και [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/). Χρησιμοποιήστε ένα αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/handoutlayoutingoptions/) για να καθορίσετε τις ρυθμίσεις διάταξης και εμφάνισης.
 
-## **Εξαγωγή σε Λειτουργία Φυλλάδιου**
+Για να ορίσετε τις διαστάσεις και τον προσανατολισμό της σελίδας σημειώματος πριν από την εξαγωγή, δείτε [Μέγεθος Σελίδας Σημειώματος](/slides/el/python-java/notes-size/).
 
-Για να εξάγετε μια παρουσίαση σε λειτουργία φυλλάδιου, δημιουργήστε ένα στιγμιότυπο του [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/handoutlayoutingoptions/) και αναθέστε το στις επιλογές εξαγωγής-στόχο χρησιμοποιώντας τη μέθοδο [setSlidesLayoutOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Εξαγωγή σε Λειτουργία Σημειώματος**
 
-Το παρακάτω παράδειγμα φορτώνει το αρχείο `sample.pptx` και το εξάγει σε PDF με τέσσερις διαφάνειες ανά σελίδα σε οριζόντια σειρά. Περιλαμβάνει αριθμούς διαφανειών και πλαίσια γύρω από τις διαφάνειες, και εξαιρεί τα σχόλια.
+Για να εξάγετε μια παρουσίαση σε λειτουργία σημειώματος, δημιουργήστε μια παρουσίαση [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/handoutlayoutingoptions/) και αναθέστε την στις επιλογές εξαγωγής στόχου χρησιμοποιώντας την [setSlidesLayoutOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Το παρακάτω παράδειγμα φορτώνει το `sample.pptx` και το εξάγει σε PDF με τέσσερις διαφάνειες ανά σελίδα με οριζόντια διάταξη. Περιλαμβάνει αριθμούς διαφανειών και πλαίσια γύρω από τις διαφάνειες, και αποκλείει σχόλια.
 
 ```python
 import jpype
@@ -39,10 +41,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Φορτώστε μια παρουσίαση.
+# Φόρτωση παρουσίασης.
 presentation = Presentation("sample.pptx")
 try:
-    # Διαμορφώστε τη διάταξη του φυλλαδίου.
+    # Διαμόρφωση διάταξης σημειώματος.
     slides_layout_options = HandoutLayoutingOptions()
     slides_layout_options.setHandout(HandoutType.Handouts4Horizontal)
     slides_layout_options.setPrintSlideNumbers(True)
@@ -52,26 +54,26 @@ try:
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(slides_layout_options)
 
-    # Εξάγετε την παρουσίαση σε PDF με την επιλεγμένη διάταξη.
+    # Εξαγωγή της παρουσίασης σε PDF με την επιλεγμένη διάταξη.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Οι ρυθμίσεις διάταξης φυλλάδιου εφαρμόζονται στα υποστηριζόμενα μορφότυπα εξόδου, όπως PDF, HTML, TIFF και απεικονίσεις που αποδίδονται. Δεν αναδιατάσσουν τις διαφάνειες στην πηγαία παρουσίαση.
+Οι ρυθμίσεις διάταξης σημειώματος ισχύουν για τις υποστηριζόμενες μορφές εξόδου, όπως PDF, HTML, TIFF και αποδομένες εικόνες. Δεν αναδιοργανώνουν τις διαφάνειες στην πηγαία παρουσίαση.
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιος είναι ο μέγιστος αριθμός μικρογραφιών διαφανειών ανά σελίδα στη λειτουργία φυλλάδιου;**
+**Ποιος είναι ο μέγιστος αριθμός μικρογραφιών διαφάνειας ανά σελίδα σε λειτουργία σημειώματος;**
 
-Το Aspose.Slides υποστηρίζει έως και εννέα μικρογραφίες ανά σελίδα. Οι προρυθμίσεις [HandoutType](https://reference.aspose.com/slides/el/python-java/aspose.slides/handouttype/) παρέχουν μία, δύο, τρεις, τέσσερις, έξι ή εννέα διαφάνειες ανά σελίδα. Οι προρυθμίσεις των τεσσάρων, έξι και εννέα διαφανειών προσφέρουν οριζόντια και κάθετη σειρά.
+Το Aspose.Slides υποστηρίζει έως εννέα μικρογραφίες ανά σελίδα. Οι προεπιλογές [HandoutType](https://reference.aspose.com/slides/el/python-java/aspose.slides/handouttype/) προσφέρουν μία, δύο, τρεις, τέσσερις, έξι ή εννέα διαφάνειες ανά σελίδα. Οι προεπιλογές με τέσσερις, έξι και εννέα διαφάνειες προσφέρουν οριζόντια και κάθετη διάταξη.
 
-**Μπορώ να ορίσω προσαρμοστικό πλέγμα, όπως πέντε ή οκτώ διαφάνειες ανά σελίδα;**
+**Μπορώ να ορίσω προσαρμοσμένο πλέγμα, όπως πέντε ή οκτώ διαφάνειες ανά σελίδα;**
 
-Όχι. Ο αριθμός και η σειρά των μικρογραφιών ελέγχονται από τις προεπιλεγμένες τιμές του [HandoutType](https://reference.aspose.com/slides/el/python-java/aspose.slides/handouttype/). Οι αυθαίρετες διατάξεις δεν υποστηρίζονται από αυτές τις ρυθμίσεις διάταξης φυλλάδιου.
+Όχι. Ο αριθμός και η σειρά των μικρογραφιών ελέγχονται από τις προκαθορισμένες τιμές του [HandoutType](https://reference.aspose.com/slides/el/python-java/aspose.slides/handouttype/). Τα αυθαίρετα πλέγματα δεν υποστηρίζονται από αυτές τις ρυθμίσεις διάταξης σημειώματος.
 
-**Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο φυλλάδιου;**
+**Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο σημειώματος;**
 
-Ναι. Ενεργοποιήστε τις κρυφές διαφάνειες στις ρυθμίσεις εξαγωγής για το μορφότυπο-στόχο. Για PDF, καλέστε τη μέθοδο [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) με `True` πριν αποθηκεύσετε την παρουσίαση.
+Ναι. Ενεργοποιήστε τις κρυφές διαφάνειες στις ρυθμίσεις εξαγωγής για τη μορφή‑στόχο. Για PDF, καλέστε την [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/el/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) με `True` πριν αποθηκεύσετε την παρουσίαση.

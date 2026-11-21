@@ -1,6 +1,6 @@
 ---
-title: PHP में नोट्स के साथ PowerPoint प्रस्तुतियों को PDF में बदलें
-linktitle: PowerPoint को नोट्स के साथ PDF में बदलें
+title: PowerPoint प्रस्तुतियों को नोट्स के साथ PDF में बदलें PHP में
+linktitle: PowerPoint को नोट्स के साथ PDF में
 type: docs
 weight: 50
 url: /hi/php-java/convert-powerpoint-to-pdf-with-notes/
@@ -24,36 +24,36 @@ keywords:
 - नोट्स के साथ PDF
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PPT और PPTX स्वरूपों को नोट्स के साथ PDF में बदलें। पेशेवर प्रस्तुतियों के लिए लेआउट और स्पीकर नोट्स को संरक्षित रखें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके नोट्स के साथ PPT और PPTX को PDF में बदलें। पेशेवर प्रस्तुतियों के लिए लेआउट और स्पीकर नोट्स को संरक्षित रखें।"
 ---
 ## **अवलोकन**
 
-इस लेख में आप सीखेंगे कि Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को स्पीकर नोट्स के साथ PDF प्रारूप में कैसे बदलें। यह गाइड आवश्यक चरणों को कवर करेगा और कोड उदाहरण प्रदान करेगा ताकि आप इस कार्य को प्रभावी ढंग से पूरा कर सकें। लेख के समाप्ति तक, आप सक्षम होंगे:
+इस लेख में, आप Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों को नोट्स के साथ PDF प्रारूप में कैसे परिवर्तित किया जाए, सीखेंगे। यह गाइड आवश्यक चरणों को कवर करता है और कोड उदाहरण प्रदान करता है ताकि आप यह कार्य कुशलता से पूरा कर सकें। इस लेख के अंत तक, आप सक्षम होंगे:
 
-- PowerPoint स्लाइड्स को PDF दस्तावेज़ में बदलने के लिए परिवर्तन प्रक्रिया को लागू करना, जबकि स्पीकर नोट्स को संरक्षित रखना।
-- आउटपुट PDF को अनुकूलित करना ताकि स्पीकर नोट्स शामिल हों और आपके आवश्यकताओं के अनुसार स्वरूपित हों।
+- PowerPoint स्लाइड्स को PDF दस्तावेज़ों में बदलने की प्रक्रिया को लागू करना, जबकि स्पीकर नोट्स को संरक्षित रखना।
+- आउटपुट PDF को अनुकूलित करना ताकि नोट्स शामिल हों और आपकी आवश्यकताओं के अनुसार स्वरूपित हों।
 
-## **स्पीकर नोट्स के साथ PowerPoint को PDF में बदलें**
+निर्यात से पहले नोट्स पेज के आयाम और अभिविन्यास सेट करने के लिए, देखें [Notes Page Size](/slides/hi/php-java/notes-size/)।
 
-`save` मेथड को [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास में उपयोग करके आप PPT या PPTX प्रस्तुति को स्पीकर नोट्स के साथ PDF में बदल सकते हैं। Aspose.Slides के साथ, आप प्रस्तुति को लोड करते हैं, [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/notescommentslayoutingoptions/) क्लास का उपयोग करके लेआउट विकल्पों को कॉन्फ़िगर करके स्पीकर नोट्स शामिल करते हैं, और फिर फ़ाइल को PDF के रूप में सहेजते हैं। निम्नलिखित कोड स्निपेट दर्शाता है कि कैसे एक नमूना प्रस्तुति को नोट्स स्लाइड दृश्य में PDF में बदला जाए।
+## **नोट्स के साथ PowerPoint को PDF में परिवर्तित करें**
+
+`save` मेथड को [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास में उपयोग करके PPT या PPTX प्रस्तुति को नोट्स के साथ PDF में बदला जा सकता है। Aspose.Slides के साथ, आप बस प्रस्तुति को लोड करते हैं, [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/notescommentslayoutingoptions/) क्लास का उपयोग करके लेआउट विकल्पों को कॉन्फ़िगर करते हैं ताकि स्पीकर नोट्स शामिल हों, और फिर फ़ाइल को PDF के रूप में सहेजते हैं। निम्नलिखित कोड स्निपेट दर्शाता है कि नोट्स स्लाइड व्यू में नमूना प्रस्तुति को PDF में कैसे परिवर्तित किया जाए।
 
 ```php
 $presentation = new Presentation("sample.pptx");
 
-// स्पीकर नोट्स को रेंडर करने के लिए PDF विकल्प कॉन्फ़िगर करें।
+// स्पीकर नोट्स रेंडर करने के लिए PDF विकल्प कॉन्फ़िगर करें।
 $notesOptions = new NotesCommentsLayoutingOptions();
 $notesOptions->setNotesPosition(NotesPositions::BottomFull); // स्लाइड के नीचे स्पीकर नोट्स रेंडर करें।
 
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($notesOptions);
 
-// Save the presentation to PDF with speaker notes.
+// स्पीकर नोट्स के साथ प्रस्तुति को PDF में सहेजें।
 $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-
-आप Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hi/conversion) को देख सकते हैं। 
-
+{{% alert color="info" title="Note" %}}
+आप Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hi/conversion) को देखना चाह सकते हैं।
 {{% /alert %}}

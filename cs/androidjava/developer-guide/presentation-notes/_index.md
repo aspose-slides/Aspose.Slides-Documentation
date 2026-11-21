@@ -6,9 +6,9 @@ weight: 110
 url: /cs/androidjava/presentation-notes/
 keywords:
 - poznámky
-- poznámkový snímek
+- snímek s poznámkami
 - přidat poznámky
-- odebrat poznámky
+- odstranit poznámky
 - styl poznámek
 - hlavní poznámky
 - PowerPoint
@@ -17,27 +17,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Přizpůsobte si poznámky k prezentaci pomocí Aspose.Slides pro Android v Javě. Plynule pracujte s poznámkami PowerPoint a OpenDocument a zvyšte svou produktivitu."
+description: "Přizpůsobte poznámky k prezentaci pomocí Aspose.Slides pro Android v Javě. Bezproblémově pracujte s poznámkami PowerPoint a OpenDocument a zvyšte svou produktivitu."
 ---
 ## **Přehled**
 
-Aspose.Slides podporuje odstraňování poznámkových snímků z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na poznámkové snímky v prezentaci. Aspose.Slides vám umožňuje odstranit poznámky z libovolného snímku a také aplikovat stylování na existující poznámky. Vývojáři mohou poznámky odstranit následujícími způsoby:
+Aspose.Slides podporuje odstraňování snímků s poznámkami z prezentace. V tomto tématu představíme tuto funkci, včetně toho, jak odstranit poznámky a jak použít styl na snímky s poznámkami v prezentaci. Aspose.Slides vám umožňuje odstranit poznámky z libovolného snímku a také aplikovat stylování na existující poznámky. Vývojáři mohou poznámky odstranit následujícími způsoby:
 
-- Odstranit poznámky ze specifického snímku v prezentaci.
+- Odstranit poznámky z konkrétního snímku v prezentaci.
 - Odstranit poznámky ze všech snímků v prezentaci.
 
+Pro přečtení nebo změnu rozměrů stránky poznámek, změnu orientace a kontrolu chování exportu, viz [Notes Page Size](/slides/cs/androidjava/notes-size/).
+
 ## **Odstranit poznámky ze snímku**
-Poznámky z konkrétního snímku lze odstranit, jak je ukázáno v příkladu níže:
+Poznámky z konkrétního snímku mohou být odstraněny, jak je ukázáno v příkladu níže:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte objekt Presentation, který představuje soubor prezentace
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
-    // Odstranění poznámek z prvního snímku
+    // Odstraňování poznámek z prvního snímku
     INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
     mgr.removeNotesSlide();
 
-    // Uložení prezentace na disk
+    // Ukládání prezentace na disk
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -45,20 +49,22 @@ try {
 ```
 
 ## **Odstranit poznámky z prezentace**
-Poznámky ze všech snímků v prezentaci lze odstranit, jak je ukázáno v příkladu níže:
+Poznámky ze všech snímků v prezentaci mohou být odstraněny, jak je ukázáno v příkladu níže:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte objekt Presentation, který představuje soubor prezentace
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
-    // Odstranění poznámek ze všech snímků
+    // Odstraňování poznámek ze všech snímků
     INotesSlideManager mgr = null;
     for (int i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
         mgr.removeNotesSlide();
     }
     
-    // Uložení prezentace na disk
+    // Ukládání prezentace na disk
     pres.save("test.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -66,9 +72,11 @@ try {
 ```
 
 ## **Přidat styl poznámek**
-Metoda [getNotesStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) byla přidána do rozhraní [IMasterNotesSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IMasterNotesSlide) a třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/MasterNotesSlide). Tato vlastnost určuje styl textu poznámek. Implementace je demonstrována v níže uvedeném příkladu.
+[getNotesStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metoda byla přidána do rozhraní [IMasterNotesSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IMasterNotesSlide) a třídy [MasterNotesSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/MasterNotesSlide). Tato vlastnost určuje styl textu poznámek. Implementace je ukázána v následujícím příkladu.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte objekt Presentation, který představuje soubor prezentace
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -79,7 +87,7 @@ try {
         // Získat styl textu MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Nastavit symbolový odrážkový znak pro odstavce první úrovně
+        //Nastavit symbolový odrážkový znak pro odstavce první úrovně
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -91,10 +99,10 @@ try {
 
 ## **Často kladené otázky**
 
-**Který objekt API poskytuje přístup k poznámkám konkrétního snímku?**
+**Který API prvek poskytuje přístup k poznámkám konkrétního snímku?**
 
-Poznámky jsou přístupné prostřednictvím správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notesslidemanager/) a [method](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) která vrací objekt poznámek, nebo `null`, pokud poznámky neexistují.
+Poznámky jsou přístupné přes správce poznámek snímku: snímek má [NotesSlideManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notesslidemanager/) a [metodu](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) která vrací objekt poznámek, nebo `null`, pokud žádné poznámky nejsou.
 
-**Existují rozdíly v podpoře poznámek mezi verzemi PowerPoint, se kterými knihovna pracuje?**
+**Existují rozdíly v podpoře poznámek napříč verzemi PowerPointu, se kterými knihovna pracuje?**
 
 Knihovna cílí na širokou škálu formátů Microsoft PowerPoint (97 a novější) a ODP; poznámky jsou v těchto formátech podporovány bez závislosti na nainstalované kopii PowerPointu.

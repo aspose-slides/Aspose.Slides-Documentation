@@ -1,6 +1,6 @@
 ---
-title: Konvertera PowerPoint-presentationer till PDF med noter i PHP
-linktitle: PowerPoint till PDF med noter
+title: Konvertera PowerPoint-presentationer till PDF med anteckningar i PHP
+linktitle: PowerPoint till PDF med anteckningar
 type: docs
 weight: 50
 url: /sv/php-java/convert-powerpoint-to-pdf-with-notes/
@@ -20,38 +20,40 @@ keywords:
 - spara PPTX som PDF
 - exportera PPT till PDF
 - exportera PPTX till PDF
-- talarnoter
-- PDF med noter
+- talaranteckningar
+- PDF med anteckningar
 - PHP
 - Aspose.Slides
-description: "Konvertera formaten PPT och PPTX till PDF med noter med hjälp av Aspose.Slides för PHP via Java. Bevara layouter och talarnoter för professionella presentationer."
+description: "Konvertera formaten PPT och PPTX till PDF med anteckningar med hjälp av Aspose.Slides för PHP via Java. Bevara layouter och talaranteckningar för professionella presentationer."
 ---
 ## **Översikt**
 
-I den här artikeln kommer du att lära dig hur du konverterar PowerPoint-presentationer till PDF-format med talarnoter med hjälp av Aspose.Slides. Denna guide kommer att täcka de nödvändiga stegen och ge kodexempel för att hjälpa dig att utföra denna uppgift effektivt. I slutet av artikeln kommer du att kunna:
+I den här artikeln kommer du att lära dig hur du konverterar PowerPoint‑presentationer till PDF‑format med talaranteckningar med hjälp av Aspose.Slides. Denna guide täcker de nödvändiga stegen och ger kodexempel för att du ska kunna utföra uppgiften på ett effektivt sätt. När du har läst färdigt artikeln kommer du att kunna:
 
-- Implementera konverteringsprocessen för att omvandla PowerPoint-bilder till PDF-dokument samtidigt som talarnoterna bevaras.
-- Anpassa den genererade PDF-filen så att talarnoterna inkluderas och formateras enligt dina krav.
+- Implementera konverteringsprocessen för att omvandla PowerPoint‑bilder till PDF‑dokument samtidigt som du bevarar talaranteckningarna.
+- Anpassa den resulterande PDF‑filen så att talaranteckningarna inkluderas och formateras enligt dina krav.
 
-## **Konvertera PowerPoint till PDF med noter**
+För att ställa in notssidans dimensioner och orientering före export, se [Notssidans storlek](/slides/sv/php-java/notes-size/).
 
-Metoden `save` i klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) kan användas för att konvertera en PPT- eller PPTX-presentation till en PDF med talarnoter. Med Aspose.Slides laddar du helt enkelt presentationen, konfigurerar layoutalternativen med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/) för att inkludera talarnoter, och sparar sedan filen som en PDF. Följande kodsnutt visar hur du konverterar en exempelpresentation till en PDF i vyn Noter-bild.
+## **Konvertera PowerPoint till PDF med anteckningar**
+
+`save`‑metoden i [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)‑klassen kan användas för att konvertera en PPT‑ eller PPTX‑presentation till en PDF med talaranteckningar. Med Aspose.Slides laddar du bara presentationen, konfigurerar layoutalternativen med hjälp av [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/)-klassen för att inkludera talaranteckningar och sparar sedan filen som en PDF. Följande kodsnutt visar hur du konverterar en exempel­presentation till en PDF i Antecknings‑bild‑vyn.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 
-// Konfigurera PDF-alternativ för renderering av talarnoter.
+// Konfigurera PDF-alternativ för att rendera talaranteckningar.
 $notesOptions = new NotesCommentsLayoutingOptions();
-$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Rendera talarnoter under bilden.
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // Rendera talaranteckningar under bilden.
 
 $pdfOptions = new PdfOptions();
 $pdfOptions->setSlidesLayoutOptions($notesOptions);
 
-// Spara presentationen som PDF med talarnoter.
+// Save the presentation to PDF with speaker notes.
 $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-Du kanske vill titta på Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/sv/conversion). 
+{{% alert color="info" title="Note" %}}
+Du kanske vill testa Aspose [Online PowerPoint till PDF-konverterare](https://products.aspose.app/slides/sv/conversion).
 {{% /alert %}}

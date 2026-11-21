@@ -15,44 +15,48 @@ keywords:
 - اسلاید به PDF
 - PPT به PDF
 - PPTX به PDF
-- ذخیره ارائه به‌عنوان PDF
-- ذخیره PPT به‌عنوان PDF
-- ذخیره PPTX به‌عنوان PDF
-- صدور PPT به PDF
-- صدور PPTX به PDF
-- یادداشت‌های گوینده
+- ذخیره ارائه به صورت PDF
+- ذخیره PPT به PDF
+- ذخیره PPTX به PDF
+- صادرات PPT به PDF
+- صادرات PPTX به PDF
+- یادداشت‌های سخنران
 - PDF با یادداشت‌ها
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تبدیل فرمت‌های PPT و PPTX به PDF با یادداشت‌ها در JavaScript با استفاده از Aspose.Slides برای Node.js. حفظ چیدمان‌ها و یادداشت‌های گوینده برای ارائه‌های حرفه‌ای."
+description: "فرمت‌های PPT و PPTX را به PDF با یادداشت‌ها در JavaScript با استفاده از Aspose.Slides برای Node.js تبدیل کنید. چیدمان‌ها و یادداشت‌های سخنران را برای ارائه‌های حرفه‌ای حفظ کنید."
 ---
-## **مرور کلی**
+## **نمای کلی**
 
-در این مقاله، یاد می‌گیرید چگونه ارائه‌های PowerPoint را با استفاده از Aspose.Slides به فرمت PDF همراه با یادداشت‌های گوینده تبدیل کنید. این راهنما گام‌های لازم را پوشش می‌دهد و نمونه‌های کد را برای کمک به انجام مؤثر این کار ارائه می‌کند. در پایان این مقاله، قادر خواهید بود:
+در این مقاله، نحوه تبدیل ارائه‌های PowerPoint به قالب PDF همراه با یادداشت‌های سخنران با استفاده از Aspose.Slides را یاد خواهید گرفت. این راهنما مراحل لازم را پوشش می‌دهد و مثال‌های کد برای کمک به انجام مؤثر این کار ارائه می‌کند. در پایان این مقاله، قادر خواهید بود:
 
-- پیاده‌سازی فرآیند تبدیل برای تبدیل اسلایدهای PowerPoint به اسناد PDF در حالی که یادداشت‌های گوینده حفظ می‌شوند.
-- سفارشی‌سازی PDF خروجی به‌طوری که یادداشت‌های گوینده گنجانده و بر اساس نیازهای شما قالب‌بندی شوند.
+- پیاده‌سازی فرآیند تبدیل برای تبدیل اسلایدهای PowerPoint به اسناد PDF در حالی که یادداشت‌های سخنران حفظ می‌شوند.
+- سفارشی‌سازی PDF خروجی برای اطمینان از گنجاندن و قالب‌بندی یادداشت‌های سخنران طبق نیازهای شما.
+
+برای تنظیم ابعاد و جهت‌گیری صفحه یادداشت‌ها قبل از خروجی، به [Notes Page Size](/slides/fa/nodejs-java/notes-size/) مراجعه کنید.
 
 ## **تبدیل PowerPoint به PDF با یادداشت‌ها**
 
-متد `save` در کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) می‌تواند برای تبدیل ارائهٔ PPT یا PPTX به PDF همراه با یادداشت‌های گوینده استفاده شود. با Aspose.Slides، به سادگی ارائه را بارگذاری می‌کنید، گزینه‌های چینش را با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/) پیکربندی می‌کنید تا یادداشت‌های گوینده گنجانده شوند، و سپس فایل را به صورت PDF ذخیره می‌کنید. قطعه کد زیر نشان می‌دهد چگونه یک ارائهٔ نمونه را به PDF در نمای اسلایدهای یادداشت تبدیل کنید.
+متد `save` در کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) می‌تواند برای تبدیل یک ارائه PPT یا PPTX به PDF همراه با یادداشت‌های سخنران استفاده شود. با Aspose.Slides، به سادگی ارائه را بارگذاری می‌کنید، گزینه‌های چیدمان را با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/notescommentslayoutingoptions/) برای گنجاندن یادداشت‌های سخنران پیکربندی می‌کنید، و سپس فایل را به صورت PDF ذخیره می‌کنید. قطعه کد زیر نشان می‌دهد چگونه یک ارائه نمونه را به PDF در نمای اسلایدهای یادداشت تبدیل کنید.
 
 ```js
+const asposeSlides = require("aspose.slides.via.java");
+
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// پیکربندی گزینه‌های PDF برای رندر کردن یادداشت‌های گوینده.
+// پیکربندی گزینه‌های PDF برای رندر کردن یادداشت‌های سخنران.
 let notesOptions = new asposeSlides.NotesCommentsLayoutingOptions();
-notesOptions.setNotesPosition(asposeSlides.NotesPositions.BottomFull); // رندر کردن یادداشت‌های گوینده در زیر اسلاید.
+notesOptions.setNotesPosition(asposeSlides.NotesPositions.BottomFull); // رندر کردن یادداشت‌های سخنران در زیر اسلاید.
 
 let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-// Save the presentation to PDF with speaker notes.
+// ذخیره ارائه به PDF با یادداشت‌های سخنران.
 presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-ممکن است بخواهید مبدل آنلاین پاورپوینت به PDF Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fa/conversion) را بررسی کنید. 
+{{% alert color="info" title="Note" %}}
+ممکن است بخواهید Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fa/conversion) را بررسی کنید.
 {{% /alert %}}

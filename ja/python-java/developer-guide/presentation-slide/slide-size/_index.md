@@ -1,5 +1,5 @@
 ---
-title: Python（Java 経由）でプレゼンテーションのスライドサイズを変更
+title: Python via Java でプレゼンテーションのスライドサイズを変更する
 linktitle: スライドサイズ
 type: docs
 weight: 70
@@ -27,26 +27,28 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Python（Java 経由）と Aspose.Slides を使用して、PPT、PPTX、ODP ファイルのスライドを素早くリサイズし、品質を損なうことなく任意の画面に最適化する方法を学びます。"
+description: "Python via Java と Aspose.Slides を使用して、PPT、PPTX、ODP ファイルのスライドを素早くリサイズし、画質を失わずに任意の画面向けにプレゼンテーションを最適化する方法を学びます。"
 ---
-## **概要**
+## **Introduction**
 
-Aspose.Slides は、印刷と画面表示の両方に重要な、PowerPoint プレゼンテーションのスライドサイズとアスペクト比を調整するための包括的なツールを提供します。
+Aspose.Slides は、印刷および画面表示の両方で重要な、PowerPoint プレゼンテーションのスライドサイズとアスペクト比を調整するための包括的なツールを提供します。
 
 一般的なスライドサイズと比率:
 
-- **標準（4:3 アスペクト比）**: 古い画面やデバイスに最適です。
-- **ワイドスクリーン（16:9 アスペクト比）**: 最新のプロジェクターやディスプレイに推奨されます。
+- **Standard (4:3 Aspect Ratio)**: 古い画面やデバイスに最適です。
+- **Widescreen (16:9 Aspect Ratio)**: 現代のプロジェクターやディスプレイに推奨されます。
 
-プレゼンテーション全体で一貫性を保つために、すべてのスライドに同一のスライドサイズとアスペクト比が適用されます。最適な結果を得るには、作成プロセスの最初にスライドの寸法を設定し、問題を避けてください。
+プレゼンテーション全体で一貫性を保つために、すべてのスライドは単一のスライドサイズとアスペクト比が適用されます。最適な結果を得るには、プレゼンテーション作成プロセスの開始時にスライドの寸法を設定し、問題を回避してください。
 
 {{% alert color="info" title="Note" %}}
 デフォルトでは、Aspose.Slides で作成されたプレゼンテーションは標準の 4:3 アスペクト比を使用します。
 {{% /alert %}}
 
-## **プレゼンテーションのスライドサイズを変更する**
+ノートおよび配布資料ページは、通常のスライドとは別のサイズを持ちます。そのサイズと向きを変更するには、[Notes Page Size](/slides/ja/python-java/notes-size/) を参照してください。
 
-このサンプルコードは、Aspose.Slides を使用して Java 経由で Python からプレゼンテーションのスライドサイズを変更する方法を示しています。
+## **Change the Slide Size in Presentations**
+
+このサンプルコードは、Aspose.Slides を使用して Python via Java でプレゼンテーションのスライドサイズを変更する方法を示しています。
 
 ```python
 import jpype
@@ -65,11 +67,11 @@ finally:
     presentation.dispose()
 ```
 
-## **プレゼンテーションでカスタムスライドサイズを指定する**
+## **Specify Custom Slide Sizes in Presentations**
 
-一般的なスライドサイズ（4:3 および 16:9）が仕事に適さない場合、特定または独自のスライドサイズを使用することができます。たとえば、カスタムページレイアウトでプレゼンテーションから実サイズのスライドを印刷する場合や、特定の画面タイプでプレゼンテーションを表示する場合、カスタムサイズ設定を使用すると便利です。
+一般的なスライドサイズ（4:3 および 16:9）が作業に適さない場合、特定または独自のスライドサイズを使用することを検討できます。たとえば、カスタムページレイアウトでプレゼンテーションからフルサイズのスライドを印刷する場合や、特定の画面タイプでプレゼンテーションを表示する場合に、カスタムサイズ設定が有益です。
 
-このサンプルコードは、Java 経由で Python 用 Aspose.Slides を使用してプレゼンテーションのカスタムスライドサイズを指定する方法を示しています。
+このサンプルコードは、Aspose.Slides for Python via Java を使用してプレゼンテーションのカスタムスライドサイズを指定する方法を示しています:
 
 ```python
 import jpype
@@ -88,25 +90,25 @@ finally:
     presentation.dispose()
 ```
 
-## **サイズ変更後のスライドコンテンツの処理**
+## **Handle Slide Content After Resizing**
 
-プレゼンテーションのスライドサイズを変更すると、スライドのコンテンツ（画像やオブジェクトなど）が歪むことがあります。デフォルトでは、オブジェクトは新しいスライドサイズに合わせて自動的にリサイズされます。ただし、スライドサイズを変更する際に、Aspose.Slides がスライド上のコンテンツをどのように処理するかを決定する設定を指定できます。
+プレゼンテーションのスライドサイズを変更すると、スライドの内容（画像やオブジェクトなど）が歪むことがあります。デフォルトでは、オブジェクトは新しいスライドサイズに合わせて自動的にリサイズされます。ただし、スライドサイズを変更する際に、Aspose.Slides がスライド上のコンテンツをどのように扱うかを決定する設定を指定できます。
 
-目的や達成したいことに応じて、以下の設定のいずれかを使用できます：
+目的に応じて、以下の設定のいずれかを使用できます:
 
 - [DoNotScale](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/#DoNotScale)
   
-  スライド上のオブジェクトをリサイズしたくない場合は、この設定を使用してください。
+  スライド上のオブジェクトをリサイズしたくない場合にこの設定を使用します。
 
 - [EnsureFit](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/#EnsureFit)
   
-  小さいスライドサイズにスケールダウンし、すべてのオブジェクトがスライドに収まるように Aspose.Slides に縮小させたい場合（これによりコンテンツの欠落を防げます）、この設定を使用してください。
+  小さなスライドサイズに縮小し、すべてのオブジェクトがスライドに収まるように Aspose.Slides に縮小させたい場合にこの設定を使用します（コンテンツの欠損を防ぎます）。
 
 - [Maximize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/#Maximize)
   
-  大きいスライドサイズに拡大し、オブジェクトを新しいスライドサイズに比例させて拡大させたい場合は、この設定を使用してください。
+  大きなスライドサイズに拡大し、オブジェクトを新しいスライドサイズに比例させて拡大させたい場合にこの設定を使用します。
 
-このサンプルコードは、プレゼンテーションのスライドサイズを変更する際に [Maximize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/#Maximize) 設定を使用する方法を示しています。
+このサンプルコードは、プレゼンテーションのスライドサイズを変更する際に [Maximize](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/#Maximize) 設定を使用する方法を示しています:
 
 ```python
 import jpype
@@ -124,20 +126,20 @@ finally:
     presentation.dispose()
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**インチ以外の単位（例: ポイントやミリメートル）でカスタムスライドサイズを設定できますか？**
+**Can I set a custom slide size using units other than inches (for example, points or millimeters)?**
 
-はい。Aspose.Slides は内部的にポイント単位を使用しており、1 ポイントは 1/72 インチに相当します。ミリメートルやセンチメートルなど任意の単位をポイントに変換し、変換した値でスライドの幅と高さを定義できます。
+はい。Aspose.Slides は内部でポイントを使用しており、1 ポイントは 1/72 インチに相当します。ミリメートルやセンチメートルなど任意の単位をポイントに変換し、変換した値でスライドの幅と高さを定義できます。
 
-**非常に大きなカスタムスライドサイズは、レンダリング時のパフォーマンスやメモリ使用量に影響しますか？**
+**Will a very large custom slide size affect performance and memory usage during rendering?**
 
-はい。ポイント単位のスライド寸法が大きく、レンダリングスケールが高いほど、メモリ消費が増加し、処理時間が長くなります。実用的なスライドサイズを目指し、必要に応じてレンダリングスケールを調整して目的の出力品質を得るようにしてください。
+はい。ポイント単位でのスライド寸法が大きくなると、レンダリングスケールが高くなるため、メモリ使用量が増加し、処理時間が長くなります。実用的なスライドサイズを目指し、必要に応じてレンダリングスケールを調整して目的の出力品質を得てください。
 
-**標準外のスライドサイズを定義した後、異なるサイズのプレゼンテーションからスライドをマージできますか？**
+**Can I define one non-standard slide size and then merge slides from presentations that have different sizes?**
 
-異なるスライドサイズのままでは [merge presentations](/slides/ja/python-java/merge-presentation/) を実行できません。まず、片方のプレゼンテーションのサイズをもう一方に合わせてリサイズしてください。スライドサイズを変更する際は、[SlideSizeScaleType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/) オプションで既存コンテンツの処理方法を選択できます。サイズを揃えた後、書式設定を保持したままスライドをマージできます。
+異なるスライドサイズのままでは [merge presentations](/slides/ja/python-java/merge-presentation/) はできません。まず、片方のプレゼンテーションのサイズをもう一方に合わせてリサイズします。スライドサイズを変更する際には、[SlideSizeScaleType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesizescaletype/) オプションで既存コンテンツの取り扱いを選択できます。サイズを揃えた後、書式を保持したままスライドをマージできます。
 
-**スライドの個々のシェイプや特定領域のサムネイルを生成できますか？また、それらは新しいスライドサイズを考慮しますか？**
+**Can I generate thumbnails for individual shapes or specific regions of a slide, and will they respect the new slide size?**
 
-はい。Aspose.Slides は、[entire slides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getImage) および [selected shapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getImage) のサムネイルをレンダリングできます。生成された画像は現在のスライドサイズとアスペクト比を反映し、一貫したフレーミングとジオメトリを保証します。
+はい。Aspose.Slides は、[entire slides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getImage) と [selected shapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getImage) のサムネイルをレンダリングできます。生成された画像は現在のスライドサイズとアスペクト比を反映し、一貫したフレーミングとジオメトリを保ちます。

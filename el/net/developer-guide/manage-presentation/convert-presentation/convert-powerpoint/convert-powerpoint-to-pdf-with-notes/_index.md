@@ -29,32 +29,37 @@ description: "Μετατροπή μορφών PPT και PPTX σε PDF με ση
 ---
 ## **Επισκόπηση**
 
-Σε αυτό το άρθρο, θα μάθετε πώς να μετατρέψετε παρουσιάσεις PowerPoint σε μορφή PDF με σημειώσεις ομιλητή χρησιμοποιώντας το Aspose.Slides. Αυτός ο οδηγός θα καλύψει τα απαραίτητα βήματα και θα παρέχει παραδείγματα κώδικα για να σας βοηθήσει να ολοκληρώσετε αυτήν την εργασία αποτελεσματικά. Στο τέλος του άρθρου, θα μπορείτε να:
+Σε αυτό το άρθρο, θα μάθετε πώς να μετατρέπετε παρουσιάσεις PowerPoint σε μορφή PDF με σημειώσεις ομιλητή χρησιμοποιώντας το Aspose.Slides. Αυτός ο οδηγός θα καλύψει τα απαραίτητα βήματα και θα παρέχει παραδείγματα κώδικα για να σας βοηθήσει να ολοκληρώσετε αυτήν την εργασία αποδοτικά. Στο τέλος του άρθρου, θα μπορείτε να:
 
-- Υλοποιήσετε τη διαδικασία μετατροπής για να μετατρέψετε τις διαφάνειες του PowerPoint σε έγγραφα PDF διατηρώντας τις σημειώσεις ομιλητή.  
-- Προσαρμόσετε το PDF εξόδου ώστε να εξασφαλίσετε ότι οι σημειώσεις ομιλητή περιλαμβάνονται και μορφοποιούνται σύμφωνα με τις απαιτήσεις σας.
+- Εφαρμόσετε τη διαδικασία μετατροπής για να μετατρέψετε τις διαφάνειες PowerPoint σε έγγραφα PDF διατηρώντας τις σημειώσεις ομιλητή.
+- Προσαρμόσετε το εξαγόμενο PDF ώστε να διασφαλίσετε ότι οι σημειώσεις ομιλητή περιλαμβάνονται και μορφοποιούνται σύμφωνα με τις απαιτήσεις σας.
+
+Για να ορίσετε τις διαστάσεις και τον προσανατολισμό της σελίδας σημειώσεων πριν από την εξαγωγή, δείτε [Μέγεθος Σελίδας Σημειώσεων](/slides/el/net/notes-size/).
 
 ## **Μετατροπή PowerPoint σε PDF με Σημειώσεις**
 
-Η μέθοδος `Save` στην κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) μπορεί να χρησιμοποιηθεί για να μετατρέψετε μια παρουσίαση PPT ή PPTX σε PDF με σημειώσεις ομιλητή. Με το Aspose.Slides, απλώς φορτώνετε την παρουσίαση, διαμορφώνετε τις επιλογές διάταξης χρησιμοποιώντας την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/notescommentslayoutingoptions/) για να συμπεριλάβετε τις σημειώσεις ομιλητή, και στη συνέχεια αποθηκεύετε το αρχείο ως PDF. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να μετατρέψετε μια δείγμα παρουσίαση σε PDF σε προβολή Σημειώσεων Διαφάνειας.
+Η μέθοδος `Save` στην κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) μπορεί να χρησιμοποιηθεί για να μετατρέψετε μια παρουσίαση PPT ή PPTX σε PDF με σημειώσεις ομιλητή. Με το Aspose.Slides, απλώς φορτώνετε την παρουσίαση, διαμορφώνετε τις επιλογές διάταξης χρησιμοποιώντας την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/notescommentslayoutingoptions/) για να συμπεριλάβετε τις σημειώσεις ομιλητή, και στη συνέχεια αποθηκεύετε το αρχείο ως PDF. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να μετατρέψετε μια δείγμα παρουσίασης σε PDF στην προβολή Σημειώσεων Διαφάνειας.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Διαμορφώστε τις επιλογές PDF για απόδοση σημειώσεων ομιλητή.
+    // Ρυθμίστε τις επιλογές PDF για την απόδοση των σημειώσεων ομιλητή.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Απόδοση σημειώσεων ομιλητή κάτω από τη διαφάνεια.
+            NotesPosition = NotesPositions.BottomFull // Απόδοση των σημειώσεων ομιλητή κάτω από τη διαφάνεια.
         }
     };
 
-    // Αποθηκεύστε την παρουσίαση σε PDF με σημειώσεις ομιλητή.
+    // Αποθηκεύστε την παρουσίαση σε PDF με τις σημειώσεις ομιλητή.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-{{% alert color="primary" %}} 
-Ενδέχεται να θέλετε να ελέγξετε το Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/el/conversion). 
+{{% alert color="info" %}} 
+Ίσως θέλετε να δοκιμάσετε το Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/el/conversion). 
 {{% /alert %}}
