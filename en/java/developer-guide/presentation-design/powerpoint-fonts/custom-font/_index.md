@@ -122,6 +122,25 @@ try {
 }
 ```
 
+### Preserve Fonts When Importing PDFs
+
+When a PDF is imported via `Presentation.getSlides().addFromPdf(...)`, Aspose.Slides may substitute missing glyphs with a fallback font such as *Calibri*. To keep the original embedded PDF font (e.g., **CVS Health Sans**) and ensure correct glyph rendering, load the presentation with `LoadOptions` and set a default regular font.
+
+```java
+LoadOptions lo = new LoadOptions();
+lo.setDefaultRegularFont("CVS Health Sans");
+
+Presentation pres = new Presentation(lo);
+try (InputStream in = new FileInputStream("batch-3-before-addFromPdf.pdf")) {
+    pres.getSlides().addFromPdf(in);
+    pres.save("batch-3-output.pptx", SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
+```
+
+The `setDefaultRegularFont` call tells the loader to use the specified font when the PDF font cannot be mapped directly, preventing unwanted substitution and preserving glyph shapes.
+
 ## **Manage Fonts Externally**
 
 Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) method to allow you to load external fonts from binary data.
