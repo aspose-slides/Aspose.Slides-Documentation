@@ -68,6 +68,21 @@ try {
 }
 ```
 
+### **SmartArt Paragraphs**
+
+When a paragraph belongs to a SmartArt node, clearing its portions and rebuilding the paragraph can leave stale hyperlink information. After modifying the paragraph, also clear the shape’s `HyperlinkQueries` to reset the hyperlink state.
+
+```java
+// clear all HyperlinkQueries in the SmartArt shape before rebuilding the paragraph
+ISmartArtShapeCollection smartArtShapes = smartArt.getAllNodes().get_Item(3).getShapes();
+smartArtShapes.get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+
+paragraph.getPortions().clear();
+// add new portions with hyperlinks as needed …
+```
+
+Clearing the `HyperlinkQueries` ensures that `PortionFormat.getEffective().getHyperlinkClick()` returns `null` for portions without a hyperlink.
+
 ### **Add URL Hyperlinks to Shapes and Media Frames**
 
 Call [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) on the rectangle to make its entire area clickable. Use [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) to show readers a hint about the destination when they hover over the rectangle. Both methods also apply to picture, audio, and video frames.
