@@ -1,5 +1,5 @@
 ---
-title: Automatisez la personnalisation des présentations avec le publipostage
+title: Automatiser la personnalisation des présentations avec le publipostage
 linktitle: Publipostage
 type: docs
 weight: 233
@@ -20,20 +20,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Découvrez comment utiliser le publipostage dans Aspose.Slides pour .NET afin de remplir des modèles de présentation avec des données et de générer des présentations PowerPoint personnalisées à partir de sources CSV, Excel, JSON et XML."
+description: "Apprenez à utiliser le publipostage dans Aspose.Slides pour .NET afin de remplir des modèles de présentation avec des données et de générer des présentations PowerPoint personnalisées à partir de sources CSV, Excel, JSON et XML."
 ---
-# Publipostage dans les présentations PowerPoint
+## **Publipostage dans les présentations PowerPoint**
 
-Aspose.Slides pour .NET vous permet de générer automatiquement des présentations PowerPoint à l'aide d'un modèle et d'une source de données. Le publipostage remplit les espaces réservés du modèle avec les données et crée soit une présentation unique contenant des diapositives de modèle répétées pour chaque jeu de données, soit une présentation distincte pour chaque jeu de données.
+Aspose.Slides for .NET vous permet de générer automatiquement des présentations PowerPoint en utilisant un modèle et une source de données. Le publipostage remplit les espaces réservés du modèle avec les données et crée soit une présentation unique contenant des diapositives de modèle répétées pour chaque jeu de données, soit une présentation séparée pour chaque jeu de données.
 
-Cette fonctionnalité est utile pour générer des catalogues de produits, des présentations personnalisées, des rapports, des certificats, des propositions, des listes de prix et d'autres documents où la structure de la présentation reste identique tandis que le contenu varie.
+Cette fonctionnalité est utile pour générer des catalogues de produits, des présentations personnalisées, des rapports, des certificats, des propositions, des listes de prix et d’autres documents dont la structure de la présentation reste identique tandis que le contenu varie.
 
 ![Publipostage : avant et après](mail-merge-before-after.png)
 
 
-## Fonctionnement du publipostage
+## **Fonctionnement du publipostage**
 
-Le publipostage utilise une présentation PowerPoint comme modèle et remplace les espaces réservés par des valeurs provenant d'une source de données.
+Le publipostage utilise une présentation PowerPoint comme modèle et remplace les espaces réservés par les valeurs d’une source de données.
 
 ![Flux de travail du publipostage](mail-merge-workflow.png)
 
@@ -41,9 +41,9 @@ Un espace réservé est un nom de champ entouré de doubles accolades, tel que `
 
 Par exemple, une diapositive modèle peut contenir le texte suivant :
 
-- `Product: {{title}}`
-- `Price: {{price}}`
-- `Description: {{description}}`
+- `Produit : {{title}}`
+- `Prix : {{price}}`
+- `Description : {{description}}`
 
 Lorsque la source de données contient les valeurs suivantes :
 
@@ -55,41 +55,41 @@ Lorsque la source de données contient les valeurs suivantes :
 
 Le publipostage remplace les espaces réservés par les valeurs correspondantes, produisant une diapositive avec les informations réelles du produit.
 
-Les noms de champ ne sont pas sensibles à la casse, donc `{{title}}` et `{{Title}}` font référence au même champ.
+Les noms de champ ne sont pas sensibles à la casse, ainsi `{{title}}` et `{{Title}}` font référence au même champ.
 
-Les règles suivantes s'appliquent lors du remplacement des espaces réservés :
+Les règles suivantes s’appliquent lors du remplacement des espaces réservés :
 
 - Les espaces réservés sont remplacés sur les diapositives, y compris les formes groupées et les cellules de tableau, ainsi que dans les notes du présentateur.
-- Les espaces réservés sur les maîtres et les dispositions ne sont pas remplacés.
-- Un espace réservé dont le champ n'est pas présent dans le jeu de données reste inchangé.
+- Les espaces réservés sur les diapositives maîtres et les diapositives de mise en page ne sont pas remplacés.
+- Un espace réservé dont le champ est absent du jeu de données reste inchangé.
 - Une valeur de champ vide remplace son espace réservé par une chaîne vide.
-- Le texte inséré hérite du formatage du premier caractère de l'espace réservé.
-- Les valeurs ne doivent pas contenir de texte d'espace réservé, car le texte inséré pourrait être traité une nouvelle fois et remplacé par un autre champ.
+- Le texte inséré hérite du formatage du premier caractère de l’espace réservé.
+- Les valeurs ne doivent pas contenir de texte d’espace réservé, car le texte inséré pourrait être traité à nouveau et remplacé par un autre champ.
 
-Le modèle de présentation d'origine n'est pas modifié pendant l'opération de fusion et doit contenir au moins une diapositive.
+La présentation modèle originale n’est pas modifiée pendant l’opération de fusion et doit contenir au moins une diapositive.
 
-## Sources de données prises en charge
+## **Sources de données prises en charge**
 
-Le publipostage prend en charge deux manières de fournir les données :
+Le publipostage prend en charge deux manières d’alimenter les données :
 
-- Créer une source de données de façon programmée avec `IMailMergeDataSource`.
-- Lire les données depuis un fichier ou un flux CSV, XLSX, JSON ou XML.
+- Créer une source de données programmatiquement en utilisant `IMailMergeDataSource`.
+- Lire les données à partir d’un fichier ou d’un flux CSV, XLSX, JSON ou XML.
 
-Le format des données est détecté à partir de leur contenu, et non de l'extension du fichier. Les flux qui ne prennent pas en charge la recherche sont également pris en charge.
+Le format des données est détecté à partir de son contenu, pas à partir de l’extension du fichier. Les flux qui ne supportent pas la recherche sont également supportés.
 
 La source de données doit contenir au moins un jeu de données. Chaque jeu de données représente une copie du modèle à remplir avec ses valeurs.
 
-Si le contenu des données ne peut pas être reconnu comme un format pris en charge, une `NotSupportedException` est levée. Si le contenu est reconnu mais ne respecte pas les exigences du format, une `InvalidDataException` est levée. Le message d'exception contient l'emplacement de l'erreur dans les données.
+Si le contenu des données ne peut pas être reconnu comme un format pris en charge, `NotSupportedException` est levée. Si le contenu est reconnu mais ne respecte pas les exigences du format, `InvalidDataException` est levée. Le message d’exception indique l’emplacement de l’erreur dans les données.
 
-### JSON
+### **JSON**
 
-La source de données JSON doit avoir un objet racine contenant un tableau `sets`. Chaque élément du tableau représente un jeu de données et doit contenir un tableau `fields`. Chaque champ doit posséder les chaînes `name` et `value`.
+La source de données JSON doit avoir un objet racine contenant un tableau `sets`. Chaque élément du tableau représente un jeu de données et doit contenir un tableau `fields`. Chaque champ doit avoir une chaîne `name` et une chaîne `value`.
 
-La propriété optionnelle `version` doit être `"1.0"` et la propriété optionnelle `type` d'un champ doit être `"text"`. Les noms de propriétés sont sensibles à la casse. Les propriétés inconnues sont ignorées.
+La propriété optionnelle `version` doit être `"1.0"` et la propriété optionnelle `type` d’un champ doit être `"text"`. Les noms de propriétés sont sensibles à la casse. Les propriétés inconnues sont ignorées.
 
-Les données JSON sont lues en UTF‑8, ou en UTF‑16 lorsque les données commencent par un marqueur d'ordre d'octets (BOM).
+Les données JSON sont lues en UTF-8, ou en UTF-16 lorsqu’elles commencent par un marqueur d’ordre d’octets (BOM).
 
-L'exemple suivant contient deux jeux de données :
+L’exemple suivant contient deux jeux de données :
 
 ```json
 {
@@ -111,11 +111,11 @@ L'exemple suivant contient deux jeux de données :
 }
 ```
 
-### XML
+### **XML**
 
-La source de données XML doit avoir un élément racine `template` contenant l'élément `sets`. Chaque élément `set` contient des éléments `field`, et chaque champ doit contenir des éléments `name` et `value`.
+La source de données XML doit avoir un élément racine `template` contenant l’élément `sets`. Chaque élément `set` contient des éléments `field`, et chaque champ doit contenir des éléments `name` et `value`.
 
-Un élément `value` vide est traité comme une chaîne vide. Les noms d'éléments sont sensibles à la casse. Les éléments inconnus et les commentaires sont ignorés. L'encodage est déterminé par la déclaration XML. Les définitions de type de document (DTD) ne sont pas autorisées.
+Un élément `value` vide est traité comme une chaîne vide. Les noms d’éléments sont sensibles à la casse. Les éléments inconnus et les commentaires sont ignorés. L’encodage est déterminé par la déclaration XML. Les définitions de type de document (DTD) ne sont pas autorisées.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,19 +145,19 @@ Un élément `value` vide est traité comme une chaîne vide. Les noms d'éléme
 </template>
 ```
 
-### CSV
+### **CSV**
 
-Les données CSV utilisent des points‑virgules comme séparateurs de valeurs.
+Les données CSV utilisent des points‑virgules comme séparateurs de valeur.
 
 La première ligne contient les noms de champ et se termine au premier nom de champ vide. Chaque ligne suivante représente un jeu de données. Les données se terminent à la première ligne vide.
 
-Les règles suivantes s'appliquent :
+Les règles suivantes s’appliquent :
 
-- Les valeurs manquantes en fin de ligne sont traitées comme des chaînes vides.
+- Les valeurs manquantes à la fin d’une ligne sont traitées comme des chaînes vides.
 - Les valeurs au‑delà des noms de champ définis sont ignorées.
 - Une valeur contenant un point‑virgule, un guillemet ou un saut de ligne doit être entourée de guillemets.
-- Les guillemets à l'intérieur d'une valeur entre guillemets doivent être doublés.
-- Les données sont lues en UTF‑8, ou en UTF‑16 lorsqu'elles commencent par un BOM.
+- Les guillemets à l’intérieur d’une valeur entre guillemets doivent être doublés.
+- Les données sont lues en UTF-8, ou en UTF-16 lorsqu’elles commencent par un BOM.
 
 Exemple :
 
@@ -167,11 +167,11 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
 Les données XLSX sont lues à partir de la première feuille de calcul.
 
-La feuille suit les mêmes règles que le CSV :
+La feuille de calcul suit les mêmes règles que le CSV :
 
 - La première ligne contient les noms de champ et se termine à la première cellule vide.
 - Chaque ligne suivante représente un jeu de données.
@@ -179,15 +179,15 @@ La feuille suit les mêmes règles que le CSV :
 - Les cellules vides sont traitées comme des chaînes vides.
 - Les valeurs numériques sont converties en texte en utilisant la culture invariante.
 
-## Création d'une présentation unique
+## **Création d’une présentation unique**
 
 La méthode `MergeToSinglePresentation` crée une présentation contenant une copie des diapositives du modèle pour chaque jeu de données. Chaque copie est remplie avec les données correspondantes.
 
-L'ordre des jeux de données détermine l'ordre des groupes de diapositives dans la présentation résultante.
+L’ordre des jeux de données détermine l’ordre des groupes de diapositives dans la présentation résultante.
 
-### Fusion des données depuis un fichier
+### **Fusion de données à partir d’un fichier**
 
-L'exemple suivant charge un modèle et un fichier de données JSON, crée une présentation unique contenant les diapositives pour tous les jeux de données, puis enregistre le résultat.
+L’exemple suivant charge un modèle et un fichier de données JSON, crée une présentation unique contenant les diapositives pour tous les jeux de données et enregistre le résultat.
 
 ```csharp
 using Aspose.Slides;
@@ -202,7 +202,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, "pro
 }
 ```
 
-Les données peuvent également être lues depuis un flux. Le flux est lu à partir de sa position actuelle et n'est pas fermé par l'opération de publipostage.
+Les données peuvent également être lues à partir d’un flux. Le flux est lu à partir de sa position actuelle et n’est pas fermé par l’opération de publipostage.
 
 ```csharp
 using Aspose.Slides;
@@ -219,9 +219,9 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Création d'une source de données dans le code
+### **Création d’une source de données dans le code**
 
-Vous pouvez construire une source de données programmatiquement avec `MailMergeDataSource` et `MailMergeDataSet`. Ajoutez un jeu de données pour chaque enregistrement et définissez ses champs à l'aide de la méthode `AddText`.
+Vous pouvez créer une source de données programmatiquement en utilisant `MailMergeDataSource` et `MailMergeDataSet`. Ajoutez un jeu de données pour chaque enregistrement et définissez ses champs à l’aide de la méthode `AddText`.
 
 ```csharp
 using Aspose.Slides;
@@ -246,19 +246,19 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 }
 ```
 
-Dans cet exemple, les diapositives du modèle sont répétées deux fois : une fois pour l'ordinateur portable et une fois pour la tablette. Les espaces réservés sont remplis à l'aide des valeurs définies dans chaque jeu de données.
+Dans cet exemple, les diapositives du modèle sont répétées deux fois : une fois pour le portable et une fois pour la tablette. Les espaces réservés sont remplis avec les valeurs définies dans chaque jeu de données.
 
-## Création de présentations multiples
+## **Création de plusieurs présentations**
 
-Si vous avez besoin d'une présentation distincte pour chaque jeu de données, utilisez la méthode `MergeToMultiplePresentations`.
+Si vous avez besoin d’une présentation distincte pour chaque jeu de données, utilisez la méthode `MergeToMultiplePresentations`.
 
 Cette méthode traite les jeux de données un par un, crée une présentation à partir du modèle, la remplit avec les données courantes et transmet la présentation résultante à un gestionnaire.
 
-Le gestionnaire est invoqué une fois pour chaque jeu de données, dans l'ordre d'origine des données.
+Le gestionnaire est invoqué une fois pour chaque jeu de données, dans l’ordre d’origine des données.
 
-### Enregistrement de chaque présentation
+### **Enregistrement de chaque présentation**
 
-L'exemple suivant lit des données depuis un fichier CSV et enregistre chaque présentation générée comme un fichier distinct.
+L’exemple suivant lit les données d’un fichier CSV et enregistre chaque présentation générée sous forme de fichier séparé.
 
 ```csharp
 using Aspose.Slides;
@@ -280,9 +280,9 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-La propriété `args.Index` fournit l'index basé sur zéro du jeu de données actuel. Dans l'exemple, elle est utilisée pour générer des noms de fichiers séquentiels à partir de `product_1.pptx`.
+La propriété `args.Index` fournit l’indice zéro‑based du jeu de données courant. Dans l’exemple, elle est utilisée pour générer des noms de fichiers séquentiels à partir de `product_1.pptx`.
 
-Les données peuvent également être lues depuis un flux :
+Les données peuvent également être lues à partir d’un flux :
 
 ```csharp
 using Aspose.Slides;
@@ -306,9 +306,9 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Utilisation des valeurs du jeu de données pour nommer les fichiers
+### **Utilisation des valeurs du jeu de données pour nommer les fichiers**
 
-Le gestionnaire reçoit à la fois la présentation générée et les informations sur le jeu de données utilisé pour la créer. Vous pouvez exploiter ces valeurs pour créer des noms de fichiers pertinents.
+Le gestionnaire reçoit à la fois la présentation générée et des informations sur le jeu de données utilisé pour la créer. Vous pouvez utiliser les valeurs du jeu de données pour construire des noms de fichiers pertinents.
 
 Par exemple, le code suivant enregistre chaque présentation en utilisant le titre du produit :
 
@@ -335,26 +335,26 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-La propriété `DataSet` renvoie le jeu de données utilisé pour remplir la présentation courante. La méthode `GetText` récupère la valeur d'un champ spécifié, ou `null` si le champ n'est pas présent.
+La propriété `DataSet` renvoie le jeu de données utilisé pour remplir la présentation courante. La méthode `GetText` récupère la valeur d’un champ spécifié, ou `null` si le champ n’existe pas.
 
-Cela vous permet d'utiliser les valeurs des données pour nommer les fichiers, organiser la sortie ou appliquer un traitement supplémentaire dans le gestionnaire.
+Cela vous permet d’utiliser les valeurs des données pour nommer des fichiers, organiser la sortie ou appliquer un traitement supplémentaire dans le gestionnaire.
 
-## Gestion des présentations générées
+## **Gestion des présentations générées**
 
 `MergeToMultiplePresentations` utilise le délégué `MailMergedPresentationHandler` pour traiter chaque présentation générée.
 
 Le gestionnaire reçoit deux arguments :
 
 - `presentation` — la présentation créée à partir du modèle et remplie avec le jeu de données actuel.
-- `args` — les informations sur la présentation générée, incluant l'index du jeu de données et le jeu de données lui‑même.
+- `args` — informations sur la présentation générée, incluant l’indice du jeu de données et le jeu de données lui‑même.
 
-La présentation générée appartient à l'opération de publipostage et est supprimée immédiatement après le retour du gestionnaire. Vous devez donc l'enregistrer ou copier les données nécessaires à l'intérieur du gestionnaire. Ne conservez pas de référence après le retour du gestionnaire et ne la libérez pas manuellement.
+La présentation générée appartient à l’opération de publipostage et est supprimée immédiatement après le retour du gestionnaire. Par conséquent, vous devez l’enregistrer ou copier les données requises à l’intérieur du gestionnaire. Ne conservez pas de référence après le retour du gestionnaire et ne la supprimez pas manuellement.
 
-Le gestionnaire s'exécute sur le thread appelant, une présentation à la fois, dans l'ordre des jeux de données. Une seule présentation générée est maintenue en mémoire à la fois, ce qui rend cette approche adaptée au traitement de sources de données volumineuses sans garder toutes les présentations en mémoire simultanément.
+Le gestionnaire s’exécute sur le thread appelant, une présentation à la fois, dans l’ordre des jeux de données. Une seule présentation générée est conservée en mémoire à la fois, ce qui rend cette approche adaptée au traitement de grandes sources de données sans conserver toutes les présentations en mémoire simultanément.
 
-Si le gestionnaire lève une exception, l'opération de publipostage s'arrête et l'exception est propagée au code appelant sans modification. Les présentations déjà traitées restent inchangées, et les jeux de données restants ne sont pas traités.
+Si le gestionnaire lève une exception, l’opération de publipostage s’arrête et l’exception est propagée à l’appelant telle quelle. Les présentations déjà traitées restent inchangées et les jeux de données restants ne sont pas traités.
 
-L'exemple suivant enregistre les présentations générées dans un répertoire dédié :
+L’exemple suivant enregistre les présentations générées dans un répertoire dédié :
 
 ```csharp
 using Aspose.Slides;
@@ -382,11 +382,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Travail avec les données de publipostage
+## **Travail avec les données du publipostage**
 
-La classe `MailMergeDataSource` représente une collection ordonnée de jeux de données. Elle peut être utilisée pour créer des données dans le code, inspecter le nombre de jeux de données et accéder à un jeu de données individuel par index.
+La classe `MailMergeDataSource` représente une collection ordonnée de jeux de données. Elle peut être utilisée pour créer des données en code, inspecter le nombre de jeux de données et accéder à des jeux de données individuels par indice.
 
-### Obtention du nombre de jeux de données
+### **Obtention du nombre de jeux de données**
 
 La propriété `Count` renvoie le nombre de jeux de données dans la source.
 
@@ -399,9 +399,9 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Accès à un jeu de données par index
+### **Accès à un jeu de données par indice**
 
-La propriété `Item(int)` fournit l'accès à un jeu de données à l'index zéro‑basé spécifié.
+La propriété `Item(int)` donne accès à un jeu de données à l’indice zéro‑based spécifié.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -414,7 +414,7 @@ Console.WriteLine(source[1].GetText("title"));
 
 Cet exemple récupère le titre du deuxième jeu de données.
 
-### Ajout de champs texte
+### **Ajout de champs texte**
 
 La méthode `AddText` ajoute un champ texte nommé à un jeu de données. La valeur du champ remplace tous les espaces réservés correspondants dans le modèle.
 
@@ -426,11 +426,11 @@ dataSet.AddText("title", "Laptop X1");
 dataSet.AddText("subtitle", string.Empty);
 ```
 
-Une valeur vide supprime l'espace réservé correspondant du texte résultant. Si le champ n'est pas ajouté au jeu de données, l'espace réservé reste inchangé.
+Une valeur vide supprime l’espace réservé correspondant du texte résultant. Si le champ n’est pas ajouté au jeu de données, l’espace réservé reste inchangé.
 
-### Lecture des champs texte
+### **Lecture des champs texte**
 
-La méthode `GetText` récupère la valeur d'un champ par son nom. Les noms de champ ne sont pas sensibles à la casse.
+La méthode `GetText` récupère la valeur d’un champ par son nom. Les noms de champ ne sont pas sensibles à la casse.
 
 ```csharp
 IMailMergeDataSet dataSet = source[0];
@@ -439,93 +439,93 @@ string title = dataSet.GetText("title");
 string price = dataSet.GetText("price");
 ```
 
-Si le champ n'existe pas ou si le nom de champ spécifié est `null`, `GetText` renvoie `null`.
+Si le champ n’existe pas ou si le nom de champ spécifié est `null`, `GetText` renvoie `null`.
 
-## Résumé
+## **Résumé**
 
-Le publipostage dans Aspose.Slides pour .NET offre une façon pratique de générer des présentations pilotées par les données à partir d'un modèle réutilisable.
+Le publipostage dans Aspose.Slides for .NET offre un moyen pratique de générer des présentations basées sur des données à partir d’un modèle réutilisable.
 
-Vous pouvez l'utiliser pour :
+Vous pouvez l’utiliser pour :
 
-- Remplir des modèles de présentation avec des valeurs provenant de sources de données.
-- Générer une présentation unique contenant des diapositives de modèle répétées pour plusieurs jeux de données.
+- Remplir les modèles de présentation avec les valeurs provenant des sources de données.
+- Générer une présentation unique contenant des diapositives modèle répétées pour plusieurs jeux de données.
 - Créer une présentation distincte pour chaque jeu de données.
-- Lire des données depuis des fichiers ou des flux CSV, XLSX, JSON et XML.
+- Lire les données à partir de fichiers ou flux CSV, XLSX, JSON et XML.
 - Construire des sources de données directement dans le code.
-- Traiter et enregistrer les présentations générées séquentiellement à l'aide d'un gestionnaire.
+- Traiter et enregistrer les présentations générées séquentiellement à l’aide d’un gestionnaire.
 
-En combinant des modèles réutilisables avec des données structurées, vous pouvez automatiser la création d'un grand nombre de présentations tout en conservant la conception du modèle et la logique de traitement des données séparées.
+En combinant des modèles réutilisables avec des données structurées, vous pouvez automatiser la création d’un grand nombre de présentations tout en conservant séparés la conception du modèle et la logique de traitement des données.
 
-## Foire aux questions
+## **Questions fréquentes**
 
-### Puis‑je utiliser le même espace réservé plusieurs fois dans un modèle ?
+**Puis-je utiliser le même espace réservé plusieurs fois dans un modèle ?**
 
-Oui. Chaque occurrence d'un espace réservé avec un nom de champ correspondant est remplacée par la valeur correspondante du jeu de données actuel.
+Oui. Chaque occurrence d’un espace réservé avec un nom de champ correspondant est remplacée par la valeur correspondante du jeu de données actuel.
 
-### Les noms de champ sont‑ils sensibles à la casse ?
+**Les noms de champ sont-ils sensibles à la casse ?**
 
-Non. Les noms des espaces réservés et des champs de données ne sont pas sensibles à la casse. Par exemple, `{{title}}`, `{{Title}}` et `{{TITLE}}` font référence au même champ.
+Non. Les noms d’espaces réservés et les noms de champ de données ne sont pas sensibles à la casse. Par exemple, `{{title}}`, `{{Title}}` et `{{TITLE}}` font référence au même champ.
 
-### Que se passe‑t‑il si un champ manque dans un jeu de données ?
+**Que se passe-t-il si un champ est absent d’un jeu de données ?**
 
-Si le jeu de données ne contient pas de champ référencé par un espace réservé, cet espace réservé reste inchangé dans la présentation générée.
+Si le jeu de données ne contient pas un champ référencé par un espace réservé, cet espace réservé reste inchangé dans la présentation générée.
 
-### Que se passe‑t‑il si un champ a une valeur vide ?
+**Que se passe-t-il si un champ a une valeur vide ?**
 
-Une valeur de champ vide remplace l'espace réservé par une chaîne vide. Le texte de l'espace réservé est supprimé, ne laissant aucun texte à sa place.
+Une valeur de champ vide remplace l’espace réservé par une chaîne vide. Le texte de l’espace réservé est supprimé, laissant aucun texte à sa place.
 
-### Puis‑je conserver le formatage d'un espace réservé lors du remplacement ?
+**Puis‑je conserver le formatage d’un espace réservé lors de son remplacement ?**
 
-Le texte de remplacement hérite du formatage du premier caractère de l'espace réservé. Appliquez le formatage souhaité au texte de l'espace réservé dans le modèle avant d'effectuer la fusion.
+Le texte de remplacement hérite du formatage du premier caractère de l’espace réservé. Appliquez le formatage souhaité au texte de l’espace réservé dans le modèle avant d’effectuer la fusion.
 
-### Le publipostage remplace‑t‑il les espaces réservés sur les diapositives maîtres ou de disposition ?
+**Le publipostage remplace‑t‑il les espaces réservés sur les diapositives maîtres ou de mise en page ?**
 
-Non. Le publipostage remplace les espaces réservés dans le contenu pris en charge des diapositives de présentation, y compris les formes, les formes groupées, les cellules de tableau et les notes du présentateur. Les espaces réservés sur les maîtres et les dispositions ne sont pas remplacés.
+Non. Le publipostage remplace les espaces réservés dans le contenu pris en charge des diapositives de la présentation, y compris les formes, les formes groupées, les cellules de tableau et les notes du présentateur. Les espaces réservés sur les diapositives maîtres et de mise en page ne sont pas remplacés.
 
-### Le modèle de présentation est‑il modifié pendant la fusion ?
+**La présentation modèle est‑elle modifiée pendant la fusion ?**
 
-Non. Le modèle original n'est pas modifié par l'opération de fusion. Vous pouvez le réutiliser pour générer des présentations à partir de la même source de données ou d'une source différente.
+Non. Le modèle original n’est pas modifié par l’opération de fusion. Vous pouvez le réutiliser pour générer des présentations à partir de la même ou d’autres sources de données.
 
-### Puis‑je générer une présentation distincte pour chaque jeu de données ?
+**Puis‑je générer une présentation distincte pour chaque jeu de données ?**
 
 Oui. Utilisez `MergeToMultiplePresentations` et enregistrez chaque présentation générée dans le gestionnaire. Le gestionnaire est appelé séquentiellement pour chaque jeu de données.
 
-### Puis‑je combiner tous les jeux de données en une seule présentation ?
+**Puis‑je combiner tous les jeux de données en une seule présentation ?**
 
-Oui. Utilisez `MergeToSinglePresentation`. Elle crée une présentation de sortie unique contenant une copie des diapositives du modèle pour chaque jeu de données, dans l'ordre de la source de données.
+Oui. Utilisez `MergeToSinglePresentation`. Elle crée une présentation unique contenant une copie des diapositives du modèle pour chaque jeu de données, dans l’ordre de la source de données.
 
-### Puis‑je utiliser une source de données sans la sauvegarder dans un fichier ?
+**Puis‑je utiliser une source de données sans la sauvegarder dans un fichier ?**
 
-Oui. Vous pouvez créer un `MailMergeDataSource` dans le code, ajouter des jeux de données et remplir les champs à l'aide de `AddText`. Cela est utile lorsque vos données sont déjà disponibles dans votre application.
+Oui. Vous pouvez créer un `MailMergeDataSource` en code, ajouter des jeux de données et peupler les champs avec `AddText`. Cela est utile lorsque vos données sont déjà disponibles dans votre application.
 
-### Le publipostage détecte‑t‑il le format des données à partir de l'extension du fichier ?
+**Le publipostage détecte‑t‑il le format des données à partir de l’extension du fichier ?**
 
-Non. Le format des données est détecté à partir du contenu, de sorte qu'une source de données prise en charge n'a pas besoin d'utiliser une extension de fichier particulière.
+Non. Le format des données est détecté à partir du contenu, de sorte qu’une source de données prise en charge n’a pas besoin d’utiliser une extension de fichier particulière.
 
-### Puis‑je lire des données depuis un flux qui ne prend pas en charge la recherche ?
+**Puis‑je lire des données à partir d’un flux qui ne supporte pas la recherche ?**
 
 Oui. Le publipostage prend en charge les flux non recherchables.
 
-### Que se passe‑t‑il si la source de données est vide ou ne contient aucun jeu de données ?
+**Que se passe‑t‑il si la source de données est vide ou ne contient aucun jeu de données ?**
 
-La source de données doit contenir au moins un jeu de données. Assurez‑vous qu'elle inclut au moins un enregistrement avant de lancer l'opération de fusion.
+La source de données doit contenir au moins un jeu de données. Assurez‑vous qu’elle inclut au moins un enregistrement avant de démarrer la fusion.
 
-### Que se passe‑t‑il si la source de données a un format invalide ?
+**Que se passe‑t‑il si la source de données a un format invalide ?**
 
-Si le contenu n'est pas reconnu comme l'un des formats de données pris en charge, une `NotSupportedException` est levée. S'il est reconnu mais mal formé, une `InvalidDataException` est levée. Le message d'exception indique l'emplacement de l'erreur.
+Si le contenu n’est pas reconnu comme l’un des formats de données pris en charge, `NotSupportedException` est levée. S’il est reconnu mais mal formé, `InvalidDataException` est levée. Le message d’exception indique l’emplacement de l’erreur.
 
-### Puis‑je utiliser la présentation générée après le retour du gestionnaire ?
+**Puis‑je utiliser la présentation générée après le retour du gestionnaire ?**
 
-La présentation passée au gestionnaire `MergeToMultiplePresentations` appartient au publipostage et est supprimée après le retour du gestionnaire. Enregistrez‑la ou copiez le contenu dont vous avez besoin à l'intérieur du gestionnaire, et ne conservez ni ne libérez cette présentation vous‑même.
+La présentation transmise au gestionnaire `MergeToMultiplePresentations` appartient au publipostage et est supprimée après le retour du gestionnaire. Enregistrez‑la ou copiez le contenu nécessaire à l’intérieur du gestionnaire, et ne conservez pas ou ne supprimez pas vous‑même cette présentation.
 
-### Le gestionnaire est‑il appelé en parallèle ?
+**Le gestionnaire est‑il appelé en parallèle ?**
 
-Non. Les présentations générées sont traitées séquentiellement, sur le thread de l'appelant. Une seule présentation générée est maintenue en mémoire à la fois par cette opération.
+Non. Les présentations générées sont traitées séquentiellement, sur le thread de l’appelant. Une seule présentation générée est maintenue en mémoire à la fois par cette opération.
 
-### Que se passe‑t‑il si une exception survient à l'intérieur du gestionnaire ?
+**Que se passe‑t‑il si une exception se produit à l’intérieur du gestionnaire ?**
 
-L'opération de fusion s'arrête et l'exception est propagée au code appelant sans modification. Les présentations déjà traitées ne sont pas affectées, et les jeux de données suivants ne sont pas traités.
+L’opération de fusion s’arrête, et l’exception est propagée à l’appelant sans modification. Les présentations déjà traitées ne sont pas affectées, et les jeux de données restants ne sont pas traités.
 
-### Puis‑je utiliser les valeurs des champs pour générer les noms de fichiers de sortie ?
+**Puis‑je utiliser les valeurs des champs pour générer les noms de fichiers de sortie ?**
 
-Oui. Le gestionnaire fournit le jeu de données actuel via ses arguments. Utilisez `GetText` pour récupérer les champs et construire un nom de fichier pour chaque présentation générée. Veillez à ce que les valeurs soient valides pour les noms de fichiers dans votre environnement cible.
+Oui. Le gestionnaire fournit le jeu de données actuel via ses arguments. Utilisez `GetText` pour récupérer les champs et construire un nom de fichier pour chaque présentation générée. Assurez‑vous que les valeurs sont valides pour les noms de fichiers dans votre environnement cible.

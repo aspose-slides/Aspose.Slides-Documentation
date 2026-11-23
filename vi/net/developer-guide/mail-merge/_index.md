@@ -1,43 +1,43 @@
 ---
-title: Tự động hoá cá nhân hoá bài thuyết trình bằng Mail Merge
+title: Tự động Cá nhân hoá Bản trình chiếu với Mail Merge
 linktitle: Mail Merge
 type: docs
 weight: 233
 url: /vi/net/mail-merge/
 keywords:
 - Mail Merge
-- cá nhân hoá bài thuyết trình
-- mẫu bài thuyết trình
-- placeholder văn bản
+- cá nhân hoá bản trình chiếu
+- mẫu bản trình chiếu
+- trình giữ chỗ văn bản
 - nguồn dữ liệu
 - CSV
 - Excel
 - XLSX
 - JSON
 - XML
-- gộp dữ liệu
-- tạo bài thuyết trình
+- hợp nhất dữ liệu
+- tạo bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Học cách sử dụng Mail Merge trong Aspose.Slides cho .NET để điền các mẫu bài thuyết trình bằng dữ liệu và tạo các bài thuyết trình PowerPoint cá nhân hoá từ nguồn CSV, Excel, JSON và XML."
+description: "Tìm hiểu cách sử dụng Mail Merge trong Aspose.Slides cho .NET để điền các mẫu bản trình chiếu bằng dữ liệu và tạo các bản trình chiếu PowerPoint cá nhân hoá từ nguồn CSV, Excel, JSON và XML."
 ---
-# Mail Merge trong Bài Thuyết Trình PowerPoint
+## **Mail Merge trong Bản trình chiếu PowerPoint**
 
-Aspose.Slides for .NET cho phép bạn tự động tạo các bài thuyết trình PowerPoint bằng cách sử dụng mẫu và nguồn dữ liệu. Mail Merge điền các placeholder trong mẫu bằng dữ liệu và tạo ra hoặc một bài thuyết trình duy nhất chứa các slide mẫu được lặp lại cho mỗi bộ dữ liệu, hoặc một bài thuyết trình riêng biệt cho mỗi bộ dữ liệu.
+Aspose.Slides for .NET cho phép bạn tự động tạo các bản trình chiếu PowerPoint bằng cách sử dụng mẫu và nguồn dữ liệu. Mail Merge điền các trình giữ chỗ trong mẫu bằng dữ liệu và tạo hoặc một bản trình chiếu duy nhất chứa các slide mẫu được lặp lại cho mỗi bộ dữ liệu hoặc một bản trình chiếu riêng biệt cho mỗi bộ dữ liệu.
 
-Chức năng này hữu ích cho việc tạo danh mục sản phẩm, bài thuyết trình cá nhân hoá, báo cáo, chứng chỉ, đề xuất, bảng giá và các tài liệu khác mà cấu trúc bài thuyết trình vẫn giữ nguyên trong khi nội dung thay đổi.
+Chức năng này hữu ích cho việc tạo danh mục sản phẩm, bản trình chiếu cá nhân hoá, báo cáo, chứng chỉ, đề xuất, bảng giá và các tài liệu khác mà cấu trúc bản trình chiếu vẫn giữ nguyên trong khi nội dung thay đổi.
 
-![Mail Merge: trước và sau](mail-merge-before-after.png)
+![Mail Merge: before and after](mail-merge-before-after.png)
 
 
-## Cách Mail Merge Hoạt Động
+## **Cách hoạt động của Mail Merge**
 
-Mail Merge sử dụng một bài thuyết trình PowerPoint làm mẫu và thay thế các placeholder bằng giá trị từ nguồn dữ liệu.
+Mail Merge sử dụng một bản trình chiếu PowerPoint làm mẫu và thay thế các trình giữ chỗ bằng các giá trị từ nguồn dữ liệu.
 
 ![Mail Merge workflow](mail-merge-workflow.png)
 
-Một placeholder là tên trường được bao quanh bởi cặp dấu ngoặc nhọn kép, chẳng hạn `{{title}}` hoặc `{{price}}`. Placeholder có thể được đặt trong văn bản của hình dạng, ô bảng, nhóm hình dạng và ghi chú người thuyết trình.
+Một trình giữ chỗ là tên trường được bao quanh bởi dấu ngoặc nhọn kép, chẳng hạn `{{title}}` hoặc `{{price}}`. Các trình giữ chỗ có thể được đặt trong văn bản trong các hình dạng, ô bảng, nhóm hình dạng và ghi chú người thuyết trình.
 
 Ví dụ, một slide mẫu có thể chứa các văn bản sau:
 
@@ -51,45 +51,45 @@ Khi nguồn dữ liệu chứa các giá trị sau:
 |---|---|
 | title | Laptop X1 |
 | price | $999 |
-| description | Màn hình 14‑inch, RAM 16 GB |
+| description | 14-inch display, 16 GB RAM |
 
-Mail Merge thay thế các placeholder bằng các giá trị tương ứng, tạo ra một slide với thông tin sản phẩm thực tế.
+Mail Merge thay thế các trình giữ chỗ bằng các giá trị tương ứng, tạo ra một slide với thông tin sản phẩm thực tế.
 
-Tên trường không phân biệt chữ hoa/chữ thường, vì vậy `{{title}}` và `{{Title}}` đề cập tới cùng một trường.
+Tên trường không phân biệt chữ hoa chữ thường, vì vậy `{{title}}` và `{{Title}}` đề cập đến cùng một trường.
 
-Các quy tắc sau áp dụng khi thay thế placeholder:
+Các quy tắc sau áp dụng khi thay thế các trình giữ chỗ:
 
-- Placeholder được thay thế trên các slide, bao gồm các nhóm hình dạng và ô bảng, và trong ghi chú người thuyết trình.
-- Placeholder trên master slide và layout slide không được thay thế.
-- Placeholder mà trường không tồn tại trong bộ dữ liệu sẽ giữ nguyên.
-- Giá trị trường trống sẽ thay thế placeholder bằng chuỗi rỗng.
-- Văn bản được chèn thừa hưởng định dạng của ký tự đầu tiên của placeholder.
-- Giá trị không được chứa văn bản placeholder, vì văn bản chèn có thể được xử lý lại và bị thay thế bởi một trường khác.
+- Các trình giữ chỗ được thay thế trên các slide, bao gồm cả nhóm hình dạng và ô bảng, và trong ghi chú người thuyết trình.
+- Các trình giữ chỗ trên slide mẫu và slide bố cục không được thay thế.
+- Một trình giữ chỗ mà trường không tồn tại trong bộ dữ liệu sẽ giữ nguyên.
+- Giá trị trường rỗng sẽ thay thế trình giữ chỗ bằng chuỗi rỗng.
+- Văn bản được chèn thừa hưởng định dạng của ký tự đầu tiên của trình giữ chỗ.
+- Giá trị không được chứa văn bản trình giữ chỗ, vì văn bản được chèn có thể được xử lý lại và thay thế bởi một trường khác.
 
-Bản mẫu bài thuyết trình gốc không bị sửa đổi trong quá trình merge và phải chứa ít nhất một slide.
+Bản mẫu gốc không bị sửa đổi trong quá trình hợp nhất và phải chứa ít nhất một slide.
 
-## Các Nguồn Dữ Liệu Được Hỗ Trợ
+## **Các nguồn dữ liệu được hỗ trợ**
 
 Mail Merge hỗ trợ hai cách cung cấp dữ liệu:
 
-- Tạo nguồn dữ liệu bằng mã bằng cách sử dụng `IMailMergeDataSource`.
-- Đọc dữ liệu từ tệp hoặc luồng CSV, XLSX, JSON hoặc XML.
+- Tạo nguồn dữ liệu bằng cách lập trình sử dụng `IMailMergeDataSource`.
+- Đọc dữ liệu từ tệp CSV, XLSX, JSON hoặc XML hoặc từ luồng.
 
-Định dạng dữ liệu được phát hiện dựa trên nội dung, không dựa trên phần mở rộng tệp. Các luồng không hỗ trợ seek cũng được hỗ trợ.
+Định dạng dữ liệu được phát hiện dựa trên nội dung, không phải dựa trên phần mở rộng tệp. Các luồng không hỗ trợ tìm vị trí cũng được hỗ trợ.
 
-Nguồn dữ liệu phải chứa ít nhất một bộ dữ liệu. Mỗi bộ dữ liệu đại diện cho một bản sao của mẫu sẽ được điền giá trị.
+Nguồn dữ liệu phải chứa ít nhất một bộ dữ liệu. Mỗi bộ dữ liệu đại diện cho một bản sao của mẫu sẽ được điền các giá trị tương ứng.
 
-Nếu nội dung dữ liệu không nhận dạng được là định dạng hỗ trợ, sẽ ném `NotSupportedException`. Nếu nội dung được nhận dạng nhưng không đáp ứng yêu cầu định dạng, sẽ ném `InvalidDataException`. Thông điệp ngoại lệ chứa vị trí lỗi trong dữ liệu.
+Nếu nội dung dữ liệu không thể nhận dạng là định dạng được hỗ trợ, `NotSupportedException` sẽ được ném. Nếu nội dung được nhận dạng nhưng không tuân thủ các yêu cầu định dạng, `InvalidDataException` sẽ được ném. Thông báo ngoại lệ chứa vị trí lỗi trong dữ liệu.
 
-### JSON
+### **JSON**
 
-Nguồn dữ liệu JSON phải có một đối tượng gốc chứa mảng `sets`. Mỗi phần tử của mảng đại diện cho một bộ dữ liệu và phải chứa mảng `fields`. Mỗi trường phải có chuỗi `name` và `value`.
+Nguồn dữ liệu JSON phải có một đối tượng gốc chứa mảng `sets`. Mỗi phần tử của mảng đại diện cho một bộ dữ liệu và phải chứa một mảng `fields`. Mỗi trường phải có chuỗi `name` và `value`.
 
-Thuộc tính tùy chọn `version` phải là `"1.0"`, và thuộc tính tùy chọn `type` của một trường phải là `"text"`. Tên thuộc tính phân biệt chữ hoa/chữ thường. Các thuộc tính không xác định sẽ bị bỏ qua.
+Thuộc tính tùy chọn `version` phải là `"1.0"`, và thuộc tính tùy chọn `type` của một trường phải là `"text"`. Tên thuộc tính phân biệt chữ hoa chữ thường. Các thuộc tính không xác định sẽ bị bỏ qua.
 
-Dữ liệu JSON được đọc dưới dạng UTF‑8, hoặc UTF‑16 khi dữ liệu bắt đầu bằng dấu chỉ thứ tự byte (BOM).
+Dữ liệu JSON được đọc dưới dạng UTF-8, hoặc UTF-16 khi dữ liệu bắt đầu bằng dấu hiệu byte order mark (BOM).
 
-Ví dụ dưới đây chứa hai bộ dữ liệu:
+Ví dụ sau chứa hai bộ dữ liệu:
 
 ```json
 {
@@ -111,11 +111,11 @@ Ví dụ dưới đây chứa hai bộ dữ liệu:
 }
 ```
 
-### XML
+### **XML**
 
-Nguồn dữ liệu XML phải có phần tử gốc `template` chứa phần tử `sets`. Mỗi phần tử `set` chứa các phần tử `field`, và mỗi `field` phải chứa các phần tử `name` và `value`.
+Nguồn dữ liệu XML phải có một phần tử gốc `template` chứa phần tử `sets`. Mỗi phần tử `set` chứa các phần tử `field`, và mỗi trường phải chứa các phần tử `name` và `value`.
 
-Phần tử `value` rỗng được xem như một chuỗi rỗng. Tên phần tử phân biệt chữ hoa/chữ thường. Các phần tử và chú thích không xác định sẽ bị bỏ qua. Mã hoá được xác định bởi khai báo XML. Định nghĩa kiểu tài liệu (DTD) không được cho phép.
+Một phần tử `value` rỗng được xử lý như một chuỗi rỗng. Tên phần tử phân biệt chữ hoa chữ thường. Các phần tử và chú thích không xác định sẽ bị bỏ qua. Mã hoá được xác định bởi khai báo XML. Định nghĩa kiểu tài liệu (DTD) không được phép.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,19 +145,19 @@ Phần tử `value` rỗng được xem như một chuỗi rỗng. Tên phần t
 </template>
 ```
 
-### CSV
+### **CSV**
 
 Dữ liệu CSV sử dụng dấu chấm phẩy làm dấu phân cách giá trị.
 
-Dòng đầu tiên chứa tên trường và kết thúc tại tên trường đầu tiên rỗng. Mỗi dòng tiếp theo đại diện cho một bộ dữ liệu. Dữ liệu kết thúc tại dòng trống đầu tiên.
+Dòng đầu tiên chứa tên trường và kết thúc ở trường tên đầu tiên trống. Mỗi dòng tiếp theo đại diện cho một bộ dữ liệu. Dữ liệu kết thúc ở dòng trống đầu tiên.
 
 Các quy tắc sau áp dụng:
 
-- Các giá trị thiếu ở cuối dòng được xem như chuỗi rỗng.
-- Các giá trị vượt quá danh sách tên trường được bỏ qua.
-- Giá trị chứa dấu chấm phẩy, dấu ngoặc kép hoặc ngắt dòng phải được đặt trong dấu ngoặc kép.
-- Dấu ngoặc kép bên trong một giá trị đã được bao quanh phải được gấp đôi.
-- Dữ liệu được đọc dưới dạng UTF‑8, hoặc UTF‑16 khi bắt đầu bằng BOM.
+- Các giá trị thiếu ở cuối dòng được coi là chuỗi rỗng.
+- Các giá trị vượt quá tên trường đã định nghĩa sẽ bị bỏ qua.
+- Giá trị chứa dấu chấm phẩy, dấu ngoặc kép hoặc ngắt dòng phải được bao quanh bằng dấu ngoặc kép.
+- Dấu ngoặc kép bên trong một giá trị được bao quanh phải được nhân đôi.
+- Dữ liệu được đọc dưới dạng UTF-8, hoặc UTF-16 khi nó bắt đầu bằng dấu byte order mark (BOM).
 
 Ví dụ:
 
@@ -167,27 +167,27 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
 Dữ liệu XLSX được đọc từ bảng tính đầu tiên.
 
-Bảng tính tuân theo các quy tắc giống như CSV:
+Bảng tính tuân theo cùng các quy tắc như CSV:
 
-- Dòng đầu tiên chứa tên trường và kết thúc tại ô đầu tiên rỗng.
+- Dòng đầu tiên chứa tên trường và kết thúc ở ô trống đầu tiên.
 - Mỗi dòng tiếp theo đại diện cho một bộ dữ liệu.
-- Dữ liệu kết thúc tại dòng trống đầu tiên.
-- Các ô trống được xem như chuỗi rỗng.
-- Các giá trị số được chuyển sang văn bản bằng cách sử dụng invariant culture.
+- Dữ liệu kết thúc ở dòng trống đầu tiên.
+- Các ô trống được xử lý như chuỗi rỗng.
+- Các giá trị số được chuyển thành văn bản bằng cách sử dụng văn hoá invariant.
 
-## Tạo Một Bài Thuyết Trình Đơn
+## **Tạo một Bản trình chiếu Đơn**
 
-Phương thức `MergeToSinglePresentation` tạo một bài thuyết trình chứa một bản sao của các slide mẫu cho mọi bộ dữ liệu. Mỗi bản sao được điền giá trị tương ứng.
+Phương thức `MergeToSinglePresentation` tạo một bản trình chiếu chứa một bản sao của các slide mẫu cho mỗi bộ dữ liệu. Mỗi bản sao được điền bằng dữ liệu tương ứng.
 
-Thứ tự của các bộ dữ liệu quyết định thứ tự của các nhóm slide trong bài thuyết trình kết quả.
+Thứ tự của các bộ dữ liệu quyết định thứ tự của các nhóm slide trong bản trình chiếu kết quả.
 
-### Merge Dữ Liệu Từ Tệp
+### **Hợp nhất Dữ liệu từ Tệp**
 
-Ví dụ dưới đây tải một mẫu và một tệp dữ liệu JSON, tạo một bài thuyết trình đơn chứa các slide cho tất cả các bộ dữ liệu, và lưu kết quả.
+Ví dụ sau tải một mẫu và một tệp dữ liệu JSON, tạo một bản trình chiếu đơn chứa các slide cho tất cả các bộ dữ liệu, và lưu kết quả.
 
 ```csharp
 using Aspose.Slides;
@@ -202,7 +202,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, "pro
 }
 ```
 
-Dữ liệu cũng có thể được đọc từ luồng. Luồng được đọc bắt đầu từ vị trí hiện tại và không bị đóng bởi thao tác Mail Merge.
+Dữ liệu cũng có thể được đọc từ một luồng. Luồng được đọc bắt đầu từ vị trí hiện tại và không bị đóng bởi thao tác Mail Merge.
 
 ```csharp
 using Aspose.Slides;
@@ -219,9 +219,9 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Tạo Nguồn Dữ Liệu Bằng Mã
+### **Tạo Nguồn Dữ liệu trong Mã**
 
-Bạn có thể xây dựng nguồn dữ liệu bằng mã bằng cách sử dụng `MailMergeDataSource` và `MailMergeDataSet`. Thêm một bộ dữ liệu cho mỗi bản ghi và định nghĩa các trường của nó bằng phương thức `AddText`.
+Bạn có thể xây dựng nguồn dữ liệu bằng cách lập trình sử dụng `MailMergeDataSource` và `MailMergeDataSet`. Thêm một bộ dữ liệu cho mỗi bản ghi và định nghĩa các trường của nó bằng phương thức `AddText`.
 
 ```csharp
 using Aspose.Slides;
@@ -246,19 +246,19 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 }
 ```
 
-Trong ví dụ này, các slide mẫu được lặp lại hai lần: một cho laptop và một cho tablet. Các placeholder được điền bằng các giá trị đã định nghĩa trong mỗi bộ dữ liệu.
+Trong ví dụ này, các slide mẫu được lặp lại hai lần: một lần cho laptop và một lần cho tablet. Các trình giữ chỗ được điền bằng các giá trị được định nghĩa trong mỗi bộ dữ liệu.
 
-## Tạo Nhiều Bài Thuyết Trình
+## **Tạo Nhiều Bản trình chiếu**
 
-Nếu bạn cần một bài thuyết trình riêng cho mỗi bộ dữ liệu, hãy sử dụng phương thức `MergeToMultiplePresentations`.
+Nếu bạn cần một bản trình chiếu riêng biệt cho mỗi bộ dữ liệu, hãy sử dụng phương thức `MergeToMultiplePresentations`.
 
-Phương thức này xử lý các bộ dữ liệu từng cái một, tạo một bài thuyết trình từ mẫu, điền dữ liệu hiện tại, và truyền bài thuyết trình kết quả cho một handler.
+Phương thức này xử lý các bộ dữ liệu theo từng cái một, tạo một bản trình chiếu từ mẫu, điền nó bằng dữ liệu hiện tại, và truyền bản trình chiếu kết quả cho một bộ xử lý.
 
-Handler được gọi một lần cho mỗi bộ dữ liệu, theo thứ tự dữ liệu gốc.
+Bộ xử lý được gọi một lần cho mỗi bộ dữ liệu, theo thứ tự dữ liệu gốc.
 
-### Lưu Mỗi Bài Thuyết Trình
+### **Lưu Mỗi Bản trình chiếu**
 
-Ví dụ dưới đây đọc dữ liệu từ tệp CSV và lưu mỗi bài thuyết trình được tạo ra dưới dạng tệp riêng.
+Ví dụ sau đọc dữ liệu từ tệp CSV và lưu mỗi bản trình chiếu được tạo ra dưới dạng tệp riêng.
 
 ```csharp
 using Aspose.Slides;
@@ -280,9 +280,9 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Thuộc tính `args.Index` cung cấp chỉ mục bắt đầu từ 0 của bộ dữ liệu hiện tại. Trong ví dụ, nó được dùng để tạo tên tệp tuần tự bắt đầu từ `product_1.pptx`.
+Thuộc tính `args.Index` cung cấp chỉ mục dựa trên zero của bộ dữ liệu hiện tại. Trong ví dụ, nó được dùng để tạo tên tệp tuần tự bắt đầu từ `product_1.pptx`.
 
-Dữ liệu cũng có thể được đọc từ luồng:
+Dữ liệu cũng có thể được đọc từ một luồng:
 
 ```csharp
 using Aspose.Slides;
@@ -306,11 +306,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Sử Dụng Giá Trị Bộ Dữ Liệu Để Đặt Tên Tệp
+### **Sử dụng Giá trị Bộ dữ liệu để Đặt Tên Tệp**
 
-Handler nhận cả bài thuyết trình đã tạo và thông tin về bộ dữ liệu được dùng để tạo nó. Bạn có thể dùng các giá trị bộ dữ liệu để xây dựng tên tệp có ý nghĩa.
+Bộ xử lý nhận cả bản trình chiếu đã tạo và thông tin về bộ dữ liệu được dùng để tạo nó. Bạn có thể sử dụng các giá trị bộ dữ liệu để xây dựng các tên tệp có ý nghĩa.
 
-Ví dụ, đoạn mã dưới đây lưu mỗi bài thuyết trình bằng tiêu đề sản phẩm:
+Ví dụ, đoạn mã sau lưu mỗi bản trình chiếu bằng tiêu đề sản phẩm:
 
 ```csharp
 using Aspose.Slides;
@@ -335,26 +335,26 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Thuộc tính `DataSet` trả về bộ dữ liệu được dùng để điền bài thuyết trình hiện tại. Phương thức `GetText` lấy giá trị của trường được chỉ định, hoặc `null` nếu trường không tồn tại.
+Thuộc tính `DataSet` trả về bộ dữ liệu được dùng để điền bản trình chiếu hiện tại. Phương thức `GetText` lấy giá trị của một trường được chỉ định, hoặc `null` nếu trường không tồn tại.
 
-Điều này cho phép bạn sử dụng giá trị dữ liệu để đặt tên tệp, tổ chức đầu ra, hoặc áp dụng xử lý bổ sung trong handler.
+Điều này cho phép bạn sử dụng các giá trị dữ liệu để đặt tên tệp, tổ chức đầu ra, hoặc thực hiện xử lý bổ sung trong bộ xử lý.
 
-## Xử Lý Các Bài Thuyết Trình Được Tạo
+## **Xử lý Các Bản trình chiếu Được Tạo**
 
-`MergeToMultiplePresentations` sử dụng delegate `MailMergedPresentationHandler` để xử lý mỗi bài thuyết trình đã tạo.
+`MergeToMultiplePresentations` sử dụng delegate `MailMergedPresentationHandler` để xử lý mỗi bản trình chiếu được tạo.
 
-Handler nhận hai đối số:
+Bộ xử lý nhận hai tham số:
 
-- `presentation` — bài thuyết trình được tạo từ mẫu và đã được điền bộ dữ liệu hiện tại.
-- `args` — thông tin về bài thuyết trình đã tạo, bao gồm chỉ mục bộ dữ liệu và chính bộ dữ liệu.
+- `presentation` — bản trình chiếu được tạo từ mẫu và được điền bằng bộ dữ liệu hiện tại.
+- `args` — thông tin về bản trình chiếu đã tạo, bao gồm chỉ mục bộ dữ liệu và chính bộ dữ liệu.
 
-Bài thuyết trình được tạo ra thuộc quyền sở hữu của thao tác Mail Merge và sẽ bị giải phóng ngay sau khi handler trả về. Do đó, bạn phải lưu nó hoặc sao chép bất kỳ dữ liệu cần thiết nào bên trong handler. Không giữ tham chiếu tới nó sau khi handler trả về và không tự giải phóng nó.
+Bản trình chiếu được tạo thuộc quyền sở hữu của Mail Merge và sẽ bị giải phóng ngay sau khi bộ xử lý trả về. Do đó, bạn phải lưu nó hoặc sao chép bất kỳ dữ liệu cần thiết nào bên trong bộ xử lý. Không giữ tham chiếu đến nó sau khi bộ xử lý trả về hoặc giải phóng nó thủ công.
 
-Handler được thực thi trên luồng gọi, một bài thuyết trình một lúc, theo thứ tự của các bộ dữ liệu. Chỉ một bài thuyết trình được giữ trong bộ nhớ tại một thời điểm, khiến cách tiếp cận này phù hợp để xử lý nguồn dữ liệu lớn mà không cần giữ tất cả các bài thuyết trình trong bộ nhớ đồng thời.
+Bộ xử lý được thực thi trên luồng gọi, một bản trình chiếu mỗi lần, theo thứ tự của các bộ dữ liệu. Chỉ một bản trình chiếu được giữ trong bộ nhớ tại một thời điểm, làm cho cách tiếp cận này phù hợp cho việc xử lý các nguồn dữ liệu lớn mà không cần giữ tất cả các bản trình chiếu trong bộ nhớ đồng thời.
 
-Nếu handler ném ngoại lệ, thao tác Mail Merge dừng lại và ngoại lệ được truyền lên caller mà không thay đổi. Các bài thuyết trình đã được xử lý không bị ảnh hưởng, và các bộ dữ liệu còn lại sẽ không được xử lý.
+Nếu bộ xử lý ném ra ngoại lệ, thao tác Mail Merge dừng lại và ngoại lệ sẽ được truyền lại cho người gọi mà không thay đổi. Các bản trình chiếu đã được xử lý trước đó không bị ảnh hưởng, và các bộ dữ liệu còn lại sẽ không được xử lý.
 
-Ví dụ dưới đây lưu các bài thuyết trình đã tạo vào một thư mục riêng:
+Ví dụ sau lưu các bản trình chiếu đã tạo vào một thư mục riêng:
 
 ```csharp
 using Aspose.Slides;
@@ -382,11 +382,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Làm Việc Với Dữ Liệu Mail Merge
+## **Làm việc với Dữ liệu Mail Merge**
 
-Lớp `MailMergeDataSource` đại diện cho một tập hợp có thứ tự của các bộ dữ liệu. Nó có thể được dùng để tạo dữ liệu trong code, kiểm tra số lượng bộ dữ liệu, và truy cập các bộ dữ liệu riêng lẻ theo chỉ mục.
+Lớp `MailMergeDataSource` đại diện cho một tập hợp có thứ tự các bộ dữ liệu. Nó có thể được dùng để tạo dữ liệu trong mã, kiểm tra số lượng bộ dữ liệu, và truy cập các bộ dữ liệu riêng lẻ theo chỉ mục.
 
-### Lấy Số Lượng Bộ Dữ Liệu
+### **Lấy Số lượng Bộ dữ liệu**
 
 Thuộc tính `Count` trả về số lượng bộ dữ liệu trong nguồn.
 
@@ -399,9 +399,9 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Truy Cập Bộ Dữ Liệu Theo Chỉ Mục
+### **Truy cập Bộ dữ liệu theo Chỉ mục**
 
-Thuộc tính `Item(int)` cung cấp quyền truy cập tới bộ dữ liệu tại chỉ mục bắt đầu từ 0 được chỉ định.
+Thuộc tính `Item(int)` cung cấp quyền truy cập vào một bộ dữ liệu tại chỉ mục zero‑based được chỉ định.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -414,9 +414,9 @@ Console.WriteLine(source[1].GetText("title"));
 
 Ví dụ này lấy tiêu đề của bộ dữ liệu thứ hai.
 
-### Thêm Trường Văn Bản
+### **Thêm Trường Văn bản**
 
-Phương thức `AddText` thêm một trường văn bản có tên vào bộ dữ liệu. Giá trị trường sẽ thay thế tất cả các placeholder khớp trong mẫu.
+Phương thức `AddText` thêm một trường văn bản có tên vào một bộ dữ liệu. Giá trị trường sẽ thay thế tất cả các trình giữ chỗ phù hợp trong mẫu.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -426,11 +426,11 @@ dataSet.AddText("title", "Laptop X1");
 dataSet.AddText("subtitle", string.Empty);
 ```
 
-Giá trị rỗng sẽ loại bỏ placeholder tương ứng khỏi văn bản kết quả. Nếu trường không được thêm vào bộ dữ liệu, placeholder sẽ giữ nguyên.
+Giá trị rỗng sẽ xóa trình giữ chỗ tương ứng khỏi văn bản kết quả. Nếu trường không được thêm vào bộ dữ liệu, trình giữ chỗ sẽ giữ nguyên.
 
-### Đọc Trường Văn Bản
+### **Đọc Trường Văn bản**
 
-Phương thức `GetText` lấy giá trị của một trường theo tên. Tên trường không phân biệt chữ hoa/chữ thường.
+Phương thức `GetText` trả về giá trị của một trường theo tên. Tên trường không phân biệt chữ hoa chữ thường.
 
 ```csharp
 IMailMergeDataSet dataSet = source[0];
@@ -439,93 +439,93 @@ string title = dataSet.GetText("title");
 string price = dataSet.GetText("price");
 ```
 
-Nếu trường không tồn tại hoặc tên trường truyền vào là `null`, `GetText` trả về `null`.
+Nếu trường không tồn tại hoặc tên trường được chỉ định là `null`, `GetText` sẽ trả về `null`.
 
-## Tóm Tắt
+## **Tóm tắt**
 
-Mail Merge trong Aspose.Slides for .NET cung cấp cách thuận tiện để tạo các bài thuyết trình dựa trên dữ liệu từ một mẫu có thể tái sử dụng.
+Mail Merge trong Aspose.Slides for .NET cung cấp một cách tiện lợi để tạo các bản trình chiếu dựa trên dữ liệu từ một mẫu có thể tái sử dụng.
 
-Bạn có thể dùng nó để:
+Bạn có thể sử dụng nó để:
 
-- Điền các mẫu bài thuyết trình bằng giá trị từ nguồn dữ liệu.
-- Tạo một bài thuyết trình duy nhất chứa các slide mẫu lặp lại cho nhiều bộ dữ liệu.
-- Tạo một bài thuyết trình riêng cho mỗi bộ dữ liệu.
-- Đọc dữ liệu từ các tệp hoặc luồng CSV, XLSX, JSON và XML.
-- Xây dựng nguồn dữ liệu trực tiếp trong code.
-- Xử lý và lưu các bài thuyết trình đã tạo một cách tuần tự bằng một handler.
+- Điền các mẫu bản trình chiếu bằng các giá trị từ nguồn dữ liệu.
+- Tạo một bản trình chiếu duy nhất chứa các slide mẫu lặp lại cho nhiều bộ dữ liệu.
+- Tạo một bản trình chiếu riêng biệt cho mỗi bộ dữ liệu.
+- Đọc dữ liệu từ các tệp CSV, XLSX, JSON và XML hoặc từ luồng.
+- Xây dựng nguồn dữ liệu trực tiếp trong mã.
+- Xử lý và lưu các bản trình chiếu được tạo ra một cách tuần tự bằng một bộ xử lý.
 
-Bằng cách kết hợp các mẫu có thể tái sử dụng với dữ liệu có cấu trúc, bạn có thể tự động hoá việc tạo ra số lượng lớn bài thuyết trình đồng thời giữ riêng biệt thiết kế mẫu và logic xử lý dữ liệu.
+Bằng cách kết hợp các mẫu có thể tái sử dụng với dữ liệu có cấu trúc, bạn có thể tự động tạo ra số lượng lớn bản trình chiếu trong khi giữ thiết kế mẫu và logic xử lý dữ liệu tách biệt.
 
-## Câu Hỏi Thường Gặp
+## **Câu hỏi thường gặp**
 
-### Tôi có thể sử dụng cùng một placeholder nhiều lần trong một mẫu không?
+**Tôi có thể sử dụng cùng một placeholder nhiều lần trong mẫu không?**
 
-Có. Mọi lần xuất hiện của một placeholder có tên trường trùng khớp sẽ được thay thế bằng giá trị tương ứng từ bộ dữ liệu hiện tại.
+Có. Mỗi lần xuất hiện của một trình giữ chỗ với tên trường phù hợp sẽ được thay thế bằng giá trị tương ứng từ bộ dữ liệu hiện tại.
 
-### Tên trường có phân biệt chữ hoa/chữ thường không?
+**Tên trường có phân biệt chữ hoa chữ thường không?**
 
-Không. Tên placeholder và tên trường dữ liệu không phân biệt chữ hoa/chữ thường. Ví dụ, `{{title}}`, `{{Title}}` và `{{TITLE}}` đều đề cập tới cùng một trường.
+Không. Tên trình giữ chỗ và tên trường dữ liệu không phân biệt chữ hoa chữ thường. Ví dụ, `{{title}}`, `{{Title}}` và `{{TITLE}}` đều đề cập đến cùng một trường.
 
-### Điều gì xảy ra nếu một trường bị thiếu trong bộ dữ liệu?
+**Nếu một trường thiếu trong bộ dữ liệu thì sẽ xảy ra gì?**
 
-Nếu bộ dữ liệu không chứa trường được placeholder tham chiếu, placeholder đó sẽ giữ nguyên trong bài thuyết trình đã tạo.
+Nếu bộ dữ liệu không chứa trường được tham chiếu bởi một trình giữ chỗ, trình giữ chỗ đó sẽ giữ nguyên trong bản trình chiếu đã tạo.
 
-### Điều gì xảy ra nếu một trường có giá trị rỗng?
+**Nếu một trường có giá trị rỗng thì sẽ xảy ra gì?**
 
-Giá trị trường rỗng sẽ thay thế placeholder bằng chuỗi rỗng. Văn bản placeholder bị xóa, không còn văn bản nào ở vị trí đó.
+Giá trị trường rỗng sẽ thay thế trình giữ chỗ bằng một chuỗi rỗng. Văn bản trình giữ chỗ sẽ bị xóa, không để lại bất kỳ ký tự nào ở vị trí đó.
 
-### Tôi có thể giữ định dạng của placeholder khi thay thế không?
+**Tôi có thể giữ nguyên định dạng của trình giữ chỗ khi thay thế không?**
 
-Văn bản thay thế thừa hưởng định dạng của ký tự đầu tiên của placeholder. Hãy áp dụng định dạng mong muốn cho văn bản placeholder trong mẫu trước khi thực hiện merge.
+Văn bản thay thế thừa hưởng định dạng của ký tự đầu tiên của trình giữ chỗ. Hãy áp dụng định dạng mong muốn cho văn bản trình giữ chỗ trong mẫu trước khi thực hiện hợp nhất.
 
-### Mail Merge có thay thế placeholder trên master slide hoặc layout slide không?
+**Mail Merge có thay thế trình giữ chỗ trên slide mẫu hoặc slide bố cục không?**
 
-Không. Mail Merge chỉ thay thế placeholder trong nội dung được hỗ trợ trên các slide bài thuyết trình, bao gồm các hình dạng, nhóm hình dạng, ô bảng và ghi chú người thuyết trình. Placeholder trên master và layout slide không được thay thế.
+Không. Mail Merge chỉ thay thế các trình giữ chỗ trong nội dung hỗ trợ trên các slide trình chiếu, bao gồm các hình dạng, nhóm hình dạng, ô bảng và ghi chú người thuyết trình. Các trình giữ chỗ trên slide mẫu và slide bố cục không được thay thế.
 
-### Mẫu bài thuyết trình có bị sửa đổi trong quá trình merge không?
+**Mẫu bản trình chiếu có bị sửa đổi trong quá trình hợp nhất không?**
 
-Không. Mẫu gốc không bị sửa đổi bởi thao tác merge. Bạn có thể tái sử dụng nó để tạo các bài thuyết trình từ cùng một hoặc các nguồn dữ liệu khác nhau.
+Không. Mẫu gốc không bị thay đổi bởi thao tác hợp nhất. Bạn có thể tái sử dụng nó để tạo các bản trình chiếu từ cùng hoặc các nguồn dữ liệu khác nhau.
 
-### Tôi có thể tạo một bài thuyết trình riêng cho mỗi bộ dữ liệu không?
+**Tôi có thể tạo một bản trình chiếu riêng biệt cho mỗi bộ dữ liệu không?**
 
-Có. Hãy sử dụng `MergeToMultiplePresentations` và lưu mỗi bài thuyết trình đã tạo bên trong handler. Handler sẽ được gọi tuần tự cho mỗi bộ dữ liệu.
+Có. Sử dụng `MergeToMultiplePresentations` và lưu mỗi bản trình chiếu đã tạo bên trong bộ xử lý. Bộ xử lý sẽ được gọi tuần tự cho mỗi bộ dữ liệu.
 
-### Tôi có thể hợp nhất tất cả các bộ dữ liệu vào một bài thuyết trình không?
+**Tôi có thể gộp tất cả các bộ dữ liệu thành một bản trình chiếu không?**
 
-Có. Sử dụng `MergeToSinglePresentation`. Nó tạo một bài thuyết trình đầu ra duy nhất chứa một bản sao của các slide mẫu cho mỗi bộ dữ liệu, theo thứ tự của nguồn dữ liệu.
+Có. Sử dụng `MergeToSinglePresentation`. Nó tạo một bản trình chiếu đầu ra duy nhất chứa một bản sao của các slide mẫu cho mỗi bộ dữ liệu, theo thứ tự của nguồn dữ liệu.
 
-### Tôi có thể sử dụng nguồn dữ liệu mà không lưu vào tệp không?
+**Tôi có thể sử dụng nguồn dữ liệu mà không lưu nó vào tệp không?**
 
-Có. Bạn có thể tạo một `MailMergeDataSource` trong code, thêm các bộ dữ liệu và điền các trường bằng `AddText`. Điều này hữu ích khi dữ liệu đã có trong ứng dụng của bạn.
+Có. Bạn có thể tạo một `MailMergeDataSource` trong mã, thêm các bộ dữ liệu và điền các trường bằng `AddText`. Điều này hữu ích khi dữ liệu của bạn đã có sẵn trong ứng dụng.
 
-### Mail Merge có phát hiện định dạng dữ liệu dựa trên phần mở rộng tệp không?
+**Mail Merge có phát hiện định dạng dữ liệu dựa trên phần mở rộng tệp không?**
 
-Không. Định dạng dữ liệu được phát hiện dựa trên nội dung, vì vậy nguồn dữ liệu hỗ trợ không bắt buộc phải có phần mở rộng cụ thể.
+Không. Định dạng dữ liệu được phát hiện từ nội dung, do đó một nguồn dữ liệu được hỗ trợ không bắt buộc phải có phần mở rộng tệp cụ thể.
 
-### Tôi có thể đọc dữ liệu từ một luồng không hỗ trợ seek không?
+**Tôi có thể đọc dữ liệu từ luồng không hỗ trợ tìm vị trí không?**
 
-Có. Mail Merge hỗ trợ các luồng không thể seek.
+Có. Mail Merge hỗ trợ các luồng không thể tìm vị trí.
 
-### Điều gì xảy ra nếu nguồn dữ liệu rỗng hoặc không chứa bộ dữ liệu nào?
+**Nếu nguồn dữ liệu rỗng hoặc không chứa bộ dữ liệu nào thì sẽ xảy ra gì?**
 
-Nguồn dữ liệu phải chứa ít nhất một bộ dữ liệu. Hãy đảm bảo nó có ít nhất một bản ghi trước khi bắt đầu thao tác merge.
+Nguồn dữ liệu phải chứa ít nhất một bộ dữ liệu. Hãy đảm bảo nó có ít nhất một bản ghi trước khi bắt đầu thao tác hợp nhất.
 
-### Điều gì xảy ra nếu nguồn dữ liệu có định dạng không hợp lệ?
+**Nếu nguồn dữ liệu có định dạng không hợp lệ thì sẽ xảy ra gì?**
 
-Nếu nội dung không được nhận dạng là một trong các định dạng dữ liệu hỗ trợ, sẽ ném `NotSupportedException`. Nếu nội dung được nhận dạng nhưng không đúng định dạng, sẽ ném `InvalidDataException`. Thông điệp ngoại lệ bao gồm thông tin về vị trí lỗi.
+Nếu nội dung không được nhận dạng là một trong các định dạng dữ liệu được hỗ trợ, `NotSupportedException` sẽ được ném. Nếu nội dung được nhận dạng nhưng không đúng định dạng, `InvalidDataException` sẽ được ném. Thông báo ngoại lệ sẽ bao gồm thông tin về vị trí lỗi.
 
-### Tôi có thể sử dụng bài thuyết trình đã tạo sau khi handler trả về không?
+**Tôi có thể sử dụng bản trình chiếu đã tạo sau khi bộ xử lý trả về không?**
 
-Bài thuyết trình được truyền cho handler của `MergeToMultiplePresentations` thuộc quyền sở hữu của Mail Merge và sẽ bị giải phóng sau khi handler trả về. Hãy lưu nó hoặc sao chép nội dung cần thiết bên trong handler và không giữ hoặc tự giải phóng bài thuyết trình đó.
+Bản trình chiếu được truyền cho bộ xử lý `MergeToMultiplePresentations` thuộc quyền sở hữu của Mail Merge và sẽ bị giải phóng sau khi bộ xử lý trả về. Hãy lưu nó hoặc sao chép nội dung bạn cần bên trong bộ xử lý, và không giữ hoặc giải phóng bản trình chiếu này bằng cách tự mình.
 
-### Handler có được gọi song song không?
+**Bộ xử lý có được gọi song song không?**
 
-Không. Các bài thuyết trình được tạo ra được xử lý tuần tự, trên luồng gọi. Chỉ một bài thuyết trình được giữ trong bộ nhớ tại một thời điểm bởi thao tác này.
+Không. Các bản trình chiếu được tạo ra được xử lý tuần tự, trên luồng gọi. Chỉ một bản trình chiếu được giữ trong bộ nhớ tại một thời điểm bởi thao tác này.
 
-### Điều gì xảy ra nếu có ngoại lệ xảy ra bên trong handler?
+**Nếu xảy ra ngoại lệ trong bộ xử lý thì sẽ thế nào?**
 
-Thao tác merge dừng lại và ngoại lệ được truyền lên caller mà không thay đổi. Các bài thuyết trình đã được xử lý không bị ảnh hưởng, và các bộ dữ liệu còn lại sẽ không được xử lý.
+Thao tác hợp nhất sẽ dừng lại, và ngoại lệ sẽ được truyền lại cho người gọi mà không thay đổi. Các bản trình chiếu đã được xử lý không bị ảnh hưởng, và các bộ dữ liệu còn lại sẽ không được xử lý.
 
-### Tôi có thể sử dụng giá trị trường để tạo tên tệp đầu ra không?
+**Tôi có thể sử dụng giá trị trường để tạo tên tệp đầu ra không?**
 
-Có. Handler cung cấp bộ dữ liệu hiện tại qua các đối số của nó. Hãy dùng `GetText` để lấy các trường và xây dựng tên tệp cho mỗi bài thuyết trình đã tạo. Đảm bảo các giá trị hợp lệ cho tên tệp trong môi trường mục tiêu của bạn.
+Có. Bộ xử lý cung cấp bộ dữ liệu hiện tại thông qua các tham số của nó. Sử dụng `GetText` để lấy các trường và xây dựng tên tệp cho mỗi bản trình chiếu đã tạo. Đảm bảo các giá trị hợp lệ cho tên tệp trong môi trường mục tiêu của bạn.

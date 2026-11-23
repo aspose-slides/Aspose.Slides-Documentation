@@ -1,12 +1,12 @@
 ---
-title: Automatisieren der Präsentationspersonalisierung mit Serienbrief
-linktitle: Serienbrief
+title: Automatisieren Sie die Personalisierung von Präsentationen mit Mail Merge
+linktitle: Mail Merge
 type: docs
 weight: 233
 url: /de/net/mail-merge/
 keywords:
-- Serienbrief
-- Präsentationspersonalisierung
+- Mail Merge
+- Personalisierung von Präsentationen
 - Präsentationsvorlage
 - Textplatzhalter
 - Datenquelle
@@ -20,30 +20,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie den Serienbrief in Aspose.Slides für .NET verwenden, um Präsentationsvorlagen mit Daten zu füllen und personalisierte PowerPoint-Präsentationen aus CSV-, Excel-, JSON- und XML-Quellen zu erzeugen."
+description: "Erfahren Sie, wie Sie Mail Merge in Aspose.Slides für .NET verwenden, um Präsentationsvorlagen mit Daten zu füllen und personalisierte PowerPoint-Präsentationen aus CSV-, Excel-, JSON- und XML-Quellen zu erstellen."
 ---
-# Serienbrief in PowerPoint‑Präsentationen
+## **Mail Merge in PowerPoint-Präsentationen**
 
-Aspose.Slides for .NET ermöglicht das automatische Erzeugen von PowerPoint‑Präsentationen mithilfe einer Vorlage und einer Datenquelle. Der Serienbrief füllt Platzhalter in der Vorlage mit Daten und erstellt entweder eine einzelne Präsentation mit wiederholten Vorlagenfolien für jeden Datensatz oder eine separate Präsentation für jeden Datensatz.
+Aspose.Slides für .NET ermöglicht das automatische Erstellen von PowerPoint-Präsentationen mithilfe einer Vorlage und einer Datenquelle. Mail Merge füllt Platzhalter in der Vorlage mit Daten und erzeugt entweder eine einzelne Präsentation, die für jeden Datensatz wiederholte Vorlagenfolien enthält, oder eine separate Präsentation für jeden Datensatz.
 
-Diese Funktion ist nützlich zum Erstellen von Produktkatalogen, personalisierten Präsentationen, Berichten, Zertifikaten, Angeboten, Preislisten und anderen Dokumenten, bei denen die Präsentationsstruktur gleich bleibt, während sich der Inhalt ändert.
+Diese Funktion ist nützlich zum Erstellen von Produktkatalogen, personalisierten Präsentationen, Berichten, Zertifikaten, Angeboten, Preislisten und anderen Dokumenten, bei denen die Struktur der Präsentation gleich bleibt, während sich der Inhalt ändert.
 
-![Serienbrief: Vorher und Nachher](mail-merge-before-after.png)
+![Serienbrief: Vorher und danach](mail-merge-before-after.png)
 
 
-## Wie der Serienbrief funktioniert
+## **Wie Mail Merge funktioniert**
 
-Der Serienbrief verwendet eine PowerPoint‑Präsentation als Vorlage und ersetzt Platzhalter durch Werte aus einer Datenquelle.
+Mail Merge verwendet eine PowerPoint-Präsentation als Vorlage und ersetzt Platzhalter durch Werte aus einer Datenquelle.
 
-![Serienbrief‑Workflow](mail-merge-workflow.png)
+![Mail Merge‑Arbeitsablauf](mail-merge-workflow.png)
 
-Ein Platzhalter ist ein Feldname, der in doppelte geschweifte Klammern eingeschlossen ist, z. B. `{{title}}` oder `{{price}}`. Platzhalter können im Text von Formen, Tabellenzellen, gruppierten Formen und Sprechernotizen platziert werden.
+Ein Platzhalter ist ein Feldname, der in doppelte geschweifte Klammern eingeschlossen ist, z. B. `{{title}}` oder `{{price}}`. Platzhalter können im Text von Formen, Tabellenzellen, Gruppierungen und Sprecher‑Notizen platziert werden.
 
-Beispielsweise kann eine Vorlagenfolie den folgenden Text enthalten:
+Beispielhafter Text einer Vorlagenfolie:
 
-- `Product: {{title}}`
-- `Price: {{price}}`
-- `Description: {{description}}`
+- `Produkt: {{title}}`
+- `Preis: {{price}}`
+- `Beschreibung: {{description}}`
 
 Wenn die Datenquelle die folgenden Werte enthält:
 
@@ -51,43 +51,43 @@ Wenn die Datenquelle die folgenden Werte enthält:
 |---|---|
 | title | Laptop X1 |
 | price | $999 |
-| description | 14‑Zoll‑Display, 16 GB RAM |
+| description | 14-inch display, 16 GB RAM |
 
-Ersetzt der Serienbrief die Platzhalter durch die entsprechenden Werte und erzeugt eine Folie mit den tatsächlichen Produktinformationen.
+Mail Merge ersetzt die Platzhalter durch die entsprechenden Werte und erzeugt eine Folie mit den tatsächlichen Produktinformationen.
 
-Feldnamen sind nicht groß‑/kleinschreibungsabhängig, sodass `{{title}}` und `{{Title}}` dasselbe Feld bezeichnen.
+Feldnamen sind case‑insensitive, sodass `{{title}}` und `{{Title}}` auf dasselbe Feld verweisen.
 
-Folgende Regeln gelten beim Ersetzen von Platzhaltern:
+Die folgenden Regeln gelten beim Ersetzen von Platzhaltern:
 
-- Platzhalter werden auf Folien, einschließlich gruppierter Formen und Tabellenzellen, sowie in Sprechernotizen ersetzt.
-- Platzhalter auf Master‑Folien und Layout‑Folien werden **nicht** ersetzt.
+- Platzhalter werden in Folien ersetzt, einschließlich gruppierter Formen und Tabellenzellen, sowie in Sprecher‑Notizen.
+- Platzhalter auf Master‑Folien und Layout‑Folien werden nicht ersetzt.
 - Ein Platzhalter, dessen Feld im Datensatz nicht vorhanden ist, bleibt unverändert.
 - Ein leerer Feldwert ersetzt seinen Platzhalter durch eine leere Zeichenkette.
 - Der eingefügte Text übernimmt die Formatierung des ersten Zeichens des Platzhalters.
-- Werte dürfen keinen Platzhaltertext enthalten, da der eingefügte Text sonst erneut verarbeitet und durch ein anderes Feld ersetzt werden könnte.
+- Werte dürfen keinen Platzhalter‑Text enthalten, da der eingefügte Text erneut verarbeitet und durch ein anderes Feld ersetzt werden könnte.
 
 Die ursprüngliche Vorlagenpräsentation wird während des Merge‑Vorgangs nicht verändert und muss mindestens eine Folie enthalten.
 
-## Unterstützte Datenquellen
+## **Unterstützte Datenquellen**
 
-Der Serienbrief unterstützt zwei Arten der Datenbereitstellung:
+Mail Merge unterstützt zwei Möglichkeiten, Daten bereitzustellen:
 
-- Erstellen einer Datenquelle programmatisch mit `IMailMergeDataSource`.
-- Lesen von Daten aus einer CSV‑, XLSX‑, JSON‑ oder XML‑Datei bzw. einem Stream.
+- Erstellen einer Datenquelle programmgesteuert mithilfe von `IMailMergeDataSource`.
+- Lesen von Daten aus einer CSV-, XLSX-, JSON- oder XML-Datei bzw. einem Stream.
 
-Das Datenformat wird anhand seines Inhalts erkannt, nicht anhand der Dateierweiterung. Streams, die kein Seek‑Unterstützung bieten, werden ebenfalls unterstützt.
+Das Datenformat wird anhand des Inhalts erkannt, nicht anhand der Dateierweiterung. Streams, die kein Seek‑Verhalten unterstützen, werden ebenfalls unterstützt.
 
-Die Datenquelle muss mindestens einen Datensatz enthalten. Jeder Datensatz entspricht einer Kopie der Vorlage, die mit seinen Werten gefüllt wird.
+Die Datenquelle muss mindestens einen Datensatz enthalten. Jeder Datensatz stellt eine Kopie der Vorlage dar, die mit seinen Werten gefüllt wird.
 
-Wenn der Dateninhalt nicht als unterstütztes Format erkannt wird, wird `NotSupportedException` ausgelöst. Wird das Format erkannt, aber entspricht nicht den Anforderungen, wird `InvalidDataException` ausgelöst. Die Fehlermeldung enthält den Ort des Fehlers in den Daten.
+Wenn der Dateninhalt nicht als unterstütztes Format erkannt werden kann, wird `NotSupportedException` ausgelöst. Wird der Inhalt erkannt, entspricht er aber nicht den Formatvorgaben, wird `InvalidDataException` ausgelöst. Die Fehlermeldung enthält den Ort des Fehlers in den Daten.
 
-### JSON
+### **JSON**
 
-Die JSON‑Datenquelle muss ein Root‑Objekt mit einem `sets`‑Array enthalten. Jedes Element des Arrays stellt einen Datensatz dar und muss ein `fields`‑Array enthalten. Jedes Feld muss über die Zeichenketten `name` und `value` verfügen.
+Die JSON‑Datenquelle muss ein Root‑Objekt enthalten, das ein `sets`‑Array beinhaltet. Jedes Element des Arrays stellt einen Datensatz dar und muss ein `fields`‑Array enthalten. Jedes Feld muss über einen `name`‑ und einen `value`‑String verfügen.
 
-Die optionale Eigenschaft `version` muss `"1.0"` sein, und die optionale Eigenschaft `type` eines Feldes muss `"text"` sein. Eigenschaftsnamen sind groß‑/kleinschreibungsabhängig. Unbekannte Eigenschaften werden ignoriert.
+Die optionale Eigenschaft `version` muss `"1.0"` sein, und die optionale Eigenschaft `type` eines Feldes muss `"text"` sein. Eigenschaftsnamen sind case‑sensitive. Unbekannte Eigenschaften werden ignoriert.
 
-JSON‑Daten werden als UTF‑8 gelesen, oder als UTF‑16, wenn die Daten mit einer Byte‑Order‑Markierung (BOM) beginnen.
+JSON‑Daten werden als UTF‑8 gelesen, oder als UTF‑16, wenn die Daten mit einer Byte‑Order‑Mark (BOM) beginnen.
 
 Das folgende Beispiel enthält zwei Datensätze:
 
@@ -111,11 +111,11 @@ Das folgende Beispiel enthält zwei Datensätze:
 }
 ```
 
-### XML
+### **XML**
 
-Die XML‑Datenquelle muss ein `template`‑Root‑Element mit dem `sets`‑Element enthalten. Jedes `set`‑Element enthält `field`‑Elemente, und jedes Feld muss `name`‑ und `value`‑Elemente besitzen.
+Die XML‑Datenquelle muss ein Root‑Element `template` besitzen, das das Element `sets` enthält. Jedes `set`‑Element enthält `field`‑Elemente, und jedes Feld muss `name`‑ und `value`‑Elemente enthalten.
 
-Ein leeres `value`‑Element wird als leere Zeichenkette behandelt. Elementnamen sind groß‑/kleinschreibungsabhängig. Unbekannte Elemente und Kommentare werden ignoriert. Die Kodierung wird durch die XML‑Deklaration bestimmt. Dokumenttyp‑Definitionen (DTD) sind nicht erlaubt.
+Ein leeres `value`‑Element wird als leere Zeichenkette behandelt. Elementnamen sind case‑sensitive. Unbekannte Elemente und Kommentare werden ignoriert. Die Kodierung wird durch die XML‑Deklaration bestimmt. Dokumenttypdefinitionen (DTD) sind nicht zulässig.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,19 +145,19 @@ Ein leeres `value`‑Element wird als leere Zeichenkette behandelt. Elementnamen
 </template>
 ```
 
-### CSV
+### **CSV**
 
-CSV‑Daten verwenden Semikolons als Werttrenner.
+CSV‑Daten verwenden Semikolons als Werte­trennzeichen.
 
-Die erste Zeile enthält Feldnamen und endet beim ersten leeren Feldnamen. Jede nachfolgende Zeile stellt einen Datensatz dar. Daten enden bei der ersten leeren Zeile.
+Die erste Zeile enthält Feldnamen und endet beim ersten leeren Feldnamen. Jede nachfolgende Zeile stellt einen Datensatz dar. Die Daten enden beim ersten leeren Zeilen.
 
-Es gelten folgende Regeln:
+Die folgenden Regeln gelten:
 
 - Fehlende Werte am Ende einer Zeile werden als leere Zeichenketten behandelt.
-- Werte jenseits der definierten Feldnamen werden ignoriert.
+- Werte, die über die definierten Feldnamen hinausgehen, werden ignoriert.
 - Ein Wert, der ein Semikolon, Anführungszeichen oder einen Zeilenumbruch enthält, muss in Anführungszeichen gesetzt werden.
-- Anführungszeichen innerhalb eines mit Anführungszeichen umschlossenen Werts müssen verdoppelt werden.
-- Daten werden als UTF‑8 gelesen, oder als UTF‑16, wenn sie mit einer BOM beginnen.
+- Anführungszeichen innerhalb eines zitierten Werts müssen verdoppelt werden.
+- Daten werden als UTF‑8 gelesen, oder als UTF‑16, wenn sie mit einer Byte‑Order‑Mark (BOM) beginnen.
 
 Beispiel:
 
@@ -167,7 +167,7 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
 XLSX‑Daten werden aus dem ersten Arbeitsblatt gelesen.
 
@@ -175,19 +175,19 @@ Das Arbeitsblatt folgt denselben Regeln wie CSV:
 
 - Die erste Zeile enthält Feldnamen und endet bei der ersten leeren Zelle.
 - Jede nachfolgende Zeile stellt einen Datensatz dar.
-- Daten enden bei der ersten leeren Zeile.
+- Die Daten enden bei der ersten leeren Zeile.
 - Leere Zellen werden als leere Zeichenketten behandelt.
-- Numerische Werte werden mit der invariant culture in Text konvertiert.
+- Numerische Werte werden mithilfe der Invariant‑Culture in Text konvertiert.
 
-## Erstellen einer einzelnen Präsentation
+## **Erstellen einer einzelnen Präsentation**
 
-Die Methode `MergeToSinglePresentation` erzeugt eine Präsentation, die für jeden Datensatz eine Kopie der Vorlagenfolien enthält. Jede Kopie wird mit den entsprechenden Daten gefüllt.
+Die Methode `MergeToSinglePresentation` erstellt eine Präsentation, die für jeden Datensatz eine Kopie der Vorlagenfolien enthält. Jede Kopie wird mit den entsprechenden Daten gefüllt.
 
 Die Reihenfolge der Datensätze bestimmt die Reihenfolge der Foliengruppen in der resultierenden Präsentation.
 
-### Zusammenführen von Daten aus einer Datei
+### **Daten aus einer Datei zusammenführen**
 
-Das folgende Beispiel lädt eine Vorlage und eine JSON‑Datendatei, erstellt eine einzelne Präsentation mit den Folien für alle Datensätze und speichert das Ergebnis.
+Das folgende Beispiel lädt eine Vorlage und eine JSON‑Datendatei, erstellt eine einzelne Präsentation, die die Folien für alle Datensätze enthält, und speichert das Ergebnis.
 
 ```csharp
 using Aspose.Slides;
@@ -202,7 +202,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, "pro
 }
 ```
 
-Die Daten können auch aus einem Stream gelesen werden. Der Stream wird ab seiner aktuellen Position gelesen und vom Serienbrief‑Vorgang nicht geschlossen.
+Die Daten können auch aus einem Stream gelesen werden. Der Stream wird ab seiner aktuellen Position gelesen und von der Mail‑Merge‑Operation nicht geschlossen.
 
 ```csharp
 using Aspose.Slides;
@@ -219,9 +219,9 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Erstellen einer Datenquelle im Code
+### **Erstellen einer Datenquelle im Code**
 
-Sie können eine Datenquelle programmgesteuert mit `MailMergeDataSource` und `MailMergeDataSet` aufbauen. Fügen Sie für jeden Datensatz ein Dataset hinzu und definieren Sie dessen Felder mit der Methode `AddText`.
+Sie können eine Datenquelle programmgesteuert mithilfe von `MailMergeDataSource` und `MailMergeDataSet` erstellen. Fügen Sie für jeden Datensatz ein DataSet hinzu und definieren Sie dessen Felder über die Methode `AddText`.
 
 ```csharp
 using Aspose.Slides;
@@ -246,17 +246,17 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 }
 ```
 
-In diesem Beispiel werden die Vorlagenfolien zweimal wiederholt: einmal für den Laptop und einmal für das Tablet. Die Platzhalter werden mit den in jedem Datensatz definierten Werten gefüllt.
+In diesem Beispiel werden die Vorlagenfolien zweimal wiederholt: einmal für das Notebook und einmal für das Tablet. Die Platzhalter werden mit den in jedem Datensatz definierten Werten gefüllt.
 
-## Erstellen mehrerer Präsentationen
+## **Erstellen mehrerer Präsentationen**
 
-Falls Sie für jeden Datensatz eine separate Präsentation benötigen, verwenden Sie die Methode `MergeToMultiplePresentations`.
+Wenn Sie für jeden Datensatz eine separate Präsentation benötigen, verwenden Sie die Methode `MergeToMultiplePresentations`.
 
-Diese Methode verarbeitet die Datensätze nacheinander, erstellt aus der Vorlage eine Präsentation, füllt sie mit den aktuellen Daten und übergibt die resultierende Präsentation an einen Handler.
+Diese Methode verarbeitet die Datensätze nacheinander, erstellt eine Präsentation aus der Vorlage, füllt sie mit den aktuellen Daten und übergibt die resultierende Präsentation an einen Handler.
 
-Der Handler wird einmal pro Datensatz in der ursprünglichen Datenreihenfolge aufgerufen.
+Der Handler wird einmal für jeden Datensatz in der ursprünglichen Datenreihenfolge aufgerufen.
 
-### Speichern jeder Präsentation
+### **Speichern jeder Präsentation**
 
 Das folgende Beispiel liest Daten aus einer CSV‑Datei und speichert jede erzeugte Präsentation als separate Datei.
 
@@ -280,7 +280,7 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Die Eigenschaft `args.Index` liefert den nullbasierten Index des aktuellen Datensatzes. Im Beispiel wird sie verwendet, um fortlaufende Dateinamen ab `product_1.pptx` zu erzeugen.
+Die Eigenschaft `args.Index` liefert den nullbasierten Index des aktuellen Datensatzes. Im Beispiel wird sie verwendet, um fortlaufende Dateinamen beginnend mit `product_1.pptx` zu erzeugen.
 
 Die Daten können auch aus einem Stream gelesen werden:
 
@@ -306,11 +306,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Verwendung von Datensatzwerten zum Benennen von Dateien
+### **Verwenden von Datensatzwerten zum Benennen von Dateien**
 
-Der Handler erhält sowohl die erzeugte Präsentation als auch Informationen über den zum Erzeugen verwendeten Datensatz. Sie können die Datensatzwerte nutzen, um sinnvolle Dateinamen zu erstellen.
+Der Handler erhält sowohl die erzeugte Präsentation als auch Informationen über den Datensatz, der zur Erstellung verwendet wurde. Sie können die Datensatzwerte nutzen, um sinnvolle Dateinamen zu erstellen.
 
-Beispielhaft speichert der folgende Code jede Präsentation anhand des Produkttitels:
+Zum Beispiel speichert der folgende Code jede Präsentation unter Verwendung des Produkttitels:
 
 ```csharp
 using Aspose.Slides;
@@ -335,24 +335,24 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Die Eigenschaft `DataSet` gibt den Datensatz zurück, der zur Befüllung der aktuellen Präsentation verwendet wurde. Die Methode `GetText` liefert den Wert eines angegebenen Feldes oder `null`, wenn das Feld nicht vorhanden ist.
+Die Eigenschaft `DataSet` gibt den Datensatz zurück, der zum Befüllen der aktuellen Präsentation verwendet wurde. Die Methode `GetText` holt den Wert eines angegebenen Feldes oder `null`, falls das Feld nicht vorhanden ist.
 
-Damit können Sie Feldwerte für Dateinamen, die Organisation von Ausgaben oder zusätzliche Verarbeitung im Handler verwenden.
+Damit können Sie Datwerte zum Benennen von Dateien, zur Organisation der Ausgabe oder zur zusätzlichen Verarbeitung im Handler verwenden.
 
-## Verarbeitung erzeugter Präsentationen
+## **Verarbeiten erzeugter Präsentationen**
 
 `MergeToMultiplePresentations` verwendet das Delegat `MailMergedPresentationHandler`, um jede erzeugte Präsentation zu verarbeiten.
 
 Der Handler erhält zwei Argumente:
 
-- `presentation` — die aus der Vorlage erstellte Präsentation, gefüllt mit dem aktuellen Datensatz.
-- `args` — Informationen über die erzeugte Präsentation, einschließlich des Datensatz‑Indexes und des Datensatzes selbst.
+- `presentation` — die aus der Vorlage erstellte Präsentation, die mit dem aktuellen Datensatz gefüllt ist.
+- `args` — Informationen über die erzeugte Präsentation, einschließlich des Index des Datensatzes und des Datensatzes selbst.
 
-Die erzeugte Präsentation gehört zum Serienbrief‑Vorgang und wird sofort nach Rückkehr des Handlers verworfen. Sie müssen sie also innerhalb des Handlers speichern oder benötigte Daten kopieren. Halten Sie nach dem Rücklauf keine Referenz mehr und entsorgen Sie sie nicht manuell.
+Die erzeugte Präsentation gehört zum Mail‑Merge‑Vorgang und wird sofort nach Rückkehr des Handlers verworfen. Daher müssen Sie sie im Handler speichern oder benötigte Daten kopieren. Bewahren Sie nach Rückkehr des Handlers keine Referenz darauf auf und entsorgen Sie sie nicht manuell.
 
-Der Handler wird im Aufrufer‑Thread ausgeführt, jeweils eine Präsentation, in der Reihenfolge der Datensätze. Zu jedem Zeitpunkt wird nur eine erzeugte Präsentation im Speicher gehalten, sodass dieses Vorgehen für große Datenquellen geeignet ist, ohne alle Präsentationen gleichzeitig zu laden.
+Der Handler wird im aufrufenden Thread ausgeführt, jeweils eine Präsentation nach der anderen, in der Reihenfolge der Datensätze. Es wird stets nur eine erzeugte Präsentation gleichzeitig im Speicher gehalten, wodurch dieser Ansatz für die Verarbeitung großer Datenquellen geeignet ist, ohne alle erzeugten Präsentationen gleichzeitig im Speicher zu behalten.
 
-Wirft der Handler eine Ausnahme, wird der Serienbrief‑Vorgang abgebrochen und die Ausnahme unverändert an den Aufrufer weitergereicht. Bereits verarbeitete Präsentationen bleiben unverändert, die übrigen Datensätze werden nicht verarbeitet.
+Wird im Handler eine Ausnahme ausgelöst, stoppt der Mail‑Merge‑Vorgang und die Ausnahme wird unverändert an den Aufrufer weitergegeben. Bereits verarbeitete Präsentationen bleiben unverändert, und die restlichen Datensätze werden nicht verarbeitet.
 
 Das folgende Beispiel speichert erzeugte Präsentationen in einem eigenen Verzeichnis:
 
@@ -382,13 +382,13 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Arbeiten mit Serienbrief‑Daten
+## **Arbeiten mit Mail‑Merge‑Daten**
 
-Die Klasse `MailMergeDataSource` stellt eine geordnete Sammlung von Datensätzen dar. Sie kann zum Erzeugen von Daten im Code, zum Prüfen der Anzahl von Datensätzen und zum Zugriff auf einzelne Datensätze nach Index verwendet werden.
+Die Klasse `MailMergeDataSource` stellt eine geordnete Sammlung von Datensätzen dar. Sie kann verwendet werden, um Daten im Code zu erstellen, die Anzahl der Datensätze zu prüfen und einzelne Datensätze per Index zuzugreifen.
 
-### Ermitteln der Anzahl von Datensätzen
+### **Abrufen der Anzahl von Datensätzen**
 
-Die Eigenschaft `Count` gibt die Anzahl der Datensätze in der Quelle zurück.
+Die Eigenschaft `Count` liefert die Anzahl der Datensätze in der Quelle.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -399,7 +399,7 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Zugriff auf einen Datensatz per Index
+### **Zugriff auf einen Datensatz per Index**
 
 Die Eigenschaft `Item(int)` ermöglicht den Zugriff auf einen Datensatz am angegebenen nullbasierten Index.
 
@@ -412,9 +412,9 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine(source[1].GetText("title"));
 ```
 
-Dieses Beispiel gibt den Titel des zweiten Datensatzes zurück.
+Dieses Beispiel ruft den Titel des zweiten Datensatzes ab.
 
-### Hinzufügen von Textfeldern
+### **Hinzufügen von Textfeldern**
 
 Die Methode `AddText` fügt einem Datensatz ein benanntes Textfeld hinzu. Der Feldwert ersetzt alle passenden Platzhalter in der Vorlage.
 
@@ -426,11 +426,11 @@ dataSet.AddText("title", "Laptop X1");
 dataSet.AddText("subtitle", string.Empty);
 ```
 
-Ein leerer Wert entfernt den entsprechenden Platzhalter aus dem resultierenden Text. Wird das Feld nicht zum Datensatz hinzugefügt, bleibt der Platzhalter unverändert.
+Ein leerer Wert entfernt den entsprechenden Platzhalter aus dem Ergebnistext. Wird das Feld nicht zum Datensatz hinzugefügt, bleibt der Platzhalter unverändert.
 
-### Auslesen von Textfeldern
+### **Lesen von Textfeldern**
 
-Die Methode `GetText` liefert den Wert eines Feldes anhand seines Namens. Feldnamen sind nicht groß‑/kleinschreibungsabhängig.
+Die Methode `GetText` gibt den Wert eines Feldes anhand seines Namens zurück. Feldnamen sind case‑insensitive.
 
 ```csharp
 IMailMergeDataSet dataSet = source[0];
@@ -439,93 +439,91 @@ string title = dataSet.GetText("title");
 string price = dataSet.GetText("price");
 ```
 
-Existiert das Feld nicht oder ist der angegebene Feldname `null`, liefert `GetText` `null`.
+Existiert das Feld nicht oder ist der angegebene Feldname `null`, gibt `GetText` `null` zurück.
 
-## Zusammenfassung
+## **Zusammenfassung**
 
-Der Serienbrief in Aspose.Slides for .NET bietet eine bequeme Möglichkeit, datengetriebene Präsentationen aus einer wiederverwendbaren Vorlage zu erzeugen.
+Mail Merge in Aspose.Slides für .NET bietet eine bequeme Methode, datengetriebene Präsentationen aus einer wiederverwendbaren Vorlage zu erzeugen.
 
-Sie können ihn einsetzen, um:
+- Füllen von Präsentationsvorlagen mit Werten aus Datenquellen.
+- Erstellen einer einzelnen Präsentation, die wiederholte Vorlagenfolien für mehrere Datensätze enthält.
+- Erstellen einer separaten Präsentation für jeden Datensatz.
+- Lesen von Daten aus CSV-, XLSX-, JSON- und XML-Dateien oder Streams.
+- Direktes Erstellen von Datenquellen im Code.
+- Verarbeiten und Speichern erzeugter Präsentationen sequenziell mithilfe eines Handlers.
 
-- Präsentationsvorlagen mit Werten aus Datenquellen zu belegen.
-- Eine einzelne Präsentation mit wiederholten Vorlagenfolien für mehrere Datensätze zu erzeugen.
-- Für jeden Datensatz eine separate Präsentation zu erstellen.
-- Daten aus CSV‑, XLSX‑, JSON‑ und XML‑Dateien bzw. Streams zu lesen.
-- Datenquellen direkt im Code zu bauen.
-- Erzeugte Präsentationen sequenziell mithilfe eines Handlers zu verarbeiten und zu speichern.
+Durch die Kombination wiederverwendbarer Vorlagen mit strukturierten Daten können Sie die Erstellung einer großen Anzahl von Präsentationen automatisieren, während Design der Vorlage und Datenverarbeitungslogik getrennt bleiben.
 
-Durch die Kombination wiederverwendbarer Vorlagen mit strukturierten Daten können Sie die Erstellung großer Mengen von Präsentationen automatisieren, während Design und Datenverarbeitung getrennt bleiben.
+## **Häufig gestellte Fragen**
 
-## Häufig gestellte Fragen
+**Kann ich denselben Platzhalter mehrmals in einer Vorlage verwenden?**
 
-### Kann ich denselben Platzhalter mehrfach in einer Vorlage verwenden?
+Ja. Jede Vorkommen eines Platzhalters mit einem passenden Feldnamen wird durch den entsprechenden Wert aus dem aktuellen Datensatz ersetzt.
 
-Ja. Jede Instanz eines Platzhalters mit übereinstimmendem Feldnamen wird durch den entsprechenden Wert des aktuellen Datensatzes ersetzt.
+**Sind Feldnamen case‑sensitive?**
 
-### Sind Feldnamen groß‑/kleinschreibungsabhängig?
+Nein. Platzhalter‑ und Datenfeldnamen sind case‑insensitive. Zum Beispiel verweisen `{{title}}`, `{{Title}}` und `{{TITLE}}` auf dasselbe Feld.
 
-Nein. Platzhalter‑ und Feldnamen sind nicht groß‑/kleinschreibungsabhängig. Beispielsweise beziehen sich `{{title}}`, `{{Title}}` und `{{TITLE}}` auf dasselbe Feld.
+**Was passiert, wenn ein Feld in einem Datensatz fehlt?**
 
-### Was passiert, wenn ein Feld in einem Datensatz fehlt?
+Enthält der Datensatz kein durch einen Platzhalter referenziertes Feld, bleibt dieser Platzhalter in der erzeugten Präsentation unverändert.
 
-Enthält der Datensatz kein Feld, das von einem Platzhalter referenziert wird, bleibt dieser Platzhalter in der erzeugten Präsentation unverändert.
+**Was passiert, wenn ein Feld einen leeren Wert hat?**
 
-### Was passiert, wenn ein Feld einen leeren Wert hat?
+Ein leerer Feldwert ersetzt den Platzhalter durch eine leere Zeichenkette. Der Platzhaltertext wird entfernt, sodass an seiner Stelle kein Text verbleibt.
 
-Ein leerer Feldwert ersetzt den Platzhalter durch eine leere Zeichenkette. Der Platzhaltertext wird entfernt, sodass an seiner Stelle kein Text erscheint.
+**Kann ich die Formatierung eines Platzhalters beim Ersetzen beibehalten?**
 
-### Kann ich die Formatierung eines Platzhalters beim Ersetzen beibehalten?
+Der ersetzte Text übernimmt die Formatierung des ersten Zeichens des Platzhalters. Wenden Sie die gewünschte Formatierung auf den Platzhaltertext in der Vorlage an, bevor Sie den Merge ausführen.
 
-Der ersetzte Text übernimmt die Formatierung des ersten Zeichens des Platzhalters. Formatieren Sie den Platzhaltertext in der Vorlage nach Wunsch, bevor Sie den Merge ausführen.
+**Ersetzt Mail Merge Platzhalter auf Master‑Folien oder Layout‑Folien?**
 
-### Ersetzt der Serienbrief Platzhalter auf Master‑ oder Layout‑Folien?
+Nein. Mail Merge ersetzt Platzhalter nur in unterstützten Inhalten von Präsentationsfolien, einschließlich Formen, gruppierten Formen, Tabellenzellen und Sprecher‑Notizen. Platzhalter auf Master‑ und Layout‑Folien werden nicht ersetzt.
 
-Nein. Der Serienbrief ersetzt Platzhalter nur in unterstützten Inhalten von Präsentationsfolien, also Formen, gruppierten Formen, Tabellenzellen und Sprechernotizen. Platzhalter auf Master‑ und Layout‑Folien bleiben unverändert.
+**Wird die Vorlagenpräsentation während des Merges geändert?**
 
-### Wird die Vorlagenpräsentation während des Merges geändert?
+Nein. Die ursprüngliche Vorlage wird durch den Merge‑Vorgang nicht verändert. Sie können sie wiederverwenden, um Präsentationen aus derselben oder einer anderen Datenquelle zu erstellen.
 
-Nein. Die Originalvorlage wird vom Merge‑Vorgang nicht verändert. Sie können sie wiederverwenden, um Präsentationen aus derselben oder einer anderen Datenquelle zu erzeugen.
+**Kann ich für jeden Datensatz eine separate Präsentation erzeugen?**
 
-### Kann ich für jeden Datensatz eine separate Präsentation erzeugen?
+Ja. Verwenden Sie `MergeToMultiplePresentations` und speichern Sie jede erzeugte Präsentation im Handler. Der Handler wird für jeden Datensatz sequenziell aufgerufen.
 
-Ja. Verwenden Sie `MergeToMultiplePresentations` und speichern Sie jede erzeugte Präsentation im Handler. Der Handler wird nacheinander für jeden Datensatz aufgerufen.
+**Kann ich alle Datensätze zu einer Präsentation zusammenfassen?**
 
-### Kann ich alle Datensätze zu einer einzigen Präsentation kombinieren?
+Ja. Verwenden Sie `MergeToSinglePresentation`. Sie erstellt eine einzelne Ausgabepäsentation, die für jeden Datensatz eine Kopie der Vorlagenfolien enthält, in der Reihenfolge der Datenquelle.
 
-Ja. Verwenden Sie `MergeToSinglePresentation`. Dabei entsteht eine einzelne Ausgabepresentation, die für jeden Datensatz eine Kopie der Vorlagenfolien enthält, in Reihenfolge der Datenquelle.
+**Kann ich eine Datenquelle nutzen, ohne sie in einer Datei zu speichern?**
 
-### Kann ich eine Datenquelle nutzen, ohne sie in einer Datei zu speichern?
+Ja. Sie können in Code ein `MailMergeDataSource` erstellen, Datensätze hinzufügen und Felder mit `AddText` befüllen. Das ist nützlich, wenn Ihre Daten bereits in Ihrer Anwendung verfügbar sind.
 
-Ja. Sie können im Code ein `MailMergeDataSource` erstellen, Datensätze hinzufügen und Felder mit `AddText` befüllen. Das ist praktisch, wenn die Daten bereits in Ihrer Anwendung verfügbar sind.
+**Erkennt Mail Merge das Datenformat anhand der Dateierweiterung?**
 
-### Erkennt der Serienbrief das Datenformat anhand der Dateierweiterung?
+Nein. Das Datenformat wird anhand des Inhalts erkannt, sodass eine unterstützte Datenquelle keine bestimmte Dateierweiterung benötigen muss.
 
-Nein. Das Datenformat wird aus dem Inhalt ermittelt, sodass eine unterstützte Datenquelle keine bestimmte Dateierweiterung besitzen muss.
+**Kann ich Daten aus einem Stream lesen, der kein Seek‑Verhalten unterstützt?**
 
-### Kann ich Daten aus einem Stream lesen, der kein Seek‑Verhalten unterstützt?
+Ja. Mail Merge unterstützt Streams, die nicht seek‑fähig sind.
 
-Ja. Der Serienbrief unterstützt nicht‑suchbare Streams.
+**Was passiert, wenn die Datenquelle leer ist oder keine Datensätze enthält?**
 
-### Was passiert, wenn die Datenquelle leer ist oder keine Datensätze enthält?
+Die Datenquelle muss mindestens einen Datensatz enthalten. Stellen Sie sicher, dass sie mindestens einen Datensatz enthält, bevor Sie den Merge‑Vorgang starten.
 
-Die Datenquelle muss mindestens einen Datensatz enthalten. Stellen Sie sicher, dass mindestens ein Datensatz vorhanden ist, bevor Sie den Merge‑Vorgang starten.
+**Was passiert, wenn die Datenquelle ein ungültiges Format hat?**
 
-### Was passiert, wenn die Datenquelle ein ungültiges Format hat?
+Wird der Inhalt nicht als eines der unterstützten Datenformate erkannt, wird `NotSupportedException` ausgelöst. Wird er erkannt, ist jedoch fehlerhaft, wird `InvalidDataException` ausgelöst. Die Fehlermeldung enthält Informationen über den Fehlerort.
 
-Wird der Inhalt nicht als eines der unterstützten Formate erkannt, wird `NotSupportedException` geworfen. Wird das Format erkannt, aber ist es fehlerhaft, wird `InvalidDataException` geworfen. Die Fehlermeldung enthält Informationen über den Ort des Fehlers.
+**Kann ich die erzeugte Präsentation nach Rückkehr des Handlers benutzen?**
 
-### Kann ich die erzeugte Präsentation nach Rückkehr des Handlers weiterverwenden?
+Die an den `MergeToMultiplePresentations`‑Handler übergebene Präsentation gehört zu Mail Merge und wird nach Rückgabe des Handlers verworfen. Speichern Sie sie oder kopieren Sie den benötigten Inhalt im Handler und behalten oder entsorgen Sie die Präsentation nicht selbst.
 
-Die an den `MergeToMultiplePresentations`‑Handler übergebene Präsentation gehört dem Serienbrief und wird nach dem Handleraufruf verworfen. Speichern Sie sie oder kopieren Sie den benötigten Inhalt innerhalb des Handlers und behalten Sie danach keine Referenz bei oder entsorgen Sie sie nicht selbst.
+**Wird der Handler parallel aufgerufen?**
 
-### Wird der Handler parallel aufgerufen?
+Nein. Erzeugte Präsentationen werden sequenziell im Aufrufer‑Thread verarbeitet. Es wird jeweils nur eine Präsentation gleichzeitig im Speicher gehalten, wodurch dieser Ansatz für die Verarbeitung großer Datenquellen geeignet ist, ohne alle erzeugten Präsentationen gleichzeitig im Speicher zu behalten.
 
-Nein. Erzeugte Präsentationen werden sequenziell im Aufrufer‑Thread verarbeitet. Zu jedem Zeitpunkt wird nur eine Präsentation im Speicher gehalten.
+**Was passiert, wenn im Handler eine Ausnahme auftritt?**
 
-### Was passiert, wenn im Handler eine Ausnahme auftritt?
+Der Merge‑Vorgang stoppt, und die Ausnahme wird unverändert an den Aufrufer weitergegeben. Bereits verarbeitete Präsentationen bleiben unverändert, und nachfolgende Datensätze werden nicht verarbeitet.
 
-Der Merge‑Vorgang wird gestoppt und die Ausnahme unverändert an den Aufrufer weitergereicht. bereits verarbeitete Präsentationen bleiben unbeeinflusst, nachfolgende Datensätze werden nicht mehr verarbeitet.
+**Kann ich Feldwerte zum Erzeugen von Ausgabedateinamen verwenden?**
 
-### Kann ich Feldwerte zum Erzeugen von Ausgabedateinamen verwenden?
-
-Ja. Der Handler stellt den aktuellen Datensatz über seine Argumente bereit. Verwenden Sie `GetText`, um Feldwerte abzurufen und daraus Dateinamen für jede erzeugte Präsentation zu bilden. Achten Sie darauf, dass die Werte für Dateinamen im Zielumfeld gültig sind.
+Ja. Der Handler liefert den aktuellen Datensatz über seine Argumente. Verwenden Sie `GetText`, um Felder zu holen und für jede erzeugte Präsentation einen Dateinamen zu erstellen. Stellen Sie sicher, dass die Werte für Dateinamen in Ihrer Zielumgebung gültig sind.
