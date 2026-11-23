@@ -1,13 +1,13 @@
 ---
-title: Prezentáció személyre szabásának automatizálása levélösszevonással
-linktitle: Levélösszevonás
+title: Prezentáció személyre szabásának automatizálása Mail Merge-szel
+linktitle: Mail Merge
 type: docs
 weight: 233
 url: /hu/net/mail-merge/
 keywords:
-- Levélösszevonás
+- Mail Merge
 - prezentáció személyre szabása
-- prezentáció sablon
+- prezentációs sablon
 - szöveghelyettesítők
 - adatforrás
 - CSV
@@ -15,81 +15,82 @@ keywords:
 - XLSX
 - JSON
 - XML
-- adatok összevonása
+- adatok összeolvasztása
 - prezentációk generálása
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan használhatja a levélösszevonást az Aspose.Slides for .NET-ben a prezentációs sablonok adatfeltöltésére és személyre szabott PowerPoint prezentációk generálására CSV, Excel, JSON és XML forrásokból."
+description: "Ismerje meg, hogyan használja a Mail Merge-t az Aspose.Slides for .NETben a prezentációs sablonok adatfeltöltéséhez, és hogyan generál személyre szabott PowerPoint előadásokat CSV, Excel, JSON és XML forrásokból."
 ---
-# Levélösszevonás PowerPoint bemutatókban
+## **Mail Merge PowerPoint előadásokban**
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy egy sablon és egy adatforrás használatával automatikusan generáljon PowerPoint‑bemutatókat. A levélösszevonás kitölti a sablonhelyettesítőket az adatokkal, és vagy egyetlen bemutatót hoz létre, amely ismétlődő sablonsorokat tartalmaz minden adatkészlethez, vagy külön bemutatót minden adatkészlethez.
+Az Aspose.Slides for .NET lehetővé teszi, hogy sablon és adatforrás felhasználásával automatikusan PowerPoint előadásokat generáljon. A Mail Merge kitölti a sablonhelyettesítőket adatként, és vagy egyetlen előadást hoz létre, amely ismételt sablon diákból áll minden adatkészlethez, vagy egy külön előadást minden adatkészlethez.
 
-Ez a funkció hasznos termékkatalógusok, személyre szabott bemutatók, jelentések, bizonyítványok, ajánlatok, árlisták és egyéb dokumentumok előállításához, ahol a bemutató szerkezete változatlan, a tartalom pedig eltérő.
+Ez a funkció hasznos termékkatalógusok, személyre szabott előadások, jelentések, bizonyítványok, ajánlatok, árlisták és egyéb dokumentumok generálásához, ahol az előadás felépítése ugyanaz, a tartalom pedig változik.
 
 ![Mail Merge: before and after](mail-merge-before-after.png)
 
 
-## Hogyan működik a levélösszevonás
+## **A Mail Merge működése**
 
-A levélösszevonás a PowerPoint‑bemutatót használja sablonként, és a helyettesítőket adatforrásból származó értékekkel cseréli le.
+A Mail Merge egy PowerPoint előadást használ sablonként, és a helyettesítőket az adatforrás értékeivel cseréli le.
 
 ![Mail Merge workflow](mail-merge-workflow.png)
 
-A helyettesítő egy dupla kapcsos zárójelek közé zárt mezőnév, például `{{title}}` vagy `{{price}}`. Helyettesítők elhelyezhetők szövegként alakzatokban, táblázatcellákban, csoportos alakzatokban és előadói jegyzetekben.
+A helyettesítő egy mező neve, amelyet dupla kapcsos zárójelek közé tesznek, például `{{title}}` vagy `{{price}}`. A helyettesítők elhelyezhetők szövegdobozokban, táblázatcellákban, csoportosított alakzatokban és előadói jegyzetekben.
 
-Például egy sablondia a következő szöveget tartalmazhatja:
+Például egy sablon dia a következő szöveget tartalmazhatja:
 
-- `Product: {{title}}`
-- `Price: {{price}}`
-- `Description: {{description}}`
+- `Termék: {{title}}`
+- `Ár: {{price}}`
+- `Leírás: {{description}}`
 
-Amikor az adatforrás a következő értékeket tartalmazza:
+Ha az adatforrás a következő értékeket tartalmazza:
 
-| Field | Value |
+| Mező | Érték |
 |---|---|
 | title | Laptop X1 |
 | price | $999 |
-| description | 14‑inch display, 16 GB RAM |
+| description | 14-inch display, 16 GB RAM |
 
-A levélösszevonás a helyettesítőket a megfelelő értékekkel cseréli le, és a tényleges termékinformációt tartalmazó diát hoz létre.
+A Mail Merge lecseréli a helyettesítőket a megfelelő értékekre, és egy olyan diát hoz létre, amely a tényleges termékinformációkat tartalmazza.
 
-A mezőnevek nem kis‑ és nagybetű érzékenyek, ezért a `{{title}}` és a `{{Title}}` ugyanarra a mezőre hivatkozik.
+A mezőnevek nem tesznek különbséget a kis- és nagybetűk között, így a `{{title}}` és a `{{Title}}` ugyanarra a mezőre hivatkozik.
 
-A következő szabályok érvényesek a helyettesítők cseréjekor:
+A helyettesítők cseréjére a következő szabályok vonatkoznak:
 
-- A helyettesítőket a diákon, a csoportos alakzatokban és a táblázatcellákban, valamint az előadói jegyzetekben cserélik le.
-- A mester‑diákon és elrendezés‑diákon lévő helyettesítők nem kerülnek cserére.
-- A helyettesítő, amelynek mezője nem található meg az adatkészletben, változatlan marad.
-- Egy üres mezőérték a helyettesítőt egy üres karakterláncra cseréli.
-- A beillesztett szöveg örökli a helyettesítő első karakterének formázását.
-- Az értékek nem tartalmazhatnak helyettesítő‑szöveget, mert a beillesztett szövegre újabb helyettesítők is alkalmazhatók lehetnek.
+- A helyettesítőket a diákon, beleértve a csoportosított alakzatokat és táblázatcellákat, valamint a jegyzetekben cserélik.
+- A master‑diákon és elrendezési diákon lévő helyettesítőket nem cserélik.
+- Egy olyan helyettesítő, amelyhez a mező nem szerepel az adatkészletben, változatlan marad.
+- Egy üres mezőérték a helyettesítőt egy üres karakterlánccal helyettesíti.
+- A beillesztett szöveg az első karakter formázását örökli a helyettesítőből.
+- Az értékek nem tartalmazhatnak helyettesítő szöveget, mivel a beillesztett szöveg újból feldolgozható és egy másik mező által cserélhető.
 
-Az eredeti sablonbemutatót a összevonási művelet során nem módosítják, és legalább egy diát kell tartalmaznia.
+Az eredeti sablon előadást a merge művelet során nem módosítják, és legalább egy diát kell tartalmaznia.
 
-## Támogatott adatforrások
 
-A levélösszevonás két módon fogadja az adatokat:
+## **Támogatott adatforrások**
 
-- Programból hozható létre adatforrás a `IMailMergeDataSource` használatával.
-- Olvasható adat CSV, XLSX, JSON vagy XML fájlból vagy adatfolyamból.
+A Mail Merge két módon biztosít adatbevitelre lehetőséget:
 
-Az adatformátumot a tartalma alapján állapítják meg, nem a fájlkiterjesztés alapján. A nem kereshető (non‑seeking) adatfolyamok is támogatottak.
+- Programozottan hozhat létre adatforrást a `IMailMergeDataSource` használatával.
+- CSV, XLSX, JSON vagy XML fájlból vagy adatfolyamból olvashat adatokat.
 
-Az adatforrásnak legalább egy adatkészletet kell tartalmaznia. Minden adatkészlet egy sablonmásolatot jelent, amelyet a saját értékeivel töltenek fel.
+Az adatformátumot a tartalma alapján határozzák meg, nem a fájlkiterjesztés alapján. A nem kereshető (non‑seekable) adatfolyamok is támogatottak.
 
-Ha a tartalom nem ismerhető fel támogatott formátumként, `NotSupportedException` kivétel keletkezik. Ha a tartalom felismerésre kerül, de nem felel meg a formátumkövetelményeknek, `InvalidDataException` kivétel keletkezik. A kivétel üzenete tartalmazza a hiba helyét az adatban.
+Az adatforrásnak legalább egy adatkészletet kell tartalmaznia. Minden adatkészlet a sablon egy példányát jelenti, amelyet a saját értékeivel töltenek fel.
 
-### JSON
+Ha a tartalom nem ismerhető fel támogatott formátumként, `NotSupportedException` kerül dobásra. Ha a tartalom felismert, de nem felel meg a formátumkövetelményeknek, `InvalidDataException` kerül dobásra. A kivétel üzenete tartalmazza a hiba helyét az adatokban.
 
-A JSON adatforrásnak egy `sets` tömböt tartalmazó gyökérobjektummal kell rendelkeznie. A tömb minden eleme egy adatkészlet, amelynek tartalmaznia kell egy `fields` tömböt. Minden mezőnek `name` és `value` karakterlánc-értéke kell legyen.
+### **JSON**
 
-Az opcionális `version` tulajdonság értéke `"1.0"` kell legyen, az opcionális `type` tulajdonság egy mezőnél `"text"` kell legyen. A tulajdonságnevek kis‑ és nagybetű érzékenyek. Ismeretlen tulajdonságok figyelmen kívül maradnak.
+A JSON adatforrásnak gyökérobjektummal kell rendelkeznie, amely egy `sets` tömböt tartalmaz. A tömb minden eleme egy adatkészletet képvisel, és `fields` tömböt kell, hogy tartalmazzon. Minden mezőnek `name` és `value` karakterlánc kell legyen.
 
-A JSON adat UTF‑8‑ként, vagy UTF‑16‑ként olvasódik, ha a fájl BOM‑mal (byte order mark) kezdődik.
+Az opcionális `version` tulajdonságnak `"1.0"`‑nak kell lennie, az opcionális `type` tulajdonságnak egy mező esetén `"text"`‑nek. A tulajdonságnevek kis‑ és nagybetűérzékenyek. Ismeretlen tulajdonságok figyelmen kívül maradnak.
 
-Az alábbi példa két adatkészletet tartalmaz:
+A JSON adat UTF‑8‑ként vagy (ha a fájl BOM‑mal kezdődik) UTF‑16‑ként kerül beolvasásra.
+
+A következő példa két adatkészletet tartalmaz:
 
 ```json
 {
@@ -111,11 +112,11 @@ Az alábbi példa két adatkészletet tartalmaz:
 }
 ```
 
-### XML
+### **XML**
 
-Az XML adatforrásnak egy `template` gyökérelemmel kell rendelkeznie, amely a `sets` elemet tartalmazza. Minden `set` elem `field` elemeket tartalmaz, és minden mezőnek `name` és `value` elemeket kell tartalmaznia.
+Az XML adatforrásnak `template` gyökérelemet kell tartalmaznia, amelyen belül a `sets` elem található. Minden `set` elem `field` elemeket tartalmaz, és minden mezőnek `name` és `value` elemekkel kell rendelkeznie.
 
-Az üres `value` elem üres karakterláncként kezelendő. Az elemek nevei kis‑ és nagybetű érzékenyek. Ismeretlen elemek és megjegyzések figyelmen kívül maradnak. A kódolást az XML deklaráció határozza meg. A dokumentumtípus‑definíciók (DTD) nem engedélyezettek.
+Az üres `value` elem üres karakterláncként kezelendő. Az elemek nevei kis‑ és nagybetűérzékenyek. Ismeretlen elemek és megjegyzések figyelmen kívül maradnak. A kódolást az XML deklaráció határozza meg. DTD‑k nem engedélyezettek.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,19 +146,19 @@ Az üres `value` elem üres karakterláncként kezelendő. Az elemek nevei kis�
 </template>
 ```
 
-### CSV
+### **CSV**
 
-A CSV adat pontosvesszőket használ értékhatárolóként.
+A CSV adatok értéselválasztóként pontosvesszőt használnak.
 
-Az első sor mezőneveket tartalmaz, és az első üres mezőnévnél végződik. Minden ezt követő sor egy adatkészletet jelent. Az adat az első üres sorban áll le.
+Az első sor mezőneveket tartalmaz, és az első üres mezőnévig tart. Minden további sor egy adatkészletet jelent. Az adat a első üres sorban ér véget.
 
 A következő szabályok érvényesek:
 
-- Sor végén hiányzó értékek üres karakterláncként kezelendők.
-- A meghatározott mezőneveken túli értékek figyelmen kívül maradnak.
-- Az érték, amely pontosvesszőt, idézőjelet vagy sortörést tartalmaz, idézőjelek közé kell kerüljön.
-- Az idézőjelek egy idézőjeles értéken belül duplázandók.
-- Az adat UTF‑8‑ként, vagy UTF‑16‑ként olvasódik, ha BOM‑mal kezdődik.
+- A sor végén hiányzó értékek üres karakterláncként kezelendők.
+- A meghatározott mezőneveken túl lévő értékek figyelmen kívül maradnak.
+- A pontosvesszőt, idézőjelet vagy sortörést tartalmazó értéket idézőjelek közé kell tenni.
+- Az idézőjelek a idézőjeles értéken belül megduplázandók.
+- Az adat UTF‑8‑ként vagy (ha BOM‑mal kezdődik) UTF‑16‑ként olvasandó.
 
 Példa:
 
@@ -167,27 +168,27 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
 Az XLSX adatot az első munkalapról olvassák be.
 
-A munkalap ugyanazokat a szabályokat követi, mint a CSV:
+A munkalap szabályai megegyeznek a CSV‑éval:
 
-- Az első sor mezőneveket tartalmaz, és az első üres cellánál végződik.
-- Minden ezt követő sor egy adatkészlet.
-- Az adat az első üres sorban áll le.
-- Üres cellák üres karakterláncként kezelendők.
-- Numerikus értékeket az invariáns kultúra használatával karakterlánccá konvertálják.
+- Az első sor mezőneveket tartalmaz, és az első üres celláig tart.
+- Minden további sor egy adatkészletet jelent.
+- Az adat az első üres sorban ér véget.
+- Az üres cellákat üres karakterláncként kezelik.
+- A numerikus értékeket a kulturálisan invariant módon szöveggé konvertálják.
 
-## Egyetlen bemutató létrehozása
+## **Egyetlen előadás létrehozása**
 
-A `MergeToSinglePresentation` metódus egy bemutatót hoz létre, amely a sablondiák másolatát tartalmazza minden adatkészlethez. Minden másolat a megfelelő adatokkal töltődik fel.
+A `MergeToSinglePresentation` metódus egy olyan előadást hoz létre, amely a sablon diáinak másolatát tartalmazza minden adatkészlethez. Minden másolat a megfelelő adatokkal lesz feltöltve.
 
-Az adatkészletek sorrendje határozza meg a diacsoportok sorrendjét a kimeneti bemutatóban.
+Az adatkészletek sorrendje határozza meg a diacsoportok sorrendjét a kimeneti előadásban.
 
-### Adatok összefésülése fájlból
+### **Adatok egy fájlból való összefésülése**
 
-Az alábbi példa betölti a sablont és egy JSON adatfájlt, egyetlen bemutatót hoz létre, amely a minden adatkészlethez tartozó diákot tartalmaz, majd elmenti az eredményt.
+Az alábbi példa betölti a sablont és egy JSON adatfájlt, egyetlen előadást hoz létre, amely a minden adatkészlethez tartozó diákat tartalmaz, és elmenti az eredményt.
 
 ```csharp
 using Aspose.Slides;
@@ -202,7 +203,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, "pro
 }
 ```
 
-Az adat olvasható adatfolyamból is. A folyamot a jelenlegi pozíciótól kezdve olvassák, és a levélösszevonási művelet nem zárja be.
+Az adatot adatfolyamból is be lehet olvasni. Az adatfolyam a jelenlegi pozíciójától kezdve kerül olvasásra, és a Mail Merge művelet nem zárja be.
 
 ```csharp
 using Aspose.Slides;
@@ -219,9 +220,9 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Adatforrás létrehozása kódból
+### **Adatforrás létrehozása kódból**
 
-Programból építhető adatforrás a `MailMergeDataSource` és a `MailMergeDataSet` használatával. Adjunk hozzá egy adatkészletet minden rekordhoz, és definiáljuk mezőit a `AddText` metódussal.
+Programozottan építhet adatforrást a `MailMergeDataSource` és a `MailMergeDataSet` használatával. Minden rekordhoz adjon adatkészletet, és definiálja a mezőket a `AddText` metódussal.
 
 ```csharp
 using Aspose.Slides;
@@ -246,19 +247,19 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 }
 ```
 
-Ebben a példában a sablondiák kétszer ismétlődnek: egyszer a laptophoz, egyszer a táblagéphez. A helyettesítőket az egyes adatkészletekben definiált értékekkel töltik fel.
+Ebben a példában a sablon diák kétszer ismétlődnek: egyszer a laptop, egyszer a tablet számára. A helyettesítőket a megfelelő adatkészletben definiált értékekkel töltik fel.
 
-## Több bemutató létrehozása
+## **Több előadás létrehozása**
 
-Ha minden adatkészlethez külön bemutatót szeretnénk, használjuk a `MergeToMultiplePresentations` metódust.
+Ha minden adatkészlethez külön előadást szeretne, használja a `MergeToMultiplePresentations` metódust.
 
-Ez a metódus egyenként dolgozza fel az adatkészleteket, minden alkalommal létrehozza a sablon alapján a bemutatót, feltölti a jelenlegi adatokkal, majd átadja a keletkezett bemutatót egy kezelőnek.
+Ez a metódus az adatkészleteket egyesével dolgozza fel, sablonból hoz létre egy előadást, feltölti az aktuális adatokkal, majd a keletkezett előadást átadja egy kezelőnek.
 
-A kezelő minden adatkészlethez egyszer kerül meghívásra, az eredeti adatrendben.
+A kezelőt minden adatkészlet esetén egyszer hívják meg, az eredeti adat sorrendjében.
 
-### Minden bemutató mentése
+### **Minden előadás mentése**
 
-Az alábbi példa CSV‑fájlból olvas adatot, és minden előállított bemutatót külön fájlként ment.
+Az alábbi példa CSV fájlból olvas adatokat, és minden generált előadást külön fájlként ment.
 
 ```csharp
 using Aspose.Slides;
@@ -280,9 +281,9 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Az `args.Index` tulajdonság a jelenlegi adatkészlet null‑alapú indexét adja. A példában ezt használják sorozatos fájlnevek generálásához, a `product_1.pptx` névtől kezdve.
+A `args.Index` tulajdonság a jelenlegi adatkészlet null‑alapú indexét adja vissza. A példában ezt használják sorozatos fájlnevek generálására, a `product_1.pptx`‑től indulva.
 
-Az adat olvasható adatfolyamból is:
+Az adatot adatfolyamból is be lehet olvasni:
 
 ```csharp
 using Aspose.Slides;
@@ -306,11 +307,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Adatkészlet‑értékek használata fájlnevekhez
+### **Adatkészlet értékek használata fájlnevekhez**
 
-A kezelő megkapja a generált bemutatót és az adatkészletet, amelyből létrejött. A adatkészlet‑értékek felhasználhatók értelmes fájlnevek létrehozásához.
+A kezelő megkapja a generált előadást és az azt létrehozó adatkészlet információit. Az adatkészlet értékeivel értelmes fájlneveket építhet fel.
 
-Például az alábbi kód minden bemutatót a termék címével menti:
+Például az alábbi kód a termék címét használja a fájl elmentéséhez:
 
 ```csharp
 using Aspose.Slides;
@@ -335,26 +336,26 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-A `DataSet` tulajdonság visszaadja a jelenlegi bemutató kitöltéséhez használt adatkészletet. A `GetText` metódus a megadott mező értékét adja vissza, vagy `null`‑t, ha a mező nem létezik.
+A `DataSet` tulajdonság visszaadja azt az adatkészletet, amely a jelenlegi előadást kitöltötte. A `GetText` metódus egy megadott mező értékét adja vissza, vagy `null`‑t, ha a mező nem létezik.
 
-Ez lehetővé teszi a mezőértékek használatát fájlnevekhez, a kimenet szervezéséhez vagy további feldolgozáshoz a kezelőben.
+Ez lehetővé teszi az adatértékek felhasználását fájlnevekhez, a kimenet szervezéséhez vagy további feldolgozáshoz a kezelőben.
 
-## Generált bemutatók kezelése
+## **Generált előadások kezelése**
 
-A `MergeToMultiplePresentations` a `MailMergedPresentationHandler` delegáltat használja minden generált bemutató feldolgozásához.
+A `MergeToMultiplePresentations` a `MailMergedPresentationHandler` delegálttal dolgozza fel az egyes generált előadásokat.
 
 A kezelő két argumentumot kap:
 
-- `presentation` — a sablonból létrehozott és a jelenlegi adatkészlettel feltöltött bemutató.
-- `args` — információ a generált bemutatóról, beleértve az adatkészlet indexét és magát az adatkészletet.
+- `presentation` — a sablonból létrehozott és a jelenlegi adatkészlettel feltöltött előadás.
+- `args` — információk a generált előadásról, beleértve az adatkészlet indexét és magát az adatkészletet.
 
-A generált bemutató a levélösszevonási művelet tulajdona, és a kezelő visszatérése után azonnal eldobásra kerül. Ezért menteni kell, vagy a szükséges adatot a kezelőn belül másolni kell. Ne tartsunk meg rá hivatkozást a kezelő visszatérése után, és ne dobjuk el kézzel.
+A generált előadást a Mail Merge művelet birtokolja, és a kezelő visszatérése után azonnal eldobja. Ezért menteni kell, vagy másolni a szükséges adatokat a kezelőn belül, és nem szabad referenciát megtartani a kezelés után, illetve manuálisan eldobni sem.
 
-A kezelő a hívó szálon, egy bemutatót egyszerre futtat, az adatkészletek sorrendjében. Egy időben csak egy generált bemutató van a memóriában, így a megközelítés nagy adatforrások feldolgozására alkalmas anélkül, hogy az összes bemutatót egyszerre a memóriában tartaná.
+A kezelő a hívó szálon, egy előadást egyszerre, az adatkészletek sorrendjében fut le. Egyszerre csak egy generált előadás van memóriában, ami alkalmas nagy adatforrások feldolgozására anélkül, hogy az összes előadást egyszerre kellene tárolni.
 
-Ha a kezelő kivételt dob, a levélösszevonási művelet leáll, a kivétel változatlanul továbbadódik a hívónak. A már feldolgozott bemutatók érintetlenek, a maradék adatkészletek nem kerülnek feldolgozásra.
+Ha a kezelő kivételt dob, a Mail Merge művelet leáll, és a kivétel változatlanul továbbítódik a hívónak. Az eddig feldolgozott előadások érintetlenek, a maradék adatkészletek nem kerülnek feldolgozásra.
 
-Az alábbi példában a generált bemutatókat egy dedikált könyvtárba mentik:
+Az alábbi példa a generált előadásokat egy dedikált könyvtárba menti:
 
 ```csharp
 using Aspose.Slides;
@@ -382,13 +383,13 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Levélösszevonási adatok kezelése
+## **Mail Merge adatok kezelése**
 
-A `MailMergeDataSource` osztály egy rendezett adatkészlet‑gyűjteményt képvisel. Használható adat létrehozására a kódban, az adatkészletek számának lekérdezésére és egyes adatkészletek index szerinti elérésére.
+A `MailMergeDataSource` osztály egy rendezett gyűjteményt képvisel adatkészletekből. Használható adatprogramozásra, az adatkészletek számának lekérdezésére és egyedi adatkészletek index szerinti elérésére.
 
-### Az adatkészletek számának lekérdezése
+### **Adatkészletek számának lekérdezése**
 
-A `Count` tulajdonság visszaadja az adatforrásban lévő adatkészletek számát.
+A `Count` tulajdonság visszaadja a forrásban lévő adatkészletek számát.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -399,7 +400,7 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Adatkészlet elérése index alapján
+### **Adatkészlet elérése index alapján**
 
 Az `Item(int)` tulajdonság lehetővé teszi egy adatkészlet elérését a megadott null‑alapú indexen.
 
@@ -414,9 +415,9 @@ Console.WriteLine(source[1].GetText("title"));
 
 Ez a példa a második adatkészlet címét kérdezi le.
 
-### Szövegmezők hozzáadása
+### **Szövegmezők hozzáadása**
 
-Az `AddText` metódus egy névvel ellátott szövegmezőt ad egy adatkészlethez. A mezőérték minden megfelelő helyettesítőt a sablonban lecserél.
+Az `AddText` metódus egy névvel ellátott szövegmezőt ad egy adatkészlethez. A mező értéke minden megfelelő helyettesítőt a sablonban lecserél.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -426,11 +427,11 @@ dataSet.AddText("title", "Laptop X1");
 dataSet.AddText("subtitle", string.Empty);
 ```
 
-Az üres érték eltávolítja a megfelelő helyettesítőt a kapott szövegből. Ha a mező nincs hozzáadva az adatkészlethez, a helyettesítő változatlan marad.
+Az üres érték eltávolítja a megfelelő helyettesítőt a végső szövegből. Ha a mező nincs hozzáadva az adatkészlethez, a helyettesítő változatlan marad.
 
-### Szövegmezők olvasása
+### **Szövegmezők olvasása**
 
-A `GetText` metódus mező nevétől függően visszaadja a mező értékét. A mezőnevek kis‑ és nagybetű érzékenyek.
+A `GetText` metódus egy mező értékét adja vissza név alapján. A mezőnevek nem tesznek különbséget a kis‑ és nagybetűk között.
 
 ```csharp
 IMailMergeDataSet dataSet = source[0];
@@ -441,91 +442,91 @@ string price = dataSet.GetText("price");
 
 Ha a mező nem létezik, vagy a megadott mezőnév `null`, a `GetText` `null`‑t ad vissza.
 
-## Összefoglalás
+## **Összefoglalás**
 
-A levélösszevonás az Aspose.Slides for .NET‑ben kényelmes módot biztosít adat‑vezérelt bemutatók előállítására újrahasználható sablonból.
+A Mail Merge az Aspose.Slides for .NET‑ben kényelmes módot kínál adat‑vezérelt előadások előre definiált sablonból történő generálására.
 
-Használhatja a következőkre:
+Használható:
 
-- Bemutatósablonok feltöltése adatforrásokból származó értékekkel.
-- Egyetlen bemutató létrehozása, amely többszörösen tartalmazza a sablondiákat több adatkészlethez.
-- Külön bemutató létrehozása minden adatkészlethez.
-- Adatok olvasása CSV, XLSX, JSON és XML fájlokból vagy adatfolyamokból.
-- Adatforrások közvetlenül a kódban felépítése.
-- Generált bemutatók sorozatos feldolgozása és mentése kezelő segítségével.
+- előadássablonok adatforrások értékeivel való feltöltésére,
+- egyetlen előadás létrehozására, amely ismételt sablon diákot tartalmaz több adatkészlethez,
+- külön előadás létrehozására minden adatkészlethez,
+- adatolvasásra CSV, XLSX, JSON és XML fájlokból vagy adatfolyamokból,
+- adatforrások közvetlen kódból történő felépítésére,
+- generált előadások sorozatos feldolgozására és mentésére kezelő segítségével.
 
-Az újrahasználható sablonok és a strukturált adatok kombinálásával automatizálható nagy számú bemutató létrehozása, miközben a sablon tervezése és az adatfeldolgozási logika külön marad.
+Az újrahasználható sablonok és strukturált adatok kombinálásával automatizálható a nagy számú előadás létrehozása, miközben a sablon tervezése és az adatok feldolgozása különálló marad.
 
-## Gyakran ismételt kérdések
+## **Gyakran ismételt kérdések**
 
-### Használhatom ugyanazt a helyettesítőt többször a sablonban?
+**Használhatom ugyanazt a helyettesítőt többször a sablonban?**
 
-Igen. A helyettesítő minden előfordulása a megfelelő mezőértékkel cserélődik a jelenlegi adatkészletből.
+Igen. A helyettesítő minden előfordulása, amelynek a mezőneve megegyezik, a jelenlegi adatkészlet megfelelő értékével lesz helyettesítve.
 
-### A mezőnevek kis‑ és nagybetű érzékenyek?
+**A mezőnevek kis‑ és nagybetűérzékenyek?**
 
-Nem. A helyettesítő- és adatmezőnevek nem érzékenyek a kis‑ és nagybetűkre. Például a `{{title}}`, `{{Title}}` és `{{TITLE}}` ugyanarra a mezőre hivatkozik.
+Nem. A helyettesítő és adatmezőnevek nem tesznek különbséget a kis‑ és nagybetűk között. Például a `{{title}}`, `{{Title}}` és `{{TITLE}}` ugyanarra a mezőre hivatkoznak.
 
-### Mi történik, ha egy mező hiányzik az adatkészletből?
+**Mi történik, ha egy mező hiányzik az adatkészletből?**
 
-Ha egy adatkészlet nem tartalmaz egy helyettesítő által hivatkozott mezőt, az a helyettesítő változatlan marad a generált bemutatóban.
+Ha az adatkészlet nem tartalmazza a helyettesítő által hivatkozott mezőt, az a helyettesítő változatlan marad a generált előadásban.
 
-### Mi történik, ha egy mezőnek üres értéke van?
+**Mi történik, ha egy mezőnek üres az értéke?**
 
-Az üres mezőérték a helyettesítőt egy üres karakterláncra cseréli. A helyettesítő szövege eltűnik, és nem marad szöveg a helyén.
+Az üres mezőérték a helyettesítőt egy üres karakterlánccal helyettesíti. A helyettesítő szövege eltűnik, és nem marad szöveg a helyén.
 
-### Megőrizhetem a helyettesítő formázását a csere során?
+**Megőrizhetem a helyettesítő formázását a cserénél?**
 
-A helyettesítő első karakterének formázása öröklődik a csere‑szövegre. Alkalmazza a kívánt formázást a sablonban a helyettesítőre, mielőtt a összevonást végrehajtja.
+A csere szövege az első karakter formázását örökli a helyettesítőből. Alkalmazza a kívánt formázást a helyettesítő szövegre a sablonban a merge előtt.
 
-### A levélösszevonás cseréli a helyettesítőket a mester‑ vagy elrendezés‑diákon?
+**A Mail Merge helyettesítőket cserél a master‑ vagy layout‑diákon?**
 
-Nem. A levélösszevonás csak a prezentáció‑diák támogatott tartalmában cserél helyettesítőket, beleértve az alakzatokat, csoportos alakzatokat, táblázatcellákat és előadói jegyzeteket. A mester‑ és elrendezés‑diákon lévő helyettesítők nem cserélődnek.
+Nem. A Mail Merge csak a diákon lévő támogatott tartalmakban (alakzatok, csoportosított alakzatok, táblázatcellák, jegyzetek) cseréli a helyettesítőket. A master‑ és layout‑diák helyettesítői nem kerülnek cserére.
 
-### Módosul a sablonbemutató a összevonás során?
+**Módosul a sablon előadás a merge során?**
 
-Nem. Az eredeti sablon nem módosul a művelet során. Újra felhasználható ugyanazokhoz vagy más adatforrásokhoz történő bemutató generálásához.
+Nem. Az eredeti sablont a merge művelet nem módosítja. Újra felhasználható ugyanazból vagy különböző adatforrásokból történő előadások generálásához.
 
-### Létrehozhatok külön bemutatót minden adatkészlethez?
+**Létrehozhatok külön előadást minden adatkészlethez?**
 
-Igen. Használja a `MergeToMultiplePresentations` metódust, és mentse el minden generált bemutatót a kezelőben. A kezelő minden adatkészlethez egymás után meghívásra kerül.
+Igen. Használja a `MergeToMultiplePresentations` metódust, és mentse az egyes generált előadásokat a kezelőben. A kezelő minden adatkészlethez sorban meghívásra kerül.
 
-### Egyesíthetem az összes adatkészletet egy bemutatóba?
+**Összevonhatom az összes adatkészletet egyetlen előadásba?**
 
-Igen. Használja a `MergeToSinglePresentation` metódust. Ez egyetlen kimeneti bemutatót hoz létre, amely a sablondiák másolatát tartalmazza minden adatkészlethez, az adatforrás sorrendjében.
+Igen. Használja a `MergeToSinglePresentation` metódust. Ez egyetlen kimeneti előadást hoz létre, amely a sablon diák másolatát tartalmazza minden adatkészlethez, az adatforrás sorrendjében.
 
-### Létrehozhatok adatforrást fájl mentése nélkül?
+**Használhatok adatforrást anélkül, hogy fájlba menteném?**
 
-Igen. Létrehozhat `MailMergeDataSource`‑t a kódban, adatkészleteket adhat hozzá, és mezőket tölthet fel a `AddText`‑szal. Ez akkor hasznos, ha az adatok már az alkalmazásban rendelkezésre állnak.
+Igen. Létrehozhat `MailMergeDataSource`‑t kódból, hozzáadhat adatkészleteket, és mezőket tölthet fel `AddText`‑el. Hasznos, ha az adatok már rendelkezésre állnak az alkalmazásában.
 
-### A levélösszevonás a fájlkiterjesztéstől észleli a formátumot?
+**A Mail Merge a fájlkiterjesztésből határozza meg az adatformátumot?**
 
-Nem. A formátumot a fájl tartalma alapján állapítják meg, így egy támogatott adatforrás nem igényel meghatározott fájlkiterjesztést.
+Nem. Az adatformátumot a tartalom határozza meg, ezért a támogatott adatforrásnak nem kell konkrét fájlkiterjesztést használni.
 
-### Olvashatok adatot olyan adatfolyamból, amely nem támogatja a keresést?
+**Olvashatok adatot olyan adatfolyamból, amely nem támogatja a keresést?**
 
-Igen. A levélösszevonás támogatja a nem kereshető (non‑seeking) adatfolyamokat.
+Igen. A Mail Merge támogatja a nem kereshető (non‑seekable) adatfolyamokat is.
 
-### Mi történik, ha az adatforrás üres vagy nem tartalmaz adatkészleteket?
+**Mi történik, ha az adatforrás üres vagy nem tartalmaz adatkészletet?**
 
-Az adatforrásnak legalább egy adatkészletet kell tartalmaznia. Győződjön meg róla, hogy a művelet indítása előtt legalább egy rekordot tartalmaz.
+Az adatforrásnak legalább egy adatkészletet kell tartalmaznia. Győződjön meg róla, hogy legalább egy rekord van, mielőtt elindítaná a merge műveletet.
 
-### Mi történik, ha az adatforrás formátuma érvénytelen?
+**Mi történik, ha az adatforrás formátuma érvénytelen?**
 
-Ha a tartalom nem ismerhető fel támogatott formátumként, `NotSupportedException` keletkezik. Ha a tartalom felismerésre kerül, de hibás, `InvalidDataException` keletkezik. A kivétel üzenete információt ad a hiba helyéről.
+Ha a tartalom nem ismerhető fel egyik támogatott adatformátumként sem, `NotSupportedException` dobódik. Ha felismert, de hibás a formátum, `InvalidDataException` dobódik. A kivétel üzenete tartalmazza a hiba pontos helyét.
 
-### Használhatom a generált bemutatót a kezelő visszatérése után?
+**Használhatom a generált előadást a kezelő visszatérése után?**
 
-A `MergeToMultiplePresentations` kezelőnek átadott bemutató a levélösszevonás tulajdona, és a kezelő visszatérése után eldobásra kerül. Mentse el, vagy másolja a szükséges adatot a kezelőn belül, és ne tartson meg hivatkozást vagy ne dobja el kézzel.
+A `MergeToMultiplePresentations` kezelőnek átadott előadást a Mail Merge birtokolja, és a kezelő visszatérése után azonnal eldobja. Mentse el, vagy másolja a szükséges adatokat a kezelőben, és ne tartsa meg vagy dobja el saját kezűleg.
 
-### A kezelő párhuzamosan hívódik meg?
+**A kezelő párhuzamosan hívódik?**
 
-Nem. A generált bemutatók sorban, a hívó szálon kerülnek feldolgozásra. Egyszerre csak egy generált bemutató van a memóriában, így ez a megközelítés nagy adatforrások esetén is megfelelő.
+Nem. A generált előadások sorozatosan, a hívó szálon kerülnek feldolgozásra, egyszerre csak egy előadás van memóriában, így nagy adatforrások esetén is hatékony a memóriahasználat.
 
-### Mi történik, ha kivétel történik a kezelőben?
+**Mi történik, ha kivétel keletkezik a kezelőben?**
 
-A összevonási művelet leáll, és a kivétel változatlanul továbbadódik a hívónak. A már feldolgozott bemutatók érintetlenek, a maradék adatkészletek nem kerülnek feldolgozásra.
+A merge művelet leáll, a kivétel változatlanul továbbítódik a hívónak. Az eddig feldolgozott előadások érintetlenek, a további adatkészletek nem kerülnek feldolgozásra.
 
-### Használhatom a mezőértékeket kimeneti fájlnevek generálásához?
+**Használhatom a mezőértékeket a kimeneti fájlnevek generálásához?**
 
-Igen. A kezelő az aktuális adatkészletet adja át argumentumként. A `GetText`‑tel lekérheti a mezőket, és a kimeneti fájlnevekhez felhasználhatja. Győződjön meg róla, hogy az értékek érvényesek a célkörnyezet fájlneveihez.
+Igen. A kezelő a `args` argumentumon keresztül biztosítja a jelenlegi adatkészletet. A `GetText` segítségével lekérdezheti a mezőket, és minden generált előadáshoz építhet egyedi fájlnevet. Győződjön meg arról, hogy az értékek érvényesek a célkörnyezet fájlnévre vonatkozó szabályaival.

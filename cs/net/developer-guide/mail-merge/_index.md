@@ -1,15 +1,15 @@
 ---
-title: Automatizace personalizace prezentací pomocí Mail Merge
-linktitle: Mail Merge
+title: Automatizujte personalizaci prezentací pomocí hromadné korespondence
+linktitle: Hromadná korespondence
 type: docs
 weight: 233
 url: /cs/net/mail-merge/
 keywords:
-- Mail Merge
-- personalizace prezentace
+- Hromadná korespondence
+- personalizace prezentací
 - šablona prezentace
-- textové zástupné symboly
-- zdroj dat
+- textové zástupce
+- datový zdroj
 - CSV
 - Excel
 - XLSX
@@ -20,76 +20,76 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zjistěte, jak používat Mail Merge v Aspose.Slides pro .NET k vyplnění šablon prezentací daty a generování personalizovaných prezentací PowerPoint z CSV, Excel, JSON a XML zdrojů."
+description: "Naučte se, jak použít hromadnou korespondenci v Aspose.Slides pro .NET k naplnění šablon prezentací daty a generování personalizovaných prezentací PowerPoint z CSV, Excel, JSON a XML zdrojů."
 ---
-# Mail Merge v prezentacích PowerPoint
+## **Hromadná korespondence v prezentacích PowerPoint**
 
-Aspose.Slides pro .NET umožňuje automaticky generovat prezentace PowerPoint pomocí šablony a zdroje dat. Mail Merge vyplní zástupné symboly šablony daty a vytvoří buď jednu prezentaci obsahující opakované snímky šablony pro každou datovou sadu, nebo samostatnou prezentaci pro každou datovou sadu.
+Aspose.Slides pro .NET vám umožňuje automaticky generovat prezentace PowerPoint pomocí šablony a datového zdroje. Hromadná korespondence vyplní zástupce v šabloně daty a vytvoří buď jedinou prezentaci obsahující opakované snímky šablony pro každý datový soubor, nebo samostatnou prezentaci pro každý datový soubor.
 
-Tato funkce je užitečná pro generování katalogů produktů, personalizovaných prezentací, zpráv, certifikátů, nabídek, ceníků a dalších dokumentů, kde struktura prezentace zůstává stejná, zatímco obsah se mění.
+Tato funkce je užitečná pro generování katalogů produktů, personalizovaných prezentací, zpráv, certifikátů, návrhů, ceníků a dalších dokumentů, kde struktura prezentace zůstává stejná, zatímco obsah se liší.
 
 ![Mail Merge: před a po](mail-merge-before-after.png)
 
 
-## Jak Mail Merge funguje
+## **Jak funguje hromadná korespondence**
 
-Mail Merge používá prezentaci PowerPoint jako šablonu a nahrazuje zástupné symboly hodnotami ze zdroje dat.
+Hromadná korespondence používá prezentaci PowerPoint jako šablonu a nahrazuje zástupce hodnotami z datového zdroje.
 
-![Pracovní postup Mail Merge](mail-merge-workflow.png)
+![Mail Merge workflow](mail-merge-workflow.png)
 
-Zástupný symbol je název pole uzavřený v dvojitých složených závorkách, například `{{title}}` nebo `{{price}}`. Zástupné symboly lze umístit do textu ve tvarech, buňkách tabulek, seskupených tvarech a poznámkách řečníka.
+Zástupce je název pole uzavřený ve dvojitých složených závorkách, například `{{title}}` nebo `{{price}}`. Zástupci mohou být umístěni v textu ve tvarech, buňkách tabulek, seskupených tvarech i v poznámkách přednášejícího.
 
 Například snímek šablony může obsahovat následující text:
 
-- `Produkt: {{title}}`
-- `Cena: {{price}}`
-- `Popis: {{description}}`
+- `Product: {{title}}`
+- `Price: {{price}}`
+- `Description: {{description}}`
 
-Když zdroj dat obsahuje následující hodnoty:
+Když datový zdroj obsahuje následující hodnoty:
 
 | Pole | Hodnota |
 |---|---|
 | title | Laptop X1 |
 | price | $999 |
-| description | 14-inch display, 16 GB RAM |
+| description | 14‑inch display, 16 GB RAM |
 
-Mail Merge nahradí zástupné symboly odpovídajícími hodnotami a vytvoří snímek se skutečnými informacemi o produktu.
+Hromadná korespondence nahradí zástupce odpovídajícími hodnotami a vytvoří snímek s reálnými údaji o produktu.
 
 Názvy polí nejsou citlivé na velikost písmen, takže `{{title}}` a `{{Title}}` odkazují na stejné pole.
 
-Na nahrazování zástupných symbolů se vztahují následující pravidla:
+Platí následující pravidla při nahrazování zástupců:
 
-- Zástupné symboly jsou nahrazovány na snímcích, včetně seskupených tvarů a buněk tabulek, a v poznámkách řečníka.
-- Zástupné symboly na hlavních snímcích a snímcích rozvržení nejsou nahrazeny.
-- Zástupný symbol, jehož pole není v datové sadě přítomno, zůstane nezměněn.
-- Prázdná hodnota pole nahradí svůj zástupný symbol prázdným řetězcem.
-- Vložený text zdědí formátování prvního znaku zástupného symbolu.
-- Hodnoty nesmí obsahovat text zástupného symbolu, protože vložený text může být znovu zpracován a nahrazen jiným polem.
+- Zástupci jsou nahrazeni na snímcích, včetně seskupených tvarů a buněk tabulek, a v poznámkách přednášejícího.
+- Zástupci na hlavních snímcích a rozvržení snímků nejsou nahrazeni.
+- Zástupce, jehož pole není v datovém souboru přítomno, zůstane beze změny.
+- Prázdná hodnota pole nahradí jeho zástupce prázdným řetězcem.
+- Vložený text zdědí formátování prvního znaku zástupce.
+- Hodnoty nesmí obsahovat text zástupce, protože vložený text může být znovu zpracován a nahrazen jiným polem.
 
 Původní šablona prezentace není během operace sloučení upravena a musí obsahovat alespoň jeden snímek.
 
-## Podporované zdroje dat
+## **Podporované datové zdroje**
 
-Mail Merge podporuje dva způsoby poskytování dat:
+Hromadná korespondence podporuje dva způsoby zadávání dat:
 
-- Vytvořit zdroj dat programově pomocí `IMailMergeDataSource`.
+- Vytvořit datový zdroj programově pomocí `IMailMergeDataSource`.
 - Načíst data ze souboru nebo proudu CSV, XLSX, JSON nebo XML.
 
-Formát dat je detekován podle jeho obsahu, nikoli podle přípony souboru. Proudům, které nepodporují hledání, je také podporováno.
+Formát dat je detekován podle obsahu, ne podle přípony souboru. Podporovány jsou i proudy, které neumožňují hledání.
 
-Zdroj dat musí obsahovat alespoň jednu datovou sadu. Každá datová sada představuje jednu kopii šablony, která má být vyplněna jejími hodnotami.
+Datový zdroj musí obsahovat alespoň jeden datový soubor. Každý datový soubor představuje jednu kopii šablony, která bude vyplněna jeho hodnotami.
 
-Pokud obsah dat nelze rozpoznat jako podporovaný formát, je vyvolána výjimka `NotSupportedException`. Pokud je obsah rozpoznán, ale nevyhovuje požadavkům formátu, je vyvolána výjimka `InvalidDataException`. Zpráva výjimky obsahuje umístění chyby v datech.
+Pokud obsah dat nemůže být rozpoznán jako podporovaný formát, je vyhozena výjimka `NotSupportedException`. Pokud je obsah rozpoznán, ale nesplňuje požadavky formátu, je vyhozena výjimka `InvalidDataException`. Zpráva výjimky obsahuje umístění chyby v datech.
 
-### JSON
+### **JSON**
 
-JSON zdroj dat musí mít kořenový objekt obsahující pole `sets`. Každý prvek pole představuje datovou sadu a musí obsahovat pole `fields`. Každé pole musí mít řetězce `name` a `value`.
+Datový zdroj JSON musí mít kořenový objekt obsahující pole `sets`. Každý prvek pole představuje datový soubor a musí obsahovat pole `fields`. Každé pole musí mít řetězce `name` a `value`.
 
-Volitelná vlastnost `version` musí být "1.0" a volitelná vlastnost `type` pole musí být "text". Názvy vlastností jsou citlivé na velikost písmen. Neznámé vlastnosti jsou ignorovány.
+Volitelná vlastnost `version` musí být `"1.0"` a volitelná vlastnost `type` pole musí být `"text"`. Názvy vlastností rozlišují velká a malá písmena. Neznámé vlastnosti jsou ignorovány.
 
-JSON data jsou čtena jako UTF-8, nebo jako UTF-16, pokud data začínají byte order mark (BOM).
+JSON data jsou čtena jako UTF‑8 nebo jako UTF‑16, pokud data začínají značkou BOM.
 
-Následující příklad obsahuje dvě datové sady:
+Následující příklad obsahuje dva datové soubory:
 
 ```json
 {
@@ -111,11 +111,11 @@ Následující příklad obsahuje dvě datové sady:
 }
 ```
 
-### XML
+### **XML**
 
-XML zdroj dat musí mít kořenový prvek `template` obsahující prvek `sets`. Každý prvek `set` obsahuje elementy `field` a každé pole musí obsahovat elementy `name` a `value`.
+Datový zdroj XML musí mít kořenový element `template`, který obsahuje element `sets`. Každý element `set` obsahuje elementy `field`, a každý `field` musí obsahovat elementy `name` a `value`.
 
-Prázdný element `value` je považován za prázdný řetězec. Názvy elementů jsou citlivé na velikost písmen. Neznámé elementy a komentáře jsou ignorovány. Kódování je určeno deklarací XML. Definice typů dokumentů (DTD) nejsou povoleny.
+Prázdný element `value` se interpretuje jako prázdný řetězec. Názvy elementů rozlišují velká a malá písmena. Neznámé elementy a komentáře jsou ignorovány. Kódování je určeno deklarací XML. Definice typu dokumentu (DTD) nejsou povoleny.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,19 +145,19 @@ Prázdný element `value` je považován za prázdný řetězec. Názvy element�
 </template>
 ```
 
-### CSV
+### **CSV**
 
-CSV data používají středníky jako oddělovače hodnot.
+CSV data používají středník jako oddělovač hodnot.
 
-První řádek obsahuje názvy polí a končí při prvním prázdném názvu pole. Každý následující řádek představuje jednu datovou sadu. Data končí při první prázdné řádce.
+První řádek obsahuje názvy polí a končí při prvním prázdném názvu pole. Každý následující řádek představuje jeden datový soubor. Data končí při první prázdné řádce.
 
 Platí následující pravidla:
 
-- Chybějící hodnoty na konci řádku jsou považovány za prázdné řetězce.
-- Hodnoty mimo definované názvy polí jsou ignorovány.
-- Hodnota obsahující středník, uvozovku nebo zalomení řádku musí být uzavřena v uvozovkách.
-- Uvozovky uvnitř uvozené hodnoty musí být zdvojeny.
-- Data jsou čtena jako UTF-8, nebo jako UTF-16, pokud začínají byte order mark (BOM).
+- Chybějící hodnoty na konci řádku se berou jako prázdné řetězce.
+- Hodnoty nad rámec definovaných názvů polí jsou ignorovány.
+- Hodnota obsahující středník, uvozovky nebo zalomení řádku musí být uzavřena v uvozovkách.
+- Uvozovky uvnitř uvozované hodnoty musí být zdvojené.
+- Data jsou čtena jako UTF‑8 nebo jako UTF‑16, pokud začínají značkou BOM.
 
 Příklad:
 
@@ -167,27 +167,27 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
-XLSX data jsou čtena z první pracovní listu.
+Data XLSX jsou čtena z první pracovní tabulky.
 
-Pracovní list následuje stejná pravidla jako CSV:
+Pracovní list řídí stejná pravidla jako CSV:
 
 - První řádek obsahuje názvy polí a končí při první prázdné buňce.
-- Každý následující řádek představuje jednu datovou sadu.
+- Každý následující řádek představuje jeden datový soubor.
 - Data končí při první prázdné řádce.
 - Prázdné buňky jsou považovány za prázdné řetězce.
 - Číselné hodnoty jsou převedeny na text pomocí invariantní kultury.
 
-## Vytvoření jedné prezentace
+## **Vytvoření jedné prezentace**
 
-Metoda `MergeToSinglePresentation` vytvoří jednu prezentaci obsahující kopii snímků šablony pro každou datovou sadu. Každá kopie je vyplněna odpovídajícími daty.
+Metoda `MergeToSinglePresentation` vytvoří jednu prezentaci obsahující kopii snímků šablony pro každý datový soubor. Každá kopie je vyplněna odpovídajícími daty.
 
-Pořadí datových sad určuje pořadí skupin snímků ve výsledné prezentaci.
+Pořadí datových souborů určuje pořadí skupin snímků ve výsledné prezentaci.
 
-### Sloučení dat ze souboru
+### **Sloučení dat ze souboru**
 
-Následující příklad načte šablonu a soubor JSON s daty, vytvoří jednu prezentaci obsahující snímky pro všechny datové sady a uloží výsledek.
+Následující příklad načte šablonu a soubor JSON s daty, vytvoří jednu prezentaci obsahující snímky pro všechny datové soubory a výsledek uloží.
 
 ```csharp
 using Aspose.Slides;
@@ -202,7 +202,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, "pro
 }
 ```
 
-Data lze také načíst ze streamu. Stream se čte od jeho aktuální pozice a není uzavřen operací Mail Merge.
+Data mohou být také načtena z proudu. Proud je čten od jeho aktuální pozice a není uzavřen operací hromadné korespondence.
 
 ```csharp
 using Aspose.Slides;
@@ -219,9 +219,9 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Vytvoření zdroje dat v kódu
+### **Vytvoření datového zdroje v kódu**
 
-Můžete programově vytvořit zdroj dat pomocí `MailMergeDataSource` a `MailMergeDataSet`. Přidejte datovou sadu pro každý záznam a definujte její pole pomocí metody `AddText`.
+Můžete vytvořit datový zdroj programově pomocí `MailMergeDataSource` a `MailMergeDataSet`. Přidejte datový soubor pro každý záznam a definujte jeho pole pomocí metody `AddText`.
 
 ```csharp
 using Aspose.Slides;
@@ -246,17 +246,17 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 }
 ```
 
-V tomto příkladu jsou snímky šablony opakovány dvakrát: jednou pro notebook a jednou pro tablet. Zástupné symboly jsou vyplněny pomocí hodnot definovaných v každé datové sadě.
+V tomto příkladu jsou snímky šablony opakovány dvakrát: jednou pro notebook a jednou pro tablet. Zástupci jsou vyplněni hodnotami definovanými v každém datovém souboru.
 
-## Vytvoření více prezentací
+## **Vytvoření více prezentací**
 
-Pokud potřebujete samostatnou prezentaci pro každou datovou sadu, použijte metodu `MergeToMultiplePresentations`.
+Pokud potřebujete samostatnou prezentaci pro každý datový soubor, použijte metodu `MergeToMultiplePresentations`.
 
-Tato metoda zpracovává datové sady po jedné, vytvoří prezentaci ze šablony, vyplní ji aktuálními daty a předá výslednou prezentaci obslužné funkci.
+Tato metoda zpracovává datové soubory jeden po druhém, vytvoří prezentaci ze šablony, vyplní ji aktuálními daty a předá výslednou prezentaci obsluze.
 
-Obslužná funkce je zavolána jednou pro každou datovou sadu v původním pořadí dat.
+Obsluha je volána jednou pro každý datový soubor v původním pořadí dat.
 
-### Uložení každé prezentace
+### **Ukládání každé prezentace**
 
 Následující příklad načte data ze souboru CSV a uloží každou vygenerovanou prezentaci jako samostatný soubor.
 
@@ -280,9 +280,9 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Vlastnost `args.Index` poskytuje nulový index aktuální datové sady. V příkladu se používá k vytvoření posloupných názvů souborů počínaje `product_1.pptx`.
+Vlastnost `args.Index` poskytuje nulový index aktuálního datového souboru. V příkladu se používá k vytvoření sekvenčních názvů souborů počínaje `product_1.pptx`.
 
-Data lze také načíst ze streamu:
+Data mohou být také načtena z proudu:
 
 ```csharp
 using Aspose.Slides;
@@ -306,11 +306,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Použití hodnot datové sady pro pojmenování souborů
+### **Použití hodnot datových souborů pro pojmenování souborů**
 
-Obslužná funkce získá jak vygenerovanou prezentaci, tak informace o datové sadě použité k jejímu vytvoření. Můžete použít hodnoty datové sady k vytvoření smysluplných názvů souborů.
+Obsluha získá jak vygenerovanou prezentaci, tak informace o datovém souboru, který byl použit. Můžete použít hodnoty datových souborů k vytvoření smysluplných názvů souborů.
 
-Například následující kód uloží každou prezentaci pomocí názvu produktu:
+Například následující kód ukládá každou prezentaci pomocí názvu produktu:
 
 ```csharp
 using Aspose.Slides;
@@ -335,24 +335,24 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-Vlastnost `DataSet` vrací datovou sadu použitou k vyplnění aktuální prezentace. Metoda `GetText` získá hodnotu zadaného pole nebo `null`, pokud pole není přítomno.
+Vlastnost `DataSet` vrací datový soubor použitý k vyplnění aktuální prezentace. Metoda `GetText` získá hodnotu zadaného pole nebo `null`, pokud pole není přítomno.
 
-To vám umožní použít hodnoty dat pro pojmenování souborů, organizaci výstupu nebo aplikaci dalšího zpracování v obslužné funkci.
+To vám umožní použít hodnoty dat pro pojmenování souborů, organizaci výstupu nebo další zpracování v obsluze.
 
-## Zpracování vygenerovaných prezentací
+## **Zpracování vygenerovaných prezentací**
 
-`MergeToMultiplePresentations` používá delegáta `MailMergedPresentationHandler` ke zpracování každé vygenerované prezentace.
+`MergeToMultiplePresentations` používá delegáta `MailMergedPresentationHandler` pro zpracování každé vygenerované prezentace.
 
-Obslužná funkce přijímá dva argumenty:
+Obsluha přijímá dva argumenty:
 
-- `presentation` — prezentace vytvořená ze šablony a vyplněná aktuální datovou sadou.
-- `args` — informace o vygenerované prezentaci, včetně indexu datové sady a samotné datové sady.
+- `presentation` — prezentace vytvořená ze šablony a vyplněná aktuálním datovým souborem.
+- `args` — informace o vygenerované prezentaci, včetně indexu datového souboru a samotného souboru.
 
-Vygenerovaná prezentace je vlastněna operací Mail Merge a je okamžitě uvolněna po návratu obslužné funkce. Proto ji musíte uložit nebo zkopírovat potřebná data uvnitř obslužné funkce. Neukládejte odkaz na ni po návratu obslužné funkce ani ji neodstraňujte ručně.
+Vygenerovaná prezentace patří operaci hromadné korespondence a je uvolněna okamžitě po návratu z obsluhy. Proto ji musíte uložit nebo zkopírovat potřebná data uvnitř obsluhy. Neukládejte na ni odkaz po návratu z obsluhy ani ji neodstraňujte ručně.
 
-Obslužná funkce je spuštěna na volajícím vlákně, jedna prezentace po druhé, v pořadí datových sad. V jednom okamžiku je v paměti udržována pouze jedna vygenerovaná prezentace, což činí tento přístup vhodným pro zpracování velkých zdrojů dat, aniž by byly všechny vygenerované prezentace současně uchovávány v paměti.
+Obsluha je spuštěna na volajícím vlákně, jedna prezentace po druhé, v pořadí datových souborů. V paměti je uložena vždy jen jedna vygenerovaná prezentace, což činí tento přístup vhodným pro zpracování velkých datových zdrojů bez nutnosti držet všechny prezentace v paměti současně.
 
-Pokud obslužná funkce vyvolá výjimku, operace Mail Merge se zastaví a výjimka je předána volajícímu beze změny. Již zpracované prezentace zůstávají nedotčeny a zbývající datové sady nejsou zpracovány.
+Pokud obsluha vyvolá výjimku, operace hromadné korespondence se zastaví a výjimka je předána volajícímu beze změny. Prezentace, které již byly zpracovány, zůstávají nedotčeny a zbývající datové soubory nejsou zpracovány.
 
 Následující příklad ukládá vygenerované prezentace do vyhrazeného adresáře:
 
@@ -382,13 +382,13 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Práce s daty Mail Merge
+## **Práce s daty hromadné korespondence**
 
-Třída `MailMergeDataSource` představuje uspořádanou kolekci datových sad. Lze ji použít k vytvoření dat v kódu, prozkoumání počtu datových sad a přístupu k jednotlivým datovým sadám podle indexu.
+Třída `MailMergeDataSource` představuje uspořádanou kolekci datových souborů. Lze ji použít k vytvoření dat v kódu, ke kontrole počtu datových souborů a k přístupu k jednotlivým souborům podle indexu.
 
-### Získání počtu datových sad
+### **Získání počtu datových souborů**
 
-Vlastnost `Count` vrací počet datových sad ve zdroji.
+Vlastnost `Count` vrací počet datových souborů v zdroji.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -399,9 +399,9 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Přístup k datové sadě podle indexu
+### **Přístup k datovému souboru podle indexu**
 
-Vlastnost `Item(int)` poskytuje přístup k datové sadě na zadaném nulovým indexu.
+Vlastnost `Item(int)` poskytuje přístup k datovému souboru na zadaném nulovém indexu.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -412,11 +412,11 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine(source[1].GetText("title"));
 ```
 
-Tento příklad získá název druhé datové sady.
+Tento příklad získá název druhého datového souboru.
 
-### Přidání textových polí
+### **Přidání textových polí**
 
-Metoda `AddText` přidá pojmenované textové pole do datové sady. Hodnota pole nahradí všechny odpovídající zástupné symboly v šabloně.
+Metoda `AddText` přidá pojmenované textové pole do datového souboru. Hodnota pole nahradí všechny odpovídající zástupce v šabloně.
 
 ```csharp
 MailMergeDataSource source = new MailMergeDataSource();
@@ -426,9 +426,9 @@ dataSet.AddText("title", "Laptop X1");
 dataSet.AddText("subtitle", string.Empty);
 ```
 
-Prázdná hodnota odstraní odpovídající zástupný symbol z výsledného textu. Pokud pole není do datové sady přidáno, zástupný symbol zůstane nezměněn.
+Prázdná hodnota odstraní odpovídající zástupce z výsledného textu. Pokud pole do datového souboru není přidáno, zůstane zástupce beze změny.
 
-### Čtení textových polí
+### **Čtení textových polí**
 
 Metoda `GetText` získá hodnotu pole podle názvu. Názvy polí nejsou citlivé na velikost písmen.
 
@@ -439,93 +439,93 @@ string title = dataSet.GetText("title");
 string price = dataSet.GetText("price");
 ```
 
-Pokud pole neexistuje nebo je zadaný název pole `null`, `GetText` vrací `null`.
+Pokud pole neexistuje nebo je zadán `null`, metoda `GetText` vrací `null`.
 
-## Shrnutí
+## **Shrnutí**
 
-Mail Merge v Aspose.Slides pro .NET poskytuje pohodlný způsob, jak generovat prezentace řízené daty z opakovaně použitelné šablony.
+Hromadná korespondence v Aspose.Slides pro .NET poskytuje pohodlný způsob, jak generovat prezentace řízené daty z opakovaně použitelné šablony.
 
-Můžete jej použít k:
+Můžete ji využít k:
 
-- Vyplnit šablony prezentací hodnotami ze zdrojů dat.
-- Vytvořit jednu prezentaci obsahující opakované snímky šablony pro více datových sad.
-- Vytvořit samostatnou prezentaci pro každou datovou sadu.
-- Načíst data ze souborů nebo proudů CSV, XLSX, JSON a XML.
-- Vytvořit zdroje dat přímo v kódu.
-- Zpracovávat a ukládat vygenerované prezentace sekvenčně pomocí obslužné funkce.
+- Vyplnění šablon prezentací hodnotami z datových zdrojů.
+- Vytvoření jedné prezentace obsahující opakované snímky šablony pro více datových souborů.
+- Vytvoření samostatné prezentace pro každý datový soubor.
+- Načtení dat ze souborů nebo proudů CSV, XLSX, JSON a XML.
+- Vytvoření datových zdrojů přímo v kódu.
+- Sekvenčnímu zpracování a ukládání vygenerovaných prezentací pomocí obsluhy.
 
-Kombinací opakovaně použitelné šablony se strukturovanými daty můžete automatizovat vytváření velkého množství prezentací a přitom udržet návrh šablony a logiku zpracování dat oddělené.
+Kombinací opakovaně použitelných šablon a strukturovaných dat můžete automatizovat tvorbu velkého počtu prezentací a zároveň udržet design šablony a logiku zpracování dat oddělené.
 
-## Často kladené otázky
+## **Často kladené otázky**
 
-### Mohu použít stejný zástupný symbol vícekrát v šabloně?
+**Mohu použít stejný zástupce vícekrát v šabloně?**
 
-Ano. Každý výskyt zástupného symbolu s odpovídajícím názvem pole je nahrazen odpovídající hodnotou z aktuální datové sady.
+Ano. Každý výskyt zástupce se shodným názvem pole je nahrazen odpovídající hodnotou z aktuálního datového souboru.
 
-### Jsou názvy polí citlivé na velikost písmen?
+**Jsou názvy polí citlivé na velikost písmen?**
 
-Ne. Názvy zástupných symbolů i datových polí nejsou citlivé na velikost písmen. Například `{{title}}`, `{{Title}}` a `{{TITLE}}` odkazují na stejné pole.
+Ne. Názvy zástupců i datových polí nejsou citlivé na velikost písmen. Například `{{title}}`, `{{Title}}` a `{{TITLE}}` odkazují na stejné pole.
 
-### Co se stane, pokud v datové sadě chybí pole?
+**Co se stane, když v datovém souboru chybí pole?**
 
-Pokud datová sada neobsahuje pole odkazované zástupným symbolem, tento zástupný symbol zůstane vygenerované prezentaci nezměněn.
+Pokud datový soubor neobsahuje pole, na které odkazuje zástupce, zůstane tento zástupce vygenerované prezentaci beze změny.
 
-### Co se stane, pokud má pole prázdnou hodnotu?
+**Co se stane, když má pole prázdnou hodnotu?**
 
-Prázdná hodnota pole nahradí zástupný symbol prázdným řetězcem. Text zástupného symbolu je odstraněn, takže v jeho místě není žádný text.
+Prázdná hodnota pole nahradí zástupce prázdným řetězcem. Text zástupce je odstraněn a v jeho místě nezůstane žádný text.
 
-### Mohu zachovat formátování zástupného symbolu při jeho nahrazení?
+**Mohu zachovat formátování zástupce při jeho nahrazení?**
 
-Vložený text zdědí formátování prvního znaku zástupného symbolu. Požadované formátování aplikujte na text zástupného symbolu v šabloně před provedením sloučení.
+Text, kterým je zástupce nahrazen, zdědí formátování prvního znaku zástupce. Přidejte požadované formátování přímo do textu zástupce ve šabloně před provedením sloučení.
 
-### Nahrazuje Mail Merge zástupné symboly na hlavních snímcích nebo snímcích rozvržení?
+**Nahrazuje hromadná korespondence zástupce na hlavních snímcích nebo rozvržení snímků?**
 
-Ne. Mail Merge nahrazuje zástupné symboly v podporovaném obsahu snímků prezentace, včetně tvarů, seskupených tvarů, buněk tabulek a poznámek řečníka. Zástupné symboly na hlavních a rozvržových snímcích nejsou nahrazeny.
+Ne. Hromadná korespondence nahrazuje zástupce jen v podporovaném obsahu na běžných snímcích (tvary, seskupené tvary, buňky tabulek, poznámky). Zástupci na hlavních snímcích a rozvržení snímků nejsou nahrazeni.
 
-### Je šablona prezentace během sloučení upravena?
+**Je šablona prezentace během sloučení upravena?**
 
-Ne. Původní šablona není operací sloučení upravena. Můžete ji znovu použít k vytvoření prezentací ze stejných nebo různých zdrojů dat.
+Ne. Původní šablona není sloučením upravena. Můžete ji znovu použít k tvorbě dalších prezentací ze stejných či různých datových zdrojů.
 
-### Mohu vytvořit samostatnou prezentaci pro každou datovou sadu?
+**Mohu generovat samostatnou prezentaci pro každý datový soubor?**
 
-Ano. Použijte `MergeToMultiplePresentations` a uložte každou vygenerovanou prezentaci v rámci obslužné funkce. Obslužná funkce je volána sekvenčně pro každou datovou sadu.
+Ano. Použijte `MergeToMultiplePresentations` a uložte každou vygenerovanou prezentaci v obsluze. Obsluha je volána sekvenčně pro každý datový soubor.
 
-### Mohu sloučit všechny datové sady do jedné prezentace?
+**Mohu sloučit všechny datové soubory do jedné prezentace?**
 
-Ano. Použijte `MergeToSinglePresentation`. Vytvoří jednu výstupní prezentaci obsahující kopii snímků šablony pro každou datovou sadu v pořadí zdroje dat.
+Ano. Použijte `MergeToSinglePresentation`. Vytvoří jedinou výstupní prezentaci obsahující kopii snímků šablony pro každý datový soubor v pořadí zdroje dat.
 
-### Mohu použít zdroj dat bez uložení do souboru?
+**Mohu použít datový zdroj bez jeho ukládání do souboru?**
 
-Ano. Můžete vytvořit `MailMergeDataSource` v kódu, přidat datové sady a naplnit pole pomocí `AddText`. To je užitečné, když jsou vaše data již k dispozici ve vaší aplikaci.
+Ano. Můžete vytvořit `MailMergeDataSource` v kódu, přidat datové soubory a naplnit pole pomocí `AddText`. To je užitečné, když jsou data již dostupná ve vaší aplikaci.
 
-### Detekuje Mail Merge formát dat z přípony souboru?
+**Detekuje hromadná korespondence formát dat podle přípony souboru?**
 
-Ne. Formát dat je detekován z obsahu, takže podporovaný zdroj dat nemusí mít konkrétní příponu souboru.
+Ne. Formát dat je detekován podle obsahu, takže podporovaný datový zdroj nemusí mít konkrétní příponu souboru.
 
-### Mohu číst data ze streamu, který nepodporuje hledání?
+**Mohu načíst data z proudu, který nepodporuje hledání?**
 
-Ano. Mail Merge podporuje nesekovatelná proudu.
+Ano. Hromadná korespondence podporuje nevyhledatelné proudy.
 
-### Co se stane, pokud je zdroj dat prázdný nebo neobsahuje žádné datové sady?
+**Co se stane, když je datový zdroj prázdný nebo neobsahuje žádné datové soubory?**
 
-Zdroj dat musí obsahovat alespoň jednu datovou sadu. Ujistěte se, že obsahuje alespoň jeden záznam před zahájením operace sloučení.
+Datový zdroj musí obsahovat alespoň jeden datový soubor. Ujistěte se, že před zahájením sloučení obsahuje alespoň jeden záznam.
 
-### Co se stane, pokud má zdroj dat neplatný formát?
+**Co se stane, když má datový zdroj neplatný formát?**
 
-Pokud obsah není rozpoznán jako jeden z podporovaných datových formátů, je vyvolána výjimka `NotSupportedException`. Pokud je rozpoznán, ale je poškozený, je vyvolána výjimka `InvalidDataException`. Zpráva výjimky obsahuje informace o umístění chyby.
+Pokud obsah není rozpoznán jako jeden z podporovaných formátů, je vyhozena výjimka `NotSupportedException`. Pokud je rozpoznán, ale má nesprávnou strukturu, je vyhozena výjimka `InvalidDataException`. Zpráva výjimky uvádí informace o místě chyby.
 
-### Mohu použít vygenerovanou prezentaci po návratu obslužné funkce?
+**Mohu použít vygenerovanou prezentaci po návratu z obsluhy?**
 
-Prezentace předaná obslužné funkci `MergeToMultiplePresentations` je vlastněna Mail Merge a po návratu obslužné funkce je uvolněna. Uložte ji nebo zkopírujte potřebný obsah uvnitř obslužné funkce a neukládejte ani neodstraňujte tuto prezentaci sami.
+Prezentace předaná obsluze `MergeToMultiplePresentations` patří hromadné korespondenci a je po návratu z obsluhy uvolněna. Uložte ji nebo zkopírujte potřebný obsah během obsluhy a neuchovávejte ani neodstraňujte tuto prezentaci ručně.
 
-### Je obslužná funkce volána paralelně?
+**Je obsluha volána paralelně?**
 
-Ne. Vygenerované prezentace jsou zpracovávány sekvenčně, na vlákně volajícího. V jednom okamžiku je v paměti držena pouze jedna vygenerovaná prezentace, což činí tento přístup vhodným pro zpracování velkých zdrojů dat, aniž by byly všechny vygenerované prezentace současně v paměti.
+Ne. Vygenerované prezentace jsou zpracovávány sekvenčně na vlákně volajícího. V každém okamžiku je v paměti pouze jedna prezentace, což umožňuje zpracování velkých datových zdrojů bez nutnosti držet všechny prezentace najednou.
 
-### Co se stane, pokud dojde k výjimce uvnitř obslužné funkce?
+**Co se stane, když v obsluze dojde k výjimce?**
 
-Operace sloučení se zastaví a výjimka je předána volajícímu beze změny. Již zpracované prezentace nejsou ovlivněny a následné datové sady nejsou zpracovány.
+Operace sloučení se zastaví a výjimka je předána volajícímu beze změny. Prezentace, které již byly zpracovány, zůstávají nedotčeny a zbývající datové soubory nejsou zpracovány.
 
-### Mohu použít hodnoty polí pro generování názvů výstupních souborů?
+**Mohu použít hodnoty polí pro generování názvů výstupních souborů?**
 
-Ano. Obslužná funkce poskytuje aktuální datovou sadu prostřednictvím svých argumentů. Použijte `GetText` k získání polí a vytvořte název souboru pro každou vygenerovanou prezentaci. Ujistěte se, že hodnoty jsou platné pro názvy souborů ve vašem cílovém prostředí.
+Ano. Obsluha poskytuje aktuální datový soubor prostřednictvím argumentů. Použijte `GetText` k získání hodnot a vytvořte název souboru pro každou vygenerovanou prezentaci. Ujistěte se, že hodnoty jsou platné pro názvy souborů v cílovém prostředí.
