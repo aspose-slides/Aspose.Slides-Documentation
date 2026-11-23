@@ -812,6 +812,80 @@ The result:
 
 ![The text rotation](text_rotation.png)
 
+## **Display Digits Side by Side in Vertical Text**
+
+To keep a two-digit number together in a vertical Japanese label, put both digits in one text portion and call [IBasePortionFormat::set_Kumimoji](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kumimoji/) on that portion. The example uses [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) and 40-point MS Gothic for both labels. Only the [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) value passed for the numeric portion differs.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto addLabel = [&slide](float x, NullableBool kumimoji)
+{
+    auto label = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, x, 48, 120, 420);
+    label->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto frame = label->AddTextFrame(u"");
+    frame->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::EastAsianVertical);
+
+    auto paragraph = frame->get_Paragraph(0);
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    auto font = MakeObject<FontData>(u"MS Gothic");
+    format->set_LatinFont(font);
+    format->set_EastAsianFont(font);
+    format->set_FontHeight(40);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto digits = MakeObject<Portion>(u"12");
+    digits->get_PortionFormat()->set_Kumimoji(kumimoji);
+
+    auto portions = paragraph->get_Portions();
+    portions->Clear();
+    portions->Add(MakeObject<Portion>(u"令和"));
+    portions->Add(digits);
+    portions->Add(MakeObject<Portion>(u"年"));
+};
+
+addLabel(120, NullableBool::True);
+addLabel(360, NullableBool::False);
+
+presentation->Save(u"vertical_date.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+In PowerPoint, the left label (`True`) shows the digits upright and side by side between 和 and 年. In the right label (`False`), the pair is rotated 90 degrees clockwise. The surrounding Japanese characters remain upright in both labels.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
 ## **Set Custom Rotation for Text Frames**
 
 Use [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) to set a custom rotation angle for an [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).

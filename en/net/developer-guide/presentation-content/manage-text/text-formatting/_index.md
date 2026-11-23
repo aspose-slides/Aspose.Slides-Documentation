@@ -544,6 +544,54 @@ The result:
 
 ![The text rotation](text_rotation.png)
 
+## **Display Digits Side by Side in Vertical Text**
+
+To keep a two-digit number together in a vertical Japanese label, put both digits in one text portion and set [IBasePortionFormat.Kumimoji](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kumimoji/) on that portion. The example uses [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/) and 40-point MS Gothic for both labels. Only the value of [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) assigned to the numeric portion differs.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+AddLabel(slide, 120, NullableBool.True);
+AddLabel(slide, 360, NullableBool.False);
+
+presentation.Save("vertical_date.pptx", SaveFormat.Pptx);
+
+static void AddLabel(ISlide slide, float x, NullableBool kumimoji)
+{
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, 48, 120, 420);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var frame = label.AddTextFrame("");
+    frame.TextFrameFormat.TextVerticalType = TextVerticalType.EastAsianVertical;
+
+    var paragraph = frame.Paragraphs[0];
+    var format = paragraph.ParagraphFormat.DefaultPortionFormat;
+    var font = new FontData("MS Gothic");
+    format.LatinFont = font;
+    format.EastAsianFont = font;
+    format.FontHeight = 40;
+    format.FillFormat.FillType = FillType.Solid;
+    format.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var digits = new Portion("12");
+    digits.PortionFormat.Kumimoji = kumimoji;
+    
+    paragraph.Portions.Clear();
+    paragraph.Portions.Add(new Portion("令和"));
+    paragraph.Portions.Add(digits);
+    paragraph.Portions.Add(new Portion("年"));
+}
+```
+
+In PowerPoint, the left label (`True`) shows the digits upright and side by side between 和 and 年. In the right label (`False`), the pair is rotated 90 degrees clockwise. The surrounding Japanese characters remain upright in both labels.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
 ## **Set Custom Rotation for Text Frames**
 
 Use [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) to set a custom rotation angle for an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).

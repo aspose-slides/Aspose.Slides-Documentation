@@ -645,6 +645,64 @@ The result:
 
 ![The text rotation](text_rotation.png)
 
+## **Display Digits Side by Side in Vertical Text**
+
+To keep a two-digit number together in a vertical Japanese label, put both digits in one text portion and call [BasePortionFormat::setKumimoji](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKumimoji) on that portion. The example uses [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical) and 40-point MS Gothic for both labels. Only the [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) value passed to the numeric portion differs.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $x = 120;
+
+    foreach ([NullableBool::True, NullableBool::False] as $kumimoji) {
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, 48, 120, 420);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $frame = $label->addTextFrame("");
+        $frame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::EastAsianVertical);
+
+        $paragraph = $frame->getParagraphs()->get_Item(0);
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $font = new FontData("MS Gothic");
+        $format->setLatinFont($font);
+        $format->setEastAsianFont($font);
+        $format->setFontHeight(40);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        $digits = new Portion("12");
+        $digits->getPortionFormat()->setKumimoji($kumimoji);
+
+        $portions = $paragraph->getPortions();
+        $portions->clear();
+        $portions->add(new Portion("令和"));
+        $portions->add($digits);
+        $portions->add(new Portion("年"));
+
+        $x += 240;
+    }
+    $presentation->save("vertical_date.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+In PowerPoint, the left label (`True`) shows the digits upright and side by side between 和 and 年. In the right label (`False`), the pair is rotated 90 degrees clockwise. The surrounding Japanese characters remain upright in both labels.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
 ## **Set Custom Rotation for Text Frames**
 
 Use [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) to set a custom rotation angle for a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
