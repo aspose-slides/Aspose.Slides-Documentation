@@ -631,6 +631,59 @@ The result:
 
 ![The text rotation](text_rotation.png)
 
+## **Display Digits Side by Side in Vertical Text**
+
+To keep the digits of a two-digit number side by side in a vertical Japanese label, put both digits in one text portion and call [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKumimoji) on that portion. Both labels in this example use [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/#EastAsianVertical) and 40-point MS Gothic. Only the [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) setting for the digits differs.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Portion, Presentation, SaveFormat, ShapeType, TextVerticalType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    font = FontData("MS Gothic")
+
+    for x, kumimoji in [(120, NullableBool.True_), (360, NullableBool.False_)]:
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 48, 120, 420)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        frame = label.addTextFrame("")
+        frame.getTextFrameFormat().setTextVerticalType(TextVerticalType.EastAsianVertical)
+
+        paragraph = frame.getParagraphs().get_Item(0)
+        default_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        default_format.setLatinFont(font)
+        default_format.setEastAsianFont(font)
+        default_format.setFontHeight(40)
+        default_format.getFillFormat().setFillType(FillType.Solid)
+        default_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        digits = Portion("12")
+        digits.getPortionFormat().setKumimoji(kumimoji)
+        
+        portions = paragraph.getPortions()
+        portions.clear()
+        portions.add(Portion("令和"))
+        portions.add(digits)
+        portions.add(Portion("年"))
+
+    presentation.save("vertical_date.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In PowerPoint, the left label (`True`) shows the digits upright and side by side between 和 and 年. In the right label (`False`), the pair is rotated 90 degrees clockwise. The surrounding Japanese characters remain upright in both labels.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
 ## **Set Custom Rotation for Text Frames**
 
 Use [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) to set a custom rotation angle for a [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).

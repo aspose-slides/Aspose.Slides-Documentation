@@ -605,6 +605,59 @@ The result:
 
 ![The text rotation](text_rotation.png)
 
+## **Display Digits Side by Side in Vertical Text**
+
+To keep a two-digit number together in a vertical Japanese label, put both digits in one text portion and call [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKumimoji) on that portion’s formatting. The example uses [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/#EastAsianVertical) and 40-point MS Gothic for both labels. Only the [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) value passed to the numeric portion differs.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const font = new aspose.slides.FontData("MS Gothic");
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const settings = [aspose.slides.NullableBool.True, aspose.slides.NullableBool.False];
+    let x = 120;
+
+    for (const kumimoji of settings) {
+        const label = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, 48, 120, 420);
+        label.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        label.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const frame = label.addTextFrame("");
+        frame.getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.EastAsianVertical));
+
+        const paragraph = frame.getParagraphs().get_Item(0);
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setLatinFont(font);
+        format.setEastAsianFont(font);
+        format.setFontHeight(40);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const digits = new aspose.slides.Portion("12");
+        digits.getPortionFormat().setKumimoji(java.newByte(kumimoji));
+
+        const portions = paragraph.getPortions();
+        portions.clear();
+        portions.add(new aspose.slides.Portion("令和"));
+        portions.add(digits);
+        portions.add(new aspose.slides.Portion("年"));
+        x += 240;
+    }
+    presentation.save("vertical_date.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In PowerPoint, the left label (`True`) shows the digits upright and side by side between 和 and 年. In the right label (`False`), the pair is rotated 90 degrees clockwise. The surrounding Japanese characters remain upright in both labels.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
 ## **Set Custom Rotation for Text Frames**
 
 Use [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) to set a custom rotation angle for a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
