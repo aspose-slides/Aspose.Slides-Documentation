@@ -19,11 +19,12 @@ keywords:
 - presentasi 3D
 - proyek VBA
 - pemrosesan gambar
+- gabungan surat
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Temukan Panduan Pengembang Aspose.Slides untuk .NET dengan langkah demi langkah API untuk membangun, mengedit, dan mengonversi presentasi PPT, PPTX, dan ODP dengan mudah."
+description: "Temukan Panduan Pengembang Aspose.Slides untuk .NET dengan API langkah demi langkah untuk membuat, mengedit, dan mengonversi presentasi PPT, PPTX, dan ODP dengan mudah."
 ---

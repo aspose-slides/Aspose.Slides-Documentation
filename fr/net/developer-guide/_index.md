@@ -19,11 +19,12 @@ keywords:
 - présentation 3D
 - projet VBA
 - traitement d'image
+- fusion de courrier
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Découvrez le Guide du développeur Aspose.Slides pour .NET, qui propose des API étape par étape pour créer, modifier et convertir des présentations PPT, PPTX et ODP facilement."
+description: "Découvrez le Guide du développeur Aspose.Slides for .NET pour des API pas à pas permettant de créer, modifier et convertir facilement les présentations PPT, PPTX et ODP."
 ---

@@ -6,24 +6,25 @@ url: /hu/net/developer-guide/
 keywords:
 - fejlesztői útmutató
 - prezentáció kezelése
-- prezentáció tervezés
+- prezentáció tervezése
 - professzionális prezentáció
 - prezentáció létrehozása
-- prezentáció megjelenítő
-- prezentáció biztonsága
-- prezentáció tulajdonságai
-- nézet tulajdonságai
-- prezentáció megjegyzései
-- prezentáció jegyzetei
+- prezentáció megtekintő
+- prezentáció biztonság
+- prezentáció tulajdonságok
+- nézet tulajdonságok
+- prezentáció megjegyzések
+- prezentáció jegyzetek
 - animáció
 - 3D prezentáció
 - VBA projekt
 - képfeldolgozás
+- Levélösszevonás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for .NET fejlesztői útmutatót, amely lépésről lépésre bemutatja az API-kat a PPT, PPTX és ODP prezentációk egyszerű létrehozásához, szerkesztéséhez és átalakításához."
+description: "Fedezze fel az Aspose.Slides for .NET fejlesztői útmutatót, amely lépésről lépésre bemutatja az API‑kat a PPT, PPTX és ODP prezentációk egyszerű létrehozásához, szerkesztéséhez és átalakításához."
 ---

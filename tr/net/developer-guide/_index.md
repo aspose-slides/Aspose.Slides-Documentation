@@ -12,18 +12,19 @@ keywords:
 - sunum görüntüleyici
 - sunum güvenliği
 - sunum özellikleri
-- özellikleri görüntüle
+- görünüm özellikleri
 - sunum yorumları
 - sunum notları
 - animasyon
 - 3B sunum
 - VBA projesi
 - görüntü işleme
+- Posta Birleştirme
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET Geliştirici Kılavuzu'nu keşfedin; PPT, PPTX ve ODP sunumlarını kolayca oluşturmak, düzenlemek ve dönüştürmek için adım adım API'ler sunar."
+description: "Aspose.Slides for .NET Geliştirici Kılavuzunu keşfedin; PPT, PPTX ve ODP sunumlarını kolaylıkla oluşturmak, düzenlemek ve dönüştürmek için adım adım API'lar sunar."
 ---

@@ -14,16 +14,17 @@ keywords:
 - 簡報屬性
 - 檢視屬性
 - 簡報註解
-- 簡報註記
+- 簡報備註
 - 動畫
 - 3D 簡報
 - VBA 專案
 - 影像處理
+- 合併列印
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "探索 Aspose.Slides for .NET 開發者指南，提供逐步的 API，輕鬆建立、編輯和轉換 PPT、PPTX 以及 ODP 簡報。"
+description: "探索 Aspose.Slides for .NET 開發者指南，提供一步一步的 API，讓您輕鬆建立、編輯和轉換 PPT、PPTX 與 ODP 簡報。"
 ---

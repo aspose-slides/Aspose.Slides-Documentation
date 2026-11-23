@@ -7,7 +7,7 @@ keywords:
 - 開発者ガイド
 - プレゼンテーションの管理
 - プレゼンテーションデザイン
-- プロフェッショナルなプレゼンテーション
+- プロフェッショナルプレゼンテーション
 - プレゼンテーションの作成
 - プレゼンテーションビューア
 - プレゼンテーションのセキュリティ
@@ -19,11 +19,12 @@ keywords:
 - 3D プレゼンテーション
 - VBA プロジェクト
 - 画像処理
+- メールマージ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET の開発者ガイドを発見し、PPT、PPTX、ODP プレゼンテーションを簡単に作成、編集、変換するためのステップバイステップの API を提供します。"
+description: "Aspose.Slides for .NET の開発者ガイドを発見し、PPT、PPTX、ODP プレゼンテーションを簡単に作成、編集、変換するためのステップバイステップ API を提供します。"
 ---

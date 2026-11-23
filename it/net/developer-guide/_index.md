@@ -5,20 +5,21 @@ weight: 20
 url: /it/net/developer-guide/
 keywords:
 - guida per sviluppatori
-- gestione della presentazione
-- progettazione della presentazione
+- gestire presentazione
+- progettazione di presentazioni
 - presentazione professionale
 - creare presentazione
 - visualizzatore di presentazioni
-- sicurezza della presentazione
+- sicurezza delle presentazioni
 - proprietà della presentazione
-- visualizzazione delle proprietà
+- proprietà della visualizzazione
 - commenti della presentazione
 - note della presentazione
 - animazione
 - presentazione 3D
 - progetto VBA
-- elaborazione di immagini
+- elaborazione delle immagini
+- Stampa unione
 - PowerPoint
 - OpenDocument
 - presentazione

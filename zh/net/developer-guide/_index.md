@@ -13,17 +13,18 @@ keywords:
 - 演示文稿安全
 - 演示文稿属性
 - 查看属性
-- 演示文稿批注
-- 演示文稿笔记
+- 演示文稿评论
+- 演示文稿备注
 - 动画
 - 3D 演示文稿
 - VBA 项目
 - 图像处理
+- 邮件合并
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "探索 Aspose.Slides for .NET 开发者指南，提供逐步的 API，轻松构建、编辑和转换 PPT、PPTX 与 ODP 演示文稿。"
+description: "发现 Aspose.Slides for .NET 开发者指南，提供逐步 API，轻松构建、编辑和转换 PPT、PPTX 和 ODP 演示文稿。"
 ---

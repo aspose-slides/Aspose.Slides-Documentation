@@ -10,7 +10,7 @@ keywords:
 - apresentação profissional
 - criar apresentação
 - visualizador de apresentação
-- segurança da apresentação
+- segurança de apresentação
 - propriedades da apresentação
 - visualizar propriedades
 - comentários da apresentação
@@ -19,11 +19,12 @@ keywords:
 - apresentação 3D
 - projeto VBA
 - processamento de imagem
+- Mala direta
 - PowerPoint
 - OpenDocument
 - apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra o Guia do Desenvolvedor do Aspose.Slides para .NET com APIs passo a passo para criar, editar e converter apresentações PPT, PPTX e ODP com facilidade."
+description: "Descubra o Guia do Desenvolvedor do Aspose.Slides for .NET, com APIs passo a passo para criar, editar e converter apresentações PPT, PPTX e ODP com facilidade."
 ---
