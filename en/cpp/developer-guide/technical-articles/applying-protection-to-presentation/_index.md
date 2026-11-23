@@ -42,7 +42,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/cpp/a
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/cpp/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -197,6 +197,80 @@ for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then calls [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) on the picture frame lock to preserve the crop and restrict further cropping.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto photoBytes = File::ReadAllBytes(u"photo.jpg");
+auto photo = presentation->get_Images()->AddImage(photoBytes);
+
+auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, photo);
+auto pictureFormat = pictureFrame->get_PictureFormat();
+pictureFormat->set_CropLeft(12);
+pictureFormat->set_CropRight(8);
+
+auto pictureFrameLock = pictureFrame->get_PictureFrameLock();
+pictureFrameLock->set_AspectRatioLocked(false);
+pictureFrameLock->set_CropLocked(true);
+
+presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`PictureLocked.pptx` stores the crop lock as `true`. In PowerPoint, the **Crop** command is disabled when the photo is selected.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then calls [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) on the group's lock to keep the diagram's components together. Other edits, such as moving the group or changing a component's fill, remain available.
+
+```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto groupShape = shapes->AddGroupShape();
+auto groupShapes = groupShape->get_Shapes();
+groupShapes->AddAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+groupShapes->AddAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+groupShape->get_GroupShapeLock()->set_UngroupingLocked(true);
+
+presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
 ### **Conclusion**
 
