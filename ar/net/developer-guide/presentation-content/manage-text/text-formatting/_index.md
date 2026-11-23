@@ -18,7 +18,7 @@ keywords:
 - تباعد الأسطر
 - خاصية الملاءمة التلقائية
 - مرساة إطار النص
-- تبويب النص
+- جدولة النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. خصص الخطوط، الألوان، المحاذاة، وأكثر."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET. تغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، التدوير، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، مسافات التاب، وإعدادات اللغة.
+هذا المقال يوضح كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET. يغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، نقاط التبويب، وإعدادات اللغة.
 
-ما لم يُذكر خلاف ذلك، تستخدم الأمثلة الملف [sample.pptx](sample.pptx). الشكل الأول في الشريحة الأولى هو مربع نص، والفقرة الأولى تحتوي على النص المعروض أدناه. كل من مؤشرات الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تختار أجزاءً بالخط العريض تستخدم التنسيق الفعال، بما في ذلك تنسيق الخط العريض الموروث:
+ما لم يذكر غير ذلك، تستخدم الأمثلة [sample.pptx](sample.pptx). الشكل الأول في الشريحة الأولى هو صندوق نص، والفقرة الأولى تحتوي على النص المعروض أدناه. كل من فهارس الشرائح والأشكال تبدأ من الصفر. الأمثلة التي تحدد أجزاء غليظة تستخدم التنسيق الفعّال، بما في ذلك تنسيق الغليظة الموروث:
 
-![نص تجريبي](sample_text.png)
+![نص عينة](sample_text.png)
 
-للعثور على النص الحرفي أو مطابقة التعبير النمطي وتظليله، راجع [بحث واستبدال النص](/slides/ar/net/search-and-replace-text/).
+للعثور على نص حرفي أو مطابقة تعبير نمطي وتظليلها، راجع [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
 
-## **ضبط لون خلفية النص**
+## **تعيين لون خلفية النص**
 
-استخدم [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) لتعيين لون التظليل الافتراضي للفقرة، أو استخدم [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) لأجزاء النص الفردية.
+استخدم [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) لتعيين لون التمييز الافتراضي للفقرة، أو استخدم [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) لأجزاء النص الفردية.
 
-المثال التالي يضبط تظليلًا بالرمادي الفاتح كقيمة افتراضية للفقرة الأولى. ألوان التظليل الصريحة على الأجزاء الفردية لها أولوية أعلى من هذا الإعداد الافتراضي:
+المثال التالي يعيّن تمييز رمادي فاتح كافتراضي للفقرة الأولى. ألوان التمييز الصريحة على الأجزاء الفردية تتفوق على هذا الافتراضي:
 
 ```cs
 using System.Drawing;
@@ -55,15 +55,17 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// تعيين لون التظليل للفقرة بأكملها.
+// ضبط لون التمييز للفقرة بالكامل.
+paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
+
 presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 ```
 
 النتيجة:
 
-![فقرة رمادية](gray_paragraph.png)
+![الفقرة الرمادية](gray_paragraph.png)
 
-المثال البرمجي أدناه يوضح كيفية ضبط لون خلفية **أجزاء النص ذات الخط العريض**:
+الكود أدناه يوضح كيفية تعيين لون الخلفية لـ **أجزاء النص ذات الخط الغليظ**:
 
 ```cs
 using System.Drawing;
@@ -80,7 +82,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // تعيين لون التظليل لجزء النص.
+        // تعيين لون التمييز لجزء النص.
         portion.PortionFormat.HighlightColor.Color = Color.LightGray;
     }
 }
@@ -94,7 +96,7 @@ presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 
 ## **محاذاة فقرات النص**
 
-استخدم [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) لتحديد محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة وسطية، محاذية إلى اليسار، محاذية إلى اليمين، مبررة، وما إلى ذلك.
+استخدم [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، محاذاة إلى اليسار، إلى اليمين، مبررة، وما إلى ذلك.
 
 المثال التالي يوضح كيفية محاذاة الفقرة إلى **الوسط**:
 
@@ -108,7 +110,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// تعيين محاذاة الفقرة إلى الوسط.
+// ضبط محاذاة الفقرة إلى الوسط.
 paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
 presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -120,9 +122,9 @@ presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
 
 ## **محاذاة الخطوط داخل السطر**
 
-استخدم [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) لمحاذاة أجزاء النص ذات أحجام الخط المختلفة عموديًا داخل سطر. ينطبق هذا الإعداد على الفقرة بأكملها ويُتحكم في المحاذاة داخل كل سطر منها.
+استخدم [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) لمحاذاة عمودية لأجزاء النص ذات أحجام خطوط مختلفة داخل سطر. ينطبق هذا الإعداد على الفقرة بأكملها ويتحكم في المحاذاة داخل كل سطر من سطورها.
 
-المثال التالي يُنشئ أربع مربعات نص مُسمّى على شريحة واحدة. كل فقرة تحتوي على نفس النص بحجم 18، 36، و54 نقطة، مع محاذاة خط مختلفة. يستخدم Arial، ويعطل الملاءمة التلقائية واللف، ويحافظ على إطارات النص كبيرة بما يكفي لسطر واحد.
+المثال التالي يخلق أربعة صناديق نص مسماة على شريحة واحدة. كل فقرة تحتوي على نفس النص بحجم 18 و36 و54 نقطة، مع محاذاة خط مختلفة. يستخدم الخط Arial، يعطل الملاءمة التلقائية واللف، ويحافظ على إطارات النص كبيرة بما يكفي لسطر واحد.
 
 ```cs
 using System.Drawing;
@@ -176,17 +178,17 @@ presentation.Save("font_alignment.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![مقارنة بين محاذاة Baseline، Top، Center، وBottom مع أحجام خطوط مختلطة](font_alignment.png)
+![مقارنة محاذاة Baseline وTop وCenter وBottom مع أحجام خطوط مختلطة](font_alignment.png)
 
-محاذاة الخط تعتمد على مقاييس الخط، لذا فإن حواف الأحرف الفردية قد لا تتطابق تمامًا. يتضمن المثال حرفًا كبيرًا وحرفًا أسفليًا لتوضيح الفرق بين محاذاة القاعدة والمحاذاة السفلية. تتأثر النتيجة بتوافر الخطوط والاستبدال، الأحرف المستخدمة، واختلاف أحجام الخطوط. كذلك تؤثر أبعاد الإطار، الهوامش، تباعد السطر، اللف، والملاءمة التلقائية على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند مقارنة الأنماط.
+محاذاة الخط تعتمد على مقاييس الخط، لذلك قد لا تتطابق حواف الحروف الفردية تماماً. يتضمن المثال حرفاً كبيراً وحرفاً هابطاً لتوضيح الفرق بين محاذاة القاعدة والسفلي. تتأثر النتيجة بتوافر الخطوط والاستبدال، الأحرف المستخدمة، واختلاف أحجام الخطوط. أبعاد الإطار، الهوامش، تباعد الأسطر، اللف، والملاءمة التلقائية تؤثر أيضاً على التخطيط؛ استخدم نفس الخطوط وإعدادات التخطيط عند مقارنة الأنماط.
 
-هذا الإعداد يختلف عن [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/)، الذي يتحكم في المحاذاة الأفقية للفقرة، وعن [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/)، الذي يحدد موضع كتلة النص عموديًا داخل الشكل. تنسيق الفوقية والتحتي عبر [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) يَحْوِّل الأجزاء الفردية بالنسبة للقاعدة بدلاً من ضبط محاذاة الخط للسطور.
+هذا الإعداد يختلف عن [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/)، الذي يتحكم في محاذاة الفقرة الأفقية، و[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/)، الذي يحدد موضع كتلة النص عمودياً داخل الشكل. تنسيق الفوقية والسطحية عبر [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) يغير موضع الأجزاء الفردية نسبياً إلى القاعدة بدلاً من تعيين محاذاة الخط لأسطر الفقرة.
 
-## **ضبط الشفافية للنص**
+## **تعيين الشفافية للنص**
 
-تُتحكم شفافية النص من خلال مكوّن ألفا للون المعيّن إلى [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا في نظام ARGB على مقياس 0–255، وليس نسبة شفافية.
+تتحكم شفافية النص عبر مكوّن ألفا للون المعين إلى [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-المثال البرمجي أدناه يوضح كيفية تطبيق الشفافية على **الفقرة بأكملها**:
+الكود أدناه يوضح كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```cs
 using System.Drawing;
@@ -212,7 +214,7 @@ presentation.Save("transparent_paragraph.pptx", SaveFormat.Pptx);
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-المثال التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
+المثال التالي يوضح كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغليظ**:
 
 ```cs
 using System.Drawing;
@@ -244,11 +246,11 @@ presentation.Save("transparent_text_portions.pptx", SaveFormat.Pptx);
 
 ![أجزاء النص الشفافة](transparent_text_portions.png)
 
-## **ضبط تباعد الأحرف للنص**
+## **تعيين تباعد الأحرف للنص**
 
-استخدم [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) لتوسيع أو تقليص التباعد بين الأحرف في مربع نص. تضيف الأمثلة 3 نقاط من التباعد؛ القيم السالبة تقلل التباعد.
+استخدم [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) لتكبير أو تقليص التباعد بين الأحرف في صندوق نص. تضيف الأمثلة 3 نقاط تباعد؛ القيم السالبة تقرّب النص.
 
-الكود C# التالي يوضح كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+الكود C# التالي يوضح كيفية تكبير تباعد الأحرف في **الفقرة بأكملها**:
 
 ```cs
 using Aspose.Slides;
@@ -260,7 +262,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// ملاحظة: استخدم القيم السلبية لضغط تباعد الأحرف.
+// ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
 paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // توسيع تباعد الأحرف.
 
 presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -270,7 +272,7 @@ presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-المثال البرمجي أدناه يوضح كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+الكود أدناه يوضح كيفية تكبير تباعد الأحرف في **أجزاء النص ذات الخط الغليظ**:
 
 ```cs
 using Aspose.Slides;
@@ -286,7 +288,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // ملاحظة: استخدم القيم السلبية لضغط تباعد الأحرف.
+        // ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
         portion.PortionFormat.Spacing = 3;  // توسيع تباعد الأحرف.
     }
 }
@@ -298,11 +300,11 @@ presentation.Save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx);
 
 ![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **تعطيل التقرّب للخطوط المحددة**
+### **تعطيل Kerning للخطوط المحددة**
 
-في بعض الحالات، قد يبدو النص المُنتج بواسطة Aspose.Slides أكثر ضيقًا قليلاً مقارنةً بالنص نفسه في PowerPoint. يحدث هذا لأن PowerPoint قد يتجاهل بيانات التقرّب لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات تقرّب صالحة وكان التقرّب مفعَّلًا في إعدادات PowerPoint.
+في بعض الحالات قد يبدو النص المصدّر بواسطة Aspose.Slides أكثر ضيقاً قليلاً من النص نفسه في PowerPoint. يحدث ذلك لأن PowerPoint قد يتجاهل بيانات kerning لبعض الخطوط، حتى عندما يحتوي الخط على معلومات kerning صالحة وتم تفعيل kerning في إعدادات PowerPoint.
 
-لجعل الناتج أقرب إلى PowerPoint في هذه الحالات، يمكنك تعطيل التقرّب لأجزاء النص التي تستخدم الخط المتأثر. اضبط [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) إلى قيمة أكبر من حجم الخط الفعلي. يتطلب هذا المثال وجود "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يتحقق من أسماء الخطوط الفعّالة، بما فيها الخطوط الموروثة، ويضبط حدًا قدره 100 نقطة للأجزاء التي تستخدم Roboto. هذا يعطل التقرّب للأجزاء التي يكون حجم خطها أقل من 100 نقطة:
+لتقريب المخرجات المصدّرة من عرض PowerPoint في مثل هذه الحالات، يمكنك تعطيل kerning لأجزاء النص التي تستخدم الخط المتأثر. اضبط [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) إلى قيمة أكبر من حجم الخط الفعلي. يتطلب هذا المثال ملف "presentation.pptx" يحتوي على صندوق نص كشكل أول في الشريحة الأولى. يتحقق من أسماء الخطوط الفعّالة، بما في ذلك الخطوط الموروثة، ويضع حدًا بقدره 100 نقطة للأجزاء التي تستخدم Roboto. هذا يعطّل kerning للأجزاء المطابقة التي يقل حجم خطها عن 100 نقطة:
 
 ```cs
 using Aspose.Slides;
@@ -334,13 +336,13 @@ foreach (var paragraph in autoShape.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-بالنسبة للنص المتطابق تحت الحد، يمنع هذا الإعداد التقرّب وقد يساعد على توافق عرض Aspose.Slides مع مظهر PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+بالنسبة للنص المطابق تحت الحد، يمنع هذا الإعداد kerning ويمكن أن يساعد في محاذاة مخرجات Aspose.Slides مع عرض PowerPoint البصري للخطوط المتأثرة بهذا السلوك المحدد لـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
-يمكن ضبط خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/).
+يمكن تعيين خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/).
 
-المثال التالي يضبط الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع تنسيق عريض، مائل، وتسطير منقط. التنسيق الصريح على الأجزاء الفردية له أولوية أعلى من هذه القيم الافتراضية:
+المثال التالي يعين الخط الافتراضي للفقرة الأولى إلى Times New Roman بحجم 12 نقطة مع غليظ، مائل، وتسطير منقط. التنسيق الصريح على الأجزاء الفردية يتفوق على هذه القيم الافتراضية.
 
 ```cs
 using Aspose.Slides;
@@ -367,7 +369,7 @@ presentation.Save("font_properties_for_paragraph.pptx", SaveFormat.Pptx);
 
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-المثال التالي يطبق Times New Roman بحجم 13 نقطة، تنسيق مائل، وتسطير منقط على الأجزاء التي يكون تنسيقها الفعّال عريضًا:
+المثال التالي يطبق Times New Roman بحجم 13 نقطة، تنسيق مائل، وتسطير منقط على الأجزاء التي يكون تنسيقها الفعّال غليظًا:
 
 ```cs
 using Aspose.Slides;
@@ -400,11 +402,11 @@ presentation.Save("font_properties_for_text_portions.pptx", SaveFormat.Pptx);
 
 ## **التحكم في تطبيع ارتفاع النص**
 
-استخدم [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/) عند إعادة إنتاج تخطيط القوالب أو دراسة اختلافات ارتفاع الأحرف. في PowerPoint، تمكين التطبيع يمدد أو يضغط الأحرف عموديًا لتمنحها ارتفاعًا مرئيًا موحدًا داخل جزء النص. لا يضمن ذلك تعادلاً في ارتفاع النص بين الخطوط المختلفة.
+استخدم [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/) عند إعادة إنتاج طباعة القالب أو فحص اختلافات ارتفاع الأحرف. في PowerPoint، يؤدي تمكين التطبيع إلى تمديد أو ضغط الأحرف عمودياً لتمنحها ارتفاعاً ظاهرياً موحداً داخل جزء النص. لا يضمن ذلك تساوي ارتفاع النص عبر خطوط مختلفة.
 
-اضبط الخاصية إلى [NullableBool.True أو False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) لتمكين أو تعطيل التطبيع صراحة. يبقى `NullableBool.NotDefined` دون ضبط محلي، بحيث يرث الجزء قيمتها، مثلاً من [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) للفقرة. لا يعني ذلك `False`. استخدم [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) واقرأ [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/) للحصول على القيمة المنطقية النهائية.
+اضبط الخاصية إلى [NullableBool.True أو False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) لتمكين أو تعطيل التطبيع صراحة. `NullableBool.NotDefined` يترك الإعداد المحلي غير محدد بحيث يرث الجزء قيمته، مثالاً من [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) للفقرة. لا يعني ذلك `False`. استخدم [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) واقرأ [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/) للحصول على القيمة البوليانية المحسوبة.
 
-المثال التفاعلي التالي يتطلب تثبيت **Arial**. يُنشئ كتلتين من النص تحتوي كل منهما على الأحرف الكبيرة، الأحرف الصغيرة، الأحرف الأسفلية، والحروف المشكَّلة بحجم 54 نقطة. تُفعَّل التطبيع افتراضيًا في كلتا الفقرتين. الجزء العلوي يُعطل التطبيع صراحةً؛ الجزء السفلي يرثه. أحجام الإطارات، الهوامش، وتباعد الفقرات متماثلة، مع تعطيل اللف والملاءمة التلقائية للحفاظ على المقارنة ثابتة. يطبع المثال `False: False` و`NotDefined: True`، ثم يُحفظ الملف "text_height_normalization.pptx".
+المثال التالي يتطلب تثبيت **Arial**. يخلق كتلتين نصيتين تحتويان على نفس الأحرف الكبيرة، الصغيرة، الأحرف الهابطة، والحروف ذات اللواحق عند 54 نقطة. تمكّن الفقرتان التطبيع افتراضياً. الجزء العلوي يعطل التطبيع صراحةً؛ الجزء السفلي يرثه. أبعاد الإطار، الهوامش، وتباعد الفقرات متطابقة، مع تعطيل اللف والملاءمة التلقائية للحفاظ على مقارنة ثابتة. يطبع المثال `False: False` و`NotDefined: True`، ثم يحفظ "text_height_normalization.pptx".
 
 ```cs
 using System;
@@ -451,19 +453,19 @@ for (var i = 0; i < settings.Length; i++)
 presentation.Save("text_height_normalization.pptx", SaveFormat.Pptx);
 ```
 
-تم تصدير المقارنة أدناه من العرض المحفوظ. الصف العلوي به تطبيع معطَّل (`False`); الصف السفلي يرث الإعداد المفعَّل (`NotDefined` → `True`). احرص على تثبيت Arial لإعادة إنتاج هذا الشكل.
+المقارنة أدناه تم استخراجها من العرض المحفوظ. الصف العلوي لديه التطبيع معطل (`False`); الصف السفلي يرث الإعداد المفعّل (`NotDefined` → `True`). احرص على تثبيت Arial لتكرار هذه المظهر.
 
-![نص Arial بحجم 54 نقطة مع إيقاف التطبيع أعلاه وتفعيل التطبيع الموروث أدناه](text_height_normalization.png)
+![نص Arial بحجم 54 نقطة مع التطبيع معطل أعلى وموروث مفعّل أسفل](text_height_normalization.png)
 
-التطبيع يغيّر ارتفاع الأحرف دون تعديل قيمة [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) في الفقرة في تباعد الأسطر، بينما يتحكم [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) لإطار النص في كيفية تعديل النص أو حاويته لملاءمة المساحة. هذه الإعدادات تخدم أغراضًا مختلفة وقد تؤثر على التخطيط العام بصورة مستقلة. لمزيد من المعلومات حول تنسيق الفقرات والوراثة، راجع [إدارة الفقرات](/slides/ar/net/manage-paragraph/).
+التطبيع يغيّر ارتفاع الأحرف دون تعديل قيمة [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) المعينة، التي تحدد حجم الخط بالنقاط. يتحكم [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) للفقرة في تباعد الأسطر، بينما يتحكم [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) لإطار النص في كيفية تعديل النص أو حاويته لتناسب. تخدم هذه الإعدادات أغراضاً مختلفة ويمكن أن تؤثر على التخطيط الكلي بصورة مستقلة. لمزيد من المعلومات حول تنسيق الفقرات والوراثة، راجع [Manage Paragraph](/slides/ar/net/manage-paragraph/).
 
 ## **تطبيق وإزالة الخط المشطوب**
 
-استخدم [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) على جزء النص لعرض تصحيحات أو إلغاء مصطلحات أو أسعار سابقة دون حذف النص الأصلي. اضبطه إلى [TextStrikethroughType.Single أو Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/) لسطر واحد أو سطرين عبر النص.
+استخدم [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) على جزء نص لعرض تصحيحات أو مصطلحات ملغاة أو أسعار سابقة دون حذف النص الأصلي. اضبطه إلى [TextStrikethroughType.Single أو Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/) لسطر أو سطرين عبر النص.
 
-لإزالة الخط المشطوب، عيّن `TextStrikethroughType.None`. هذا يُعطِّل التأثير صراحةً، حتى لو كان التنسيق المحيط يحدد خطًا مشطوبًا. على العكس، `TextStrikethroughType.NotDefined` يترك الإعداد المحلي غير معرف، ويسمح للجزء بوراثة التنسيق، مثلاً من الفقرة. ولا يضمن إزالة الخط المشطوب. استخدم [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
+لإزالة الخط المشطوب، عيّن `TextStrikethroughType.None`. هذا يعطل التأثير صراحةً حتى لو كان التنسيق المحيط يحدد الخط المشطوب. بالمقابل، `TextStrikethroughType.NotDefined` يترك الإعداد المحلي غير معرف، مما يسمح للجزء بوراثة التنسيق، مثالاً من الفقرة. لا يضمن ذلك إزالة الخط المشطوب. استخدم [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) لقراءة التنسيق الناتج، بما في ذلك القيم الموروثة.
 
-المثال التفاعلي التالي يُنشئ ثلاث مقارنات أسعار. كل فقرة لها أجزاء منفصلة للملصق، السعر السابق، والسعر الحالي، بحيث يتأثر السعر السابق فقط. الصف الأول يُطبق ثم يُزيل الخط المشطوب؛ الصفوف الأخرى تحتفظ بخط مشطوب واحد أو مزدوج. تغيير هذه الخاصية يحافظ على النص وتنسيقه الآخر، بما في ذلك الخط العريض للسعر السابق.
+المثال التالي يخلق ثلاثة مقارنات أسعار. لكل فقرة أجزاء منفصلة للعلامة، السعر السابق، والسعر الحالي، بحيث يتأثر السعر السابق فقط. الصف الأول يطبق ثم يزيل الخط المشطوب؛ الصفوف الأخرى تحتفظ بخط مشطوب واحد أو مزدوج. تغيير هذه الخاصية يحافظ على النص وتنسيقه الآخر، بما في ذلك غليظ السعر السابق.
 
 ```cs
 using System.Drawing;
@@ -504,7 +506,7 @@ foreach (var label in labels)
 
 var paragraphs = shape.TextFrame.Paragraphs;
 
-// تطبيق الخط المشطوب، ثم إزالته صراحةً من السعر السابق الأول.
+// تطبيق خط مشطوب، ثم إزالته صراحةً من السعر السابق الأول.
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Single;
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.None;
 
@@ -514,15 +516,15 @@ paragraphs[2].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughTyp
 presentation.Save("strikethrough.pptx", SaveFormat.Pptx);
 ```
 
-النتيجة، من الأعلى إلى الأسفل: بدون خط مشطوب، بخط مشطوب واحد، وبخط مشطوب مزدوج.
+النتيجة، من الأعلى إلى الأسفل: بدون خط مشطوب، خط مشطوب واحد، وخط مشطوب مزدوج.
 
 ![الأسعار السابقة بدون خط مشطوب، بخط مشطوب واحد، وبخط مشطوب مزدوج](strikethrough.png)
 
-## **ضبط دوران النص**
+## **تعيين دوران النص**
 
-استخدم [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) لتحديد اتجاه نص مسبق داخل شكل.
+استخدام [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) لتعيين اتجاه نص مسبق داخل شكل.
 
-المثال التالي يضبط اتجاه النص في الشكل إلى [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/)، مما يدور النص **90 درجة عكس عقارب الساعة**:
+المثال التالي يعيّن اتجاه النص في الشكل إلى [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/)، والذي يدور النص **90 درجة عكس عقارب الساعة**:
 
 ```cs
 using Aspose.Slides;
@@ -541,11 +543,59 @@ presentation.Save("text_rotation.pptx", SaveFormat.Pptx);
 
 ![دوران النص](text_rotation.png)
 
-## **ضبط دوران مخصص لإطارات النص**
+## **عرض الأرقام جنباً إلى جنب في النص العمودي**
 
-استخدم [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) لتحديد زاوية دوران مخصصة لإطار نصي عبر [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
+لإبقاء رقم مكوّن من رقمين معاً في تسمية يابانية عمودية، ضع كلا الرقمان في جزء نص واحد واضبط [IBasePortionFormat.Kumimoji](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kumimoji/) على ذلك الجزء. يستخدم المثال [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/) وخط MS Gothic بحجم 40 نقطة لكل من التسمية. يختلف فقط قيمة [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) المعينة للجزء الرقمي.
 
-المثال البرمجي أدناه يدور إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+AddLabel(slide, 120, NullableBool.True);
+AddLabel(slide, 360, NullableBool.False);
+
+presentation.Save("vertical_date.pptx", SaveFormat.Pptx);
+
+static void AddLabel(ISlide slide, float x, NullableBool kumimoji)
+{
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, 48, 120, 420);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var frame = label.AddTextFrame("");
+    frame.TextFrameFormat.TextVerticalType = TextVerticalType.EastAsianVertical;
+
+    var paragraph = frame.Paragraphs[0];
+    var format = paragraph.ParagraphFormat.DefaultPortionFormat;
+    var font = new FontData("MS Gothic");
+    format.LatinFont = font;
+    format.EastAsianFont = font;
+    format.FontHeight = 40;
+    format.FillFormat.FillType = FillType.Solid;
+    format.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var digits = new Portion("12");
+    digits.PortionFormat.Kumimoji = kumimoji;
+    
+    paragraph.Portions.Clear();
+    paragraph.Portions.Add(new Portion("令和"));
+    paragraph.Portions.Add(digits);
+    paragraph.Portions.Add(new Portion("年"));
+}
+```
+
+في PowerPoint، تُظهر التسمية اليسرى (`True`) الأرقام في وضعية رأسية وجانبية بين 和 و 年. في التسمية اليمنى (`False`)، يتم تدوير الزوج 90 درجة باتجاه عقارب الساعة. الأحرف اليابانية المحيطة تظل رأسية في كلتا التسميتين.
+
+![مقارنة PowerPoint لتسميات التاريخ العمودية بأرقام رأسية على اليسار وأرقام مائلة على اليمين.](vertical_date.png)
+
+## **تعيين دوران مخصص لإطارات النص**
+
+استخدم [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) لتعيين زاوية دوران مخصصة لـ [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
+
+الكود أدناه يدور إطار النص 3 درجات باتجاه عقارب الساعة داخل الشكل:
 
 ```cs
 using Aspose.Slides;
@@ -564,14 +614,14 @@ presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 
 ![دوران النص المخصص](custom_text_rotation.png)
 
-## **ضبط تباعد الأسطر للفقرات**
+## **تعيين تباعد الأسطر للفقرات**
 
-توفر Aspose.Slides الخصائص [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/)، [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/)، و[IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كما يلي:
+توفر Aspose.Slides الخصائص [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/)، [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/)، و[IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) للتحكم في تباعد الفقرات. تُستعمل هذه الخصائص كما يلي:
 
-* استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
-* استخدم قيمة سالبة لتحديد تباعد السطر بنقاط.
+* استخدم قيمة موجبة لتحديد تباعد الأسطر كنسبة مئوية من ارتفاع السطر.
+* استخدم قيمة سالبة لتحديد تباعد الأسطر بالنقاط.
 
-المثال التالي يضبط التباعد داخل الفقرة الأولى إلى 200 % من ارتفاع السطر (تباعد مزدوج):
+المثال التالي يعيّن التباعد داخل الفقرة الأولى إلى 200٪ من ارتفاع السطر (تباعد مزدوج):
 
 ```cs
 using Aspose.Slides;
@@ -590,18 +640,18 @@ presentation.Save("line_spacing.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![تباعد السطر داخل الفقرة](line_spacing.png)
+![تباعد الأسطر داخل الفقرة](line_spacing.png)
 
-## **التحكم في كسر السطر**
+## **التحكم في تقطيع الأسطر**
 
-قواعد كسر سطر الفقرة مفيدة في كتل نصية ضيقة وعروض تقديمية تمزج بين النص اللاتيني والآسيوي الشرقي. الخصائص التالية تنتمي إلى [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/)، لذا فهي تُطبق على الفقرة بأكملها:
+قواعد تقطيع أسطر الفقرة مفيدة في كتل نصية ضيقة وعروض تمزج بين النص اللاتيني والنص الشرقي الآسيوي. تنتمي الخصائص التالية إلى [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/)، لذا فهي تطبق على الفقرة بأكملها:
 
-- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) يتحكم في قواعد كسر السطر للغة اللاتينية. في النص المختلط، قد يؤدي تغييره أيضًا إلى تعديل مواضع النص والحدود الشرقية الآسيوية وعلامات الترقيم المجاورة.
-- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) يتحكم في قواعد كسر السطر للآسيوية الشرقية، بما فيها القيود على الأحرف في بداية ونهاية السطر.
+- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) يتحكم في قواعد تقطيع الأسطر للخط اللاتيني. في النص المختلط، قد يغيّر ذلك موضع النص الشرقي الآسيوي وعلامات الترقيم المجاورة.
+- [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) يتحكم في قواعد تقطيع الأسطر للخط الشرقي الآسيوي، بما في ذلك القيود على الأحرف في بداية ونهاية السطر.
 
-هذه القواعد لا تستبدل [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/)، الذي يُفعِّل اللف التلقائي داخل إطار النص. إنها تؤثر على التخطيط عندما يحدث اللف؛ لا تُدرج أحرف كسر سطر. كسر سطر صريح يُدخل سطرًا جديدًا داخل الفقرة بغض النظر عن العرض المتاح.
+هذه القواعد لا تحل محل [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/)، الذي يفعّل اللف التلقائي داخل إطار النص. هي تؤثر على التخطيط عندما يحدث اللف؛ لا تُدرج أحرف قطع سطر. إدخال صريح لسطر جديد يفرض سطرًا جديدًا داخل الفقرة بغض النظر عن العرض المتاح.
 
-المثال التفاعلي التالي يُنشئ كتلة نصية ضيقة تحتوي على نص صيني ولاتيني. يضبط كلا خاصيتي كسر السطر صراحةً ويحفظ الملف "line_breaking.pptx". لتجربة أي قاعدة، غير قيمة الخاصية المعنية مع إبقاء الإعدادات الأخرى ثابتة. يستخدم المثال Arial بحجم 24 نقطة وSimSun، بعرض إطار 160 نقطة ولا هوامش أفقية لإطار النص. يتم ضبط [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) إلى [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) بحيث يبقى حجم النص وأبعاد الإطار ثابتين.
+المثال التالي يخلق كتلة نصية ضيقة تحتوي على نص صيني ولاتيني. يضبط كلا خاصيتي تقطيع الأسطر صراحةً ويحفظ "line_breaking.pptx". لتجربة أي قاعدة، غيّر قيمة الخاصية مع إبقاء الأخرى ثابتة. يستخدم المثال خط Arial بحجم 24 نقطة وSimSun، وعرض إطار 160 نقطة وهوامش أفقية صفرية. يُعيّن [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) إلى [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) لضمان بقاء حجم النص وأبعاد الإطار ثابتين.
 
 ```cs
 using System.Drawing;
@@ -636,11 +686,11 @@ format.EastAsianLineBreak = NullableBool.True;
 presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 ```
 
-## **التحكم في علامات الترقيم المعلقة**
+## **التحكم في علامات الترقيم المتدلية**
 
-يتيح [IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) للعلامات الترقيمية المؤهلة أن تمتد إلى ما وراء الحافة اليمنى لسطر النص بدلاً من احتلال السطر التالي. ينطبق هذا على الفقرة بأكملها وهو مختلف عن الإزاحة المعلقة.
+يتيح [IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) للعلامات الترقيمية المؤهلة أن تمتد إلى ما بعد حافة السطر الأيمن بدلًا من الانتقال إلى السطر التالي. ينطبق على الفقرة بأكملها ويختلف عن الهوامش المتدلية.
 
-المثال التفاعلي التالي يُفعِّل علامات الترقيم المعلقة في إطار نص عرضه 100 نقطة ويحفظ الملف "hanging_punctuation.pptx". باستخدام Arial بحجم 24 نقطة ولا هوامش أفقية لإطار النص، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد إلى ما وراء حافة النص اليمنى. اضبط الخاصية إلى [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) للمقارنة: مع هذه الإعدادات، تحتل النقطة سطرًا منفصلًا. يتم تمكين اللف وتعطيل الملاءمة التلقائية للحفاظ على عرض ثابت.
+المثال التالي يُفعّل علامات الترقيم المتدلية في إطار نص عرضه 100 نقطة ويحفظ "hanging_punctuation.pptx". مع Arial بحجم 24 نقطة وهوامش أفقية صفرية، يبقى النقطة النهائية بعد كلمة "sentence" وتمتد إلى ما بعد حافة النص اليمنى. اضبط الخاصية إلى [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) للمقارنة: مع هذه الإعدادات، تشغل النقطة سطرًا منفصلًا. تم تفعيل اللف وتعطيل الملاءمة التلقائية للحفاظ على عرض ثابت.
 
 ```cs
 using System.Drawing;
@@ -673,11 +723,11 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-ليس كل علامة ترقيم يمكن أن تُعلق. تنطبق أيضًا [الظروف المتعلقة بالخط والتخطيط المذكورة أعلاه](#control-line-breaking): تغيير الخط، العرض المتاح، الهوامش، أو إعدادات الملاءمة التلقائية قد يزيل الفرق المرئي.
+ليس كل علامة ترقيم يمكن أن تتدلى. تنطبق [شروط الخط والتخطيط الموضحة أعلاه](#control-line-breaking) على هذه المقارنة أيضًا: تغيير الخط أو العرض المتاح أو الهوامش أو إعدادات الملاءمة قد يزيل الفرق المرئي.
 
-## **ضبط نوع الملاءمة التلقائية لإطارات النص**
+## **تعيين نوع الملاءمة التلقائية لإطارات النص**
 
-يحدد [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) سلوك النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص يُصغر، يتجاوز، أو يُعيد تحجيم الشكل تلقائيًا. المثال التالي يُعدِّل الشكل لإعادة تحجيمه ليتناسب مع النص ويحفظ النتيجة في "autofit_type.pptx".
+يحدد [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص ينكمش، يتجاوز، أو يعيد تحجيم الشكل تلقائيًا. المثال التالي يضبط الشكل لإعادة تحجيمه ليتناسب مع النص ويحفظ النتيجة إلى "autofit_type.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -692,11 +742,11 @@ autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-لحساب عدد الأسطر بعد اللف التلقائي ورؤية كيف يتغيّر عرض النص أو الشكل، راجع [Count Rendered Lines](/slides/ar/net/manage-paragraph/). عدد الأسطر وحده لا يُظهر ما إذا كان النص يتجاوز الحاوية.
+لحساب عدد الأسطر بعد اللف التلقائي ورؤية كيف يتغير عرض النص أو الشكل، راجع [Count Rendered Lines](/slides/ar/net/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز حاويته.
 
-## **ضبط مرساة إطارات النص**
+## **تعيين مرساة إطارات النص**
 
-يُعرّف [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) كيفية وضع النص عموديًا داخل الشكل، مثلًا في الأعلى، الوسط، أو الأسفل. المثال التالي يضع مرساة النص في أسفل الشكل الأول ويحفظ النتيجة في "text_anchor.pptx".
+يحدد [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) كيفية تموضع النص عمودياً داخل الشكل، مثلاً في الأعلى أو الوسط أو الأسفل. المثال التالي يرسخ النص إلى أسفل الشكل الأول ويحفظ النتيجة إلى "text_anchor.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -711,9 +761,9 @@ autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 ```
 
-## **ضبط تبويب النص**
+## **تعيين الجدولة النصية**
 
-استخدم [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) و[IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) لتكوين مسافات التاب في الفقرة. المثال التالي يضبط الفاصل الافتراضي للتاب إلى 100 نقطة ويضيف فاصلًا إلى اليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف تاب.
+استخدم [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) و[IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) لتكوين علامات التبويب في فقرة. المثال التالي يعيّن الفاصل الافتراضي للتاب إلى 100 نقطة ويضيف علامة تبويب محاذية إلى اليسار عند 30 نقطة. تؤثر هذه الإعدادات على النص الذي يحتوي على أحرف تبويب.
 
 ```cs
 using Aspose.Slides;
@@ -732,13 +782,13 @@ presentation.Save("paragraph_tabs.pptx", SaveFormat.Pptx);
 
 النتيجة:
 
-![علامات التاب في الفقرة](paragraph_tabs.png)
+![علامات التبويب للفقرة](paragraph_tabs.png)
 
-## **ضبط لغة التدقيق**
+## **تعيين لغة التدقيق**
 
-توفر Aspose.Slides الخاصية [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/)، التي تُتيح لك تعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الأخطاء الإملائية والنحوية في PowerPoint.
+توفر Aspose.Slides الخاصية [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/)، التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والنحو في PowerPoint.
 
-المثال التالي يتطلب وجود "presentation.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتوى الفقرة الأولى بـ "1。"، يضبط SimSun كخط لها، ويعيّن لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة في "proofing_language.pptx":
+المثال التالي يتطلب "presentation.pptx" يحتوي على صندوق نص كشكل أول في الشريحة الأولى وعلى الأقل فقرة واحدة. يستبدل محتويات الفقرة الأولى بـ "1。" ويعيّن SimSun كخط لها، ويحدد لغة التدقيق الصينية المبسطة (`zh-CN`). يحفظ النتيجة إلى "proofing_language.pptx":
 
 ```cs
 using Aspose.Slides;
@@ -769,7 +819,7 @@ presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 
 ### **نسخ بيانات اللغة الوصفية**
 
-عند نسخ نص متعدد اللغات من قالب، احفظ كلًا من [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) و[IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/). المثال التفاعلي التالي يُنشئ جزءًا مصدرًا باللغة الإنجليزية الأمريكية كلغته الأساسية والفرنسية كلغته البديلة، وينسخ النص والمعرفات إلى جزء في عرض تقديمي جديد.
+عند نسخ نص متعدد اللغات من قالب، احفظ كل من [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) و[IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/). المثال التالي يخلق جزء مصدر بلغة الإنجليزية الأمريكية كلغة أساسية ولغة فرنسية كلغة بديلة، وينسخ النص والمعرفات إلى جزء في عرض تقديمي جديد.
 
 ```cs
 using Aspose.Slides;
@@ -789,20 +839,20 @@ paragraph.Portions.Clear();
 var destination = new Portion();
 destination.Text = source.Text;
 destination.PortionFormat.LanguageId = source.PortionFormat.LanguageId;
-// إذا لم يكن للمصدر لغة بديلة، فإن null يمسح قيمة الوجهة.
+    // إذا لم يحتوي المصدر على لغة بديلة، فإن null يمسح قيمة الوجهة.
 destination.PortionFormat.AlternativeLanguageId = source.PortionFormat.AlternativeLanguageId;
 paragraph.Portions.Add(destination);
 
 presentation.Save("copied_language_metadata.pptx", SaveFormat.Pptx);
 ```
 
-لتجربة مصدر بدون لغة بديلة، احذف تعيين `"fr-FR"`. يصبح المعرف البديل `null`، ويحافظ بيان النسخ نفسه على عدم وجوده دون إدخال قيمة افتراضية، حتى لو كان الوجهة يحتوي مسبقًا على لغة بديلة مُعيَّنة.
+لتجربة مصدر بدون لغة بديلة، احذف تعيين `"fr-FR"`. يصبح المعرف البديل `null`، ويحافظ بيان النسخ نفسه على عدم وجوده دون إدخال قيمة افتراضية، حتى لو كان الوجهة قد عيّن لغة بديلة مسبقاً.
 
-هذه المعرفات تُخزّن بيانات اللغة الوصفية. الحفاظ عليها لا يحدِّد القاموس الذي يختاره PowerPoint للتدقيق الإملائي أو النحوي.
+هذه المعرفات تُخزن بيانات لغة وصفية. حفظها لا يحدد أي قاموس يختاره PowerPoint لتدقيق الإملاء أو النحو.
 
-## **ضبط اللغة الافتراضية**
+## **تعيين اللغة الافتراضية**
 
-استخدم [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) لتعريف اللغة الافتراضية للنص المُنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي يُنشئ عرضًا بلغة النص الافتراضية الإنجليزية الأمريكية، يضيف مربع نص، ويطبع `en-US` لأول جزء نصي فيه.
+استخدم [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي. المثال التالي يخلق عرضًا تقديميًا باللغة الإنجليزية الأمريكية كلغة نص افتراضية، يضيف صندوق نص، ويطبع `en-US` للجزء النصي الأول.
 
 ```cs
 using System;
@@ -814,7 +864,7 @@ loadOptions.DefaultTextLanguage = "en-US";
 using var presentation = new Presentation(loadOptions);
 var slide = presentation.Slides[0];
 
-// أضف شكلاً مستطيلاً جديدًا مع نص.
+// إضافة شكل مستطيل جديد مع نص.
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
 shape.TextFrame.Text = "Sample text";
 
@@ -823,18 +873,18 @@ var portion = shape.TextFrame.Paragraphs[0].Portions[0];
 Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
-## **ضبط نمط النص الافتراضي**
+## **تعيين نمط النص الافتراضي**
 
 لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-المثال التالي يضبط خطًا عريضًا بحجم 14 نقطة كقيمة افتراضية للفقرات العليا في عرض تقديمي جديد ويحفظه في "default_text_style.pptx". يمكن للنص وراثة هذه القيم الافتراضية ما لم يتجاوزها تنسيق أكثر تحديدًا.
+المثال التالي يعيّن خطًا غليظًا بحجم 14 نقطة كافتراضي للفقرات العليا في عرض تقديمي جديد، ويحفظه إلى "default_text_style.pptx". يمكن للنص أن يرث هذه القيم الافتراضية ما لم يتجاوزها تنسيق أكثر تحديدًا.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-// احصل على تنسيق الفقرة من المستوى العلوي.
+// احصل على تنسيق الفقرة في المستوى العلوي.
 var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
 if (paragraphFormat != null)
@@ -846,15 +896,15 @@ if (paragraphFormat != null)
 presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **استخراج النص مع تأثير الحروف الكبيرة كلها**
+## **استخراج النص مع تأثير الأحرف الكبيرة كلها**
 
-في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله بالضبط. لمطابقة النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) وحوِّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
+في PowerPoint، يُظهر تطبيق تأثير الخط **All Caps** النص بأحرف كبيرة على الشريحة حتى لو كُتب أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) وحوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
-يتطلب هذا المثال وجود "sample2.pptx" يحتوي على مربع نص كأول شكل في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
+المثال التالي يتطلب "sample2.pptx" يحتوي على صندوق نص كشكل أول في الشريحة الأولى. يحتوي الجزء الأول من الفقرة الأولى على "Hello, Aspose!" مع تطبيق تأثير All Caps، كما هو موضح أدناه.
 
 ![تأثير All Caps](all_caps_effect.png)
 
-المثال البرمجي أدناه يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+الكود أدناه يوضح كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```cs
 using System;
@@ -876,21 +926,21 @@ if (textFormat.TextCapType == TextCapType.All)
 }
 ```
 
-المخرجات:
+الإخراج:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني تعديل النص في جدول على شريحة؟**
+**كيف يمكن تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). تَجول عبر الخلايا وقم بتحديث كل خلية عبر [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) وتنسيق الفقرات عبر [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
+لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) وتنسيق الفقرة عبر [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
 
-**كيف يمكنني تطبيق لون متدرج على النص في شريحة PowerPoint؟**
+**كيف يمكن تطبيق لون متدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج على النص، استخدم [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). اضبط [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) إلى [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) وُConfigure نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون متدرج على النص، استخدم [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). اضبط [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) إلى [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) وكمّن نقاط التدرج، الاتجاه، والشفافية.
 
-ميزة ذات صلة: [تنسيق النص داخل الشرائح](/slides/ar/features/text-formatting/).
+الميزة ذات الصلة: [Format text within slides](/slides/ar/features/text-formatting/).

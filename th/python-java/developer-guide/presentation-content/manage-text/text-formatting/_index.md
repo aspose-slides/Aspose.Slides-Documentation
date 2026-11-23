@@ -1,5 +1,5 @@
 ---
-title: รูปแบบข้อความงานนำเสนอใน Python ผ่าน Java
+title: จัดรูปแบบข้อความการนำเสนอใน Python ผ่าน Java
 linktitle: การจัดรูปแบบข้อความ
 type: docs
 weight: 50
@@ -8,41 +8,41 @@ keywords:
 - จัดย่อหน้า
 - สไตล์ข้อความ
 - พื้นหลังข้อความ
-- ความโปร่งแสงของข้อความ
-- ระยะห่างระหว่างตัวอักษร
-- คุณสมบัติฟอนต์
-- ตระกูลฟอนต์
+- ความโปร่งใสของข้อความ
+- ระยะห่างอักขระ
+- คุณสมบัติกำหนดแบบฟอนต์
+- กลุ่มฟอนต์
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
 - ระยะห่างบรรทัด
-- คุณสมบัติ autofit
-- จุดยึดกรอบข้อความ
-- การตั้งค่าตารางแท็บข้อความ
-- ภาษาเริ่มต้น
+- คุณสมบัติ Autofit
+- ตำแหน่งยึดกรอบข้อความ
+- การตั้งค่าแท็บข้อความ
+- ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Python ผ่าน Java ปรับแต่งฟอนต์, สี, การจัดตำแหน่ง, และอื่น ๆ"
+description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Python ผ่าน Java ปรับแต่งฟอนต์ สี การจัดแนว และอื่น ๆ อีกมากมาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides for Python via Java ครอบคลุมสีพื้นหลัง, ความโปร่งแสง, การเว้นวรรคระหว่างอักขระ, คุณสมบัติของฟอนต์, การหมุน, การเว้นบรรทัดของย่อหน้า, พฤติกรรม autofit, การยึดข้อความ, การตั้งค่าตำแหน่งแท็บ, และการตั้งค่าภาษา
+บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python via Java รวมถึงสีพื้นหลัง, ความโปร่งใส, การเว้นระยะห่างอักขระ, คุณสมบัติกำหนดแบบอักษร, การหมุน, การเว้นบรรทัด, พฤติกรรม autofit, การยึดข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา
 
-หากไม่ได้ระบุเป็นอย่างอื่น ตัวอย่างจะใช้ [sample.pptx](sample.pptx). รูปร่างแรกบนสไลด์แรกเป็นกล่องข้อความ และย่อหน้าแรกของมันมีข้อความที่แสดงด้านล่าง ดัชนีของสไลด์และรูปทรงเริ่มจากศูนย์ ตัวอย่างที่เลือกส่วนที่เป็นหน uses formatting แบบมีผลรวม, รวมถึงการจัดรูปแบบหนที่สืบทอดมา:
+ยกเว้นกรณีที่ระบุเป็นอย่างอื่น ตัวอย่างจะใช้ [sample.pptx](sample.pptx). รูปทรงแรกบนสไลด์แรกเป็นกล่องข้อความ และย่อหน้าแรกของมันมีข้อความที่แสดงด้านล่าง ดัชนีของสไลด์และรูปทรงใช้เลขฐานศูนย์ ตัวอย่างที่เลือกส่วนที่เป็นตัวหนาจะใช้การจัดรูปแบบที่มีผลรวมรวมถึงการสืบทอดการทำให้เป็นตัวหนา:
 
-![Sample text](sample_text.png)
+![ข้อความตัวอย่าง](sample_text.png)
 
-เพื่อค้นหาและไฮไลท์ข้อความตามตัวอักษรหรือผลการจับคู่ด้วย regular-expression ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/python-java/search-and-replace-text/).
+เพื่อค้นหาและเน้นข้อความตามตัวอักษรหรือการจับคู่แบบ regular-expression ดูที่ [Search and Replace Text](/slides/th/python-java/search-and-replace-text/).
 
-## **ตั้งค่าสีพื้นหลังของข้อความ**
+## **กำหนดสีพื้นหลังของข้อความ**
 
-ใช้ [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อกำหนดสีไฮไลท์เริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อกำหนดสีพื้นหลังเริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความแต่ละส่วน
 
-ตัวอย่างต่อไปนี้กำหนดไฮไลท์สีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก สีไฮไลท์ที่ระบุโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าดีฟอลต์นี้:
+ตัวอย่างต่อไปนี้กำหนดสีไฮไลท์สีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก สีไฮไลท์ที่ระบุบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นนี้:
 
 ```python
 import jpype
@@ -61,7 +61,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # ตั้งค่าสีไฮไลท์สำหรับย่อหน้าโดยทั้งหมด.
+    # ตั้งค่าสีไฮไลท์สำหรับย่อหน้าเต็ม
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx)
@@ -71,16 +71,16 @@ finally:
 
 ผลลัพธ์:
 
-![ย่อหน้าสีเทา](gray_paragraph.png)
+![ย่อหน้าเทา](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างสาธิตวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่เป็นตัวหนา**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpause.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 from java.awt import Color
@@ -106,11 +106,11 @@ finally:
 
 ![ส่วนข้อความสีเทา](gray_text_portions.png)
 
-## **จัดตำแหน่งย่อหน้าข้อความ**
+## **จัดแนวย่อหน้าข้อความ**
 
-ใช้ [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) เพื่อกำหนดการจัดแนวย่อหน้าในกรอบข้อความ ค่าอาจเป็น การจัดกึ่งกลาง, จัดซ้าย, จัดขวา, แนวนอนเต็ม (justified) เป็นต้น
+ใช้ [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) เพื่อกำหนดการจัดแนวของย่อหน้าภายในกรอบข้อความ ค่าที่กำหนดสามารถเป็น centered, left-aligned, right-aligned, justified ฯลฯ
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดแนวย่อหน้าให้อยู่ที่ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดแนวย่อหน้าให้ **อยู่กึ่งกลาง**:
 
 ```python
 import jpype
@@ -128,7 +128,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # ตั้งค่าการจัดแนวของย่อหน้าให้ศูนย์กลาง.
+    # ตั้งค่าการจัดแนวของย่อหน้าให้กึ่งกลาง.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center)
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx)
@@ -138,13 +138,13 @@ finally:
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดแนว](aligned_paragraph.png)
+![ย่อหน้าที่จัดแนกกึ่งกลาง](aligned_paragraph.png)
 
-## **จัดแนวฟอนต์ภายในบรรทัด**
+## **จัดแนวอักขระในบรรทัด**
 
-ใช้ [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) เพื่อจัดแนวแนวตั้งของส่วนข้อความที่มีขนาดฟอนต์ต่างกันภายในบรรทัด การตั้งค่านี้ใช้กับย่อหน้าทั้งหมดและควบคุมการจัดแนวภายในแต่ละบรรทัดของมัน
+ใช้ [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) เพื่อจัดแนวแนวตั้งของส่วนข้อความที่มีขนาดอักษรต่างกันในบรรทัดเดียว การตั้งค่านี้ใช้กับย่อหน้าทั้งหมดและควบคุมการจัดแนวภายในแต่ละบรรทัดของย่อหน้า
 
-ตัวอย่างที่เป็นอิสระต่อไปนี้สร้างกล่องข้อความที่มีป้ายกำหนดสี่กล่องบนสไลด์หนึ่ง แต่ละย่อหน้ามีข้อความเดียวกันที่ขนาด 18, 36, และ 54 จุด โดยมีการจัดแนวฟอนต์ที่แตกต่างกัน ใช้ Arial ปิดการทำ autofit และการตัดบรรทัด และทำให้กรอบข้อความใหญ่พอสำหรับบรรทัดเดียว
+ตัวอย่างต่อไปนี้สร้างกล่องข้อความที่มีการระบุชื่อสี่กล่องบนสไลด์เดียว แต่ละย่อหน้ามีข้อความเดียวกันที่ขนาด 18, 36 และ 54 pt โดยใช้การจัดแนวอักษรที่แตกต่างกัน ใช้ Arial ปิดการทำ autofit และการตัดบรรทัด และทำให้กรอบข้อความใหญ่พอที่จะใส่บรรทัดเดียวได้:
 
 ```python
 import jpype
@@ -204,20 +204,20 @@ finally:
 
 ผลลัพธ์:
 
-![เปรียบเทียบการจัดแนวฟอนต์ Baseline, Top, Center, Bottom กับขนาดฟอนต์หลากหลาย](font_alignment.png)
+![การเปรียบเทียบการจัดแนว Baseline, Top, Center, Bottom กับขนาดอักษรผสม](font_alignment.png)
 
-การจัดแนวฟอนต์ใช้เมตริกของฟอนต์ ดังนั้นขอบมองเห็นของอักษรแต่ละตัวอาจไม่ตรงกันอย่างแม่นยำ ตัวอย่างรวมอักษรพิมพ์ใหญ่และตัวลงล่างเพื่อแสดงความแตกต่างระหว่างการจัดแนว baseline và bottom ความพร้อมใช้งานและการแทนที่ฟอนต์, ตัวอักษรที่ใช้, และความแตกต่างของขนาดฟอนต์ส่งผลต่อผลลัพธ์ ขนาดกรอบ, ระยะขอบ, การเว้นบรรทัด, การตัดบรรทัด, และ autofit ยังมีผลต่อการจัดวาง; ใช้ฟอนต์และการตั้งค่าการจัดวางเดียวกันเมื่อต้องการเปรียบเทียบโหมด
+การจัดแนวอักษรใช้เมทริกซ์ของฟอนต์ ดังนั้นขอบเขตที่มองเห็นของตัวอักษรแต่ละตัวอาจไม่ตรงกันอย่างแม่นยำ ตัวอย่างรวมอักษรพิมพ์ใหญ่และอักษรที่มีส่วนล่าง (descender) เพื่อแสดงความแตกต่างระหว่าง baseline กับ bottom การใช้ฟอนต์และการทดแทนฟอนต์ ตัวอักษรที่ใช้ และความแตกต่างของขนาดฟอนต์จะส่งผลต่อผลลัพธ์ ความกว้างของกรอบ, ระยะขอบ, ระยะห่างระหว่างบรรทัด, การตัดบรรทัดและ autofit ก็มีผลต่อการจัดวางเช่นกัน; ควรใช้ฟอนต์และการตั้งค่าเลย์เอาต์เดียวกันเมื่อต้องการเปรียบเทียบโหมด
 
-การตั้งค่านี้แตกต่างจาก [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), ซึ่งควบคุมการจัดแนวย่อหน้าแบบแนวนอน, และ [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType), ซึ่งกำหนดตำแหน่งบล็อกข้อความในแนวตั้งภายในรูปร่าง การจัดรูปแบบตัวอักษรยกกำลังและตัวอักษรยกล่างผ่าน [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) จะย้ายส่วนข้อความแต่ละส่วนสัมพันธ์กับ baseline แทนการตั้งค่าการจัดแนวฟอนต์สำหรับบรรทัดของย่อหน้า
+การตั้งค่านี้แตกต่างจาก [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) ซึ่งควบคุมการจัดแนวแนวนอนของย่อหน้า, และ [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) ที่กำหนดตำแหน่งบล็อกข้อความในแนวตั้งภายในรูปร่าง การจัดแนวตัวอักษรยกเว้นและตัวอักษรยกกำลังล่างโดยใช้ [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) จะย้ายส่วนข้อความแต่ละส่วนสัมพันธ์กับ baseline แทนการตั้งค่าการจัดแนวฟอนต์สำหรับบรรทัดของย่อหน้า
 
-## **ตั้งค่าความโปร่งแสงสำหรับข้อความ**
+## **กำหนดความโปร่งใสของข้อความ**
 
-ความโปร่งแสงของข้อความถูกควบคุมโดยส่วน alpha ของสีที่กำหนดให้กับ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). ในตัวอย่างด้านล่าง `alpha = 50` คือค่าช่อง alpha ของ ARGB บนสเกล 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งแสง
+ความโปร่งใสของข้อความควบคุมโดยส่วนประกอบ alpha ของสีที่กำหนดให้กับ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) ในตัวอย่างด้านล่าง `alpha = 50` คือค่าช่อง alpha ของ ARGB ในช่วง 0–255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งแสงกับ **ย่อหน้าทั้งหมด**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าเต็ม**:
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -236,7 +236,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # ตั้งค่าสีเติมของข้อความเป็นสีโปร่งแสง.
+    # ตั้งค่าสีเติมของข้อความเป็นสีโปร่งใส.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -247,9 +247,9 @@ finally:
 
 ผลลัพธ์:
 
-![ย่อหน้าที่โปร่งแสง](transparent_paragraph.png)
+![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งแสงกับ **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่เป็นตัวหนา**:
 
 ```python
 import jpype
@@ -273,7 +273,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # ตั้งค่าความโปร่งแสงของส่วนข้อความ.
+            # ตั้งค่าความโปร่งใสของส่วนข้อความ.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -284,20 +284,20 @@ finally:
 
 ผลลัพธ์:
 
-![ส่วนข้อความที่โปร่งแสง](transparent_text_portions.png)
+![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
 
-## **ตั้งค่าการเว้นระยะอักขระสำหรับข้อความ**
+## **กำหนดระยะห่างระหว่างอักขระของข้อความ**
 
-ใช้ [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) เพื่อขยายหรือย่อตัวอักษรระหว่างตัวอักษรในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 จุด; ค่าลบจะทำให้ข้อความบีบอัด
+ใช้ [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) เพื่อขยายหรือยุบระยะห่างระหว่างอักขระในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 pt; ค่าติดลบจะทำให้ข้อความบีบแน่น
 
-โค้ด Python ต่อไปนี้แสดงวิธีขยายการเว้นระยะอักขระใน **ย่อหน้าทั้งหมด**:
+โค้ด Python ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าเต็ม**:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpase.isJVMStarted():
-    jpase.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
@@ -308,8 +308,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดการเว้นระยะอักขระ.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # ขยายการเว้นระยะอักขระ.
+    # หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # ขยายระยะห่างอักขระ.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -318,9 +318,9 @@ finally:
 
 ผลลัพธ์:
 
-![การเว้นระยะอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายการเว้นระยะอักขระใน **ส่วนข้อความที่มีฟอนต์หนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่เป็นตัวหนา**:
 
 ```python
 import jpype
@@ -340,8 +340,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดการเว้นระยะอักขระ.
-            portion.getPortionFormat().setSpacing(3) # ขยายการเว้นระยะอักขระ.
+            # หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+            portion.getPortionFormat().setSpacing(3) # ขยายระยะห่างอักขระ.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -350,16 +350,16 @@ finally:
 
 ผลลัพธ์:
 
-![การเว้นระยะอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
+![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
 
-### **ปิดการใช้ Kerning สำหรับฟอนต์เฉพาะ**
+### **ปิดการทำ Kerning สำหรับฟอนต์เฉพาะ**
 
-ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันที่แสดงใน PowerPoint สิ่งนี้อาจเกิดขึ้นเพราะ PowerPoint อาจละเว้นข้อมูล kerning ของฟอนต์บางตัว แม้ว่าฟอนต์นั้นจะมีข้อมูล kerning ที่ถูกต้องและได้เปิดใช้งาน kerning ในการตั้งค่า PowerPoint
+ในบางกรณีข้อความที่แสดงโดย Aspose.Slides อาจดูแคบกว่าข้อความเดียวกันใน PowerPoint ซึ่งเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของฟอนต์บางตัว แม้ว่าฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและการตั้งค่า kerning ใน PowerPoint จะเปิดอยู่
 
-เพื่อให้ผลลัพธ์ที่เรนเดอร์ใกล้เคียงกับ PowerPoint ในกรณีเหล่านี้ คุณสามารถปิดการใช้ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบ ตั้งค่า [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ให้เป็นค่าที่ใหญ่กว่าขนาดฟอนต์จริง ตัวอย่างนี้ต้องการไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก มันตรวจสอบชื่อฟอนต์ที่มีผลรวม รวมถึงฟอนต์ที่สืบทอดและกำหนดเกณฑ์ 100 จุดสำหรับส่วนที่ใช้ Roboto ซึ่งจะปิดการใช้ kerning สำหรับส่วนที่มีขนาดฟอนต์ต่ำกว่า 100 จุด:
+เพื่อให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint มากขึ้น คุณสามารถปิดการทำ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบได้ โดยตั้งค่า [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ให้มีค่ามากกว่าขนาดฟอนต์จริง ตัวอย่างนี้ต้องการไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก ตรวจสอบชื่อฟอนต์ที่มีผลรวมรวมถึงฟอนต์ที่สืบทอด และตั้งค่าเกณฑ์ 100 pt สำหรับส่วนที่ใช้ Roboto การตั้งค่านี้จะปิด kerning สำหรับส่วนที่มีขนาดฟอนต์ต่ำกว่า 100 pt:
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -386,13 +386,13 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับข้อความที่ตรงกับเกณฑ์และต่ำกว่าขีดจำกัด การตั้งค่านี้จะป้องกัน kerning และช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับผลลัพธ์ภาพของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้
+สำหรับข้อความที่ตรงกับเกณฑ์นี้ การตั้งค่าส่วนนี้จะป้องกัน kerning และช่วยทำให้การแสดงผลของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลจากพฤติกรรมเฉพาะของ PowerPoint นี้
 
-## **จัดการคุณสมบัติฟอนต์ของข้อความ**
+## **จัดการคุณสมบัติของฟอนต์ในข้อความ**
 
-คุณสมบัติโฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าผ่าน [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนข้อความแต่ละส่วนผ่าน [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/)
+คุณสมบัติของฟอนต์สามารถกำหนดได้ระดับย่อหน้าผ่าน [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนข้อความแต่ละส่วนผ่าน [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/)
 
-ตัวอย่างต่อไปนี้ตั้งค่าแบบอักษรเริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 จุด พร้อมการทำให้เป็นหนา, ตัวเอียง, และขีดเส้นใต้แบบจุด. การจัดรูปแบบที่ระบุโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้:
+ตัวอย่างต่อไปนี้กำหนดฟอนต์เริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 pt พร้อมตัวหนา, ตัวเอียง และการขีดเส้นใต้แบบจุด จุดกำหนดการจัดรูปแบบโดยตรงบนส่วนข้อความจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้:
 
 ```python
 import jpype
@@ -427,7 +427,7 @@ finally:
 
 ![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
 
-ตัวอย่างต่อไปนี้ใช้ Times New Roman ขนาด 13 จุด, การทำตัวเอียง, และขีดเส้นใต้แบบจุดกับส่วนข้อความที่มีการจัดรูปแบบจริงเป็นแบบหนา:
+ตัวอย่างต่อไปนี้ใช้ Times New Roman ขนาด 13 pt, ตัวเอียง, และการขีดเส้นใต้แบบจุด กับส่วนข้อความที่มีการจัดรูปแบบผลรวมเป็นตัวหนา:
 
 ```python
 import jpype
@@ -447,7 +447,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # กำหนดคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
+            # ตั้งค่าคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
             portion.getPortionFormat().setFontHeight(13)
             portion.getPortionFormat().setFontItalic(NullableBool.True_)
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted)
@@ -463,13 +463,13 @@ finally:
 
 ![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
 
-## **ควบคุมการทำให้ความสูงของข้อความเป็นมาตรฐาน**
+## **ควบคุมการทำ Normalisation ความสูงของข้อความ**
 
-ใช้ [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) เมื่อทำสำเนาการออกแบบตัวอักษรของเทมเพลตหรือสืบค้นความแตกต่างของความสูงอักษร ใน PowerPoint การเปิดใช้การทำให้เป็นมาตรฐานจะขยายหรือบีบอักขระแต่ละตัวในแนวตั้งเพื่อให้ความสูงที่มองเห็นได้สม่ำเสมอภายในส่วนข้อความ ไม่รับประกันความสูงของข้อความเท่ากันในฟอนต์ที่ต่างกัน
+ใช้ [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) เมื่อต้องการทำ Normalisation ของตัวอักษรในเทมเพลตหรือเพื่อตรวจสอบความแตกต่างของความสูงอักขระ ใน PowerPoint การเปิดใช้งาน Normalisation จะยืดหรือบีบอักขระแต่ละตัวในแนวตั้งให้มีความสูงที่มองเห็นได้เท่ากันภายในส่วนข้อความ แต่ไม่รับประกันว่าความสูงของข้อความทั้งหมดจะเท่ากันในฟอนต์ที่แตกต่างกัน
 
-ตั้งค่าคุณสมบัตินี้เป็น [NullableBool.True_ หรือ False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) เพื่อเปิดหรือปิดการทำให้เป็นมาตรฐานอย่างชัดเจน `NullableBool.NotDefined` ทำให้การตั้งค่าท้องถิ่นไม่มีค่า เพื่อให้ส่วนข้อความสืบทอดค่าจากย่อหน้าเช่น [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). มันไม่เท่ากับ `False`. ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) และอ่าน `getNormaliseHeight` จากฟอร์แมตที่ได้ผลเพื่อรับค่าบูลีนที่แก้ไขแล้ว
+ตั้งค่าคุณสมบัตินี้เป็น [NullableBool.True_ หรือ False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) เพื่อเปิดหรือปิด Normalisation อย่างชัดเจน `NullableBool.NotDefined` จะปล่อยให้การตั้งค่าท้องถิ่นไม่มีค่า ทำให้ส่วนข้อความสืบทอดค่าจากย่อหน้าโดยใช้ [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ซึ่งไม่ได้หมายความว่าเป็น `False` ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) แล้วอ่าน `getNormaliseHeight` จากการจัดรูปแบบผลรวมเพื่อรับค่า Boolean ที่ได้สรุปแล้ว
 
-ตัวอย่างที่เป็นอิสระต่อไปนี้ต้องการให้ติดตั้ง **Arial** ไว้ มันสร้างสองบล็อกข้อความที่มีอักษรพิมพ์ใหญ่, พิมพ์เล็ก, ตัวลงล่าง, และอักขระที่มีสำเนียงขนาด 54 จุด ย่อหน้าทั้งสองเปิดการทำให้เป็นมาตรฐานโดยค่าเริ่มต้น ส่วนบนปิดการทำให้เป็นมาตรฐานอย่างชัดเจน; ส่วนล่างสืบทอดค่า การกำหนดขนาดเฟรม, ระยะขอบ, และการเว้นบรรทัดของย่อหน้าเหมือนกัน, มีการปิดการตัดบรรทัดและ autofit เพื่อให้การเปรียบเทียบสอดคล้อง ตัวอย่างพิมพ์ `False: False` และ `NotDefined: True` แล้วบันทึกเป็น "text_height_normalization.pptx".
+ตัวอย่างต่อไปนี้ต้องการ **Arial** ติดตั้งไว้ สร้างบล็อกข้อความสองบล็อกที่มีอักษรตัวพิมพ์ใหญ่, ตัวพิมพ์เล็ก, ตัวลง (descender) และอักขระที่มีเครื่องหมายสำคัญที่ขนาด 54 pt ทั้งสองย่อหน้ามี Normalisation เปิดเป็นค่าเริ่มต้น ส่วนบนปิดโดยเจตนา ส่วนล่างสืบทอด การตั้งค่าขนาดกรอบ, ระยะขอบ, และระยะห่างย่อหน้าเท่ากัน ทั้งการตัดบรรทัดและ autofit ปิดเพื่อให้การเปรียบเทียบสอดคล้อง ตัวอย่างพิมพ์ `False: False` และ `NotDefined: True` แล้วบันทึกเป็น "text_height_normalization.pptx":
 
 ```python
 import jpype
@@ -523,19 +523,19 @@ finally:
     presentation.dispose()
 ```
 
-การเปรียบเทียบด้านล่างได้ส่งออกจากการนำเสนอที่บันทึกไว้ แถวบนมีการปิดการทำให้เป็นมาตรฐาน (`False`); แถวล่างสืบทอดการตั้งค่าเปิด (`NotDefined` → `True`). ให้ติดตั้ง Arial เพื่อทำให้รูปแบบนี้แสดงผล.
+การเปรียบเทียบด้านล่างถูกส่งออกจากงานนำเสนอที่บันทึกไว้ แถวบนมี Normalisation ปิด (`False`) แถวล่างสืบทอดการเปิด (`NotDefined` → `True`) โปรดติดตั้ง Arial เพื่อให้ได้ลักษณะเดียวกัน
 
-![ข้อความ Arial ขนาด 54 จุด ที่ปิดการทำให้เป็นมาตรฐานด้านบนและสืบทอดการเปิดด้านล่าง](text_height_normalization.png)
+![ข้อความ Arial ขนาด 54 pt ที่มี Normalisation ปิดด้านบนและสืบทอดการเปิดด้านล่าง](text_height_normalization.png)
 
-การทำให้เป็นมาตรฐานเปลี่ยนความสูงของอักขระโดยไม่เปลี่ยนค่า [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) ที่กำหนด, ซึ่งระบุขนาดฟอนต์เป็นจุด ย่อหน้า [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) ควบคุมการเว้นบรรทัด, ขณะที่กรอบข้อความ [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) ควบคุมวิธีที่ข้อความหรือคอนเทนเนอร์ปรับขนาดเพื่อให้พอดี การตั้งค่าเหล่านี้มีจุดมุ่งหมายที่แตกต่างกันและอาจส่งผลต่อการจัดวางโดยรวมอย่างอิสระ สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการจัดรูปแบบย่อหน้าและการสืบทอด ดูที่ [Manage Paragraph](/slides/th/python-java/manage-paragraph/).
+Normalisation เปลี่ยนความสูงของอักขระโดยไม่เปลี่ยนค่า [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) ที่ระบุขนาดฟอนต์เป็น pt ย่อหน้า [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) ควบคุมระยะห่างบรรทัด ส่วน [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) ของ TextFrame ควบคุมการปรับขนาดข้อความหรือกรอบข้อความ การตั้งค่าเหล่านี้ทำงานแยกกันและอาจส่งผลต่อการจัดวางโดยรวม สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการจัดรูปแบบย่อหน้าและการสืบทอด ดูที่ [Manage Paragraph](/slides/th/python-java/manage-paragraph/).
 
-## **ใช้และลบการขีดเส้นกลาง**
+## **ใช้และลบ Strikethrough**
 
-ใช้ [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) บนส่วนข้อความเพื่อแสดงการแก้ไข, รายการที่ยกเลิก, หรือราคาก่อนหน้าโดยไม่ลบข้อความต้นฉบับ ตั้งค่าเป็น [TextStrikethroughType.Single หรือ Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) เพื่อให้มีเส้นขีดหนึ่งหรือสองเส้นผ่านข้อความ
+ใช้ [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) บนส่วนข้อความเพื่อแสดงการแก้ไข, คำที่ยกเลิก, หรือราคาก่อนหน้าโดยไม่ลบข้อความต้นฉบับ ตั้งค่าเป็น [TextStrikethroughType.Single หรือ Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) เพื่อแสดงเส้นเดี่ยวหรือเส้นคู่ผ่านข้อความ
 
-เพื่อลบการขีดเส้นกลาง, ส่งค่า [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None). วิธีนี้จะปิดผลอย่างชัดเจน แม้ว่าการจัดรูปแบบรอบข้างจะระบุการขีดเส้นกลาง ในทางตรงข้าม [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) ทำให้การตั้งค่าท้องถิ่นไม่มีค่า ให้ส่วนข้อความสืบทอดฟอร์แมตจากย่อหน้า เช่น ไม่รับประกันว่าการขีดเส้นกลางจะถูกลบ ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) เพื่ออ่านการจัดรูปแบบที่ได้ผล รวมถึงค่าที่สืบทอด
+เพื่อลบ strikethrough ให้ใช้ [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None) ซึ่งจะปิดผลอย่างชัดเจน แม้ฟอร์แมตโดยรอบจะกำหนด strikethrough ในทางตรงกันข้าม [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) จะปล่อยให้การตั้งค่าท้องถิ่นไม่กำหนด ทำให้ส่วนข้อความสืบทอดฟอร์แมตจากย่อหน้า เช่น ไม่รับประกันว่า strikethrough จะถูกลบ ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) เพื่ออ่านฟอร์แมตที่ได้รวมถึงค่าที่สืบทอด
 
-ตัวอย่างที่เป็นอิสระต่อไปนี้สร้างการเปรียบเทียบราคาสามแบบ แต่ละย่อหน้ามีส่วนแยกต่างหากสำหรับป้าย, ราคาก่อนหน้า, และราคาปัจจุบัน ดังนั้นจึงมีผลต่อราคาก่อนหน้าเท่านั้น แถวแรกใช้และจากนั้นลบการขีดเส้นกลาง; แถวอื่น ๆ เก็บการขีดเส้นกลางแบบเดี่ยวและแบบสองเส้น การเปลี่ยนการตั้งค่านี้จะคงข้อความและการจัดรูปแบบอื่น ๆ ของมันไว้รวมถึงราคาก่อนหน้าที่หนา
+ตัวอย่างต่อไปนี้สร้างการเปรียบเทียบราคา 3 แบบ แต่ละย่อหน้ามีส่วนข้อความแยกสำหรับป้าย, ราคาก่อนหน้า, และราคาปัจจุบัน ดังนั้นจะมีผลกับส่วนราคาก่อนหน้าเท่านั้น แถวแรกใช้และลบ strikethrough; แถวอื่นคงไว้เป็น strikethrough แบบเดี่ยวและคู่ การเปลี่ยนการตั้งค่านี้ทำให้ข้อความและฟอร์แมตอื่นๆ เช่น ตัวหนาของราคาก่อนหน้าถูกเก็บไว้
 
 ```python
 import jpype
@@ -583,7 +583,7 @@ try:
 
     paragraphs = shape.getTextFrame().getParagraphs()
 
-    # ใช้การขีดเส้นกลาง, แล้วลบออกอย่างชัดเจนจากราคาก่อนหน้าตัวแรก.
+    # ใช้การขีดเส้น, แล้วลบออกอย่างชัดเจนจากราคาก่อนหน้าแรก.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
 
@@ -595,15 +595,15 @@ finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์จากบนลงล่าง: ไม่มีการขีดเส้นกลาง, การขีดเส้นกลางแบบเดี่ยว, และการขีดเส้นกลางแบบสองเส้น
+ผลลัพธ์จากบนลงล่าง: ไม่มี strikethrough, strikethrough เดี่ยว, และ strikethrough คู่
 
-![ราคาก่อนหน้าไม่มีการขีดเส้นกลาง, มีการขีดเส้นกลางแบบเดี่ยว, และมีการขีดเส้นกลางแบบสองเส้น](strikethrough.png)
+![ราคาก่อนหน้าโดยไม่มี strikethrough, มี strikethrough เดี่ยว, และมี strikethrough คู่](strikethrough.png)
 
-## **ตั้งค่าการหมุนข้อความ**
+## **กำหนดการหมุนของข้อความ**
 
-ใช้ [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อตั้งค่าการวางแนวข้อความที่กำหนดไว้ล่วงหน้าในรูปร่าง
+ใช้ [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อกำหนดการวางแนวข้อความที่กำหนดล่วงหน้าในรูปทรง
 
-ตัวอย่างโค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปร่างเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/), ซึ่งจะหมุนข้อความ **90 องศาตรงข้ามเข็มนาฬิกา**:
+ตัวอย่างโค้ดต่อไปนี้ตั้งการวางแนวข้อความในรูปทรงเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/), ซึ่งทำให้ข้อความหมุน **90 องศาตรงทิศทางตามเข็มนาฬิกา**:
 
 ```python
 import jpype
@@ -628,13 +628,66 @@ finally:
 
 ผลลัพธ์:
 
-![การหมุนข้อความ](text_rotation.png)
+![การหมุนของข้อความ](text_rotation.png)
 
-## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
+## **แสดงตัวเลขเรียงกันในข้อความแนวตั้ง**
 
-ใช้ [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) เพื่อตั้งค่ามุมการหมุนแบบกำหนดเองสำหรับ [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/)
+เพื่อให้ตัวเลขของหมายเลขสองหลักอยู่เรียงกันในป้ายญี่ปุ่นแนวตั้ง ให้ใส่ตัวเลขทั้งสองในส่วนข้อความเดียวและเรียก [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKumimoji) บนส่วนนั้น ทั้งสองป้ายในตัวอย่างนี้ใช้ [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/#EastAsianVertical) และ MS Gothic ขนาด 40 pt โดยค่าของ [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) สำหรับตัวเลขต่างกัน
 
-ตัวอย่างโค้ดด้านล่างหมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาในรูปร่าง:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Portion, Presentation, SaveFormat, ShapeType, TextVerticalType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    font = FontData("MS Gothic")
+
+    for x, kumimoji in [(120, NullableBool.True_), (360, NullableBool.False_)]:
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 48, 120, 420)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        frame = label.addTextFrame("")
+        frame.getTextFrameFormat().setTextVerticalType(TextVerticalType.EastAsianVertical)
+
+        paragraph = frame.getParagraphs().get_Item(0)
+        default_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        default_format.setLatinFont(font)
+        default_format.setEastAsianFont(font)
+        default_format.setFontHeight(40)
+        default_format.getFillFormat().setFillType(FillType.Solid)
+        default_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        digits = Portion("12")
+        digits.getPortionFormat().setKumimoji(kumimoji)
+        
+        portions = paragraph.getPortions()
+        portions.clear()
+        portions.add(Portion("令和"))
+        portions.add(digits)
+        portions.add(Portion("年"))
+
+    presentation.save("vertical_date.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+ใน PowerPoint ป้ายซ้าย (`True`) แสดงตัวเลขให้ตั้งตรงและเรียงกันระหว่าง 和 กับ 年 ส่วนป้ายขวา (`False`) ตัวเลขจะหมุน 90 องศาตามเข็มนาฬิกา ตัวอักษรญี่ปุ่นโดยรอบยังคงตั้งตรงในทั้งสองป้าย
+
+![เปรียบเทียบป้ายวันที่แนวตั้งใน PowerPoint ที่ตัวเลขตั้งตรงด้านซ้ายและหมุนด้านขวา](vertical_date.png)
+
+## **กำหนดการหมุนแบบกำหนดเองสำหรับ Text Frames**
+
+ใช้ [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/)
+
+ตัวอย่างโค้ดต่อไปนี้หมุน Text Frame 3 องศาตามเข็มนาฬิกาภายในรูปทรง:
 
 ```python
 import jpype
@@ -661,14 +714,14 @@ finally:
 
 ![การหมุนข้อความแบบกำหนดเอง](custom_text_rotation.png)
 
-## **ตั้งค่าการเว้นบรรทัดของย่อหน้า**
+## **กำหนดระยะห่างบรรทัดของย่อหน้า**
 
-Aspose.Slides มี [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore), และ [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมการเว้นบรรทัดของย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้:
+Aspose.Slides ให้บริการ [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) และ [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมระยะห่างของย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้
 
-* ใช้ค่าบวกเพื่อระบุการเว้นบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด.
-* ใช้ค่าลบเพื่อระบุการเว้นบรรทัดเป็นหน่วยจุด
+* ใช้ค่าบวกเพื่อระบุระยะห่างเป็นเปอร์เซ็นต์ของความสูงบรรทัด
+* ใช้ค่าลบเพื่อระบุระยะห่างเป็นจุด
 
-ตัวอย่างต่อไปนี้ตั้งค่าการเว้นบรรทัดภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (เว้นบรรทัดสองเท่า):
+ตัวอย่างต่อไปนี้ตั้งค่าการเว้นบรรทัดภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (สองเท่า):
 
 ```python
 import jpype
@@ -695,18 +748,18 @@ finally:
 
 ผลลัพธ์:
 
-![การเว้นบรรทัดภายในย่อหน้า](line_spacing.png)
+![ระยะห่างบรรทัดภายในย่อหน้า](line_spacing.png)
 
 ## **ควบคุมการตัดบรรทัด**
 
-กฎการตัดบรรทัดของย่อหน้ามีประโยชน์ในบล็อกข้อความแคบและการนำเสนอที่ผสมข้อความละตินและเอเชียตะวันออก วิธีต่อไปนี้เป็นของ [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/), ดังนั้นจึงใช้กับย่อหน้าทั้งหมด:
+กฎการตัดบรรทัดของย่อหน้าเป็นประโยชน์ในบล็อกข้อความแคบและงานนำเสนอที่ผสมข้อความละตินและเอเชียตะวันออก วิธีต่อไปนี้เป็นของ [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/) ดังนั้นจึงใช้กับย่อหน้าทั้งหมด
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) ควบคุมกฎการตัดบรรทัดของละติน ในข้อความผสม การเปลี่ยนแปลงอาจทำให้ตำแหน่งการตัดบรรทัดของข้อความเอเชียตะวันออกและเครื่องหมายวรรคตอนที่อยู่ใกล้เคียงเปลี่ยนไป.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ควบคุมกฎการตัดบรรทัดของเอเชียตะวันออก รวมถึงข้อจำกัดของอักขระที่ตำแหน่งเริ่มต้นและสิ้นสุดของบรรทัด
+- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) ควบคุมกฎการตัดบรรทัดของละติน ในข้อความผสม การเปลี่ยนค่านี้อาจส่งผลต่อการตัดบรรทัดของข้อความเอเชียตะวันออกและเครื่องหมายวรรคตอนที่อยู่ติดกัน
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ควบคุมกฎการตัดบรรทัดของเอเชียตะวันออก รวมถึงข้อจำกัดของอักขระที่อยู่ต้นหรือปลายบรรทัด
 
-กฎเหล่านี้ไม่ได้แทนที่ [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText), ซึ่งเปิดการตัดบรรทัดอัตโนมัติภายในกรอบข้อความ พวกมันส่งผลต่อการจัดวางเมื่อมีการตัดบรรทัด; พวกมันไม่ได้แทรกอักขระการตัดบรรทัด การตัดบรรทัดอย่างชัดเจนจะบังคับให้สร้างบรรทัดใหม่ภายในย่อหน้าโดยไม่ขึ้นกับความกว้างที่มี
+กฎเหล่านี้ไม่ได้แทนที่ [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) ซึ่งเปิดการตัดบรรทัดอัตโนมัติภายใน Text Frame แต่ส่งผลต่อการจัดวางเมื่อมีการตัดบรรทัด; ไม่ได้แทรกอักขระการตัดบรรทัด การตัดบรรทัดโดยเจตนาจะบังคับให้ขึ้นบรรทัดใหม่ภายในย่อหน้าโดยไม่คำนึงถึงความกว้างที่ใช้ได้
 
-ตัวอย่างที่เป็นอิสระต่อไปนี้สร้างบล็อกข้อความแคบที่มีข้อความภาษาจีนและละติน มันตั้งค่าทั้งสองตัวเลือกการตัดบรรทัดอย่างชัดเจนและบันทึกเป็น "line_breaking.pptx" เพื่อทดลองกับกฎใดกฎหนึ่ง ให้เปลี่ยนค่าที่สอดคล้องขณะคงการตั้งค่าอื่นคงที่ ตัวอย่างใช้ Arial และ SimSun ขนาด 24 จุด กับความกว้างเฟรม 160 จุดและระยะขอบแนวนอนของกรอบข้อความเป็นศูนย์ [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) ถูกเรียกด้วย [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) เพื่อให้ขนาดข้อความและมิติของเฟรมคงที่
+ตัวอย่างต่อไปนี้สร้างบล็อกข้อความแคบที่มีภาษาจีนและละติน ตั้งค่าตัวเลือกการตัดบรรทัดทั้งสองอย่างอย่างชัดเจนและบันทึกเป็น "line_breaking.pptx" เพื่อทดลองกับกฎใดกฎหนึ่ง ให้เปลี่ยนค่าที่สัมพันธ์กันในขณะที่รักษาการตั้งค่าอื่นคงที่ ตัวอย่างใช้ Arial 24 pt และ SimSun พร้อมความกว้างเฟรม 160 pt และระยะขอบ Text Frame แนวนอนเป็นศูนย์ [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) ถูกตั้งค่าเป็น [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) เพื่อให้ขนาดข้อความและมิติของเฟรมคงที่
 
 ```python
 import jpype
@@ -751,11 +804,11 @@ finally:
     presentation.dispose()
 ```
 
-## **ควบคุมการยึดเครื่องหมายวรรคตอน**
+## **ควบคุมการใช้เครื่องหมายวรรคตอนแบบ Hanging**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) อนุญาตให้เครื่องหมายวรรคตอนที่มีคุณสมบัติเหมาะสมขยายออกนอกขอบขวาของบรรทัดข้อความแทนที่จะอยู่ในบรรทัดถัดไป มันใช้กับย่อหน้าทั้งหมดและแตกต่างจากการเยื้องแบบ hanging
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) อนุญาตให้เครื่องหมายวรรคตอนที่สามารถทำแบบ hanging ขยายออกนอกขอบขวาของบรรทัดแทนที่จะย้ายไปบรรทัดถัดไป ใช้ได้กับย่อหน้าทั้งหมดและแตกต่างจากการทำ hanging indent
 
-ตัวอย่างที่เป็นอิสระต่อไปนี้เปิดใช้งานการยึดเครื่องหมายวรรคตอนในกรอบข้อความกว้าง 100 จุดและบันทึกเป็น "hanging_punctuation.pptx" ด้วย Arial ขนาด 24 จุดและระยะขอบแนวนอนของกรอบข้อความเป็นศูนย์ จุดสุดท้ายจะอยู่หลัง "sentence" และขยายออกนอกขอบขวาของข้อความ ตั้งค่าคุณสมบัติเป็น [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) เพื่อเปรียบเทียบ: กับการตั้งค่าเหล่านี้ จุดจะอยู่ในบรรทัดแยกต่างหาก เปิดการตัดบรรทัดและปิดการทำ autofit เพื่อให้ความกว้างที่ใช้ได้คงที่
+ตัวอย่างต่อไปนี้เปิดใช้งาน Hanging Punctuation ใน Text Frame กว้าง 100 pt และบันทึกเป็น "hanging_punctuation.pptx" ด้วย Arial 24 pt และระยะขอบแนวนอนเป็นศูนย์ จุดเต็มที่สุดท้ายจะอยู่หลังคำว่า "sentence" และขยายออกนอกขอบด้านขวา ตั้งค่าเป็น [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) เพื่อเปรียบเทียบ: ด้วยการตั้งค่านี้ จุดเต็มจะอยู่บนบรรทัดแยกออก การตัดบรรทัดเปิดและ autofit ปิดเพื่อคงความกว้างที่ใช้ได้คงที่
 
 ```python
 import jpype
@@ -797,11 +850,11 @@ finally:
     presentation.dispose()
 ```
 
-ไม่ใช่เครื่องหมายวรรคตอนทุกตัวที่จะยึดได้ เงื่อนไขของฟอนต์และการจัดวางที่อธิบายข้างต้น ([link](#control-line-breaking)) ยังใช้กับการเปรียบเทือนี้: การเปลี่ยนฟอนต์, ความกว้างที่ใช้ได้, ระยะขอบ, หรือการตั้งค่า autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไป
+ไม่ใช่เครื่องหมายวรรคตอนทุกตัวที่สามารถทำ hanging ได้ เงื่อนไขของฟอนต์และการจัดวางที่อธิบายไว้ในส่วน [ควบคุมการตัดบรรทัด](#control-line-breaking) จะใช้กับการเปรียบเทียบนี้: การเปลี่ยนฟอนต์, ความกว้างที่ใช้ได้, ระยะขอบ, หรือการตั้งค่า autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไปได้
 
-## **ตั้งค่าประเภท Autofit สำหรับกรอบข้อความ**
+## **กำหนดประเภท Autofit สำหรับ Text Frames**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) กำหนดว่าข้อความทำงานอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้มันเพื่อควบคุมว่าข้อความจะหด, ล้นออก, หรือปรับขนาดรูปร่างโดยอัตโนมัติ ตัวอย่างต่อไปนี้กำหนดค่ารูปร่างให้ปรับขนาดเพื่อให้พอดีกับข้อความและบันทึกผลลัพธ์เป็น "autofit_type.pptx"
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) กำหนดวิธีที่ข้อความทำงานเมื่อมีความยาวเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะย่อลด, ล้นออก, หรือปรับขนาดรูปร่างอัตโนมัติ ตัวอย่างต่อไปนี้กำหนดให้รูปร่างปรับขนาดให้พอดีกับข้อความและบันทึกผลลงใน "autofit_type.pptx"
 
 ```python
 import jpype
@@ -824,11 +877,11 @@ finally:
     presentation.dispose()
 ```
 
-เพื่อคำนวณจำนวนบรรทัดหลังการตัดบรรทัดอัตโนมัติและดูว่าขนาดข้อความหรือความกว้างของรูปร่างเปลี่ยนผลลัพธ์อย่างไร ดูที่ [Count Rendered Lines](/slides/th/python-java/manage-paragraph/). จำนวนบรรทัดเดียวไม่บ่งบอกว่าข้อความล้นคอนเทนเนอร์หรือไม่
+เพื่อดูจำนวนบรรทัดหลังการตัดบรรทัดอัตโนมัติและดูว่าการเปลี่ยนความกว้างของข้อความหรือรูปร่างทำให้ผลลัพธ์เปลี่ยนอย่างไร ดูที่ [Count Rendered Lines](/slides/th/python-java/manage-paragraph/). จำนวนบรรทัดเพียงอย่างเดียวไม่แสดงว่าข้อความล้นคอนเทนเนอร์หรือไม่
 
-## **ตั้งตำแหน่งยึดของกรอบข้อความ**
+## **กำหนดตำแหน่งยึดของ Text Frames**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความจัดตำแหน่งในแนวตั้งภายในรูปร่างอย่างไร เช่น ด้านบน, กลาง, หรือด้านล่าง ตัวอย่างต่อไปนี้ยึดข้อความไว้ที่ด้านล่างของรูปทรงแรกและบันทึกผลลัพธ์เป็น "text_anchor.pptx"
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความวางในแนวตั้งภายในรูปร่างอย่างไร เช่นที่บน, กลาง, หรือด้านล่าง ตัวอย่างต่อไปนี้ยึดข้อความที่ด้านล่างของรูปทรงแรกและบันทึกผลลงใน "text_anchor.pptx"
 
 ```python
 import jpype
@@ -851,9 +904,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ตั้งค่าการจัดตารางข้อความ**
+## **กำหนด Tabulation ของข้อความ**
 
-ใช้ [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) เพื่อกำหนดตำแหน่งแท็บในย่อหน้า ตัวอย่างต่อไปนี้ตั้งค่าช่วงระยะแท็บเริ่มต้นเป็น 100 จุดและเพิ่มตำแหน่งแท็บจัดซ้ายที่ 30 จุด การตั้งค่าเหล่านี้มีผลต่อข้อความที่มีอักขระแท็บ
+ใช้ [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) เพื่อกำหนดตำแหน่งหยุดแท็บในย่อหน้า ตัวอย่างต่อไปนี้ตั้งค่าการเว้นระยะแท็บเริ่มต้นเป็น 100 pt และเพิ่มตำแหน่งหยุดแท็บแบบซ้ายที่ 30 pt การตั้งค่าเหล่านี้มีผลต่อข้อความที่มีอักขระแท็บ
 
 ```python
 import jpype
@@ -885,9 +938,9 @@ finally:
 
 ## **ตั้งค่าภาษา Proofing**
 
-Aspose.Slides มี [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) ซึ่งให้คุณตั้งค่าภาษา proofing สำหรับส่วนข้อความ ภาษา proofing จะกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides ให้บริการ [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) ซึ่งช่วยกำหนดภาษาการตรวจสอบการสะกดและไวยากรณ์ของส่วนข้อความ ภาษาการ proofing จะบ่งชี้ภาษาที่ PowerPoint ใช้ตรวจสอบการสะกดและไวยากรณ์
 
-ตัวอย่างต่อไปนี้ต้องการ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรกและอย่างน้อยหนึ่งย่อหน้า มันแทนที่เนื้อหาของย่อหน้าแรกด้วย "1。", ตั้ง SimSun เป็นฟอนต์ของมัน, และกำหนดภาษาการพิสูจน์ Simplified Chinese (`zh-CN`). มันบันทึกผลลัพธ์เป็น "proofing_language.pptx":
+ตัวอย่างต่อไปนี้ต้องการไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรกและมีอย่างน้อยหนึ่งย่อหน้า แทนที่เนื้อหาของย่อหน้าแรกด้วย "1。" ตั้งค่า SimSun เป็นฟอนต์และกำหนดภาษาการ proofing เป็น Simplified Chinese (`zh-CN`) แล้วบันทึกเป็น "proofing_language.pptx"
 
 ```python
 import jpype
@@ -914,7 +967,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # ตั้งค่า Id ของภาษาการพิสูจน์.
+    # ตั้งค่า Id ของภาษาการตรวจสอบ.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -925,9 +978,50 @@ finally:
     presentation.dispose()
 ```
 
-## **ตั้งค่าภาษาเริ่มต้น**
+### **คัดลอกเมตาดาต้าภาษา**
 
-ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาดีฟอลต์สำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มี US English เป็นภาษาข้อความเริ่มต้น, เพิ่มกล่องข้อความ, และพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน
+เมื่อคัดลอกข้อความหลายภาษาจากเทมเพลต ให้คงไว้ทั้ง [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getLanguageId) และ [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) ตัวอย่างต่อไปนี้สร้างส่วนข้อความต้นฉบับที่มี US English เป็นภาษาและ French เป็นภาษาแทน แล้วคัดลอกข้อความและตัวระบุไปยังส่วนในงานนำเสนอใหม่
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpage.startJVM()
+
+from asposeslides.api import Portion, Presentation, SaveFormat, ShapeType
+
+source = Portion("Hello! Bonjour!")
+source.getPortionFormat().setLanguageId("en-US")
+source.getPortionFormat().setAlternativeLanguageId("fr-FR")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 80)
+    paragraph = shape.getTextFrame().getParagraphs().get_Item(0)
+    paragraph.getPortions().clear()
+
+    destination = Portion()
+    destination.setText(source.getText())
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId())
+    # หากแหล่งที่ไม่มีภาษาทดแทน, None จะล้างค่าของปลายทาง.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId())
+    paragraph.getPortions().add(destination)
+
+    presentation.save("copied_language_metadata.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+หากต้องการทดลองโดยไม่มีภาษาแทน ให้ละเว้นการกำหนด `"fr-FR"` ตัวระบุทางเลือกจะเป็น `None` และคำสั่งคัดลอกเดียวกันจะคงการไม่มีค่านั้นไว้โดยไม่เพิ่มค่าเริ่มต้น แม้ว่าปลายทางจะเคยมีภาษาแทนกำหนดไว้ก่อน
+
+ตัวระบุเหล่านี้เป็นเมทาดาต้าภาษา การคงไว้ไม่ได้กำหนดว่าพจนานุกรมใดของ PowerPoint จะถูกเลือกสำหรับการตรวจสอบการสะกดหรือไวยากรณ์
+
+## **กำหนดภาษาตั้งต้น**
+
+ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ ตัวอย่างต่อไปนี้สร้างงานนำเสนอโดยกำหนด US English เป็นภาษาข้อความเริ่มต้น เพิ่มกล่องข้อความและพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน
 
 ```python
 import jpype
@@ -945,22 +1039,22 @@ presentation = Presentation(load_options)
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # เพิ่มรูปทรงสี่เหลี่ยมผืนผ้าพร้อมข้อความ.
+    # เพิ่มรูปสี่เหลี่ยมพร้อมข้อความ.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    # ตรวจสอบภาษาของส่วนข้อความแรก.
+    # ตรวจสอบภาษาของส่วนแรก.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
     presentation.dispose()
 ```
 
-## **ตั้งค่ารูปแบบข้อความเริ่มต้น**
+## **กำหนดสไตล์ข้อความตั้งต้น**
 
-เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นในระดับงานนำเสนอ ใช้ [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle)
+เพื่อใช้การจัดรูปแบบข้อความตั้งต้นในระดับงานนำเสนอ ให้ใช้ [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle)
 
-ตัวอย่างต่อไปนี้ตั้งค่าแบบอักษรขนาด 14 จุดหนาเป็นค่าดีฟอลต์สำหรับย่อหน้าในระดับบนของงานนำเสนอใหม่และบันทึกเป็น "default_text_style.pptx". ข้อความสามารถสืบทอดค่าเริ่มต้นเหล่านี้ได้หากไม่มีการจัดรูปแบบที่เฉพาะเจาะจงมากกว่าแทนที่
+ตัวอย่างต่อไปนี้กำหนดฟอนต์แบบตัวหนาขนาด 14 pt เป็นค่าเริ่มต้นสำหรับย่อหน้าในระดับบนของงานนำเสนอใหม่และบันทึกเป็น "default_text_style.pptx" ข้อความสามารถสืบทอดค่าเริ่มต้นเหล่านี้ได้ เว้นแต่การจัดรูปแบบที่เฉพาะเจาะจงจะครอบคลุมทับ
 
 ```python
 import jpype
@@ -973,7 +1067,7 @@ from asposeslides.api import NullableBool, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # ดึงรูปแบบย่อหน้าระดับบนสุด.
+    # ดึงรูปแบบย่อหน้าในระดับบน.
     paragraph_format = presentation.getDefaultTextStyle().getLevel(0)
 
     if paragraph_format is not None:
@@ -985,15 +1079,15 @@ finally:
     presentation.dispose()
 ```
 
-## **ดึงข้อความที่มีเอฟเฟกต์ All-Caps**
+## **สกัดข้อความด้วยเอฟเฟ็กต์ All-Caps**
 
-ใน PowerPoint, การใช้เอฟเฟกต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่บนสไลด์แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็กเดิม เมื่อคุณดึงส่วนข้อความเช่นนี้ด้วย Aspose.Slides, ไลบรารีจะคืนข้อความตามที่ป้อนไว้ เพื่อให้ตรงกับข้อความที่แสดงให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่าเป็นตัวพิมพ์ใหญ่เมื่อค่าคือ `All`
+ใน PowerPoint การใช้เอฟเฟ็กต์ฟอนต์ **All Caps** ทำให้ข้อความแสดงเป็นตัวพิมพ์ใหญ่บนสไลด์ แม้ว่าจะพิมพ์ด้วยตัวพิมพ์เล็กก็ตาม เมื่อคุณดึงส่วนข้อความแบบนั้นด้วย Aspose.Slides ไลบรารีจะคืนข้อความตามที่ป้อนไว้ เพื่อให้ตรงกับข้อความที่แสดง ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) แล้วแปลงสตริงที่คืนค่าเป็นตัวพิมพ์ใหญ่เมื่อค่าเป็น `All`
 
-ตัวอย่างนี้ต้องการ "sample2.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก ย่อหน้าแรกของมันมีส่วนแรกที่มีข้อความ "Hello, Aspose!" พร้อมเอฟเฟกต์ All Caps ที่แสดงด้านล่าง
+ตัวอย่างนี้ต้องการไฟล์ "sample2.pptx" ที่มีกล่องข้อความเป็นรูปทรงแรกบนสไลด์แรก ย่อหน้าแรกของมันมีส่วนแรกที่มีข้อความ "Hello, Aspose!" พร้อมเอฟเฟ็กต์ All Caps ดังที่แสดงด้านล่าง
 
-![เอฟเฟกต์ All Caps](all_caps_effect.png)
+![เอฟเฟ็กต์ All Caps](all_caps_effect.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงข้อความที่มีเอฟเฟกต์ **All Caps** ที่ใช้:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดข้อความด้วยเอฟเฟ็กต์ **All Caps** ที่กำหนด:
 
 ```python
 import jpype
@@ -1028,12 +1122,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะแก้ไขข้อความในตารางบนสไลด์ได้อย่างไร?**
+**ฉันจะแก้ไขข้อความในตารางบนสไลด์อย่างไร?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์, ใช้ [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). วนผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) และจัดรูปแบบย่อหน้าผ่าน [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat)
+เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) เรียกดูเซลล์และอัปเดตแต่ละเซลล์ผ่าน [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) และจัดรูปแบบย่อหน้าผ่าน [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat)
 
-**ฉันจะใช้สีไล่ระดับบนข้อความในสไลด์ PowerPoint ได้อย่างไร?**
+**ฉันจะใส่สีไล่ระดับให้กับข้อความใน PowerPoint อย่างไร?**
 
-เพื่อใช้สีไล่ระดับบนข้อความ, ใช้ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). ตั้งค่า [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) และกำหนดจุดหยุดของไล่ระดับ, ทิศทาง, และความโปร่งแสง.
+เพื่อใส่สีไล่ระดับให้กับข้อความ ให้ใช้ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) ตั้งค่า [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) แล้วกำหนดจุดไล่ระดับ, ทิศทาง, และความโปร่งใส

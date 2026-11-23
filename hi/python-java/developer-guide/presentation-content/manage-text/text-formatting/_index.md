@@ -1,22 +1,22 @@
 ---
-title: Python के द्वारा Java में प्रस्तुति टेक्स्ट को फ़ॉर्मेट करें
-linktitle: टेक्स्ट फॉर्मेटिंग
+title: Python के माध्यम से Java में प्रस्तुति टेक्स्ट फ़ॉर्मेट करें
+linktitle: पाठ स्वरूपण
 type: docs
 weight: 50
 url: /hi/python-java/text-formatting/
 keywords:
 - पैराग्राफ संरेखित करें
-- टेक्स्ट शैली
+- पाठ शैली
 - टेक्स्ट पृष्ठभूमि
 - टेक्स्ट पारदर्शिता
 - अक्षर अंतराल
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- टेक्स्ट घुमाव
-- घुमाव कोण
+- टेक्स्ट घूर्णन
+- घूर्णन कोण
 - टेक्स्ट फ्रेम
-- लाइन स्पेसिंग
-- ऑटोफ़िट प्रॉपर्टी
+- लाइन अंतराल
+- ऑटॉफ़िट गुण
 - टेक्स्ट फ्रेम एंकर
 - टेक्स्ट टैबुलेशन
 - डिफ़ॉल्ट भाषा
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint और OpenDocument प्रस्तुतियों में Aspose.Slides for Python via Java का उपयोग करके टेक्स्ट को फ़ॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
+description: "Aspose.Slides for Python via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट और शैली दें। फ़ॉन्ट, रंग, संरेखण आदि को कस्टमाइज़ करें।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख दर्शाता है कि Aspose.Slides for Python via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को कैसे फ़ॉर्मेट किया जाए। यह पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घुमाव, पैराग्राफ स्पेसिंग, ऑटोफ़िट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप, और भाषा सेटिंग्स को कवर करता है।
+यह लेख Aspose.Slides for Python via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट करने का तरीका दिखाता है। यह बैकग्राउंड रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, रोटेशन, पैराग्राफ अंतराल, ऑटॉफ़िट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स को कवर करता है।
 
-जब तक अन्यथा न कहा गया हो, उदाहरण [sample.pptx](sample.pptx) का उपयोग करते हैं। पहले स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है, और उसका पहला पैराग्राफ नीचे दिखाए गए टेक्स्ट को सम्मिलित करता है। स्लाइड और आकार दोनों के इंडेक्स शून्य‑आधारित हैं। जो उदाहरण बोल्ड भागों का चयन करते हैं वे प्रभावी फ़ॉर्मेटिंग का उपयोग करते हैं, जिसमें विरासत में मिला बोल्ड फ़ॉर्मेटिंग भी शामिल है:
+जब तक अन्यथा उल्लेख नहीं किया गया हो, उदाहरण में [sample.pptx](sample.pptx) का उपयोग किया गया है। उसकी पहली स्लाइड पर पहला शेप एक टेक्स्ट बॉक्स है, और उसका पहला पैराग्राफ नीचे दिखाए गए टेक्स्ट को शामिल करता है। स्लाइड और शेप दोनों के इंडेक्स शून्य-आधारित होते हैं। जो उदाहरण बोल्ड भागों को चुनते हैं, वे प्रभावी फ़ॉर्मेटिंग का उपयोग करते हैं, जिसमें विरासत में मिली बोल्ड फ़ॉर्मेटिंग भी शामिल है:
 
-![नमूना टेक्स्ट](sample_text.png)
+![उदाहरण टेक्स्ट](sample_text.png)
 
-शाब्दिक टेक्स्ट या नियमित अभिव्यक्ति के मिलान को खोजने और हाइलाइट करने के लिए देखें [पाठ खोजें और बदलें](/slides/hi/python-java/search-and-replace-text/)।
+शाब्दिक टेक्स्ट या रेगुलर एक्सप्रेशन मैच को खोजने और हाइलाइट करने के लिए, देखें [टेक्स्ट खोजें और बदलें](/slides/hi/python-java/search-and-replace-text/)।
 
-## **टेक्स्ट पृष्ठभूमि रंग सेट करें**
+## **टेक्स्ट बैकग्राउंड रंग सेट करें**
 
-डिफ़ॉल्ट हाइलाइट रंग को पैराग्राफ के लिए सेट करने हेतु [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) का उपयोग करें।
+डिफ़ॉल्ट हाईलाइट रंग सेट करने के लिए पैराग्राफ के लिए [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) का उपयोग करें।
 
-निम्न उदाहरण प्रथम पैराग्राफ के लिए हल्के ग्रे हाइलाइट को डिफ़ॉल्ट सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाइलाइट रंग इस डिफ़ॉल्ट से ऊपर होते हैं:
+निम्नलिखित उदाहरण पहले पैराग्राफ के लिए हल्के ग्रे हाईलाइट को डिफ़ॉल्ट के रूप में सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाईलाइट रंग इस डिफ़ॉल्ट पर प्राथमिकता लेता है:
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ finally:
 
 ![ग्रे पैराग्राफ](gray_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के लिए पृष्ठभूमि रंग सेट करने का प्रदर्शन करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** के लिए बैकग्राउंड रंग सेट करने का प्रदर्शन करता है:
 
 ```python
 import jpype
@@ -94,8 +94,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-                # टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
-                portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
+            # टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
+            portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -108,9 +108,9 @@ finally:
 
 ## **टेक्स्ट पैराग्राफ संरेखित करें**
 
-टेक्स्ट फ़्रेम के भीतर पैराग्राफ संरेखण सेट करने हेतु [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) का उपयोग करें। मानों में केंद्रित, बायाँ‑संजालित, दायाँ‑संजालित, बराबर‑जुड़े आदि शामिल हो सकते हैं।
+टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, सिद्ध आदि हो सकते हैं।
 
-निम्न कोड उदाहरण पैराग्राफ को **केंद्र** में संरेखित करने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण पैराग्राफ को **केंद्र** में संरेखित करने का तरीका दर्शाता है:
 
 ```python
 import jpype
@@ -140,11 +140,11 @@ finally:
 
 ![संरेखित पैराग्राफ](aligned_paragraph.png)
 
-## **पंक्ति के भीतर फ़ॉन्ट संरेखित करें**
+## **पंक्ति के भीतर फ़ॉन्ट को संरेखित करें**
 
-विभिन्न फ़ॉन्ट आकारों वाले टेक्स्ट भागों को पंक्ति के भीतर लंबवत संरेखित करने हेतु [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) का उपयोग करें। यह सेटिंग पूरे पैराग्राफ पर लागू होती है और उसकी प्रत्येक पंक्तियों के भीतर संरेखण को नियंत्रित करती है।
+विभिन्न फ़ॉन्ट आकारों के टेक्स्ट भागों को ऊर्ध्वाधर रूप से संरेखित करने के लिए [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) का उपयोग करें। यह सेटिंग पूरे पैराग्राफ पर लागू होती है और उसकी प्रत्येक पंक्तियों के भीतर संरेखण को नियंत्रित करती है।
 
-निम्न स्वनिर्भर उदाहरण एक स्लाइड पर चार लेबल वाले टेक्स्ट बॉक्स बनाता है। प्रत्येक पैराग्राफ में 18, 36, और 54 पॉइंट के समान टेक्स्ट होते हैं, लेकिन फ़ॉन्ट संरेखण अलग‑अलग होता है। यह Arial का उपयोग करता है, ऑटोफ़िट और रैपिंग को निष्क्रिय करता है, और टेक्स्ट फ़्रेम को एक पंक्ति के लिए पर्याप्त बड़ा रखता है।
+निम्नलिखित स्वनिर्धारित उदाहरण एक स्लाइड पर चार लेबल वाले टेक्स्ट बॉक्स बनाता है। प्रत्येक पैराग्राफ में 18, 36 और 54 पॉइंट के समान टेक्स्ट होते हैं, लेकिन अलग-अलग फ़ॉन्ट संरेखण होते हैं। यह Arial का उपयोग करता है, ऑटॉफ़िट और रैपिंग को निष्क्रिय करता है, तथा टेक्स्ट फ्रेम को एक पंक्तियों के लिए पर्याप्त बड़ा रखता है।
 
 ```python
 import jpype
@@ -204,17 +204,17 @@ finally:
 
 परिणाम:
 
-![विभिन्न फ़ॉन्ट आकारों के साथ बेसलाइन, टॉप, सेंटर और बॉटम फ़ॉन्ट संरेखण की तुलना](font_alignment.png)
+![Baseline, Top, Center, और Bottom फ़ॉन्ट संरेखण की तुलना (मिश्रित फ़ॉन्ट आकार)](font_alignment.png)
 
-फ़ॉन्ट संरेखण फ़ॉन्ट मीट्रिक्स पर आधारित होता है, इसलिए व्यक्तिगत अक्षरों के दृश्यमान किनारे आवश्यक रूप से बिल्कुल मिलेंगे नहीं। उदाहरण में एक बड़ा अक्षर और एक डेसेंडर दोनों शामिल हैं ताकि बेसलाइन और बॉटम संरेखण में अंतर दिखे। फ़ॉन्ट उपलब्धता, प्रतिस्थापन, उपयोग किए गए अक्षर, और फ़ॉन्ट आकार अंतर परिणाम को प्रभावित करते हैं। फ़्रेम आयाम, मार्जिन, लाइन स्पेसिंग, रैपिंग और ऑटोफ़िट भी लेआउट को प्रभावित करते हैं; मोड की तुलना करते समय समान फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+फ़ॉन्ट संरेखण फ़ॉन्ट मीट्रिक का उपयोग करता है, इसलिए व्यक्तिगत अक्षरों के दृश्य किनारे आवश्यकतः बिल्कुल संरेखित नहीं होते। उदाहरण में एक बड़े अक्षर और एक डिसेंडर दोनों शामिल हैं ताकि बेसलाइन और बॉटम संरेखण के अंतर को दिखाया जा सके। फ़ॉन्ट उपलब्धता और प्रतिस्थापन, उपयोग किए गए अक्षर, और फ़ॉन्ट आकारों में अंतर परिणाम को प्रभावित करते हैं। फ्रेम आयाम, मार्जिन, लाइन स्पेसिंग, रैपिंग और ऑटॉफ़िट भी लेआउट को प्रभावित करते हैं; मोड की तुलना करते समय समान फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
 
-यह सेटिंग [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) से अलग है, जो क्षैतिज पैराग्राफ संरेखण नियंत्रित करता है, और [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) से अलग है, जो आकार के भीतर टेक्स्ट ब्लॉक को ऊर्ध्वाधर रूप से स्थित करता है। [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) द्वारा सुपरसक्रिप्ट और सबस्क्रिप्ट फ़ॉर्मेटिंग व्यक्तिगत भागों को बेसलाइन के सापेक्ष शिफ्ट करती है, न कि पैराग्राफ की पंक्तियों के लिए फ़ॉन्ट संरेखण सेट करती है।
+यह सेटिंग [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) से भिन्न है, जो क्षैतिज पैराग्राफ संरेखण को नियंत्रित करता है, और [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) से भी, जो टेक्स्ट ब्लॉक को उसके शेप के भीतर ऊर्ध्वाधर रूप से स्थित करता है। [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) के माध्यम से सुपरस्क्रिप्ट और सबस्क्रिप्ट फ़ॉर्मेटिंग व्यक्तिगत भागों को बेसलाइन के सापेक्ष शिफ्ट करता है, न कि पैराग्राफ की लाइनों के लिए फ़ॉन्ट संरेखण सेट करता है।
 
-## **टेक्स्ट के लिए पारदर्शिता सेट करें**
+## **टेक्स्ट की पारदर्शिता सेट करें**
 
-पारदर्शिता को [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) को सौंपे गए रंग के अल्फा घटक द्वारा नियंत्रित किया जाता है। नीचे दिए गए उदाहरणों में `alpha = 50` 0‑255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
+टेक्स्ट की पारदर्शिता को [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) को असाइन किए गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-नीचे दिया गया कोड उदाहरण **पूरे पैराग्राफ** पर पारदर्शिता लागू करने का तरीका दर्शाता है:
+नीचे का कोड उदाहरण **पूरे पैराग्राफ** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```python
 import jpype
@@ -236,7 +236,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # टेक्स्ट का फ़िल रंग पारदर्शी रंग में सेट करें।
+    # टेक्स्ट का फिल रंग पारदर्शी रंग पर सेट करें।
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -249,7 +249,7 @@ finally:
 
 ![पारदर्शी पैराग्राफ](transparent_paragraph.png)
 
-निम्न कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर पारदर्शिता लागू करने का तरीका दिखाता है:
+निम्न कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले टेक्स्ट भागों पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```python
 import jpype
@@ -290,7 +290,7 @@ finally:
 
 टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या संकुचित करने के लिए [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) का उपयोग करें। उदाहरण 3 पॉइंट का अंतराल जोड़ते हैं; नकारात्मक मान टेक्स्ट को संकुचित करते हैं।
 
-निम्न Python कोड **पूरे पैराग्राफ** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
+निम्न Python कोड **पूरे पैराग्राफ** में अक्षर अंतराल को विस्तारित करने का तरीका दर्शाता है:
 
 ```python
 import jpype
@@ -308,8 +308,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # ध्यान दें: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # अक्षर अंतराल को विस्तारित करें।
+    # ध्यान दें: अक्षर अंतराल को संकोचन करने के लिए नकारात्मक मान उपयोग करें।
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # अक्षर अंतराल बढ़ाएँ.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -320,7 +320,7 @@ finally:
 
 ![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल को विस्तारित करने का प्रदर्शन करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट** वाले टेक्स्ट भागों में अक्षर अंतराल को विस्तारित करने का तरीका दर्शाता है:
 
 ```python
 import jpype
@@ -340,8 +340,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # नोट: अक्षर अंतराल को संकुचित करने के लिये नकारात्मक मान उपयोग करें।
-            portion.getPortionFormat().setSpacing(3) # अक्षर अंतराल को विस्तारित करें।
+            # नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
+            portion.getPortionFormat().setSpacing(3) # अक्षर अंतराल बढ़ाएँ।
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -352,11 +352,11 @@ finally:
 
 ![टेक्स्ट भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट्स के लिए करीअरिंग निष्क्रिय करें**
+### **विशिष्ट फ़ॉन्ट्स के लिए केर्निंग निष्क्रिय करें**
 
-कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखाए गए टेक्स्ट से थोड़ा अधिक कसकर दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए करीअरिंग डेटा को नजरअंदाज़ कर देता है, भले ही फ़ॉन्ट में वैध करीअरिंग जानकारी मौजूद हो और PowerPoint सेटिंग्स में करीअरिंग सक्षम हो।
+कभी‑कभी Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखाए गए टेक्स्ट से थोड़ा टाइट लग सकता है। यह इसलिए हो सकता है कि PowerPoint कुछ फ़ॉन्ट्स के लिए केर्निंग डेटा को नजरअंदाज कर देता है, भले ही फ़ॉन्ट में वैध केर्निंग जानकारी हो और PowerPoint सेटिंग्स में केर्निंग सक्षम हो।
 
-ऐसी स्थितियों में रेंडर आउटपुट को PowerPoint के करीब लाने के लिए, आप उन टेक्स्ट भागों के लिए करीअरिंग निष्क्रिय कर सकते हैं जो प्रभावित फ़ॉन्ट का उपयोग करते हैं। [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) को वास्तविक फ़ॉन्ट आकार से बड़ा मान दें। इस उदाहरण में पहले स्लाइड पर पहले आकार के रूप में एक टेक्स्ट बॉक्स वाला "presentation.pptx" आवश्यक है। यह प्रभावी फ़ॉन्ट नामों, जिसमें विरासत में मिले फ़ॉन्ट भी शामिल हैं, को जाँचता है और Roboto का उपयोग करने वाले भागों के लिए 100‑पॉइंट थ्रेशोल्ड सेट करता है। यह 100 पॉइंट से छोटे फ़ॉन्ट आकार वाले मिलते‑जुलते भागों के लिए करीअरिंग को निष्क्रिय करता है:
+ऐसे मामलों में PowerPoint के समान रेंडरिंग प्राप्त करने के लिए, आप उन टेक्स्ट भागों के लिए केर्निंग निष्क्रिय कर सकते हैं जो प्रभावित फ़ॉन्ट का उपयोग करते हैं। [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) को वास्तविक फ़ॉन्ट आकार से बड़े मान पर सेट करें। यह उदाहरण पहले स्लाइड के पहले शेप पर एक टेक्स्ट बॉक्स वाले "presentation.pptx" की आवश्यकता रखता है। यह प्रभावी फ़ॉन्ट नामों की जाँच करता है, जिसमें विरासत में मिले फ़ॉन्ट शामिल हैं, और Roboto का उपयोग करने वाले भागों के लिए 100 पॉइंट थ्रेशहोल्ड सेट करता है। इससे 100 पॉइंट से नीचे के फ़ॉन्ट आकार वाले मिलते हुए भागों के लिए केर्निंग निष्क्रिय हो जाता है:
 
 ```python
 import jpype
@@ -386,13 +386,13 @@ finally:
     presentation.dispose()
 ```
 
-इस थ्रेशोल्ड से नीचे के टेक्स्ट में यह सेटिंग करीअरिंग को रोकती है और PowerPoint‑विशिष्ट व्यवहार से प्रभावित फ़ॉन्ट्स के लिए Aspose.Slides रेंडरिंग को दृश्य रूप से PowerPoint के साथ मिलाने में मदद कर सकती है।
+थ्रेशहोल्ड से नीचे के मिलते टेक्स्ट के लिए, यह सेटिंग केर्निंग को रोकती है और PowerPoint के इस विशेष व्यवहार से प्रभावित फ़ॉन्ट्स के लिए Aspose.Slides रेंडरिंग को PowerPoint के दृश्य आउटपुट के करीब लाने में मदद कर सकती है।
 
 ## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण पैराग्राफ स्तर पर [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) के माध्यम से सेट किए जा सकते हैं।
+फ़ॉन्ट गुण पैराग्राफ स्तर पर [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) के माध्यम से सेट किए जा सकते हैं।
 
-निम्न उदाहरण पहले पैराग्राफ की डिफ़ॉल्ट फ़ॉन्ट को 12‑पॉइंट Times New Roman, बोल्ड, इटैलिक और डॉटेड अंडरलाइन के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट फ़ॉर्मेटिंग इन डिफ़ॉल्ट्स से ऊपर होती है:
+निम्न उदाहरण पहले पैराग्राफ की डिफ़ॉल्ट फ़ॉन्ट को 12‑पॉइंट Times New Roman, बोल्ड, इटालिक और डॉटेड अंडरलाइन फ़ॉर्मेटिंग के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट फ़ॉर्मेटिंग इन डिफ़ॉल्ट्स पर प्राथमिकता लेती है।
 
 ```python
 import jpype
@@ -427,10 +427,10 @@ finally:
 
 ![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-निम्न उदाहरण उन भागों पर 13‑पॉइंट Times New Roman, इटैलिक फ़ॉर्मेटिंग और डॉटेड अंडरलाइन लागू करता है जिनकी प्रभावी फ़ॉर्मेटिंग बोल्ड है:
+निम्न उदाहरण उन भागों पर 13‑पॉइंट Times New Roman, इटालिक फ़ॉर्मेटिंग और डॉटेड अंडरलाइन लागू करता है जिनकी प्रभावी फ़ॉर्मेटिंग बोल्ड है:
 
 ```python
-import jpype
+import jpase
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -465,11 +465,11 @@ finally:
 
 ## **टेक्स्ट ऊँचाई सामान्यीकरण नियंत्रित करें**
 
-टेम्प्लेट टाइपोग्राफी दोहराते समय या अक्षर ऊँचाई में अंतर की जाँच करते समय [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) का उपयोग करें। PowerPoint में सामान्यीकरण सक्षम करने से व्यक्तिगत अक्षर वर्टिकली विस्तृत या संकुचित होते हैं ताकि वे टेक्स्ट भाग के भीतर समान दृश्यमान ऊँचाई प्राप्त कर सकें। यह विभिन्न फ़ॉन्ट्स में समान टेक्स्ट ऊँचाई की गारंटी नहीं देता।
+टेम्पलेट टाइपोग्राफी को पुनः उत्पन्न करने या अक्षर ऊँचाई में अंतर की जाँच करते समय [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) का उपयोग करें। PowerPoint में, सामान्यीकरण सक्षम करने से व्यक्तिगत अक्षर ऊर्ध्वाधर रूप से खिंचे या संकुचित होते हैं ताकि वे टेक्स्ट भाग में समान दृश्य ऊँचाई रख सकें। यह विभिन्न फ़ॉन्ट्स में समान टेक्स्ट ऊँचाइयों की गारंटी नहीं देता।
 
-[NullableBool.True_ या False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) सेट करके आप स्पष्ट रूप से सामान्यीकरण को सक्षम या निष्क्रिय कर सकते हैं। `NullableBool.NotDefined` स्थानीय सेटिंग को अनसेट रखता है जिससे भाग पैराग्राफ के [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) से मान विरासत में लेता है। इसका अर्थ `False` नहीं है। resolved Boolean मान प्राप्त करने के लिए [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) का उपयोग करें और लौटाए गये प्रभावी फ़ॉर्मेटिंग पर `getNormaliseHeight` पढ़ें।
+गुणधर्म को स्पष्ट रूप से सक्षम या निष्क्रिय करने के लिए [NullableBool.True_ or False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) सेट करें। `NullableBool.NotDefined` स्थानीय सेटिंग को अनसेट छोड़ देता है ताकि भाग पैराग्राफ के [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) से मान विरासत में ले सके। यह `False` होने का अर्थ नहीं है। रिजॉल्व्ड बूलियन मान प्राप्त करने के लिए [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) का उपयोग करें और लौटाए गए प्रभावी फ़ॉर्मेटिंग पर `getNormaliseHeight` पढ़ें।
 
-निम्न स्वनिर्भर उदाहरण के लिए **Arial** स्थापित होना आवश्यक है। यह दो टेक्स्ट ब्लॉक बनाता है जिनमें बड़े अक्षर, छोटे अक्षर, डेसेंडर और 54‑पॉइंट पर एक्सेंटेड अक्षर समान होते हैं। दोनों पैराग्राफ डिफ़ॉल्ट रूप से सामान्यीकरण को सक्षम रखते हैं। ऊपर वाला भाग स्पष्ट रूप से इसे निष्क्रिय करता है; नीचे वाला भाग इसे विरासत में लेता है। फ़्रेम आकार, मार्जिन और पैराग्राफ स्पेसिंग समान है, रैपिंग और ऑटोफ़िट निष्क्रिय हैं ताकि तुलना सुसंगत रहे। उदाहरण `False: False` और `NotDefined: True` प्रिंट करता है, फिर "text_height_normalization.pptx" सहेजता है।
+निम्न स्वनिर्धारित उदाहरण को **Arial** इंस्टॉल होने की आवश्यकता है। यह दो टेक्स्ट ब्लॉक्स बनाता है जिनमें समान अपरकेस अक्षर, लोअरकेस अक्षर, डिसेंडर और 54 पॉइंट पर एक्सेंटेड कैरेक्टर होते हैं। दोनों पैराग्राफ डिफ़ॉल्ट रूप से सामान्यीकरण सक्षम करते हैं। शीर्ष भाग स्पष्ट रूप से इसे निष्क्रिय करता है; निचला भाग इसे विरासत में लेता है। फ्रेम आकार, मार्जिन और पैराग्राफ स्पेसिंग समान हैं, रैपिंग और ऑटॉफ़िट निष्क्रिय हैं ताकि तुलना सुसंगत रहे। उदाहरण `False: False` और `NotDefined: True` प्रिंट करता है, फिर "text_height_normalization.pptx" सहेजता है।
 
 ```python
 import jpype
@@ -523,19 +523,19 @@ finally:
     presentation.dispose()
 ```
 
-नीचे दिया गया तुलना अभी सहेजी गई प्रस्तुति से निर्यात किया गया है। शीर्ष पंक्ति में सामान्यीकरण निष्क्रिय है (`False`); निचली पंक्ति में सक्षम सेटिंग विरासत में मिलती है (`NotDefined` → `True`)। इस रूप को पुनः उत्पन्न करने के लिए Arial स्थापित रखें।
+नीचे की तुलना सहेजे गए प्रस्तुतीकरण से निर्यात की गई है। शीर्ष पंक्ति में सामान्यीकरण निष्क्रिय (`False`) है; निचली पंत्ति ने सक्षम सेटिंग को विरासत में लिया (`NotDefined` → `True`)। इस दिखावट को पुनः उत्पन्न करने के लिए Arial इंस्टॉल रखें।
 
-![Arial 54‑पॉइंट टेक्स्ट जिसमें ऊपर सामान्यीकरण निष्क्रिय और नीचे विरासत में प्राप्त सामान्यीकरण सक्षम है](text_height_normalization.png)
+![Arial 54‑पॉइंट टेक्स्ट जिसमें ऊपर सामान्यीकरण निष्क्रिय और नीचे सामान्यीकरण सक्षम है](text_height_normalization.png)
 
-सामान्यीकरण अक्षर ऊँचाई को बदले बिना असाइन किए गए [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) मान को बदले बिना बदलता है, जो फ़ॉन्ट आकार को पॉइंट में निर्दिष्ट करता है। पैराग्राफ [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) लाइन स्पेसिंग नियंत्रित करता है, जबकि टेक्स्ट‑फ़्रेम [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) टेक्स्ट या उसके कंटेनर के आकार को समायोजित करता है। ये सेटिंग्स अलग‑अलग उद्देश्यों की सेवा करती हैं और समग्र लेआउट को स्वतंत्र रूप से प्रभावित कर सकती हैं। पैराग्राफ फ़ॉर्मेटिंग और विरासत पर अधिक जानकारी के लिए देखें [पैराग्राफ प्रबंधन](/slides/hi/python-java/manage-paragraph/)।
+सामान्यीकरण अक्षर की ऊँचाई को बदलता है बिना असाइन किए गए [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight) मान को बदले, जो फ़ॉन्ट आकार को पॉइंट में निर्दिष्ट करता है। पैराग्राफ [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) लाइन स्पेसिंग नियंत्रित करता है, जबकि टेक्स्ट‑फ़्रेम [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) टेक्स्ट या उसके कंटेनर को फिट करने के तरीके को नियंत्रित करता है। ये सेटिंग्स अलग‑अलग उद्देश्यों की सेवा करती हैं और लेआउट को स्वतंत्र रूप से प्रभावित कर सकती हैं। पैराग्राफ फ़ॉर्मेटिंग और विरासत के बारे में अधिक जानने के लिए देखें [Manage Paragraph](/slides/hi/python-java/manage-paragraph/)।
 
-## **स्ट्राइकथ्रू लागू करें और हटाएँ**
+## **स्ट्राइकथ्रू लागू और हटाएँ**
 
-टेक्स्ट भाग पर [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) का उपयोग करके सुधार, रद्द शब्द या पुराने मूल्य को बिना मूल टेक्स्ट को हटाए दिखाया जा सकता है। इसे [TextStrikethroughType.Single या Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) पर सेट करने से टेक्स्ट पर एक या दो रेखाएं आती हैं।
+टेक्स्ट भाग पर [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) का उपयोग करके संशोधन, रद्द शब्द, या पूर्व कीमतें बिना मूल टेक्स्ट हटाए दिखा सकते हैं। स्ट्राइकथ्रू को एक या दो लाइनों के लिए क्रमशः [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) पर सेट करें।
 
-स्ट्राइकथ्रू हटाने के लिये [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None) पास करें। यह प्रभाव को स्पष्ट रूप से निष्क्रिय करता है, भले ही आसपास की फ़ॉर्मेटिंग स्ट्राइकथ्रू निर्दिष्ट करे। इसके विपरीत, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) स्थानीय सेटिंग को अनिर्दिष्ट छोड़ देता है, जिससे भाग पैराग्राफ आदि से फ़ॉर्मेटिंग विरासत में ले सकता है। यह गारंटी नहीं देता कि स्ट्राइकथ्रू हट गया है। परिणामस्वरूप फ़ॉर्मेटिंग, जिसमें विरासती मान भी शामिल हैं, पढ़ने के लिये [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) उपयोग करें।
+स्ट्राइकथ्रू हटाने के लिए, [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None) पास करें। यह स्पष्ट रूप से प्रभाव को निष्क्रिय करता है, भले ही आसपास का फ़ॉर्मेटिंग स्ट्राइकथ्रू निर्दिष्ट करता हो। विपरीत रूप से, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) स्थानीय सेटिंग को अपरिभाषित छोड़ देता है, जिससे भाग पैराग्राफ से फ़ॉर्मेटिंग विरासत में ले सकता है। यह गारंटी नहीं देता कि स्ट्राइकथ्रू हट गया है। परिणामी फ़ॉर्मेटिंग, जिसमें विरासतित मान शामिल हैं, पढ़ने के लिए [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) का उपयोग करें।
 
-निम्न स्वनिर्भर उदाहरण तीन मूल्य तुलना बनाता है। प्रत्येक पैराग्राफ में लेबल, पुरानी कीमत और नई कीमत के लिए अलग‑अलग भाग होते हैं, इसलिए केवल पुरानी कीमत प्रभावित होती है। पहली पंक्ति स्ट्राइकथ्रू लागू करती है और फिर हटाती है; अन्य पंक्तियों में क्रमशः एक‑लाइन और दो‑लाइन स्ट्राइकथ्रू रहता है। इस सेटिंग को बदलने से टेक्स्ट एवं उसके अन्य फ़ॉर्मेटिंग, जिसमें बोल्ड पुरानी कीमत भी शामिल है, बरकरार रहती है।
+निम्न स्वनिर्धारित उदाहरण तीन मूल्य तुलना बनाता है। प्रत्येक पैराग्राफ में लेबल, पूर्व कीमत, और वर्तमान कीमत के लिए अलग‑अलग भाग होते हैं, इसलिए केवल पूर्व कीमत प्रभावित होती है। पहली पंक्ति स्ट्राइकथ्रू लागू करती है और फिर हटाती है; अन्य पंक्तियों में क्रमशः एकल और डबल स्ट्राइकथ्रू बना रहता है। इस सेटिंग को बदलने से टेक्स्ट और उसके अन्य फ़ॉर्मेटिंग, जिसमें बोल्ड पूर्व कीमत शामिल है, सुरक्षित रहता है।
 
 ```python
 import jpype
@@ -583,7 +583,7 @@ try:
 
     paragraphs = shape.getTextFrame().getParagraphs()
 
-    # स्ट्राइकथ्रू लागू करें, फिर पहले पिछले मूल्य से इसे स्पष्ट रूप से हटाएँ।
+    # स्ट्राइकथ्रू लागू करें, फिर पहले पिछले मूल्य से इसे स्पष्ट रूप से हटाएँ.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
 
@@ -595,13 +595,13 @@ finally:
     presentation.dispose()
 ```
 
-परिणाम, ऊपर से नीचे: स्ट्राइकथ्रू नहीं, एक‑लाइन स्ट्राइकथ्रू, और दो‑लाइन स्ट्राइकथ्रू।
+परिणाम, शीर्ष से नीचे: कोई स्ट्राइकथ्रू नहीं, एकल स्ट्राइकथ्रू, और डबल स्ट्राइकथ्रू।
 
-![बिना स्ट्राइकथ्रू, एक‑लाइन स्ट्राइकथ्रू, और दो‑लाइन स्ट्राइकथ्रू वाली पुरानी कीमतें](strikethrough.png)
+![स्ट्राइकथ्रू बिना, एकल स्ट्राइकथ्रू और डबल स्ट्राइकथ्रू वाले पूर्व कीमतें](strikethrough.png)
 
-## **टेक्स्ट घुमाव सेट करें**
+## **टेक्स्ट रोटेशन सेट करें**
 
-[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) का उपयोग करके आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट किया जा सकता है।
+[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) का उपयोग करके शेप के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करें।
 
 निम्न कोड उदाहरण टेक्स्ट अभिविन्यास को [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/) पर सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिक्लॉकवाइज** घुमाता है:
 
@@ -628,13 +628,66 @@ finally:
 
 परिणाम:
 
-![टेक्स्ट घुमाव](text_rotation.png)
+![टेक्स्ट रोटेशन](text_rotation.png)
 
-## **टेक्स्ट फ़्रेम के लिए कस्टम घुमाव सेट करें**
+## **ऊर्ध्वाधर टेक्स्ट में अंकों को साइड बाय साइड दिखाएँ**
 
-[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) का उपयोग करके [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) के लिए कस्टम घुमाव कोण सेट किया जा सकता है।
+दो‑अंकीय संख्या के अंक को एक ऊर्ध्वाधर जापानी लेबल में साइड बाय साइड रखने के लिए, दोनों अंकों को एक ही टेक्स्ट भाग में रखें और उस भाग पर [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKumimoji) कॉल करें। इस उदाहरण में दोनों लेबल [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/#EastAsianVertical) और 40‑पॉइंट MS Gothic का उपयोग करते हैं। अंकों के लिए [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) सेटिंग अलग है।
 
-नीचे दिया गया कोड उदाहरण आकार के भीतर टेक्स्ट फ़्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Portion, Presentation, SaveFormat, ShapeType, TextVerticalType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    font = FontData("MS Gothic")
+
+    for x, kumimoji in [(120, NullableBool.True_), (360, NullableBool.False_)]:
+        label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 48, 120, 420)
+        label.getFillFormat().setFillType(FillType.NoFill)
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        frame = label.addTextFrame("")
+        frame.getTextFrameFormat().setTextVerticalType(TextVerticalType.EastAsianVertical)
+
+        paragraph = frame.getParagraphs().get_Item(0)
+        default_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        default_format.setLatinFont(font)
+        default_format.setEastAsianFont(font)
+        default_format.setFontHeight(40)
+        default_format.getFillFormat().setFillType(FillType.Solid)
+        default_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        digits = Portion("12")
+        digits.getPortionFormat().setKumimoji(kumimoji)
+        
+        portions = paragraph.getPortions()
+        portions.clear()
+        portions.add(Portion("令和"))
+        portions.add(digits)
+        portions.add(Portion("年"))
+
+    presentation.save("vertical_date.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+PowerPoint में, बायें लेबल (`True`) में अंक ऊर्ध्वाधर और साइड बाय साइड दिखते हैं, जबकि दायें लेबल (`False`) में अंक 90 डिग्री क्लॉकवाइज घुमा हुआ है। दोनों लेबल में चारों ओर के जापानी अक्षर स्थिर रहते हैं।
+
+![ऊर्ध्वाधर तिथि लेबल में बायें पर अंक सीधा और दायें पर घुमा हुआ प्रतिक्लॉकवाइज दिखते हैं।](vertical_date.png)
+
+## **टेक्स्ट फ्रेम्स के लिए कस्टम रोटेशन सेट करें**
+
+[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) का उपयोग करके किसी [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) के लिए कस्टम रोटेशन एंगल सेट करें।
+
+नीचे का कोड उदाहरण शेप के भीतर टेक्स्ट फ्रेम को 3 डिग्री क्लॉकवाइज घुमाता है:
 
 ```python
 import jpype
@@ -659,16 +712,16 @@ finally:
 
 परिणाम:
 
-![कस्टम टेक्स्ट घुमाव](custom_text_rotation.png)
+![कस्टम टेक्स्ट रोटेशन](custom_text_rotation.png)
 
-## **पैरा­ग्राफ की लाइन स्पेसिंग सेट करें**
+## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides नीचे दिए गए मेथड्स के माध्यम से पैराग्राफ स्पेसिंग नियंत्रित करता है: [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore), और [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin)। इनका उपयोग इस प्रकार किया जाता है:
+Aspose.Slides प्रदान करता है [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore), और [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) पैराग्राफ अंतराल को नियंत्रित करने के लिए। ये गुण इस प्रकार उपयोग होते हैं:
 
-* सकारात्मक मान का उपयोग करके लाइन स्पेसिंग को लाइन ऊँचाई के प्रतिशत में निर्धारित किया जाता है।
-* नकारात्मक मान का उपयोग करके लाइन स्पेसिंग को पॉइंट में निर्धारित किया जाता है।
+* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान उपयोग करें।
+* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिए नकारात्मक मान उपयोग करें।
 
-निम्न उदाहरण पहली पैराग्राफ की भीतर की स्पेसिंग को लाइन ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
+निम्न उदाहरण पहली पैराग्राफ की भीतर की स्पेसिंग को लाइन की ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
 
 ```python
 import jpype
@@ -699,14 +752,14 @@ finally:
 
 ## **लाइन ब्रेकिंग नियंत्रित करें**
 
-पैराग्राफ की लाइन‑ब्रेकिंग नियम संकरे टेक्स्ट ब्लॉकों और मिश्रित लैटिन‑एशियन टेक्स्ट वाली प्रस्तुतियों में उपयोगी होते हैं। नीचे दिए गए मेथड्स [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/) से संबंधित हैं, इसलिए वे पूरे पैराग्राफ पर लागू होते हैं:
+पैराग्राफ लाइन‑ब्रेकिंग नियम संकीर्ण टेक्स्ट ब्लॉक्स और लैटिन तथा ईस्ट एशियन टेक्स्ट के मिश्रण वाले प्रस्तुतियों में उपयोगी होते हैं। नीचे दिए गए मेथड्स [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/) से संबंधित हैं, इसलिए वे पूरे पैराग्राफ पर लागू होते हैं:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) लैटिन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है। मिश्रित टेक्स्ट में, इसे बदलने से आस-पास के एशियन टेक्स्ट और विराम चिह्नों के रैपिंग स्थान भी बदल सकते हैं।
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) एशियन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है, जिसमें लाइन की शुरुआत और अंत में पात्रों की सीमाएँ शामिल हैं।
+- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) लैटिन लाइन‑ब्रेकिंग नियम नियंत्रित करता है। मिश्रित टेक्स्ट में इसे बदलने से ईस्ट एशियन टेक्स्ट एवं विराम चिह्नों की रैपिंग भी बदल सकती है।
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ईस्ट एशियन लाइन‑ब्रेकिंग नियम नियंत्रित करता है, जिसमें लाइन की शुरुआत और अंत में अक्षरों पर प्रतिबंध शामिल हैं।
 
-ये नियम [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) को बदलते नहीं हैं, जो टेक्स्ट फ़्रेम के भीतर स्वचालित रैपिंग को सक्षम करता है। यह रैपिंग के होने पर लेआउट को प्रभावित करता है; यह लाइन‑ब्रेक अक्षर नहीं जोड़ता। एक स्पष्ट लाइन ब्रेक पैराग्राफ के भीतर नई पंक्ति बनाता है, उपलब्ध चौड़ाई की परवाह किए बिना।
+ये नियम [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) को प्रतिस्थापित नहीं करते, जो टेक्स्ट फ्रेम के भीतर स्वचालित रैपिंग सक्षम करता है। वे रैपिंग होने पर लेआउट को प्रभावित करते हैं; वे लाइन‑ब्रेक कैरेक्टर सम्मिलित नहीं करते। एक स्पष्ट लाइन ब्रेक पैराग्राफ में नई पंक्ति बनाता है, उपलब्ध चौड़ाई से स्वतंत्र।
 
-निम्न स्वनिर्भर उदाहरण एक संकीर्ण टेक्स्ट ब्लॉक बनाता है जिसमें चीनी और लैटिन टेक्स्ट मिश्रित है। यह दोनों लाइन‑ब्रेकिंग विकल्पों को स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम को आज़माने के लिये, संबंधित मान बदलें जबकि अन्य सेटिंग्स अपरिवर्तित रखें। उदाहरण 24‑पॉइंट Arial और SimSun का उपयोग करता है, फ़्रेम चौड़ाई 160‑पॉइंट तथा क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन शून्य है। [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) को [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) पर सेट किया गया है ताकि टेक्स्ट आकार और फ़्रेम आयाम स्थिर रहें।
+निम्न स्वनिर्धारित उदाहरण एक संकीर्ण टेक्स्ट ब्लॉक बनाता है जिसमें चाइनीज़ और लैटिन टेक्स्ट सम्मिलित होते हैं। यह दोनों लाइन‑ब्रेकिंग विकल्प स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम को आज़माने के लिए, संबंधित मान बदलें जबकि अन्य सेटिंग्स को अपरिवर्तित रखें। उदाहरण 24‑पॉइंट Arial और SimSun का उपयोग करता है, 160‑पॉइंट फ्रेम चौड़ाई और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ। [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) को [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) के साथ बुलाया जाता है ताकि टेक्स्ट आकार और फ्रेम आयाम स्थिर रहें।
 
 ```python
 import jpype
@@ -753,9 +806,9 @@ finally:
 
 ## **हैंगिंग पंक्चुएशन नियंत्रित करें**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) पात्रों को टेक्स्ट लाइन के दाएँ किनारे से आगे तक बढ़ने की अनुमति देता है, बजाय अगले लाइन में जाने के। यह पूरे पैराग्राफ पर लागू होता है और हैंगिंग इन्डेंट से अलग है।
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) पात्रियों को टेक्स्ट लाइन के दायें किनारे से बाहर निकालने की अनुमति देता है, बजाय अगले लाइन में जाने के। यह पूरे पैराग्राफ पर लागू होता है और हैंगिंग इंडेंट से अलग है।
 
-निम्न स्वनिर्भर उदाहरण 100‑पॉइंट‑चौड़े टेक्स्ट फ़्रेम में हैंगिंग पंक्चुएशन सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ, अंतिम बिंदु "sentence" के बाद रहता है और दाएँ टेक्स्ट किनारे से बाहर निकलता है। तुलना के लिए प्रॉपर्टी को [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) पर सेट करें: इन सेटिंग्स के साथ बिंदु एक अलग लाइन में दिखेगा। रैपिंग सक्षम है और ऑटोफ़िट निष्क्रिय है ताकि उपलब्ध चौड़ाई स्थिर रहे।
+निम्न स्वनिर्धारित उदाहरण 100‑पॉइंट‑व्यापी टेक्स्ट फ्रेम में हैंगिंग पंक्चुएशन सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ, अंतिम बिंदु "sentence" के बाद रहता है और दायें टेक्स्ट किनारे से बाहर निकलता है। तुलना के लिए गुण को [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) पर सेट करें: इन सेटिंग्स के साथ, बिंदु अलग लाइन में आता है। रैपिंग सक्षम है और ऑटॉफ़िट निष्क्रिय है ताकि उपलब्ध चौड़ाई स्थिर रहे।
 
 ```python
 import jpype
@@ -797,11 +850,11 @@ finally:
     presentation.dispose()
 ```
 
-हर पंक्चुएशन चिह्न नहीं हैंग कर सकता। ऊपर वर्णित [फ़ॉन्ट और लेआउट स्थितियाँ](#control-line-breaking) इस तुलना पर भी लागू होती हैं: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन या ऑटोफ़िट सेटिंग्स बदलने से दृश्यमान अंतर हट सकता है।
+हर पंक्चुएशन मार्क हैंग नहीं कर सकता। ऊपर वर्णित [फ़ॉन्ट और लेआउट स्थितियाँ](#control-line-breaking) भी इस तुलना में लागू होती हैं: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन, या ऑटॉफ़िट सेटिंग बदलने से दृश्य अंतर हट सकता है।
 
-## **टेक्स्ट फ़्रेम के लिए ऑटोफ़िट टाइप सेट करें**
+## **टेक्स्ट फ्रेम्स के लिए ऑटॉफ़िट प्रकार सेट करें**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) निर्धारित करता है कि टेक्स्ट कंटेनर की सीमाओं से बाहर जाने पर वह कैसे व्यवहार करता है। इसका उपयोग यह नियंत्रित करने के लिये किया जाता है कि टेक्स्ट छोटा हो, ओवरफ़्लो हो, या आकार को स्वचालित रूप से री‑साइज़ करे। निम्न उदाहरण आकार को उसके टेक्स्ट के अनुसार री‑साइज़ करने के लिये कॉन्फ़िगर करता है और परिणाम "autofit_type.pptx" में सहेजता है।
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) निर्धारित करता है कि टेक्स्ट कंटेनर की सीमाओं से अधिक होने पर कैसे व्यवहार करता है। इसका उपयोग करके तय करें कि टेक्स्ट सिकुड़ना चाहिए, ओवरफ़्लो होना चाहिए, या शेप को स्वचालित रूप से रिसाइज़ करना चाहिए। निम्न उदाहरण शेप को उसके टेक्स्ट के अनुसार रिसाइज़ करने के लिए कॉन्फ़िगर करता है और परिणाम "autofit_type.pptx" में सहेजता है।
 
 ```python
 import jpype
@@ -824,11 +877,11 @@ finally:
     presentation.dispose()
 ```
 
-ऑटोफ़िट के बाद स्वतः रैपिंग द्वारा लाइनों की संख्या गिनने और यह देखने के लिए कि टेक्स्ट या आकार की चौड़ाई परिणाम को कैसे बदलती है, देखें [रेण्डर की गई लाइनों की गणना](/slides/hi/python-java/manage-paragraph/)। केवल लाइनों की संख्या यह संकेत नहीं देती कि टेक्स्ट कंटेनर से बाहर निकल रहा है या नहीं।
+ऑटो रैपिंग के बाद लाइनों की गिनती करने और यह देखने के लिए कि टेक्स्ट या शेप की चौड़ाई परिणाम को कैसे बदलती है, देखें [Count Rendered Lines](/slides/hi/python-java/manage-paragraph/). केवल लाइनों की गिनती यह संकेत नहीं देती कि टेक्स्ट कंटेनर से ओवरफ़्लो हो रहा है या नहीं।
 
-## **टेक्स्ट फ़्रेम का एंकर सेट करें**
+## **टेक्स्ट फ्रेम्स का एंकर सेट करें**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) आकार के भीतर टेक्स्ट को ऊर्ध्वाधर रूप से शीर्ष, मध्य या नीचे की स्थितियों में रखता है। निम्न उदाहरण टेक्स्ट को पहले आकार के नीचे एंकर करता है और परिणाम "text_anchor.pptx" में सहेजता है।
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) निर्धारित करता है कि टेक्स्ट को शेप के अंदर ऊर्ध्वाधर रूप से कैसे स्थित किया जाए, उदाहरण के लिए शीर्ष, मध्य या नीचे। निम्न उदाहरण टेक्स्ट को पहले शेप के नीचे एंकर करता है और परिणाम "text_anchor.pptx" में सहेजता है।
 
 ```python
 import jpype
@@ -853,7 +906,7 @@ finally:
 
 ## **टेक्स्ट टैबुलेशन सेट करें**
 
-[ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) और [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) का उपयोग करके पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करें। निम्न उदाहरण डिफ़ॉल्ट टैब इंटरवल को 100 पॉइंट पर सेट करता है और 30 पॉइंट पर बायीं‑संजाली टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब अक्षरों वाले टेक्स्ट को प्रभावित करती हैं।
+पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करने के लिए [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) और [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) का उपयोग करें। निम्न उदाहरण डिफ़ॉल्ट टैब अंतराल को 100 पॉइंट पर सेट करता है और 30 पॉइंट पर एक बाएँ‑संरेखित टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब कैरेक्टर वाले टेक्स्ट को प्रभावित करती हैं।
 
 ```python
 import jpype
@@ -885,9 +938,9 @@ finally:
 
 ## **प्रूफिंग भाषा सेट करें**
 
-Aspose.Slides [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId) प्रदान करता है, जिससे आप टेक्स्ट भाग की प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिये उपयोग की जाने वाली भाषा को निर्धारित करती है।
+Aspose.Slides प्रदान करता है [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId), जिससे आप टेक्स्ट भाग के लिए प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जाँच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-निम्न उदाहरण के लिये "presentation.pptx" आवश्यक है जिसमें पहले स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो और कम से कम एक पैराग्राफ हो। यह पहले पैराग्राफ की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है, और प्रूफिंग भाषा को सरलित चीनी (`zh-CN`) असाइन करता है। परिणाम "proofing_language.pptx" में सहेजा जाता है:
+निम्न उदाहरण को "presentation.pptx" चाहिए जिसमें पहली स्लाइड के पहले शेप पर एक टेक्स्ट बॉक्स हो और कम से कम एक पैराग्राफ हो। यह पहले पैराग्राफ की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है, और प्रूफिंग भाषा Simplified Chinese (`zh-CN`) असाइन करता है। परिणाम "proofing_language.pptx" में सहेजा जाता है:
 
 ```python
 import jpype
@@ -914,7 +967,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # प्रूफ़िंग भाषा का Id सेट करें.
+    # प्रूफ़िंग भाषा का Id सेट करें।
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -925,9 +978,9 @@ finally:
     presentation.dispose()
 ```
 
-### **भाषा मेटाडेटा कॉपी करें**
+### **भाषा मेटाडाटा कॉपी करें**
 
-बहुभाषी टेक्स्ट को टेम्प्लेट से कॉपी करते समय, दोनों [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getLanguageId) और [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) को संरक्षित रखें। निम्न स्वनिर्भर उदाहरण स्रोत भाग को US English को उसकी भाषा तथा French को वैकल्पिक भाषा के रूप में बनाता है और टेक्स्ट व पहचानकों को नई प्रस्तुति के एक भाग में कॉपी करता है।
+जब टेम्पलेट से बहुभाषी टेक्स्ट कॉपी किया जाता है, तो दोनों [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getLanguageId) और [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) को संरक्षित रखें। निम्न स्वनिर्धारित उदाहरण एक स्रोत भाग बनाता है जिसमें US English उसकी भाषा है और French उसकी वैकल्पिक भाषा है, और टेक्स्ट व पहचानकर्ता को नई प्रस्तुति में एक भाग में कॉपी करता है।
 
 ```python
 import jpype
@@ -953,7 +1006,7 @@ try:
     destination = Portion()
     destination.setText(source.getText())
     destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId())
-    # यदि स्रोत में वैकल्पिक भाषा नहीं है, तो None गंतव्य मान को साफ़ कर देता है।
+    # यदि स्रोत के पास वैकल्पिक भाषा नहीं है, तो None गंतव्य मान को साफ़ कर देता है।
     destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId())
     paragraph.getPortions().add(destination)
 
@@ -962,13 +1015,13 @@ finally:
     presentation.dispose()
 ```
 
-वैकल्पिक भाषा के बिना स्रोत आज़माने के लिये, `"fr-FR"` असाइनमेंट को छोड़ दें। वैकल्पिक पहचानकर्ता तब `None` रहेगा, और वही कॉपी स्टेटमेंट उसके अभाव को बिना डिफ़ॉल्ट मान डाले संरक्षित करता है, भले ही गंतव्य में पहले वैकल्पिक भाषा असाइन की गई हो।
+वैकल्पिक भाषा के बिना स्रोत आज़माने के लिए, `"fr-FR"` असाइनमेंट को छोड़ें। तब वैकल्पिक पहचानकर्ता `None` रहेगा, और वही कॉपी स्टेटमेंट इसकी अनुपस्थिति को डिफ़ॉल्ट मान जोड़े बिना संरक्षित रखेगा, चाहे लक्ष्य में पहले वैकल्पिक भाषा सेट हो।
 
-ये पहचानकर्ता भाषा मेटाडेटा के रूप में संग्रहीत होते हैं। इन्हें संरक्षित करने से यह निर्धारित नहीं होता कि PowerPoint कौन-सा शब्दकोश वर्तनी या व्याकरण जांच के लिये चुनेगा।
+ये पहचानकर्ता भाषा मेटाडाटा संग्रहीत करते हैं। इन्हें संरक्षित करने से यह निर्धारित नहीं होता कि PowerPoint किस शब्दकोश को वर्तनी या व्याकरण जाँच के लिए चुनता है।
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) का उपयोग करके प्रस्तुति लोड या बनाते समय बनाए गए टेक्स्ट की डिफ़ॉल्ट भाषा परिभाषित की जा सकती है। निम्न उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करता है, टेक्स्ट बॉक्स जोड़ता है, और प्रथम टेक्स्ट भाग के लिये `en-US` प्रिंट करता है।
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) का उपयोग करके प्रस्तुति लोड या बनाते समय बनाए गए टेक्स्ट की डिफ़ॉल्ट भाषा परिभाषित करें। निम्न उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करता है, एक टेक्स्ट बॉक्स जोड़ता है, और उसके पहले टेक्स्ट भाग पर `en-US` प्रिंट करता है।
 
 ```python
 import jpype
@@ -986,35 +1039,35 @@ presentation = Presentation(load_options)
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # एक आयताकार आकार के साथ टेक्स्ट जोड़ें।
+    # टेक्स्ट के साथ एक आयताकार आकार जोड़ें.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    # पहले भाग की भाषा जांचें।
+    # पहले भाग की भाषा जाँचें.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
     presentation.dispose()
 ```
 
-## **डिफ़ॉल्ट टेक्स्ट स्टाइल सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रेज़ेंटेशन स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिये [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle) का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle) का उपयोग करें।
 
-निम्न उदाहरण नई प्रस्तुति में शीर्ष‑स्तर के पैराग्राफ के लिये 14‑पॉइंट बोल्ड फ़ॉन्ट को डिफ़ॉल्ट के रूप में सेट करता है और इसे "default_text_style.pptx" में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है जब तक कि अधिक विशिष्ट फ़ॉर्मेटिंग उन्हें ओवरराइड न करे।
+निम्न उदाहरण नई प्रस्तुति में शीर्ष‑स्तर पैराग्राफ के लिए 14‑पॉइंट बोल्ड फ़ॉन्ट को डिफ़ॉल्ट के रूप में सेट करता है और इसे "default_text_style.pptx" में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है जब तक कि अधिक विशिष्ट फ़ॉर्मेटिंग उन्हें ओवरराइड न करे।
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import NullableBool, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # शीर्ष स्तर का पैराग्राफ फ़ॉर्मेट प्राप्त करें.
+    # शीर्ष स्तर के पैराग्राफ फ़ॉर्मेट को प्राप्त करें।
     paragraph_format = presentation.getDefaultTextStyle().getLevel(0)
 
     if paragraph_format is not None:
@@ -1028,13 +1081,13 @@ finally:
 
 ## **ऑल‑कैप्स प्रभाव के साथ टेक्स्ट निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से टेक्स्ट स्लाइड पर बड़े अक्षरों में दिखता है, जबकि वह मूलतः छोटे अक्षरों में टाइप किया गया हो। Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करने पर लाइब्रेरी वही स्ट्रिंग लौटाती है जो दर्ज की गई थी। प्रदर्शित टेक्स्ट से मेल खाने के लिये, [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) को जांचें और यदि मान `All` है तो लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
+PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से टेक्स्ट स्लाइड पर अप्परकेस में दिखाई देता है, जबकि असल में वह लोअरकेस में टाइप किया गया था। Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करने पर, लाइब्रेरी वही टेक्स्ट लौटाती है जैसा दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) जांचें और जब मान `All` हो तो लौटाए गए स्ट्रिंग को अप्परकेस में परिवर्तित करें।
 
-यह उदाहरण "sample2.pptx" की आवश्यकता रखता है जिसमें पहले स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स हो। पहले पैराग्राफ के पहले भाग में All Caps प्रभाव लागू किया गया "Hello, Aspose!" टेक्स्ट है, जैसा कि नीचे दिखाया गया है।
+यह उदाहरण "sample2.pptx" की आवश्यकता रखता है जिसमें पहली स्लाइड के पहले शेप पर एक टेक्स्ट बॉक्स हो। उसके पहले पैराग्राफ का पहला भाग "Hello, Aspose!" को All Caps प्रभाव के साथ प्रदर्शित करता है, जैसा नीचे दिखाया गया है।
 
-![ऑल‑कैप्स प्रभाव](all_caps_effect.png)
+![All Caps प्रभाव](all_caps_effect.png)
 
-नीचे दिया गया कोड उदाहरण **All Caps** प्रभाव लागू किए हुए टेक्स्ट को निकालने का तरीका दर्शाता है:
+नीचे का कोड उदाहरण **All Caps** प्रभाव के साथ टेक्स्ट निकालने का तरीका दर्शाता है:
 
 ```python
 import jpype
@@ -1071,10 +1124,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**मैं स्लाइड पर तालिका के टेक्स्ट को कैसे संशोधित करूँ?**
+**स्लाइड पर टेबल में टेक्स्ट कैसे बदलें?**
 
-स्लाइड पर तालिका के टेक्स्ट को संशोधित करने के लिये [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) का उपयोग करें। कोशिकाओं पर इटरफ़ेट करें और प्रत्येक कोशिका को [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) के द्वारा अपडेट करें तथा पैराग्राफ फ़ॉर्मेटिंग को [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) के द्वारा अपडेट करें।
+स्लाइड पर टेबल में टेक्स्ट बदलने के लिए, [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). का उपयोग करें। सेल्स के माध्यम से इटररेट करें और प्रत्येक सेल को [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) और पैराग्राफ फ़ॉर्मेटिंग को [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) के माध्यम से अपडेट करें।
 
-**मैं PowerPoint स्लाइड पर टेक्स्ट को ग्रेडिएंट रंग कैसे लागू करूँ?**
+**PowerPoint स्लाइड पर टेक्स्ट को ग्रेडिएंट रंग कैसे लागू करें?**
 
-टेक्स्ट पर ग्रेडिएंट रंग लागू करने के लिये [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) का उपयोग करें। [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) को [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा व पारदर्शिता को कॉन्फ़िगर करें।
+टेक्स्ट पर ग्रेडिएंट रंग लागू करने के लिए, [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat) का उपयोग करें। [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) को [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा और पारदर्शिता को कॉन्फ़िगर करें।

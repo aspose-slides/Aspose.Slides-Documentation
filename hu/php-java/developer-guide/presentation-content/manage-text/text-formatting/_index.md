@@ -1,5 +1,5 @@
 ---
-title: Prezentáció szövegének formázása PHP-ben
+title: Prezentáció szövegének formázása PHP-ban
 linktitle: Szövegformázás
 type: docs
 weight: 50
@@ -10,14 +10,14 @@ keywords:
 - szöveg háttér
 - szöveg átlátszóság
 - karakterköz
-- betűtulajdonságok
+- betűtípus tulajdonságok
 - betűcsalád
-- szöveg forgatása
+- szöveg forgatás
 - forgatási szög
 - szövegkeret
 - sorköz
-- automatikus méretezés tulajdonság
-- szövegkeret rögzítése
+- automatikus illesztés tulajdonság
+- szövegkeret horgony
 - szöveg tabuláció
 - alapértelmezett nyelv
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument bemutatókban az Aspose.Slides for PHP via Java segítségével. Testreszabhat betűtípusokat, színeket, igazítást és még sok mást."
+description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for PHP via Java segítségével. Testreszabhatja a betűket, színeket, igazítást és még sok mást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatja a szöveget PowerPoint és OpenDocument bemutatókban az Aspose.Slides for PHP via Java használatával. A háttérszíneket, átlátszóságot, karakterközöket, betűtulajdonságokat, forgatást, bekezdésközöket, automatikus méretezést, szöveg rögzítését, tabulátorállásokat és nyelvi beállításokat tárgyalja.
+Ez a cikk bemutatja, hogyan formázhat szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for PHP via Java használatával. Kitér a háttérszínekre, átlátszóságra, karakterközre, betűtípus‑tulajdonságokra, forgatásra, bekezdésközökre, automatikus illesztés viselkedésére, szöveg‑horgonyzásra, tabulátorokra és nyelvi beállításokra.
 
-Ha nincs másként feltüntetve, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dián az első alakzat egy szövegdoboz, és az első bekezdése tartalmazza az alább látható szöveget. A diák és az alakzat indexei nullától kezdődnek. Azokat a példákat, amelyek félkövér részeket választanak, hatékony formázással, beleértve az örökölt félkövér formázást használják:
+Kivéve, ha másként szerepel, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dián az első alakzat egy szövegdoboz, és az első bekezdés tartalmazza az alább látható szöveget. A dia‑ és alakzatszámok nulláról indulnak. A félkövér részleteket kiemelő példák hatékony formázást alkalmaznak, beleértve az örökölt félkövér formázást:
 
 ![Minta szöveg](sample_text.png)
 
-A szó szerinti szöveg vagy reguláris kifejezéssel egyező szövegek kereséséhez és kiemeléséhez lásd a [Keresés és csere szöveg](/slides/hu/php-java/search-and-replace-text/) oldalt.
+A szó szerinti vagy reguláris kifejezéssel egyező szövegrészek kereséséhez és kiemeléséhez lásd a [Search and Replace Text](/slides/hu/php-java/search-and-replace-text/) oldalt.
 
-## **Állítsa be a szöveg háttérszínét**
+## **Szöveg háttérszínének beállítása**
 
 Használja a [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) metódust egy bekezdés alapértelmezett kiemelési színének beállításához, vagy a [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) metódust egyedi szövegrészekhez.
 
-Az alábbi példa világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyedi kiemelési színek az egyes részeken felülbírálják ezt az alapértelmezést:
+Az alábbi példa egy világosszürke kiemelést állít be az első bekezdés alapértelmezettként. Az egyes részeken megadott explicit kiemelési színek felülbírálják ezt az alapértelmezést:
 
 ```php
 use aspose\slides\Presentation;
@@ -55,7 +55,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Állítsa be a teljes bekezdés kiemelési színét.
+    // Állítsa be a kiemelés színét az egész bekezdésre.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -68,7 +68,7 @@ Az eredmény:
 
 ![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódpélda bemutatja, hogyan állítható be a háttérszín **félkövér betűtípussal rendelkező szövegrészek** számára:
+Az alábbi kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűtípusú szövegrészek** számára:
 
 ```php
 use aspose\slides\Presentation;
@@ -86,7 +86,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Állítsa be a kiemelési színt a szövegrészhez.
+            // Állítsa be a kiemelés színét a szövegrészhez.
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -103,9 +103,9 @@ Az eredmény:
 
 ## **Szöveg bekezdések igazítása**
 
-Használja a [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) metódust a bekezdés igazításának beállításához egy szövegkeretben. Az érték lehet középre, balra, jobbra, sorkizárt stb.
+Használja a [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) metódust a bekezdés igazításához egy szövegkeretben. Az érték lehet középre, balra, jobbra, sorkizárt stb.
 
-Az alábbi kódpélda megmutatja, hogyan igazítható a bekezdés **középre**:
+Az alábbi kódrészlet azt mutatja, hogyan igazítható a bekezdés **középre**:
 
 ```php
 use aspose\slides\Presentation;
@@ -132,11 +132,11 @@ Az eredmény:
 
 ![Az igazított bekezdés](aligned_paragraph.png)
 
-## **Betűk igazítása egy soron belül**
+## **Betűk igazítása soron belül**
 
-Használja a [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) metódust a különböző betűméretű szövegrészek függőleges igazításához egy sorban. Ez a beállítás az egész bekezdésre vonatkozik, és minden sorában szabályozza az igazítást.
+Használja a [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) metódust a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás az egész bekezdésre vonatkozik, és a soron belüli igazítást szabályozza.
 
-Az alábbi önálló példa négy címkézett szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pontban, eltérő betűigazítással. Az Arial betűtípust használja, letiltja az automatikus méretezést és a tördelést, valamint a szövegkereteket elég nagyra állítja egy sorhoz.
+Az alábbi önálló példa négy felcímzett szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pont méretben, eltérő betűigazítással. Arial‑t használ, letiltja az automatikus illesztést és a sortörést, és a szövegkereteket elég nagyra állítja egyetlen sorhoz.
 
 ```php
 use aspose\slides\FillType;
@@ -207,15 +207,15 @@ Az eredmény:
 
 ![A baseline, felső, középső és alsó betűigazítás összehasonlítása vegyes betűméretekkel](font_alignment.png)
 
-A betűigazítás betűmetrikákat használ, így az egyes betűk látható szélei nem feltétlenül állnak pontosan egymás alatt. A példában szerepel egy nagybetű és egy alsóra nyúló karakter is, hogy bemutassa a baseline és az alsó igazítás közti különbséget. A betűtípus elérhetősége és helyettesítése, a használt karakterek és a betűméretek közti különbség befolyásolják az eredményt. A keret méretei, margók, sorköz, tördelés és automatikus méretezés is hatnak a elrendezésre; a módok összehasonlításához használja ugyanazokat a betűtípusokat és elrendezési beállításokat.
+A betűigazítás a betűmetrikákon alapul, így az egyes betűk látható szélei nem feltétlenül esnek egybe pontosan. A példa tartalmaz egy nagybetűt és egy alulfutó karaktert is, hogy megmutassa a baseline és az alsó igazítás közti különbséget. A betűk elérhetősége, helyettesítése, a használt karakterek és a betűméretek különbsége befolyásolja az eredményt. A keret méretei, margók, sorköz, sortörés és automatikus illesztés is hat a megjelenésre; a módok összehasonlításakor használjon azonos betűket és elrendezési beállításokat.
 
-Ez a beállítás különbözik a [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) metódustól, amely a vízszintes bekezdésigazítást szabályozza, és a [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) metódustól, amely a szövegtömb függőleges elhelyezését határozza meg az alakzaton belül. A felső- és alsó indexű formázás a [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) segítségével egyedi részeket helyez el a baseline-hoz képest, a bekezdés sorainak betűigazítása helyett.
+Ez a beállítás különbözik a [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment)‑tól, amely a vízszintes bekezdés‑igazítást szabályozza, valamint a [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType)‑tól, amely a szövegtömb függőleges pozícióját állítja be az alakzaton belül. A felső és alsó indexálást a [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) segítségével egyes részeket a baseline‑tól eltolva lehet elérni, a bekezdés sorainak betűigazítása helyett.
 
 ## **Szöveg átlátszóságának beállítása**
 
-A szöveg átlátszósága a [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) által hozzárendelt szín alfa komponensén keresztül vezérelhető. Az alábbi példákban az `alpha = 50` egy ARGB alfa csatorna érték a 0–255 skálán, nem pedig átlátszósági százalék.
+A szöveg átlátszóságát a [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) színének alfa‑komponense vezérli. Az alábbi példákban az `alpha = 50` egy ARGB alfa‑csatorna érték a 0‑255 tartományban, nem átlátszósági százalék.
 
-Az alábbi kódpélda megmutatja, hogyan alkalmazzon átlátszóságot az **egész bekezdésre**:
+Az alábbi kódrészlet azt mutatja, hogyan alkalmazható átlátszóság a **teljes bekezdésre**:
 
 ```php
 use aspose\slides\FillType;
@@ -232,7 +232,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Állítsa be a szöveg kitöltőszínét átlátszó színre.
+    // Állítsa be a szöveg kitöltőszínét egy átlátszó színre.
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -247,7 +247,7 @@ Az eredmény:
 
 ![Az átlátszó bekezdés](transparent_paragraph.png)
 
-Az alábbi kódpélda megmutatja, hogyan alkalmazzon átlátszóságot **félkövér betűtípussal rendelkező szövegrészek** számára:
+A következő kódrészlet azt mutatja, hogyan alkalmazható átlátszóság **félkövér betűtípusú szövegrészekre**:
 
 ```php
 use aspose\slides\FillType;
@@ -287,9 +287,9 @@ Az eredmény:
 
 ## **Karakterköz beállítása a szövegben**
 
-Használja a [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) metódust a karakterek közti távolság növelésére vagy szűkítésére egy szövegdobozban. A példák 3 pontnyi távolságot adnak hozzá; a negatív értékek szűkítik a szöveget.
+Használja a [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) metódust a karakterek közti térköz növelésére vagy csökkentésére egy szövegdobozban. A példák 3 pont térközt adnak hozzá; negatív értékek szorítják a szöveget.
 
-Az alábbi PHP kód megmutatja, hogyan növelhető a karakterköz **az egész bekezdésben**:
+Az alábbi PHP kód azt mutatja, hogyan növelhető a karakterköz a **teljes bekezdésben**:
 
 ```php
 use aspose\slides\Presentation;
@@ -303,7 +303,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Megjegyzés: Negatív értékek használata a karakterköz összenyomásához.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // A karakterköz növelése.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Bővíti a karakterközt.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -315,7 +315,7 @@ Az eredmény:
 
 ![A karakterköz a bekezdésben](character_spacing_in_paragraph.png)
 
-Az alábbi kódpélda megmutatja, hogyan növelhető a karakterköz **félkövér betűtípussal rendelkező szövegrészek** esetén:
+Az alábbi kódrészlet azt mutatja, hogyan növelhető a karakterköz **félkövér betűtípusú szövegrészekben**:
 
 ```php
 use aspose\slides\Presentation;
@@ -333,7 +333,7 @@ try {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
             // Megjegyzés: Negatív értékek használata a karakterköz összenyomásához.
-            $portion->getPortionFormat()->setSpacing(3); // A karakterköz növelése.
+            $portion->getPortionFormat()->setSpacing(3); // Bővíti a karakterközt.
         }
     }
 
@@ -347,11 +347,11 @@ Az eredmény:
 
 ![A karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
 
-### **Kerning letiltása bizonyos betűtípusoknál**
+### **Kerning letiltása adott betűtípusokhoz**
 
-Bizonyos esetekben az Aspose.Slides által megjelenített szöveg kissé szorosabb lehet, mint a PowerPointban megjelenő ugyanaz a szöveg. Ez azért fordulhat elő, mert a PowerPoint bizonyos betűtípusoknál figyelmen kívül hagyja a kerning adatokat, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt, és a PowerPoint beállításaiban a kerning engedélyezve van.
+Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPointban megjelenő szöveg. Ez előfordulhat, ha a PowerPoint figyelmen kívül hagyja egyes betűtípusok kerning adatait, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt, és a PowerPoint beállításaiban a kerning be van kapcsolva.
 
-Az ilyen esetekben a PowerPointhoz közelebb hozható a megjelenés, ha letiltja a kerninget az érintett betűtípust használó szövegrészeknél. Állítsa a [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) értékét a tényleges betűméretnél nagyobbra. Ez a példa a "presentation.pptx" fájlt igényli, amely első diáján első alakzatként egy szövegdobozt tartalmaz. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűtípusokat, és 100 pontos küszöböt állít be a Roboto betűtípust használó részekhez. Ez letiltja a kerninget a 100 pont alatti betűmérettel rendelkező egyező részeknél:
+Az ilyen esetekben a renderelt kimenet PowerPoint‑hoz közeli eléréséhez letilthatja a kerninget azon szövegrészeknél, amelyek az érintett betűtípust használják. Állítsa a [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) értékét a tényleges betűméretnél nagyobbra. Ez a példa a "presentation.pptx" fájlt igényli, amelynek első alakzata első diáján egy szövegdoboz. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be a Roboto‑t használó részekhez. Ez letiltja a kerninget azoknál a részeknél, amelyek betűmérete 100 pont alatt van:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-Az a szövegrészek, amelyek a küszöb alatt vannak, ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides megjelenítésének összehangolásában a PowerPoint vizuális kimenetével azon betűtípusok esetén, amelyekre ez a PowerPoint-specifikus viselkedés hatással van.
+Az alsó küszöb alatti egyező szöveg esetén ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének a PowerPoint vizuális kimenetéhez igazításában azoknál a betűtípusoknál, amelyekre ez a PowerPoint‑specifikus viselkedés hat.
 
-## **Szöveg betűtulajdonságainak kezelése**
+## **Szöveg betűtípus‑tulajdonságainak kezelése**
 
-A betűtulajdonságok beállíthatók bekezdés szinten a [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) vagy egyedi részeknél a [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) segítségével.
+A betűtípus‑tulajdonságok beállíthatók bekezdés szintjén a [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) segítségével, vagy egyes részeknél a [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) segítségével.
 
-Az alábbi példa beállítja az első bekezdés alapértelmezett betűtípusát 12 pontos Times New Roman-ra, félkövér, dőlt és pontozott aláhúzással. Az egyes részekre alkalmazott explicit formázás felülbírálja ezeket az alapértelmezéseket:
+Az alábbi példa az első bekezdés alapértelmezett betűtípusát 12 pont Times New Roman‑ra állítja félkövér, dőlt és pontozott aláhúzással. Az egyes részeken megadott explicit formázás felülbírálja az alapértelmezéseket:
 
 ```php
 use aspose\slides\FontData;
@@ -428,9 +428,9 @@ try {
 
 Az eredmény:
 
-![A betűtulajdonságok a bekezdéshez](font_properties_for_paragraph.png)
+![A bekezdés betűtípus‑tulajdonságai](font_properties_for_paragraph.png)
 
-Az alábbi példa 13 pontos Times New Roman, dőlt formázás és pontozott aláhúzás alkalmazását mutatja a **félkövér** hatékony formázású részekre:
+Az alábbi példa 13 pont Times New Roman‑t, dőlt formázást és pontozott aláhúzást alkalmaz azoknál a résznél, amelyek hatékony formázása félkövér:
 
 ```php
 use aspose\slides\FontData;
@@ -451,7 +451,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Állítsa be a betűtulajdonságokat a szövegrészhez.
+            // Állítsa be a szövegrész betűtulajdonságait.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
@@ -468,15 +468,15 @@ try {
 
 Az eredmény:
 
-![A betűtulajdonságok a szövegrészekhez](font_properties_for_text_portions.png)
+![A szövegrészek betűtípus‑tulajdonságai](font_properties_for_text_portions.png)
 
 ## **Szövegmagasság normalizálásának vezérlése**
 
-Használja a [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) metódust sablon tipográfia reprodukálásakor vagy a karaktermagasság különbségeinek vizsgálatakor. PowerPointban a normalizálás engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot kapjanak a szövegrészben. Nem garantálja, hogy a különböző betűtípusok között egyenlő szövegmagasság lesz.
+Használja a [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) metódust sablon‑tipográfia újratermeléséhez vagy a karaktermagasság‑különbségek vizsgálatához. PowerPointban a normalizálás függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot kapjanak a szövegrészben. Nem garantálja, hogy a különböző betűk magassága egyenlő lesz.
 
-Állítsa a tulajdonságot a [NullableBool::True vagy False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) értékre a normalizálás kifejezett engedélyezéséhez vagy letiltásához. A `NullableBool::NotDefined` helyi beállítást nem állítja be, így a rész örökli az értéket, például a bekezdés [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) beállításából. Nem jelenti a `False` értéket. Használja a [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) metódust, és olvassa a `getNormaliseHeight` értéket a visszakapott hatékony formázási adatokban a feloldott logikai érték megszerzéséhez.
+Állítsa a tulajdonságot [NullableBool::True vagy False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) értékre a normalizálás kifejezett engedélyezéséhez vagy tiltásához. A `NullableBool::NotDefined` helyi beállítást hagy üresen, így a rész örökli az értéket, például a bekezdés [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat)‑ból. Ez nem azt jelenti, hogy `False`. Használja a [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective)‑t, és olvassa ki a `getNormaliseHeight` értéket a visszaadott hatékony formázási adatokból a feloldott Boolean érték meghatározásához.
 
-Az alábbi önálló példa **Arial** telepítését igényli. Két szövegtömböt hoz létre, amelyek ugyanazokat a nagybetűket, kisbetűket, alsóra nyúló karaktereket és ékezetes karaktereket tartalmazzák 54 pontban. Mindkét bekezdés alapértelmezés szerint engedélyezi a normalizálást. A felső rész kifejezetten letiltja, a alsó rész örökli. A keretméretek, margók és bekezdésközök azonosak, a tördelés és az automatikus méretezés le van tiltva a konzisztens összehasonlítás érdekében. A példa kiírja a `False: false` és a `NotDefined: true` értékeket, majd elmenti a "text_height_normalization.pptx" fájlt.
+Az alábbi önálló példa **Arial** telepítését igényli. Két szövegbloport hoz létre, amelyek ugyanazokat a nagybetűket, kisbetűket, alulfutó karaktereket és ékezetes betűket tartalmazzák 54 pontban. Mindkét bekezdés alapértelmezés szerint engedélyezi a normalizálást. A felső rész kifejezetten letiltja; az alsó rész örökli. A keretméretek, a margók és a bekezdésközök azonosak, a sortörés és az automatikus illesztés le van tiltva a konzisztens összehasonlítás érdekében. A példa kiírja a `False: false` és a `NotDefined: true` értékeket, majd elmenti a "text_height_normalization.pptx" fájlt.
 
 ```php
 use aspose\slides\FillType;
@@ -535,19 +535,19 @@ try {
 }
 ```
 
-Az alábbi összehasonlítás a mentett bemutatóból lett exportálva. A felső sorban a normalizálás le van tiltva (`False`); az alsó sor a beállítást örökli (`NotDefined` → `True`). Az Arial telepítése szükséges a megjelenés reprodukálásához.
+Az alábbi összehasonlítás a mentett prezentációból exportálva látható. A felső sorban a normalizálás le van tiltva (`False`); az alsó sorban örökli a bekapcsolt beállítást (`NotDefined` → `True`). A helyes megjelenés előállításához tartsa telepítve az Arial‑t.
 
-![Arial 54-pontos szöveg normalizálással letiltva felül és örökített normalizálással alul](text_height_normalization.png)
+![Arial 54‑pontos szöveg normalizálással letiltva felül és örökölve bekapcsolva alul](text_height_normalization.png)
 
-A normalizálás a karaktermagasságot változtatja anélkül, hogy a hozzárendelt [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) érték módosulna, amely a betűméretet pontban adja meg. A bekezdés [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) szabályozza a sortávolságot, míg a szövegkeret [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) a szöveg vagy a tároló méretezését. Ezek a beállítások különböző célokat szolgálnak, és önállóan befolyásolhatják az elrendezést. A bekezdés formázásáról és öröklődéséről további információkért tekintse meg a [Bekezdés kezelése](/slides/hu/php-java/manage-paragraph/) oldalt.
+A normalizálás a karaktermagasságot változtatja anélkül, hogy a [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) értékét módosítaná, amely a betűméretet pontban adja meg. A bekezdés [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) a sorközöket szabályozza, míg a szövegkeret [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) a szöveg vagy annak tartóerejének méretezését. Ezek a beállítások különböző célokat szolgálnak, és önállóan befolyásolhatják a teljes elrendezést. A bekezdés‑formázás és öröklődés részleteiért lásd a [Manage Paragraph](/slides/hu/php-java/manage-paragraph/) oldalt.
 
-## **Áthúzott szöveg alkalmazása és eltávolítása**
+## **Áthúzás alkalmazása és eltávolítása**
 
-Használja a [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) metódust egy szövegrésznél a javítások, törölt kifejezések vagy korábbi árak megjelenítésére a szöveg törlése nélkül. Állítsa a [TextStrikethroughType::Single vagy Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) értékekre egy vagy két vonal megjelenítéséhez.
+Használja a [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) metódust egy szövegrészen, hogy megjelenítsen javításokat, törölt kifejezéseket vagy korábbi árakat a szöveg törlése nélkül. Állítsa a [TextStrikethroughType::Single vagy Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) értékre egy vagy két vonal megjelenítéséhez a szöveg felett.
 
-Az áthúzás eltávolításához adja meg a [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None) értéket. Ez kifejezetten letiltja a hatást, még akkor is, ha a környező formázás áthúzást tartalmaz. Ezzel szemben a [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) a helyi beállítást meghatározatlanul hagyja, lehetővé téve a rész számára, hogy örökölje a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltávolításra kerül. Használja a [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) metódust a kapott formázás, beleértve az örökölt értékek olvasásához.
+Az áthúzás eltávolításához adja meg a [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None) értéket. Ez kifejezetten letiltja a hatást, még akkor is, ha a környező formázás áthúzást tartalmaz. Ezzel szemben a [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) a helyi beállítást üresen hagyja, így a rész örökölheti a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltávolításra kerül. Használja a [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective)‑t a végső formázás, beleértve az örökölt értékek olvasását.
 
-Az alábbi önálló példa három árösszehasonlítást hoz létre. Minden bekezdés különálló részeket tartalmaz a címke, a korábbi ár és az aktuális ár számára, így csak a korábbi ár érintett. Az első sor alkalmazza, majd eltávolítja az áthúzást; a többi sor egy- és kétszeres áthúzást tart meg. Ennek a beállításnak a módosítása megőrzi a szöveget és egyéb formázását, beleértve a félkövér korábbi árat.
+Az alábbi önálló példa három ár‑összehasonlítást hoz létre. Minden bekezdés külön részt tartalmaz a címke, a korábbi ár és a jelenlegi ár számára, így csak a korábbi ár érintett. Az első sorban alkalmaz és eltávolít áthúzást; a többi sorban egy‑ és dupla áthúzás marad. Ennek a beállításnak a módosítása megőrzi a szöveget és egyéb formázását, köztük a félkövér korábbi árat.
 
 ```php
 use aspose\slides\FillType;
@@ -599,7 +599,7 @@ try {
 
     $paragraphs = $shape->getTextFrame()->getParagraphs();
 
-    // Alkalmazza az áthúzást, majd kifejezetten eltávolítja azt az első korábbi árból.
+    // Alkalmazzon áthúzást, majd kifejezetten távolítsa el azt az első előző árból.
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
 
@@ -612,15 +612,15 @@ try {
 }
 ```
 
-Az eredmény, fentről lefele: nincs áthúzás, egyszeres áthúzás és kétszeres áthúzás.
+Az eredmény felülről lefelé: nincs áthúzás, egy‑vonalas áthúzás és dupla áthúzás.
 
-![Korábbi árak áthúzás nélkül, egyszeres áthúzással és kétszeres áthúzással](strikethrough.png)
+![Korábbi árak áthúzás nélküli, egy‑vonalas áthúzással és dupla áthúzással](strikethrough.png)
 
-## **Szöveg forgatásának beállítása**
+## **Szöveg forgatása**
 
-Használja a [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) metódust egy előre definiált szövegtájolás beállításához egy alakzaton belül.
+Használja a [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) metódust egy előre definiált szövegorientáció beállításához egy alakzaton belül.
 
-Az alábbi kódpélda a szöveg tájolását a [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal óramutatóval ellentétes irányban** forgatja a szöveget:
+Az alábbi kódrészlet a szövegorientációt a [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/) értékre állítja, amely **90 fokot fordítottan** (balra) forgatja a szöveget:
 
 ```php
 use aspose\slides\Presentation;
@@ -644,11 +644,69 @@ Az eredmény:
 
 ![A szöveg forgatása](text_rotation.png)
 
-## **Egyedi forgatás beállítása szövegkeretekhez**
+## **Számjegyek egymás mellé helyezése függőleges szövegben**
 
-Használja a [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) metódust egy egyedi forgatási szög beállításához egy [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) számára.
+Kétjegyű szám függőleges japán címkében való egyben tartásához helyezze a két számjegyet egy szövegrészbe, és hívja meg a [BasePortionFormat::setKumimoji](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKumimoji) metódust ezen a részen. A példa a [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical) és a 40 pontos MS Gothic betűtípust használ mindkét címkéhez. Csak a [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) értéke különbözik a numerikus részben.
 
-Az alábbi kódpélda 3 fokkal óramutatóval megegyező irányban forgatja el a szövegkeretet az alakzaton belül:
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $x = 120;
+
+    foreach ([NullableBool::True, NullableBool::False] as $kumimoji) {
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, 48, 120, 420);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $frame = $label->addTextFrame("");
+        $frame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::EastAsianVertical);
+
+        $paragraph = $frame->getParagraphs()->get_Item(0);
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $font = new FontData("MS Gothic");
+        $format->setLatinFont($font);
+        $format->setEastAsianFont($font);
+        $format->setFontHeight(40);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        $digits = new Portion("12");
+        $digits->getPortionFormat()->setKumimoji($kumimoji);
+
+        $portions = $paragraph->getPortions();
+        $portions->clear();
+        $portions->add(new Portion("令和"));
+        $portions->add($digits);
+        $portions->add(new Portion("年"));
+
+        $x += 240;
+    }
+    $presentation->save("vertical_date.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+PowerPointban a bal címke (`True`) függőlegesen álló és egymás melletti számjegyeket mutat a 和 és 年 karakterek között. A jobb címke (`False`) esetén a páros 90 fokkal jobbra van forgatva. A környező japán karakterek mindkét címkén állólagosak maradnak.
+
+![PowerPoint összehasonlítás függőleges dátumcímkékről, ahol a bal oldalon álló számjegyek, a jobb oldalon pedig forgatott számjegyek vannak.](vertical_date.png)
+
+## **Egyéni forgatás beállítása szövegkeretekhez**
+
+Használja a [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) metódust egy egyéni forgatási szög beállításához egy [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)-hez.
+
+Az alábbi kódrészlet 3 fokkal jobbra (óra járásával megegyező irányban) forgatja a szövegkeretet az alakzaton belül:
 
 ```php
 use aspose\slides\Presentation;
@@ -669,16 +727,16 @@ try {
 
 Az eredmény:
 
-![Az egyedi szövegfordítás](custom_text_rotation.png)
+![Az egyéni szövegforgatás](custom_text_rotation.png)
 
-## **Bekezdések sortávolságának beállítása**
+## **Bekezdések sorközének beállítása**
 
-Az Aspose.Slides a [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) és [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) metódusait biztosítja a bekezdésköz vezérléséhez. Ezeket a tulajdonságokat a következőképpen használhatja:
+Az Aspose.Slides a [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), a [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) és a [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) metódusokkal szabályozza a bekezdésközöket. Ezek a tulajdonságok a következő módon használhatók:
 
-* Pozitív érték esetén a sortávolság a sormagasság százalékaként adható meg.
-* Negatív érték esetén a sortávolság pontban adható meg.
+* Pozitív értékkel a sorköz a sormagasság százalékában adható meg.
+* Negatív értékkel a sorköz pontokban adható meg.
 
-Az alábbi példa a bekezdés belső távolságát a sormagasság 200%-ára (dupla sorköz) állítja:
+Az alábbi példa a első bekezdés sorközét a sormagasság 200 %-ára (dupla sorköz) állítja:
 
 ```php
 use aspose\slides\Presentation;
@@ -701,18 +759,18 @@ try {
 
 Az eredmény:
 
-![A sortávolság a bekezdésen belül](line_spacing.png)
+![A bekezdés sorköze](line_spacing.png)
 
-## **Sortörés vezérlése**
+## **Sortörés szabályainak vezérlése**
 
-A bekezdés sortörés szabályai keskeny szövegtömbökben és olyan bemutatókban hasznosak, ahol latin és keleti ázsiai szöveg keveredik. Az alábbi módszerek a [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) részei, így egy teljes bekezdésre vonatkoznak:
+A bekezdés sortörési szabályai szűk szövegdobozok és kevert latin‑kelet-ázsiai szöveges prezentációk esetén hasznosak. Az alábbi módszerek a [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) osztályhoz tartoznak, így egy teljes bekezdésre vonatkoznak:
 
-- A [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) a latin sortörési szabályokat vezérli. Vegyes szöveg esetén ennek módosítása megváltoztathatja a szomszédos keleti ázsiai szöveg és írásjelek tördelésének helyét is.
-- A [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) a keleti ázsiai sortörési szabályokat szabályozza, beleértve a sor elején és végén lévő karakterek korlátozását.
+- A [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) a latin sortörési szabályokat vezérli. Kevert szöveg esetén ennek módosítása megváltoztathatja a közelben lévő kelet-ázsiai szöveg és írásjelek sortörését is.
+- A [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) a kelet-ázsiai sortörési szabályokat szabályozza, beleértve a sor elején és végén megengedett karaktereket.
 
-Ezek a szabályok nem helyettesítik a [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) metódust, amely automatikus tördelést engedélyez egy szövegkereten belül. A szabályok a layoutot befolyásolják, amikor a tördelés megtörténik; nem illesztenek sortörés karaktereket. Egy explicit sortörés új sort hoz létre a bekezdésen belül a rendelkezésre álló szélességtől függetlenül.
+E szabályok nem helyettesítik a [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) beállítást, amely a szövegkereten belüli automatikus sortörést engedélyezi. A szabályok befolyásolják a megjelenést, amikor sortörés történik; nem helyeznek be sortörés‑karaktert. Egy explicit sortörés új sort hoz létre a bekezdésben, függetlenül a rendelkezésre álló szélességtől.
 
-Az alábbi önálló példa egy keskeny szövegtömböt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési opciót explicit módon beállítja, majd elmenti a "line_breaking.pptx" fájlt. Az egyes szabályok kipróbálásához változtassa meg a megfelelő értéket, miközben a másik beállítást változatlanul hagyja. A példa 24 pontos Arial és SimSun betűtípusokat, 160 pontos keretszélességet és nulla horizontális szövegkeret-margót használ. A [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) metódust a [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) értékre állítja, hogy a szöveg mérete és a keret méretei rögzítve maradjanak.
+Az alábbi önálló példa egy szűk szövegdobozt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési opciót explicit módon beállítja, majd a "line_breaking.pptx" fájlt menti. A szabályok kipróbálásához változtassa meg a megfelelő értéket, miközben a másik beállítást változatlanul hagyja. A példa 24 pont Arial és SimSun betűtípust használ, 160 pont széles kerettel és nulla vízszintes szövegkeret‑margóval. A [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) metódus a [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) értékkel van hívva, hogy a szöveg mérete és a keret dimenziói rögzítve maradjanak.
 
 ```php
 use aspose\slides\FillType;
@@ -759,11 +817,11 @@ try {
 }
 ```
 
-## **Függőleges írásjelek (hanging punctuation) beállítása**
+## **Függőleges írásjelek engedélyezése**
 
-A [ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) lehetővé teszi, hogy a megfelelő írásjelek a sor jobb szélén túlnyúljanak a sor végétől a következő sor elfoglalása helyett. Ez a teljes bekezdésre vonatkozik, és eltér a függőleges behúzástól.
+A [ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) lehetővé teszi, hogy a jogosult írásjelek a sor jobb szélén túlnyúljanak a következő sor helyett. Az egész bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
 
-Az alábbi önálló példa 100 pontos széles szövegkeretben engedélyezi a függőleges írásjelet, és elmenti a "hanging_punctuation.pptx" fájlt. 24 pontos Arial és nulla horizontális szövegkeret-margó esetén az utolsó pont a "sentence" után marad, és túlnyúlik a jobb szövegszegmens szélén. Állítsa a tulajdonságot a [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) értékre a összehasonlításhoz: ezzel a beállítással a pont külön sorba kerül. A tördelés engedélyezve van, az automatikus méretezés letiltva a szélesség rögzítéséhez.
+Az alábbi önálló példa 100 pont széles szövegkeretben engedélyezi a függőleges írásjeleket, majd a "hanging_punctuation.pptx" fájlt menti. 24 pont Arial és nulla vízszintes szövegkeret‑margó esetén a végső pont a "sentence" szó után marad, és a jobb szövegszél fölé nyúlik. Állítsa a tulajdonságot [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) értékre a összehasonlításhoz: ebben az esetben a pont külön sorba kerül. A sortörés be van kapcsolva, az automatikus illesztés le van tiltva, hogy a rendelkezésre álló szélesség rögzített maradjon.
 
 ```php
 use aspose\slides\FillType;
@@ -807,11 +865,11 @@ try {
 }
 ```
 
-Nem minden írásjel függőlegesen helyezhető el. A fenti [vonalbontási szabályokban](#control-line-breaking) leírt betűtípus- és layout-feltételek szintén érvényesek erre az összehasonlításra: a betűtípus, a rendelkezésre álló szélesség, margók vagy az automatikus méretezés módosítása eltüntetheti a látható különbséget.
+Nem minden írásjel függetlenül függőleges. A fent leírt [betű- és elrendezési feltételek](#control-line-breaking) szintén érvényesek erre az összehasonlításra: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
 
-## **Szövegkeretek automatikus méretezésének típusának beállítása**
+## **Automatikus illesztés típusának beállítása szövegkeretekhez**
 
-A [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) határozza meg, hogy a szöveg hogyan viselkedik, ha meghaladja a tároló határait. Használja a szöveg zsugorodásának, túlcsordulásának vagy a forma automatikus átméretezésének vezérlésére. Az alábbi példa úgy konfigurálja a alakzatot, hogy a szöveghez igazodva átméretezze, és elmenti az eredményt a "autofit_type.pptx" fájlba.
+A [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) meghatározza, hogyan viselkedjen a szöveg, ha meghaladja a tárolójának határait. Ezzel szabályozható, hogy a szöveg zsugorodjon, kilógjon, vagy a forma automatikusan átméreteződjön. Az alábbi példa a formát úgy állítja be, hogy a szöveghez igazodva méretezze át a alakzatot, és a "autofit_type.pptx" fájlt menti.
 
 ```php
 use aspose\slides\Presentation;
@@ -831,11 +889,11 @@ try {
 }
 ```
 
-Az automatikus tördelés utáni sorok számának meghatározásához és a szöveg vagy a forma szélességének változásának vizsgálatához tekintse meg a [Renderelt sorok számolása](/slides/hu/php-java/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg túllépi-e a tárolót.
+Az automatikus sortörés utáni sorok számolásához és a szöveg vagy forma szélesség változásának megtekintéséhez lásd a [Count Rendered Lines](/slides/hu/php-java/manage-paragraph/) oldalt. A sorok száma önmagában nem jelzi, hogy a szöveg kilóg-e a tárolóból.
 
-## **Szövegkeretek rögzítési pontjának beállítása**
+## **Szövegkeretek horgonypontjának beállítása**
 
-A [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) meghatározza, hogyan helyezkedik el függőlegesen a szöveg egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat aljához rögzíti, majd elmenti a "text_anchor.pptx" fájlt.
+A [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) meghatározza, hogyan helyezkedjen el függőlegesen a szöveg egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat alján horgonyozza, majd a "text_anchor.pptx" fájlt menti.
 
 ```php
 use aspose\slides\Presentation;
@@ -857,7 +915,7 @@ try {
 
 ## **Szöveg tabulációjának beállítása**
 
-Használja a [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) és a [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) metódusokat a tabulátorállások konfigurálásához egy bekezdésben. Az alábbi példa az alapértelmezett tabulátor-intervallumot 100 pontra állítja, és egy balra igazított tabulátort helyez 30 pontra. Ezek a beállítások a tabulátor karaktereket tartalmazó szövegre vonatkoznak.
+Használja a [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) és a [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) metódusokat a tabulátorok beállításához egy bekezdésben. Az alábbi példa az alapértelmezett tabulátor‑lépést 100 pontra állítja, és egy bal‑igazított tabulátort ad hozzá 30 pontra. Ezek a beállítások a tabulátor‑karaktereket tartalmazó szövegre hatnak.
 
 ```php
 use aspose\slides\Presentation;
@@ -886,9 +944,9 @@ Az eredmény:
 
 ## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides a [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) metódussal lehetővé teszi a szövegrész helyesírási nyelvének beállítását. A helyesírási nyelv határozza meg, hogy a PowerPoint milyen nyelvet használ a helyesírás- és nyelvtani ellenőrzéshez.
+Az Aspose.Slides a [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) metódussal lehetővé teszi egy szövegrész helyesírási nyelvének beállítását. A helyesírási nyelv határozza meg, hogy a PowerPoint milyen nyelven végez helyesírás‑ és nyelvtan‑ellenőrzést.
 
-Az alábbi példa a "presentation.pptx" fájlt igényli, amely első diáján egy szövegdobozt tartalmaz első alakzatként, és legalább egy bekezdést. A első bekezdés tartalmát „1。”-re állítja, a betűtípust SimSunra, és a Simplified Chinese helyesírási nyelvet (`zh-CN`) rendeli hozzá. Az eredményt a "proofing_language.pptx" fájlba menti:
+Az alábbi példa a "presentation.pptx" fájlt igényli, amelynek első diáján első alakzata egy szövegdoboz, és legalább egy bekezdést tartalmaz. A első bekezdés tartalmát "1。"‑re cseréli, a betűtípust SimSun‑ra állítja, és a Simplified Chinese (`zh-CN`) helyesírási nyelvet rendeli hozzá. Az eredményt a "proofing_language.pptx" fájlba menti:
 
 ```php
 use aspose\slides\FontData;
@@ -926,7 +984,7 @@ try {
 
 ### **Nyelvi metaadatok másolása**
 
-Többnyelvű szöveg sablonból való másolásakor meg kell őrizni mind a [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), mind a [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) értékeket. Az alábbi önálló példa egy forrásrészt hoz létre, amely US English nyelvet és francia alternatív nyelvet rendel hozzá, majd a szöveget és az azonosítókat új bemutatóban egy másik részhez másolja.
+Többnyelvű szöveg sablonból való másolásakor meg kell őrizni mind a [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), mind a [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) értékét. Az alábbi önálló példa egy forrás‑részt hoz létre, amelynek nyelve az amerikai angol, alternatív nyelve a francia, és ezeket a szöveget és az azonosítókat egy új prezentáció egy részébe másolja.
 
 ```php
 use aspose\slides\Portion;
@@ -959,13 +1017,13 @@ try {
 }
 ```
 
-Ha forrást akar tesztelni alternatív nyelv nélkül, hagyja el a `"fr-FR"` hozzárendelését. Ekkor az alternatív azonosító `null`, és a másolási utasítás megőrzi annak hiányát alapértelmezett érték bevezetése nélkül, még akkor is, ha a cél már rendelkezik alternatív nyelvvel.
+Ha forrásnál nincs alternatív nyelv, hagyja ki a `"fr-FR"` hozzárendelését. Ebben az esetben az alternatív azonosító `null`, és ugyanaz a másolási utasítás megőrzi a hiányát alapértelmezett érték bevezetése nélkül, még akkor is, ha a cél már rendelkezett alternatív nyelvvel.
 
-Ezek az azonosítók nyelvi metaadatként szolgálnak. Azok megőrzése nem határozza meg, hogy a PowerPoint melyik szótárat választja a helyesírás- vagy nyelvtani ellenőrzéshez.
+Ezek az azonosítók nyelvi metaadatként tárolódnak. Az ő megőrzésük nem határozza meg, hogy a PowerPoint melyik szótárat használja a helyesírás‑ vagy nyelvtani ellenőrzéshez.
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használja a [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) metódust a szöveg alapértelmezett nyelvének meghatározásához a bemutató betöltése vagy létrehozása során. Az alábbi példa egy US English alapértelmezett szövegnyelvvel rendelkező bemutatót hoz létre, egy szövegdobozt ad hozzá, és kiírja az első szövegrész nyelvét `en-US`.
+Használja a [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) metódust a szöveg alapértelmezett nyelvének meghatározásához, amikor prezentációt betölt vagy létrehoz. Az alábbi példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelv az amerikai angol, hozzáad egy szövegdobozt, és az első szövegrész nyelvének kiírása `en-US` lesz.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -983,7 +1041,7 @@ try {
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Ellenőrizze az első szövegrész nyelvét.
+    // Az első szövegrész nyelvének ellenőrzése.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -993,9 +1051,9 @@ try {
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-A prezentáció szintjén az alapértelmezett szövegformázás alkalmazásához használja a [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) metódust.
+Az alapértelmezett szövegformázás prezentáció‑szintű alkalmazásához használja a [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) metódust.
 
-Az alábbi példa 14 pontos félkövér betűtípust állít be az új prezentáció felső szintű bekezdéseihez, majd elmenti a "default_text_style.pptx" fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy specifikusabb formázás nem írja felül őket.
+Az alábbi példa 14 pont félkövér betűtípust állít be az új prezentáció felső‑szintű bekezdéseihez, majd a "default_text_style.pptx" fájlba menti. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy konkrétabb formázás felül nem írja őket.
 
 ```php
 use aspose\slides\NullableBool;
@@ -1004,7 +1062,7 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation();
 try {
-    // Szerezze be a legfelső szintű bekezdés formátumát.
+    // Szerezze meg a legfelső szintű bekezdésformátumot.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -1018,15 +1076,15 @@ try {
 }
 ```
 
-## **Szöveg kinyerése az ALL CAPS effektussal**
+## **Szöveg kinyerése all‑caps hatással**
 
-PowerPointban az **All Caps** betűhatás alkalmazása azt eredményezi, hogy a szöveg a dián nagybetűkkel jelenik meg, még akkor is, ha eredetileg kisbetűkkel lett beírva. Amikor ilyen szövegrészt Olvassa ki az Aspose.Slides segítségével, a könyvtár pontosan úgy adja vissza a szöveget, ahogy beírták. A megjelenített szöveghez való illeszkedéshez ellenőrizze a [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) értékét, és ha az `All`, akkor alakítsa a visszakapott karakterláncot nagybetűssé.
+PowerPointban az **All Caps** betűhatás alkalmazása a szövegre azt eredményezi, hogy a diához nagybetűkben jelenik meg a szöveg, még akkor is, ha eredetileg kisbetűkkel lett beírása. Amikor az Aspose.Slides segítségével ilyen szövegrészt kérdezi le, a könyvtár pontosan úgy adja vissza a szöveget, ahogy be lett írva. A megjelenített szöveghez való igazításhoz ellenőrizze a [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) értékét, és ha az `All`, akkor konvertálja a visszakapott karakterláncot nagybetűsre.
 
-Ez a példa a "sample2.pptx" fájlt igényli, amely első diáján egy szövegdobozt tartalmaz első alakzatként. Az első bekezdés első része tartalmazza a „Hello, Aspose!” szöveget, amelyre az All Caps hatás alkalmazva van, ahogyan az alább látható.
+Ez a példa a "sample2.pptx" fájlt igényli, amelynek első diáján első alakzata egy szövegdoboz. Az első bekezdés első része a "Hello, Aspose!" szöveget tartalmazza, amelyre az All Caps hatás alkalmazva van, az alábbiak szerint.
 
 ![Az All Caps hatás](all_caps_effect.png)
 
-Az alábbi kódpélda megmutatja, hogyan kell kinyerni a szöveget az **All Caps** effektussal alkalmazva:
+Az alábbi kódrészlet azt mutatja, hogyan nyerhető ki a szöveg az **All Caps** hatással:
 
 ```php
 use aspose\slides\Presentation;
@@ -1061,10 +1119,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan módosíthatom a táblázat szövegét egy dián?**
+**Hogyan módosítható egy táblázat szövege egy dián?**
 
-A táblázat szövegének módosításához a dián használja a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) elemet. Iteráljon a cellákon, és frissítse minden cellát a [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) és a bekezdés formázását a [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) segítségével.
+Egy dián lévő táblázat szövegének módosításához használja a [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) osztályt. Járja be a cellákat, és minden cellát frissítsön a [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) és a bekezdés‑formázás a [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) segítségével.
 
-**Hogyan alkalmazhatok színátmenetes hatást a szövegre egy PowerPoint dián?**
+**Hogyan alkalmazható színátmenet szövegre egy PowerPoint dián?**
 
-A színátmenetes hatás alkalmazásához használja a [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) metódust. Állítsa a [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) értékét a [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) típusra, és konfigurálja a színátmenet állomásait, irányát és átlátszóságát.
+A színátmenetes szöveg alkalmazásához használja a [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) metódust. Állítsa a [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) értékét [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/)‑ra, és konfigurálja a gradient‑állomásokat, irányt és átlátszóságot.
