@@ -1,56 +1,55 @@
 ---
-title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน .NET
-linktitle: จำกัดการแก้ไขงานนำเสนอ
+title: "จำกัดการแก้ไขการนำเสนอด้วยการล็อกรูปทรงใน .NET"
+linktitle: "จำกัดการแก้ไขการนำเสนอ"
 type: docs
 weight: 70
 url: /th/net/applying-protection-to-presentation/
 keywords:
-- ป้องกันการแก้ไข
-- ป้องกันการแก้ไข
-- ล็อกรูปทรง
-- ล็อกตำแหน่ง
-- ล็อกการเลือก
-- ล็อกการปรับขนาด
-- ล็อกการจัดกลุ่ม
-- PowerPoint
-- PPTX
-- งานนำเสนอ
-- .NET
-- C#
-- Aspose.Slides
-description: "เรียนรู้วิธีล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides สำหรับ .NET เพื่อจำกัดการเลือก, การย้าย, การปรับขนาด, และการจัดกลุ่ม."
+  - "ป้องกันการแก้ไข"
+  - "ปกป้องจากการแก้ไข"
+  - "ล็อกรูปทรง"
+  - "ล็อกตำแหน่ง"
+  - "ล็อกการเลือก"
+  - "ล็อกการปรับขนาด"
+  - "ล็อกการจัดกลุ่ม"
+  - "PowerPoint"
+  - "PPTX"
+  - "การนำเสนอ"
+  - ".NET"
+  - "C#"
+  - "Aspose.Slides"
+description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในไฟล์ PPTX ด้วย Aspose.Slides สำหรับ .NET เพื่อจำกัดการเลือก, การเคลื่อนที่, การปรับขนาด, และการจัดกลุ่ม."
 ---
-## **พื้นหลัง**
+## **พื้นฐาน**
 
-การใช้ Aspose.Slides for .NET อย่างทั่วไปคือการสร้าง, อัปเดต, และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของเวิร์กโฟลว์อัตโนมัติ เมื่อผู้ใช้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาตามที่ตั้งใจไว้ได้
+การใช้งานทั่วไปของ Aspose.Slides for .NET คือการสร้าง, ปรับปรุง และบันทึกการนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้ได้รับการนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยคงไว้ซึ่งเค้าโครงและเนื้อหาที่ตั้งใจไว้
 
-บทความนี้อธิบายว่ารูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการใช้และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละรูป
+บทความนี้อธิบายว่ารูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการใช้และลบการล็อกรูปทรงในไฟล์ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
 
-## **องค์ประกอบของสไลด์**
+## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น รูปอัตโนมัติ, ตาราง, วัตถุ OLE, กลุ่มรูปทรง, กรอบรูปภาพ, กรอบวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for .NET แต่ละองค์ประกอบบนสไลด์จะถูกแทนด้วยอ็อบเจ็กต์ที่ทำงานตามอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
+สไลด์การนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น รูปทรงอัตโนมัติ, ตาราง, วัตถุ OLE, รูปทรงที่จัดกลุ่ม, กรอบรูปภาพ, กรอบวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างการนำเสนอ ใน Aspose.Slides for .NET แต่ละองค์ประกอบบนสไลด์จะแสดงผลโดยออบเจ็กต์ที่ทำการดำเนินการตามอินเตอร์เฟซ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
 
-ประเภทรูปทรงต่าง ๆ มีตัวเลือกการล็อกที่ต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) เป็นอินเทอร์เฟซพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for .NET มีอินเทอร์เฟซการล็อกต่อไปนี้:
+รูปทรงประเภทต่าง ๆ มีตัวเลือกการล็อกที่แตกต่างกัน อินเตอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) เป็นอินเตอร์เฟซพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for .NET มีอินเตอร์เฟซการล็อกต่อไปนี้:
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) ล็อกรูปทรงอัตโนมัติ.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) ล็อกรูปทรงตัวเชื่อมต่อ.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) ล็อกวัตถุกราฟิก.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) ล็อกรูปทรงที่จัดกลุ่ม.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) ล็อกกรอบรูปภาพ.  
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) ล็อกอัตรูป  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) ล็อกตัวเชื่อมต่อ  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) ล็อกวัตถุกราฟิก  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) ล็อกกลุ่มรูปทรง  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) ล็อกกรอบรูปภาพ  
-
-เพื่อใช้การล็อกในทั่ว ๆ ไปบน [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละประเภท
+เพื่อใช้การล็อกบนทั้งหมดของ [การนำเสนอ](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ให้วนลูปผ่านสไลด์ของมันและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละแบบ
 
 ## **ใช้และลบการป้องกัน**
 
-การล็อกรูปทรงจะจำกัดการดำเนินการเช่น การเลือก, การย้าย, และการปรับขนาดรูปทรง แต่ไม่ได้ทำให้งานนำเสนอทั้งหมดไม่สามารถแก้ไขได้
+โปรแกรมแก้ไขการนำเสนอที่รองรับจะใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละรายการ การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [การตั้งค่าการป้องกันการนำเสนอ](/slides/th/net/password-protected-presentation/) ที่แยกกัน
 
-### **ใช้การป้องกันกับรูปแบบ PPTX**
+### **ใช้การป้องกันกับรูปทรง PPTX**
 
-Aspose.Slides for .NET มีอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) เพื่อทำงานกับรูปทรงบนสไลด์
+Aspose.Slides for .NET มีอินเตอร์เฟซ [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างตั้งค่า [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/), และ [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) เป็น `true` สำหรับรูปอัตโนมัติ โดยมีการล็อกที่เทียบเท่าสำหรับกลุ่มรูปทรง, ตัวเชื่อมต่อ, และกรอบรูปภาพ ตัวเชื่อมต่อใช้ [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) สำหรับการเคลื่อนที่; กลุ่มรูปทรงยังใช้ [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างตั้งค่า [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/) , [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) , และ [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) เป็น `true` สำหรับรูปทรงอัตโนมัติ พร้อมกับการล็อกที่เทียบเท่าสำหรับรูปทรงกลุ่ม, ตัวเชื่อมต่อ, และกรอบรูปภาพ ตัวเชื่อมต่อใช้ [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) สำหรับการเคลื่อนที่; กลุ่มยังใช้ [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะคงเดิมไว้ ลูปจะไม่ไล่ผ่านรูปทรงลูกภายในกลุ่ม
+ตัวอย่างโหลดการนำเสนอ PPTX ที่มีอยู่แล้ว, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกใช้ รูปทรงที่นอกสี่ประเภทที่จัดการจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่เดินทางผ่านรูปทรงลูกภายในกลุ่ม
 
 ```cs
 using Aspose.Slides;
@@ -95,7 +94,7 @@ presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 
 ### **ลบการป้องกัน**
 
-เพื่อเอาการล็อกรูปทรงออก ให้ตั้งค่าค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการจำกัดการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), และ [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) รวมทั้งล้าง [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะคงไว้ตามเดิม
+เพื่อทำการลบการล็อกรูปทรง ให้ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดการนำเสนอที่มีการล็อกรูปทรงและลบข้อจำกัดการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) , [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) , [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) , และ [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) นอกจากนี้ยังลบการล็อก [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) และบันทึกสำเนาของการนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะไม่ถูกเปลี่ยนแปลง
 
 ```cs
 using Aspose.Slides;
@@ -138,20 +137,67 @@ foreach (var slide in presentation.Slides)
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
+### **คงการตัดรูปภาพ**
+
+วางรูปภาพที่ชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างทำการตัด 12% จากด้านซ้ายและ 8% จากด้านขวา แล้วตั้งค่า [CropLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/croplocked/) บนกรอบรูปภาพ ธงนี้จำกัดการตัดต่อในภายหลังและคงการตัดที่มีอยู่
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var photoBytes = File.ReadAllBytes("photo.jpg");
+var photo = presentation.Images.AddImage(photoBytes);
+
+var pictureFrame = shapes.AddPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+pictureFrame.PictureFormat.CropLeft = 12;
+pictureFrame.PictureFormat.CropRight = 8;
+pictureFrame.PictureFrameLock.AspectRatioLocked = false;
+pictureFrame.PictureFrameLock.CropLocked = true;
+
+presentation.Save("PictureLocked.pptx", SaveFormat.Pptx);
+```
+
+`PictureLocked.pptx` เก็บการล็อกการตัดเป็น `true` ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกรูปภาพ
+
+### **คงแผนภาพเป็นกลุ่ม**
+
+ตัวอย่างทำการจัดกลุ่มสี่เหลี่ยมและลูกศร, แล้วตั้งค่า [UngroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/ungroupinglocked/) บนกลุ่มเองเพื่อคงส่วนประกอบของแผนภาพไว้ด้วยกัน การแก้ไขอื่น ๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงสามารถทำได้
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var groupShape = shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+groupShape.Shapes.AddAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+groupShape.GroupShapeLock.UngroupingLocked = true;
+
+presentation.Save("DiagramLocked.pptx", SaveFormat.Pptx);
+```
+
+`DiagramLocked.pptx` เก็บการล็อกการยกเลิกการจัดกลุ่มเป็น `true` ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกแผนภาพทั้งหมด
+
 ### **สรุป**
 
-Aspose.Slides for .NET ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละรูปหรือใช้การจำกัดเดียวกันบนหลายสไลด์ เลือกการล็อกที่สนับสนุนโดยแต่ละประเภทรูปทรง และตั้งค่าของมันเป็น `false` เมื่อต้องการเอาการจำกัดเหล่านั้นออก
+Aspose.Slides for .NET ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันบนหลายสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทของรูปทรง และตั้งค่าของพวกมันเป็น `false` เมื่อคุณต้องการลบข้อจำกัดเหล่านั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถผสานการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในการนำเสนอเดียวกันได้หรือไม่?**
 
-ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขบางอย่างในขณะที่ [password protection](/slides/th/net/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างร่วมกันในไฟล์เดียวกัน
+ได้. การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ, ในขณะที่ [การป้องกันด้วยรหัสผ่าน](/slides/th/net/password-protected-presentation/) สามารถจำกัดการเปิดหรือการแก้ไขการนำเสนอ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่น ๆ ได้หรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขบนสไลด์บางสไลด์โดยไม่กระทบต่อสไลด์อื่นได้หรือไม่?**
 
-ได้ ให้ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนแปลงการตั้งค่าการล็อกบนสไลด์อื่น ๆ
+ได้. ให้ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือกเท่านั้น การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
 
-**ฉันจะใช้การล็อกบนรูปทรงแต่ละรูปภายในกลุ่มได้อย่างไร?**
+**ฉันจะใช้การล็อกกับรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
 
-วนลูปผ่านคอลเลกชัน [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) ของกลุ่มและตั้งค่าการล็อกที่เหมาะสมกับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์จึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละตัว
+วนลูปผ่านคอลเลกชัน [รูปทรง](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) ของกลุ่มและตั้งค่าการล็อกที่เหมาะสมให้กับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์เท่านั้น ดังนั้นจึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละอัน

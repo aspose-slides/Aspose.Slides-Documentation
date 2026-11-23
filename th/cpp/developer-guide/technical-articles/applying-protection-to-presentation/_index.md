@@ -1,13 +1,13 @@
 ---
-title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อครูปร่างใน C++
+title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน C++
 linktitle: จำกัดการแก้ไขงานนำเสนอ
 type: docs
 weight: 10
 url: /th/cpp/applying-protection-to-presentation/
 keywords:
 - ป้องกันการแก้ไข
-- ปกป้องจากการแก้ไข
-- ล็อกรูปร่าง
+- ป้องกันจากการแก้ไข
+- ล็อกรูปทรง
 - ล็อกตำแหน่ง
 - ล็อกการเลือก
 - ล็อกการปรับขนาด
@@ -17,39 +17,39 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปร่างในงานนำเสนอ PPTX ด้วย Aspose.Slides สำหรับ C++ เพื่อจำกัดการเลือก การเคลื่อนที่ การปรับขนาด และการจัดกลุ่ม."
+description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for C++ เพื่อจำกัดการเลือก การย้าย การปรับขนาด และการจัดกลุ่ม"
 ---
-## **พื้นหลัง**
+## **พื้นฐาน**
 
-การใช้ Aspose.Slides for C++ ที่พบบ่อยคือการสร้าง ปรับปรุง และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่ ผู้ใช้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปร่างสามารถช่วยรักษาเค้าโครงและเนื้อหาที่ตั้งใจไว้ได้
+การใช้งานทั่วไปของ Aspose.Slides for C++ คือการสร้าง, ปรับปรุงและบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อลูกค้าได้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาตามที่ตั้งใจได้
 
-บทความนี้อธิบายว่ารูปร่างถูกจัดเรียงบนสไลด์อย่างไรและวิธีการใช้และลบการล็อกรูปร่างในงานนำเสนอ PPTX การล็อกเหล่านี้ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปร่างแต่ละอัน
+บทความนี้อธิบายว่ารูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการนำไปใช้และลบการล็อครูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการแก้ไขเฉพาะบางอย่างบนรูปทรงแต่ละอัน
 
 ## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for C++ แต่ละองค์ประกอบบนสไลด์จะแสดงโดยอ็อบเจ็กต์ที่ implements อินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
+สไลด์งานนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for C++, แต่ละองค์ประกอบบนสไลด์จะถูกแทนด้วยอ็อบเจกต์ที่ทำไอเทมของอินเทอร์เฟส [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
 
-ประเภทรูปร่างต่าง ๆ จะเปิดตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) เป็นอินเทอร์เฟซฐานสำหรับการล็อกรูปร่าง Aspose.Slides for C++ มีอินเทอร์เฟซการล็อกต่อไปนี้:
+ประเภทรูปทรงที่ต่างกันจะแสดงตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟส [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) เป็นอินเทอร์เฟซฐานสำหรับการล็อกรูปทรง Aspose.Slides for C++ มีอินเทอร์เฟซการล็อกต่อไปนี้:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) ล็อก autoshapes
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) ล็อก connector shapes
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) ล็อก graphical objects
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) ล็อก group shapes
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) ล็อก picture frames
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) ล็อค autoshapes
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) ล็อค connector shapes
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) ล็อค graphical objects
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) ล็อค group shapes
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) ล็อค picture frames
 
-เพื่อใช้การล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), ให้วนรอบสไลด์และตั้งค่าการล็อกที่เหมาะสมบนรูปร่างที่สนับสนุนแต่ละประเภท
+เพื่อทำการล็อกบน [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละประเภท
 
-## **ใช้และลบการป้องกัน**
+## **นำไปใช้และลบการป้องกัน**
 
-การล็อกรูปร่างจำกัดการดำเนินการเช่น การเลือก การย้าย และการปรับขนาดรูปร่าง แต่ไม่ได้ทำให้ทั้งงานนำเสนอไม่สามารถแก้ไขได้
+โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละอย่าง การเข้ารหัสไฟล์และการป้องกันการเขียนบนระดับเอกสารเป็นการตั้งค่าการป้องกันงานนำเสนอที่แยกต่างหาก [presentation protection settings](/slides/th/cpp/password-protected-presentation/)
 
-### **ใช้การป้องกันกับรูปร่าง PPTX**
+### **นำการป้องกันไปใช้กับรูปทรง PPTX**
 
-Aspose.Slides for C++ มีอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) เพื่อทำงานกับรูปร่างบนสไลด์
+Aspose.Slides for C++ มีอินเทอร์เฟส [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างนี้ส่งค่า `true` ไปยัง [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) และ [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) สำหรับ autoshapes พร้อมการล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames ตัวเชื่อมต่อใช้ [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) สำหรับการเคลื่อนที่; กลุ่มรูปยังใช้ [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างส่งค่า `true` ให้กับ [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) และ [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) สำหรับ autoshapes, พร้อมการล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames. Connectors ใช้ [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) สำหรับการย้าย; กลุ่มยังใช้ [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างนี้โหลดงานนำเสนอ PPTX ที่มีอยู่ ตรวจสอบรูปร่างในคอลเลคชันของแต่ละสไลด์ และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปร่างที่อยู่นอกสี่ประเภทที่รองรับจะคงสภาพเดิม ลูปจะไม่ไล่รูปร่างลูกภายในกลุ่ม
+ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่แล้ว, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่วนลูปผ่านรูปทรงลูกภายในกลุ่ม
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ### **ลบการป้องกัน**
 
-เพื่อเอาการล็อกรูปร่างออก ให้ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปร่างและล้างการจำกัดการเลือก การเคลื่อนที่ และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), และ [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) นอกจากนี้ยังล้าง [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) และบันทึกสำเนาของงานนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงอยู่ตามเดิม
+เพื่อเอาการล็อกรูปทรงออก ให้ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนย้ายและการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) และ [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) นอกจากนี้ยังล้าง [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะคงอยู่เช่นเดิม
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,20 +197,94 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **คงการครอปรูปภาพ**
+
+วางรูปภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างจะครอป 12% จากด้านซ้ายและ 8% จากด้านขวา แล้วเรียก [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) บนล็อก picture frame เพื่อคงการครอปและจำกัดการครอปเพิ่มเติม
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto photoBytes = File::ReadAllBytes(u"photo.jpg");
+auto photo = presentation->get_Images()->AddImage(photoBytes);
+
+auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, photo);
+auto pictureFormat = pictureFrame->get_PictureFormat();
+pictureFormat->set_CropLeft(12);
+pictureFormat->set_CropRight(8);
+
+auto pictureFrameLock = pictureFrame->get_PictureFrameLock();
+pictureFrameLock->set_AspectRatioLocked(false);
+pictureFrameLock->set_CropLocked(true);
+
+presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`PictureLocked.pptx` เก็บค่าล็อกการครอปเป็น `true` ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกรูปภาพนั้น
+
+### **คงการจัดกลุ่มไดอะแกรม**
+
+ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียก [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) บนล็อกของกลุ่มเพื่อคงส่วนประกอบของไดอะแกรมไว้ด้วยกัน การแก้ไขอื่น ๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงทำได้
+
+```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto groupShape = shapes->AddGroupShape();
+auto groupShapes = groupShape->get_Shapes();
+groupShapes->AddAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+groupShapes->AddAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+groupShape->get_GroupShapeLock()->set_UngroupingLocked(true);
+
+presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`DiagramLocked.pptx` เก็บค่าล็อกการแยกกลุ่มเป็น `true` ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกไดอะแกรมทั้งหมด
+
 ### **สรุป**
 
-Aspose.Slides for C++ ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปร่างแต่ละอันหรือใช้การจำกัดเดียวกันบนหลายสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทของรูปร่าง และตั้งค่าของมันเป็น `false` เมื่อคุณต้องการเอาการจำกัดเหล่านั้นออก
+Aspose.Slides for C++ ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือทำการล็อกเดียวกันบนสไลด์หลายสไลด์ เลือกการล็อกที่สนับสนุนโดยแต่ละประเภทรูปทรง และตั้งค่าของมันเป็น `false` เมื่อต้องการเอาข้อจำกัดเหล่านั้นออก
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถรวมการล็อกรูปร่างกับการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
 
-ใช่ การล็อกรูปร่างจำกัดการดำเนินการแก้ไขเฉพาะ ส่วน [password protection](/slides/th/cpp/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
+ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขบางอย่าง ในขณะที่ [password protection](/slides/th/cpp/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างร่วมกันในไฟล์เดียวกัน
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่น ๆ ได้หรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่นได้หรือไม่?**
 
-ใช่ ให้ใช้การล็อกเฉพาะกับรูปร่างบนสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าล็อกบนสไลด์อื่น ๆ
+ได้ ให้ใช้การล็อกเฉพาะบนรูปทรงในสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
 
-**ฉันจะใช้การล็อกกับรูปร่างแต่ละอันภายในกลุ่มอย่างไร?**
+**ฉันจะทำอย่างไรเพื่อให้การล็อกรูปทรงภายในกลุ่ม?**
 
-วนรอบคอลเลคชันที่ส่งคืนโดยเมธอด [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) ของกลุ่มและใช้การล็อกที่เหมาะสมกับรูปร่างลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลคชันของสไลด์เท่านั้น จึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละตัว
+ให้วนลูปผ่านคอลเลกชันที่คืนมาจากเมธอด [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) ของกลุ่มและนำการล็อกที่เหมาะสมไปใช้กับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นจะประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์เท่านั้นจึงไม่ได้ตั้งค่าการล็อกบนสมาชิกของกลุ่มแต่ละอัน

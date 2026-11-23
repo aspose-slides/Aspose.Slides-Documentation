@@ -1,17 +1,17 @@
 ---
-title: Ogranicz edycję prezentacji przy użyciu blokad kształtów w Node.js
+title: Ogranicz edycję prezentacji za pomocą blokad kształtów w Node.js
 linktitle: Ogranicz edycję prezentacji
 type: docs
 weight: 60
 url: /pl/nodejs-java/applying-protection-to-presentation/
 keywords:
-- zapobiegać edycji
-- chronić przed edycją
-- zablokować kształt
-- zablokować pozycję
-- zablokować wybór
-- zablokować zmianę rozmiaru
-- zablokować grupowanie
+- zapobiegaj edycji
+- chroń przed edycją
+- blokada kształtu
+- blokada pozycji
+- blokada wyboru
+- blokada zmiany rozmiaru
+- blokada grupowania
 - PowerPoint
 - PPTX
 - prezentacja
@@ -22,35 +22,35 @@ description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacj
 ---
 ## **Przegląd**
 
-Typowym zastosowaniem Aspose.Slides for Node.js via Java jest tworzenie, aktualizacja i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i treść.
+Typowym zastosowaniem Aspose.Slides for Node.js via Java jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian w kształtach może pomóc zachować zamierzony układ i treść.
 
-Ten artykuł wyjaśnia, jak kształty są zorganizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Blokady te pozwalają ograniczyć określone operacje edycyjne na poszczególnych kształtach.
+Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady umożliwiają ograniczenie konkretnych operacji edycyjnych na poszczególnych kształtach.
 
-## **Kompozycja slajdu**
+## **Skład slajdu**
 
-Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łącza oraz inne elementy używane do budowy prezentacji. W Aspose.Slides for Node.js via Java każdy element na slajdzie jest reprezentowany przez obiekt dziedziczący po klasie [Kształt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) .
+Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łączniki i inne elementy używane do budowy prezentacji. W Aspose.Slides for Node.js via Java każdy element na slajdzie jest reprezentowany przez obiekt, który dziedziczy po klasie [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
 
 Różne typy kształtów udostępniają różne opcje blokowania. Klasa [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) jest klasą bazową dla blokad kształtów. Aspose.Slides for Node.js via Java udostępnia następujące klasy blokad:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) blokuje autokształty.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) blokuje kształty łączników.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) blokuje łączniki.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) blokuje obiekty graficzne.  
 - [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) blokuje grupowane kształty.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) blokuje ramki obrazów.  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) blokuje ramki obrazu.  
 
 Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), iteruj po jej slajdach i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
 ## **Zastosowanie i usunięcie ochrony**
 
-Blokady kształtów ograniczają operacje takie jak wybieranie, przemieszczanie i zmiana rozmiaru kształtów. Nie powodują, że cała prezentacja staje się nieedytowalna.
+Kompatybilne edytory prezentacji używają blokad kształtów do ograniczania indywidualnych operacji edycyjnych. Szyfrowanie pliku i ochrona przed zapisem na poziomie dokumentu to odrębne [ustawienia ochrony prezentacji](/slides/pl/nodejs-java/password-protected-presentation/).
 
 ### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides for Node.js via Java udostępnia klasę [Kształt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) do pracy z kształtami na slajdzie.
+Aspose.Slides for Node.js via Java udostępnia klasę [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) do pracy z kształtami na slajdzie.
 
-Przykład wywołuje [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) i [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) z wartością `true` dla autokształtów, oraz równoważne blokady dla grupowanych kształtów, łączników i ramek obrazów. Łączniki używają [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) do przemieszczania; grupy również używają [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked), aby ograniczyć grupowanie.
+Przykład wywołuje [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) i [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) z wartością `true` dla autokształtów, z równoważnymi blokadami dla grupowanych kształtów, łączników i ramek obrazu. Łączniki używają [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) do przemieszczania; grupy dodatkowo używają [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) aby ograniczyć grupowanie.
 
-Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty spoza czterech obsługiwanych typów pozostają niezmienione. Pętla nie przechodzi przez kształty potomne wewnątrz grupy.
+Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z tymi ograniczeniami. Kształty spoza czterech obsługiwanych typów pozostają niezmienione. Pętla nie przechodzi przez kształty podrzędne wewnątrz grupy.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,7 +95,7 @@ try {
 
 ### **Usunięcie ochrony**
 
-Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pomocą [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) oraz [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Usuwa również ograniczenie grupowania, przekazując `false` do [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked), i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pośrednictwem [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) oraz [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Usuwa również ograniczenie grupowania, wywołując [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) z wartością `false`, i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,20 +138,80 @@ try {
 }
 ```
 
-### **Wniosek**
+### **Zachowanie przycięcia obrazu**
 
-Aspose.Slides for Node.js via Java pozwala ograniczyć określone operacje edycyjne na poszczególnych kształtach lub zastosować te same ograniczenia w całych slajdach. Wybierz blokady obsługiwane przez każdy typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
+Umieść zdjęcie o nazwie `photo.jpg` w katalogu roboczym. Przykład przycina 12 % od lewej i 8 % od prawej, a następnie wywołuje [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) na blokadzie ramki obrazu. Przekazanie `true` ogranicza dalsze przycinanie i zachowuje istniejące przycięcie.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const photoStream = java.newInstanceSync("java.io.FileInputStream", "photo.jpg");
+    let photo;
+    try {
+        photo = presentation.getImages().addImage(photoStream);
+    } finally {
+        photoStream.close();
+    }
+
+    const pictureFrame = shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    const pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` zapisuje blokadę przycięcia jako `true`. W programie PowerPoint polecenie **Crop** jest wyłączone, gdy zdjęcie jest zaznaczone.
+
+### **Utrzymanie diagramu w grupie**
+
+Przykład grupuje prostokąt i strzałkę, a następnie wywołuje [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) na blokadzie grupy, aby utrzymać elementy diagramu razem. Inne edycje, takie jak przemieszczanie grupy lub zmiana wypełnienia elementu, pozostają dostępne.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    const groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` zapisuje blokadę rozgrupowywania jako `true`. W programie PowerPoint polecenie **Ungroup** jest wyłączone, gdy cały diagram jest zaznaczony.
+
+### **Podsumowanie**
+
+Aspose.Slides for Node.js via Java pozwala ograniczyć określone operacje edycyjne na poszczególnych kształtach lub zastosować te same ograniczenia w całej prezentacji. Wybieraj blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
 **Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady kształtów ograniczają określone operacje edycyjne, podczas gdy [ochrona hasłem](/slides/pl/nodejs-java/password-protected-presentation/) może ograniczyć otwieranie lub modyfikację prezentacji. Można używać obu w tym samym pliku.
+Tak. Blokady kształtów ograniczają określone operacje edycyjne, natomiast [ochrona hasłem](/slides/pl/nodejs-java/password-protected-presentation/) może ograniczyć otwieranie lub modyfikację prezentacji. Można używać obu w tym samym pliku.
 
 **Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
 
-Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmienia to ustawień blokad na pozostałych slajdach.
+Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmieni to ustawień blokad na pozostałych slajdach.
 
 **Jak mogę zastosować blokady do poszczególnych kształtów wewnątrz grupy?**
 
-Iteruj po kolekcji zwróconej przez metodę [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) i zastosuj odpowiednie blokady do każdego kształtu potomnego. Powtórz to dla wszelkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.
+Iteruj po kolekcji zwróconej przez metodę [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) grupy i zastosuj odpowiednie blokady do każdego kształtu podrzędnego. Powtórz to dla wszelkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych członkach grupy.

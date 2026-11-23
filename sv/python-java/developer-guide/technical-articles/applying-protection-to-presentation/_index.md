@@ -1,6 +1,6 @@
 ---
-title: Begränsa redigering av presentation med lås för former i Python
-linktitle: Begränsa redigering av presentation
+title: Begränsa redigering av presentationer med formlås i Python
+linktitle: Begränsa redigering av presentationer
 type: docs
 weight: 60
 url: /sv/python-java/applying-protection-to-presentation/
@@ -18,39 +18,39 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig hur du låser och låser upp former i PPTX-presentationer med Aspose.Slides för Python via Java för att begränsa urval, förflyttning, storleksändring och gruppering."
+description: "Lär dig hur du låser och låser upp former i PPTX-presentationer med Aspose.Slides for Python via Java för att begränsa urval, förflyttning, storleksändring och gruppering."
 ---
 ## **Bakgrund**
 
-En vanlig användning av Aspose.Slides för Python via Java är att skapa, uppdatera och spara PowerPoint (PPTX)-presentationer som en del av ett automatiserat arbetsflöde. När användare får dessa presentationer kan begränsning av ändringar i former hjälpa till att bevara den avsedda layouten och innehållet.
+En vanlig användning av Aspose.Slides for Python via Java är att skapa, uppdatera och spara PowerPoint‑presentationer (PPTX) som en del av ett automatiserat arbetsflöde. När användare får dessa presentationer kan begränsning av ändringar i former hjälpa till att bevara den avsedda layouten och innehållet.
 
-Denna artikel förklarar hur former är organiserade på bilder och hur man tillämpar och tar bort lås för former i en PPTX-presentation. Dessa lås låter dig begränsa specifika redigeringsåtgärder på enskilda former.
+Denna artikel förklarar hur former organiseras på bilder och hur man tillämpar och tar bort lås på former i en PPTX‑presentation. Dessa lås låter dig begränsa specifika redigeringsåtgärder på enskilda former.
 
 ## **Komposition av en bild**
 
-En presentationsbild består av komponenter såsom autoshapes, tabeller, OLE-objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides för Python via Java representeras varje element på en bild av ett objekt som ärver från klassen [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
+En presentationsbild består av komponenter som autoshapes, tabeller, OLE‑objekt, grupperade former, bildramar, videoramar, kopplingslinjer och andra element som används för att bygga en presentation. I Aspose.Slides for Python via Java representeras varje element på en bild av ett objekt som ärver från klassen [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
 
-Olika formtyper visar olika låsalternativ. Klassen [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) är basklassen för lås på former. Aspose.Slides för Python via Java tillhandahåller följande låsklasser:
+Olika formtyper ger olika låsalternativ. Klassen [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) är basklassen för formlås. Aspose.Slides for Python via Java tillhandahåller följande låsklasser:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) låser autoshapes.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) låser anslutningsformer.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) låser kopplingsformer.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) låser grafiska objekt.  
 - [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) låser gruppformer.  
 - [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) låser bildramar.  
 
-För att tillämpa lås över en [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), iterera genom dess bilder och ange de lämpliga låsen på varje stödjd form.
+För att tillämpa lås över en [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), iterera genom dess bilder och sätt de lämpliga låsen på varje stödjande form.
 
 ## **Tillämpa och ta bort skydd**
 
-Lås för former begränsar operationer såsom att välja, flytta och ändra storlek på former. De gör inte hela presentationen oföränderlig.
+Kompatibla presentationsredigerare använder formlås för att begränsa enskilda redigeringsåtgärder. Filkryptering och skrivskydd på dokumentnivå är separata [presentation protection settings](/slides/sv/python-java/password-protected-presentation/).
 
-### **Tillämpa skydd på PPTX-former**
+### **Tillämpa skydd på PPTX‑former**
 
-Aspose.Slides för Python via Java tillhandahåller klassen [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) för att arbeta med former på en bild.
+Aspose.Slides for Python via Java tillhandahåller klassen [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) för att arbeta med former på en bild.
 
-Exemplet anropar [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) och [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) med `True` för autoshapes, med motsvarande lås för gruppformer, anslutningar och bildramar. Anslutningar använder [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) för förflyttning; grupper använder även [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) för att begränsa gruppering.
+Exemplet anropar [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) och [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) med `True` för autoshapes, med motsvarande lås för gruppformer, kopplingar och bildramar. Kopplingar använder [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) för förflyttning; grupper använder även [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) för att begränsa gruppering.
 
-Exemplet läser in en befintlig PPTX-presentation, kontrollerar formerna i varje bilds formsamling och sparar en kopia med dessa begränsningar tillämpade. Former utanför de fyra hanterade typerna lämnas oförändrade. Loopen traverserar inte de underordnade formerna inuti en grupp.
+Exemplet laddar en befintlig PPTX‑presentation, kontrollerar formerna i varje bilds formsamling och sparar en kopia med dessa begränsningar tillämpade. Former utanför de fyra hanterade typerna lämnas oförändrade. Loopen traverserar inte barnformerna i en grupp.
 
 ```python
 import jpype
@@ -94,7 +94,7 @@ finally:
 
 ### **Ta bort skydd**
 
-För att ta bort ett lås på en form, sätt dess värde till `False`. Följande exempel läser in en presentation med lås på former och rensar urval, förflyttning och storleksändringsrestriktioner via [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) och [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Det tar också bort grupperingrestriktionen genom att skicka `False` till [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) och sparar en kopia av presentationen. Andra låsinställningar lämnas oförändrade.
+För att ta bort ett formlås, sätt dess värde till `False`. Följande exempel laddar en presentation med formlås och rensar begränsningarna för urval, förflyttning och storleksändring via [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), och [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Det tar också bort grupperingens begränsning genom att skicka `False` till [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), och sparar en kopia av presentationen. Övriga låsinställningar lämnas oförändrade.
 
 ```python
 import jpype
@@ -136,15 +136,81 @@ finally:
     presentation.dispose()
 ```
 
+### **Bevara en bildbeskärning**
+
+Placera ett foto med namnet `photo.jpg` i arbetskatalogen. Exemplet beskär 12 % från vänster och 8 % från höger, och anropar sedan [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) med `True` för att bevara beskärningen.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    photo_bytes = Path("photo.jpg").read_bytes()
+    photo = presentation.getImages().addImage(photo_bytes)
+    
+    picture_frame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo)
+    picture_frame.getPictureFormat().setCropLeft(12)
+    picture_frame.getPictureFormat().setCropRight(8)
+
+    picture_lock = picture_frame.getPictureFrameLock()
+    picture_lock.setAspectRatioLocked(False)
+    picture_lock.setCropLocked(True)
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+I `PictureLocked.pptx` inaktiverar PowerPoint kommandot **Crop** när du markerar fotot.
+
+### **Behålla ett diagram grupperat**
+
+Exemplet grupperar en rektangel och en pil, och anropar sedan [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) med `True` för att hålla de två formerna tillsammans. Du kan fortfarande flytta gruppen eller ändra en komponents fyllning.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    group = shapes.addGroupShape()
+    group.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50)
+    group.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30)
+    group.getGroupShapeLock().setUngroupingLocked(True)
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+I `DiagramLocked.pptx` inaktiverar PowerPoint kommandot **Ungroup** när du markerar hela diagrammet.
+
 ### **Slutsats**
 
-Aspose.Slides för Python via Java låter dig begränsa specifika redigeringsåtgärder på enskilda former eller tillämpa samma begränsningar över bilder. Välj de lås som stöds av varje formtyp och sätt deras värden till `False` när du behöver ta bort dessa begränsningar.
+Aspose.Slides for Python via Java låter dig begränsa specifika redigeringsåtgärder på enskilda former eller tillämpa samma begränsningar över flera bilder. Välj de lås som stöds av varje formtyp och sätt deras värden till `False` när du behöver ta bort dessa begränsningar.
 
 ## **FAQ**
 
-**Kan jag kombinera lås för former och lösenordsskydd i samma presentation?**
+**Kan jag kombinera formlås och lösenordsskydd i samma presentation?**
 
-Ja. Lås för former begränsar specifika redigeringsåtgärder, medan [lösenordsskydd](/slides/sv/python-java/password-protected-presentation/) kan begränsa öppning eller ändring av presentationen. Du kan använda båda i samma fil.
+Ja. Formlås begränsar specifika redigeringsåtgärder, medan [lösenordsskydd](/slides/sv/python-java/password-protected-presentation/) kan begränsa att öppna eller ändra presentationen. Du kan använda båda i samma fil.
 
 **Kan jag begränsa redigering på specifika bilder utan att påverka andra?**
 
@@ -152,4 +218,4 @@ Ja. Tillämpa lås endast på former på de valda bilderna. Detta ändrar inte l
 
 **Hur kan jag tillämpa lås på enskilda former i en grupp?**
 
-Iterera genom samlingen som returneras av gruppens [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes)‑metod och tillämpa lämpliga lås på varje underform. Upprepa detta för eventuella inbäddade grupper. Exemplen ovan bearbetar endast bildens formsamling, så de sätter inte lås på enskilda gruppmedlemmar.
+Iterera genom samlingen som returneras av gruppens [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes)-metod och tillämpa lämpliga lås på varje barnform. Upprepa detta för eventuella nästlade grupper. Exemplen ovan bearbetar endast bildens formsamling, så de sätter inte lås på enskilda gruppmedlemmar.

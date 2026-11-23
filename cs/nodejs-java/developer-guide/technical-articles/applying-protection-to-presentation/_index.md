@@ -8,7 +8,7 @@ keywords:
 - zabránit úpravám
 - chránit před úpravami
 - zamknout tvar
-- zamknout pozici
+- zamknout polohu
 - zamknout výběr
 - zamknout změnu velikosti
 - zamknout seskupování
@@ -18,39 +18,39 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Naučte se, jak zamykat a odemykat tvary v PPTX prezentacích pomocí Aspose.Slides pro Node.js přes Java, aby bylo možné omezit výběr, přesun, změnu velikosti a seskupování."
+description: "Naučte se, jak zamknout a odemknout tvary v PPTX prezentacích pomocí Aspose.Slides pro Node.js přes Java a omezit výběr, pohyb, změnu velikosti a seskupování."
 ---
 ## **Přehled**
 
-Běžné použití Aspose.Slides for Node.js via Java je vytváření, aktualizace a ukládání prezentací PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezení změn tvarů může pomoci zachovat zamýšlené rozložení a obsah.
+Běžné využití Aspose.Slides for Node.js via Java je vytvářet, aktualizovat a ukládat prezentace PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezení změn tvarů může pomoci zachovat zamýšlené rozložení a obsah.
 
-Tento článek vysvětluje, jak jsou tvary organizovány na snímcích a jak aplikovat a odstranit zamknutí tvarů v PPTX prezentaci. Tato zamknutí vám umožňují omezit konkrétní úpravy jednotlivých tvarů.
+Tento článek vysvětluje, jak jsou tvary na snímcích organizovány a jak použít a odebrat zamknutí tvarů v PPTX prezentaci. Tato zamknutí vám umožňují omezit konkrétní úpravy jednotlivých tvarů.
 
 ## **Složení snímku**
 
-Snímek prezentace se skládá z komponent, jako jsou automatické tvary, tabulky, objekty OLE, seskupené tvary, rámečky obrázků, videorámečky, propojení a další prvky používané k vytvoření prezentace. V Aspose.Slides for Node.js via Java je každý prvek na snímku reprezentován objektem, který dědí od třídy [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
+Snímek prezentace se skládá ze součástí, jako jsou automatické tvary, tabulky, objekty OLE, seskupené tvary, rámečky obrázků, video rámečky, konektory a další prvky používané k vytvoření prezentace. V Aspose.Slides for Node.js via Java je každý prvek na snímku reprezentován objektem, který dědí ze třídy [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
 
-Různé typy tvarů nabízejí různé možnosti zamykání. Třída [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) je základní třídou pro zamykání tvarů. Aspose.Slides for Node.js via Java poskytuje následující třídy zamykání:
+Různé typy tvarů nabízejí různé možnosti uzamčení. Třída [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) je základní třída pro zamknutí tvarů. Aspose.Slides for Node.js via Java poskytuje následující třídy zamknutí:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) zamyká automatické tvary.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) zamyká tvary propojení.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) zamyká tvary konektorů.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) zamyká grafické objekty.  
 - [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) zamyká seskupené tvary.  
 - [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) zamyká rámečky obrázků.  
 
-Pro aplikaci zamknutí napříč [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), projděte její snímky a nastavte příslušná zamknutí na každý podporovaný tvar.
+Pro použití zamknutí napříč [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), projděte její snímky a nastavte příslušná zamknutí na každý podporovaný tvar.
 
-## **Aplikace a odebrání ochrany**
+## **Použití a odebrání ochrany**
 
-Zamknutí tvarů omezují operace, jako je výběr, přesun a změna velikosti tvarů. Neznemožňují úpravy celé prezentace.
+Kompatibilní editory prezentací používají zamknutí tvarů k omezení jednotlivých úprav. Šifrování souboru a ochrana zápisu na úrovni dokumentu jsou samostatná [nastavení ochrany prezentace](/slides/cs/nodejs-java/password-protected-presentation/).
 
-### **Aplikace ochrany na PPTX tvary**
+### **Použití ochrany na tvary PPTX**
 
 Aspose.Slides for Node.js via Java poskytuje třídu [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) pro práci s tvary na snímku.
 
-Příklad volá [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) a [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) s hodnotou `true` pro automatické tvary, s ekvivalentními zamknutími pro seskupené tvary, propojení a rámečky obrázků. Propojení používají [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) pro pohyb; skupiny také používají [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked), aby omezily seskupování.
+Příklad volá [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) a [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) s hodnotou `true` pro automatické tvary, s ekvivalentními zamknutími pro seskupené tvary, konektory a rámečky obrázků. Konektory používají [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) pro pohyb; skupiny také používají [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) k omezení seskupování.
 
-Příklad načte existující PPTX prezentaci, zkontroluje tvary v kolekci tvarů každého snímku a uloží kopii s těmito aplikovanými omezeními. Tvary mimo čtyři zpracovávané typy zůstávají beze změny. Smyčka neprochází podřízené tvary uvnitř skupiny.
+Příklad načítá existující PPTX prezentaci, kontroluje tvary v kolekci tvarů každého snímku a uloží kopii s těmito aplikovanými omezeními. Tvary mimo čtyři zpracovávané typy zůstávají nezměněny. Smyčka neprochází podřízené tvary uvnitř skupiny.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Odebrání ochrany**
+### **Odstranění ochrany**
 
-Pro odebrání zamknutí tvaru nastavte jeho hodnotu na `false`. Následující příklad načte prezentaci se zamknutími tvarů a vymaže omezení výběru, pohybu a změny velikosti pomocí [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) a [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Také odstraní omezení seskupování předáním `false` metodě [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) a uloží kopii prezentace. Ostatní nastavení zamknutí zůstávají beze změny.
+Pro odstranění zamknutí tvaru nastavte jeho hodnotu na `false`. Následující příklad načte prezentaci se zamknutími tvarů a vymaže omezení výběru, pohybu a změny velikosti pomocí [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/), a [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Také odstraní omezení seskupování předáním `false` do [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) a uloží kopii prezentace. Ostatní nastavení zamknutí zůstávají nezměněna.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,20 +138,80 @@ try {
 }
 ```
 
+### **Zachování ořezu obrázku**
+
+Umístěte fotografii pojmenovanou `photo.jpg` do pracovního adresáře. Příklad ořízne 12 % zleva a 8 % zprava, poté zavolá [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) na zamknutí rámečku obrázku. Předání `true` omezuje další ořezávání a zachovává stávající ořez.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const photoStream = java.newInstanceSync("java.io.FileInputStream", "photo.jpg");
+    let photo;
+    try {
+        photo = presentation.getImages().addImage(photoStream);
+    } finally {
+        photoStream.close();
+    }
+
+    const pictureFrame = shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    const pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` ukládá zamknutí ořezu jako `true`. V PowerPointu je příkaz **Crop** (Ořez) zakázán, když je fotografie vybrána.
+
+### **Udržet diagram seskupený**
+
+Příklad seskupí obdélník a šipku, poté zavolá [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) na zamknutí skupiny, aby komponenty diagramu zůstaly pohromadě. Ostatní úpravy, jako přesunutí skupiny nebo změna výplně komponenty, zůstávají dostupné.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    const groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` ukládá zamknutí rozdělení jako `true`. V PowerPointu je příkaz **Ungroup** (Rozdělit) zakázán, když je celý diagram vybrán.
+
 ### **Závěr**
 
-Aspose.Slides for Node.js via Java vám umožňuje omezit konkrétní úpravy jednotlivých tvarů nebo aplikovat stejná omezení napříč snímky. Vyberte zamknutí podporovaná pro každý typ tvaru a nastavte jejich hodnoty na `false`, když potřebujete tato omezení odstranit.
+Aspose.Slides for Node.js via Java vám umožňuje omezit konkrétní úpravy jednotlivých tvarů nebo použít stejná omezení napříč snímky. Vyberte zamknutí podporovaná každým typem tvaru a nastavte jejich hodnoty na `false`, když potřebujete tato omezení odstranit.
 
 ## **Často kladené otázky**
 
 **Mohu kombinovat zamknutí tvarů a ochranu heslem ve stejné prezentaci?**
 
-Ano. Zamknutí tvarů omezují konkrétní úpravy, zatímco [ochrana heslem](/slides/cs/nodejs-java/password-protected-presentation/) může omezit otevření nebo úpravu prezentace. Můžete použít obojí ve stejném souboru.
+Ano. Zamknutí tvarů omezuje konkrétní úpravy, zatímco [ochranu heslem](/slides/cs/nodejs-java/password-protected-presentation/) může omezit otevření nebo úpravu prezentace. Můžete oba použít ve stejném souboru.
 
 **Mohu omezit úpravy na konkrétních snímcích, aniž by to ovlivnilo ostatní?**
 
-Ano. Aplikujte zamknutí pouze na tvary na vybraných snímcích. To nemění nastavení zamknutí na ostatních snímcích.
+Ano. Zamknutí aplikujte pouze na tvary na vybraných snímcích. To nemění nastavení zamknutí na ostatních snímcích.
 
 **Jak mohu aplikovat zamknutí na jednotlivé tvary uvnitř skupiny?**
 
-Projděte kolekci vrácenou metodou [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) skupiny a aplikujte příslušná zamknutí na každý podřízený tvar. Opakujte to pro všechny vnořené skupiny. Výše uvedené příklady zpracovávají pouze kolekci tvarů snímku, takže nenastavují zamknutí na jednotlivé členy skupiny.
+Projít kolekci vrácenou metodou [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) skupiny a aplikovat příslušná zamknutí na každý podřízený tvar. Tento postup opakujte pro jakékoli vnořené skupiny. Výše uvedené příklady zpracovávají pouze kolekci tvarů snímku, takže nenastavují zamknutí na jednotlivé členy skupiny.

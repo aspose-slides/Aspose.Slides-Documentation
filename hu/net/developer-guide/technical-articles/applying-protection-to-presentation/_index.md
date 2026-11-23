@@ -1,15 +1,15 @@
 ---
-title: Prezentáció szerkesztésének korlátozása alakzatzárakkal .NET-ben
+title: Prezentáció szerkesztésének korlátozása formazárolásokkal .NET-ben
 linktitle: Prezentáció szerkesztésének korlátozása
 type: docs
 weight: 70
 url: /hu/net/applying-protection-to-presentation/
 keywords:
 - szerkesztés megakadályozása
-- védés a szerkesztéstől
-- alakzat zárolása
+- védelem a szerkesztéstől
+- forma zárolása
 - pozíció zárolása
-- kiválasztás zárolása
+- kijelölés zárolása
 - átméretezés zárolása
 - csoportosítás zárolása
 - PowerPoint
@@ -18,39 +18,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan zárolhatja és oldhatja fel az alakzatokat PPTX prezentációkban az Aspose.Slides for .NET segítségével, hogy korlátozza a kiválasztást, mozgatást, átméretezést és a csoportosítást."
+description: "Ismerje meg, hogyan zárolhat és oldhat fel formákat PPTX prezentációkban az Aspose.Slides for .NET használatával, hogy korlátozza a kijelölést, mozgást, átméretezést és a csoportosítást."
 ---
 ## **Háttér**
 
-Az Aspose.Slides for .NET gyakori felhasználási módja, hogy PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
+Az Aspose.Slides for .NET gyakori felhasználási módja, hogy PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, a formák módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
 
-Ez a cikk bemutatja, hogyan rendeződnek az alakzatok a diákon, és hogyan alkalmazhatók és távolíthatók el az alakzatzárak egy PPTX prezentációban. Ezek a zárak lehetővé teszik, hogy egyes alakzatok szerkesztési műveleteit korlátozza.
+Ez a cikk elmagyarázza, hogyan vannak a formák szervezve a diákon, valamint hogyan lehet alkalmazni és eltávolítani a formazárakat egy PPTX prezentációban. Ezek az zárak lehetővé teszik, hogy egyes formákon korlátozza a specifikus szerkesztési műveleteket.
 
 ## **Dia felépítése**
 
-A prezentációs dia olyan összetevőkből áll, mint az autóalakzatok, táblázatok, OLE-objektumok, csoportosított alakzatok, képkockák, videokockák, csatlakozók és egyéb elemek, amelyek a prezentáció építéséhez szükségesek. Az Aspose.Slides for .NET-ben a dia minden eleme egy olyan objektummal van reprezentálva, amely implementálja a [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interfészt, vagy egy olyan osztályból származik, amely ezt teszi.
+Egy prezentációs diát olyan komponensek alkotják, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított formák, képkeretek, videókeretek, összekötők és más elemek, amelyek a prezentáció felépítésére szolgálnak. Az Aspose.Slides for .NET-ben a dián lévő minden elem egy olyan objektummal van reprezentálva, amely megvalósítja a [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interfészt vagy egy olyan osztályból származik, amely ezt megteszi.
 
-Különböző alakzat típusok különböző zárolási beállításokat kínálnak. A [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) interfész az alakzatzárak alapinterfésze. Az Aspose.Slides for .NET a következő zárolási interfészeket biztosítja:
+Az egyes forma típusok különböző zárolási lehetőségeket biztosítanak. A [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) interfész a formazárak alap interfésze. Az Aspose.Slides for .NET a következő zár interfészeket kínálja:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) zárolja az autóalakzatokat.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) zárolja a csatlakozó alakzatokat.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) zárolja az automatikus alakzatokat.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) zárolja az összekötő alakzatokat.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) zárolja a grafikus objektumokat.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) zárolja a csoportos alakzatokat.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) zárolja a képkockákat.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) zárolja a csoportosított formákat.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) zárolja a képkereteket.  
 
-A [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) teljesen történő zárolásához iterálja végig a diákat, és állítsa be a megfelelő zárakat minden támogatott alakzaton.
+Ahhoz, hogy a zárakat egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) során alkalmazzuk, iteráljunk a diáikon, és állítsuk be a megfelelő zárolásokat minden támogatott formára.
 
 ## **Zárolás alkalmazása és eltávolítása**
 
-Az alakzatzárak korlátozzák az olyan műveleteket, mint az alakzatok kiválasztása, mozgatása és átméretezése. Nem teszik a teljes prezentációt szerkeszthetetlenné.
+A kompatibilis prezentációs szerkesztők formazárakat használnak az egyedi szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írási védelem külön [presentation protection settings](/slides/hu/net/password-protected-presentation/).
 
-### **Zárolás alkalmazása PPTX alakzatokra**
+### **Zárolás alkalmazása PPTX formákra**
 
-Az Aspose.Slides for .NET a [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interfészt biztosítja a diákon lévő alakzatokkal való munkához.
+Az Aspose.Slides for .NET biztosítja az [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interfészt a dián lévő formákkal való munkához.
 
-A példa a [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) és a [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) értékét `true`-ra állítja az autóalakzatoknál, hasonló zárakat alkalmazva a csoportos alakzatoknál, csatlakozóknál és képkockáknál. A csatlakozók a [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/)‑t használják a mozgáshoz; a csoportok pedig a [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/)‑t a csoportosítás korlátozásához.
+A példában a [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), a [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) és a [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) értéke `true`-ra van állítva az automatikus alakzatoknál, a csoportosított formák, összekötők és képkeretek esetében ekvivalens zárolásokkal. Az összekötők a [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) használatával mozgathatók; a csoportok pedig a [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) használatával korlátozzák a csoportosítást.
 
-A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az egyes diák alakzatgyűjteményét, és elment egy másolatot a felvitt korlátozásokkal. A négy kezelt típuson kívüli alakzatok változatlanul maradnak. A ciklus nem járja be a csoporton belüli gyermekalkzatokat.
+A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az egyes diák forma gyűjteményében lévő formákat, és egy másolatot ment el a felvett korlátozásokkal. A négy kezelt típuson kívüli formák változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekformákat.
 
 ```cs
 using Aspose.Slides;
@@ -93,9 +93,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Zárolás eltávolítása**
+### **Védelem eltávolítása**
 
-Az alakzatzár eltávolításához állítsa az értékét `false`-ra. A következő példa betölt egy prezentációt alakzatzárakkal, és törli a kiválasztási, mozgási és átméretezési korlátozásokat a [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) segítségével. Emellett törli a [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) beállítást, és elment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
+A formazár eltávolításához állítsa az értékét `false`-ra. A következő példában egy formazárolt prezentációt tölt be, és törli a kiválasztás, mozgás és átméretezés korlátozásait a [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) segítségével. Emellett törli a [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) értékét is, és elment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
 
 ```cs
 using Aspose.Slides;
@@ -138,20 +138,67 @@ foreach (var slide in presentation.Slides)
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
+### **Kép vágásának megőrzése**
+
+Helyezzen egy `photo.jpg` nevű fényképet a munkakönyvtárba. A példa 12%-kal vágja le a bal oldalt és 8%-kal a jobb oldalt, majd a képkereten a [CropLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/croplocked/) beállítást állítja true-ra. Ez a jelző korlátozza a további vágást, és megőrzi a meglévő vágást.
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var photoBytes = File.ReadAllBytes("photo.jpg");
+var photo = presentation.Images.AddImage(photoBytes);
+
+var pictureFrame = shapes.AddPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+pictureFrame.PictureFormat.CropLeft = 12;
+pictureFrame.PictureFormat.CropRight = 8;
+pictureFrame.PictureFrameLock.AspectRatioLocked = false;
+pictureFrame.PictureFrameLock.CropLocked = true;
+
+presentation.Save("PictureLocked.pptx", SaveFormat.Pptx);
+```
+
+`PictureLocked.pptx` a vágászárat `true` értékkel tárolja. PowerPointban a **Crop** parancs le van tiltva, amikor a fénykép ki van jelölve.
+
+### **Diagram csoportosítva tartása**
+
+A példa egy téglalapot és egy nyilat csoportosít, majd a csoportra a [UngroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/ungroupinglocked/) beállítással megakadályozza a csoport szétbontását, így a diagram elemei együtt maradnak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása továbbra is elérhetők.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var groupShape = shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+groupShape.Shapes.AddAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+groupShape.GroupShapeLock.UngroupingLocked = true;
+
+presentation.Save("DiagramLocked.pptx", SaveFormat.Pptx);
+```
+
+`DiagramLocked.pptx` a szétbontászárat `true` értékkel tárolja. PowerPointban a **Ungroup** parancs le van tiltva, amikor a teljes diagram ki van jelölve.
+
 ### **Összegzés**
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy egyes alakzatok szerkesztési műveleteit korlátozza, vagy ugyanazokat a korlátozásokat alkalmazza a diákon. Válassza ki az egyes alakzat típusok által támogatott zárolásokat, és állítsa értéküket `false`-ra, ha el akarja távolítani ezeket a korlátozásokat.
+Az Aspose.Slides for .NET lehetővé teszi, hogy egyes formákon specifikus szerkesztési műveleteket korlátozzon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon át. Válassza ki a forma típusonként támogatott zárolásokat, és állítsa az értéküket `false`-ra, ha el kell távolítania ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Can I combine shape locks and password protection in the same presentation?**
+**Kombinálhatok formazárakat és jelszóvédelmet ugyanabban a prezentációban?**
 
-Igen. Az alakzatzárak a specifikus szerkesztési műveleteket korlátozzák, míg a [password protection](/slides/hu/net/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
+Igen. A formazárak specifikus szerkesztési műveleteket korlátoznak, míg a [password protection](/slides/hu/net/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
 
-**Can I restrict editing on specific slides without affecting others?**
+**Korlátozhatom a szerkesztést bizonyos diákon anélkül, hogy a többit befolyásolnám?**
 
-Igen. Csak a kiválasztott diák alakzataira alkalmazzon zárakat. Ez nem módosítja a többi dia zárbeállításait.
+Igen. Csak a kiválasztott diákon lévő formákra alkalmazza a zárolásokat. Ez nem módosítja a többi dia zárolási beállításait.
 
-**How can I apply locks to individual shapes inside a group?**
+**Hogyan tudok zárolásokat alkalmazni egy csoporton belüli egyedi formákra?**
 
-Iteráljon a csoport [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteményén, és alkalmazza a megfelelő zárakat minden gyermekalakzatra. Ismételje meg ezt minden beágyazott csoportra is. A fenti példák csak a dia alakzatgyűjteményét dolgozzák fel, így nem állítanak be zárakat az egyes csoporttagokra.
+Iteráljon a csoport [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteményén, és alkalmazza a megfelelő zárolásokat minden egyes gyermekformára. Ismételje meg ezt minden egymásba ágyazott csoportra. A fenti példák csak a dia forma gyűjteményét dolgozzák fel, így nem állítanak be zárolásokat az egyes csoporttagokon.

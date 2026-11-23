@@ -6,7 +6,7 @@ weight: 60
 url: /th/java/applying-protection-to-presentation/
 keywords:
 - ป้องกันการแก้ไข
-- ป้องกันจากการแก้ไข
+- ปกป้องจากการแก้ไข
 - ล็อกรูปทรง
 - ล็อกตำแหน่ง
 - ล็อกการเลือก
@@ -17,39 +17,39 @@ keywords:
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides สำหรับ Java เพื่อจำกัดการเลือก, การเคลื่อนย้าย, การปรับขนาดและการจัดกลุ่ม."
+description: "เรียนรู้วิธีล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides สำหรับ Java เพื่อจำกัดการเลือก, การเคลื่อนย้าย, การปรับขนาด, และการจัดกลุ่ม."
 ---
 ## **พื้นหลัง**
 
-การใช้งานทั่วไปของ Aspose.Slides for Java คือการสร้าง, อัปเดตและบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้ได้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดเลย์เอาต์และเนื้อหาที่ตั้งใจไว้ได้
+การใช้งานทั่วไปของ Aspose.Slides for Java คือการสร้าง, ปรับปรุง และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาที่ตั้งใจไว้ได้
 
-บทความนี้อธิบายว่ารูปทรงจัดระเบียบบนสไลด์อย่างไรและวิธีการใส่และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
+บทความนี้อธิบายว่า รูปร่างต่าง ๆ ถูกจัดระเบียบบนสไลด์อย่างไร และวิธีการใช้และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
 
-## **องค์ประกอบของสไลด์**
+## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น autoshapes, ตาราง, วัตถุ OLE, รูปทรงที่รวมกลุ่ม, กรอบภาพ, กรอบวิดีโอ, ตัวเชื่อมต่อ และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Java แต่ละองค์ประกอบบนสไลด์จะแสดงเป็นอ็อบเจกต์ที่ทำการ implement อินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
+สไลด์งานนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Java แต่ละองค์ประกอบบนสไลด์แสดงเป็นออบเจกต์ที่ทำหน้าที่เป็น [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
 
-ประเภทรูปทรงที่แตกต่างกันมีตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) เป็นอินเทอร์เฟซพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for Java มีอินเทอร์เฟซการล็อกต่อไปนี้:
+รูปทรงแต่ละประเภทให้ตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) คืออินเทอร์เฟซพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for Java มีอินเทอร์เฟซการล็อกต่อไปนี้:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) ล็อก autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) ล็อกรูปทรงตัวเชื่อมต่อ.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) ล็อกวัตถุกราฟิก.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) ล็อกรูปทรงกลุ่ม.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) ล็อกกรอบภาพ.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) ล็อก connector shapes.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) ล็อก graphical objects.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) ล็อก group shapes.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) ล็อก picture frames.  
 
-เพื่อใส่การล็อกบน [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ทั้งหมด ให้วนผ่านสไลด์ของมันและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละรูปทรง
+เพื่อใช้การล็อกบน [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละประเภท
 
-## **ใส่และลบการปกป้อง**
+## **ใช้และลบการป้องกัน**
 
-การล็อกรูปทรงจำกัดการดำเนินการเช่น การเลือก, การย้ายและการปรับขนาดรูปทรง พวกมันไม่ได้ทำให้ทั้งงานนำเสนอไม่สามารถแก้ไขได้
+โปรแกรมแก้ไขงานนำเสนอที่รองรับจะใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขเฉพาะ ส่วนการเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [presentation protection settings](/slides/th/java/password-protected-presentation/) ที่แตกต่างออกไป
 
-### **ใส่การปกป้องให้กับรูปทรง PPTX**
+### **ใช้การป้องกันกับรูปทรง PPTX**
 
-Aspose.Slides for Java มีอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) เพื่อทำงานกับรูปทรงบนสไลด์
+Aspose.Slides for Java มีอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) สำหรับทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) และ [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) ด้วยค่า `true` สำหรับ autoshapes, พร้อมการล็อกที่เทียบเท่าสำหรับรูปทรงกลุ่ม, ตัวเชื่อมต่อและกรอบภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) สำหรับการเคลื่อนที่; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), และ [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) ด้วยค่า `true` สำหรับ autoshapes, พร้อมล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames. Connectors ใช้ [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) เพื่อจำกัดการเคลื่อนย้าย; groups ยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่แล้ว, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่ไม่อยู่ในสี่ประเภทที่จัดการจะถูกปล่อยไว้โดยไม่เปลี่ยนแปลง ลูปนี้ไม่ได้วนผ่านรูปทรงลูกภายในกลุ่ม
+ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่, ตรวจสอบรูปทรงในคอลเลคชันรูปทรงของแต่ละสไลด์, แล้วบันทึกสำเนาที่มีการจำกัดเหล่านี้ รูปทรงที่ไม่ใช่สี่ประเภทที่จัดการจะถูกทิ้งไว้โดยไม่เปลี่ยนแปลง ลูปจะไม่วนลูปผ่านรูปทรงลูกภายในกลุ่ม
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **ลบการปกป้อง**
+### **ลบการป้องกัน**
 
-เพื่ออีลบการล็อกรูปทรง, ตั้งค่าเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนที่และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) และ [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). มันยังลบข้อจำกัดการจัดกลุ่มโดยส่งค่า `false` ไปยัง [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) และบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะถูกปล่อยไว้โดยไม่เปลี่ยนแปลง
+เพื่อยกเลิกการล็อกรูปทรง ให้ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนย้าย, และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), และ [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). นอกจากนี้ยังยกเลิกการจำกัดการจัดกลุ่มโดยส่งค่า `false` ไปที่ [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงอยู่โดยไม่เปลี่ยนแปลง
 
 ```java
 import com.aspose.slides.*;
@@ -139,20 +139,76 @@ try {
 }
 ```
 
+### **คงการตัดภาพ**
+
+วางไฟล์รูปภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างตัดภาพ 12% จากด้านซ้ายและ 8% จากด้านขวา แล้วเรียก [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) บนล็อกของ picture frame การตั้งค่า `true` จะจำกัดการตัดต่อเพิ่มเติมและคงการตัดภาพที่มีอยู่
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    byte[] photoBytes = Files.readAllBytes(Paths.get("photo.jpg"));
+    IPPImage photo = presentation.getImages().addImage(photoBytes);
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+    
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` จะบันทึกการล็อกการตัดเป็น `true`. ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกภาพ
+
+### **คงการจัดกลุ่มของไดอะแกรม**
+
+ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียก [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) บนล็อกของกลุ่มเพื่อคงส่วนประกอบของไดอะแกรมไว้ด้วยกัน การแก้อื่น ๆ เช่น การเคลื่อนย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงทำได้
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` จะบันทึกการล็อกการยกเลิกการจัดกลุ่มเป็น `true`. ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกไดอะแกรมทั้งหมด
+
 ### **สรุป**
 
-Aspose.Slides for Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใส่ข้อจำกัดเดียวกันบนหลายสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทของรูปทรงและตั้งค่าของมันเป็น `false` เมื่อคุณต้องการลบข้อจำกัดเหล่านั้น
+Aspose.Slides for Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันบนสไลด์หลาย ๆ สไลด์ เลือกล็อกที่รองรับตามประเภทของรูปทรงแต่ละประเภท และตั้งค่าเป็น `false` เมื่อคุณต้องการลบข้อจำกัดเหล่านั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถผสานการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถรวมการล็อกรูปทรงกับการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
 
-ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ ในขณะที่ [การป้องกันด้วยรหัสผ่าน](/slides/th/java/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
+ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ ส่วน [password protection](/slides/th/java/password-protected-presentation/) สามารถจำกัดการเปิดหรือการแก้ไขงานนำเสนอ คุณสามารถใช้ทั้งสองอย่างร่วมกันในไฟล์เดียวได้
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่นได้หรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขเฉพาะบนสไลด์บางสไลด์โดยไม่กระทบสไลด์อื่น ๆ ได้หรือไม่?**
 
-ได้ ใส่การล็อกเฉพาะบนรูปทรงในสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
+ได้ ให้ใช้การล็อกเฉพาะบนรูปทรงของสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
 
-**ฉันจะใส่การล็อกให้กับรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
+**ฉันจะใช้การล็อกกับรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
 
-วนผ่านคอลเลกชันที่คืนค่าจากเมธอด [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มและใส่การล็อกที่เหมาะสมกับแต่ละรูปทรงลูก ทำซ้ำขั้นตอนนี้สำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นจะประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์เท่านั้น ดังนั้นจึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละตัว.
+วนลูปผ่านคอลเลคชันที่คืนค่ามาจากเมธอด [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่ม แล้วใช้การล็อกที่เหมาะสมกับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นจะดำเนินการเฉพาะคอลเลคชันรูปทรงของสไลด์จึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละอัน
