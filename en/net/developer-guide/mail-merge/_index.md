@@ -23,7 +23,7 @@ keywords:
 description: "Learn how to use Mail Merge in Aspose.Slides for .NET to populate presentation templates with data and generate personalized PowerPoint presentations from CSV, Excel, JSON, and XML sources."
 ---
 
-# Mail Merge in PowerPoint Presentations
+## **Mail Merge in PowerPoint Presentations**
 
 Aspose.Slides for .NET allows you to automatically generate PowerPoint presentations using a template and a data source. Mail Merge fills template placeholders with data and creates either a single presentation containing repeated template slides for every data set or a separate presentation for every data set.
 
@@ -32,7 +32,7 @@ This functionality is useful for generating product catalogs, personalized prese
 ![Mail Merge: before and after](mail-merge-before-after.png)
 
 
-## How Mail Merge Works
+## **How Mail Merge Works**
 
 Mail Merge uses a PowerPoint presentation as a template and replaces placeholders with values from a data source.
 
@@ -69,7 +69,7 @@ The following rules apply when replacing placeholders:
 
 The original template presentation is not modified during the merge operation and must contain at least one slide.
 
-## Supported Data Sources
+## **Supported Data Sources**
 
 Mail Merge supports two ways of supplying data:
 
@@ -82,7 +82,7 @@ The data source must contain at least one data set. Each data set represents one
 
 If the data content cannot be recognized as a supported format, `NotSupportedException` is thrown. If the content is recognized but does not comply with the format requirements, `InvalidDataException` is thrown. The exception message contains the location of the error in the data.
 
-### JSON
+### **JSON**
 
 The JSON data source must have a root object containing a `sets` array. Each element of the array represents a data set and must contain a `fields` array. Each field must have a `name` and a `value` string.
 
@@ -112,7 +112,7 @@ The following example contains two data sets:
 }
 ```
 
-### XML
+### **XML**
 
 The XML data source must have a `template` root element containing the `sets` element. Every `set` element contains `field` elements, and every field must contain `name` and `value` elements.
 
@@ -146,7 +146,7 @@ An empty `value` element is treated as an empty string. Element names are case-s
 </template>
 ```
 
-### CSV
+### **CSV**
 
 CSV data uses semicolons as value separators.
 
@@ -168,7 +168,7 @@ Laptop X1;$999;"14"" display; 16 GB RAM"
 Tablet S2;$499;
 ```
 
-### XLSX
+### **XLSX**
 
 XLSX data is read from the first worksheet.
 
@@ -180,13 +180,13 @@ The worksheet follows the same rules as CSV:
 - Empty cells are treated as empty strings.
 - Numeric values are converted to text using the invariant culture.
 
-## Creating a Single Presentation
+## **Creating a Single Presentation**
 
 The `MergeToSinglePresentation` method creates one presentation containing a copy of the template slides for every data set. Each copy is filled with the corresponding data.
 
 The order of data sets determines the order of the slide groups in the resulting presentation.
 
-### Merging Data from a File
+### **Merging Data from a File**
 
 The following example loads a template and a JSON data file, creates a single presentation containing the slides for all data sets, and saves the result.
 
@@ -220,7 +220,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, data
 }
 ```
 
-### Creating a Data Source in Code
+### **Creating a Data Source in Code**
 
 You can build a data source programmatically using `MailMergeDataSource` and `MailMergeDataSet`. Add a data set for every record and define its fields using the `AddText` method.
 
@@ -249,7 +249,7 @@ using (IPresentation result = mailMerge.MergeToSinglePresentation(template, sour
 
 In this example, the template slides are repeated twice: once for the laptop and once for the tablet. The placeholders are filled using the values defined in each data set.
 
-## Creating Multiple Presentations
+## **Creating Multiple Presentations**
 
 If you need a separate presentation for each data set, use the `MergeToMultiplePresentations` method.
 
@@ -257,7 +257,7 @@ This method processes the data sets one by one, creates a presentation from the 
 
 The handler is invoked once for every data set, in the original data order.
 
-### Saving Each Presentation
+### **Saving Each Presentation**
 
 The following example reads data from a CSV file and saves each generated presentation as a separate file.
 
@@ -307,7 +307,7 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-### Using Data Set Values to Name Files
+### **Using Data Set Values to Name Files**
 
 The handler receives both the generated presentation and information about the data set used to create it. You can use the data set values to build meaningful file names.
 
@@ -340,7 +340,7 @@ The `DataSet` property returns the data set used to fill the current presentatio
 
 This allows you to use data values for naming files, organizing output, or applying additional processing in the handler.
 
-## Handling Generated Presentations
+## **Handling Generated Presentations**
 
 `MergeToMultiplePresentations` uses the `MailMergedPresentationHandler` delegate to process each generated presentation.
 
@@ -383,11 +383,11 @@ using (Presentation template = new Presentation("template.pptx"))
 }
 ```
 
-## Working with Mail Merge Data
+## **Working with Mail Merge Data**
 
 The `MailMergeDataSource` class represents an ordered collection of data sets. It can be used to create data in code, inspect the number of data sets, and access individual data sets by index.
 
-### Getting the Number of Data Sets
+### **Getting the Number of Data Sets**
 
 The `Count` property returns the number of data sets in the source.
 
@@ -400,7 +400,7 @@ source.AddDataSet().AddText("title", "Tablet S2");
 Console.WriteLine("Presentations to create: " + source.Count);
 ```
 
-### Accessing a Data Set by Index
+### **Accessing a Data Set by Index**
 
 The `Item(int)` property provides access to a data set at the specified zero-based index.
 
@@ -415,7 +415,7 @@ Console.WriteLine(source[1].GetText("title"));
 
 This example retrieves the title of the second data set.
 
-### Adding Text Fields
+### **Adding Text Fields**
 
 The `AddText` method adds a named text field to a data set. The field value replaces all matching placeholders in the template.
 
@@ -429,7 +429,7 @@ dataSet.AddText("subtitle", string.Empty);
 
 An empty value removes the corresponding placeholder from the resulting text. If the field is not added to the data set, the placeholder remains unchanged.
 
-### Reading Text Fields
+### **Reading Text Fields**
 
 The `GetText` method retrieves the value of a field by name. Field names are case-insensitive.
 
@@ -442,7 +442,7 @@ string price = dataSet.GetText("price");
 
 If the field does not exist or the specified field name is `null`, `GetText` returns `null`.
 
-## Summary
+## **Summary**
 
 Mail Merge in Aspose.Slides for .NET provides a convenient way to generate data-driven presentations from a reusable template.
 
@@ -457,76 +457,76 @@ You can use it to:
 
 By combining reusable templates with structured data, you can automate the creation of large numbers of presentations while keeping the template design and data processing logic separate.
 
-## Frequently Asked Questions
+## **Frequently Asked Questions**
 
-### Can I use the same placeholder multiple times in a template?
+**Can I use the same placeholder multiple times in a template?**
 
 Yes. Every occurrence of a placeholder with a matching field name is replaced with the corresponding value from the current data set.
 
-### Are field names case-sensitive?
+**Are field names case-sensitive?**
 
 No. Placeholder and data field names are case-insensitive. For example, `{{title}}`, `{{Title}}`, and `{{TITLE}}` refer to the same field.
 
-### What happens if a field is missing from a data set?
+**What happens if a field is missing from a data set?**
 
 If the data set does not contain a field referenced by a placeholder, that placeholder remains unchanged in the generated presentation.
 
-### What happens if a field has an empty value?
+**What happens if a field has an empty value?**
 
 An empty field value replaces the placeholder with an empty string. The placeholder text is removed, leaving no text in its place.
 
-### Can I preserve the formatting of a placeholder when replacing it?
+**Can I preserve the formatting of a placeholder when replacing it?**
 
 The replacement text inherits the formatting of the first character of the placeholder. Apply the desired formatting to the placeholder text in the template before performing the merge.
 
-### Does Mail Merge replace placeholders on master slides or layout slides?
+**Does Mail Merge replace placeholders on master slides or layout slides?**
 
 No. Mail Merge replaces placeholders in supported content on presentation slides, including shapes, grouped shapes, table cells, and speaker notes. Placeholders on master and layout slides are not replaced.
 
-### Is the template presentation modified during the merge?
+**Is the template presentation modified during the merge?**
 
 No. The original template is not modified by the merge operation. You can reuse it to generate presentations from the same or different data sources.
 
-### Can I generate a separate presentation for each data set?
+**Can I generate a separate presentation for each data set?**
 
 Yes. Use `MergeToMultiplePresentations` and save each generated presentation inside the handler. The handler is called sequentially for each data set.
 
-### Can I combine all data sets into one presentation?
+**Can I combine all data sets into one presentation?**
 
 Yes. Use `MergeToSinglePresentation`. It creates a single output presentation containing a copy of the template slides for each data set, in data-source order.
 
-### Can I use a data source without saving it to a file?
+**Can I use a data source without saving it to a file?**
 
 Yes. You can create a `MailMergeDataSource` in code, add data sets, and populate fields using `AddText`. This is useful when your data is already available in your application.
 
-### Does Mail Merge detect the data format from the file extension?
+**Does Mail Merge detect the data format from the file extension?**
 
 No. The data format is detected from the content, so a supported data source does not have to use a particular file extension.
 
-### Can I read data from a stream that does not support seeking?
+**Can I read data from a stream that does not support seeking?**
 
 Yes. Mail Merge supports non-seekable streams.
 
-### What happens if the data source is empty or contains no data sets?
+**What happens if the data source is empty or contains no data sets?**
 
 The data source must contain at least one data set. Ensure it includes at least one record before starting the merge operation.
 
-### What happens if the data source has an invalid format?
+**What happens if the data source has an invalid format?**
 
 If the content is not recognized as one of the supported data formats, `NotSupportedException` is thrown. If it is recognized but malformed, `InvalidDataException` is thrown. The exception message includes information about the error location.
 
-### Can I use the generated presentation after the handler returns?
+**Can I use the generated presentation after the handler returns?**
 
 The presentation passed to the `MergeToMultiplePresentations` handler is owned by Mail Merge and is disposed after the handler returns. Save it or copy the content you need inside the handler, and do not retain or dispose that presentation yourself.
 
-### Is the handler called in parallel?
+**Is the handler called in parallel?**
 
 No. Generated presentations are processed sequentially, on the caller's thread. Only one generated presentation is held in memory at a time by this operation.
 
-### What happens if an exception occurs inside the handler?
+**What happens if an exception occurs inside the handler?**
 
 The merge operation stops, and the exception is propagated to the caller unchanged. Presentations already processed are not affected, and subsequent data sets are not processed.
 
-### Can I use field values to generate output file names?
+**Can I use field values to generate output file names?**
 
 Yes. The handler provides the current data set through its arguments. Use `GetText` to retrieve fields and build a file name for each generated presentation. Make sure the values are valid for file names in your target environment.
