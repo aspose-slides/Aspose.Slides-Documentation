@@ -1,10 +1,10 @@
 ---
-title: Przewodnik dewelopera
+title: Przewodnik programisty
 type: docs
 weight: 20
 url: /pl/net/developer-guide/
 keywords:
-- przewodnik dewelopera
+- przewodnik programisty
 - zarządzanie prezentacją
 - projektowanie prezentacji
 - profesjonalna prezentacja
@@ -14,16 +14,17 @@ keywords:
 - właściwości prezentacji
 - właściwości widoku
 - komentarze do prezentacji
-- notatki prezentacji
+- notatki do prezentacji
 - animacja
 - prezentacja 3D
 - projekt VBA
-- przetwarzanie obrazów
+- przetwarzanie obrazu
+- scalanie korespondencji
 - PowerPoint
 - OpenDocument
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Odkryj przewodnik dewelopera Aspose.Slides dla .NET, zawierający krok po kroku API umożliwiające łatwe tworzenie, edytowanie i konwertowanie prezentacji PPT, PPTX i ODP."
+description: "Poznaj Przewodnik programisty Aspose.Slides dla .NET, zawierający szczegółowe API do tworzenia, edycji i konwersji prezentacji PPT, PPTX i ODP z łatwością."
 ---

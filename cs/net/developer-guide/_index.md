@@ -1,14 +1,14 @@
 ---
-title: Příručka pro vývojáře
+title: Průvodce vývojáře
 type: docs
 weight: 20
 url: /cs/net/developer-guide/
 keywords:
-- vývojářská příručka
+- průvodce vývojáře
 - správa prezentace
 - návrh prezentace
 - profesionální prezentace
-- vytvoření prezentace
+- vytvořit prezentaci
 - prohlížeč prezentací
 - zabezpečení prezentace
 - vlastnosti prezentace
@@ -18,12 +18,13 @@ keywords:
 - animace
 - 3D prezentace
 - VBA projekt
-- zpracování obrázků
+- zpracování obrazu
+- hromadná korespondence
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte Příručku pro vývojáře Aspose.Slides pro .NET, která nabízí krok za krokem API pro snadné vytváření, úpravy a konverzi prezentací PPT, PPTX a ODP."
+description: "Objevte Průvodce vývojáře Aspose.Slides pro .NET, který poskytuje podrobné API pro snadné vytváření, úpravu a konverzi prezentací PPT, PPTX a ODP."
 ---

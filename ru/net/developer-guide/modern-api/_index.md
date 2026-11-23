@@ -1,76 +1,79 @@
 ---
-title: "Улучшите обработку изображений с помощью Modern API"
-linktitle: "Современный API"
+title: Усовершенствование обработки изображений с Modern API
+linktitle: Modern API
 type: docs
-weight: 237
+weight: 234
 url: /ru/net/modern-api/
 keywords:
 - System.Drawing
-- современный API
+- Modern API
 - рисование
 - миниатюра слайда
-- слайд в изображение
+- преобразование слайда в изображение
 - миниатюра фигуры
-- фигура в изображение
+- преобразование фигуры в изображение
 - миниатюра презентации
-- презентация в изображения
+- преобразование презентации в изображения
 - добавить изображение
 - добавить картинку
 - .NET
 - C#
 - Aspose.Slides
-description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на современный .NET API для беспрепятственной автоматизации PowerPoint и OpenDocument."
+description: "Модернизируйте обработку изображений слайдов, заменив устаревшие API обработки изображений на .NET Modern API для бесшовной автоматизации PowerPoint и OpenDocument."
 ---
 ## **Введение**
 
-Исторически Aspose Slides зависит от System.Drawing и в публичном API содержит следующие классы из него:
+Historically, Aspose Slides has a dependency on System.Drawing and has in the public API the following classes from there:
 - [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)
 - [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)
 - [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)
 - [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings)
 
-Начиная с версии 24.4, этот публичный API объявлен устаревшим.
+As of version 24.4, this public API is declared deprecated.
 
-Поскольку поддержка System.Drawing в версиях .NET 6 и выше удалена для не‑Windows‑платформ ([нарушающее совместимость изменение](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides реализовал двухпакетный подход:
-- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) – поддержка .NET 6+ для Windows, .NETStandard для Windows/Linux/macOS, .NETFramework 2+ (Windows).  
-  - имеет зависимость от [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
-- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) – версия для Windows/Linux/macOS без внешних зависимостей.
+Since System.Drawing support in versions .NET6 and above is removed for non-Windows versions ([breaking change](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only)), Slides has implemented a two-package approach:
+- [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) - support for .NET6+ for Windows, .NETStandard for Windows/Linux/MacOS, .NETFramework 2+ (Windows).
+  - has a dependence on [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/).
+- [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) - Windows/Linux/MacOS version without dependencies.
 
-Недостаток [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) состоит в том, что он реализует свою собственную версию System.Drawing в том же пространстве имён (для обеспечения обратной совместимости с публичным API). Поэтому при одновременном использовании Aspose.Slides.NET6.CrossPlatform и System.Drawing из .NET Framework или пакета System.Drawing.Common возникает конфликт имён, если не использовать алиасы.
+The inconvenience of [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) is that it implements its own version of System.Drawing in the same namespace (to support backward compatibility with the public API). Thus, when Aspose.Slides.NET6.CrossPlatform and System.Drawing from .NET Framework or System.Drawing.Common package are used at the same time, a name conflict occurs unless alias is used.
 
-Чтобы избавиться от зависимостей от System.Drawing в основном пакете Aspose.Slides.NET, мы добавили так называемый «Modern API» – т.е. API, который следует использовать вместо устаревшего, подписи которого содержат зависимости от следующих типов System.Drawing: [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image) и [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap). [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings) и [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) объявлены устаревшими, и их поддержка удалена из публичного API Slides.
+In order to get rid of dependencies on System.Drawing in the main Aspose.Slides.NET package, we added the so-called "Modern API" - i.e. the API that should be used instead of the deprecated one, whose signatures contain dependencies on the following types from System.Drawing: [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image) and [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap). [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings) and [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) are declared deprecated and their support is removed from the public Slides API.
 
-В текущих версиях публичный API, зависящий от System.Drawing, рассматривается как устаревший/наследованный. Для нового кода и при миграции существующих рабочих процессов обработки изображений используйте Modern API.
+In current versions, treat the public API that depends on System.Drawing as legacy/deprecated. Use the Modern API for new code and when migrating existing image-processing workflows.
 
-## **Modern API**
+## **Современный API**
 
-В публичный API добавлены следующие классы и перечисления:
+Added the following classes and enums to the public API:
 
-- [Aspose.Slides.IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) – представляет растровое или векторное изображение.
-- [Aspose.Slides.ImageFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/) – представляет файловый формат изображения.
-- [Aspose.Slides.Images](https://reference.aspose.com/slides/ru/net/aspose.slides/images/) – методы для создания экземпляров и работы с интерфейсом [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/).
+- [Aspose.Slides.IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) - представляет растровое или векторное изображение.
+- [Aspose.Slides.ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/) - представляет файловый формат изображения.
+- [Aspose.Slides.Images](https://reference.aspose.com/slides/net/aspose.slides/images/) - методы для создания и работы с интерфейсом [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/).
 
-Обратите внимание, что [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) реализует интерфейс [IDisposable](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) и должен использоваться в конструкции `using` или быть освобождён другим удобным способом.
+Please note that [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) is disposable (it implements the [IDisposable](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable) interface and its use should be wrapped in using or disposed in another convenient way).
 
-Используйте `GetImage` для рендеринга одного слайда или фигуры. Используйте `GetImages` для рендеринга нескольких слайдов презентации. Методы из [Images](https://reference.aspose.com/slides/ru/net/aspose.slides/images/) позволяют загружать изображения, `AddImage` с [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) – добавлять их в презентацию, и `ReplaceImage` с [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) – обновлять существующее изображение в презентации.
+Use `GetImage` to render a single slide or shape. Use `GetImages` to render several presentation slides. Use [Images](https://reference.aspose.com/slides/net/aspose.slides/images/) methods to load images, `AddImage` with [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) to add them to a presentation, and `ReplaceImage` with [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) to update an existing presentation image.
 
-Типичный сценарий использования нового API может выглядеть следующим образом:
+A typical scenario of using the new API may look as follows:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
-    // создать освобождаемый экземпляр IImage из файла на диске.  
+    // создать одноразовый экземпляр IImage из файла на диске.  
     using (IImage image = Images.FromFile("image.png"))
     {
-        // создать изображение PowerPoint, добавив экземпляр IImage в коллекцию изображений презентации.
+        // создать изображение PowerPoint, добавив экземпляр IImage в набор изображений презентации.
         ppImage = pres.Images.AddImage(image);
     }
 
-    // добавить форму изображения на слайд №1
+    // добавить форму изображения на слайд #1
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 
-    // получить экземпляр IImage, представляющий слайд №1.
+    // получить экземпляр IImage, представляющий слайд #1.
     using (var slideImage = pres.Slides[0].GetImage(new Size(1920, 1080)))
     {
         // сохранить изображение на диске.
@@ -81,13 +84,15 @@ using (Presentation pres = new Presentation())
 
 ## **Замена старого кода на Modern API**
 
-Для упрощения перехода интерфейс нового [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) повторяет отдельные подписи классов [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image) и [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap). Как правило, достаточно заменить вызов старого метода, использующего System.Drawing, на новый.
+For ease of transition, the interface of the new [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) repeats the separate signatures of the [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image) and [Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap) classes. In general, you will just need to replace the call to the old method using System.Drawing with the new one.
 
 ### **Получение миниатюры слайда**
 
-Устаревший/наследованный API:
+Legacy/deprecated API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetThumbnail().Save("slide1.png");
@@ -97,6 +102,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].GetImage().Save("slide1.png");
@@ -105,9 +112,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Получение миниатюры фигуры**
 
-Устаревший/наследованный API:
+Legacy/deprecated API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetThumbnail().Save("shape.png");
@@ -117,6 +126,8 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Slides[0].Shapes[0].GetImage().Save("shape.png");
@@ -125,9 +136,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Получение миниатюры презентации**
 
-Устаревший/наследованный API:
+Legacy/deprecated API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var bitmaps = pres.GetThumbnails(new RenderingOptions(), new Size(1980, 1028));
@@ -152,6 +167,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 Modern API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     var images = pres.GetImages(new RenderingOptions(), new Size(1980, 1028));
@@ -175,9 +194,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Добавление изображения в презентацию**
 
-Устаревший/наследованный API:
+Legacy/deprecated API:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -193,6 +215,8 @@ using (Presentation pres = new Presentation())
 Modern API:
 
 ``` csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
 {
     IPPImage ppImage;
@@ -204,17 +228,18 @@ using (Presentation pres = new Presentation())
     pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
 }
 ```
-## **Устаревшие методы/свойства и их замены в Modern API**
+
+## **Устаревшие методы/свойства и их замена в Modern API**
 
 ### **Presentation**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |-----------------------------------------------|---------------------------------------------------------|
-| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages#getimages) |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages#getimages_1) |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages#getimages_4) |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages#getimages_2) |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | [GetImages(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages) |
-| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | [GetImages(IRenderingOptions options, int[] slides, Size imageSize)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/getimages#getimages_3) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options) | [GetImages(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides) | [GetImages(IRenderingOptions options, int[] slides)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_1) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_4) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | [GetImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_2) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, Size imageSize) | [GetImages(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages) |
+| public Bitmap[] GetThumbnails(IRenderingOptions options, int[] slides, Size imageSize) | [GetImages(IRenderingOptions options, int[] slides, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/presentation/getimages#getimages_3) |
 | public void Save(string fname, SaveFormat format, HttpResponse response, bool showInline) | No Modern API replacement |
 | public void Save(string fname, SaveFormat format, ISaveOptions options, HttpResponse response, bool showInline) | No Modern API replacement |
 | public void Print() | No Modern API replacement |
@@ -223,83 +248,83 @@ using (Presentation pres = new Presentation())
 | public void Print(PrinterSettings printerSettings, string presName) | No Modern API replacement |
 
 ### **Shape**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/shape/getimage#getimage) |
-| public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/shape/getimage#getimage_1) |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage) |
+| public Bitmap GetThumbnail(ShapeThumbnailBounds bounds, float scaleX, float scaleY) | [GetImage(ShapeThumbnailBounds bounds, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage#getimage_1) |
 
 ### **Slide**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------|
-| public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_5) |
-| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage) |
-| public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_1) |
-| public Bitmap GetThumbnail(Size imageSize) | [GetImage(Size imageSize)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_6) |
-| public Bitmap GetThumbnail(ITiffOptions options) | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_4) |
-| public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | [GetImage(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_2) |
-| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/getimage#getimage_3) |
+| public Bitmap GetThumbnail(float scaleX, float scaleY) | [GetImage(float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_5) |
+| public Bitmap GetThumbnail() | [GetImage](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage) |
+| public Bitmap GetThumbnail(IRenderingOptions options) | [GetImage(IRenderingOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_1) |
+| public Bitmap GetThumbnail(Size imageSize) | [GetImage(Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_6) |
+| public Bitmap GetThumbnail(ITiffOptions options) | [GetImage(ITiffOptions options)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_4) |
+| public Bitmap GetThumbnail(IRenderingOptions options, float scaleX, float scaleY) | [GetImage(IRenderingOptions options, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_2) |
+| public Bitmap GetThumbnail(IRenderingOptions options, Size imageSize) | [GetImage(IRenderingOptions options, Size imageSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/getimage#getimage_3) |
 | public void RenderToGraphics(IRenderingOptions options, Graphics graphics) | No Modern API replacement |
 | public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY) | No Modern API replacement |
 | public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize) | No Modern API replacement |
 
 ### **Output**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |-----------------------------------------------------------------|-------------------------------------------------------------|
-| public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/ru/net/aspose.slides.export.web/output/add#add_1) |
+| public IOutputFile Add(string path, Image image) | [Add(string path, IImage image)](https://reference.aspose.com/slides/net/aspose.slides.export.web/output/add#add_1) |
 
 ### **ImageCollection**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |-------------------------------------------|--------------------------------------------|
-| IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/ru/net/aspose.slides/imagecollection/addimage#addimage) |
+| IPPImage AddImage(Image image) | [AddImage(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagecollection/addimage#addimage) |
 
 ### **ImageWrapperFactory**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |----------------------------------------------------------|---------------------------------------------------------|
-| IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/ru/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
+| IImageWrapper CreateImageWrapper(Image image) | [CreateImageWrapper(IImage image)](https://reference.aspose.com/slides/net/aspose.slides/imagewrapperfactory/createimagewrapper#createimagewrapper) |
 
 ### **PPImage**
-| Подпись метода/свойства | Подпись заменяющего метода |
-|--------------------------------------|-----------------------------------------|
-| void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/ru/net/aspose.slides/ppimage/replaceimage#replaceimage) |
-| Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/ru/net/aspose.slides/ppimage/image) |
+| Подпись метода/свойства | Подпись метода-замены |
+|--------------------------|-----------------------|
+| void ReplaceImage(Image newImage) | [ReplaceImage(IImage newImage)](https://reference.aspose.com/slides/net/aspose.slides/ppimage/replaceimage#replaceimage) |
+| Image SystemImage { get; } | [IImage Image { get; }](https://reference.aspose.com/slides/net/aspose.slides/ppimage/image) |
 
 ### **PatternFormat**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/ru/net/aspose.slides/patternformat/gettile#gettile_1) |
-| Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/ru/net/aspose.slides/patternformat/gettile#gettile) |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTile(Color background, Color foreground)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile_1) |
+| Bitmap GetTileImage(Color styleColor) | [GetTile(Color styleColor)](https://reference.aspose.com/slides/net/aspose.slides/patternformat/gettile#gettile) |
 
 ### **IPatternFormatEffectiveData**
-| Подпись метода | Подпись заменяющего метода |
+| Подпись метода | Подпись метода-замены |
 |-----------------------------------------------------------|-----------------------------------------------------|
-| Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/ru/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
+| Bitmap GetTileImage(Color background, Color foreground) | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage) |
 
 ## **Поддержка Graphics и PrinterSettings в API**
 
-Класс [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) не поддерживается в кросс‑платформенных версиях .NET 6 и выше. В Aspose Slides используйте методы рендеринга изображений Modern API вместо API, который рендерит в [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics):
-[ISlide](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/rendertographics/#rendertographics_3)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/rendertographics/#rendertographics_3)
-- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/rendertographics/#rendertographics_5)
+The [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) class is not supported for cross-platform versions of .NET6 and higher. In Aspose Slides, use the Modern API image-rendering methods instead of the API that renders to [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics):
+[ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_3)
+- [public void RenderToGraphics(IRenderingOptions options, Graphics graphics, Size renderingSize)](https://reference.aspose.com/slides/net/aspose.slides/slide/rendertographics/#rendertographics_5)
 
-Также API, связанный с печатью через [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings), не имеет прямой замены в Modern API:
+Also, the API that is related to printing through [PrinterSettings](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.printing.printersettings) has no direct Modern API replacement:
 
-[IPresentation](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/):
-- [public void Presentation.Print](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/print/#print)
-- [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/print/#print_1)
-- [public void Print(string printerName)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/print/#print_3)
-- [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/print/#print_2)
+[IPresentation](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/):
+- [public void Presentation.Print](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print)
+- [public void Print(PrinterSettings printerSettings)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_1)
+- [public void Print(string printerName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_3)
+- [public void Print(PrinterSettings printerSettings, string presName)](https://reference.aspose.com/slides/net/aspose.slides/presentation/print/#print_2)
 
 ## **FAQ**
 
-**Почему убрали [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)?**
+### Почему удалён [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics)?
 
-Поддержка [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) объявлена устаревшей в публичном API для унификации работы с рендерингом и изображениями, устранения привязки к платформо‑специфичным зависимостям и перехода к кросс‑платформенному подходу с использованием [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/). Вместо рендеринга в [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) используйте `GetImage` или `GetImages`.
+Support for [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) is deprecated in the public API to unify work with rendering and images, eliminate ties to platform-specific dependencies, and switch to a cross-platform approach with [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/). Use `GetImage` or `GetImages` instead of rendering to [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics).
 
-**В чём практическая выгода [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) по сравнению с [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)/[Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)?**
+### Какова практическая выгода от [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) по сравнению с [Image](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.image)/[Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap)?
 
-[IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) объединяет работу как с растровыми, так и с векторными изображениями, упрощает сохранение в различные форматы через [ImageFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/), снижает зависимость от `System.Drawing` и делает код более переносимым между средами.
+[IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) unifies working with both raster and vector images, simplifies saving to various formats via [ImageFormat](https://reference.aspose.com/slides/net/aspose.slides/imageformat/), reduces dependence on `System.Drawing`, and makes code more portable across environments.
 
-**Повлияет ли Modern API на производительность генерации миниатюр?**
+### Повлияет ли Modern API на производительность генерации миниатюр?
 
-Переход от `GetThumbnail` к `GetImage` не ухудшает сценарии: новые методы предоставляют те же возможности по созданию изображений с различными параметрами и размерами, сохраняя поддержку параметров рендеринга. Конкретный прирост или падение производительности зависит от сценария, но функционально замены эквивалентны.
+Switching from `GetThumbnail` to `GetImage` does not worsen scenarios: the new methods provide the same capabilities for producing images with options and sizes, while retaining support for rendering options. The specific gain or drop depends on the scenario, but functionally the replacements are equivalent.

@@ -7,7 +7,7 @@ keywords:
 - Entwicklerhandbuch
 - Präsentation verwalten
 - Präsentationsdesign
-- professionelle Präsentation
+- Professionelle Präsentation
 - Präsentation erstellen
 - Präsentationsbetrachter
 - Präsentationssicherheit
@@ -19,11 +19,12 @@ keywords:
 - 3D-Präsentation
 - VBA-Projekt
 - Bildverarbeitung
+- Serienbrief
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie das Aspose.Slides für .NET Entwicklerhandbuch mit schrittweise APIs zum Erstellen, Bearbeiten und Konvertieren von PPT, PPTX und ODP Präsentationen mit Leichtigkeit."
+description: "Entdecken Sie das Aspose.Slides for .NET Entwicklerhandbuch mit schrittweisen APIs zum Erstellen, Bearbeiten und Konvertieren von PPT-, PPTX- und ODP-Präsentationen mit Leichtigkeit."
 ---
