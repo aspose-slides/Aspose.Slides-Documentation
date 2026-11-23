@@ -43,7 +43,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/net/a
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/net/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -138,6 +138,53 @@ foreach (var slide in presentation.Slides)
 
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then sets [CropLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/croplocked/) on the picture frame. This flag restricts further cropping and preserves the existing crop.
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var photoBytes = File.ReadAllBytes("photo.jpg");
+var photo = presentation.Images.AddImage(photoBytes);
+
+var pictureFrame = shapes.AddPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+pictureFrame.PictureFormat.CropLeft = 12;
+pictureFrame.PictureFormat.CropRight = 8;
+pictureFrame.PictureFrameLock.AspectRatioLocked = false;
+pictureFrame.PictureFrameLock.CropLocked = true;
+
+presentation.Save("PictureLocked.pptx", SaveFormat.Pptx);
+```
+
+`PictureLocked.pptx` stores the crop lock as `true`. In PowerPoint, the **Crop** command is disabled when the photo is selected.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then sets [UngroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/ungroupinglocked/) on the group itself to keep the diagram’s components together. Other edits, such as moving the group or changing a component’s fill, remain available.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var groupShape = shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+groupShape.Shapes.AddAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+groupShape.GroupShapeLock.UngroupingLocked = true;
+
+presentation.Save("DiagramLocked.pptx", SaveFormat.Pptx);
+```
+
+`DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
 ### **Conclusion**
 

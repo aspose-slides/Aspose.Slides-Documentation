@@ -43,7 +43,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/pytho
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/python-java/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -136,6 +136,72 @@ try:
 finally:
     presentation.dispose()
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then calls [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) with `True` to preserve the crop.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    photo_bytes = Path("photo.jpg").read_bytes()
+    photo = presentation.getImages().addImage(photo_bytes)
+    
+    picture_frame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo)
+    picture_frame.getPictureFormat().setCropLeft(12)
+    picture_frame.getPictureFormat().setCropRight(8)
+
+    picture_lock = picture_frame.getPictureFrameLock()
+    picture_lock.setAspectRatioLocked(False)
+    picture_lock.setCropLocked(True)
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In `PictureLocked.pptx`, PowerPoint disables the **Crop** command when you select the photo.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then calls [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) with `True` to keep the two shapes together. You can still move the group or change a component’s fill.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    group = shapes.addGroupShape()
+    group.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50)
+    group.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30)
+    group.getGroupShapeLock().setUngroupingLocked(True)
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In `DiagramLocked.pptx`, PowerPoint disables the **Ungroup** command when you select the whole diagram.
 
 ### **Conclusion**
 

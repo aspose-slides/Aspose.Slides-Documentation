@@ -43,7 +43,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/andro
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/androidjava/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -140,6 +140,63 @@ try {
     presentation.dispose();
 }
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then calls [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) on the picture frame’s lock. Passing `true` restricts further cropping and preserves the existing crop.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage photo;
+    try (FileInputStream input = new FileInputStream("photo.jpg")) {
+        photo = presentation.getImages().addImage(input);
+    }
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` stores the crop lock as `true`. In PowerPoint, the **Crop** command is disabled when the photo is selected.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then calls [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) on the group’s lock to keep the diagram’s components together. Other edits, such as moving the group or changing a component’s fill, remain available.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
 ### **Conclusion**
 

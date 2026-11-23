@@ -42,7 +42,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/php-j
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/php-java/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -133,6 +133,69 @@ try {
     $presentation->dispose();
 }
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then calls [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) on the picture frame's lock. Passing `true` restricts further cropping and preserves the existing crop.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $image = Images::fromFile("photo.jpg");
+    try {
+        $photo = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $pictureFrame = $shapes->addPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, $photo);
+    $pictureFrame->getPictureFormat()->setCropLeft(12);
+    $pictureFrame->getPictureFormat()->setCropRight(8);
+
+    $pictureFrameLock = $pictureFrame->getPictureFrameLock();
+    $pictureFrameLock->setAspectRatioLocked(false);
+    $pictureFrameLock->setCropLocked(true);
+
+    $presentation->save("PictureLocked.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`PictureLocked.pptx` stores the crop lock as `true`. In PowerPoint, the **Crop** command is disabled when the photo is selected.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then calls [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) on the group's lock to keep the diagram's components together. Other edits, such as moving the group or changing a component's fill, remain available.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    
+    $groupShape = $shapes->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+    $groupShape->getShapes()->addAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+    $groupShape->getGroupShapeLock()->setUngroupingLocked(true);
+
+    $presentation->save("DiagramLocked.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
 ### **Conclusion**
 

@@ -42,7 +42,7 @@ To apply locks across a [Presentation](https://reference.aspose.com/slides/pytho
 
 ## **Apply and Remove Protection**
 
-Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
+Compatible presentation editors use shape locks to restrict individual editing operations. File encryption and document-level write protection are separate [presentation protection settings](/slides/python-net/password-protected-presentation/).
 
 ### **Apply Protection to PPTX Shapes**
 
@@ -109,6 +109,52 @@ with slides.Presentation("ProtectedSample.pptx") as presentation:
 
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+### **Preserve a Picture Crop**
+
+Place a photo named `photo.jpg` in the working directory. The example crops 12% from the left and 8% from the right, then sets [crop_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/crop_locked/) on the picture frame to preserve the crop.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    photo_bytes = Path("photo.jpg").read_bytes()
+    photo = presentation.images.add_image(photo_bytes)
+
+    picture_frame = shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 30, 270, 160, photo)
+    picture_frame.picture_format.crop_left = 12
+    picture_frame.picture_format.crop_right = 8
+    picture_frame.shape_lock.aspect_ratio_locked = False
+    picture_frame.shape_lock.crop_locked = True
+
+    presentation.save("PictureLocked.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`PictureLocked.pptx` stores the crop lock as `True`. In PowerPoint, the **Crop** command is disabled when the photo is selected.
+
+### **Keep a Diagram Grouped**
+
+The example groups a rectangle and an arrow, then sets [ungrouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/ungrouping_locked/) on the group itself to keep the diagram’s components together. Other edits, such as moving the group or changing a component’s fill, remain available.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    group_shape = shapes.add_group_shape()
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 70, 90, 50)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RIGHT_ARROW, 190, 80, 60, 30)
+    group_shape.shape_lock.ungrouping_locked = True
+
+    presentation.save("DiagramLocked.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`DiagramLocked.pptx` stores the ungrouping lock as `True`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
 ### **Conclusion**
 
