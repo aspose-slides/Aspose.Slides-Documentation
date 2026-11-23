@@ -85,6 +85,51 @@ with slides.Presentation() as presentation:
 
 Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
 
+## **Fade Through Black with the Reveal Transition**
+
+Set the destination slide's transition [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) to Reveal, then set [through_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/through_black/) on the resulting [RevealTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/) object. The example creates a teal source slide and a coral destination slide, then clones the pair. Both pairs use the same two-second Reveal transition. Only the second pair fades through black.
+
+```python
+import aspose.slides as slides
+
+
+def style_slide(slide, background_color, label):
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.preset_color = background_color
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 160, 180, 400, 130)
+    shape.text_frame.text = label
+    shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 44
+
+
+with slides.Presentation() as presentation:
+    source = presentation.slides[0]
+    destination = presentation.slides.add_clone(source)
+    style_slide(source, slides.PresetColor.TEAL, "Source")
+    style_slide(destination, slides.PresetColor.CORAL, "Destination")
+    presentation.slides.add_clone(source)
+    presentation.slides.add_clone(destination)
+
+    for index in (1, 3):
+        transition = presentation.slides[index].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.REVEAL
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 2000
+        
+        reveal = transition.value
+        reveal.direction = slides.slideshow.TransitionLeftRightDirectionType.LEFT
+        reveal.through_black = index == 3
+
+    presentation.save("reveal-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Open `reveal-transitions.pptx` in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see teal fade directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect of the setting.
+
+![PowerPoint playback with through_black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:
