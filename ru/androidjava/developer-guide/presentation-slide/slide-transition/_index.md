@@ -18,17 +18,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Применяйте переходы слайдов, настраивайте автоматическое продвижение слайдов и кастомизируйте переход Morph и другие эффекты переходов с помощью Aspose.Slides для Android через Java."
+description: "Применяйте переходы слайдов, настраивайте автоматическое переключение слайдов и кастомизируйте Morph и другие эффекты переходов с помощью Aspose.Slides для Android через Java."
 ---
 ## **Обзор**
 
-Переходы слайдов контролируют отображение слайдов во время показа. С помощью Aspose.Slides for Android через Java вы можете выбрать эффект перехода для каждого слайда, настроить продвижение по щелчку мыши или таймеру и задать параметры, специфичные для эффекта. В этой статье используются примеры на Java для применения переходов, установки точных длительностей переходов, управления временем показа слайдов и создания перехода Morph между двумя слайдами. Примеры также показывают, как сохранить настройки в файле PPTX.
+Переходы слайдов управляют тем, как слайды отображаются во время показа. С помощью Aspose.Slides for Android через Java вы можете выбрать эффект перехода для каждого слайда, настроить переход по клику мыши или по таймеру и скорректировать параметры, специфичные для эффекта. В этой статье используются примеры на Java для применения переходов, установки точных длительностей переходов, управления временем показа слайдов и создания перехода Morph между двумя слайдами. Примеры также показывают, как сохранить настройки в файл PPTX.
 
-## **Add Slide Transition**
+## **Добавить переход слайда**
 
-Для применения перехода загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и получите настройки перехода слайда через [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Используйте [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) со значением из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/), затем сохраните презентацию.
+Чтобы применить переход, загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и получите настройки перехода слайда через [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Используйте [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) со значением из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/), затем сохраните презентацию.
 
-В следующем примере применяется переход Circle к первому слайду и переход Comb ко второму. Используйте файл `input.pptx` с как минимум двумя слайдами.
+В следующем примере применяется переход Circle к первому слайду и переход Comb ко второму. Используйте файл `input.pptx` с минимум двумя слайдами.
 
 ```java
 import com.aspose.slides.*;
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Wheel Transition**
+## **Переход Wheel**
 
-Метод [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) интерфейса [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) управляет числом радиальных секторов, раскрывающих целевой слайд. Установите тип перехода слайда на Wheel через [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) с помощью [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) перед тем как получить [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) как [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
+Метод [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) интерфейса [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) управляет количеством радиальных секторов, раскрывающих целевой слайд. Установите тип перехода слайда на Wheel из [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) с помощью [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-), затем получите значение через [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) как [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
 
-В этом примере создаются две одинаковые пары слайдов: черный слайд, за которым следует слайд с золотым прямоугольником. Для целевых слайдов используются значения споков 1 и 8, при этом одинаковая скорость задается через [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) и явная длительность 8 000 мс задается через [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) для наглядного различия.
+Этот пример создает две одинаковые пары слайдов: черный слайд, за которым следует слайд с золотым прямоугольником. Целевые слайды используют количество спиц 1 и 8, с одинаковой скоростью, установленной через [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-), и явной длительностью 8000 миллисекунд, заданной через [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-), чтобы различие было легко наблюдать.
 
 ```java
 import android.graphics.Color;
@@ -95,19 +95,71 @@ try {
 }
 ```
 
-Откройте полученную презентацию в PowerPoint и запустите показ. Перейдите со слайда 1 на слайд 2, затем со слайда 3 на слайд 4. При воспроизведении в PowerPoint проверенное значение спока 1 раскрывает слайд одним вращением по часовой стрелке; значение 8 раскрывает его восемью радиальными секторами одновременно. Содержимое целевых слайдов и время перехода одинаковы, различие только в числе секторов раскрытия.
+Откройте полученную презентацию в PowerPoint и запустите показ слайдов. Перейдите со слайда 1 на слайд 2, затем со слайда 3 на слайд 4. При воспроизведении в PowerPoint проверенное количество спиц 1 раскрывает слайд одним вращением по часовой стрелке; проверенное количество 8 раскрывает его восемью радиальными секторами одновременно. Содержимое целевых слайдов и тайминг переходов идентичны, различие только в числе секторов раскрытия.
 
-## **Add Advanced Slide Transition**
+## **Fade Through Black с переходом Reveal**
 
-Вы можете настроить, как долго слайд остаётся на экране и будет ли щелчок мыши продвигать показ. Следующие методы управляют этим поведением:
+Установите тип перехода целевого слайда на Reveal, затем вызовите [setThroughBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irevealtransition/#setThroughBlack-boolean-) у его настроек [IRevealTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irevealtransition/). Пример создает бирюзовый исходный слайд и коралловый целевой слайд, затем клонирует оба. Каждая пара использует одинаковый двухсекундный переход Reveal. Только вторая пара затемняется через черный цвет.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) позволяет зрителю перейти по щелчку мыши.
-- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) включает автоматическое продвижение.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) задаёт задержку перед автоматическим продвижением в миллисекундах.
+```java
+import android.graphics.Color;
+import com.aspose.slides.*;
 
-Включите одновременно щелчок и таймер, чтобы зритель мог перейти нажатием или ждать таймера. Чтобы использовать только таймер, передайте `false` в [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Задержка определяет, когда показ переходит к следующему слайду; она не задаёт длительность визуального эффекта перехода.
+Presentation presentation = new Presentation();
+try {
+    ISlide source = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addClone(source);
+    ISlide[] slides = { source, destination };
+    int[] backgrounds = { Color.rgb(0, 128, 128), Color.rgb(255, 127, 80) };
+    String[] labels = { "Source", "Destination" };
 
-В этом примере первым трем слайдам назначаются разные эффекты и включается автоматическое продвижение через 3, 5 и 7 секунд соответственно. Щелчки мышью также могут продвигать эти слайды. Используйте файл `input.pptx` с как минимум тремя слайдами.
+    for (int i = 0; i < slides.length; i++) {
+        ISlide slide = slides[i];
+        slide.getBackground().setType(BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+        slide.getBackground().getFillFormat().getSolidFillColor().setColor(backgrounds[i]);
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+        shape.getTextFrame().setText(labels[i]);
+        shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    ISlide clonedDestination = presentation.getSlides().addClone(destination);
+    for (ISlide slide : new ISlide[] { destination, clonedDestination }) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Reveal);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        IRevealTransition reveal = (IRevealTransition) transition.getValue();
+        reveal.setDirection(TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide == clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Откройте сохраненную презентацию в PowerPoint и начните показ слайдов. Перейдите со слайда 1 на слайд 2, чтобы увидеть, как бирюзовый слайд плавно переходит в коралловый. Затем перейдите со слайда 3 на слайд 4. Экран кратко затемняется почти до черного перед появлением кораллового слайда. Оба слайда сохраняют свои исходные цвета фона.
+
+Строки ниже показывают кадры из PowerPoint с интервалом полсекунды. Сравните средний кадр в каждой строке, чтобы увидеть эффект.
+
+![Воспроизведение PowerPoint с отключённым (верх) и включённым (низ) затемнением до почти чёрного. Только нижняя строка проходит через почти чёрный.](reveal-through-black.png)
+
+## **Добавить расширенный переход слайда**
+
+Вы можете настроить, как долго слайд остаётся на экране и будет ли клик мышью переключать показ слайдов. Следующие методы управляют этим поведением:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) позволяет пользователю перейти, щёлкнув мышью.
+- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) включает автоматическое переключение.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) задаёт задержку перед автоматическим переключением в миллисекундах.
+
+Включите как клик, так и таймер, чтобы пользователь мог перейти по щелчку или подождать таймер. Чтобы использовать только таймер, передайте `false` в [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Задержка управляет моментом переключения показа; она не задаёт длительность визуального эффекта перехода.
+
+В этом примере разным слайдам из первых трёх присваиваются разные эффекты, и включается автоматическое переключение через 3, 5 и 7 секунд соответственно. Щелчки мышью также могут переключать эти слайды. Используйте файл `input.pptx` с минимум тремя слайдами.
 
 ```java
 import com.aspose.slides.*;
@@ -142,9 +194,9 @@ try {
 }
 ```
 
-Чтобы проверить, включено ли автоматическое продвижение, вызовите [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Сохранённая задержка сама по себе не указывает, что таймер активен.
+Чтобы проверить, включено ли автоматическое переключение по таймеру, вызовите [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Сохранённая задержка сама по себе не указывает, активен ли таймер.
 
-Следующий пример открывает файл, сохранённый выше, выводит каждый включённый таймер и отключает автоматическое продвижение для слайдов с задержкой более двух секунд. Для этих слайдов включаются щелчки мышью, после чего сохраняются обновлённые настройки.
+Следующий пример открывает файл, сохранённый выше, выводит каждый включённый таймер и отключает автоматическое переключение для слайдов с задержкой более двух секунд. Для этих слайдов включаются щелчки мышью, после чего настройки сохраняются.
 
 ```java
 import com.aspose.slides.*;
@@ -170,27 +222,27 @@ try {
 }
 ```
 
-## **Control Transition Timing Precisely**
+## **Точно управлять временем перехода**
 
-Используйте [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) для указания точной длительности эффекта перехода в миллисекундах. Метод [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) слайда раскрывает эти настройки через интерфейс [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
+Используйте [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) для указания точной длины эффекта перехода в миллисекундах. Метод слайда [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) раскрывает эти настройки через интерфейс [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
 
-| Метод | Назначение |
+| Method | Purpose |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Задаёт длительность самого эффекта перехода в миллисекундах. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Задаёт задержку перед автоматическим переходом слайда в миллисекундах. Передайте `true` в [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) для активации таймера. |
+| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Устанавливает длительность самого эффекта перехода в миллисекундах. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Задает задержку перед автоматическим переходом слайда в миллисекундах. Передайте `true` в [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) для активации этого таймера. |
 | [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Выбирает предопределённую категорию скорости из [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium или Fast. Используется, когда точная длительность не указана. |
 
-[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) управляет только эффектом перехода; он не определяет, как долго слайд остаётся видимым. Задержку автоматического продвижения необходимо задавать отдельно. Если явная длительность не указана, Aspose.Slides определяет её исходя из типа перехода и значения [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--).
+[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) контролирует только эффект перехода; он не определяет, как долго слайд остаётся видимым. Настройте задержку автоматического переключения отдельно. Если явная длительность не указана, Aspose.Slides определяет длительность эффекта из типа перехода и значения [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Отдельные полосы показывают длительность перехода 750 ms и настройку автоматического продвижения 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Приведённый пример задаёт каждому слайду переход Fade длительностью 750 мс и отдельно включает автоматическое продвижение через 5 000 мс. Длительность управляет эффектом, автоматическое продвижение — моментом выхода со слайда. Эти полосы представляют схематические настройки, а не измеренную совокупную временную шкалу.*
+*В данном примере каждому слайду задаётся переход Fade длительностью 750 ms и отдельно включается автоматическое продвижение через 5 000 ms. Длительность перехода управляет эффектом; продвижение определяет, когда покинуть слайд. Эти полосы — схематические настройки, а не измеренная общая временная шкала.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Apply the Same Duration to Every Slide**
+### **Применить одинаковую длительность к каждому слайду**
 
-Для единообразного темпа примените одинаковый эффект и точную длительность ко всем слайдам. В этом примере загружается `input.pptx`, выбирается Fade из [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) и каждой переходу задаётся длительность 750 мс. Затем отдельно включается автоматическое продвижение через 5 000 мс и отключается продвижение щелчком мыши, после чего результат сохраняется в формате PPTX.
+Для согласованного темпа применяйте один и тот же эффект и точную длительность к каждому слайду. Этот пример загружает `input.pptx`, выбирает Fade из [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) и задаёт каждому переходу длительность 750 миллисекунд. Затем отдельно включается автоматическое переключение через 5 000 миллисекунд и отключается переключение щелчком мыши, после чего результат сохраняется как PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -214,9 +266,9 @@ try {
 }
 ```
 
-### **Set Different Durations for Individual Slides**
+### **Установить разные длительности для отдельных слайдов**
 
-Разным слайдам можно задать разные длительности эффектов. Например, используйте короткий переход для титульного слайда и более длительный для вступления в раздел. В этом примере первая slide получает 500 мс, а вторая — 1 200 мс. Используйте файл `input.pptx` с как минимум двумя слайдами.
+Разные слайды могут использовать разные длительности эффектов. Например, короткий переход для титульного слайда и более длительный для введения раздела. Этот пример задаёт 500 миллисекунд для первого слайда и 1 200 миллисекунд для второго. Используйте файл `input.pptx` с минимум двумя слайдами.
 
 ```java
 import com.aspose.slides.*;
@@ -241,15 +293,15 @@ try {
 }
 ```
 
-### **Coordinate Transitions with Animated Output**
+### **Скоординировать переходы с анимированным выводом**
 
-При подготовке [animated GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ru/androidjava/export-to-html5/) или [video](/slides/ru/androidjava/convert-powerpoint-to-video/) задавайте точные длительности переходов перед экспортом, чтобы соответствовать задуманному темпу. Например, используйте 600‑мс fade между сценами и отдельно настройте задержку продвижения каждого слайда, чтобы было время для озвучивания или контента.
+При подготовке [animated GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ru/androidjava/export-to-html5/) или [video](/slides/ru/androidjava/convert-powerpoint-to-video/) задайте точные длительности переходов перед экспортом, чтобы они соответствовали задуманному темпу. Например, используйте плавный переход длительностью 600 мс между сценами и отдельно скорректируйте задержку перехода каждого слайда, чтобы оставить время для озвучивания или содержимого.
 
-Для GIF и видео согласуйте частоту кадров вывода с длительностью эффекта: 600 мс соответствует 18 кадрам при 30 fps. В HTML5 включите анимированные переходы в настройках экспорта. Проверьте поддерживаемые эффекты и параметры времени выбранного формата экспорта и предварительно просмотрите результат для подтверждения синхронизации.
+Для GIF и видео согласуйте частоту кадров вывода с длительностью эффекта: 600 мс соответствует 18 кадрам при 30 кадрах в секунду. В HTML5 включите анимированные переходы в настройках экспорта. Проверьте поддерживаемые эффекты и параметры тайминга выбранного формата и просмотрите результат, чтобы убедиться в синхронизации.
 
-### **Read an Existing Transition Duration**
+### **Прочитать существующую длительность перехода**
 
-Вызовите [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) перед изменением перехода, чтобы определить, хранится ли явное значение. Значение `-1` означает, что явная длительность не задана; неотрицательное значение указывает сохранённую длительность в миллисекундах. Неустановленное значение не является рассчитанной длительностью воспроизведения: Aspose.Slides использует тип перехода и значение [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) для её определения. Задание типа перехода может инициализировать длительность, поэтому сначала изучите исходные настройки.
+Вызовите [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) перед изменением перехода, чтобы определить, хранится ли явное значение. Значение `-1` означает, что явная длительность не установлена; неотрицательное значение задаёт сохранённую длительность в миллисекундах. Неустановленное значение не является рассчитанной длительностью воспроизведения: Aspose.Slides использует тип перехода и значение [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) для определения этой длительности. Установка типа перехода может инициализировать длительность, поэтому сначала проверьте исходные настройки.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +323,11 @@ try {
 }
 ```
 
-## **Morph Transition**
+## **Переход Morph**
 
-Переход Morph анимирует изменения между объектами на последовательных слайдах. Чтобы создать простой эффект Morph, клонируйте слайд, переместите или измените размер объекта в копии и примените переход Morph ко второму слайду. Это даёт возможность анимировать соответствующие объекты между их исходным и изменённым состояниями.
+Переход Morph анимирует изменения между объектами на последовательных слайдах. Чтобы создать простой эффект Morph, клонируйте слайд, переместите или измените размер объекта в клоне и примените переход Morph ко второму слайду. Это даёт переходу соответствующие объекты для анимации между их исходным и изменённым состоянием.
 
-В следующем примере создаётся слайд с прямоугольником текста, копируется, а позиция и размер прямоугольника изменяются в копии. Затем для второго слайда выбирается Morph из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/). Откройте сохранённый файл в просмотрщике презентаций, поддерживающем Morph, чтобы увидеть эффект при показе.
+Следующий пример создаёт слайд с текстовым прямоугольником, клонирует его и меняет положение и размер прямоугольника в клоне. Затем выбирает Morph из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) для второго слайда. Откройте сохранённый файл в просмотрщике, поддерживающем Morph, чтобы увидеть эффект во время показа слайдов.
 
 ```java
 import com.aspose.slides.*;
@@ -301,17 +353,15 @@ try {
 }
 ```
 
-## **Morph Transition Types**
+## **Типы перехода Morph**
 
 Перечисление [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/) управляет тем, как Morph сопоставляет и анимирует содержимое:
 
-- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) рассматривает каждую форму как отдельный объект.
-- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) анимирует текст, сопоставляя слова, где это возможно.
-- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) анимирует текст, сопоставляя отдельные символы, где это возможно.
+- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) рассматривает каждую форму как целый объект.
+- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) анимирует текст, сопоставляя слова там, где это возможно.
+- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) анимирует текст, сопоставляя символы там, где это возможно.
 
-Используйте [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) для выбора Morph перед тем как вызвать [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--). Полученное значение предоставляет интерфейс [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/), у которого метод [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) выбирает режим сопоставления.
-
-В этом примере открывается презентация, созданная в предыдущем разделе, и для второго слайда настраивается анимация Morph на уровне слов.
+Используйте [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) для выбора Morph перед вызовом [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--). Полученное значение предоставляет интерфейс [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/), у которого метод [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) выбирает режим сопоставления.
 
 ```java
 import com.aspose.slides.*;
@@ -338,11 +388,11 @@ try {
 }
 ```
 
-## **Set Transition Effects**
+## **Задать эффекты переходов**
 
-Для некоторых переходов доступны дополнительные параметры, такие как направление или начало эффекта с чёрного экрана. Доступные опции зависят от выбранного через [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) перехода. Сначала задайте тип, затем используйте соответствующий интерфейс, полученный через [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
+Некоторые переходы предоставляют дополнительные параметры, такие как направление или начало эффекта с черного экрана. Доступные параметры зависят от выбранного через [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) перехода. Сначала задайте тип, затем используйте соответствующий интерфейс, получаемый через [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-В следующем примере к первому слайду `input.pptx` применяется переход Cut. Через [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/) вызывается [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-), чтобы переход начинался с чёрного экрана.
+Следующий пример применяет переход Cut к первому слайду `input.pptx`. Он вызывает [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) через [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/), чтобы переход начинался с черного экрана.
 
 ```java
 import com.aspose.slides.*;
@@ -369,16 +419,16 @@ try {
 
 **Могу ли я контролировать скорость воспроизведения перехода слайда?**
 
-Да. Предпочитайте [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-), когда нужна точная длительность эффекта в миллисекундах. Используйте [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-), если достаточно предопределённой категории [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) — Slow, Medium или Fast — и явная длительность не задана. Эти настройки управляют только эффектом перехода, независимо от задержки автоматического продвижения.
+Да. Предпочтительно используйте [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-), когда нужна точная длительность эффекта в миллисекундах. Используйте [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-), если достаточно предопределённой категории [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) — Slow, Medium или Fast, и явная длительность не задаётся. Эти настройки управляют только эффектом перехода, независимо от задержки автоматического переключения.
 
-**Можно ли привязать звук к переходу и заставить его зацикливаться?**
+**Могу ли я привязать аудио к переходу и заставить его зацикливаться?**
 
-Да. Присвойте встроенный звук через [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), передайте значение StartSound из перечисления [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) в [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), и включите [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) со значением `true`. Звук будет повторяться до следующего звукового события в показе.
+Да. Присвойте встроенное аудио через [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), передайте значение StartSound из перечисления [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) в [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), и включите [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) со значением `true`. Аудио будет повторяться до следующего звукового события в показе.
 
-**Как быстро применить один и тот же переход ко всем слайдам?**
+**Какой самый быстрый способ применить один и тот же переход ко всем слайдам?**
 
-Пройдитесь по коллекции [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) презентации и вызовите [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) с одинаковым значением для каждого слайда. Установите любые параметры времени и эффекта в том же цикле, чтобы поведение было согласованным на всех слайдах.
+Пройдитесь по коллекции презентации [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) и вызовите [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) с одинаковым значением для перехода каждого слайда. При необходимости задайте тайминг и параметры эффекта в том же цикле, чтобы поведение было одинаковым на всех слайдах.
 
 **Как проверить, какой переход сейчас установлен у слайда?**
 
-Вызовите [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) у результата [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) слайда. Метод возвращает значение из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/); None означает, что переход не задан.
+Вызовите [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) у результата [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) слайда. Метод вернёт значение из перечисления [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/); значение None означает, что переход не задан.

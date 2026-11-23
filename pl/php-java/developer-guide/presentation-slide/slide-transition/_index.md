@@ -9,7 +9,7 @@ keywords:
 - dodaj przejście slajdu
 - zastosuj przejście slajdu
 - zaawansowane przejście slajdu
-- przejście morph
+- przejście Morph
 - typ przejścia
 - efekt przejścia
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejść przy użyciu Aspose.Slides dla PHP poprzez Java."
+description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejść przy użyciu Aspose.Slides dla PHP via Java."
 ---
 ## **Przegląd**
 
-Przejścia slajdów kontrolują sposób wyświetlania slajdów podczas pokazu slajdów. Korzystając z Aspose.Slides for PHP via Java, możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie poprzez kliknięcie myszy lub timer oraz dostosować opcje specyficzne dla efektu. Ten artykuł używa przykładów w PHP do zastosowania przejść, ustawienia dokładnych czasów trwania przejść, zarządzania czasem slajdu oraz stworzenia przejścia Morph między dwoma slajdami. Przykłady pokazują także, jak zapisać ustawienia do pliku PPTX.
+Przejścia slajdów kontrolują sposób wyświetlania slajdów podczas pokazu slajdów. Dzięki Aspose.Slides for PHP via Java możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie po kliknięciu myszy lub po upływie czasu oraz dostosować opcje specyficzne dla danego efektu. Ten artykuł używa przykładów PHP, aby zastosować przejścia, ustawić dokładne czasy trwania przejść, zarządzać czasem wyświetlania slajdów oraz stworzyć przejście Morph między dwoma slajdami. Przykłady także pokazują, jak zapisać ustawienia do pliku PPTX.
 
-## **Dodaj Przejście Slajdu**
+## **Dodaj przejście slajdu**
 
-Aby zastosować przejście, załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i uzyskaj dostęp do ustawień przejścia slajdu poprzez [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Użyj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) z wartością z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), a następnie zapisz prezentację.
+Aby zastosować przejście, wczytaj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i uzyskaj dostęp do ustawień przejścia slajdu za pomocą [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Użyj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) z wartością z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), a następnie zapisz prezentację.
 
-Poniższy przykład stosuje przejście Circle na pierwszym slajdzie i przejście Comb na drugim. Użyj pliku `input.pptx` z co najmniej dwoma slajdami.
+Poniższy przykład stosuje przejście Circle na pierwszym slajdzie i przejście Comb na drugim. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
 
 ```php
 use aspose\slides\Presentation;
@@ -49,11 +49,11 @@ try {
 }
 ```
 
-## **Przejście Koła**
+## **Przejście kołowe**
 
-Metoda [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) kontroluje, ile promieniowych sektorów odsłania docelowy slajd. Użyj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) aby wybrać Wheel z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), a następnie wywołaj [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) aby uzyskać dostęp do ustawień [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
+Metoda [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) kontroluje, ile promieniowych sektorów odsłania docelowy slajd. Użyj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType), aby wybrać Wheel z [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), a następnie wywołaj [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue), aby uzyskać dostęp do ustawień [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
 
-Przykład tworzy dwie identyczne pary slajdów. Każda para zaczyna się czarnym slajdem i kończy slajdem pokrytym złotym prostokątem. Slajd 2 używa jednego szprycha, a slajd 4 używa ośmiu. Oba przejścia używają tej samej wolnej prędkości, ustawionej za pomocą [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), oraz wyraźnego czasu trwania 8 000 milisekund, ustawionego za pomocą [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
+Przykład tworzy dwie identyczne pary slajdów. Każda para zaczyna się od czarnego slajdu i kończy slajdem pokrytym złotym prostokątem. Slajd 2 używa jednego promienia, a slajd 4 używa ośmiu. Oba przejścia używają tej samej wolnej prędkości, ustawionej za pomocą [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), oraz wyraźnego czasu trwania 8 000 milisekund, ustawionego za pomocą [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
 
 ```php
 use aspose\slides\BackgroundType;
@@ -103,17 +103,72 @@ try {
 }
 ```
 
-Otwórz zapisany plik prezentacji w programie PowerPoint i uruchom pokaz slajdów. Przejdź z slajdu 1 do slajdu 2, aby zobaczyć pojedynczy, zgodny z ruchem wskazówek zegara, pasek. Następnie przejdź ze slajdu 3 do slajdu 4, aby zobaczyć osiem promieniowych sektorów odsłaniających jednocześnie ten sam prostokąt.
+Otwórz zapisany plik prezentacji w PowerPoint i uruchom pokaz slajdów. Przejdź z slajdu 1 do slajdu 2, aby zobaczyć pojedynczy, zgodny z ruchem wskazówek zegara, ruch. Następnie przejdź ze slajdu 3 do slajdu 4, aby zobaczyć osiem promieniowych sektorów odsłaniających ten sam prostokąt jednocześnie.
 
-## **Dodaj Zaawansowane Przejście Slajdu**
+## **Zanikanie przez czarny ekran z przejściem Reveal**
 
-Możesz skonfigurować, jak długo slajd pozostaje na ekranie i czy kliknięcie myszy przechodzi dalej w pokazie slajdów. Następujące metody kontrolują to zachowanie:
+Ustaw typ przejścia docelowego slajdu na Reveal, a następnie wywołaj [setThroughBlack](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/#setThroughBlack) w jego ustawieniach [RevealTransition](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/). Przykład tworzy niebieskozielony slajd źródłowy i koralowy slajd docelowy, a następnie klonuje oba. Każda para używa tego samego, dwusekundowego przejścia Reveal. Tylko druga para zanika poprzez czarny ekran.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) pozwala widzowi przejść po kliknięciu myszy.
-- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) umożliwia automatyczne przechodzenie.
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionLeftRightDirectionType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $source = $presentation->getSlides()->get_Item(0);
+    $destination = $presentation->getSlides()->addClone($source);
+
+    foreach ([
+        [$source, new Color(0, 128, 128), "Source"],
+        [$destination, new Color(255, 127, 80), "Destination"],
+    ] as [$slide, $color, $label]) {
+        $slide->getBackground()->setType(BackgroundType::OwnBackground);
+        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+        $shape->getTextFrame()->setText($label);
+        $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(44);
+    }
+
+    $presentation->getSlides()->addClone($source);
+    $clonedDestination = $presentation->getSlides()->addClone($destination);
+    foreach ([[$destination, false], [$clonedDestination, true]] as [$slide, $throughBlack]) {
+        $slide->getSlideShowTransition()->setType(TransitionType::Reveal);
+        $slide->getSlideShowTransition()->setSpeed(TransitionSpeed::Slow);
+        $slide->getSlideShowTransition()->setDuration(2000);
+        $slide->getSlideShowTransition()->getValue()->setDirection(TransitionLeftRightDirectionType::Left);
+        $slide->getSlideShowTransition()->getValue()->setThroughBlack($throughBlack);
+    }
+
+    $presentation->save("reveal-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Otwórz zapisany plik prezentacji w PowerPoint i uruchom pokaz slajdów. Przejdź ze slajdu 1 do slajdu 2, aby zobaczyć, jak niebieskozielony slajd płynnie przechodzi w koralowy. Następnie przejdź ze slajdu 3 do slajdu 4. Ekran na chwilę ciemnieje prawie do czerni, zanim pojawi się koralowy slajd. Oba slajdy zachowują swoje oryginalne kolory tła.
+
+Poniższe wiersze pokazują klatki z PowerPoint w odstępach półsekundowych. Porównaj środkową klatkę w każdym wierszu, aby zobaczyć efekt.
+
+![Odtwarzanie PowerPoint z wyłączonym zanikiem przez czarny (góra) i włączonym (dolny). Tylko dolny wiersz przechodzi przez prawie czarny kolor.](reveal-through-black.png)
+
+## **Dodaj zaawansowane przejście slajdu**
+
+Możesz skonfigurować, jak długo slajd pozostaje na ekranie i czy kliknięcie myszy przechodzi do kolejnego slajdu. Następujące metody kontrolują to zachowanie:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) pozwala widzowi przejść dalej po kliknięciu myszy.
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) włącza automatyczne przechodzenie.
 - [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) określa opóźnienie przed automatycznym przejściem, w milisekundach.
 
-Włącz zarówno kliknięcie, jak i automatyczne przejście, aby widz mógł kontynuować kliknięciem lub poczekać na timer. Aby używać tylko timera, przekaż `false` do [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie ustawia to czasu trwania wizualnego efektu przejścia.
+Włącz zarówno kliknięcie, jak i automatyczne przejście, aby widz mógł przejść dalej kliknięciem lub poczekać na timer. Aby używać tylko timera, przekaż `false` do [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie ustawia ono czasu trwania wizualnego efektu przejścia.
 
 Ten przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przechodzenie po 3, 5 i 7 sekundach, odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` z co najmniej trzema slajdami.
 
@@ -152,9 +207,9 @@ try {
 }
 ```
 
-Aby sprawdzić, czy automatyczne przejście jest włączone, wywołaj [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Zapisane opóźnienie samo w sobie nie wskazuje, że timer jest aktywny.
+Aby sprawdzić, czy automatyczne przechodzenie jest włączone, wywołaj [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Przechowywane opóźnienie samo w sobie nie wskazuje, że timer jest aktywny.
 
-Kolejny przykład otwiera wcześniej zapisany plik, raportuje każdy włączony timer i wyłącza automatyczne przechodzenie dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
+Następny przykład otwiera powyżej zapisany plik, raportuje każdy włączony timer i wyłącza automatyczne przechodzenie dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
 
 ```php
 use aspose\slides\Presentation;
@@ -182,27 +237,27 @@ try {
 }
 ```
 
-## **Precyzyjna Kontrola Czasu Przejścia**
+## **Precyzyjna kontrola czasu przejścia**
 
-Użyj [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration), aby określić dokładną długość efektu przejścia w milisekundach. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu udostępnia te ustawienia poprzez [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
+Użyj [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration), aby określić dokładną długość efektu przejścia w milisekundach. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu udostępnia te ustawienia za pośrednictwem [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
 
 | Metoda | Cel |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Ustawia czas trwania samego efektu przejścia, w milisekundach. |
 | [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Przekaż `true` do [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter), aby aktywować ten timer. |
-| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Wybiera jedną z predefiniowanych kategorii prędkości z [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast. Używana jest, gdy nie określono dokładnego czasu trwania. |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Wybiera predefiniowaną kategorię prędkości z [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast. Jest używana, gdy nie określono dokładnego czasu trwania. |
 
-[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) kontroluje tylko efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Skonfiguruj osobno opóźnienie automatycznego przejścia. Gdy nie ustawiono wyraźnego czasu trwania, Aspose.Slides określa czas trwania efektu na podstawie typu przejścia i wartości [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) kontroluje tylko efekt przejścia; nie ustala, jak długo slajd pozostaje widoczny. Skonfiguruj oddzielnie opóźnienie automatycznego przechodzenia. Gdy nie ustawiono wyraźnego czasu trwania, Aspose.Slides określa czas trwania efektu na podstawie typu przejścia i wartości [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Oddzielne paski wskazują czas trwania przejścia 750 ms oraz ustawienie automatycznego przejścia 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Oddzielne słupki wskazują czas trwania przejścia 750‑ms i ustawienie automatycznego przechodzenia 5 000‑ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Przykład pokazuje, że każdy slajd ma przejście Fade trwające 750 ms oraz osobno włączone automatyczne przejście po 5 000 ms. Czas trwania przejścia kontroluje efekt; przejście kontroluje moment opuszczenia slajdu. Te paski są schematycznymi ustawieniami, a nie zmierzoną łączną oś czasu.*
+*Udostępniony przykład nadaje każdemu slajdowi przejście Fade o czasie 750 ms i oddzielnie włącza automatyczne przejście po 5 000 ms. Czas trwania przejścia kontroluje efekt; przejście kontroluje, kiedy opuścić slajd. Te słupki to schematyczne ustawienia, a nie zmierzona połączona oś czasu.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Zastosuj Ten Same Czas Trwania dla Każdego Slajdu**
+### **Zastosuj ten sam czas trwania dla każdego slajdu**
 
-Aby zapewnić spójne tempo, zastosuj ten sam efekt i dokładny czas trwania do każdego slajdu. Ten przykład ładuje `input.pptx`, wybiera Fade z [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), i nadaje każdemu przejściu czas trwania 750 milisekund. Osobno włącza automatyczne przechodzenie po 5 000 milisekundach i wyłącza przechodzenie kliknięciem myszy, a następnie zapisuje wynik jako PPTX.
+Aby zapewnić jednolite tempo, zastosuj ten sam efekt i dokładny czas trwania dla każdego slajdu. Ten przykład wczytuje `input.pptx`, wybiera Fade z [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) i nadaje każdemu przejściu czas trwania 750 milisekund. Oddzielnie włącza automatyczne przechodzenie po 5 000 milisekundach i wyłącza przechodzenie po kliknięciu myszy, po czym zapisuje wynik jako PPTX.
 
 ```php
 use aspose\slides\Presentation;
@@ -229,9 +284,9 @@ try {
 }
 ```
 
-### **Ustaw Różne Czasy Trwania dla Poszczególnych Slajdów**
+### **Ustaw różne czasy trwania dla poszczególnych slajdów**
 
-Różne slajdy mogą używać różnych czasów trwania efektu. Na przykład użyj krótkiego przejścia dla slajdu tytułowego i dłuższego przejścia dla wprowadzenia sekcji. Ten przykład ustawia 500 milisekund dla pierwszego slajdu i 1 200 milisekund dla drugiego. Użyj pliku `input.pptx` z co najmniej dwoma slajdami.
+Różne slajdy mogą mieć różne czasy trwania efektu. Na przykład użyj krótkiego przejścia dla slajdu tytułowego i dłuższego przejścia dla wprowadzenia sekcji. Ten przykład ustawia 500 milisekund dla pierwszego slajdu i 1 200 milisekund dla drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
 
 ```php
 use aspose\slides\Presentation;
@@ -258,15 +313,15 @@ try {
 }
 ```
 
-### **Koordynuj Przejścia z Animowanym Wyjściem**
+### **Skoordynuj przejścia z animowanym wyjściem**
 
-Przy przygotowywaniu [animated GIF](/slides/pl/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/pl/php-java/export-to-html5/) lub [video](/slides/pl/php-java/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj przejścia Fade trwającego 600 ms między scenami i osobno dostosuj opóźnienie przechodzenia każdego slajdu, aby zapewnić czas na narrację lub treść.
+Podczas przygotowywania [animated GIF](/slides/pl/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/pl/php-java/export-to-html5/) lub [video](/slides/pl/php-java/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj przejścia zanikania 600 milisekund między scenami i dostosuj oddzielnie opóźnienie przechodzenia każdego slajdu, aby zapewnić czas na narrację lub treść.
 
-W przypadku GIF i wideo skoordynuj liczbę klatek wyjściowych z czasem trwania efektu: 600 milisekund odpowiada 18 klatkom przy 30 klatkach na sekundę. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, które efekty i opcje czasowe są obsługiwane przez wybrany format eksportu i podglądaj wynik, aby potwierdzić synchronizację.
+Dla GIF i wideo, skoordynuj częstotliwość klatek wyjściowych z czasem trwania efektu: 600 ms odpowiada 18 klatkom przy 30 klatkach na sekundę. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, jakie efekty i opcje synchronizacji obsługuje wybrany format eksportu, i podejrzyj wynik, aby potwierdzić synchronizację.
 
-### **Odczytaj Istniejący Czas Trwania Przejścia**
+### **Odczytaj istniejący czas trwania przejścia**
 
-Wywołaj [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) przed modyfikacją przejścia, aby określić, czy przechowywana jest jawna wartość. Wartość `-1` oznacza, że nie ustawiono jawnego czasu trwania; wartość nieujemna określa przechowywany czas trwania w milisekundach. Nieustawiona wartość nie jest obliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i wartości [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed), aby określić ten czas. Ustawienie typu przejścia może zainicjować czas trwania, dlatego najpierw sprawdź oryginalne ustawienia.
+Wywołaj [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) przed modyfikacją przejścia, aby określić, czy zapisano wyraźną wartość. Wartość `-1` oznacza, że nie ustawiono explicitnego czasu trwania; wartość nieujemna określa zapisany czas trwania w milisekundach. Nieustawiona wartość nie jest obliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i wartości [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed), aby określić ten czas. Ustawienie typu przejścia może zainicjować czas trwania, więc najpierw sprawdź pierwotne ustawienia.
 
 ```php
 use aspose\slides\Presentation;
@@ -291,9 +346,9 @@ try {
 
 ## **Przejście Morph**
 
-Przejście Morph animuje zmiany między obiektami na kolejnych slajdach. Aby stworzyć prosty efekt Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu w klonie i zastosuj przejście Morph do drugiego slajdu. Daje to przejściu odpowiadające obiekty do animacji między ich pierwotnym a zmodyfikowanym stanem.
+Przejście Morph animuje zmiany między obiektami na kolejnych slajdach. Aby stworzyć prosty efekt Morph, sklonuj slajd, przemieść lub zmień rozmiar obiektu na klonie i zastosuj przejście Morph do drugiego slajdu. Daje to przejściu odpowiednie obiekty do animacji między ich pierwotnym a zmodyfikowanym stanem.
 
-Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje slajd i zmienia pozycję oraz rozmiar prostokąta w klonie. Następnie wybiera Morph z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu slajdów.
+Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje slajd i zmienia pozycję oraz rozmiar prostokąta na klonie. Następnie wybiera Morph z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu slajdów.
 
 ```php
 use aspose\slides\Presentation;
@@ -322,11 +377,11 @@ try {
 }
 ```
 
-## **Typy Przejścia Morph**
+## **Typy przejścia Morph**
 
-Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) kontroluje, jak Morph dopasowuje i animuje zawartość:
+Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) kontroluje, jak Morph dopasowuje i animuje treść:
 
-- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) traktuje każdy kształt jako cały obiekt.
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) traktuje każdy kształt jako jeden obiekt.
 - [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) animuje tekst, dopasowując słowa, jeśli to możliwe.
 - [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) animuje tekst, dopasowując znaki, jeśli to możliwe.
 
@@ -359,11 +414,11 @@ try {
 }
 ```
 
-## **Ustaw Efekty Przejścia**
+## **Ustaw efekty przejścia**
 
-Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt zaczyna się od czarnego ekranu. Dostępne opcje zależą od przejścia wybranego przy użyciu [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Najpierw ustaw typ, a potem użyj odpowiedniego obiektu przejścia uzyskanego z [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
+Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt zaczyna się od czarnego ekranu. Dostępne opcje zależą od przejścia wybranego metodą [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Najpierw ustaw typ, a następnie użyj odpowiedniego obiektu przejścia z [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
 
-Poniższy przykład stosuje przejście Cut do pierwszego slajdu pliku `input.pptx`. Wywołuje [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) poprzez [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/), aby przejście rozpoczynało się od czarnego ekranu.
+Poniższy przykład stosuje przejście Cut do pierwszego slajdu pliku `input.pptx`. Wywołuje [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) poprzez [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/), aby przejście zaczynało się od czarnego ekranu.
 
 ```php
 use aspose\slides\Presentation;
@@ -391,16 +446,16 @@ try {
 
 **Czy mogę kontrolować prędkość odtwarzania przejścia slajdu?**
 
-Tak. Używaj [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration), gdy potrzebujesz dokładnego czasu trwania efektu w milisekundach. Użyj [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), gdy wystarczy predefiniowana kategoria [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast, i nie jest ustawiony jawny czas trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przejścia.
+Tak. Preferuj [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration), gdy potrzebny jest dokładny czas trwania efektu w milisekundach. Użyj [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), gdy wystarczy predefiniowana kategoria [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) — Slow, Medium lub Fast — i nie ustawiono explicitnego czasu trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przechodzenia.
 
-**Czy mogę dodać dźwięk do przejścia i sprawić, aby się powtarzał?**
+**Czy mogę dołączyć dźwięk do przejścia i sprawić, że będzie się powtarzać?**
 
-Tak. Przypisz wbudowany dźwięk za pomocą [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), przekaż `StartSound` z wyliczenia [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode) i włącz [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) z wartością `true`. Dźwięk będzie powtarzany, aż do następnego zdarzenia dźwiękowego w pokazie slajdów.
+Tak. Przypisz wbudowany dźwięk za pomocą [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), przekaż wartość StartSound z wyliczenia [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode) i włącz [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) z wartością `true`. Dźwięk będzie się powtarzał aż do kolejnego zdarzenia dźwiękowego w pokazie slajdów.
 
 **Jaki jest najszybszy sposób zastosowania tego samego przejścia do każdego slajdu?**
 
-Iteruj kolekcję [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) prezentacji i wywołaj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) z tą samą wartością dla przejścia każdego slajdu. Ustaw wszelkie opcje czasowe i efektów w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
+Iteruj przez kolekcję [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) prezentacji i wywołaj [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) z tą samą wartością dla przejścia każdego slajdu. Ustaw wszelkie opcje czasu i efektów w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
 
-**Jak mogę sprawdzić, które przejście jest obecnie ustawione na slajdzie?**
+**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
 
-Wywołaj [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) na wyniku [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu. Zwróci wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/); `None` oznacza, że żaden efekt przejścia nie jest zastosowany.
+Wywołaj [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) na wyniku [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu. Zwraca wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/); None oznacza, że żadne przejście nie jest zastosowane.

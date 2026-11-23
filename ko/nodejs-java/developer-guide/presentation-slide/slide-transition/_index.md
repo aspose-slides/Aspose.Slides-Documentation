@@ -1,5 +1,5 @@
 ---
-title: JavaScript를 사용하여 프레젠테이션에서 슬라이드 전환 관리
+title: JavaScript를 사용한 프레젠테이션의 슬라이드 전환 관리
 linktitle: 슬라이드 전환
 type: docs
 weight: 80
@@ -22,13 +22,13 @@ description: "Aspose.Slides for Node.js via Java를 사용하여 슬라이드 �
 ---
 ## **개요**
 
-슬라이드 전환은 슬라이드 쇼 중 슬라이드가 나타나는 방식을 제어합니다. Aspose.Slides for Node.js via Java를 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 의한 진행을 구성하며, 효과별 옵션을 조정할 수 있습니다. 이 문서는 JavaScript 예제를 사용해 전환을 적용하고, 정확한 전환 지속 시간을 설정하며, 슬라이드 타이밍을 관리하고, 두 슬라이드 사이에 Morph 전환을 만드는 방법을 보여줍니다. 예제에서는 설정을 PPTX 파일에 저장하는 방법도 다룹니다.
+슬라이드 전환은 슬라이드 쇼 중 슬라이드가 표시되는 방식을 제어합니다. Aspose.Slides for Node.js via Java를 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 의한 진행을 구성하며, 효과에 특화된 옵션을 조정할 수 있습니다. 이 문서에서는 JavaScript 예제를 사용하여 전환을 적용하고, 정확한 전환 지속 시간을 설정하고, 슬라이드 타이밍을 관리하고, 두 슬라이드 사이에 Morph 전환을 만드는 방법을 보여줍니다. 또한 이러한 설정을 PPTX 파일에 저장하는 방법도 보여줍니다.
 
 ## **슬라이드 전환 추가**
 
-전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고 [getSlideShowTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)으로 슬라이드의 전환 설정에 접근합니다. [TransitionType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitiontype/) 열거형의 값을 사용해 [setType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setType)을 호출한 다음 프레젠테이션을 저장합니다.
+전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고 [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)으로 슬라이드의 전환 설정에 접근합니다. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) 열거형의 값으로 [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)을 사용한 다음 프레젠테이션을 저장합니다.
 
-다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 슬라이드가 두 개 이상 포함된 `input.pptx` 파일을 사용하십시오.
+다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 최소 두 개 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,17 +48,119 @@ try {
 }
 ```
 
+## **휠 전환**
+
+[WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/)의 [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) 메서드는 대상 슬라이드를 표시하는 방사형 섹터 수를 제어합니다. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)에서 슬라이드의 전환 유형을 Wheel로 설정하고 [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)을 사용한 다음 [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/)로서 [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue)에 접근합니다.
+
+이 예제는 두 개의 동일한 슬라이드 쌍을 만듭니다: 검은색 슬라이드 뒤에 금색 사각형이 있는 슬라이드가 이어집니다. 대상 슬라이드는 1과 8의 스포크 수를 사용하며, 동일한 속도가 [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed)으로 설정되고, 차이를 쉽게 관찰할 수 있도록 [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration)으로 명시적인 8,000밀리초 지속 시간이 지정됩니다.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+출력 프레젠테이션을 PowerPoint에서 열고 슬라이드 쇼를 실행합니다. 슬라이드 1에서 슬라이드 2로, 이후 슬라이드 3에서 슬라이드 4로 진행합니다. PowerPoint 재생에서 검증된 스포크 수 1은 시계 방향 한 번의 스윕으로 슬라이드를 표시하고, 검증된 수 8은 8개의 방사형 섹터가 동시에 표시됩니다. 대상 내용과 전환 타이밍은 동일하므로 차이는 표시 섹터 수에 있습니다.
+
+## **Reveal 전환으로 검은색을 통한 페이드**
+
+대상 슬라이드의 전환 유형을 Reveal로 설정한 다음 해당 [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/) 설정에서 [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) 메서드를 호출합니다. 이 예제는 청록색 소스 슬라이드와 산호색 대상 슬라이드를 만든 뒤 각각을 복제합니다. 각 쌍은 동일한 2초 Reveal 전환을 사용합니다. 두 번째 쌍만 검은색을 통해 페이드됩니다.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
+
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+저장된 프레젠테이션을 PowerPoint에서 열고 슬라이드 쇼를 시작합니다. 슬라이드 1에서 슬라이드 2로 진행하면 청록색이 바로 산호색으로 페이드됩니다. 그런 다음 슬라이드 3에서 슬라이드 4로 진행합니다. 화면이 잠시 거의 검은색으로 어두워졌다가 산호색 슬라이드가 나타납니다. 두 슬라이드 모두 원래 배경 색을 유지합니다.
+
+아래 행은 PowerPoint에서 0.5초 간격으로 캡처한 프레임을 보여줍니다. 각 행의 중간 프레임을 비교하여 효과를 확인하십시오.
+
+![PowerPoint 재생에서 검은색을 통한 페이드가 비활성화된(상단) 및 활성화된(하단) 상태. 하단 행만 거의 검은색을 통과함.](reveal-through-black.png)
+
 ## **고급 슬라이드 전환 추가**
 
-슬라이드가 화면에 머무는 시간과 마우스 클릭으로 슬라이드 쇼가 진행되는지를 구성할 수 있습니다. 다음 메서드가 해당 동작을 제어합니다.
+슬라이드가 화면에 머무는 시간과 마우스 클릭으로 슬라이드 쇼가 진행되는지를 구성할 수 있습니다. 다음 메서드가 이 동작을 제어합니다:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 은 사용자가 마우스를 클릭해 진행하도록 허용합니다.
-- [setAdvanceAfter](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 은 자동 진행을 활성화합니다.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) 은 자동 진행 전에 대기할 시간을 밀리초 단위로 지정합니다.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 은 마우스 클릭으로 진행할 수 있도록 합니다.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 은 자동 진행을 활성화합니다.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) 은 자동 진행 전의 지연을 밀리초 단위로 지정합니다.
 
-클릭과 타이머 진행을 모두 활성화하면 사용자는 클릭하거나 타이머가 끝날 때까지 기다릴 수 있습니다. 타이머만 사용하려면 [setAdvanceOnClick](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick)에 `false`를 전달합니다. 지연 시간은 슬라이드 쇼가 언제 진행되는지를 제어할 뿐, 시각적 전환 효과의 지속 시간을 설정하지는 않습니다.
+클릭과 타이머 진행을 모두 활성화하면 사용자가 클릭으로 진행하거나 타이머를 기다릴 수 있습니다. 타이머만 사용하려면 [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick)에 `false`를 전달하십시오. 지연은 슬라이드 쇼가 언제 진행되는지를 제어하며, 시각적 전환 효과의 지속 시간을 설정하지는 않습니다.
 
-다음 예제는 첫 번째 세 슬라이드에 서로 다른 효과를 할당하고 각각 3초, 5초, 7초 후에 자동 진행되도록 설정합니다. 마우스 클릭으로도 슬라이드를 진행할 수 있습니다. 슬라이드가 세 개 이상 포함된 `input.pptx` 파일을 사용하십시오.
+이 예제는 처음 세 슬라이드에 서로 다른 효과를 할당하고 각각 3초, 5초, 7초 후에 자동 진행을 활성화합니다. 마우스 클릭으로도 이 슬라이드들을 진행할 수 있습니다. 최소 세 개 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -93,9 +195,9 @@ try {
 }
 ```
 
-타이머 진행이 활성화되었는지 확인하려면 [getAdvanceAfter](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter)를 호출합니다. 저장된 지연 시간만으로는 타이머가 활성 상태인지 판단할 수 없습니다.
+타이머 진행이 활성화되어 있는지 확인하려면 [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) 메서드를 호출하십시오. 저장된 지연만으로는 타이머가 활성 상태인지 판단할 수 없습니다.
 
-다음 예제는 위에서 저장한 파일을 열어 각 슬라이드의 타이머가 활성화되었는지 보고, 2초보다 큰 지연 시간을 가진 슬라이드의 자동 진행을 비활성화하고 클릭 진행을 활성화한 뒤 설정을 저장합니다.
+다음 예제는 위에서 저장한 파일을 열고 각 활성 타이머를 보고, 2초 이상 지연된 슬라이드에 대한 자동 진행을 비활성화합니다. 해당 슬라이드에 대해 마우스 클릭을 활성화하고 업데이트된 설정을 저장합니다.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -122,21 +224,27 @@ try {
 }
 ```
 
-## **전환 타이밍 정밀 제어**
+## **전환 타이밍 정확히 제어**
 
-[setDuration](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setDuration)을 사용해 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 메서드를 통해 이러한 설정에 접근할 수 있으며, 반환되는 객체는 [SlideShowTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/)입니다.
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) 을 사용하여 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 메서드는 이러한 설정을 [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/)을 통해 노출합니다.
 
 | 메서드 | 목적 |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | 슬라이드가 자동으로 진행되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 [setAdvanceAfter](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter)에 `true`를 전달하십시오. |
-| [setSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionspeed/) 열거형의 미리 정의된 속도 범주(Slow, Medium, Fast) 중 하나를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우에 사용됩니다. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | 슬라이드가 자동으로 전환되기 전의 지연을 밀리초 단위로 설정합니다. `true`를 [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 에 전달하여 타이머를 활성화합니다. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) 에서 Slow, Medium, Fast 중 사전 정의된 속도 카테고리를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우 사용됩니다. |
 
-[setDuration](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setDuration)은 전환 효과만을 제어하며, 슬라이드가 화면에 남아 있는 시간을 결정하지는 않습니다. 자동 진행 지연은 별도로 설정해야 합니다. 명시적인 지속 시간이 없을 경우 Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 값을 기반으로 효과 지속 시간을 계산합니다.
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) 은 전환 효과만 제어하며 슬라이드가 화면에 머무는 시간을 결정하지는 않습니다. 자동 진행 지연은 별도로 구성하십시오. 명시적인 지속 시간이 설정되지 않은 경우 Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 값을 기반으로 효과 지속 시간을 결정합니다.
+
+<!-- visual-explanation:slide-transition:start -->
+[![Separate bars identify the 750‑ms transition duration and 5,000‑ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*공유된 예제는 각 슬라이드에 750 ms Fade 전환을 적용하고 자동 진행을 5 000 ms에 별도로 활성화합니다. 전환 지속 시간은 효과를 제어하고, 진행은 슬라이드를 떠나는 시점을 제어합니다. 이 막대는 실제 측정된 타임라인이 아니라 개략적인 설정을 나타냅니다.*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **모든 슬라이드에 동일한 지속 시간 적용**
 
-일관된 진행 속도를 위해 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 이 예제는 `input.pptx`를 로드하고, [TransitionType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초의 지속 시간을 지정합니다. 또한 자동 진행을 5,000밀리초 후에 활성화하고 마우스 클릭에 의한 진행을 비활성화한 뒤 PPTX로 저장합니다.
+일관된 속도를 위해 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 이 예제는 `input.pptx`를 로드하고 [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초 지속 시간을 부여합니다. 자동 진행을 5 000밀리초 후에 별도로 활성화하고 마우스 클릭 진행은 비활성화한 뒤 PPTX로 결과를 저장합니다.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -149,7 +257,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // 효과 지속 시간과 별도로 자동 진행을 구성합니다.
+        // 효과 지속 시간과는 별도로 자동 진행을 구성합니다.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -161,9 +269,9 @@ try {
 }
 ```
 
-### **개별 슬라이드에 다른 지속 시간 설정**
+### **개별 슬라이드에 서로 다른 지속 시간 설정**
 
-슬라이드마다 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어 제목 슬라이드에는 짧은 전환을, 섹션 도입 슬라이드에는 긴 전환을 적용합니다. 이 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1,200밀리초를 설정합니다. 최소 두 개의 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
+슬라이드마다 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어, 제목 슬라이드에는 짧은 전환을, 섹션 소개 슬라이드에는 더 긴 전환을 사용합니다. 이 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1 200밀리초를 설정합니다. 최소 두 개 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,15 +296,15 @@ try {
 }
 ```
 
-### **애니메이션 출력과 전환 동기화**
+### **애니메이션 출력과 전환 조정**
 
-[animated GIF](/slides/ko/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/nodejs-java/export-to-html5/), 또는 [video](/slides/ko/nodejs-java/convert-powerpoint-to-video/)를 준비할 때는 내보내기 전에 정확한 전환 지속 시간을 설정해 의도한 템포와 맞추십시오. 예를 들어 장면 간에 600밀리초 페이드를 사용하고, 각 슬라이드의 진행 지연을 별도로 조정해 내레이션이나 콘텐츠가 재생될 시간을 확보합니다.
+[animated GIF](/slides/ko/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/nodejs-java/export-to-html5/), 또는 [video](/slides/ko/nodejs-java/convert-powerpoint-to-video/)를 준비할 때 내보내기 전에 정확한 전환 지속 시간을 설정하여 의도한 템포에 맞추십시오. 예를 들어, 장면 사이에 600밀리초 페이드를 사용하고, 각 슬라이드의 진행 지연을 별도로 조정하여 내레이션이나 내용이 표시될 시간을 확보합니다.
 
-GIF와 비디오의 경우 효과 지속 시간에 맞춰 출력 프레임 레이트를 조정하십시오: 600밀리초는 30fps에서 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화합니다. 선택한 내보내기 형식이 지원하는 효과와 타이밍 옵션을 확인하고, 출력 결과를 미리 보아 동기화를 검증하십시오.
+GIF 및 비디오의 경우, 출력 프레임 레이트를 효과 지속 시간과 맞추어야 합니다. 600밀리초는 30fps에서 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화하십시오. 선택한 내보내기 형식이 지원하는 효과와 타이밍 옵션을 확인하고, 출력물을 미리 보기하여 동기화가 정확한지 확인하십시오.
 
 ### **기존 전환 지속 시간 읽기**
 
-전환을 수정하기 전에 [getDuration](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getDuration)을 호출해 명시적인 값이 저장돼 있는지 확인합니다. `-1`은 명시적인 지속 시간이 설정되지 않았음을 의미하고, 0 이상 값은 밀리초 단위로 저장된 지속 시간을 나타냅니다. 이 값은 계산된 재생 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 값을 사용해 해당 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로, 먼저 원본 설정을 확인하십시오.
+전환을 수정하기 전에 [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) 을 호출하여 명시적인 값이 저장되어 있는지 확인합니다. `-1` 값은 명시적인 지속 시간이 설정되지 않았음을 의미하고, 음수가 아닌 값은 밀리초 단위로 저장된 지속 시간을 나타냅니다. 설정되지 않은 값은 계산된 재생 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 값을 사용해 해당 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로 먼저 원래 설정을 검사하십시오.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -221,9 +329,9 @@ try {
 
 ## **Morph 전환**
 
-Morph 전환은 연속된 슬라이드의 객체 사이 변화에 애니메이션을 적용합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고, 복제본에서 객체를 이동하거나 크기를 조정한 뒤 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 원본과 변경된 상태 사이를 애니메이션으로 전환할 수 있습니다.
+Morph 전환은 연속된 슬라이드의 객체 변경을 애니메이션합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고 복제본에서 객체를 이동하거나 크기를 조정한 다음 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 원본과 수정된 상태 사이에서 해당 객체를 애니메이션화하는 전환이 생성됩니다.
 
-다음 예제는 텍스트 사각형이 포함된 슬라이드를 만든 뒤 복제하고, 복제본에서 사각형의 위치와 크기를 변경합니다. 그런 다음 두 번째 슬라이드에 대해 [TransitionType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitiontype/) 열거형에서 Morph를 선택합니다. Morph를 지원하는 프레젠테이션 뷰어에서 저장된 파일을 열어 슬라이드 쇼 중 효과를 확인하십시오.
+다음 예제는 텍스트 사각형이 포함된 슬라이드를 만들고, 슬라이드를 복제한 뒤 복제본에서 사각형의 위치와 크기를 변경합니다. 그런 다음 두 번째 슬라이드에 대해 [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) 열거형에서 Morph를 선택합니다. Morph를 지원하는 프레젠테이션 뷰어에서 저장된 파일을 열어 슬라이드 쇼 중 효과를 확인하십시오.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -251,15 +359,13 @@ try {
 
 ## **Morph 전환 유형**
 
-[TransitionMorphType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 매칭하고 애니메이션하는 방식을 제어합니다.
+[TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 매칭하고 애니메이션하는 방식을 제어합니다:
 
-- [ByObject](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) 은 각 도형을 전체 객체로 취급합니다.
-- [ByWord](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) 은 가능한 경우 단어 단위로 텍스트를 매칭해 애니메이션합니다.
-- [ByChar](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) 은 가능한 경우 문자 단위로 텍스트를 매칭해 애니메이션합니다.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) 은 각 도형을 전체 객체로 처리합니다.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) 은 가능한 경우 단어를 매칭하여 텍스트를 애니메이션합니다.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) 은 가능한 경우 문자를 매칭하여 텍스트를 애니메이션합니다.
 
-[Morph]를 선택하려면 [setType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setType)으로 Morph를 지정한 뒤 [getValue](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getValue)에 접근합니다. 반환된 값은 [MorphTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/morphtransition/) 객체를 제공하며, 이 객체의 [setMorphType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/morphtransition/#setMorphType) 메서드로 매칭 모드를 선택합니다.
-
-다음 예제는 이전 섹션에서 만든 프레젠테이션을 열어 두 번째 슬라이드에 단어 기반 Morph 애니메이션을 구성합니다.
+[Morph] 전환을 선택하려면 [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) 을 사용한 뒤 [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) 에 접근합니다. 반환된 값은 [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/) 객체를 제공하며, 해당 객체의 [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) 메서드로 매칭 모드를 선택합니다.
 
 ```javascript
 const java = require("java");
@@ -288,9 +394,9 @@ try {
 
 ## **전환 효과 설정**
 
-일부 전환은 방향이나 검은 화면에서 시작 여부와 같은 추가 옵션을 제공합니다. 사용 가능한 옵션은 [setType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setType)으로 선택한 전환에 따라 달라집니다. 먼저 유형을 설정한 뒤, [getValue](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getValue)에서 반환되는 적절한 전환 객체를 사용하십시오.
+일부 전환은 방향이나 효과가 검은 화면에서 시작되는지 여부와 같은 추가 옵션을 노출합니다. 사용 가능한 옵션은 [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) 으로 선택한 전환에 따라 달라집니다. 먼저 유형을 설정한 뒤 [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) 로부터 적절한 전환 객체를 사용하십시오.
 
-다음 예제는 `input.pptx`의 첫 번째 슬라이드에 Cut 전환을 적용합니다. [OptionalBlackTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/optionalblacktransition/)을 통해 [setFromBlack](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack)을 호출해 전환이 검은 화면에서 시작하도록 합니다.
+다음 예제는 `input.pptx`의 첫 번째 슬라이드에 Cut 전환을 적용합니다. [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) 을 통해 [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) 을 호출하여 전환이 검은 화면에서 시작하도록 합니다.
 
 ```javascript
 const java = require("java");
@@ -315,18 +421,18 @@ try {
 
 ## **FAQ**
 
-**슬라이드 전환의 재생 속도를 제어할 수 있나요?**
+**슬라이드 전환 재생 속도를 제어할 수 있나요?**
 
-네. 정확한 효과 지속 시간을 밀리초 단위로 지정해야 할 경우 [setDuration](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setDuration)을 사용하십시오. 미리 정의된 [TransitionSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionspeed/) 카테고리(느림, 보통, 빠름)만으로 충분하고 명시적인 지속 시간이 필요하지 않은 경우 [setSpeed](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setSpeed)를 사용하십시오. 이러한 설정은 자동 진행 지연과는 별도로 전환 효과만을 제어합니다.
+예. 밀리초 단위의 정확한 효과 지속 시간이 필요할 때는 [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) 을 사용하는 것이 좋습니다. 사전 정의된 [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) 카테고리(느림, 보통, 빠름)만으로 충분하고 명시적인 지속 시간을 설정하지 않을 경우에는 [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) 를 사용하십시오. 이러한 설정은 자동 진행 지연과는 독립적으로 전환 효과를 제어합니다.
 
 **전환에 오디오를 연결하고 반복 재생하도록 할 수 있나요?**
 
-네. [setSound](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setSound)으로 내장 오디오를 지정하고, [TransitionSoundMode](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitionsoundmode/) 열거형의 StartSound 값을 [setSoundMode](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode)에 전달한 뒤 [setSoundLoop](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop)을 `true`로 설정하면 됩니다. 오디오는 슬라이드 쇼의 다음 사운드 이벤트가 발생할 때까지 반복 재생됩니다.
+예. [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound) 로 임베디드 오디오를 할당하고, [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) 열거형에서 StartSound 를 [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) 에 전달한 뒤, `true` 로 [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) 을 활성화합니다. 오디오는 슬라이드 쇼에서 다음 사운드 이벤트가 발생할 때까지 반복 재생됩니다.
 
-**모든 슬라이드에 동일한 전환을 가장 빠르게 적용하려면 어떻게 해야 하나요?**
+**모든 슬라이드에 동일한 전환을 적용하는 가장 빠른 방법은 무엇인가요?**
 
-프레젠테이션의 [getSlides](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/#getSlides) 컬렉션을 순회하면서 각 슬라이드의 전환에 대해 동일한 값을 갖도록 [setType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#setType)을 호출하십시오. 동일한 루프 안에서 타이밍 및 효과 옵션을 설정하면 슬라이드 간 동작이 일관됩니다.
+프레젠테이션의 [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) 컬렉션을 순회하면서 각 슬라이드의 전환에 대해 동일한 값을 사용하여 [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) 을 호출하십시오. 동일한 루프에서 타이밍 및 효과 옵션도 설정하면 슬라이드 전체에 일관된 동작을 유지할 수 있습니다.
 
-**슬라이드에 현재 설정된 전환을 확인하려면 어떻게 하나요?**
+**슬라이드에 현재 설정된 전환을 어떻게 확인할 수 있나요?**
 
-슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 결과에 대해 [getType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/slideshowtransition/#getType)을 호출합니다. 반환값은 [TransitionType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/transitiontype/) 열거형의 값이며, None이면 전환 효과가 적용되지 않은 것입니다.
+슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 결과에 대해 [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) 을 호출하십시오. 반환값은 [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) 열거형의 값이며, None이면 전환 효과가 적용되지 않은 것입니다.

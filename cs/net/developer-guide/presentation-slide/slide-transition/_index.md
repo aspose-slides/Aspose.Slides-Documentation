@@ -1,15 +1,15 @@
 ---
-title: Spravovat přechody snímků v prezentacích v .NET
+title: Správa přechodů snímků v prezentacích v .NET
 linktitle: Přechod snímku
 type: docs
 weight: 90
 url: /cs/net/slide-transition/
 keywords:
 - přechod snímku
-- přidat přechod snímku
-- použít přechod snímku
+- přidání přechodu snímku
+- použití přechodu snímku
 - pokročilý přechod snímku
-- morph přechod
+- Morph přechod
 - typ přechodu
 - efekt přechodu
 - PowerPoint
@@ -18,15 +18,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Použijte přechody snímků, nakonfigurujte automatické posunování snímků a přizpůsobte Morph a další efekty přechodů s Aspose.Slides pro .NET."
+description: "Použijte přechody snímků, nastavte automatické posouvání snímků a přizpůsobte Morph a další efekty přechodu pomocí Aspose.Slides pro .NET."
 ---
 ## **Přehled**
 
-Slide transitions control how slides appear during a slide show. With Aspose.Slides for .NET, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C# examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
+Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides pro .NET můžete pro každý snímek zvolit efekt přechodu, nastavit postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v C#, aby ukázal, jak použít přechody, nastavit přesnou délku přechodu, spravovat časování snímků a vytvořit přechod Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
-## **Přidat přechod snímku**
+## **Přidání přechodu snímku**
 
-Pro aplikaci přechodu načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a přistupte k vlastnosti snímku [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). Nastavte její [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) a poté prezentaci uložte.
+Chcete‑li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a přistupte k vlastnosti snímku [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). Nastavte její [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) a poté prezentaci uložte.
 
 Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
@@ -51,11 +51,11 @@ else
 }
 ```
 
-## **Kolečkový přechod**
+## **Přechod Wheel**
 
-Vlastnost [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) rozhraní [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) řídí počet radiálních sektorů, které odhalují cílový snímek. Nastavte přechod snímku [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na Wheel z [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) před tím než získáte [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) jako [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
+Vlastnost [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) rozhraní [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) určuje počet radiálních sektorů, které odhalují cílový snímek. Nastavte [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) snímku na Wheel z [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) před tím, než získáte [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) jako [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
 
-Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky používají počet paprsků 1 a 8, se stejnou [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) a explicitní [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 8 000 milisekund, aby byl rozdíl snadno pozorovatelný.
+Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky použijí počty paprsků 1 a 8, se stejnou [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) a výslovnou [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 8 000 ms, aby byl rozdíl snadno pozorovatelný.
 
 ```csharp
 using System.Drawing;
@@ -96,19 +96,70 @@ for (var i = 0; i < spokeCounts.Length; i++)
 presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
 ```
 
-Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Přesuňte se ze snímku 1 na snímek 2 a poté ze snímku 3 na snímek 4. V přehrávání PowerPointu ověřený počet paprsků 1 odhalí snímek jedním pootočením po směru hodinových ručiček; ověřený počet 8 odhalí snímek osmi radially sectorů současně. Obsah cíle a časování přechodu jsou identické, takže rozdíl je v počtu odhalovacích sektorů.
+Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Přejděte ze snímku 1 na snímek 2 a poté ze snímku 3 na snímek 4. Při přehrávání v PowerPointu ověřený počet paprsků 1 odhalí snímek jedním otáčením po směru hodinových ručiček; ověřený počet 8 odhalí snímek osmma radiálními sektory najednou. Obsah cílového snímku i časování přechodu jsou identické, rozdíl je pouze v počtu odhalovacích sektorů.
 
-## **Přidat pokročilý přechod snímku**
+## **Rozplynutí přes černou s přechodem Reveal**
+
+Nastavte typ přechodu cílového snímku na Reveal a poté použijte [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/) k nastavení [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/). Příklad vytvoří tyrkysový zdrojový snímek a korálový cílový snímek, pak oba klony, abyste mohli porovnat stejný dvousekundový přechod s vypnutým a zapnutým rozplynutím.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+V prezentaci PowerPoint přejděte ze snímku 1 na snímek 2. Tyrkysová barva se přímo rozplyne na korálovou. Poté přejděte ze snímku 3 na snímek 4. Obrazovka se na okamžik zčerná až na téměř černé, než se objeví korálový snímek. Oba snímky si zachovají své původní barvy pozadí.
+
+Níže jsou řádky s rámečky z PowerPointu po půlsekundových intervalech. Porovnejte střední snímek v každém řádku a uvidíte vliv nastavení.
+
+![PowerPoint playback with ThroughBlack disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **Přidání pokročilého přechodu snímku**
 
 Můžete nastavit, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci dál. Následující vlastnosti řídí toto chování:
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) umožňuje divákovi posunout dál kliknutím myši.
-- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) umožňuje automatické posunutí.
-- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) určuje zpoždění před automatickým posunem v milisekundách.
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) umožňuje uživateli postupovat kliknutím myši.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) povoluje automatické postoupnutí.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) udává prodlevu před automatickým posunem v milisekundách.
 
-Povolte jak kliknutí, tak časované posunutí, aby divák mohl pokračovat kliknutím nebo čekáním na časovač. Pro použití pouze časovače nastavte [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) na `false`. Zpoždění řídí, kdy se prezentace posune dál; nenastavuje délku vizuálního efektu přechodu.
+Povolte jak kliknutí, tak časované posouvání, aby si uživatel mohl buď kliknutím pokračovat, nebo počkat na časovač. Chcete‑li použít jen časovač, nastavte [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) na `false`. Prodleva určuje, kdy se prezentace posune; nenastavuje délku samotného vizuálního přechodu.
 
-Tento příklad přiřadí různé efekty k prvním třem snímkům a povolí automatické posunutí po 3, 5 a 7 sekundách. Kliknutí myší mohou také posunout tyto snímky. Použijte soubor `input.pptx` s alespoň třemi snímky.
+Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické posouvání po 3, 5 a 7 sekundách. Kliknutí myší mohou tyto snímky také posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```csharp
 using System;
@@ -146,9 +197,9 @@ else
 }
 ```
 
-Pro kontrolu, zda je časované posunutí povoleno, přečtěte [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). Uložené zpoždění samo o sobě neindikuje, že je časovač aktivní.
+Pro kontrolu, zda je časované posouvání povoleno, přečtěte [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). Pouze uložená prodleva neznamená, že je časovač aktivní.
 
-Další příklad otevře výše uložený soubor, vypíše každý povolený časovač a zakáže automatické posunutí pro snímky se zpožděním delším než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizované nastavení.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické posouvání pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```csharp
 using System;
@@ -176,21 +227,21 @@ foreach (var slide in presentation.Slides)
 presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 ```
 
-## **Přesně ovládat časování přechodu**
+## **Přesné řízení načasování přechodu**
 
-Použijte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/), abyste určili přesnou délku efektu přechodu v milisekundách. Vlastnost [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) snímku zpřístupňuje tato nastavení přes [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
+Použijte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) k určení přesné délky efektu přechodu v milisekundách. Vlastnost snímku [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) tuto konfiguraci zveřejňuje skrze [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
 
 | Vlastnost | Účel |
 | --- | --- |
 | [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Nastavuje dobu trvání samotného efektu přechodu v milisekundách. |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Nastavuje zpoždění před automatickým posunem snímku v milisekundách. Aktivujte [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/), aby se tento časovač spustil. |
-| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána přesná doba. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Udává prodlevu před automatickým posunem snímku v milisekundách. Pro aktivaci tohoto časovače zapněte [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium nebo Fast. Používá se, pokud není zadána přesná doba. |
 
-[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) kontroluje jen efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Nastavte zpoždění automatického posunu samostatně. Když není nastaven explicitní čas, Aspose.Slides určuje dobu trvání efektu z typu přechodu a hodnoty [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/).
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) řídí jen samotný efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Nastavte prodlevu automatického posunu zvlášť. Když není zadána explicitní doba, Aspose.Slides určí dobu trvání podle typu přechodu a hodnoty [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/).
 
-### **Použít stejnou dobu na všechny snímky**
+### **Použít stejnou dobu na každý snímek**
 
-Pro jednotné tempo použijte stejný efekt a přesnou dobu trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), a nastaví každému přechodu dobu 750 milisekund. Samostatně povolí automatické posunutí po 5 000 milisekundách a zakáže posunutí kliknutím myši, poté výsledek uloží jako PPTX.
+Pro jednotné tempo použijte stejný efekt a přesnou dobu na všechny snímky. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) a nastaví každému přechodu dobu 750 ms. Zároveň povolí automatické posouvání po 5 000 ms a zakáže posouvání kliknutím, poté uloží výsledek jako PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -205,7 +256,7 @@ foreach (var slide in presentation.Slides)
     transition.Type = TransitionType.Fade;
     transition.Duration = 750;
 
-    // Nastavte automatické posouvání nezávisle na době trvání efektu.
+    // Nastavte automatické posouvání nezávisle na trvání efektu.
     transition.AdvanceAfter = true;
     transition.AdvanceAfterTime = 5000;
     transition.AdvanceOnClick = false;
@@ -216,7 +267,7 @@ presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 
 ### **Nastavit různé doby pro jednotlivé snímky**
 
-Různé snímky mohou používat různé doby efektů. Například použijte krátký přechod pro titulek a delší přechod pro úvod sekce. Tento příklad nastaví 500 milisekund pro první snímek a 1 200 milisekund pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Různé snímky mohou mít různé doby efektů. Například použijte krátký přechod pro úvodní snímek a delší pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```csharp
 using System;
@@ -244,15 +295,15 @@ else
 }
 ```
 
-### **Koordinovat přechody s animovaným výstupem**
+### **Koordinace přechodů s animovaným výstupem**
 
-Při přípravě [animated GIF](/slides/cs/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/net/export-to-html5/), nebo [video](/slides/cs/net/convert-powerpoint-to-video/) nastavte přesné doby přechodů před exportem, aby odpovídaly požadovanému tempu. Například použijte 600‑milisekundový fade mezi scénami a upravte zpoždění posunu každého snímku samostatně, aby byl dostatek času na jeho vyprávění nebo obsah.
+Při přípravě [animated GIF](/slides/cs/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/net/export-to-html5/) nebo [video](/slides/cs/net/convert-powerpoint-to-video/) nastavte přesné doby přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a samostatně upravte prodlevu posunu každého snímku, aby byl dostatek času na komentář nebo obsah.
 
-Pro GIF a video koordinujte výstupní snímkovou frekvenci s délkou efektu: 600 milisekund odpovídá 18 snímkům při 30 snímcích za sekundu. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte, jaké efekty a časové možnosti podporuje zvolený exportní formát, a proveďte náhled výstupu pro potvrzení synchronizace.
+U GIF a videa sladte rychlost snímků výstupu s délkou efektu: 600 ms odpovídá 18 rámcům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a časování cílového formátu a proveďte náhled výstupu, aby byl synchronizován.
 
-### **Načíst existující dobu přechodu**
+### **Načtení existující délky přechodu**
 
-Přečtěte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavena žádná explicitní doba; nezáporná hodnota určuje uloženou dobu v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/), aby tuto dobu určil. Nastavení typu přechodu může inicializovat dobu, takže nejprve prozkoumejte původní nastavení.
+Před úpravou přechodu si přečtěte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/), abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavená žádná explicitní doba; nezáporná hodnota udává uloženou dobu v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) k určení této doby. Nastavení typu přechodu může inicializovat dobu, proto nejprve zkontrolujte původní nastavení.
 
 ```csharp
 using System;
@@ -276,11 +327,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Přechod Morph**
+## **Morph přechod**
 
-Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph naklonujte snímek, přesuňte nebo změňte velikost objektu v klonu a aplikujte přechod Morph na druhý snímek. To umožní přechodu animovat odpovídající objekty mezi jejich původním a upraveným stavem.
+Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph klonujte snímek, posuňte nebo změňte velikost objektu na klonu a použijte přechod Morph na druhý snímek. Tím se vytvoří animace mezi původní a upravenou verzí objektu.
 
-Následující příklad vytvoří snímek s textovým obdélníkem, naklonuje snímek a změní pozici a velikost obdélníku v klonu. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
+Následující příklad vytvoří snímek s obdélníkem obsahujícím text, klonuje snímek a změní pozici a velikost obdélníku na klonu. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
 
 ```csharp
 using Aspose.Slides;
@@ -305,15 +356,17 @@ secondSlide.SlideShowTransition.Type = TransitionType.Morph;
 presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
-## **Typy přechodu Morph**
+## **Typy Morph přechodů**
 
-Výčet [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) určuje, jak Morph porovnává a animuje obsah:
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
 
 - [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) zachází s každým tvarem jako s celým objektem.
 - [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animuje text porovnáním slov, kde je to možné.
 - [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animuje text porovnáním znaků, kde je to možné.
 
-Nastavte přechod [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na Morph před tím, než získáte jeho [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). Hodnota pak poskytuje rozhraní [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/), jehož vlastnost [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) vybírá režim porovnání.
+Nejprve nastavte [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) přechodu na Morph, pak přistupte k [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). Hodnota pak poskytne rozhraní [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/), jehož vlastnost [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) vybírá režim přiřazování.
+
+Tento příklad otevře prezentaci vytvořenou v předchozí kapitole a nakonfiguruje druhý snímek tak, aby používal animaci Morph založenou na slovech.
 
 ```csharp
 using System;
@@ -344,17 +397,18 @@ else
 }
 ```
 
-<!-- visual-explanation:slide-transition:start -->
-[![Jednotky pro párování Morph zobrazené jako celý tvar, jednotlivá slova a jednotlivé znaky.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
 
-*Morph může porovnávat celé tvary, slova nebo znaky, kde je to možné. Tyto rámečky označují porovnávací jednotky místo pozorovaného pohybu. Příklad vybírá ByWord na druhém snímku.*
+<!-- visual-explanation:slide-transition:start -->
+[![Morph matching units shown as a whole shape, individual words, and individual characters.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
+
+*Morph může přiřadit celé tvary, slova nebo znaky, kde je to možné. Tyto rámečky identifikují přiřazovací jednotky místo pozorovaného pohybu. Příklad volí ByWord na druhém snímku.*
 <!-- visual-explanation:slide-transition:end -->
 
-## **Nastavit efekty přechodu**
+## **Nastavení efektů přechodu**
 
-Některé přechody nabízejí další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na vybraném typu přechodu [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Nejprve nastavte typ a poté použijte odpovídající rozhraní z jeho [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
+Některé přechody odhalují další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na zvoleném [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Nejprve nastavte typ a poté použijte odpovídající rozhraní z [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
 
-Následující příklad použije přechod Cut na první snímek souboru `input.pptx`. Nastavuje [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) prostřednictvím [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/), aby přechod začínal z černé obrazovky.
+Následující příklad použije přechod Cut na první snímek `input.pptx`. Nastaví [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) přes rozhraní [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/), aby přechod začínal z černé obrazovky.
 
 ```csharp
 using System;
@@ -377,20 +431,20 @@ else
 }
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Ano. Upřednostněte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/), pokud potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium nebo Fast, a není nastavena explicitní doba. Tato nastavení řídí efekt přechodu nezávisle na zpoždění automatického posunu.
+Ano. Upřednostněte [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/), když potřebujete přesnou dobu trvání v milisekundách. Použijte [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) — Slow, Medium nebo Fast — a není nastavena explicitní doba. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického posouvání.
 
-**Mohu k přechodu připojit zvuk a nechat jej opakovat?**
+**Mohu k přechodu přiřadit zvuk a nechat jej smyčkovat?**
 
-Ano. Přiřaďte vložený zvuk k [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), nastavte [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) na StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/), a povolte [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). Zvuk se bude opakovat až do dalšího zvukového události v prezentaci.
+Ano. Přiřaďte vložený zvuk k [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), nastavte [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) na StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/), a povolte [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). Zvuk se bude opakovat, dokud nenastane další zvuková událost v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
+**Jaký je nejrychlejší způsob, jak nastavit stejný přechod na všechny snímky?**
 
-Projděte kolekci [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) prezentace a nastavte každému snímku přechod [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na stejnou hodnotu. V tomtéž cyklu nastavte také časování a možnosti efektu, aby chování bylo napříč snímky konzistentní.
+Projděte kolekci [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) v prezentaci a pro každý snímek nastavte přechod [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) na stejnou hodnotu. V téže smyčce nastavte také časování a volby efektu, aby chování bylo konzistentní napříč snímky.
 
-**Jak mohu zjistit, který přechod je aktuálně nastaven na snímku?**
+**Jak zjistit, který přechod je aktuálně nastavený na snímku?**
 
-Přečtěte vlastnost [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) ze [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) snímku. Vrací hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/); None znamená, že není aplikován žádný efekt přechodu.
+Přečtěte si vlastnost [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) z [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/); None označuje, že není aplikován žádný efekt přechodu.

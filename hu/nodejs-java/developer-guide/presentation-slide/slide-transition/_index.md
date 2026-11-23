@@ -1,5 +1,5 @@
 ---
-title: Diavetítések diáátmeneteinek kezelése JavaScript használatával
+title: Diaátmenetek kezelése prezentációkban JavaScript segítségével
 linktitle: Diaátmenet
 type: docs
 weight: 80
@@ -11,24 +11,24 @@ keywords:
 - haladó diaátmenet
 - Morph átmenet
 - átmenet típusa
-- átmeneti hatás
+- átmeneti effektus
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Alkalmazzon diaátmeneteket, konfigurálja a automatikus dia előrehaladást, és testreszabja a Morph és egyéb átmeneti hatásokat az Aspose.Slides for Node.js via Java segítségével."
+description: "Alkalmazzon diaátmeneteket, állítsa be az automatikus diaelőrehaladást, és testreszabja a Morph és egyéb átmeneti effektusokat az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Diavetítés-átmenetek szabályozzák, hogyan jelennek meg a diák egy diavetítés során. Az Aspose.Slides for Node.js via Java segítségével kiválaszthat egy átmenet‑effektust minden diára, beállíthatja a léptetést egérkattintás vagy időzítő alapján, és módosíthatja az effektusra jellemző beállításokat. Ez a cikk JavaScript példákat használ az átmenetek alkalmazásához, a pontos átmeneti időtartamok beállításához, a dia időzítésének kezeléséhez, és egy Morph átmenet létrehozásához két dia között. A példák azt is bemutatják, hogyan menthető el a beállítás egy PPTX fájlba.
+A diaátmenetek szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for Node.js via Java segítségével minden diához kiválaszthat egy átmeneti hatást, beállíthatja a haladást egérkattintással vagy időzítővel, és módosíthatja az adott hatásra jellemző opciókat. Ez a cikk JavaScript példákat használ az átmenetek alkalmazására, a pontos átmenet időtartamok beállítására, a diaidőzítés kezelésére, valamint két dia közötti Morph átmenet létrehozására. A példák azt is bemutatják, hogyan menthetők a beállítások PPTX fájlba.
 
-## **Diavetítés-átmenet hozzáadása**
+## **Diaátmenet hozzáadása**
 
-Az átmenet alkalmazásához töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztállyal, majd érje el a dia átmenet beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) metódussal. Használja a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolás egy értékével, majd mentse a prezentációt.
+Az átmenet alkalmazásához töltse be a prezentációt a [Prezentáció](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) osztállyal, majd a dia átmeneti beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) metódussal érheti el. Használja a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolt értéke közül, majd mentse a prezentációt.
 
-Az alábbi példa a Circle átmenetet alkalmazza az első diára, a Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diával rendelkezik.
+Az alábbi példa az első diára Circle, a másodikra pedig Comb átmenetet alkalmaz. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -50,9 +50,9 @@ try {
 
 ## **Kerék átmenet**
 
-A [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) metódus a [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) osztályban szabályozza a cél dia felfedéséhez szükséges radiális szektorok számát. Állítsa a dia átmenet típusát Wheel-re a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) segítségével a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) hívásával, mielőtt a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) metódust [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) példányként elérné.
+A [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) metódus a [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) osztályban szabályozza, hogy hány sugárirányú szektor fedje fel a céldiat. Állítsa a dia átmeneti típusát Wheel-re a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) segítségével a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódussal, mielőtt a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) metódusra hívná, mint [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-Ez a példa két azonos diapárt hoz létre: egy fekete diát, amelyet egy arany téglalappal rendelkező dia követ. A cél diák 1 és 8 szektoros kerekekkel rendelkeznek, ugyanazzal a sebességgel, amelyet a [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) állít be, valamint egyértelműen 8 000 milliszekundumos időtartammal, amelyet a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) állít be, hogy a különbség könnyen megfigyelhető legyen.
+Ez a példa két azonos diapárt hoz létre: egy fekete diát, amelyet egy arany téglalapos dia követ. A céldiák 1 és 8 sugárszámmal rendelkezik, ugyanazzal a sebességgel, amelyet a [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) metódussal állítottunk be, valamint egy kifejezett 8 000 ms időtartammal, amelyet a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) metódus ad meg, hogy a különbség könnyen megfigyelhető legyen.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,71 @@ try {
 }
 ```
 
-Nyissa meg a kimeneti prezentációt a PowerPointban, és indítsa el a diavetítést. Lépjen az 1. diáról a 2.-re, majd a 3.-ról a 4.-re. PowerPoint lejátszás közben az 1-es szektorok számával a dia egy óramutató járásával megegyező letapogatással jelenik meg; a 8-as számú szektorokkal egyszerre nyolc radiális szektor nyílik ki. A tartalom és az időzítés azonos, így a különbség a felfedési szektorok számában rejlik.
+Nyissa meg a kimeneti prezentációt a PowerPointban, és indítsa el a diavetítést. Haladjon az 1. diáról a 2. diára, majd a 3. diáról a 4. diára. A PowerPoint lejátszásában az 1-es sugárszám az egymás után járó óramutató járásával megegyező egyetlen szektort mutatja; a 8-as szám nyolc sugárszektorral egyszerre fed le. A cél tartalom és az átmeneti időzítés azonos, így a különbség a felfedési szektorok száma.
 
-## **Haladó diavetítés-átmenet hozzáadása**
+## **Fekéren keresztül halványítás a Reveal átmenettel**
 
-Az alábbi módszerek szabályozzák, mennyi ideig marad egy dia a képernyőn, és hogy egérkattintás-e lépteti-e a diavetítést:
+Állítsa be a céldiára a Reveal átmeneti típust, majd hívja meg a [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) metódust a [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/) beállításain. Ez a példa egy türkiz forrásdiát és egy korall céldiát hoz létre, majd mindkettőt klónozza. Minden pár ugyanazt a két másodperces Reveal átmenetet használja. Csak a második pár halványul fekéren keresztül.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi a nézőnek, hogy kattintással léptessen.
-- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) engedélyezi az automatikus előrehaladást.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) a késleltetést adja meg automatikus előrehaladás előtt, ezredmásodpercben.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-Engedélyezze mind a kattintást, mind az időzített előrehaladást, hogy a néző kattintással vagy a várakozással léphessen tovább. Ha csak az időzítőt szeretné használni, adja át a `false` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés azt szabályozza, mikor lép tovább a diavetítés; nem határozza meg a vizuális átmenet időtartamát.
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
 
-Ez a példa különböző effektusokat rendel az első három diához, és automatikus előrehaladást engedélyez 3, 5 és 7 másodperc után. Egérkattintással is léptethetők ezek a diák. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nyissa meg a mentett prezentációt a PowerPointban, és indítsa el a diavetítést. Haladjon az 1. diáról a 2. diára, hogy lássa, a türkiz közvetlenül a korallba olvad. Ezután haladjon a 3. diáról a 4. diára. A képernyő röviden majdnem feketére sötétedik, mielőtt a korall dia megjelenik. Mindkét dia megtartja eredeti háttérszínét.
+
+Az alábbi sorok félszekundumos időközönként mutatják a PowerPoint képkockáit. Hasonlítsa össze az egyes sorok középső képkockáját a hatás megfigyeléséhez.
+
+![PowerPoint lejátszás a fekéren keresztül halványítás ki- (felső) és bekapcsolt (alsó) állapotával. Csak az alsó sor megy keresztül szinte feketén.](reveal-through-black.png)
+
+## **Fejlett diavetítés átmenet hozzáadása**
+
+Beállíthatja, hogy egy dia mennyi ideig maradjon a képernyőn, és hogy egérkattintás vagy időzítő lépteti-e a diavetítést. A következő metódusok szabályozzák ezt a viselkedést:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi, hogy a néző egérkattintással lépjen tovább.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) engedélyezi az automatikus léptetést.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) adja meg a késleltetést (ezredmásodpercben) az automatikus léptetés előtt.
+
+Engedélyezze mind a kattintást, mind az időzített előrehaladást, hogy a néző kattintással vagy a timerrel haladhasson tovább. Ha csak az időzítőt szeretné használni, adja át a `false` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés a diavetítés előrehaladásának időpontját irányítja; nem határozza meg a vizuális átmeneti effektus időtartamát.
+
+Ez a példa különböző hatásokat rendel az első három diához, és automatikus előrehaladást állít be 3, 5 és 7 másodperc után. Egérkattintással is léptethetők ezek a diák. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +195,9 @@ try {
 }
 ```
 
-A timed előrehaladás engedélyezésének ellenőrzéséhez hívja meg a [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metódust. A tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
+Az időzített előrehaladás engedélyezve van‑e, azt a [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metódussal ellenőrizheti. Egy tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
 
-A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azoknál a diákánál, amelyek késleltetése két másodpercnél nagyobb. Ezeknek a diáknak engedélyezi az egérkattintást, majd elmenti a módosított beállításokat.
+A következő példa megnyitja a fent mentett fájlt, jelent minden engedélyezett időzítőt, és letiltja az automatikus előrehaladást a két másodpercnél hosszabb késleltetésű diák esetén. Ezekhez a diákhoz engedélyezi az egérkattintást, majd menti a frissített beállításokat.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -174,25 +226,25 @@ try {
 
 ## **Az átmenet időzítésének pontos vezérlése**
 
-Használja a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) metódust a pontos átmeneti effektus időtartamának ezredmásodpercben történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezeket a beállításokat a [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/) objektumon keresztül tárja fel:
+Használja a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) metódust a átmeneti hatás pontos hosszának (ezredmásodpercben) megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezen beállításokhoz a [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/) objektumon keresztül fér hozzá:
 
-| Method | Purpose |
+| Módszer | Cél |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja magának az átmeneti effektus időtartamát, ezredmásodpercben. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja a késleltetést, mielőtt a dia automatikusan továbblép, ezredmásodpercben. Az időzítést a [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) hívásával aktiválja. |
-| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használatos, ha nincs megadva pontos időtartam. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja az átmeneti hatás önmagának időtartamát ezredmásodpercben. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja a késleltetést, mielőtt a dia automatikusan előrehalad, ezredmásodpercben. A [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) metódus `true` értékével aktiválható ez az időzítő. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használjuk, ha nincs megadva konkrét időtartam. |
 
-A [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) csak az átmeneti effektust szabályozza; nem határozza meg, mennyi ideig marad a dia látható. Az automatikus előrehaladási késleltetést külön kell beállítani. Ha nincs explicit időtartam megadva, az Aspose.Slides a átmenet típusából és a [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) értékből számítja ki az effektus időtartamát.
+A [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) csak az átmeneti hatást szabályozza; nem határozza meg, hogy a dia meddig látható. Az automatikus előrehaladási késleltetést külön kell beállítani. Ha nincs kifejezett időtartam megadva, az Aspose.Slides a transition típus és a [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) érték alapján határozza meg a hatás hosszát.
 
 <!-- visual-explanation:slide-transition:start -->
-[![A különálló sávok a 750 ms-ás átmeneti időtartamot és az 5 000 ms-ás automatikus előrehaladási beállítást jelölik.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Külön oszlopok mutatják a 750 ms átmeneti időtartamot és az 5 000 ms automatikus előrehaladás beállítást.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Az együttes példa minden diára 750 ms-ás Fade átmenetet ad, és külön engedélyezi az automatikus előrehaladást 5 000 ms után. Az átmenet időtartama a hatást szabályozza; az előrehaladás határozza meg, mikor hagyja el a diát. Ezek a sávok séma beállítások, nem mérhető kombinált idővonal.*
+*A megosztott példa minden diához 750 ms Fade átmenetet ad, és külön engedélyezi a 5 000 ms automatikus előrehaladást. Az átmeneti időtartam a hatást szabályozza; az előrehaladás azt, hogy mikor hagyjuk el a diát. Ezek az oszlopok séma‑beállítások, nem mért kombinált idővonalak.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Ugyanazon időtartam alkalmazása minden diára**
+### **Azonos időtartam alkalmazása minden diára**
 
-Az egységes tempó érdekében alkalmazzon ugyanazt az effektust és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) segítségével Fade‑et választ, és minden átmenethez 750 milliszekundumos időtartamot ad. Külön engedélyezi az automatikus előrehaladást 5 000 milliszekundum után, és letiltja az egérkattintásos előrehaladást, majd menti az eredményt PPTX‑ként.
+Az egységes ütem érdekében alkalmazzon ugyanazt a hatást és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) segítségével Fade‑t választ, és minden átmenetet 750 ms időtartammal lát el. Külön engedélyezi az automatikus előrehaladást 5 000 ms után, és letiltja a kattintással történő előrehaladást, majd menti a PPTX‑et.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -205,7 +257,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Konfigurálja az automatikus előrehaladást a hatás időtartamától függetlenül.
+        // Állítsa be az automatikus előrehaladást az effektus időtartamától függetlenül.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -217,9 +269,9 @@ try {
 }
 ```
 
-### **Különböző időtartamok beállítása egyedi diákhoz**
+### **Eltérő időtartamok beállítása egyes diáknál**
 
-Különböző diák különböző effektus időtartammal rendelkezhetnek. Például használjon egy rövid átmenetet a cím diára és egy hosszabbat a szakasz bevezetőjére. Ez a példa 500 milliszekundumot állít be az első diára, és 1 200 milliszekundumot a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+Különböző diák különböző hatásidőket használhatnak. Például egy címdiára rövid átmenetet, egy szekcióbevezetőre pedig hosszabb atlétet alkalmazhat. Ez a példa 500 ms‑ot állít be az első diához, és 1 200 ms‑ot a másodikhoz. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -244,15 +296,15 @@ try {
 }
 ```
 
-### **Átmenetek összehangolása animált kimenettel**
+### **Az átmenetek összehangolása animált kimenettel**
 
-Amikor egy [animált GIF](/slides/hu/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/nodejs-java/export-to-html5/) vagy [videó](/slides/hu/nodejs-java/convert-powerpoint-to-video/) elkészítéséről van szó, állítsa be a pontos átmeneti időtartamokat export előtt, hogy megfeleljenek a kívánt tempónak. Például használjon 600 milliszekundumos fade‑et a jelenetek között, és minden dia előrehaladási késleltetését külön szabályozza, hogy elegendő hely legyen a narrációnak vagy a tartalomnak.
+Amikor [animált GIF](/slides/hu/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/nodejs-java/export-to-html5/) vagy [videó](/slides/hu/nodejs-java/convert-powerpoint-to-video/) készül, állítsa be a pontos átmeneti időtartamokat az export előtt, hogy a kívánt tempóhoz igazodjanak. Például használjon 600 ms‑os halványítást a jelenetek között, és minden dia előrehaladási késleltetését külön szabályozza, hogy elegendő idő legyen a narrációnak vagy a tartalomnak.
 
-GIF‑ és videó esetén az output képkockasebességet hangolja a effektus időtartamához: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5 esetén engedélyezze az animált átmeneteket az export beállításaiban. Ellenőrizze, hogy a választott export formátum támogatja‑e az adott effektusokat és időzítési beállításokat, és tekintse meg az előnézetet a szinkronizáció megerősítéséhez.
+GIF‑ és videó esetén igazítsa a kimeneti képkockasebességet a hatás időtartamához: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5‑ben engedélyezze a animált átmeneteket az exportbeállításokban. Ellenőrizze a választott exportformátum támogatott hatásait és időzítési lehetőségeit, majd tekintse meg a kimenetet a szinkronizáció megerősítéséhez.
 
-### **Meglévő átmeneti időtartam beolvasása**
+### **Meglévő átmenet időtartamának olvasása**
 
-Módosítás előtt hívja meg a [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) metódust, hogy meghatározza, tárolt‑e explicit érték. A `-1` érték azt jelenti, hogy nincs explicit időtartam megadva; egy nem negatív érték a tárolt ezredmásodpercben mért időtartamot adja meg. A nem beállított érték nem a számított lejátszási időtartam: az Aspose.Slides a átmenet típusából és a [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) értékéből számítja ki azt. Egy átmenet típus beállítása inicializálhat egy időtartamot, ezért előbb ellenőrizze az eredeti beállításokat.
+Módosítás előtt hívja meg a [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) metódust, hogy megállapítsa, tárol-e kifejezett értéket. A `-1` érték azt jelenti, hogy nincs explicit időtartam megadva; a nem negatív érték a tárolt időtartamot ezredmásodpercben adja meg. A be nem állított érték nem a lejátszott időtartam: az Aspose.Slides a transition típust és a [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) értéket használja ennek meghatározásához. Egy transition típus beállítása inicializálhatja az időtartamot, ezért először vizsgálja meg az eredeti beállításokat.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -277,9 +329,9 @@ try {
 
 ## **Morph átmenet**
 
-A Morph átmenet animálja a változásokat a szomszédos diák objektumai között. Egy egyszerű Morph effektus létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át az objektumot a klónon, majd alkalmazza a Morph átmenetet a második diára. Így a megfelelő objektumok animálódnak az eredeti és módosított állapotuk között.
+A Morph átmenet animálja az objektumok változását egymást követő diák között. Egy egyszerű Morph hatás létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át a klónon egy objektumot, majd alkalmazza a Morph átmenetet a második diára. Így a megfelelő objektumok animálódnak az eredeti és a módosított állapot között.
 
-Az alábbi példa egy szöveges téglalappal rendelkező diát hoz létre, klónozza a diát, majd a klónon megváltoztatja a téglalap pozícióját és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolásból a Morph‑ot választja a második diára. Nyissa meg a mentett fájlt egy Morph‑ot támogató prezentációs nézőben, hogy lássa az effektust a diavetítés során.
+Az alábbi példa egy szöveges téglalappal ellátott diát hoz létre, klónozza, majd a klónon módosítja a téglalap helyzetét és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolásból a Morph‑ot választja a második diához. Nyissa meg a mentett fájlt olyan megjelenítőben, amely támogatja a Morph‑ot, hogy lássa a hatást diavetítés közben.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -307,15 +359,15 @@ try {
 
 ## **Morph átmenet típusok**
 
-A [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogyan párosítja és animálja a Morph a tartalmat:
+A [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogy a Morph hogyan illeszt és animál tartalmat:
 
-- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) minden alakzatot egészként kezel.
-- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) a szöveget szavak szerint párosítja, ahol lehetséges.
-- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) a szöveget karakterek szerint párosítja, ahol lehetséges.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) minden alakzatot külön objektumként kezel.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) szavak szerint animálja a szöveget, ahol lehetséges.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) karakterek szerint animálja a szöveget, ahol lehetséges.
 
-Használja a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) hívásra kerülne. Az érték ezután egy [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/) objektumot ad, amelynek a [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) metódusa a párosítási módot választja ki.
+Használja a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) metódust hívná. Az érték ekkor egy [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/) objektumot ad, amelynek a [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) metódusa választja ki a megfelelő módot.
 
-Ez a példa megnyitja az előző szakaszban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra konfigurálja.
+Ez a példa megnyitja az előző szekcióban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra állítja be.
 
 ```javascript
 const java = require("java");
@@ -342,11 +394,11 @@ try {
 }
 ```
 
-## **Átmeneti effektusok beállítása**
+## **Átmeneti hatások beállítása**
 
-Néhány átmenet további opciókat tesz elérhetővé, például irányt vagy azt, hogy az effektus feketékből indul-e. Az elérhető opciók az [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) segítségével kiválasztott átmenettől függenek. Először állítsa be a típust, majd használja a megfelelő átmenet objektumot a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) hívásból.
+Néhány átmenet további opciókat fed le, például irányt vagy azt, hogy a hatás fekete képernyőn kezdődjön‑e. Az elérhető opciók attól függenek, hogy a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) segítségével melyik átmenetet választotta. Először állítsa be a típust, majd a [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) által visszaadott megfelelő átmeneti objektumot használja.
 
-Az alábbi példa a Cut átmenetet alkalmazza a `input.pptx` első diájára. A [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) osztályon keresztül a [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) hívásával úgy állítja be, hogy az átmenet feketéből induljon.
+Az alábbi példa egy Cut átmenetet alkalmaz az `input.pptx` első diájára. A [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) metódusával állítja be, hogy a átmenet fekete képernyőn induljon.
 
 ```javascript
 const java = require("java");
@@ -371,18 +423,18 @@ try {
 
 ## **GYIK**
 
-**Le tudom-e szabályozni egy diavetítés‑átmenet lejátszási sebességét?**
+**Mikor tudom szabályozni egy diaátmenet lejátszási sebességét?**
 
-Igen. Használja a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) metódust, ha pontos hatásidőt szeretne megadni ezredmásodpercben. Ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam megadva, akkor a [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) megfelelő. Ezek a beállítások az átmeneti effektust szabályozzák az automatikus előrehaladási késleltetéstől függetlenül.
+Igen. Használja a [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) metódust, ha pontos hatásidőre van szüksége ezredmásodpercben. Használja a [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) metódust, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam beállítva. Ezek a beállítások a átmeneti hatást szabályozzák, függetlenül az automatikus előrehaladási késleltetéstől.
 
-**Csatolhatok hangot egy átmenethez, és hagyhatom, hogy ismétlődjön?**
+**Hozzá tudok-e adni hangot egy átmenethez, és azt ismételni?**
 
-Igen. A [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound) metódussal rendelje hozzá a beágyazott hangot, adja át a [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) felsorolásból a StartSound értéket a [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) metódusnak, és állítsa a [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) értékét **true**‑ra. A hang addig ismétlődik, amíg a diavetítésben a következő hangesemény meg nem jelenik.
+Igen. Az [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound) metódussal adhat beágyazott hangot, a [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) felsorolásból a StartSound értékkel hívja a [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) metódust, és a [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) metódussal `true` értéket ad meg. A hang addig ismétlődik, amíg a diavetítésben a következő hangesemény meg nem történik.
 
 **Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet minden diára alkalmazzam?**
 
-Iteráljon végig a prezentáció [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) gyűjteményén, és minden dia átmenetére hívja meg a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust ugyanazzal az értékkel. Állítson be minden időzítési és effektus opciót ugyanabban a ciklusban, hogy a viselkedés konzisztens maradjon a diák között.
+Iteráljon a prezentáció [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) gyűjteményén, és minden diára hívja a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metódust ugyanazzal az értékkel. Állítson be minden időzítési és effektus opciót ugyanabban a ciklusban, hogy a viselkedés konzisztens maradjon a diák között.
 
-**Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?**
+**Hogyan ellenőrizhetem, hogy milyen átmenet van jelenleg egy dián beállítva?**
 
-Hívja meg a [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolás egy értékét adja vissza; a None azt jelenti, hogy nincs átmeneti effektus alkalmazva.
+Hívja meg a [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez a [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) felsorolásból visszaad egy értéket; a None azt jelenti, hogy nincs átmeneti hatás alkalmazva.

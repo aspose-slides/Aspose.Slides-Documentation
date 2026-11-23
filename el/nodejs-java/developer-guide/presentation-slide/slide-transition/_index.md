@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση μεταβάσεων διαφανειών σε παρουσιάσεις χρησιμοποιώντας JavaScript
+title: Διαχείριση Μεταβάσεων Διαφανειών σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
 linktitle: Μετάβαση Διαφάνειας
 type: docs
 weight: 80
@@ -8,8 +8,8 @@ keywords:
 - μετάβαση διαφάνειας
 - προσθήκη μετάβασης διαφάνειας
 - εφαρμογή μετάβασης διαφάνειας
-- προηγμένη μετάβαση διαφάνειας
-- μετάβαση Morph
+- προχωρημένη μετάβαση διαφάνειας
+- μετάβαση morph
 - τύπος μετάβασης
 - εφέ μετάβασης
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Εφαρμόστε μεταβάσεις διαφανειών, ρυθμίστε την αυτόματη προώθηση διαφανειών και προσαρμόστε το Morph και άλλα εφέ μετάβασης με το Aspose.Slides για Node.js μέσω Java."
+description: "Εφαρμόστε μεταβάσεις διαφανειών, ρυθμίστε την αυτόματη προώθηση διαφανειών, και προσαρμόστε τις μεταβάσεις Morph και άλλες εφέ μετάβασης με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Οι μεταβάσεις διαφανειών ελέγχουν πώς εμφανίζονται οι διαφάνειες κατά τη διάρκεια μιας παρουσίασης. Με το Aspose.Slides for Node.js via Java, μπορείτε να επιλέξετε ένα εφέ μετάβασης για κάθε διαφάνεια, να ρυθμίσετε την προώθηση με κλικ του ποντικιού ή χρονόμετρο, και να προσαρμόσετε επιλογές ειδικές για το εφέ. Αυτό το άρθρο χρησιμοποιεί παραδείγματα JavaScript για την εφαρμογή μεταβάσεων, ορισμό ακριβών διάρκειών μετάβασης, διαχείριση χρόνου διαφάνειας και δημιουργία μετάβασης Morph μεταξύ δύο διαφανειών. Τα παραδείγματα δείχνουν επίσης πώς να αποθηκεύσετε τις ρυθμίσεις σε αρχείο PPTX.
+Οι μεταβάσεις διαφανειών ελέγχουν πώς εμφανίζονται οι διαφάνειες κατά τη διάρκεια μιας παρουσίασης. Με το Aspose.Slides for Node.js μέσω Java, μπορείτε να επιλέξετε ένα εφέ μετάβασης για κάθε διαφάνεια, να ρυθμίσετε την προώθηση με κλικ του ποντικιού ή χρονοδιακόπτη, και να προσαρμόσετε επιλογές ειδικές για ένα εφέ. Αυτό το άρθρο χρησιμοποιεί παραδείγματα JavaScript για την εφαρμογή μεταβάσεων, τον καθορισμό ακριβούς διάρκειας μετάβασης, τη διαχείριση του χρόνου της διαφάνειας, και τη δημιουργία μετάβασης Morph μεταξύ δύο διαφανειών. Τα παραδείγματα δείχνουν επίσης πώς να αποθηκεύσετε τις ρυθμίσεις σε αρχείο PPTX.
 
 ## **Προσθήκη Μετάβασης Διαφάνειας**
 
-Για να εφαρμόσετε μια μετάβαση, φορτώστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και αποκτήστε πρόσβαση στις ρυθμίσεις μετάβασης της διαφάνειας μέσω του [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Χρησιμοποιήστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) με τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), στη συνέχεια αποθηκεύστε την παρουσίαση.
+Για να εφαρμόσετε μια μετάβαση, φορτώστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) και αποκτήστε πρόσβαση στις ρυθμίσεις μετάβασης της διαφάνειας μέσω του [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Χρησιμοποιήστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) με μια τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), έπειτα αποθηκεύστε την παρουσίαση.
 
-Το παρακάτω παράδειγμα εφαρμόζει τη μετάβαση Circle στην πρώτη διαφάνεια και τη μετάβαση Comb στη δεύτερη. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
+Το παρακάτω παράδειγμα εφαρμόζει μια μετάβαση Circle στην πρώτη διαφάνεια και μια μετάβαση Comb στη δεύτερη. Χρησιμοποιήστε το αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Μετάβαση Τροχού**
+## **Μετάβαση Wheel**
 
-Η μέθοδος [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) της [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) ελέγχει τον αριθμό των ακτινωτών τομέων που αποκαλύπτουν τη διαφάνεια προορισμού. Ορίστε τον τύπο μετάβασης της διαφάνειας σε Wheel από το [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) χρησιμοποιώντας το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) πριν αποκτήσετε πρόσβαση στο [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) ως [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+Η μέθοδος [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) του [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) ελέγχει τον αριθμό των ακτινωτών τομέων που αποκαλύπτουν τη διαφάνεια προορισμού. Ορίστε τον τύπο μετάβασης της διαφάνειας σε Wheel από την [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) χρησιμοποιώντας το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) πριν αποκτήσετε πρόσβαση στο [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) ως [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-Αυτό το παράδειγμα δημιουργεί δύο ζευγάρια διαφανειών ταυτόσημα: μια μαύρη διαφάνεια ακολουθείται από μια διαφάνεια με χρυσό ορθογώνιο. Οι διαφάνειες προορισμού χρησιμοποιούν αριθμούς ακτίνων 1 και 8, με την ίδια ταχύτητα που ορίστηκε μέσω του [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) και μια ρητή διάρκεια 8 000 χιλιοστών του δευτερολέπτου μέσω του [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) για να γίνει η διαφορά εύκολα παρατηρήσιμη.
+Αυτό το παράδειγμα δημιουργεί δύο ζεύγη διαφανειών με ταυτόματο περιεχόμενο: μια μαύρη διαφάνεια ακολουθούμενη από διαφάνεια με χρυσαφένιο ορθογώνιο. Οι διαφάνειες προορισμού χρησιμοποιούν αριθμούς ακτίνων 1 και 8, με την ίδια ταχύτητα ορισμένη μέσω του [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) και ρητή διάρκεια 8 000 ms ορισμένη μέσω του [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ώστε η διαφορά να είναι εύκολα παρατηρήσιμη.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,71 @@ try {
 }
 ```
 
-Ανοίξτε την έξοδο παρουσίασης στο PowerPoint και εκτελέστε την παρουσίαση. Προχωρήστε από τη διαφάνεια 1 στη διαφάνειας 2, μετά από τη διαφάνεια 3 στη διαφάνεια 4. Στην αναπαραγωγή του PowerPoint, ο επιβεβαιωμένος αριθμός ακτίνων 1 αποκαλύπτει τη διαφάνεια με μία κυκλική σάρωση· ο αριθμός 8 αποκαλύπτει τη διαφάνεια μέσω οχτώ ακτινωτών τομέων ταυτόχρονα. Το περιεχόμενο προορισμού και ο χρόνος μετάβασης είναι ταυτόσημα, επομένως η διαφορά είναι ο αριθμός των τομέων αποκάλυψης.
+Ανοίξτε την έξοδο παρουσίασης στο PowerPoint και εκτελέστε τη παρουσίαση. Προχωρήστε από τη διαφάνεια 1 στη διαφάνεια 2, έπειτα από τη διαφάνεια 3 στη διαφάνεια 4. Στην αναπαραγωγή του PowerPoint, ο επαληθευμένος αριθμός ακτίνων 1 αποκαλύπτει τη διαφάνεια με μία κυκλική κίνηση· ο αριθμός 8 την αποκαλύπτει μέσω οκτώ ακτινωτών τομέων ταυτόχρονα. Το περιεχόμενο προορισμού και ο χρόνος μετάβασης είναι ταυτόσημα, επομένως η διαφορά είναι ο αριθμός των τομέων αποκάλυψης.
 
-## **Προσθήκη Προηγμένης Μετάβασης Διαφάνειας**
+## **Fade Through Black με τη Μετάβαση Reveal**
 
-Μπορείτε να ρυθμίσετε πόσο χρόνο παραμένει μια διαφάνεια στην οθόνη και αν ένα κλικ του ποντικιού προχωρά την παρουσίαση. Οι παρακάτω μέθοδοι ελέγχουν αυτή τη συμπεριφορά:
+Ορίστε τον τύπο μετάβασης της διαφάνειας προορισμού σε Reveal, έπειτα καλέστε το [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) στις ρυθμίσεις του [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/). Αυτό το παράδειγμα δημιουργεί μια γαλαζοπράσινη πηγή διαφάνειας και μια κοραλίδα διαφάνεια προορισμού, έπειτα κλωνοποιεί και τις δύο. Κάθε ζεύγος χρησιμοποιεί την ίδια μεταβίβαση Reveal διάρκειας δύο δευτερολέπτων. Μόνο το δεύτερο ζεύγος γίνεται fade through black.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) επιτρέπει στον θεατή να προωθήσει με κλικ του ποντικιού.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
+
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ανοίξτε την αποθηκευμένη παρουσίαση στο PowerPoint και ξεκινήστε τη παρουσίαση. Προχωρήστε από τη διαφάνεια 1 στη διαφάνεια 2 για να δείτε το γαλαζοπράσινο να ξεθωριάσει απευθείας στο κοραλί. Έπειτα προχωρήστε από τη διαφάνεια 3 στη διαφάνεια 4. Η οθόνη σκοτεινιάζει προσωρινά σχεδόν σε μαύρο πριν εμφανιστεί η διαφάνεια κοραλί. Και οι δύο διαφάνειες διατηρούν τα αρχικά χρώματα φόντου.
+
+Οι παρακάτω γραμμές δείχνουν καρέ από το PowerPoint σε διαστήματα μισού δευτερολέπτου. Συγκρίνετε το κεντρικό καρέ σε κάθε γραμμή για να δείτε το εφέ.
+
+![Διακριτές γραμμές δείχνουν τη διάρκεια 750 ms της μετάβασης και τη ρυθμιση αυτόματης προώθησης 5 000 ms.](reveal-through-black.png)
+
+## **Προσθήκη Προχωρημένης Μετάβασης Διαφάνειας**
+
+Μπορείτε να ρυθμίσετε πόσο χρόνο παραμένει μια διαφάνεια στην οθόνη και αν ένα κλικ του ποντικιού προωθεί την παρουσίαση. Οι παρακάτω μέθοδοι ελέγχουν αυτή τη συμπεριφορά:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) επιτρέπει στον θεατή να προχωρήσει κάνοντας κλικ με το ποντίκι.
 - [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) ενεργοποιεί την αυτόματη προώθηση.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) καθορίζει την καθυστέρηση πριν την αυτόματη προώθηση, σε χιλιοστά του δευτερολέπτου.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) καθορίζει την καθυστέρηση πριν από την αυτόματη προώθηση, σε χιλιοστά του δευτερολέπτου.
 
-Ενεργοποιήστε τόσο το κλικ όσο και την χρονομετρημένη προώθηση ώστε ο θεατής να προχωρά με κλικ ή να περιμένει το χρονόμετρο. Για να χρησιμοποιήσετε μόνο το χρονόμετρο, περάστε `false` στη [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Η καθυστέρηση ελέγχει πότε προχωρά η παρουσίαση· δεν ορίζει τη διάρκεια του οπτικού εφέ μετάβασης.
+Ενεργοποιήστε και κλικ και χρονομετρημένη προώθηση ώστε ο θεατής να μπορεί να προχωρήσει με κλικ ή να περιμένει το χρονοδιακόπτη. Για χρήση μόνο του χρονοδιακόπτη, περάστε `false` στο [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Η καθυστέρηση ελέγχει πότε η παρουσίαση προχωρά· δεν καθορίζει τη διάρκεια του οπτικού εφέ μετάβασης.
 
-Αυτό το παράδειγμα αναθέτει διαφορετικά εφέ στις πρώτες τρεις διαφάνειες και ενεργοποιεί αυτόματη προώθηση μετά από 3, 5 και 7 δευτερόλεπτα, αντίστοιχα. Τα κλικ του ποντικιού μπορούν επίσης να προωθήσουν αυτές τις διαφάνειες. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον τρεις διαφάνειες.
+Αυτό το παράδειγμα εκχωρεί διαφορετικά εφέ στις πρώτες τρεις διαφάνειες και ενεργοποιεί αυτόματη προώθηση μετά από 3, 5 και 7 δευτερόλεπτα, αντίστοιχα. Τα κλικ του ποντικιού μπορούν επίσης να προωθήσουν αυτές τις διαφάνειες. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον τρεις διαφάνειες.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +195,9 @@ try {
 }
 ```
 
-Για να ελέγξετε αν η χρονομετρημένη προώθηση είναι ενεργοποιημένη, καλέστε το [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Μια αποθηκευμένη μόνο καθυστέρηση δεν υποδεικνύει ότι το χρονόμετρο είναι ενεργό.
+Για να ελέγξετε αν η χρονομετρημένη προώθηση είναι ενεργή, καλέστε το [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Ένα αποθηκευμένο χρονικό διάστημα μόνο του δεν σημαίνει ότι το χρονοδιακόπτη είναι ενεργό.
 
-Το επόμενο παράδειγμα ανοίγει το αρχείο που αποθηκεύτηκε παραπάνω, αναφέρει κάθε ενεργό χρονόμετρο και απενεργοποιεί την αυτόματη προώθηση για διαφάνειες με καθυστέρηση μεγαλύτερη από δύο δευτερόλεπτα. Ενεργοποιεί τα κλικ του ποντικιού για εκείνες τις διαφάνειες και αποθηκεύει τις ενημερωμένες ρυθμίσεις.
+Το επόμενο παράδειγμα ανοίγει το αποθηκευμένο αρχείο, αναφέρει κάθε ενεργό χρονοδιακόπτη, και απενεργοποιεί την αυτόματη προώθηση για διαφάνειες με καθυστέρηση μεγαλύτερη από δύο δευτερόλεπτα. Ενεργοποιεί τα κλικ του ποντικιού για αυτές τις διαφάνειες και αποθηκεύει τις ενημερωμένες ρυθμίσεις.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -174,25 +226,25 @@ try {
 
 ## **Ακριβής Έλεγχος Χρόνου Μετάβασης**
 
-Χρησιμοποιήστε το [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) για να καθορίσετε το ακριβές μήκος ενός εφέ μετάβασης σε χιλιοστά του δευτερολέπτου. Η μέθοδος [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) της διαφάνειας αποκαλύπτει αυτές τις ρυθμίσεις μέσω του [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
+Χρησιμοποιήστε το [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) για να ορίσετε το ακριβές μήκος ενός εφέ μετάβασης σε χιλιοστά του δευτερολέπτου. Η μέθοδος [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) της διαφάνειας εκθέτει αυτές τις ρυθμίσεις μέσω του [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Μέθοδος | Σκοπός |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Ορίζει τη διάρκεια του εφέ μετάβασης, σε χιλιοστά του δευτερολέπτου. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ορίζει την καθυστέρηση πριν η διαφάνεια προχωρήσει αυτόματα, σε χιλιοστά του δευτερολέπτου. Περάστε `true` στη [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) για να ενεργοποιήσετε αυτό το χρονόμετρο. |
-| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Επιλέγει μια προκαθορισμένη κατηγορία ταχύτητας από το [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium ή Fast. Χρησιμοποιείται όταν δεν έχει οριστεί ρητή διάρκεια. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ορίζει την καθυστέρηση πριν η διαφάνεια προχωρήσει αυτόματα, σε χιλιοστά του δευτερολέπτου. Περάστε `true` στο [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) για να ενεργοποιήσετε αυτό το χρονοδιάγραμμα. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Επιλέγει μια προ‑ορισμένη κατηγορία ταχύτητας από το [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium ή Fast. Χρησιμοποιείται όταν δεν έχει οριστεί ρητή διάρκεια. |
 
-[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ελέγχει μόνο το εφέ μετάβασης· δεν καθορίζει πόσο χρόνο παραμένει η διαφάνεια ορατή. Ρυθμίστε την καθυστέρηση αυτόματης προώθησης ξεχωριστά. Όταν δεν έχει οριστεί ρητή διάρκεια, το Aspose.Slides καθορίζει τη διάρκεια του εφέ από τον τύπο μετάβασης και την τιμή του [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+Το [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ελέγχει μόνο το εφέ μετάβασης· δεν καθορίζει πόσο χρόνο παραμένει ορατή η διαφάνεια. Ρυθμίστε την αυτόματη προώθηση ξεχωριστά. Όταν δεν οριστεί ρητή διάρκεια, το Aspose.Slides καθορίζει τη διάρκεια του εφέ από τον τύπο μετάβασης και την τιμή [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Τα διακριτά μπαρ αναδεικνύουν τη διάρκεια 750 ms της μετάβασης και τη ρυθμίση αυτόματης προώθησης 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Διακριτές γραμμές δείχνουν τη διάρκεια 750 ms της μετάβασης και τη ρύθμιση αυτόματης προώθησης 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Το κοινό παράδειγμα δίνει σε κάθε διαφάνεια μια μετάβαση Fade 750 ms και ενεργοποιεί ξεχωριστά την αυτόματη προώθηση στα 5 000 ms. Η διάρκεια της μετάβασης ελέγχει το εφέ· η προώθηση ελέγχει πότε να φύγει η διαφάνεια. Αυτά τα μπαρ είναι σχήματα ρυθμίσεων, όχι μετρημένο συνδυαστικό χρονοδιάγραμμα.*
+*Το κοινό παράδειγμα δίνει σε κάθε διαφάνεια μετάβαση Fade 750 ms και ταυτόχρονα ενεργοποιεί αυτόματη προώθηση στα 5 000 ms. Η διάρκεια της μετάβασης ελέγχει το εφέ· η προώθηση ελέγχει πότε θα φύγει η διαφάνεια. Αυτές οι γραμμές είναι ενδεικτικές ρυθμίσεις, όχι μετρημένο συνδυασμένο χρονικό διάγραμμα.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Εφαρμογή Ίδιας Διάρκειας σε Όλες τις Διαφάνειες**
+### **Εφαρμογή της Ίδιας Διάρκεσης σε Όλες τις Διαφάνειες**
 
-Για συνεπή ρυθμό, εφαρμόστε το ίδιο εφέ και ακριβή διάρκεια σε κάθε διαφάνεια. Αυτό το παράδειγμα φορτώνει το `input.pptx`, επιλέγει Fade από το [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), και δίνει σε κάθε μετάβαση διάρκεια 750 ms. Ενεργοποιεί ξεχωριστά την αυτόματη προώθηση μετά από 5 000 ms και απενεργοποιεί την προώθηση με κλικ του ποντικιού, στη συνέχεια αποθηκεύει το αποτέλεσμα ως PPTX.
+Για συνεπή ρυθμό, εφαρμόστε το ίδιο εφέ και την ακριβή διάρκεια σε κάθε διαφάνεια. Αυτό το παράδειγμα φορτώνει το `input.pptx`, επιλέγει Fade από το [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), και δίνει σε κάθε μετάβαση διάρκεια 750 ms. Ενεργοποιεί αυτόματα την προώθηση μετά από 5 000 ms και απενεργοποιεί την προώθηση με κλικ, έπειτα αποθηκεύει το αποτέλεσμα ως PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -205,7 +257,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Διαμορφώστε την αυτόματη προώθηση ανεξάρτητα από τη διάρκεια του εφέ.
+        // Ρύθμιση αυτόματης προώθησης ανεξάρτητα από τη διάρκεια του εφέ.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -217,9 +269,9 @@ try {
 }
 ```
 
-### **Ορισμός Διαφορετικών Διαρκειών για Μεμονωμένες Διαφάνειες**
+### **Ορισμός Διαφορετικών Διάρκειων για Μεμονωμένες Διαφάνειες**
 
-Διαφορετικές διαφάνειες μπορούν να χρησιμοποιούν διαφορετικές διάρκειες εφέ. Για παράδειγμα, χρησιμοποιήστε μια σύντομη μετάβαση για τη διαφάνεια τίτλου και μια μεγαλύτερη για την εισαγωγή ενότητας. Αυτό το παράδειγμα ορίζει 500 ms για την πρώτη διαφάνεια και 1 200 ms για τη δεύτερη. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
+Διαφορετικές διαφάνειες μπορούν να έχουν διαφορετικές διάρκειες εφέ. Για παράδειγμα, χρησιμοποιήστε μια γρήγορη μετάβαση για την διαφάνεια τίτλου και πιο αργή για την εισαγωγή ενότητας. Αυτό το παράδειγμα ορίζει 500 ms για την πρώτη διαφάνεια και 1 200 ms για τη δεύτερη. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -244,15 +296,15 @@ try {
 }
 ```
 
-### **Συντονισμός Μεταβάσεων με Αναπαραγωγικό Έξοδο**
+### **Συντονισμός Μεταβάσεων με Αναπαραγωγές Animated**
 
-Κατά την προετοιμασία ενός [animated GIF](/slides/el/nodejs-java/convert-powerpoint-to-animated-gif/), μιας [HTML5 presentation](/slides/el/nodejs-java/export-to-html5/) ή ενός [video](/slides/el/nodejs-java/convert-powerpoint-to-video/), ορίστε ακριβείς διάρκειες μεταβάσεων πριν την εξαγωγή για να ταιριάζουν με το προγραμματισμένο ρυθμό. Για παράδειγμα, χρησιμοποιήστε ένα fade 600 ms μεταξύ σκηνών και προσαρμόστε την καθυστέρηση προώθησης κάθε διαφάνειας ξεχωριστά ώστε να υπάρχει χρόνος για αφήγηση ή περιεχόμενο.
+Κατά την προετοιμασία ενός [animated GIF](/slides/el/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/el/nodejs-java/export-to-html5/), ή [video](/slides/el/nodejs-java/convert-powerpoint-to-video/), ορίστε ακριβείς διάρκειες μεταβάσεων πριν την εξαγωγή για να ταιριάζουν με τον προγραμματισμό. Για παράδειγμα, χρησιμοποιήστε fade 600 ms μεταξύ σκηνών, και προσαρμόστε ξεχωριστά την καθυστέρηση προώθησης κάθε διαφάνειας για να επιτρέψετε χρόνο αφήγησης ή περιεχομένου.
 
-Για GIF και βίντεο, συντονίστε το ρυθμό καρέ της εξόδου με τη διάρκεια του εφέ: 600 ms ισοδυναμούν με 18 καρέ σε 30 fps. Στο HTML5, ενεργοποιήστε τις animated transitions στις ρυθμίσεις εξαγωγής. Ελέγξτε τις υποστηριζόμενες επιλογές εφέ και χρόνου της μορφής εξόδου και προεπισκόπηση του αποτελέσματος για επαλήθευση του συγχρονισμού.
+Για GIF και βίντεο, συντονίστε το frame rate εξόδου με τη διάρκεια του εφέ: 600 ms αντιστοιχεί σε 18 καρέ στα 30 fps. Στο HTML5, ενεργοποιήστε animated transitions στις ρυθμίσεις εξαγωγής. Ελέγξτε τις υποστηριζόμενες επιλογές εφέ και χρόνου του επιλεγμένου μορφότυπου, και προεπισκοπήστε την έξοδο για επιβεβαίωση του συγχρονισμού.
 
-### **Ανάγνωση Υπαρκτής Διάρκειας Μετάβασης**
+### **Ανάγνωση Υπάρχουσας Διάρκειας Μετάβασης**
 
-Καλέστε το [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) πριν τροποποιήσετε τη μετάβαση για να προσδιορίσετε εάν υπάρχει αποθηκευμένη ρητή τιμή. Μια τιμή `-1` σημαίνει ότι δεν έχει οριστεί ρητή διάρκεια· μια μη αρνητική τιμή υποδεικνύει τη διάρκεια σε χιλιοστά του δευτερολέπτου. Η μη ορισμένη τιμή δεν είναι η υπολογιζόμενη διάρκεια αναπαραγωγής: το Aspose.Slides χρησιμοποιεί τον τύπο μετάβασης και την τιμή του [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) για να καθορίσει αυτή τη διάρκεια. Ορίζοντας έναν τύπο μετάβασης μπορεί να αρχικοποιήσει διάρκεια, επομένως εξετάστε πρώτα τις αρχικές ρυθμίσεις.
+Καλέστε το [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) πριν τροποποιήσετε τη μετάβαση για να διαπιστώσετε αν αποθηκεύεται ρητή τιμή. Μια τιμή `-1` σημαίνει ότι δεν έχει οριστεί ρητή διάρκεια· μια μη‑αρνητική τιμή καθορίζει τη διατηρημένη διάρκεια σε χιλιοστά του δευτερολέπτου. Η μη‑ορισμένη τιμή δεν είναι η υπολογισμένη διάρκεια εκμάθησης: το Aspose.Slides χρησιμοποιεί τον τύπο μετάβασης και την τιμή [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) για να την υπολογίσει. Ο ορισμός τύπου μετάβασης μπορεί να αρχικοποιήσει διάρκεια, οπότε ελέγξτε πρώτα τις αρχικές ρυθμίσεις.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -277,9 +329,9 @@ try {
 
 ## **Μετάβαση Morph**
 
-Η μετάβαση Morph αναπαριστά τις αλλαγές μεταξύ αντικειμένων σε διαδοχικές διαφάνειες. Για να δημιουργήσετε ένα απλό εφέ Morph, κλωνοποιήστε μια διαφάνεια, μετακινήστε ή αλλάξτε το μέγεθος ενός αντικειμένου στο κλώνο, και εφαρμόστε τη μετάβαση Morph στη δεύτερη διαφάνεια. Αυτό παρέχει στα αντίστοιχα αντικείμενα το εφέ κίνησης μεταξύ των αρχικών και των τροποποιημένων τους καταστάσεων.
+Η μετάβαση Morph κάνει animation των αλλαγών μεταξύ αντικειμένων σε διαδοχικές διαφάνειες. Για τη δημιουργία ενός απλού εφέ Morph, κλωνοποιήστε μια διαφάνεια, μετακινήστε ή αλλάξτε το μέγεθος ενός αντικειμένου στον κλώνο, και εφαρμόστε τη μετάβαση Morph στη δεύτερη διαφάνεια. Αυτό δίνει στα αντίστοιχα αντικείμενα την δυνατότητα animation μεταξύ των αρχικών και τροποποιημένων καταστάσεων.
 
-Το παρακάτω παράδειγμα δημιουργεί μια διαφάνεια με ένα κείμενο σε ορθογώνιο, κλωνοποιεί τη διαφάνεια, και αλλάζει τη θέση και το μέγεθος του ορθογώνιου στο κλώνο. Στη συνέχεια επιλέγει Morph από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) για τη δεύτερη διαφάνεια. Ανοίξτε το αποθηκευμένο αρχείο σε προβολέα παρουσίασης που υποστηρίζει Morph για να δείτε το εφέ κατά τη διάρκεια της παρουσίασης.
+Το επόμενο παράδειγμα δημιουργεί μια διαφάνεια με ορθογώνιο κειμένου, κλωνοποιεί τη διαφάνεια, και αλλάζει τη θέση και το μέγεθος του ορθογωνίου στον κλώνο. Στη συνέχεια επιλέγει Morph από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) για τη δεύτερη διαφάνεια. Ανοίξτε το αποθηκευμένο αρχείο σε πρόγραμμα προβολής που υποστηρίζει Morph για να δείτε το εφέ κατά τη διάρκεια της παρουσίασης.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -307,15 +359,15 @@ try {
 
 ## **Τύποι Μετάβασης Morph**
 
-Η απαρίθμηση [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) ελέγχει πώς το Morph αντιστοιχεί και αναπαριστά το περιεχόμενο:
+Η απαρίθμηση [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) ελέγχει πώς το Morph ταιριάζει και κάνει animation το περιεχόμενο:
 
 - [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) αντιμετωπίζει κάθε σχήμα ως ολόκληρο αντικείμενο.
-- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) αναπαριστά το κείμενο αντιστοιχίζοντας λέξεις όπου είναι δυνατόν.
-- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) αναπαριστά το κείμενο αντιστοιχίζοντας χαρακτήρες όπου είναι δυνατόν.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) κάνει animation κειμένου ταιριάζοντας λέξεις όπου είναι δυνατόν.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) κάνει animation κειμένου ταιριάζοντας χαρακτήρες όπου είναι δυνατόν.
 
-Χρησιμοποιήστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) για να επιλέξετε Morph πριν αποκτήσετε πρόσβαση στο [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Η τιμή στη συνέχεια παρέχει ένα αντικείμενο [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), του οποίου η μέθοδος [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) επιλέγει τη λειτουργία αντιστοίχισης.
+Χρησιμοποιήστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) για να επιλέξετε Morph πριν αποκτήσετε πρόσβαση στο [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Η τιμή αυτή παρέχει ένα αντικείμενο [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), του οποίου η μέθοδος [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) επιλέγει τη λειτουργία αντιστοίχισης.
 
-Αυτό το παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε στην προηγούμενη ενότητα και ρυθμίζει τη δεύτερη διαφάνεια να χρησιμοποιεί την κίνηση Morph με βάση τις λέξεις.
+Αυτό το παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε στην προηγούμενη ενότητα και ρυθμίζει τη δεύτερη διαφάνεια να χρησιμοποιεί Morph με βάση τις λέξεις.
 
 ```javascript
 const java = require("java");
@@ -344,9 +396,9 @@ try {
 
 ## **Ορισμός Εφέ Μετάβασης**
 
-Κάποιες μεταβάσεις εκθέτουν επιπλέον επιλογές, όπως κατεύθυνση ή αν το εφέ ξεκινά από μαύρη οθόνη. Οι διαθέσιμες επιλογές εξαρτώνται από τη μετάβαση που επιλέχθηκε με το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Ορίστε πρώτα τον τύπο, έπειτα χρησιμοποιήστε το κατάλληλο αντικείμενο μετάβασης από το [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Ορισμένες μεταβάσεις εκθέτουν πρόσθετες επιλογές, όπως κατεύθυνση ή αν το εφέ ξεκινά από μαύρη οθόνη. Οι διαθέσιμες επιλογές εξαρτώνται από τη μετάβαση που επιλέχθηκε με το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Ορίστε πρώτα τον τύπο, έπειτα χρησιμοποιήστε το αντίστοιχο αντικείμενο μετάβασης από το [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-Το παρακάτω παράδειγμα εφαρμόζει μια μετάβαση Cut στην πρώτη διαφάνεια του `input.pptx`. Καλεί τη μέθοδο [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) μέσω του [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) ώστε η μετάβαση να ξεκινά από μαύρη οθόνη.
+Το παρακάτω παράδειγμα εφαρμόζει μια μετάβαση Cut στην πρώτη διαφάνεια του `input.pptx`. Καλεί το [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) μέσω του [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) ώστε η μετάβαση να ξεκινά από μαύρη οθόνη.
 
 ```javascript
 const java = require("java");
@@ -373,16 +425,16 @@ try {
 
 **Μπορώ να ελέγξω την ταχύτητα αναπαραγωγής μιας μετάβασης διαφάνειας;**
 
-Ναι. Προτιμήστε το [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) όταν χρειάζεστε ακριβή διάρκεια εφέ σε χιλιοστά του δευτερολέπτου. Χρησιμοποιήστε το [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) όταν μια προκαθορισμένη κατηγορία [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)—Slow, Medium ή Fast—είναι επαρκής και δεν έχει οριστεί ρητή διάρκεια. Αυτές οι ρυθμίσεις ελέγχουν το εφέ μετάβασης ανεξάρτητα από την καθυστέρηση αυτόματης προώθησης.
+Ναι. Προτιμήστε το [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) όταν χρειάζεστε ακριβή διάρκεια εφέ σε χιλιοστά του δευτερολέπτου. Χρησιμοποιήστε το [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) όταν αρκεί μια προ‑ορισμένη κατηγορία [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) — Slow, Medium ή Fast — και δεν έχει οριστεί ρητή διάρκεια. Αυτές οι ρυθμίσεις ελέγχουν το εφέ μετάβασης ανεξάρτητα από την αυτόματη προώθηση.
 
 **Μπορώ να προσθέσω ήχο σε μια μετάβαση και να τον επαναλαμβάνω;**
 
-Ναι. Αναθέστε ενσωματωμένο ήχο με το [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), περάστε το StartSound από την απαρίθμηση [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) στη [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), και ενεργοποιήστε το [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) με `true`. Ο ήχος επαναλαμβάνεται μέχρι το επόμενο γεγονός ήχου στην παρουσίαση.
+Ναι. Αναθέστε ενσωματωμένο ήχο με το [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), περάστε StartSound από την απαρίθμηση [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) στο [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), και ενεργοποιήστε το [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) με `true`. Ο ήχος επαναλαμβάνεται μέχρι το επόμενο ηχητικό γεγονός στην παρουσίαση.
 
 **Ποιος είναι ο πιο γρήγορος τρόπος για να εφαρμόσω την ίδια μετάβαση σε όλες τις διαφάνειες;**
 
-Διατρέξτε τη συλλογή [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) της παρουσίασης και καλέστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) με την ίδια τιμή για κάθε μετάβαση διαφάνειας. Ορίστε τυχόν χρονικές και εφέ επιλογές στον ίδιο βρόχο για να διατηρήσετε τη συμπεριφορά συνεπή μεταξύ των διαφανειών.
+Διέλθετε τη συλλογή [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) της παρουσίασης και καλέστε το [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) με την ίδια τιμή για κάθε μετάβαση διαφάνειας. Ορίστε τυχόν χρονικές και εφέ ρυθμίσεις στον ίδιο βρόχο για να διατηρήσετε τη συμπεριφορά συνεπή μεταξύ των διαφανειών.
 
-**Πώς μπορώ να ελέγξω ποια μετάβαση είναι επίμονη σε μια διαφάνεια;**
+**Πώς μπορώ να ελέγξω ποια μετάβαση είναι αυτή τη στιγμή ορισμένη σε μια διαφάνεια;**
 
-Καλέστε το [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) στο αποτέλεσμα του [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) της διαφάνειας. Επιστρέφει μια τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); Η τιμή None σημαίνει ότι δεν έχει εφαρμοστεί κανένα εφέ μετάβασης.
+Καλέστε το [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) στο αποτέλεσμα του [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) της διαφάνειας. Επιστρέφει μια τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); η τιμή None σημαίνει ότι δεν έχει εφαρμοστεί εφέ μετάβασης.

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Transições de Slide em Apresentações Usando C++
+title: Gerenciar transições de slide em apresentações usando C++
 linktitle: Transição de Slide
 type: docs
 weight: 80
@@ -17,13 +17,13 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Aplicar transições de slide, configurar o avanço automático de slides e personalizar Morph e outros efeitos de transição com Aspose.Slides para C++."
+description: "Aplique transições de slide, configure o avanço automático de slides e personalize Morph e outros efeitos de transição com Aspose.Slides para C++."
 ---
 ## **Visão geral**
 
-As transições de slide controlam como os slides aparecem durante uma apresentação. Com Aspose.Slides for C++, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em C++ para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
+As transições de slide controlam como os slides aparecem durante uma apresentação. Com Aspose.Slides for C++, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou temporizador, e ajustar opções específicas de um efeito. Este artigo usa exemplos em C++ para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
 
-## **Adicionar Transição de Slide**
+## **Adicionar transição de slide**
 
 Para aplicar uma transição, carregue uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) e acesse as configurações de transição de um slide através de [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). Chame [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) com um valor da enumeração [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), então salve a apresentação.
 
@@ -62,9 +62,9 @@ presentation->Dispose();
 
 ## **Transição Wheel**
 
-O método [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) de [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) controla o número de setores radiais que revelam o slide de destino. Chame [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) com Wheel da [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) antes de acessar [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) como [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
+O método [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) da interface [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) controla o número de setores radiais que revelam o slide de destino. Chame [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) com Wheel da enumeração [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) antes de acessar [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) como [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
 
-Este exemplo cria dois pares idênticos de slides: um slide preto seguido por um slide com um retângulo dourado. Os slides de destino usam contagens de spokes de 1 e 8, com a mesma velocidade definida por [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) e uma duração explícita de 8.000 milissegundos definida por [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) para tornar a diferença fácil de observar.
+Este exemplo cria duas pares idênticas de slides: um slide preto seguido por um slide com um retângulo dourado. Os slides de destino usam contagens de raios de 1 e 8, com a mesma velocidade definida através de [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) e uma duração explícita de 8 000 milissegundos definida através de [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) para tornar a diferença fácil de observar.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -132,9 +132,89 @@ presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Abra a apresentação de saída no PowerPoint e execute a apresentação de slides. Avance do slide 1 para o slide 2, depois do slide 3 para o slide 4. Na reprodução do PowerPoint, a contagem de spokes verificada de 1 revela o slide com uma varredura horária única; a contagem verificada de 8 o revela através de oito setores radiais simultaneamente. O conteúdo de destino e o tempo da transição são idênticos, portanto a diferença está no número de setores de revelação.
+Abra a apresentação de saída no PowerPoint e execute a apresentação de slides. Avance do slide 1 para o slide 2, depois do slide 3 para o slide 4. Na reprodução do PowerPoint, a contagem verificada de 1 raio revela o slide com um movimento horário; a contagem verificada de 8 revela-o por oito setores radiais simultaneamente. O conteúdo de destino e o tempo da transição são idênticos, portanto a diferença está no número de setores de revelação.
 
-## **Adicionar Transição de Slide Avançada**
+## **Desvanecer através do preto com a transição Reveal**
+
+Defina o tipo de transição do slide de destino como Reveal, então chame [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/) na interface [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/). O exemplo cria um slide de origem teal e um slide de destino coral, então clona ambos para que você possa comparar a mesma transição de dois segundos com o desvanecimento através do preto desativado e ativado.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Em uma apresentação de slides do PowerPoint, avance do slide 1 para o slide 2. Teal desbota diretamente para coral. Então avance do slide 3 para o slide 4. A tela escurece brevemente quase até o preto antes que o slide coral apareça. Ambos os slides mantêm suas cores de fundo originais.
+
+As linhas abaixo mostram quadros do PowerPoint em intervalos de meio segundo. Compare o quadro do meio em cada linha para ver o efeito da configuração.
+
+![Reprodução do PowerPoint com ThroughBlack desativado (superior) e ativado (inferior). Apenas a linha inferior passa por quase preto.](reveal-through-black.png)
+
+## **Adicionar transição avançada de slide**
 
 Você pode configurar quanto tempo um slide permanece na tela e se um clique do mouse avança a apresentação. Os métodos a seguir controlam esse comportamento:
 
@@ -142,7 +222,7 @@ Você pode configurar quanto tempo um slide permanece na tela e se um clique do 
 - [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) habilita o avanço automático.
 - [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) especifica o atraso antes do avanço automático, em milissegundos.
 
-Habilite tanto o avanço por clique quanto o cronometrado para que o visualizador avance com um clique ou espere pelo temporizador. Para usar apenas o temporizador, chame [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) com `false`. O atraso controla quando a apresentação avança; ele não define a duração do efeito visual de transição.
+Habilite tanto o avanço por clique quanto o cronometrado para que o visualizador avance com um clique ou espere pelo temporizador. Para usar apenas o temporizador, chame [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) com `false`. O atraso controla quando a apresentação avança; ele não define a duração do efeito visual da transição.
 
 Este exemplo atribui efeitos diferentes aos três primeiros slides e habilita o avanço automático após 3, 5 e 7 segundos, respectivamente. Cliques do mouse também podem avançar esses slides. Use um arquivo `input.pptx` com pelo menos três slides.
 
@@ -194,7 +274,7 @@ presentation->Dispose();
 
 Para verificar se o avanço cronometrado está habilitado, chame [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/). Um atraso armazenado sozinho não indica que o temporizador está ativo.
 
-O exemplo a seguir abre o arquivo salvo acima, relata cada temporizador habilitado e desabilita o avanço automático para slides com atraso maior que dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
+O próximo exemplo abre o arquivo salvo acima, relata cada temporizador habilitado e desabilita o avanço automático para slides com atraso maior que dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -231,27 +311,27 @@ presentation->Save(u"adjusted-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Controlar o Tempo da Transição com Precisão**
+## **Controlar o tempo da transição com precisão**
 
 Use [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) para especificar o comprimento exato de um efeito de transição em milissegundos. O método [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) do slide expõe essas configurações através de [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
 
 | Método | Propósito |
 | --- | --- |
-| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | Define a duração do próprio efeito de transição, em milissegundos. |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Define o atraso antes que o slide avance automaticamente, em milissegundos. Chame [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) com `true` para ativar esse temporizador. |
-| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Seleciona uma categoria de velocidade predefinida da [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium ou Fast. É usada quando nenhuma duração exata é especificada. |
+| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | Define a duração do efeito de transição em si, em milissegundos. |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Define o atraso antes que o slide avance automaticamente, em milissegundos. Chame [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) com `true` para ativar este temporizador. |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Seleciona uma categoria de velocidade predefinida da enumeração [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium ou Fast. É usada quando uma duração exata não é especificada. |
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) controla apenas o efeito de transição; ele não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor retornado por [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) controla apenas o efeito da transição; ele não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor retornado por [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Barras separadas identificam a duração da transição de 750 ms e a configuração de avanço automático de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
+*O exemplo compartilhado fornece a cada slide uma transição Fade de 750 ms e habilita separadamente o avanço automático em 5 000 ms. A duração da transição controla o efeito; o avanço controla quando sair do slide. Essas barras são configurações esquemáticas, não uma linha de tempo medida combinada.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Aplicar a Mesma Duração a Cada Slide**
+### **Aplicar a mesma duração a cada slide**
 
-Para um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a todos os slides. Este exemplo carrega `input.pptx`, seleciona Fade da [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), e atribui a cada transição uma duração de 750 milissegundos. Ele habilita separadamente o avanço automático após 5.000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
+Para manter um ritmo consistente, aplique o mesmo efeito e duração exata a todos os slides. Este exemplo carrega `input.pptx`, seleciona Fade da enumeração [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), e atribui a cada transição uma duração de 750 milissegundos. Ele habilita separadamente o avanço automático após 5 000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -274,7 +354,7 @@ for (auto&& slide : presentation->get_Slides())
     transition->set_Type(TransitionType::Fade);
     transition->set_Duration(750);
 
-    // Configurar avanço automático independentemente da duração do efeito.
+    // Configure o avanço automático independentemente da duração do efeito.
     transition->set_AdvanceAfter(true);
     transition->set_AdvanceAfterTime(5000);
     transition->set_AdvanceOnClick(false);
@@ -285,9 +365,9 @@ presentation->Save(u"precise-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Definir Durações Diferentes para Slides Individuais**
+### **Definir durações diferentes para slides individuais**
 
-Slides diferentes podem usar durações de efeito distintas. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de seção. Este exemplo define 500 milissegundos para o primeiro slide e 1.200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
+Slides diferentes podem usar durações de efeito diferentes. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1 200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -325,15 +405,15 @@ else
 presentation->Dispose();
 ```
 
-### **Coordenar Transições com Saída Animada**
+### **Coordenar transições com saída animada**
 
-Ao preparar um [animated GIF](/slides/pt/cpp/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/pt/cpp/export-to-html5/) ou [video](/slides/pt/cpp/convert-powerpoint-to-video/), defina durações exatas de transição antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para sua narração ou conteúdo.
+Ao preparar um [animated GIF](/slides/pt/cpp/convert-powerpoint-to-animated-gif/), uma [HTML5 presentation](/slides/pt/cpp/export-to-html5/) ou um [video](/slides/pt/cpp/convert-powerpoint-to-video/), defina durações de transição exatas antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para sua narração ou conteúdo.
 
-Para GIF e vídeo, coordene a taxa de quadros da saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. No HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato de exportação escolhido e visualize a saída para confirmar a sincronização.
+Para GIF e vídeo, coordene a taxa de quadros de saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. No HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato de exportação escolhido e visualize a saída para confirmar a sincronização.
 
-### **Ler uma Duração de Transição Existente**
+### **Ler a duração de uma transição existente**
 
-Chame [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` significa que nenhuma duração explícita foi definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: Aspose.Slides usa o tipo de transição e o valor retornado por [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspecione as configurações originais primeiro.
+Chame [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` significa que nenhuma duração explícita foi definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: Aspose.Slides usa o tipo de transição e o valor retornado por [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspeccione as configurações originais primeiro.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -371,7 +451,7 @@ presentation->Dispose();
 
 A transição Morph anima alterações entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
 
-O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph da enumeração [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação de slides.
+O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph da enumeração [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que ofereça suporte a Morph para ver o efeito durante a apresentação de slides.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -411,13 +491,13 @@ presentation->Save(u"morph-transition.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tipos de Transição Morph**
+## **Tipos de transição Morph**
 
 A enumeração [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) controla como o Morph corresponde e anima o conteúdo:
 
-- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) trata cada forma como um objeto inteiro.
-- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo palavras, quando possível.
-- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo caracteres, quando possível.
+- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) trata cada forma como um objeto completo.
+- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) anima texto combinando palavras quando possível.
+- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) anima texto combinando caracteres quando possível.
 
 Chame [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) com Morph antes de acessar [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/). O valor então fornece a interface [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/), cujo método [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) seleciona o modo de correspondência.
 
@@ -467,9 +547,9 @@ else
 presentation->Dispose();
 ```
 
-## **Definir Efeitos de Transição**
+## **Definir efeitos de transição**
 
-Algumas transições expõem opções adicionais, como direção ou se o efeito começa a partir de uma tela preta. As opções disponíveis dependem do tipo de transição selecionado. Defina o tipo primeiro, então use a interface apropriada retornada por [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
+Algumas transições expõem opções adicionais, como direção ou se o efeito inicia a partir de uma tela preta. As opções disponíveis dependem do tipo de transição selecionado. Defina o tipo primeiro, então use a interface apropriada retornada por [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
 
 O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele chama [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) com `true` através de [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) para que a transição comece a partir de uma tela preta.
 
@@ -508,17 +588,17 @@ else
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Posso controlar a velocidade de reprodução de uma transição de slide?**
 
 Sim. Prefira [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) quando precisar de uma duração exata do efeito em milissegundos. Use [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) quando uma categoria predefinida de [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) — Slow, Medium ou Fast — for suficiente e nenhuma duração explícita for definida. Essas configurações controlam o efeito de transição independentemente do atraso de avanço automático.
 
-**Posso anexar áudio a uma transição e fazê‑lo repetir?**
+**Posso anexar áudio a uma transição e fazer loop?**
 
-Sim. Atribua áudio incorporado com [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), chame [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) com StartSound da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/), e habilite a repetição com [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). O áudio se repete até o próximo evento sonoro na apresentação de slides.
+Sim. Atribua áudio incorporado com [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), chame [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) com StartSound da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/), e habilite o loop com [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). O áudio faz loop até o próximo evento de som na apresentação de slides.
 
-**Qual a maneira mais rápida de aplicar a mesma transição a todos os slides?**
+**Qual é a maneira mais rápida de aplicar a mesma transição a todos os slides?**
 
 Percorra a coleção retornada pelo método [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) da apresentação e chame [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) com o mesmo valor para a transição de cada slide. Defina quaisquer opções de tempo e efeito no mesmo loop para manter o comportamento consistente entre os slides.
 

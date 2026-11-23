@@ -17,17 +17,17 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Appliquer des transitions de diapositives, configurer l'avancement automatique des diapositives, et personnaliser Morph ainsi que d'autres effets de transition avec Aspose.Slides pour Java."
+description: "Appliquez des transitions de diapositives, configurez l'avance automatique des diapositives et personnalisez les effets Morph et autres effets de transition avec Aspose.Slides pour Java."
 ---
 ## **Vue d'ensemble**
 
-Les transitions de diapositives contrôlent la façon dont les diapositives apparaissent pendant un diaporama. Avec Aspose.Slides for Java, vous pouvez choisir un effet de transition pour chaque diapositive, configurer l’avancement par clic de souris ou par minuteur, et ajuster les options spécifiques à un effet. Cet article utilise des exemples Java pour appliquer des transitions, définir des durées de transition précises, gérer le minutage des diapositives et créer une transition Morph entre deux diapositives. Les exemples montrent également comment enregistrer les paramètres dans un fichier PPTX.
+Les transitions de diapositive contrôlent la façon dont les diapositives apparaissent pendant un diaporama. Avec Aspose.Slides for Java, vous pouvez choisir un effet de transition pour chaque diapositive, configurer l’avance par clic de souris ou par minuteur, et ajuster les options spécifiques à un effet. Cet article utilise des exemples Java pour appliquer des transitions, définir des durées de transition précises, gérer le minutage des diapositives et créer une transition Morph entre deux diapositives. Les exemples montrent également comment enregistrer les paramètres dans un fichier PPTX.
 
 ## **Ajouter une transition de diapositive**
 
-Pour appliquer une transition, chargez une présentation avec la classe [Présentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) et accédez aux paramètres de transition de la diapositive via [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Utilisez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avec une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), puis enregistrez la présentation.
+Pour appliquer une transition, chargez une présentation avec la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) et accédez aux paramètres de transition de la diapositive via [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Utilisez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avec une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), puis enregistrez la présentation.
 
-L’exemple suivant applique une transition Cercle à la première diapositive et une transition Peigne à la deuxième. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
+L’exemple suivant applique une transition Circle à la première diapositive et une transition Comb à la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
 
 ```java
 import com.aspose.slides.*;
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-## **Transition roue**
+## **Transition Wheel**
 
-La méthode [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-) de [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) contrôle le nombre de secteurs radiaux qui révèlent la diapositive cible. Définissez le type de transition de la diapositive sur Wheel à partir de [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) en utilisant [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avant d’accéder à [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) via [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/).
+La méthode [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-) de [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) contrôle le nombre de secteurs radiaux qui dévoilent la diapositive de destination. Définissez le type de transition de la diapositive sur Wheel à partir de [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) en utilisant [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avant d’accéder à [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) via [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/).
 
-Cet exemple crée deux paires identiques de diapositives : une diapositive noire suivie d’une diapositive avec un rectangle doré. Les diapositives cibles utilisent des nombres de rayons de 1 et 8, avec la même vitesse définie via [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) et une durée explicite de 8 000 millisecondes définie via [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) pour rendre la différence facile à observer.
+Cet exemple crée deux paires identiques de diapositives : une diapositive noire suivie d’une diapositive avec un rectangle doré. Les diapositives de destination utilisent respectivement des comptes de rayons de 1 et 8, avec la même vitesse définie via [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) et une durée explicite de 8 000 ms définie via [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) pour faciliter l’observation de la différence.
 
 ```java
 import java.awt.Color;
@@ -94,7 +94,59 @@ try {
 }
 ```
 
-Ouvrez la présentation de sortie dans PowerPoint et lancez le diaporama. Avancez de la diapositive 1 à la diapositive 2, puis de la diapositive 3 à la diapositive 4. En lecture PowerPoint, le nombre de rayons vérifié de 1 révèle la diapositive avec un balayage horaire unique ; le nombre vérifié de 8 la révèle à travers huit secteurs radiaux simultanément. Le contenu de destination et le minutage de la transition sont identiques, la différence réside donc dans le nombre de secteurs de révélation.
+Ouvrez la présentation de sortie dans PowerPoint et lancez le diaporama. Faites avancer la diapositive 1 vers la diapositive 2, puis la diapositive 3 vers la diapositive 4. Dans la lecture PowerPoint, le compte de rayons vérifié de 1 révèle la diapositive avec un balayage horaire unique ; le compte vérifié de 8 la révèle à travers huit secteurs radiaux simultanément. Le contenu de destination et le minutage de la transition sont identiques, la différence réside donc dans le nombre de secteurs de révélation.
+
+## **Fondu à travers le noir avec la transition Reveal**
+
+Définissez le type de transition de la diapositive de destination sur Reveal, puis appelez [setThroughBlack](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/#setThroughBlack-boolean-) sur ses paramètres [IRevealTransition](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/). L’exemple crée une diapositive source turquoise et une diapositive de destination corail, puis clone les deux. Chaque paire utilise la même transition Reveal de deux secondes. Seule la seconde paire effectue un fondu à travers le noir.
+
+```java
+import java.awt.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide source = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addClone(source);
+    ISlide[] slides = { source, destination };
+    Color[] backgrounds = { new Color(0, 128, 128), new Color(255, 127, 80) };
+    String[] labels = { "Source", "Destination" };
+
+    for (int i = 0; i < slides.length; i++) {
+        ISlide slide = slides[i];
+        slide.getBackground().setType(BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+        slide.getBackground().getFillFormat().getSolidFillColor().setColor(backgrounds[i]);
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+        shape.getTextFrame().setText(labels[i]);
+        shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    ISlide clonedDestination = presentation.getSlides().addClone(destination);
+    for (ISlide slide : new ISlide[] { destination, clonedDestination }) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Reveal);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        IRevealTransition reveal = (IRevealTransition) transition.getValue();
+        reveal.setDirection(TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide == clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ouvrez la présentation enregistrée dans PowerPoint et démarrez le diaporama. Faites avancer la diapositive 1 vers la diapositive 2 pour voir le turquoise se fondre directement dans le corail. Puis faites avancer la diapositive 3 vers la diapositive 4. L’écran s’assombrit brièvement presque jusqu’au noir avant que la diapositive corail n’apparaisse. Les deux diapositives conservent leurs couleurs d’arrière‑plan d’origine.
+
+Les lignes ci‑dessous montrent des images extraites de PowerPoint à des intervalles de demi‑seconde. Comparez l’image du milieu de chaque ligne pour observer l’effet.
+
+![Séparateurs distincts identifient la durée de transition de 750 ms et le réglage d’avance automatique de 5 000 ms.](reveal-through-black.png)
 
 ## **Ajouter une transition de diapositive avancée**
 
@@ -104,9 +156,9 @@ Vous pouvez configurer la durée pendant laquelle une diapositive reste à l’�
 - [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) active l’avancement automatique.
 - [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) spécifie le délai avant l’avancement automatique, en millisecondes.
 
-Activez à la fois l’avancement par clic et l’avancement chronométré pour laisser le spectateur passer à la diapositive suivante soit par clic, soit en attendant le minuteur. Pour n’utiliser que le minuteur, passez `false` à [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Le délai contrôle le moment où le diaporama avance ; il ne définit pas la durée de l’effet visuel de transition.
+Activez à la fois l’avancement par clic et par minuteur pour permettre au spectateur de passer à la diapositive suivante par un clic ou d’attendre le minuteur. Pour n’utiliser que le minuteur, passez `false` à [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Le délai contrôle le moment où le diaporama avance ; il ne définit pas la durée de l’effet visuel de transition.
 
-Cet exemple attribue différents effets aux trois premières diapositives et active l’avancement automatique après 3, 5 et 7 secondes, respectivement. Les clics de souris peuvent également faire avancer ces diapositives. Utilisez un fichier `input.pptx` contenant au moins trois diapositives.
+Cet exemple affecte différents effets aux trois premières diapositives et active l’avancement automatique après 3, 5 et 7 secondes, respectivement. Les clics de souris peuvent également faire avancer ces diapositives. Utilisez un fichier `input.pptx` contenant au moins trois diapositives.
 
 ```java
 import com.aspose.slides.*;
@@ -143,7 +195,7 @@ try {
 
 Pour vérifier si l’avancement chronométré est activé, appelez [getAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Un délai stocké seul n’indique pas que le minuteur est actif.
 
-L’exemple suivant ouvre le fichier enregistré ci‑dessus, signale chaque minuteur activé et désactive l’avancement automatique pour les diapositives dont le délai dépasse deux secondes. Il active les clics de souris pour ces diapositives et enregistre les paramètres mis à jour.
+L’exemple suivant ouvre le fichier enregistré ci‑dessus, signale chaque minuteur activé, et désactive l’avancement automatique pour les diapositives dont le délai dépasse deux secondes. Il active les clics de souris pour ces diapositives et enregistre les paramètres mis à jour.
 
 ```java
 import com.aspose.slides.*;
@@ -171,25 +223,25 @@ try {
 
 ## **Contrôler le minutage de la transition avec précision**
 
-Utilisez [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) pour spécifier la durée exacte d’un effet de transition en millisecondes. La méthode [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive expose ces paramètres via l’interface [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/) :
+Utilisez [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) pour spécifier la longueur exacte d’un effet de transition en millisecondes. La méthode [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive expose ces paramètres via [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/) :
 
 | Méthode | Objectif |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Définit la durée de l’effet de transition lui‑même, en millisecondes. |
 | [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Définit le délai avant que la diapositive avance automatiquement, en millisecondes. Passez `true` à [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) pour activer ce minuteur. |
-| [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Sélectionne une catégorie de vitesse prédéfinie à partir de [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) : Slow, Medium ou Fast. Elle est utilisée lorsqu’une durée exacte n’est pas spécifiée. |
+| [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Sélectionne une catégorie de vitesse prédéfinie dans [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) : Slow, Medium ou Fast. Elle est utilisée lorsqu’aucune durée exacte n’est spécifiée. |
 
-[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) contrôle uniquement l’effet de transition ; il ne détermine pas la durée pendant laquelle la diapositive reste visible. Configurez séparément le délai d’avancement automatique. Lorsqu’aucune durée explicite n’est définie, Aspose.Slides détermine la durée de l’effet à partir du type de transition et de la valeur renvoyée par [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) .
+[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) ne contrôle que l’effet de transition ; il ne détermine pas la durée pendant laquelle la diapositive demeure visible. Configurez séparément le délai d’avancement automatique. Lorsqu’aucune durée explicite n’est définie, Aspose.Slides détermine la durée de l’effet à partir du type de transition et de la valeur [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Des barres séparées identifient la durée de transition de 750 ms et le réglage d’avancement automatique de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Barres séparées identifiant la durée de transition de 750 ms et le réglage d’avance automatique de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*L’exemple partagé attribue à chaque diapositive une transition Fade de 750 ms et active séparément l’avancement automatique à 5 000 ms. La durée de transition contrôle l’effet ; l’avancement contrôle le moment de quitter la diapositive. Ces barres sont des réglages schématiques, pas une chronologie mesurée combinée.*
+*L’exemple partagé attribue à chaque diapositive une transition Fade de 750 ms et active séparément l’avance automatique à 5 000 ms. La durée de transition contrôle l’effet ; l’avance contrôle le moment où l’on quitte la diapositive. Ces barres représentent des réglages schématiques, pas une timeline mesurée combinée.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **Appliquer la même durée à chaque diapositive**
 
-Pour une cadence cohérente, appliquez le même effet et la même durée exacte à chaque diapositive. Cet exemple charge `input.pptx`, sélectionne Fade dans [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), et donne à chaque transition une durée de 750 millisecondes. Il active séparément l’avancement automatique après 5 000 millisecondes et désactive l’avancement par clic de souris, puis enregistre le résultat au format PPTX.
+Pour un rythme cohérent, appliquez le même effet et la même durée exacte à chaque diapositive. Cet exemple charge `input.pptx`, sélectionne Fade à partir de [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), et attribue à chaque transition une durée de 750 millisecondes. Il active séparément l’avancement automatique après 5 000 millisecondes et désactive l’avancement par clic, puis enregistre le résultat au format PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -201,7 +253,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // Configurer l'avancement automatique indépendamment de la durée de l'effet.
+        // Configurer l'avance automatique indépendamment de la durée de l'effet.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -215,7 +267,7 @@ try {
 
 ### **Définir des durées différentes pour des diapositives individuelles**
 
-Des diapositives différentes peuvent utiliser des durées d’effet différentes. Par exemple, utilisez une transition brève pour une diapositive de titre et une transition plus longue pour une introduction de section. Cet exemple définit 500 millisecondes pour la première diapositive et 1 200 millisecondes pour la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
+Des diapositives différentes peuvent utiliser des durées d’effet différentes. Par exemple, utilisez une transition brève pour une diapositive de titre et une transition plus longue pour l’introduction d’une section. Cet exemple fixe 500 ms pour la première diapositive et 1 200 ms pour la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
 
 ```java
 import com.aspose.slides.*;
@@ -240,15 +292,15 @@ try {
 }
 ```
 
-### **Coordonner les transitions avec une sortie animée**
+### **Coordonner les transitions avec la sortie animée**
 
-Lorsque vous préparez un [GIF animé](/slides/fr/java/convert-powerpoint-to-animated-gif/), une [présentation HTML5](/slides/fr/java/export-to-html5/) ou une [vidéo](/slides/fr/java/convert-powerpoint-to-video/), définissez des durées de transition exactes avant l’exportation afin de correspondre au rythme souhaité. Par exemple, utilisez un fondu de 600 millisecondes entre les scènes, et ajustez séparément le délai d’avancement de chaque diapositive pour laisser le temps à la narration ou au contenu.
+Lors de la préparation d’un [GIF animé](/slides/fr/java/convert-powerpoint-to-animated-gif/), d’une [présentation HTML5](/slides/fr/java/export-to-html5/) ou d’une [vidéo](/slides/fr/java/convert-powerpoint-to-video/), définissez des durées de transition exactes avant l’exportation afin d’ajuster le rythme souhaité. Par exemple, utilisez un fondu de 600 ms entre les scènes et ajustez séparément le délai d’avancement de chaque diapositive pour laisser le temps à la narration ou au contenu.
 
-Pour les GIF et les vidéos, coordonnez la fréquence d’images de sortie avec la durée de l’effet : 600 millisecondes correspondent à 18 images à 30 images par seconde. En HTML5, activez les transitions animées dans les paramètres d’exportation. Vérifiez les effets et options de minutage pris en charge par le format d’exportation choisi et prévisualisez la sortie pour confirmer la synchronisation.
+Pour les GIF et les vidéos, synchronisez la fréquence d’images de sortie avec la durée de l’effet : 600 ms correspondent à 18 images à 30 images par seconde. En HTML5, activez les transitions animées dans les paramètres d’exportation. Vérifiez les effets et options de minutage supportés par le format d’export choisi et prévisualisez la sortie pour confirmer la synchronisation.
 
-### **Lire une durée de transition existante**
+### **Lire la durée d’une transition existante**
 
-Appelez [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) avant de modifier la transition afin de déterminer si une valeur explicite est stockée. Une valeur de `-1` signifie qu’aucune durée explicite n’est définie ; une valeur non négative indique la durée stockée en millisecondes. La valeur non définie n’est pas la durée de lecture calculée : Aspose.Slides utilise le type de transition et la valeur renvoyée par [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) pour déterminer cette durée. La définition d’un type de transition peut initialiser une durée, il faut donc inspecter les paramètres d’origine d’abord.
+Appelez [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) avant de modifier la transition afin de déterminer si une valeur explicite est stockée. Une valeur de `-1` signifie qu’aucune durée explicite n’est définie ; une valeur non négative spécifie la durée stockée en millisecondes. La valeur non définie n’est pas la durée de lecture calculée : Aspose.Slides utilise le type de transition et la valeur [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) pour déterminer cette durée. La définition d’un type de transition peut initialiser une durée, il convient donc d’inspecter les paramètres d’origine d’abord.
 
 ```java
 import com.aspose.slides.*;
@@ -272,9 +324,9 @@ try {
 
 ## **Transition Morph**
 
-La transition Morph anime les changements entre les objets sur des diapositives consécutives. Pour créer un effet Morph simple, clonez une diapositive, déplacez ou redimensionnez un objet sur le clone, puis appliquez la transition Morph à la seconde diapositive. Cela donne aux objets correspondants à animer la possibilité de passer de leurs états d’origine à leurs états modifiés.
+La transition Morph anime les changements entre objets sur des diapositives consécutives. Pour créer un effet Morph simple, clonez une diapositive, déplacez ou redimensionnez un objet sur le clone, puis appliquez la transition Morph à la seconde diapositive. Cela donne aux objets correspondants la possibilité d’animer leur état d’origine vers l’état modifié.
 
-L’exemple suivant crée une diapositive contenant un rectangle de texte, clone la diapositive et modifie la position et la taille du rectangle sur le clone. Il sélectionne ensuite Morph dans l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) pour la seconde diapositive. Ouvrez le fichier enregistré dans un visualiseur de présentations qui prend en charge Morph pour voir l’effet lors d’un diaporama.
+L’exemple suivant crée une diapositive contenant un rectangle de texte, clone la diapositive, puis modifie la position et la taille du rectangle sur le clone. Il sélectionne ensuite Morph dans l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) pour la seconde diapositive. Ouvrez le fichier enregistré dans un visualiseur de présentations qui prend en charge Morph pour voir l’effet pendant le diaporama.
 
 ```java
 import com.aspose.slides.*;
@@ -302,13 +354,13 @@ try {
 
 ## **Types de transition Morph**
 
-L’énumération [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/) contrôle la façon dont Morph associe et anime le contenu :
+L’énumération [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/) détermine la façon dont Morph associe et anime le contenu :
 
 - [ByObject](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByObject) traite chaque forme comme un objet complet.
-- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) anime le texte en faisant correspondre les mots lorsque c’est possible.
-- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) anime le texte en faisant correspondre les caractères lorsque c’est possible.
+- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) anime le texte en associant les mots lorsque cela est possible.
+- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) anime le texte en associant les caractères lorsque cela est possible.
 
-Utilisez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) pour sélectionner Morph avant d’accéder à [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--). La valeur fournit alors l’interface [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/), dont la méthode [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-) sélectionne le mode de correspondance.
+Utilisez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) pour sélectionner Morph avant d’accéder à [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--). La valeur renvoie alors l’interface [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/), dont la méthode [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-) choisit le mode d’association.
 
 Cet exemple ouvre la présentation créée dans la section précédente et configure la seconde diapositive pour utiliser l’animation Morph basée sur les mots.
 
@@ -339,9 +391,9 @@ try {
 
 ## **Définir les effets de transition**
 
-Certaines transitions exposent des options supplémentaires, comme la direction ou le fait que l’effet commence à partir d’un écran noir. Les options disponibles dépendent de la transition sélectionnée avec [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-). Définissez d’abord le type, puis utilisez l’interface appropriée via [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--).
+Certaines transitions exposent des options supplémentaires, telles que la direction ou le démarrage de l’effet depuis un écran noir. Les options disponibles dépendent de la transition sélectionnée avec [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-). Définissez d’abord le type, puis utilisez l’interface appropriée via [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--).
 
-L’exemple suivant applique une transition Cut à la première diapositive de `input.pptx`. Il appelle [setFromBlack](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) via [IOptionalBlackTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/) afin que la transition démarre depuis un écran noir.
+L’exemple suivant applique une transition Cut à la première diapositive de `input.pptx`. Il appelle [setFromBlack](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) via [IOptionalBlackTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/) afin que la transition commence depuis un écran noir.
 
 ```java
 import com.aspose.slides.*;
@@ -368,16 +420,16 @@ try {
 
 **Puis‑je contrôler la vitesse de lecture d’une transition de diapositive ?**
 
-Oui. Privilégiez [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) lorsque vous avez besoin d’une durée d’effet exacte en millisecondes. Utilisez [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) lorsqu’une catégorie prédéfinie [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) – Slow, Medium ou Fast – suffit et qu’aucune durée explicite n’est définie. Ces paramètres contrôlent l’effet de transition indépendamment du délai d’avancement automatique.
+Oui. Privilégiez [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) lorsque vous avez besoin d’une durée d’effet exacte en millisecondes. Utilisez [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) lorsqu’une catégorie de vitesse prédéfinie de [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) — Slow, Medium ou Fast — suffit et qu’aucune durée explicite n’est définie. Ces paramètres contrôlent l’effet de transition indépendamment du délai d’avancement automatique.
 
-**Puis‑je attacher un son à une transition et le faire boucler ?**
+**Puis‑je associer un son à une transition et le faire boucler ?**
 
-Oui. Assignez un son intégré avec [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), passez `StartSound` de l’énumération [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/) à [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), et activez [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) avec `true`. Le son se répète jusqu’au prochain événement sonore du diaporama.
+Oui. Assignez un audio intégré avec [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), passez StartSound de l’énumération [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/) à [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), et activez [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) avec `true`. L’audio boucle jusqu’au prochain événement sonore du diaporama.
 
-**Quelle est la façon la plus rapide d’appliquer la même transition à toutes les diapositives ?**
+**Quelle est la façon la plus rapide d’appliquer la même transition à chaque diapositive ?**
 
-Parcourez la collection [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) de la présentation et appelez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avec la même valeur pour chaque transition de diapositive. Définissez les options de minutage et d’effet dans la même boucle pour garantir un comportement cohérent sur toutes les diapositives.
+Parcourez la collection [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) de la présentation et appelez [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) avec la même valeur pour la transition de chaque diapositive. Définissez les options de minutage et d’effet dans la même boucle afin de garder un comportement cohérent sur toutes les diapositives.
 
 **Comment vérifier quelle transition est actuellement définie sur une diapositive ?**
 
-Appelez [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) sur le résultat de [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive. Elle renvoie une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) ; None indique qu’aucun effet de transition n’est appliqué.
+Appelez [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) sur le résultat de [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive. Il renvoie une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) ; None signifie qu’aucun effet de transition n’est appliqué.

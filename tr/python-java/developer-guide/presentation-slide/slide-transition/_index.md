@@ -1,5 +1,5 @@
 ---
-title: Python aracılığıyla Java kullanarak Sunumlarda Slayt Geçişlerini Yönetme
+title: Python via Java Kullanarak Sunumlarda Slayt Geçişlerini Yönetme
 linktitle: Slayt Geçişi
 type: docs
 weight: 80
@@ -22,13 +22,13 @@ description: "Aspose.Slides for Python via Java ile slayt geçişlerini uygulay�
 ---
 ## **Genel Bakış**
 
-Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl göründüğünü kontrol eder. Aspose.Slides for Python via Java ile her slayt için bir geçiş efekti seçebilir, ilerlemeyi fare tıklaması ya da zamanlayıcı ile yapılandırabilir ve bir eﬀekte özgü seçenekleri ayarlayabilirsiniz. Bu makale, geçişleri uygulamak, kesin geçiş sürelerini belirlemek, slayt zamanlamasını yönetmek ve iki slayt arasında bir Morph geçişi oluşturmak için Python örneklerini kullanır. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini gösterir.
+Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl göründüğünü kontrol eder. Aspose.Slides for Python via Java ile her slayt için bir geçiş efekti seçebilir, ilerlemeyi fare tıklaması veya zamanlayıcıyla yapılandırabilir ve efekti özel seçeneklerle ayarlayabilirsiniz. Bu makale, geçişleri uygulamak, kesin geçiş sürelerini ayarlamak, slayt zamanlamasını yönetmek ve iki slayt arasında bir Morph geçişi oluşturmak için Python örneklerini kullanır. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini gösterir.
 
 ## **Slayt Geçişi Ekle**
 
-Bir geçiş uygulamak için, bir sunumu [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfı ile yükleyin ve slaytın geçiş ayarlarına [getSlideShowTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getSlideShowTransition) üzerinden erişin. [TransitionType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitiontype/) enumarasyonundan bir değerle [setType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setType) kullanın, ardından sunumu kaydedin.
+Bir geçiş uygulamak için bir sunumu [Sunum](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfı ile yükleyin ve slaydın geçiş ayarlarına [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) üzerinden erişin. [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) yöntemini [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) enum'undan bir değerle kullanın, ardından sunumu kaydedin.
 
-Aşağıdaki örnek, ilk slayta Circle geçişi ve ikinci slayta Comb geçişi uygular. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
+Aşağıdaki örnek, ilk slayta Circle (Daire) geçişi ve ikinci slayta Comb (Tarak) geçişi uygular. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```python
 import jpype
@@ -52,17 +52,126 @@ finally:
     presentation.dispose()
 ```
 
+## **Wheel (Tekerlek) Geçişi**
+
+[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) ile [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) üzerinden Wheel (Tekerlek) seçin. Ardından [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) ile [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) ayarlarına erişin. [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) yöntemi, hedef slaytı ortaya çıkaran radyal sektör sayısını kontrol eder.
+
+Örnek iki aynı slayt çiftini oluşturur. Her çift, siyah bir slaytla başlar ve tam bir altın dikdörtgenle sona erer. Her iki hedef slayt da aynı yavaş hızda ([setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) ile ayarlanmış) ve [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) ile 8.000 milisaniye açık bir süreyle kullanılır. Sadece spoke (odun) sayısı değişir.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Presentation, SaveFormat, ShapeType, TransitionSpeed, TransitionType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
+    height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+
+    slides = presentation.getSlides()
+    black_slide = slides.get_Item(0)
+    black_slide.getShapes().clear()
+    background = black_slide.getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Solid)
+    background.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    destination_slide = slides.addClone(black_slide)
+    rectangle = destination_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, width, height)
+    rectangle.getFillFormat().setFillType(FillType.Solid)
+    rectangle.getFillFormat().getSolidFillColor().setColor(Color(255, 215, 0))
+    rectangle.getTextFrame().setText("Wheel transition")
+
+    slides.addClone(black_slide)
+    slides.addClone(destination_slide)
+    for slide_index, spokes in ((1, 1), (3, 8)):
+        transition = slides.get_Item(slide_index).getSlideShowTransition()
+        transition.setType(TransitionType.Wheel)
+        wheel_transition = transition.getValue()
+        wheel_transition.setSpokes(spokes)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(8000)
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+`wheel-transitions.pptx` dosyasını PowerPoint’te açın ve slayt gösterisini başlatın. 1. slayttan 2. slayta ilerleyerek altın dikdörtgenin saat yönünde tek bir süpürme ile ortaya çıkmasını izleyin. Ardından 3. slayttan 4. slayta ilerleyerek sekiz radyal sektörün aynı dikdörtgeni eşzamanlı olarak ortaya çıkarmasını izleyin.
+
+## **Fade Through Black (Siyah Üzerinden Açıklama) ile Reveal (Göster) Geçişi**
+
+Hedef slaydın geçiş türünü Reveal olarak ayarlayın, ardından [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/) ayarları üzerinde [setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) metodunu çağırın. Örnek, turkuaz bir kaynak slayt ve mercan bir hedef slayt oluşturur, ardından her ikisini de klonlar. Her çift aynı iki saniyelik Reveal geçişini kullanır. Sadece ikinci çift siyah üzerinden geçiş yapar.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+`reveal-transitions.pptx` dosyasını PowerPoint’te açın ve slayt gösterisini başlatın. 1. slayttan 2. slayta ilerleyerek turkuazın doğrudan mercana geçmesini izleyin. Ardından 3. slayttan 4. slayta ilerleyin. Ekran, mercan slayt görünmeden önce kısa bir süre neredeyse kara kararmış olur. Her iki slayd da özgün arka plan renklerini korur.
+
+Aşağıdaki satırlar, yarım saniyelik aralıklarla PowerPoint’ten alınan çerçeveleri gösterir. Her satırdaki orta çerçeveyi karşılaştırarak efekti gözlemleyin.
+
+![PowerPoint oynatımı sırasında siyah üzerinden geçiş devre dışı (üst) ve etkin (alt) olduğu gösterilir. Sadece alt satır neredeyse siyah üzerinden geçer.](reveal-through-black.png)
+
 ## **Gelişmiş Slayt Geçişi Ekle**
 
-Bir slaytın ekranda ne kadar kalacağını ve fare tıklamasının slayt gösterisini ilerletip ilerletmeyeceğini yapılandırabilirsiniz. Aşağıdaki yöntemler bu davranışı kontrol eder:
+Bir slaydın ekranda ne kadar süre kalacağını ve fare tıklamasıyla slayt gösterisinin ilerleyip ilerlemeyeceğini yapılandırabilirsiniz. Aşağıdaki metodlar bu davranışı kontrol eder:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) izleyicinin fareye tıklayarak ilerlemesini sağlar.
-- [setAdvanceAfter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) otomatik ilerlemeyi etkinleştirir.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) otomatik ilerlemeden önceki gecikmeyi milisaniye cinsinden belirtir.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) izleyicinin fare tıklamasıyla ilerlemesini sağlar.
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) otomatik ilerlemeyi etkinleştirir.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) otomatik ilerlemeden önceki gecikmeyi milisaniye cinsinden belirler.
 
-Hem tıklama hem de zamanlı ilerlemeyi etkinleştirerek izleyicinin bir tıklama ile ilerlemesini ya da zamanlayıcıyı beklemesini sağlayabilirsiniz. Yalnızca zamanlayıcıyı kullanmak için [setAdvanceOnClick](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metoduna `False` geçin. Gecikme, slayt gösterisinin ne zaman ilerleyeceğini kontrol eder; görsel geçiş efektinin süresini belirlemez.
+Her iki tıklama ve zamanlanmış ilerlemeyi etkinleştirerek izleyicinin bir tıklama ile devam etmesine ya da zamanlayıcıyı beklemesine izin verin. Sadece zamanlayıcıyı kullanmak için [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metoduna `False` gönderin. Gecikme, slayt gösterisinin ne zaman ilerleyeceğini kontrol eder; görsel geçiş efektinin süresini ayarlamaz.
 
-Bu örnek, ilk üç slayta farklı efektler atar ve sırasıyla 3, 5 ve 7 saniye sonra otomatik ilerlemeyi etkinleştirir. Fare tıklamaları da bu slaytları ilerletebilir. En az üç slaytı olan bir `input.pptx` dosyası kullanın.
+Bu örnek, ilk üç slayta farklı efektler atar ve otomatik ilerlemeyi sırasıyla 3, 5 ve 7 saniye sonra etkinleştirir. Bu slaytlar fare tıklamasıyla da ilerleyebilir. En az üç slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```python
 import jpype
@@ -101,9 +210,9 @@ finally:
     presentation.dispose()
 ```
 
-Zamanlı ilerlemenin etkin olup olmadığını kontrol etmek için [getAdvanceAfter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) çağırın. Saklanan bir gecikme yalnız başına zamanlayıcının aktif olduğunu göstermez.
+Zamanlanmış ilerlemenin etkin olup olmadığını kontrol etmek için [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metodunu çağırın. Saklanan bir gecikme yalnızca zamanlayıcının aktif olduğunu göstermez.
 
-Sonraki örnek, yukarıda kaydedilen dosyayı açar, etkin olan her zamanlayıcıyı raporlar ve iki saniyeden uzun gecikmeye sahip slaytlar için otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamasını etkinleştirir ve güncellenmiş ayarları kaydeder.
+Sonraki örnek, yukarıda kaydedilen dosyayı açar, her etkin zamanlayıcıyı raporlar ve iki saniyeden uzun gecikmeye sahip slaytlarda otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamasını etkinleştirir ve güncellenmiş ayarları kaydeder.
 
 ```python
 import jpype
@@ -131,21 +240,27 @@ finally:
     presentation.dispose()
 ```
 
-## **Geçiş Zamanlamasını Kesin Olarak Kontrol Et**
+## **Geçiş Zamanlamasını Kesintisiz Kontrol Et**
 
-[setDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setDuration) kullanarak bir geçiş efektinin kesin uzunluğunu milisaniye cinsinden belirtebilirsiniz. Slaytın [getSlideShowTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getSlideShowTransition) yöntemi bu ayarları [SlideShowTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/) üzerinden sunar:
+Geçiş efektinin kesin uzunluğunu milisaniye cinsinden belirlemek için [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) metodunu kullanın. Slaydın [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) yöntemi, bu ayarları [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) üzerinden ortaya çıkarır:
 
 | Yöntem | Amaç |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setDuration) | Geçiş efektinin kendisinin süresini milisaniye cinsinden ayarlar. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Slaytın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye cinsinden ayarlar. Bu zamanlayıcıyı etkinleştirmek için [setAdvanceAfter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) metoduna `True` geçin. |
-| [setSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionspeed/) enumarasyonundan önceden tanımlı bir hız kategorisi seçer: Slow, Medium veya Fast. Kesin bir süre belirtilmediğinde kullanılır. |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | Geçiş efektinin kendisinin süresini milisaniye cinsinden ayarlar. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Slaydın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye cinsinden ayarlar. Bu zamanlayıcıyı etkinleştirmek için [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) metoduna `True` gönderin. |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) enum'undan önceden tanımlı bir hız kategorisini (Slow, Medium veya Fast) seçer. Kesin bir süre belirtilmediğinde kullanılır. |
 
-[setDuration] yalnızca geçiş efektini kontrol eder; slaytın ekranda ne kadar kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açık bir süre ayarlanmamışsa, Aspose.Slides geçiş tipinden ve [getSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getSpeed) değerinden etki süresini belirler.
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) yalnızca geçiş efektini kontrol eder; slaydın ekranda ne kadar uzun süre kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açık bir süre ayarlanmamışsa, Aspose.Slides geçiş türü ve [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) değerine göre efekt süresini belirler.
 
-### **Her Slayta Aynı Süreyi Uygula**
+<!-- visual-explanation:slide-transition:start -->
+[![Ayrı çubuklar 750 ms geçiş süresini ve 5.000 ms otomatik ilerleme ayarını gösterir.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-Tutarlı bir tempo için aynı efekti ve kesin süreyi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitiontype/) üzerinden Fade'ı seçer ve her geçişe 750 milisaniye süre verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir ve fare tıklamasıyla ilerlemeyi devre dışı bırakır, ardından sonucu PPTX olarak kaydeder.
+*Ortak örnek, her slayta 750 ms Fade (Solma) geçişi verir ve ayrıca otomatik ilerlemeyi 5.000 ms’de etkinleştirir. Geçiş süresi efekti kontrol eder; ilerleme slayttan ne zaman çıkılacağını belirler. Bu çubuklar ölçülen bir birleştirilmiş zaman çizelgesi değil, şematik ayarlardır.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **Tüm Slaytlara Aynı Süreyi Uygula**
+
+Tutarlı bir tempo için aynı efekti ve kesin süreyi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) üzerinden Fade seçer ve her geçişe 750 milisaniye süresi verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir ve fare tıklamasıyla ilerlemeyi devre dışı bırakır, ardından sonucu PPTX olarak kaydeder.
 
 ```python
 import jpype
@@ -163,7 +278,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # Etki süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
+        # Efekt süresinden bağımsız olarak otomatik ilerlemeyi yapılandırın.
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -173,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Bireysel Slaytlar İçin Farklı Süreler Ayarla**
+### **Bireysel Slaytlar İçin Farklı Süreler Belirle**
 
-Farklı slaytlar farklı efekt süreleri kullanabilir. Örneğin, başlık slaytı için kısa bir geçiş ve bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek, ilk slayt için 500 milisaniye ve ikinci slayt için 1.200 milisaniye ayarlar. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
+Farklı slaytlar farklı geçiş süreleri kullanabilir. Örneğin, bir başlık slaytı için kısa bir geçiş ve bir bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek, ilk slayta 500 milisaniye, ikinci slayta 1.200 milisaniye süre ayarlar. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```python
 import jpype
@@ -204,15 +319,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Animasyonlu Çıktı ile Geçişleri Koordine Et**
+### **Animasyonlu Çıktıyla Geçişleri Koordine Et**
 
-Bir [animated GIF](/slides/tr/python-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/tr/python-java/export-to-html5/) veya [video](/slides/tr/python-java/convert-powerpoint-to-video/) hazırlarken, hedeflenen tempoya uygun olarak dışa aktarmadan önce kesin geçiş sürelerini ayarlayın. Örneğin, sahneler arasında 600 milisaniyelik bir fade kullanın ve her slaytın ilerleme gecikmesini ayrı ayrı ayarlayarak anlatımına veya içeriğine zaman tanıyın.
+[animasyonlu GIF](/slides/tr/python-java/convert-powerpoint-to-animated-gif/), [HTML5 sunumu](/slides/tr/python-java/export-to-html5/) veya [video](/slides/tr/python-java/convert-powerpoint-to-video/) hazırlarken, dışa aktarmadan önce kesin geçiş sürelerini ayarlayarak istenen tempoya uyum sağlayın. Örneğin, sahneler arasına 600 milisaniyelik bir solma ekleyin ve her slaydın ilerleme gecikmesini ayrı ayrı ayarlayarak anlatım veya içerik süresine yer verin.
 
-GIF ve video için, çıktı kare hızını efekt süresiyle koordine edin: 600 milisaniye, 30 fps'de 18 kareye eşittir. HTML5'te dışa aktarma ayarlarında animasyonlu geçişleri etkinleştirin. Seçilen dışa aktarma formatının desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı önizleyin.
+GIF ve video için, efekt süresiyle uyumlu kare hızını koordine edin: 600 milisaniye, 30 fps’de 18 kareye eşittir. HTML5’te, dışa aktarım ayarlarında animasyonlu geçişleri etkinleştirin. Seçilen dışa aktarım biçiminin desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı ön izleyin.
 
-### **Mevcut Bir Geçiş Süresini Oku**
+### **Mevcut Geçiş Süresini Oku**
 
-Geçişi değiştirmeden önce [getDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getDuration) metodunu çağırarak açık bir değerin saklanıp saklanmadığını belirleyin. `-1` değeri, açık bir sürenin ayarlanmadığını; negatif olmayan bir değer ise saklanan sürenin milisaniye cinsinden olduğunu gösterir. Ayarlanmamış değer, hesaplanan oynatma süresi değildir: Aspose.Slides, geçiş tipini ve [getSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getSpeed) değerini kullanarak bu süreyi belirler. Bir geçiş tipi ayarlamak bir süreyi başlatabilir, bu yüzden önce orijinal ayarları inceleyin.
+Geçişi değiştirmeden önce [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) metodunu çağırarak açık bir değer saklanıp saklanmadığını belirleyin. `-1` değeri, açık bir sürenin ayarlanmadığını; negatif olmayan bir değer ise milisaniye cinsinden saklanan süreyi gösterir. Ayarlanmamış değer, hesaplanan oynatma süresi değildir: Aspose.Slides, geçiş türü ve [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) değerini kullanarak bu süreyi belirler. Bir geçiş türü ayarlamak bir süreyi başlatabilir, bu yüzden önce orijinal ayarları inceleyin.
 
 ```python
 import jpype
@@ -239,9 +354,9 @@ finally:
 
 ## **Morph Geçişi**
 
-Morph geçişi, ardışık slaytlardaki nesneler arasındaki değişiklikleri canlandırır. Basit bir Morph etkisi oluşturmak için bir slaytı kopyalayın, kopyadaki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişi uygulayın. Bu, geçişin ilgili nesneleri orijinal ve değiştirilmiş durumları arasında canlandırmasını sağlar.
+Morph geçişi, ardışık slaytlar arasındaki nesnelerdeki değişiklikleri canlandırır. Basit bir Morph etkisi oluşturmak için bir slaytı klonlayın, klon üzerindeki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişini uygulayın. Böylece geçiş, aynı nesnelerin orijinal ve değiştirilmiş hallerini canlandırır.
 
-Aşağıdaki örnek, bir metin dikdörtgeni içeren bir slayt oluşturur, slaytı kopyalar ve kopyadaki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayt için [TransitionType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitiontype/) enumarasyonundan Morph'ı seçer. Kaydedilen dosyayı Morph'u destekleyen bir sunum görüntüleyicide açarak slayt gösterisi sırasında efekti görebilirsiniz.
+Aşağıdaki örnek, bir metin dikdörtgeni içeren bir slayt oluşturur, slaytı klonlar ve klon üzerindeki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayd için [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) enum'undan Morph seçer. Morph’u destekleyen bir sunum görüntüleyicide kaydedilmiş dosyayı açarak slayt gösterisi sırasında efekti görün.
 
 ```python
 import jpype
@@ -274,13 +389,15 @@ finally:
 
 ## **Morph Geçişi Türleri**
 
-[TransitionMorphType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionmorphtype/) enumarasyonu, Morph'un içeriği nasıl eşleştirdiğini ve canlandırdığını kontrol eder:
+[TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) enum'ı, Morph’un içerikle nasıl eşleşip canlandırılacağını belirler:
 
-- [ByObject](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionmorphtype/#ByObject) her şekli bütün bir nesne olarak ele alır.
-- [ByWord](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionmorphtype/#ByWord) metni, mümkün olduğunda kelimeleri eşleştirerek canlandırır.
-- [ByChar](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionmorphtype/#ByChar) metni, mümkün olduğunda karakterleri eşleştirerek canlandırır.
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) her şekli bütün bir nesne olarak ele alır.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) mümkün olduğunda kelimeleri eşleştirerek metni canlandırır.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) mümkün olduğunda karakterleri eşleştirerek metni canlandırır.
 
-[setType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setType) metodunu Morph seçmek için, [getValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getValue) metoduna erişmeden önce kullanın. Bu değer, [MorphTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/morphtransition/) sınıfının bir örneği olur ve onun [setMorphType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/morphtransition/#setMorphType) metodu eşleşme modunu seçer.
+[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) ile Morph seçildikten sonra [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) metoduna erişilir. Dönen değer, [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/) sınıfının bir örneğidir ve [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) yöntemi eşleşme modunu seçer.
+
+Bu örnek, önceki bölümde oluşturulan sunumu açar ve ikinci slaytı kelime tabanlı Morph animasyonu kullanacak şekilde yapılandırır.
 
 ```python
 import jpype
@@ -312,9 +429,9 @@ finally:
 
 ## **Geçiş Efektlerini Ayarla**
 
-Bazı geçişler, yön gibi ek seçenekler ya da etkinin siyah bir ekrandan başlayıp başlamadığını ortaya çıkarır. Mevcut seçenekler, [setType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setType) ile seçilen geçişe bağlıdır. İlk önce tipi ayarlayın, ardından [getValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getValue) üzerinden uygun sınıfı kullanın.
+Bazı geçişler ek seçenekler sunar; örneğin yön veya efektin siyah bir ekrandan başlayıp başlamadığı gibi. Kullanılabilir seçenekler, [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) ile seçilen geçişe bağlıdır. Önce tipi ayarlayın, ardından [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) aracılığıyla uygun sınıfı kullanın.
 
-Aşağıdaki örnek, `input.pptx` dosyasının ilk slaytına Cut geçişi uygular. Geçişin siyah bir ekrandan başlaması için [OptionalBlackTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/optionalblacktransition/) üzerinden [setFromBlack](https://reference.aspose.com/slides/tr/python-java/aspose.slides/optionalblacktransition/#setFromBlack) metodunu çağırır.
+Aşağıdaki örnek, `input.pptx` dosyasının ilk slaydına Cut (Kes) geçişi uygular. [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) üzerinden [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) metodunu çağırarak geçişin siyah bir ekrandan başlamasını sağlar.
 
 ```python
 import jpype
@@ -345,16 +462,16 @@ finally:
 
 **Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?**
 
-Evet. Milisaniye cinsinden kesin bir efekt süresi gerektiğinde [setDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setDuration) tercih edin. Önceden tanımlı bir [TransitionSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionspeed/) (Slow, Medium veya Fast) kategorisi yeterli olduğunda ve açık bir süre ayarlanmamışsa [setSpeed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setSpeed) kullanın. Bu ayarlar geçiş efektini otomatik ilerleme gecikmesinden bağımsız olarak kontrol eder.
+Evet. Milisaniye cinsinden kesin bir efekt süresi gerektiğinde **[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration)** yöntemini tercih edin. Önceden tanımlı bir **[TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)** (Slow, Medium veya Fast) kategorisi yeterli olduğunda ve açık bir süre ayarlanmamışsa **[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed)** yöntemini kullanın. Bu ayarlar geçiş efektini otomatik ilerleme gecikmesinden bağımsız olarak kontrol eder.
 
 **Bir geçişe ses ekleyebilir ve döngüye alabilir miyim?**
 
-Evet. Gömülü sesi [setSound](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setSound) ile atayın, [TransitionSoundMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitionsoundmode/) enumarasyonundan StartSound değerini [setSoundMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setSoundMode) metoduna geçirin ve [setSoundLoop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setSoundLoop) metodunu `True` ile etkinleştirin. Ses, slayt gösterisinde bir sonraki ses olayına kadar döngüde çalar.
+Evet. **[setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound)** ile gömülü sesi atayın, **[TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/)** enum'undan **StartSound** değerini **[setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode)** metoduna gönderin ve **[setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop)** ile `True` ayarlayarak sesi döngüye alın. Ses, slayt gösterisindeki bir sonraki ses olayına kadar döner.
 
-**Her slayta aynı geçişi uygulamanın en hızlı yolu nedir?**
+**Her slayta aynı geçişi en hızlı şekilde nasıl uygularım?**
 
-Sunumun [getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) koleksiyonunu döngüye alıp, her slaytın geçişi için aynı değeri [setType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#setType) ile çağırın. Zamanlama ve efekt seçeneklerini aynı döngüde ayarlayarak davranışın slaytlar arasında tutarlı kalmasını sağlayın.
+Sunumun **[getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides)** koleksiyonunda döngü oluşturun ve her slaydın geçişi için aynı değerle **[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)** metodunu çağırın. Zamanlama ve efekt seçeneklerini aynı döngüde ayarlayarak tutarlılığı sağlayın.
 
-**Bir slaytta şu anda hangi geçişin ayarlandığını nasıl kontrol edebilirim?**
+**Bir slaytta şu anda ayarlı geçişi nasıl kontrol edebilirim?**
 
-Slaytın [getSlideShowTransition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getSlideShowTransition) sonucunda [getType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowtransition/#getType) metodunu çağırın. Bu, [TransitionType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/transitiontype/) enumarasyonundan bir değer döndürür; None_ değeri, hiçbir geçiş efektinin uygulanmadığını gösterir.
+Slaydın **[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)** sonucunda **[getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType)** metodunu çağırın. Bu, **[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)** enum'undan bir değer döndürür; **None_** değeri, hiçbir geçiş efektinin uygulanmadığını gösterir.

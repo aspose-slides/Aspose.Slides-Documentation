@@ -1,5 +1,5 @@
 ---
-title: Diaátmenetek kezelése prezentációkban .NET-ben
+title: Diaátmenetek kezelése a .NET prezentációkban
 linktitle: Diaátmenet
 type: docs
 weight: 90
@@ -8,27 +8,27 @@ keywords:
 - diaátmenet
 - diaátmenet hozzáadása
 - diaátmenet alkalmazása
-- fejlett diaátmenet
-- Morph átmenet
-- átmenettípus
-- átmenet effektus
+- haladó diaátmenet
+- morph átmenet
+- átmenet típusa
+- átmeneti hatás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Alkalmazza a diaátmeneteket, állítsa be az automatikus dia előrehaladást, és testreszabja a Morph és egyéb átmeneti effektusokat az Aspose.Slides for .NET használatával."
+description: "Diaátmenetek alkalmazása, automatikus dialépés konfigurálása és a Morph valamint egyéb átmeneti hatások testreszabása az Aspose.Slides for .NET segítségével."
 ---
 ## **Áttekintés**
 
-A diaátmenetek szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for .NET segítségével minden diához kiválaszthatja az átmeneti effektust, beállíthatja a haladást egérkattintással vagy időzítővel, és módosíthatja az effektushoz specifikus beállításokat. Ez a cikk C# példákat használ az átmenetek alkalmazására, a pontos átmeneti időtartamok megadására, a diaidőzítés kezelésére, valamint egy Morph átmenet létrehozására két dia között. A példák azt is bemutatják, hogyan menthetők a beállítások PPTX fájlba.
+A diavetítések átmenetei szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for .NET segítségével minden diához kiválaszthat egy átmeneti hatást, beállíthatja a haladást egérkattintás vagy időzítő alapján, és módosíthatja az adott hatáshoz tartozó beállításokat. Ez a cikk C# példákat használ az átmenetek alkalmazására, a pontos átmeneti időtartamok megadására, a dia időzítésének kezelésére és egy Morph átmenet létrehozására két dia között. A példák azt is bemutatják, hogyan menthetőek a beállítások PPTX fájlba.
 
 ## **Diaátmenet hozzáadása**
 
-Az átmenet alkalmazásához töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal, majd érje el a dia [SlideShowTransition](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/slideshowtransition/) tulajdonságát. Állítsa be a [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/type/) értékét a [TransitionType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitiontype/) felsorolt értékei közül, majd mentse a prezentációt.
+Az átmenet alkalmazásához töltse be a bemutatót a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) osztállyal, és érje el a dia [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) tulajdonságát. Állítsa be a [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) értékét a [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) felsorolás egyik értékére, majd mentse a bemutatót.
 
-Az alábbi példa a Circle átmenetet alkalmazza az első diára, a Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+A következő példa kör átmenetet (Circle) alkalmaz az első diára és comb átmenetet (Comb) a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```csharp
 using System;
@@ -51,17 +51,115 @@ else
 }
 ```
 
-## **Fejlett diaátmenet hozzáadása**
+## **Kerékátmenet**
 
-Beállíthatja, hogy mennyi ideig maradjon egy dia a képernyőn, és hogy egérkattintás-e szükséges a diavetítés haladásához. A következő tulajdonságok szabályozzák ezt a viselkedést:
+Az [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) tulajdonság az [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) interfészben szabályozza, hány sugár (radialis szektor) fed fel céldiat. Állítsa be a dia átmenet [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) értékét Wheel-re a [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/)‑ből, mielőtt a [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)‑t [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/)‑ként lekérné.
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceonclick/) lehetővé teszi a néző számára, hogy egérkattintással lépjen tovább.
-- [AdvanceAfter](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceafter/) aktiválja a automatikus haladást.
-- [AdvanceAfterTime](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceaftertime/) adja meg a késleltetést az automatikus haladás előtt ezredmásodpercben.
+Ez a példa két azonos páros diát hoz létre: egy fekete diát, amelyet egy arany téglalapos dia követ. A céldiak 1 és 8 sugárszámmal rendelkeznek, ugyanazzal a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) értékkel és egyértelműen 8 000 ms [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) értékkel, hogy a különbség könnyen megfigyelhető legyen.
 
-Engedélyezze mind a kattintást, mind az időzített haladást, hogy a néző kattintással léphessen tovább vagy a visszaszámlálóra várjon. Ha csak az időzítőt szeretné használni, állítsa a [AdvanceOnClick](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceonclick/) értékét `false`‑ra. A késleltetés azt szabályozza, mikor halad tovább a diavetítés; nem határozza meg a vizuális átmenet effektus időtartamát.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-Ez a példa különböző effektusokat rendel az első három diához, és 3, 5 illetve 7 másodperces automatikus haladást állít be. Egérkattintással is előreléphet a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
+using var presentation = new Presentation();
+var slideWidth = presentation.SlideSize.Size.Width;
+var slideHeight = presentation.SlideSize.Size.Height;
+
+var blackSlide = presentation.Slides[0];
+blackSlide.Shapes.Clear();
+blackSlide.Background.Type = BackgroundType.OwnBackground;
+blackSlide.Background.FillFormat.FillType = FillType.Solid;
+blackSlide.Background.FillFormat.SolidFillColor.Color = Color.Black;
+
+var destinationSlide = presentation.Slides.AddClone(blackSlide);
+var rectangle = destinationSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+rectangle.FillFormat.FillType = FillType.Solid;
+rectangle.FillFormat.SolidFillColor.Color = Color.Gold;
+rectangle.TextFrame.Text = "Wheel transition";
+
+presentation.Slides.AddClone(blackSlide);
+presentation.Slides.AddClone(destinationSlide);
+
+var spokeCounts = new uint[] { 1, 8 };
+for (var i = 0; i < spokeCounts.Length; i++)
+{
+    var transition = presentation.Slides[i * 2 + 1].SlideShowTransition;
+    transition.Type = TransitionType.Wheel;
+    var wheelTransition = (IWheelTransition)transition.Value;
+    wheelTransition.Spokes = spokeCounts[i];
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 8000;
+}
+
+presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
+```
+
+Nyissa meg a kimeneti bemutatót a PowerPointban, és indítsa el a diavetítést. Haladjon az 1‑es diáról a 2‑esre, majd a 3‑asról a 4‑esre. A PowerPoint lejátszásakor az ellenőrzött 1 sugár spirálként fedi fel a diát, míg a 8 sugár egyszerre nyolc radialis szektorban jeleníti meg azt. A céltartalom és az átmenet időzítése azonos, így a különbség a felfedő szektorok száma.
+
+## **Fakulás feketébe a Reveal átmenettel**
+
+Állítsa a céldia átmenet típusát Reveal‑re, majd használja az [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/)‑t a [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/) beállításához. A példa egy türkiz forrásdiát és egy korall céldiat hoz létre, majd mindkettőt klónozza, hogy összehasonlíthassa ugyanazt a kétmásodperces átmenetet a kikapcsolt és bekapcsolt fade‑val.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+PowerPoint diavetítésben haladjon az 1‑es diáról a 2‑esre. A türkiz közvetlenül a korallba fakul. Ezután haladjon a 3‑as diáról a 4‑esre. A képernyő röviden majdnem feketére sötétül, mielőtt a korall dia megjelenik. Mindkét dia megtartja eredeti háttérszínét.
+
+Az alábbi sorok a PowerPoint képkockáit mutatják félmásodperces intervallumokban. Hasonlítsa össze a sor középső képkockáját, hogy lássa a beállítás hatását.
+
+![PowerPoint lejátszás ThroughBlack letiltva (felső) és engedélyezve (alsó). Csak az alsó sor halad át közel feketén.](reveal-through-black.png)
+
+## **Haladó diaátmenet hozzáadása**
+
+Konfigurálhatja, mennyi ideig marad a dia a képernyőn, és hogy egérkattintásra vagy automatikusan lépjen-e tovább a diavetítés. A következő tulajdonságok szabályozzák ezt a viselkedést:
+
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) lehetővé teszi a nézőnek, hogy az egérkattintással lépjen tovább.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) engedélyezi az automatikus előrehaladást.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) a késleltetést adja meg az automatikus előrehaladás előtt, ezredmásodpercben.
+
+Engedélyezze mind a kattintással, mind az időzítővel történő előrehaladást, hogy a néző kattintással vagy a várakozással léphessen tovább. Ha csak az időzítőt szeretné használni, állítsa a [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) értékét `false`‑ra. A késleltetés azt szabályozza, mikor lép tovább a diavetítés; nem a vizuális átmenet időtartamát határozza meg.
+
+Ez a példa különböző hatásokat rendel az első három diához, és automatikus előrehaladást engedélyez 3, 5 és 7 másodperc után. Egérkattintással is léphet tovább ezeken a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
 
 ```csharp
 using System;
@@ -99,9 +197,9 @@ else
 }
 ```
 
-Az időzített haladás engedélyezésének ellenőrzéséhez olvassa ki a [AdvanceAfter](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceafter/) értékét. Egy tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
+A timed‑előrehaladás engedélyezésének ellenőrzéséhez olvassa ki a [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) értékét. Egy tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
 
-A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus haladást azoknál a diákon, ahol a késleltetés több mint két másodperc. Ezeknél a diáknál engedélyezi az egérkattintást, majd elmenti a módosított beállításokat.
+A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azoknál a diákon, ahol a késleltetés több mint két másodperc. Ezekhez a diákhoz engedélyezi az egérkattintást, majd elmenti a frissített beállításokat.
 
 ```csharp
 using System;
@@ -129,21 +227,21 @@ foreach (var slide in presentation.Slides)
 presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 ```
 
-## **Az átmeneti időzítés pontos szabályozása**
+## **Az átmenet időzítésének pontos szabályozása**
 
-Használja a [Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/duration/) tulajdonságot a átmeneti effektus pontos hosszának megadásához ezredmásodpercben. A dia [SlideShowTransition](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/slideshowtransition/) tulajdonsága ezeket a beállításokat az [ISlideShowTransition](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/) interfészen keresztül teszi elérhetővé:
+Használja a [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)‑t egy átmeneti hatás pontos hosszának megadásához ezredmásodpercben. A dia [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) tulajdonsága ezeket a beállításokat a [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/) interfészen keresztül teszi elérhetővé:
 
-| Tulajdonság | Leírás |
+| Tulajdonság | Cél |
 | --- | --- |
-| [Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/duration/) | Beállítja az átmenet effektus tényleges időtartamát ezredmásodpercben. |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Beállítja a késleltetést, mielőtt a dia automatikusan továbbhalad, ezredmásodpercben. Engedélyezze a [AdvanceAfter](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/advanceafter/) tulajdonságot az időzítő aktiválásához. |
-| [Speed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/speed/) | A [TransitionSpeed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionspeed/) felsorolt előre meghatározott sebességkategóriáját választja: Slow, Medium vagy Fast. Akkor használatos, ha nincs megadva pontos időtartam. |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Beállítja az átmeneti hatás időtartamát ezredmásodpercben. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Beállítja a késleltetést, mielőtt a dia automatikusan továbblép, ezredmásodpercben. Az [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) engedélyezésével aktiválható ez az időzítő. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/)‑ból: Slow, Medium vagy Fast. Akkor használatos, ha nincs megadva pontos időtartam. |
 
-A [Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/duration/) csak az átmeneti effektust szabályozza; nem határozza meg, mennyi ideig látható a dia. Az automatikus haladás késleltetését külön kell beállítani. Ha nincs explicit időtartam megadva, az Aspose.Slides a átmeneti típus és a [Speed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/speed/) érték alapján határozza meg az effektus hosszát.
+A [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) csak az átmeneti hatást szabályozza; nem határozza meg, mennyi ideig marad a dia látható. Az automatikus előrehaladási késleltetést külön kell beállítani. Ha nincs kifejezett időtartam megadva, az Aspose.Slides a hatás időtartamát a átmenet típusából és a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) értékéből számolja ki.
 
 ### **Azonos időtartam alkalmazása minden diára**
 
-Az egységes tempó érdekében alkalmazzon ugyanazt az effektust és ugyanazt a pontos időtartamot minden dián. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitiontype/) közül a Fade‑et választja, és minden átmenetnek 750 ms időtartamot ad. Ezen kívül külön engedélyezi az automatikus haladást 5 000 ms után, és letiltja a kattintásos haladást, majd PPTX‑ként menti az eredményt.
+Az egységes tempó érdekében alkalmazzon ugyanazt a hatást és pontos időtartamot minden diára. Ez a példa beolvassa a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/)‑ból a Fade‑t választja, és minden átmenetnek 750 ms időtartamot ad. Külön engedélyezi az automatikus előrehaladást 5 000 ms után, és letiltja az egérkattintással történő előrehaladást, majd PPTX‑ként menti az eredményt.
 
 ```csharp
 using Aspose.Slides;
@@ -158,7 +256,7 @@ foreach (var slide in presentation.Slides)
     transition.Type = TransitionType.Fade;
     transition.Duration = 750;
 
-    // Állítsa be az automatikus haladást az effektus időtartamától függetlenül.
+    // Állítsa be az automatikus előrehaladást a hatás időtartamától függetlenül.
     transition.AdvanceAfter = true;
     transition.AdvanceAfterTime = 5000;
     transition.AdvanceOnClick = false;
@@ -167,9 +265,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 ```
 
-### **Különböző időtartamok beállítása az egyes diákhoz**
+### **Különböző időtartamok beállítása egyes diákhoz**
 
-Különböző diák használhatnak eltérő effektus időtartamokat. Például egy címdia esetén rövid átmenetet, egy szekcióbevezetőnél hosszabbat alkalmazhat. Ez a példa 500 ms‑et állít be az első diára, és 1 200 ms‑et a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+Különböző diák különböző átmeneti időtartamokat használhatnak. Például egy címdia rövid átmenettel, egy szekcióbevezető dia pedig hosszabb átmenettel rendelkezhet. Ez a példa 500 ms‑ot állít be az első diára és 1 200 ms‑ot a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```csharp
 using System;
@@ -197,15 +295,15 @@ else
 }
 ```
 
-### **Átmenetek összehangolása animált kimenettel**
+### **Az átmenetek összehangolása animált kimenettel**
 
-Amikor [animated GIF](/slides/hu/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/hu/net/export-to-html5/) vagy [video](/slides/hu/net/convert-powerpoint-to-video/) készül, állítsa be a pontos átmeneti időtartamokat az export előtt, hogy megfeleljenek a kívánt tempónak. Például használjon 600 ms‑es fade‑et a jelenetek között, és külön szabályozza minden dia haladási késleltetését, hogy elegendő idő legyen a narrációnak vagy a tartalomnak.
+Amikor egy [animált GIF](/slides/hu/net/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/net/export-to-html5/) vagy [videó](/slides/hu/net/convert-powerpoint-to-video/) elkészítésén dolgozik, állítson be pontos átmeneti időtartamokat exportálás előtt, hogy megfeleljenek a kívánt tempónak. Például használjon 600 ms‑os fade‑ot a jelenetek között, és állítsa be minden dia előrehaladási késleltetését külön, hogy legyen idő a narrációnak vagy a tartalomnak.
 
-GIF‑ és videó‑kimenetnél koordinálja a kimeneti képkockasebességet az effektus időtartamával: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5‑ben engedélyezze az animált átmeneteket az export beállításaiban. Ellenőrizze az adott exportformátum támogatott effektusait és időzítési lehetőségeit, és előnézeti módban győződjön meg a szinkronizációról.
+GIF‑ és videó‑kimenetnél szinkronizálja a képkockasebességet a hatás időtartamával: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5‑ben engedélyezze az animált átmeneteket az export beállításaiban. Ellenőrizze a kiválasztott export formátum által támogatott hatásokat és időzítési lehetőségeket, és tekintse meg előzetesen a kimenetet a szinkronizáció megerősítéséhez.
 
-### **Létező átmenet időtartamának olvasása**
+### **Meglévő átmeneti időtartam beolvasása**
 
-Olvassa ki a [Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/duration/) értékét a módosítás előtt, hogy megállapítsa, tárolt‑e expliciten időtartam. A `-1` érték azt jelenti, hogy nincs explicit időtartam megadva; egy nem negatív érték a tárolt időtartamot jelzi ezredmásodpercben. A be nem állított érték nem a számított lejátszási időtartam: az Aspose.Slides a tranzíció típusa és a [Speed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/speed/) alapján határozza meg azt. Egy átmenettípus beállítása inicializálhatja az időtartamot, ezért először vizsgálja meg az eredeti beállításokat.
+Olvassa ki a [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) értékét a módosítás előtt, hogy megállapítsa, van‑e kifejezett érték tárolva. A `-1` érték azt jelenti, hogy nincs explicit időtartam megadva; egy nem negatív érték a tárolt időtartamot adja meg ezredmásodpercben. A be nem állított érték nem a számított lejátszási idő, mivel az Aspose.Slides a átmenet típusát és a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) értékét használja a hossz meghatározásához. Egy átmenet típus beállítása inicializálhat egy időtartamot, ezért először ellenőrizze az eredeti beállításokat.
 
 ```csharp
 using System;
@@ -231,9 +329,9 @@ foreach (var slide in presentation.Slides)
 
 ## **Morph átmenet**
 
-A Morph átmenet animálja az objektumok változását egymást követő diákon. Egy egyszerű Morph hatás létrehozásához klónozzon egy diát, mozgass vagy méretezzen át egy objektumot a klónon, majd alkalmazza a Morph átmenetet a második diára. Így a megfelelő objektumok animálódnak az eredeti és a módosított állapot között.
+A Morph átmenet animálja az objektumok közötti változásokat egymást követő diákon. Egy egyszerű Morph hatás létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át az objektumot a klónon, és alkalmazza a Morph átmenetet a második diára. Így az átmenet a megfelelő objektumokat animálja az eredeti és a módosított állapot között.
 
-Az alábbi példa egy szövegbuborékot tartalmazó diát hoz létre, klónozza a diát, majd a klónon megváltoztatja a buborék helyzetét és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitiontype/) felsorolásból a Morph‑ot választja a második diához. Nyissa meg a mentett fájlt egy Morph‑ot támogató prezentációs megtekintőben, hogy lássa az effektust a diavetítés közben.
+Az alábbi példa egy szöveges téglalapos diát hoz létre, klónozza a diát, majd a klónon megváltoztatja a téglalap helyét és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) felsorolásból a második diára a Morph‑t választja. Nyissa meg a mentett fájlt egy Morph‑ot támogató bemutató‑megjelenítőben, hogy a diavetítés során lássa a hatást.
 
 ```csharp
 using Aspose.Slides;
@@ -258,17 +356,15 @@ secondSlide.SlideShowTransition.Type = TransitionType.Morph;
 presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
-## **Morph átmenettípusok**
+## **Morph átmenet típusok**
 
-A [TransitionMorphType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionmorphtype/) felsorolás szabályozza, hogy a Morph hogyan illeszti és animálja a tartalmat:
+A [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) felsorlat szabályozza, hogy a Morph hogyan párosítja és animálja a tartalmat:
 
-- [ByObject](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionmorphtype/) az egyes alakzatokat egészként kezeli.
-- [ByWord](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionmorphtype/) a szöveget szavak szerint illeszti, ahol lehetséges.
-- [ByChar](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionmorphtype/) a szöveget karakterek szerint illeszti, ahol lehetséges.
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) minden alakzatot teljes objektumként kezel.
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) a szöveget szavak szerinti egyeztetéssel animálja, ahol lehetséges.
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) a szöveget karakterek szerinti egyeztetéssel animálja, ahol lehetséges.
 
-Állítsa a [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/type/) attribútumot Morph‑ra, mielőtt elérné a [Value](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/value/) attribútumot. A value ezután az [IMorphTransition](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/imorphtransition/) interfészt biztosítja, amelynek a [MorphType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/imorphtransition/morphtype/) tulajdonsága választja ki a megfelelő illesztési módot.
-
-Ez a példa megnyitja az előző szekcióban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra állítja be.
+Állítsa be a [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) átmenetet Morph‑ra, mielőtt elérné a [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)‑t. A visszakapott érték a [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) interfészt adja, amelynek a [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) tulajdonsága választja ki a párosítási módot.
 
 ```csharp
 using System;
@@ -299,11 +395,17 @@ else
 }
 ```
 
-## **Átmeneti hatások beállítása**
+<!-- visual-explanation:slide-transition:start -->
+[![A Morph egyező egységek megjelenítése egész alakzatként, egyes szavakként és egyes karakterekként.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
 
-Néhány átmenet további opciókat tesz elérhetővé, például irányt vagy azt, hogy az effektus fekete képernyőről indul-e. Az elérhető opciók a kiválasztott [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/type/) függvényében változnak. Először állítsa be a típust, majd használja a megfelelő interfészt a [Value](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/value/) attribútumból.
+*Morph képes egyező egész alakzatokat, szavakat vagy karaktereket kezelni, ahol lehetséges. Ezek a dobozok az egyező egységeket jelölik a megfigyelt mozgás helyett. A példa a második dián a ByWord lehetőséget választja.*
+<!-- visual-explanation:slide-transition:end -->
 
-Az alábbi példa egy Cut átmenetet alkalmaz az `input.pptx` első diájára. A [IOptionalBlackTransition](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/ioptionalblacktransition/) segítségével beállítja a [FromBlack](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) attribútumot, így az átmenet fekete képernyőről indul.
+## **Átmeneti effektusok beállítása**
+
+Néhány átmenet további beállítási lehetőségeket fed fel, például irányt vagy azt, hogy a hatás fekete képernyőről indul‑e. A rendelkezésre álló opciók a kiválasztott átmenet [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/)‑től függenek. Először állítsa be a típust, majd használja a megfelelő interfészt a [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)-ból.
+
+Az alábbi példa egy Cut átmenetet alkalmaz az `input.pptx` első diájára. A [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) beállítást az [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/)‑on keresztül adja meg, így az átmenet fekete képernyőről indul.
 
 ```csharp
 using System;
@@ -328,18 +430,18 @@ else
 
 ## **GYIK**
 
-**Szabályozhatom a diaátmenet lejátszási sebességét?**
+**Mégvezérelhetem a diaátmenet lejátszási sebességét?**
 
-Igen. Használja a [Duration](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/duration/) tulajdonságot, ha pontos effektusidőt szeretne megadni ezredmásodpercben. Használja a [Speed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/slideshowtransition/speed/) tulajdonságot, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam megadva. Ezek a beállítások a átmeneti effektust szabályozzák, függetlenül az automatikus haladás késleltetésétől.
+Igen. Használja a [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)‑t, ha pontos hatásidőre van szüksége ezredmásodpercben. Használja a [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/)‑t, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam megadva. Ezek a beállítások az átmeneti hatást szabályozzák az automatikus előrehaladási késleltetéstől függetlenül.
 
-**Csatolhatok hangot egy átmenethez, és megismételhetem azt?**
+**Csatolhatok hangot egy átmenethez, és ismételhetem?**
 
-Igen. Rendelj egy beágyazott hangot a [Sound](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/sound/) attribútumhoz, állítsa a [SoundMode](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/soundmode/) értékét a [TransitionSoundMode](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitionsoundmode/) felsorolásából a StartSound‑ra, és engedélyezze a [SoundLoop](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/soundloop/) beállítást. A hang addig ismétlődik, amíg a következő hangesemény meg nem jelenik a diavetítésben.
+Igen. Rendeljen beágyazott hangot a [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/)-hoz, állítsa a [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/)-t StartSound‑ra a [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) felsorolásból, és engedélyezze a [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/)-ot. A hang a következő hangeseményig a diavetítésben ismétlődik.
 
-**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzam minden diára?**
+**Mi a leggyorsabb módja ugyanazon átmenet alkalmazásának minden diára?**
 
-Iteráljon végig a prezentáció [Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/slides/hu/) gyűjteményén, és állítsa be minden dia [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/type/) attribútumát azonos értékre. A cikluson belül állítsa be a szükséges időzítési és effektus opciókat, hogy a viselkedés minden dián konzisztens legyen.
+Iteráljon végig a bemutató [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) gyűjteményén, és állítsa minden dia [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) tulajdonságát ugyanarra az értékre. Állítson be minden időzítési és effektus‑opciót ugyanabban a ciklusban, hogy a viselkedés konzisztens maradjon a diák között.
 
-**Hogyan ellenőrizhetem, hogy milyen átmenet van jelenleg beállítva egy dián?**
+**Hogyan ellenőrizhetem, melyik átmenet van jelenleg beállítva egy dián?**
 
-Olvassa ki a [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/islideshowtransition/type/) attribútumot a dia [SlideShowTransition](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/slideshowtransition/) tulajdonságából. Az érték a [TransitionType](https://reference.aspose.com/slides/hu/net/aspose.slides.slideshow/transitiontype/) felsorolt értékei közül egyet ad vissza; a None azt jelenti, hogy nincs átmeneti effektus alkalmazva.
+Olvassa ki a [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) tulajdonságot a dia [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/)‑ból. Ez egy [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) felsorolás értékét adja vissza; a None azt jelenti, hogy nincs átmeneti hatás alkalmazva.

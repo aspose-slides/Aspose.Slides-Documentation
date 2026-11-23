@@ -1,5 +1,5 @@
 ---
-title: إدارة انتقالات الشرائح في العروض التقديمية باستخدام C++
+title: إدارة انتقالات الشرائح في العروض باستخدام C++
 linktitle: انتقال الشريحة
 type: docs
 weight: 80
@@ -8,7 +8,7 @@ keywords:
 - انتقال الشريحة
 - إضافة انتقال الشريحة
 - تطبيق انتقال الشريحة
-- انتقال شريحة متقدم
+- انتقال الشريحة المتقدم
 - انتقال Morph
 - نوع الانتقال
 - تأثير الانتقال
@@ -17,17 +17,17 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "قم بتطبيق انتقالات الشرائح، وتكوين التقدم التلقائي للشرائح، وتخصيص انتقال Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides for C++."
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص Morph وتأثيرات الانتقال الأخرى مع Aspose.Slides لـ C++."
 ---
 ## **نظرة عامة**
 
-تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides for C++، يمكنك اختيار تأثير انتقال لكل شريحة، تكوين التقدم عن طريق النقر بالماوس أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. يستخدم هذا المقال أمثلة C++ لتطبيق الانتقالات، تعيين مدد الانتقال الدقيقة، إدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تظهر الأمثلة أيضًا كيفية حفظ الإعدادات في ملف PPTX.
+الانتقالات بين الشرائح تتحكم في كيفية ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides للـ C++، يمكنك اختيار تأثير انتقال لكل شريحة، وتكوين التقدم بنقرة الفأرة أو بالوقت، وضبط الخيارات الخاصة بالتأثير. يستخدم هذا المقال أمثلة C++ لتطبيق الانتقالات، وتعيين مدد الانتقال الدقيقة، وإدارة توقيت الشريحة، وإنشاء انتقال Morph بين شريحتين. توضح الأمثلة أيضًا كيفية حفظ الإعدادات في ملف PPTX.
 
 ## **إضافة انتقال شريحة**
 
-لتطبيق انتقال، حمّل عرضًا تقديميًا باستخدام الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) والوصول إلى إعدادات انتقال الشريحة عبر [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). استدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) بقيمة من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)، ثم احفظ العرض التقديمي.
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) والوصول إلى إعدادات انتقال الشريحة عبر [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). استدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) بقيمة من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) enumeration، ثم احفظ العرض التقديمي.
 
-تطبق الشفرة التالية انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+المثال التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,11 +60,11 @@ else
 presentation->Dispose();
 ```
 
-## **Wheel Transition**
+## **انتقال العجلة**
 
 طريقة [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) في [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) تتحكم في عدد القطاعات الشعاعية التي تكشف الشريحة الهدف. استدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) مع Wheel من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) قبل الوصول إلى [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) كـ [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
 
-هذه الشفرة تنشئ زوجين متماثلين من الشرائح: شريحة سوداء تليها شريحة بها مستطيل ذهبي. تستخدم الشرائح الهدف عدد أسنان 1 و 8، مع ضبط السرعة نفسها عبر [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) ومدة صريحة قدرها 8 000 مللي ثانية عبر [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) لجعل الفرق سهل الملاحظة.
+هذا المثال ينشئ زوجين متطابقين من الشرائح: شريحة سوداء تتبعها شريحة بها مستطيل ذهبي. تستخدم الشرائح الهدف عدد الأشعة 1 و8، مع نفس السرعة المحددة عبر [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) ومدّ صريحة قدرها 8000 مللي ثانية محددة عبر [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) لتسهيل ملاحظة الفرق.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -132,19 +132,99 @@ presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-افتح العرض الناتج في PowerPoint وشغّل عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2، ثم من الشريحة 3 إلى الشريحة 4. في تشغيل PowerPoint، تُظهر عددة الأسنان 1 الشريحة بتمرير واحد مع عقارب الساعة؛ وتُظهر عددة 8 الشريحة عبر ثمان قطاعات شعاعية في آن واحد. المحتوى والوقت متطابقان، لذا الاختلاف هو عدد قطاعات الإظهار.
+افتح العرض التقديمي الناتج في PowerPoint وشغّل عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2، ثم من الشريحة 3 إلى الشريحة 4. في تشغيل PowerPoint، عدد الأشعة المؤكد 1 يكشف الشريحة بعملية دوران واحدة مع اتجاه عقارب الساعة؛ العدد المؤكد 8 يكشفها عبر ثماني قطاعات شعاعية في وقت واحد. محتوى الوجهة وتوقيت الانتقال متطابقان، لذا الفرق هو عدد قطاعات الكشف.
+
+## **تلاشي عبر الأسود مع انتقال Reveal**
+
+حدد نوع انتقال الشريحة الوجهة إلى Reveal، ثم استدعِ [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/) على واجهة [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/). المثال ينشئ شريحة مصدر باللون الفيروزي وشريحة وجهة باللون المرجاني، ثم ينسخ كليهما بحيث يمكنك مقارنة انتقال مدته ثانيتان مع تلاشي عبر الأسود مُعطّل ومُفعّل.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+في عرض شرائح PowerPoint، انتقل من الشريحة 1 إلى الشريحة 2. يتلاشى اللون الفيروزي مباشرة إلى المرجاني. ثم انتقل من الشريحة 3 إلى الشريحة 4. يظلم الشاشة لحظيًا إلى تقريبًا الأسود قبل ظهور الشريحة المرجانية. تحتفظ كلتا الشريحتين بألوان الخلفية الأصلية.
+
+الصفوف أدناه تُظهر إطارات من PowerPoint بفواصل نصف ثانية. قارن الإطار المتوسط في كل صف لرؤية تأثير الإعداد.
+
+![تشغيل PowerPoint مع ThroughBlack معطل (أعلى) ومفعل (أسفل). الصف الأسفل فقط يمر عبر الأسود القريب.](reveal-through-black.png)
 
 ## **إضافة انتقال شريحة متقدم**
 
-يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالماوس يتقدم بالعرض. تتحكم الطرق التالية في هذا السلوك:
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كانت نقرة الفأرة تتقدم بعرض الشرائح. الطرق التالية تتحكم في هذا السلوك:
 
-- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) يتيح للمشاهد التقدم بالنقر.
-- [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) يفعّل التقدم التلقائي.
-- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) يحدد التأخير قبل التقدم التلقائي، بالمللي ثانية.
+- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) يتيح للمشاهد التقدم بالنقر على الفأرة.
+- [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) يُمكّن التقدم التلقائي.
+- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) يحدد التأخير قبل التقدم التلقائي، بالملي ثانية.
 
-مكّن كلًا من التقدم بالنقر والوقت للسماح للمشاهد بالتحرك بالنقر أو الانتظار للمؤقت. لاستخدام المؤقت فقط، استدعِ [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) مع `false`. يتحكم التأخير فى متى يتقدم عرض الشرائح؛ ولا يحدد مدة تأثير الانتقال البصري.
+قم بتمكين كل من التقدم بالنقر والتقدم المؤقت لتسمح للمشاهد بالانتقال بالنقر أو الانتظار للعداد. لاستخدام المؤقت فقط، استدعِ [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) مع `false`. يتحكم التأخير في توقيت تقدم عرض الشرائح؛ لا يحدد مدة تأثير الانتقال البصري.
 
-تُعيّن الشفرة التالية تأثيرات مختلفة للشرائح الثلاث الأولى وتفعّل التقدم التلقائي بعد 3، 5، و 7 ثوانٍ على التوالي. يمكن للنقرات أيضًا تقدّم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعل التقدم التلقائي بعد 3، 5، و7 ثوانٍ على التوالي. يمكن للنقرات أيضًا تقدم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -192,9 +272,9 @@ else
 presentation->Dispose();
 ```
 
-للتحقق ما إذا كان التقدم المؤقت مفعلاً، استدعِ [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/). التخزين المؤقت وحده لا يشير إلى أن المؤقت نشط.
+للتحقق مما إذا كان التقدم المؤقت مفعلًا، استدعِ [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/). مجرد وجود تأخير مخزن لا يدل على أن المؤقت نشط.
 
-الشفرة التالية تفتح الملف المحفوظ أعلاه، تُبلغ عن كل مؤقت مفعّل، وتُعطل التقدم التلقائي للشرائح التي لها تأخير أكبر من ثانيتين. تُفعّل النقرات لتلك الشرائح وتُحفظ الإعدادات المحدّثة.
+المثال التالي يفتح الملف المحفوظ أعلاه، يبلغ عن كل مؤقت مفعل، ويعطل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يفعّل النقرات لتلك الشرائح ويحفظ الإعدادات المحدثة.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -231,27 +311,27 @@ presentation->Save(u"adjusted-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **التحكم بدقة في توقيت الانتقال**
+## **التحكم في توقيت الانتقال بدقة**
 
-استدعِ [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) لتحديد الطول الدقيق لتأثير الانتقال بالمللي ثانية. تُظهر طريقة الشريحة [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
+استخدم [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) لتحديد الطول الدقيق لتأثير الانتقال بالملي ثانية. طريقة [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) للشفرة تعرض هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
 
 | الطريقة | الغرض |
 | --- | --- |
-| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | يحدد مدة تأثير الانتقال نفسه، بالمللي ثانية. |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالمللي ثانية. استدعِ [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) مع `true` لتفعيل هذا المؤقت. |
-| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | يختار فئة سرعة معرفة مسبقًا من تعداد [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow، Medium، أو Fast. تُستخدم عندما لا يتم تحديد مدة صريحة. |
+| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | يضبط مدة تأثير الانتقال نفسه، بالملي ثانية. |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | يضبط التأخير قبل أن تتقدم الشريحة تلقائيًا، بالملي ثانية. استدعِ [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) مع `true` لتفعيل هذا المؤقت. |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | يختار فئة سرعة محددة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow أو Medium أو Fast. يُستخدم عندما لا يتم تحديد مدة دقيقة. |
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) يتحكم فقط في تأثير الانتقال؛ ولا يحدد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدد مدة صريحة، يحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال والقيمة التي تُعيدها [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) يتحكم فقط في تأثير الانتقال؛ لا يحدد مدة بقاء الشريحة مرئية. قم بتكوين تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدد مدة صريحة، تقوم Aspose.Slides بتحديد مدة التأثير بناءً على نوع الانتقال والقيمة المرجعة من [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![الأشرطة المنفصلة تحدد مدة الانتقال 750 ملّي ثانية وإعداد التقدم التلقائي 5,000 ملّي ثانية.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*المثال المشترك يعطي كل شريحة انتقال Fade مدته 750 مللي ثانية ويُمكّن التقدم التلقائي بعد 5 000 مللي ثانية. مدة الانتقال تتحكم في التأثير؛ والتقدم يتحكم متى تُغادر الشريحة. هذه الأشرطة تمثّل إعدادات تخطيطية، ليست خطًا زمنيًا مقاسًا.*
+*المثال المشترك يمنح كل شريحة انتقال Fade بمدة 750 ملّي ثانية ويفعل التقدم التلقائي بسرعة 5,000 ملّي ثانية. مدة الانتقال تتحكم في التأثير؛ التقدم يتحكم في وقت مغادرة الشريحة. هذه الأشرطة هي إعدادات تخطيطية، ليست جدولًا زمنيًا مشتركًا مقاسًا.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **تطبيق نفس المدة على كل شريحة**
 
-لضبط وتيرة ثابتة، طبّق نفس التأثير والمدة الدقيقة على كل شريحة. تُحمّل الشفرة التالية `input.pptx`، تختار Fade من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)، وتُعطي كل انتقال مدة 750 مللي ثانية. تُفعّل التقدم التلقائي بعد 5 000 مللي ثانية وتُعطل التقدم بالنقر، ثم تحفظ النتيجة كملف PPTX.
+لتناغم ثابت، طبق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)، ويعطي كل انتقال مدة 750 ملّي ثانية. يفعّل بشكل منفصل التقدم التلقائي بعد 5,000 ملّي ثانية ويعطل التقدم بنقرة الفأرة، ثم يحفظ النتيجة كملف PPTX.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -287,7 +367,7 @@ presentation->Dispose();
 
 ### **تعيين مدد مختلفة للشرائح الفردية**
 
-يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. تُعيّن الشفرة التالية 500 مللي ثانية للشريحة الأولى و 1 200 مللي ثانية للشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. هذا المثال يحدد 500 ملّي ثانية للشريحة الأولى و1,200 ملّي ثانية للشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -325,15 +405,15 @@ else
 presentation->Dispose();
 ```
 
-### **تنسيق الانتقالات مع المخرجات المتحركة**
+### **تنسيق الانتقالات مع المخرج المتحرك**
 
-عند إعداد [animated GIF](/slides/ar/cpp/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/ar/cpp/export-to-html5/)، أو [video](/slides/ar/cpp/convert-powerpoint-to-video/)، حدد مدد الانتقال الدقيقة قبل التصدير لمزامنة الوتيرة المقصودة. على سبيل المثال، استخدم تلاشي 600 مللي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بالوقت للسرد أو المحتوى.
+عند إعداد [animated GIF](/slides/ar/cpp/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/ar/cpp/export-to-html5/)، أو [video](/slides/ar/cpp/convert-powerpoint-to-video/)، حدد مدد انتقال دقيقة قبل التصدير لتتناسب مع الإيقاع المستهدف. على سبيل المثال، استخدم تلاشي بمدة 600 ملّي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بالوقت للتعليق الصوتي أو المحتوى.
 
-بالنسبة للـ GIF والفيديو، تنسّق معدل الإطارات مع مدة التأثير: 600 مللي ثانية تعادل 18 إطارًا بمعدل 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من تأثيرات وتوقيتات الصيغة المستهدفة، وعاين النتيجة للتأكد من التزامن.
+بالنسبة للـ GIF والفيديو، نسق معدل إطارات الخرج مع مدة التأثير: 600 ملّي ثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من التأثيرات وخيارات التوقيت المدعومة في تنسيق التصدير المختار، وتحقق من المخرجات لتأكيد التزامن.
 
 ### **قراءة مدة انتقال موجودة**
 
-استدعِ [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة محفوظة. القيمة `-1` تعني عدم وجود مدة صريحة؛ والقيمة غير السالبة تحدد المدة المخزنة بالمللي ثانية. القيمة غير المضبوطة ليست مدة التشغيل المحسوبة: يستخدم Aspose.Slides نوع الانتقال والقيمة التي تُعيدها [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) لتحديد تلك المدة. قد يهيئ تعيين نوع الانتقال مدةً، لذا افحص الإعدادات الأصلية أولًا.
+استدعِ [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزنة. القيمة `-1` تعني عدم تحديد مدة صريحة؛ القيمة غير السالبة تحدد المدة المخزنة بالملي ثانية. القيمة غير المحددة ليست مدة التشغيل المحسوبة: تستخدم Aspose.Slides نوع الانتقال والقيمة المرجعة من [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) لتحديد تلك المدة. ضبط نوع الانتقال قد يهيئ مدة، لذا افحص الإعدادات الأصلية أولاً.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -367,11 +447,11 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
-## **Morph Transition**
+## **انتقال Morph**
 
-يُحاكي انتقال Morph تغييرات العناصر بين الشرائح المتتالية. لإنشاء تأثير Morph بسيط، انسخ شريحة، حرّك أو غيّر حجم عنصر على النسخة، وطبّق انتقال Morph على الشريحة الثانية. يمنح ذلك العناصر المطابقة إمكانية التحريك بين حالتها الأصلية والمعدلة.
+انتقال Morph يحرك التغييرات بين الكائنات على الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، انقل أو غيّر حجم كائن على النسخة، وطبق انتقال Morph على الشريحة الثانية. هذا يمنح الانتقال الكائنات المقابلة للرسوم المتحركة بين الحالة الأصلية والمعدلة.
 
-الشفرة التالية تنشئ شريحة بها مستطيل نص، تُنسخ الشريحة، وتغيّر موضع وحجم المستطيل على النسخة. ثم تختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) للشفرة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لمشاهدة التأثير أثناء عرض الشرائح.
+المثال التالي ينشئ شريحة بها مستطيل نصي، يستنسخ الشريحة، ويغيّر موضع وحجم المستطيل على النسخة. ثم يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لرؤية التأثير أثناء عرض الشرائح.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -411,17 +491,15 @@ presentation->Save(u"morph-transition.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **أنواع Morph Transition**
+## **أنواع انتقال Morph**
 
-تتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) في طريقة مطابقة وتحريك المحتوى:
+تعداد [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يتحكم في كيفية مطابقة Morph وتحريك المحتوى:
 
 - [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يعامل كل شكل ككائن كامل.
-- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يُحرك النص بمطابقة الكلمات حيثما أمكن.
-- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يُحرك النص بمطابقة الأحرف حيثما أمكن.
+- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يحرك النص بمطابقة الكلمات حيثما أمكن.
+- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) يحرك النص بمطابقة الأحرف حيثما أمكن.
 
-استدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) مع Morph قبل الوصول إلى [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/). ثم توفر القيمة واجهة [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/) التي تُحدد طريقة [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) المطابقة.
-
-الشفرة التالية تفتح العرض الذي تم إنشاؤه في القسم السابق وتُضبط الشريحة الثانية لاستخدام تحريك Morph على أساس الكلمات.
+استدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) مع Morph قبل الوصول إلى [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/). القيمة ثم توفر واجهة [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/)، حيث تختار طريقة [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) وضع المطابقة.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -469,9 +547,9 @@ presentation->Dispose();
 
 ## **تعيين تأثيرات الانتقال**
 
-بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. الخيارات المتاحة تعتمد على نوع الانتقال المختار. اضبط النوع أولًا، ثم استخدم الواجهة المناسبة التي تُعيدها [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
+بعض الانتقالات تُظهر خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. الخيارات المتاحة تعتمد على نوع الانتقال المختار. اضبط النوع أولاً، ثم استخدم الواجهة المناسبة التي تُرجعها [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
 
-الشفرة التالية تطبق انتقال Cut على الشريحة الأولى من `input.pptx`. تستدعي [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) مع `true` عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) لتبدأ الانتقال من شاشة سوداء.
+المثال التالي يطبق انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) مع `true` عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) بحيث يبدأ الانتقال من شاشة سوداء.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -508,20 +586,20 @@ else
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
 **هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. فضلًا عن استخدام [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) عندما تحتاج إلى مدة تأثير دقيقة بالمللي ثانية. استخدم [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) عندما تكون فئة سرعة معرفة مسبقًا من تعداد [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/)—Slow، Medium، أو Fast—كافية ولا يتم تحديد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
+نعم. يفضَّل استخدام [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) عندما تحتاج إلى مدة تأثير دقيقة بالملي ثانية. استخدم [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) محددة مسبقًا—Slow أو Medium أو Fast— كافية ولا توجد مدة صريحة مضبوطة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
 
 **هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
 
-نعم. عيّن صوتًا مضمّنًا عبر [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/)، استدعِ [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) مع StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/)، ومكّن التكرار عبر [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). يتكرر الصوت حتى حدث صوتي لاحق في عرض الشرائح.
+نعم. عيّن صوتًا مضمّنًا باستخدام [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/)، استدعِ [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) مع StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/)، وفعّل التكرار باستخدام [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). يتكرر الصوت حتى حدث الصوت التالي في عرض الشرائح.
 
-**ما هي أسرع طريقة لتطبيق نفس الانتقال على جميع الشرائح؟**
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
 
-مرّر عبر المجموعة التي تُرجعها طريقة [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) في العرض، واستدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) بنفس القيمة لكل شريحة. اضبط أي إعدادات توقيت وتأثير داخل الحلقة نفسها للحفاظ على سلوك موحد عبر جميع الشرائح.
+كرر عبر المجموعة التي تُرجعها طريقة [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) للعرض التقديمي واستدعِ [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) بنفس القيمة لكل انتقال شريحة. اضبط أي خيارات توقيت وتأثير في نفس الحلقة للحفاظ على سلوك ثابت عبر الشرائح.
 
-**كيف يمكنني التحقق من الانتقال المحدد حاليًا على شريحة؟**
+**كيف يمكنني معرفـة أي انتقال مُعين حاليًا على شريحة؟**
 
-استدعِ [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) على الانتقال الذي تُرجعه طريقة [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) للشريحة. تُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/); القيمة None تعني عدم تطبيق أي تأثير انتقال.
+استدعِ [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) على الانتقال الذي تُرجعه طريقة [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) للشفرة. تُرجع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/); القيمة None تعني عدم تطبيق أي تأثير انتقال.

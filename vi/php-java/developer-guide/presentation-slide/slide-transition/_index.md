@@ -1,33 +1,33 @@
 ---
-title: Quản lý chuyển đổi slide trong các bài thuyết trình bằng PHP
-linktitle: Chuyển đổi Slide
+title: Quản lý chuyển tiếp slide trong bài thuyết trình bằng PHP
+linktitle: Chuyển tiếp slide
 type: docs
 weight: 80
 url: /vi/php-java/slide-transition/
 keywords:
-- chuyển đổi slide
-- thêm chuyển đổi slide
-- áp dụng chuyển đổi slide
-- chuyển đổi slide nâng cao
-- chuyển đổi Morph
-- loại chuyển đổi
-- hiệu ứng chuyển đổi
+- chuyển tiếp slide
+- thêm chuyển tiếp slide
+- áp dụng chuyển tiếp slide
+- chuyển tiếp slide nâng cao
+- chuyển tiếp morph
+- loại chuyển tiếp
+- hiệu ứng chuyển tiếp
 - PowerPoint
 - OpenDocument
 - bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Áp dụng chuyển đổi slide, cấu hình chuyển tiếp slide tự động và tùy chỉnh Morph cùng các hiệu ứng chuyển đổi khác với Aspose.Slides cho PHP qua Java."
+description: "Áp dụng chuyển tiếp slide, cấu hình tiến tới slide tự động, và tùy chỉnh Morph cũng như các hiệu ứng chuyển tiếp khác với Aspose.Slides cho PHP qua Java."
 ---
 ## **Tổng quan**
 
-Hiệu ứng chuyển đổi slide điều khiển cách các slide xuất hiện trong buổi trình chiếu. Với Aspose.Slides cho PHP thông qua Java, bạn có thể chọn một hiệu ứng chuyển đổi cho mỗi slide, cấu hình việc chuyển tiếp bằng nhấp chuột hoặc bộ hẹn giờ, và điều chỉnh các tùy chọn riêng cho một hiệu ứng. Bài viết này sử dụng các ví dụ PHP để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide, và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu các cài đặt vào tệp PPTX.
+Các chuyển tiếp slide kiểm soát cách các slide xuất hiện trong buổi chiếu slide. Với Aspose.Slides for PHP via Java, bạn có thể chọn hiệu ứng chuyển tiếp cho mỗi slide, cấu hình việc tiến tới bằng cú nhấp chuột hoặc bộ đếm thời gian, và điều chỉnh các tùy chọn đặc thù cho một hiệu ứng. Bài viết này sử dụng các ví dụ PHP để áp dụng chuyển tiếp, đặt thời lượng chuyển tiếp chính xác, quản lý thời gian slide, và tạo chuyển tiếp Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu các thiết lập vào tệp PPTX.
 
-## **Thêm Chuyển Đổi Slide**
+## **Thêm chuyển tiếp cho slide**
 
-Để áp dụng một chuyển đổi, tải một bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và truy cập các cài đặt chuyển đổi của slide thông qua [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) với một giá trị từ enumeration [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), sau đó lưu bản trình chiếu.
+Để áp dụng một chuyển tiếp, tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) và truy cập cài đặt chuyển tiếp của slide qua [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) với một giá trị từ enum [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), sau đó lưu bản trình chiếu.
 
-Ví dụ sau áp dụng chuyển đổi Circle cho slide đầu tiên và chuyển đổi Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+Ví dụ dưới áp dụng chuyển tiếp Circle cho slide đầu tiên và chuyển tiếp Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -49,11 +49,11 @@ try {
 }
 ```
 
-## **Chuyển Đổi Wheel**
+## **Chuyển tiếp Wheel**
 
-Phương thức [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) kiểm soát số lượng sector tia radial để tiết lộ slide đích. Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) để chọn Wheel từ [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), sau đó gọi [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) để truy cập các cài đặt [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
+Phương thức [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) kiểm soát số sector dạng bán kính hiển thị slide đích. Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) để chọn Wheel từ [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), sau đó gọi [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) để truy cập các cài đặt của [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
 
-Ví dụ tạo ra hai cặp slide giống hệt nhau. Mỗi cặp bắt đầu bằng một slide màu đen và kết thúc bằng một slide được phủ bởi một hình chữ nhật màu vàng. Slide 2 sử dụng một spoke và slide 4 sử dụng tám. Cả hai chuyển đổi đều sử dụng tốc độ chậm giống nhau, được đặt bằng [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), và một thời lượng rõ ràng là 8.000 mil giây, được đặt bằng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
+Ví dụ tạo hai cặp slide giống hệt nhau. Mỗi cặp bắt đầu bằng một slide màu đen và kết thúc bằng một slide được phủ một hình chữ nhật màu vàng. Slide 2 sử dụng một spoke và slide 4 sử dụng tám. Cả hai chuyển tiếp đều dùng tốc độ chậm giống nhau, được đặt bằng [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), và thời lượng rõ ràng 8.000 mil giây, được đặt bằng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
 
 ```php
 use aspose\slides\BackgroundType;
@@ -103,19 +103,74 @@ try {
 }
 ```
 
-Mở bản trình chiếu đã lưu trong PowerPoint và bắt đầu buổi trình chiếu. Tiến tới slide 1 sang slide 2 để thấy một quét theo chiều kim đồng hồ duy nhất. Sau đó tiến tới slide 3 sang slide 4 để thấy tám sector tia radial tiết lộ cùng một hình chữ nhật đồng thời.
+Mở bản trình chiếu đã lưu trong PowerPoint và bắt đầu chiếu slide. Tiến tới slide 2 từ slide 1 để thấy một vòng quay đồng hồ duy nhất. Sau đó tiến tới slide 4 từ slide 3 để thấy tám sector dạng bán kính hiển thị đồng thời hình chữ nhật cùng một lúc.
 
-## **Thêm Chuyển Đổi Slide Nâng Cao**
+## **Fade Through Black với chuyển tiếp Reveal**
 
-Bạn có thể cấu hình thời gian một slide hiển thị trên màn hình và liệu việc nhấp chuột có chuyển tiếp buổi trình chiếu hay không. Các phương thức sau kiểm soát hành vi này:
+Đặt loại chuyển tiếp của slide đích thành Reveal, sau đó gọi [setThroughBlack](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/#setThroughBlack) trên cài đặt [RevealTransition](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/) của nó. Ví dụ tạo một slide nguồn màu xanh ngọc và một slide đích màu san hô, sau đó sao chép cả hai. Mỗi cặp sử dụng cùng một chuyển tiếp Reveal hai giây. Chỉ cặp thứ hai mới fade qua màu đen.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) cho phép người xem chuyển tiếp bằng cách nhấp chuột.
-- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) bật chuyển tiếp tự động.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) chỉ định độ trễ trước khi chuyển tiếp tự động, tính bằng mil giây.
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionLeftRightDirectionType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
 
-Kích hoạt cả hai cách chuyển tiếp bằng nhấp chuột và thời gian để cho phép người xem tiếp tục bằng một cú nhấp hoặc chờ bộ hẹn giờ. Để chỉ sử dụng bộ hẹn giờ, truyền `false` cho [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Độ trễ kiểm soát thời điểm buổi trình chiếu chuyển tiếp; nó không đặt thời lượng của hiệu ứng chuyển đổi trực quan.
+$presentation = new Presentation();
+try {
+    $source = $presentation->getSlides()->get_Item(0);
+    $destination = $presentation->getSlides()->addClone($source);
 
-Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật chuyển tiếp tự động sau 3, 5 và 7 giây, tương ứng. Nhấp chuột cũng có thể chuyển tiếp các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
+    foreach ([
+        [$source, new Color(0, 128, 128), "Source"],
+        [$destination, new Color(255, 127, 80), "Destination"],
+    ] as [$slide, $color, $label]) {
+        $slide->getBackground()->setType(BackgroundType::OwnBackground);
+        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+        $shape->getTextFrame()->setText($label);
+        $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(44);
+    }
+
+    $presentation->getSlides()->addClone($source);
+    $clonedDestination = $presentation->getSlides()->addClone($destination);
+    foreach ([[$destination, false], [$clonedDestination, true]] as [$slide, $throughBlack]) {
+        $slide->getSlideShowTransition()->setType(TransitionType::Reveal);
+        $slide->getSlideShowTransition()->setSpeed(TransitionSpeed::Slow);
+        $slide->getSlideShowTransition()->setDuration(2000);
+        $slide->getSlideShowTransition()->getValue()->setDirection(TransitionLeftRightDirectionType::Left);
+        $slide->getSlideShowTransition()->getValue()->setThroughBlack($throughBlack);
+    }
+
+    $presentation->save("reveal-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Mở bản trình chiếu đã lưu trong PowerPoint và bắt đầu chiếu slide. Tiến tới slide 2 từ slide 1 để thấy màu xanh ngọc fade trực tiếp sang màu san hô. Sau đó tiến tới slide 4 từ slide 3. Màn hình sẽ tối dần gần như màu đen trước khi slide san hô xuất hiện. Cả hai slide vẫn giữ màu nền gốc của chúng.
+
+Các hàng bên dưới hiển thị khung hình từ PowerPoint mỗi nửa giây. So sánh khung giữa trong mỗi hàng để thấy hiệu ứng.
+
+![Các thanh riêng biệt xác định thời lượng chuyển tiếp 750 ms và thiết lập tự động tiến tới 5.000 ms.](reveal-through-black.png)
+
+## **Thêm chuyển tiếp slide nâng cao**
+
+Bạn có thể cấu hình thời gian một slide tồn tại trên màn hình và việc một cú nhấp chuột có tiến tới buổi chiếu slide hay không. Các phương thức sau kiểm soát hành vi này:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) cho phép người xem tiến tới bằng cách nhấp chuột.
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) kích hoạt tiến tới tự động.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) xác định độ trễ trước khi tiến tới tự động, tính bằng mil giây.
+
+Bật cả tiến tới bằng nhấp chuột và tiến tới theo thời gian để người xem có thể di chuyển bằng nhấp chuột hoặc chờ bộ đếm. Để chỉ dùng bộ đếm, truyền `false` vào [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Độ trễ kiểm soát thời điểm buổi chiếu slide tiến tới; nó không đặt thời lượng của hiệu ứng chuyển tiếp trực quan.
+
+Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tiến tới tự động sau 3, 5 và 7 giây, tương ứng. Người xem cũng có thể nhấp chuột để tiến tới các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -152,9 +207,9 @@ try {
 }
 ```
 
-Để kiểm tra xem chuyển tiếp thời gian đã được bật chưa, gọi [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Một độ trễ được lưu riêng không có nghĩa là bộ hẹn giờ đang hoạt động.
+Để kiểm tra xem tiến tới theo thời gian có được bật hay không, gọi [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Một độ trễ được lưu không đồng nghĩa với việc bộ đếm đang hoạt động.
 
-Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ đã bật, và tắt chuyển tiếp tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho những slide đó và lưu các cài đặt đã cập nhật.
+Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ đếm đã bật, và tắt tiến tới tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho các slide đó và lưu lại các cài đặt đã cập nhật.
 
 ```php
 use aspose\slides\Presentation;
@@ -182,27 +237,27 @@ try {
 }
 ```
 
-## **Kiểm Soát Thời Gian Chuyển Đổi Một Cách Chính Xác**
+## **Kiểm soát thời gian chuyển tiếp một cách chính xác**
 
-Sử dụng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi bằng mil giây. Phương thức [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) của slide tiết lộ các cài đặt này thông qua [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
+Sử dụng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) để chỉ định độ dài chính xác của một hiệu ứng chuyển tiếp tính bằng mil giây. Phương thức [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) của slide cung cấp các cài đặt này thông qua [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
 
 | Phương thức | Mục đích |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Đặt thời lượng của chính hiệu ứng chuyển đổi, tính bằng mil giây. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Đặt độ trễ trước khi slide tự động chuyển tiếp, tính bằng mil giây. Truyền `true` cho [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) để kích hoạt bộ hẹn giờ này. |
-| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Chọn một danh mục tốc độ được định sẵn từ [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium hoặc Fast. Nó được sử dụng khi không có thời lượng chính xác được đặt. |
+| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Đặt thời lượng của chính hiệu ứng chuyển tiếp, tính bằng mil giây. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Đặt độ trễ trước khi slide tự động tiến tới, tính bằng mil giây. Truyền `true` vào [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) để kích hoạt bộ đếm này. |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Chọn một hạng mục tốc độ đã định nghĩa trước từ [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium hoặc Fast. Được dùng khi không có thời lượng cụ thể được chỉ định. |
 
-[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) chỉ kiểm soát hiệu ứng chuyển đổi; nó không quyết định thời gian slide vẫn hiển thị. Cấu hình độ trễ chuyển tiếp tự động riêng biệt. Khi không có thời lượng rõ ràng nào được đặt, Aspose.Slides xác định thời lượng hiệu ứng dựa trên loại chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) chỉ kiểm soát hiệu ứng chuyển tiếp; nó không quyết định thời gian slide còn lại trên màn hình. Cấu hình độ trễ tiến tới tự động riêng biệt. Khi không đặt thời lượng cụ thể, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Các thanh riêng biệt xác định thời lượng chuyển đổi 750‑ms và cài đặt chuyển tiếp tự động 5,000‑ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Các thanh riêng biệt xác định thời lượng chuyển tiếp 750‑ms và thiết lập tự động tiến tới 5.000‑ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Ví dụ chung này đưa mỗi slide một chuyển đổi Fade 750‑ms và riêng biệt bật chuyển tiếp tự động sau 5.000 ms. Thời lượng chuyển đổi điều khiển hiệu ứng; chuyển tiếp điều khiển thời điểm rời slide. Những thanh này là cài đặt sơ đồ, không phải một thời gian biểu hợp đo lường.*
+*Ví dụ chung này đặt mỗi slide có chuyển tiếp Fade 750‑ms và riêng biệt bật tiến tới tự động sau 5.000 ms. Thời lượng chuyển tiếp kiểm soát hiệu ứng; tiến tới kiểm soát thời điểm rời slide. Các thanh này là cấu hình mô hình, không phải một dòng thời gian đo lường thực tế.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Áp Dụng Thời Lượng Giống Nhau cho Mọi Slide**
+### **Áp dụng cùng một thời lượng cho mọi slide**
 
-Để duy trì nhịp độ nhất quán, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), và đặt thời lượng 750 mil giây cho mỗi chuyển đổi. Nó riêng biệt bật chuyển tiếp tự động sau 5.000 mil giây và tắt chuyển tiếp bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
+Để duy trì nhịp độ nhất quán, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), và đặt thời lượng cho mỗi chuyển tiếp là 750 mil giây. Nó cũng bật tiến tới tự động sau 5.000 mil giây và tắt tiến tới bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
 
 ```php
 use aspose\slides\Presentation;
@@ -217,7 +272,7 @@ try {
         $transition->setType(TransitionType::Fade);
         $transition->setDuration(750);
 
-        // Cấu hình chuyển tiếp tự động một cách độc lập với thời lượng hiệu ứng.
+        // Cấu hình tiến tới tự động độc lập với thời lượng hiệu ứng.
         $transition->setAdvanceAfter(true);
         $transition->setAdvanceAfterTime(5000);
         $transition->setAdvanceOnClick(false);
@@ -229,9 +284,9 @@ try {
 }
 ```
 
-### **Đặt Thời Lượng Khác Nhau cho Các Slide Riêng Lẻ**
+### **Đặt thời lượng khác nhau cho từng slide riêng lẻ**
 
-Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng một chuyển đổi ngắn cho slide tiêu đề và một chuyển đổi dài hơn cho phần giới thiệu. Ví dụ này đặt 500 mil giây cho slide đầu tiên và 1.200 mil giây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển tiếp ngắn cho slide tiêu đề và chuyển tiếp dài hơn cho phần giới thiệu. Ví dụ này đặt 500 ms cho slide đầu tiên và 1 200 ms cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -258,15 +313,15 @@ try {
 }
 ```
 
-### **Phối Hợp Chuyển Đổi với Đầu Ra Hoạt Hình**
+### **Phối hợp chuyển tiếp với đầu ra hoạt hình**
 
-Khi chuẩn bị một [animated GIF](/slides/vi/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/php-java/export-to-html5/), hoặc [video](/slides/vi/php-java/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để phù hợp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600‑mil giây giữa các cảnh, và điều chỉnh độ trễ chuyển tiếp của mỗi slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung.
+Khi chuẩn bị một [animated GIF](/slides/vi/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/php-java/export-to-html5/), hoặc [video](/slides/vi/php-java/convert-powerpoint-to-video/), đặt thời lượng chuyển tiếp chính xác trước khi xuất để khớp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600 ms giữa các cảnh, và điều chỉnh độ trễ tiến tới của từng slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung của nó.
 
-Đối với GIF và video, phối hợp tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 mil giây tương đương 18 khung hình ở tốc độ 30 khung hình/giây. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian mà định dạng xuất đã chọn hỗ trợ, và xem trước đầu ra để xác nhận đồng bộ.
+Đối với GIF và video, phối hợp tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 ms tương đương 18 khung hình ở 30 fps. Trong HTML5, bật chuyển tiếp hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận đồng bộ.
 
-### **Đọc Thời Lượng Chuyển Đổi Đã Tồn Tại**
+### **Đọc thời lượng chuyển tiếp hiện có**
 
-Gọi [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) trước khi sửa đổi chuyển đổi để xác định xem có giá trị rõ ràng nào được lưu hay không. Giá trị `-1` có nghĩa là không có thời lượng rõ ràng được đặt; một giá trị không âm chỉ định thời lượng được lưu bằng mil giây. Giá trị chưa đặt không phải là thời lượng phát lại được tính: Aspose.Slides sử dụng loại chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) để xác định thời lượng đó. Đặt một loại chuyển đổi có thể khởi tạo một thời lượng, vì vậy hãy kiểm tra các cài đặt gốc trước.
+Gọi [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) trước khi chỉnh sửa chuyển tiếp để xác định liệu đã lưu một giá trị rõ ràng hay chưa. Giá trị `-1` có nghĩa là không có thời lượng cụ thể được đặt; giá trị không âm chỉ thời lượng đã lưu tính bằng mil giây. Giá trị chưa đặt không phải là thời lượng phát lại được tính toán: Aspose.Slides dùng loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) để xác định thời lượng đó. Đặt một loại chuyển tiếp có thể khởi tạo thời lượng, vì vậy hãy kiểm tra các cài đặt ban đầu trước.
 
 ```php
 use aspose\slides\Presentation;
@@ -289,11 +344,11 @@ try {
 }
 ```
 
-## **Chuyển Đổi Morph**
+## **Chuyển tiếp Morph**
 
-Chuyển đổi Morph tạo hoạt ảnh cho các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo một hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cho phép chuyển đổi các đối tượng tương ứng để hoạt ảnh giữa trạng thái gốc và đã sửa đổi.
+Chuyển tiếp Morph hoạt họa các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển tiếp Morph cho slide thứ hai. Điều này cung cấp các đối tượng tương ứng để hoạt họa giữa trạng thái gốc và đã chỉnh sửa.
 
-Ví dụ sau tạo một slide với một hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ enumeration [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong một trình xem bản trình chiếu hỗ trợ Morph để xem hiệu ứng trong buổi trình chiếu.
+Ví dụ sau tạo một slide có một hình chữ nhật chứa văn bản, sao chép slide đó, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ enum [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong trình xem bản trình chiếu hỗ trợ Morph để xem hiệu ứng trong buổi chiếu slide.
 
 ```php
 use aspose\slides\Presentation;
@@ -322,15 +377,17 @@ try {
 }
 ```
 
-## **Các Kiểu Chuyển Đổi Morph**
+## **Các loại chuyển tiếp Morph**
 
-Enumeration [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt ảnh nội dung:
+Enum [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt họa nội dung:
 
-- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) coi mỗi hình dạng như một đối tượng nguyên khối.
-- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) hoạt ảnh văn bản bằng cách khớp các từ khi có thể.
-- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) hoạt ảnh văn bản bằng cách khớp các ký tự khi có thể.
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) xem mỗi hình dạng như một đối tượng toàn bộ.
+- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) hoạt họa văn bản bằng cách ghép các từ khi có thể.
+- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) hoạt họa văn bản bằng cách ghép các ký tự khi có thể.
 
-Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). Giá trị sau đó cung cấp một đối tượng [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/), trong đó phương thức [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) chọn chế độ khớp.
+Sử dụng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). Giá trị trả về sau đó cung cấp một đối tượng [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/), trong đó phương thức [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) chọn chế độ ghép.
+
+Ví dụ này mở bản trình chiếu được tạo ở phần trước và cấu hình slide thứ hai sử dụng hoạt họa Morph dựa trên từ.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,11 +416,11 @@ try {
 }
 ```
 
-## **Đặt Hiệu Ứng Chuyển Đổi**
+## **Đặt hiệu ứng chuyển tiếp**
 
-Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc liệu hiệu ứng có bắt đầu từ màn hình đen hay không. Các tùy chọn khả dụng phụ thuộc vào chuyển đổi được chọn bằng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Đặt loại trước, sau đó sử dụng đối tượng chuyển đổi phù hợp từ [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
+Một số chuyển tiếp cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc việc hiệu ứng bắt đầu từ màn hình đen. Các tùy chọn khả dụng phụ thuộc vào chuyển tiếp đã chọn bằng [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Đặt loại trước, sau đó sử dụng đối tượng chuyển tiếp phù hợp từ [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
 
-Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó gọi [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) thông qua [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
+Ví dụ sau áp dụng chuyển tiếp Cut cho slide đầu tiên của `input.pptx`. Nó gọi [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) thông qua [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) để chuyển tiếp bắt đầu từ màn hình đen.
 
 ```php
 use aspose\slides\Presentation;
@@ -389,18 +446,18 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể kiểm soát tốc độ phát lại của chuyển đổi slide không?**
+**Tôi có thể kiểm soát tốc độ phát của một chuyển tiếp slide không?**
 
-Đúng. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mil giây. Sử dụng [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) đã định sẵn — Slow, Medium hoặc Fast — là đủ và không có thời lượng rõ ràng nào được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển đổi một cách độc lập với độ trễ chuyển tiếp tự động.
+Có. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mil giây. Sử dụng [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) khi một hạng mục tốc độ đã định nghĩa trước từ [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) — Slow, Medium hoặc Fast — là đủ và không có thời lượng cụ thể được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển tiếp độc lập với độ trễ tiến tới tự động.
 
-**Tôi có thể đính kèm âm thanh vào chuyển đổi và lặp lại không?**
+**Tôi có thể gắn âm thanh vào một chuyển tiếp và lặp lại nó không?**
 
-Đúng. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), truyền giá trị StartSound từ enumeration [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) cho [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode), và bật [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) với `true`. Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi trình chiếu.
+Có. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), truyền `StartSound` từ enum [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) vào [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode), và bật [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) với `true`. Âm thanh sẽ lặp cho tới sự kiện âm thanh tiếp theo trong buổi chiếu slide.
 
-**Cách nhanh nhất để áp dụng cùng một chuyển đổi cho mọi slide là gì?**
+**Cách nhanh nhất để áp dụng cùng một chuyển tiếp cho mọi slide là gì?**
 
-Lặp qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) của bản trình chiếu và gọi [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) với cùng một giá trị cho mỗi chuyển đổi của slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để duy trì hành vi nhất quán trên các slide.
+Duyệt qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) của bản trình chiếu và gọi [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) với cùng một giá trị cho từng slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để duy trì hành vi nhất quán giữa các slide.
 
-**Làm sao tôi có thể kiểm tra chuyển đổi nào hiện đang được đặt trên một slide?**
+**Làm thế nào tôi có thể kiểm tra chuyển tiếp nào hiện đang được đặt trên một slide?**
 
-Gọi [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) trên kết quả của [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) của slide. Nó trả về một giá trị từ enumeration [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/); None có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.
+Gọi [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) trên kết quả của [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) của slide. Nó trả về một giá trị từ enum [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/); `None` có nghĩa là không có hiệu ứng chuyển tiếp nào được áp dụng.

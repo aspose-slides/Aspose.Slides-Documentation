@@ -6,7 +6,7 @@ weight: 80
 url: /ar/python-java/slide-transition/
 keywords:
 - انتقال الشريحة
-- إضافة انتقال الشريحة
+- إضافة انتقال شريحة
 - تطبيق انتقال الشريحة
 - انتقال شريحة متقدم
 - انتقال Morph
@@ -18,17 +18,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص تأثيرات Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides للـ Python عبر Java."
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص Morph وتأثيرات الانتقال الأخرى باستخدام Aspose.Slides للغة Python عبر Java."
 ---
 ## **نظرة عامة**
 
-تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides للـ Python عبر Java، يمكنك اختيار تأثير الانتقال لكل شريحة، وتكوين التقدم بالنقر بالماوس أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. يستخدم هذا المقال أمثلة بايثون لتطبيق الانتقالات، وتعيين مدة انتقال دقيقة، وإدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات إلى ملف PPTX.
+تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides للغة Python عبر Java، يمكنك اختيار تأثير انتقال لكل شريحة، وتكوين التقدم بالنقر بالفأرة أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. يستخدم هذا المقال أمثلة بلغة Python لتطبيق الانتقالات، وتعيين مدد انتقال دقيقة، وإدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات في ملف PPTX.
 
-## **إضافة انتقال شريحة**
+## **إضافة انتقال للشرائح**
 
-لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ثم الوصول إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) والوصول إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) بقيمة من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
 
-الت المثال التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+التطبيق التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
 ```python
 import jpype
@@ -54,9 +54,9 @@ finally:
 
 ## **انتقال العجلة**
 
-استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) لاختيار Wheel من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). ثم استدعِ [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) للوصول إلى إعدادات [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/). تتحكم طريقة [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) في عدد القطاعات الشعاعية التي تكشف الشريحة الهدف.
+استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) لاختيار Wheel من [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). ثم استدعِ [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) للوصول إلى إعدادات [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/). تتحكم طريقة [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) في عدد القطاعات الشعاعية التي تكشف الشريحة الوجهة.
 
-ينشئ المثال زوجين متماثلين من الشرائح. يبدأ كل زوج بشريحة سوداء وينتهي بمستطيل ذهبي يغطي الشريحة بالكامل. تستخدم كلتا شريحتين الهدف نفس السرعة البطيئة التي تُحدد بـ [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) ونفس المدة الصريحة 8000 مللي ثانية التي تُحدد بـ [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). يتغير عدد الأسنان فقط.
+يقوم المثال بإنشاء زوجين متطابقين من الشرائح. يبدأ كل زوج بشريحة سوداء وينتهي بمستطيل ذهبي يغطي الشريحة بالكامل. تستخدم كل الشرائح الوجهة نفس السرعة البطيئة التي تم ضبطها بـ[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) ونفس المدة الصريحة 8,000 مللي ثانية التي تم ضبطها بـ[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). يتغير عدد القطاعات فقط.
 
 ```python
 import jpype
@@ -102,19 +102,76 @@ finally:
     presentation.dispose()
 ```
 
-افتح `wheel-transitions.pptx` في PowerPoint وابدأ عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2 لتشاهده دورة واحدة مع اتجاه عقربي تكشف المستطيل الذهبي. ثم انتقل من الشريحة 3 إلى الشريحة 4 لترى ثمان قطاعات شعاعية تكشف المستطيل نفسه في آن واحد.
+افتح `wheel-transitions.pptx` في PowerPoint وابدأ عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2 لتشاهد حركة دورانية واحدة تكشف المستطيل الذهبي. ثم انتقل من الشريحة 3 إلى الشريحة 4 لتشاهد ثماني قطاعات شعاعية تكشف المستطيل نفسه في آن واحد.
 
-## **إضافة انتقال شريحة متقدم**
+## **تلاشي من خلال اللون الأسود باستخدام انتقال Reveal**
 
-يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالماوس يقدّم عرض الشرائح. تتحكم الطرق التالية في هذا السلوك:
+اضبط نوع انتقال الشريحة الوجهة إلى Reveal، ثم استدعِ [setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) على إعدادات [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/). ينشئ المثال شريحة مصدر بلون فسيلي وشريحة وجهة بلون مرجاني، ثم يستنسخهما. يستخدم كل زوج نفس انتقال Reveal مدته ثانيتان. فقط الزوج الثاني يتلاشى عبر اللون الأسود.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) يتيح للمشاهد التقدم بالنقر.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+افتح `reveal-transitions.pptx` في PowerPoint وابدأ عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2 لتشاهد الفسيلي يتلاشى مباشرةً إلى المرجاني. ثم انتقل من الشريحة 3 إلى الشريحة 4. سيتظلم الشاشة مؤقتًا إلى اللون الأسود القريب قبل ظهور شريحة المرجاني. تحتفظ كلتا الشريحتين بألوان الخلفية الأصلية.
+
+الصفوف أدناه تُظهر إطارات من PowerPoint بفواصل نصف ثانية. قارن الإطار الأوسط في كل صف لتلاحظ التأثير.
+
+![تشغيل PowerPoint مع تعطيل تلاشي عبر الأسود (أعلى) وتمكينه (أسفل). الصف السفلي فقط يمر عبر اللون الأسود القريب.](reveal-through-black.png)
+
+## **إضافة انتشار شريحة متقدم**
+
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالفأرة سيُقدّم عرض الشرائح. تتحكم الطرق التالية في هذا السلوك:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) يسمح للمستخدم بالتقدم بالنقر بالفأرة.
 - [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) يفعّل التقدم التلقائي.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) يحدّد التأخير قبل التقدم التلقائي، بالمللي ثانية.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) يحدد التأخير قبل التقدم التلقائي، بالمللي ثانية.
 
-فعّل كل من التقدم بالنقر والوقت لتتيح للمشاهد التقدم بالنقر أو الانتظار للمؤقت. لاستخدام المؤقت فقط، مرّر `False` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). يتحكم التأخير في وقت تقديم عرض الشرائح؛ ولا يحدد مدة تأثير الانتقال البصري.
+فعّل كلا من النقر والتقدم المؤقت لتسمح للمستخدم بالتقدم بالنقر أو الانتظار حتى المؤقت. لاستخدام المؤقت فقط، مرّر `False` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). يتحكم التأخير في متى يتقدم عرض الشرائح؛ لا يحدد مدة تأثير الانتقال البصري.
 
-هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعّل التقدم التلقائي بعد 3، 5، 7 ثوانٍ على التوالي. يمكن أيضًا النقر بالماوس لتقدم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+يُعيّن هذا المثال تأثيرات مختلفة للشرائح الثلاث الأولى ويُفعّل التقدم التلقائي بعد 3 و 5 و 7 ثوانٍ على التوالي. يمكن للنقرات بالفأرة أيضًا أن تُقدّم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
 
 ```python
 import jpype
@@ -153,16 +210,16 @@ finally:
     presentation.dispose()
 ```
 
-للتحقق مما إذا كان التقدم الزمني مفعلاً، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter). مجرد وجود تأخير مخزن لا يعني أن المؤقت نشط.
+للتحقق مما إذا كان التقدم المؤقت مفعّلًا، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter). التخزين المؤقت للتأخير وحده لا يدل على أنّ المؤقت نشط.
 
-المثال التالي يفتح الملف المحفوظ أعلاه، يبلغ عن كل مؤقت مفعّل، ويعطل التقدم التلقائي للشرائح التي لديها تأخير يزيد عن ثانيتين. يفعّل النقر بالماوس لتلك الشرائح ويحفظ الإعدادات المحدثة.
+المثال التالي يفتح الملف المحفوظ أعلاه، يردّ كل مؤقت مفعّل، ويعطّل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يعيد تفعيل النقر بالفأرة لتلك الشرائح ويحفظ الإعدادات المحدثة.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpage.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
@@ -183,27 +240,27 @@ finally:
     presentation.dispose()
 ```
 
-## **التحكم الدقيق في توقيت الانتقال**
+## **التحكم في توقيت الانتقال بدقة**
 
-استخدم [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) لتحديد الطول الدقيق لتأثير الانتقال بالمللي ثانية. تكشف طريقة الشريحة [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) عن هذه الإعدادات عبر فئة [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) :
+استخدم [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) لتحديد الطول الدقيق لتأثير الانتقال بالمللي ثانية. تُظهر طريقة [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) للشفرة هذه الإعدادات عبر [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/):
 
-| طريقة | الغرض |
+| الطريقة | الغرض |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | يحدد مدة تأثير الانتقال ذاته، بالمللي ثانية. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالمللي ثانية. مرّر `True` إلى [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) لتفعيل هذا المؤقت. |
-| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | يختار فئة سرعة مسبقة التعريف من تعداد [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow، Medium، Fast. تُستَخدم عندما لا تُحدّد مدة صريحة. |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | يحدّد مدة تأثير الانتقال نفسه، بالمللي ثانية. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | يحدّد التأخير قبل أن تتقدم الشريحة تلقائيًا، بالمللي ثانية. مرّر `True` إلى [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) لتفعيل هذا المؤقت. |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | يختار فئة سرعة مُحددة مسبقًا من تعداد [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow أو Medium أو Fast. يُستَخدم عندما لا تُحدَّد مدة صريحة. |
 
-[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) يتحكم فقط في تأثير الانتقال؛ ولا يحدد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدّد مدة صريحة، يحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed).
+يُتحكم [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) فقط في تأثير الانتقال؛ لا يحدّد مدة بقاء الشريحة مرئية. قم بتكوين تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدَّد مدة صريحة، يحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![الأشرطة المنفصلة تُظهر مدة الانتقال 750 مللي ثانية وإعداد التقدم التلقائي 5,000 مللي ثانية.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*المثال المشترك يمنح كل شريحة انتقال Fade بمدة 750 مللي ثانية ويفعّل التقدم التلقائي بعد 5 000 مللي ثانية. مدة الانتقال تتحكم في التأثير؛ والتقدم يتحكم في موعد مغادرة الشريحة. هذه الأشرطة تمثل إعدادات تخطيطية، ليست مخططًا زمنيًا مُقاسًا.*
+*يعطي المثال المشترك لكل شريحة انتقال Fade مدته 750 مللي ثانية ويفعّل التقدم التلقائي بعد 5,000 مللي ثانية بشكل منفصل. تتحكم مدة الانتقال في التأثير؛ يتحكم التقدم في وقت مغادرة الشريحة. هذه الأشرطة تمثّل إعدادات تخطيطية، ليست مخططًا زمنيًا مُقاسًا مُجمعًا.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **تطبيق نفس المدة على كل شريحة**
 
-لضمان وتيرة ثابتة، طبّق نفس التأثير ونفس المدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 مللي ثانية. يفعّل التقدم التلقائي بعد 5 000 مللي ثانية ويعطل التقدم بنقرة الفأرة، ثم يحفظ النتيجة كملف PPTX.
+لتحقيق وتيرة ثابتة، طبق نفس التأثير والمدة الدقيقة على كل شريحة. يقوم هذا المثال بتحميل `input.pptx`، يختار Fade من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 مللي ثانية. يُفعّل التقدم التلقائي بعد 5,000 مللي ثانية ويعطل التقدم بالنقر، ثم يحفظ النتيجة كملف PPTX.
 
 ```python
 import jpype
@@ -221,7 +278,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
+        # ضبط التقدم التلقائي بشكل مستقل عن مدة التأثير.
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -231,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-### **تحديد مدد مختلفة للشرائح الفردية**
+### **تعيين مدد مختلفة للشرائح الفردية**
 
-يمكن للشرائح المختلفة أن تستخدم مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا سريعًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. هذا المثال يحدد 500 مللي ثانية للشريحة الأولى و1 200 مللي ثانية للثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. يحدد هذا المثال 500 مللي ثانية للشرائح الأولى و1,200 مللي ثانية للشرائح الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
 ```python
 import jpype
@@ -264,13 +321,13 @@ finally:
 
 ### **تنسيق الانتقالات مع المخرجات المتحركة**
 
-عند إعداد [animated GIF](/slides/ar/python-java/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/ar/python-java/export-to-html5/)، أو [video](/slides/ar/python-java/convert-powerpoint-to-video/)، عيّن مدد الانتقال الدقيقة قبل التصدير لتتناسب مع الإيقاع المطلوب. على سبيل المثال، استخدم تلاشيًا بمدة 600 مللي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بصورة منفصلة لإتاحة الوقت للشرح الصوتي أو المحتوى.
+عند إعداد [GIF المتحرك](/slides/ar/python-java/convert-powerpoint-to-animated-gif/) أو [عرض HTML5](/slides/ar/python-java/export-to-html5/) أو [فيديو](/slides/ar/python-java/convert-powerpoint-to-video/)، ضع مدد انتقال دقيقة قبل التصدير لتتناسب مع الوتيرة المقصودة. على سبيل المثال، استخدم تلاشيًا مدته 600 مللي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بالوقت لسردها أو محتواها.
 
-بالنسبة للـ GIF والفيديو، نسّق معدل إطارات الإخراج مع مدة التأثير: 600 مللي ثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقّق من تأثيرات وتوقيتات الصيغة المُختارة، واستعرض الإخراج للتأكد من التزامن.
+بالنسبة للـ GIF والفيديو، نسّق معدل الإطارات للمخرجات مع مدة التأثير: 600 مللي ثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من التأثيرات وخيارات التوقيت المدعومة من تنسيق التصدير المختار، واعرض المعاينة للتأكد من التزامن.
 
-### **قراءة مدة الانتقال الموجودة**
+### **قراءة مدة انتقال موجودة**
 
-استدعِ [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مُخزّنة. القيمة `-1` تعني عدم وجود مدة صريحة؛ القيمة غير السالبة تُحدّد المدة المخزّنة بالمللي ثانية. القيمة غير المُحددة ليست مدة التشغيل المحتسبة: يستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) لتحديد تلك المدة. قد يُنشئ تعيين نوع الانتقال مدةً مبدئية، لذا افحص الإعدادات الأصلية أولًا.
+استدعِ [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزَّنة. القيمة `-1` تعني عدم وجود مدة صريحة؛ القيمة غير السالبة تحدد المدة المخزَّنة بالمللي ثانية. القيمة غير المحددة ليست مدة التشغيل المحسوبة: يستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) لتحديد تلك المدة. قد تُنشئ تعيين نوع الانتقال مدةً مبدئية، لذا تحقق من الإعدادات الأصلية أولًا.
 
 ```python
 import jpype
@@ -297,9 +354,9 @@ finally:
 
 ## **انتقال Morph**
 
-يُحرك انتقال Morph التغييرات بين الكائنات على الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، انقل أو غير حجم كائن على النسخة، وطبق انتقال Morph على الشريحة الثانية. هذا يمنح الكائنات المتطابقة انتقالًا بينها من الحالة الأصلية إلى المعدلة.
+يُحرك انتقال Morph التغييرات بين الكائنات على الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، انقل أو عدّل حجم كائن على النسخة، وطبق انتقال Morph على الشريحة الثانية. يمنح ذلك الانتقال الكائنات المقابلة لتُحرك بين حالتها الأصلية والمعدَّلة.
 
-المثال التالي ينشئ شريحة تحتوي على مستطيل نصي، ينسخ الشريحة، ويغيّر موضع وحجم المستطيل على النسخة. ثم يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض يدعم Morph لتشاهد التأثير أثناء عرض الشرائح.
+ينشئ المثال التالي شريحة تحتوي على مستطيل نصي، يستنسخ الشريحة، ويغيّر موقع وحجم المستطيل على النسخة. ثمّ يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لتلاحظ التأثير أثناء عرض الشرائح.
 
 ```python
 import jpype
@@ -332,15 +389,15 @@ finally:
 
 ## **أنواع انتقال Morph**
 
-يتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) في طريقة مطابقة وتحريك المحتوى:
+يتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) في طريقة مطابقة وتحريك المحتوى خلال Morph:
 
-- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) يتعامل مع كل شكل ككائن كامل.
-- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) يُحرك النص بمطابقة الكلمات حيثما أمكن.
-- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) يُحرك النص بمطابقة الأحرف حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) يحرك النص بمطابقة الكلمات قدر الإمكان.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) يحرك النص بمطابقة الأحرف قدر الإمكان.
 
-استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue). ستكون القيمة بعد ذلك نسخة من فئة [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/)، وتختار طريقة المطابقة عبر طريقة [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType).
+استخدم [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue). تكون القيمة عندئذٍ كائنًا من فئة [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/)، وتختار طريقة المطابقة عبر طريقة [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType).
 
-هذا المثال يفتح العرض التقديمي الذي تم إنشاؤه في القسم السابق ويُعدّل الشريحة الثانية لتستخدم تحريكًا مبنيًا على الكلمات.
+يفتح هذا المثال العرض التقديمي الذي أنشئ في القسم السابق ويضبط الشريحة الثانية لاستخدام تحريك Morph على أساس الكلمات.
 
 ```python
 import jpype
@@ -372,9 +429,9 @@ finally:
 
 ## **تعيين تأثيرات الانتقال**
 
-تكشف بعض الانتقالات عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المُختار عبر [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType). حدد النوع أولًا، ثم استخدم الفئة المناسبة عبر [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
+تُظهر بعض الانتقالات خيارات إضافية، مثل الاتجاه أو ما إذا كان يبدأ التأثير من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المُختار عبر [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType). اضبط النوع أولًا، ثم استخدم الفئة المناسبة عبر [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
 
-المثال التالي يطبق انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) عبر فئة [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
+يطبق المثال التالي انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) عبر فئة [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
 
 ```python
 import jpype
@@ -401,20 +458,20 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني التحكم بسرعة تشغيل انتقال الشريحة؟**
+**هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. يفضل استخدام [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) عندما تحتاج إلى مدة تأثير دقيقة بالمللي ثانية. استخدم [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) مسبقة التعريف (Slow، Medium، Fast) كافية ولا تُحدّد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
+نعم. يفضَّل استخدام [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) عندما تحتاج إلى مدة تأثير دقيقة بالمللي ثانية. استخدم [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) عندما تكون فئة سرعة مُحدَّدة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)—Slow أو Medium أو Fast—كافية ولا تُحدَّد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
 
-**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
+**هل يمكنني إرفاق صوت بانتقال وجعله يتكرر؟**
 
-نعم. عيّن صوتًا مضمّنًا عبر [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound)، مرّر قيمة StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode)، وفعل [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) بـ `True`. سيستمر الصوت في التكرار حتى الحدث الصوتي التالي في عرض الشرائح.
+نعم. عيّن صوتًا مضمّنًا عبر [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound)، مرّر `StartSound` من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode)، وفعل [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) بالقيمة `True`. يتكرر الصوت حتى حدث صوتي التالي في عرض الشرائح.
 
-**ما أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+**ما أسرع طريقة لتطبيق نفس الانتقال على جميع الشرائح؟**
 
-قم بالتكرار عبر مجموعة [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) في العرض التقديمي وادعُ [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) بنفس القيمة لكل شريحة. عيّن أي توقيتات وخيارات تأثير في نفس الحلقة للحفاظ على سلوك متسق عبر الشرائح.
+ا المستخدم حلقة عبر مجموعة [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) في العرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) بنفس القيمة لكل شريحة. عيّن أي إعدادات توقيت وتأثير داخل نفس الحلقة للحفاظ على سلوك موحد عبر جميع الشرائح.
 
-**كيف يمكنني التحقق من الانتقال الحالي المعين على شريحة؟**
+**كيف يمكنني التحقق من الانتقال الحالي المطبق على شريحة؟**
 
-استدعِ [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) للشريحة. ستُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/); القيمة None_ تعني عدم تطبيق أي تأثير انتقال.
+استدعِ [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) للشريحة. تُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)؛ `None_` يعني عدم تطبيق أي تأثير انتقال.

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Transições de Slide em Apresentações Usando Python
+title: Gerenciar Transições de Slides em Apresentações Usando Python
 linktitle: Transição de Slide
 type: docs
 weight: 90
@@ -8,7 +8,7 @@ keywords:
 - transição de slide
 - adicionar transição de slide
 - aplicar transição de slide
-- transição avançada de slide
+- transição de slide avançada
 - transição morph
 - tipo de transição
 - efeito de transição
@@ -17,15 +17,15 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aplique transições de slide, configure o avanço automático de slides e personalize Morph e outros efeitos de transição com Aspose.Slides for Python via .NET."
+description: "Aplicar transições de slide, configurar o avanço automático de slides e personalizar Morph e outros efeitos de transição com Aspose.Slides para Python via .NET."
 ---
 ## **Visão geral**
 
-As transições de slide controlam como os slides aparecem durante uma apresentação de slides. Com Aspose.Slides for Python via .NET, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em Python para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
+As transições de slides controlam como os slides aparecem durante uma apresentação. Com o Aspose.Slides for Python via .NET, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou por temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em Python para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
 
 ## **Adicionar transição de slide**
 
-Para aplicar uma transição, carregue uma apresentação com a classe [Apresentação](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e acesse a propriedade [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide. Defina seu [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) para um valor da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) e, em seguida, salve a apresentação.
+Para aplicar uma transição, carregue uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) e acesse a propriedade [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide. Defina seu [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) para um valor da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), depois salve a apresentação.
 
 O exemplo a seguir aplica uma transição Circle ao primeiro slide e uma transição Comb ao segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
 
@@ -44,9 +44,9 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Transição Wheel**
 
-A propriedade [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) de [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) controla o número de setores radiais que revelam o slide de destino. Defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) do slide para WHEEL da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) antes de acessar [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) como [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
+A propriedade [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) de [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) controla o número de setores radiais que revelam o slide de destino. Defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) do slide para **WHEEL** a partir de [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) antes de acessar o [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) como [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
 
-Este exemplo cria duas pares idênticos de slides: um slide preto seguido de um slide com um retângulo dourado. Os slides de destino usam contagens de spokes de 1 e 8, com a mesma [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) e uma [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) explícita de 8.000 milissegundos para tornar a diferença fácil de observar.
+Este exemplo cria dois pares idênticos de slides: um slide preto seguido por um slide com um retângulo dourado. Os slides de destino usam contagens de raios de 1 e 8, com a mesma [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) e uma [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) explícita de 8.000 milissegundos para facilitar a observação da diferença.
 
 ```python
 import aspose.slides as slides
@@ -82,17 +82,62 @@ with slides.Presentation() as presentation:
     presentation.save("wheel-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Abra a apresentação resultante no PowerPoint e execute a apresentação de slides. Avance do slide 1 para o slide 2, depois do slide 3 para o slide 4. Na reprodução do PowerPoint, a contagem verificada de spokes 1 revela o slide com uma varredura horária; a contagem verificada de 8 revela-o através de oito setores radiais simultaneamente. O conteúdo de destino e o tempo da transição são idênticos, portanto a diferença está no número de setores de revelação.
+Abra a apresentação de saída no PowerPoint e execute a apresentação de slides. Avance do slide 1 para o slide 2, depois do slide 3 para o slide 4. Na reprodução do PowerPoint, a contagem de raios verificada de 1 revela o slide com uma varredura horária; a contagem verificada de 8 o revela por oito setores radiais simultaneamente. O conteúdo de destino e o tempo da transição são idênticos, portanto a diferença está no número de setores de revelação.
+
+## **Fade Through Black com a transição Reveal**
+
+Defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) do slide de destino para **Reveal**, depois defina [through_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/through_black/) no objeto [RevealTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/) resultante. O exemplo cria um slide de origem teal e um slide de destino coral, depois clona o par. Ambos os pares usam a mesma transição Reveal de dois segundos. Apenas o segundo par desvanece através do preto.
+
+```python
+import aspose.slides as slides
+
+
+def style_slide(slide, background_color, label):
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.preset_color = background_color
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 160, 180, 400, 130)
+    shape.text_frame.text = label
+    shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 44
+
+
+with slides.Presentation() as presentation:
+    source = presentation.slides[0]
+    destination = presentation.slides.add_clone(source)
+    style_slide(source, slides.PresetColor.TEAL, "Source")
+    style_slide(destination, slides.PresetColor.CORAL, "Destination")
+    presentation.slides.add_clone(source)
+    presentation.slides.add_clone(destination)
+
+    for index in (1, 3):
+        transition = presentation.slides[index].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.REVEAL
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 2000
+        
+        reveal = transition.value
+        reveal.direction = slides.slideshow.TransitionLeftRightDirectionType.LEFT
+        reveal.through_black = index == 3
+
+    presentation.save("reveal-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Abra `reveal-transitions.pptx` no PowerPoint e inicie a apresentação de slides. Avance do slide 1 para o slide 2 para ver o teal desvanece diretamente para o coral. Depois avance do slide 3 para o slide 4. A tela escurece brevemente quase até o preto antes que o slide coral apareça. Ambos os slides mantêm suas cores de fundo originais.
+
+As linhas abaixo mostram quadros do PowerPoint em intervalos de meio segundo. Compare o quadro do meio em cada linha para ver o efeito da configuração.
+
+![Reprodução do PowerPoint com through_black desativado (superior) e ativado (inferior). Apenas a linha inferior passa por quase preto.](reveal-through-black.png)
 
 ## **Adicionar transição avançada de slide**
 
-Você pode configurar quanto tempo um slide permanece na tela e se um clique do mouse avança a apresentação. As seguintes propriedades controlam esse comportamento:
+Você pode configurar quanto tempo um slide permanece na tela e se um clique do mouse avança a apresentação. As propriedades a seguir controlam esse comportamento:
 
-- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) permite que o espectador avance clicando com o mouse.
+- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) permite que o visualizador avance ao clicar o mouse.
 - [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) habilita o avanço automático.
 - [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) especifica o atraso antes do avanço automático, em milissegundos.
 
-Habilite tanto o avanço por clique quanto o cronometrado para que o espectador avance com um clique ou aguarde o temporizador. Para usar apenas o temporizador, defina [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) como `False`. O atraso controla quando a apresentação avança; ele não define a duração do efeito visual da transição.
+Habilite tanto o avanço por clique quanto o temporizado para permitir que o visualizador avance com um clique ou aguarde o temporizador. Para usar apenas o temporizador, defina [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) como `False`. O atraso controla quando a apresentação avança; ele não define a duração do efeito visual da transição.
 
 Este exemplo atribui efeitos diferentes aos três primeiros slides e habilita o avanço automático após 3, 5 e 7 segundos, respectivamente. Cliques do mouse também podem avançar esses slides. Use um arquivo `input.pptx` com pelo menos três slides.
 
@@ -124,9 +169,9 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least three slides.")
 ```
 
-Para verificar se o avanço cronometrado está habilitado, leia [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Um atraso armazenado sozinho não indica que o temporizador está ativo.
+Para verificar se o avanço temporizado está habilitado, leia [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Um atraso armazenado sozinho não indica que o temporizador está ativo.
 
-O próximo exemplo abre o arquivo salvo acima, relata cada temporizador habilitado e desabilita o avanço automático para slides com atraso superior a dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
+O próximo exemplo abre o arquivo salvo acima, relata cada temporizador habilitado e desabilita o avanço automático para slides com atraso maior que dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
 
 ```python
 import aspose.slides as slides
@@ -147,25 +192,25 @@ with slides.Presentation("advanced-transitions.pptx") as presentation:
 
 ## **Controlar o tempo da transição com precisão**
 
-Use [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) para especificar o comprimento exato de um efeito de transição em milissegundos. A propriedade [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide expõe essas configurações por meio do [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
+Use [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) para especificar o comprimento exato de um efeito de transição em milissegundos. A propriedade [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide expõe essas configurações por meio de [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
 
 | Propriedade | Objetivo |
 | --- | --- |
 | [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Define a duração do próprio efeito de transição, em milissegundos. |
-| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Define o atraso antes que o slide avance automaticamente, em milissegundos. Habilite [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) para ativar esse temporizador. |
-| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Seleciona uma categoria de velocidade predefinida da enumeração [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM ou FAST. É usada quando uma duração exata não é especificada. |
+| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Define o atraso antes de o slide avançar automaticamente, em milissegundos. Habilite [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) para ativar esse temporizador. |
+| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Seleciona uma categoria de velocidade pré‑definida de [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM ou FAST. É usada quando uma duração exata não é especificada. |
 
-[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) controla apenas o efeito de transição; ele não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor de [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
+[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) controla apenas o efeito da transição; não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, o Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor de [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
 
 <!-- visual-explanation:slide-transition:start -->
 [![Barras separadas identificam a duração da transição de 750 ms e a configuração de avanço automático de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*O exemplo compartilhado atribui a cada slide uma transição Fade de 750 ms e habilita separadamente o avanço automático em 5 000 ms. A duração da transição controla o efeito; o avanço controla quando deixar o slide. Estas barras são representações esquemáticas, não uma linha do tempo combinada medida.*
+*O exemplo compartilhado atribui a cada slide uma transição Fade de 750 ms e habilita separadamente o avanço automático em 5 000 ms. A duração da transição controla o efeito; o avanço controla quando deixar o slide. Essas barras são representações esquemáticas, não uma linha do tempo medida combinada.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Aplicar a mesma duração a cada slide**
+### **Aplicar a mesma duração a todos os slides**
 
-Para manter um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a todos os slides. Este exemplo carrega `input.pptx`, seleciona Fade da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) e atribui a cada transição uma duração de 750 milissegundos. Ele habilita separadamente o avanço automático após 5 000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
+Para manter um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a todos os slides. Este exemplo carrega `input.pptx`, seleciona Fade de [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) e atribui a cada transição uma duração de 750 milissegundos. Ele habilita separadamente o avanço automático após 5 000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
 
 ```python
 import aspose.slides as slides
@@ -186,7 +231,7 @@ with slides.Presentation("input.pptx") as presentation:
 
 ### **Definir durações diferentes para slides individuais**
 
-Slides diferentes podem usar durações de efeito distintas. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1 200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
+Slides diferentes podem usar durações de efeito distintas. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1.200 milissegundos para o segundo. Use um arquivo `input.pptx` com ao menos dois slides.
 
 ```python
 import aspose.slides as slides
@@ -206,15 +251,15 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-### **Coordinar transições com saída animada**
+### **Coordenar transições com saída animada**
 
-Ao preparar um [GIF animado](/slides/pt/python-net/convert-powerpoint-to-animated-gif/), uma [apresentação HTML5](/slides/pt/python-net/export-to-html5/) ou um [vídeo](/slides/pt/python-net/convert-powerpoint-to-video/), defina durações exatas de transição antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para a narração ou conteúdo.
+Ao preparar um [animated GIF](/slides/pt/python-net/convert-powerpoint-to-animated-gif/), uma [HTML5 presentation](/slides/pt/python-net/export-to-html5/) ou um [video](/slides/pt/python-net/convert-powerpoint-to-video/), defina durações exatas de transição antes da exportação para combinar com o ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para sua narração ou conteúdo.
 
-Para GIF e vídeo, coordene a taxa de quadros de saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. No HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato escolhido e visualize a saída para confirmar a sincronização.
+Para GIF e vídeo, coordene a taxa de quadros de saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 frames por segundo. No HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato de exportação escolhido e visualize a saída para confirmar a sincronização.
 
 ### **Ler a duração de uma transição existente**
 
-Leia [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` significa que nenhuma duração explícita está definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração calculada de reprodução: Aspose.Slides usa o tipo de transição e o [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspecione as configurações originais primeiro.
+Leia [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` significa que nenhuma duração explícita está definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: o Aspose.Slides usa o tipo de transição e [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspecione as configurações originais primeiro.
 
 ```python
 import aspose.slides as slides
@@ -232,9 +277,9 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Transição Morph**
 
-A transição Morph anima mudanças entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
+A transição Morph anima alterações entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
 
-O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação de slides.
+O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph do enumerador [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação de slides.
 
 ```python
 import aspose.slides as slides
@@ -261,8 +306,8 @@ with slides.Presentation() as presentation:
 A enumeração [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) controla como o Morph corresponde e anima o conteúdo:
 
 - [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) trata cada forma como um objeto único.
-- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo palavras, quando possível.
-- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo caracteres, quando possível.
+- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo palavras sempre que possível.
+- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) anima texto correspondendo caracteres sempre que possível.
 
 Defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) da transição para Morph antes de acessar seu [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). O valor então fornece o objeto [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), cuja propriedade [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) seleciona o modo de correspondência.
 
@@ -288,9 +333,9 @@ with slides.Presentation("morph-transition.pptx") as presentation:
 
 ## **Definir efeitos de transição**
 
-Algumas transições expõem opções adicionais, como direção ou se o efeito começa a partir de uma tela preta. As opções disponíveis dependem do [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) de transição selecionado. Defina o tipo primeiro, depois use o objeto de transição apropriado obtido a partir do seu [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
+Algumas transições expõem opções adicionais, como direção ou se o efeito começa a partir de uma tela preta. As opções disponíveis dependem do [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) de transição selecionado. Defina o tipo primeiro, depois use o objeto de transição apropriado a partir de seu [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
-O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele define [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) por meio de [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) para que a transição inicie a partir de uma tela preta.
+O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele define [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) por meio de [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) para que a transição comece a partir de uma tela preta.
 
 ```python
 import aspose.slides as slides
@@ -311,16 +356,16 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Posso controlar a velocidade de reprodução de uma transição de slide?**
 
-Sim. Prefira [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) quando precisar de uma duração exata do efeito em milissegundos. Use [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) quando uma categoria predefinida de [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) — SLOW, MEDIUM ou FAST — for suficiente e nenhuma duração explícita for definida. Essas configurações controlam o efeito de transição independentemente do atraso de avanço automático.
+Sim. Prefira [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) quando precisar de uma duração exata do efeito em milissegundos. Use [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) quando uma categoria pré‑definida de [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) — SLOW, MEDIUM ou FAST — for suficiente e não houver duração explícita definida. Essas configurações controlam o efeito da transição independentemente do atraso de avanço automático.
 
-**Posso anexar áudio a uma transição e fazer o loop?**
+**Posso anexar áudio a uma transição e fazê‑lo repetir?**
 
-Sim. Atribua áudio incorporado a [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), defina [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) como START_SOUND da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/) e habilite [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). O áudio será reproduzido em loop até o próximo evento de som na apresentação.
+Sim. Atribua áudio incorporado a [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), defina [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) como **START_SOUND** da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/) e habilite [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). O áudio repete até o próximo evento de som na apresentação de slides.
 
 **Qual a maneira mais rápida de aplicar a mesma transição a todos os slides?**
 
-Percorra a coleção de [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) da apresentação e defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) da transição de cada slide para o mesmo valor. Defina quaisquer opções de tempo e efeito no mesmo laço para manter o comportamento consistente em todos os slides.
+Percorra a coleção [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) da apresentação e defina o [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) de transição de cada slide para o mesmo valor. Defina quaisquer opções de tempo e efeito no mesmo loop para manter o comportamento consistente em todos os slides.
 
 **Como posso verificar qual transição está atualmente definida em um slide?**
 
-Leia a propriedade [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) do [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide. Ela retorna um valor da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); NONE indica que nenhum efeito de transição está aplicado.
+Leia a propriedade [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) do [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) do slide. Ela retorna um valor da enumeração [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); **NONE** significa que nenhum efeito de transição foi aplicado.

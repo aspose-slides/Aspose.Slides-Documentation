@@ -1,34 +1,34 @@
 ---
-title: 管理 .NET 簡報中的投影片過渡效果
-linktitle: 投影片過渡
+title: 在 .NET 中管理簡報的投影片切換
+linktitle: 投影片切換
 type: docs
 weight: 90
 url: /zh-hant/net/slide-transition/
 keywords:
-- 投影片過渡
-- 新增投影片過渡
-- 套用投影片過渡
-- 進階投影片過渡
-- Morph 過渡
-- 過渡類型
-- 過渡效果
+- 投影片切換
+- 新增投影片切換
+- 套用投影片切換
+- 進階投影片切換
+- Morph 切換
+- 切換類型
+- 切換效果
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 套用投影片過渡、設定自動投影片前進，並自訂 Morph 及其他過渡效果。"
+description: "使用 Aspose.Slides for .NET 套用投影片切換、設定自動投影片前進，並自訂 Morph 與其他切換效果。"
 ---
 ## **概觀**
 
-投影片過渡效果控制投影片在投影片放映期間的顯示方式。使用 Aspose.Slides for .NET，您可以為每張投影片選擇過渡效果，設定以滑鼠點擊或計時器方式前進，並調整特定於效果的選項。本文使用 C# 範例套用過渡、設定精確的過渡持續時間、管理投影片計時，並在兩張投影片之間建立 Morph 過渡。這些範例亦示範如何將設定儲存至 PPTX 檔案。
+投影片切換控制投影片在投影片放映期間的顯示方式。使用 Aspose.Slides for .NET，您可以為每張投影片選擇切換效果、設定滑鼠點擊或計時器的前進方式，並調整特定效果的選項。本文以 C# 範例示範套用切換、設定精確的切換持續時間、管理投影片計時，以及在兩張投影片之間建立 Morph 切換。範例亦說明如何將設定儲存為 PPTX 檔案。
 
-## **新增投影片過渡**
+## **新增投影片切換**
 
-要套用過渡效果，請使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 類別載入簡報，並存取投影片的 [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) 屬性。將其 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為來自 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 列舉的值，然後儲存簡報。
+要套用切換，請使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 類別載入簡報，並存取投影片的 [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) 屬性。將其 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為來自 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 列舉的值，之後儲存簡報。
 
-以下範例將 Circle 過渡套用於第一張投影片，將 Comb 過渡套用於第二張投影片。使用至少包含兩張投影片的 `input.pptx` 檔案。
+以下範例將 Circle 切換套用於第一張投影片，將 Comb 切換套用於第二張。請使用至少兩張投影片的 `input.pptx` 檔案。
 
 ```csharp
 using System;
@@ -51,11 +51,11 @@ else
 }
 ```
 
-## **Wheel 轉場**
+## **輪廓切換**
 
-[IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) 的 [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) 屬性控制顯示目標投影片的徑向區段數量。先將投影片的過渡 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為來自 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 的 Wheel，然後以 [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) 方式存取 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)。
+[IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) 的 [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) 屬性控制顯示目標投影片的徑向區段數量。先將投影片的切換 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為 Wheel（來自 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/)），再以 [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) 方式取得 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)。
 
-此範例建立兩組相同的投影片：一張黑色投影片，接著是一張帶金色矩形的投影片。目標投影片使用 1 與 8 的輻條數，且擁有相同的 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 與明確設定為 8,000 毫秒的 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)，以便輕鬆觀察差異。
+此範例建立兩組相同的投影片：黑色投影片後接金色矩形投影片。目標投影片的輻條數分別為 1 與 8，且皆具有相同的 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 與明確設定為 8,000 毫秒的 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)，以便輕易觀察差異。
 
 ```csharp
 using System.Drawing;
@@ -96,19 +96,70 @@ for (var i = 0; i < spokeCounts.Length; i++)
 presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
 ```
 
-在 PowerPoint 中開啟輸出簡報並執行投影片放映。從投影片 1 前進至投影片 2，然後從投影片 3 前進至投影片 4。在 PowerPoint 播放時，驗證過的 1 輻條會以一次順時針掃描顯示投影片；驗證過的 8 輻條則同時透過八個徑向區段顯示。目標內容與過渡計時相同，差異僅在於顯示區段的數量。
+在 PowerPoint 中開啟輸出簡報並執行投影片放映。從投影片 1 前往投影片 2，接著從投影片 3 前往投影片 4。在 PowerPoint 播放時，驗證過的 1 輻條會以一次順時針掃描顯示投影片；驗證過的 8 輻條則同時以八個徑向區段顯示。目的內容與切換計時相同，差異僅在於顯示區段數。
 
-## **新增進階投影片過渡**
+## **使用 Reveal 切換的黑色淡入**
 
-您可以設定投影片在螢幕上的顯示時間，以及是否透過滑鼠點擊前進投影片放映。以下屬性可控制此行為：
+將目的投影片的切換類型設為 Reveal，然後使用 [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/) 設定 [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/)。此範例建立一張青色來源投影片與一張珊瑚色目的投影片，然後對兩張投影片進行複製，以比較兩秒切換在關閉與啟用淡入黑色時的差異。
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) 允許觀眾透過點擊滑鼠前進。
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+在 PowerPoint 投影片放映中，從投影片 1 前往投影片 2。青色直接淡入珊瑚色。接著從投影片 3 前往投影片 4。畫面會短暫變暗至近黑色，然後顯示珊瑚色投影片。兩張投影片皆保留原始背景顏色。
+
+以下列出每半秒的 PowerPoint 畫面截圖。比較每列的中間畫面以觀察設定效果。
+
+![PowerPoint playback with ThroughBlack disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **新增進階投影片切換**
+
+您可以設定投影片在螢幕上停留的時間以及是否透過滑鼠點擊前進投影片放映。以下屬性控制此行為：
+
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) 允許觀眾透過滑鼠點擊前進。
 - [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) 啟用自動前進。
-- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) 指定自動前進前的延遲時間（以毫秒為單位）。
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) 指定自動前進前的延遲（毫秒）。
 
-同時啟用點擊與計時前進，可讓觀眾點擊前進或等待計時器。若僅使用計時器，請將 [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) 設為 `false`。此延遲控制投影片放映何時前進；它不會設定視覺過渡效果的持續時間。
+同時啟用點擊與計時前進，讓觀眾可點擊前進或等待計時器。若僅使用計時器，將 [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) 設為 `false`。延遲僅決定投影片放映何時前進；不會設定視覺切換效果的持續時間。
 
-此範例為前三張投影片指派不同的效果，並分別在 3、5、7 秒後啟用自動前進。滑鼠點擊亦可前進這些投影片。使用至少包含三張投影片的 `input.pptx` 檔案。
+此範例為前三張投影片指派不同的效果，並分別在 3、5、7 秒後啟用自動前進。滑鼠點擊亦可前進這些投影片。請使用至少三張投影片的 `input.pptx` 檔案。
 
 ```csharp
 using System;
@@ -146,9 +197,9 @@ else
 }
 ```
 
-若要檢查是否啟用計時前進，請讀取 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/)。僅有存儲的延遲並不表示計時器已啟動。
+若要檢查是否已啟用計時前進，請讀取 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/)。僅有儲存的延遲並不表示計時器已啟動。
 
-下一個範例開啟上述保存的檔案，報告每個已啟用的計時器，並針對延遲超過兩秒的投影片停用自動前進。對這些投影片啟用滑鼠點擊，並保存更新後的設定。
+以下範例開啟先前儲存的檔案，回報每個已啟用的計時器，並對延遲超過兩秒的投影片停用自動前進，為這些投影片啟用滑鼠點擊，最後儲存更新後的設定。
 
 ```csharp
 using System;
@@ -176,21 +227,21 @@ foreach (var slide in presentation.Slides)
 presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 ```
 
-## **精確控制過渡時間**
+## **精確控制切換計時**
 
-使用 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 以毫秒為單位指定過渡效果的精確長度。投影片的 [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) 屬性透過 [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/) 透露這些設定：
+使用 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 以毫秒為單位指定切換效果的精確長度。投影片的 [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) 屬性透過 [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/) 暴露這些設定：
 
 | Property | Purpose |
 | --- | --- |
-| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | 設定過渡效果本身的持續時間（以毫秒為單位）。 |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | 設定投影片自動前進前的延遲時間（以毫秒為單位）。啟用 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) 以啟動此計時器。 |
-| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | 從 [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) 中選取預設速度類別：Slow、Medium 或 Fast。當未指定精確持續時間時會使用此設定。 |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Sets the duration of the transition effect itself, in milliseconds. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Sets the delay before the slide advances automatically, in milliseconds. Enable [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) to activate this timer. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Selects a predefined speed category from [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, or Fast. It is used when an exact duration is not specified. |
 
-[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 僅控制過渡效果；它不決定投影片的可見時間。請另行設定自動前進的延遲。若未設定明確的持續時間，Aspose.Slides 會根據過渡類型與 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 的值計算效果持續時間。
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 只控制切換效果；不會決定投影片在螢幕上可見的時間。請分別設定自動前進的延遲。若未設定明確的持續時間，Aspose.Slides 會根據切換類型與 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 值決定效果持續時間。
 
-### **將相同的持續時間套用至每張投影片**
+### **將相同持續時間套用至每張投影片**
 
-為了保持節奏一致，將相同的效果與精確持續時間套用至每張投影片。此範例載入 `input.pptx`，從 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 中選取 Fade，並將每個過渡的持續時間設為 750 毫秒。它另行啟用在 5,000 毫秒後的自動前進，並停用滑鼠點擊前進，最後將結果儲存為 PPTX。
+為了保持節奏一致，將相同的效果與精確持續時間套用至每張投影片。此範例載入 `input.pptx`，選取 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 中的 Fade，並將每個切換的持續時間設為 750 毫秒。它同時啟用 5,000 毫秒後的自動前進，並停用滑鼠點擊前進，最後將結果儲存為 PPTX。
 
 ```csharp
 using Aspose.Slides;
@@ -205,7 +256,7 @@ foreach (var slide in presentation.Slides)
     transition.Type = TransitionType.Fade;
     transition.Duration = 750;
 
-    // 獨立於效果持續時間設定自動前進。
+    // 設定自動前進，與效果持續時間無關。
     transition.AdvanceAfter = true;
     transition.AdvanceAfterTime = 5000;
     transition.AdvanceOnClick = false;
@@ -214,9 +265,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 ```
 
-### **為個別投影片設定不同的持續時間**
+### **為單一投影片設定不同持續時間**
 
-不同的投影片可以使用不同的效果持續時間。例如，為標題投影片使用較短的過渡，為章節介紹使用較長的過渡。此範例將第一張投影片的持續時間設為 500 毫秒，第二張設為 1,200 毫秒。使用至少包含兩張投影片的 `input.pptx` 檔案。
+不同投影片可使用不同的效果持續時間。例如，標題投影片使用較短的切換，章節引言使用較長的切換。此範例將第一張投影片的持續時間設為 500 毫秒，第二張投影片設為 1,200 毫秒。請使用至少兩張投影片的 `input.pptx` 檔案。
 
 ```csharp
 using System;
@@ -244,15 +295,15 @@ else
 }
 ```
 
-### **將過渡與動畫輸出協調**
+### **與動畫輸出協同切換時間**
 
-在準備 [animated GIF](/slides/zh-hant/net/convert-powerpoint-to-animated-gif/)、[HTML5 presentation](/slides/zh-hant/net/export-to-html5/) 或 [video](/slides/zh-hant/net/convert-powerpoint-to-video/) 時，請在匯出前設定精確的過渡持續時間，以匹配預期的節奏。例如，場景之間使用 600 毫秒的淡入淡出，並個別調整每張投影片的前進延遲，以留出旁白或內容的時間。
+在製作 [animated GIF](/slides/zh-hant/net/convert-powerpoint-to-animated-gif/)、[HTML5 presentation](/slides/zh-hant/net/export-to-html5/) 或 [video](/slides/zh-hant/net/convert-powerpoint-to-video/) 時，請在匯出前設定精確的切換持續時間，以符合預期節奏。例如，場景之間使用 600 毫秒的淡入，並分別設定每張投影片的前進延遲，以提供旁白或內容的時間。
 
-對於 GIF 和影片，請將輸出幀率與效果持續時間協調：600 毫秒相當於 30 fps 下的 18 幀。於 HTML5 輸出時，請在匯出設定中啟用動畫過渡。檢查所選匯出格式支援的效果與計時選項，並預覽輸出以確認同步。
+對於 GIF 與影片，請將輸出影格率與效果持續時間對齊：600 毫秒相當於 30 fps 時的 18 幀。於 HTML5 中，於匯出設定中啟用動畫切換。檢查所選匯出格式支援的效果與計時選項，並預覽輸出以確認同步。
 
-### **讀取現有過渡持續時間**
+### **讀取現有切換持續時間**
 
-在修改過渡之前，先讀取 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) 以判斷是否儲存了明確的值。值為 `-1` 表示未設定明確的持續時間；非負值表示以毫秒為單位的儲存持續時間。未設定的值並非計算出的播放持續時間：Aspose.Slides 會根據過渡類型與 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 來決定該持續時間。設定過渡類型可能會初始化持續時間，因此請先檢查原始設定。
+在修改切換之前讀取 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)，以判斷是否已儲存明確值。`-1` 代表未設定明確持續時間；非負值表示以毫秒為單位的儲存時間。未設定的值並非計算出的播放持續時間：Aspose.Slides 會根據切換類型與 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) 來決定。設定切換類型時可能會初始化持續時間，請先檢查原始設定。
 
 ```csharp
 using System;
@@ -276,11 +327,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Morph 過渡**
+## **Morph 切換**
 
-Morph 過渡在連續投影片之間為物件的變化製作動畫。要建立簡單的 Morph 效果，請複製投影片、在複製品上移動或調整物件大小，然後將 Morph 過渡套用至第二張投影片。這樣可讓對應的物件在原始與修改後的狀態之間進行動畫。
+Morph 切換在連續投影片之間為物件變更製作動畫。要建立簡單的 Morph 效果，請複製投影片、在複製投影片上移動或調整物件大小，然後將 Morph 切換套用於第二張投影片。此方式會讓對應的物件在原始與修改狀態之間動畫化。
 
-以下範例建立一張含文字矩形的投影片，複製該投影片，並在複製品上變更矩形的位置與大小。然後為第二張投影片從 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 列舉中選取 Morph。於支援 Morph 的簡報檢視器中開啟已保存的檔案，即可在投影片放映期間看到效果。
+以下範例建立一張包含文字方塊的投影片，複製該投影片，並在複製投影片上變更方塊的位置與大小。接著為第二張投影片的 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 設為 Morph。將儲存的檔案以支援 Morph 的簡報檢視器開啟，即可在投影片放映時看到效果。
 
 ```csharp
 using Aspose.Slides;
@@ -305,15 +356,17 @@ secondSlide.SlideShowTransition.Type = TransitionType.Morph;
 presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
-## **Morph 過渡類型**
+## **Morph 切換類型**
 
 [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 列舉控制 Morph 如何匹配與動畫化內容：
 
-- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 將每個形狀視為整體物件。
-- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 盡可能以匹配字詞的方式為文字動畫。
-- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 盡可能以匹配字元的方式為文字動畫。
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 將每個圖形視為整體物件。
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 盡可能以單詞為單位動畫化文字。
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) 盡可能以字元為單位動畫化文字。
 
-將過渡 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為 Morph，然後存取其 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)。此值會提供 [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) 介面，其 [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) 屬性選擇匹配模式。
+先將切換 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為 Morph，然後存取其 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/)。該值會提供 [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) 介面，其 [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) 屬性選擇匹配模式。
+
+此範例開啟前一節建立的簡報，並將第二張投影片設定為以單詞為單位的 Morph 動畫。
 
 ```csharp
 using System;
@@ -345,16 +398,16 @@ else
 ```
 
 <!-- visual-explanation:slide-transition:start -->
-[![Morph 匹配單位顯示為整體形狀、個別字詞與個別字元。](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
+[![Morph matching units shown as a whole shape, individual words, and individual characters.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
 
-*Morph 可以在可能的情況下匹配整體形狀、字詞或字元。這些方框標示匹配單位，而非觀察到的移動。此範例在第二張投影片上選擇 ByWord。*
+*Morph 可以在可能的情況下匹配整個形狀、單詞或字元。這些方框用於標示匹配單位，而非觀測到的運動。範例在第二張投影片上選擇 ByWord。*
 <!-- visual-explanation:slide-transition:end -->
 
-## **設定過渡效果**
+## **設定切換效果**
 
-某些過渡會暴露額外選項，例如方向或是否從黑色畫面開始。可用選項取決於所選過渡的 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/)。先設定類型，然後從其 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) 使用相應的介面。
+某些切換會公開額外選項，例如方向或是否從黑畫面開始。可用的選項取決於所選切換的 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/)。先設定類型，然後使用其 [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) 所提供的相應介面。
 
-以下範例將 Cut 過渡套用於 `input.pptx` 的第一張投影片。它透過 [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) 設定 [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/)，使過渡從黑色畫面開始。
+以下範例將 Cut 切換套用於 `input.pptx` 的第一張投影片。它透過 [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) 的 [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) 設定，使切換從黑畫面開始。
 
 ```csharp
 using System;
@@ -377,20 +430,20 @@ else
 }
 ```
 
-## **FAQ**
+## **常見問題**
 
-**Can I control the playback speed of a slide transition?**
+**我可以控制投影片切換的播放速度嗎？**
 
-Yes. Prefer [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) when you need an exact effect duration in milliseconds. Use [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
+可以。當您需要以毫秒為單位的精確效果持續時間時，請優先使用 [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/)。若預設的 [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/)（Slow、Medium 或 Fast）已足夠且未設定明確持續時間，則使用 [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/)。這些設定會獨立於自動前進延遲，僅控制切換效果。
 
-**Can I attach audio to a transition and make it loop?**
+**我能將音訊附加至切換並使其循環嗎？**
 
-Yes. Assign embedded audio to [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), set [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) to StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). The audio loops until the next sound event in the slide show.
+可以。將嵌入音訊指派給 [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/)，將 [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) 設為來自 [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) 列舉的 StartSound，並啟用 [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/)。音訊會在投影片放映的下一個音效事件前持續循環。
 
-**What's the fastest way to apply the same transition to every slide?**
+**將相同切換套用至每張投影片的最快方法是什麼？**
 
-Loop through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and set each slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to the same value. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
+遍歷簡報的 [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) 集合，將每張投影片的切換 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 設為相同的值。於同一迴圈中設定任何計時與效果選項，以確保所有投影片的行為一致。
 
-**How can I check which transition is currently set on a slide?**
+**我如何檢查投影片目前設定了哪種切換？**
 
-Read the [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) property from the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). It returns a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.
+讀取投影片的 [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) 中的 [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) 屬性。它會返回 [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) 列舉的值；None 表示未套用任何切換效果。
