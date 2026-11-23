@@ -5,52 +5,52 @@ type: docs
 weight: 70
 url: /fa/net/applying-protection-to-presentation/
 keywords:
-- جلوگیری از ویرایش
-- حفاظت از ویرایش
-- قفل کردن شکل
-- قفل کردن موقعیت
-- قفل کردن انتخاب
-- قفل کردن تغییر اندازه
-- قفل کردن گروه‌بندی
+- جلوگیری از ویرایش‌ها
+- محافظت در برابر ویرایش
+- قفل‌گذاری اشکال
+- قفل‌گذاری موقعیت
+- قفل‌گذاری انتخاب
+- قفل‌گذاری تغییر اندازه
+- قفل‌گذاری گروه‌بندی
 - PowerPoint
 - PPTX
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال را در ارائه‌های PPTX با Aspose.Slides برای .NET قفل و بازقفل کنید تا انتخاب، جابه‌جایی، تغییر اندازه و گروه‌بندی را محدود کنید."
+description: "یاد بگیرید چگونه با Aspose.Slides برای .NET اشکال را در ارائه‌های PPTX قفل و بازقفل کنید تا انتخاب، جابجایی، تغییر اندازه و گروه‌بندی را محدود کنید."
 ---
-## **پس‌زمینه**
+## **Background**
 
-یک استفاده رایج از Aspose.Slides برای .NET ایجاد، به‌روزرسانی و ذخیره ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک گردش کار خودکار است. وقتی کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات در اشکال می‌تواند به حفظ طرح‌بندی و محتوای موردنظر کمک کند.
+یک استفاده رایج از Aspose.Slides برای .NET ایجاد، به‌روزرسانی و ذخیره ارائه‌های PowerPoint (PPTX) به‌عنوان بخشی از یک جریان کاری خودکار است. هنگامی که کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات در اشکال می‌تواند به حفظ چیدمان و محتوای مورد نظر کمک کند.
 
-این مقاله توضیح می‌دهد که اشکال چگونه در اسلایدها سازمان‌دهی می‌شوند و چگونه قفل‌های اشکال را در یک ارائه PPTX اعمال و حذف کنید. این قفل‌ها به شما امکان می‌دهند عملیات ویرایش خاصی را بر روی اشکال منفرد محدود کنید.
+این مقاله توضیح می‌دهد که اشکال چگونه در اسلایدها سازماندهی می‌شوند و چگونه می‌توان قفل‌های اشکال را در یک ارائه PPTX اعمال و حذف کرد. این قفل‌ها به شما امکان می‌دهند عملیات ویرایشی خاصی را روی اشکال جداگانه محدود کنید.
 
-## **ترکیب یک اسلاید**
+## **Composition of a Slide**
 
-یک اسلاید ارائه از اجزایی مانند اشکال خودکار، جداول، اشیای OLE، اشکال گروهی، قاب‌های تصویر، قاب‌های ویدئو، اتصال‌ها و سایر عناصری که برای ساخت یک ارائه استفاده می‌شوند، تشکیل شده است. در Aspose.Slides برای .NET، هر عنصر در یک اسلاید توسط شی‌ای نمایان می‌شود که رابط [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که این رابط را ارث می‌برد، مشتق می‌شود.
+یک اسلاید ارائه شامل اجزائی مانند Autoshapes، جداول، اشیای OLE، اشکال گروهی، فریم‌های تصویر، فریم‌های ویدئو، Connectorها و سایر عناصر مورد استفاده برای ساخت یک ارائه است. در Aspose.Slides برای .NET، هر عنصر در یک اسلاید توسط یک شیء که رابط [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که این رابط را ارث می‌برد، نمایش داده می‌شود.
 
-انواع مختلف اشکال گزینه‌های قفل‌گذاری متفاوتی را ارائه می‌دهند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) رابط پایه برای قفل‌های اشکال است. Aspose.Slides برای .NET رابط‌های قفل زیر را فراهم می‌کند:
+انواع مختلف اشکال گزینه‌های قفل‌گذاری متفاوتی ارائه می‌دهند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) رابط پایه برای قفل‌های اشکال است. Aspose.Slides برای .NET رابط‌های قفل زیر را فراهم می‌کند:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) قفل‌های اشکال خودکار را اعمال می‌کند.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) قفل‌های اشکال متصل‌کننده را اعمال می‌کند.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) قفل‌های اشیای گرافیکی را اعمال می‌کند.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) قفل‌های اشکال گروهی را اعمال می‌کند.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) قفل‌های قاب‌های تصویر را اعمال می‌کند.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) اشکال Autoshape را قفل می‌کند.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) اشکال Connector را قفل می‌کند.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) اشیای گرافیکی را قفل می‌کند.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) اشکال گروهی را قفل می‌کند.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) فریم‌های تصویر را قفل می‌کند.  
 
-برای اعمال قفل‌ها بر روی یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل پشتیبانی‌شده تنظیم کنید.
+برای اعمال قفل‌ها به یک [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل پشتیبانی‌شده تنظیم کنید.
 
-## **اعمال و حذف حفاظت**
+## **Apply and Remove Protection**
 
-قفل‌های شکل عملیات‌هایی مانند انتخاب، جابه‌جایی و تغییر اندازه اشکال را محدود می‌کنند. آن‌ها تمام ارائه را غیرقابل ویرایش نمی‌کنند.
+ویرایشگرهای سازگار با ارائه از قفل‌های شکل برای محدود کردن عملیات ویرایشی فردی استفاده می‌کنند. رمزنگاری فایل و محافظت نوشتاری سطح سند تنظیمات جداگانه‌ای از [presentation protection settings](/slides/fa/net/password-protected-presentation/) هستند.
 
-### **اعمال حفاظت به اشکال PPTX**
+### **Apply Protection to PPTX Shapes**
 
-Aspose.Slides برای .NET رابط [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را برای کار با اشکال در اسلاید فراهم می‌کند.
+Aspose.Slides برای .NET رابط [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) را برای کار با اشکال در یک اسلاید ارائه می‌دهد.
 
-مثال، ویژگی‌های [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/)، [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/)، و [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) را برای اشکال خودکار به مقدار `true` تنظیم می‌کند، و قفل‌های معادل برای اشکال گروهی، اتصال‌ها و قاب‌های تصویر نیز اعمال می‌شود. اتصال‌ها از [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) برای جابه‌جایی استفاده می‌کنند؛ گروه‌ها نیز از [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) برای محدود کردن گروه‌بندی استفاده می‌کنند.
+این مثال [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/)، [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) و [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) را برای Autoshapeها به مقدار `true` تنظیم می‌کند و قفل‌های معادل برای اشکال گروهی، Connectorها و فریم‌های تصویر اعمال می‌شود. Connectorها از [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) برای حرکت استفاده می‌کنند؛ گروه‌ها نیز از [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) برای محدود کردن گروه‌بندی بهره می‌برند.
 
-مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال موجود در مجموعه اشکال هر اسلاید را بررسی می‌کند و یک نسخه کپی را با این محدودیت‌ها ذخیره می‌کند. اشکالی که خارج از چهار نوع پردازش‌شده هستند بدون تغییر باقی می‌مانند. حلقه داخل اشکال فرزند یک گروه را پیمایش نمی‌کند.
+این مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال موجود در مجموعه اشکال هر اسلاید را بررسی می‌کند و یک نسخه کپی با این محدودیت‌ها ذخیره می‌کند. اشکال خارج از چهار نوع پردازش‌شده بدون تغییر می‌مانند. حلقه داخلی اشکال فرزند داخل یک گروه را پیمایش نمی‌کند.
 
 ```cs
 using Aspose.Slides;
@@ -93,9 +93,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **حذف حفاظت**
+### **Remove Protection**
 
-برای حذف قفل یک شکل، مقدار آن را به `false` تنظیم کنید. مثال زیر یک ارائه با قفل‌های اشکال را بارگذاری می‌کند و محدودیت‌های انتخاب، جابه‌جایی و تغییر اندازه را از طریق [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/)، و [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) پاک می‌کند. همچنین [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) را پاک می‌کند و یک نسخه کپی از ارائه را ذخیره می‌نماید. سایر تنظیمات قفل بدون تغییر باقی می‌مانند.
+برای حذف قفل یک شکل، مقدار آن را به `false` تنظیم کنید. مثال زیر یک ارائه با قفل‌های شکل بارگذاری می‌کند و محدودیت‌های انتخاب، حرکت و تغییر اندازه را از طریق [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) و [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) پاک می‌کند. همچنین [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) را پاک کرده و یک نسخه کپی از ارائه ذخیره می‌کند. سایر تنظیمات قفل بدون تغییر باقی می‌مانند.
 
 ```cs
 using Aspose.Slides;
@@ -138,20 +138,67 @@ foreach (var slide in presentation.Slides)
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-### **نتیجه‌گیری**
+### **Preserve a Picture Crop**
 
-Aspose.Slides برای .NET به شما امکان می‌دهد عملیات‌های ویرایشی خاص را بر روی اشکال منفرد محدود کنید یا همان محدودیت‌ها را بر روی اسلایدها اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و زمان نیاز به حذف این محدودیت‌ها، مقدار آن‌ها را به `false` تنظیم کنید.
+یک عکس به نام `photo.jpg` را در پوشه کاری قرار دهید. مثال 12٪ از سمت چپ و 8٪ از سمت راست را برش می‌دهد، سپس [CropLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/croplocked/) را بر روی فریم تصویر تنظیم می‌کند. این پرچم برش‌های بعدی را محدود کرده و برش فعلی را حفظ می‌کند.
 
-## **سوالات متداول**
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**آیا می‌توانم قفل‌های شکل و حفاظت با رمز عبور را در یک ارائه ترکیب کنم؟**
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
 
-بله. قفل‌های شکل عملیات‌های ویرایشی خاصی را محدود می‌کنند، در حالی که [password protection](/slides/fa/net/password-protected-presentation/) می‌تواند باز کردن یا اصلاح ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
+var photoBytes = File.ReadAllBytes("photo.jpg");
+var photo = presentation.Images.AddImage(photoBytes);
 
-**آیا می‌توانم ویرایش را در اسلایدهای خاص محدود کنم بدون اینکه بر دیگران تأثیر بگذارد؟**
+var pictureFrame = shapes.AddPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+pictureFrame.PictureFormat.CropLeft = 12;
+pictureFrame.PictureFormat.CropRight = 8;
+pictureFrame.PictureFrameLock.AspectRatioLocked = false;
+pictureFrame.PictureFrameLock.CropLocked = true;
+
+presentation.Save("PictureLocked.pptx", SaveFormat.Pptx);
+```
+
+`PictureLocked.pptx` مقدار قفل برش را به `true` ذخیره می‌کند. در PowerPoint، فرمان **Crop** وقتی عکس انتخاب می‌شود غیرفعال است.
+
+### **Keep a Diagram Grouped**
+
+مثال یک مستطیل و یک پیکان را گروه‌بندی می‌کند، سپس [UngroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/ungroupinglocked/) را بر روی خود گروه تنظیم می‌کند تا اجزای نمودار به‌هم پیوسته بمانند. سایر ویرایش‌ها، مانند جابه‌جایی گروه یا تغییر پر رنگی یک مؤلفه، در دسترس می‌مانند.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var groupShape = shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+groupShape.Shapes.AddAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+groupShape.GroupShapeLock.UngroupingLocked = true;
+
+presentation.Save("DiagramLocked.pptx", SaveFormat.Pptx);
+```
+
+`DiagramLocked.pptx` مقدار قفل جداسازی را به `true` ذخیره می‌کند. در PowerPoint، فرمان **Ungroup** وقتی کل نمودار انتخاب می‌شود غیرفعال می‌شود.
+
+### **Conclusion**
+
+Aspose.Slides برای .NET به شما امکان می‌دهد عملیات ویرایشی خاصی را روی اشکال جداگانه محدود کنید یا همان محدودیت‌ها را بر روی اسلایدهای مختلف اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و مقادیر آن‌ها را به `false` تنظیم کنید زمانی که نیاز به حذف این محدودیت‌ها دارید.
+
+## **FAQ**
+
+**Can I combine shape locks and password protection in the same presentation?**
+
+بله. قفل‌های شکل عملیات ویرایشی مشخصی را محدود می‌کنند، در حالی که [password protection](/slides/fa/net/password-protected-presentation/) می‌تواند باز کردن یا تغییر ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
+
+**Can I restrict editing on specific slides without affecting others?**
 
 بله. قفل‌ها را تنها بر روی اشکال اسلایدهای انتخاب‌شده اعمال کنید. این کار تنظیمات قفل در اسلایدهای دیگر را تغییر نمی‌دهد.
 
-**چگونه می‌توانم قفل‌ها را به اشکال منفرد داخل یک گروه اعمال کنم؟**
+**How can I apply locks to individual shapes inside a group?**
 
-در مجموعه [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) گروه پیمایش کنید و قفل‌های مناسب را روی هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید. مثال‌های بالا تنها مجموعه اشکال اسلاید را پردازش می‌کنند، بنابراین قفل‌ها را بر روی اعضای منفرد گروه تنظیم نمی‌کنند.
+مجموعه [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) گروه را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل فرزند اعمال کنید. این کار را برای هر گروه تودرتو تکرار کنید. مثال‌های بالا تنها مجموعه اشکال اسلاید را پردازش می‌کنند، بنابراین قفل‌ها را بر روی اعضای فردی گروه تنظیم نمی‌کنند.

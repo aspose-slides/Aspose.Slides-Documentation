@@ -5,51 +5,51 @@ type: docs
 weight: 10
 url: /pl/cpp/applying-protection-to-presentation/
 keywords:
-- zapobieganie edycji
-- ochrona przed edycją
-- zablokuj kształt
-- zablokuj pozycję
-- zablokuj wybór
-- zablokuj zmianę rozmiaru
-- zablokuj grupowanie
+- zapobiegać edycji
+- chronić przed edycją
+- blokada kształtu
+- blokada pozycji
+- blokada wyboru
+- blokada zmiany rozmiaru
+- blokada grupowania
 - PowerPoint
 - PPTX
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX za pomocą Aspose.Slides dla C++, aby ograniczyć wybór, przemieszczanie, zmianę rozmiaru i grupowanie."
+description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX przy użyciu Aspose.Slides dla C++, aby ograniczyć wybór, przemieszczanie, zmianę rozmiaru i grupowanie."
 ---
 ## **Tło**
 
-Typowym zastosowaniem Aspose.Slides for C++ jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) jako część zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i zawartość.
+Typowym zastosowaniem Aspose.Slides for C++ jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i zawartość.
 
 Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady pozwalają ograniczyć określone operacje edycji na poszczególnych kształtach.
 
-## **Kompozycja slajdu**
+## **Budowa slajdu**
 
-Slajd prezentacji składa się z komponentów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łączniki oraz inne elementy używane do budowy prezentacji. W Aspose.Slides for C++ każdy element na slajdzie jest reprezentowany przez obiekt implementujący interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) lub dziedziczący po klasie, która to robi.
+Slajd prezentacji składa się z elementów takich jak kształty automatyczne, tabele, obiekty OLE, grupowane kształty, ramki obrazów, ramki wideo, łączniki i inne elementy używane do tworzenia prezentacji. W Aspose.Slides for C++ każdy element na slajdzie jest reprezentowany przez obiekt implementujący interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) lub dziedziczący po klasie, która to robi.
 
 Różne typy kształtów udostępniają różne opcje blokowania. Interfejs [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) jest podstawowym interfejsem dla blokad kształtów. Aspose.Slides for C++ udostępnia następujące interfejsy blokad:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) blokuje autokształty.
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) blokuje kształty automatyczne.
 - [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) blokuje kształty łączników.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) blokuje obiekty graficzne.
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) blokuje kształty grupowe.
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) blokuje ramki obrazu.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) blokuje grupowane kształty.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) blokuje ramki obrazów.
 
-Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), przeiteruj jej slajdy i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
+Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), iteruj po jej slajdach i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
 ## **Zastosowanie i usuwanie ochrony**
 
-Blokady kształtów ograniczają operacje takie jak wybieranie, przemieszczanie i zmiana rozmiaru kształtów. Nie sprawiają, że cała prezentacja staje się nieedytowalna.
+Zgodne edytory prezentacji używają blokad kształtów, aby ograniczyć poszczególne operacje edycyjne. Szyfrowanie plików i ochrona zapisu na poziomie dokumentu to oddzielne [ustawienia ochrony prezentacji](/slides/pl/cpp/password-protected-presentation/).
 
 ### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides for C++ udostępnia interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/), aby pracować z kształtami na slajdzie.
+Aspose.Slides for C++ udostępnia interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) do pracy z kształtami na slajdzie.
 
-Przykład przekazuje wartość `true` do metod [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) i [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) dla autokształtów, z odpowiednimi blokadami dla kształtów grupowych, łączników i ramek obrazu. Łączniki używają [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) do przemieszczania; grupy używają także [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/), aby ograniczyć grupowanie.
+Przykład przekazuje `true` do [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), i [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) dla kształtów automatycznych, z równoważnymi blokadami dla grupowanych kształtów, łączników i ramek obrazów. Łączniki używają [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) do przemieszczania; grupy używają również [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/), aby ograniczyć grupowanie.
 
-Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty poza czterema obsługiwanymi typami pozostają niezmienione. Pętla nie przechodzi przez kształty potomne wewnątrz grupy.
+Przykład wczytuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty spoza czterech obsługiwanych typów pozostają niezmienione. Pętla nie przegląda kształtów podrzędnych wewnątrz grupy.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -122,9 +122,9 @@ presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Usunięcie ochrony**
+### **Usuwanie ochrony**
 
-Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pomocą [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), i [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Usuwa także [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład wczytuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pośrednictwem [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), i [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Usuwa także [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,15 +197,89 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Zachowanie przycięcia obrazu**
+
+Umieść zdjęcie o nazwie `photo.jpg` w katalogu roboczym. Przykład przycina 12% od lewej i 8% od prawej, a następnie wywołuje [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) na blokadzie ramki obrazu, aby zachować przycięcie i ograniczyć dalsze przycinanie.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto photoBytes = File::ReadAllBytes(u"photo.jpg");
+auto photo = presentation->get_Images()->AddImage(photoBytes);
+
+auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, photo);
+auto pictureFormat = pictureFrame->get_PictureFormat();
+pictureFormat->set_CropLeft(12);
+pictureFormat->set_CropRight(8);
+
+auto pictureFrameLock = pictureFrame->get_PictureFrameLock();
+pictureFrameLock->set_AspectRatioLocked(false);
+pictureFrameLock->set_CropLocked(true);
+
+presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`PictureLocked.pptx` przechowuje blokadę przycięcia jako `true`. W PowerPoint polecenie **Crop** jest wyłączone, gdy zdjęcie jest zaznaczone.
+
+### **Zachowanie diagramu w grupie**
+
+Przykład grupuje prostokąt i strzałkę, a następnie wywołuje [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) na blokadzie grupy, aby utrzymać elementy diagramu razem. Inne edycje, takie jak przemieszczanie grupy czy zmiana wypełnienia elementu, pozostają dostępne.
+
+```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto groupShape = shapes->AddGroupShape();
+auto groupShapes = groupShape->get_Shapes();
+groupShapes->AddAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+groupShapes->AddAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+groupShape->get_GroupShapeLock()->set_UngroupingLocked(true);
+
+presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`DiagramLocked.pptx` przechowuje blokadę rozgrupowywania jako `true`. W PowerPoint polecenie **Ungroup** jest wyłączone, gdy cały diagram jest zaznaczony.
+
 ### **Wnioski**
 
-Aspose.Slides for C++ pozwala ograniczyć określone operacje edycji na poszczególnych kształtach lub zastosować te same ograniczenia na wszystkich slajdach. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
+Aspose.Slides for C++ pozwala ograniczyć określone operacje edycji na poszczególnych kształtach lub zastosować te same ograniczenia na wielu slajdach. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
-**Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
+**Czy mogę połączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady kształtów ograniczają określone operacje edycji, podczas gdy [ochrona hasłem](/slides/pl/cpp/password-protected-presentation/) może ograniczyć otwieranie lub modyfikowanie prezentacji. Można używać obu w tym samym pliku.
+Tak. Blokady kształtów ograniczają określone operacje edycyjne, podczas gdy [ochrona hasłem](/slides/pl/cpp/password-protected-presentation/) może ograniczyć otwieranie lub modyfikowanie prezentacji. Można używać obu w tym samym pliku.
 
 **Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
 
@@ -213,4 +287,4 @@ Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmienia to
 
 **Jak mogę zastosować blokady do poszczególnych kształtów wewnątrz grupy?**
 
-Iteruj po kolekcji zwróconej przez metodę [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) grupy i zastosuj odpowiednie blokady do każdego kształtu potomnego. Powtórz to dla wszystkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.
+Iteruj przez kolekcję zwróconą przez metodę [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) grupy i zastosuj odpowiednie blokady do każdego kształtu podrzędnego. Powtórz to dla wszelkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.

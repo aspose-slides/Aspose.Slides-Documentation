@@ -1,13 +1,13 @@
 ---
-title: Präsentationsbearbeitungen mit Shape‑Sperren in PHP einschränken
+title: Beschränken von Präsentationsbearbeitungen mit Form-Sperren in PHP
 linktitle: Präsentationsbearbeitungen einschränken
 type: docs
 weight: 60
 url: /de/php-java/applying-protection-to-presentation/
 keywords:
-- Bearbeitung verhindern
+- Bearbeitungen verhindern
 - Vor Bearbeitung schützen
-- Shape sperren
+- Form sperren
 - Position sperren
 - Auswahl sperren
 - Größenänderung sperren
@@ -17,39 +17,39 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Shapes in PPTX‑Präsentationen mit Aspose.Slides für PHP via Java sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung einzuschränken."
+description: "Erfahren Sie, wie Sie Formen in PPTX-Präsentationen mit Aspose.Slides für PHP via Java sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung zu beschränken."
 ---
 ## **Übersicht**
 
-Eine gängige Verwendung von Aspose.Slides for PHP via Java besteht darin, PowerPoint‑Präsentationen (PPTX) zu erstellen, zu aktualisieren und zu speichern, wobei dies Teil eines automatisierten Workflows ist. Wenn Benutzer diese Präsentationen erhalten, kann die Beschränkung von Änderungen an Shapes dazu beitragen, das beabsichtigte Layout und den Inhalt zu erhalten.
+Eine häufige Verwendung von Aspose.Slides für PHP via Java besteht darin, PowerPoint‑Präsentationen (PPTX) zu erstellen, zu aktualisieren und zu speichern, als Teil eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen dazu beitragen, das beabsichtigte Layout und den Inhalt zu bewahren.
 
-Dieser Artikel erklärt, wie Shapes auf Folien organisiert sind und wie Shape‑Sperren in einer PPTX‑Präsentation angewendet und entfernt werden. Diese Sperren ermöglichen es, bestimmte Bearbeitungsoperationen für einzelne Shapes einzuschränken.
+Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie Form‑Sperren in einer PPTX‑Präsentation angewendet und entfernt werden. Diese Sperren ermöglichen es, bestimmte Bearbeitungs‑Operationen für einzelne Formen einzuschränken.
 
 ## **Zusammensetzung einer Folie**
 
-Eine Präsentationsfolie besteht aus Komponenten wie AutoShapes, Tabellen, OLE‑Objekten, gruppierten Shapes, Bildrahmen, Video‑Frames, Verbindungs‑Lines und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides for PHP via Java wird jedes Element einer Folie durch ein Objekt dargestellt, das von der Klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) erbt.
+Eine Präsentationsfolie setzt sich aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen zusammen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für PHP via Java wird jedes Element einer Folie durch ein Objekt repräsentiert, das von der [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑Klasse erbt.
 
-Verschiedene Shape‑Typen bieten unterschiedliche Sperr‑Optionen. Die Klasse [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) ist die Basisklasse für Shape‑Sperren. Aspose.Slides for PHP via Java stellt die folgenden Sperrklassen bereit:
+Verschiedene Formtypen bieten unterschiedliche Sperroptionen. Die Klasse [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) ist die Basisklasse für Form‑Sperren. Aspose.Slides für PHP via Java stellt die folgenden Sperrklassen bereit:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) sperrt AutoShapes.  
-- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) sperrt Connector‑Shapes.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) sperrt Graphical‑Objects.  
-- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) sperrt Group‑Shapes.  
-- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) sperrt Picture‑Frames.  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) sperrt Autoformen.  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) sperrt Connector‑Formen.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) sperrt grafische Objekte.  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) sperrt Gruppenformen.  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) sperrt Bildrahmen.  
 
-Um Sperren für eine [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jedes unterstützte Shape.
+Um Sperren für eine gesamte [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
 
 ## **Schutz anwenden und entfernen**
 
-Shape‑Sperren schränken Vorgänge wie das Auswählen, Verschieben und Ändern der Größe von Shapes ein. Sie machen die gesamte Präsentation nicht unveränderlich.
+Kompatible Präsentationseditoren verwenden Form‑Sperren, um einzelne Bearbeitungs‑Operationen einzuschränken. Dateiverschlüsselung und schreibgeschützte Dokumentebene sind separate [Präsentations‑Schutzeinstellungen](/slides/de/php-java/password-protected-presentation/).
 
-### **Schutz für PPTX‑Shapes anwenden**
+### **Schutz auf PPTX‑Formen anwenden**
 
-Aspose.Slides for PHP via Java stellt die Klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) zur Arbeit mit Shapes auf einer Folie bereit.
+Aspose.Slides für PHP via Java stellt die [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑Klasse bereit, um mit Formen auf einer Folie zu arbeiten.
 
-Das Beispiel ruft [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) und [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) mit dem Wert `true` für AutoShapes auf und verwendet entsprechende Sperren für Gruppen‑Shapes, Connector‑Shapes und Picture‑Frames. Connector‑Shapes nutzen [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) für Bewegungen; Gruppen verwenden außerdem [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked), um das Gruppieren zu beschränken.
+Das Beispiel ruft [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) und [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) mit `true` für Autoformen auf, sowie entsprechende Sperren für Gruppenformen, Verbinder und Bildrahmen. Verbinder verwenden [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) für Bewegungen; Gruppen verwenden außerdem [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked), um das Gruppieren zu beschränken.
 
-Das Beispiel lädt eine bestehende PPTX‑Präsentation, prüft die Shapes in der Shape‑Collection jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Shapes, die nicht zu den vier behandelten Typen gehören, bleiben unverändert. Die Schleife durchläuft nicht die Kind‑Shapes innerhalb einer Gruppe.
+Das Beispiel lädt eine bestehende PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Formen, die nicht zu den vier behandelten Typen gehören, bleiben unverändert. Die Schleife durchläuft nicht die Kindformen innerhalb einer Gruppe.
 
 ```php
 use aspose\slides\Presentation;
@@ -92,7 +92,7 @@ try {
 
 ### **Schutz entfernen**
 
-Um eine Shape‑Sperre zu entfernen, setzen Sie deren Wert auf `false`. Das folgende Beispiel lädt eine Präsentation mit Shape‑Sperren und leert die Auswahl‑, Bewegungs‑ und Größen‑Einschränkungen über [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) und [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Es entfernt außerdem die Gruppierungs‑Einschränkung, indem `false` an [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) übergeben wird, und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
+Um eine Form‑Sperre zu entfernen, setzen Sie ihren Wert auf `false`. Das folgende Beispiel lädt eine Präsentation mit Form‑Sperren und löst die Auswahl‑, Bewegungs‑ und Größenänderungs‑Einschränkungen über [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) und [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) und. Sie entfernt zudem die Gruppierungs‑Einschränkung, indem `false` an [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) übergeben wird, und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
 
 ```php
 use aspose\slides\Presentation;
@@ -133,20 +133,83 @@ try {
 }
 ```
 
+### **Bildzuschnitt beibehalten**
+
+Legen Sie ein Foto mit dem Namen `photo.jpg` im Arbeitsverzeichnis ab. Das Beispiel schneidet 12 % von links und 8 % von rechts zu und ruft anschließend [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) für die Sperre des Bildrahmens auf. Das Übergeben von `true` verhindert weiteres Zuschneiden und bewahrt den vorhandenen Zuschnitt.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $image = Images::fromFile("photo.jpg");
+    try {
+        $photo = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $pictureFrame = $shapes->addPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, $photo);
+    $pictureFrame->getPictureFormat()->setCropLeft(12);
+    $pictureFrame->getPictureFormat()->setCropRight(8);
+
+    $pictureFrameLock = $pictureFrame->getPictureFrameLock();
+    $pictureFrameLock->setAspectRatioLocked(false);
+    $pictureFrameLock->setCropLocked(true);
+
+    $presentation->save("PictureLocked.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`PictureLocked.pptx` speichert die Zuschneidesperre als `true`. In PowerPoint ist der Befehl **Crop** deaktiviert, wenn das Foto ausgewählt ist.
+
+### **Diagramm gruppiert halten**
+
+Das Beispiel gruppiert ein Rechteck und einen Pfeil und ruft anschließend [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) für die Sperre der Gruppe auf, um die Komponenten des Diagramms zusammenzuhalten. Andere Bearbeitungen, wie das Bewegen der Gruppe oder das Ändern der Füllung einer Komponente, bleiben verfügbar.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    
+    $groupShape = $shapes->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+    $groupShape->getShapes()->addAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+    $groupShape->getGroupShapeLock()->setUngroupingLocked(true);
+
+    $presentation->save("DiagramLocked.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`DiagramLocked.pptx` speichert die Ungruppierungssperre als `true`. In PowerPoint ist der Befehl **Ungroup** deaktiviert, wenn das gesamte Diagramm ausgewählt ist.
+
 ### **Fazit**
 
-Aspose.Slides for PHP via Java ermöglicht es, bestimmte Bearbeitungsoperationen für einzelne Shapes einzuschränken oder dieselben Einschränkungen über Folien hinweg anzuwenden. Wählen Sie die für den jeweiligen Shape‑Typ unterstützten Sperren aus und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen müssen.
+Aspose.Slides für PHP via Java ermöglicht es, bestimmte Bearbeitungs‑Operationen für einzelne Formen einzuschränken oder dieselben Einschränkungen über alle Folien hinweg anzuwenden. Wählen Sie die von jedem Formtyp unterstützten Sperren aus und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen möchten.
 
 ## **FAQ**
 
-**Kann ich Shape‑Sperren und Passwortschutz in derselben Präsentation kombinieren?**
+**Kann ich Form‑Sperren und Passwortschutz in derselben Präsentation kombinieren?**
 
-Ja. Shape‑Sperren beschränken bestimmte Bearbeitungsoperationen, während [Passwortschutz](/slides/de/php-java/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beides in derselben Datei verwenden.
+Ja. Form‑Sperren beschränken bestimmte Bearbeitungs‑Operationen, während die [Passwortschutz](/slides/de/php-java/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beide im selben Dokument verwenden.
 
 **Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
 
-Ja. Wenden Sie Sperren nur auf die Shapes der ausgewählten Folien an. Dadurch werden die Sperreinstellungen auf anderen Folien nicht geändert.
+Ja. Wenden Sie die Sperren nur auf die Formen der ausgewählten Folien an. Dadurch werden die Sperreinstellungen anderer Folien nicht geändert.
 
-**Wie kann ich Sperren auf einzelne Shapes innerhalb einer Gruppe anwenden?**
+**Wie kann ich Sperren auf einzelne Formen innerhalb einer Gruppe anwenden?**
 
-Iterieren Sie über die Sammlung, die die Methode [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) der Gruppe zurückgibt, und wenden Sie die entsprechenden Sperren auf jedes Kind‑Shape an. Wiederholen Sie dies für verschachtelte Gruppen. Die obigen Beispiele verarbeiten nur die Shape‑Collection der Folie, sodass keine Sperren für einzelne Gruppenmitglieder gesetzt werden.
+Iterieren Sie über die Sammlung, die von der [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)-Methode der Gruppe zurückgegeben wird, und wenden Sie die entsprechenden Sperren auf jede Kindform an. Wiederholen Sie dies für verschachtelte Gruppen. Die obigen Beispiele verarbeiten nur die Form‑Sammlung der Folie, sodass sie keine Sperren für einzelne Gruppenmitglieder setzen.

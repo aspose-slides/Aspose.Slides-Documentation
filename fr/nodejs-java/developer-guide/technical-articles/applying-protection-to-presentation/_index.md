@@ -1,5 +1,5 @@
 ---
-title: Restreindre les modifications de présentation avec des verrous de forme dans Node.js
+title: Restreindre les modifications de présentation avec les verrous de forme dans Node.js
 linktitle: Restreindre les modifications de présentation
 type: docs
 weight: 60
@@ -11,46 +11,46 @@ keywords:
 - verrouiller la position
 - verrouiller la sélection
 - verrouiller le redimensionnement
-- verrouiller le regroupement
+- verrouiller le groupement
 - PowerPoint
 - PPTX
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Apprenez comment verrouiller et déverrouiller des formes dans les présentations PPTX avec Aspose.Slides pour Node.js via Java afin de restreindre la sélection, le déplacement, le redimensionnement et le regroupement."
+description: "Apprenez à verrouiller et déverrouiller les formes dans les présentations PPTX avec Aspose.Slides pour Node.js via Java afin de restreindre la sélection, le déplacement, le redimensionnement et le groupement."
 ---
 ## **Vue d'ensemble**
 
-Une utilisation courante d'Aspose.Slides for Node.js via Java consiste à créer, mettre a jour et enregistrer des presentations PowerPoint (PPTX) dans le cadre d'un flux de travail automate. Lorsque les utilisateurs reçoivent ces presentations, restreindre les modifications des formes peut aider a préserver la mise en page et le contenu prevus.
+Une utilisation courante d'Aspose.Slides for Node.js via Java consiste à créer, mettre à jour et enregistrer des présentations PowerPoint (PPTX) dans le cadre d'un flux de travail automatisé. Lorsque les utilisateurs reçoivent ces présentations, restreindre les modifications des formes peut aider à préserver la mise en page et le contenu prévus.
 
-Cet article explique comment les formes sont organisees sur les diapositives et comment appliquer et supprimer les verrous de forme dans une presentation PPTX. Ces verrous vous permettent de restreindre des operations d'edition specifique sur des formes individuelles.
+Cet article explique comment les formes sont organisées sur les diapositives et comment appliquer et supprimer les verrous de forme dans une présentation PPTX. Ces verrous vous permettent de restreindre des opérations d'édition spécifiques sur des formes individuelles.
 
 ## **Composition d'une diapositive**
 
-Une diapositive de presentation est composee d'elements tels que des formes automatiques, des tableaux, des objets OLE, des formes groupees, des cadres d'image, des cadres video, des connecteurs et d'autres elements utilises pour creer une presentation. Dans Aspose.Slides for Node.js via Java, chaque element d'une diapositive est represente par un objet qui herite de la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) .
+Une diapositive de présentation est composée d'éléments tels que des formes automatiques, des tableaux, des objets OLE, des formes groupées, des cadres d'image, des cadres vidéo, des connecteurs et d'autres éléments utilisés pour créer une présentation. Dans Aspose.Slides for Node.js via Java, chaque élément d'une diapositive est représenté par un objet qui hérite de la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
 
 Différents types de formes offrent différentes options de verrouillage. La classe [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) est la classe de base pour les verrous de forme. Aspose.Slides for Node.js via Java fournit les classes de verrouillage suivantes :
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) verrouille les formes automatiques.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) verrouille les formes de connecteur.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) verrouille les formes connecteur.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) verrouille les objets graphiques.  
-- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) verrouille les formes groupees.  
+- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) verrouille les formes groupées.  
 - [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) verrouille les cadres d'image.  
 
-Pour appliquer des verrous sur une [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), parcourez ses diapositives et definiissez les verrous appropries sur chaque forme prise en charge.
+Pour appliquer des verrous à l'ensemble d'une [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), parcourez ses diapositives et définissez les verrous appropriés sur chaque forme prise en charge.
 
 ## **Appliquer et supprimer la protection**
 
-Les verrous de forme restreignent des operations telles que la selection, le deplacement et le redimensionnement des formes. Ils ne rendent pas l'ensemble de la presentation non modifiable.
+Les éditeurs de présentations compatibles utilisent les verrous de forme pour restreindre les opérations d'édition individuelles. Le chiffrement des fichiers et la protection en écriture au niveau du document sont des [paramètres de protection de la présentation](/slides/fr/nodejs-java/password-protected-presentation/) distincts.
 
 ### **Appliquer la protection aux formes PPTX**
 
-Aspose.Slides for Node.js via Java fournit la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) pour travailler avec les formes d'une diapositive.
+Aspose.Slides for Node.js via Java fournit la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) pour travailler avec les formes sur une diapositive.
 
-L'exemple appelle [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) et [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) avec `true` pour les formes automatiques, avec les verrous equivalents pour les formes groupees, les connecteurs et les cadres d'image. Les connecteurs utilisent [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) pour le deplacement; les groupes utilisent également [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) pour limiter le regroupement.
+L'exemple appelle [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) et [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) avec `true` pour les formes automatiques, avec des verrous équivalents pour les formes groupées, les connecteurs et les cadres d'image. Les connecteurs utilisent [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) pour le déplacement ; les groupes utilisent également [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) pour restreindre le groupement.
 
-L'exemple charge une presentation PPTX existante, examine les formes de la collection de formes de chaque diapo et enregistre une copie avec ces restrictions appliquees. Les formes en dehors des quatre types geres restent inchangees. La boucle ne parcourt pas les formes enfants a l'interieur d'un groupe.
+L'exemple charge une présentation PPTX existante, vérifie les formes dans la collection de formes de chaque diapositive et enregistre une copie avec ces restrictions appliquées. Les formes qui ne font pas partie des quatre types gérés restent inchangées. La boucle ne parcourt pas les formes enfants à l'intérieur d'un groupe.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,7 +95,7 @@ try {
 
 ### **Supprimer la protection**
 
-Pour supprimer un verrou de forme, definiissez sa valeur sur `false`. L'exemple suivant charge une presentation contenant des verrous de forme et supprime les restrictions de selection, de deplacement et de redimensionnement via [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/), et [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Il supprime egalement la restriction de regroupement en passant `false` a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) et enregistre une copie de la presentation. Les autres parametres de verrouillage restent inchanges.
+Pour supprimer un verrou de forme, définissez sa valeur sur `false`. L'exemple suivant charge une présentation avec des verrous de forme et supprime les restrictions de sélection, de déplacement et de redimensionnement via [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) et [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Il supprime également la restriction de groupement en passant `false` à [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) et enregistre une copie de la présentation. Les autres paramètres de verrouillage restent inchangés.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,20 +138,80 @@ try {
 }
 ```
 
+### **Conserver le recadrage d'une image**
+
+Placez une photo nommée `photo.jpg` dans le répertoire de travail. L'exemple recadre de 12 % à gauche et de 8 % à droite, puis appelle [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) sur le verrou du cadre d'image. Passer `true` restreint tout nouveau recadrage et conserve le recadrage existant.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const photoStream = java.newInstanceSync("java.io.FileInputStream", "photo.jpg");
+    let photo;
+    try {
+        photo = presentation.getImages().addImage(photoStream);
+    } finally {
+        photoStream.close();
+    }
+
+    const pictureFrame = shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    const pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` enregistre le verrou de recadrage sous la valeur `true`. Dans PowerPoint, la commande **Crop** est désactivée lorsque la photo est sélectionnée.
+
+### **Conserver un diagramme groupé**
+
+L'exemple regroupe un rectangle et une flèche, puis appelle [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) sur le verrou du groupe pour maintenir les composants du diagramme ensemble. D'autres modifications, comme le déplacement du groupe ou le changement du remplissage d'un composant, restent disponibles.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    const groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` enregistre le verrou de désagrégation sous la valeur `true`. Dans PowerPoint, la commande **Ungroup** est désactivée lorsque le diagramme complet est sélectionné.
+
 ### **Conclusion**
 
-Aspose.Slides for Node.js via Java vous permet de restreindre des operations d'edition specifique sur des formes individuelles ou d'appliquer les memes restrictions sur plusieurs diapositives. Choisissez les verrous pris en charge par chaque type de forme, et definiissez leurs valeurs sur `false` lorsque vous devez supprimer ces restrictions.
+Aspose.Slides for Node.js via Java vous permet de restreindre des opérations d'édition spécifiques sur des formes individuelles ou d'appliquer les mêmes restrictions à l'ensemble des diapositives. Choisissez les verrous pris en charge par chaque type de forme, et définissez leurs valeurs sur `false` lorsque vous devez supprimer ces restrictions.
 
 ## **FAQ**
 
-**Can I combine shape locks and password protection in the same presentation?**
+**Puis-je combiner les verrous de forme et la protection par mot de passe dans la même présentation ?**
 
-Oui. Les verrous de forme restreignent des operations d'edition specifiques, tandis que la [protection par mot de passe](/slides/fr/nodejs-java/password-protected-presentation/) peut restreindre l'ouverture ou la modification de la presentation. Vous pouvez les'utiliser tous les deux dans le meme fichier.
+Oui. Les verrous de forme restreignent des opérations d'édition spécifiques, tandis que la [protection par mot de passe](/slides/fr/nodejs-java/password-protected-presentation/) peut restreindre l'ouverture ou la modification de la présentation. Vous pouvez utiliser les deux dans le même fichier.
 
-**Can I restrict editing on specific slides without affecting others?**
+**Puis-je restreindre l'édition sur des diapositives spécifiques sans affecter les autres ?**
 
-Oui. Appliquez les verrous uniquement aux formes des diapositives selectionnees. Cela ne modifie pas les parametres de verrouillage des autres diapositives.
+Oui. Appliquez les verrous uniquement aux formes des diapositives sélectionnées. Cela ne modifie pas les paramètres de verrouillage des autres diapositives.
 
-**How can I apply locks to individual shapes inside a group?**
+**Comment puis‑je appliquer des verrous à des formes individuelles à l'intérieur d'un groupe ?**
 
-Parcourrez la collection renvoyee par la methode [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) du groupe et appliquez les verrous appropriés à chaque forme enfant. Répétez cela pour tous les groupes imbriqués. Les exemples ci-dessous ne traitent que la collection de formes de la diapositive, ils ne definissent donc pas de verrous sur les membres individuels d'un groupe.
+Parcourez la collection renvoyée par la méthode [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) du groupe et appliquez les verrous appropriés à chaque forme enfant. Répétez cela pour tout groupe imbriqué. Les exemples ci‑dessus ne traitent que la collection de formes de la diapositive, ils ne définissent donc pas de verrous sur les membres individuels d'un groupe.

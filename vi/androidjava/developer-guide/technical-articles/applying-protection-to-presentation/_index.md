@@ -1,6 +1,6 @@
 ---
-title: Hạn chế chỉnh sửa bản thuyết trình bằng khóa hình dạng trên Android
-linktitle: Hạn chế chỉnh sửa bản thuyết trình
+title: Hạn chế chỉnh sửa bản trình chiếu với khóa hình dạng trên Android
+linktitle: Hạn chế chỉnh sửa bản trình chiếu
 type: docs
 weight: 60
 url: /vi/androidjava/applying-protection-to-presentation/
@@ -9,48 +9,48 @@ keywords:
 - bảo vệ khỏi việc chỉnh sửa
 - khóa hình dạng
 - khóa vị trí
-- khóa chọn
+- khóa lựa chọn
 - khóa thay đổi kích thước
 - khóa nhóm
 - PowerPoint
 - PPTX
-- bản thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản thuyết trình PPTX bằng Aspose.Slides cho Android qua Java để hạn chế việc chọn, di chuyển, thay đổi kích thước và nhóm."
+description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản trình chiếu PPTX bằng Aspose.Slides cho Android qua Java để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm lại."
 ---
 ## **Tổng quan**
 
-Một mục đích phổ biến của Aspose.Slides for Android via Java là tạo, cập nhật và lưu các bản thuyết trình PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bản thuyết trình này, việc giới hạn thay đổi các hình dạng có thể giúp bảo tồn bố cục và nội dung dự định.
+Một cách sử dụng phổ biến của Aspose.Slides for Android via Java là tạo, cập nhật và lưu các bản trình chiếu PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận các bản trình chiếu này, việc hạn chế thay đổi các hình dạng có thể giúp bảo tồn bố cục và nội dung dự định.
 
-Bài viết này giải thích cách các hình dạng được tổ chức trên các slide và cách áp dụng và xóa khóa hình dạng trong một bản thuyết trình PPTX. Các khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ.
+Bài viết này giải thích cách các hình dạng được tổ chức trên slide và cách áp dụng và xóa khóa hình dạng trong một bản trình chiếu PPTX. Những khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ.
 
-## **Cấu tạo của một Slide**
+## **Thành phần của một Slide**
 
-Một slide trong bản thuyết trình được tạo thành từ các thành phần như autoshapes, bảng, đối tượng OLE, các hình dạng nhóm, khung hình, khung video, kết nối và các yếu tố khác được sử dụng để xây dựng bản thuyết trình. Trong Aspose.Slides for Android via Java, mỗi yếu tố trên slide được đại diện bằng một đối tượng triển khai giao diện [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
+Một slide trình chiếu được cấu tạo từ các thành phần như autoshapes, bảng, đối tượng OLE, hình dạng nhóm, khung ảnh, khung video, connector và các yếu tố khác được dùng để xây dựng bản trình chiếu. Trong Aspose.Slides for Android via Java, mỗi yếu tố trên một slide được đại diện bằng một đối tượng thực thi giao diện [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
 
 Các loại hình dạng khác nhau cung cấp các tùy chọn khóa khác nhau. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) là giao diện cơ sở cho các khóa hình dạng. Aspose.Slides for Android via Java cung cấp các giao diện khóa sau:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) khóa các autoshape.  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) khóa các hình dạng kết nối.  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) khóa các connector.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) khóa các hình dạng nhóm.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) khóa các khung hình.
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) khóa các nhóm hình dạng.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) khóa các khung ảnh.  
 
-Để áp dụng khóa trên toàn bộ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), duyệt qua các slide của nó và đặt các khóa phù hợp cho mỗi hình dạng được hỗ trợ.
+Để áp dụng khóa trên toàn bộ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), duyệt qua các slide và đặt các khóa thích hợp cho mỗi hình dạng được hỗ trợ.
 
-## **Áp dụng và Gỡ bỏ Bảo vệ**
+## **Áp dụng và Xóa bảo vệ**
 
-Các khóa hình dạng hạn chế các thao tác như chọn, di chuyển và thay đổi kích thước hình dạng. Chúng không khiến toàn bộ bản thuyết trình không thể chỉnh sửa.
+Các trình chỉnh sửa bản trình chiếu tương thích sử dụng khóa hình dạng để hạn chế các thao tác chỉnh sửa riêng lẻ. Mã hoá tệp và bảo vệ viết ở mức tài liệu là các [cài đặt bảo vệ bản trình chiếu](/slides/vi/androidjava/password-protected-presentation/).
 
-### **Áp dụng Bảo vệ cho Các Hình Dạng PPTX**
+### **Áp dụng bảo vệ cho các hình dạng PPTX**
 
 Aspose.Slides for Android via Java cung cấp giao diện [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) để làm việc với các hình dạng trên slide.
 
-Ví dụ gọi [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), và [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) với `true` cho các autoshape, với các khóa tương đương cho các hình dạng nhóm, kết nối và khung hình. Các kết nối sử dụng [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) để di chuyển; các nhóm cũng sử dụng [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) để hạn chế việc nhóm.
+Ví dụ gọi các phương thức [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) và [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) với `true` cho autoshapes, cùng với các khóa tương đương cho nhóm hình dạng, connector và khung ảnh. Connectors sử dụng [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) để di chuyển; các nhóm cũng dùng [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) để hạn chế việc nhóm lại.
 
-Ví dụ tải một bản thuyết trình PPTX hiện có, kiểm tra các hình dạng trong bộ sưu tập hình dạng của mỗi slide, và lưu một bản sao với các hạn chế này được áp dụng. Các hình dạng ngoài bốn loại được xử lý sẽ được để nguyên. Vòng lặp không duyệt các hình dạng con bên trong một nhóm.
+Ví dụ tải một bản trình chiếu PPTX hiện có, kiểm tra các hình dạng trong bộ sưu tập hình dạng của từng slide, và lưu một bản sao với các hạn chế này được áp dụng. Các hình dạng không thuộc bốn loại được xử lý sẽ không bị thay đổi. Vòng lặp không duyệt qua các hình dạng con bên trong một nhóm.
 
 ```java
 import com.aspose.slides.*;
@@ -94,9 +94,9 @@ try {
 }
 ```
 
-### **Gỡ bỏ Bảo vệ**
+### **Xóa bảo vệ**
 
-Để gỡ bỏ khóa hình dạng, đặt giá trị của nó thành `false`. Ví dụ sau tải một bản thuyết trình có khóa hình dạng và xoá các hạn chế chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), và [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Nó cũng gỡ bỏ hạn chế nhóm bằng cách truyền `false` vào [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) và lưu một bản sao của bản thuyết trình. Các cài đặt khóa khác được để nguyên.
+Để xóa một khóa hình dạng, đặt giá trị của nó thành `false`. Ví dụ dưới đây tải một bản trình chiếu có các khóa hình dạng và xóa các hạn chế về lựa chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) và [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Nó cũng loại bỏ hạn chế nhóm bằng cách truyền `false` vào [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) và lưu một bản sao của bản trình chiếu. Các cài đặt khóa khác vẫn được giữ nguyên.
 
 ```java
 import com.aspose.slides.*;
@@ -140,19 +140,76 @@ try {
 }
 ```
 
+### **Bảo tồn việc Cắt ảnh**
+
+Đặt một ảnh có tên `photo.jpg` trong thư mục làm việc. Ví dụ cắt 12% từ phía trái và 8% từ phía phải, sau đó gọi [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) trên khóa của khung ảnh. Việc truyền `true` sẽ hạn chế việc cắt thêm và giữ nguyên phần cắt hiện có.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage photo;
+    try (FileInputStream input = new FileInputStream("photo.jpg")) {
+        photo = presentation.getImages().addImage(input);
+    }
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` lưu khóa cắt dưới dạng `true`. Trong PowerPoint, lệnh **Crop** bị vô hiệu hoá khi ảnh được chọn.
+
+### **Giữ một sơ đồ được nhóm**
+
+Ví dụ nhóm một hình chữ nhật và một mũi tên, sau đó gọi [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) trên khóa của nhóm để giữ các thành phần của sơ đồ lại với nhau. Các chỉnh sửa khác, chẳng hạn di chuyển nhóm hoặc thay đổi màu nền của thành phần, vẫn khả dụng.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` lưu khóa tách nhóm dưới dạng `true`. Trong PowerPoint, lệnh **Ungroup** bị vô hiệu hoá khi toàn bộ sơ đồ được chọn.
+
 ### **Kết luận**
 
-Aspose.Slides for Android via Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ hoặc áp dụng cùng một hạn chế trên nhiều slide. Chọn các khóa được hỗ trợ bởi mỗi loại hình dạng, và đặt giá trị của chúng thành `false` khi bạn cần gỡ bỏ các hạn chế đó.
+Aspose.Slides for Android via Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ hoặc áp dụng cùng một bộ hạn chế trên nhiều slide. Chọn các khóa được hỗ trợ bởi mỗi loại hình dạng, và đặt giá trị của chúng thành `false` khi bạn cần gỡ bỏ các hạn chế đó.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể kết hợp khóa hình dạng và bảo vệ bằng mật khẩu trong cùng một bản thuyết trình không?**
+**Tôi có thể kết hợp khóa hình dạng và bảo vệ bằng mật khẩu trong cùng một bản trình chiếu không?**
 
-Có. Các khóa hình dạng hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/androidjava/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản thuyết trình. Bạn có thể sử dụng cả hai trong cùng một tệp.
+Có. Khóa hình dạng hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/androidjava/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản trình chiếu. Bạn có thể sử dụng cả hai trong cùng một tệp.
 
-**Tôi có thể hạn chế chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
+**Tôi có thể hạn chế việc chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
 
-Có. Áp dụng khóa chỉ cho các hình dạng trên các slide đã chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
+Có. Áp dụng khóa chỉ trên các hình dạng của các slide được chọn. Điều này sẽ không thay đổi cài đặt khóa trên các slide khác.
 
 **Làm thế nào tôi có thể áp dụng khóa cho các hình dạng riêng lẻ bên trong một nhóm?**
 

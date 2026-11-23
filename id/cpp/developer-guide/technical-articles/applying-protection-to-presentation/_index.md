@@ -1,6 +1,6 @@
 ---
-title: Batasi Penyuntingan Presentasi dengan Kunci Bentuk di C++
-linktitle: Batasi Penyuntingan Presentasi
+title: Membatasi Penyuntingan Presentasi dengan Kunci Bentuk di C++
+linktitle: Membatasi Penyuntingan Presentasi
 type: docs
 weight: 10
 url: /id/cpp/applying-protection-to-presentation/
@@ -10,46 +10,46 @@ keywords:
 - kunci bentuk
 - kunci posisi
 - kunci pemilihan
-- kunci mengubah ukuran
+- kunci pengubahan ukuran
 - kunci pengelompokan
 - PowerPoint
 - PPTX
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara mengunci dan membuka kunci bentuk dalam presentasi PPTX dengan Aspose.Slides untuk C++ untuk membatasi pemilihan, pergerakan, pengubahan ukuran, dan pengelompokan."
+description: "Pelajari cara mengunci dan membuka kunci bentuk dalam presentasi PPTX dengan Aspose.Slides untuk C++ guna membatasi pemilihan, pergerakan, pengubahan ukuran, dan pengelompokan."
 ---
 ## **Latar Belakang**
 
-Penggunaan umum Aspose.Slides for C++ adalah membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Ketika pengguna menerima presentasi ini, membatasi perubahan pada bentuk dapat membantu mempertahankan tata letak dan konten yang dimaksud.
+Penggunaan umum Aspose.Slides untuk C++ adalah membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Ketika pengguna menerima presentasi ini, membatasi perubahan pada bentuk dapat membantu mempertahankan tata letak dan konten yang dimaksud.
 
 Artikel ini menjelaskan bagaimana bentuk diatur pada slide dan cara menerapkan serta menghapus kunci bentuk dalam presentasi PPTX. Kunci ini memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individual.
 
 ## **Komposisi Slide**
 
-Sebuah slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, bentuk yang dikelompokkan, bingkai gambar, bingkai video, connector, dan elemen lain yang digunakan untuk membangun presentasi. Dalam Aspose.Slides for C++, setiap elemen pada slide diwakili oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
+Slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, bentuk berkelompok, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membangun sebuah presentasi. Dalam Aspose.Slides untuk C++, setiap elemen pada slide diwakili oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
 
-Berbagai jenis bentuk menawarkan opsi penguncian yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) adalah antarmuka dasar untuk kunci bentuk. Aspose.Slides for C++ menyediakan antarmuka kunci berikut:
+Berbagai jenis bentuk menyediakan opsi penguncian yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) adalah antarmuka dasar untuk kunci bentuk. Aspose.Slides untuk C++ menyediakan antarmuka kunci berikut:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) mengunci autoshape.
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) mengunci bentuk connector.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) mengunci bentuk konektor.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) mengunci objek grafis.
 - [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) mengunci bentuk grup.
 - [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) mengunci bingkai gambar.
 
-Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), iterasi melalui slide‑slidenya dan tetapkan kunci yang sesuai pada setiap bentuk yang didukung.
+Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), iterasi melalui slide-nya dan atur kunci yang sesuai pada setiap bentuk yang didukung.
 
 ## **Terapkan dan Hapus Perlindungan**
 
-Kunci bentuk membatasi operasi seperti memilih, memindahkan, dan mengubah ukuran bentuk. Mereka tidak membuat seluruh presentasi tidak dapat disunting.
+Editor presentasi yang kompatibel menggunakan kunci bentuk untuk membatasi operasi penyuntingan individual. Enkripsi file dan perlindungan penulisan tingkat dokumen adalah [pengaturan perlindungan presentasi](/slides/id/cpp/password-protected-presentation/) yang terpisah.
 
 ### **Terapkan Perlindungan pada Bentuk PPTX**
 
-Aspose.Slides for C++ menyediakan antarmuka [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) untuk bekerja dengan bentuk pada sebuah slide.
+Aspose.Slides untuk C++ menyediakan antarmuka [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) untuk bekerja dengan bentuk pada slide.
 
-Contoh ini mengirimkan `true` ke [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), dan [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) untuk autoshape, dengan kunci yang setara untuk bentuk grup, connector, dan bingkai gambar. Connector menggunakan [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) untuk pergerakan; grup juga menggunakan [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) untuk membatasi pengelompokan.
+Contoh ini memberikan nilai `true` pada [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), dan [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) untuk autoshape, dengan kunci yang setara untuk bentuk grup, konektor, dan bingkai gambar. Konektor menggunakan [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) untuk pergerakan; grup juga menggunakan [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) untuk membatasi pengelompokan.
 
-Contoh ini memuat presentasi PPTX yang ada, memeriksa bentuk‑bentuk dalam koleksi bentuk tiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Bentuk di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop tidak menelusuri bentuk anak dalam sebuah grup.
+Contoh memuat presentasi PPTX yang ada, memeriksa bentuk dalam koleksi bentuk setiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Bentuk di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop tidak menelusuri bentuk anak di dalam grup.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ### **Hapus Perlindungan**
 
-Untuk menghapus kunci bentuk, atur nilainya menjadi `false`. Contoh berikut memuat presentasi dengan kunci bentuk dan menghapus pembatasan pemilihan, pergerakan, dan pengubahan ukuran melalui [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), dan [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Juga menghapus [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) dan menyimpan salinan presentasi. Pengaturan kunci lain dibiarkan tidak berubah.
+Untuk menghapus kunci bentuk, atur nilainya menjadi `false`. Contoh berikut memuat presentasi dengan kunci bentuk dan menghapus pembatasan pemilihan, pergerakan, dan perubahan ukuran melalui [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), dan [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Itu juga menghapus [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) dan menyimpan salinan presentasi. Pengaturan kunci lain dibiarkan tidak berubah.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,20 +197,94 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Pertahankan Pemotongan Gambar**
+
+Letakkan foto bernama `photo.jpg` di direktori kerja. Contoh memotong 12% dari kiri dan 8% dari kanan, lalu memanggil [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) pada kunci bingkai gambar untuk mempertahankan pemotongan dan membatasi pemotongan lebih lanjut.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto photoBytes = File::ReadAllBytes(u"photo.jpg");
+auto photo = presentation->get_Images()->AddImage(photoBytes);
+
+auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 20, 30, 270, 160, photo);
+auto pictureFormat = pictureFrame->get_PictureFormat();
+pictureFormat->set_CropLeft(12);
+pictureFormat->set_CropRight(8);
+
+auto pictureFrameLock = pictureFrame->get_PictureFrameLock();
+pictureFrameLock->set_AspectRatioLocked(false);
+pictureFrameLock->set_CropLocked(true);
+
+presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`PictureLocked.pptx` menyimpan kunci pemotongan sebagai `true`. Di PowerPoint, perintah **Crop** dinonaktifkan ketika foto dipilih.
+
+### **Pertahankan Diagram Tetap Berkelompok**
+
+Contoh mengelompokkan sebuah persegi panjang dan sebuah panah, lalu memanggil [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) pada kunci grup untuk menjaga komponen diagram tetap bersama. Penyuntingan lain, seperti memindahkan grup atau mengubah isi komponen, tetap tersedia.
+
+```cpp
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto groupShape = shapes->AddGroupShape();
+auto groupShapes = groupShape->get_Shapes();
+groupShapes->AddAutoShape(ShapeType::Rectangle, 100, 70, 90, 50);
+groupShapes->AddAutoShape(ShapeType::RightArrow, 190, 80, 60, 30);
+groupShape->get_GroupShapeLock()->set_UngroupingLocked(true);
+
+presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+`DiagramLocked.pptx` menyimpan kunci pengelompokan kembali sebagai `true`. Di PowerPoint, perintah **Ungroup** dinonaktifkan ketika seluruh diagram dipilih.
+
 ### **Kesimpulan**
 
-Aspose.Slides for C++ memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individual atau menerapkan pembatasan yang sama di seluruh slide. Pilih kunci yang didukung oleh setiap tipe bentuk, dan atur nilainya menjadi `false` ketika Anda perlu menghapus pembatasan tersebut.
+Aspose.Slides untuk C++ memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individual atau menerapkan pembatasan yang sama pada seluruh slide. Pilih kunci yang didukung oleh setiap tipe bentuk, dan atur nilainya menjadi `false` ketika Anda perlu menghapus pembatasan tersebut.
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat menggabungkan kunci bentuk dan perlindungan sandi dalam presentasi yang sama?**
+**Bisakah saya menggabungkan kunci bentuk dan perlindungan kata sandi dalam presentasi yang sama?**
 
-Ya. Kunci bentuk membatasi operasi penyuntingan tertentu, sementara [perlindungan kata sandi](/slides/id/cpp/password-protected-presentation/) dapat membatasi pembukaan atau modifikasi presentasi. Anda dapat menggunakan keduanya dalam file yang sama.
+Ya. Kunci bentuk membatasi operasi penyuntingan tertentu, sementara [perlindungan kata sandi](/slides/id/cpp/password-protected-presentation/) dapat membatasi pembukaan atau pengubahan presentasi. Anda dapat menggunakan keduanya dalam file yang sama.
 
-**Apakah saya dapat membatasi penyuntingan pada slide tertentu tanpa memengaruhi yang lain?**
+**Bisakah saya membatasi penyuntingan pada slide tertentu tanpa memengaruhi yang lain?**
 
 Ya. Terapkan kunci hanya pada bentuk di slide yang dipilih. Ini tidak mengubah pengaturan kunci pada slide lain.
 
 **Bagaimana saya dapat menerapkan kunci pada bentuk individual di dalam grup?**
 
-Iterasikan melalui koleksi yang dikembalikan oleh metode [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) grup dan terapkan kunci yang sesuai pada setiap bentuk anak. Ulangi ini untuk setiap grup bersarang. Contoh di atas memproses hanya koleksi bentuk slide, sehingga mereka tidak menetapkan kunci pada anggota grup individual.
+Iterasi melalui koleksi yang dikembalikan oleh metode [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) grup dan terapkan kunci yang sesuai pada setiap bentuk anak. Ulangi ini untuk setiap grup bersarang. Contoh di atas hanya memproses koleksi bentuk slide, sehingga tidak menetapkan kunci pada anggota grup individual.

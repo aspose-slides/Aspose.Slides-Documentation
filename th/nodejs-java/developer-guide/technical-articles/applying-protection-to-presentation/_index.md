@@ -1,12 +1,12 @@
 ---
-title: จำกัดการแก้ไขการนำเสนอด้วยการล็อกรูปทรงใน Node.js
-linktitle: จำกัดการแก้ไขการนำเสนอ
+title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน Node.js
+linktitle: จำกัดการแก้ไขงานนำเสนอ
 type: docs
 weight: 60
 url: /th/nodejs-java/applying-protection-to-presentation/
 keywords:
 - ป้องกันการแก้ไข
-- ป้องกันจากการแก้ไข
+- ปกป้องจากการแก้ไข
 - ล็อกรูปทรง
 - ล็อกตำแหน่ง
 - ล็อกการเลือก
@@ -18,39 +18,39 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีการล็อคและปลดล็อกรูปทรงในไฟล์ PPTX ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อจำกัดการเลือก การเคลื่อนย้าย การปรับขนาด และการจัดกลุ่ม"
+description: "เรียนรู้วิธีล็อคและปลดล็อครูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for Node.js via Java เพื่อจำกัดการเลือก, การย้าย, การปรับขนาด, และการจัดกลุ่ม."
 ---
 ## **ภาพรวม**
 
-การใช้ Aspose.Slides for Node.js ผ่าน Java อย่างทั่วไปคือการสร้าง, ปรับปรุง, และบันทึกการนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการอัตโนมัติ เมื่อผู้ใช้ได้รับการนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาที่ตั้งใจไว้ได้
+การใช้ Aspose.Slides for Node.js via Java อย่างทั่วไปคือการสร้าง, ปรับปรุง, และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้รับงานนำเสนอนี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาโครงร่างและเนื้อหาเดิมได้
 
-บทความนี้อธิบายถึงวิธีการจัดระเบียบรูปทรงบนสไลด์และวิธีการใช้และลบการล็อกรูปทรงในไฟล์ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละชิ้น
+บทความนี้อธิบายว่ารูปทรงถูกจัดเรียงบนสไลด์อย่างไร และวิธีการใส่และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
 
 ## **ส่วนประกอบของสไลด์**
 
-สไลด์การนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น autoshapes, ตาราง, วัตถุ OLE, รูปทรงที่จัดกลุ่ม, เฟรมภาพ, เฟรมวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างการนำเสนอ ใน Aspose.Slides for Node.js ผ่าน Java แต่ละองค์ประกอบบนสไลด์จะแสดงด้วยอ็อบเจกต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 
+สไลด์งานนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น รูปทรงอัตโนมัติ, ตาราง, วัตถุ OLE, กลุ่มรูปทรง, กรอบภาพ, กรอบวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Node.js via Java แต่ละองค์ประกอบบนสไลด์จะแทนด้วยอ็อบเจ็กต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)
 
-ประเภทรูปทรงที่แตกต่างกันจะมีตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) เป็นคลาสฐานสำหรับการล็อกรูปทรง Aspose.Slides for Node.js ผ่าน Java มีคลาสล็อกต่อไปนี้:
+ประเภทรูปทรงต่าง ๆ มีตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) เป็นคลาสพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for Node.js via Java มีคลาสล็อกต่อไปนี้:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) ล็อก autoshapes.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) ล็อกรูปแบบตัวเชื่อมต่อ.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) ล็อกวัตถุกราฟิก.  
-- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) ล็อกรูปทรงที่จัดกลุ่ม.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) ล็อกจากเฟรมภาพ.  
+- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) ล็อกรูปทรงอัตโนมัติ  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) ล็อกรูปทรงเชื่อมต่อ  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) ล็อกวัตถุกราฟิก  
+- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) ล็อกกลุ่มรูปทรง  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) ล็อกกรอบภาพ  
 
-เพื่อใช้การล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), ให้วนซ้ำผ่านสไลด์ของมันและกำหนดล็อกที่เหมาะสมกับรูปทรงที่รองรับแต่ละอัน
+เพื่อใส่การล็อกทั่วทั้งหมดใน [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละประเภท
 
-## **ใช้และลบการป้องกัน**
+## **ใส่และลบการปกป้อง**
 
-การล็อกรูปทรงจำกัดการดำเนินการเช่น การเลือก, การย้าย, และการปรับขนาดรูปทรง พวกมันไม่ได้ทำให้การนำเสนอทั้งหมดเป็นแบบไม่แก้ไขได้
+โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละอย่าง การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [presentation protection settings](/slides/th/nodejs-java/password-protected-presentation/) ที่แยกออกจากกัน
 
-### **ใช้การป้องกันกับรูปทรง PPTX**
+### **ใส่การปกป้องให้กับรูปทรง PPTX**
 
-Aspose.Slides for Node.js ผ่าน Java มีคลาส [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) เพื่อทำงานกับรูปทรงบนสไลด์
+Aspose.Slides for Node.js via Java มีคลาส [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) และ [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) ด้วยค่า `true` สำหรับ autoshapes, พร้อมล็อกที่เทียบเท่าสำหรับรูปทรงกลุ่ม, ตัวเชื่อมต่อ, และเฟรมภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) เพื่อการเคลื่อนที่; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked), และ [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) ด้วยค่า `true` สำหรับรูปทรงอัตโนมัติ พร้อมด้วยการล็อกที่เทียบเท่าสำหรับกลุ่มรูปทรง, ตัวเชื่อมต่อ, และกรอบภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) เพื่อจำกัดการย้าย; กลุ่มรูปทรงยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างโหลดการนำเสนอ PPTX ที่มีอยู่, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะถูกทิ้งไว้โดยไม่เปลี่ยนแปลง การวนลูปจะไม่เดินทางผ่านรูปทรงลูกภายในกลุ่ม
+ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่ ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์ และบันทึกสำเนาพร้อมกับการจำกัดเหล่านี้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่ได้วนผ่านรูปทรงย่อยภายในกลุ่ม
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **ลบการป้องกัน**
+### **ลบการปกป้อง**
 
-เพื่อเอาการล็อกรูปทรงออก, ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดการนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) นอกจากนี้ยังลบข้อจำกัดการจัดกลุ่มโดยส่งค่า `false` ไปยัง [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) และบันทึกสำเนาของการนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงไว้โดยไม่มีการเปลี่ยนแปลง
+เพื่อเอาการล็อกรูปทรงออก ให้ตั้งค่าที่ `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการจำกัดการเลือก, การย้าย, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) อีกทั้งยังลบการจำกัดการจัดกลุ่มโดยส่งค่า `false` ไปยัง [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงไว้ตามเดิม
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,20 +138,80 @@ try {
 }
 ```
 
+### **รักษาการครอปรูปภาพ**
+
+วางไฟล์รูปภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างทำการครอป 12 % จากด้านซ้ายและ 8 % จากด้านขวา แล้วเรียก [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) บนล็อกของกรอบภาพ การส่งค่า `true` จะจำกัดการครอปเพิ่มเติมและคงการครอปเดิมไว้
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const photoStream = java.newInstanceSync("java.io.FileInputStream", "photo.jpg");
+    let photo;
+    try {
+        photo = presentation.getImages().addImage(photoStream);
+    } finally {
+        photoStream.close();
+    }
+
+    const pictureFrame = shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    const pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` จะบันทึกล็อกการครอปเป็น `true` ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกรูปภาพ
+
+### **รักษาการจัดกลุ่มของแผนผัง**
+
+ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียก [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) บนล็อกของกลุ่มเพื่อให้แผนผังไม่สามารถถอดกลุ่มได้ รูปแบบการแก้ไขอื่น ๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงทำได้
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    const groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` จะบันทึกล็อกการถอดกลุ่มเป็น `true` ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกแผนผังทั้งหมด
+
 ### **สรุป**
 
-Aspose.Slides for Node.js ผ่าน Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละชิ้นหรือใช้ข้อจำกัดเดียวกันบนหลายสไลด์ เลือกล็อกที่รองรับโดยแต่ละประเภทของรูปทรง และตั้งค่าของมันเป็น `false` เมื่อคุณต้องการเอาข้อจำกัดเหล่านั้นออก
+Aspose.Slides for Node.js via Java ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันทั่วสไลด์ทั้งหมด เลือกล็อกที่รองรับโดยแต่ละประเภทของรูปทรง และตั้งค่าเป็น `false` เมื่อคุณต้องการเอาข้อจำกัดเหล่านั้นออก
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในการนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถรวมการล็อกรูปทรงกับการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
 
-ใช่ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ, ในขณะที่ [การป้องกันด้วยรหัสผ่าน](/slides/th/nodejs-java/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขการนำเสนอ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
+ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ ในขณะที่ [password protection](/slides/th/nodejs-java/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างพร้อมกันในไฟล์เดียว
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะได้โดยไม่กระทบต่อสไลด์อื่นหรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่นได้หรือไม่?**
 
-ใช่ ให้ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือกเท่านั้น สิ่งนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
+ได้ ให้ใส่ล็อกเพียงบนรูปทรงในสไลด์ที่เลือก การกระทำนี้จะไม่เปลี่ยนการตั้งค่าล็อกบนสไลด์อื่น
 
-**ฉันจะใช้การล็อกกับรูปทรงแต่ละชิ้นภายในกลุ่มได้อย่างไร?**
+**ฉันจะใส่ล็อกบนรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
 
-วนซ้ำผ่านคอลเลกชันที่คืนค่าจากเมธอด [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) ของกลุ่มและใช้การล็อกที่เหมาะสมกับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์ จึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละตัว
+วนลูปผ่านคอลเลกชันที่ได้จากเมธอด [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) ของกลุ่ม แล้วใส่ล็อกที่เหมาะสมให้กับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มซ้อนกัน ตัวอย่างด้านบนจะประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์ จึงไม่ได้ตั้งค่าล็อกบนสมาชิกของกลุ่มแต่ละอัน

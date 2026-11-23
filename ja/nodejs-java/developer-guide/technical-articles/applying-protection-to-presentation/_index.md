@@ -1,12 +1,12 @@
 ---
-title: Node.js でシェイプ ロックを使用したプレゼンテーション編集の制限
+title: Node.js でシェイプロックを使用したプレゼンテーション編集の制限
 linktitle: プレゼンテーション編集の制限
 type: docs
 weight: 60
 url: /ja/nodejs-java/applying-protection-to-presentation/
 keywords:
-- 編集防止
-- 編集から保護
+- 編集の防止
+- 編集からの保護
 - シェイプのロック
 - 位置のロック
 - 選択のロック
@@ -18,19 +18,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java を使用して、PPTX プレゼンテーション内のシェイプをロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
+description: "Aspose.Slides for Node.js via Java を使用して PPTX プレゼンテーション内のシェイプをロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Node.js via Java の一般的な使用例は、PowerPoint（PPTX）プレゼンテーションを自動化されたワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際、シェイプの変更を制限することで意図したレイアウトとコンテンツを保持できます。
+Aspose.Slides for Node.js via Java の一般的な使用例は、自動化されたワークフローの一部として PowerPoint (PPTX) プレゼンテーションを作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、シェイプの変更を制限することで、意図したレイアウトと内容を保護できます。
 
-この記事では、スライド上のシェイプの構成と、PPTX プレゼンテーションでシェイプのロックを適用および解除する方法を説明します。これらのロックにより、個々のシェイプに対して特定の編集操作を制限できます。
+この記事では、スライド上でシェイプがどのように構成されているか、そして PPTX プレゼンテーションでシェイプロックを適用および削除する方法を説明します。これらのロックを使用すると、個々のシェイプに対する特定の編集操作を制限できます。
 
-## **スライドの構成**
+## **スライドの構成要素**
 
-プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、その他プレゼンテーション作成に使用される要素などで構成されます。Aspose.Slides for Node.js via Java では、スライド上の各要素は [シェイプ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) クラスを継承したオブジェクトで表されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、そしてプレゼンテーションの作成に使用されるその他の要素で構成されています。Aspose.Slides for Node.js via Java では、スライド上の各要素は [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) クラスを継承したオブジェクトとして表されます。
 
-シェイプの種類に応じて異なるロックオプションが提供されます。[BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) クラスはシェイプロックの基底クラスです。Aspose.Slides for Node.js via Java が提供するロッククラスは次のとおりです。
+シェイプの種類ごとに異なるロックオプションが用意されています。[BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) クラスはシェイプロックの基底クラスです。Aspose.Slides for Node.js via Java は以下のロッククラスを提供します：
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) はオートシェイプをロックします。  
 - [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) はコネクタシェイプをロックします。  
@@ -38,19 +38,19 @@ Aspose.Slides for Node.js via Java の一般的な使用例は、PowerPoint（PP
 - [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) はグループシェイプをロックします。  
 - [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) は画像フレームをロックします。  
 
-[プレゼンテーション](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 全体にロックを適用するには、スライドを走査し、サポートされている各シェイプに適切なロックを設定します。
+[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 全体にロックを適用するには、スライドを反復処理し、各サポートされているシェイプに適切なロックを設定します。
 
-## **保護の適用と解除**
+## **保護の適用と削除**
 
-シェイプロックは、シェイプの選択、移動、サイズ変更などの操作を制限します。プレゼンテーション全体を編集不能にするわけではありません。
+対応するプレゼンテーションエディタはシェイプロックを使用して個別の編集操作を制限します。ファイルの暗号化やドキュメントレベルの書き込み保護は、別個の [プレゼンテーション保護設定](/slides/ja/nodejs-java/password-protected-presentation/) です。
 
 ### **PPTX シェイプへの保護の適用**
 
-Aspose.Slides for Node.js via Java は、スライド上のシェイプを操作するために [シェイプ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) クラスを提供します。
+Aspose.Slides for Node.js via Java は、スライド上のシェイプを操作するために [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) クラスを提供します。
 
-例では、オートシェイプに対して `true` を指定して [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked)、[setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) を呼び出し、グループシェイプ、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動に対して [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) を使用します。グループは [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) も使用してグループ化を制限します。
+例では、オートシェイプに対して `true` を指定して [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked)、[setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) を呼び出します。同様のロックがグループシェイプ、コネクタ、画像フレームにも適用されます。コネクタは移動のために [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) を使用し、グループはグループ化を制限するために [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) も使用します。
 
-例は既存の PPTX プレゼンテーションをロードし、各スライドのシェイプコレクションをチェックして、これらの制限を適用したコピーを保存します。4 つの処理対象タイプ以外のシェイプは変更されません。ループはグループ内の子シェイプまでは走査しません。
+例では既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプコレクション内のシェイプをチェックし、これらの制限が適用されたコピーを保存します。扱われた 4 種類以外のシェイプは変更されません。ループはグループ内の子シェイプを走査しません。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **保護の解除**
+### **保護の削除**
 
-シェイプロックを解除するには、その値を `false` に設定します。以下の例はロックが設定されたプレゼンテーションをロードし、[AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/)、[PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) を通じて選択、移動、サイズ変更の制限をクリアします。また、[GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) に `false` を渡してグループ化の制限も解除し、プレゼンテーションのコピーを保存します。他のロック設定はそのまま残ります。
+シェイプロックを削除するには、その値を `false` に設定します。以下の例ではシェイプロックが設定されたプレゼンテーションを読み込み、[AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) 、[GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) 、[ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) 、[PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、`false` を [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) に渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,20 +138,80 @@ try {
 }
 ```
 
+### **画像のトリミングを保持**
+
+作業ディレクトリに `photo.jpg` という名前の写真を配置します。例では左側を 12%、右側を 8% トリミングし、画像フレームのロックに対して [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) を呼び出します。`true` を渡すことで、さらにトリミングできなくなり、既存のトリミングが保持されます。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const photoStream = java.newInstanceSync("java.io.FileInputStream", "photo.jpg");
+    let photo;
+    try {
+        photo = presentation.getImages().addImage(photoStream);
+    } finally {
+        photoStream.close();
+    }
+
+    const pictureFrame = shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    const pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` はトリムロックを `true` として保存します。PowerPoint では、写真が選択されていると **Crop** コマンドが無効になります。
+
+### **図のグループ化を維持**
+
+例では矩形と矢印をグループ化し、グループのロックに対して [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) を呼び出すことで、図の構成要素が一緒に保たれるようにします。グループの移動やコンポーネントの塗りつぶし変更など、他の編集は引き続き可能です。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    const groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` はグループ解除ロックを `true` として保存します。PowerPoint では、図全体が選択されていると **Ungroup** コマンドが無効になります。
+
 ### **結論**
 
-Aspose.Slides for Node.js via Java を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。シェイプタイプごとにサポートされているロックを選択し、解除が必要なときは値を `false` に設定してください。
+Aspose.Slides for Node.js via Java を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。各シェイプタイプがサポートするロックを選択し、制限を解除する必要がある場合は値を `false` に設定してください。
 
-## **FAQ**
+## **よくある質問**
 
-**シェイプロックとパスワード保護を同じプレゼンテーションで併用できますか？**
+**同じプレゼンテーションでシェイプロックとパスワード保護を組み合わせることはできますか？**
 
-はい。シェイプロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/nodejs-java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同一ファイルで使用可能です。
+はい。シェイプロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/nodejs-java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同じファイルで使用できます。
 
-**特定のスライドだけに編集制限をかけ、他のスライドには影響させない方法はありますか？**
+**他のスライドに影響を与えずに、特定のスライドだけの編集を制限できますか？**
 
-はい。ロックは対象スライドのシェイプにのみ適用すれば、他のスライドのロック設定には影響しません。
+はい。対象となるスライドのシェイプにのみロックを適用します。これにより他のスライドのロック設定は変更されません。
 
-**グループ内の個別シェイプにロックを適用するにはどうすればよいですか？**
+**グループ内の個々のシェイプにロックを適用するにはどうすればよいですか？**
 
-グループの [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) メソッドで返されるコレクションを走査し、各子シェイプに適切なロックを適用します。入れ子になったグループがある場合は同様に繰り返します。上記の例はスライドのシェイプコレクションのみを処理しているため、個別のグループメンバーにはロックを設定していません。
+グループの [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) メソッドが返すコレクションを反復処理し、各子シェイプに適切なロックを適用します。入れ子になったグループがある場合も同様に繰り返します。上記の例はスライドのシェイプコレクションのみを処理しているため、個々のグループメンバーにはロックを設定していません。

@@ -1,56 +1,56 @@
 ---
-title: Beperk bewerkingen van presentaties met vormvergrendelingen op Android
-linktitle: Beperk bewerkingen van presentaties
+title: Beperk presentatiewijzigingen met vormvergrendelingen op Android
+linktitle: Beperk presentatiewijzigingen
 type: docs
 weight: 60
 url: /nl/androidjava/applying-protection-to-presentation/
 keywords:
-- bewerkingen voorkomen
-- beschermen tegen bewerken
-- vorm vergrendelen
-- positie vergrendelen
-- selectie vergrendelen
-- grootte vergrendelen
-- groepering vergrendelen
+- voorkom bewerkingen
+- bescherm tegen bewerken
+- vergrendel vorm
+- vergrendel positie
+- vergrendel selectie
+- vergrendel grootte wijzigen
+- vergrendel groepering
 - PowerPoint
 - PPTX
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u vormen in PPTX-presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides for Android via Java om selectie, verplaatsing, grootte-aanpassing en groepering te beperken."
+description: "Leer hoe u vormen kunt vergrendelen en ontgrendelen in PPTX‑presentaties met Aspose.Slides for Android via Java om selectie, verplaatsing, formaat wijzigen en groeperen te beperken."
 ---
 ## **Overzicht**
 
-Een veelvoorkomende toepassing van Aspose.Slides for Android via Java is het maken, bijwerken en opslaan van PowerPoint‑presentaties (PPTX) als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay‑out en inhoud te behouden.
+Een veelvoorkomend gebruik van Aspose.Slides for Android via Java is het maken, bijwerken en opslaan van PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay-out en inhoud te behouden.
 
-Dit artikel legt uit hoe vormen op dia’s worden georganiseerd en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen u in staat om specifieke bewerkingsbewerkingen op individuele vormen te beperken.
+Dit artikel legt uit hoe vormen op dia's zijn georganiseerd en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX-presentatie. Deze vergrendelingen stellen u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingsframes, videoframes, connectors en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for Android via Java wordt elk element op een dia weergegeven door een object dat de [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interface implementeert of van een klasse erft die dat doet.
+Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE-objekten, gegroepeerde vormen, afbeelding-frames, video-frames, connectoren en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for Android via Java wordt elk element op een dia weergegeven door een object dat de [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interface implementeert of er van afleidt.
 
-Verschillende vormtypen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) interface is de basisinterface voor vormvergrendelingen. Aspose.Slides for Android via Java biedt de volgende vergrendelings‑interfaces:
+Verschillende type vormen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) interface is de basisinterface voor vormvergrendelingen. Aspose.Slides for Android via Java biedt de volgende vergrendelings‑interfaces:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) vergrendelt autovormen.  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) vergrendelt connector‑vormen.  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) vergrendelt connectorvormen.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.  
 - [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) vergrendelt gegroepeerde vormen.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) vergrendelt afbeeldingsframes.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) vergrendelt afbeelding-frames.  
 
-Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), doorloopt u de dia’s en stelt u de juiste vergrendelingen in voor elke ondersteunde vorm.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), doorloopt u de dia's en stelt u de juiste vergrendelingen in voor elke ondersteunde vorm.
 
-## **Toepassen en verwijderen van bescherming**
+## **Bescherming toepassen en verwijderen**
 
-Vormvergrendelingen beperken bewerkingen zoals het selecteren, verplaatsen en van grootte wijzigen van vormen. Ze maken de volledige presentatie niet onbewerkbaar.
+Compatibele presentatie‑editors gebruiken vormvergrendelingen om individuele bewerkingsbewerkingen te beperken. Bestandsversleuteling en schrijfbeveiliging op documentniveau zijn aparte [presentatie‑beschermingsinstellingen](/slides/nl/androidjava/password-protected-presentation/).
 
 ### **Bescherming toepassen op PPTX‑vormen**
 
 Aspose.Slides for Android via Java biedt de [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interface om met vormen op een dia te werken.
 
-Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) , [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) en [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) aan met `true` voor autovormen, met overeenkomstige vergrendelingen voor gegroepeerde vormen, connectors en afbeeldingsframes. Connectors gebruiken [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) voor beweging; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) om groeperen te beperken.
+Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) , [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) en [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) aan met `true` voor autovormen, met overeenkomstige vergrendelingen voor gegroepeerde vormen, connectoren en afbeelding-frames. Connectoren gebruiken [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) voor verplaatsing; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) om groeperen te beperken.
 
-Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde typen blijven ongewijzigd. De lus doorloopt de onderliggende vormen binnen een groep niet.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormcollectie van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde types blijven ongewijzigd. De lus doorloopt de onderliggende vormen binnen een groep niet.
 
 ```java
 import com.aspose.slides.*;
@@ -96,7 +96,7 @@ try {
 
 ### **Bescherming verwijderen**
 
-Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de selectie‑, verplaatsings‑ en grootte‑beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Het verwijdert tevens de groeperingsbeperking door `false` door te geven aan [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
+Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het onderstaande voorbeeld laadt een presentatie met vormvergrendelingen en wist de selecties-, verplaatsings- en formaat-beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) , [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) , [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```java
 import com.aspose.slides.*;
@@ -140,20 +140,77 @@ try {
 }
 ```
 
+### **Een afbeelding bijsnijden behouden**
+
+Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12% van de linkerkant en 8% van de rechterkant bij, en roept vervolgens [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) aan op de vergrendeling van het afbeelding-frame. Het doorgeven van `true` beperkt verdere bijsnijding en behoudt de bestaande bijsnijding.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage photo;
+    try (FileInputStream input = new FileInputStream("photo.jpg")) {
+        photo = presentation.getImages().addImage(input);
+    }
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` slaat de bijsnijdvergrendeling op als `true`. In PowerPoint is het commando **Crop** (Bijsnijden) uitgeschakeld wanneer de foto is geselecteerd.
+
+### **Een diagram gegroepeerd houden**
+
+Het voorbeeld groepeert een rechthoek en een pijl, en roept vervolgens [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) aan op de vergrendeling van de groep om de componenten van het diagram samen te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de opvulling van een component, blijven beschikbaar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` slaat de ungroup‑vergrendeling op als `true`. In PowerPoint is het commando **Ungroup** (Degroeperen) uitgeschakeld wanneer het volledige diagram is geselecteerd.
+
 ### **Conclusie**
 
-Aspose.Slides for Android via Java stelt u in staat om specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen over dia’s toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund, en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
+Aspose.Slides for Android via Java stelt u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen op meerdere dia's toe te passen. Kies de vergrendelingen die worden ondersteund door elk type vorm, en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Kan ik vormvergrendelingen combineren met wachtwoordbeveiliging in dezelfde presentatie?**
 
 Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [wachtwoordbeveiliging](/slides/nl/androidjava/password-protected-presentation/) het openen of wijzigen van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik bewerking beperken op specifieke dia’s zonder andere dia’s te beïnvloeden?**
+**Kan ik bewerken beperken op specifieke dia's zonder de anderen te beïnvloeden?**
 
-Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia’s. Dit verandert de vergrendelingsinstellingen op andere dia’s niet.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Dit wijzigt de vergrendelingsinstellingen op andere dia's niet.
 
 **Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Doorloop de verzameling die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor eventuele geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormverzameling van de dia, dus ze stellen geen vergrendelingen in voor individuele groepsleden.
+Loop door de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor eventuele geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormcollectie van de dia, waardoor ze geen vergrendelingen instellen op individuele groepsleden.

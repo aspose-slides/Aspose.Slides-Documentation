@@ -1,55 +1,55 @@
 ---
-title: Membatasi Pengeditan Presentasi dengan Kunci Bentuk di Java
-linktitle: Membatasi Pengeditan Presentasi
+title: Batasi Penyuntingan Presentasi dengan Kunci Shape di Java
+linktitle: Batasi Penyuntingan Presentasi
 type: docs
 weight: 60
 url: /id/java/applying-protection-to-presentation/
 keywords:
-- mencegah pengeditan
-- melindungi dari pengeditan
-- mengunci bentuk
-- mengunci posisi
-- mengunci pemilihan
-- mengunci perubahan ukuran
-- mengunci pengelompokan
+- mencegah penyuntingan
+- melindungi dari penyuntingan
+- kunci shape
+- kunci posisi
+- kunci pemilihan
+- kunci perubahan ukuran
+- kunci pengelompokan
 - PowerPoint
 - PPTX
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara mengunci dan membuka kunci bentuk dalam presentasi PPTX dengan Aspose.Slides for Java untuk membatasi pemilihan, pergerakan, perubahan ukuran, dan pengelompokan."
+description: "Pelajari cara mengunci dan membuka kunci shape dalam presentasi PPTX dengan Aspose.Slides untuk Java guna membatasi pemilihan, pergerakan, perubahan ukuran, dan pengelompokan."
 ---
 ## **Latar Belakang**
 
-Penggunaan umum Aspose.Slides for Java adalah untuk membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Ketika pengguna menerima presentasi ini, membatasi perubahan pada bentuk dapat membantu mempertahankan tata letak dan konten yang dimaksud.
+Penggunaan umum Aspose.Slides untuk Java adalah membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Saat pengguna menerima presentasi ini, membatasi perubahan pada shape dapat membantu mempertahankan tata letak dan konten yang dimaksud.
 
-Artikel ini menjelaskan cara bentuk diatur pada slide dan cara menerapkan serta menghapus kunci bentuk dalam presentasi PPTX. Kunci ini memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individu.
+Artikel ini menjelaskan bagaimana shape diatur di slide dan cara menerapkan serta menghapus kunci shape dalam presentasi PPTX. Kunci ini memungkinkan Anda membatasi operasi penyuntingan tertentu pada shape individual.
 
 ## **Komposisi Slide**
 
-Slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, bentuk yang dikelompokkan, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membuat presentasi. Di Aspose.Slides for Java, setiap elemen pada slide direpresentasikan oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
+Sebuah slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, shape yang dikelompokkan, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membangun presentasi. Di Aspose.Slides untuk Java, setiap elemen pada slide diwakili oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
 
-Berbagai tipe bentuk menyediakan opsi penguncian yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) adalah antarmuka dasar untuk kunci bentuk. Aspose.Slides for Java menyediakan antarmuka kunci berikut:
+Berbagai tipe shape menyediakan opsi kunci yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) adalah antarmuka dasar untuk kunci shape. Aspose.Slides untuk Java menyediakan antarmuka kunci berikut:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) mengunci autoshape.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) mengunci bentuk konektor.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) mengunci autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) mengunci shape konektor.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) mengunci objek grafis.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) mengunci bentuk grup.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) mengunci shape grup.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) mengunci bingkai gambar.  
 
-Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterasi melalui slide‑slidenya dan atur kunci yang sesuai pada setiap bentuk yang didukung.
+Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterasikan slide‑slidenya dan tetapkan kunci yang sesuai pada setiap shape yang didukung.
 
-## **Terapkan dan Hapus Proteksi**
+## **Terapkan dan Hapus Perlindungan**
 
-Kunci bentuk membatasi operasi seperti memilih, memindahkan, dan mengubah ukuran bentuk. Mereka tidak membuat seluruh presentasi tidak dapat diedit.
+Editor presentasi yang kompatibel menggunakan kunci shape untuk membatasi operasi penyuntingan individual. Enkripsi file dan perlindungan penulisan tingkat dokumen merupakan [presentation protection settings](/slides/id/java/password-protected-presentation/) yang terpisah.
 
-### **Terapkan Proteksi pada Bentuk PPTX**
+### **Terapkan Perlindungan pada Shape PPTX**
 
-Aspose.Slides for Java menyediakan antarmuka [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) untuk bekerja dengan bentuk pada slide.
+Aspose.Slides untuk Java menyediakan antarmuka [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) untuk bekerja dengan shape pada slide.
 
-Contoh tersebut memanggil [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), dan [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) dengan `true` untuk autoshape, dengan kunci yang setara untuk bentuk grup, konektor, dan bingkai gambar. Konektor menggunakan [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) untuk pergerakan; grup juga menggunakan [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) untuk membatasi pengelompokan.
+Contoh ini memanggil [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), dan [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) dengan `true` untuk autoshapes, serta kunci yang setara untuk shape grup, konektor, dan bingkai gambar. Konektor menggunakan [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) untuk pergerakan; grup juga menggunakan [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) untuk membatasi pengelompokan.
 
-Contoh tersebut memuat presentasi PPTX yang ada, memeriksa bentuk‑bentuk dalam koleksi bentuk tiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Bentuk di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop tidak menelusuri bentuk anak di dalam sebuah grup.
+Contoh ini memuat presentasi PPTX yang ada, memeriksa shape pada koleksi shape setiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Shape di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop tidak menelusuri shape anak di dalam sebuah grup.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Hapus Proteksi**
+### **Hapus Perlindungan**
 
-Untuk menghapus kunci bentuk, atur nilainya menjadi `false`. Contoh berikut memuat presentasi dengan kunci bentuk dan menghapus pembatasan pemilihan, pergerakan, serta pengubahan ukuran melalui [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), dan [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Ia juga menghapus pembatasan pengelompokan dengan memberikan `false` pada [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) dan menyimpan salinan presentasi. Pengaturan kunci lainnya dibiarkan tidak berubah.
+Untuk menghapus kunci shape, atur nilainya menjadi `false`. Contoh berikut memuat presentasi dengan kunci shape dan menghapus pembatasan pemilihan, pergerakan, serta pengubahan ukuran melalui [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), dan [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Ia juga menghapus pembatasan pengelompokan dengan memberikan `false` pada [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) dan menyimpan salinan presentasi. Pengaturan kunci lainnya dibiarkan tidak berubah.
 
 ```java
 import com.aspose.slides.*;
@@ -139,20 +139,76 @@ try {
 }
 ```
 
+### **Pertahankan Pemotongan Gambar**
+
+Letakkan foto bernama `photo.jpg` di direktori kerja. Contoh ini memotong 12% dari kiri dan 8% dari kanan, lalu memanggil [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) pada kunci bingkai gambar. Memberikan `true` membatasi pemotongan lebih lanjut dan mempertahankan pemotongan yang sudah ada.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    byte[] photoBytes = Files.readAllBytes(Paths.get("photo.jpg"));
+    IPPImage photo = presentation.getImages().addImage(photoBytes);
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+    
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` menyimpan kunci pemotongan sebagai `true`. Di PowerPoint, perintah **Crop** dinonaktifkan ketika foto dipilih.
+
+### **Pertahankan Diagram Tetap Tergrup**
+
+Contoh ini mengelompokkan sebuah persegi panjang dan panah, lalu memanggil [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) pada kunci grup untuk menjaga komponen diagram tetap bersama. Penyuntingan lain, seperti memindahkan grup atau mengubah isian komponen, tetap tersedia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` menyimpan kunci pembatalan pengelompokan sebagai `true`. Di PowerPoint, perintah **Ungroup** dinonaktifkan ketika seluruh diagram dipilih.
+
 ### **Kesimpulan**
 
-Aspose.Slides for Java memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individu atau menerapkan pembatasan yang sama di seluruh slide. Pilih kunci yang didukung oleh masing‑masing tipe bentuk, dan atur nilainya menjadi `false` ketika Anda perlu menghapus pembatasan tersebut.
+Aspose.Slides untuk Java memungkinkan Anda membatasi operasi penyuntingan tertentu pada shape individual atau menerapkan pembatasan yang sama di seluruh slide. Pilih kunci yang didukung oleh tiap tipe shape, dan atur nilainya menjadi `false` ketika Anda perlu menghapus pembatasan tersebut.
 
 ## **FAQ**
 
-**Bisakah saya menggabungkan kunci bentuk dan proteksi kata sandi dalam presentasi yang sama?**
+**Apakah saya dapat menggabungkan kunci shape dan perlindungan kata sandi dalam presentasi yang sama?**
 
-Ya. Kunci bentuk membatasi operasi penyuntingan tertentu, sementara [password protection](/slides/id/java/password-protected-presentation/) dapat membatasi pembukaan atau modifikasi presentasi. Anda dapat menggunakan keduanya dalam satu berkas.
+Ya. Kunci shape membatasi operasi penyuntingan tertentu, sementara [password protection](/slides/id/java/password-protected-presentation/) dapat membatasi pembukaan atau pengubahan presentasi. Anda dapat menggunakan keduanya dalam satu berkas.
 
-**Bisakah saya membatasi penyuntingan pada slide tertentu tanpa memengaruhi slide lain?**
+**Apakah saya dapat membatasi penyuntingan pada slide tertentu tanpa memengaruhi slide lain?**
 
-Ya. Terapkan kunci hanya pada bentuk di slide yang dipilih. Hal ini tidak mengubah pengaturan kunci pada slide lain.
+Ya. Terapkan kunci hanya pada shape di slide yang dipilih. Ini tidak mengubah pengaturan kunci pada slide lainnya.
 
-**Bagaimana cara menerapkan kunci pada bentuk individu di dalam sebuah grup?**
+**Bagaimana cara saya menerapkan kunci pada shape individual di dalam sebuah grup?**
 
-Iterasi melalui koleksi yang dikembalikan oleh metode [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) milik grup dan terapkan kunci yang sesuai pada setiap bentuk anak. Ulangi proses ini untuk setiap grup yang bersarang. Contoh di atas memproses hanya koleksi bentuk slide, sehingga tidak menetapkan kunci pada anggota grup individu.
+Iterasikan koleksi yang dikembalikan oleh metode [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) milik grup, dan terapkan kunci yang sesuai pada setiap shape anak. Ulangi proses ini untuk grup bersarang apa pun. Contoh di atas hanya memproses koleksi shape slide, sehingga tidak menetapkan kunci pada anggota grup individual.

@@ -1,6 +1,6 @@
 ---
-title: Περιορισμός επεξεργασιών παρουσίασης με κλειδώματα σχήματος σε Python
-linktitle: Περιορισμός επεξεργασιών παρουσίασης
+title: Περιορισμός Επεξεργασιών Παρουσίασης με Κλείδωμα Σχημάτων σε Python
+linktitle: Περιορισμός Επεξεργασιών Παρουσίασης
 type: docs
 weight: 60
 url: /el/python-java/applying-protection-to-presentation/
@@ -18,19 +18,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for Python via Java για να περιορίσετε την επιλογή, τη κίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
+description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for Python via Java για να περιορίσετε την επιλογή, τη μετακίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
 ---
 ## **Ιστορικό**
 
-Μια κοινή χρήση του Aspose.Slides for Python via Java είναι η δημιουργία, η ενημέρωση και η αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός των αλλαγών στα σχήματα μπορεί να βοηθήσει στη διατήρηση της προβλεπόμενης διάταξης και του περιεχομένου.
+Μια κοινή χρήση του Aspose.Slides for Python via Java είναι η δημιουργία, η ενημέρωση και η αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός των αλλαγών σε σχήματα μπορεί να βοηθήσει στη διατήρηση της προγραμματισμένης διάταξης και του περιεχομένου.
 
-Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα στις διαφάνειες και πώς να εφαρμόσετε και να αφαιρέσετε τους κλειδώσεις σχήματος σε μια παρουσίαση PPTX. Αυτοί οι κλειδώσεις σας επιτρέπουν να περιορίσετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα.
+Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα στις διαφάνειες και πώς να εφαρμόζετε και να αφαιρέτετε τις κλειδώσεις σχήματος σε μια παρουσίαση PPTX. Αυτές οι κλειδώσεις σας επιτρέπουν να περιορίζετε συγκεκριμένες λειτουργίες επεξεργασίας σε ατομικά σχήματα.
 
-## **Σύνθεση διαφάνειας**
+## **Σύνθεση Διαφάνειας**
 
-Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνας, πλαίσια βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για την δημιουργία μιας παρουσίασης. Στο Aspose.Slides for Python via Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που κληρονομεί από την κλάση [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
+Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνας, πλαίσια βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides for Python via Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο το οποίο κληρονομεί από την κλάση [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/).
 
-Different shape types expose different locking options. The [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) class is the base class for shape locks. Aspose.Slides for Python via Java provides the following lock classes:
+Διαφορετικοί τύποι σχημάτων εκθέτουν διαφορετικές επιλογές κλειδώματος. Η κλάση [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) είναι η βασική κλάση για τα κλειδώματα σχημάτων. Το Aspose.Slides for Python via Java παρέχει τις ακόλουθες κλάσεις κλειδώματος:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) κλειδώνει τα αυτόματα σχήματα.  
 - [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) κλειδώνει τα σχήματα συνδέσμων.  
@@ -38,19 +38,19 @@ Different shape types expose different locking options. The [BaseShapeLock](http
 - [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) κλειδώνει τα ομαδοποιημένα σχήματα.  
 - [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) κλειδώνει τα πλαίσια εικόνας.  
 
-Για να εφαρμόσετε κλειδώσεις σε ολόκληρη μια [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τις κατάλληλες κλειδώσεις σε κάθε υποστηριζόμενο σχήμα.
+Για να εφαρμόσετε κλειδώσεις σε όλη τη [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τις κατάλληλες κλειδώσεις σε κάθε υποστηριζόμενο σχήμα.
 
-## **Εφαρμογή και αφαίρεση προστασίας**
+## **Εφαρμογή και Αφαίρεση Προστασίας**
 
-Οι κλειδώσεις σχήματος περιορίζουν λειτουργίες όπως η επιλογή, η μετακίνηση και η αλλαγή μεγέθους των σχημάτων. Δεν κάνουν ολόκληρη την παρουσίαση μη επεξεργάσιμη.
+Συμβατοί επεξεργαστές παρουσιάσεων χρησιμοποιούν κλειδώσεις σχημάτων για να περιορίσουν ατομικές λειτουργίες επεξεργασίας. Η κρυπτογράφηση αρχείων και η προστασία εγγραφής σε επίπεδο εγγράφου είναι ξεχωριστές [ρυθμίσεις προστασίας παρουσίασης](/slides/el/python-java/password-protected-presentation/).
 
-### **Εφαρμογή προστασίας σε σχήματα PPTX**
+### **Εφαρμογή Προστασίας σε Σχήματα PPTX**
 
 Το Aspose.Slides for Python via Java παρέχει την κλάση [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) για εργασία με σχήματα σε μια διαφάνεια.
 
-Το παράδειγμα καλεί τις μεθόδους [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) και [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) με `True` για αυτόματα σχήματα, με αντίστοιχες κλειδώσεις για ομαδοποιημένα σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν τη μέθοδο [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) για κίνηση· οι ομάδες χρησιμοποιούν επίσης τη μέθοδο [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) για περιορισμό ομαδοποίησης.
+Το παράδειγμα καλεί τις μεθόδους [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked), και [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) με `True` για αυτόματα σχήματα, με αντίστοιχες κλειδώσεις για ομαδοποιημένα σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν τη [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) για κίνηση· οι ομάδες χρησιμοποιούν επίσης τη [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) για περιορισμό ομαδοποίησης.
 
-Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχημάτων κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με αυτές τις περιοριστικές ρυθμίσεις εφαρμοσμένες. Τα σχήματα εκτός των τεσσάρων επεξεργασμένων τύπων αφήνονται αμετάβλητα. Η επανάληψη δεν διασχίζει τα παιδικά σχήματα μέσα σε μία ομάδα.
+Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχημάτων κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με αυτές τις περιορισμούς εφαρμοσμένους. Τα σχήματα εκτός των τεσσάρων επεξεργασμένων τύπων παραμένουν αμετάβλητα. Ο βρόχος δεν διασχίζει τα παιδικά σχήματα μέσα σε μια ομάδα.
 
 ```python
 import jpype
@@ -92,9 +92,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Αφαίρεση προστασίας**
+### **Αφαίρεση Προστασίας**
 
-Για να αφαιρέσετε μια κλειδωση σχήματος, ορίστε την τιμή της σε `False`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώσεις σχήματος και αφαιρεί τους περιορισμούς επιλογής, κίνησης και αλλαγής μεγέθους μέσω των [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) και [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Επίσης αφαιρεί τον περιορισμό ομαδοποίησης περνώντας `False` στη μέθοδο [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) και αποθηκεύει ένα αντίγραφο της παρουσίασης. Οι άλλες ρυθμίσεις κλειδώσεων παραμένουν αμετάβλητες.
+Για να αφαιρέσετε ένα κλείδωμα σχήματος, ορίστε την τιμή του σε `False`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώματα σχημάτων και καθαρίζει τους περιορισμούς επιλογής, κίνησης και αλλαγής μεγέθους μέσω των [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), και [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Επίσης αφαιρεί τον περιορισμό ομαδοποίησης περνώντας `False` στη μέθοδο [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), και αποθηκεύει ένα αντίγραφο της παρουσίασης. Οι άλλες ρυθμίσεις κλειδώματος παραμένουν αμετάβλητες.
 
 ```python
 import jpype
@@ -136,20 +136,86 @@ finally:
     presentation.dispose()
 ```
 
+### **Διατήρηση Κοπής Εικόνας**
+
+Τοποθετήστε μια φωτογραφία με όνομα `photo.jpg` στον εργασιακό φάκελο. Το παράδειγμα κόβει 12% από αριστερά και 8% από δεξιά, μετά καλεί τη [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) με `True` για να διατηρήσει την κοπή.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    photo_bytes = Path("photo.jpg").read_bytes()
+    photo = presentation.getImages().addImage(photo_bytes)
+    
+    picture_frame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo)
+    picture_frame.getPictureFormat().setCropLeft(12)
+    picture_frame.getPictureFormat().setCropRight(8)
+
+    picture_lock = picture_frame.getPictureFrameLock()
+    picture_lock.setAspectRatioLocked(False)
+    picture_lock.setCropLocked(True)
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Στο `PictureLocked.pptx`, το PowerPoint απενεργοποιεί την εντολή **Crop** όταν επιλέγετε τη φωτογραφία.
+
+### **Διατήρηση Διαγράμματος Ομαδοποιημένου**
+
+Το παράδειγμα ομαδοποιεί ένα ορθογώνιο και ένα βέλος, μετά καλεί τη [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) με `True` για να κρατήσει τα δύο σχήματα μαζί. Μπορείτε ακόμη να μετακινήσετε την ομάδα ή να αλλάξετε το γέμισμα ενός στοιχείου.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    group = shapes.addGroupShape()
+    group.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50)
+    group.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30)
+    group.getGroupShapeLock().setUngroupingLocked(True)
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Στο `DiagramLocked.pptx`, το PowerPoint απενεργοποιεί την εντολή **Ungroup** όταν επιλέγετε ολόκληρο το διάγραμμα.
+
 ### **Συμπέρασμα**
 
-Το Aspose.Slides for Python via Java σάς επιτρέπει να περιορίσετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα ή να εφαρμόσετε τις ίδον περιοριστικές ρυθμίσεις σε όλες τις διαφάνειες. Επιλέξτε τις κλειδώσεις που υποστηρίζει κάθε τύπος σχήματος και ορίστε τις τιμές τους σε `False` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
+Το Aspose.Slides for Python via Java σας επιτρέπει να περιορίσετε συγκεκριμένες λειτουργίες επεξεργασίας σε ατομικά σχήματα ή να εφαρμόσετε τους ίδιους περιορισμούς σε όλες τις διαφάνειες. Επιλέξτε τα κλειδώσεις που υποστηρίζονται από κάθε τύπο σχήματος και ορίστε τις τιμές τους σε `False` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Μπορώ να συνδυάσω κλειδώματα σχήματος και προστασία με κωδικό σε μία παρουσίαση;**
+**Μπορώ να συνδυάσω τις κλειδώσεις σχημάτων και την προστασία με κωδικό σε μία παρουσίαση;**
 
-Ναι. Τα κλειδώματα σχήματος περιορίζουν συγκεκριμένες λειτουργίες επεξεργασίας, ενώ η [password protection](/slides/el/python-java/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
+Ναι. Οι κλειδώσεις σχημάτων περιορίζουν συγκεκριμένες λειτουργίες επεξεργασίας, ενώ η [προστασία με κωδικό](/slides/el/python-java/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
 
-**Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω τις άλλες;**
+**Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω τις υπόλοιπες;**
 
-Ναι. Εφαρμόστε κλειδώματα μόνο στα σχήματα των επιλεγμένων διαφανειών. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδωμάτων στις άλλες διαφάνειες.
+Ναι. Εφαρμόζετε κλειδώσεις μόνο στα σχήματα των επιλεγμένων διαφανειών. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδώματος στις άλλες διαφάνειες.
 
-**Πώς μπορώ να εφαρμόσω κλειδώματα σε μεμονωμένα σχήματα μέσα σε μια ομάδα;**
+**Πώς μπορώ να εφαρμόσω κλειδώσεις σε ατομικά σχήματα μέσα σε μια ομάδα;**
 
-Περιηγηθείτε στη συλλογή που επιστρέφεται από τη μέθοδο [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) της ομάδας και εφαρμόστε τις κατάλληλες κλειδώσεις σε κάθε παιδικό σχήμα. Επαναλάβετε τη διαδικασία για τυχόν εσωτερικές ομάδες. Τα παραπάνω παραδείγματα επεξεργάζονται μόνο τη συλλογή σχημάτων της διαφάνειας, οπότε δεν θέτουν κλειδώσεις σε μεμονωμένα μέλη της ομάδας.
+Περιηγηθείτε στη συλλογή που επιστρέφεται από τη μέθοδο [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) της ομάδας και εφαρμόστε τις κατάλληλες κλειδώσεις σε κάθε παιδικό σχήμα. Επαναλάβετε αυτό για τυχόν μέσα-ομάδες. Τα παραπάνω παραδείγματα επεξεργάζονται μόνο τη συλλογή σχημάτων της διαφάνειας, επομένως δεν ορίζουν κλειδώσεις σε ατομικά μέλη της ομάδας.

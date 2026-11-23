@@ -1,5 +1,5 @@
 ---
-title: Limita le modifiche alla presentazione con i blocchi di forma in Java
+title: Limita le modifiche alla presentazione con i blocchi forma in Java
 linktitle: Limita le modifiche alla presentazione
 type: docs
 weight: 60
@@ -21,35 +21,35 @@ description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX
 ---
 ## **Contesto**
 
-Un uso comune di Aspose.Slides per Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) nell'ambito di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsto.
+Un uso comune di Aspose.Slides per Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) come parte di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsto.
 
 Questo articolo spiega come le forme sono organizzate nelle diapositive e come applicare e rimuovere i blocchi delle forme in una presentazione PPTX. Questi blocchi consentono di limitare operazioni di modifica specifiche su singole forme.
 
 ## **Composizione di una diapositiva**
 
-Una diapositiva di presentazione è composta da componenti come forme automatiche, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi utilizzati per creare una presentazione. In Aspose.Slides per Java, ogni elemento su una diapositiva è rappresentato da un oggetto che implementa l'interfaccia [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) o eredita da una classe che lo fa.
+Una diapositiva di presentazione è composta da componenti come autoshape, tabelle, oggetti OLE, forme raggruppate, riquadri immagine, riquadri video, connettori e altri elementi utilizzati per costruire una presentazione. In Aspose.Slides per Java, ogni elemento su una diapositiva è rappresentato da un oggetto che implementa l’interfaccia [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) o eredita da una classe che lo fa.
 
-I diversi tipi di forma espongono diverse opzioni di blocco. L'interfaccia [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) è l'interfaccia di base per i blocchi delle forme. Aspose.Slides per Java fornisce le seguenti interfacce di blocco:
+Diversi tipi di forma espongono diverse opzioni di blocco. L’interfaccia [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) è l’interfaccia di base per i blocchi delle forme. Aspose.Slides per Java fornisce le seguenti interfacce di blocco:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) blocca le forme automatiche.  
 - [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) blocca le forme connettore.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) blocca gli oggetti grafici.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) blocca le forme di gruppo.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) blocca le cornici immagine.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) blocca le forme raggruppate.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) blocca i riquadri immagine.  
 
-Per applicare i blocchi a una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterare le sue diapositive e impostare i blocchi appropriati su ogni forma supportata.
+Per applicare blocchi a una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterare attraverso le sue diapositive e impostare i blocchi appropriati su ogni forma supportata.
 
 ## **Applicare e rimuovere la protezione**
 
-I blocchi delle forme limitano operazioni come selezionare, spostare e ridimensionare le forme. Non rendono l'intera presentazione non modificabile.
+Gli editor di presentazioni compatibili usano i blocchi delle forme per limitare operazioni di modifica individuali. La crittografia dei file e la protezione di scrittura a livello di documento sono impostazioni di protezione della presentazione separate [presentation protection settings](/slides/it/java/password-protected-presentation/).
 
 ### **Applicare la protezione alle forme PPTX**
 
-Aspose.Slides per Java fornisce l'interfaccia [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) per lavorare con le forme su una diapositiva.
+Aspose.Slides per Java fornisce l’interfaccia [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) per lavorare con le forme su una diapositiva.
 
-L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), e [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) con `true` per le forme automatiche, con blocchi equivalenti per le forme di gruppo, i connettori e le cornici immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) per lo spostamento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) per limitare il raggruppamento.
+L’esempio chiama [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) e [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) con `true` per le autoshape, con blocchi equivalenti per le forme raggruppate, i connettori e i riquadri immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) per lo spostamento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) per limitare il raggruppamento.
 
-L'esempio carica una presentazione PPTX esistente, verifica le forme nella collezione di forme di ogni diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono invariate. Il ciclo non attraversa le forme figlie all'interno di un gruppo.
+L’esempio carica una presentazione PPTX esistente, controlla le forme nella collezione di forme di ogni diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono inalterate. Il ciclo non attraversa le forme figlio all’interno di un gruppo.
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +95,7 @@ try {
 
 ### **Rimuovere la protezione**
 
-Per rimuovere un blocco di forma, impostare il suo valore a `false`. Il seguente esempio carica una presentazione con blocchi di forma e cancella le restrizioni di selezione, spostamento e ridimensionamento tramite [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), e [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Rimuove inoltre la restrizione di raggruppamento passando `false` a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) e salva una copia della presentazione. Le altre impostazioni di blocco rimangono invariate.
+Per rimuovere un blocco di forma, impostare il suo valore a `false`. Il seguente esempio carica una presentazione con blocchi forma e cancella le restrizioni di selezione, movimento e ridimensionamento tramite [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) e [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Rimuove inoltre la restrizione di raggruppamento passando `false` a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) e salva una copia della presentazione. Altre impostazioni di blocco rimangono inalterate.
 
 ```java
 import com.aspose.slides.*;
@@ -139,20 +139,76 @@ try {
 }
 ```
 
+### **Conservare il ritaglio dell'immagine**
+
+Posizionare una foto chiamata `photo.jpg` nella directory di lavoro. L’esempio ritaglia il 12 % a sinistra e l’8 % a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) sul blocco del riquadro immagine. Passare `true` limita ulteriori ritagli e conserva il ritaglio esistente.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    byte[] photoBytes = Files.readAllBytes(Paths.get("photo.jpg"));
+    IPPImage photo = presentation.getImages().addImage(photoBytes);
+
+    IPictureFrame pictureFrame = shapes.addPictureFrame(ShapeType.Rectangle, 20, 30, 270, 160, photo);
+    pictureFrame.getPictureFormat().setCropLeft(12);
+    pictureFrame.getPictureFormat().setCropRight(8);
+    
+    IPictureFrameLock pictureFrameLock = pictureFrame.getPictureFrameLock();
+    pictureFrameLock.setAspectRatioLocked(false);
+    pictureFrameLock.setCropLocked(true);
+
+    presentation.save("PictureLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`PictureLocked.pptx` memorizza il blocco del ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
+
+### **Mantenere un diagramma raggruppato**
+
+L’esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) sul blocco del gruppo per mantenere insieme i componenti del diagramma. Altre modifiche, come lo spostamento del gruppo o la modifica del riempimento di un componente, rimangono disponibili.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IGroupShape groupShape = shapes.addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 100, 70, 90, 50);
+    groupShape.getShapes().addAutoShape(ShapeType.RightArrow, 190, 80, 60, 30);
+    groupShape.getGroupShapeLock().setUngroupingLocked(true);
+
+    presentation.save("DiagramLocked.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`DiagramLocked.pptx` memorizza il blocco di separazione come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l’intero diagramma è selezionato.
+
 ### **Conclusione**
 
-Aspose.Slides per Java consente di limitare operazioni di modifica specifiche su singole forme o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori a `false` quando è necessario rimuovere tali restrizioni.
+Aspose.Slides per Java consente di limitare operazioni di modifica specifiche su singole forme o di applicare le stesse restrizioni a più diapositive. Scegliere i blocchi supportati da ciascun tipo di forma e impostare i loro valori a `false` quando è necessario rimuovere tali restrizioni.
 
 ## **FAQ**
 
 **Posso combinare i blocchi delle forme e la protezione con password nella stessa presentazione?**
 
-Sì. I blocchi delle forme limitano operazioni di modifica specifiche, mentre la [protezione con password](/slides/it/java/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
+Sì. I blocchi delle forme limitano operazioni di modifica specifiche, mentre la [password protection](/slides/it/java/password-protected-presentation/) può limitare l’apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
 
-**Posso limitare la modifica su diapositive specifiche senza influire sulle altre?**
+**Posso limitare la modifica su diapositive specifiche senza influire su altre?**
 
-Sì. Applica i blocchi solo alle forme delle diapositive selezionate. Questo non cambia le impostazioni di blocco delle altre diapositive.
+Sì. Applica i blocchi solo alle forme delle diapositive selezionate. Questo non altera le impostazioni di blocco sulle altre diapositive.
 
-**Come posso applicare i blocchi a forme individuali all'interno di un gruppo?**
+**Come posso applicare i blocchi a forme individuali all’interno di un gruppo?**
 
-Iterare la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) del gruppo e applicare i blocchi appropriati a ciascuna forma figlia. Ripetere l'operazione per eventuali gruppi nidificati. Gli esempi sopra elaborano solo la collezione di forme della diapositiva, quindi non impostano blocchi sui membri individuali del gruppo.
+Itera attraverso la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) del gruppo e applica i blocchi appropriati a ogni forma figlio. Ripeti l’operazione per tutti i gruppi nidificati. Gli esempi sopra elaborano solo la collezione di forme della diapositiva, quindi non impostano blocchi sui membri individuali del gruppo.
