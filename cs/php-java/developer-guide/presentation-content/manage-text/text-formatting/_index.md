@@ -9,11 +9,11 @@ keywords:
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezera mezi znaky
+- rozestup znaků
 - vlastnosti písma
 - rodina písma
-- otočení textu
-- úhel otočení
+- otáčení textu
+- úhel otáčení
 - textový rám
 - řádkování
 - vlastnost automatického přizpůsobení
@@ -25,13 +25,13 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP prostřednictvím Java. Přizpůsobte písma, barvy, zarovnání a další."
+description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java. Přizpůsobte písma, barvy, zarovnání a další."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP prostřednictvím Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otočení, řádkování odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java. Pokrývá barvy pozadí, průhlednost, rozestupy znaků, vlastnosti písma, rotaci, odstupy odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na jeho první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou nulové. Příklady, které vybírají tučné úseky, používají efektivní formátování, včetně zděděného tučného formátování:
+Pokud není uvedeno jinak, příklady používají [sample.pptx](sample.pptx). První tvar na první snímku je textové pole a jeho první odstavec obsahuje text zobrazený níže. Indexy snímků i tvarů jsou nulové. Příklady, které vybírají tučné části, používají efektivní formátování, včetně zděděného tučného formátování:
 
 ![Ukázkový text](sample_text.png)
 
@@ -39,9 +39,9 @@ Pro vyhledání a zvýraznění doslovného textu nebo shod regulárního výraz
 
 ## **Nastavit barvu pozadí textu**
 
-Použijte [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) k nastavení výchozí barvy zvýraznění pro odstavec nebo [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) pro jednotlivé textové úseky.
+Použijte [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) pro jednotlivé části textu.
 
-Následující příklad nastaví světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění na jednotlivých úsecích mají přednost před tímto výchozím nastavením:
+Následující příklad nastavuje světle šedé zvýraznění jako výchozí pro první odstavec. Výslovné barvy zvýraznění u jednotlivých částí mají přednost před tímto výchozím nastavením:
 
 ```php
 use aspose\slides\Presentation;
@@ -68,7 +68,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený příklad kódu ukazuje, jak nastavit barvu pozadí pro **textové úseky s tučným písmem**:
+Níže uvedený ukázkový kód demonstruje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
 
 ```php
 use aspose\slides\Presentation;
@@ -86,7 +86,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Nastavit barvu zvýraznění pro textový úsek.
+        // Nastavit barvu zvýraznění pro část textu.
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -99,13 +99,13 @@ try {
 
 Výsledek:
 
-![Šedé textové úseky](gray_text_portions.png)
+![Šedé části textu](gray_text_portions.png)
 
 ## **Zarovnat odstavce textu**
 
-Použijte [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) k nastavení zarovnání odstavce v textovém rámci. Hodnota může být centrovaná, zarovnaná vlevo, zarovnaná vpravo, do bloku a podobně.
+Použijte [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) k nastavení zarovnání odstavce v textovém rámci. Hodnota může být centrovaná, zarovnaná vlevo, zarovnaná vpravo, do bloku atd.
 
-Následující ukázka kódu ukazuje, jak zarovnat odstavec na **střed**:
+Následující ukázkový kód ukazuje, jak zarovnat odstavec na **střed**:
 
 ```php
 use aspose\slides\Presentation;
@@ -134,9 +134,9 @@ Výsledek:
 
 ## **Zarovnat písma v řádku**
 
-Použijte [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) k vertikálnímu zarovnání textových úseků s různou velikostí písma v řádku. Toto nastavení se vztahuje na celý odstavec a řídí zarovnání v každém jeho řádku.
+Použijte [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) k vertikálnímu zarovnání částí textu s různými velikostmi písma v řádku. Toto nastavení platí pro celý odstavec a řídí zarovnání v každém jeho řádku.
 
-Následující autonomní příklad vytvoří čtyři označená textová pole na jednom snímku. Každý odstavec obsahuje stejný text v 18, 36 a 54 bodech s různým zarovnáním písma. Používá Arial, vypíná automatické přizpůsobení a zalamování a ponechává textové rámce dostatečně velké pro jeden řádek.
+Následující samostatný příklad vytváří čtyři popsaná textová pole na jednom snímku. Každý odstavec obsahuje stejný text ve velikostech 18, 36 a 54 bodů s odlišným zarovnáním písma. Používá Arial, zakazuje automatické přizpůsobení a zalamování a udržuje textové rámy dostatečně velké pro jeden řádek.
 
 ```php
 use aspose\slides\FillType;
@@ -205,17 +205,17 @@ try {
 
 Výsledek:
 
-![Porovnání zarovnání písma (Baseline, Top, Center, Bottom) s různými velikostmi písma](font_alignment.png)
+![Porovnání zarovnání písma na základní linii, nahoře, uprostřed a dole při smíšených velikostech písma](font_alignment.png)
 
-Zarovnání písma používá metriky písma, takže viditelné hrany jednotlivých znaků se nemusí přesně shodovat. Příklad obsahuje velké písmeno i spádový znak, aby ukázal rozdíl mezi zarovnáním na základní linii a dole. Dostupnost písma a jeho náhrada, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámců, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozvržení; při porovnávání režimů používejte stejná písma a nastavení rozvržení.
+Zarovnání písma používá metriky písma, takže viditelné hrany jednotlivých znaků se nemusí přesně shodovat. Příklad zahrnuje jak velké písmeno, tak spádový znak, aby ukázal rozdíl mezi zarovnáním na základní linii a dole. Dostupnost a náhrada písma, použité znaky a rozdíl ve velikostech písma ovlivňují výsledek. Rozměry rámu, okraje, řádkování, zalamování a automatické přizpůsobení také ovlivňují rozvržení; při porovnávání režimů použijte stejná písma a nastavení rozvržení.
 
-Toto nastavení se liší od [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), které řídí horizontální zarovnání odstavce, a od [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), které vertikálně umisťuje textový blok uvnitř tvaru. Formátování horního a dolního indexu pomocí [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) posouvá jednotlivé úseky vzhledem k základní linii místo nastavení zarovnání písma pro řádky odstavce.
+Toto nastavení se liší od [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), které řídí horizontální zarovnání odstavce, a od [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), které vertikálně umisťuje textový blok uvnitř tvaru. Formátování horního a dolního indexu pomocí [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) posouvá jednotlivé části relativně k základní linii místo nastavení zarovnání písma pro řádky odstavce.
 
 ## **Nastavit průhlednost textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). V níže uvedených příkladech `alpha = 50` představuje hodnotu alfa kanálu ARGB v rozsahu 0–255, ne procento průhlednosti.
+Průhlednost textu je řízena alfa komponentou barvy přiřazené [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
-Níže uvedený příklad ukazuje, jak aplikovat průhlednost na **celý odstavec**:
+Níže uvedený ukázkový kód ukazuje, jak použít průhlednost na **celý odstavec**:
 
 ```php
 use aspose\slides\FillType;
@@ -247,7 +247,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující příklad kódu ukazuje, jak aplikovat průhlednost na **textové úseky s tučným písmem**:
+Následující ukázkový kód ukazuje, jak použít průhlednost na **části textu s tučným písmem**:
 
 ```php
 use aspose\slides\FillType;
@@ -268,7 +268,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Nastavit průhlednost textového úseku.
+            // Nastavit průhlednost části textu.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
             $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -283,13 +283,13 @@ try {
 
 Výsledek:
 
-![Průhledné textové úseky](transparent_text_portions.png)
+![Průhledné části textu](transparent_text_portions.png)
 
-## **Nastavit mezery mezi znaky v textu**
+## **Nastavit rozestup znaků v textu**
 
-Použijte [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) k rozšíření nebo stažení mezery mezi znaky v textovém poli. Příklady přidávají 3 body mezery; záporné hodnoty text stáhnou.
+Použijte [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) k rozšíření nebo zmenšení rozestupu mezi znaky v textovém poli. Příklady přidávají 3 body rozestupu; záporné hodnoty text zmenšují.
 
-Následující PHP kód ukazuje, jak rozšířit mezery mezi znaky v **celém odstavci**:
+Následující PHP kód ukazuje, jak rozšířit rozestup znaků v **celém odstavci**:
 
 ```php
 use aspose\slides\Presentation;
@@ -302,8 +302,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Poznámka: Použijte záporné hodnoty ke stažení mezery mezi znaky.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Zvětšit mezeru mezi znaky.
+    // Poznámka: Použijte záporné hodnoty ke zmenšení rozestupu znaků.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Rozšířit rozestup znaků.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -313,9 +313,9 @@ try {
 
 Výsledek:
 
-![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
+![Rozestup znaků v odstavci](character_spacing_in_paragraph.png)
 
-Níže uvedený příklad kódu ukazuje, jak rozšířit mezery mezi znaky v **textových úsecích s tučným písmem**:
+Níže uvedený ukázkový kód ukazuje, jak rozšířit rozestup znaků v **částech textu s tučným písmem**:
 
 ```php
 use aspose\slides\Presentation;
@@ -332,8 +332,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Poznámka: Použijte záporné hodnoty ke stažení mezery mezi znaky.
-            $portion->getPortionFormat()->setSpacing(3); // Zvětšit mezeru mezi znaky.
+            // Poznámka: Použijte záporné hodnoty ke zmenšení rozestupu znaků.
+            $portion->getPortionFormat()->setSpacing(3); // Rozšířit rozestup znaků.
         }
     }
 
@@ -345,13 +345,13 @@ try {
 
 Výsledek:
 
-![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
+![Rozestup znaků v částech textu](character_spacing_in_text_portions.png)
 
-### **Zakázat kerning pro konkrétní písma**
+### **Zakázat kerningu pro konkrétní písma**
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro některá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. To může nastat, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby byl výstup renderování blíže k PowerPointu, můžete pro textové úseky používající dotčené písmo zakázat kerning. Nastavte [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na hodnotu větší než skutečná velikost písma. Tento příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na prvním snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastaví prah 100 bodů pro úseky, které používají Roboto. Tím se pro úseky s velikostí písma pod 100 bodů zakáže kerning:
+Aby bylo vykreslené výstupní zobrazení podobnější PowerPointu, můžete zakázat kerning pro části textu, které používají dotčené písmo. Nastavte [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na hodnotu větší než skutečná velikost písma. Tento příklad vyžaduje soubor „presentation.pptx“ s textovým polem jako prvním tvarem na první snímku. Kontroluje efektivní názvy písem, včetně zděděných, a nastavuje práh 100 bodů pro části používající Roboto. To zakáže kerning pro odpovídající části s velikostí písma pod 100 bodů:
 
 ```php
 use aspose\slides\Presentation;
@@ -393,9 +393,9 @@ Pro text pod prahem toto nastavení zabraňuje kerningu a může pomoci sladit v
 
 ## **Spravovat vlastnosti písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) nebo na jednotlivých úsecích pomocí [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) nebo na jednotlivých částech pomocí [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
 
-Následující příklad nastaví výchozí písmo první odstavce na Times New Roman 12 bodů s tučným, kurzívovým a tečkovaným podtržením. Výslovné formátování na jednotlivých úsecích má přednost před těmito výchozími nastaveními:
+Následující příklad nastavuje výchozí písmo prvního odstavce na Times New Roman 12 bodů s tučným, kurzívovým a tečkovaným podtržením. Výslovné formátování jednotlivých částí má přednost před těmito výchozími hodnotami.
 
 ```php
 use aspose\slides\FontData;
@@ -430,7 +430,7 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Následující příklad použije Times New Roman 13 bodů, kurzívu a tečkované podtržení na úseky, jejichž efektivní formátování je tučné:
+Následující příklad aplikuje Times New Roman 13 bodů, kurzívové formátování a tečkované podtržení na části, jejichž efektivní formátování je tučné:
 
 ```php
 use aspose\slides\FontData;
@@ -451,7 +451,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Nastavit vlastnosti písma pro textový úsek.
+            // Nastavit vlastnosti písma pro část textu.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
@@ -468,15 +468,15 @@ try {
 
 Výsledek:
 
-![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
+![Vlastnosti písma pro části textu](font_properties_for_text_portions.png)
 
 ## **Ovládání normalizace výšky textu**
 
-Použijte [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) při reprodukci typografie šablony nebo zkoumání rozdílů ve výšce znaků. V PowerPointu povolení normalizace protahuje nebo stlačuje jednotlivé znaky vertikálně, aby měly jednotnou viditelnou výšku v rámci textového úseku. Nezaručuje stejnou výšku textu mezi různými písmy.
+Použijte [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) při reprodukci typografie šablony nebo zkoumání rozdílů ve výšce znaků. V PowerPointu povolení normalizace protahuje nebo stlačuje jednotlivé znaky vertikálně, aby měly jednotnou viditelnou výšku v rámci textové části. Není zaručena stejná výška textu napříč různými písmy.
 
-Nastavte vlastnost na [NullableBool::True or False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) pro explicitní povolení nebo zakázání normalizace. `NullableBool::NotDefined` ponechá místní nastavení nevyplněné, takže úsek zdědí hodnotu, například z [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) odstavce. To neznamená `False`. Použijte [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) a přečtěte `getNormaliseHeight` z vrácených efektivních formátovacích dat, abyste získali vyřešenou Booleovskou hodnotu.
+Nastavte vlastnost na [NullableBool::True nebo False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) pro explicitní povolení nebo zakázání normalizace. `NullableBool::NotDefined` ponechává místní nastavení nevyplněné, takže část dědí hodnotu, například z [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) odstavce. To neznamená `False`. Použijte [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) a přečtěte `getNormaliseHeight` v vrácených efektivních formátovacích datech, abyste získali vyřešenou Boolovskou hodnotu.
 
-Následující autonomní příklad vyžaduje nainstalovaný **Arial**. Vytvoří dva textové bloky obsahující stejná velká písmena, malá písmena, spádové a diakritické znaky ve velikosti 54 bodů. Oba odstavce mají výchozí zapnutou normalizaci. Horní úsek explicitně normalizaci vypíná; dolní úsek ji zdědí. Velikosti rámců, okraje a řádkování jsou identické, přičemž zalamování a automatické přizpůsobení jsou vypnuté, aby zůstala srovnatelnost. Příklad vypíše `False: false` a `NotDefined: true` a poté uloží soubor "text_height_normalization.pptx".
+Následující samostatný příklad vyžaduje nainstalované **Arial**. Vytvoří dva textové bloky obsahující stejná velká písmena, malá písmena, spádové znaky a diakritiku ve velikosti 54 bodů. Oba odstavce mají ve výchozím nastavení povolenou normalizaci. Horní část ji explicitně zakazuje; spodní část ji dědí. Velikosti rámců, okraje a odstavy odstavců jsou identické, s vypnutým zalamováním a automatickým přizpůsobením, aby zůstala srovnání konzistentní. Příklad vypíše `False: false` a `NotDefined: true` a poté uloží „text_height_normalization.pptx“.
 
 ```php
 use aspose\slides\FillType;
@@ -535,19 +535,19 @@ try {
 }
 ```
 
-Porovnání níže bylo exportováno ze uložené prezentace. Horní řada má normalizaci vypnutou (`False`); dolní řada zdědí zapnuté nastavení (`NotDefined` → `True`). Pro reprodukci vzhledu ponechte nainstalovaný Arial.
+Porovnání níže bylo exportováno ze uložené prezentace. Horní řada má normalizaci vypnutou (`False`); spodní řada dědí zapnuté nastavení (`NotDefined` → `True`). Pro reprodukci vzhledu ponechte nainstalované Arial.
 
-![Arial text 54 bodů s normalizací vypnutou nahoře a zděděnou normalizací zapnutou dole](text_height_normalization.png)
+![Text Arial 54 bodů s vypnutou normalizací nahoře a zděděnou zapnutou normalizací dole](text_height_normalization.png)
 
-Normalizace mění výšku znaků bez změny přiřazené hodnoty [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight), která určuje velikost písma v bodech. Odstavec [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) řídí řádkování, zatímco textový rám [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text nebo jeho kontejner přizpůsobí. Tato nastavení slouží různým účelům a mohou nezávisle ovlivnit celkové rozvržení. Více o formátování odstavců a dědičnosti najdete v [Spravovat odstavec](/slides/cs/php-java/manage-paragraph/).
+Normalizace mění výšku znaků, aniž by měnila přiřazenou hodnotu [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight), která udává velikost písma v bodech. Odstavec [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) řídí řádkování, zatímco [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) řídí, jak se text nebo jeho kontejner přizpůsobuje tak, aby se vešel. Tato nastavení slouží různým účelům a mohou nezávisle ovlivnit celkové rozvržení. Více o formátování odstavců a dědičnosti naleznete v [Spravovat odstavec](/slides/cs/php-java/manage-paragraph/).
 
 ## **Použít a odstranit přeškrtnutí**
 
-Použijte [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) na textovém úseku k zobrazení oprav, zrušených výrazů nebo předchozích cen, aniž byste smazali původní text. Nastavte na [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) pro jednu nebo dvě čáry přes text.
+Použijte [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) na část textu k zobrazení oprav, zrušených výrazů nebo původních cen bez smazání původního textu. Nastavte ji na [TextStrikethroughType::Single nebo Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) pro jednu nebo dvě čáry přes text.
 
-Pro odstranění přeškrtnutí předávejte [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). Toto explicitně zakáže efekt, i když okolní formátování specifikuje přeškrtnutí. Naopak [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) ponechá místní nastavení nevymezené, což umožňuje úseku zdědit formátování, například z odstavce. Nezaručuje, že bude přeškrtnutí odstraněno. Použijte [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) k přečtení výsledného formátování, včetně zděděných hodnot.
+Pro odstranění přeškrtnutí předávejte [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). Tím se efekt explicitně zakáže, i když okolní formátování určuje přeškrtnutí. Naopak [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) nechává místní nastavení nedefinované, což umožňuje části zdědit formátování, například z odstavce. To nezaručuje, že přeškrtnutí bude odstraněno. Použijte [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) k přečtení výsledného formátování, včetně zděděných hodnot.
 
-Následující autonomní příklad vytvoří tři srovnání cen. Každý odstavec má samostatné úseky pro popisek, předchozí cenu a aktuální cenu, takže pouze předchozí cena je ovlivněna. První řada aplikuje a poté odstraní přeškrtnutí; ostatní řady zachovávají jednoduché a dvojité přeškrtnutí. Změna tohoto nastavení zachovává text a jeho ostatní formátování, včetně tučné předchozí ceny.
+Následující samostatný příklad vytváří tři srovnání cen. Každý odstavec má samostatné části pro popisek, původní cenu a aktuální cenu, takže je ovlivněna pouze původní cena. V první řadě se přeškrtnutí použije a pak odstraní; ostatní řady zachovávají jednoduché a dvojité přeškrtnutí. Změna tohoto nastavení zachovává text a jeho další formátování, včetně tučné původní ceny.
 
 ```php
 use aspose\slides\FillType;
@@ -599,7 +599,7 @@ try {
 
     $paragraphs = $shape->getTextFrame()->getParagraphs();
 
-    // Aplikovat přeškrtnutí a pak jej explicitně odstranit z první předchozí ceny.
+    // Použít přeškrtnutí, pak jej explicitně odstranit z první předchozí ceny.
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
 
@@ -612,15 +612,15 @@ try {
 }
 ```
 
-Výsledek, shora dolů: žádné přeškrtnutí, jednoduché přeškrtnutí a dvojité přeškrtnutí.
+Výsledek, shora dolů: bez přeškrtnutí, jednoduché přeškrtnutí a dvojité přeškrtnutí.
 
-![Předchozí ceny bez přeškrtnutí, s jednoduchým přeškrtnutím a s dvojitým přeškrtnutím](strikethrough.png)
+![Předchozí ceny bez přeškrtnutí, s jedním přeškrtnutím a s dvojitým přeškrtnutím](strikethrough.png)
 
-## **Nastavit otočení textu**
+## **Nastavit rotaci textu**
 
 Použijte [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) k nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující ukázka kódu nastaví orientaci textu v tvaru na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující ukázkový kód nastavuje orientaci textu v tvaru na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```php
 use aspose\slides\Presentation;
@@ -642,13 +642,71 @@ try {
 
 Výsledek:
 
-![Otočení textu](text_rotation.png)
+![Rotace textu](text_rotation.png)
 
-## **Nastavit vlastní otočení pro textové rámce**
+## **Zobrazit číslice vedle sebe ve vertikálním textu**
 
-Použijte [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) k nastavení vlastního úhlu otočení pro [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+Aby byl dvouciferný údaj v japonském vertikálním popisku udržet pohromadě, vložte obě číslice do jedné textové části a zavolejte [BasePortionFormat::setKumimoji](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKumimoji) na tuto část. Příklad používá [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical) a 40‑bodové MS Gothic pro oba popisky. Pouze hodnota [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) předaná číselné části se liší.
 
-Níže uvedený příklad otáčí textový rám o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $x = 120;
+
+    foreach ([NullableBool::True, NullableBool::False] as $kumimoji) {
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, 48, 120, 420);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $frame = $label->addTextFrame("");
+        $frame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::EastAsianVertical);
+
+        $paragraph = $frame->getParagraphs()->get_Item(0);
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $font = new FontData("MS Gothic");
+        $format->setLatinFont($font);
+        $format->setEastAsianFont($font);
+        $format->setFontHeight(40);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        $digits = new Portion("12");
+        $digits->getPortionFormat()->setKumimoji($kumimoji);
+
+        $portions = $paragraph->getPortions();
+        $portions->clear();
+        $portions->add(new Portion("令和"));
+        $portions->add($digits);
+        $portions->add(new Portion("年"));
+
+        $x += 240;
+    }
+    $presentation->save("vertical_date.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+V PowerPointu levý popisek (`True`) zobrazuje číslice svisle a vedle sebe mezi 和 a 年. Pravý popisek (`False`) otáčí dvojici o 90 stupňů po směru hodinových ručiček. Obklopující japonské znaky zůstávají svislé v obou popiscích.
+
+![Porovnání vertikálních datumových štítků v PowerPointu s svislými číslicemi vlevo a otočenými číslicemi vpravo](vertical_date.png)
+
+## **Nastavit vlastní rotaci pro textové rámce**
+
+Použijte [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) k nastavení vlastní úhlu rotace pro [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+
+Níže uvedený ukázkový kód otáčí textový rám o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```php
 use aspose\slides\Presentation;
@@ -669,16 +727,16 @@ try {
 
 Výsledek:
 
-![Vlastní otočení textu](custom_text_rotation.png)
+![Vlastní rotace textu](custom_text_rotation.png)
 
 ## **Nastavit řádkování odstavců**
 
-Aspose.Slides poskytuje [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) a [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) k řízení řádkování odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) a [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) k řízení odstupů odstavců. Tyto vlastnosti se používají následovně:
 
-* Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
+* Použijte kladnou hodnotu k určení řádkování jako procento výšky řádku.  
 * Použijte zápornou hodnotu k určení řádkování v bodech.
 
-Následující příklad nastaví mezery uvnitř prvního odstavce na 200 % výšky řádku (dvojité řádkování):
+Následující příklad nastavuje rozestup uvnitř prvního odstavce na 200 % výšky řádku (dvojité řádkování):
 
 ```php
 use aspose\slides\Presentation;
@@ -705,14 +763,14 @@ Výsledek:
 
 ## **Ovládání zalamování řádků**
 
-Pravidla zalamování řádků odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinské a východoasijské texty. Následující metody patří do [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/), takže se vztahují na celý odstavec:
+Pravidla zalamování řádku odstavce jsou užitečná v úzkých textových blocích a prezentacích, které kombinují latinské a východoasijské texty. Následující metody patří do [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/), takže se aplikují na celý odstavec:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) řídí pravidla zalamování latinského textu. Ve směsovaném textu jeho změna může také změnit, kde se zalamuje sousední východoasijský text a interpunkce.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) řídí pravidla zalamování východoasijského textu, včetně omezení znaků na začátku a konci řádku.
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) řídí pravidla zalamování latinského textu. Ve smíšeném textu změna může také změnit, kde se zalamují sousední východoasijské znaky a interpunkce.  
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) řídí pravidla zalamování východoasijského textu, včetně omezení pro znaky na začátku a konci řádku.
 
-Tato pravidla nenahrazují [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), které povoluje automatické zalamování v textovém rámci. Ovlivňují rozvržení, když k zalamování dochází; nevkládají znaky konce řádku. Výslovné zalomení řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
+Tato pravidla nenahrazují [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), které umožňuje automatické zalamování v textovém rámci. Ovlivňují rozvržení, když k zalamování dochází; nevkládají znaky konce řádku. Explicitní konec řádku vynutí nový řádek v odstavci nezávisle na dostupné šířce.
 
-Následující autonomní příklad vytvoří úzký textový blok obsahující čínštinu a latinku. Explicitně nastaví obě možnosti zalamování a uloží soubor "line_breaking.pptx". Pro experimentování s libovolným pravidlem změňte odpovídající hodnotu při zachování ostatních nastavení. Příklad používá 24‑bodové Arial a SimSun s šířkou rámce 160 bodů a nulovými vodorovnými okraji textového rámu. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) je voláno s [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), aby zůstala velikost textu a rozměry rámce pevné.
+Následující samostatný příklad vytváří úzký textový blok obsahující čínštinu a latinku. Explicitně nastaví obě možnosti zalamování a uloží „line_breaking.pptx“. Pro experimentování s libovolným pravidlem změňte odpovídající hodnotu při zachování ostatních nastavení. Příklad používá 24‑bodové Arial a SimSun s šířkou rámu 160 bodů a nulovými horizontálními okraji textového rámu. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) je voláno s [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), aby velikost textu a rozměry rámu zůstaly pevné.
 
 ```php
 use aspose\slides\FillType;
@@ -759,11 +817,11 @@ try {
 }
 ```
 
-## **Ovládání visící interpunkce**
+## **Ovládání zavěšené interpunkce**
 
-[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) umožňuje oprávněné interpunkci přesahovat pravý okraj řádku textu místo aby zabírala další řádek. Používá se pro celý odstavec a liší se od visícího odsazení.
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) umožňuje oprávněné interpunkci vystoupit za pravý okraj textového řádku místo aby zabírala následující řádek. Používá se pro celý odstavec a liší se od zavěšeného odsazení.
 
-Následující autonomní příklad povoluje visící interpunkci v 100‑bodovém širokém textovém rámci a uloží soubor "hanging_punctuation.pptx". S 24‑bodovým Arial a nulovými vodorovnými okraji textového rámu zůstane poslední tečka po slově „sentence“ a přesáhne pravý okraj textu. Nastavte vlastnost na [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) pro porovnání: s tímto nastavením tečka zabírá samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je vypnuto, aby zůstala šířka pevná.
+Následující samostatný příklad povoluje zavěšenou interpunkci v 100‑bodovém širokém textovém rámci a uloží „hanging_punctuation.pptx“. S 24‑bodovým Arial a nulovými horizontálními okraji textového rámu zůstává poslední tečka po slově „sentence“ a přesahuje pravý okraj textu. Nastavte vlastnost na [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) pro porovnání: s tímto nastavením tečka zabírá samostatný řádek. Zalamování je povoleno a automatické přizpůsobení je zakázáno, aby byla šířka pevná.
 
 ```php
 use aspose\slides\FillType;
@@ -807,11 +865,11 @@ try {
 }
 ```
 
-Ne každá interpunkční značka může viset. [písmo a rozložení podmínky popsané výše](#control-line-breaking) také platí pro toto srovnání: změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může rozdíl odstranit.
+Ne každá interpunkční značka může zavěsit. [Podmínky písma a rozvržení popsané výše](#control-line-breaking) se také vztahují na toto srovnání: změna písma, dostupné šířky, okrajů nebo nastavení automatického přizpůsobení může odstranit viditelný rozdíl.
 
 ## **Nastavit typ automatického přizpůsobení pro textové rámce**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přetéká nebo automaticky mění velikost tvaru. Následující příklad konfiguruje tvar tak, aby se změnil velikost a vešel do textu, a výsledek uloží do souboru "autofit_type.pptx".
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přetéká nebo automaticky mění velikost tvaru. Následující příklad konfiguruje tvar tak, aby se změnil tak, aby text pasoval, a uloží výsledek do „autofit_type.pptx“.
 
 ```php
 use aspose\slides\Presentation;
@@ -831,11 +889,11 @@ try {
 }
 ```
 
-Pro spočítání řádků po automatickém zalamování a zjištění, jak se mění šířka textu nebo tvar, viz [Počítání vykreslených řádků](/slides/cs/php-java/manage-paragraph/). Pouze počet řádků neindikují, zda text přesahuje svůj kontejner.
+Pro spočítání řádků po automatickém zalomení a zjištění, jak změna šířky textu nebo tvaru výsledek ovlivní, viz [Počítání vykreslených řádků](/slides/cs/php-java/manage-paragraph/). Pouze počet řádků neurčuje, zda text přesahuje svůj kontejner.
 
-## **Nastavit ukotvení textových rámců**
+## **Nastavit kotev textových rámců**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke dnu prvního tvaru a uloží výsledek do souboru "text_anchor.pptx".
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) definuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole. Následující příklad ukotví text ke dnu prvního tvaru a uloží výsledek do „text_anchor.pptx“.
 
 ```php
 use aspose\slides\Presentation;
@@ -857,7 +915,7 @@ try {
 
 ## **Nastavit tabulaci textu**
 
-Použijte [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) a [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) k nastavení tabulátorů v odstavci. Následující příklad nastaví výchozí tabulátor na 100 bodů a přidá levý zarovnaný tabulátor na 30 bodů. Tato nastavení ovlivňují text obsahující tabulátory.
+Použijte [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) a [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) k nastavení tabulátorů v odstavci. Následující příklad nastavuje výchozí interval tabulátoru na 100 bodů a přidává levý zarovnaný tabulátor na 30 bodů. Tato nastavení ovlivňují text obsahující znak tabulátoru.
 
 ```php
 use aspose\slides\Presentation;
@@ -886,9 +944,9 @@ Výsledek:
 
 ## **Nastavit jazyk kontroly pravopisu**
 
-Aspose.Slides poskytuje [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId), který umožňuje nastavit jazyk kontroly pravopisu pro textový úsek. Jazyk kontroly pravopisu určuje jazyk použitý pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId), který umožňuje nastavit jazyk kontroly pravopisu pro část textu. Jazyk kontroly určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
 
-Následující příklad vyžaduje soubor "presentation.pptx" s textovým polem jako prvním tvarem na prvním snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem "1。", nastaví SimSun jako písmo a přiřadí zjednodušenou čínštinu jako jazyk kontroly pravopisu (`zh-CN`). Výsledek uloží do souboru "proofing_language.pptx":
+Následující příklad vyžaduje soubor „presentation.pptx“ s textovým polem jako prvním tvarem na první snímku a alespoň jedním odstavcem. Nahrazuje obsah prvního odstavce textem „1。」“, nastaví písmo SimSun a přiřadí jazyk kontroly zjednodušené čínštiny (`zh-CN`). Uloží výsledek do „proofing_language.pptx“:
 
 ```php
 use aspose\slides\FontData;
@@ -912,7 +970,7 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Nastavit Id jazyka pro kontrolu pravopisu.
+    // Nastavit Id jazykové kontroly.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
     $textPortion->setText("1。");
@@ -924,9 +982,9 @@ try {
 }
 ```
 
-### **Kopírovat metadata jazyka**
+### **Kopírovat jazyková metadata**
 
-Při kopírování vícejazyčného textu z šablony zachovejte jak [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), tak [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Následující autonomní příklad vytvoří zdrojový úsek s US English jako jazykem a francouzštinou jako alternativním jazykem a zkopíruje text a identifikátory do úseku v nové prezentaci.
+Při kopírování vícejazyčného textu ze šablony zachovejte jak [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), tak [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Následující samostatný příklad vytváří zdrojovou část s US English jako jejím jazykem a French jako alternativním jazykem a kopíruje text a identifikátory do části v nové prezentaci.
 
 ```php
 use aspose\slides\Portion;
@@ -959,13 +1017,13 @@ try {
 }
 ```
 
-Pro vyzkoušení zdroje bez alternativního jazyka vynechte přiřazení `"fr-FR"`. Alternativní identifikátor bude poté `null` a stejný příkaz kopírování zachová jeho nepřítomnost, aniž by zaváděl výchozí hodnotu, i když cíl dříve měl alternativní jazyk přiřazený.
+Pro vyzkoušení zdroje bez alternativního jazyka vynechte přiřazení „fr-FR“. Alternativní identifikátor bude pak `null` a stejný příkaz kopírování zachová jeho nepřítomnost bez zavedení výchozí hodnoty, i když cílový objekt dříve měl alternativní jazyk nastaven.
 
-Tyto identifikátory jsou uloženy jako jazyková metadata. Zachování těchto informací neznamená, který slovník PowerPoint vybere pro kontrolu pravopisu nebo gramatiky.
+Tyto identifikátory jsou uloženy jako jazyková metadata. Jejich zachování neurčuje, který slovník PowerPoint vybere pro kontrolu pravopisu nebo gramatiky.
 
 ## **Nastavit výchozí jazyk**
 
-Použijte [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) k definování výchozího jazyka pro text vytvořený při načítání nebo vytváření prezentace. Následující příklad vytvoří prezentaci s US English jako výchozím jazykem textu, přidá textové pole a vytiskne `en-US` pro první textový úsek.
+Použijte [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace. Následující příklad vytváří prezentaci s US English jako výchozím jazykem textu, přidá textové pole a vypíše `en-US` pro jeho první část textu.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -979,11 +1037,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add a new rectangle shape with text.
+    // Přidat nový obdélníkový tvar s textem.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Check the first portion language.
+    // Zkontrolovat jazyk první části.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -995,7 +1053,7 @@ try {
 
 Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Následující příklad nastaví 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a uloží jej do souboru "default_text_style.pptx". Text může tato výchozí nastavení zdědit, pokud je nepřepisuje konkrétnější formátování.
+Následující příklad nastavuje 14‑bodové tučné písmo jako výchozí pro odstavce nejvyšší úrovně v nové prezentaci a ukládá ji jako „default_text_style.pptx“. Text může tato výchozí nastavení dědit, pokud není přepsáno konkrétnějším formátováním.
 
 ```php
 use aspose\slides\NullableBool;
@@ -1018,15 +1076,15 @@ try {
 }
 ```
 
-## **Extrahovat text s efektem Všech velkých písmen**
+## **Extrahovat text s efektem VŠECH KAPITÁLEK**
 
-V PowerPointu aplikace efektu **All Caps** způsobí, že text vypadá na snímku velkými písmeny, i když byl původně zadán malými. Při načtení takového textového úseku pomocí Aspose.Slides knihovna vrátí text přesně tak, jak byl zadán. Pro zobrazení stejného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) a při hodnotě `All` převedete vrácený řetězec na velká písmena.
+V PowerPointu aplikace efekt **All Caps** (všechny kapitálky) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Když takovou část textu získáte pomocí Aspose.Slides, knihovna vrací text přesně tak, jak byl zadán. Pro získání zobrazeného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) a převádějte vrácený řetězec na velká písmena, pokud je hodnota `All`.
 
-Tento příklad vyžaduje soubor "sample2.pptx" s textovým polem jako prvním tvarem na prvním snímku. První odstavec jeho prvního úseku obsahuje "Hello, Aspose!" s aplikovaným efektem All Caps, jak je zobrazeno níže.
+Tento příklad vyžaduje soubor „sample2.pptx“ s textovým polem jako prvním tvarem na první snímku. První část prvního odstavce obsahuje „Hello, Aspose!“ s aplikovaným efektem VŠECH KAPITÁLEK, jak je znázorněno níže.
 
-![Efekt Všech velkých písmen](all_caps_effect.png)
+![Efekt VŠECH KAPITÁLEK](all_caps_effect.png)
 
-Níže uvedený příklad ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Níže uvedený ukázkový kód ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```php
 use aspose\slides\Presentation;
@@ -1061,10 +1119,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Jak upravit text v tabulce na snímku?**
+**Jak mohu upravit text v tabulce na snímku?**
 
 Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) a formátování odstavců pomocí [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Jak použít gradientovou barvu na text v PowerPoint prezentaci?**
+**Jak mohu použít gradientovou barvu na text na snímku PowerPoint?**
 
 Pro aplikaci gradientové barvy na text použijte [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). Nastavte [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) na [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) a nakonfigurujte gradientové zastávky, směr a průhlednost.

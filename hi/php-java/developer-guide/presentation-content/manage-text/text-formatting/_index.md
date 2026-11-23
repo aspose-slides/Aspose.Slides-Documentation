@@ -1,47 +1,47 @@
 ---
-title: PHP में प्रस्तुति पाठ को स्वरूपित करें
-linktitle: पाठ स्वरूपण
+title: PHP में प्रस्तुति टेक्स्ट को फ़ॉर्मेट करें
+linktitle: टेक्स्ट फ़ॉर्मेटिंग
 type: docs
 weight: 50
 url: /hi/php-java/text-formatting/
 keywords:
 - पैराग्राफ संरेखित करें
-- पाठ शैली
-- पाठ पृष्ठभूमि
-- पाठ पारदर्शिता
+- टेक्स्ट शैली
+- टेक्स्ट पृष्ठभूमि
+- टेक्स्ट पारदर्शिता
 - अक्षर अंतराल
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- पाठ घूर्णन
-- घूर्णन कोण
-- पाठ फ्रेम
-- पंक्ति अंतराल
-- ऑटॉफिट गुण
-- पाठ फ्रेम एंकर
-- पाठ टैबुलेशन
+- टेक्स्ट रोटेशन
+- रोटेशन कोण
+- टेक्स्ट फ्रेम
+- लाइन स्पेसिंग
+- ऑटॉफ़िट गुण
+- टेक्स्ट फ्रेम एंकर
+- टेक्स्ट टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण, और अधिक को कस्टमाइज़ करें।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-यह लेख दिखाता है कि Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को कैसे स्वरूपित किया जाए। इसमें पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घूर्णन, पैराग्राफ अंतराल, ऑटॉफिट व्यवहार, पाठ एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स शामिल हैं।
+यह लेख दिखाता है कि Aspose.Slides for PHP via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को कैसे फ़ॉर्मेट किया जाए। इसमें बैकग्राउंड रंग, पारदर्शिता, कैरेक्टर स्पेसिंग, फ़ॉन्ट गुण, घुमाव, पैराग्राफ स्पेसिंग, ऑटॉफ़िट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स को कवर किया गया है।
 
-जब तक अन्यथा न कहा गया हो, उदाहरणों में [sample.pptx](sample.pptx) का उपयोग किया जाता है। उसकी पहली स्लाइड पर पहला शेप एक टेक्स्ट बॉक्स है, और उसके पहले पैराग्राफ में नीचे दिखाया गया पाठ है। स्लाइड और शेप दोनों के सूचकांक शून्य-आधारित हैं। बोल्ड भागों का चयन करने वाले उदाहरण प्रभावी स्वरूपण का उपयोग करते हैं, जिसमें विरासत में मिला बोल्ड स्वरूपण भी शामिल है:
+जब तक अन्यथा उल्लेख न किया गया हो, उदाहरण [sample.pptx](sample.pptx) का प्रयोग करते हैं। उसकी पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है, और उसका पहला पैराग्राफ नीचे दिखाए गए टेक्स्ट को शामिल करता है। स्लाइड और आकार दोनों के इंडेक्स शून्य‑आधारित होते हैं। बोल्ड भागों को चुनने वाले उदाहरण प्रभावी फ़ॉर्मेटिंग का उपयोग करते हैं, जिसमें विरासत में प्राप्त बोल्ड फ़ॉर्मेटिंग भी शामिल है:
 
-![नमूना पाठ](sample_text.png)
+![नमूना टेक्स्ट](sample_text.png)
 
-शाब्दिक पाठ या रेगुलर‑एक्सप्रेशन मिलानों को खोजने और हाइलाइट करने के लिए, देखें [पाठ खोजें और बदलें](/slides/hi/php-java/search-and-replace-text/)।
+शाब्दिक टेक्स्ट या नियमित अभिव्यक्ति मेलों को खोजने और हाइलाइट करने के लिए देखें [टेक्स्ट खोजें और बदलें](/slides/hi/php-java/search-and-replace-text/)।
 
-## **पाठ पृष्ठभूमि रंग सेट करें**
+## **टेक्स्ट बैकग्राउंड रंग सेट करें**
 
-डिफ़ॉल्ट पैराग्राफ हाइलाइट रंग सेट करने के लिए [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) का उपयोग करें, या व्यक्तिगत पाठ भागों के लिए [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) का उपयोग करें।
+एक पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने के लिए [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) का उपयोग करें।
 
-निम्न उदाहरण पहले पैराग्राफ के लिए डिफ़ॉल्ट रूप से हल्का ग्रे हाइलाइट सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाइलाइट रंग इस डिफ़ॉल्ट पर प्राथमिकता लेता है:
+निम्न उदाहरण पहले पैराग्राफ के लिए हल्के ग्रे हाइलाइट को डिफ़ॉल्ट के रूप में सेट करता है। व्यक्तिगत भागों पर स्पष्ट हाइलाइट रंग इस डिफ़ॉल्ट को ओवरराइड करेंगे:
 
 ```php
 use aspose\slides\Presentation;
@@ -68,7 +68,7 @@ try {
 
 ![ग्रे पैराग्राफ](gray_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण दिखाता है कि **बोल्ड फ़ॉन्ट** वाले **पाठ भागों** के लिए पृष्ठभूमि रंग कैसे सेट किया जाए:
+निम्न कोड उदाहरण दर्शाता है कि **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** के लिए बैकग्राउंड रंग कैसे सेट किया जाता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -86,8 +86,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-                // टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
-                $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
+        // टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -99,11 +99,11 @@ try {
 
 परिणाम:
 
-![ग्रे पाठ भाग](gray_text_portions.png)
+![ग्रे टेक्स्ट भाग](gray_text_portions.png)
 
-## **पाठ पैराग्राफ संरेखित करें**
+## **टेक्स्ट पैराग्राफ संरेखित करें**
 
-टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, बराबर‑बांटा आदि हो सकते हैं।
+टेक्स्ट फ़्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, समान‑झुका आदि हो सकता है।
 
 निम्न कोड उदाहरण दिखाता है कि पैराग्राफ को **केंद्र** में कैसे संरेखित किया जाए:
 
@@ -119,7 +119,7 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // पैराग्राफ की संरेखण को केंद्र में सेट करें।
+    // पैराग्राफ का संरेखण केंद्र में सेट करें.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -132,11 +132,11 @@ try {
 
 ![संरेखित पैराग्राफ](aligned_paragraph.png)
 
-## **रेखा के भीतर फ़ॉन्ट संरेखित करें**
+## **लाइन के भीतर फ़ॉन्ट संरेखित करें**
 
-विभिन्न फ़ॉन्ट आकार के पाठ भागों को एक रेखा के भीतर लंबवत संरेखित करने के लिए [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) का उपयोग करें। यह सेटिंग पूरे पैराग्राफ पर लागू होती है और उसकी प्रत्येक रेखा के भीतर संरेखण को नियंत्रित करती है।
+विभिन्न फ़ॉन्ट आकार वाले टेक्स्ट भागों को लाइन में लंबवत संरेखित करने के लिए [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) का उपयोग करें। यह सेटिंग पूरे पैराग्राफ पर लागू होती है और प्रत्येक लाइन के भीतर संरेखण को नियंत्रित करती है।
 
-निम्न स्वतंत्र उदाहरण एक ही स्लाइड पर चार लेबल वाले टेक्स्ट बॉक्स बनाता है। प्रत्येक पैराग्राफ में 18, 36 और 54 पॉइंट के समान पाठ होते हैं, अलग‑अलग फ़ॉन्ट संरेखन के साथ। यह Arial का उपयोग करता है, ऑटॉफिट और रैपिंग को निष्क्रिय करता है, और टेक्स्ट फ्रेम को एकल रेखा के लिए पर्याप्त बड़ा रखता है।
+निम्न स्व-समावेशी उदाहरण एक स्लाइड पर चार लेबल वाले टेक्स्ट बॉक्स बनाता है। प्रत्येक पैराग्राफ में 18, 36 और 54 पॉइंट का समान टेक्स्ट होता है, लेकिन फ़ॉन्ट संरेखण अलग‑अलग होता है। यह Arial का उपयोग करता है, ऑटॉफ़िट और व्रैपिंग को निष्क्रिय करता है, और टेक्स्ट फ़्रेम को केवल एक लाइन के लिये पर्याप्त बड़ा रखता है।
 
 ```php
 use aspose\slides\FillType;
@@ -205,17 +205,17 @@ try {
 
 परिणाम:
 
-![Baseline, Top, Center, Bottom फ़ॉन्ट संरेखण का मिश्रित फ़ॉन्ट आकारों के साथ तुलना](font_alignment.png)
+![Baseline, Top, Center, और Bottom फ़ॉन्ट संरेखण की तुलना (मिश्रित फ़ॉन्ट आकार के साथ)](font_alignment.png)
 
-फ़ॉन्ट संरेखण फ़ॉन्ट मीट्रिक पर आधारित होता है, इसलिए व्यक्तिगत अक्षरों के दृश्य किनारे बिल्कुल मेल नहीं खा सकते। उदाहरण में एक बड़े अक्षर और एक नीचे की ओर जाने वाला अक्षर दोनों शामिल हैं ताकि बेसलाइन और बॉटम संरेखन के अंतर को दिखाया जा सके। फ़ॉन्ट उपलब्धता और प्रतिस्थापन, उपयोग किए गए अक्षर, तथा फ़ॉन्ट आकारों के अंतर भी परिणाम को प्रभावित करते हैं। फ्रेम आयाम, मार्जिन, रेखा अंतराल, रैपिंग और ऑटॉफिट भी लेआउट को प्रभावित करते हैं; मोड की तुलना करते समय समान फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+फ़ॉन्ट संरेखण फ़ॉन्ट मीट्रिक्स पर आधारित होता है, इसलिए व्यक्तिगत अक्षरों की दृश्य किनारे पूरी तरह से मेल नहीं भी खा सकते। उदाहरण में एक बड़ा अक्षर और एक डिसेंडर दोनों शामिल हैं ताकि बेसलाइन और बॉटम संरेखण में अंतर स्पष्ट हो सके। फ़ॉन्ट उपलब्धता, प्रतिस्थापन, उपयोग किए गए अक्षर, और फ़ॉन्ट आकार में अंतर परिणाम को प्रभावित करते हैं। फ़्रेम आयाम, मार्जिन, लाइन स्पेसिंग, व्रैपिंग और ऑटॉफ़िट भी लेआउट को प्रभावित करते हैं; मोड की तुलना करते समय समान फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
 
-यह सेटिंग [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) से अलग है, जो क्षैतिज पैराग्राफ संरेखण को नियंत्रित करती है, तथा [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) से भी अलग है, जो शेप के भीतर टेक्स्ट ब्लॉक को लंबवत स्थित करता है। [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) के माध्यम से सुपरस्क्रिप्ट और सबस्क्रिप्ट स्वरूपण व्यक्तिगत भागों को बेसलाइन के सापेक्ष शिफ्ट करता है, न कि पैराग्राफ की रेखाओं के लिए फ़ॉन्ट संरेखन सेट करता है।
+यह सेटिंग [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) (जो क्षैतिज पैराग्राफ संरेखण को नियंत्रित करता है) और [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) (जो आकार के भीतर टेक्स्ट ब्लॉक को लंबवत स्थित करता है) से अलग है। [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) का उपयोग करके लागू किए गए सुपरस्क्रिप्ट और सबस्क्रिप्ट फ़ॉर्मेटिंग व्यक्तिगत भागों को बेसलाइन के सापेक्ष शिफ्ट करती है, न कि पैराग्राफ की लाइनों के लिए फ़ॉन्ट संरेखण सेट करती है।
 
-## **पाठ की पारदर्शिता सेट करें**
+## **टेक्स्ट की पारदर्शिता सेट करें**
 
-पाठ की पारदर्शिता को [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) को सौंपे गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे दिए गए उदाहरणों में `alpha = 50` 0‑255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
+टेक्स्ट पारदर्शिता को [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) को असाइन किए गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे दिए उदाहरणों में `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-निम्न कोड उदाहरण दिखाता है कि **पूरे पैराग्राफ** पर पारदर्शिता कैसे लागू की जाए:
+निम्न कोड उदाहरण दिखाता है कि **पूरे पैराग्राफ** पर कैसे पारदर्शिता लागू की जाए:
 
 ```php
 use aspose\slides\FillType;
@@ -232,7 +232,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // टेक्स्ट का फिल कलर पारदर्शी रंग पर सेट करें।
+    // टेक्स्ट का फ़िल रंग पारदर्शी रंग पर सेट करें.
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -247,7 +247,7 @@ try {
 
 ![पारदर्शी पैराग्राफ](transparent_paragraph.png)
 
-निम्न कोड उदाहरण दिखाता है कि **बोल्ड फ़ॉन्ट** वाले **पाठ भागों** पर पारदर्शिता कैसे लागू की जाए:
+निम्न कोड उदाहरण दिखाता है कि **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** पर कैसे पारदर्शिता लागू की जाए:
 
 ```php
 use aspose\slides\FillType;
@@ -268,7 +268,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // टेक्स्ट भाग की पारदर्शिता सेट करें।
+            // टेक्स्ट भाग की पारदर्शिता सेट करें.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
             $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -283,13 +283,13 @@ try {
 
 परिणाम:
 
-![पारदर्शी पाठ भाग](transparent_text_portions.png)
+![पारदर्शी टेक्स्ट भाग](transparent_text_portions.png)
 
-## **पाठ के लिए अक्षर अंतराल सेट करें**
+## **टेक्स्ट के लिए कैरेक्टर स्पेसिंग सेट करें**
 
-[BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) का उपयोग करके टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को बढ़ाया या घटाया जा सकता है। नीचे के उदाहरण 3 पॉइंट अंतराल जोड़ते हैं; नकारात्मक मान पाठ को संकुचित करेंगे।
+टेक्स्ट बॉक्स में अक्षरों के बीच की स्पेसिंग को विस्तारित या संकुचित करने के लिए [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) का उपयोग करें। उदाहरण 3 पॉइंट की स्पेसिंग जोड़ते हैं; नकारात्मक मान टेक्स्ट को संकुचित करेंगे।
 
-निम्न PHP कोड दिखाता है कि **पूरे पैराग्राफ** में अक्षर अंतराल कैसे बढ़ाया जाए:
+निम्न PHP कोड दिखाता है कि **पूरे पैराग्राफ** में कैरेक्टर स्पेसिंग को कैसे विस्तारित किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -302,8 +302,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // ध्यान दें: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
+    // नोट: कैरेक्टर स्पेसिंग को संकुचित करने के लिये नकारात्मक मान उपयोग करें.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // कैरेक्टर स्पेसिंग बढ़ाएँ.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -313,9 +313,9 @@ try {
 
 परिणाम:
 
-![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
+![पैराग्राफ में कैरेक्टर स्पेसिंग](character_spacing_in_paragraph.png)
 
-निम्न कोड उदाहरण दिखाता है कि **बोल्ड फ़ॉन्ट** वाले **पाठ भागों** में अक्षर अंतराल कैसे बढ़ाया जाए:
+निम्न कोड उदाहरण दर्शाता है कि **बोल्ड फ़ॉन्ट** वाले **टेक्स्ट भागों** में कैरेक्टर स्पेसिंग को कैसे विस्तारित किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -332,8 +332,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-            $portion->getPortionFormat()->setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
+            // नोट: कैरेक्टर स्पेसिंग को संकुचित करने के लिये नकारात्मक मान उपयोग करें.
+            $portion->getPortionFormat()->setSpacing(3); // कैरेक्टर स्पेसिंग बढ़ाएँ.
         }
     }
 
@@ -345,13 +345,13 @@ try {
 
 परिणाम:
 
-![पाठ भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
+![टेक्स्ट भागों में कैरेक्टर स्पेसिंग](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट के लिए केरनिंग निष्क्रिय करें**
+### **विशिष्ट फ़ॉन्ट के लिए करनिंग निष्क्रिय करें**
 
-कभी‑कभी Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखने वाले पाठ से थोड़ा अधिक कसकर दिखाई देता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट के लिए केरनिंग डेटा को अनदेखा करता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखाए गए समान टेक्स्ट से थोड़ा अधिक कसकर लग सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट के लिए करनिंग डेटा को अनदेखा कर देता है, भले ही फ़ॉन्ट में वैध करनिंग जानकारी हो और PowerPoint सेटिंग्स में करनिंग सक्षम हो।
 
-ऐसे मामलों में रेंडर आउटपुट को PowerPoint के करीब लाने के लिए, आप उन पाठ भागों के लिए केरनिंग निष्क्रिय कर सकते हैं जो प्रभावित फ़ॉन्ट का उपयोग करते हैं। [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) को वास्तविक फ़ॉन्ट आकार से बड़ा मान सेट करें। यह उदाहरण पहले स्लाइड के पहले शेप पर टेक्स्ट बॉक्स वाले "presentation.pptx" की आवश्यकता रखता है। यह प्रभावी फ़ॉन्ट नामों को जांचता है, जिसमें विरासत में मिले फ़ॉन्ट शामिल हैं, और Roboto उपयोग करने वाले भागों के लिए 100‑पॉइंट थ्रेशहोल्ड सेट करता है। यह 100 पॉइंट से कम फ़ॉन्ट आकार वाले मिलते‑जुलते भागों के लिए केरनिंग निष्क्रिय कर देता है:
+ऐसे मामलों में PowerPoint के अधिक निकट रेंडरिंग प्राप्त करने के लिए, आप उन टेक्स्ट भागों के लिए करनिंग निष्क्रिय कर सकते हैं जो प्रभावित फ़ॉन्ट का उपयोग करते हैं। [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) को वास्तविक फ़ॉन्ट आकार से बड़ा मान सेट करें। यह उदाहरण "presentation.pptx" की आवश्यकता रखता है, जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है। यह प्रभावी फ़ॉन्ट नामों (विरासत में प्राप्त फ़ॉन्ट सहित) को जांचता है और Roboto का उपयोग करने वाले भागों के लिए 100‑पॉइंट थ्रेशहोल्ड सेट करता है। इससे 100 पॉइंट से छोटे फ़ॉन्ट आकार वाले मिलते‑जुलते भागों की करनिंग निष्क्रिय हो जाएगी:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-थ्रेशहोल्ड से नीचे के मिलते‑जुलते पाठ के लिए, यह सेटिंग केरनिंग को रोकती है और ऐसी फ़ॉन्टों के लिए Aspose.Slides रेंडरिंग को PowerPoint के दृश्य आउटपुट के साथ संरेखित करने में मदद कर सकती है।
+इस थ्रेशहोल्ड से नीचे वाले मिलते‑जुलते टेक्स्ट के लिए, यह सेटिंग करनिंग को रोकती है और Aspose.Slides की रेंडरिंग को उन फ़ॉन्टों के लिए PowerPoint के दृश्य आउटपुट से अधिक मेल खाने में मदद कर सकती है, जिनमें यह PowerPoint‑विशिष्ट व्यवहार होता है।
 
-## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
+## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण पैराग्राफ स्तर पर [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) के द्वारा या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) के द्वारा सेट किए जा सकते हैं।
+फ़ॉन्ट गुण को पैराग्राफ स्तर पर [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) के माध्यम से सेट किया जा सकता है।
 
-निम्न उदाहरण पहले पैराग्राफ की डिफ़ॉल्ट फ़ॉन्ट को 12‑पॉइंट Times New Roman, बोल्ड, इटैलिक और डॉटेड अंडरलाइन के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट स्वरूपण इन डिफ़ॉल्ट्स पर प्राथमिकता रखता है:
+निम्न उदाहरण पहले पैराग्राफ की डिफ़ॉल्ट फ़ॉन्ट को 12‑पॉइंट Times New Roman, बोल्ड, इटैलिक, और डॉटेड अंडरलाइन फ़ॉर्मेटिंग के साथ सेट करता है। व्यक्तिगत भागों पर स्पष्ट फ़ॉर्मेटिंग इन डिफ़ॉल्ट्स को ओवरराइड करेगी।
 
 ```php
 use aspose\slides\FontData;
@@ -413,7 +413,7 @@ try {
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
     $font = new FontData("Times New Roman");
 
-    // पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें।
+    // पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
@@ -430,7 +430,7 @@ try {
 
 ![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-निम्न उदाहरण उन भागों पर 13‑पॉइंट Times New Roman, इटैलिक और डॉटेड अंडरलाइन लागू करता है जिनकी प्रभावी स्वरूपण बोल्ड है:
+निम्न उदाहरण 13‑पॉइंट Times New Roman, इटैलिक फ़ॉर्मेटिंग, और डॉटेड अंडरलाइन को उन भागों पर लागू करता है जिनकी प्रभावी फ़ॉर्मेटिंग बोल्ड है:
 
 ```php
 use aspose\slides\FontData;
@@ -451,7 +451,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें।
+            // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
@@ -468,15 +468,15 @@ try {
 
 परिणाम:
 
-![पाठ भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
+![टेक्स्ट भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **पाठ ऊँचाई सामान्यीकरण नियंत्रित करें**
+## **टेक्स्ट ऊँचाई सामान्यीकरण नियंत्रित करें**
 
-टेम्पलेट टाइपोग्राफी पुन: उत्पन्न करने या अक्षर ऊँचाई में अंतर की जाँच करने के लिए [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) का उपयोग करें। PowerPoint में सामान्यीकरण सक्षम करने से व्यक्तिगत अक्षरों को ऊर्ध्वाधर रूप से खींचा या संकुचित किया जाता है ताकि वे पाठ भाग के भीतर समान दृश्य ऊँचाई प्राप्त करें। यह विभिन्न फ़ॉन्टों में समान पाठ ऊँचाई की गारंटी नहीं देता।
+टेम्पलेट टाइपोग्राफी दोहराते समय या कैरेक्टर ऊँचाई में अंतर की जाँच करते समय [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) का उपयोग करें। PowerPoint में समानिकरण को सक्षम करने से व्यक्तिगत अक्षरों को लंबवत खींचा या संकुचित किया जाता है ताकि वे टेक्स्ट भाग के भीतर समान दृश्य ऊँचाई रख सकें। यह विभिन्न फ़ॉन्टों के बीच समान टेक्स्ट ऊँचाई की गारंटी नहीं देता।
 
-गुण को स्पष्ट रूप से सक्षम या निष्क्रिय करने के लिए [NullableBool::True या False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) सेट करें। `NullableBool::NotDefined` स्थानीय सेटिंग को अनसेट छोड़ देता है ताकि भाग पैराग्राफ के [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) से मान विरासत में ले सके। इसका मतलब `False` नहीं है। लौटाए गए प्रभावी स्वरूपण डेटा पर `getNormaliseHeight` पढ़ने के लिए [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) का उपयोग करें।
+गुण को स्पष्ट रूप से सक्षम या निष्क्रिय करने के लिये [NullableBool::True or False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) सेट करें। `NullableBool::NotDefined` स्थानीय सेटिंग को अनसेट छोड़ देता है, ताकि भाग पैराग्राफ की [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) से मान विरासत में ले सके। इसका अर्थ `False` नहीं है। परिणामी बूलियन मान प्राप्त करने के लिये [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) को कॉल करके `getNormaliseHeight` पढ़ें।
 
-निम्न स्वतंत्र उदाहरण **Arial** स्थापित होने पर चलाता है। यह दो टेक्स्ट ब्लॉक्स बनाता है जिनमें समान बड़े अक्षर, छोटे अक्षर, डेसेंडर और 54 पॉइंट पर उन्नत अक्षर होते हैं। दोनों पैराग्राफ डिफ़ॉल्ट रूप से सामान्यीकरण सक्षम करते हैं। शीर्ष भाग स्पष्ट रूप से इसे निष्क्रिय करता है; निचला भाग इसे विरासत में लेता है। फ्रेम आकार, मार्जिन और पैराग्राफ स्पेसिंग समान हैं, रैपिंग और ऑटॉफिट निष्क्रिय हैं ताकि तुलना सुसंगत रहे। उदाहरण `False: false` और `NotDefined: true` प्रदर्शित करता है, फिर "text_height_normalization.pptx" सहेजता है।
+निम्न स्व‑समावेशी उदाहरण **Arial** स्थापित होने की आवश्यकता रखता है। यह दो टेक्स्ट ब्लॉकों को बनाता है, जिनमें समान बड़े अक्षर, छोटे अक्षर, डिसेंडर, और एक्सेंटेड अक्षर 54 पॉइंट पर होते हैं। दोनों पैराग्राफ डिफ़ॉल्ट रूप से सामान्यीकरण सक्षम करते हैं। ऊपर वाला भाग स्पष्ट रूप से इसे निष्क्रिय करता है; नीचे वाला भाग इसे विरासत में लेता है। फ़्रेम आकार, मार्जिन, और पैराग्राफ स्पेसिंग समान हैं, व्रैपिंग और ऑटॉफ़िट निष्क्रिय हैं ताकि तुलना संगत रहे। उदाहरण `False: false` और `NotDefined: true` प्रिंट करता है, फिर "text_height_normalization.pptx" सहेजता है।
 
 ```php
 use aspose\slides\FillType;
@@ -535,19 +535,19 @@ try {
 }
 ```
 
-नीचे का तुलना सहेजी गई प्रस्तुति से निर्यात किया गया है। शीर्ष पंक्ति में सामान्यीकरण निष्क्रिय है (`False`); निचली पंक्ति में विरासत में मिला सक्रिय सेटिंग (`NotDefined` → `True`) है। इस दिखावे को पुन: उत्पन्न करने के लिए Arial स्थापित रखें।
+नीचे की तुलना सहेजे गए प्रस्तुतिकरण से निर्यात की गई है। ऊपर की पंक्ति में सामान्यीकरण निष्क्रिय (`False`) है; नीचे की पंक्ति में यह विरासत में मिला (`NotDefined` → `True`) है। इस दिखावट को पुन: उत्पन्न करने के लिये Arial स्थापित रखें।
 
-![Arial 54‑पॉइंट टेक्स्ट जिसमें ऊपर सामान्यीकरण निष्क्रिय और नीचे विरासत में प्राप्त सामान्यीकरण सक्रिय है](text_height_normalization.png)
+![Arial 54‑पॉइंट टेक्स्ट जिसमें ऊपर सामान्यीकरण निष्क्रिय और नीचे विरासत में सामान्यीकरण सक्षम है](text_height_normalization.png)
 
-सामान्यीकरण अक्षर ऊँचाई को बदले बिना असाइन किए गए [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) मान को बदले, जो फ़ॉन्ट आकार को पॉइंट में निर्दिष्ट करता है। पैराग्राफ [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) रेखा अंतराल नियंत्रित करता है, जबकि टेक्स्ट‑फ़्रेम [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) यह नियंत्रित करता है कि टेक्स्ट या उसका कंटेनर फिट होने के लिए कैसे समायोजित होता है। ये सेटिंग्स अलग‑अलग उद्देश्यों की सेवा करती हैं और कुल लेआउट को स्वतंत्र रूप से प्रभावित कर सकती हैं। पैराग्राफ स्वरूपण और विरासत के बारे में अधिक जानकारी के लिए देखें [पैराग्राफ प्रबंधित करें](/slides/hi/php-java/manage-paragraph/)।
+सामान्यीकरण कैरेक्टर ऊँचाई को बदले बिना असाइन किए गए [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight) मान को बदले, जो फ़ॉन्ट आकार पॉइंट में निर्दिष्ट करता है। पैराग्राफ [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) लाइन स्पेसिंग को नियंत्रित करता है, जबकि टेक्स्ट‑फ़्रेम [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) टेक्स्ट या उसके कंटेनर को फिट करने के लिये समायोजित करता है। ये सेटिंग्स अलग‑अलग उद्देश्यों के लिये हैं और कुल लेआउट को स्वतंत्र रूप से प्रभावित कर सकती हैं। पैराग्राफ फ़ॉर्मेटिंग और विरासत के बारे में अधिक जानकारी के लिये देखें [पैराग्राफ प्रबंधन](/slides/hi/php-java/manage-paragraph/)।
 
 ## **स्ट्राइकथ्रू लागू और हटाएँ**
 
-टेक्स्ट भाग पर [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) का उपयोग करके सुधार, रद्द किए गए शब्द या पिछले मूल्यों को बिना मूल पाठ हटाए दिखाया जा सकता है। एक या दो रेखाओं के लिए क्रमशः [TextStrikethroughType::Single या Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) सेट करें।
+टेक्स्ट भाग पर [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) का उपयोग करके निरस्तीकरण, रद्द शब्द, या पिछले मूल्यों को हटाए बिना दिखाया जा सकता है। एक या दो रेखाओं के लिये क्रमशः [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) सेट करें।
 
-स्ट्राइकथ्रू हटाने के लिए [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None) पास करें। यह स्थानीय प्रभाव को स्पष्ट रूप से निष्क्रिय करता है, भले ही आसपास का स्वरूपण स्ट्राइकथ्रू निर्दिष्ट करता हो। इसके विपरीत, [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) स्थानीय सेटिंग को अनिर्धारित छोड़ देता है, जिससे भाग पैराग्राफ आदि से स्वरूपण विरासत में ले सकता है। यह सुनिश्चित नहीं करता कि स्ट्राइकथ्रू हटा दिया गया है। परिणामस्वरूप स्वरूपण, जिसमें विरासत में मिले मान शामिल हैं, पढ़ने के लिए [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) का उपयोग करें।
+स्ट्राइकथ्रू हटाने के लिये [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None) पास करें। यह प्रभाव को स्पष्ट रूप से निष्क्रिय करता है, भले ही आसपास की फ़ॉर्मेटिंग स्ट्राइकथ्रू निर्दिष्ट करे। इसके विपरीत, [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) स्थानीय सेटिंग को अनिर्धारित छोड़ देता है, जिससे भाग पैराग्राफ जैसी विरासत फ़ॉर्मेटिंग ले सकता है। यह गारंटी नहीं देता कि स्ट्राइकथ्रू हट गया है। परिणामी फ़ॉर्मेटिंग, जिसमें विरासत मान भी शामिल हैं, पढ़ने के लिये [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) का उपयोग करें।
 
-निम्न स्वतंत्र उदाहरण तीन मूल्य तुलना बनाता है। प्रत्येक पैराग्राफ में लेबल, पुराना मूल्य और नया मूल्य के लिए अलग‑अलग भाग होते हैं, इसलिए केवल पुराना मूल्य प्रभावित होता है। पहली पंक्ति स्ट्राइकथ्रू लागू करती है और फिर हटाती है; अन्य पंक्तियों में क्रमशः सिंगल और डबल स्ट्राइकथ्रू रहता है। इस सेटिंग को बदलने से पाठ और उसके अन्य स्वरूपण, जैसे बोल्ड पुराना मूल्य, संरक्षित रहता है।
+निम्न स्व‑समावेशी उदाहरण तीन मूल्य तुलना बनाता है। प्रत्येक पैराग्राफ में लेबल, पूर्व मूल्य, और वर्तमान मूल्य के लिये अलग‑अलग भाग होते हैं, इसलिए केवल पूर्व मूल्य प्रभावित होता है। पहली पंक्ति में स्ट्राइकथ्रू लागू किया गया और फिर हटाया गया; अन्य पंक्तियों में क्रमशः सिंगल और डबल स्ट्राइकथ्रू रहता है। इस सेटिंग को बदलने से टेक्स्ट और उसके अन्य फ़ॉर्मेटिंग (जैसे बोल्ड पूर्व मूल्य) संरक्षित रहते हैं।
 
 ```php
 use aspose\slides\FillType;
@@ -612,15 +612,15 @@ try {
 }
 ```
 
-परिणाम, ऊपर से नीचे क्रमशः: कोई स्ट्राइकथ्रू नहीं, सिंगल स्ट्राइकथ्रू, और डबल स्ट्राइकथ्रू।
+परिणाम, ऊपर से नीचे: कोई स्ट्राइकथ्रू नहीं, सिंगल स्ट्राइकथ्रू, और डबल स्ट्राइकथ्रू।
 
-![स्ट्राइकथ्रू के बिना, सिंगल स्ट्राइकथ्रू और डबल स्ट्राइकथ्रू वाले पिछले मूल्य](strikethrough.png)
+![पहले मूल्य बिना स्ट्राइकथ्रू, सिंगल स्ट्राइकथ्रू, और डबल स्ट्राइकथ्रू के साथ](strikethrough.png)
 
-## **पाठ घूर्णन सेट करें**
+## **टेक्स्ट रोटेशन सेट करें**
 
-शेप के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करने के लिए [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) का उपयोग करें।
+[TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) का उपयोग करके आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट किया जाता है।
 
-निम्न कोड उदाहरण शेप में टेक्स्ट अभिविन्यास को [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/) पर सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिक्लॉकवाइस** घुमाता है:
+निम्न कोड उदाहरण आकार में टेक्स्ट अभिविन्यास को [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/) पर सेट करता है, जो टेक्स्ट को **90 डिग्री घड़ी की विपरीत दिशा** में घुमाता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -642,13 +642,71 @@ try {
 
 परिणाम:
 
-![टेक्स्ट घूर्णन](text_rotation.png)
+![टेक्स्ट रोटेशन](text_rotation.png)
 
-## **टेक्स्ट फ्रेम के लिए कस्टम घूर्णन सेट करें**
+## **वर्टिकल टेक्स्ट में अंक एक साथ प्रदर्शित करें**
 
-[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) का उपयोग करके किसी [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) के लिए कस्टम घूर्णन कोण सेट करें।
+दो-अंकों की संख्या को वर्टिकल जापानी लेबल में साथ रखने के लिये, दोनों अंक को एक ही टेक्स्ट भाग में रखें और उस भाग पर [BasePortionFormat::setKumimoji](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKumimoji) कॉल करें। यह उदाहरण [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical) और दोनों लेबल के लिये 40‑पॉइंट MS Gothic का उपयोग करता है। केवल संख्यात्मक भाग को पास किया गया [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) मान अलग है।
 
-निम्न कोड उदाहरण शेप के भीतर टेक्स्ट फ्रेम को 3 डिग्री क्लॉकवाइस घुमाता है:
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $x = 120;
+
+    foreach ([NullableBool::True, NullableBool::False] as $kumimoji) {
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, 48, 120, 420);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $frame = $label->addTextFrame("");
+        $frame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::EastAsianVertical);
+
+        $paragraph = $frame->getParagraphs()->get_Item(0);
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $font = new FontData("MS Gothic");
+        $format->setLatinFont($font);
+        $format->setEastAsianFont($font);
+        $format->setFontHeight(40);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        $digits = new Portion("12");
+        $digits->getPortionFormat()->setKumimoji($kumimoji);
+
+        $portions = $paragraph->getPortions();
+        $portions->clear();
+        $portions->add(new Portion("令和"));
+        $portions->add($digits);
+        $portions->add(new Portion("年"));
+
+        $x += 240;
+    }
+    $presentation->save("vertical_date.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+PowerPoint में बाईं लेबल (`True`) अंक को upright रखती है और 和 और 年 के बीच साइड‑बाय‑साइड दिखाती है। दाईं लेबल (`False`) में युग्म 90 डिग्री घड़ी की दिशा में घुमा रहता है। दोनों लेबल में आसपास के जापानी अक्षर upright रहते हैं।
+
+![PowerPoint में वर्टिकल तिथि लेबल की तुलना – बाएँ में upright अंक और दाएँ में घुमा हुआ अंक](vertical_date.png)
+
+## **टेक्स्ट फ्रेम के लिये कस्टम रोटेशन सेट करें**
+
+[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) का उपयोग करके [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) के लिये कस्टम रोटेशन एंगल सेट किया जा सकता है।
+
+निम्न कोड उदाहरण आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -669,16 +727,16 @@ try {
 
 परिणाम:
 
-![कस्टम टेक्स्ट घूर्णन](custom_text_rotation.png)
+![कस्टम टेक्स्ट रोटेशन](custom_text_rotation.png)
 
-## **पैराग्राफ की रेखा अंतराल सेट करें**
+## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) और [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) प्रदान करता है ताकि पैराग्राफ अंतराल नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
+Aspose.Slides [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore), और [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) प्रदान करता है, जिससे पैराग्राफ स्पेसिंग को नियंत्रित किया जा सकता है। ये गुण इस प्रकार उपयोग होते हैं:
 
-* सकारात्मक मान रेखा ऊँचाई के प्रतिशत के रूप में रेखा अंतराल निर्दिष्ट करता है।
-* नकारात्मक मान रेखा अंतराल को पॉइंट में निर्दिष्ट करता है।
+* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिये धनात्मक मान उपयोग करें।
+* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिये ऋणात्मक मान उपयोग करें।
 
-निम्न उदाहरण पहले पैराग्राफ के भीतर अंतराल को रेखा ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
+निम्न उदाहरण पहले पैराग्राफ की भीतर स्पेसिंग को लाइन की ऊँचाई के 200 % (डबल स्पेसिंग) पर सेट करता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -701,18 +759,18 @@ try {
 
 परिणाम:
 
-![पैराग्राफ के भीतर रेखा अंतराल](line_spacing.png)
+![पैराग्राफ के भीतर लाइन स्पेसिंग](line_spacing.png)
 
-## **रेखा‑विच्छेदन नियंत्रित करें**
+## **लाइन ब्रेकिंग नियंत्रित करें**
 
-पैराग्राफ रेखा‑विच्छेदन नियम संकीर्ण टेक्स्ट ब्लॉक्स और लैटिन तथा ईस्ट एशियन पाठ मिश्रित प्रस्तुतियों में उपयोगी होते हैं। नीचे दिए गए मेथड्स [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) से संबंधित हैं, इसलिए वे पूरे पैराग्राफ पर लागू होते हैं:
+पैराग्राफ लाइन‑ब्रेकिंग नियम संकरी टेक्स्ट ब्लॉकों और मिश्रित लैटिन‑और‑ईस्ट एशियन टेक्स्ट वाले प्रस्तुतियों में उपयोगी होते हैं। निम्न विधियां [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) से संबंधित हैं, इसलिए वे पूरे पैराग्राफ पर लागू होती हैं:
 
-* [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) लैटिन रेखा‑विच्छेदन नियम नियंत्रित करता है। मिश्रित पाठ में इसे बदलने से ईस्ट एशियन पाठ व विराम चिह्नों की रैपिंग पर भी प्रभाव पड़ सकता है।
-* [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ईस्ट एशियन रेखा‑विच्छेदन नियम नियंत्रित करता है, जिसमें पंक्ति की शुरुआत और अंत में अक्षरों की प्रतिबंध शामिल हैं।
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) लैटिन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है। मिश्रित टेक्स्ट में इसको बदलने से पड़ोसी ईस्ट एशियन टेक्स्ट और विराम चिह्नों के रैपिंग स्थान भी बदल सकते हैं।
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ईस्ट एशियन लाइन‑ब्रेकिंग नियमों को नियंत्रित करता है, जिसमें लाइन की शुरुआत और अंत में अक्षरों पर प्रतिबंध शामिल हैं।
 
-ये नियम [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) को प्रतिस्थापित नहीं करते, जो टेक्स्ट फ्रेम के भीतर स्वचालित रैपिंग सक्षम करता है। वे रैपिंग होने पर लेआउट को प्रभावित करते हैं; वे रेखा‑विच्छेदन अक्षर नहीं डालते। स्पष्ट रेखा‑विच्छेदन नई पंक्ति बनाता है, जो उपलब्ध चौड़ाई से स्वतंत्र रूप से पैराग्राफ के भीतर नई पंक्ति बनाता है।
+ये नियम [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText) को प्रतिस्थापित नहीं करते, जो टेक्स्ट फ़्रेम के भीतर स्वचालित रैपिंग को सक्षम करता है। वे लेआउट को प्रभावित करते हैं जब रैपिंग होती है; वे लाइन‑ब्रेक अक्षर नहीं डालते। एक स्पष्ट लाइन‑ब्रेक पैराग्राफ के भीतर नई लाइन को स्वतंत्र रूप से मजबूर करता है, उपलब्ध चौड़ाई की परवाह किए बिना।
 
-निम्न स्वतंत्र उदाहरण चीनी और लैटिन पाठ वाले संकीर्ण टेक्स्ट ब्लॉक बनाता है। यह दोनों रेखा‑विच्छेदन विकल्प स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम के साथ प्रयोग करने के लिए, दूसरे सेटिंग को स्थिर रखकर संबंधित मान बदलें। उदाहरण 24‑पॉइंट Arial और SimSun, 160‑पॉइंट फ्रेम चौड़ाई और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन का उपयोग करता है। [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) को [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) के साथ कॉल किया गया है ताकि टेक्स्ट आकार और फ्रेम आयाम स्थिर रहें।
+निम्न स्व‑समावेशी उदाहरण संकरी टेक्स्ट ब्लॉक बनाता है जिसमें चीनी और लैटिन टेक्स्ट दोनों होते हैं। यह दोनों लाइन‑ब्रेक विकल्पों को स्पष्ट रूप से सेट करता है और "line_breaking.pptx" सहेजता है। किसी भी नियम को प्रयोग करने के लिये, दूसरे सेटिंग को स्थिर रख कर संबंधित मान बदलें। उदाहरण 24‑पॉइंट Arial और SimSun, 160‑पॉइंट फ़्रेम चौड़ाई, तथा क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन शून्य के साथ उपयोग करता है। [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) को [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/) के साथ कॉल किया जाता है, ताकि टेक्स्ट आकार और फ़्रेम आयाम स्थिर रहें।
 
 ```php
 use aspose\slides\FillType;
@@ -761,9 +819,9 @@ try {
 
 ## **हैंगिंग विराम चिह्न नियंत्रित करें**
 
-[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) योग्य विराम चिह्न को टेक्स्ट लाइन के दाएँ किनारे से आगे तक बढ़ने की अनुमति देता है, बजाय अगली लाइन में जाने के। यह पूरे पैराग्राफ पर लागू होता है और हैंगिंग इण्डेंट से अलग है।
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) योग्य विराम चिह्न को टेक्स्ट लाइन के दायें किनारे से बाहर विस्तारित करने की अनुमति देता है, बजाय अगले लाइन में ले जाने के। यह पूरे पैराग्राफ पर लागू होता है और हैंगिंग इंडेंट से अलग है।
 
-निम्न स्वतंत्र उदाहरण 100‑पॉइंट‑व्यापी टेक्स्ट फ्रेम में हैंगिंग विराम चिह्न सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और शून्य क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन के साथ, अंतिम बिंदु "sentence" के बाद रहता है और दाएँ टेक्स्ट किनारे से बाहर निकलता है। तुलना के लिए गुण को [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) पर सेट करें: इन सेटिंग्स के साथ बिंदु अलग पंक्ति में आता है। रैपिंग सक्षम है और ऑटॉफिट निष्क्रिय है ताकि उपलब्ध चौड़ाई स्थिर रहे।
+निम्न स्व‑समावेशी उदाहरण 100‑पॉइंट‑वाइड टेक्स्ट फ़्रेम में हैंगिंग विराम चिह्न सक्षम करता है और "hanging_punctuation.pptx" सहेजता है। 24‑पॉइंट Arial और क्षैतिज टेक्स्ट‑फ़्रेम मार्जिन शून्य के साथ, अंतिम अवधि "sentence" के बाद रहती है और दायें टेक्स्ट किनारे से बाहर निकलती है। तुलना के लिये प्रॉपर्टी को [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) पर सेट करें: इन सेटिंग्स के साथ अवधि अलग लाइन ले लेती है। रैपिंग सक्षम है और ऑटॉफ़िट निष्क्रिय है ताकि उपलब्ध चौड़ाई स्थिर रहे।
 
 ```php
 use aspose\slides\FillType;
@@ -807,11 +865,11 @@ try {
 }
 ```
 
-हर विराम चिह्न हैंग नहीं करता। ऊपर वर्णित [फ़ॉन्ट और लेआउट शर्तें](#control-line-breaking) भी इस तुलना पर लागू होती हैं: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन या ऑटॉफिट सेटिंग बदलने से दिखाई देने वाला अंतर हट सकता है।
+सभी विराम चिह्न हैंग नहीं सकते। ऊपर वर्णित [फ़ॉन्ट और लेआउट शर्तें](#control-line-breaking) इस तुलना पर भी लागू होती हैं: फ़ॉन्ट, उपलब्ध चौड़ाई, मार्जिन या ऑटॉफ़िट सेटिंग बदलने से दृश्य अंतर हट सकता है।
 
-## **टेक्स्ट फ्रेम के लिए ऑटॉफिट प्रकार सेट करें**
+## **टेक्स्ट फ़्रेम के लिये ऑटॉफ़िट टाइप सेट करें**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) निर्धारित करता है कि टेक्स्ट कंटेनर की सीमाओं से बाहर जाने पर कैसे व्यवहार करता है। इसे उपयोग करके नियंत्रित किया जा सकता है कि टेक्स्ट छोटा हो, ओवरफ़्लो करे या शेप को स्वचालित रूप से आकार बदलें। नीचे दिया गया उदाहरण शेप को उसके टेक्स्ट के अनुरूप आकार बदलने के लिए कॉन्फ़िगर करता है और परिणाम "autofit_type.pptx" में सहेजता है।
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) निर्धारित करता है कि कंटेनर की सीमा से बाहर जाने पर टेक्स्ट कैसे व्यवहार करता है। इसे उपयोग करके आप नियंत्रित कर सकते हैं कि टेक्स्ट सिकुड़ना चाहिए, ओवरफ़्लो होना चाहिए, या आकार स्वयं स्वचालित रूप से पुनः आकारित होना चाहिए। निम्न उदाहरण आकार को उसके टेक्स्ट के अनुसार पुनः आकारित करने के लिये कॉन्फ़िगर करता है और परिणाम को "autofit_type.pptx" में सहेजता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -823,7 +881,7 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
 
     $autoShape = $slide->getShapes()->get_Item(0);
-    $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $autoShape->getTextFrame()->getTextFrameFormat()->setAutofototype(TextAutofitType::Shape);
 
     $presentation->save("autofit_type.pptx", SaveFormat::Pptx);
 } finally {
@@ -831,11 +889,11 @@ try {
 }
 ```
 
-ऑटोफ़िट रैपिंग के बाद पंक्तियों की संख्या गिनने और यह देखने के लिए कि टेक्स्ट या शेप की चौड़ाई परिणाम को कैसे बदलती है, देखें [Count Rendered Lines](/slides/hi/php-java/manage-paragraph/). केवल पंक्तियों की संख्या यह संकेत नहीं देती कि टेक्स्ट कंटेनर से ओवरफ़्लो हो रहा है या नहीं।
+स्वचालित रैपिंग के बाद लाइनों की गिनती और टेक्स्ट या आकार की चौड़ाई के परिवर्तन से परिणाम देखना चाहते हैं, तो देखें [रेंडर्ड लाइनों की गिनती](/slides/hi/php-java/manage-paragraph/)। केवल लाइनों की गिनती यह संकेत नहीं देती कि टेक्स्ट अपने कंटेनर से ओवरफ़्लो हो रहा है या नहीं।
 
-## **टेक्स्ट फ्रेम का एंकर सेट करें**
+## **टेक्स्ट फ़्रेम का एंकर सेट करें**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) शेप के भीतर टेक्स्ट को ऊर्ध्वाधर रूप से कैसे स्थित किया जाए, जैसे शीर्ष, मध्य या नीचे, को परिभाषित करता है। नीचे दिया गया उदाहरण टेक्स्ट को पहले शेप के नीचे एंकर करता है और परिणाम "text_anchor.pptx" में सहेजता है।
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) यह निर्धारित करता है कि टेक्स्ट आकार के भीतर लंबवत किस स्थान पर स्थित हो – जैसे शीर्ष, मध्य, या नीचे। निम्न उदाहरण टेक्स्ट को पहली आकार के नीचे एंकर करता है और परिणाम को "text_anchor.pptx" में सहेजता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -857,7 +915,7 @@ try {
 
 ## **टेक्स्ट टैबुलेशन सेट करें**
 
-[ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) और [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) का उपयोग करके पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करें। नीचे दिया गया उदाहरण डिफ़ॉल्ट टैब अंतराल को 100 पॉइंट सेट करता है और 30 पॉइंट पर बाएँ‑संरेखित टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब अक्षर वाले टेक्स्ट को प्रभावित करती हैं।
+पैराग्राफ में टैब स्टॉप को कॉन्फ़िगर करने के लिये [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) और [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) का उपयोग करें। निम्न उदाहरण डिफ़ॉल्ट टैब अंतराल को 100 पॉइंट पर सेट करता है और 30 पॉइंट पर एक बाएँ‑संरेखित टैब स्टॉप जोड़ता है। ये सेटिंग्स टैब अक्षर वाले टेक्स्ट को प्रभावित करती हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -886,9 +944,9 @@ try {
 
 ## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) प्रदान करता है, जो पाठ भाग के लिए प्रूफ़िंग भाषा सेट करने की अनुमति देता है। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा को निर्धारित करती है।
+Aspose.Slides [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId) प्रदान करता है, जिससे आप टेक्स्ट भाग के लिये प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जाँच के लिये प्रयुक्त भाषा को निर्धारित करती है।
 
-नीचे दिया गया उदाहरण "presentation.pptx" की आवश्यकता रखता है, जिसमें पहले शेप पर पहला टेक्स्ट बॉक्स और कम‑से‑कम एक पैराग्राफ हो। यह पहले पैराग्राफ की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है, और सरल चीन भाषा (`zh-CN`) को प्रूफ़िंग भाषा के रूप में असाइन करता है। परिणाम "proofing_language.pptx" में सहेजा जाता है:
+निम्न उदाहरण को "presentation.pptx" की आवश्यकता है, जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है और कम से कम एक पैराग्राफ है। यह पहले पैराग्राफ की सामग्री को "1。" से बदलता है, फ़ॉन्ट को SimSun सेट करता है, और सरलित चीनी प्रूफ़िंग भाषा (`zh-CN`) असाइन करता है। फिर परिणाम को "proofing_language.pptx" में सहेजता है:
 
 ```php
 use aspose\slides\FontData;
@@ -912,7 +970,7 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // प्रूफ़िंग भाषा का Id सेट करें।
+    // प्रूफ़िंग भाषा का Id सेट करें.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
     $textPortion->setText("1。");
@@ -926,7 +984,7 @@ try {
 
 ### **भाषा मेटाडेटा कॉपी करें**
 
-टेम्प्लेट से बहुभाषी पाठ कॉपी करते समय, दोनों [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId) और [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) को संरक्षित रखें। नीचे दिया गया स्वतंत्र उदाहरण स्रोत भाग बनाता है जिसका भाषा US English और वैकल्पिक भाषा French है, और टेक्स्ट एवं पहचानकों को नई प्रस्तुति के भाग में कॉपी करता है।
+जब मल्टी‑लिंगुअल टेक्स्ट को टेम्पलेट से कॉपी किया जाता है, तो दोनों [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId) और [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId) को संरक्षित करें। निम्न स्व‑समावेशी उदाहरण स्रोत भाग को US English को उसकी भाषा और French को वैकल्पिक भाषा के रूप में बनाता है और टेक्स्ट तथा पहचानकर्ताओं को नई प्रस्तुति के एक भाग में कॉपी करता है।
 
 ```php
 use aspose\slides\Portion;
@@ -949,7 +1007,7 @@ try {
     $destination = new Portion();
     $destination->setText($source->getText());
     $destination->getPortionFormat()->setLanguageId($source->getPortionFormat()->getLanguageId());
-    // यदि स्रोत में वैकल्पिक भाषा नहीं है, तो null गंतव्य मान को साफ कर देता है।
+    // यदि स्रोत में कोई वैकल्पिक भाषा नहीं है, तो null गंतव्य मान को साफ़ कर देगा।
     $destination->getPortionFormat()->setAlternativeLanguageId($source->getPortionFormat()->getAlternativeLanguageId());
     $paragraph->getPortions()->add($destination);
 
@@ -959,13 +1017,13 @@ try {
 }
 ```
 
-वैकल्पिक भाषा के बिना स्रोत को आज़माने के लिए, `"fr-FR"` असाइनमेंट को छोड़ दें। तब वैकल्पिक पहचानकर्ता `null` होगा, और वही कॉपी कथन उसकी अनुपस्थिति को डिफ़ॉल्ट मान जोड़े बिना संरक्षित रखेगा, भले ही गंतव्य में पहले वैकल्पिक भाषा असाइन की गई हो।
+यदि वैकल्पिक भाषा के बिना स्रोत का परीक्षण करना है, तो `"fr-FR"` असाइनमेंट को छोड़ दें। वैकल्पिक पहचानकर्ता तब `null` रहेगा, और वही कॉपी कथन उसकी अनुपस्थिति को डिफ़ॉल्ट मान पेश किए बिना संरक्षित करता है, भले ही लक्ष्य में पहले वैकल्पिक भाषा असाइन की गई हो।
 
-ये पहचानकर्ता भाषा मेटाडेटा के रूप में संग्रहित होते हैं। इन्हें संरक्षित करने से यह निर्धारित नहीं होता कि PowerPoint वर्तनी या व्याकरण जांच के लिए कौन-सा शब्दकोश चुनेगा।
+ये पहचानकर्ता भाषा मेटाडेटा के रूप में संग्रहीत होते हैं। इन्हें संरक्षित करने से यह निर्धारित नहीं होता कि PowerPoint वर्तनी या व्याकरण जाँच के लिये कौन‑सा शब्दकोश चुनेगा।
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) का उपयोग करके प्रस्तुति लोड या बनाते समय निर्मित टेक्स्ट की डिफ़ॉल्ट भाषा परिभाषित करें। नीचे दिया गया उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करता है, एक टेक्स्ट बॉक्स जोड़ता है, और उसके पहले पाठ भाग के लिए `en-US` प्रिंट करता है।
+[LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) का उपयोग करके प्रस्तुति लोड या बनाते समय बनाए गए टेक्स्ट के लिये डिफ़ॉल्ट भाषा परिभाषित करें। निम्न उदाहरण US English को डिफ़ॉल्ट टेक्स्ट भाषा के रूप में सेट करता है, एक टेक्स्ट बॉक्स जोड़ता है, और उसके पहले टेक्स्ट भाग के लिये `en-US` प्रिंट करता है।
 
 ```php
 use aspose\slides\LoadOptions;
@@ -979,11 +1037,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // पाठ के साथ नया आयताकार आकार जोड़ें।
+    // एक नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // पहले भाग की भाषा जांचें।
+    // पहले भाग की भाषा जाँचें।
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -993,9 +1051,9 @@ try {
 
 ## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिये [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle) का उपयोग करें।
 
-नीचे दिया गया उदाहरण नई प्रस्तुति में शीर्ष‑स्तर पैराग्राफ के लिए 14‑पॉइंट बोल्ड फ़ॉन्ट को डिफ़ॉल्ट रूप में सेट करता है और इसे "default_text_style.pptx" के रूप में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है जब तक कि अधिक विशिष्ट स्वरूपण उन्हें ओवरराइड न कर दे।
+निम्न उदाहरण नई प्रस्तुति में शीर्ष‑स्तरीय पैराग्राफ के लिये 14‑पॉइंट बोल्ड फ़ॉन्ट को डिफ़ॉल्ट के रूप में सेट करता है और इसे "default_text_style.pptx" में सहेजता है। टेक्स्ट इन डिफ़ॉल्ट्स को विरासत में ले सकता है जब तक कि अधिक विशिष्ट फ़ॉर्मेटिंग उन्हें ओवरराइड न करे।
 
 ```php
 use aspose\slides\NullableBool;
@@ -1004,7 +1062,7 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation();
 try {
-    // शीर्ष स्तर पैराग्राफ फ़ॉर्मेट प्राप्त करें।
+    // शीर्ष स्तर पैराग्राफ फ़ॉर्मेट प्राप्त करें.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -1020,13 +1078,13 @@ try {
 
 ## **ऑल‑कैप्स प्रभाव के साथ टेक्स्ट निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से स्लाइड पर पाठ बड़े अक्षरों में दिखता है, भले ही इसे छोटे अक्षरों में टाइप किया गया हो। Aspose.Slides के साथ ऐसा पाठ भाग प्राप्त करने पर लाइब्रेरी मूल दर्ज किए गए पाठ को ही लौटाती है। प्रदर्शित पाठ से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) जांचें और जब मान `All` हो तब लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
+PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से टेक्स्ट स्लाइड पर बड़े अक्षरों में दिखता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसे टेक्स्ट भाग को पुनः प्राप्त करते हैं, तो लाइब्रेरी टेक्स्ट को बिल्कुल उसी रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिये, [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) जाँचें और जब मान `All` हो तो लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
 
-यह उदाहरण "sample2.pptx" की आवश्यकता रखता है, जिसमें पहले स्लाइड के पहले शेप पर एक टेक्स्ट बॉक्स हो। इसके पहले पैराग्राफ के पहले भाग में "Hello, Aspose!" है, जिस पर All Caps प्रभाव लागू है, जैसा कि नीचे दिखाया गया है।
+यह उदाहरण "sample2.pptx" की आवश्यकता रखता है, जिसमें पहली स्लाइड पर पहला आकार एक टेक्स्ट बॉक्स है। उसके पहले पैराग्राफ के पहले भाग में "Hello, Aspose!" है, जिस पर All Caps प्रभाव लागू है, जैसा कि नीचे दिखाया गया है।
 
-![All Caps प्रभाव](all_caps_effect.png)
+![ऑल‑कैप्स प्रभाव](all_caps_effect.png)
 
-नीचे दिया गया कोड उदाहरण दिखाता है कि **All Caps** प्रभाव लागू होने पर टेक्स्ट कैसे निकाला जाए:
+निम्न कोड उदाहरण दिखाता है कि **All Caps** प्रभाव लागू हुए टेक्स्ट को कैसे निकाला जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -1061,10 +1119,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं स्लाइड पर तालिका में टेक्स्ट कैसे संशोधित करूँ?**
+**मैं स्लाइड पर तालिका में टेक्स्ट कैसे बदलूँ?**
 
-स्लाइड पर तालिका में टेक्स्ट संशोधित करने के लिए [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करके प्रत्येक कोशिका को [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) के माध्यम से अपडेट करें और पैराग्राफ स्वरूपण को [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) के माध्यम से अपडेट करें।
+स्लाइड पर तालिका में टेक्स्ट बदलने के लिये [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) का उपयोग करें। कोशिकाओं के माध्यम से इटरटे करें और प्रत्येक कोशिका को [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) के द्वारा अपडेट करें तथा पैराग्राफ फ़ॉर्मेटिंग को [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) से बदलें।
 
-**मैं PowerPoint स्लाइड पर टेक्स्ट पर ग्रेडिएंट रंग कैसे लागू करूँ?**
+**मैं PowerPoint स्लाइड पर टेक्स्ट के लिये ग्रेडिएंट रंग कैसे लागू करूँ?**
 
-टेक्स्ट पर ग्रेडिएंट रंग लागू करने के लिए [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) का उपयोग करें। [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) को [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा और पारदर्शिता को कॉन्फ़िगर करें।
+टेक्स्ट पर ग्रेडिएंट रंग लागू करने के लिये [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat) का उपयोग करें। [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) को [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, और पारदर्शिता को कॉन्फ़िगर करें।

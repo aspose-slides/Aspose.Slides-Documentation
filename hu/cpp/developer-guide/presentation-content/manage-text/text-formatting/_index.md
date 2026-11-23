@@ -1,5 +1,5 @@
 ---
-title: Formázza a prezentáció szövegét C++-ban
+title: Prezentáció szövegének formázása C++-ban
 linktitle: Szövegformázás
 type: docs
 weight: 50
@@ -11,13 +11,13 @@ keywords:
 - szöveg átlátszóság
 - karakterköz
 - betűtulajdonságok
-- betűtípus család
+- betűcsalád
 - szöveg forgatás
 - forgatási szög
-- szövegdoboz
+- szövegkeret
 - sortávolság
 - automatikus illesztés tulajdonság
-- szövegdoboz rögzítési pont
+- szövegkeret rögzítés
 - szöveg tabuláció
 - alapértelmezett nyelv
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Formázz és stilizálj szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával. Testreszabhatod a betűket, színeket, igazítást és sok mást."
+description: "Formázza és stílusolja a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ segítségével. Testreszabhatja a betűket, színeket, igazítást és még sok mást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázható a szöveg PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával. Kitér a háttérszínekre, átlátszóságra, karakterközre, betűtípus-tulajdonságokra, elforgatásra, bekezdésközre, automatikus illesztés viselkedésére, szöveg rögzítésére, tabulátorpozíciókra és nyelvi beállításokra.
+Ez a cikk bemutatja, hogyan formázhatja a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával. Kitér a háttérszínekre, átlátszóságra, karakterközre, betűtulajdonságokra, forgatásra, bekezdésközökre, automatikus illesztés viselkedésére, szöveg rögzítésére, tabulátorállásokra és nyelvi beállításokra.
 
-Kivéve, ha másként van feltüntetve, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dia első alakzata egy szövegdoboz, és az első bekezdése tartalmazza az alább látható szöveget. A diák és alakzatok indexelése nullától indul. A félkövér részeket kiválasztó példák hatékony formázást alkalmaznak, beleértve a örökölt félkövér formázást:
+Kivéve, ha másként van megadva, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dia első alakzata egy szövegmező, és az első bekezdése tartalmazza az alább látható szöveget. Mind a dia, mind az alakzat indexei nullánál kezdődnek. A félkövér részeket kiválasztó példák hatékony formázást használnak, beleértve az örökölt félkövér formázást:
 
 ![Minta szöveg](sample_text.png)
 
-A szó szerinti szöveg vagy reguláris kifejezés egyezések kereséséhez és kiemeléséhez lásd a [Keresés és csere szöveg](/slides/hu/cpp/search-and-replace-text/) oldalt.
+Az adott szöveg vagy reguláris kifejezés szerinti találatok megtalálásához és kiemeléséhez tekintse meg a [Szöveg keresése és cseréje](/slides/hu/cpp/search-and-replace-text/) oldalt.
 
-## **Szöveg háttérszín beállítása**
+## **Szöveg háttérszínének beállítása**
 
-Használja az [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) metódust a bekezdés alapértelmezett kiemelési színének beállításához, vagy az [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) metódust az egyedi szövegrészekhez.
+A [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) segítségével állítható be a bekezdés alapértelmezett kiemelési színe, vagy az [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) egyedi szövegrészekhez.
 
-Az alábbi példa világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyes részeken megadott explicit kiemelési szín felülírja ezt az alapértelmezést:
+Az alábbi példa világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyes részeken megadott kiemelési színek felülírják ezt az alapértelmezést:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
+// Állítsa be a kiemelési színt az egész bekezdéshez.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -78,7 +78,7 @@ Az eredmény:
 
 ![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűtípusú szövegrészek** esetén:
+Az alábbi kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűvel rendelkező szövegrészek** esetén:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -113,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Állítsa be a szövegrész kiemelési színét.
+        // Állítsa be a kiemelési színt a szövegrészhez.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -126,11 +126,11 @@ Az eredmény:
 
 ![A szürke szövegrészek](gray_text_portions.png)
 
-## **Szövegbekezdések igazítása**
+## **Bekezdések igazítása**
 
-Használja az [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) metódust a bekezdés igazításának beállításához egy szövegdobozon belül. Az érték lehet középre igazított, balra igazított, jobbra igazított, sorkizárt stb.
+Az [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) segítségével állítható be a bekezdés igazítása a szövegkereten belül. Az érték lehet középre igazított, balra igazított, jobbra igazított, sorkizárt, stb.
 
-Az alábbi kódrészlet azt mutatja, hogyan igazítható a bekezdés **középre**:
+Az alábbi kódrészlet bemutatja, hogyan igazítható a bekezdés **középre**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -164,9 +164,9 @@ Az eredmény:
 
 ## **Betűk igazítása egy soron belül**
 
-Használja az [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) metódust a soron belüli különböző betűméretű szövegrészek függőleges igazításához. Ez a beállítás az egész bekezdésre vonatkozik, és a sorokban lévő szövegelemek igazítását szabályozza.
+Az [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) segítségével függőlegesen igazíthatók a különböző betűméretű szövegrészek egy soron belül. Ez a beállítás az egész bekezdésre érvényes, és szabályozza az egyes sorokban történő igazítást.
 
-Az alábbi önálló példa négy címkével ellátott szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pont méretben, különböző betűigazítással. Az Arial betűtípust használja, letiltja az automatikus illesztést és a sortörést, és a szövegdobozokat elég nagyra állítja egy sorhoz.
+Az alábbi önálló példa négy címkézett szövegmezőt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pontban, különböző betűigazítással. Arial betűtípust használ, letiltja az automatikus illesztést és a sortörést, és a szövegkereteket elég nagyra állítja egyetlen sorhoz.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -253,17 +253,17 @@ presentation->Dispose();
 
 Az eredmény:
 
-![A baseline, felső, középső és alsó betűigazítás összehasonlítása vegyes betűméretekkel](font_alignment.png)
+![Összehasonlítás az alapvonal, felső, középső és alsó betűigazításról kevert betűméretekkel](font_alignment.png)
 
-A betűigazítás betűmetrikákon alapul, ezért az egyes betűk látható szélei nem feltétlenül esnek pontosan egy vonalra. A példa tartalmaz egy nagybetűt és egy alsó karaktert, hogy szemléltesse a baseline és az alsó igazítás közti különbséget. A betűk elérhetősége és helyettesítése, a használt karakterek, valamint a betűméretek közti különbségek mind befolyásolják az eredményt. A keretméretek, margók, sortávolság, sortörés és az automatikus illesztés szintén hatnak a megjelenésre; a módok összehasonlításakor ugyanazokat a betűket és elrendezési beállításokat használja.
+A betűigazítás a betűmetrikákon alapul, ezért az egyes betűk látható szélei nem feltétlenül esnek pontosan egy vonalra. A példa tartalmaz egy nagybetűt és egy lejjebb nyúló karaktert, hogy mutassa a különbséget az alapvonal és az alsó igazítás között. A betűtípus rendelkezésre állása, a használt karakterek és a betűméretek különbsége befolyásolja az eredményt. A keret méretei, margók, sortávolság, sortörés és automatikus illesztés szintén hatással vannak a megjelenésre; az összehasonlításkor ugyanazokat a betűtípusokat és beállításokat használja.
 
-Ez a beállítás különbözik az [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) metódustól, amely a vízszintes bekezdésigazítást szabályozza, valamint az [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) metódustól, amely a szövegblokk függőleges elhelyezkedését határozza meg az alakzatban. A felső- és alsó indexelés az [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) metódussal az egyes részeket a baseline-hez képest eltolja, a bekezdés sorainak betűigazítását pedig nem módosítja.
+Ez a beállítás különbözik az [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/)‑tól, amely a vízszintes bekezdésigazítást szabályozza, valamint az [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/)‑tól, amely a szövegtömb függőleges helyzetét határozza meg az alakzaton belül. A [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/)‑tel végzett felső- és alsó indexelés a részleteket az alapvonalhoz képest eltolja, a bekezdés sorainak betűigazítását nem módosítva.
 
 ## **Szöveg átlátszóságának beállítása**
 
-A szöveg átlátszósága a [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) által kapott szín alfa komponensén keresztül szabályozható. Az alábbi példákban az `alpha = 50` egy ARGB alfa-csatorna érték 0–255 skálán, nem átlátszóság százalék.
+Az átlátszóság a [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) által visszaadott szín alfa‑komponensén keresztül szabályozható. Az alábbi példákban az `alpha = 50` egy 0–255 skálájú ARGB alfa‑csatorna‑érték, nem átlátszósági százalék.
 
-Az alábbi kódrészlet azt mutatja, hogyan alkalmazzon átlátszóságot az **egész bekezdésre**:
+Az alábbi kódrészlet bemutatja, hogyan alkalmazzunk átlátszóságot a **teljes bekezdésre**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -292,7 +292,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Állítsa be a szöveg kitöltőszínét átláhaszó színre.
+// Állítsa be a szöveg kitöltőszínét átlátszó színre.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -306,7 +306,7 @@ Az eredmény:
 
 ![Az átlátszó bekezdés](transparent_paragraph.png)
 
-A következő kódrészlet azt mutatja, hogyan alkalmazzon átlátszóságot **félkövér betűtípusú szövegrészekre**:
+Az alábbi kódrészlet bemutatja, hogyan alkalmazzunk átlátszóságot **félkövér betűvel rendelkező szövegrészek** esetén:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -360,11 +360,11 @@ Az eredmény:
 
 ![Az átlátszó szövegrészek](transparent_text_portions.png)
 
-## **Karakterköz beállítása szöveghez**
+## **Karakterköz beállítása a szövegben**
 
-Használja az [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) metódust a karakterek közti távolság növelésére vagy szűkítésére egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek szűkítik a szöveget.
+A [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) segítségével növelhető vagy szűkíthető a karakterek közötti távolság egy szövegmezőben. A példák 3 pont távolságot adnak hozzá; negatív értékek szűkítik a szöveget.
 
-Az alábbi C++ kód azt mutatja, hogyan növelhető a karakterköz az **egész bekezdésben**:
+Az alábbi C++ kód azt mutatja, hogyan növelhető a karakterköz a **teljes bekezdésben**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -385,8 +385,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Megjegyzés: Használjon negatív értékeket a karakterköz szorításához.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Növelje a karakterközöt.
+// Megjegyzés: Negatív értékekkel lehet a karakterközöt összenyomni.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Bővíti a karakterközt.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -394,9 +394,9 @@ presentation->Dispose();
 
 Az eredmény:
 
-![Karakterköz a bekezdésben](character_spacing_in_paragraph.png)
+![A karakterköz a bekezdésben](character_spacing_in_paragraph.png)
 
-Az alábbi kódrészlet azt mutatja, hogyan növelhető a karakterköz **félkövér betűtípusú szövegrészekben**:
+Az alábbi kódrészlet bemutatja, hogyan növelhető a karakterköz **félkövér betűvel rendelkező szövegrészek** esetén:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -428,8 +428,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Megjegyzés: Használjon negatív értékeket a karakterköz szorításához.
-        portionFormat->set_Spacing(3.0f); // Növelje a karakterközöt.
+        // Megjegyzés: Negatív értékekkel lehet a karakterközöt összenyomni.
+        portionFormat->set_Spacing(3.0f); // Bővíti a karakterközt.
     }
 }
 
@@ -439,13 +439,13 @@ presentation->Dispose();
 
 Az eredmény:
 
-![Karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
+![A karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
 
-### **Kerning letiltása konkrét betűtípusoknál**
+### **Kerning letiltása bizonyos betűtípusoknál**
 
-Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPointban megjelenített szöveg. Ez akkor fordul elő, ha a PowerPoint figyelmen kívül hagyja a kerning adatokat egyes betűtípusoknál, még akkor is, ha a betűtípus érvényes kerning információkat tartalmaz, és a PowerPoint beállításaiban a kerning engedélyezve van.
+Bizonyos esetekben az Aspose.Slides által megjelenített szöveg kissé szorosabbnak tűnhet, mint a PowerPoint‑ban ugyanaz a szöveg. Ennek oka lehet, hogy a PowerPoint bizonyos betűtípusok esetén figyelmen kívül hagyja a kerning adatokat, még ha a betűtípus tartalmaz érvényes kerning információt és a PowerPoint beállításában a kerning engedélyezve is van.
 
-Az ilyen esetekben a renderelt kimenet PowerPointhoz való közelebb hozásához letilthatja a kerninget azoknál a szövegrészeknél, amelyek az érintett betűtípust használják. Használja az [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) metódust, és adjon meg egy értéket, amely nagyobb, mint a tényleges betűméret. Ez a példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be azokhoz a részekhez, amelyek Roboto betűtípust használnak. Ez letiltja a kerninget a 100 pontnál kisebb betűmérettel rendelkező egyező részeknél:
+Az ilyen esetekben a renderelt eredmény PowerPoint‑hoz hasonlóbbá tételéhez letilthatja a kerninget azoknál a szövegrészeknél, amelyek az érintett betűtípust használják. A [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) segítségével állíthat be egy értéket, amely nagyobb, mint a tényleges betűméret. Ez a példa a „presentation.pptx” fájlt igényli, amelyen az első dia első alakzata egy szövegmező. A hatékony betűneveket, beleértve az örökölt betűket, ellenőrzi, és 100 pontos küszöböt állít be azoknál a részeknél, amelyek a Roboto‑t használják. Ez letiltja a kerninget a 100 pont alatti betűmérettel rendelkező egyező részeknél:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -503,13 +503,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az alsó küszöb alatti egyező szövegnél ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének a PowerPoint vizuális kimenetéhez való igazításában azoknál a betűtípusoknál, amelyekre ez a PowerPoint‑specifikus viselkedés hatással van.
+A küszöb alatti egyező szövegek esetén ez a beállítás meggátolja a kerninget, és segíthet az Aspose.Slides renderelésének összhangban tartásában a PowerPoint vizuális kimenetével azon betűtípusoknál, amelyeket ez a PowerPoint‑specifikus viselkedés befolyásol.
 
-## **Szöveg betűtípus‑tulajdonságainak kezelése**
+## **Szöveg betűtulajdonságainak kezelése**
 
-A betűtípus‑tulajdonságok beállíthatók a bekezdés szintjén az [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) segítségével vagy egyedi részeken az [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/) segítségével.
+A betűtulajdonságok beállíthatók bekezdés szinten a [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) segítségével, vagy egyedi részeknél az [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/) használatával.
 
-A következő példa beállítja az első bekezdés alapértelmezett betűtípusát 12 pontos Times New Romanra, félkövér, dőlt és pontozott aláhúzással. Az egyes részeken megadott explicit formázás felülírja ezeket az alapértékeket:
+Az alábbi példa a első bekezdés alapértelmezett betűtípusát 12 pontos Times New Roman‑ra állítja be félkövér, dőlt és pontozott aláhúzással. Az egyedi részeken megadott formázás felülírja ezeket az alapértelmezéseket:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -534,7 +534,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Állítsa be a bekezdés betűtulajdonságait.
+// Állítsa be a betűtulajdonságokat a bekezdéshez.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -550,7 +550,7 @@ Az eredmény:
 
 ![A bekezdés betűtulajdonságai](font_properties_for_paragraph.png)
 
-A következő példa 13 pontos Times New Roman, dőlt formázást és pontozott aláhúzást alkalmaz azoknál a részeknél, amelyek hatékony formázása félkövér:
+Az alábbi példa 13 pontos Times New Roman‑t, dőlt formázást és pontozott aláhúzást alkalmaz azon részekre, amelyek hatékony formázása félkövér:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -601,13 +601,13 @@ Az eredmény:
 
 ![A szövegrészek betűtulajdonságai](font_properties_for_text_portions.png)
 
-## **Szöveg magasság normalizációjának vezérlése**
+## **Szövegmagasság normalizálásának vezérlése**
 
-Használja az [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) metódust sablon tipográfia reprodukálásához vagy a karaktermagasságbeli különbségek vizsgálatához. PowerPointban a normalizáció engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot biztosítson a szövegrészben. Ez nem garantálja, hogy a szövegek magassága ugyanaz lesz különböző betűtípusoknál.
+Használja a [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) metódust sablon tipográfia újraalkotásához vagy a karaktermagasságok közti különbségek vizsgálatához. PowerPoint‑ban a normalizálás engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot biztosítson a szövegrészben. Ez nem garantál egyenlő szövegmagasságot különböző betűtípusok között.
 
-Állítsa be a tulajdonságot a [NullableBool::True vagy False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) értékre a normalizáció kifejezett engedélyezéséhez vagy letiltásához. A `NullableBool::NotDefined` helyi beállítást üresen hagyja, így a rész az értéket örökli például a bekezdés [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)‑ből. Ez nem azt jelenti, hogy **False**. Használja az [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) és olvassa a [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) értéket a feloldott logikai értékhez.
+Az értéket a [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/)‑ra állítva lehet kifejezetten engedélyezni vagy letiltani a normalizálást. A `NullableBool::NotDefined` azt jelenti, hogy a helyi beállítás nincs meghatározva, így a részörökli azt például a bekezdés [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)‑ból. Ez nem jelenti a `False`‑t. A [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) és a [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) segítségével lekérhető a feloldott logikai érték.
 
-Az alábbi önálló példa az **Arial** betűtípus telepítését igényli. Két szövegrészt hoz létre, amelyek ugyanazokat a nagybetűket, kisbetűket, alsó karaktereket és ékezetes karaktereket tartalmazzák 54 pontban. Mindkét bekezdés alapértelmezésben engedélyezi a normalizációt. A felső rész explicit módon letiltja, az alsó rész örökli a beállítást. A keretméretek, margók és bekezdésközök azonosak, a sortörés és az automatikus illesztés le van tiltva a konzisztens összehasonlítás érdekében. A példa kiírja a `False: False` és `NotDefined: True` értékeket, majd elmenti a **text_height_normalization.pptx** fájlt.
+Az alábbi önálló példa **Arial** betűtípust igényel. Két szövegtömböt hoz létre, amelyek ugyanazokat a nagybetűket, kisbetűket, lejjebb nyúló karaktereket és ékezetes karaktereket 54 pontban tartalmazzák. Mindkét bekezdés alapértelmezésben engedélyezi a normalizálást. A felső rész kifejezetten letiltja, a alsó rész pedig örökli a beállítást. A keretek méretei, margói és bekezdésközei azonosak, a sortörés és az automatikus illesztés le van tiltva a konzisztens összehasonlítás érdekében. A példa kiírja a `False: False` és a `NotDefined: True` értékeket, majd elmenti a „text_height_normalization.pptx” fájlt.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -681,19 +681,19 @@ presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az alábbi összehasonlítás a mentett prezentációból lett exportálva. A felső sorban a normalizáció le van tiltva (`False`); az alsó sorban a beállítás öröklődik (`NotDefined` → `True`). Az eredmény reprodukálásához legyen telepítve az Arial.
+Az alábbi összehasonlítás a mentett prezentációból lett exportálva. A felső sorban a normalizálás le van tiltva (`False`); az alsó sor örökli az engedélyezett beállítást (`NotDefined` → `True`). Az eredmény reprodukálásához telepítve kell legyen az Arial.
 
-![Arial 54‑pontos szöveg normalizációval letiltva felül és örökölve engedélyezve alul](text_height_normalization.png)
+![Arial 54‑pontos szöveg normalizálás nélkül felül, normalizálással alul](text_height_normalization.png)
 
-A normalizáció a karaktermagasságot változtatja anélkül, hogy a hozzárendelt [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/) értéket módosítaná, ami a betűméretet pontokban adja meg. A bekezdés [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) vezérli a sortávolságot, míg a szövegdoboz [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) szabályozza, hogy a szöveg vagy annak tárolója hogyan alkalmazkodik. Ezek a beállítások különböző célokra szolgálnak, és önállóan befolyásolhatják a teljes elrendezést. A bekezdésformázás és öröklődés részleteiért lásd a [Bekezdések kezelése](/slides/hu/cpp/manage-paragraph/) oldalt.
+A normalizálás a karaktermagasságot változtatja anélkül, hogy a [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/) értékét módosítaná, amely a betűméretet pontban adja meg. A bekezdés [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) szabályozza a sortávolságot, míg a szövegkeret [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) határozza meg, hogy a szöveg vagy a tároló hogyan alkalmazkodik. Ezek a beállítások különböző célokat szolgálnak, és függetlenül befolyásolhatják a teljes elrendezést. A bekezdésformázásról és öröklődésről további információért tekintse meg a [Bekezdések kezelése](/slides/hu/cpp/manage-paragraph/) oldalt.
 
 ## **Áthúzás alkalmazása és eltávolítása**
 
-Használja az [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) metódust egy szövegrészen, hogy kijelölések, törölt kifejezések vagy korábbi árak megjelenjenek a szöveg törlése nélkül. Állítsa a [TextStrikethroughType::Single vagy Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) értékekre egy vagy két áthúzott vonal megjelenítéséhez.
+Az [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) használatával egy szövegrészen megjeleníthetők javítások, törölt kifejezések vagy korábbi árak a szöveg törlése nélkül. Állítsa be a [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) értékek egyikére, hogy egy vagy két vonal jelenjen meg a szöveg felett.
 
-Az áthúzás eltávolításához állítsa be a `TextStrikethroughType::None` értéket. Ez kifejezetten letiltja a hatást, még akkor is, ha a környező formázás áthúzást tartalmaz. Ezzel szemben a `TextStrikethroughType::NotDefined` helyi beállítást üresen hagyja, így a rész örökölheti a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltűnik. Az eredményes formázás, beleértve az örökölt értékeket, olvasásához használja az [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) metódust.
+Az áthúzás eltávolításához állítsa a `TextStrikethroughType::None` értéket. Ez kifejezetten letiltja a hatást, még akkor is, ha a környező formázás áthúzást tartalmaz. Ezzel szemben a `TextStrikethroughType::NotDefined` azt jelenti, hogy a helyi beállítás nincs meghatározva, így a rész örökölheti a formázást, például a bekezdéstől. Az nem garantálja, hogy az áthúzás eltávolításra kerül. A [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) segítségével olvasható a végső formázás, beleértve az örökölt értékeket is.
 
-A következő önálló példa három árösszehasonlítást hoz létre. Minden bekezdésnek külön része van a címke, a korábbi ár és a jelenlegi ár számára, így csak a korábbi ár érintett. Az első sor áthúzást alkalmaz, majd eltávolít; a többi sor egy- és kétszeres áthúzást tart meg. Ennek a tulajdonságnak a módosítása megőrzi a szöveget és egyéb formázását, beleértve a félkövér korábbi árat.
+Az alábbi önálló példa három árösszehasonlítást hoz létre. Minden bekezdés külön részeket tartalmaz a címke, a korábbi ár és az aktuális ár számára, így csak a korábbi ár érintett. Az első sor áthúzást alkalmaz, majd eltávolít; a többi sor egyszeres és dupla áthúzást tart meg. Ennek a tulajdonságnak a módosítása megőrzi a szöveget és egyéb formázását, beleértve a félkövér korábbi árat is.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -762,7 +762,7 @@ for (auto label : labels)
     textFrame->get_Paragraphs()->Add(paragraph);
 }
 
-// Alkalmazza az áthúzást, majd kifejezetten eltávolítja az első korábbi árat.
+// Alkalmazza az áthúzást, majd kifejezetten eltávolítja az első korábbi árból.
 auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
 firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
 firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
@@ -774,16 +774,16 @@ presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Az eredmény felülről lefelé: nincs áthúzás, egyetlen áthúzás és dupla áthúzás.
+Az eredmény felülről lefelé: nincs áthúzás, egyszeres áthúzás és dupla áthúzás.
 
-![Korábbi árak áthúzás nélkül, egyetlen áthúzással és dupla áthúzással](strikethrough.png)
+![Korábbi árak áthúzás nélkül, egyszeres áthúzással és dupla áthúzással](strikethrough.png)
 
 
-## **Szöveg forgatás beállítása**
+## **Szöveg forgatásának beállítása**
 
-Használja az [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) metódust egy előre definiált szövegorientáció beállításához egy alakzaton belül.
+Az [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) segítségével előre definiált szövegorientáció állítható be egy alakzaton belül.
 
-Az alábbi kódrészlet a szöveg orientációját a [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) értékre állítja, amely a szöveget **90 fokban balra** forgatja:
+Az alábbi kódrészlet a szövegorientációt a [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal óramutatóval ellentétesen** forgatja a szöveget:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -811,11 +811,85 @@ Az eredmény:
 
 ![A szöveg forgatása](text_rotation.png)
 
-## **Egyedi forgatás beállítása szövegdobozokhoz**
+## **Számjegyek egymás mellé helyezése függőleges japán szövegben**
 
-Használja az [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) metódust egy egyedi forgatási szög beállításához egy [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) számára.
+Egy kétjegyű szám függőleges japán címke esetén a számjegyeket egyetlen szövegrészben kell elhelyezni, majd a [IBasePortionFormat::set_Kumimoji](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kumimoji/) metódust hívni. A példa a [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) értéket és 40 pontos MS Gothic‑ot használ mindkét címkehez. A numerikus részhez átadott [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) érték eltérő.
 
-Az alábbi példa a szövegdobozt 3 fokkal az óramutató járásával megegyező irányban forgatja az alakzaton belül:
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto addLabel = [&slide](float x, NullableBool kumimoji)
+{
+    auto label = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, x, 48, 120, 420);
+    label->get_FillFormat()->set_FillType(FillType::NoFill);
+    label->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto frame = label->AddTextFrame(u"");
+    frame->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::EastAsianVertical);
+
+    auto paragraph = frame->get_Paragraph(0);
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    auto font = MakeObject<FontData>(u"MS Gothic");
+    format->set_LatinFont(font);
+    format->set_EastAsianFont(font);
+    format->set_FontHeight(40);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto digits = MakeObject<Portion>(u"12");
+    digits->get_PortionFormat()->set_Kumimoji(kumimoji);
+
+    auto portions = paragraph->get_Portions();
+    portions->Clear();
+    portions->Add(MakeObject<Portion>(u"令和"));
+    portions->Add(digits);
+    portions->Add(MakeObject<Portion>(u"年"));
+};
+
+addLabel(120, NullableBool::True);
+addLabel(360, NullableBool::False);
+
+presentation->Save(u"vertical_date.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+PowerPoint‑ban a bal oldali címke (`True`) függőlegesen állítja a számjegyeket, a két számjegy egymás mellett jelenik a 和 és 年 karakterek között. A jobb oldali címke (`False`) esetén a dupla 90 fokos óramutatóval megfelelő elforgatású. A környező japán karakterek mindkét címkén álló helyzetben maradnak.
+
+![PowerPoint összehasonlítás a függőleges dátumcímkékről, bal oldalon álló számjegyekkel és jobb oldalon fordított számjegyekkel.](vertical_date.png)
+
+## **Egyéni forgatás beállítása szövegkeretekhez**
+
+Az [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) használatával egyedi forgatási szöget adhat meg egy [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) számára.
+
+Az alábbi példa 3 fokkal óramutatóval azonos irányban forgatja el a szövegkeretet az alakzaton belül:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -840,16 +914,16 @@ presentation->Dispose();
 
 Az eredmény:
 
-![Az egyedi szöveg forgatás](custom_text_rotation.png)
+![Az egyéni szöveg forgatása](custom_text_rotation.png)
 
 ## **Bekezdések sortávolságának beállítása**
 
-Az Aspose.Slides a [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) és [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) metódusokkal szabályozza a bekezdésközöket. Ezek a módszerek a következőképpen használhatók:
+Az Aspose.Slides a [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) és [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) metódusokkal szabályozza a bekezdésközöket. Ezeket a következőképpen használja:
 
-* Pozitív érték esetén a sortávolság a sormagasság százalékában adható meg.
-* Negatív érték esetén a sortávolság pontban adható meg.
+* Pozitív értékkel a sortávolság a sormagasság százalékában adható meg.
+* Negatív értékkel a sortávolság pontban adható meg.
 
-Az alábbi példa a első bekezdés sortávolságát a sormagasság 200 %-ára (dupla sorköz) állítja:
+Az alábbi példa a bekezdésen belüli sortávolságot a sormagasság 200 %-ára (kétszeres sorköz) állítja:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -879,16 +953,16 @@ Az eredmény:
 
 ![A sortávolság a bekezdésen belül](line_spacing.png)
 
-## **Sortörés szabályainak vezérlése**
+## **Sorok tördelésének vezérlése**
 
-A bekezdés sortörés szabályai szűk szövegdobozok és latin és kelet-ázsiai szöveget keverő prezentációk esetén hasznosak. Az alábbi metódusok az [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/) részei, ezért egy teljes bekezdésre vonatkoznak:
+A bekezdés sorok tördelésének szabályai szűk szövegblokkokban és olyan prezentációkban hasznosak, ahol latin és kelet-ázsiai szöveg keveredik. Az alábbi módszerek az [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/) részei, ezért egy teljes bekezdésre vonatkoznak:
 
-- Az [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) vezérli a latin sortörés szabályait. Vegyes szöveg esetén a módosítása megváltoztathatja a szomszédos kelet-ázsiai szöveg és írásjelek tördelésének helyét is.
-- Az [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) vezérli a kelet-ázsiai sortörés szabályait, beleértve a sor elején és végén állhatók karaktereket korlátozó szabályokat.
+* A [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) szabályozza a latin szöveg tördelését. Vegyes szöveg esetén ennek módosítása megváltoztathatja a szomszédos kelet-ázsiai szöveg és írásjelek tördelésének helyét is.
+* A [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) szabályozza a kelet-ázsiai szöveg tördelését, beleértve a sor elején és végén lévő karakterek korlátozását.
 
-Ezek a szabályok nem helyettesítik az [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) metódust, amely automatikus sortörést engedélyez egy szövegdobozon belül. A szabályok a layoutot befolyásolják, ha a sortörés megtörténik; nem szúrnak be sortörés karaktert. Egy explicit sortörés új sort hoz létre a bekezdésben, függetlenül a rendelkezésre álló szélességtől.
+E szabályok nem helyettesítik az [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) metódust, amely a szövegkereten belüli automatikus sortörést engedélyezi. A fenti szabályok befolyásolják a layoutot, amikor a sortörés megtörténik; nem illesztenek be sorvége karaktert. Egy explicit sortörés új sort hoz létre a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
 
-Az alábbi önálló példa egy szűk szövegdobozt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörés szabályt explicit módon beállítja, majd elmenti a **line_breaking.pptx** fájlt. A szabályok kipróbálásához változtassa meg a beállító metódus argumentumát, miközben a többit változatlanul hagyja. A példa 24‑pontos Arial és SimSun betűtípust használ 160‑pontos keretszélességgel és nulla vízszintes szövegdoboz‑margóval. Az [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) a [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) értékre van állítva, így a szövegméret és a keret mérete rögzített marad.
+Az alábbi önálló példa egy keskeny szövegblokkot hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sorbontási szabályt explicit módon beállítja, majd a „line_breaking.pptx” fájlt menti. A szabályok teszteléséhez módosítsa a setternek átadott értéket, miközben a többi beállítást változatlanul hagyja. A példa 24 pontos Arial‑t és SimSun‑t használ 160 pont széles kerettel és nulla vízszintes szövegkeret‑margóval. Az [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) a [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) értékre van állítva, hogy a betűméret és a keret méretei rögzítve legyenek.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -946,11 +1020,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Függőleges szóköztörés (hanging punctuation) kezelése**
+## **Függőleges írásjelek használata**
 
-Az [IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) lehetővé teszi, hogy az elegendő szóköznek megfelelő írásjelek a sor jobb szélén túl nyúljanak, ahelyett, hogy a következő sorba kerülnek. Ez a beállítás az egész bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
+Az [IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) lehetővé teszi, hogy az adott írásjelek a sor jobb szélén túlnyúljanak ahelyett, hogy a következő sorba kerülnek. Ez a beállítás a teljes bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
 
-Az alábbi önálló példa 100 pont széles szövegdobozban engedélyezi a függőleges szóköztörést, és elmenti a **hanging_punctuation.pptx** fájlt. 24‑pontos Arial betűtípussal és nulla vízszintes szövegdoboz‑margóval a végső pont a „sentence” után marad, és a sor jobb szélén túlnyúlik. A [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) átadása a setternek a különböző eredmény megmutatásához: ebben az esetben a pont külön sorba kerül. A sortörés engedélyezve van, az automatikus illesztés le van tiltva, hogy a rendelkezésre álló szélesség rögzített maradjon.
+Az alábbi önálló példa engedélyezi a függőleges írásjeleket egy 100 pont széles szövegkeretben, majd a „hanging_punctuation.pptx” fájlt menti. 24 pontos Arial és nulla vízszintes szövegkeret‑margó használatával a végső pont a „sentence” szó után marad, és a sor jobb szélén túl nyúlik. A [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) átadásával összehasonlítható, hogy ebben az esetben a pont külön sorba kerül. A sortörés engedélyezett, az automatikus illesztés le van tiltva, hogy a rendelkezésre álló szélesség rögzítve legyen.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -1005,11 +1079,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nem minden írásjel nyúlik ki. A [fent leírt betűtípus‑ és layout‑feltételek](#control-line-breaking) szintén érvényesek erre az összehasonlításra: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
+Nem minden írásjel függetlenen függőleges. A fentebb leírt [betű- és elrendezési feltételek](#control-line-breaking) szintén érvényesek erre az összehasonlításra: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
 
-## **Szövegdobozok automatikus illesztés típusának beállítása**
+## **Automatikus illesztés típusának beállítása szövegkeretekhez**
 
-Az [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) meghatározza, hogyan viselkedik a szöveg, ha túllépi a tároló határait. Ezzel szabályozható, hogy a szöveg kicsinyüljön, kifolyjon vagy a forma automatikusan átméreteződjön. Az alábbi példa a forma automatikus átméretezését állítja be a szöveghez, és elmenti a **autofit_type.pptx** fájlt.
+Az [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) meghatározza, hogyan viselkedjen a szöveg, ha meghaladja a tároló határait. Használja azt, hogy szabályozza, a szöveg zsugorodjon, túlcsorduljon vagy a forma automatikusan méreteződjön. Az alábbi példa úgy konfigurálja a formát, hogy a szöveghez igazodva méretezze a formát, majd a „autofit_type.pptx” fájlt menti.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1033,11 +1107,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A sorok számának automatikus sortörés utáni megtekintéséhez és a szöveg vagy a forma szélességének változásának hatására, lásd a [Renderelt sorok számlálása](/slides/hu/cpp/manage-paragraph/). A sorok száma önmagában nem mutatja, hogy a szöveg kifolyik‑e a tárolóból.
+Az automatikus sortörés utáni sorok számolásához és a szöveg vagy a forma szélesség változásának megtekintéséhez tekintse meg a [Renderelt sorok számlálása](/slides/hu/cpp/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg túlcsordul-e a tárolóból.
 
-## **Szövegdobozok rögzítésének (anchor) beállítása**
+## **Szövegkeretek rögzítésének beállítása**
 
-Az [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) határozza meg, hogyan helyezkedik el a szöveg függőlegesen egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget a első alakzat aljához rögzíti, majd elmenti a **text_anchor.pptx** fájlt.
+Az [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) meghatározza, hogyan helyezkedik el függőlegesen a szöveg egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat aljához rögzíti, majd a „text_anchor.pptx” fájlt menti.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1063,7 +1137,7 @@ presentation->Dispose();
 
 ## **Szöveg tabulációjának beállítása**
 
-Használja az [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) és az [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) metódusokat a tabulátorpozíciók konfigurálásához egy bekezdésben. Az alábbi példa a alapértelmezett tabulátorintervallumot 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontnál. Ezek a beállítások a tabulátor karaktereket tartalmazó szövegre hatnak.
+Használja a [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) és a [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) metódusokat a bekezdés tabulátorállásainak konfigurálásához. Az alábbi példa az alapértelmezett tabulátort 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontnál. Ezek a beállítások a tabulátor‑karaktereket tartalmazó szövegre hatnak.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1096,11 +1170,11 @@ Az eredmény:
 
 ![A bekezdés tabulátorai](paragraph_tabs.png)
 
-## **Helyesírás-ellenőrzési nyelv beállítása**
+## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides az [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) metódusával lehetővé teszi a szövegrész helyesírás‑ellenőrzési nyelvének beállítását. A helyesírás‑ellenőrzési nyelv meghatározza, hogy a PowerPoint milyen nyelven végez helyesírás‑ és nyelvtani ellenőrzést.
+Az Aspose.Slides a [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) segítségével lehetővé teszi a szövegrészek helyesírási nyelvének beállítását. A helyesírási nyelv meghatározza, hogy a PowerPoint milyen nyelven ellenőrizze a helyesírást és a nyelvtant.
 
-Az alábbi példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián, és legalább egy bekezdést tartalmaz. Lecseréli az első bekezdés tartalmát „1”。‑re, a betűtípust SimSunra állítja, és a Simplified Chinese (`zh-CN`) helyesírás‑ellenőrzési nyelvet rendeli hozzá. Az eredményt a **proofing_language.pptx** fájlba menti:
+Az alábbi példa a „presentation.pptx” fájlt igényli, amelyen az első dia első alakzata egy szövegmező és legalább egy bekezdés van. Az első bekezdés tartalmát „1。”‑re cseréli, a betűtípust SimSun‑ra állítja, és a Kínai (egyszerű) helyesírási nyelvet (`zh-CN`) rendeli hozzá. A „proofing_language.pptx” fájlt menti:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -1133,7 +1207,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Állítsa be a helyesírás-ellenőrzési nyelvet egyszerű kínai nyelvre.
+// Állítsa be a helyesírási nyelvet egyszerű kínai nyelvre.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -1145,7 +1219,7 @@ presentation->Dispose();
 
 ### **Nyelvi metaadat másolása**
 
-Amikor többnyelvű szöveget másol egy sablonból, mindkét nyelvi azonosítót meg kell őrizni az [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) és az [IBasePortionFormat::set_AlternativeLanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_alternativelanguageid/) segítségével. Az alábbi önálló példa egy forrásrészt hoz létre, amelynek nyelvi azonosítója US English, alternatív nyelveként French, és a szöveget és az azonosítókat egy új prezentációban lévő részhez másolja.
+Többnyelvű szöveg sablonból történő másolásakor mindkét nyelvi azonosítót meg kell őrizni a [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) és a [IBasePortionFormat::set_AlternativeLanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_alternativelanguageid/) használatával. Az alábbi önálló példa egy forrásrészt hoz létre, amelynek elsődleges nyelve az amerikai angol, alternatív nyelve a francia, majd a szöveget és az azonosítókat egy új prezentáció egy részébe másolja.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1185,13 +1259,13 @@ presentation->Save(u"copied_language_metadata.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ha a forráshoz nincs alternatív nyelv, hagyja ki a `u"fr-FR"` hozzárendelését. Az alternatív azonosító ekkor null‑string lesz, és ugyanaz a másolási utasítás megőrzi a hiányát anélkül, hogy alapértelmezett értéket vezetne be, még akkor is, ha a célkorábban már rendelkezett alternatív nyelvvel.
+Ha forrást akar anélkül, hogy alternatív nyelv lenne, hagyja ki a `u"fr-FR"` hozzárendelését. Az alternatív azonosító ilyenkor null‑string, és ugyanaz a másolási parancs megőrzi a hiányát anélkül, hogy alapértelmezett értéket vezetne be, még ha a célhelyen korábban már be van állítva alternatív nyelv.
 
-Ezek az azonosítók nyelvi metaadatként vannak tárolva. Megtartásuk nem határozza meg, melyik szótárat választja a PowerPoint helyesírás‑ vagy nyelvtani ellenőrzéshez.
+Ezek az azonosítók nyelvi metaadatai. Megőrzésük nem határozza meg, hogy a PowerPoint melyik szótárat használja a helyesírás vagy nyelvtani ellenőrzéshez.
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használja a [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) metódust a szöveg alapértelmezett nyelvének meghatározásához a prezentáció betöltése vagy létrehozása során. Az alábbi példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelvként az US English van beállítva, hozzáad egy szövegdobozt, és kiírja az első szövegrész nyelvét `en-US`.
+Használja a [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) metódust az alapértelmezett nyelv meghatározásához a prezentáció betöltése vagy létrehozása során. Az alábbi példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelve az amerikai angol, egy szövegmezőt ad hozzá, majd az első szövegrésznek kiírja az `en-US` értéket.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1214,11 +1288,11 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Adjunk hozzá egy új téglalap alakzatot szöveggel.
+// Add a new rectangle shape with text.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Ellenőrizze az első szövegrész nyelvét.
+// Check the first portion language.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -1228,32 +1302,46 @@ presentation->Dispose();
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-Az alapértelmezett szövegformázás a prezentáció szintjén az [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) segítségével alkalmazható.
+Az alapértelmezett szövegformázás alkalmazásához a prezentáció szintjén használja az [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) metódust.
 
-Az alábbi példa 14‑pontos félkövér betűtípust állít be alapértelmezettként a felső szintű bekezdésekhez egy új prezentációban, és elmenti a **default_text_style.pptx** fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy specifikusabb formázás felül nem írja őket.
+Az alábbi példa 14 pontos félkövér betűtípust állít be az új prezentáció felső szintű bekezdéseihez, majd a „default_text_style.pptx” fájlt menti. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy specifikusabb formázás nincs előnyben.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/ITextStyle.h>
-#include <DOM/NullableBool>.
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto  
+auto presentation = System::MakeObject<Presentation>();
 
+// Lekéri a legfelső szintű bekezdésformátumot.
+auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
+
+if (paragraphFormat != nullptr)
+{
+    auto defaultPortionFormat = paragraphFormat->get_DefaultPortionFormat();
+    defaultPortionFormat->set_FontHeight(14.0f);
+    defaultPortionFormat->set_FontBold(NullableBool::True);
+}
+
+presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Szöveg kinyerése All‑Caps hatással**
+## **Nagybetűs effektussal ellátott szöveg kinyerése**
 
-PowerPointban az **All Caps** betűtípus‑effektus alkalmazása a szöveget nagybetűként jeleníti meg a dián, még ha a felhasználó eredetileg kisbetűvel írta is be. Amikor az Aspose.Slides ilyen szövegrészt kérdezi le, a könyvtár pontosan úgy adja vissza a szöveget, ahogy be lett írva. A megjelenített szöveghez történő illesztéshez ellenőrizze a [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) értékét, és konvertálja a visszakapott karakterláncot nagybetűvé, ha az érték [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
+PowerPoint‑ban a **All Caps** betűtípus‑effektus alkalmazása azt eredményezi, hogy a szöveg a dián nagybetűvel jelenik meg, még akkor is, ha eredetileg kisbetűvel lett beírva. Amikor ilyen szövegrészt kér le az Aspose.Slides, a könyvtár pontosan úgy adja vissza a szöveget, ahogyan azt beírták. A megjelenített szöveghez való igazításhoz ellenőrizze a [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) értékét, és ha az [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) értékre van állítva, konvertálja a visszakapott karakterláncot nagybetűssé.
 
-Ez a példa a „sample2.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Az első bekezdés első része tartalmazza a “Hello, Aspose!” szöveget, amelyre az All Caps hatás alkalmazva van, az alábbiak szerint.
+Ez a példa a „sample2.pptx” fájlt igényli, amelyen az első dia első alakzata egy szövegmező, és az első bekezdés első része a „Hello, Aspose!” szöveget tartalmazza, amelyen az All Caps effektus alkalmazva van, ahogyan az alább látható.
 
-![Az All Caps hatás](all_caps_effect.png)
+![Az All Caps effektus](all_caps_effect.png)
 
-Az alábbi kódrészlet azt mutatja, hogyan nyerhető ki a **All Caps** hatással ellátott szöveg:
+Az alábbi kódrészlet bemutatja, hogyan nyerhető ki a **All Caps** effektussal ellátott szöveg:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1297,12 +1385,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan módosítható a táblázat szövege egy dián?**
+**Hogyan módosíthatom a táblázat szövegét egy dián?**
 
-A táblázat szövegének módosításához a dián használja az [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) felületet. A cellákon iterálva frissítse őket az [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) segítségével, és a bekezdésformázást az [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/) segítségével.
+A táblázat szövegének módosításához a dián használja az [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) interfészt. Iteráljon a cellákon, és frissítse az egyes cellákat a [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) és a [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/) segítségével.
 
-**Hogyan alkalmazható a szöveg színátmenete egy PowerPoint dián?**
+**Hogyan alkalmazhatok fokozatos színátmenetet a szövegre egy PowerPoint dián?**
 
-A színátmenetes szöveghez használja az [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) metódust. Állítsa az [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) értékét [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) típusra, és konfigurálja a színátmeneti állomásokat, irányt és átlátszóságot.
+A szövegre való fokozatos színátmenet alkalmazásához használja az [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) metódust. Állítsa az [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) értékét a [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) típusra, és konfigurálja a gradient‑állomásokat, irányt és átlátszóságot.
 
-Kapcsolódó funkció: [Formázás szövegben a diákon](/slides/hu/features/text-formatting/).
+Kapcsolódó funkció: [Formázza a szöveget a diákon](/slides/hu/features/text-formatting/).

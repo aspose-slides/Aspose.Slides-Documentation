@@ -1,17 +1,17 @@
 ---
-title: Format Teks Presentasi di .NET
+title: Memformat Teks Presentasi di .NET
 linktitle: Pemformatan Teks
 type: docs
 weight: 50
 url: /id/net/text-formatting/
 keywords:
-- penyelarasan paragraf
+- perataan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
 - jarak karakter
 - properti font
-- keluarga font
+- famili font
 - rotasi teks
 - sudut rotasi
 - bingkai teks
@@ -26,23 +26,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Format dan gayakan teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Sesuaikan font, warna, perataan, dan lainnya."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Ini mencakup warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penambatan teks, titik tab, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET. Ini mencakup warna latar belakang, transparansi, jarak karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tab stop, dan pengaturan bahasa.
 
-Kecuali dinyatakan lain, contoh menggunakan [sample.pptx](sample.pptx). Bentuk pertama pada slide pertama adalah kotak teks, dan paragraf pertamanya berisi teks yang ditampilkan di bawah ini. Indeks slide dan bentuk dimulai dari nol. Contoh yang memilih bagian tebal menggunakan pemformatan efektif, termasuk pemformatan tebal yang diwarisi:
+Kecuali dinyatakan lain, contoh menggunakan [sample.pptx](sample.pptx). Bentuk pertama pada slide pertamanya adalah kotak teks, dan paragraf pertamanya berisi teks seperti di bawah ini. Indeks slide dan bentuk dimulai dari nol. Contoh yang menyorot bagian tebal menggunakan pemformatan efektif, termasuk pemformatan tebal yang diwarisi:
 
-![Teks contoh](sample_text.png)
+![Teks Contoh](sample_text.png)
 
 Untuk menemukan dan menyorot teks literal atau kecocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/net/search-and-replace-text/).
 
-## **Atur Warna Latar Belakang Teks**
+## **Set Warna Latar Belakang Teks**
 
-Gunakan [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) untuk mengatur warna sorotan default bagi sebuah paragraf, atau gunakan [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) untuk bagian teks individu.
+Gunakan [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) untuk mengatur warna sorotan default untuk suatu paragraf, atau gunakan [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/highlightcolor/) untuk bagian teks individu.
 
-Contoh berikut mengatur sorotan abu-abu terang sebagai default untuk paragraf pertama. Warna sorotan eksplisit pada bagian individu memiliki prioritas lebih tinggi daripada default ini:
+Contoh berikut menetapkan sorotan abu‑abu terang sebagai default untuk paragraf pertama. Warna sorotan eksplisit pada bagian individu memiliki prioritas lebih tinggi daripada default ini:
 
 ```cs
 using System.Drawing;
@@ -63,9 +63,9 @@ presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Paragraf abu-abu](gray_paragraph.png)
+![Paragraf abu‑abu](gray_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Contoh kode di bawah ini mendemonstrasikan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
 ```cs
 using System.Drawing;
@@ -92,11 +92,11 @@ presentation.Save("gray_text_portions.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Bagian teks abu-abu](gray_text_portions.png)
+![Bagian teks abu‑abu](gray_text_portions.png)
 
 ## **Ratakan Paragraf Teks**
 
-Gunakan [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa tengah, kiri, kanan, rata kanan-kiri, dan sebagainya.
+Gunakan [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/) untuk mengatur perataan paragraf dalam bingkai teks. Nilainya dapat berupa centered, left‑aligned, right‑aligned, justified, dan sebagainya.
 
 Contoh kode berikut menunjukkan cara meratakan paragraf ke **tengah**:
 
@@ -120,7 +120,7 @@ Hasilnya:
 
 ![Paragraf yang diratakan](aligned_paragraph.png)
 
-## **Ratakan Font Dalam Baris**
+## **Ratakan Font dalam Baris**
 
 Gunakan [IParagraphFormat.FontAlignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/fontalignment/) untuk meratakan secara vertikal bagian teks dengan ukuran font berbeda dalam satu baris. Pengaturan ini berlaku untuk seluruh paragraf dan mengontrol perataan dalam setiap barisnya.
 
@@ -180,15 +180,15 @@ Hasilnya:
 
 ![Perbandingan perataan Baseline, Top, Center, dan Bottom dengan ukuran font campuran](font_alignment.png)
 
-Perataan font menggunakan metrik font, sehingga tepi terlihat huruf individual tidak selalu sejajar secara tepat. Contoh mencakup huruf kapital dan descender untuk menunjukkan perbedaan antara perataan baseline dan bottom. Ketersediaan dan substitusi font, karakter yang digunakan, serta perbedaan ukuran font memengaruhi hasil. Dimensi bingkai, margin, jarak baris, pembungkusan, dan autofit juga memengaruhi tata letak; gunakan font dan pengaturan tata letak yang sama saat membandingkan mode.
+Perataan font menggunakan metrik font, sehingga tepi terlihat huruf tidak selalu berbaris tepat. Contoh mencakup huruf kapital dan descender untuk memperlihatkan perbedaan antara baseline dan bottom. Ketersediaan font, substitusi, karakter yang dipakai, dan perbedaan ukuran font memengaruhi hasil. Dimensi bingkai, margin, jarak baris, pembungkusan, dan autofit juga memengaruhi tata letak; gunakan font dan pengaturan tata letak yang sama saat membandingkan mode.
 
-Pengaturan ini berbeda dari [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), yang mengontrol perataan horizontal paragraf, dan [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), yang menempatkan blok teks secara vertikal dalam bentuknya. Pemformatan superscript dan subscript melalui [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) menggeser bagian individual relatif terhadap baseline alih-alih mengatur perataan font untuk baris paragraf.
+Pengaturan ini berbeda dari [IParagraphFormat.Alignment](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/alignment/), yang mengontrol perataan horizontal paragraf, serta [ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/), yang memposisikan blok teks secara vertikal dalam bentuknya. Pemformatan superskrip dan subskrip melalui [IBasePortionFormat.Escapement](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/escapement/) menggeser bagian individu relatif terhadap baseline alih-alih mengatur perataan font untuk baris paragraf.
 
-## **Atur Transparansi untuk Teks**
+## **Set Transparansi untuk Teks**
 
-Transparansi teks dikendalikan melalui komponen alfa dari warna yang diberikan ke [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Dalam contoh di bawah, `alpha = 50` adalah nilai saluran alfa ARGB pada skala 0–255, bukan persentase transparansi.
+Transparansi teks dikontrol melalui komponen alpha warna yang diberikan ke [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Pada contoh di bawah, `alpha = 50` merupakan nilai kanal alpha ARGB pada skala 0–255, bukan persentase transparansi.
 
-Contoh kode di bawah ini menunjukkan cara menerapkan transparansi ke **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
 ```cs
 using System.Drawing;
@@ -214,7 +214,7 @@ Hasilnya:
 
 ![Paragraf transparan](transparent_paragraph.png)
 
-Contoh kode berikut menunjukkan cara menerapkan transparansi ke **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
 
 ```cs
 using System.Drawing;
@@ -246,11 +246,11 @@ Hasilnya:
 
 ![Bagian teks transparan](transparent_text_portions.png)
 
-## **Atur Jarak Karakter untuk Teks**
+## **Set Jarak Karakter untuk Teks**
 
-Gunakan [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) untuk memperluas atau mengecilkan jarak antar karakter dalam kotak teks. Contoh menambahkan 3 poin jarak; nilai negatif mengecilkan teks.
+Gunakan [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/spacing/) untuk memperlebar atau mempersempit jarak antar karakter dalam kotak teks. Contoh menambahkan 3 poin jarak; nilai negatif mempersempit teks.
 
-Kode C# berikut menunjukkan cara memperluas jarak karakter dalam **seluruh paragraf**:
+Kode C# berikut menunjukkan cara memperlebar jarak karakter dalam **seluruh paragraf**:
 
 ```cs
 using Aspose.Slides;
@@ -262,7 +262,7 @@ var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
 var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-// Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+// Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
 paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Perluas jarak karakter.
 
 presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -272,7 +272,7 @@ Hasilnya:
 
 ![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
 
-Contoh kode di bawah ini menunjukkan cara memperluas jarak karakter dalam **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara memperlebar jarak karakter dalam **bagian teks dengan font tebal**:
 
 ```cs
 using Aspose.Slides;
@@ -288,7 +288,7 @@ foreach (var portion in paragraph.Portions)
 {
     if (portion.PortionFormat.GetEffective().FontBold)
     {
-        // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
+        // Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
         portion.PortionFormat.Spacing = 3;  // Perluas jarak karakter.
     }
 }
@@ -302,9 +302,9 @@ Hasilnya:
 
 ### **Nonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat terlihat sedikit lebih rapat dibandingkan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides mungkin terlihat sedikit lebih rapat dibandingkan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut berisi informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat output yang dirender lebih mendekati PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terpengaruh. Atur [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) ke nilai yang lebih besar dari ukuran font aktual. Contoh ini memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Ia memeriksa nama font efektif, termasuk font yang diwarisi, dan menetapkan ambang 100 poin untuk bagian yang menggunakan Roboto. Ini menonaktifkan kerning untuk bagian yang cocok dengan ukuran font di bawah 100 poin:
+Untuk membuat hasil render lebih mirip PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terkena dampak. Atur [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kerningminimalsize/) ke nilai yang lebih besar daripada ukuran font sebenarnya. Contoh ini memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Ia memeriksa nama font efektif, termasuk font yang diwarisi, dan menetapkan ambang 100 poin untuk bagian yang menggunakan Roboto. Ini menonaktifkan kerning untuk bagian yang cocok dengan ukuran font di bawah 100 poin:
 
 ```cs
 using Aspose.Slides;
@@ -336,13 +336,13 @@ foreach (var paragraph in autoShape.TextFrame.Paragraphs)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-Untuk teks yang cocok di bawah ambang, pengaturan ini mencegah kerning dan dapat membantu menyamakan hasil render Aspose.Slides dengan tampilan visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
+Untuk teks yang cocok di bawah ambang, pengaturan ini mencegah kerning dan dapat membantu menyelaraskan hasil render Aspose.Slides dengan tampilan visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
 
 ## **Kelola Properti Font Teks**
 
 Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) atau pada bagian individu melalui [IPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/).
 
-Contoh berikut mengatur font default paragraf pertama menjadi Times New Roman 12 poin dengan format tebal, miring, dan garis bawah titik. Pemformatan eksplisit pada bagian individu memiliki prioritas lebih tinggi daripada default ini.
+Contoh berikut menetapkan font default paragraf pertama menjadi Times New Roman 12 poin dengan format tebal, miring, dan garis bawah titik. Pemformatan eksplisit pada bagian individu memiliki prioritas lebih tinggi daripada default ini:
 
 ```cs
 using Aspose.Slides;
@@ -369,7 +369,7 @@ Hasilnya:
 
 ![Properti font untuk paragraf](font_properties_for_paragraph.png)
 
-Contoh berikut menerapkan Times New Roman 13 poin, format miring, dan garis bawah titik pada bagian yang pemformatannya secara efektif tebal:
+Contoh berikut menerapkan Times New Roman 13 poin, format miring, dan garis bawah titik pada bagian yang format efektifnya tebal:
 
 ```cs
 using Aspose.Slides;
@@ -402,11 +402,11 @@ Hasilnya:
 
 ## **Kontrol Normalisasi Tinggi Teks**
 
-Gunakan [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/) saat mereproduksi tipografi templat atau menyelidiki perbedaan tinggi karakter. Di PowerPoint, mengaktifkan normalisasi meregangkan atau memampatkan karakter individual secara vertikal agar memiliki tinggi tampak seragam dalam bagian teks. Ini tidak menjamin tinggi teks yang sama antar font yang berbeda.
+Gunakan [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/) saat menyalin tipografi templat atau menyelidiki perbedaan tinggi karakter. Di PowerPoint, mengaktifkan normalisasi meregangkan atau memampatkan karakter secara vertikal agar memiliki tinggi tampak yang seragam dalam bagian teks. Ini tidak menjamin tinggi teks yang sama antar font yang berbeda.
 
-Atur properti ke [NullableBool.True atau False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) untuk secara eksplisit mengaktifkan atau menonaktifkan normalisasi. `NullableBool.NotDefined` membiarkan pengaturan lokal tidak ditetapkan sehingga bagian mewarisi nilainya, misalnya dari [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) paragraf. Itu tidak berarti `False`. Gunakan [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) dan baca [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/) untuk memperoleh nilai Boolean yang terresolusikan.
+Atur properti ke [NullableBool.True atau False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) untuk secara eksplisit mengaktifkan atau menonaktifkan normalisasi. `NullableBool.NotDefined` membiarkan pengaturan lokal tidak diatur sehingga bagian mewarisi nilainya, misalnya dari [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) paragraf. Ini bukan berarti `False`. Gunakan [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) dan baca [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/) untuk memperoleh nilai Boolean yang telah diputuskan.
 
-Contoh mandiri berikut memerlukan **Arial** terpasang. Ia membuat dua blok teks yang berisi huruf kapital, huruf kecil, descender, dan karakter beraksen pada 54 poin. Kedua paragraf mengaktifkan normalisasi secara default. Bagian atas secara eksplisit menonaktifkannya; bagian bawah mewarisinya. Ukuran bingkai, margin, dan jarak paragraf identik, dengan pembungkusan dan autofit dinonaktifkan untuk menjaga konsistensi perbandingan. Contoh mencetak `False: False` dan `NotDefined: True`, lalu menyimpan "text_height_normalization.pptx".
+Contoh mandiri berikut memerlukan **Arial** terpasang. Ia membuat dua blok teks yang berisi huruf besar, huruf kecil, descender, dan karakter beraksen pada 54 poin. Kedua paragraf mengaktifkan normalisasi secara default. Bagian atas secara eksplisit menonaktifkannya; bagian bawah mewarisinya. Ukuran bingkai, margin, dan jarak paragraf identik, dengan pembungkusan dan autofit dinonaktifkan untuk menjaga perbandingan konsisten. Contoh mencetak `False: False` dan `NotDefined: True`, kemudian menyimpan "text_height_normalization.pptx".
 
 ```cs
 using System;
@@ -455,17 +455,17 @@ presentation.Save("text_height_normalization.pptx", SaveFormat.Pptx);
 
 Perbandingan di bawah diekspor dari presentasi yang disimpan. Baris atas memiliki normalisasi dinonaktifkan (`False`); baris bawah mewarisi pengaturan yang diaktifkan (`NotDefined` → `True`). Pastikan Arial terpasang untuk mereproduksi tampilan ini.
 
-![Teks Arial 54 poin dengan normalisasi dinonaktifkan di atas dan normalisasi yang diwarisi di bawah](text_height_normalization.png)
+![Teks Arial 54‑poin dengan normalisasi dinonaktifkan di atas dan normalisasi yang diwarisi di bawah](text_height_normalization.png)
 
-Normalisasi mengubah tinggi karakter tanpa mengubah nilai [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) yang ditetapkan, yang menentukan ukuran font dalam poin. [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) paragraf mengontrol jarak baris, sementara [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) bingkai teks mengontrol bagaimana teks atau kontainernya menyesuaikan diri. Pengaturan ini memiliki tujuan berbeda dan dapat memengaruhi tata letak secara independen. Untuk informasi lebih lanjut tentang pemformatan paragraf dan pewarisan, lihat [Kelola Paragraf](/slides/id/net/manage-paragraph/).
+Normalisasi mengubah tinggi karakter tanpa mengubah nilai [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) yang ditetapkan, yang menentukan ukuran font dalam poin. [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) paragraf mengontrol jarak baris, sedangkan [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) bingkai teks mengontrol bagaimana teks atau kontainernya menyesuaikan diri. Pengaturan ini memiliki tujuan berbeda dan dapat memengaruhi tata letak secara independen. Untuk info lebih lanjut tentang pemformatan paragraf dan pewarisan, lihat [Kelola Paragraf](/slides/id/net/manage-paragraph/).
 
-## **Terapkan dan Hapus Coretan**
+## **Terapkan dan Hapus Garis Coret**
 
 Gunakan [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) pada bagian teks untuk menampilkan koreksi, istilah dibatalkan, atau harga sebelumnya tanpa menghapus teks asli. Atur ke [TextStrikethroughType.Single atau Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/) untuk satu atau dua garis melalui teks.
 
-Untuk menghapus coretan, tetapkan `TextStrikethroughType.None`. Ini secara eksplisit menonaktifkan efek, bahkan jika pemformatan di sekitarnya menentukan coretan. Sebaliknya, `TextStrikethroughType.NotDefined` membiarkan pengaturan lokal tidak terdefinisi, memungkinkan bagian mewarisi pemformatan, misalnya dari paragraf. Ini tidak menjamin coretan dihapus. Gunakan [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) untuk membaca pemformatan hasil, termasuk nilai yang diwarisi.
+Untuk menghapus garis coret, tetapkan `TextStrikethroughType.None`. Ini secara eksplisit menonaktifkan efek, bahkan jika pemformatan di sekitarnya menentukan garis coret. Sebaliknya, `TextStrikethroughType.NotDefined` membiarkan pengaturan lokal tidak ditentukan, memungkinkan bagian mewarisi pemformatan, misalnya dari paragraf. Ini tidak menjamin garis coret dihapus. Gunakan [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) untuk membaca pemformatan yang dihasilkan, termasuk nilai yang diwarisi.
 
-Contoh mandiri berikut membuat tiga perbandingan harga. Setiap paragraf memiliki bagian terpisah untuk label, harga sebelumnya, dan harga saat ini, sehingga hanya harga sebelumnya yang terpengaruh. Baris pertama menerapkan dan kemudian menghapus coretan; baris lainnya mempertahankan coretan satu dan dua garis. Mengubah properti ini mempertahankan teks dan pemformatan lainnya, termasuk harga sebelumnya yang tebal.
+Contoh mandiri berikut membuat tiga perbandingan harga. Setiap paragraf memiliki bagian terpisah untuk label, harga lama, dan harga baru, sehingga hanya harga lama yang terpengaruh. Baris pertama menerapkan lalu menghapus garis coret; baris lain mempertahankan garis coret tunggal dan ganda. Mengubah properti ini mempertahankan teks dan pemformatan lainnya, termasuk harga lama yang tebal.
 
 ```cs
 using System.Drawing;
@@ -506,7 +506,7 @@ foreach (var label in labels)
 
 var paragraphs = shape.TextFrame.Paragraphs;
 
-// Terapkan coretan, kemudian hapus secara eksplisit dari harga sebelumnya yang pertama.
+// Apply strikethrough, then explicitly remove it from the first previous price.
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Single;
 paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.None;
 
@@ -516,15 +516,15 @@ paragraphs[2].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughTyp
 presentation.Save("strikethrough.pptx", SaveFormat.Pptx);
 ```
 
-Hasilnya, dari atas ke bawah: tanpa coretan, coretan satu garis, dan coretan dua garis.
+Hasil, dari atas ke bawah: tanpa garis coret, garis coret tunggal, dan garis coret ganda.
 
-![Harga sebelumnya tanpa coretan, dengan coretan satu garis, dan dengan coretan dua garis](strikethrough.png)
+![Harga sebelumnya tanpa garis coret, dengan garis coret tunggal, dan dengan garis coret ganda](strikethrough.png)
 
-## **Atur Rotasi Teks**
+## **Set Rotasi Teks**
 
-Gunakan [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) untuk menetapkan orientasi teks bawaan dalam bentuk.
+Gunakan [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) untuk menetapkan orientasi teks pra‑definisi dalam sebuah bentuk.
 
-Contoh kode berikut mengatur orientasi teks dalam bentuk ke [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/), yang memutar teks **90 derajat berlawanan arah jarum jam**:
+Contoh kode berikut menetapkan orientasi teks dalam bentuk ke [TextVerticalType.Vertical270](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/), yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
 ```cs
 using Aspose.Slides;
@@ -543,7 +543,55 @@ Hasilnya:
 
 ![Rotasi teks](text_rotation.png)
 
-## **Atur Rotasi Kustom untuk Bingkai Teks**
+## **Tampilkan Digit Berdampingan dalam Teks Vertikal**
+
+Untuk menjaga dua digit angka tetap bersama dalam label Jepang vertikal, letakkan kedua digit dalam satu bagian teks dan atur [IBasePortionFormat.Kumimoji](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/kumimoji/) pada bagian tersebut. Contoh menggunakan [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/net/aspose.slides/textverticaltype/) dan MS Gothic 40 poin untuk kedua label. Hanya nilai [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) yang diberikan ke bagian numerik yang berbeda.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+AddLabel(slide, 120, NullableBool.True);
+AddLabel(slide, 360, NullableBool.False);
+
+presentation.Save("vertical_date.pptx", SaveFormat.Pptx);
+
+static void AddLabel(ISlide slide, float x, NullableBool kumimoji)
+{
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, 48, 120, 420);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var frame = label.AddTextFrame("");
+    frame.TextFrameFormat.TextVerticalType = TextVerticalType.EastAsianVertical;
+
+    var paragraph = frame.Paragraphs[0];
+    var format = paragraph.ParagraphFormat.DefaultPortionFormat;
+    var font = new FontData("MS Gothic");
+    format.LatinFont = font;
+    format.EastAsianFont = font;
+    format.FontHeight = 40;
+    format.FillFormat.FillType = FillType.Solid;
+    format.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var digits = new Portion("12");
+    digits.PortionFormat.Kumimoji = kumimoji;
+    
+    paragraph.Portions.Clear();
+    paragraph.Portions.Add(new Portion("令和"));
+    paragraph.Portions.Add(digits);
+    paragraph.Portions.Add(new Portion("年"));
+}
+```
+
+Di PowerPoint, label kiri (`True`) menampilkan digit tegak lurus dan berdampingan di antara 和 dan 年. Pada label kanan (`False`), pasangan digit diputar 90 derajat searah jarum jam. Karakter Jepang di sekitarnya tetap tegak lurus pada kedua label.
+
+![Perbandingan label tanggal vertikal PowerPoint dengan digit tegak lurus di kiri dan digit berputar di kanan.](vertical_date.png)
+
+## **Set Rotasi Kustom untuk Bingkai Teks**
 
 Gunakan [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) untuk menetapkan sudut rotasi kustom bagi sebuah [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/).
 
@@ -564,16 +612,16 @@ presentation.Save("custom_text_rotation.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Rotasi kustom teks](custom_text_rotation.png)
+![Rotasi teks kustom](custom_text_rotation.png)
 
-## **Atur Jarak Baris Paragraf**
+## **Set Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/), dan [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) untuk mengontrol jarak paragraf. Properti ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/), dan [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) untuk mengontrol jarak paragraf. Properti‑properti ini digunakan sebagai berikut:
 
 * Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
 * Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
 
-Contoh berikut mengatur jarak dalam paragraf pertama menjadi 200% dari tinggi baris (jarak ganda):
+Contoh berikut mengatur jarak dalam paragraf pertama menjadi 200 % dari tinggi baris (jarak ganda):
 
 ```cs
 using Aspose.Slides;
@@ -596,14 +644,14 @@ Hasilnya:
 
 ## **Kontrol Pemutusan Baris**
 
-Aturan pemutusan baris paragraf berguna pada blok teks sempit dan presentasi yang mencampur teks Latin dan Asia Timur. Properti berikut merupakan milik [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/), sehingga berlaku pada seluruh paragraf:
+Aturan pemutusan baris paragraf berguna pada blok teks sempit dan presentasi yang mencampur teks Latin dan Asia Timur. Properti‑properti berikut milik [IParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/), sehingga berlaku untuk seluruh paragraf:
 
-- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) mengontrol aturan pemutusan baris Latin. Dalam teks campuran, mengubahnya juga dapat mengubah tempat teks dan tanda baca Asia Timur yang berdekatan terbungkus.
+- [LatinLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/latinlinebreak/) mengontrol aturan pemutusan baris Latin. Pada teks campuran, mengubahnya juga dapat mengubah tempat teks dan tanda baca Asia Timur yang berdekatan melipat.
 - [EastAsianLineBreak](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/eastasianlinebreak/) mengontrol aturan pemutusan baris Asia Timur, termasuk pembatasan karakter pada awal dan akhir baris.
 
-Aturan ini tidak menggantikan [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/), yang mengaktifkan pembungkusan otomatis dalam bingkai teks. Mereka memengaruhi tata letak saat pembungkusan terjadi; mereka tidak menyisipkan karakter pemutusan baris. Pemutusan baris eksplisit memaksa baris baru dalam paragraf secara independen dari lebar yang tersedia.
+Aturan ini tidak menggantikan [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/wraptext/), yang mengaktifkan pembungkusan otomatis dalam bingkai teks. Mereka memengaruhi tata letak ketika pembungkusan terjadi; mereka tidak menyisipkan karakter pemutusan baris. Pemutusan baris eksplisit memaksa baris baru dalam paragraf terlepas dari lebar yang tersedia.
 
-Contoh mandiri berikut membuat blok teks sempit berisi teks China dan Latin. Ia mengatur kedua properti pemutusan baris secara eksplisit dan menyimpan "line_breaking.pptx". Untuk bereksperimen dengan salah satu aturan, ubah nilai properti tersebut sambil mempertahankan pengaturan lainnya. Contoh menggunakan Arial 24 poin dan SimSun dengan lebar bingkai 160 poin serta margin horizontal bingkai teks nol. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) diatur ke [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) sehingga ukuran teks dan dimensi bingkai tetap tetap.
+Contoh mandiri berikut membuat blok teks sempit yang berisi teks Cina dan Latin. Ia mengatur kedua properti pemutusan baris secara eksplisit dan menyimpan "line_breaking.pptx". Untuk bereksperimen dengan salah satu aturan, ubah nilai properti tersebut sambil mempertahankan pengaturan lain tetap. Contoh menggunakan Arial 24 poin dan SimSun dengan lebar bingkai 160 poin serta margin horizontal bingkai teks nol. [ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) diatur ke [TextAutofitType.None](https://reference.aspose.com/slides/net/aspose.slides/textautofittype/) agar ukuran teks dan dimensi bingkai tetap tetap.
 
 ```cs
 using System.Drawing;
@@ -640,9 +688,9 @@ presentation.Save("line_breaking.pptx", SaveFormat.Pptx);
 
 ## **Kontrol Tanda Baca Gantung**
 
-[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) memungkinkan tanda baca yang memenuhi syarat melampaui tepi kanan baris teks alih-alih menempati baris berikutnya. Itu berlaku untuk seluruh paragraf dan berbeda dari indentasi menggantung.
+[IParagraphFormat.HangingPunctuation](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/hangingpunctuation/) memungkinkan tanda baca yang memenuhi syarat melampaui tepi kanan baris teks alih‑alih menempati baris berikutnya. Ini berlaku untuk seluruh paragraf dan berbeda dari indentasi gantung.
 
-Contoh mandiri berikut mengaktifkan tanda baca gantung dalam bingkai teks selebar 100 poin dan menyimpan "hanging_punctuation.pptx". Dengan Arial 24 poin dan margin horizontal bingkai teks nol, titik akhir tetap setelah "sentence" dan melampaui tepi kanan teks. Atur properti ke [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) untuk perbandingan: dengan pengaturan ini, titik berada pada baris terpisah. Pembungkusan diaktifkan dan autofit dinonaktifkan untuk menjaga lebar yang tersedia tetap tetap.
+Contoh mandiri berikut mengaktifkan tanda baca gantung dalam bingkai teks seluas 100 poin dan menyimpan "hanging_punctuation.pptx". Dengan Arial 24 poin dan margin horizontal bingkai teks nol, titik akhir akhir tetap setelah "sentence" dan melampaui tepi kanan teks. Atur properti ke [NullableBool.False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) untuk membandingkan: dengan pengaturan ini, titik berada pada baris terpisah. Pembungkusan diaktifkan dan autofit dinonaktifkan untuk menjaga lebar tersedia tetap.
 
 ```cs
 using System.Drawing;
@@ -675,11 +723,11 @@ format.HangingPunctuation = NullableBool.True;
 presentation.Save("hanging_punctuation.pptx", SaveFormat.Pptx);
 ```
 
-Tidak setiap tanda baca dapat menggantung. [Kondisi font dan tata letak yang dijelaskan di atas](#control-line-breaking) juga berlaku untuk perbandingan ini: mengubah font, lebar yang tersedia, margin, atau pengaturan autofit dapat menghilangkan perbedaan yang terlihat.
+Tidak setiap tanda baca dapat menggantung. [Kondisi font dan tata letak yang dijelaskan di atas](#control-line-breaking) juga berlaku untuk perbandingan ini: mengubah font, lebar tersedia, margin, atau pengaturan autofit dapat menghilangkan perbedaan yang terlihat.
 
-## **Atur Tipe Autofit untuk Bingkai Teks**
+## **Set Tipe Autofit untuk Bingkai Teks**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks menyusut, meluber, atau mengubah ukuran bentuk secara otomatis. Contoh berikut mengkonfigurasi bentuk untuk mengubah ukuran agar sesuai dengan teksnya dan menyimpan hasilnya ke "autofit_type.pptx".
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) menentukan bagaimana teks berperilaku ketika melebihi batas kontainer. Gunakan untuk mengontrol apakah teks menyusut, meluber, atau secara otomatis mengubah ukuran bentuk. Contoh berikut mengonfigurasi bentuk agar menyesuaikan ukuran sesuai teks dan menyimpan hasil ke "autofit_type.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -694,11 +742,11 @@ autoShape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
 presentation.Save("autofit_type.pptx", SaveFormat.Pptx);
 ```
 
-Untuk menghitung baris setelah pembungkusan otomatis dan melihat bagaimana lebar teks atau bentuk mengubah hasil, lihat [Count Rendered Lines](/slides/id/net/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluber keluar dari kontainernya.
+Untuk menghitung baris setelah pembungkusan otomatis dan melihat bagaimana lebar teks atau bentuk mengubah hasil, lihat [Count Rendered Lines](/slides/id/net/manage-paragraph/). Jumlah baris saja tidak menunjukkan apakah teks meluber dari kontainernya.
 
-## **Atur Penambatan Bingkai Teks**
+## **Set Titik Jangkar Bingkai Teks**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) menentukan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah. Contoh berikut menambatkan teks ke bagian bawah bentuk pertama dan menyimpan hasilnya ke "text_anchor.pptx".
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/anchoringtype/) mendefinisikan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah. Contoh berikut menjadikan teks terjangkar di bagian bawah bentuk pertama dan menyimpan hasil ke "text_anchor.pptx".
 
 ```cs
 using Aspose.Slides;
@@ -713,9 +761,9 @@ autoShape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Bottom;
 presentation.Save("text_anchor.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Tabulasi Teks**
+## **Set Tabulasi Teks**
 
-Gunakan [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) dan [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) untuk mengkonfigurasi titik tab dalam paragraf. Contoh berikut mengatur interval tab default menjadi 100 poin dan menambahkan titik tab rata kiri pada 30 poin. Pengaturan ini memengaruhi teks yang berisi karakter tab.
+Gunakan [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaulttabsize/) dan [IParagraphFormat.Tabs](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/tabs/) untuk mengonfigurasi tab stop dalam paragraf. Contoh berikut menetapkan interval tab default menjadi 100 poin dan menambahkan tab stop kiri pada 30 poin. Pengaturan ini memengaruhi teks yang mengandung karakter tab.
 
 ```cs
 using Aspose.Slides;
@@ -736,11 +784,11 @@ Hasilnya:
 
 ![Tabulasi paragraf](paragraph_tabs.png)
 
-## **Atur Bahasa Pemeriksaan**
+## **Set Bahasa Pemeriksaan**
 
-Aspose.Slides menyediakan [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), yang memungkinkan Anda mengatur bahasa pemeriksaan untuk sebuah bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/), yang memungkinkan Anda mengatur bahasa pemeriksaan untuk suatu bagian teks. Bahasa pemeriksaan menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
 
-Contoh berikut memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama dan setidaknya satu paragraf. Ia mengganti isi paragraf pertama dengan "1。", menetapkan SimSun sebagai fontnya, dan menetapkan bahasa pemeriksaan Bahasa Mandarin Sederhana (`zh-CN`). Ia menyimpan hasilnya ke "proofing_language.pptx":
+Contoh berikut memerlukan "presentation.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama dan setidaknya satu paragraf. Ia mengganti isi paragraf pertama dengan "1。", menetapkan SimSun sebagai font-nya, dan menugaskan bahasa pemeriksaan Mandarin Sederhana (`zh-CN`). Hasil disimpan ke "proofing_language.pptx":
 
 ```cs
 using Aspose.Slides;
@@ -760,7 +808,7 @@ textPortion.PortionFormat.ComplexScriptFont = font;
 textPortion.PortionFormat.EastAsianFont = font;
 textPortion.PortionFormat.LatinFont = font;
 
-// Atur bahasa pemeriksaan ke Bahasa Mandarin Sederhana.
+// Atur bahasa pemeriksaan menjadi Mandarin Sederhana.
 textPortion.PortionFormat.LanguageId = "zh-CN";
 
 textPortion.Text = "1。";
@@ -771,7 +819,7 @@ presentation.Save("proofing_language.pptx", SaveFormat.Pptx);
 
 ### **Salin Metadata Bahasa**
 
-Saat menyalin teks multibahasa dari templat, pertahankan baik [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) maupun [IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/). Contoh mandiri berikut membuat bagian sumber dengan bahasa Inggris AS sebagai bahasa dan bahasa Prancis sebagai bahasa alternatif, lalu menyalin teks dan pengidentifikasi ke bagian dalam presentasi baru.
+Saat menyalin teks multibahasa dari templat, pertahankan baik [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/languageid/) maupun [IBasePortionFormat.AlternativeLanguageId](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/alternativelanguageid/). Contoh mandiri berikut membuat bagian sumber dengan bahasa Inggris AS sebagai bahasa utama dan Prancis sebagai bahasa alternatif, lalu menyalin teks dan pengenal ke bagian dalam presentasi baru.
 
 ```cs
 using Aspose.Slides;
@@ -798,13 +846,13 @@ paragraph.Portions.Add(destination);
 presentation.Save("copied_language_metadata.pptx", SaveFormat.Pptx);
 ```
 
-Untuk mencoba sumber tanpa bahasa alternatif, hilangkan penetapan `"fr-FR"`. Pengidentifikasi alternatif kemudian menjadi `null`, dan pernyataan salin yang sama mempertahankan ketiadaannya tanpa memperkenalkan nilai default, bahkan jika tujuan sebelumnya memiliki bahasa alternatif yang ditetapkan.
+Untuk mencoba sumber tanpa bahasa alternatif, hapus penugasan `"fr-FR"`. Pengidentifikasi alternatif kemudian menjadi `null`, dan pernyataan salin yang sama mempertahankan ketidakhadirannya tanpa menambahkan nilai default, bahkan jika tujuan sebelumnya memiliki bahasa alternatif yang ditetapkan.
 
 Pengidentifikasi ini menyimpan metadata bahasa. Mempertahankannya tidak menentukan kamus mana yang dipilih PowerPoint untuk pemeriksaan ejaan atau tata bahasa.
 
-## **Atur Bahasa Default**
+## **Set Bahasa Default**
 
-Gunakan [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) untuk menentukan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi. Contoh berikut membuat presentasi dengan bahasa teks default Bahasa Inggris AS, menambahkan kotak teks, dan mencetak `en-US` untuk bagian teks pertamanya.
+Gunakan [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/defaulttextlanguage/) untuk mendefinisikan bahasa default untuk teks yang dibuat saat memuat atau membuat presentasi. Contoh berikut membuat presentasi dengan bahasa teks Inggris AS sebagai default, menambahkan kotak teks, dan mencetak `en-US` untuk bagian teks pertama.
 
 ```cs
 using System;
@@ -816,7 +864,7 @@ loadOptions.DefaultTextLanguage = "en-US";
 using var presentation = new Presentation(loadOptions);
 var slide = presentation.Slides[0];
 
-// Tambah sebuah bentuk persegi panjang baru dengan teks.
+// Tambahkan bentuk persegi panjang baru dengan teks.
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
 shape.TextFrame.Text = "Sample text";
 
@@ -825,18 +873,18 @@ var portion = shape.TextFrame.Paragraphs[0].Portions[0];
 Console.WriteLine(portion.PortionFormat.LanguageId);
 ```
 
-## **Atur Gaya Teks Default**
+## **Set Gaya Teks Default**
 
 Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Contoh berikut mengatur font tebal 14 poin sebagai default untuk paragraf tingkat atas dalam presentasi baru dan menyimpannya ke "default_text_style.pptx". Teks dapat mewarisi default ini kecuali pemformatan yang lebih spesifik menimpanya.
+Contoh berikut menetapkan font tebal 14 poin sebagai default untuk paragraf tingkat atas dalam presentasi baru dan menyimpannya ke "default_text_style.pptx". Teks dapat mewarisi default ini kecuali ada pemformatan lebih spesifik yang menimpanya.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-// Dapatkan format paragraf level teratas.
+// Dapatkan format paragraf tingkat atas.
 var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
 if (paragraphFormat != null)
@@ -848,11 +896,11 @@ if (paragraphFormat != null)
 presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 ```
 
-## **Ekstrak Teks dengan Efek Semua Kapital**
+## **Ekstrak Teks dengan Efek Semua Huruf Kapital**
 
-Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dengan huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis sebagaimana dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital bila nilainya `All`.
+Di PowerPoint, menerapkan efek **All Caps** pada font membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dengan huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital ketika nilainya `All`.
 
-Contoh ini memerlukan "sample2.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Bagian pertama paragraf pertamanya berisi "Hello, Aspose!" dengan efek All Caps diterapkan, seperti ditampilkan di bawah ini.
+Contoh ini memerlukan "sample2.pptx" dengan kotak teks sebagai bentuk pertama pada slide pertama. Bagian pertama paragraf pertama berisi "Hello, Aspose!" dengan efek All Caps diterapkan, seperti ditunjukkan di bawah.
 
 ![Efek All Caps](all_caps_effect.png)
 
@@ -887,12 +935,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Bagaimana cara memodifikasi teks dalam tabel pada slide?**
+**Bagaimana cara mengubah teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Iterasi sel dan perbarui tiap sel melalui [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) serta format paragraf melalui [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
+Untuk mengubah teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/). Iterasi sel‑sel dan perbarui masing‑masing melalui [ICell.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) serta pemformatan paragraf melalui [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/).
 
 **Bagaimana cara menerapkan warna gradien pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Atur [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) ke [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) dan konfigurasikan titik gradien, arah, serta transparansi.
+Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fillformat/). Atur [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) ke [FillType.Gradient](https://reference.aspose.com/slides/net/aspose.slides/filltype/) dan konfigurasikan titik‑titik gradien, arah, serta transparansi.
 
-Fitur terkait: [Format text within slides](/slides/id/features/text-formatting/).
+Fitur terkait: [Format teks dalam slide](/slides/id/features/text-formatting/).

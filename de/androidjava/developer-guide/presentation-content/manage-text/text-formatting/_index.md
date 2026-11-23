@@ -1,5 +1,5 @@
 ---
-title: Formatieren von Präsentationstext auf Android
+title: Präsentationstext auf Android formatieren
 linktitle: Textformatierung
 type: docs
 weight: 50
@@ -10,15 +10,15 @@ keywords:
 - Texthintergrund
 - Texttransparenz
 - Zeichenabstand
-- Schriftarteigenschaften
+- Schrifteigenschaften
 - Schriftfamilie
 - Textrotation
 - Rotationswinkel
-- Textfeld
+- Textrahmen
 - Zeilenabstand
 - Autofit-Eigenschaft
-- Textfeld-Anker
-- Texttabulation
+- Textrahmen-Anker
+- Texttabulator
 - Standardsprache
 - PowerPoint
 - OpenDocument
@@ -26,21 +26,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Formatieren und Gestalten von Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android via Java. Passen Sie Schriften, Farben, Ausrichtungen und mehr an."
+description: "Formatieren und gestalten Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android über Java. Passen Sie Schriftarten, Farben, Ausrichtungen und mehr an."
 ---
-## **Überblick**
+## **Übersicht**
 
-Dieser Artikel zeigt, wie Text in PowerPoint‑ und OpenDocument‑Präsentationen mit Aspose.Slides für Android via Java formatiert wird. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schriftarteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabstopps und Spracheinstellungen.
+Dieser Artikel zeigt, wie Text in PowerPoint‑ und OpenDocument‑Präsentationen mithilfe von Aspose.Slides für Android über Java formatiert wird. Er behandelt Hintergrundfarben, Transparenz, Zeichenabstand, Schrifteigenschaften, Drehung, Absatzabstand, Autofit‑Verhalten, Textverankerung, Tabstopps und Spracheinstellungen.
 
-Sofern nicht anders angegeben, verwenden die Beispiele [sample.pptx](sample.pptx). Die erste Form auf ihrer ersten Folie ist ein Textfeld, und ihr erster Absatz enthält den unten gezeigten Text. Sowohl Folien‑ als auch Form‑Indizes beginnen bei Null. Beispiele, die fette Abschnitte auswählen, verwenden effektive Formatierung, einschließlich geerbter fetter Formatierung:
+Sofern nicht anders angegeben, verwenden die Beispiele [sample.pptx](sample.pptx). Die erste Form auf der ersten Folie ist ein Textfeld, und ihr erster Absatz enthält den unten gezeigten Text. Sowohl Folien‑ als auch Form‑Indizes beginnen bei Null. Beispiele, die fette Textabschnitte auswählen, verwenden effektive Formatierung, einschließlich geerbter Fettschrift:
 
-![Sample text](sample_text.png)
+![Beispieltext](sample_text.png)
 
-Um wörtlichen Text bzw. reguläre Ausdrücke zu finden und zu markieren, siehe [Search and Replace Text](/slides/de/androidjava/search-and-replace-text/).
+Um wörtlichen Text oder reguläre Ausdrücke zu finden und hervorzuheben, siehe [Suchen und Ersetzen von Text](/slides/de/androidjava/search-and-replace-text/).
 
-## **Hintergrundfarbe für Text festlegen**
+## **Text‑Hintergrundfarbe festlegen**
 
-Verwenden Sie [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) , um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) , um einzelne Textabschnitte zu formatieren.
+Verwenden Sie [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) , um die Standard‑Hervorhebungsfarbe für einen Absatz festzulegen, oder verwenden Sie [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) für einzelne Textabschnitte.
 
 Das folgende Beispiel legt eine hellgraue Hervorhebung als Standard für den ersten Absatz fest. Explizite Hervorhebungsfarben in einzelnen Abschnitten haben Vorrang vor diesem Standard:
 
@@ -66,9 +66,9 @@ try {
 
 Das Ergebnis:
 
-![The gray paragraph](gray_paragraph.png)
+![Der graue Absatz](gray_paragraph.png)
 
-Das Code‑Beispiel unten demonstriert, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festgelegt wird:
+Das folgende Codebeispiel zeigt, wie die Hintergrundfarbe für **Textabschnitte mit fetter Schrift** festgelegt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -96,13 +96,13 @@ try {
 
 Das Ergebnis:
 
-![The gray text portions](gray_text_portions.png)
+![Die grauen Textabschnitte](gray_text_portions.png)
 
-## **Absätze ausrichten**
+## **Textabsätze ausrichten**
 
-Verwenden Sie [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) , um die Absatzausrichtung innerhalb eines Textkastens festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, block‑justiert usw. sein.
+Verwenden Sie [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) , um die Absatzausrichtung innerhalb eines Textrahmens festzulegen. Der Wert kann zentriert, linksbündig, rechtsbündig, Blocksatz usw. sein.
 
-Das folgende Code‑Beispiel zeigt, wie der Absatz **zentriert** ausgerichtet wird:
+Das folgende Codebeispiel zeigt, wie der Absatz **mittig** ausgerichtet wird:
 
 ```java
 import com.aspose.slides.*;
@@ -114,7 +114,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Ausrichtung des Absatzes auf zentriert.
+    // Setzen Sie die Ausrichtung des Absatzes auf Mitte.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -125,13 +125,13 @@ try {
 
 Das Ergebnis:
 
-![The aligned paragraph](aligned_paragraph.png)
+![Der ausgerichtete Absatz](aligned_paragraph.png)
 
 ## **Schriftarten innerhalb einer Zeile ausrichten**
 
-Verwenden Sie [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) , um Textabschnitte unterschiedlicher Schriftgrößen vertikal innerhalb einer Zeile auszurichten. Diese Einstellung gilt für den gesamten Absatz und steuert die Ausrichtung innerhalb jeder Zeile.
+Verwenden Sie [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) , um Textabschnitte mit unterschiedlichen Schriftgrößen innerhalb einer Zeile vertikal auszurichten. Diese Einstellung gilt für den gesamten Absatz und steuert die Ausrichtung in jeder seiner Zeilen.
 
-Das folgende eigenständige Beispiel erstellt vier beschriftete Textfelder auf einer Folie. Jeder Absatz enthält denselben Text in 18, 36 und 54 Punkt mit unterschiedlicher Schrift‑Ausrichtung. Es verwendet Arial, deaktiviert Autofit und Zeilenumbruch und hält die Textfelder groß genug für eine einzelne Zeile.
+Das folgende eigenständige Beispiel erstellt vier beschriftete Textfelder auf einer Folie. Jeder Absatz enthält denselben Text in 18, 36 und 54 pt mit unterschiedlicher Schriftalignierung. Es verwendet Arial, deaktiviert Autofit und Zeilenumbruch und hält die Textrahmen groß genug für eine einzelne Zeile.
 
 ```java
 import com.aspose.slides.*;
@@ -187,17 +187,17 @@ try {
 
 Das Ergebnis:
 
-![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+![Vergleich von Grundlinie, Oberkante, Mitte und Unterkante der Schrift mit gemischten Schriftgrößen](font_alignment.png)
 
-Die Schrift‑Ausrichtung verwendet Schriftmetriken, sodass die sichtbaren Kanten einzelner Buchstaben nicht zwangsläufig exakt übereinstimmen. Das Beispiel enthält sowohl einen Großbuchstaben als auch einen Unterlaufsbuchstaben, um den Unterschied zwischen Grundlinie und Unterkante zu verdeutlichen. Schriftauswahl, Ersatzschriften, die verwendeten Zeichen und die unterschiedlichen Schriftgrößen beeinflussen das Ergebnis. Rahmen‑Abmessungen, Ränder, Zeilenabstand, Zeilenumbruch und Autofit wirken sich ebenfalls auf das Layout aus; verwenden Sie dieselben Schriften und Layouteinstellungen beim Vergleich der Modi.
+Schrift‑Alignierung verwendet Schriftmetriken, sodass die sichtbaren Kanten einzelner Buchstaben nicht unbedingt exakt übereinstimmen. Das Beispiel enthält sowohl einen Großbuchstaben als auch einen Tiefsteller, um den Unterschied zwischen Grundlinie und Unterkante zu verdeutlichen. Verfügbarkeit und Substitution der Schrift, die verwendeten Zeichen und die unterschiedlichen Schriftgrößen beeinflussen das Ergebnis. Rahmenabmessungen, Ränder, Zeilenabstand, Zeilenumbruch und Autofit wirken sich ebenfalls auf das Layout aus; verwenden Sie bei Vergleichen dieselben Schriften und Layout‑Einstellungen.
 
-Diese Einstellung unterscheidet sich von [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-), die die horizontale Absatzausrichtung steuert, sowie von [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-), die den Textblock vertikal innerhalb seiner Form positioniert. Hoch‑ und tiefgestellte Formatierung über [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) verschiebt einzelne Abschnitte relativ zur Grundlinie, anstatt die Schrift‑Ausrichtung für die Zeilen des Absatzes festzulegen.
+Diese Einstellung unterscheidet sich von [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) , das die horizontale Absatzausrichtung steuert, und von [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) , das den Textblock vertikal innerhalb seiner Form positioniert. Hoch‑ und Tiefstellung über [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) verschiebt einzelne Abschnitte relativ zur Grundlinie, anstatt die Schrift‑Alignierung für die Zeilen des Absatzes festzulegen.
 
 ## **Transparenz für Text festlegen**
 
-Die Texttransparenz wird über die Alpha‑Komponente der Farbe gesteuert, die [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) zugewiesen wird. In den nachfolgenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Wert im Bereich 0‑255 und kein Transparenz‑Prozentsatz.
+Die Transparenz von Text wird über die Alpha‑Komponente der Farbe gesteuert, die [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) zugewiesen wird. In den nachfolgenden Beispielen ist `alpha = 50` ein ARGB‑Alpha‑Wert im Bereich 0–255, kein Transparenz‑Prozentsatz.
 
-Das Code‑Beispiel unten zeigt, wie Transparenz für den **gesamten Absatz** angewendet wird:
+Das folgende Codebeispiel zeigt, wie Transparenz auf den **gesamten Absatz** angewendet wird:
 
 ```java
 import com.aspose.slides.*;
@@ -224,9 +224,9 @@ try {
 
 Das Ergebnis:
 
-![The transparent paragraph](transparent_paragraph.png)
+![Der transparente Absatz](transparent_paragraph.png)
 
-Das folgende Code‑Beispiel zeigt, wie Transparenz für **Textabschnitte mit fetter Schrift** angewendet wird:
+Das folgende Codebeispiel zeigt, wie Transparenz auf **Textabschnitte mit fetter Schrift** angewendet wird:
 
 ```java
 import com.aspose.slides.*;
@@ -257,13 +257,13 @@ try {
 
 Das Ergebnis:
 
-![The transparent text portions](transparent_text_portions.png)
+![Die transparenten Textabschnitte](transparent_text_portions.png)
 
 ## **Zeichenabstand für Text festlegen**
 
-Verwenden Sie [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) , um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern. Die Beispiele fügen 3 Punkt Abstand hinzu; negative Werte verdichten den Text.
+Verwenden Sie [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) , um den Abstand zwischen Zeichen in einem Textfeld zu vergrößern oder zu verkleinern. Die Beispiele fügen einen Abstand von 3 pt hinzu; negative Werte verdichten den Text.
 
-Der folgende Java‑Code zeigt, wie der Zeichenabstand im **gesamten Absatz** vergrößert wird:
+Das folgende Java‑Beispiel zeigt, wie der Zeichenabstand im **gesamten Absatz** erweitert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -286,9 +286,9 @@ try {
 
 Das Ergebnis:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![Der Zeichenabstand im Absatz](character_spacing_in_paragraph.png)
 
-Das Code‑Beispiel unten zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** vergrößert wird:
+Das folgende Codebeispiel zeigt, wie der Zeichenabstand in **Textabschnitten mit fetter Schrift** erweitert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -315,13 +315,13 @@ try {
 
 Das Ergebnis:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![Der Zeichenabstand in den Textabschnitten](character_spacing_in_text_portions.png)
 
 ### **Kerning für bestimmte Schriften deaktivieren**
 
-In einigen Fällen kann Text, der mit Aspose.Slides gerendert wird, leicht enger wirken als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriften ignoriert, selbst wenn die Schrift gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
+In einigen Fällen kann Text, der von Aspose.Slides gerendert wird, etwas enger aussehen als derselbe Text in PowerPoint. Das kann passieren, weil PowerPoint Kerning‑Daten für bestimmte Schriften ignoriert, selbst wenn die Schrift gültige Kerning‑Informationen enthält und Kerning in den PowerPoint‑Einstellungen aktiviert ist.
 
-Um das gerenderte Ergebnis in solchen Fällen PowerPoint‑ähnlicher zu machen, können Sie Kerning für Textabschnitte deaktivieren, die die betroffene Schrift verwenden. Setzen Sie [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) auf einen Wert, der größer ist als die tatsächliche Schriftgröße. Dieses Beispiel erfordert „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Es prüft effektive Schriftartnamen, einschließlich geerbter Schriften, und legt einen Schwellenwert von 100 Punkt für Abschnitte fest, die Roboto verwenden. Damit wird Kerning für passende Abschnitte mit einer Schriftgröße unter 100 Punkt deaktiviert:
+Um die Ausgabe in solchen Fällen PowerPoint‑näher zu machen, können Sie Kerning für Textabschnitte deaktivieren, die die betroffene Schrift verwenden. Setzen Sie [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) auf einen Wert, der größer ist als die tatsächliche Schriftgröße. Dieses Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Es prüft wirksame Schriftnamen, einschließlich geerbter Schriften, und setzt eine Schwelle von 100 pt für Abschnitte, die Roboto verwenden. Damit wird Kerning für passende Abschnitte mit einer Schriftgröße unter 100 pt deaktiviert:
 
 ```java
 import com.aspose.slides.*;
@@ -354,13 +354,13 @@ try {
 }
 ```
 
-Für passende Texte unterhalb des Schwellenwerts verhindert diese Einstellung Kerning und kann helfen, die Darstellung von Aspose.Slides an die visuelle Ausgabe von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriften anzupassen.
+Für passende Texte unterhalb der Schwelle verhindert diese Einstellung Kerning und kann dazu beitragen, dass das Rendering von Aspose.Slides dem visuellen Ergebnis von PowerPoint für von diesem PowerPoint‑spezifischen Verhalten betroffene Schriften näher kommt.
 
-## **Schriftarteigenschaften verwalten**
+## **Text‑Schrifteigenschaften verwalten**
 
-Schriftarteigenschaften können auf Absatz‑Ebene über [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) oder auf einzelne Abschnitte über [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/) gesetzt werden.
+Schrifteigenschaften können über [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) auf Absatzebene oder über [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/) für einzelne Abschnitte festgelegt werden.
 
-Das folgende Beispiel legt die Standard‑Schrift des ersten Absatzes auf 12‑Punkt Times New Roman mit fetter, kursiver und punktierter Unterstreichung fest. Explizite Formatierung einzelner Abschnitte hat Vorrang vor diesen Vorgaben.
+Das folgende Beispiel setzt die Standardschrift des ersten Absatzes auf 12‑pt Times New Roman mit fetter, kursiver und punktierter Unterstreichung. Explizite Formatierung einzelner Abschnitte hat Vorrang vor diesen Vorgaben:
 
 ```java
 import com.aspose.slides.*;
@@ -372,7 +372,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Setzen Sie die Schriftarteigenschaften für den Absatz.
+    // Schrift‑Eigenschaften für den Absatz festlegen.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -387,9 +387,9 @@ try {
 
 Das Ergebnis:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![Die Schrifteigenschaften für den Absatz](font_properties_for_paragraph.png)
 
-Das folgende Beispiel wendet 13‑Punkt Times New Roman, kursive Formatierung und punktierte Unterstreichung auf Abschnitte an, deren effektive Formatierung fett ist:
+Das folgende Beispiel wendet 13‑pt Times New Roman, kursive Formatierung und punktierte Unterstreichung auf Abschnitte an, deren wirksame Formatierung fett ist:
 
 ```java
 import com.aspose.slides.*;
@@ -403,7 +403,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Setzen Sie die Schriftarteigenschaften für den Textabschnitt.
+            // Setzen Sie die Schrift‑Eigenschaften für den Textabschnitt.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -419,15 +419,15 @@ try {
 
 Das Ergebnis:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![Die Schrifteigenschaften für Textabschnitte](font_properties_for_text_portions.png)
 
 ## **Text‑Höhen‑Normalisierung steuern**
 
-Verwenden Sie [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-), wenn Sie Vorlagen‑Typografie reproduzieren oder Unterschiede in der Zeichenhöhe untersuchen. In PowerPoint streckt oder komprimiert das Aktivieren der Normalisierung einzelne Zeichen vertikal, sodass sie innerhalb des Textabschnitts eine einheitliche sichtbare Höhe erhalten. Es garantiert keine gleichen Text‑Höhen über verschiedene Schriften hinweg.
+Verwenden Sie [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) , wenn Sie Vorlagen‑Typografie reproduzieren oder Unterschiede in der Zeichenhöhe untersuchen. In PowerPoint streckt das Aktivieren der Normalisierung einzelne Zeichen vertikal, um ihnen innerhalb des Textabschnitts eine einheitliche sichtbare Höhe zu geben. Es garantiert nicht gleiche Texthöhen über verschiedene Schriften hinweg.
 
-Setzen Sie die Eigenschaft auf [NullableBool.True oder False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/), um die Normalisierung explizit zu aktivieren bzw. zu deaktivieren. `NullableBool.NotDefined` lässt die lokale Einstellung ungesetzt, sodass der Abschnitt den Wert beispielsweise vom Absatz‑[getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) erbt. Das bedeutet nicht `False`. Verwenden Sie [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) und lesen Sie [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) , um den aufgelösten Booleschen Wert zu erhalten.
+Setzen Sie die Eigenschaft auf [NullableBool.True or False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) , um die Normalisierung explizit zu aktivieren bzw. zu deaktivieren. `NullableBool.NotDefined` lässt die lokale Einstellung ungesetzt, sodass der Abschnitt den Wert beispielsweise von [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) des Absatzes erbt. Das bedeutet nicht `False`. Verwenden Sie [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) und lesen Sie [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) , um den aufgelösten booleschen Wert zu erhalten.
 
-Das folgende eigenständige Beispiel erfordert **Arial**. Es erstellt zwei Textblöcke mit denselben Groß‑ und Kleinbuchstaben, Unterlaufs‑ und Sonderzeichen in 54 Punkt. Beide Absätze aktivieren die Normalisierung standardmäßig. Der obere Abschnitt deaktiviert sie explizit; der untere erbt die Einstellung. Rahmen‑Größen, Ränder und Absatz‑Abstand sind identisch, Zeilenumbruch und Autofit sind deaktiviert, um den Vergleich konsistent zu halten. Das Beispiel gibt `False: false` und `NotDefined: true` aus und speichert „text_height_normalization.pptx“.
+Das folgende eigenständige Beispiel erfordert **Arial**. Es erstellt zwei Textblöcke mit denselben Groß‑ und Kleinbuchstaben, Tiefstellern und Zeichen mit Akzenten in 54 pt. Beide Absätze aktivieren die Normalisierung standardmäßig. Der obere Abschnitt deaktiviert sie ausdrücklich; der untere erbt sie. Rahmen­größen, Ränder und Absatzabstand sind identisch, Zeilenumbruch und Autofit sind deaktiviert, um den Vergleich konsistent zu halten. Das Beispiel gibt `False: false` und `NotDefined: true` aus und speichert „text_height_normalization.pptx“.
 
 ```java
 import com.aspose.slides.*;
@@ -477,19 +477,19 @@ try {
 }
 ```
 
-Der nachfolgende Vergleich wurde aus der gespeicherten Präsentation exportiert. Die obere Zeile hat Normalisierung deaktiviert (`False`); die untere Zeile erbt die aktivierte Einstellung (`NotDefined` → `True`). Arial muss installiert sein, um dieses Aussehen zu reproduzieren.
+Der unten dargestellte Vergleich stammt aus der gespeicherten Präsentation. Die obere Zeile hat Normalisierung deaktiviert (`False`); die untere Zeile erbt die aktivierte Einstellung (`NotDefined` → `True`). Arial muss installiert sein, um das Aussehen zu reproduzieren.
 
-![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+![Arial‑Text 54 pt mit deaktivierter Normalisierung oben und geerbter Normalisierung unten](text_height_normalization.png)
 
-Normalisierung ändert die Zeichenhöhe, ohne den zugewiesenen [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--)‑Wert zu verändern, der die Schriftgröße in Punkten angibt. Absatz‑[setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) steuert den Zeilenabstand, während Text‑Frame‑[setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie Text oder sein Behälter angepasst werden. Diese Einstellungen dienen unterschiedlichen Zwecken und können das gesamte Layout eigenständig beeinflussen. Weitere Informationen zu Absatzformatierung und Vererbung finden Sie unter [Manage Paragraph](/slides/de/androidjava/manage-paragraph/).
+Normalisierung ändert die Zeichenhöhe, ohne den zugewiesenen [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) Wert zu verändern, der die Schriftgröße in Punkten angibt. [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) steuert den Zeilenabstand, während [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie Text oder dessen Behälter angepasst werden. Diese Einstellungen dienen unterschiedlichen Zwecken und können das Gesamtlayout unabhängig beeinflussen. Mehr zu Absatzformatierung und Vererbung finden Sie unter [Absatz verwalten](/slides/de/androidjava/manage-paragraph/).
 
 ## **Durchgestrichenen Text anwenden und entfernen**
 
-Verwenden Sie [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) auf einem Textabschnitt, um Korrekturen, stornierte Begriffe oder vorige Preise anzuzeigen, ohne den Originaltext zu löschen. Setzen Sie ihn auf [TextStrikethroughType.Single oder Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/), um eine bzw. zwei Linien durch den Text zu zeichnen.
+Verwenden Sie [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) auf einem Textabschnitt, um Korrekturen, stornierte Begriffe oder frühere Preise anzuzeigen, ohne den Originaltext zu löschen. Setzen Sie ihn auf [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) für eine bzw. zwei Durchstreichungen.
 
-Um Durchstreichung zu entfernen, übergeben Sie [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None). Damit wird der Effekt explizit deaktiviert, selbst wenn das umgebende Format Durchstreichung angibt. Im Gegensatz dazu lässt [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) die lokale Einstellung undefiniert, sodass der Abschnitt das Format beispielsweise vom Absatz erben kann. Es garantiert nicht, dass Durchstreichung entfernt wird. Verwenden Sie [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) , um die resultierende Formatierung einschließlich geerbter Werte auszulesen.
+Um Durchstreichungen zu entfernen, verwenden Sie [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None). Damit wird der Effekt ausdrücklich deaktiviert, selbst wenn das umgebende Format Durchstreichungen angibt. Im Gegensatz dazu lässt [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) die lokale Einstellung undefiniert, sodass der Abschnitt Formatierungen erben kann, beispielsweise vom Absatz. Das garantiert nicht, dass Durchstreichungen entfernt werden. Verwenden Sie [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) , um die resultierende Formatierung einschließlich geerbter Werte zu lesen.
 
-Das folgende eigenständige Beispiel erstellt drei Preisvergleiche. Jeder Absatz hat separate Abschnitte für Bezeichnung, alten Preis und aktuellen Preis, sodass nur der alte Preis betroffen ist. Die erste Zeile wendet Durchstreichung an und entfernt sie anschließend; die anderen Zeilen behalten einfache bzw. doppelte Durchstreichung bei. Durch das Ändern dieser Einstellung bleibt der Text und seine übrige Formatierung erhalten, einschließlich des fetten alten Preises.
+Das folgende eigenständige Beispiel erstellt drei Preisvergleiche. Jeder Absatz hat separate Abschnitte für Beschriftung, alten Preis und aktuellen Preis, sodass nur der alte Preis betroffen ist. Die erste Zeile wendet Durchstreichung an und entfernt sie dann wieder; die anderen Zeilen behalten einfache bzw. doppelte Durchstreichung bei. Durch das Ändern dieser Einstellung bleibt der Text und seine übrige Formatierung, einschließlich der fetten alten Preise, erhalten.
 
 ```java
 import com.aspose.slides.*;
@@ -532,7 +532,7 @@ try {
 
     IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Durchstreichen anwenden, dann explizit beim ersten vorherigen Preis entfernen.
+    // Durchstreichung anwenden, dann explizit aus dem ersten vorherigen Preis entfernen.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
 
@@ -547,13 +547,13 @@ try {
 
 Das Ergebnis von oben nach unten: keine Durchstreichung, einfache Durchstreichung und doppelte Durchstreichung.
 
-![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+![Alte Preise ohne Durchstreichung, mit einfacher Durchstreichung und mit doppelter Durchstreichung](strikethrough.png)
 
-## **Text‑Drehung festlegen**
+## **Textrotation festlegen**
 
 Verwenden Sie [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) , um eine vordefinierte Textorientierung innerhalb einer Form festzulegen.
 
-Der folgende Code setzt die Textorientierung in der Form auf [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), wodurch der Text **90 Grad gegen den Uhrzeigersinn** rotiert:
+Das folgende Codebeispiel setzt die Textorientierung in der Form auf [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/), wodurch der Text **90 Grad gegen den Uhrzeigersinn** rotiert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -573,13 +573,65 @@ try {
 
 Das Ergebnis:
 
-![The text rotation](text_rotation.png)
+![Die Textrotation](text_rotation.png)
 
-## **Benutzerdefinierte Drehung für Text‑Frames festlegen**
+## **Ziffern in vertikalem Text nebeneinander anzeigen**
+
+Um eine zweistellige Zahl in einem vertikalen japanischen Etikett zusammenzuhalten, setzen Sie beide Ziffern in einen Textabschnitt und rufen Sie [IBasePortionFormat.setKumimoji](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKumimoji-byte-) für diesen Abschnitt auf. Das Beispiel verwendet [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/#EastAsianVertical) und 40‑pt MS Gothic für beide Etiketten. Nur der an den numerischen Abschnitt übergebene [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) Wert unterscheidet sich.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] settings = { NullableBool.True, NullableBool.False };
+    float x = 120;
+
+    for (byte kumimoji : settings) {
+        IAutoShape label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 48, 120, 420);
+        label.getFillFormat().setFillType(FillType.NoFill);
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame frame = label.addTextFrame("");
+        frame.getTextFrameFormat().setTextVerticalType(TextVerticalType.EastAsianVertical);
+
+        IParagraph paragraph = frame.getParagraphs().get_Item(0);
+        IPortionFormat format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        FontData font = new FontData("MS Gothic");
+        format.setLatinFont(font);
+        format.setEastAsianFont(font);
+        format.setFontHeight(40);
+        format.getFillFormat().setFillType(FillType.Solid);
+        format.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        Portion digits = new Portion("12");
+        digits.getPortionFormat().setKumimoji(kumimoji);
+
+        paragraph.getPortions().clear();
+        paragraph.getPortions().add(new Portion("令和"));
+        paragraph.getPortions().add(digits);
+        paragraph.getPortions().add(new Portion("年"));
+
+        x += 240;
+    }
+    presentation.save("vertical_date.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In PowerPoint zeigt das linke Etikett (`True`) die Ziffern aufrecht und nebeneinander zwischen 和 und 年. Das rechte Etikett (`False`) dreht das Paar um 90 Grad im Uhrzeigersinn. Die umgebenden japanischen Zeichen bleiben in beiden Etiketten aufrecht.
+
+![PowerPoint‑Vergleich von vertikalen Datums‑Etiketten mit aufrechten Ziffern links und gedrehten Ziffern rechts.](vertical_date.png)
+
+## **Benutzerdefinierte Rotation für Textrahmen festlegen**
 
 Verwenden Sie [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) , um einen benutzerdefinierten Drehwinkel für ein [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) festzulegen.
 
-Der nachfolgende Code rotiert den Text‑Frame um 3 Grad im Uhrzeigersinn innerhalb der Form:
+Das folgende Codebeispiel dreht den Textrahmen um 3 Grad im Uhrzeigersinn innerhalb der Form:
 
 ```java
 import com.aspose.slides.*;
@@ -599,16 +651,16 @@ try {
 
 Das Ergebnis:
 
-![The custom text rotation](custom_text_rotation.png)
+![Die benutzerdefinierte Textrotation](custom_text_rotation.png)
 
 ## **Zeilenabstand von Absätzen festlegen**
 
-Aspose.Slides bietet [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) und [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) , um den Absatzabstand zu steuern. Diese Eigenschaften werden wie folgt verwendet:
+Aspose.Slides bietet [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) und [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) an, um den Absatzabstand zu steuern. Diese Eigenschaften werden wie folgt verwendet:
 
-* Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.
+* Verwenden Sie einen positiven Wert, um den Zeilenabstand als Prozentsatz der Zeilenhöhe anzugeben.  
 * Verwenden Sie einen negativen Wert, um den Zeilenabstand in Punkten anzugeben.
 
-Das folgende Beispiel setzt den Abstand innerhalb des ersten Absatzes auf 200 % der Zeilenhöhe (doppelter Abstand):
+Das folgende Beispiel setzt den Abstand innerhalb des ersten Absatzes auf 200 % der Zeilenhöhe (doppelter Zeilenabstand):
 
 ```java
 import com.aspose.slides.*;
@@ -630,18 +682,18 @@ try {
 
 Das Ergebnis:
 
-![The line spacing within the paragraph](line_spacing.png)
+![Der Zeilenabstand im Absatz](line_spacing.png)
 
 ## **Zeilenumbruch steuern**
 
-Absatz‑Zeilenumbruch‑Regeln sind bei schmalen Textblöcken und Präsentationen, die lateinischen und ostasiatischen Text mischen, nützlich. Die folgenden Methoden gehören zu [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/), daher gelten sie für einen gesamten Absatz:
+Regeln für den Zeilenumbruch eines Absatzes sind in schmalen Textblöcken und Präsentationen nützlich, die lateinischen und ostasiatischen Text mischen. Die folgenden Methoden gehören zu [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/) und gelten daher für einen gesamten Absatz:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) steuert die lateinischen Zeilenumbruch‑Regeln. In gemischtem Text kann eine Änderung auch beeinflussen, wo benachbarter ostasiatischer Text und Interpunktionszeichen umbrochen werden.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) steuert die ostasiatischen Zeilenumbruch‑Regeln, einschließlich Beschränkungen für Zeichen am Anfang und Ende einer Zeile.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) steuert die Zeilenumbruch‑Regeln für lateinischen Text. In gemischtem Text kann eine Änderung auch beeinflussen, wo angrenzender ostasiatischer Text und Interpunktion umbrechen.  
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) steuert die Zeilenumbruch‑Regeln für ostasiatischen Text, einschließlich Beschränkungen für Zeichen am Anfang und Ende einer Zeile.
 
-Diese Regeln ersetzen nicht [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), das den automatischen Zeilenumbruch innerhalb eines Text‑Frames aktiviert. Sie beeinflussen das Layout, wenn ein Umbruch erfolgt; sie fügen keine Zeilenumbruch‑Zeichen ein. Ein expliziter Zeilenumbruch erzwingt eine neue Zeile innerhalb des Absatzes, unabhängig von der verfügbaren Breite.
+Diese Regeln ersetzen nicht [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-), das automatisches Umbrechen innerhalb eines Textrahmens aktiviert. Sie beeinflussen das Layout, wenn Umbrechen erfolgt; sie fügen keine Zeilenumbruch‑Zeichen ein. Ein expliziter Zeilenumbruch erzwingt eine neue Zeile im Absatz, unabhängig von der verfügbaren Breite.
 
-Das folgende eigenständige Beispiel erstellt einen schmalen Textblock mit chinesischem und lateinischem Text. Es setzt beide Zeilenumbruch‑Optionen explizit und speichert „line_breaking.pptx“. Um eine der Regeln zu testen, ändern Sie den entsprechenden Wert, während Sie die anderen Einstellungen unverändert lassen. Das Beispiel verwendet 24‑Punkt Arial und SimSun bei einer Frame‑Breite von 160 Punkt und keinem horizontalen Text‑Frame‑Rand. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) wird mit [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) aufgerufen, sodass Textgröße und Rahmen‑Abmessungen fest bleiben.
+Das folgende eigenständige Beispiel erstellt einen schmalen Textblock mit chinesischem und lateinischem Text. Es setzt beide Zeilenumbruch‑Optionen explizit und speichert „line_breaking.pptx“. Um eine der Regeln zu testen, ändern Sie den entsprechenden Wert, während Sie die anderen Einstellungen unverändert lassen. Das Beispiel verwendet 24‑pt Arial und SimSun bei einer Rahmenbreite von 160 pt und keinen horizontalen Textrahmen‑Rändern. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) wird mit [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) aufgerufen, sodass Textgröße und Rahmenabmessungen fix bleiben.
 
 ```java
 import com.aspose.slides.*;
@@ -683,9 +735,9 @@ try {
 
 ## **Hängende Interpunktion steuern**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) ermöglicht es, dass berechtigte Interpunktionszeichen über den rechten Rand der Textzeile hinausragen, anstatt die nächste Zeile zu besetzen. Sie gilt für den gesamten Absatz und unterscheidet sich von einem hängenden Einzug.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) erlaubt zulässiger Interpunktion, über den rechten Rand der Textzeile hinaus zu reichen, anstatt in die nächste Zeile zu geraten. Sie gilt für den gesamten Absatz und unterscheidet sich von einem hängenden Einzug.
 
-Das folgende eigenständige Beispiel aktiviert hängende Interpunktion in einem 100‑Punkt‑breiten Text‑Frame und speichert „hanging_punctuation.pptx“. Mit 24 Punkt Arial und keinem horizontalen Text‑Frame‑Rand bleibt der abschließende Punkt nach „sentence“ und ragt über den rechten Textrand hinaus. Setzen Sie die Eigenschaft auf [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/), um zu vergleichen: Bei diesen Einstellungen nimmt der Punkt eine eigene Zeile ein. Zeilenumbruch ist aktiviert und Autofit deaktiviert, um die verfügbare Breite fest zu halten.
+Das folgende eigenständige Beispiel aktiviert hängende Interpunktion in einem 100‑pt breiten Textrahmen und speichert „hanging_punctuation.pptx“. Mit 24‑pt Arial und keinen horizontalen Textrahmen‑Rändern bleibt der abschließende Punkt nach „sentence“ und reicht über den rechten Textrand hinaus. Setzen Sie die Eigenschaft auf [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/), um zu vergleichen: Mit dieser Einstellung nimmt der Punkt eine eigene Zeile ein. Zeilenumbruch ist aktiviert und Autofit deaktiviert, um die verfügbare Breite festzuhalten.
 
 ```java
 import com.aspose.slides.*;
@@ -722,11 +774,11 @@ try {
 }
 ```
 
-Nicht jedes Interpunktionszeichen kann hängen. Die [oben beschriebenen Schrift‑ und Layout‑Bedingungen](#control-line-breaking) gelten ebenfalls für diesen Vergleich: Ändern von Schrift, verfügbarer Breite, Rändern oder Autofit‑Einstellungen kann den sichtbaren Unterschied entfernen.
+Nicht jedes Satzzeichen kann hängen. Die [oben beschriebenen Bedingungen für Schrift und Layout](#control-line-breaking) gelten ebenfalls für diesen Vergleich: Änderungen an Schrift, Breite, Rändern oder Autofit‑Einstellungen können den sichtbaren Unterschied entfernen.
 
-## **Autofit‑Typ für Text‑Frames festlegen**
+## **Autofit‑Typ für Textrahmen festlegen**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie Text reagiert, wenn er die Grenzen seines Containers überschreitet. Verwenden Sie ihn, um zu steuern, ob Text schrumpft, überläuft oder die Form automatisch anpasst. Das folgende Beispiel konfiguriert die Form so, dass sie sich an den Text anpasst, und speichert das Ergebnis unter „autofit_type.pptx“.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bestimmt, wie sich Text verhält, wenn er die Grenzen seines Behälters überschreitet. Verwenden Sie ihn, um zu steuern, ob Text verkleinert, überläuft oder die Form automatisch anpasst. Das folgende Beispiel konfiguriert die Form so, dass sie sich an den Text anpasst, und speichert das Ergebnis unter „autofit_type.pptx“.
 
 ```java
 import com.aspose.slides.*;
@@ -744,9 +796,9 @@ try {
 }
 ```
 
-Um Zeilen nach automatischem Zeilenumbruch zu zählen und zu sehen, wie sich Text‑ oder Form‑Breite auf das Ergebnis auswirken, siehe [Count Rendered Lines](/slides/de/androidjava/manage-paragraph/). Die Zeilenzahl allein sagt nicht aus, ob Text seinen Container überläuft.
+Um nach automatischem Umbrechen die Zeilen zu zählen und zu sehen, wie sich Text‑ oder Formbreite auf das Ergebnis auswirkt, siehe [Anzahl gerenderter Zeilen](/slides/de/androidjava/manage-paragraph/). Die Zeilenzahl allein sagt nicht aus, ob Text seinen Behälter überläuft.
 
-## **Verankerung von Text‑Frames festlegen**
+## **Verankerung von Textrahmen festlegen**
 
 [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiert, wie Text vertikal innerhalb einer Form positioniert wird, z. B. oben, mittig oder unten. Das folgende Beispiel verankert den Text am unteren Rand der ersten Form und speichert das Ergebnis unter „text_anchor.pptx“.
 
@@ -766,9 +818,9 @@ try {
 }
 ```
 
-## **Tabulatoren für Text festlegen**
+## **Texttabulatoren festlegen**
 
-Verwenden Sie [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) und [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) , um Tabstopps in einem Absatz zu konfigurieren. Das folgende Beispiel setzt das Standard‑Tab‑Intervall auf 100 Punkt und fügt einen linksbündigen Tab‑Stopp bei 30 Punkt hinzu. Diese Einstellungen wirken sich auf Text mit Tab‑Zeichen aus.
+Verwenden Sie [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) und [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) , um Tabstopps in einem Absatz zu konfigurieren. Das folgende Beispiel setzt den Standard‑Tab‑Abstand auf 100 pt und fügt einen linksbündigen Tab‑Stopp bei 30 pt hinzu. Diese Einstellungen wirken sich auf Text mit Tab‑Zeichen aus.
 
 ```java
 import com.aspose.slides.*;
@@ -791,13 +843,13 @@ try {
 
 Das Ergebnis:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Die Absatz‑Tabs](paragraph_tabs.png)
 
 ## **Korrektursprache festlegen**
 
-Aspose.Slides stellt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) bereit, mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die für Rechtschreib‑ und Grammatikprüfungen in PowerPoint verwendet wird.
+Aspose.Slides bietet [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) , mit dem Sie die Korrektursprache für einen Textabschnitt festlegen können. Die Korrektursprache bestimmt die Sprache, die PowerPoint für Rechtschreib‑ und Grammatikprüfung verwendet.
 
-Das folgende Beispiel erfordert „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie und mindestens einen Absatz. Es ersetzt den Inhalt des ersten Absatzes durch „1。“, setzt SimSun als Schrift und weist die vereinfachte chinesische Korrektursprache (`zh-CN`) zu. Das Ergebnis wird unter „proofing_language.pptx“ gespeichert:
+Das folgende Beispiel benötigt „presentation.pptx“ mit einem Textfeld als erste Form auf der ersten Folie und mindestens einen Absatz. Es ersetzt den Inhalt des ersten Absatzes durch „1。“, setzt SimSun als Schrift und weist die vereinfachte chinesische Korrektursprache (`zh-CN`) zu. Das Ergebnis wird unter „proofing_language.pptx“ gespeichert:
 
 ```java
 import com.aspose.slides.*;
@@ -832,7 +884,7 @@ try {
 
 ### **Sprach‑Metadaten kopieren**
 
-Beim Kopieren mehrsprachigen Textes aus einer Vorlage sollten sowohl [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) als auch [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--) preserviert werden. Das folgende eigenständige Beispiel erstellt einen Quell‑Abschnitt mit US‑Englisch als Sprache und Französisch als alternativer Sprache und kopiert den Text sowie die Bezeichner in einen Abschnitt einer neuen Präsentation.
+Beim Kopieren mehrsprachiger Texte aus einer Vorlage sollten sowohl [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) als auch [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--) erhalten bleiben. Das folgende eigenständige Beispiel erstellt einen Quellabschnitt mit US‑Englisch als Sprache und Französisch als alternativer Sprache und kopiert den Text sowie die Bezeichner in einen Abschnitt einer neuen Präsentation.
 
 ```java
 import com.aspose.slides.*;
@@ -852,7 +904,7 @@ try {
     Portion destination = new Portion();
     destination.setText(source.getText());
     destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
-    // Falls die Quelle keine alternative Sprache hat, löscht null den Zielwert.
+    // Wenn die Quelle keine alternative Sprache hat, löscht null den Wert im Ziel.
     destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
     paragraph.getPortions().add(destination);
 
@@ -862,13 +914,13 @@ try {
 }
 ```
 
-Um eine Quelle ohne alternative Sprache zu testen, lassen Sie die Zuweisung von `"fr-FR"` weg. Der alternative Bezeichner ist dann `null`, und dieselbe Kopieranweisung bewahrt das Fehlen, ohne einen Standardwert einzufügen, selbst wenn das Ziel zuvor eine alternative Sprache hatte.
+Um eine Quelle ohne alternative Sprache zu testen, lassen Sie die Zuweisung von `"fr-FR"` weg. Der alternative Bezeichner ist dann `null`, und dieselbe Kopieranweisung erhält dessen Fehlen, ohne einen Standardwert einzufügen, selbst wenn das Ziel zuvor eine alternative Sprache zugewiesen hatte.
 
-Diese Bezeichner sind sprachbezogene Metadaten. Das Bewahren ihrer Werte legt nicht fest, welches Wörterbuch PowerPoint für Rechtschreibung oder Grammatik verwendet.
+Diese Bezeichner speichern Sprach‑Metadaten. Das Beibehalten beeinflusst nicht, welches Wörterbuch PowerPoint für Rechtschreib‑ oder Grammatikprüfung auswählt.
 
 ## **Standard‑Sprache festlegen**
 
-Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-), um die Standardsprache für beim Laden oder Erstellen einer Präsentation erzeugten Text festzulegen. Das folgende Beispiel erstellt eine Präsentation mit US‑Englisch als Standardsprache, fügt ein Textfeld hinzu und gibt `en-US` für den ersten Textabschnitt aus.
+Verwenden Sie [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , um die Standardsprache für Text festzulegen, der beim Laden oder Erstellen einer Präsentation erzeugt wird. Das folgende Beispiel erstellt eine Präsentation mit US‑Englisch als Standardsprache, fügt ein Textfeld hinzu und gibt `en-US` für den ersten Textabschnitt aus.
 
 ```java
 import com.aspose.slides.*;
@@ -884,7 +936,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Prüfen Sie die Sprache des ersten Textabschnitts.
+    // Überprüfen Sie die Sprache des ersten Abschnitts.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -894,16 +946,16 @@ try {
 
 ## **Standard‑Textstil festlegen**
 
-Um Standard‑Textformatierung auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Um ein Standard‑Textformat auf Präsentationsebene anzuwenden, verwenden Sie [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Das folgende Beispiel legt eine 14‑Punkt‑fette Schrift als Standard für Absätze der obersten Ebene in einer neuen Präsentation fest und speichert sie unter „default_text_style.pptx“. Text kann diese Vorgaben erben, sofern keine spezifischere Formatierung sie überschreibt.
+Das folgende Beispiel setzt eine 14‑pt fette Schrift als Standard für Absatz‑Ebene‑1 in einer neuen Präsentation und speichert sie unter „default_text_style.pptx“. Text kann diese Vorgaben erben, sofern nicht spezifischere Formatierungen sie überschreiben.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie das Absatzformat der obersten Ebene.
+    // Das Absatzformat der obersten Ebene abrufen.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -919,13 +971,13 @@ try {
 
 ## **Text mit All‑Caps‑Effekt extrahieren**
 
-In PowerPoint bewirkt die Anwendung des **All Caps**‑Schrifteffekts, dass Text in Großbuchstaben angezeigt wird, obwohl er ursprünglich klein geschrieben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, liefert die Bibliothek den Text exakt so, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) und konvertieren Sie die zurückgegebene Zeichenfolge in Großbuchstaben, wenn der Wert `All` ist.
+In PowerPoint bewirkt die Anwendung des **All Caps**‑Schrifteffekts, dass Text auf der Folie groß geschrieben angezeigt wird, obwohl er ursprünglich klein geschrieben wurde. Wenn Sie einen solchen Textabschnitt mit Aspose.Slides abrufen, liefert die Bibliothek den Text exakt so, wie er eingegeben wurde. Um den angezeigten Text zu erhalten, prüfen Sie [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) und wandeln Sie die zurückgegebene Zeichenfolge bei `All` in Großbuchstaben um.
 
-Dieses Beispiel erfordert „sample2.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Der erste Absatz‑erste Abschnitt enthält „Hello, Aspose!“, auf den der All‑Caps‑Effekt angewendet wurde, wie unten gezeigt.
+Dieses Beispiel benötigt „sample2.pptx“ mit einem Textfeld als erste Form auf der ersten Folie. Der erste Absatz‑erste Abschnitt enthält „Hello, Aspose!“ mit angewendetem All‑Caps‑Effekt, wie unten gezeigt.
 
-![The All Caps effect](all_caps_effect.png)
+![Der All‑Caps‑Effekt](all_caps_effect.png)
 
-Der nachfolgende Code zeigt, wie der Text mit dem **All Caps**‑Effekt extrahiert wird:
+Das folgende Codebeispiel zeigt, wie der Text mit dem **All Caps**‑Effekt extrahiert wird:
 
 ```java
 import com.aspose.slides.*;
@@ -958,10 +1010,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Wie ändere ich Text in einer Tabelle auf einer Folie?**
+**Wie kann ich Text in einer Tabelle auf einer Folie ändern?**
 
 Um Text in einer Tabelle auf einer Folie zu ändern, verwenden Sie [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/). Durchlaufen Sie die Zellen und aktualisieren Sie jede Zelle über [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) und die Absatzformatierung über [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Wie wende ich einer Text‑Aufschrift in PowerPoint einen Farbverlauf an?**
+**Wie kann ich einem Text auf einer PowerPoint‑Folie eine Farbverlauf‑Füllung zuweisen?**
 
-Um einem Text einen Farbverlauf zu geben, verwenden Sie [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Setzen Sie [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) und konfigurieren Sie die Gradient‑Stops, Richtung und Transparenz.
+Um einer Textfüllung einen Farbverlauf zuzuweisen, verwenden Sie [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Setzen Sie [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) auf [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) und konfigurieren Sie die Verlaufspunkte, Richtung und Transparenz.

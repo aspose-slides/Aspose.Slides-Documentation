@@ -1,23 +1,23 @@
 ---
-title: Formatowanie tekstu prezentacji w PHP
+title: Formatuj tekst prezentacji w PHP
 linktitle: Formatowanie tekstu
 type: docs
 weight: 50
 url: /pl/php-java/text-formatting/
 keywords:
-- wyrównanie akapitu
+- wyrównaj akapit
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
-- odstęp znaków
+- odstępy między znakami
 - właściwości czcionki
 - rodzina czcionek
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
-- odstęp między wierszami
-- właściwość autofit
-- kotwica ramki tekstowej
+- interlinia
+- właściwość autofitu
+- zakotwienie ramki tekstowej
 - tabulacja tekstu
 - domyślny język
 - PowerPoint
@@ -25,19 +25,19 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP poprzez Java. Dostosuj czcionki, kolory, wyrównanie i inne."
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP poprzez Java. Dostosuj czcionki, kolory, wyrównanie i wiele więcej."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP przez Java. Omówiono kolory tła, przezroczystość, odstępy znaków, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofit, kotwiczenie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP poprzez Java. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofitu, zakotwienie tekstu, tabulatory i ustawienia języka.
 
-O ile nie podano inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy kształt na pierwszym slajdzie to pole tekstowe, a jego pierwszy akapit zawiera poniższy tekst. Indeksy slajdów i kształtów są zerowe. Przykłady zaznaczające pogrubione fragmenty używają efektywnego formatowania, w tym dziedziczonego pogrubienia:
+O ile nie podano inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy kształt na pierwszym slajdzie jest polem tekstowym, a jego pierwszy akapit zawiera tekst pokazany poniżej. Indeksy slajdów i kształtów są zerowo‑indeksowane. Przykłady zaznaczające pogrubione fragmenty używają formatowania efektywnego, w tym odziedziczonego formatowania pogrubienia:
 
 ![Przykładowy tekst](sample_text.png)
 
-Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Search and Replace Text](/slides/pl/php-java/search-and-replace-text/).
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/php-java/search-and-replace-text/).
 
-## **Ustawienie koloru tła tekstu**
+## **Ustaw kolor tła tekstu**
 
 Użyj [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat), aby ustawić domyślny kolor podświetlenia dla akapitu, lub [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) dla poszczególnych fragmentów tekstu.
 
@@ -68,7 +68,7 @@ Wynik:
 
 ![Szary akapit](gray_paragraph.png)
 
-Przykład kodu poniżej pokazuje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu demonstruje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
 
 ```php
 use aspose\slides\Presentation;
@@ -101,9 +101,9 @@ Wynik:
 
 ![Szare fragmenty tekstu](gray_text_portions.png)
 
-## **Wyrównanie akapitów tekstu**
+## **Wyrównaj akapity tekstu**
 
-Użyj [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, wyjustowana itp.
+Użyj [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana itp.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
@@ -119,7 +119,7 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Ustaw wyrównanie akapitu do środka.
+    // Ustaw wyrównanie akapitu na środek.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -132,11 +132,11 @@ Wynik:
 
 ![Wyrównany akapit](aligned_paragraph.png)
 
-## **Wyrównanie czcionek w linii**
+## **Wyrównaj czcionki w linii**
 
-Użyj [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment), aby pionowo wyrównać fragmenty tekstu o różnych rozmiarach czcionki w jednej linii. To ustawienie obowiązuje dla całego akapitu i kontroluje wyrównanie w każdej z jego linii.
+Użyj [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment), aby pionowo wyrównać fragmenty tekstu o różnych rozmiarach czcionki w jednej linii. To ustawienie dotyczy całego akapitu i kontroluje wyrównanie w każdej z jego linii.
 
-Poniższy, samodzielny przykład tworzy cztery oznaczone pola tekstowe na jednym slajdzie. Każdy akapit zawiera ten sam tekst w rozmiarach 18, 36 i 54 punktów, z różnym wyrównaniem czcionki. Używa czcionki Arial, wyłącza autofit i zawijanie oraz utrzymuje ramki tekstowe wystarczająco duże dla jednej linii.
+Poniższy samodzielny przykład tworzy cztery opisane pola tekstowe na jednym slajdzie. Każdy akapit zawiera ten sam tekst w rozmiarach 18, 36 i 54 punktów, przy różnym wyrównaniu czcionki. Użyto Arial, wyłączono autofit i zawijanie oraz utrzymano ramki tekstowe na tyle duże, aby mieściły jedną linię.
 
 ```php
 use aspose\slides\FillType;
@@ -205,15 +205,15 @@ try {
 
 Wynik:
 
-![Porównanie wyrównania bazowego, górnego, środkowego i dolnego przy mieszanych rozmiarach czcionek](font_alignment.png)
+![Porównanie wyrównania Baseline, Top, Center i Bottom przy mieszanych rozmiarach czcionek](font_alignment.png)
 
-Wyrównanie czcionki wykorzystuje metryki czcionki, więc widoczne krawędzie poszczególnych liter nie muszą idealnie się pokrywać. Przykład zawiera zarówno dużą literę, jak i dolny element (descender), aby pokazać różnicę między wyrównaniem bazowym a dolnym. Dostępność czcionek i ich zamiana, użyte znaki oraz różnica w rozmiarach czcionek wpływają na rezultat. Wymiary ramki, marginesy, odstępy między wierszami, zawijanie i autofit również wpływają na układ; przy porównywaniu trybów używaj tych samych czcionek i ustawień układu.
+Wyrównanie czcionki korzysta z metryk czcionki, więc widoczne krawędzie poszczególnych liter nie muszą dokładnie się pokrywać. Przykład zawiera zarówno wielką literę, jak i znak obniżony, aby pokazać różnicę między wyrównaniem do linii bazowej a do dołu. Dostępność i podmiana czcionek, użyte znaki oraz różnice w rozmiarach czcionek wpływają na rezultat. Wymiary ramki, marginesy, odstępy między wierszami, zawijanie i autofit również wpływają na układ; używaj tych samych czcionek i ustawień układu przy porównywaniu trybów.
 
-To ustawienie różni się od [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), które kontroluje poziome wyrównanie akapitu, oraz od [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), które pozycjonuje blok tekstu pionowo wewnątrz kształtu. Formatowanie superskrótu i subskryptu za pomocą [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) przesuwa poszczególne fragmenty względem linii bazowej zamiast ustawiać wyrównanie czcionki dla linii akapitu.
+To ustawienie różni się od [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), które steruje poziomym wyrównaniem akapitu, oraz od [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), które pozycjonuje blok tekstu pionowo w jego kształcie. Formatowanie superskrótu i subskryptu przy użyciu [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) przesuwa poszczególne fragmenty względem linii bazowej zamiast ustawiać wyrównanie czcionki dla linii akapitu.
 
-## **Ustawienie przezroczystości tekstu**
+## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana poprzez komponent alfa koloru przypisanego do [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). W poniższych przykładach `alpha = 50` oznacza wartość kanału alfa ARGB w skali 0‑255, a nie procentową przezroczystość.
+Przezroczystość tekstu jest kontrolowana poprzez komponent alfa koloru przypisanego do [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). W poniższych przykładach `alpha = 50` jest wartością kanału alfa ARGB w skali 0‑255, a nie procentem przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
@@ -247,7 +247,7 @@ Wynik:
 
 ![Przezroczysty akapit](transparent_paragraph.png)
 
-Kolejny przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu z pogrubioną czcionką**:
 
 ```php
 use aspose\slides\FillType;
@@ -285,11 +285,11 @@ Wynik:
 
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
-## **Ustawienie odstępu znaków w tekście**
+## **Ustaw odstępy między znakami w tekście**
 
-Użyj [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing), aby zwiększyć lub zmniejszyć odstępy między znakami w polu tekstowym. Przykłady dodają 3 punkty odstępu; wartości ujemne zagęszczają tekst.
+Użyj [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing), aby rozszerzyć lub skurczyć odstępy między znakami w polu tekstowym. Przykłady dodają 3 punkty odstępu; wartości ujemne kurczą tekst.
 
-Poniższy kod PHP pokazuje, jak rozszerzyć odstęp znaków w **całym akapicie**:
+Poniższy kod PHP pokazuje, jak rozszerzyć odstępy znaków w **całym akapicie**:
 
 ```php
 use aspose\slides\Presentation;
@@ -302,8 +302,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Uwaga: Użyj wartości ujemnych, aby skompresować odstęp między znakami.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Rozszerz odstęp znaków.
+    // Uwaga: użyj wartości ujemnych, aby skurczyć odstępy między znakami.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Rozszerz odstępy znaków.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -313,9 +313,9 @@ try {
 
 Wynik:
 
-![Odstęp znaków w akapicie](character_spacing_in_paragraph.png)
+![Odstępy znaków w akapicie](character_spacing_in_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak rozszerzyć odstęp znaków w **fragmentach tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak rozszerzyć odstępy znaków w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```php
 use aspose\slides\Presentation;
@@ -332,8 +332,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Uwaga: Użyj wartości ujemnych, aby skompresować odstęp między znakami.
-            $portion->getPortionFormat()->setSpacing(3); // Rozszerz odstęp znaków.
+            // Uwaga: użyj wartości ujemnych, aby skurczyć odstępy między znakami.
+            $portion->getPortionFormat()->setSpacing(3); // Rozszerz odstępy znaków.
         }
     }
 
@@ -345,13 +345,13 @@ try {
 
 Wynik:
 
-![Odstęp znaków w fragmentach tekstu](character_spacing_in_text_portions.png)
+![Odstępy znaków w fragmentach tekstu](character_spacing_in_text_portions.png)
 
-### **Wyłączenie kerningu dla określonych czcionek**
+### **Wyłącz kerning dla określonych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ciasniej niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPointa.
 
-Aby w takich przypadkach uzyskać wynik bliższy PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających danej czcionki. Ustaw [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na wartość większą niż rzeczywisty rozmiar czcionki. Ten przykład wymaga pliku „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym dziedziczone, i ustawia próg 100 punktów dla fragmentów używających czcionki Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
+Aby w takich przypadkach uzyskać wynik bliższy renderowaniu w PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na wartość większą niż rzeczywisty rozmiar czcionki. Przykład wymaga pliku „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym odziedziczone, i ustawia próg 100 punktów dla fragmentów używających Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-Dla pasującego tekstu poniżej progu to ustawienie zapobiega kerningowi i może pomóc dopasować renderowanie Aspose.Slides do wizualnego wyniku PowerPoint dla czcionek, które są objęte tym specyficznym zachowaniem PowerPoint.
+Dla dopasowanego tekstu poniżej progu to ustawienie zapobiega kerningowi i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPointa dla czcionek dotkniętych tym zachowaniem specyficznym dla PowerPointa.
 
-## **Zarządzanie właściwościami czcionki tekstu**
+## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawić na poziomie akapitu za pomocą [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) lub na poszczególnych fragmentach za pomocą [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
+Właściwości czcionki można ustawiać na poziomie akapitu za pomocą [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) lub na poszczególnych fragmentach przy użyciu [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
 
-Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na 12‑punktowy Times New Roman z pogrubieniem, kursywą i przerywaną podkreśleniem. Jawne formatowanie poszczególnych fragmentów ma pierwszeństwo przed tymi domyślnymi.
+Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na 12‑punktowy Times New Roman z pogrubieniem, kursywą i przerywaną podkreśleniem. Jawne formatowanie na poszczególnych fragmentach ma pierwszeństwo przed tymi domyślnymi.
 
 ```php
 use aspose\slides\FontData;
@@ -430,7 +430,7 @@ Wynik:
 
 ![Właściwości czcionki dla akapitu](font_properties_for_paragraph.png)
 
-Poniższy przykład stosuje 13‑punktowy Times New Roman, kursywę i przerywaną podkreślenie do fragmentów, których efektywne formatowanie jest pogrubione:
+Poniższy przykład stosuje 13‑punktowy Times New Roman, formatowanie kursywą i przerywaną podkreślenie do fragmentów, których efektywne formatowanie jest pogrubione:
 
 ```php
 use aspose\slides\FontData;
@@ -470,13 +470,13 @@ Wynik:
 
 ![Właściwości czcionki dla fragmentów tekstu](font_properties_for_text_portions.png)
 
-## **Kontrola normalizacji wysokości tekstu**
+## **Kontroluj normalizację wysokości tekstu**
 
-Użyj [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight) przy odtwarzaniu typografii szablonu lub badaniu różnic w wysokości znaków. W PowerPoint włączenie normalizacji rozciąga lub kompresuje poszczególne znaki pionowo, aby miały jednolitą widoczną wysokość w obrębie fragmentu tekstu. Nie gwarantuje to równej wysokości tekstu między różnymi czcionkami.
+Użyj [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight), gdy odtwarzasz typografię szablonu lub badzasz różnice w wysokości znaków. W PowerPoint włączenie normalizacji rozciąga lub kompresuje poszczególne znaki pionowo, aby uzyskać jednolitą widoczną wysokość w obrębie fragmentu tekstu. Nie gwarantuje to jednak równych wysokości tekstu pomiędzy różnymi czcionkami.
 
-Ustaw właściwość na [NullableBool::True lub False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), aby wyraźnie włączyć lub wyłączyć normalizację. `NullableBool::NotDefined` pozostawia ustawienie lokalne nieustawione, tak że fragment dziedziczy wartość, np. z [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) akapitu. To nie oznacza `False`. Użyj [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) i odczytaj `getNormaliseHeight` w zwróconych efektywnych danych formatowania, aby uzyskać rozwiązany wartość logiczną.
+Ustaw właściwość na [NullableBool::True lub False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), aby wyraźnie włączyć lub wyłączyć normalizację. `NullableBool::NotDefined` pozostawia lokalne ustawienie niezdefiniowane, tak że fragment dziedziczy wartość, np. z [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) akapitu. To nie oznacza `False`. Użyj [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) i odczytaj `getNormaliseHeight` z uzyskanych danych formatowania efektywnego, aby uzyskać rozstrzygniętą wartość boolowską.
 
-Poniższy, samodzielny przykład wymaga zainstalowanej czcionki **Arial**. Tworzy dwa bloki tekstu zawierające te same wielkie litery, małe litery, dolne elementy i znaki diakrytyczne w rozmiarze 54 punktów. Oba akapity domyślnie włączają normalizację. Górny fragment wyraźnie ją wyłącza; dolny dziedziczy ustawienie. Rozmiary ramek, marginesy i odstępy akapitów są identyczne, a zawijanie i autofit są wyłączone, aby porównanie było spójne. Przykład wypisuje `False: false` i `NotDefined: true`, a następnie zapisuje „text_height_normalization.pptx”.
+Poniższy samodzielny przykład wymaga zainstalowanego **Arial**. Tworzy dwa bloki tekstu zawierające te same wielkie litery, małe litery, znaki obniżone i znaki diakrytyczne w rozmiarze 54 punkty. Oba akapity domyślnie włączają normalizację. Górny fragment wyłącza ją jawnie; dolny dziedziczy. Rozmiary ramki, marginesy i odstępy akapitowe są identyczne, a zawijanie i autofit są wyłączone, aby porównanie było spójne. Przykład wypisuje `False: false` i `NotDefined: true`, a następnie zapisuje „text_height_normalization.pptx”.
 
 ```php
 use aspose\slides\FillType;
@@ -535,19 +535,19 @@ try {
 }
 ```
 
-Porównanie poniżej zostało wyeksportowane z zapisanego pliku prezentacji. Górny wiersz ma wyłączoną normalizację (`False`); dolny wiersz dziedziczy włączone ustawienie (`NotDefined` → `True`). Zachowaj zainstalowaną czcionkę Arial, aby odtworzyć ten wygląd.
+Poniższe porównanie zostało wyeksportowane z zapisanej prezentacji. Górny wiersz ma wyłączoną normalizację (`False`); dolny wiersz dziedziczy włączone ustawienie (`NotDefined` → `True`). Zachowaj zainstalowany Arial, aby odtworzyć wygląd.
 
-![Tekst Arial 54‑punktowy z wyłączoną normalizacją powyżej i dziedziczoną włączoną poniżej](text_height_normalization.png)
+![Tekst Arial 54‑punktowy z wyłączoną normalizacją powyżej i dziedziczoną normalizacją poniżej](text_height_normalization.png)
 
-Normalizacja zmienia wysokość znaków bez zmiany przypisanej wartości [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight), która określa rozmiar czcionki w punktach. Metoda akapitu [setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) kontroluje odstęp między wierszami, natomiast [setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) w ramce tekstowej kontroluje, jak tekst lub jego kontener dostosowuje się do rozmiaru. Te ustawienia służą różnym celom i mogą niezależnie wpływać na układ całości. Więcej o formatowaniu akapitu i dziedziczeniu znajdziesz w sekcji [Manage Paragraph](/slides/pl/php-java/manage-paragraph/).
+Normalizacja zmienia wysokość znaków bez zmiany przypisanej wartości [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight), która określa rozmiar czcionki w punktach. [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) kontroluje odstęp między wierszami, natomiast [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) steruje tym, jak tekst lub jego kontener dostosowuje się do dopasowania. Te ustawienia służą różnym celom i mogą niezależnie wpływać na ogólny układ. Po więcej informacji o formatowaniu akapitu i dziedziczeniu zobacz [Zarządzanie akapitem](/slides/pl/php-java/manage-paragraph/).
 
-## **Zastosowanie i usunięcie przekreślenia**
+## **Zastosuj i usuń przekreślenie**
 
-Użyj [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) na fragmencie tekstu, aby wyświetlić korekty, anulowane wyrażenia lub poprzednie ceny bez usuwania oryginalnego tekstu. Ustaw na [TextStrikethroughType::Single lub Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) dla jednej lub dwóch linii przekreślenia.
+Użyj [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) na fragmencie tekstu, aby wyświetlić korekty, odrzucone terminy lub poprzednie ceny bez usuwania pierwotnego tekstu. Ustaw na [TextStrikethroughType::Single lub Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) dla jednej lub dwóch linii przekreślających tekst.
 
-Aby usunąć przekreślenie, użyj [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). To explicite wyłącza efekt, nawet jeśli otaczające formatowanie określa przekreślenie. Natomiast [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) pozostawia ustawienie lokalne nieokreślone, pozwalając fragmentowi dziedziczyć formatowanie, np. z akapitu. Nie gwarantuje to usunięcia przekreślenia. Użyj [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective), aby odczytać wynikowe formatowanie, w tym dziedziczone wartości.
+Aby usunąć przekreślenie, przekaż [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). To wyraźnie wyłącza efekt, nawet jeśli otaczające formatowanie określa przekreślenie. Natomiast [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) pozostawia lokalne ustawienie niezdefiniowane, pozwalając fragmentowi dziedziczyć formatowanie, np. z akapitu. Nie gwarantuje to usunięcia przekreślenia. Użyj [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective), aby odczytać wynikowe formatowanie, w tym wartości dziedziczone.
 
-Poniższy, samodzielny przykład tworzy trzy porównania cen. Każdy akapit ma osobne fragmenty dla etykiety, poprzedniej ceny i bieżącej ceny, więc tylko poprzednia cena jest dotknięta. W pierwszym wierszu zastosowano, a następnie usunięto przekreślenie; pozostałe wiersze zachowują pojedyncze i podwójne przekreślenie. Zmiana tego ustawienia zachowuje tekst i jego inne formatowanie, w tym pogrubioną poprzednią cenę.
+Poniższy samodzielny przykład tworzy trzy porównania cen. Każdy akapit ma osobne fragmenty dla etykiety, poprzedniej ceny i bieżącej ceny, więc tylko poprzednia cena jest dotknięta. W pierwszym wierszu zastosowano i następnie usunięto przekreślenie; pozostałe wiersze zachowują pojedyncze i podwójne przekreślenie. Zmiana tego ustawienia zachowuje tekst i jego pozostałe formatowanie, w tym pogrubioną poprzednią cenę.
 
 ```php
 use aspose\slides\FillType;
@@ -599,7 +599,7 @@ try {
 
     $paragraphs = $shape->getTextFrame()->getParagraphs();
 
-    // Zastosuj przekreślenie, a potem jawnie usuń je z pierwszej poprzedniej ceny.
+    // Zastosuj przekreślenie, a potem wyraźnie usuń je z pierwszej poprzedniej ceny.
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
     $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
 
@@ -616,11 +616,11 @@ Wynik, od góry do dołu: brak przekreślenia, pojedyncze przekreślenie i podw�
 
 ![Poprzednie ceny bez przekreślenia, z pojedynczym przekreśleniem i z podwójnym przekreśleniem](strikethrough.png)
 
-## **Ustawienie obrotu tekstu**
+## **Ustaw obrót tekstu**
 
-Użyj [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType), aby ustawić wstępnie zdefiniowaną orientację tekstu w kształcie.
+Użyj [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType), aby ustawić predefiniowaną orientację tekstu w kształcie.
 
-Poniższy przykład kodu ustawia orientację tekstu w kształcie na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
+Poniższy przykład kodu ustawia orientację tekstu w kształcie na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), co rotuje tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
 ```php
 use aspose\slides\Presentation;
@@ -644,7 +644,65 @@ Wynik:
 
 ![Obrót tekstu](text_rotation.png)
 
-## **Ustawienie własnego obrotu dla ramek tekstowych**
+## **Wyświetl cyfry obok siebie w tekście pionowym**
+
+Aby dwucyfrową liczbę zachować razem w pionowej japońskiej etykiecie, umieść obie cyfry w jednym fragmencie tekstu i wywołaj [BasePortionFormat::setKumimoji](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKumimoji) na tym fragmencie. Przykład używa [TextVerticalType::EastAsianVertical](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/#EastAsianVertical) i 40‑punktowego MS Gothic dla obu etykiet. Jedynie wartość [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/) przekazana do fragmentu numerycznego się różni.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextVerticalType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $x = 120;
+
+    foreach ([NullableBool::True, NullableBool::False] as $kumimoji) {
+        $label = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, 48, 120, 420);
+        $label->getFillFormat()->setFillType(FillType::NoFill);
+        $label->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $frame = $label->addTextFrame("");
+        $frame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::EastAsianVertical);
+
+        $paragraph = $frame->getParagraphs()->get_Item(0);
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $font = new FontData("MS Gothic");
+        $format->setLatinFont($font);
+        $format->setEastAsianFont($font);
+        $format->setFontHeight(40);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($black);
+
+        $digits = new Portion("12");
+        $digits->getPortionFormat()->setKumimoji($kumimoji);
+
+        $portions = $paragraph->getPortions();
+        $portions->clear();
+        $portions->add(new Portion("令和"));
+        $portions->add($digits);
+        $portions->add(new Portion("年"));
+
+        $x += 240;
+    }
+    $presentation->save("vertical_date.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+W PowerPoint lewa etykieta (`True`) pokazuje cyfry w pozycji pionowej i obok siebie pomiędzy znakami 和 i 年. Prawa etykieta (`False`) ma parę obróconą o 90 stopni zgodnie z ruchem wskazówek zegara. Otaczające znaki japońskie pozostają pionowe w obu etykietach.
+
+![Porównanie pionowych etykiet dat w PowerPoint z pionowymi cyframi po lewej i obróconymi cyframi po prawej.](vertical_date.png)
+
+## **Ustaw własny obrót ramki tekstowej**
 
 Użyj [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle), aby ustawić własny kąt obrotu dla [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
@@ -669,14 +727,14 @@ try {
 
 Wynik:
 
-![Własny obrót tekstu](custom_text_rotation.png)
+![Niestandardowy obrót tekstu](custom_text_rotation.png)
 
-## **Ustawienie odstępów między wierszami w akapitach**
+## **Ustaw odstępy między wierszami w akapitach**
 
-Aspose.Slides udostępnia [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) i [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin), aby kontrolować odstępy akapitów. Te właściwości są używane w następujący sposób:
+Aspose.Slides udostępnia [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) i [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin), aby kontrolować odstępy akapitowe. Te właściwości używa się w następujący sposób:
 
-* Użyj dodatniej wartości, aby określić odstęp wierszy jako procent wysokości wiersza.
-* Użyj ujemnej wartości, aby określić odstęp w punktach.
+* Użyj wartości dodatniej, aby określić odstęp wierszy jako procent wysokości wiersza.
+* Użyj wartości ujemnej, aby określić odstęp w punktach.
 
 Poniższy przykład ustawia odstęp wewnątrz pierwszego akapitu na 200 % wysokości wiersza (podwójny odstęp):
 
@@ -703,16 +761,16 @@ Wynik:
 
 ![Odstęp wierszy w akapicie](line_spacing.png)
 
-## **Kontrola łamania linii**
+## **Kontroluj łamanie linii**
 
-Reguły łamania linii w akapicie są przydatne w wąskich blokach tekstowych oraz prezentacjach, które mieszają tekst łaciński i wschodnioazjatycki. Następujące metody należą do [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/), więc dotyczą całego akapitu:
+Reguły łamania linii w akapicie są przydatne w wąskich blokach tekstu oraz w prezentacjach mieszających tekst łaciński i wschodnioazjatycki. Poniższe metody należą do [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/), więc dotyczą całego akapitu:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) kontroluje reguły łamania linii w tekście łacińskim. W mieszanym tekście zmiana tej opcji może także zmienić miejsce łamania sąsiedniego tekstu wschodnioazjatyckiego i znaków interpunkcyjnych.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) kontroluje reguły łamania linii w tekście wschodnioazjatyckim, w tym ograniczenia dotyczące znaków na początku i końcu wiersza.
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) kontroluje reguły łamania linii łacińskich. W mieszanym tekście jego zmiana może również wpłynąć na miejsce, w którym otaczający tekst wschodnioazjatycki i interpunkcja się zawijają.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) kontroluje reguły łamania linii wschodnioazjatyckich, w tym ograniczenia znaków na początku i końcu wiersza.
 
-Te reguły nie zastępują [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), które włącza automatyczne zawijanie w ramce tekstowej. Wpływają na układ, gdy zawijanie zachodzi; nie wstawiają znaków nowej linii. Jawne wstawienie znaku nowej linii wymusza nowy wiersz w akapicie niezależnie od dostępnej szerokości.
+Te reguły nie zastępują [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), które włącza automatyczne zawijanie w ramce tekstowej. Wpływają na układ, gdy zachodzi zawijanie; nie wstawiają znaków nowej linii. Jawne złamanie wiersza wymusza nową linię w akapicie niezależnie od dostępnej szerokości.
 
-Poniższy, samodzielny przykład tworzy wąski blok tekstowy zawierający chiński i łaciński tekst. Ustawia oba warianty łamania linii explicite i zapisuje „line_breaking.pptx”. Aby eksperymentować z jedną z reguł, zmień odpowiadającą wartość, pozostawiając drugie ustawienie niezmienione. Przykład używa 24‑punktowej czcionki Arial oraz SimSun, szerokość ramki 160 punktów i zerowe poziome marginesy ramki tekstowej. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) jest wywoływane z [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), tak aby rozmiar tekstu i wymiary ramki pozostały stałe.
+Poniższy samodzielny przykład tworzy wąski blok tekstu zawierający chiński i łaciński tekst. Ustawia oba opcje łamania wierszy explicite i zapisuje „line_breaking.pptx”. Aby eksperymentować z którąkolwiek regułą, zmień odpowiednią wartość, pozostawiając drugie ustawienie niezmienione. Przykład używa 24‑punktowego Arial i SimSun, szerokości ramki 160 punktów i zerowych poziomych marginesów ramki tekstowej. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) wywołano z [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), aby rozmiar tekstu i wymiary ramki pozostały stałe.
 
 ```php
 use aspose\slides\FillType;
@@ -759,11 +817,11 @@ try {
 }
 ```
 
-## **Kontrola wieszającej interpunkcji**
+## **Kontroluj wiszącą interpunkcję**
 
-[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) pozwala wybranym znakom interpunkcyjnym wystawać poza prawą krawędź linii tekstu zamiast zajmować następną linię. Dotyczy całego akapitu i różni się od wieszającego wcięcia.
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) pozwala dopuszczalnej interpunkcji wystawać poza prawą krawędź linii tekstu zamiast zajmować następną linię. Dotyczy całego akapitu i różni się od wcięcia wiszącego.
 
-Poniższy, samodzielny przykład włącza wieszającą interpunkcję w ramce tekstowej o szerokości 100 punktów i zapisuje „hanging_punctuation.pptx”. Przy 24‑punktowej czcionce Arial i zerowych poziomych marginesach ramki, ostatni kropka pozostaje po słowie „sentence” i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), aby porównać: przy tych ustawieniach kropka zajmuje osobną linię. Zawijanie jest włączone, a autofit wyłączony, aby zachować stałą szerokość dostępnego obszaru.
+Poniższy samodzielny przykład włącza wiszącą interpunkcję w ramce tekstowej o szerokości 100 punktów i zapisuje „hanging_punctuation.pptx”. Przy 24‑punktowym Arial i zerowych poziomych marginesach ramki, finalna kropka pozostaje po „zdaniu” i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), aby porównać: przy tych ustawieniach kropka zajmuje osobną linię. Zawijanie jest włączone, a autofit wyłączony, aby szerokość dostępna była stała.
 
 ```php
 use aspose\slides\FillType;
@@ -807,11 +865,11 @@ try {
 }
 ```
 
-Nie każda kropka interpunkcyjna może wisieć. Warunki dotyczące czcionki i układu opisane powyżej ([kontrola łamania linii](#control-line-breaking)) także mają zastosowanie do tego porównania: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofitu może usunąć widoczną różnicę.
+Nie każda znak interpunkcyjny może wisieć. Warunki dotyczące czcionki i układu opisane powyżej ([kontrola łamania linii](#control-line-breaking)) również mają zastosowanie do tego porównania: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofitu może usunąć widoczną różnicę.
 
-## **Ustawienie typu autofitu dla ramek tekstowych**
+## **Ustaw typ autofitu dla ramek tekstowych**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst się kurczy, wycieka, czy kształt automatycznie zmienia rozmiar, aby dopasować się do tekstu. Następujący przykład konfiguruje kształt, aby zmieniał rozmiar w celu dopasowania tekstu i zapisuje wynik jako „autofit_type.pptx”.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst się kurczy, wypływa poza kształt, czy kształt automatycznie zmienia rozmiar, aby dopasować tekst. Poniższy przykład konfiguruje kształt, aby zmieniał rozmiar w celu dopasowania tekstu i zapisuje wynik jako „autofit_type.pptx”.
 
 ```php
 use aspose\slides\Presentation;
@@ -831,11 +889,11 @@ try {
 }
 ```
 
-Aby policzyć wiersze po automatycznym zawijaniu i zobaczyć, jak zmiana szerokości tekstu lub kształtu wpływa na wynik, zobacz [Count Rendered Lines](/slides/pl/php-java/manage-paragraph/). Same liczby wierszy nie wskazują, czy tekst wycieka poza kontener.
+Aby policzyć wiersze po automatycznym zawijaniu i zobaczyć, jak zmiana szerokości tekstu lub kształtu wpływa na wynik, zobacz [Zliczanie renderowanych wierszy](/slides/pl/php-java/manage-paragraph/). Same liczby wierszy nie wskazują, czy tekst wypływa poza kontener.
 
-## **Ustawienie kotwiczenia ramek tekstowych**
+## **Ustaw zakotwienie ramek tekstowych**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub u dołu. Poniższy przykład kotwiczy tekst u dołu pierwszego kształtu i zapisuje wynik jako „text_anchor.pptx”.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. na górze, w środku lub na dole. Poniższy przykład zakotwicza tekst na dole pierwszego kształtu i zapisuje wynik jako „text_anchor.pptx”.
 
 ```php
 use aspose\slides\Presentation;
@@ -855,9 +913,9 @@ try {
 }
 ```
 
-## **Ustawienie tabulacji tekstu**
+## **Ustaw tabulację tekstu**
 
-Użyj [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) i [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs), aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulacji na 100 punktów i dodaje tabulację wyrównaną do lewej przy 30 punktach. Ustawienia te wpływają na tekst zawierający znaki tabulacji.
+Użyj [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) i [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs), aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulacji na 100 punktów i dodaje lewostronny tabulator w 30 punktach. Te ustawienia wpływają na tekst zawierający znaki tabulacji.
 
 ```php
 use aspose\slides\Presentation;
@@ -884,11 +942,11 @@ Wynik:
 
 ![Tabulatory w akapicie](paragraph_tabs.png)
 
-## **Ustawienie języka korekty**
+## **Ustaw język korekty**
 
 Aspose.Slides udostępnia [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId), który pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
 
-Poniższy przykład wymaga pliku „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie i co najmniej jednym akapicie. Zastępuje zawartość pierwszego akapitu ciągiem „1。”, ustawia SimSun jako czcionkę oraz przypisuje język korekty chińskiego uproszczonego (`zh-CN`). Zapisuje wynik jako „proofing_language.pptx”:
+Poniższy przykład wymaga „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie oraz przynajmniej jednego akapitu. Zastępuje zawartość pierwszego akapitu tekstem „1。”, ustawia SimSun jako czcionkę i przypisuje język korekty chiński uproszczony (`zh-CN`). Zapisuje wynik jako „proofing_language.pptx”:
 
 ```php
 use aspose\slides\FontData;
@@ -924,9 +982,9 @@ try {
 }
 ```
 
-### **Kopiowanie metadanych językowych**
+### **Kopiowanie metadanych języka**
 
-Podczas kopiowania wielojęzycznego tekstu z szablonu zachowaj zarówno [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), jak i [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Poniższy, samodzielny przykład tworzy fragment źródłowy z językiem US English jako głównym i francuskim jako alternatywnym, a następnie kopiuje tekst i identyfikatory do fragmentu w nowej prezentacji.
+Podczas kopiowania wielojęzycznego tekstu z szablonu zachowaj zarówno [BasePortionFormat::getLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getLanguageId), jak i [BasePortionFormat::getAlternativeLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Poniższy samodzielny przykład tworzy fragment źródłowy z językiem US English i językiem alternatywnym French, a następnie kopiuje tekst i identyfikatory do fragmentu w nowej prezentacji.
 
 ```php
 use aspose\slides\Portion;
@@ -949,7 +1007,7 @@ try {
     $destination = new Portion();
     $destination->setText($source->getText());
     $destination->getPortionFormat()->setLanguageId($source->getPortionFormat()->getLanguageId());
-    // Jeśli źródło nie ma języka alternatywnego, null usuwa wartość w docelowym.
+    // Jeśli źródło nie ma alternatywnego języka, null usuwa wartość w docelowym.
     $destination->getPortionFormat()->setAlternativeLanguageId($source->getPortionFormat()->getAlternativeLanguageId());
     $paragraph->getPortions()->add($destination);
 
@@ -959,13 +1017,13 @@ try {
 }
 ```
 
-Aby wypróbować źródło bez języka alternatywnego, pomiń przypisanie `"fr-FR"`. Alternatywny identyfikator będzie wtedy `null`, a to samo polecenie kopiowania zachowa jego brak bez wprowadzania wartości domyślnej, nawet jeśli docelowy fragment miał wcześniej przypisany język alternatywny.
+Aby wypróbować źródło bez języka alternatywnego, pomiń przypisanie „fr-FR”. Alternatywny identyfikator będzie wtedy `null`, a to samo polecenie kopiowania zachowa jego brak bez wprowadzania wartości domyślnej, nawet jeśli cel wcześniej miał przypisany język alternatywny.
 
-Identyfikatory te przechowują metadane językowe. Ich zachowanie nie określa, który słownik PowerPoint wybierze do sprawdzania pisowni lub gramatyki.
+Te identyfikatory przechowują metadane językowe. Zachowanie ich nie ustala, który słownik PowerPoint wybierze do sprawdzania pisowni lub gramatyki.
 
-## **Ustawienie domyślnego języka**
+## **Ustaw domyślny język**
 
-Użyj [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage), aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z domyślnym językiem tekstu US English, dodaje pole tekstowe i wypisuje `en-US` dla jego pierwszego fragmentu tekstowego.
+Użyj [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage), aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z domyślnym językiem tekstu US English, dodaje pole tekstowe i wypisuje `en-US` dla jego pierwszego fragmentu tekstu.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -991,11 +1049,11 @@ try {
 }
 ```
 
-## **Ustawienie domyślnego stylu tekstu**
+## **Ustaw domyślny styl tekstu**
 
 Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Poniższy przykład ustawia czcionkę 14‑punktową pogrubioną jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją jako „default_text_style.pptx”. Tekst może dziedziczyć te domyślne ustawienia, chyba że bardziej szczegółowe formatowanie je nadpisze.
+Poniższy przykład ustawia 14‑punktową pogrubioną czcionkę jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją jako „default_text_style.pptx”. Tekst może dziedziczyć te domyślne ustawienia, chyba że bardziej szczegółowe formatowanie je nadpisze.
 
 ```php
 use aspose\slides\NullableBool;
@@ -1018,11 +1076,11 @@ try {
 }
 ```
 
-## **Wyodrębnianie tekstu z efektem wielkich liter**
+## **Wyodrębnij tekst z efektem wielkich liter**
 
-W PowerPoint zastosowanie efektu **All Caps** powoduje, że tekst wyświetla się wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Przy pobieraniu takiego fragmentu tekstu za pomocą Aspose.Slides biblioteka zwraca tekst dokładnie w takiej formie, w jakiej został wprowadzony. Aby uzyskać wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
+W PowerPoint zastosowanie efektu czcionki **All Caps** powoduje, że tekst wyświetla się wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Gdy wyodrębniasz taki fragment tekstu przy pomocy Aspose.Slides, biblioteka zwraca tekst dokładnie tak, jak został wprowadzony. Aby dopasować wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) i zamień zwrócony łańcuch na wielkie litery, gdy wartość to `All`.
 
-Przykład wymaga pliku „sample2.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Jego pierwszy akapit zawiera fragment „Hello, Aspose!” z zastosowanym efektem All Caps, jak pokazano poniżej.
+Przykład wymaga „sample2.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Jego pierwszy akapit zawiera pierwszy fragment „Hello, Aspose!” z zastosowanym efektem All Caps, jak pokazano poniżej.
 
 ![Efekt All Caps](all_caps_effect.png)
 
@@ -1063,8 +1121,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak zmodyfikować tekst w tabeli na slajdzie?**
 
-Aby zmodyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Iteruj przez komórki i aktualizuj każdą komórkę za pomocą [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) oraz formatowanie akapitu przez [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Przeglądaj komórki i aktualizuj każdą komórkę za pomocą [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) oraz formatowanie akapitu przez [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Jak zastosować gradientowy kolor do tekstu w slajdzie PowerPoint?**
+**Jak zastosować gradientowy kolor do tekstu na slajdzie PowerPoint?**
 
 Aby zastosować gradientowy kolor do tekstu, użyj [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). Ustaw [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) na [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.

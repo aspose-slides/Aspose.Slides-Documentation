@@ -1,48 +1,48 @@
 ---
-title: จัดรูปแบบข้อความนำเสนอใน JavaScript
+title: จัดรูปแบบข้อความการนำเสนอใน JavaScript
 linktitle: การจัดรูปแบบข้อความ
 type: docs
 weight: 50
 url: /th/nodejs-java/text-formatting/
 keywords:
-- จัดย่อหน้า
-- รูปแบบข้อความ
+- จัดแนวย่อหน้า
+- สไตล์ข้อความ
 - พื้นหลังข้อความ
 - ความโปร่งใสของข้อความ
-- ระยะห่างระหว่างอักขระ
-- คุณสมบัติฟอนต์
-- ตระกูลฟอนต์
+- ระยะห่างอักขระ
+- คุณสมบัติแบบอักษร
+- ตระกูลแบบอักษร
 - การหมุนข้อความ
 - มุมการหมุน
 - กรอบข้อความ
 - ระยะห่างบรรทัด
-- คุณสมบัติ autofit
+- คุณสมบัติปรับอัตโนมัติ
 - จุดยึดกรอบข้อความ
-- การจัดแท็บข้อความ
-- ภาษาดีฟอลต์
+- การแท็บข้อความ
+- ภาษาเริ่มต้น
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java ปรับแต่งฟอนต์, สี, การจัดแนว, และอื่น ๆ"
+description: "จัดรูปแบบและตกแต่งข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java ปรับแต่งแบบอักษร, สี, การจัดแนว และอื่น ๆ อีกมากมาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีกำหนดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides for Node.js ผ่าน Java ครอบคลุมสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างอักขระ, คุณสมบัติของฟอนต์, การหมุน, ระยะห่างระยะย่อหน้า, พฤติกรรม autofit, การยึดเหนี่ยวข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา
+บทความนี้แสดงวิธีจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java. มันครอบคลุมสีพื้นหลัง, ความโปร่งใส, การจัดระยะห่างของอักขระ, คุณสมบัติของแบบอักษร, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรมการปรับอัตโนมัติ, การยึดข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา.
 
-หากไม่ได้ระบุเป็นอย่างอื่น ตัวอย่างจะใช้ [sample.pptx](sample.pptx) รูปแบบแรกบนสไลด์แรกเป็นกล่องข้อความและย่อหน้แรกของมันมีข้อความที่แสดงด้านล่าง ดัชนีสไลด์และรูปร่างใช้ค่าตั้งแต่ศูนย์ ตัวอย่างที่เลือกส่วนที่เป็นตัวหนาจะใช้การจัดรูปแบบที่มีผล รวมถึงการสืบทอดการจัดรูปแบบตัวหนา:
+ยกเว้นที่ระบุไว้เป็นอย่างอื่น ตัวอย่างจะใช้ [sample.pptx](sample.pptx). รูปทรงแรกในสไลด์แรกเป็นกล่องข้อความ และย่อหน้าแรกของมันมีข้อความที่แสดงด้านล่าง ดัชนีสไลด์และรูปทรงใช้เลขศูนย์เป็นฐาน ตัวอย่างที่เลือกส่วนที่เป็นตัวหนาจะใช้การจัดรูปแบบที่มีผลจริง รวมถึงการจัดรูปแบบตัวหนาที่สืบทอดมา:
 
 ![ข้อความตัวอย่าง](sample_text.png)
 
-เพื่อค้นหาและไฮไลต์ข้อความตามตัวอักษรหรือการจับคู่แบบ regular-expression ดูที่ [Search and Replace Text](/slides/th/nodejs-java/search-and-replace-text/)
+เพื่อค้นหาและไฮไลท์ข้อความตามตัวอักษรหรือการจับคู่ด้วย regular‑expression ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/nodejs-java/search-and-replace-text/).
 
-## **กำหนดสีพื้นหลังของข้อความ**
+## **ตั้งค่าสีพื้นหลังของข้อความ**
 
-ใช้ [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อกำหนดสีไฮไลต์เริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) เพื่อกำหนดสีไฮไลท์เริ่มต้นสำหรับย่อหน้า หรือใช้ [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) สำหรับส่วนข้อความรายบุคคล.
 
-ตัวอย่างต่อไปตั้งค่าไฮไลต์สีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก สีไฮไลต์ที่กำหนดโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นนี้:
+ตัวอย่างต่อไปนี้ตั้งค่าไฮไลท์สีเทาอ่อนเป็นค่าเริ่มต้นสำหรับย่อหน้าแรก สีไฮไลท์ที่ระบุโดยตรงสำหรับส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นนี้:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -55,7 +55,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // กำหนดสีไฮไลท์สำหรับย่อหน้าทั้งหมด.
+    // ตั้งค่าสีไฮไลต์สำหรับย่อหน้าทั้งหมด.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -68,7 +68,7 @@ try {
 
 ![ย่อหน้าเทา](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีแบบอักษรหนา**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ตั้งค่าสีไฮไลท์สำหรับส่วนข้อความ.
+            // ตั้งค่าสีไฮไลต์สำหรับส่วนข้อความ.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -101,11 +101,11 @@ try {
 
 ![ส่วนข้อความสีเทา](gray_text_portions.png)
 
-## **จัดแนวย่อหน้าข้อความ**
+## **จัดตำแหน่งย่อหน้าข้อความ**
 
-ใช้ [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) เพื่อกำหนดการจัดแนวย่อหน้าในกรอบข้อความ ค่าที่ใช้ได้ ได้แก่ การจัดกึ่งกลาง, การจัดชิดซ้าย, การจัดชิดขวา, การจัดเต็มแนว และอื่น ๆ
+ใช้ [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) เพื่อตั้งค่าการจัดตำแหน่งย่อหน้าในกรอบข้อความ ค่าอาจเป็นการจัดกึ่งกลาง, จัดซ้าย, จัดขวา, จัดแนวเต็ม, เป็นต้น.
 
-ตัวอย่างโค้ดต่อไปแสดงวิธีจัดแนวย่อหน้าให้อยู่ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดตำแหน่งย่อหน้าไปที่ **กึ่งกลาง**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -128,13 +128,13 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดแนกกึ่งกลาง](aligned_paragraph.png)
+![ย่อหน้าที่จัดตำแหน่ง](aligned_paragraph.png)
 
-## **จัดแนวฟอนต์ภายในบรรทัด**
+## **จัดตำแหน่งแบบอักษรภายในบรรทัด**
 
-ใช้ [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) เพื่อจัดแนวแนวดิ่งของส่วนข้อความที่มีขนาดฟอนต์แตกต่างกันภายในบรรทัด การตั้งค่านี้ใช้กับย่อหน้าทั้งหมดและควบคุมการจัดแนวภายในแต่ละบรรทัดของย่อหน้า
+ใช้ [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) เพื่อจัดตำแหน่งแนวตั้งของส่วนข้อความที่มีขนาดแบบอักษรต่างกันภายในบรรทัด การตั้งค่านี้จะใช้กับทั้งย่อหน้าและควบคุมการจัดตำแหน่งภายในแต่ละบรรทัดของมัน.
 
-ตัวอย่างต่อไปเป็นโค้ดที่สร้างกล่องข้อความสี่กล่องที่มีป้ายกำกับบนสไลด์เดียว แต่ละย่อหน้ามีข้อความเดียวกันที่ขนาด 18, 36, และ 54 จุด โดยมีการจัดแนวฟอนต์ที่แตกต่างกัน ใช้ฟอนต์ Arial ปิดการทำ autofit และการตัดบรรทัด และทำให้กรอบข้อความใหญ่พอที่จะใส่บรรทัดเดียว
+ตัวอย่างอิสระต่อไปนี้สร้างกล่องข้อความที่มีป้ายกำกับสี่กล่องบนสไลด์หนึ่ง ย่อหน้าแต่ละย่อหน้ามีข้อความเดียวกันที่ขนาด 18, 36, และ 54 จุด พร้อมการจัดตำแหน่งแบบอักษรที่แตกต่างกัน ตัวอย่างใช้แบบอักษร Arial, ปิดการปรับอัตโนมัติและการตัดบรรทัด, และทำให้กรอบข้อความใหญ่พอสำหรับบรรทัดเดียว.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -188,19 +188,17 @@ try {
 }
 ```
 
-ผลลัพธ์:
+![เปรียบเทียบการจัดตำแหน่งแบบอักษร Baseline, Top, Center, Bottom กับขนาดแบบอักษรผสม](font_alignment.png)
 
-![เปรียบเทียบการจัดแนว Baseline, Top, Center, Bottom กับขนาดฟอนต์ผสม](font_alignment.png)
+การจัดตำแหน่งแบบอักษรใช้เมตริกของแบบอักษร ดังนั้นขอบที่มองเห็นของอักขระแต่ละตัวอาจไม่ตรงกันอย่างสมบูรณ์ ตัวอย่างรวมทั้งอักษรพิมพ์ใหญ่และตัวตัวหางเพื่อแสดงความแตกต่างระหว่างการจัดตำแหน่ง baseline กับ bottom การมีแบบอักษรและการแทนที่, ตัวอักษรที่ใช้, และความแตกต่างของขนาดแบบอักษรส่งผลต่อผลลัพธ์ ขนาดกรอบ, ช่องว่าง, ระยะห่างบรรทัด, การห่อ, และการปรับอัตโนมัติก็มีผลต่อการจัดวาง; ควรใช้แบบอักษรและการตั้งค่าแบบเดียวกันเมื่อเปรียบเทียบโหมด.
 
-การจัดแนวฟอนต์ใช้ข้อมูลเมตริกของฟอนต์ ดังนั้นขอบของตัวอักษรแต่ละตัวอาจไม่ตรงกันอย่างสมบูรณ์ ตัวอย่างรวมตัวอักษรพิมพ์ใหญ่และตัวที่มีส่วนส่วนล่างเพื่อแสดงความแตกต่างระหว่าง baseline กับ bottom การมีฟอนต์และการแทนที่ฟอนต์, ตัวอักษรที่ใช้, และความแตกต่างของขนาดฟอนต์มีผลต่อผลลัพธ์ ขนาดกรอบ, ระยะขอบ, ระยะห่างบรรทัด, การตัดบรรทัด, และการทำ autofit ยังส่งผลต่อการจัดวาง; ควรใช้ฟอนต์และการตั้งค่าแนวเดียวกันเมื่อเปรียบเทียบโหมดต่าง ๆ
+การตั้งค่านี้แตกต่างจาก [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment), ซึ่งควบคุมการจัดตำแหน่งย่อหน้าในแนวนอน, และ [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType), ซึ่งกำหนดตำแหน่งบล็อคข้อความในแนวตั้งภายในรูปร่าง การจัดรูปแบบตัวยกและตัวย่อล่างผ่าน [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) จะย้ายส่วนข้อความแต่ละส่วนสัมพันธ์กับ baseline แทนการตั้งค่าการจัดตำแหน่งแบบอักษรสำหรับบรรทัดของย่อหน้า.
 
-การตั้งค่านี้แตกต่างจาก [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) ซึ่งควบคุมการจัดแนวแนวนอนของย่อหน้า และ [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) ซึ่งกำหนดตำแหน่งบล็อกข้อความในแนวตั้งภายในรูปร่าง การจัดรูปแบบ superscript และ subscript ผ่าน [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) จะย้ายส่วนข้อความแต่ละส่วนสัมพันธ์กับ baseline แทนการตั้งค่าการจัดแนวฟอนต์ของบรรทัดย่อหน้า
+## **ตั้งค่าความโปร่งใสสำหรับข้อความ**
 
-## **กำหนดความโปร่งใสของข้อความ**
+ความโปร่งใสของข้อความถูกควบคุมผ่านส่วน alpha ของสีที่กำหนดให้กับ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). ในตัวอย่างด้านล่าง, `alpha = 50` คือค่าแชนแนล alpha ของ ARGB บนสเกล 0–255, ไม่ใช่เปอร์เซ็นต์ความโปร่งใส.
 
-ความโปร่งใสของข้อความควบคุมผ่านค่าคอมโพเนนท์ alpha ของสีที่กำหนดให้กับ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) ตัวอย่างต่อไป `alpha = 50` เป็นค่าช่อง alpha ของ ARGB ในช่วง 0–255 ไม่ได้เป็นเปอร์เซ็นต์ความโปร่งใส
-
-ตัวอย่างโค้ดต่อไปแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าทั้งหมด**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าทั้งหมด**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,7 +228,7 @@ try {
 
 ![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปแสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่มีฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่มีแบบอักษรหนา**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,11 +266,11 @@ try {
 
 ![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
 
-## **กำหนดระยะห่างระหว่างอักขระของข้อความ**
+## **ตั้งค่าระยะห่างอักขระสำหรับข้อความ**
 
-ใช้ [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) เพื่อขยายหรือย่อตัวอักษรในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 จุด; ค่าติดลบทำให้ตัวอักษรถูกย่อเข้าหากัน
+ใช้ [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) เพื่อขยายหรือบีบอัดระยะห่างระหว่างอักขระในกล่องข้อความ ตัวอย่างเพิ่มระยะห่าง 3 จุด; ค่าติดลบจะบีบอัดข้อความ.
 
-โค้ด JavaScript ด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าทั้งหมด**:
+โค้ด JavaScript ต่อไปนี้แสดงวิธีขยายระยะห่างอักขระใน **ย่อหน้าทั้งหมด**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -284,8 +282,8 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างอักขระ.
+    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -297,7 +295,7 @@ try {
 
 ![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่มีฟอนต์ตัวหนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่มีแบบอักษรหนา**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -314,8 +312,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
-            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างอักขระ.
+            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
+            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
         }
     }
 
@@ -329,11 +327,11 @@ try {
 
 ![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
 
-### **ปิดการใช้ Kerning สำหรับฟอนต์เฉพาะ**
+### **ปิดการ Kerning สำหรับแบบอักษรเฉพาะ**
 
-ในบางกรณี ข้อความที่แสดงโดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันที่แสดงใน PowerPoint เนื่องจาก PowerPoint อาจละเว้นข้อมูล kerning ของฟอนต์บางตัว แม้ว่าฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งาน kerning ในการตั้งค่าของ PowerPoint
+ในบางกรณี ข้อความที่แสดงโดย Aspose.Slides อาจดูแคบกว่าข้อความเดียวกันที่แสดงใน PowerPoint เรื่องนี้อาจเกิดจาก PowerPoint เพิกเฉยข้อมูล kerning สำหรับแบบอักษรบางตัว แม้ว่าแบบอักษรนั้นจะมีข้อมูล kerning ที่ถูกต้องและ kerning ถูกเปิดในการตั้งค่า PowerPoint.
 
-เพื่อให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint มากขึ้น คุณสามารถปิดการใช้ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์นั้น ๆ ตั้งค่า [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) ให้มีค่ามากกว่าขนาดฟอนต์จริง ตัวอย่างนี้ต้องใช้ไฟล์ “presentation.pptx” ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรก ตรวจสอบชื่อฟอนต์ที่มีผล รวมถึงฟอนต์ที่สืบทอด และตั้งค่าขีดจำกัด 100 จุดสำหรับส่วนที่ใช้ Roboto การตั้งค่านี้จะปิด kerning สำหรับส่วนที่ใช้ฟอนต์ขนาดต่ำกว่า 100 จุด:
+เพื่อทำให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint ในกรณีเช่นนี้ คุณสามารถปิด kerning สำหรับส่วนข้อความที่ใช้แบบอักษรที่ได้รับผลกระทบ ตั้งค่า [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) เป็นค่าที่ใหญ่กว่าขนาดแบบอักษรจริง ตัวอย่างนี้ต้องการไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรก ตรวจสอบชื่อแบบอักษรที่มีผลจริงรวมถึงแบบอักษรที่สืบทอด และตั้งค่าขีดจำกัด 100 จุดสำหรับส่วนที่ใช้ Roboto การตั้งค่านี้จะปิด kerning สำหรับส่วนที่ตรงกันที่มีขนาดแบบอักษรต่ำกว่า 100 จุด:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +370,13 @@ try {
 }
 ```
 
-สำหรับข้อความที่ตรงกับเกณฑ์นี้ การตั้งค่านี้จะป้องกันการใช้ kerning และช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint
+สำหรับข้อความที่ตรงกับเกณฑ์แต่มีขนาดต่ำกว่าขีดจำกัด การตั้งค่านี้จะป้องกัน kerning และช่วยให้การแสดงผลของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับแบบอักษรที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้.
 
-## **จัดการคุณสมบัติฟอนต์ของข้อความ**
+## **จัดการคุณสมบัติแบบอักษรของข้อความ**
 
-คุณสมบัติฟอนต์สามารถกำหนดได้ที่ระดับย่อหน้าโดยใช้ [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนข้อความแต่ละส่วนโดยใช้ [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/)
+คุณสมบัติแบบอักษรสามารถตั้งค่าที่ระดับย่อหน้าผ่าน [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) หรือบนส่วนข้อความแต่ละส่วนผ่าน [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/).
 
-ตัวอย่างต่อไปกำหนดฟอนต์เริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 จุด พร้อมตัวหนา, ตัวเอียง, และขีดเส้นจุด สีไฮไลท์บนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้:
+ตัวอย่างต่อไปนี้ตั้งค่าแบบอักษรเริ่มต้นของย่อหน้าแรกเป็น Times New Roman ขนาด 12 จุด พร้อมการจัดรูปแบบตัวหนา, ตัวเอียง, และขีดล่างเป็นจุด การจัดรูปแบบโดยตรงบนส่วนข้อความแต่ละส่วนจะมีลำดับความสำคัญเหนือค่าเริ่มต้นเหล่านี้:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -392,7 +390,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // ตั้งค่าคุณสมบัติฟอนต์สำหรับย่อหน้า.
+    // ตั้งค่าคุณสมบัติแบบอักษรสำหรับย่อหน้า.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -405,11 +403,9 @@ try {
 }
 ```
 
-ผลลัพธ์:
+![คุณสมบัติแบบอักษรสำหรับย่อหน้า](font_properties_for_paragraph.png)
 
-![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
-
-ตัวอย่างต่อไปใช้ Times New Roman ขนาด 13 จุด, ตัวเอียง, และขีดเส้นจุดกับส่วนข้อความที่มีการจัดรูปแบบเป็นตัวหนา:
+ตัวอย่างต่อไปนี้ใช้ Times New Roman ขนาด 13 จุด, การจัดรูปแบบตัวเอียง, และขีดล่างเป็นจุด กับส่วนที่การจัดรูปแบบที่มีผลเป็นตัวหนา:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -429,7 +425,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // ตั้งค่าคุณสมบัติฟอนต์สำหรับส่วนข้อความ.
+            // ตั้งค่าคุณสมบัติแบบอักษรสำหรับส่วนข้อความ.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -443,17 +439,15 @@ try {
 }
 ```
 
-ผลลัพธ์:
+![คุณสมบัติแบบอักษรสำหรับส่วนข้อความ](font_properties_for_text_portions.png)
 
-![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
+## **ควบคุมการทำให้ความสูงข้อความเป็นมาตรฐาน**
 
-## **ควบคุมการทำ Normalisation ความสูงของข้อความ**
+ใช้ [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) เมื่อทำสำเนาแบบอักษรตามแม่แบบหรือวิเคราะห์ความแตกต่างของความสูงอักขระ ใน PowerPoint การเปิดใช้งานการทำให้ความสูงเป็นมาตรฐานจะยืดหรือบีบอัดอักขระแต่ละตัวในแนวตั้งเพื่อให้มีความสูงที่มองเห็นเท่ากันภายในส่วนข้อความ แต่มันไม่ได้รับประกันความสูงข้อความที่เท่ากันระหว่างแบบอักษรที่แตกต่างกัน.
 
-ใช้ [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) เมื่อต้องการทำ Typography ของเทมเพลตหรือศึกษาแตกต่างของความสูงอักขระ ใน PowerPoint การเปิดใช้งานการทำ Normalisation จะยืดหรือบีบอักขระแต่ละตัวในแนวตั้งเพื่อให้มีความสูงที่มองเห็นได้สม่ำเสมอภายในส่วนข้อความ ไม่ได้รับประกันว่าความสูงของข้อความจะเท่ากันระหว่างฟอนต์ต่าง ๆ
+ตั้งค่าคุณสมบัตินี้เป็น [NullableBool.True หรือ False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) เพื่อเปิดหรือปิดการทำให้ความสูงเป็นมาตรฐานอย่างชัดเจน `NullableBool.NotDefined` จะปล่อยให้การตั้งค่าท้องถิ่นไม่ได้กำหนดเพื่อให้ส่วนสืบทอดค่าจากที่อื่น เช่น จาก [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ของย่อหน้า ซึ่งไม่ได้หมายความว่า `False`. ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) และอ่าน [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) เพื่อรับค่า Boolean ที่สรุปแล้ว.
 
-ตั้งค่าคุณสมบัตินี้เป็น [NullableBool.True หรือ False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) เพื่อเปิดหรือปิดการทำ Normalisation อย่างชัดเจน `NullableBool.NotDefined` จะปล่อยให้การตั้งค่าท้องถิ่นไม่ถูกกำหนด sehingga ส่วนข้อความสืบทอดค่าจาก [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ของย่อหน้า ไม่ได้หมายถึง `False` ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) และอ่าน [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) เพื่อรับค่าบูลีนที่ได้จากการวิเคราะห์
-
-ตัวอย่างต่อไปเป็นโค้ดที่ต้องติดตั้ง **Arial** สร้างบล็อกข้อความสองบล็อกที่มีอักษรพิมพ์ใหญ่, พิมพ์เล็ก, ตัวที่มีส่วนล่าง, และอักขระที่มีเครื่องหมายขาดในขนาด 54 จุด ย่อหน้า ทั้งสองเปิดการทำ Normalisation โดยค่าเริ่มต้น ส่วนบนปิดการทำ Normalisation อย่างชัดเจน ส่วนล่างสืบทอดการตั้งค่า ขนาดกรอบ, ระยะขอบ, และระยะห่างย่อหน้าตรงกัน โดยปิดการตัดบรรทัดและการทำ autofit เพื่อให้การเปรียบเทียบคงที่ ตัวอย่างพิมพ์ `False: false` และ `NotDefined: true` แล้วบันทึกเป็น “text_height_normalization.pptx”
+ตัวอย่างอิสระต่อไปนี้ต้องการให้ **Arial** ถูกติดตั้ง มันสร้างสองบล็อกข้อความที่มีอักษรพิมพ์ใหญ่, ตัวพิมพ์เล็ก, ตัวหาง, และอักขระมีเครื่องหมายสำคัญขนาด 54 จุด ย่อหน้าแต่ละย่อหน้าจะเปิดการทำให้ความสูงเป็นมาตรฐานโดยค่าเริ่มต้น ส่วนบนจะปิดการทำให้ความสูงโดยตรง; ส่วนล่างจะสืบทอดค่า การขนาดกรอบ, ช่องว่าง, และระยะห่างย่อหน้าจะเหมือนกัน, ปิดการห่อและการปรับอัตโนมัติเพื่อให้การเปรียบเทียบคงที่ ตัวอย่างพิมพ์ `False: false` และ `NotDefined: true`, จากนั้นบันทึกเป็น "text_height_normalization.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -504,19 +498,19 @@ try {
 }
 ```
 
-ภาพต่อไปส่งออกจากงานนำเสนอที่บันทึกไว้ แถวบนมี Normalisation ปิด (`False`) แถวล่างสืบทอดการเปิด (`NotDefined` → `True`) ให้ติดตั้ง Arial เพื่อสร้างลักษณะนี้
+การเปรียบเทียบด้านล่างถูกส่งออกจากงานนำเสนอที่บันทึกไว้ แถวบนมีการทำให้ความสูงเป็นมาตรฐานปิด (`False`); แถวล่างสืบทอดการตั้งค่าเปิด (`NotDefined` → `True`). ควรมี Arial ติดตั้งเพื่อสร้างรูปลักษณ์นี้.
 
-![ข้อความ Arial ขนาด 54 จุดที่มี Normalisation ปิดด้านบนและสืบทอดเปิดด้านล่าง](text_height_normalization.png)
+![ข้อความ Arial ขนาด 54 จุดที่มีการทำให้ความสูงเป็นมาตรฐานปิดด้านบนและสืบทอดเปิดด้านล่าง](text_height_normalization.png)
 
-การทำ Normalisation เปลี่ยนความสูงของอักขระโดยไม่เปลี่ยนค่าที่กำหนดให้กับ [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight) ซึ่งระบุขนาดฟอนต์ในจุด ย่อหน้า [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) ควบคุมระยะห่างบรรทัด ส่วน [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) ของกรอบข้อความควบคุมวิธีที่ข้อความหรือคอนเทนเนอร์ปรับขนาดเพื่อให้พอดีกัน การตั้งค่าเหล่านี้มีจุดประสงค์ต่างกันและอาจส่งผลต่อการจัดวางโดยรวมโดยอิสระ สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับการจัดรูปแบบย่อหน้าและการสืบทอด ดูที่ [Manage Paragraph](/slides/th/nodejs-java/manage-paragraph/)
+การทำให้ความสูงเป็นมาตรฐานเปลี่ยนความสูงของอักขระโดยไม่เปลี่ยนค่า [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight) ที่กำหนดขนาดแบบอักษรเป็นจุด ย่อหน้า [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) ควบคุมระยะห่างบรรทัด, ส่วนกรอบข้อความ [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) ควบคุมว่าข้อความหรือคอนเทนเนอร์ปรับขนาดอย่างไร เพื่อตอบสนองต่อขนาด การตั้งค่าเหล่านี้มีจุดประสงค์แตกต่างกันและอาจส่งผลต่อการจัดวางโดยรวม สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการจัดรูปแบบย่อหน้าและการสืบทอด ดูที่ [Manage Paragraph](/slides/th/nodejs-java/manage-paragraph/).
 
-## **เพิ่มและลบ Strikethrough**
+## **ใช้และลบการขีดฆ่า**
 
-ใช้ [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) บนส่วนข้อความเพื่อแสดงการแก้ไข, คำที่ถูกยกเลิก, หรือราคาก่อนหน้าที่ไม่ต้องลบข้อความเดิม ตั้งค่าเป็น [TextStrikethroughType.Single หรือ Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) เพื่อให้เส้นหนึ่งหรือสองเส้นผ่านข้อความ
+ใช้ [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) บนส่วนข้อความเพื่อแสดงการแก้ไข, คำยกเลิก, หรือราคาก่อนหน้าโดยไม่ลบข้อความต้นฉบับ ตั้งค่าเป็น [TextStrikethroughType.Single หรือ Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) เพื่อให้มีเส้นขีดหนึ่งหรือสองเส้นผ่านข้อความ.
 
-เพื่อเอา Strikethrough ออก ให้ใช้ [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None) ซึ่งจะปิดผลกระทบนี้อย่างชัดเจน แม้ว่าการจัดรูปแบบโดยรอบจะกำหนด Strikethrough ก็ตาม ตรงกันข้ามกับ [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) ซึ่งปล่อยให้การตั้งค่าท้องถิ่นไม่ถูกกำหนด ทำให้ส่วนข้อความสืบทอดการจัดรูปแบบจากย่อหน้า แต่ไม่ได้รับประกันว่าจะไม่มี Strikethrough ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) เพื่ออ่านการจัดรูปแบบที่ได้รวมถึงค่าที่สืบทอด
+เพื่อเอาการขีดฆ่าออก ให้ส่งค่า [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None). ค่าดังกล่าวจะปิดเอฟเฟ็กต์โดยชัดเจน แม้ว่าการจัดรูปแบบโดยรอบจะระบุการขีดฆ่า ในทางตรงกันข้าม [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) จะปล่อยให้การตั้งค่าท้องถิ่นไม่ได้กำหนด ทำให้ส่วนสืบทอดการจัดรูปแบบ เช่น จากย่อหน้า ซึ่งไม่ได้รับประกันว่าการขีดฆ่าจะถูกลบ ใช้ [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) เพื่ออ่านการจัดรูปแบบที่ได้รวมถึงค่าที่สืบทอด.
 
-ตัวอย่างต่อไปสร้างการเปรียบเทียบราคาสามแบบ ย่อหน้าแต่ละย่อมามีส่วนข้อความแยกสำหรับป้ายกำกับ, ราคาก่อนหน้า, และราคาปัจจุบัน ทำให้เฉพาะราคาก่อนหน้าได้รับผลกระทบ แถวแรกเพิ่มและลบ Strikethrough; แถวอื่น ๆ คงไว้กับ Strikethrough แบบเดี่ยวและคู่ การเปลี่ยนการตั้งค่านี้ช่วยให้ข้อความและการจัดรูปแบบอื่น ๆ เช่น ตัวหนาของราคาก่อนหน้า ยังคงอยู่
+ตัวอย่างอิสระต่อไปนี้สร้างการเปรียบเทียบราคา three รายการ ย่อหน้าแต่ละย่อหน้ามีส่วนแยกสำหรับป้าย, ราคาก่อนหน้า, และราคาปัจจุบัน ดังนั้นจึงมีผลต่อราคาก่อนหน้าเท่านั้น แถวแรกใช้และลบการขีดฆ่าตามลำดับ; แถวอื่นคงการขีดฆ่าแบบหนึ่งเส้นและสองเส้น การเปลี่ยนการตั้งค่านี้จะคงข้อความและการจัดรูปแบบอื่น ๆ รวมถึงราคาก่อนหน้าที่เป็นตัวหนา.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -560,7 +554,7 @@ try {
 
     const paragraphs = shape.getTextFrame().getParagraphs();
 
-    // ใช้การขีดเส้น แล้วลบออกโดยเจาะจงจากราคาก่อนหน้าตัวแรก.
+    // ใช้การขีดฆ่า, แล้วลบอย่างเจาะจงออกจากราคาก่อนหน้าตัวแรก.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
 
@@ -573,15 +567,15 @@ try {
 }
 ```
 
-ผลลัพธ์จากบนลงล่าง: ไม่มี Strikethrough, Strikethrough เดียว, และ Strikethrough คู่
+ผลลัพธ์จากบนลงล่าง: ไม่มีการขีดฆ่า, การขีดฆ่าแบบหนึ่งเส้น, และการขีดฆ่าแบบสองเส้น.
 
-![ราคาก่อนหน้าไม่มี Strikethrough, มี Strikethrough เดียว, และมี Strikethrough คู่](strikethrough.png)
+![ราคาก่อนหน้าโดยไม่มีการขีดฆ่า, มีการขีดฆ่าแบบหนึ่งเส้น, และมีการขีดฆ่าแบบสองเส้น](strikethrough.png)
 
 ## **ตั้งค่าการหมุนของข้อความ**
 
-ใช้ [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อกำหนดทิศทางข้อความที่กำหนดล่วงหน้าในรูปร่าง
+ใช้ [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) เพื่อกำหนดทิศทางข้อความที่กำหนดไว้ล่วงหน้าในรูปทรง.
 
-โค้ดต่อไปตั้งค่าทิศทางข้อความในรูปร่างเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/) ซึ่งหมุนข้อความ **90 องศาตามเข็มนาฬิกา*** (ควรเป็น *ทวนเข็มนาฬิกา*)
+ตัวอย่างโค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปทรงเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/), ซึ่งจะหมุนข้อความ **90 องศาตรงทวนเข็มนาฬิกา**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -602,13 +596,66 @@ try {
 
 ผลลัพธ์:
 
-![การหมุนของข้อความ](text_rotation.png)
+![การหมุนข้อความ](text_rotation.png)
+
+## **แสดงตัวเลขต่อเนื่องในข้อความแนวตั้ง**
+
+เพื่อให้ตัวเลขสองหลักอยู่ด้วยกันในป้ายภาษาญี่ปุ่นแนวตั้ง ให้วางตัวเลขทั้งสองหลักในส่วนข้อความเดียวและเรียก [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKumimoji) บนการจัดรูปแบบของส่วนนั้น ตัวอย่างใช้ [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/#EastAsianVertical) และ MS Gothic ขนาด 40 จุดสำหรับป้ายทั้งสอง ค่า [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) ที่ส่งให้ส่วนตัวเลขจะแตกต่างกันเท่านั้น.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const font = new aspose.slides.FontData("MS Gothic");
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const settings = [aspose.slides.NullableBool.True, aspose.slides.NullableBool.False];
+    let x = 120;
+
+    for (const kumimoji of settings) {
+        const label = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, 48, 120, 420);
+        label.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        label.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const frame = label.addTextFrame("");
+        frame.getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.EastAsianVertical));
+
+        const paragraph = frame.getParagraphs().get_Item(0);
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setLatinFont(font);
+        format.setEastAsianFont(font);
+        format.setFontHeight(40);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const digits = new aspose.slides.Portion("12");
+        digits.getPortionFormat().setKumimoji(java.newByte(kumimoji));
+
+        const portions = paragraph.getPortions();
+        portions.clear();
+        portions.add(new aspose.slides.Portion("令和"));
+        portions.add(digits);
+        portions.add(new aspose.slides.Portion("年"));
+        x += 240;
+    }
+    presentation.save("vertical_date.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ใน PowerPoint, ป้ายซ้าย (`True`) แสดงตัวเลขตั้งตรงและอยู่ต่อกันระหว่าง 和 และ 年. ป้ายขวา (`False`) ตัวเลขจะถูกหมุน 90 องศาตามเข็มนาฬิกา ตัวอักษรญี่ปุ่นรอบ ๆ ยังคงตั้งตรงในทั้งสองป้าย.
+
+![เปรียบเทียบ PowerPoint ของป้ายวันที่แนวตั้งที่ตัวเลขตั้งตรงด้านซ้ายและหมุนด้านขวา](vertical_date.png)
 
 ## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
 
-ใช้ [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/)
+ใช้ [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 
-โค้ดต่อไปหมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาในรูปร่าง:
+ตัวอย่างโค้ดด้านล่างหมุนกรอบข้อความ 3 องศาตามเข็มนาฬิกาในรูปทรง:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -632,12 +679,12 @@ try {
 
 ## **ตั้งค่าระยะห่างบรรทัดของย่อหน้า**
 
-Aspose.Slides มี [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore), และ [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมระยะห่างย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้
+Aspose.Slides มี [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore), และ [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) เพื่อควบคุมระยะห่างของย่อหน้า คุณสมบัติเหล่านี้ใช้ดังนี้:
 
-* ค่าเป็นบวกระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ค่าเป็นลบระบุระยะห่างบรรทัดเป็นจุด
+* ใช้ค่าบวกเพื่อระบุระยะห่างบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด.
+* ใช้ค่าลบเพื่อระบุระยะห่างบรรทัดเป็นจุด.
 
-ตัวอย่างต่อไปตั้งค่าระยะห่างภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (สองเท่า):
+ตัวอย่างต่อไปนี้ตั้งค่าระยะห่างภายในย่อหน้าแรกเป็น 200% ของความสูงบรรทัด (ระยะห่างสองเท่า):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -663,14 +710,14 @@ try {
 
 ## **ควบคุมการตัดบรรทัด**
 
-กฎการตัดบรรทัดของย่อ장은มีประโยชน์ในบล็อกข้อความแคบและการนำเสนอที่ผสม Latin และ East Asian ตัววิธีต่อไปเป็นของ [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/) ดังนั้นจึงใช้กับย่อหน้าเต็ม:
+กฎการตัดบรรทัดของย่อหน้ามีประโยชน์ในบล็อกข้อความแคบและงานนำเสนอที่ผสานข้อความละตินและเอเชียตะวันออก วิธีต่อไปนี้เป็นของ [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/), ดังนั้นจึงใช้กับย่อหน้าเต็ม:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) ควบคุมกฎการตัดบรรทัดของ Latin ในข้อความผสมอาจทำให้การตัดบรรทัดของ East Asian และเครื่องหมายวรรคตอนเปลี่ยนไปด้วย
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ควบคุมกฎการตัดบรรทัดของ East Asian รวมถึงการจำกัดอักขระที่ขึ้นต้นหรือลงท้ายบรรทัด
+- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) ควบคุมกฎการตัดบรรทัดของละติน ในข้อความผสม การเปลี่ยนอาจทำให้ตำแหน่งการตัดของข้อความเอเชียตะวันออกและเครื่องหมายวรรคตอนที่อยู่ข้างเคียงเปลี่ยน.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ควบคุมกฎการตัดบรรทัดของเอเชียตะวันออก รวมถึงข้อจำกัดของอักขระที่ตำแหน่งเริ่มต้นและสิ้นสุดบรรทัด.
 
-กฎเหล่านี้ไม่ทดแทน [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText) ที่เปิดใช้งานการตัดบรรทัดอัตโนมัติภายในกรอบข้อความ พวกมันมีผลต่อการจัดวางเมื่อมีการตัดบรรทัด; ไม่ได้แทรกอักขระการตัดบรรทัด การตัดบรรทัดโดยตรงบังคับให้เกิดบรรทัดใหม่ภายในย่อหน้าโดยอิสระจากความกว้างที่มี
+กฎเหล่านี้ไม่แทนที่ [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText), ซึ่งเปิดการตัดบรรทัดอัตโนมัติภายในกรอบข้อความ พวกมันมีผลต่อการจัดวางเมื่อเกิดการตัดบรรทัด; ไม่ได้แทรกอักขระการตัดบรรทัด การตัดบรรทัดโดยตรงจะบังคับให้ขึ้นบรรทัดใหม่ภายในย่อหน้าโดยไม่ขึ้นกับความกว้างที่มี.
 
-ตัวอย่างต่อไปสร้างบล็อกข้อความแคบที่มี Chinese และ Latin ตั้งค่าตัวเลือกการตัดบรรทัดทั้งสองอย่างชัดเจนและบันทึกเป็น “line_breaking.pptx” เพื่อทดลองเปลี่ยนกฎใดกฎหนึ่งโดยรักษาการตั้งค่าอื่นคงที่ ตัวอย่างใช้ Arial 24 จุดและ SimSun พร้อมความกว้างกรอบ 160 จุดและระยะขอบแนวนอนของกรอบข้อความเป็นศูนย์ [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) ถูกเรียกด้วย [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) เพื่อให้ขนาดข้อความและขนาดกรอบคงที่
+ตัวอย่างอิสระต่อไปนี้สร้างบล็อกข้อความแคบที่มีข้อความภาษาจีนและละติน มันตั้งค่าตัวเลือกการตัดบรรทัดทั้งสองอย่างอย่างชัดเจนและบันทึกเป็น "line_breaking.pptx" เพื่อทดลองกับกฎใด ๆ ให้เปลี่ยนค่าที่สอดคล้องกันขณะที่ตั้งค่าอื่นคงที่ ตัวอย่างใช้ Arial ขนาด 24 จุดและ SimSun พร้อมความกว้างเฟรม 160 จุดและขอบกรอบข้อความแนวนอนเป็นศูนย์ [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) ถูกเรียกด้วย [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/), เพื่อให้ขนาดข้อความและขนาดเฟรมคงที่.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -711,11 +758,11 @@ try {
 }
 ```
 
-## **ควบคุม Hanging Punctuation**
+## **ควบคุมเครื่องหมายวรรคตอนห้อย**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) ทำให้เครื่องหมายวรรคตอนที่เหมาะสมยืดออกไปเหนือขอบขวาของบรรทัดข้อความ แทนที่จะอยู่บรรทัดถัดไป ใช้กับย่อหน้าทั้งหมดและต่างจาก hanging indent
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) ทำให้เครื่องหมายวรรคตอนที่เหมาะสมขยายออกไปเหนือขอบขวาของบรรทัดข้อความแทนที่จะอยู่ในบรรทัดต่อไป ใช้กับย่อหน้าเต็มและแตกต่างจากการเยื้องห้อย.
 
-ตัวอย่างต่อไปเปิดใช้งาน hanging punctuation ในกรอบข้อความกว้าง 100 จุดและบันทึกเป็น “hanging_punctuation.pptx” ด้วย Arial 24 จุดและระยะขอบแนวนอนเป็นศูนย์ จุดสุดท้ายของประโยคคงอยู่หลัง “sentence” และยืดออกไปเหนือขอบขวา ของข้อความ ตั้งค่าคุณสมบัติเป็น [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) เพื่อตรวจสอบ: ด้วยการตั้งค่านี้ จุดสุดท้ายจะอยู่ในบรรทัดแยกออกมา การตัดบรรทัดเปิดใช้งานและ autofit ปิดเพื่อคงความกว้างที่มี
+ตัวอย่างอิสระต่อไปนี้เปิดการใช้เครื่องหมายวรรคตอนห้อยในกรอบข้อความกว้าง 100 จุดและบันทึกเป็น "hanging_punctuation.pptx" ด้วย Arial 24 จุดและขอบกรอบข้อความแนวนอนเป็นศูนย์ จุดสุดท้ายของประโยคจะอยู่หลัง "sentence" และขยายเกินขอบขวาของข้อความ ตั้งค่าคุณสมบัตินี้เป็น [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) เพื่อเปรียบเทียบ: ด้วยการตั้งค่านี้ จุดเต็มจะอยู่ในบรรทัดแยก การตัดบรรทัดเปิดและการปรับอัตโนมัติปิดเพื่อคงความกว้างที่มี.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -753,11 +800,11 @@ try {
 }
 ```
 
-ไม่ใช่ทุกเครื่องหมายวรรคตอนจะสามารถ hanging ได้ เงื่อนไขฟอนต์และการจัดวางตามที่อธิบายในส่วน [ควบคุมการตัดบรรทัด](#control-line-breaking) ก็มีผลต่อการเปรียบเทียบนี้: การเปลี่ยนฟอนต์, ความกว้างที่ใช้, ระยะขอบ หรือการตั้งค่า autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไป
+ไม่ใช่ทุกเครื่องหมายวรรคตอนจะสามารถห้อยได้ เงื่อนไข [แบบอักษรและการจัดวางที่อธิบายข้างต้น](#control-line-breaking) ยังใช้กับการเปรียบเทียบนี้: การเปลี่ยนแบบอักษร, ความกว้างที่มี, ขอบ, หรือการตั้งค่า autofit สามารถทำให้ความแตกต่างที่มองเห็นหายไป.
 
-## **กำหนดประเภท Autofit สำหรับกรอบข้อความ**
+## **ตั้งค่าชนิด Autofit สำหรับกรอบข้อความ**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) กำหนดวิธีที่ข้อความทำงานเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะย่อ, ล้น, หรือปรับขนาดรูปร่างโดยอัตโนมัติ ตัวอย่างต่อไปกำหนดให้รูปร่างปรับขนาดเพื่อให้พอดีกับข้อความและบันทึกผลเป็น “autofit_type.pptx”
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) กำหนดว่าข้อความทำอย่างไรเมื่อเกินขอบของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าข้อความจะหด, ไหลทับ, หรือปรับขนาดรูปร่างโดยอัตโนมัติ ตัวอย่างต่อไปนี้กำหนดรูปทรงให้ปรับขนาดเพื่อให้พอดีกับข้อความและบันทึกผลเป็น "autofit_type.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -776,11 +823,11 @@ try {
 }
 ```
 
-เพื่อดูจำนวนบรรทัดหลังการตัดบรรทัดอัตโนมัติและสังเกตการเปลี่ยนแปลงความกว้างของข้อความหรือรูปร่าง ให้ดูที่ [Count Rendered Lines](/slides/th/nodejs-java/manage-paragraph/) จำนวนบรรทัดเพียงอย่างเดียวไม่บ่งบอกว่าข้อความล้นคอนเทนเนอร์หรือไม่
+เพื่อคับจำนวนบรรทัดหลังจากการตัดบรรทัดอัตโนมัติและดูว่าขนาดข้อความหรือความกว้างของรูปร่างเปลี่ยนผลลัพธ์อย่างไร ดูที่ [Count Rendered Lines](/slides/th/nodejs-java/manage-paragraph/). จำนวนบรรทัดอย่างเดียวไม่บอกว่าข้อความไหลทับคอนเทนเนอร์หรือไม่.
 
-## **กำหนดจุดยึดของกรอบข้อความ**
+## **ตั้งตำแหน่งยึดของกรอบข้อความ**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความจะวางตำแหน่งแนวตั้งภายในรูปร่างอย่างไร เช่น ที่บน, กลาง, หรือล่าง ตัวอย่างต่อไปยึดข้อความที่ด้านล่างของรูปร่างแรกและบันทึกผลเป็น “text_anchor.pptx”
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) กำหนดว่าข้อความจัดตำแหน่งอย่างไรในแนวตั้งภายในรูปร่าง เช่น บน, กลาง, หรือล่าง ตัวอย่างต่อไปนี้ยึดข้อความไว้ที่ด้านล่างของรูปร่างแรกและบันทึกผลเป็น "text_anchor.pptx".
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -799,9 +846,9 @@ try {
 }
 ```
 
-## **กำหนด Tabulation ของข้อความ**
+## **ตั้งค่าการแทบข้อความ**
 
-ใช้ [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) เพื่อกำหนดตำแหน่ง Tab ในย่อหน้า ตัวอย่างต่อไปตั้งค่าช่วง Tab เริ่มต้นเป็น 100 จุดและเพิ่ม Tab ซ้ายจัดที่ 30 จุด การตั้งค่านี้มีผลต่อข้อความที่มีอักขระ Tab
+ใช้ [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) และ [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) เพื่อกำหนดตำแหน่งหยุดแท็บในย่อหน้า ตัวอย่างต่อไปนี้ตั้งค่าช่วงแท็บเริ่มต้นเป็น 100 จุดและเพิ่มหยุดแท็บจัดซ้ายที่ 30 จุด การตั้งค่าเหล่านี้มีผลต่อข้อความที่มีอักขระแท็บ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -823,15 +870,13 @@ try {
 }
 ```
 
-ผลลัพธ์:
+![แท็บของย่อหน้า](paragraph_tabs.png)
 
-![Tab ของย่อหน้า](paragraph_tabs.png)
+## **ตั้งค่าภาษาตรวจสอบ**
 
-## **กำหนดภาษาการตรวจสอบ (Proofing Language)**
+Aspose.Slides มี [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) ที่ให้คุณตั้งค่าภาษาตรวจสอบสำหรับส่วนข้อความ ภาษาตรวจสอบกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint.
 
-Aspose.Slides มี [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) ซึ่งช่วยให้คุณตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ ภาษาการตรวจสอบกำหนดภาษาที่ใช้ในการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
-
-ตัวอย่างต่อไปต้องการไฟล์ “presentation.pptx” ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรกและมีอย่างน้อยหนึ่งย่อหน้า จะเปลี่ยนเนื้อหาในย่อหน้าแรกเป็น “1。” ตั้งค่า SimSun เป็นฟอนต์และกำหนดภาษาการตรวจสอบเป็น Simplified Chinese (`zh-CN`) แล้วบันทึกเป็น “proofing_language.pptx”
+ตัวอย่างต่อไปนี้ต้องการไฟล์ "presentation.pptx" ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรกและอย่างน้อยหนึ่งย่อหน้า มันแทนที่เนื้อหาของย่อหน้าแรกด้วย "1。", ตั้งแบบอักษรเป็น SimSun, และกำหนดภาษาตรวจสอบจีนแบบง่าย (`zh-CN`). จากนั้นบันทึกผลเป็น "proofing_language.pptx":
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -851,7 +896,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // กำหนด Id ของภาษาการพิสูจน์อักษร.
+    // ตั้งค่า Id ของภาษาตรวจสอบ.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -863,9 +908,45 @@ try {
 }
 ```
 
-## **กำหนดภาษาดีฟอลต์**
+### **คัดลอกเมตาดาต้าภาษา**
 
-ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาดีฟอลต์สำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ ตัวอย่างต่อไปสร้างงานนำเสนอที่กำหนดภาษาอังกฤษสหรัฐเป็นภาษาดีฟอลต์สำหรับข้อความ เพิ่มกล่องข้อความและพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน
+เมื่อคัดลอกข้อความหลายภาษาจากแม่แบบ ให้รักษาไว้ทั้ง [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getLanguageId) และ [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). ตัวอย่างอิสระต่อไปนี้สร้างส่วนต้นฉบับที่มีภาษาอังกฤษสหรัฐเป็นภาษาและฝรั่งเศสเป็นภาษาทางเลือก แล้วคัดลอข้อความและตัวระบุไปยังส่วนในพรีเซนเทชันใหม่.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const source = new aspose.slides.Portion("Hello! Bonjour!");
+source.getPortionFormat().setLanguageId("en-US");
+source.getPortionFormat().setAlternativeLanguageId("fr-FR");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 80);
+    const paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
+    paragraph.getPortions().clear();
+
+    const destination = new aspose.slides.Portion();
+    destination.setText(source.getText());
+    destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
+    // ถ้าแหล่งไม่มีภาษาทางเลือก, null จะลบค่าของปลายทางออก.
+    destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
+    paragraph.getPortions().add(destination);
+
+    presentation.save("copied_language_metadata.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หากต้องการลองแหล่งที่ไม่มีภาษาทางเลือก ให้ละเว้นการกำหนด "fr-FR" ตัวระบุทางเลือกจะเป็น `null` และคำสั่งคัดลอเดียวกันจะคงไว้ซึ่งการไม่มีค่านั้นโดยไม่สร้างค่าดีฟอลท์ แม้ว่าปลายทางอาจเคยมีภาษาทางเลือกกำหนดไว้ก่อนหน้า.
+
+ตัวระบุเหล่านี้จัดเก็บเป็นเมตาดาต้าภาษา การเก็บรักษาพวกมันไม่ได้กำหนดว่าพาวเวอร์พอยท์จะเลือกพจนานุกรมใดสำหรับการตรวจสอบการสะกดหรือไวยากรณ์.
+
+## **ตั้งค่าภาษาเริ่มต้น**
+
+ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) เพื่อกำหนดภาษาดีฟอลท์สำหรับข้อความที่สร้างขณะโหลดหรือสร้างพรีเซนเทชัน ตัวอย่างต่อไปนี้สร้างพรีเซนเทชันที่ภาษาอังกฤษสหรัฐเป็นภาษาข้อความเริ่มต้น, เพิ่มกล่องข้อความ, และพิมพ์ `en-US` สำหรับส่วนข้อความแรกของมัน.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -877,11 +958,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
+    // เพิ่มรูปสี่เหลี่ยมใหม่พร้อมข้อความ.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // ตรวจสอบภาษาของส่วนข้อความแรก.
+    // ตรวจสอบภาษาของส่วนแรก.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -889,11 +970,11 @@ try {
 }
 ```
 
-## **กำหนดสไตล์ข้อความดีฟอลต์**
+## **ตั้งค่ารูปแบบข้อความเริ่มต้น**
 
-เพื่อใช้การจัดรูปแบบข้อความดีฟอลต์ในระดับงานนำเสนอ ใช้ [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle)
+เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นในระดับพรีเซนเทชัน ใช้ [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-ตัวอย่างต่อไปกำหนดฟอนต์ตัวหนา ขนาด 14 จุดเป็นดีฟอลต์สำหรับย่อหน้าระดับบนในงานนำเสนอใหม่และบันทึกเป็น “default_text_style.pptx” ข้อความสามารถสืบทอดดีฟอลต์เหล่านี้ได้ เว้นแต่การจัดรูปแบบเฉพาะจะทับซ้อน
+ตัวอย่างต่อไปนี้ตั้งแบบอักษรหนาขนาด 14 จุดเป็นค่าเริ่มต้นสำหรับย่อหน้าระดับบนในพรีเซนเทชันใหม่และบันทึกเป็น "default_text_style.pptx" ข้อความสามารถสืบทอดค่าเริ่มต้นเหล่านี้หากไม่มีการจัดรูปแบบที่เฉพาะเจาะจงมากกว่ามาบังคับ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -901,7 +982,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // รับรูปแบบย่อหน้าในระดับบนสุด.
+    // ดึงรูปแบบย่อหน้าระดับบนสุด.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -915,15 +996,15 @@ try {
 }
 ```
 
-## **สกัดข้อความด้วยเอฟเฟกต์ All-Caps**
+## **ดึงข้อความพร้อมเอฟเฟ็กต์อักษรพิมพ์ใหญ่ทั้งหมด**
 
-ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความแสดงเป็นตัวพิมพ์ใหญ่บนสไลด์ แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็ก ตัวอย่างเช่น เมื่อดึงส่วนข้อความดังกล่าวด้วย Aspose.Slides ไลบรารีจะคืนข้อความตามที่พิมพ์เดิม เพื่อตรงกับข้อความที่แสดง ให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) และแปลงสตริงที่คืนค่าเป็นตัวพิมพ์ใหญ่เมื่อค่าเป็น `All`
+ใน PowerPoint การใช้เอฟเฟ็กต์แบบ **All Caps** ทำให้ข้อความแสดงเป็นตัวพิมพ์ใหญ่ทั้งหมดบนสไลด์แม้ว่าจะพิมพ์เป็นตัวพิมพ์เล็กเดิม เมื่อนำส่วนข้อความดังกล่าวออกกับ Aspose.Slides ไลบรารีจะคืนข้อความตามที่ใส่ไว้ เพื่อให้ตรงกับข้อความที่แสดง ให้ตรวจสอบ [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) และแปลงสตริงที่คืนเป็นตัวพิมพ์ใหญ่เมค่าของมันเป็น `All`.
 
-ตัวอย่างนี้ต้องการไฟล์ “sample2.pptx” ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรก ย่อหน้าแรกของมันมีส่วนแรกเป็น “Hello, Aspose!” พร้อมเอฟเฟกต์ All Caps ตามที่แสดงด้านล่าง
+ตัวอย่างนี้ต้องการไฟล์ "sample2.pptx" ที่มีกล่องข้อความเป็นรูปร่างแรกบนสไลด์แรก ย่อหน้าแรกของมันมีส่วนแรกเป็น "Hello, Aspose!" ที่ใช้เอฟเฟ็กต์ All Caps ตามที่แสดงด้านล่าง.
 
-![เอฟเฟกต์ All Caps](all_caps_effect.png)
+![เอฟเฟ็กต์ All Caps](all_caps_effect.png)
 
-โค้ดต่อไปแสดงวิธีสกัดข้อความพร้อมเอฟเฟกต์ **All Caps** ที่ถูกใช้:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีดึงข้อความพร้อมเอฟเฟ็กต์ **All Caps** ที่ใช้:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -954,12 +1035,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **ฉันจะแก้ไขข้อความในตารางบนสไลด์ได้อย่างไร?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) วนผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) และจัดรูปแบบย่อหน้าผ่าน [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat)
+เพื่อแก้ไขข้อความในตารางบนสไลด์ ให้ใช้ [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). วนลูปผ่านเซลล์ต่าง ๆ และอัปเดตแต่ละเซลล์โดยใช้ [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) และจัดรูปแบบย่อหน้าผ่าน [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**ฉันจะใช้สีไล่ระดับ (gradient) กับข้อความในสไลด์ PowerPoint ได้อย่างไร?**
+**ฉันจะใช้สีไล่ระดับบนข้อความในสไลด์ PowerPoint อย่างไร?**
 
-เพื่อใช้สีไล่ระดับกับข้อความ ให้ใช้ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) ตั้งค่า [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) และกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส
+เพื่อใช้สีไล่ระดับบนข้อความ ใช้ [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). ตั้งค่า [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) เป็น [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) แล้วกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส.

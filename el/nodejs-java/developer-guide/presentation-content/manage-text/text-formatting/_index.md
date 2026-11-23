@@ -5,9 +5,9 @@ type: docs
 weight: 50
 url: /el/nodejs-java/text-formatting/
 keywords:
-- ευθυγράμμιση παραγράφου
+- στοίχιση παραγράφου
 - στυλ κειμένου
-- υπόβαθρο κειμένου
+- παρασκήνιο κειμένου
 - διαφάνεια κειμένου
 - διάστημα χαρακτήρων
 - ιδιότητες γραμματοσειράς
@@ -15,10 +15,10 @@ keywords:
 - περιστροφή κειμένου
 - γωνία περιστροφής
 - πλαίσιο κειμένου
-- διάστημα γραμμής
+- διάστημα γραμμών
 - ιδιότητα αυτόματης προσαρμογής
 - άγκυρα πλαισίου κειμένου
-- στηλοθέτηση κειμένου
+- καρτέλες κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Διαμορφώστε και στυλιζάτε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java. Προσαρμόστε τις γραμματοσειρές, τα χρώματα, την ευθυγράμμιση και άλλα."
+description: "Διαμορφώστε και μορφοποιήστε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και πολλά άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, διάστημα παραγράφων, συμπεριφορά αυτόματης προσαρμογής, αγκύρωση κειμένου, στάσεις στηλοθέτη και ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, διάστημα παραγράφων, συμπεριφορά αυτόματης προσαρμογής, αγκύρωση κειμένου, διακοπές καρτέλας και ρυθμίσεις γλώσσας.
 
-Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στη πρώτη διαφάνειά του είναι ένα πλαίσιο κειμένου και η πρώτη του παράγραφος περιέχει το κείμενο που φαίνεται παρακάτω. Και οι δείκτες διαφάνειας και οι δείκτες σχήματος είναι μηδενικής βάσης. Παραδείγματα που επιλέγουν έντονες περιοχές χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
+Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη του διαφάνεια είναι ένα πλαίσιο κειμένου, και η πρώτη του παράγραφος περιέχει το κείμενο που εμφανίζεται παρακάτω. Και οι δείκτες των διαφανειών και των σχημάτων είναι μηδενικής βάσης. Τα παραδείγματα που επιλέγουν έντονες περιοχές χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Search and Replace Text](/slides/el/nodejs-java/search-and-replace-text/).
+Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/nodejs-java/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο ή το [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) για ξεχωριστές περιοχές κειμένου.
+Χρησιμοποιήστε το [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης μιας παραγράφου, ή χρησιμοποιήστε το [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) για μεμονωμένες περιοχές κειμένου.
 
-Το παρακάτω παράδειγμα ορίζει ένα ανοιχτό γκρι χρώμα επισήμανσης ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης σε ξεχωριστές περιοχές έχουν προτεραιότητα απέναντι σε αυτήν την προεπιλογή:
+Το ακόλουθο παράδειγμα ορίζει μια ανοιχτόγκρι επισήμανση ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης σε μεμονωμένες περιοχές έχουν προτεραιότητα πάνω από αυτήν την προεπιλογή:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,7 +66,7 @@ try {
 
 Το αποτέλεσμα:
 
-![Η γκρίζα παράγραφος](gray_paragraph.png)
+![Η γκρι παράγραφος](gray_paragraph.png)
 
 Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **μερίδες κειμένου με έντονη γραμματοσειρά**:
 
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Ορίστε το χρώμα επισήμανσης για τη μερίδα κειμένου.
+            // Ορίστε το χρώμα επισήμανσης για την περιοχή κειμένου.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -99,13 +99,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι γκρίζες περιοχές κειμένου](gray_text_portions.png)
+![Οι γκρι περιοχές κειμένου](gray_text_portions.png)
 
-## **Ευθυγράμμιση Παραγράφων Κειμένου**
+## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) για να ορίσετε την ευθυγράμμιση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντρασμένη, αριστερή, δεξιά, στοιχική κ.λπ.
+Χρησιμοποιήστε το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) για να ορίσετε την ευθυγράμμιση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερά, δεξιά, μονόπλευρη κ.λπ.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
+Το ακόλουθο παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -117,7 +117,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
+    // Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -130,11 +130,11 @@ try {
 
 ![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
 
-## **Ευθυγράμμιση Γραμματοσειρών Μέσα σε Γραμμή**
+## **Στοίχιση Γραμματοσειρών Μέσα σε Μία Γραμμή**
 
-Χρησιμοποιήστε το [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) για να ευθυγραμμίσετε κάθετα περιοχές κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μια γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παράγραφο και ελέγχει την ευθυγράμμιση σε κάθε γραμμή της.
+Χρησιμοποιήστε το [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) για να ευθυγραμμίσετε κάθετα περιοχές κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μία γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε όλη την παράγραφο και ελέγχει την ευθυγράμμιση σε κάθε γραμμή της.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα επισημασμένα πλαίσια κειμένου σε μία διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο σε μεγέθη 18, 36 και 54 σημεία, με διαφορετική ευθυγράμμιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί την αυτόματη προσαρμογή και τη συσπείρωση, και διατηρεί τα πλαίσια κειμένου αρκετά μεγάλα ώστε να χωράει μία γραμμή.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα ετικετοποιημένα πλαίσια κειμένου σε μία διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο σε 18, 36 και 54 μονάδες, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί την αυτόματη προσαρμογή και τη περιτύλιξη, και κρατά τα πλαίσια κειμένου αρκετά μεγάλα ώστε να χωράει μόνο μία γραμμή.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,17 +190,17 @@ try {
 
 Το αποτέλεσμα:
 
-![Σύγκριση των ευθυγραμμίσεων Baseline, Top, Center και Bottom με μικτές μεγέθη γραμματοσειράς](font_alignment.png)
+![Σύγκριση στοίχισης γραμματοσειράς Βάσης, Πάνω, Κέντρο και Κάτω με μικτές μεγέθη γραμματοσειράς](font_alignment.png)
 
-Η ευθυγράμμιση γραμματοσειράς χρησιμοποιεί τις μετρικές της γραμματοσειράς, επομένως οι ορατές άκρες των μεμονωμένων γραμμάτων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει τόσο ένα κεφαλαίο γράμμα όσο και έναν καταβληθέντα χαρακτήρα για να δείξει τη διαφορά μεταξύ ευθυγράμμισης baseline και bottom. Η διαθεσιμότητα και η αντικατάσταση γραμματοσειρών, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στα μεγέθη γραμματοσειρών επηρεάζουν το αποτέλεσμα. Οι διαστάσεις του πλαισίου, τα περιθώρια, η απόσταση γραμμών, η συσπείρωση και η αυτόματη προσαρμογή επηρεάζουν επίσης τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε τις λειτουργίες.
+Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι οι ορατά άκρα των μεμονωμένων γραμμάτων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει τόσο ένα κεφαλαίο γράμμα όσο και έναν πτώχο για να δείξει τη διαφορά μεταξύ στοίχισης βάσης και κάτω. Η διαθεσιμότητα και η αντικατάσταση γραμματοσειράς, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στα μεγέθη γραμματοσειράς επηρεάζουν το αποτέλεσμα. Οι διαστάσεις του πλαισίου, τα περιθώρια, το διάστημα γραμμής, η περιτύλιξη και η αυτόματη προσαρμογή επίσης επηρεάζουν τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και τις ίδιες ρυθμίσεις διάταξης όταν συγκρίνετε λειτουργίες.
 
-Αυτή η ρύθμιση διαφέρει από το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment), το οποίο ελέγχει την οριζόντια ευθυγράμμιση της παραγράφου, και το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType), το οποίο τοποθετεί το μπλοκ κειμένου κάθετα μέσα στο σχήμα του. Η υπερ- και υπο-δείκτης μορφοποίηση μέσω του [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) μετατοπίζει τις μεμονωμένες περιοχές σε σχέση με τη baseline αντί να ορίζει την ευθυγράμμιση γραμματοσειράς για τις γραμμές της παραγράφου.
+Αυτή η ρύθμιση διαφέρει από το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment), το οποίο ελέγχει οριζόντια στοίχιση παραγράφου, και από το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType), το οποίο θέτει το μπλοκ κειμένου κάθετα μέσα στο σχήμα του. Η μορφοποίηση εκθέτη και υποσέλιδου μέσω του [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) μετατοπίζει τις μεμονωμένες περιοχές σε σχέση με τη βάση αντί να ορίζει στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
 
 ## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα-συνθέτη του χρώματος που έχει εκχωρηθεί στο [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Στα παρακάτω παραδείγματα, `alpha = 50` είναι μια τιμή καναλιού αλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα-συστατικού του χρώματος που έχει οριστεί στο [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Στα παραδείγματα παρακάτω, `alpha = 50` είναι μια τιμή αλφακαναλιού ARGB σε κλίμακα 0–255, όχι ποσοστό διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,7 +230,7 @@ try {
 
 ![Η διαφανής παράγραφος](transparent_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **περιοχές κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **μερίδες κειμένου με έντονη γραμματοσειρά**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -270,9 +270,9 @@ try {
 
 ## **Ορισμός Απόστασης Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήστε το [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία απόστασης· οι αρνητικές τιμές μειώνουν το κείμενο.
+Χρησιμοποιήστε το [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 μονάδες διάστημα· οι αρνητικές τιμές μειώνουν το κείμενο.
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων στην **ολόκληρη την παράγραφο**:
+Ο παρακάτω κώδικας JavaScript δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -284,8 +284,8 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
+    // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Αυξήστε το διάστημα χαρακτήρων.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -295,9 +295,9 @@ try {
 
 Το αποτέλεσμα:
 
-![Η απόσταση χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
+![Το διάστημα χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **περιοχές κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων σε **μερίδες κειμένου με έντονη γραμματοσειρά**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -314,8 +314,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
-            portion.getPortionFormat().setSpacing(3); // Επέκταση απόστασης χαρακτήρων.
+            // Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+            portion.getPortionFormat().setSpacing(3); // Αυξήστε το διάστημα χαρακτήρων.
         }
     }
 
@@ -327,13 +327,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Η απόσταση χαρακτήρων στις περιοχές κειμένου](character_spacing_in_text_portions.png)
+![Το διάστημα χαρακτήρων στις περιοχές κειμένου](character_spacing_in_text_portions.png)
 
 ### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο σφιχτό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint μπορεί να αγνοήσει τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint ενδέχεται να αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
 
-Για να φέρετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για περιοχές κειμένου που χρησιμοποιούν την επηρεασμένη γραμματοσειρά. Ορίστε το [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος της γραμματοσειράς. Αυτό το παράδειγμα απαιτεί το «presentation.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων γραμματοσειρών, και ορίζει ένα όριο 100 σημείων για περιοχές που χρησιμοποιούν το Roboto. Αυτό απενεργοποιεί το kerning για ταιριαστές περιοχές με μέγεθος γραμματοσειράς μικρότερο από 100 σημεία:
+Για να γίνει η απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για περιοχές κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε το [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Το παράδειγμα αυτό απαιτεί το αρχείο «presentation.pptx» με ένα πλαίσιο κειμένου ως το πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων γραμματοσειρών, και θέτει ένα κατώφλι 100 μονάδων για περιοχές που χρησιμοποιούν Roboto. Αυτό απενεργοποιεί το kerning για τις αντίστοιχες περιοχές με μέγεθος γραμματοσειράς κάτω από 100 μονάδες:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +372,13 @@ try {
 }
 ```
 
-Για κείμενο που είναι κάτω από το όριο, αυτή η ρύθμιση αποτρέπει το kerning και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτήν τη συμπεριφορά ειδική του PowerPoint.
+Για το κείμενο που είναι κάτω από το όριο, αυτή η ρύθμιση εμποδίζει το kerning και μπορεί να βοηθήσει το Aspose.Slides να ταιριάζει περισσότερο με την οπτική έξοδο του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτήν τη συγκεκριμένη συμπεριφορά του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
 Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ή σε μεμονωμένες περιοχές μέσω του [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/).
 
-Το παρακάτω παράδειγμα ορίζει την προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείο με έντονη, πλάγια και υπογράμμιση με κουκίδες. Η ρητή μορφοποίηση σε μεμονωμένες περιοχές έχει προτεραιότητα έναντι αυτών των προεπιλογών.
+Το ακόλουθο παράδειγμα ορίζει το προεπιλεγμένο μέγεθος γραμματοσειράς της πρώτης παραγράφου σε 12 μονάδες Times New Roman με έντονη, πλάγια και υπογράμμιση με κουκκίδες. Η ρητή μορφοποίηση σε μεμονωμένες περιοχές έχει προτεραιότητα πάνω από αυτές τις προεπιλογές.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -392,7 +392,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Ορίστε τις ιδιότητες γραμματοσειράς για την παράγραφο.
+    // Set the font properties for the paragraph.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -409,7 +409,7 @@ try {
 
 ![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείο, πλάγια μορφοποίηση και υπογράμμιση με κουκίδες σε περιοχές των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
+Το ακόλουθο παράδειγμα εφαρμόζει 13 μονάδες Times New Roman, πλάγια μορφοποίηση και υπογράμμιση με κουκκίδες σε περιοχές των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -429,7 +429,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Ορίστε τις ιδιότητες γραμματοσειράς για τη μερίδα κειμένου.
+            // Ορίστε τις ιδιότητες γραμματοσειράς για την περιοχή κειμένου.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -449,11 +449,11 @@ try {
 
 ## **Έλεγχος Κανονικοποίησης Ύψους Κειμένου**
 
-Χρησιμοποιήστε το [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) όταν αναπαράγετε τυπογραφία προτύπου ή ερευνάτε διαφορές στο ύψος χαρακτήρων. Στο PowerPoint, η ενεργοποίηση της κανονικοποίησης τεντώνει ή συμπιέζει κάθε χαρακτήρα κάθετα ώστε να έχει ομοιόμορφο ορατό ύψος μέσα στην περιοχή κειμένου. Δεν εγγυάται ίσο ύψος κειμένου μεταξύ διαφορετικών γραμματοσειρών.
+Χρησιμοποιήστε το [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) όταν επαναφέρετε τυπογραφία προτύπου ή ερευνάτε διαφορές στο ύψος χαρακτήρων. Στο PowerPoint, η ενεργοποίηση της κανονικοποίησης τεντώνει ή συμπιέζει κάθε χαρακτήρα κατακόρυφα ώστε να έχει ομοιόμορφο ορατό ύψος μέσα στην περιοχή κειμένου. Δεν εγγυάται ίσα ύψη κειμένου μεταξύ διαφορετικών γραμματοσειρών.
 
-Ορίστε την ιδιότητα σε [NullableBool.True or False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) για να ενεργοποιήσετε ή να απενεργοποιήσετε ρητά την κανονικοποίηση. `NullableBool.NotDefined` αφήνει την τοπική ρύθμιση ακαθόριστη, ώστε η περιοχή να κληρονομήσει την τιμή της, για παράδειγμα, από το [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) της παραγράφου. Δεν σημαίνει `False`. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) και διαβάστε το [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) για να λάβετε την επιλυμένη Boolean τιμή.
+Ορίστε την ιδιότητα σε [NullableBool.True ή False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) για να ενεργοποιήσετε ή να απενεργοποιήσετε ρητά την κανονικοποίηση. `NullableBool.NotDefined` αφήνει τη τοπική ρύθμιση ανέπαφη, ώστε η περιοχή να κληρονομήσει την τιμή της, π.χ. από το [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) της παραγράφου. Δεν σημαίνει `False`. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) και διαβάστε το [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) για να λάβετε την επιλυμένη Boolean τιμή.
 
-Το παρακάτω αυτόνομο παράδειγμα απαιτεί **Arial** εγκατεστημένο. Δημιουργεί δύο μπλοκ κειμένου που περιέχουν τα ίδια κεφαλαία γράμματα, πεζά, καταβληθέντες χαρακτήρες και τόνους σε 54 σημεία. Και οι δύο παράγραφοι ενεργοποιούν την κανονικοποίηση από προεπιλογή. Η άνω περιοχή την απενεργοποιεί ρητά· η κάτω περιοχή την κληρονομεί. Τα μεγέθη πλαισίων, τα περιθώρια και το διάστημα παραγράφων είναι τα ίδια, με την συσπείρωση και την αυτόματη προσαρμογή απενεργοποιημένα για σταθερή σύγκριση. Το παράδειγμα εκτυπώνει `False: false` και `NotDefined: true`, στη συνέχεια αποθηκεύει το «text_height_normalization.pptx».
+Το παρακάτω αυτόνομο παράδειγμα απαιτεί την εγκατάσταση του **Arial**. Δημιουργεί δύο μπλοκ κειμένου που περιέχουν τα ίδια κεφαλαία γράμματα, πεζά, πτώχους και τηρημένους χαρακτήρες σε 54 μονάδες. Και οι δύο παράγραφοι ενεργοποιούν την κανονικοποίηση εξ ορισμού. Η πάνω περιοχή την απενεργοποιεί ρητά· η κάτω κληρονομεί την τιμή. Τα μεγέθη πλαισίου, τα περιθώρια και το διάστημα παραγράφων είναι τα ίδια, με την περιτύλιξη και την αυτόματη προσαρμογή ανενεργές ώστε η σύγκριση να παραμένει συνεπής. Το παράδειγμα εκτυπώνει `False: false` και `NotDefined: true`, μετά αποθηκεύει το «text_height_normalization.pptx».
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -504,19 +504,19 @@ try {
 }
 ```
 
-Η σύγκριση παρακάτω εξήχθη από την αποθηκευμένη παρουσίαση. Η πάνω σειρά έχει την κανονικοποίηση απενεργοποιημένη (`False`); η κάτω σειρά την κληρονομεί ενεργή (`NotDefined` → `True`). Διατηρήστε το Arial εγκατεστημένο για να αναπαραγάγετε αυτήν την εμφάνιση.
+Η σύγκριση παρακάτω εξήχθη από την αποθηκευμένη παρουσίαση. Η πάνω σειρά έχει την κανονικοποίηση απενεργοποιημένη (`False`); η κάτω σειρά κληρονομεί την ενεργοποιημένη ρύθμιση (`NotDefined` → `True`). Κρατήστε το Arial εγκατεστημένο για να αναπαραγάγετε αυτήν την εμφάνιση.
 
-![Arial 54‑σημερο κείμενο με την κανονικοποίηση απενεργοποιημένη πάνω και κληρονομημένη ενεργή κάτω](text_height_normalization.png)
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
 
-Η κανονικοποίηση αλλάζει το ύψος των χαρακτήρων χωρίς να αλλάζει την τιμή του [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight), η οποία καθορίζει το μέγεθος γραμματοσειράς σε σημεία. Το [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) της παραγράφου ελέγχει το διάστημα γραμμής, ενώ το [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) του πλαισίου κειμένου ελέγχει πώς το κείμενο ή το περιέκτη του προσαρμόζεται. Αυτές οι ρυθμίσεις έχουν διαφορετικούς σκοπούς και μπορούν να επηρεάσουν τη συνολική διάταξη ανεξάρτητα. Για περισσότερα σχετικά με τη μορφοποίηση παραγράφων και την κληρονομικότητα, δείτε [Manage Paragraph](/slides/el/nodejs-java/manage-paragraph/).
+Η κανονικοποίηση αλλάζει το ύψος χαρακτήρων χωρίς να αλλάζει την τιμή του [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight), η οποία καθορίζει το μέγεθος γραμματοσειράς σε μονάδες. Η παράγραφος [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) ελέγχει το διάστημα γραμμής, ενώ η [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) του πλαισίου κειμένου ελέγχει πώς το κείμενο ή το περιεχόμενό του προσαρμόζεται. Αυτές οι ρυθμίσεις εξυπηρετούν διαφορετικούς σκοπούς και μπορούν ανεξάρτητα να επηρεάσουν τη συνολική διάταξη. Για περισσότερα σχετικά με τη μορφοποίηση και κληρονομικότητα παραγράφων, δείτε [Διαχείριση Παραγράφου](/slides/el/nodejs-java/manage-paragraph/).
 
-## **Εφαρμογή και Αφαίρεση Διαγράμμισης (Strikethrough)**
+## **Εφαρμογή και Κατάργηση Διακριτής Διαγραφής (Strikethrough)**
 
-Χρησιμοποιήστε το [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) σε μια περιοχή κειμένου για να εμφανίσετε διορθώσεις, ακυρωμένους όρους ή προηγούμενες τιμές χωρίς να διαγράψετε το αρχικό κείμενο. Ορίστε το σε [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) για μία ή δύο γραμμές διαγράμμισης μέσω του κειμένου.
+Χρησιμοποιήστε το [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) σε μια περιοχή κειμένου για να εμφανίσετε διορθώσεις, ακυρωμένες εκφράσεις ή προηγούμενες τιμές χωρίς να διαγράψετε το αρχικό κείμενο. Ορίστε το σε [TextStrikethroughType.Single ή Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) για μία ή δύο γραμμές μέσα από το κείμενο.
 
-Για να αφαιρέσετε τη διαγράμμιση, περάστε το [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None). Αυτό απενεργοποιεί ρητά το εφέ, ακόμη και αν η περιβάλλουσα μορφοποίηση ορίζει διαγράμμιση. Αντίθετα, το [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) αφήνει την τοπική ρύθμιση ακαθόριστη, επιτρέποντας στην περιοχή να κληρονομήσει τη μορφοποίηση, π.χ., από την παράγραφο. Δεν εγγυάται ότι η διαγράμμιση αφαιρείται. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) για να διαβάσετε τη τελική μορφοποίηση, συμπεριλαμβανομένων των κληρονομημένων τιμών.
+Για να καταργήσετε τη διακριτή διαγραφή, περάστε το [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None). Αυτό την απενεργοποιεί ρητά, ακόμη και αν η περιβάλλουσα μορφοποίηση την έχει ορίσει. Αντίθετα, το [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) αφήνει την τοπική ρύθμιση ακαθόριστη, επιτρέποντας στην περιοχή να κληρονομήσει μορφοποίηση, π.χ. από την παράγραφο. Δεν εγγυάται ότι η διακριτή διαγραφή έχει αφαιρεθεί. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) για να διαβάσετε τη μορφοποίηση που προκύπτει, συμπεριλαμβανομένων των κληρονομημένων τιμών.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τρεις συγκρίσεις τιμών. Κάθε παράγραφος έχει ξεχωριστές περιοχές για την ετικέτα, την προηγούμενη τιμή και τη τρέχουσα τιμή, ώστε μόνο η προηγούμενη τιμή να επηρεάζεται. Η πρώτη σειρά εφαρμόζει και αφαιρεί τη διαγράμμιση· οι άλλες σειρές διατηρούν τη μονή και τη διπλή διαγράμμιση. Η αλλαγή αυτής της ρύθμισης διατηρεί το κείμενο και τις υπόλοιπες μορφοποιήσεις του, συμπεριλαμβανομένης της έντονης προηγούμενης τιμής.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τρεις συγκρίσεις τιμών. Κάθε παράγραφος έχει ξεχωριστές περιοχές για την ετικέτα, την προηγούμενη τιμή και την τρέχουσα τιμή, έτσι ώστε μόνο η προηγούμενη τιμή να επηρεαστεί. Η πρώτη σειρά εφαρμόζει και μετά αφαιρεί τη διακριτή διαγραφή· οι άλλες σειρές διατηρούν μονή και διπλή διακριτή διαγραφή. Η αλλαγή αυτής της ρύθμισης διατηρεί το κείμενο και τη λοιπή μορφοποίησή του, συμπεριλαμβανομένου του έντονου προηγούμενου τιμής.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -560,7 +560,7 @@ try {
 
     const paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Εφαρμόστε διαγράμμιση, έπειτα αφαιρέστε ρητά τη διαγράμμιση από την πρώτη προηγούμενη τιμή.
+    // Εφαρμόστε διακριτή διαγραφή, στη συνέχεια αφαιρέστε την ρητά από την πρώτη προηγούμενη τιμή.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
 
@@ -573,13 +573,13 @@ try {
 }
 ```
 
-Το αποτέλεσμα, από πάνω προς τα κάτω: χωρίς διαγράμμιση, με μονή διαγράμμιση και με διπλή διαγράμμιση.
+Το αποτέλεσμα, από πάνω προς τα κάτω: χωρίς διακριτή διαγραφή, με μονή διακριτή διαγραφή και με διπλή διακριτή διαγραφή.
 
-![Προηγούμενες τιμές χωρίς διαγράμμιση, με μονή διαγράμμιση και με διπλή διαγράμμιση](strikethrough.png)
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε το [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) για να ορίσετε μια προκαθορισμένη προσανατολισμό κειμένου μέσα σε σχήμα.
+Χρησιμοποιήστε το [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) για να ορίσετε μια προκαθορισμένη προσανατολισμό κειμένου μέσα σε ένα σχήμα.
 
 Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
 
@@ -602,11 +602,64 @@ try {
 
 Το αποτέλεσμα:
 
-![Η περιστροφή κειμένου](text_rotation.png)
+![Η περιστροφή του κειμένου](text_rotation.png)
 
-## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
+## **Προβολή Ψηφίων Δίπλα Δίπλα σε Κατακόρυφο Κείμενο**
 
-Χρησιμοποιήστε το [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+Για να διατηρήσετε έναν δίψήφιο αριθμό ενωμένο σε μια κατακόρυφη ιαπωνική ετικέτα, τοποθετήστε και τα δύο ψηφία σε μία περιοχή κειμένου και καλέστε το [BasePortionFormat.setKumimoji](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKumimoji) στη μορφοποίηση εκείνης της περιοχής. Το παράδειγμα χρησιμοποιεί το [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/#EastAsianVertical) και 40 μονάδες MS Gothic για και τις δύο ετικέτες. Μόνο η τιμή του [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) που περνάται στην αριθμητική περιοχή διαφέρει.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const font = new aspose.slides.FontData("MS Gothic");
+    const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const settings = [aspose.slides.NullableBool.True, aspose.slides.NullableBool.False];
+    let x = 120;
+
+    for (const kumimoji of settings) {
+        const label = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, 48, 120, 420);
+        label.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        label.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const frame = label.addTextFrame("");
+        frame.getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.EastAsianVertical));
+
+        const paragraph = frame.getParagraphs().get_Item(0);
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setLatinFont(font);
+        format.setEastAsianFont(font);
+        format.setFontHeight(40);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const digits = new aspose.slides.Portion("12");
+        digits.getPortionFormat().setKumimoji(java.newByte(kumimoji));
+
+        const portions = paragraph.getPortions();
+        portions.clear();
+        portions.add(new aspose.slides.Portion("令和"));
+        portions.add(digits);
+        portions.add(new aspose.slides.Portion("年"));
+        x += 240;
+    }
+    presentation.save("vertical_date.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Στο PowerPoint, η αριστερή ετικέτα (`True`) εμφανίζει τα ψηφία στη θέση τους, ένα δίπλα στο άλλο, μεταξύ των χαρακτήρων 和 και 年. Στη δεξιά ετικέτα (`False`), τα ψηφία περιστρέφονται 90 μοίρες δεξιόστροφα. Οι γύρω ιαπωνικοί χαρακτήρες παραμένουν όρθιοι και στις δύο ετικέτες.
+
+![PowerPoint comparison of vertical date labels with upright digits on the left and rotated digits on the right.](vertical_date.png)
+
+## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαισίες Κειμένου**
+
+Χρησιμοποιήστε το [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 
 Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
@@ -628,16 +681,16 @@ try {
 
 Το αποτέλεσμα:
 
-![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
+![Η προσαρμοσμένη περιστροφή του κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Διαστήματος Γραμμών Παραγράφων**
+## **Ορισμός Διάστιχου Γραμμών Παραγράφων**
 
-Το Aspose.Slides παρέχει τα [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) και [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) για τον έλεγχο του διαστήματος παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει τις μεθόδους [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) και [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) για να ελέγξετε το διάστημα παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
 * Χρησιμοποιήστε θετική τιμή για να ορίσετε το διάστημα γραμμής ως ποσοστό του ύψους της γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε σημεία.
+* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε μονάδες.
 
-Το παρακάτω παράδειγμα ορίζει το εσωτερικό διάστημα στην πρώτη παράγραφο στο 200 % του ύψους της γραμμής (διπλό διάστημα):
+Το ακόλουθο παράδειγμα θέτει το εσωτερικό διάστημα της πρώτης παραγράφου στο 200 % του ύψους της γραμμής (διπλό διάστημα):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -659,18 +712,18 @@ try {
 
 Το αποτέλεσμα:
 
-![Το εσωτερικό διάστημα γραμμής στην παράγραφο](line_spacing.png)
+![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
 
-## **Έλεγχος Σπάσιμος Γραμμής**
+## **Έλεγχος Αναδιπλώσεων Γραμμής**
 
-Οι κανόνες σπασίματος γραμμής της παραγράφου είναι χρήσιμα σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και ανατολικοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/), επομένως εφαρμόζονται σε ολόκληρη την παράγραφο:
+Οι κανόνες αναδίπλωσης γραμμής της παραγράφου είναι χρήσιμοι σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και ανατολικοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/), έτσι εφαρμόζονται σε ολόκληρη την παράγραφο:
 
-- Το [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) ελέγχει τους κανόνες σπασίματος γραμμής για λατινικό κείμενο. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το γειτονικό ανατολικοασιατικό κείμενο και η στίξη σκάθονται.
-- Το [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ελέγχει τους κανόνες σπασίματος γραμμής για ανατολικοασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών χαρακτήρων στην αρχή και στο τέλος μιας γραμμής.
+- Το [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) ελέγχει τους κανόνες αναδίπλωσης για το λατινικό κείμενο. Σε μεικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου περιβάλλει το ανατολικοασιατικό κείμενο και η στίξη.
+- Το [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ελέγχει τους κανόνες αναδίπλωσης για το ανατολικοασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών σε χαρακτήρες στην αρχή και στο τέλος μιας γραμμής.
 
-Αυτοί οι κανόνες δεν αντικαθιστούν το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText), το οποίο ενεργοποιεί την αυτόματη συσπείρωση εντός ενός πλαισίου κειμένου. Επηρεάζουν τη διάταξη όταν η συσπείρωση συμβαίνει· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής υποχρεώνει σε νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
+Αυτοί οι κανόνες δεν αντικαθιστούν το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText), το οποίο ενεργοποιεί την αυτόματη αναδίπλωση εντός ενός πλαισίου κειμένου. Επηρεάζουν τη διάταξη όταν συμβαίνει η αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής εξαναγκάζει νέα γραμμή στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει Κινέζικο και Λατινικό κείμενο. Ορίζει και τις δύο επιλογές σπασίματος γραμμής ρητά και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με οποιονδήποτε κανόνα, αλλάξτε την αντίστοιχη τιμή διατηρώντας τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημείο και SimSun με πλάτος πλαισίου 160 σημείο και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) κληθεί με το [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις πλαισίου να παραμείνουν σταθερά.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει κινεζικό και λατινικό κείμενο. Ορίζει ρητά και τις δύο επιλογές αναδίπλωσης και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με κάποιον από τους κανόνες, αλλάξτε την αντίστοιχη τιμή ενώ διατηρείτε τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί 24 μονάδες Arial και SimSun με πλάτος πλαισίου 160 μονάδες και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) καλείται με το [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις πλαισίου να παραμείνουν σταθερές.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -711,11 +764,11 @@ try {
 }
 ```
 
-## **Έλεγχος Κρεμαστής Στίξης**
+## **Έλεγχος Hanging Punctuation**
 
-Το [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) επιτρέπει σε επιλέξιμη στίξη να επεκταθεί πέρα από τη δεξιά άκρη της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από ένα κρεμασμένο εσοχή.
+Το [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) επιτρέπει σε κατάλληλη στίξη να εκτείνεται πέρα από το δεξί άκρο της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε όλη την παράγραφο και διαφέρει από το hanging indent.
 
-Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί κρεμαστή στίξη σε πλαίσιο κειμένου 100 σημείων και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημεία και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, η τελική τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από το δεξιό άκρο του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η συσπείρωση είναι ενεργή και η αυτόματη προσαρμογή απενεργοποιημένη για να παραμείνει το διαθέσιμο πλάτος σταθερό.
+Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί την hanging punctuation σε ένα πλαίσιο κειμένου πλάτους 100 μονάδων και αποθηκεύει το «hanging_punctuation.pptx». Με 24 μονάδες Arial και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, η τελική τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από το δεξιό άκρο του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η περιτύλιξη είναι ενεργοποιημένη και η αυτόματη προσαρμογή ανενεργή ώστε το διαθέσιμο πλάτος να παραμείνει σταθερό.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -753,11 +806,11 @@ try {
 }
 ```
 
-Δεν μπορεί να κρεμαστεί κάθε σημάδι στίξης. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφησαν παραπάνω](#control-line-breaking) ισχύουν επίσης για αυτήν τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων autofit μπορεί να αφαιρέσει τη διακριτή διαφορά.
+Δεν κάθε σημάδι στίξης μπορεί να κρεμαστεί. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφησαν πιο πάνω](#control-line-breaking) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων αυτόματης προσαρμογής μπορεί να αφαιρέσει τη διακριτή διαφορά.
 
-## **Ορισμός Τύπου Αυτόματης Προσαρμογής για Πλαίσια Κειμένου**
+## **Ορισμός Τύπου Autofit για Πλαίσια Κειμένου**
 
-Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε εάν το κείμενο συρρικνώνεται, υπερχειλίζει ή αλλάζει αυτόματα το μέγεθος του σχήματος. Το παρακάτω παράδειγμα ρυθμίζει το σχήμα ώστε να αλλάζει μέγεθος ώστε να χωράει το κείμενό του και αποθηκεύει το αποτέλεσμα σε «autofit_type.pptx».
+Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) καθορίζει πώς συμπεριφέρεται το κείμενο όταν ξεπερνά τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο θα συρρικνωθεί, θα υπερχειλίσει ή θα αλλάξει το μέγεθος του σχήματος αυτόματα. Το παρακάτω παράδειγμα διαμορφώνει το σχήμα ώστε να αλλάζει μέγεθος ώστε να ταιριάζει στο κείμενό του και αποθηκεύει το αποτέλεσμα σε «autofit_type.pptx».
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -776,11 +829,11 @@ try {
 }
 ```
 
-Για να μετρήσετε τις γραμμές μετά την αυτόματη συσπείρωση και να δείτε πώς η αλλαγή του πλάτους κειμένου ή σχήματος επηρεάζει το αποτέλεσμα, δείτε το [Count Rendered Lines](/slides/el/nodejs-java/manage-paragraph/). Ο αριθμός γραμμών από μόνος του δεν υποδεικνύει εάν το κείμενο υπερχειλίζει το περιέκτη του.
+Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς αλλάζει το πλάτος του κειμένου ή του σχήματος, δείτε [Count Rendered Lines](/slides/el/nodejs-java/manage-paragraph/). Ο μόνος αριθμός γραμμών δεν δείχνει αν το κείμενο υπερέχει του περιέκτη του.
 
 ## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-Το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) ορίζει πώς τοποθετείται κάθετα το κείμενο μέσα σε σχήμα, π.χ., στην κορυφή, στο κέντρο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυρώνει το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα σε «text_anchor.pptx».
+Το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) ορίζει πώς το κείμενο τοποθετείται κάθετα μέσα σε ένα σχήμα, π.χ. στην κορυφή, στο κέντρο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα σε «text_anchor.pptx».
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -799,9 +852,9 @@ try {
 }
 ```
 
-## **Ορισμός Στηλοθέτη Κειμένου**
+## **Ορισμός Καρτέλας Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) και το [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) για να ρυθμίσετε τη στάση στηλοθέτη σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα στηλοθέτη σε 100 σημεία και προσθέτει μια αριστερή στάση στηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν κείμενα που περιέχουν χαρακτήρες στηλοθέτη.
+Χρησιμοποιήστε το [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) και το [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) για να διαμορφώσετε τις διακοπές καρτέλας σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα καρτέλας σε 100 μονάδες και προσθέτει μια αριστερά ευθυγραμμισμένη διακοπή καρτέλας στα 30 μονάδες. Αυτές οι ρυθμίσεις επηρεάζουν το κείμενο που περιέχει χαρακτήρες καρτέλας.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -825,13 +878,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι στάσεις στηλοθέτη της παραγράφου](paragraph_tabs.png)
+![Οι διακοπές καρτέλας της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός Γλώσσας Ελέγχου Ορθογραφίας**
+## **Ορισμός Γλώσσας Ελέγχου (Proofing Language)**
 
-Το Aspose.Slides παρέχει το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για μια περιοχή κειμένου. Η γλώσσα ελέγχου ορθογραφίας καθορίζει τη γλώσσα που χρησιμοποιείται για ελέγχους ορθογραφίας και γραμματικής στο PowerPoint.
+Το Aspose.Slides παρέχει το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για μια περιοχή κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για έλεγχο ορθογραφίας και γραμματικής στο PowerPoint.
 
-Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά τα περιεχόμενα της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά της και αναθέτει τη γλώσσα ελέγχου ορθογραφίας Κινέζικα Απλοποιημένα (`zh-CN`). Αποθηκεύει το αποτέλεσμα σε «proofing_language.pptx»:
+Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με ένα πλαίσιο κειμένου ως το πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μία παράγραφο. Αντικαθιστά τα περιεχόμενα της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά της και ορίζει τη γλώσσα ελέγχου για απλοποιημένα κινέζικα (`zh-CN`). Αποθηκεύει το αποτέλεσμα σε «proofing_language.pptx»:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -851,7 +904,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Ορίστε το αναγνωριστικό μιας γλώσσας ελέγχου ορθογραφίας.
+    // Ορίστε το Id της γλώσσας ελέγχου.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -865,7 +918,7 @@ try {
 
 ### **Αντιγραφή Μεταδεδομένων Γλώσσας**
 
-Κατά την αντιγραφή πολύγλωσσου κειμένου από πρότυπο, διατηρήστε τόσο το [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getLanguageId) όσο και το [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Το παρακάτω αυτόνομο παράδειγμα δημιουργεί μια πηγή με γλώσσα US English και εναλλακτική γλώσσα Γαλλικά και αντιγράφει το κείμενο και τα αναγνωριστικά σε μια περιοχή σε νέα παρουσίαση.
+Κατά την αντιγραφή πολυγλωσσικού κειμένου από ένα πρότυπο, διατηρήστε τόσο το [BasePortionFormat.getLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getLanguageId) όσο και το [BasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getAlternativeLanguageId). Το παρακάτω αυτόνομο παράδειγμα δημιουργεί μια πηγή με US English ως γλώσσα και French ως εναλλακτική γλώσσα και αντιγράφει το κείμενο και τα αναγνωριστικά σε μια περιοχή σε μια νέα παρουσίαση.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -885,7 +938,7 @@ try {
     const destination = new aspose.slides.Portion();
     destination.setText(source.getText());
     destination.getPortionFormat().setLanguageId(source.getPortionFormat().getLanguageId());
-    // Εάν η πηγή δεν έχει εναλλακτική γλώσσα, το null εκκαθαρίζει την τιμή προορισμού.
+    // Αν η πηγή δεν έχει εναλλακτική γλώσσα, το null καθαρίζει την τιμή προορισμού.
     destination.getPortionFormat().setAlternativeLanguageId(source.getPortionFormat().getAlternativeLanguageId());
     paragraph.getPortions().add(destination);
 
@@ -895,13 +948,13 @@ try {
 }
 ```
 
-Για να δοκιμάσετε μια πηγή χωρίς εναλλακτική γλώσσα, παραλείψτε την ανάθεση του `"fr-FR"`. Το εναλλακτικό αναγνωριστικό τότε είναι `null` και η ίδια δήλωση αντιγραφής διατηρεί την απουσία του χωρίς να εισάγει προεπιλεγμένη τιμή, ακόμη κι αν ο προορισμός είχε προηγουμένως ανατεθεί εναλλακτική γλώσσα.
+Για να δοκιμάσετε μια πηγή χωρίς εναλλακτική γλώσσα, παραλείψτε την ανάθεση του `"fr-FR"`. Η εναλλακτική ταυτοποίηση είναι τότε `null`, και η ίδια δήλωση αντιγραφής διατηρεί την απουσία της χωρίς να εισάγει προεπιλεγμένη τιμή, ακόμα και αν ο προορισμός είχε προηγουμένως ανατεθεί εναλλακτική γλώσσα.
 
-Αυτά τα αναγνωριστικά αποθηκεύουν μεταδεδομένα γλώσσας. Η διατήρησή τους δεν καθορίζει ποιο λεξικό θα επιλέξει το PowerPoint για ελέγχους ορθογραφίας ή γραμματικής.
+Αυτοί οι ταυτοποιητές αποθηκεύονται ως μεταδεδομένα γλώσσας. Η διατήρησή τους δεν καθορίζει ποιο λεξικό θα επιλέξει το PowerPoint για έλεγχο ορθογραφίας ή γραμματικής.
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με γλώσσα κειμένου US English ως προεπιλογή, προσθέτει ένα πλαίσιο κειμένου και εκτυπώνει `en-US` για την πρώτη περιοχή κειμένου.
+Χρησιμοποίηστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) για να καθορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με US English ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πλαίσιο κειμένου και εκτυπώνει `en-US` για την πρώτη του περιοχή κειμένου.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -913,7 +966,7 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα νέο σχήμα ορθογώνιο με κείμενο.
+    // Προσθέστε ένα νέο ορθογώνιο σχήμα με κείμενο.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -927,9 +980,9 @@ try {
 
 ## **Ορισμός Προεπιλεγμένου Στυλ Κειμένου**
 
-Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου στο επίπεδο παρουσίασης, χρησιμοποιήστε το [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle).
+Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Το παρακάτω παράδειγμα ορίζει μια γραμματοσειρά 14 σημεία με έντονη μορφή ως προεπιλογή για παραγράφους κορυφαίου επιπέδου σε νέα παρουσίαση και την αποθηκεύει σε «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις παρακάμπτει.
+Το παρακάτω παράδειγμα ορίζει μια γραμματοσειρά 14 μονάδων, έντονη, ως προεπιλογή για παραγράφους ανώτερου επιπέδου σε νέα παρουσίαση και την αποθηκεύει ως «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός αν μια πιο συγκεκριμένη μορφοποίηση τις υπερκαλύψει.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -937,7 +990,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+    // Αποκτήστε τη μορφοποίηση παραγράφου πρώτου επιπέδου.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -951,15 +1004,15 @@ try {
 }
 ```
 
-## **Εξαγωγή Κειμένου με Το Εφέ Όλων-Κεφαλαίων (All‑Caps)**
+## **Εξαγωγή Κειμένου με το Εφέ All‑Caps**
 
-Στο PowerPoint, η εφαρμογή του εφέ γραμματοσειράς **All Caps** κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και όταν αρχικά γράφτηκε με πεζά. Όταν ανακτάτε τέτοια περιοχή κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι `All`.
+Στο PowerPoint, η εφαρμογή του εφέ **All Caps** στη γραμματοσειρά κάνει το κείμενο να εμφανίζεται κεφαλαία στη διαφάνεια, ακόμη και αν αρχικά είχε πληκτρολογηθεί πεζά. Όταν ανακτάτε μια τέτοια περιοχή κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάζει με το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) και μετατρέψτε τη επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
 
-Το παράδειγμα απαιτεί το «sample2.pptx» με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη περιοχή της πρώτης παραγράφου περιέχει το κείμενο «Hello, Aspose!» με εφαρμοσμένο εφέ All Caps, όπως φαίνεται παρακάτω.
+Αυτό το παράδειγμα απαιτεί το «sample2.pptx» με ένα πλαίσιο κειμένου ως το πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη του παράγραφος η πρώτη της περιοχή περιέχει το «Hello, Aspose!» με εφαρμοσμένο εφέ All Caps, όπως φαίνεται παρακάτω.
 
-![Το εφέ All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το **All Caps** εφέ εφαρμοσμένο:
+Ο κώδικας παρακάτω δείχνει πώς να εξάγετε το κείμενο με το εφέ **All Caps** εφαρμοσμένο:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -990,12 +1043,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **ΣΥΝΗΘΕΣΜΑΤΙΚΑ ΕΡΩΤΑ (FAQ)**
+## **FAQ**
 
-**Πώς μπορώ να τροποποιήσω κείμενο σε πίνακα σε μια διαφάνεια;**
+**Πώς μπορώ να τροποποιήσω το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Περιηγηθείτε στα κελιά και ενημερώστε το κάθε κελί μέσω του [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) και τη μορφοποίηση παραγράφων μέσω του [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat).
+Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/). Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) και μορφοποίηστε την παράγραφο μέσω του [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Πώς μπορώ να εφαρμόσω διαβαθμισμένο χρώμα σε κείμενο σε διαφάνεια PowerPoint;**
+**Πώς μπορώ να εφαρμόσω ένα διαβαθμισμένο χρώμα σε κείμενο σε μια διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε διαβαθμισμένο χρώμα σε κείμενο, χρησιμοποιήστε το [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Ορίστε το [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) σε [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) και ρυθμίστε τα σημεία διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε ένα διαβαθμισμένο χρώμα σε κείμενο, χρησιμοποιήστε το [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat). Ορίστε το [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) σε [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) και ρυθμίστε τις διαβαθμίσεις, την κατεύθυνση και τη διαφάνεια.

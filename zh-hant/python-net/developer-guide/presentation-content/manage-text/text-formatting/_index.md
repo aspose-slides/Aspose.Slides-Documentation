@@ -11,12 +11,12 @@ keywords:
 - 文字透明度
 - 字元間距
 - 字型屬性
-- 字型族
+- 字型系列
 - 文字旋轉
 - 旋轉角度
 - 文字框
 - 行距
-- 自動適應屬性
+- 自動調整屬性
 - 文字框錨點
 - 文字定位
 - 預設語言
@@ -25,22 +25,24 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "在 PowerPoint 和 OpenDocument 簡報中使用 Aspose.Slides for Python via .NET 進行文字的格式化與樣式設定。自訂字型、顏色、對齊方式等。"
+description: "使用 Aspose.Slides for Python via .NET 對 PowerPoint 與 OpenDocument 簡報中的文字進行格式化與樣式設定。自訂字型、顏色、對齊方式等。"
 ---
-## **概述**
+## **概覽**
 
-本文說明如何在 PowerPoint 和 OpenDocument 簡報中使用 Aspose.Slides for Python via .NET 進行文字格式設定。它涵蓋背景色、透明度、字元間距、字型屬性、旋轉、段落間距、自動適應行為、文字錨點、定位點以及語言設定。
+本文說明如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 與 OpenDocument 簡報中格式化文字。內容涵蓋背景色、透明度、字元間距、字型屬性、旋轉、段落間距、自動調整行為、文字錨點、定位點以及語言設定。
 
-除非另有說明，範例使用 [sample.pptx](sample.pptx)。第一張投影片的第一個圖形是一個文字方塊，其第一段落包含以下顯示的文字。投影片與圖形索引皆以 0 為起始。選取粗體部分的範例使用有效格式，包括繼承的粗體格式：
+除非另有說明，範例皆使用 [sample.pptx](sample.pptx)。第一張投影片的第一個圖形是一個文字方塊，且第一段落包含下方顯示的文字。投影片與圖形索引均為零基。選取粗體部分的範例使用有效格式，包含繼承的粗體格式：
+
 ![範例文字](sample_text.png)
 
-若要找出並凸顯文字或正規表達式匹配項目，請參閱 [搜尋與取代文字](/slides/zh-hant/python-net/search-and-replace-text/)。
+若要搜尋並標示文字字面值或正規表達式匹配項目，請參閱 [搜尋與取代文字](/slides/zh-hant/python-net/search-and-replace-text/)。
 
 ## **設定文字背景顏色**
 
-使用 [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) 設定段落的預設凸顯顏色，或使用 [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) 為個別文字片段設定凸顯顏色。
+使用 [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) 來設定段落的預設突顯顏色，或使用 [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) 針對個別文字片段設定。
 
-以下範例將淡灰色凸顯設為第一段落的預設。個別片段的顯式凸顯顏色會優先於此預設：
+下列範例將第一段落的預設突顯設定為淡灰色。個別文字片段上的明確突顯顏色會優先於此預設值：
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -51,16 +53,18 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # 為整個段落設定突顯顏色。
+    # 為整段落設定突顯顏色。
     paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![灰色段落](gray_paragraph.png)
 
-以下程式碼範例示範如何為 **粗體字型的文字片段** 設定背景顏色：
+以下程式碼示範如何為 **粗體字型的文字片段** 設定背景顏色：
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -73,20 +77,22 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # 為文字片段設定突顯顏色。
+            # 設定文字片段的突顯顏色。
             portion.portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![灰色文字片段](gray_text_portions.png)
 
 ## **對齊文字段落**
 
-使用 [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) 設定文字框內段落的對齊方式。其值可為置中、左對齊、右對齊、兩端對齊等。
+使用 [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) 來設定文字框內段落的對齊方式。可設定為置中、左對齊、右對齊、兩端對齊等。
 
-以下程式碼範例顯示如何將段落對齊至 **置中**：
+下列程式碼示範如何將段落對齊至 **置中**：
+
 ```python
 import aspose.slides as slides
 
@@ -96,20 +102,22 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # 將段落的對齊方式設定為置中。
+    # 設定段落的對齊方式為置中。
     paragraph.paragraph_format.alignment = slides.TextAlignment.CENTER
 
     presentation.save("aligned_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![已對齊的段落](aligned_paragraph.png)
 
-## **對齊行內字型**
+## **在同一行內對齊字型**
 
-使用 [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) 垂直對齊同一行中不同字型大小的文字片段。此設定套用於整個段落，並控制每行內的對齊方式。
+使用 [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) 可在同一行內垂直對齊不同字型大小的文字片段。此設定會套用於整個段落，並控制每一行之內的對齊。
 
-以下獨立範例在同一張投影片上建立四個帶標籤的文字方塊。每個段落以 18、36、54 點大小呈現相同文字，並使用不同的字型對齊方式。它使用 Arial，停用自動適應與換行，並將文字框保持足夠大以容納單行文字。
+下列獨立範例會在同一張投影片上建立四個標有文字方塊的物件。每個段落以 18、36、54 點字型顯示相同文字，且使用不同的字型對齊方式。範例使用 Arial，停用自動調整與換行，並確保文字框足夠容納單行文字。
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -155,18 +163,20 @@ with slides.Presentation() as presentation:
     presentation.save("font_alignment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
-![基線、頂部、置中與底部字型對齊的比較（混合字型大小）](font_alignment.png)
+結果：
 
-字型對齊使用字型度量，因而個別字母的可見邊緣未必完全對齊。範例同時包含大寫字母與下延字，以說明基線與底部對齊的差異。字型可用性與替代、使用的字元以及字型大小差異皆會影響結果。框架尺寸、邊距、行距、換行與自動適應亦會影響版面；比對模式時請使用相同的字型與版面設定。
+![Baseline、Top、Center、Bottom 字型對齊比較（混合字型大小）](font_alignment.png)
 
-此設定與 [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) 不同，後者控制水平段落對齊；亦不同於 [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/)，後者在形狀內垂直定位文字區塊。透過 [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) 的上標與下標格式會相對於基線移動個別片段，而非為段落行設定字型對齊。
+字型對齊使用字型度量，因此個別字母的可見邊緣不一定完全對齊。範例同時包含大寫字母與下伸字元，以說明基線與底部對齊的差異。字型可用性與替代、使用的字元以及字型大小差異皆會影響結果。框架尺寸、邊距、行距、換行與自動調整亦會影響版面；比較模式時請使用相同字型與版面設定。
+
+此設定不同於 [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/)，後者控制水平段落對齊；也不同於 [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/)，後者在形狀內垂直定位文字區塊。透過 [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) 進行的上標與下標格式會相對於基線移動單一文字片段，而非設定段落行的字型對齊。
 
 ## **設定文字透明度**
 
-文字透明度透過指派給 [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/) 的顏色之 alpha 成分來控制。以下範例中，`alpha = 50` 為 0–255 範圍的 ARGB alpha 通道值，而非透明度百分比。
+文字透明度是透過指派給 [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/) 的顏色之 alpha 成分來控制。在以下範例中，`alpha = 50` 為 0–255 之間的 ARGB alpha 通道值，而非透明度百分比。
 
-以下程式碼範例示範如何對 **整段** 套用透明度：
+下列程式碼示範如何對 **整段落** 套用透明度：
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -179,17 +189,19 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # 設定文字的半透明黑色填充。
+    # 為文字設定半透明的黑色填充。
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
     presentation.save("transparent_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![透明段落](transparent_paragraph.png)
 
-以下程式碼範例示範如何對 **粗體字型的文字片段** 套用透明度：
+以下程式碼示範如何對 **粗體字型的文字片段** 套用透明度：
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -211,14 +223,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("transparent_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![透明文字片段](transparent_text_portions.png)
 
 ## **設定文字字元間距**
 
-使用 [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) 以擴大或縮小文字方塊中字元之間的間距。以下範例加入 3 點間距；負值則會壓縮文字。
+使用 [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) 可在文字方塊內擴大或壓縮字元間距。以下範例加入 3 點間距；負值則會壓縮文字。
 
-以下 Python 程式碼示範如何在 **整段** 中展開字元間距：
+下列 Python 程式碼示範如何在 **整段落** 中擴大字元間距：
+
 ```python
 import aspose.slides as slides
 
@@ -229,15 +243,17 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph = auto_shape.text_frame.paragraphs[0]
 
     # 注意：使用負值可壓縮字元間距。
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # 展開字元間距。
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # 擴展字元間距。
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
-![段落內的字元間距](character_spacing_in_paragraph.png)
+結果：
 
-以下程式碼範例示範如何在 **粗體字型的文字片段** 中展開字元間距：
+![段落中的字元間距](character_spacing_in_paragraph.png)
+
+以下程式碼示範如何在 **粗體字型的文字片段** 中擴大字元間距：
+
 ```python
 import aspose.slides as slides
 
@@ -250,19 +266,21 @@ with slides.Presentation("sample.pptx") as presentation:
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
             # 注意：使用負值可壓縮字元間距。
-            portion.portion_format.spacing = 3  # 展開字元間距。
+            portion.portion_format.spacing = 3  # 擴展字元間距。
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
-![文字片段內的字元間距](character_spacing_in_text_portions.png)
+結果：
 
-### **停用特定字型的字距調整**
+![文字片段中的字元間距](character_spacing_in_text_portions.png)
 
-在某些情況下，Aspose.Slides 所渲染的文字可能較 PowerPoint 中的同一文字稍微緊密。這可能是因為 PowerPoint 會忽略某些字型的字距調整資料，即使該字型包含有效的字距資訊且在 PowerPoint 設定中已啟用字距調整。
+### **停用特定字型的字距調整（Kerning）**
 
-為使渲染結果更接近 PowerPoint，可對使用受影響字型的文字片段停用字距調整。將 [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) 設為大於實際字型大小的值。本範例需要「presentation.pptx」且其第一張投影片的第一個圖形為文字方塊。它會檢查有效的字型名稱（包括繼承的字型），並對使用 Roboto 且字型大小低於 100 點的片段設定 100 點的門檻：
+在某些情況下，Aspose.Slides 渲染的文字可能比 PowerPoint 中的顯示稍微緊密。這可能是因為 PowerPoint 會忽略某些字型的字距資料，即使該字型包含有效的字距資訊且 PowerPoint 設定已啟用字距。
+
+若要使渲染結果更貼近 PowerPoint，可對使用受影響字型的文字片段停用字距調整。將 [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) 設為大於實際字型大小的值。此範例需要「presentation.pptx」，其第一張投影片的第一個圖形為文字方塊。它會檢查有效字型名稱（包括繼承字型），並對使用 Roboto 且字型大小低於 100 點的片段設定 100 點的門檻，以停用字距調整：
+
 ```python
 import aspose.slides as slides
 
@@ -284,13 +302,14 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-對於低於門檻的符合文字，此設定會阻止字距調整，並有助於將 Aspose.Slides 的渲染與受此 PowerPoint 特定行為影響的字型的視覺輸出對齊。
+對於低於門檻的匹配文字，此設定會阻止字距調整，從而協助 Aspose.Slides 的渲染與 PowerPoint 在受此 PowerPoint 特定行為影響的字型的視覺輸出更為一致。
 
 ## **管理文字字型屬性**
 
-字型屬性可以透過 [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) 在段落層級設定，或透過 [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) 在個別片段上設定。
+字型屬性可透過 [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) 在段落層級設定，或透過 [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) 在個別片段設定。
 
-以下範例將第一段落的預設字型設定為 12 點 Times New Roman，並套用粗體、斜體與點線底線。個別片段的顯式格式會優先於這些預設值：
+下列範例將第一段落的預設字型設定為 12 點 Times New Roman，並套用粗體、斜體與點狀底線。個別片段的明確格式會優先於這些預設值：
+
 ```python
 import aspose.slides as slides
 
@@ -311,10 +330,12 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("font_properties_for_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![段落的字型屬性](font_properties_for_paragraph.png)
 
-以下範例對有效格式為粗體的片段套用 13 點 Times New Roman、斜體與點線底線：
+下列範例對有效格式為粗體的片段套用 13 點 Times New Roman、斜體與點狀底線：
+
 ```python
 import aspose.slides as slides
 
@@ -335,16 +356,18 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("font_properties_for_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![文字片段的字型屬性](font_properties_for_text_portions.png)
 
 ## **控制文字高度正規化**
 
-使用 [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) 可在重現範本排版或調查字元高度差異時進行正規化。在 PowerPoint 中，啟用正規化會在垂直方向拉伸或壓縮個別字元，使其在文字片段內呈現統一的可見高度。它並不保證不同字型之間的文字高度相等。
+在重製範本排版或研究字元高度差異時，可使用 [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/)。在 PowerPoint 中，啟用正規化會垂直拉伸或壓縮個別字元，使其在文字片段內具有統一的可見高度。此設定不保證不同字型之間的文字高度相等。
 
-將屬性設為 [NullableBool.TRUE 或 FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) 可明確啟用或停用正規化。`NullableBool.NOT_DEFINED` 會保留本地設定未設定，讓片段繼承其值，例如自段落的 [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/)。這並不等同於 `False`。使用 [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) 並讀取 [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) 可取得解析後的布林值。
+將屬性設定為 [NullableBool.TRUE 或 FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) 以明確啟用或停用正規化。`NullableBool.NOT_DEFINED` 會保留本地設定未設定，讓片段繼承段落的 [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) 等值。這並不等同於 `False`。可使用 [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) 並讀取 [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) 取得解析後的布林值。
 
-以下獨立範例需要安裝 **Arial**。它建立兩個文字區塊，內容包含相同的大寫字母、小寫字母、下延字與帶重音的字元，字型大小為 54 點。兩段落預設皆啟用正規化。上方的片段明確停用，下方則繼承。框架大小、邊距與段落間距相同，且停用換行與自動適應以保持比較一致。範例會輸出 `FALSE: False` 與 `NOT_DEFINED: True`，然後儲存為「text_height_normalization.pptx」：
+以下獨立範例需要安裝 **Arial**。它會建立兩個文字區塊，包含相同的大寫字母、小寫字母、下伸字元與重音字元，字型大小為 54 點。兩段落預設皆啟用正規化；上方片段明確停用，下方片段則繼承設定。框架尺寸、邊距與段落間距相同，且停用換行與自動調整以保持比較一致。範例會輸出 `FALSE: False` 與 `NOT_DEFINED: True`，然後儲存為「text_height_normalization.pptx」。
+
 ```python
 import aspose.slides as slides
 
@@ -385,18 +408,20 @@ with slides.Presentation() as presentation:
     presentation.save("text_height_normalization.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-下面的比較圖是從已儲存的簡報匯出。上列的正規化已停用 (`FALSE`)；下列則繼承啟用設定 (`NOT_DEFINED` → `True`)。請保留 Arial 安裝以重現此外觀。
-![Arial 54 點文字，上方正規化停用，受繼承正規化啟用於下方](text_height_normalization.png)
+下圖取自已儲存的簡報。上排正規化已停用 (`FALSE`)；下排則繼承啟用設定 (`NOT_DEFINED` → `True`)。請保留 Arial 安裝以重現此外觀。
 
-正規化會改變字元高度，而不改變指定的 [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) 數值（該值以點為單位指定字型大小）。段落的 [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) 控制行距，文字框的 [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 控制文字或其容器的自動調整方式。這些設定各自服務不同目的，且可獨立影響整體版面。欲了解更多段落格式與繼承，請參閱 [管理段落](/slides/zh-hant/python-net/manage-paragraph/)。
+![Arial 54 點文字，上方停用正規化、下方繼承啟用正規化](text_height_normalization.png)
+
+正規化在不改變指派的 [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) 值（即字型大小）的前提下調整字元高度。段落的 [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) 控制行距，而文字框的 [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 控制文字或容器的自動調整方式。這些設定各自服務不同目的，且可獨立影響整體版面。欲深入了解段落格式與繼承，請參閱 [管理段落](/slides/zh-hant/python-net/manage-paragraph/)。
 
 ## **套用與移除刪除線**
 
-使用 [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) 可在文字片段上顯示刪除線、取消的詞語或先前價格，而無需刪除原始文字。將其設為 [TextStrikethroughType.SINGLE 或 DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) 可在文字上加入一條或兩條線。
+使用 [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) 可在文字片段上顯示修正、取消的字詞或先前價格，而不必刪除原始文字。將其設定為 [TextStrikethroughType.SINGLE 或 DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) 可在文字上加上一條或兩條線。
 
-若要移除刪除線，請指派 `TextStrikethroughType.NONE`。此設定會明確停用效果，即使周圍的格式指定了刪除線。相較之下，`TextStrikethroughType.NOT_DEFINED` 會將本地設定保持未定義，允許片段繼承格式，例如自段落而來。它並不保證刪除線已被移除。使用 [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) 可讀取最終的格式，包括繼承的值。
+若要移除刪除線，請指派 `TextStrikethroughType.NONE`。此設定會明確停用效果，即使周圍的格式指定了刪除線。相較之下，`TextStrikethroughType.NOT_DEFINED` 會保留本地設定未定義，讓片段繼承段落等處的格式，並不保證刪除線被移除。可使用 [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) 讀取最終格式，包括繼承值。
 
-以下獨立範例建立三個價格比較。每段落都有標籤、先前價格與目前價格的獨立片段，因此僅先前價格受到影響。第一列先套用再移除刪除線；其他列則保留單線與雙線刪除線。變更此屬性可保留文字及其他格式，包括粗體的先前價格。
+下列獨立範例建立三個價格比較。每段落都分別包含標籤、原價與現價的片段，僅原價會受影響。第一排套用後再移除刪除線；其餘列則保留單線與雙線刪除線。變更此屬性可保留文字及其他格式，包括粗體的原價。
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -433,7 +458,7 @@ with slides.Presentation() as presentation:
 
     paragraphs = shape.text_frame.paragraphs
 
-    # 套用刪除線，然後明確從第一個先前價格移除它。
+    # 套用刪除線，然後明確地從第一個原價中移除它。
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
     paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.NONE
 
@@ -443,14 +468,16 @@ with slides.Presentation() as presentation:
     presentation.save("strikethrough.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果（從上到下）：無刪除線、單線刪除線和雙線刪除線。
-![先前價格（無刪除線、單線刪除線、雙線刪除線）](strikethrough.png)
+結果（由上至下）：無刪除線、單線刪除線、雙線刪除線。
+
+![無刪除線、單線刪除線與雙線刪除線的前價格比較](strikethrough.png)
 
 ## **設定文字旋轉**
 
 使用 [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) 可在形狀內設定預定義的文字方向。
 
-以下程式碼範例將形狀內的文字方向設定為 [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/)，此方向會將文字 **逆時針旋轉 90 度**：
+下列程式碼將形狀內的文字方向設定為 [TextVerticalType.VERTICAL270](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/)，使文字 **逆時針旋轉 90 度**：
+
 ```python
 import aspose.slides as slides
 
@@ -464,14 +491,63 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![文字旋轉](text_rotation.png)
 
-## **設定文字框的自訂旋轉**
+## **在直排文字中並排顯示數字**
+
+為了在直排日文標籤中將兩位數字保持在一起，請將兩個數字放在同一文字片段，並在該片段上設定 [BasePortionFormat.kumimoji](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kumimoji/)。範例建立兩個標籤，使用 [TextVerticalType.EAST_ASIAN_VERTICAL](https://reference.aspose.com/slides/python-net/aspose.slides/textverticaltype/) 與 40 點 MS Gothic。唯一差異在於指派給數字片段的 [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) 值。
+
+```python
+import aspose.slides as slides
+
+
+def add_label(slide, x, kumimoji):
+    label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, 48, 120, 420)
+    label.fill_format.fill_type = slides.FillType.NO_FILL
+    label.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    frame = label.add_text_frame("")
+    frame.text_frame_format.text_vertical_type = slides.TextVerticalType.EAST_ASIAN_VERTICAL
+
+    paragraph = frame.paragraphs[0]
+    portion_format = paragraph.paragraph_format.default_portion_format
+    font = slides.FontData("MS Gothic")
+    portion_format.latin_font = font
+    portion_format.east_asian_font = font
+    portion_format.font_height = 40
+    portion_format.fill_format.fill_type = slides.FillType.SOLID
+    portion_format.fill_format.solid_fill_color.color = "black"
+
+    digits = slides.Portion("12")
+    digits.portion_format.kumimoji = kumimoji
+
+    paragraph.portions.clear()
+    paragraph.portions.add(slides.Portion("令和"))
+    paragraph.portions.add(digits)
+    paragraph.portions.add(slides.Portion("年"))
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    add_label(slide, 120, slides.NullableBool.TRUE)
+    add_label(slide, 360, slides.NullableBool.FALSE)
+    
+    presentation.save("vertical_date.pptx", slides.export.SaveFormat.PPTX)
+```
+
+在 PowerPoint 中，左側標籤（`TRUE`）會使數字直立並與「和」與「年」之間並排顯示。右側標籤（`FALSE`）則會將數字順時針旋轉 90 度。兩標籤的周圍日文字元皆保持直立。
+
+![PowerPoint 中直排日期標籤的比較：左側直立數字、右側旋轉數字](vertical_date.png)
+
+## **自訂文字框旋轉角度**
 
 使用 [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) 可為 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 設定自訂旋轉角度。
 
-以下程式碼範例將文字框在形狀內順時針旋轉 3 度：
+以下程式碼在形狀內將文字框順時針旋轉 3 度：
+
 ```python
 import aspose.slides as slides
 
@@ -485,17 +561,19 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("custom_text_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![自訂文字旋轉](custom_text_rotation.png)
 
-## **設定段落的行距**
+## **設定段落行距**
 
-Aspose.Slides 提供 [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/)、[ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/)、與 [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) 以控制段落間距。這些屬性的使用方式如下：
+Aspose.Slides 提供 [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/)、[ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/)、[ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) 以控制段落間距。這些屬性的使用方式如下：
 
-* 使用正值指定行距為行高的百分比。
-* 使用負值以點為單位指定行距。
+* 正值表示以行高的百分比指定行距。
+* 負值表示以點數指定行距。
 
-以下範例將第一段落的內部間距設定為行高的 200%（雙倍行距）：
+下列範例將第一段落的內部間距設定為行高的 200%（雙倍行距）：
+
 ```python
 import aspose.slides as slides
 
@@ -510,19 +588,21 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("line_spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![段落內的行距](line_spacing.png)
 
-## **控制斷行**
+## **控制斷行規則**
 
-段落斷行規則在窄文字區塊與混合拉丁與東亞文字的簡報中相當有用。以下屬性屬於 [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/)，因此適用於整個段落：
+段落的斷行規則在窄文字區塊與混合拉丁與東亞文字的簡報中相當實用。以下屬性屬於 [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/)，會套用於整個段落：
 
-- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) 控制拉丁文的斷行規則。在混合文字中，變更此設定也可能影響相鄰東亞文字與標點的換行位置。
-- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) 控制東亞文字的斷行規則，包括字元於行首或行尾的限制。
+- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) 控制拉丁文字的斷行規則。於混合文字中，調整此屬性亦可能影響相鄰東亞文字與標點的換行位置。
+- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) 控制東亞文字的斷行規則，包括行首與行尾字符的限制。
 
-這些規則不會取代 [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/)，後者啟用文字框內的自動換行。它們影響換行發生時的版面布局；不會插入換行字元。明確的換行會在段落內強制換行，與可用寬度無關。
+這些規則不會取代 [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/)，後者啟用文字框內的自動換行。它們僅在換行發生時影響版面配置；不會插入斷行字元。顯式的斷行會強制段落內產生新行，與可用寬度無關。
 
-以下獨立範例建立一個窄文字區塊，內含中文與拉丁文。它明確設定兩個斷行屬性，並儲存為「line_breaking.pptx」。若要實驗任一規則，只需在保持其他設定不變的情況下變更該屬性的值。範例使用 24 點 Arial 與 SimSun，框寬 160 點，水平文字框邊距為 0。[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 設為 [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/)，以使文字大小與框尺寸保持固定。
+以下獨立範例建立包含中文與拉丁文字的窄文字區塊。它會明確設定兩個斷行屬性，並儲存為「line_breaking.pptx」。若要實驗任一規則，只需在保持另一設定不變的情況下變更該屬性值。範例使用 24 點 Arial 與 SimSun，框寬 160 點，水平文字框邊距為 0。[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 設為 [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/)，以固定文字大小與框架尺寸。
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -557,9 +637,10 @@ with slides.Presentation() as presentation:
 
 ## **控制懸掛標點**
 
-[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) 允許符合條件的標點延伸至文字行的右邊緣外，而不是占用下一行。它適用於整段落，且不同於懸掛縮排。
+[ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) 允許符合條件的標點超出文字行的右邊緣，而不是佔用下一行。它套用於整個段落，與懸掛縮排不同。
 
-以下獨立範例在寬度 100 點的文字框中啟用懸掛標點，並儲存為「hanging_punctuation.pptx」。使用 24 點 Arial 且水平文字框邊距為 0 時，最終句點會留在「sentence」之後，並延伸至文字右邊緣之外。將屬性設為 [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) 以作比較：在此設定下，句點會佔據獨立行。為了保持可用寬度固定，啟用了換行且停用自動適應。
+以下獨立範例在寬度為 100 點的文字框中啟用懸掛標點，並儲存為「hanging_punctuation.pptx」。使用 24 點 Arial 與水平文字框邊距為 0，最終的句點會留在「sentence」之後，並超出右側文字邊緣。若將屬性設為 [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/)，則句點會佔據獨立一行。此範例啟用換行且停用自動調整，以保持可用寬度固定。
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -590,11 +671,12 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-並非所有標點皆可懸掛。可見結果取決於 [字型與版面條件](#control-line-breaking)：變更字型、可用寬度、邊距或自動適應設定皆可能使可見差異消失。
+不是所有標點皆能懸掛。可見結果取決於 [字型與版面條件](#control-line-breaking)：變更字型、可用寬度、邊距或自動調整設定皆可能取消可見差異。
 
-## **設定文字框的自動適應類型**
+## **設定文字框的自動調整類型**
 
-[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 決定文字超出其容器邊界時的行為。可用來控制文字是縮小、溢出，或自動調整形狀大小。以下範例將形狀設定為自動調整以適應文字，並將結果儲存為「autofit_type.pptx」。
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) 決定文字超出容器邊界時的行為。使用它可控制文字是縮小、溢出，或自動調整形狀尺寸。以下範例將形狀設定為依文字自動調整大小，並儲存結果為「autofit_type.pptx」。
+
 ```python
 import aspose.slides as slides
 
@@ -608,11 +690,12 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-若要在自動換行後計算行數並查看文字或形狀寬度變化的結果，請參閱 [計算已呈現行數](/slides/zh-hant/python-net/manage-paragraph/)。僅行數不足以判斷文字是否溢出其容器。
+若要在自動換行後計算行數並觀察文字或形狀寬度的變化，請參閱 [計算已渲染行](/slides/zh-hant/python-net/manage-paragraph/)。僅有行數並不表示文字是否溢出容器。
 
 ## **設定文字框錨點**
 
-[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) 定義文字在形狀內的垂直定位方式，例如置頂、置中或置底。以下範例將文字錨定於第一個圖形的底部，並將結果儲存為「text_anchor.pptx」。
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) 定義文字在形狀內的垂直定位方式，例如置頂、置中或置底。以下範例將文字錨點設定於第一個圖形的底部，並將結果儲存為「text_anchor.pptx」。
+
 ```python
 import aspose.slides as slides
 
@@ -626,9 +709,10 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **設定文字定位點**
+## **設定文字定位點（Tabs）**
 
-使用 [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) 與 [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) 可在段落中配置定位點。以下範例將預設定位點間距設定為 100 點，並在 30 點處新增左對齊的定位點。這些設定會影響包含定位字符的文字。
+使用 [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) 與 [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) 來設定段落的定位點。下列範例將預設定位點間距設定為 100 點，並在 30 點處加入左對齊的定位點。此設定會影響含有定位字元的文字。
+
 ```python
 import aspose.slides as slides
 
@@ -644,14 +728,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("paragraph_tabs.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果如下：
+結果：
+
 ![段落定位點](paragraph_tabs.png)
 
 ## **設定校對語言**
 
-Aspose.Slides 提供 [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/)，可為文字片段設定校對語言。校對語言決定 PowerPoint 在拼寫與文法檢查時使用的語言。
+Aspose.Slides 提供 [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/)，可為文字片段設定校對語言。校對語言決定 PowerPoint 進行拼寫與文法檢查時使用的語言。
 
-以下範例需要「presentation.pptx」，其第一張投影片的第一個圖形為文字方塊且至少有一段落。它將第一段落的內容取代為「1。」、將字型設為 SimSun，並指派簡體中文校對語言 (`zh-CN`)。最後將結果儲存為「proofing_language.pptx」：
+以下範例需要「presentation.pptx」，其第一張投影片的第一個圖形為文字方塊且至少包含一個段落。它會將第一段落的內容取代為「1。」、將字型設定為 SimSun，並指派簡體中文校對語言 (`zh-CN`)。最後將結果儲存為「proofing_language.pptx」：
+
 ```python
 import aspose.slides as slides
 
@@ -681,7 +767,8 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ### **複製語言中繼資料**
 
-在從範本複製多語言文字時，請同時保留 [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) 與 [BasePortionFormat.alternative_language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/alternative_language_id/)。以下獨立範例建立一個來源片段，其語言為美式英語，備用語言為法語，並將文字與識別碼複製到新簡報中的片段。
+在從範本複製多語言文字時，請同時保留 [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/) 與 [BasePortionFormat.alternative_language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/alternative_language_id/)。以下獨立範例會建立一個來源片段，其語言為美式英語，替代語言為法語，然後將文字與識別碼複製到新簡報中的片段。
+
 ```python
 import aspose.slides as slides
 
@@ -699,20 +786,21 @@ with slides.Presentation() as presentation:
     destination = slides.Portion()
     destination.text = source.text
     destination.portion_format.language_id = source.portion_format.language_id
-    # 如果來源沒有備用語言，None 會清除目的地的值。
+    # 如果來源沒有替代語言，None 會清除目的地的值。
     destination.portion_format.alternative_language_id = source.portion_format.alternative_language_id
     paragraph.portions.add(destination)
 
     presentation.save("copied_language_metadata.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-若要測試沒有備用語言的來源，請省略對 "fr-FR" 的指派。此時備用識別碼為 `None`，相同的複製語句會保留其缺失，不會引入預設值，即使目標先前已指派備用語言。
+若要測試沒有替代語言的來源，只需省略對 `"fr-FR"` 的指派。此時替代識別碼為 `None`，相同的複製語句會保留其缺失，而不會插入預設值，即使目的地先前已指派過替代語言。
 
-這些識別碼屬於語言中繼資料。保留它們不會決定 PowerPoint 用於拼寫或文法檢查的字典。
+這些識別碼屬於語言中繼資料。保留它們不會決定 PowerPoint 選擇哪個字典進行拼寫或文法檢查。
 
 ## **設定預設語言**
 
-使用 [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) 可定義載入或建立簡報時所建立文字的預設語言。以下範例建立一個預設文字語言為美式英語的簡報，新增文字方塊，並列印其第一文字片段的 `en-US`。
+使用 [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) 可定義在載入或建立簡報時所產生文字的預設語言。以下範例建立一個簡報，預設文字語言為美式英語，加入文字方塊，並印出其第一文字片段的語言 `en-US`。
+
 ```python
 import aspose.slides as slides
 
@@ -722,7 +810,7 @@ load_options.default_text_language = "en-US"
 with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # 新增具有文字的矩形圖形。
+    # 新增一個帶文字的矩形形狀。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
@@ -735,7 +823,8 @@ with slides.Presentation(load_options) as presentation:
 
 若要在簡報層級套用預設文字格式，請使用 [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/)。
 
-以下範例將 14 點粗體字型設定為新簡報中頂層段落的預設，並儲存為「default_text_style.pptx」。文字可以繼承這些預設值，除非有更具體的格式覆寫。
+以下範例將新簡報的頂層段落預設為 14 點粗體字型，並將其儲存為「default_text_style.pptx」。文字會繼承這些預設，除非更具體的格式覆寫它們。
+
 ```python
 import aspose.slides as slides
 
@@ -750,14 +839,16 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **擷取使用全大寫效果的文字**
+## **擷取具有全大寫效果的文字**
 
-在 PowerPoint 中，套用 **All Caps** 字型效果會使投影片上的文字以大寫形式顯示，即使實際輸入時為小寫。使用 Aspose.Slides 取得此類文字片段時，函式庫會回傳原始輸入的文字。若要匹配顯示的文字，請檢查 [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/)，當其值為 `ALL` 時，將回傳的字串轉為大寫。
+在 PowerPoint 中，套用 **全大寫** 字型效果會使文字在投影片上以大寫顯示，即使實際輸入的是小寫。使用 Aspose.Slides 取得此類文字片段時，函式庫會回傳原始輸入的文字。若要與顯示的文字一致，請檢查 [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) 並在值為 `ALL` 時將回傳的字串轉為大寫。
 
-此範例需要「sample2.pptx」，其第一張投影片的第一個圖形為文字方塊。其第一段落的第一片段包含套用全大寫效果的 "Hello, Aspose!"，如下圖所示。
+此範例需要「sample2.pptx」，其第一張投影片的第一個圖形為文字方塊，且第一段落的第一片段包含套用全大寫效果的「Hello, Aspose!」，如圖所示。
+
 ![全大寫效果](all_caps_effect.png)
 
-以下程式碼範例示範如何擷取套用 **All Caps** 效果的文字：
+以下程式碼示範如何擷取已套用 **全大寫** 效果的文字：
+
 ```python
 import aspose.slides as slides
 
@@ -776,19 +867,20 @@ with slides.Presentation("sample2.pptx") as presentation:
 ```
 
 輸出：
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **FAQ**
+## **常見問題**
 
-**如何在投影片的表格中修改文字？**
+**如何修改投影片上表格中的文字？**
 
-若要在投影片的表格中修改文字，請使用 [表格](https://reference.aspose.com/slides/python-net/aspose.slides/table/)。迭代儲存格，並透過 [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) 以及 [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/) 更新每個儲存格的文字與段落格式。
+請使用 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)。遍歷儲存格，並透過 [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) 更新每個儲存格，並使用 [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/) 調整段落格式。
 
 **如何在 PowerPoint 投影片的文字上套用漸層顏色？**
 
-若要為文字套用漸層顏色，請使用 [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/)。將 [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) 設為 [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/)，並配置漸層停止點、方向與透明度。
+請使用 [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/)。將 [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) 設為 [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/)，並配置漸層停點、方向與透明度。
 
-相關功能：[在投影片中格式化文字](/slides/zh-hant/features/text-formatting/)
+相關功能：[格式化投影片內文字](/slides/zh-hant/features/text-formatting/).

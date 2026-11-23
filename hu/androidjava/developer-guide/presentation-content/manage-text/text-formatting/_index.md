@@ -1,6 +1,6 @@
 ---
 title: Prezentáció szövegének formázása Androidon
-linktitle: Szöveg formázása
+linktitle: Szövegformázás
 type: docs
 weight: 50
 url: /hu/androidjava/text-formatting/
@@ -9,16 +9,16 @@ keywords:
 - szövegstílus
 - szöveg háttér
 - szöveg átlátszóság
-- karakterköz
-- betűtípus tulajdonságok
-- betűtípus család
-- szöveg forgatása
+- karaktertávolság
+- betűtulajdonságok
+- betűcsalád
+- szöveg forgatás
 - forgatási szög
-- szövegdoboz
+- szövegkeret
 - sorköz
 - automatikus illesztés tulajdonság
-- szövegdoboz horgony
-- szöveg tabuláció
+- szövegkeret rögzítése
+- szövegtabuláció
 - alapértelmezett nyelv
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Formázza és stilizálja a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Android Java használatával. Testreszabhatja a betűtípusokat, színeket, igazítást és egyebeket."
+description: "Formázza és formálja a szöveget a PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Android Java használatával. Testreszabhatja a betűket, színeket, igazítást és egyebeket."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázható a szöveg PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Android for Java használatával. Tárgyalja a háttérszíneket, átlátszóságot, karakterközöket, betűtípus‑tulajdonságokat, forgatást, bekezdésközöket, automatikus illesztést, szöveg‑horgonyozást, tabulátor‑állásokat és nyelvi beállításokat.
+Ez a cikk bemutatja, hogyan formázhatók a szövegek PowerPoint és OpenDocument előadásban az Aspose.Slides for Android Java-n keresztül használva. Kitér a háttérszínekre, átlátszóságra, karaktertávolságra, betűtulajdonságokra, forgatásra, bekezdésközre, automatikus illesztés viselkedésére, szövegre vonatkozó rögzítésre, tabulátorokra és nyelvi beállításokra.
 
-Kivéve ha másként van megadva, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dia első alakzatán egy szövegdoboz található, amelynek első bekezdése a lenti szöveget tartalmazza. A dia‑ és alakzat‑indexek nullán‑indulóak. A félkövér részeket kiválasztó példák hatékony formázást használnak, beleértve az öröklött félkövér formázást:
+Ha nincs másképp megjelölve, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dián az első alakzata egy szövegdoboz, és annak első bekezdése az alább látható szöveget tartalmazza. Mind a diák, mind az alakzat indexei nulla-alapúak. A félkövér részeket választó példák hatékony formázást használnak, beleértve az örökölt félkövér formázást:
 
 ![Minta szöveg](sample_text.png)
 
-A szó szerinti szöveg vagy reguláris kifejezés egyezések megtalálásához és kiemeléséhez lásd a [Szöveg keresése és cseréje](/slides/hu/androidjava/search-and-replace-text/) oldalt.
+A szó szerinti szöveg vagy reguláris kifejezés találatainak kereséséhez és kiemeléséhez lásd a [Szöveg keresése és cseréje](/slides/hu/androidjava/search-and-replace-text/).
 
-## **Szöveg háttérszínének beállítása**
+## **Szöveg háttérszín beállítása**
 
-Használja az [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) metódust a bekezdés alapértelmezett kiemelés‑szín beállításához, vagy az [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) metódust egyedi szövedrészekhez.
+Használja az [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) metódust a bekezdés alapértelmezett kiemelés színének beállításához, vagy az [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) metódust az egyedi szövegrészekhez.
 
-Az alábbi példa egy világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyes részeken megadott kiemelés szín felülírja ezt az alapértelmezést:
+A következő példa világosszürke kiemelést állít be alapértelmezettnek az első bekezdéshez. Az egyes részeknél megadott explicit kiemelés színek felülbírálják ezt az alapértelmezettet:
 
 ```java
 import com.aspose.slides.*;
@@ -55,7 +55,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Állítsa be a teljes bekezdés kiemelés színét.
+    // Állítsa be az egész bekezdés kiemelés színét.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -68,7 +68,7 @@ Az eredmény:
 
 ![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűvel** rendelkező **szövedrészek** számára:
+A lenti kódrészlet bemutatja, hogyan állítható be a háttérszín **félkövér betűkkel rendelkező szövegrészek** számára:
 
 ```java
 import com.aspose.slides.*;
@@ -83,7 +83,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Állítsa be a kiemelés színét a szövegrészhez.
+            // Állítsa be a szövegrész kiemelés színét.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
@@ -100,9 +100,9 @@ Az eredmény:
 
 ## **Szöveg bekezdések igazítása**
 
-Használja az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) metódust a bekezdés igazításához egy szövegdobozon belül. Az érték lehet középre, balra, jobbra igazított, sorkizárt stb.
+Használja az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) metódust a bekezdés igazításának beállításához a szövegkereten belül. Az érték lehet középre, balra, jobbra igazított, sorkizárt stb.
 
-Az alábbi kódrészlet azt mutatja, hogyan igazítható a bekezdés **középre**:
+A következő kódrészlet bemutatja, hogyan igazítható a bekezdés a **középre**:
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +127,11 @@ Az eredmény:
 
 ![Az igazított bekezdés](aligned_paragraph.png)
 
-## **Betűk igazítása egy soron belül**
+## **Betűk igazítása soron belül**
 
-Használja az [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) metódust a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás az egész bekezdésre vonatkozik, és a sorokban lévő szövegrészek igazítását szabályozza.
+Használja az [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) metódust a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás az egész bekezdésre vonatkozik, és szabályozza az egyes sorokban lévő igazítást.
 
-Az alábbi önálló példa négy címkézett szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pontban, eltérő betű‑igazítással. Az Arial‑t használja, letiltja az automatikus illesztést és a tördelést, és a szövegdobozok elég nagyok ahhoz, hogy egy sorba férjenek.
+A következő önálló példa négy feliratos szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pontos méretben, különböző betűigazítással. Arial betűtípust használ, letiltja az automatikus illesztést és a sortörést, és a szövegkereteket elegendő méretűre állítja ahhoz, hogy egy sor elférjen:
 
 ```java
 import com.aspose.slides.*;
@@ -187,17 +187,17 @@ try {
 
 Az eredmény:
 
-![Alap‑vonal, felső, középső és alsó betűigazítás kevert betűméretekkel](font_alignment.png)
+![A betűigazítás (alapvonal, felső, középső, alsó) összehasonlítása vegyes betűméretekkel](font_alignment.png)
 
-A betűigazítás a betűmetrikákat használja, így az egyes betűk látható szélei nem feltétlenül illeszkednek pontosan egymáshoz. A példa tartalmaz egy nagybetűt és egy alsónyúlványt, hogy megmutassa a különbséget az alap‑vonal és az alul‑igazítás között. A betűk elérhetősége és helyettesítése, a használt karakterek, valamint a betűméret‑különbségek befolyásolják az eredményt. A keretméretek, margók, sorköz, tördelés és automatikus illesztés is hat a elrendezésre; a módok összehasonlításakor használja ugyanazokat a betűket és elrendezési beállításokat.
+A beállítás a betűmetrikákat használja, ezért az egyes betűk látható szélei nem feltétlenül rakodnak pontosan egymáshoz. A példa tartalmaz egy nagybetűt és egy lejjebb nyúló karaktert, hogy megmutassa a baseline és az alja közti különbséget. A betűtípusok elérhetősége és helyettesítése, a felhasznált karakterek, valamint a betűméretek közti különbség mind befolyásolják az eredményt. A keret méretei, margói, sorköz, sortörés és automatikus illesztés is hatással vannak a elrendezésre; a módok összehasonlításakor ugyanazokat a betűket és elrendezési beállításokat használja.
 
-Ez a beállítás különbözik az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) metódustól, amely a vízszintes bekezdés‑igazítást szabályozza, valamint az [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) metódustól, amely a szövegblokk függőleges pozícionálását határozza meg az alakzaton belül. A [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) használatával a felső‑ és alsó‑indexelés egyedi részeket mozgat az alapvonalhoz képest, nem a bekezdés sorainak betűigazítását állítja be.
+Ez a beállítás különbözik a [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) metódustól, amely a vízszintes bekezdésigazítást szabályozza, illetve az [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) metódustól, amely a szövegtömb függőleges pozícióját határozza meg az alakzaton belül. A [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setEscapement-float-) metódussal történő felső- vagy alsó indexelés a betűrészleteket a baseline-hoz képest mozgatja, nem pedig a bekezdés soraira vonatkozó betűigazítást állítja be.
 
-## **Szöveg átlátszóságának beállítása**
+## **Szöveg átlátszóság beállítása**
 
-A szöveg átlátszósága a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--)‑nek hozzárendelt szín alfa‑komponensén keresztül szabályozható. Az alábbi példákban az `alpha = 50` egy ARGB alfa‑csatorna érték a 0‑255 skálán, nem átlátszósági százalék.
+A szöveg átlátszóságát a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--)-hez rendelt szín alfa komponense szabályozza. Az alábbi példákban az `alpha = 50` egy ARGB alfa-csatorna érték a 0–255 skálán, nem átlátszósági százalék.
 
-Az alábbi kódrészlet azt mutatja, hogyan alkalmazható átlátszóság a **teljes bekezdésre**:
+A lenti kódrészlet bemutatja, hogyan alkalmazható átlátszóság a **teljes bekezdés** esetén:
 
 ```java
 import com.aspose.slides.*;
@@ -212,7 +212,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Állítsa be a szöveg kitöltő színét átlátszó színre.
+    // Állítsa be a szöveg kitöltőszínét átlátszó színre.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -226,7 +226,7 @@ Az eredmény:
 
 ![Az átlátszó bekezdés](transparent_paragraph.png)
 
-A következő kódrészlet azt mutatja, hogyan alkalmazható átlátszóság **félkövér betűvel** rendelkező szövegrészekre:
+A következő kódrészlet bemutatja, hogyan alkalmazható átlátszóság **félkövér betűkkel rendelkező szövegrészek** esetén:
 
 ```java
 import com.aspose.slides.*;
@@ -259,11 +259,11 @@ Az eredmény:
 
 ![Az átlátszó szövegrészek](transparent_text_portions.png)
 
-## **Karakterköz beállítása szöveghez**
+## **Karaktertávolság beállítása a szöveghez**
 
-Használja az [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) metódust a karakterek közti térköz növelésére vagy szűkítésére egy szövegdobozban. A példák 3 pontnyi távolságot adnak hozzá; a negatív értékek szűkítik a szöveget.
+Használja az [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) metódust a karakterek közti távolság növelésére vagy csökkentésére egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek összenyomják a szöveget.
 
-Az alábbi Java‑kód azt mutatja, hogyan növelhető a karakterköz a **teljes bekezdésben**:
+A következő Java kód mutatja, hogyan növelhető a karaktertávolság a **teljes bekezdés** esetén:
 
 ```java
 import com.aspose.slides.*;
@@ -275,8 +275,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Megjegyzés: A karakterköz összenyomásához negatív értékeket használjon.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Karakterköz növelése.
+    // Megjegyzés: Negatív értékek használatával a karaktertávolság összehúzható.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Bővíti a karaktertávolságot.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -286,9 +286,9 @@ try {
 
 Az eredmény:
 
-![A karakterköz a bekezdésben](character_spacing_in_paragraph.png)
+![A karaktertávolság a bekezdésben](character_spacing_in_paragraph.png)
 
-Az alábbi kódrészlet azt mutatja, hogyan növelhető a karakterköz **félkövér betűvel** rendelkező szövegrészekben:
+A lenti kódrészlet bemutatja, hogyan növelhető a karaktertávolság **félkövér betűkkel rendelkező szövegrészek** esetén:
 
 ```java
 import com.aspose.slides.*;
@@ -302,8 +302,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Megjegyzés: A karakterköz összenyomásához negatív értékeket használjon.
-            portion.getPortionFormat().setSpacing(3); // Karakterköz növelése.
+            // Megjegyzés: Negatív értékek használatával a karaktertávolság összehúzható.
+            portion.getPortionFormat().setSpacing(3); // Bővíti a karaktertávolságot.
         }
     }
 
@@ -315,13 +315,13 @@ try {
 
 Az eredmény:
 
-![A karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
+![A karaktertávolság a szövegrészekben](character_spacing_in_text_portions.png)
 
-### **Kerning letiltása bizonyos betűtípusoknál**
+### **Specifikus betűtípusok kerningjének letiltása**
 
-Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPoint‑ban megjelenő szöveg. Ez akkor fordul elő, amikor a PowerPoint figyelmen kívül hagyja bizonyos betűtípusok kerning adatait, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt és a PowerPoint‑beállításokban engedélyezve van a kerning.
+Bizonyos esetekben az Aspose.Slides által renderelt szöveg kissé szorosabb lehet, mint a PowerPoint-ban megjelenő változat. Ez akkor fordul elő, ha a PowerPoint figyelmen kívül hagyja egyes betűtípusok kerning adatait, még akkor is, ha a betűtípus érvényes kerning információt tartalmaz, és a PowerPoint beállításaiban be van kapcsolva a kerning.
 
-Az ilyen esetekben a PowerPoint‑hoz hasonlóbb megjelenés érdekében letilthatja a kerninget az érintett betűtípusokat használó szövegrészeknél. Állítsa az [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) értékét a tényleges betűméretnél nagyobbra. Ez a példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be a Roboto‑t használó részeknél. Ez letiltja a kerninget azokban a részekben, ahol a betűméret kisebb, mint 100 pont:
+Az ilyen helyzetekben a renderelt kimenet PowerPoint közelségének növelése érdekében letilthatja a kerninget azoknál a szövegrészeknél, amelyek az érintett betűtípust használják. Állítsa az [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) értékét a tényleges betűméretnél nagyobbra. Ez a példa a "presentation.pptx" fájlt igényli, amelynek első diáján az első alakzat egy szövegdoboz. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be azoknál a részeknél, amelyek a Roboto betűtípust használják. Ez letiltja a kerninget a 100 pont alatti betűmérettel rendelkező egyező részeknél:
 
 ```java
 import com.aspose.slides.*;
@@ -354,13 +354,13 @@ try {
 }
 ```
 
-A küszöb alatti egyező szövegnél ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelését a PowerPoint‑vizuális kimenetéhez igazítani az ilyen PowerPoint‑specifikus viselkedés által érintett betűtípusoknál.
+Az alatti küszöb alatt lévő egyező szöveg esetén ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének vizuális egyezésében a PowerPoint kimenetével az érintett betűtípusoknál.
 
-## **Szöveg betűtípus‑tulajdonságainak kezelése**
+## **Szöveg betűtulajdonságainak kezelése**
 
-A betűtípus‑tulajdonságok beállíthatók bekezdés‑szinten az [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) vagy egyedi részeknél az [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/) segítségével.
+A betűtulajdonságok beállíthatók bekezdés szinten az [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) segítségével, vagy egyedi részeknél az [IPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/) használatával.
 
-Az alábbi példa az első bekezdés alapértelmezett betűtípusát 12 pont Times New Roman‑ra állítja be félkövér, dőlt és pontozott aláhúzással. Az egyes részeken megadott formázás felülírja ezeket az alapértelmezéseket:
+A következő példa az első bekezdés alapértelmezett betűjét 12 pontos Times New Romanra állítja be félkövér, dőlt és pontozott aláhúzással. Az egyes részekre alkalmazott explicit formázás felülbírálja ezeket az alapértelmezéseket:
 
 ```java
 import com.aspose.slides.*;
@@ -387,9 +387,9 @@ try {
 
 Az eredmény:
 
-![A bekezdés betűtípus‑tulajdonságai](font_properties_for_paragraph.png)
+![A betűtulajdonságok a bekezdéshez](font_properties_for_paragraph.png)
 
-Az alábbi példa 13 pont Times New Roman‑t, dőlt formázást és pontozott aláhúzást alkalmaz azokban a részekben, amelyek hatékony formázása félkövér:
+A következő példa 13 pontos Times New Roman, dőlt formázás és pontozott aláhúzás alkalmazásával formázza azokat a részeket, amelyek hatékony formázása félkövér:
 
 ```java
 import com.aspose.slides.*;
@@ -403,7 +403,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Állítsa be a betűtulajdonságokat a szövegrészhez.
+            // Állítsa be a szövegrész betűtulajdonságait.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -419,15 +419,15 @@ try {
 
 Az eredmény:
 
-![A szövegrészek betűtípus‑tulajdonságai](font_properties_for_text_portions.png)
+![A betűtulajdonságok a szövegrészekhez](font_properties_for_text_portions.png)
 
-## **Szövegmagasság normalizálásának vezérlése**
+## **A szöveg magasság normalizálásának vezérlése**
 
-Használja az [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) metódust sablon‑tipográfia reprodukálásakor vagy a karaktermagasság‑különbségek vizsgálatakor. PowerPointban a normalizálás engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot adjon a szövegrésznek. Nem garantálja a különböző betűk egyenlő magasságát.
+Használja az [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) metódust sablon tipográfia reprodukálásához vagy a karaktermagasság eltérések vizsgálatához. PowerPointban a normalizálás engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egyenletes látható magasságot adjon a szövegrésznek. Nem garantálja, hogy a különböző betűtípusok szövegei azonos magasságúak lesznek.
 
-Állítsa a tulajdonságot a [NullableBool.True vagy False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) értékek egyikére a normalizálás kifejezett engedélyezéséhez vagy letiltásához. A `NullableBool.NotDefined` helyi beállítást üresen hagyja, így a rész örökli az értéket, például a bekezdés [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--)‑ből. Nem ugyanaz, mint a `False`. Használja az [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--)‑t és a [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--)‑t a feloldott Boolean érték lekéréséhez.
+Állítsa a tulajdonságot a [NullableBool.True vagy False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) értékekre a normalizálás kifejezett engedélyezéséhez vagy letiltásához. A `NullableBool.NotDefined` helyi beállítást nem definiálja, így a rész az értékét örökli, például a bekezdés [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) beállításából. Ez nem azt jelenti, hogy `False`. Használja az [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) és olvassa el az [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) értékét a feloldott logikai értékhez.
 
-Az alábbi önálló példa **Arial**‑t igényel. Két szöveglapot hoz létre, amelyek ugyanazt a nagy‑ és kisbetűs karakterkészletet, lejjebbnyúló betűket és ékezetes karaktereket tartalmazzák 54 pontban. Mindkét bekezdés alapértelmezésben engedélyezi a normalizálást. A felső rész kifejezetten letiltja; az alsó rész örökli. A keretméretek, margók és bekezdés‑közök azonosak, a tördelés és automatikus illesztés le van tiltva a konzisztens összehasonlításért. A példa kiírja a `False: false` és `NotDefined: true` értékeket, majd elmenti a „text_height_normalization.pptx” fájlt.
+A következő önálló példa **Arial** telepítését igényli. Két szövegtömböt hoz létre, amelyek ugyanazokat a nagybetűket, kisbetűket, lejjebb nyúló karaktereket és ékezetes karaktereket tartalmazzák 54 pontban. Mindkét bekezdés alapértelmezés szerint engedélyezi a normalizálást. A felső részlet kifejezetten letiltja, az alsó részlet örökli. A keretméretek, margók és bekezdésközök azonosak, a sortörés és az automatikus illesztés letiltva van a konzisztens összehasonlítás érdekében. A példa kiírja a `False: false` és `NotDefined: true` értékeket, majd menti a **text_height_normalization.pptx** fájlt:
 
 ```java
 import com.aspose.slides.*;
@@ -477,19 +477,19 @@ try {
 }
 ```
 
-Az alábbi összehasonlítás a mentett prezentációból lett exportálva. A felső sorban a normalizálás le van tiltva (`False`); az alsó sor örökli az engedélyezett beállítást (`NotDefined` → `True`). A megjelenés reprodukálásához telepítve legyen az Arial.
+Az alábbi összehasonlítás a mentett bemutatóból lett exportálva. A felső sor normalizálás nélkül (`False`), az alsó sor örökli a bekapcsolt beállítást (`NotDefined` → `True`). Az eredmény reprodukálásához telepítve legyen az Arial.
 
-![Arial 54‑pontos szöveg normalizálás nélkül felül és örökölt normalizálással alul](text_height_normalization.png)
+![Arial 54-pontos szöveg normalizálás nélkül fent és örökölt normalizálással lent](text_height_normalization.png)
 
-A normalizálás a karaktermagasságot változtatja anélkül, hogy megváltoztatná a hozzárendelt [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) értéket, amely a betűméretet pontban adja meg. A bekezdés [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) szabályozza a sorközöket, míg a szövegdoboz [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) szabályozza, hogyan igazítja magát a szöveg vagy a tároló. Ezek a beállítások eltérő célokat szolgálnak, és önállóan befolyásolhatják az elrendezést. A bekezdés‑formázás és öröklődés részleteiért lásd a [Manage Paragraph](/slides/hu/androidjava/manage-paragraph/) oldalt.
+A normalizálás a karaktermagasságot módosítja anélkül, hogy megváltoztatná a hozzárendelt [getFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) értéket, amely a betűméretet határozza meg pontban. A bekezdés [setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) a sortávolságot szabályozza, míg a szövegkeret [setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) a szöveg vagy annak tárolója méretezését irányítja. Ezek a beállítások különböző célokat szolgálnak, és önállóan is befolyásolhatják a teljes elrendezést. A bekezdésformázás és öröklődés részletes leírásáért tekintse meg a [Bekezdés kezelése](/slides/hu/androidjava/manage-paragraph/) oldalt.
 
 ## **Áthúzás alkalmazása és eltávolítása**
 
-Használja az [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) metódust egy szövegrész áthúzásához, hogy módosításokat, törölt kifejezéseket vagy korábbi árakat jelenítsen meg a szöveg törlése nélkül. Állítsa a [TextStrikethroughType.Single vagy Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) értékre egy vagy két vonal megjelenítéséhez.
+Használja az [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) metódust egy szövegrésznél, ha javításokat, törölt kifejezéseket vagy korábbi árakat szeretne megjeleníteni a szövegben az eredeti szöveg törlése nélkül. Állítsa a [TextStrikethroughType.Single vagy Double](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/) értékre, ha egy vagy két vonalat szeretne a szöveg fölé.
 
-Az áthúzás eltávolításához adja meg a [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None) értéket. Ez kifejezetten letiltja a effektet, még ha a környező formázás áthúzást is meghatározna. Ezzel szemben a [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) helyi beállítást üresen hagyja, lehetővé téve, hogy a rész örökölje a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltűnik. Használja az [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--)‑t a végső formázás, köztük az örökölt értékek lekérdezéséhez.
+Az áthúzás eltávolításához adja meg a [TextStrikethroughType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#None) értéket. Ez kifejezetten letiltja a hatást, még akkor is, ha a környező formázás áthúzást tartalmaz. Ezzel szemben a [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textstrikethroughtype/#NotDefined) helyi beállítást nem definiálja, így a rész örökölheti a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltávolításra kerül. Használja az [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) metódust a végső formázás, beleértve az örökölt értékek lekérdezéséhez.
 
-Az alábbi önálló példa három ár‑összehasonlítást hoz létre. Minden bekezdésben külön részek vannak a címke, a korábbi ár és a jelenlegi ár számára, így csak a korábbi ár érintett. Az első sor alkalmazza, majd eltávolítja az áthúzást; a többi sor egy‑ és dupla‑áthúzást tart meg. Ennek a beállításnak a módosítása megőrzi a szöveget és további formázását, beleértve a félkövér korábbi árat is.
+A következő önálló példa három árösszehasonlítást hoz létre. Minden bekezdésnek külön részei vannak a címkének, a korábbi árnak és a jelenlegi árnak, így csak a korábbi ár érintett. Az első sor áthúzást alkalmaz, majd eltávolít, a többi sor egyes és dupla áthúzást tart meg. Ennek a beállításnak a módosítása megőrzi a szöveget és egyéb formázását, beleértve a félkövér korábbi árat.
 
 ```java
 import com.aspose.slides.*;
@@ -532,7 +532,7 @@ try {
 
     IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
 
-    // Alkalmazza az áthúzást, majd kifejezetten távolítsa el az első előző árból.
+    // Alkalmazza az áthúzást, majd kifejezetten eltávolítja azt az első előző árból.
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
     paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
 
@@ -545,15 +545,15 @@ try {
 }
 ```
 
-Az eredmény felülről lefelé: nincs áthúzás, egyszeres áthúzás és dupla áthúzás.
+Az eredmény felülről lefelé: nincs áthúzás, egyes áthúzás, dupla áthúzás.
 
-![Korábbi árak áthúzás nélkül, egyszeres áthúzással és dupla áthúzással](strikethrough.png)
+![Korábbi árak áthúzás nélkül, egyes áthúzással és dupla áthúzással](strikethrough.png)
 
-## **Szöveg forgatása**
+## **Szöveg forgatásának beállítása**
 
-Használja az [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) metódust a szöveg előre definiált tájolásának beállításához egy alakzaton belül.
+Használja az [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) metódust, hogy előre definiált szövegorientációt állítson be egy alakzaton belül.
 
-Az alábbi kódrészlet a szöveg tájolását a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal balra** forgatja a szöveget:
+A következő kódrészlet a szövegorientációt a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal óramutató járásával ellentétesen** forgatja a szöveget:
 
 ```java
 import com.aspose.slides.*;
@@ -575,11 +575,63 @@ Az eredmény:
 
 ![A szöveg forgatása](text_rotation.png)
 
-## **Egyéni forgás beállítása szövegdobozokhoz**
+## **Számjegyek egymás mellett megjelenítése függőleges szövegben**
 
-Használja az [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) metódust egy egyéni forgásszög beállításához egy [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) számára.
+Kétjegyű szám függőleges japán címkében való egyben tartásához tegye mindkét számjegyet egy szövegrészbe, és hívja meg az [IBasePortionFormat.setKumimoji](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setKumimoji-byte-) metódust azon a részen. A példa a [TextVerticalType.EastAsianVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textverticaltype/#EastAsianVertical) és 40 pontos MS Gothic betűtípust használ mindkét címkéhez. A numerikus részhez átadott [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) érték a különbség.
 
-Az alábbi kódrészlet a szövegdobozt 3 fokkal óramutató járásával megegyező irányban forgatja az alakzaton belül:
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] settings = { NullableBool.True, NullableBool.False };
+    float x = 120;
+
+    for (byte kumimoji : settings) {
+        IAutoShape label = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, 48, 120, 420);
+        label.getFillFormat().setFillType(FillType.NoFill);
+        label.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame frame = label.addTextFrame("");
+        frame.getTextFrameFormat().setTextVerticalType(TextVerticalType.EastAsianVertical);
+
+        IParagraph paragraph = frame.getParagraphs().get_Item(0);
+        IPortionFormat format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        FontData font = new FontData("MS Gothic");
+        format.setLatinFont(font);
+        format.setEastAsianFont(font);
+        format.setFontHeight(40);
+        format.getFillFormat().setFillType(FillType.Solid);
+        format.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        Portion digits = new Portion("12");
+        digits.getPortionFormat().setKumimoji(kumimoji);
+
+        paragraph.getPortions().clear();
+        paragraph.getPortions().add(new Portion("令和"));
+        paragraph.getPortions().add(digits);
+        paragraph.getPortions().add(new Portion("年"));
+
+        x += 240;
+    }
+    presentation.save("vertical_date.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPointban a bal címke (`True`) a számjegyeket függőlegesen és egymás mellett jeleníti meg a 和 és 年 között. A jobb címke (`False`) esetén a párosítás **90 fokkal óramutató járásával megegyezően** forog. A környező japán karakterek mindkét címkén álló helyzetben maradnak.
+
+![PowerPoint összehasonlítás függőleges dátumcímkékkel: bal oldalon álló számjegyek, jobb oldalon forgatott számjegyek](vertical_date.png)
+
+## **Egyéni forgatás beállítása szövegdobozokhoz**
+
+Használja az [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) metódust, hogy egyéni forgatási szöget állítson be egy [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) számára.
+
+Az alábbi kódrészlet 3 fokos óramutató járásával megegyező forgatást alkalmaz a szövegdobozra az alakzaton belül:
 
 ```java
 import com.aspose.slides.*;
@@ -601,14 +653,14 @@ Az eredmény:
 
 ![Az egyéni szövegforgatás](custom_text_rotation.png)
 
-## **Bekezdés sortávolságának beállítása**
+## **Bekezdés sorközének beállítása**
 
-Az Aspose.Slides a [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) és [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) metódusokkal szabályozza a bekezdés‑távolságot. Ezek a tulajdonságok a következőképpen használhatók:
+Az Aspose.Slides a [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) és [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) metódusokkal szabályozza a bekezdés sorközét. Ezeket a tulajdonságokat a következőképpen lehet használni:
 
-* Pozitív érték esetén a sor‑távolság a sormagasság százalékában adható meg.
-* Negatív érték esetén a sor‑távolság pontban adható meg.
+* Pozitív érték esetén a sortávolság a sormagasság százalékában adható meg.
+* Negatív érték esetén a sortávolság pontban adható meg.
 
-Az alábbi példa a első bekezdésen belüli távolságot a sormagasság 200 %-ára (dupla sorköz) állítja be:
+A következő példa a első bekezdés sorközét a sormagasság 200 %-ára (dupla sorköz) állítja be:
 
 ```java
 import com.aspose.slides.*;
@@ -630,18 +682,18 @@ try {
 
 Az eredmény:
 
-![A sor‑távolság a bekezdésben](line_spacing.png)
+![A sorköz a bekezdésen belül](line_spacing.png)
 
-## **Sortörés vezérlése**
+## **Sortörés szabályainak vezérlése**
 
-A bekezdés sortörési szabályai szűk szövegtáblákban és latin‑ és kelet‑ázsiai szöveget keverő prezentációkban hasznosak. A következő metódusok az [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/) részei, ezért egész bekezdésre vonatkoznak:
+A bekezdés sortörés szabályai szűk szövegdobozokban és olyan bemutatókban hasznosak, ahol a latin és az ázsiai szöveg keveredik. A következő metódusok az [IParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/) tagjai, ezért egy teljes bekezdésre vonatkoznak:
 
-- A [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) a latin sortörési szabályokat szabályozza. Vegyes szövegben a módosítás hatással lehet a szomszédos kelet‑ázsiai szöveg és írásjel tördelésére is.
-- A [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) a kelet‑ázsiai sortörési szabályokat szabályozza, beleértve a sor elején és végén lévő karakterek korlátozását.
+- [setLatinLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) szabályozza a latin sortörés szabályait. Vegyes szöveg esetén a módosítás befolyásolhatja a szomszédos ázsiai szöveg és írásjelek sortörésének helyét is.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) szabályozza az ázsiai sortörés szabályait, beleértve a sor elején és végén megengedett karakterek korlátozását.
 
-Ezek a szabályok nem helyettesítik a [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) metódust, amely a szövegdobozon belüli automatikus tördelést engedélyezi. A tördelés során befolyásolják a layoutot; nem szúrnak be sortörés‑karaktereket. Egy explicit sortörés új sort hoz létre a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
+Ezek a szabályok nem helyettesítik az [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) metódust, amely automatikus sortörést engedélyez a szövegdobozon belül. A sortörési szabályok a layoutot befolyásolják, amikor a sortörés bekövetkezik; karaktereket vagy sortörő jeleket nem helyeznek be. Egy explicit sortörés új sort kényszerít a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
 
-Az alábbi önálló példa egy szűk szövegtáblát hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési opciót explicit módon beállítja, és elmenti a „line_breaking.pptx” fájlt. A szabályok kipróbálásához változtassa meg a megfelelő értéket, miközben a másik beállítást változatlanul hagyja. A példa 24 pontos Arial‑t és SimSun‑t használ 160 pontos keretszélességgel és nulla vízszintes szövegdoboz‑margóval. A [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) értékkel van meghívva, hogy a szövegméret és a keretméretek rögzítve maradjanak.
+A következő önálló példa szűk szövegdobozt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörési opciót explicit módon beállítja, majd elmenti a **line_breaking.pptx** fájlt. A szabályok kipróbálásához változtassa meg a megfelelő értéket, miközben a másik beállítást változatlanul hagyja. A példa 24 pontos Arial és SimSun betűket, 160 pontos keretszélességet és nulla horizontális szövegdoboz margót használ. Az [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) metódus a [TextAutofitType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textautofittype/) értékkel van meghívva, hogy a szövegméret és a keretméretek rögzítve maradjanak.
 
 ```java
 import com.aspose.slides.*;
@@ -683,9 +735,9 @@ try {
 
 ## **Függőleges írásjelek vezérlése**
 
-Az [IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) lehetővé teszi, hogy a jogosult írásjelek a szövegsor jobb szélén túlnyúljanak ahelyett, hogy a következő sorba kerülnek. Ez az egész bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
+Az [IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) lehetővé teszi, hogy az elegendő írásjelek a sor jobb szélén túl nyúljanak, ahelyett, hogy a következő sorba kerülnek. A beállítás az egész bekezdésre vonatkozik, és eltér a függőleges behúzástól.
 
-Az alábbi önálló példa engedélyezi a függőleges írásjelek használatát egy 100 pontos széles szövegdobozban, és elmenti a „hanging_punctuation.pptx” fájlt. 24 pontos Arial és nulla vízszintes szövegdoboz‑margók mellett a végpont a „sentence” szó után marad, és a jobb szöveg‑szél túlra nyúlik. Állítsa a tulajdonságot a [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) értékre az összehasonlításhoz: ezekkel a beállításokkal a pont egy külön sorba kerül. A tördelés engedélyezett, az automatikus illesztés le van tiltva a rendelkezésre álló szélesség rögzítése érdekében.
+A következő önálló példa 100 pont széles szövegdobozban engedélyezi a függőleges írásjelek használatát, majd elmenti a **hanging_punctuation.pptx** fájlt. 24 pontos Arialrel és nulla horizontális szövegdoboz margóval a végső pont a "sentence" után marad, és a jobb szövegszegmens fölé nyúlik. Állítsa a tulajdonságot [NullableBool.False](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) értékre a összehasonlításhoz: ezekkel a beállításokkal a pont külön sorba kerül. A sortörés engedélyezett, az automatikus illesztés letiltott a szélesség fixen tartásához.
 
 ```java
 import com.aspose.slides.*;
@@ -722,11 +774,11 @@ try {
 }
 ```
 
-Nem minden írásjel függőleges lehet. A fentebb leírt [betű‑ és layout‑feltételek](#control-line-breaking) szintén érvényesek erre az összehasonlításra: a betű, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
+Nem minden írásjel függhet fel. A fenti **font and layout conditions** leírása (lásd a [Sortörés szabályainak vezérlése](#control-line-breaking) részt) szintén érvényes erre az összehasonlításra: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
 
 ## **Automatikus illesztés típusának beállítása szövegdobozokhoz**
 
-Az [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) meghatározza, hogyan viselkedjen a szöveg, ha meghaladja a tároló határait. Ezzel szabályozható, hogy a szöveg zsugorodjon, kikerüljön vagy a forma automatikusan átméreteződjön. Az alábbi példa a forma automatikus átméretezését állítja be, hogy a szöveghez igazodjon, és az eredményt a „autofit_type.pptx” fájlba menti.
+Az [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) határozza meg, hogyan viselkedik a szöveg, ha túllépi a tároló határait. Ezzel szabályozhatja, hogy a szöveg összezsugorodjon, kilógjon vagy a forma automatikusan átméreteződjön. A következő példa a formát a szöveghez igazítandóan méretezi, és elmenti az eredményt a **autofit_type.pptx** fájlba.
 
 ```java
 import com.aspose.slides.*;
@@ -744,11 +796,11 @@ try {
 }
 ```
 
-Az automatikus tördelés után a sorok számlálásához és a szöveg‑ vagy forma‑szélesség változásának megtekintéséhez lásd a [Count Rendered Lines](/slides/hu/androidjava/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg kikerült‑e a tárolóból.
+Az automatikus sortörés utáni sorok számolásához és a szöveg vagy a forma szélességének változásának megtekintéséhez tekintse meg a [Megjelenített sorok számlálása](/slides/hu/androidjava/manage-paragraph/) oldalt. A sorok száma önmagában nem jelzi, hogy a szöveg túllépi-e a tárolót.
 
-## **Szövegdoboz horgonyának beállítása**
+## **Szövegdobozok rögzítésének beállítása**
 
-Az [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) meghatározza, hogyan helyezkedjen el a szöveg függőlegesen egy alakzaton belül, például fent, középen vagy lent. Az alábbi példa a szöveget az első alakzat aljához rögzíti, és az eredményt a „text_anchor.pptx” fájlba menti.
+Az [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) határozza meg, hogyan helyezkedik el a szöveg függőlegesen egy alakzaton belül, például a tetején, közepén vagy alján. A következő példa a szöveget az első alakzat aljára rögzíti, és elmenti a **text_anchor.pptx** fájlt.
 
 ```java
 import com.aspose.slides.*;
@@ -768,7 +820,7 @@ try {
 
 ## **Szöveg tabulációjának beállítása**
 
-Használja az [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) és a [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) metódusokat tabulátor‑állások beállításához egy bekezdésben. Az alábbi példa az alapértelmezett tabulátor‑intervallumot 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontra. Ezek a beállítások a tabulátor‑karaktert tartalmazó szövegre hatnak.
+Használja az [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) és az [IParagraphFormat.getTabs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) metódusokat a bekezdés tabulátorainak konfigurálásához. A következő példa az alapértelmezett tabulátor-intervallumot 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontnál. Ezek a beállítások a tabulátor karaktereket tartalmazó szövegre hatnak.
 
 ```java
 import com.aspose.slides.*;
@@ -793,11 +845,11 @@ Az eredmény:
 
 ![A bekezdés tabulátorai](paragraph_tabs.png)
 
-## **Helyesírás‑nyelv beállítása**
+## **Helyesírás-ellenőrzési nyelv beállítása**
 
-Az Aspose.Slides a [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) metódusával lehetővé teszi a helyesírás‑nyelv beállítását egy szövegrészhez. A helyesírás‑nyelv határozza meg, hogy a PowerPoint milyen nyelvet használjon a helyesírás‑ és nyelvtanellenőrzéshez.
+Az Aspose.Slides biztosítja az [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) metódust, amely lehetővé teszi a szövegrész helyesírás-ellenőrzési nyelvének beállítását. A helyesírás-ellenőrzési nyelv határozza meg a PowerPointban a helyesírás- és nyelvtani ellenőrzés nyelvét.
 
-Az alábbi példa a „presentation.pptx” fájlt igényli, amely első alakzata egy szövegdoboz az első dián, és legalább egy bekezdést tartalmaz. A első bekezdés tartalmát „1。”‑re cseréli, a betűtípust SimSun‑ra állítja, és a Simplified Chinese (`zh-CN`) helyesírás‑nyelvet rendeli hozzá. Az eredményt a „proofing_language.pptx” fájlba menti:
+A következő példa a **presentation.pptx** fájlt igényli, amelynek első diáján egy szövegdoboz az első alakzatként, és legalább egy bekezdéssel rendelkezik. Lecseréli az első bekezdés tartalmát „1。」” szövegre, a SimSun betűtípust állítja be, és a `zh-CN` (egyszerűsített kínai) helyesírás-ellenőrzési nyelvet rendeli hozzá. Az eredményt a **proofing_language.pptx** fájlba menti:
 
 ```java
 import com.aspose.slides.*;
@@ -832,7 +884,7 @@ try {
 
 ### **Nyelvi metaadatok másolása**
 
-Többnyelvű szöveg sablonból másolásakor meg kell őrizni mind a [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) , mind a [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--) értékeket. Az alábbi önálló példa egy forrás‑részt hoz létre, amelynek nyelve az amerikai angol, alternatív nyelve a francia, és a szöveget és az azonosítókat egy új prezentációban lévő részhez másolja.
+Többnyelvű szöveg sablonból való másolásakor meg kell őrizni mind az [IBasePortionFormat.getLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getLanguageId--) , mind az [IBasePortionFormat.getAlternativeLanguageId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getAlternativeLanguageId--) értékeket. A következő önálló példa egy forrásrészt hoz létre, amelynek nyelve az amerikai angol, alternatív nyelve a francia, és átviszi a szöveget és az azonosítókat egy új prezentáció egy részére.
 
 ```java
 import com.aspose.slides.*;
@@ -862,13 +914,13 @@ try {
 }
 ```
 
-Ha a forrásnak nincs alternatív nyelve, hagyja el a `"fr-FR"` hozzárendelését. Ebben az esetben az alternatív azonosító `null`, és ugyanaz a másolási utasítás megőrzi annak hiányát, anélkül, hogy alapértelmezett értéket vezetne be, még ha a célhely korábban alternatív nyelvet is tartalmazott.
+Ha a forrásnak nincs alternatív nyelve, hagyja el a `"fr-FR"` hozzárendelést. Ebben az esetben az alternatív azonosító `null`, és a másolás utasítás megőrzi ennek hiányát anélkül, hogy alapértelmezett értéket vezetne be, még akkor is, ha a célhelyen korábban már lett beállítva alternatív nyelv.
 
-Ezek az azonosítók nyelvi metaadatként vannak tárolva. A megőrzésük nem határozza meg, hogy a PowerPoint melyik szótárat használja a helyesírás‑ vagy nyelvtan‑ellenőrzéshez.
+Ezek az azonosítók nyelvi metaadatként vannak tárolva. A megtartásuk nem határozza meg, hogy a PowerPoint melyik szótárat használja a helyesírás- vagy nyelvtani ellenőrzéshez.
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használja a [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) metódust a szöveg alapértelmezett nyelvének meghatározásához prezentáció betöltésekor vagy létrehozásakor. Az alábbi példa az amerikai angolt állítja be alapértelmezett szövegnyelvként, egy szövegdobozt ad hozzá, és az első szövegrésznek `en-US`‑t ír ki.
+Használja a [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) metódust a prezentáció betöltése vagy létrehozása közben létrehozandó szöveg alapértelmezett nyelvének meghatározásához. A következő példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelvként az amerikai angolt (en‑US) állítja be, egy szövegdobozt ad hozzá, és kiírja az első szövegrésznek `en-US` értékét.
 
 ```java
 import com.aspose.slides.*;
@@ -884,7 +936,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Ellenőrizze az első szövegrész nyelvét.
+    // Ellenőrizzük az első szövegrész nyelvét.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -894,16 +946,16 @@ try {
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-A prezentáció szintjén az alapértelmezett szövegformázás alkalmazásához használja az [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--) metódust.
+A prezentáció szintjén alapértelmezett szöveges formázás alkalmazásához használja az [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--) metódust.
 
-Az alábbi példa 14 pontos félkövér betűt állít be alapértelmezettként a felső‑szintű bekezdésekhez egy új prezentációban, és elmenti a „default_text_style.pptx” fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak egy specifikusabb formázás nem írja felül őket.
+A következő példa 14 pontos félkövér betűt állít be alapértelmezettként az új prezentáció felső szintű bekezdéseihez, majd elmenti a **default_text_style.pptx** fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, kivéve ha specifikusabb formázás felülbírálja őket.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Kérje le a legfelső szintű bekezdésformátumot.
+    // Lekérjük a legfelső szintű bekezdésformátumot.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -917,15 +969,15 @@ try {
 }
 ```
 
-## **Szöveg kinyerése all‑caps hatással**
+## **Szöveg kinyerése nagybetűs hatással**
 
-PowerPointban az **All Caps** betűhatás alkalmazása a szöveget nagybetűsnek jeleníti meg a dián, még akkor is, ha eredetileg kisbetűvel lett beírva. Amikor az Aspose.Slides ilyen szövegrészt lekéri, a könyvtár pontosan úgy adja vissza a szöveget, ahogyan be lett gépelve. A megjelenített szövegnek megfelelően ellenőrizze a [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) értékét, és konvertálja a visszakapott karakterláncot nagybetűssé, ha a érték `All`.
+PowerPointban a **All Caps** betűhatás alkalmazása a szöveg megjelenését nagybetűssé teszi a diaon, még ha eredetileg kisbetűkkel lett beírás. Amikor az Aspose.Slides-pel ilyen szövegrészt kér le, a könyvtár pontosan a beírt szöveget adja vissza. A megjelenő szöveghez a [TextCapType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textcaptype/) ellenőrzésével és a visszakapott karakterlánc nagybetűssé alakításával kell egyezni, ha az érték `All`.
 
-Ez a példa a „sample2.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Első bekezdésének első része a „Hello, Aspose!” szöveget tartalmazza, az All Caps hatás alkalmazásával, ahogy az alább látható.
+Ez a példa a **sample2.pptx** fájlt igényli, amelynek első diáján egy szövegdoboz az első alakzatként. Az első bekezdés első része a **Hello, Aspose!** szöveget tartalmazza, amelyre az All Caps hatás van alkalmazva, az alábbiak szerint.
 
-![Az All Caps hatás](all_caps_effect.png)
+![A nagybetűs hatás](all_caps_effect.png)
 
-Az alábbi kódrészlet bemutatja, hogyan nyerhető ki a **All Caps** hatással rendelkező szöveg:
+A lenti kódrészlet bemutatja, hogyan nyerhető ki a **All Caps** hatással rendelkező szöveg:
 
 ```java
 import com.aspose.slides.*;
@@ -958,10 +1010,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan módosítható a táblázat szövege egy dián?**
+**Hogyan módosíthatom a szöveget egy dián lévő táblázatban?**
 
-A dián lévő táblázat szövegének módosításához használja az [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) interfészt. Iteráljon a cellákon, és frissítse az egyes cellákat az [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) és a bekezdés‑formázást az [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) segítségével.
+A szöveg módosításához egy dián lévő táblázatban használja a [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) interfészt. Iteráljon a cellákon, és frissítse az egyes cellákat az [ICell.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--) segítségével, valamint a bekezdésformázást az [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) metódussal.
 
-**Hogyan alkalmazható színátmenet a szövegre egy PowerPoint dián?**
+**Hogyan alkalmazhatok színátmenetet a szövegre egy PowerPoint dián?**
 
-A színátmenet színének alkalmazásához a szövegre használja az [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) metódust. Állítsa a [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) értékét [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) típusra, és konfigurálja a gradient‑állomásokat, irányt és átlátszóságot.
+A színátmenet alkalmazásához a szövegre használja az [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) metódust. Állítsa az [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) értékét a [FillType.Gradient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) típusra, és konfigurálja a gradient‑állomásokat, irányt és átlátszóságot.
