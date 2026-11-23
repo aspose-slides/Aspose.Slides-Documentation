@@ -281,6 +281,12 @@ In this example, enabling the option turns only the bold text into a bitmap: it 
 
 This option rasterizes text formatted as bold when its font has no dedicated bold typeface. [Font substitution](/slides/java/font-substitution/) instead selects another font when the original is unavailable.
 
+### **Handling Gradient Rendering Issues**
+
+When converting slides that contain gradient backgrounds with transparency, the resulting PDF may show visible banding on iPhone's default viewer and macOS Preview. This is caused by those viewers' inability to correctly render gradients that have transparency combined with a non-uniform transformation matrix. The PDF itself is rendered correctly and does not exhibit banding in Adobe Acrobat or when exported directly from PowerPoint.
+
+**Workaround:** Edit the gradient in the source PPTX so that it does not use transparency (for example, transition from the desired colour to white). After removing transparency, the exported PDF displays smoothly on iPhone and macOS Preview.
+
 ## **Convert Selected Slides from PowerPoint to PDF**
 
 The following example exports slides 1 and 3 from a presentation to PDF. Slide numbers in this array are one-based, and the input presentation must contain at least three slides.
