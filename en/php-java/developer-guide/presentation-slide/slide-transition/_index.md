@@ -106,6 +106,61 @@ try {
 
 Open the saved presentation in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see a single clockwise sweep. Then advance from slide 3 to slide 4 to see eight radial sectors reveal the same rectangle simultaneously.
 
+## **Fade Through Black with the Reveal Transition**
+
+Set the destination slide's transition type to Reveal, then call [setThroughBlack](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/#setThroughBlack) on its [RevealTransition](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/) settings. The example creates a teal source slide and a coral destination slide, then clones both. Each pair uses the same two-second Reveal transition. Only the second pair fades through black.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionLeftRightDirectionType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $source = $presentation->getSlides()->get_Item(0);
+    $destination = $presentation->getSlides()->addClone($source);
+
+    foreach ([
+        [$source, new Color(0, 128, 128), "Source"],
+        [$destination, new Color(255, 127, 80), "Destination"],
+    ] as [$slide, $color, $label]) {
+        $slide->getBackground()->setType(BackgroundType::OwnBackground);
+        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+        $shape->getTextFrame()->setText($label);
+        $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(44);
+    }
+
+    $presentation->getSlides()->addClone($source);
+    $clonedDestination = $presentation->getSlides()->addClone($destination);
+    foreach ([[$destination, false], [$clonedDestination, true]] as [$slide, $throughBlack]) {
+        $slide->getSlideShowTransition()->setType(TransitionType::Reveal);
+        $slide->getSlideShowTransition()->setSpeed(TransitionSpeed::Slow);
+        $slide->getSlideShowTransition()->setDuration(2000);
+        $slide->getSlideShowTransition()->getValue()->setDirection(TransitionLeftRightDirectionType::Left);
+        $slide->getSlideShowTransition()->getValue()->setThroughBlack($throughBlack);
+    }
+
+    $presentation->save("reveal-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Open the saved presentation in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see teal fade directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect.
+
+![PowerPoint playback with fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:

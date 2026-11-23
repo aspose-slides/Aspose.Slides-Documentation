@@ -99,6 +99,57 @@ presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
 
 Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
 
+## **Fade Through Black with the Reveal Transition**
+
+Set the destination slide's transition type to Reveal, then use [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/) to set [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/). The example creates a teal source slide and a coral destination slide, then clones both so you can compare the same two-second transition with the fade disabled and enabled.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+In a PowerPoint slide show, advance from slide 1 to slide 2. Teal fades directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect of the setting.
+
+![PowerPoint playback with ThroughBlack disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:

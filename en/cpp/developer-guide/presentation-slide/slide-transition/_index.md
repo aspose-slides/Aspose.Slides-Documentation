@@ -135,6 +135,85 @@ presentation->Dispose();
 
 Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
 
+## **Fade Through Black with the Reveal Transition**
+
+Set the destination slide's transition type to Reveal, then call [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/) on the [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/) interface. The example creates a teal source slide and a coral destination slide, then clones both so you can compare the same two-second transition with the fade through black disabled and enabled.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+In a PowerPoint slide show, advance from slide 1 to slide 2. Teal fades directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect of the setting.
+
+![PowerPoint playback with ThroughBlack disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
 
 ## **Add Advanced Slide Transition**
 

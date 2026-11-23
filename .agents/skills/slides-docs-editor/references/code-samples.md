@@ -31,7 +31,7 @@ paraphrases, repeated setup descriptions, and filler added solely to increase le
   such as `i` and `j` are acceptable.
 - Keep each statement on one physical line. Simplify long statements with meaningful intermediate values.
 - Do not create a local only to split a clear property, member-access, indexer, or getter chain.
-- Extract values used more than once, runtime casts, side effects, difficult chains, and semantically
+- Extract difficult chains and semantically
   important intermediate results.
 - Evaluate non-trivial I/O, loading, parsing, conversion, factory, or lookup calls before passing their
   results to another method. Apply the same rule to semantically meaningful nested construction.

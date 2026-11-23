@@ -105,6 +105,63 @@ finally:
 
 Open `wheel-transitions.pptx` in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see one clockwise sweep reveal the gold rectangle. Then advance from slide 3 to slide 4 to see eight radial sectors reveal the same rectangle simultaneously.
 
+## **Fade Through Black with the Reveal Transition**
+
+Set the destination slide's transition type to Reveal, then call [setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) on its [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/) settings. The example creates a teal source slide and a coral destination slide, then clones both. Each pair uses the same two-second Reveal transition. Only the second pair fades through black.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Open `reveal-transitions.pptx` in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see teal fade directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect.
+
+![PowerPoint playback with fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
