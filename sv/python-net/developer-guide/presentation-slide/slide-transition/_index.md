@@ -9,7 +9,7 @@ keywords:
 - lägg till bildövergång
 - tillämpa bildövergång
 - avancerad bildövergång
-- morph‑övergång
+- Morph-övergång
 - övergångstyp
 - övergångseffekt
 - PowerPoint
@@ -17,15 +17,15 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Applicera bildövergångar, konfigurera automatisk bildfortsättning, och anpassa Morph och andra övergångseffekter med Aspose.Slides för Python via .NET."
+description: "Applicera bildövergångar, konfigurera automatisk bildavancering och anpassa Morph och andra övergångseffekter med Aspose.Slides för Python via .NET."
 ---
 ## **Översikt**
 
-Bildspelövergångar styr hur bilder visas under ett bildspel. Med Aspose.Slides för Python via .NET kan du välja en övergångseffekt för varje bild, konfigurera vidaregång med musklick eller timer och justera alternativ som är specifika för en effekt. Denna artikel använder Python‑exempel för att tillämpa övergångar, ange exakta övergångstider, hantera bildtidsinställningar och skapa en Morph‑övergång mellan två bilder. Exemplen visar också hur man sparar inställningarna till en PPTX‑fil.
+Bildövergångar styr hur bilder visas under ett bildspel. Med Aspose.Slides för Python via .NET kan du välja en övergångseffekt för varje bild, konfigurera avancerad stegning med musklick eller timer och justera alternativ specifika för en effekt. Den här artikeln använder Python-exempel för att tillämpa övergångar, ställa in exakta övergångstider, hantera bildtid och skapa en Morph‑övergång mellan två bilder. Exemplen visar också hur du sparar inställningarna till en PPTX‑fil.
 
 ## **Lägg till bildövergång**
 
-För att tillämpa en övergång, ladda en presentation med klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) och nå bildens egenskap [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Sätt dess [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), spara sedan presentationen.
+För att tillämpa en övergång, läs in en presentation med klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) och få åtkomst till bildens egendom [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Sätt dess [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), och spara sedan presentationen.
 
 Följande exempel tillämpar en Circle‑övergång på den första bilden och en Comb‑övergång på den andra. Använd en `input.pptx`‑fil med minst två bilder.
 
@@ -42,11 +42,11 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-## **Wheel‑övergång**
+## **Hjul‑övergång**
 
-Egenskapen [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) i [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) styr antalet radiala sektorer som avslöjar destinationsbilden. Sätt bildens övergångs‑[type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till WHEEL från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) innan du får åtkomst till [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) som [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
+Egenskapen [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) för [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) styr antalet radiella sektorer som avslöjar målbilden. Ställ in bildens övergångs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till WHEEL från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) innan du får åtkomst till [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) som [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
 
-Detta exempel skapar två identiska bildpar: en svart bild följt av en bild med en gul rektangel. Destinationsbilderna använder antalet spoke på 1 respektive 8, med samma [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) och en explicit [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) på 8 000 millisekunder för att göra skillnaden lätt att observera.
+Detta exempel skapar två identiska bildpar: en svart bild följt av en bild med en guldrektangel. Målbilderna använder antalet spår (spokes) 1 respektive 8, med samma [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) och en explicit [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) på 8 000 millisekunder för att göra skillnaden lätt att observera.
 
 ```python
 import aspose.slides as slides
@@ -82,19 +82,64 @@ with slides.Presentation() as presentation:
     presentation.save("wheel-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Öppna den sparade presentationen i PowerPoint och kör bildspelet. Gå från bild 1 till bild 2, sedan från bild 3 till bild 4. I PowerPoint‑uppspelning visar den verifierade spoke‑räkningen 1 bilden med ett medurs svep; den verifierade räknaren 8 visar den genom åtta radiala sektorer samtidigt. Destinationsinnehållet och övergångstiden är identiska, så skillnaden är antalet avslöjandesektorer.
+Öppna den genererade presentationen i PowerPoint och kör bildspelet. Gå från bild 1 till bild 2, sedan från bild 3 till bild 4. I PowerPoint‑uppspelning avslöjar den verifierade spårräkningen 1 bilden med en enkel medurs svepning; den verifierade räknaren 8 avslöjar den genom åtta radiella sektorer samtidigt. Målinnehållet och övergångstiden är identiska, så skillnaden är antalet avslöjande sektorer.
+
+## **Tona genom svart med Reveal‑övergång**
+
+Ställ in målbildens övergångs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till Reveal, sätt sedan [through_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/through_black/) på det resulterande [RevealTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/)‑objektet. Exemplet skapar en turkos källbild och en korallfärgad målbild, och klonar sedan paret. Båda paren använder samma tvåsekunders Reveal‑övergång. Endast det andra paret tonar genom svart.
+
+```python
+import aspose.slides as slides
+
+
+def style_slide(slide, background_color, label):
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.preset_color = background_color
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 160, 180, 400, 130)
+    shape.text_frame.text = label
+    shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 44
+
+
+with slides.Presentation() as presentation:
+    source = presentation.slides[0]
+    destination = presentation.slides.add_clone(source)
+    style_slide(source, slides.PresetColor.TEAL, "Source")
+    style_slide(destination, slides.PresetColor.CORAL, "Destination")
+    presentation.slides.add_clone(source)
+    presentation.slides.add_clone(destination)
+
+    for index in (1, 3):
+        transition = presentation.slides[index].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.REVEAL
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 2000
+        
+        reveal = transition.value
+        reveal.direction = slides.slideshow.TransitionLeftRightDirectionType.LEFT
+        reveal.through_black = index == 3
+
+    presentation.save("reveal-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Öppna `reveal-transitions.pptx` i PowerPoint och starta bildspelet. Gå från bild 1 till bild 2 för att se den turkosa tonas direkt in i korallen. Gå sedan från bild 3 till bild 4. Skärmen mörknar kort till nästan svart innan den korallfärgade bilden visas. Båda bilderna behåller sina ursprungliga bakgrundsfärger.
+
+Raderna nedanför visar ramar från PowerPoint med halvt sekunders intervall. Jämför den mellersta ramen i varje rad för att se effekten av inställningen.
+
+![PowerPoint‑uppspelning med through_black inaktiverad (överst) och aktiverad (nedst). Endast den nedre raden passerar genom nästan svart.](reveal-through-black.png)
 
 ## **Lägg till avancerad bildövergång**
 
-Du kan konfigurera hur länge en bild förblir på skärmen och om ett musklick går vidare i bildspelet. Följande egenskaper styr detta beteende:
+Du kan konfigurera hur länge en bild förblir på skärmen och om ett musklick avancerar bildspelet. Följande egenskaper styr detta beteende:
 
-- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) låter betraktaren gå vidare genom att klicka med musen.
-- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) möjliggör automatisk vidaregång.
-- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) specificerar fördröjningen innan automatisk vidaregång, i millisekunder.
+- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) tillåter betraktaren att gå vidare genom att klicka med musen.
+- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) aktiverar automatisk avancerning.
+- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) anger fördröjningen innan automatisk avancerning, i millisekunder.
 
-Aktivera både klick‑ och tidsbaserad vidaregång så att betraktaren kan gå vidare med ett klick eller vänta på timern. För att endast använda timern, sätt [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) till `False`. Fördröjningen styr när bildspelet går vidare; den bestämmer inte varaktigheten för den visuella övergångseffekten.
+Aktivera både klick- och tidsbaserad avancerning så att betraktaren kan fortsätta med ett klick eller vänta på timern. För att bara använda timern, sätt [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) till `False`. Fördröjningen styr när bildspelet avancerar; den ställer inte in varaktigheten för den visuella övergångseffekten.
 
-Detta exempel tilldelar olika effekter till de tre första bilderna och aktiverar automatisk vidaregång efter 3, 5 respektive 7 sekunder. Mus‑klick kan också gå vidare på dessa bilder. Använd en `input.pptx`‑fil med minst tre bilder.
+Detta exempel tilldelar olika effekter till de tre första bilderna och aktiverar automatisk avancerning efter 3, 5 respektive 7 sekunder. Mus‑klick kan också avancera dessa bilder. Använd en `input.pptx`‑fil med minst tre bilder.
 
 ```python
 import aspose.slides as slides
@@ -124,9 +169,9 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least three slides.")
 ```
 
-För att kontrollera om tidsbaserad vidaregång är aktiverad, läs [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). En lagrad fördröjning i sig indikerar inte att timern är aktiv.
+För att kontrollera om tidsbaserad avancerning är aktiverad, läs [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Ett lagrat fördröjningsvärde indikerar inte ensamt att timern är aktiv.
 
-Nästa exempel öppnar filen som sparades ovan, rapporterar varje aktiverad timer och inaktiverar automatisk vidaregång för bilder med en fördröjning längre än två sekunder. Det aktiverar musklick för de bilderna och sparar de uppdaterade inställningarna.
+Nästa exempel öppnar filen som sparades ovan, rapporterar varje aktiverad timer och inaktiverar automatisk avancerning för bilder med en fördröjning längre än två sekunder. Det aktiverar mus‑klick för dessa bilder och sparar de uppdaterade inställningarna.
 
 ```python
 import aspose.slides as slides
@@ -145,27 +190,25 @@ with slides.Presentation("advanced-transitions.pptx") as presentation:
     presentation.save("adjusted-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Styr övergångstiden exakt**
+## **Styr övergångstid exakt**
 
-Använd [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) för att ange den exakta längden på en övergångseffekt i millisekunder. Bildens egenskap [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) exponerar dessa inställningar via [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
+Använd [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) för att specificera den exakta längden på en övergångseffekt i millisekunder. Bildens [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/)‑egenskap exponerar dessa inställningar via [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
 
-| Property | Purpose |
+| Egenskap | Syfte |
 | --- | --- |
 | [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Anger varaktigheten för själva övergångseffekten, i millisekunder. |
-| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Anger fördröjningen innan bilden automatiskt går vidare, i millisekunder. Aktivera [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) för att slå på timern. |
-| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Väljer en fördefinierad hastighetskategori från [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM eller FAST. Den används när ingen exakt varaktighet har specificerats. |
+| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Anger fördröjningen innan bilden avancerar automatiskt, i millisekunder. Aktivera [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) för att starta timern. |
+| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Väljer en fördefinierad hastighetskategori från [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM eller FAST. Den används när ingen exakt varaktighet specificeras. |
 
-[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) styr endast övergångseffekten; den bestämmer inte hur länge bilden förblir synlig. Konfigurera den automatiska fördröjningen separat. När ingen explicit varaktighet anges bestämmer Aspose.Slides effektens varaktighet utifrån övergångstyp och värdet för [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
+[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) styr endast övergångseffekten; den bestämmer inte hur länge bilden förblir synlig. Konfigurera den automatiska avanceringsfördröjningen separat. När ingen explicit varaktighet är angiven bestämmer Aspose.Slides effektens varaktighet utifrån övergångstypen och [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/)-värdet.
 
-<!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separata staplar identifierar 750‑ms övergångstid och 5 000‑ms automatisk avanceringsinställning.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
-<!-- visual-explanation:slide-transition:end -->
+*Det gemensamma exemplet ger varje bild en 750‑ms Fade‑övergång och aktiverar separat automatisk avancerning efter 5 000 ms. Övergångstiden styr effekten; avanceringen styr när bilden lämnas. Dessa staplar är schematiska inställningar, inte en uppmätt kombinerad tidslinje.*
 
 ### **Tillämpa samma varaktighet på varje bild**
 
-För ett jämnt tempo, tillämpa samma effekt och exakt varaktighet på varje bild. Detta exempel laddar `input.pptx`, väljer Fade från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), och ger varje övergång en varaktighet på 750 millisekunder. Det aktiverar separat automatisk vidaregång efter 5 000 millisekunder och inaktiverar vidaregång med musklick, och sparar resultatet som PPTX.
+För jämn takt applicera samma effekt och exakt varaktighet på varje bild. Detta exempel läser in `input.pptx`, väljer Fade från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), och ger varje övergång en varaktighet på 750 millisekunder. Det aktiverar separat automatisk avancerning efter 5 000 millisekunder och inaktiverar avancerning med mus‑klick, och sparar sedan resultatet som PPTX.
 
 ```python
 import aspose.slides as slides
@@ -176,7 +219,7 @@ with slides.Presentation("input.pptx") as presentation:
         transition.type = slides.slideshow.TransitionType.FADE
         transition.duration = 750
 
-        # Konfigurera automatisk vidaregång oberoende av effektens varaktighet.
+        # Konfigurera automatisk avancering oberoende av effektens varaktighet.
         transition.advance_after = True
         transition.advance_after_time = 5000
         transition.advance_on_click = False
@@ -184,9 +227,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Ange olika varaktigheter för enskilda bilder**
+### **Ställ in olika varaktigheter för enskilda bilder**
 
-Olika bilder kan ha olika effektvaraktigheter. Till exempel kan en titelbild ha en kort övergång medan en sektionsintroduktion har en längre. Detta exempel sätter 500 millisekunder för den första bilden och 1 200 millisekunder för den andra. Använd en `input.pptx`‑fil med minst två bilder.
+Olika bilder kan använda olika varaktigheter för effekter. Till exempel kan en kort övergång användas för en titeldia och en längre för en sektionens introduktion. Detta exempel sätter 500 millisekunder för den första bilden och 1 200 millisekunder för den andra. Använd en `input.pptx`‑fil med minst två bilder.
 
 ```python
 import aspose.slides as slides
@@ -206,15 +249,15 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-### **Koordinera övergångar med animerad export**
+### **Koordinera övergångar med animerad utdata**
 
-När du förbereder en [animated GIF](/slides/sv/python-net/convert-powerpoint-to-animated-gif/), en [HTML5 presentation](/slides/sv/python-net/export-to-html5/), eller en [video](/slides/sv/python-net/convert-powerpoint-to-video/), ange exakta övergångstider innan export så att tempot blir rätt. Till exempel, använd en 600‑millisekunders fade mellan scener och justera varje bilds vidaregångsfördröjning separat för att ge tid för berättarrösten eller innehållet.
+När du förbereder en [animated GIF](/slides/sv/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/sv/python-net/export-to-html5/), eller [video](/slides/sv/python-net/convert-powerpoint-to-video/), ange exakta övergångstider innan export för att matcha den avsedda takten. Till exempel, använd en 600‑millisekunders toning mellan scener och justera varje bilds avanceringsfördröjning separat för att ge tid åt berättarrösten eller innehållet.
 
-För GIF och video, samordna bildfrekvensen med effektens varaktighet: 600 millisekunder motsvarar 18 bildrutor vid 30 bilder per sekund. I HTML5, aktivera animerade övergångar i exportinställningarna. Kontrollera vilka övergångar och tidsalternativ som stöds av det valda exportformatet och förhandsgranska resultatet för att bekräfta synkronisering.
+För GIF och video, koordinera utskrifts‑frame‑rate med effektens varaktighet: 600 millisekunder motsvarar 18 ramar vid 30 fps. I HTML5, aktivera animerade övergångar i exportinställningarna. Kontrollera vilka effekter och tidsalternativ som stöds av det valda exportformatet och förhandsgranska resultatet för att bekräfta synkronisering.
 
 ### **Läs en befintlig övergångsvaraktighet**
 
-Läs [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) innan du ändrar övergången för att avgöra om ett explicit värde är lagrat. Ett värde på `-1` betyder att ingen explicit varaktighet är satt; ett icke‑negativt värde specificerar den lagrade varaktigheten i millisekunder. Det osatta värdet är inte den beräknade uppspelningsvaraktigheten: Aspose.Slides använder övergångstyp och [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) för att bestämma den varaktigheten. Att sätta en övergångstyp kan initiera en varaktighet, så inspektera de ursprungliga inställningarna först.
+Läs [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) innan du modifierar övergången för att avgöra om ett explicit värde är lagrat. Ett värde på `-1` betyder att ingen explicit varaktighet är angiven; ett icke‑negativt värde specificerar den lagrade varaktigheten i millisekunder. Det oangivna värdet är inte den beräknade uppspelningsvaraktigheten: Aspose.Slides använder övergångstypen och [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) för att bestämma den varaktigheten. Att sätta en övergångstyp kan initiera en varaktighet, så inspektera först de ursprungliga inställningarna.
 
 ```python
 import aspose.slides as slides
@@ -232,9 +275,9 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Morph‑övergång**
 
-Morph‑övergången animerar förändringar mellan objekt på på varandra följande bilder. För att skapa en enkel Morph‑effekt, klona en bild, flytta eller ändra storlek på ett objekt i klonen och tillämpa Morph‑övergången på den andra bilden. Detta ger övergången motsvarande objekt att animera mellan deras ursprungliga och modifierade tillstånd.
+Morph‑övergången animerar förändringar mellan objekt på på varandra följande bilder. För att skapa en enkel Morph‑effekt, klona en bild, flytta eller ändra storlek på ett objekt i klonen och applicera Morph‑övergången på den andra bilden. Detta ger övergången motsvarande objekt att animera mellan deras ursprungliga och modifierade tillstånd.
 
-Följande exempel skapar en bild med en textruta, klonar bilden och ändrar rektangelns position och storlek i klonen. Den väljer sedan Morph från uppräkningen [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) för den andra bilden. Öppna den sparade filen i en presentationsvisare som stödjer Morph för att se effekten under ett bildspel.
+Följande exempel skapar en bild med en textruta, klonar bilden och ändrar rektangelns position och storlek i klonen. Därefter väljer det Morph från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/)‑uppräkningen för den andra bilden. Öppna den sparade filen i en presentationsvisare som stödjer Morph för att se effekten under ett bildspel.
 
 ```python
 import aspose.slides as slides
@@ -258,15 +301,13 @@ with slides.Presentation() as presentation:
 
 ## **Morph‑övergångstyper**
 
-Uppräkningen [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) styr hur Morph matchar och animerar innehåll:
+[TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/)‑uppräkningen styr hur Morph matchar och animera innehåll:
 
 - [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) behandlar varje form som ett helt objekt.
-- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animerar text genom att matcha ord där det är möjligt.
-- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animerar text genom att matcha tecken där det är möjligt.
+- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animera text genom att matcha ord där det är möjligt.
+- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animera text genom att matcha tecken där det är möjligt.
 
-Sätt övergångens [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till Morph innan du får åtkomst till dess [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Värdet ger då objektet [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), vars egenskap [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) väljer matchningsläge.
-
-Detta exempel öppnar presentationen som skapades i föregående avsnitt och konfigurerar den andra bilden att använda ord‑baserad Morph‑animation.
+Ställ in övergångs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till Morph innan du får åtkomst till dess [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Värdet ger då [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/)-objektet, vars [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/)‑egenskap väljer matchningsläget.
 
 ```python
 import aspose.slides as slides
@@ -288,9 +329,9 @@ with slides.Presentation("morph-transition.pptx") as presentation:
 
 ## **Ställ in övergångseffekter**
 
-Vissa övergångar visar ytterligare alternativ, t.ex. riktning eller om effekten ska börja från en svart skärm. Tillgängliga alternativ beror på den valda övergångens [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/). Sätt typen först, och använd sedan det lämpliga övergångsobjektet från dess [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
+Vissa övergångar exponerar ytterligare alternativ, såsom riktning eller om effekten startar från en svart skärm. Tillgängliga alternativ beror på den valda övergångs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/). Sätt typen först, använd sedan det lämpliga övergångsobjektet från dess [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
-Följande exempel tillämpar en Cut‑övergång på den första bilden i `input.pptx`. Det sätter [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) via [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) så att övergången börjar från en svart skärm.
+Följande exempel applicerar en Cut‑övergång på den första bilden i `input.pptx`. Det sätter [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) via [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) så att övergången startar från en svart skärm.
 
 ```python
 import aspose.slides as slides
@@ -309,18 +350,18 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **FAQ**
 
-**Kan jag styra uppspelningshastigheten för en bildövergång?**
+**Kan jag kontrollera uppspelningshastigheten för en bildövergång?**
 
-Ja. Föredra [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) när du behöver en exakt effektvaraktighet i millisekunder. Använd [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) när en fördefinierad kategori i [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) — SLOW, MEDIUM eller FAST — räcker och ingen explicit varaktighet är satt. Dessa inställningar styr övergångseffekten oberoende av den automatiska vidaregångsfördröjningen.
+Ja. Föredra [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) när du behöver en exakt effektvaraktighet i millisekunder. Använd [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) när en fördefinierad [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/)‑kategori—SLOW, MEDIUM eller FAST—räcker och ingen explicit varaktighet är angiven. Dessa inställningar styr övergångseffekten oberoende av den automatiska avanceringsfördröjningen.
 
-**Kan jag fästa ljud till en övergång och få det att loopa?**
+**Kan jag bifoga ljud till en övergång och låta det loopa?**
 
-Ja. Tilldela inbäddat ljud till [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), sätt [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) till START_SOUND från uppräkningen [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/), och aktivera [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Ljudet loopas tills nästa ljudhändelse i bildspelet.
+Ja. Tilldela inbäddat ljud till [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), sätt [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) till START_SOUND från [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/)-uppräkningen, och aktivera [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Ljudet loopas tills nästa ljudhändelse i bildspelet.
 
-**Vad är det snabbaste sättet att tillämpa samma övergång på varje bild?**
+**Vad är det snabbaste sättet att applicera samma övergång på varje bild?**
 
-Loopa igenom presentationens [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)‑samling och sätt varje bilds övergångs‑[type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till samma värde. Ställ in eventuell timing och effektalternativ i samma loop för att hålla beteendet jämnt över alla bilder.
+Loopa igenom presentationens [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/)‑samling och sätt varje bilds övergångs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) till samma värde. Ställ in eventuella timing‑ och effektalternativ i samma loop för att hålla beteendet konsekvent över alla bilder.
 
 **Hur kan jag kontrollera vilken övergång som för närvarande är inställd på en bild?**
 
-Läs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/)‑egenskapen från bildens [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Den returnerar ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); NONE betyder att ingen övergångseffekt är tillämpad.
+Läs [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/)‑egenskapen från bildens [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Den returnerar ett värde från [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/)-uppräkningen; NONE betyder att ingen övergångseffekt är applicerad.

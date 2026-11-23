@@ -1,15 +1,15 @@
 ---
-title: Beheer dia‑overgangen in presentaties met JavaScript
-linktitle: Dia‑overgang
+title: Beheer dia-overgangen in presentaties met JavaScript
+linktitle: Dia-overgang
 type: docs
 weight: 80
 url: /nl/nodejs-java/slide-transition/
 keywords:
-- dia‑overgang
-- dia‑overgang toevoegen
-- dia‑overgang toepassen
-- geavanceerde dia‑overgang
-- morph‑overgang
+- dia-overgang
+- dia-overgang toevoegen
+- dia-overgang toepassen
+- geavanceerde dia-overgang
+- Morph-overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pas dia‑overgangen toe, configureer automatische voortzetting van dia's en pas morph‑ en andere overgangseffecten aan met Aspose.Slides for Node.js via Java."
+description: "Pas dia-overgangen toe, configureer automatische voortgang van dia's en pas Morph en andere overgangseffecten aan met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Dia‑overgangen bepalen hoe dia’s verschijnen tijdens een diavoorstelling. Met Aspose.Slides for Node.js via Java kun je voor elke dia een overgangseffect kiezen, de voortgang instellen via muisklik of timer, en opties aanpassen die specifiek zijn voor een effect. Dit artikel gebruikt JavaScript‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, de timing van dia’s te beheren en een Morph‑overgang tussen twee dia’s te creëren. De voorbeelden tonen ook hoe je de instellingen opslaat in een PPTX‑bestand.
+Dia‑overgangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides voor Node.js via Java kun je voor elke dia een overgangseffect kiezen, de voortgang via muisklik of timer configureren en opties aanpassen die specifiek zijn voor een effect. Dit artikel gebruikt JavaScript‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, de timing van dia's te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
 ## **Dia‑overgang toevoegen**
 
-Om een overgang toe te passen, laad je een presentatie met de [Presentatie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑klasse en krijg je toegang tot de overgangsinstellingen van de dia via [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Gebruik [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) met een waarde uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)-enumeratie, sla vervolgens de presentatie op.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑klasse en krijg je toegang tot de overgangsinstellingen van de dia via [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Gebruik [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) met een waarde uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)‑enumeratie en sla vervolgens de presentatie op.
 
-Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia's.
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minimaal twee dia's.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Wheel‑overgang**
+## **Wiel‑overgang**
 
-De [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes)-methode van [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) bepaalt het aantal radiale sectoren waarmee de bestemmingsdia wordt onthuld. Stel het overgangstype van de dia in op Wheel via [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) met [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) voordat je [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) benadert als [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+De [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes)‑methode van [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) bepaalt het aantal radiale sectoren dat de doel‑dia onthult. Stel het overgangstype van de dia in op Wheel via [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) met behulp van [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) voordat je [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) benadert als [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-Dit voorbeeld maakt twee identieke paren dia’s: een zwarte dia gevolgd door een dia met een gouden rechthoek. De bestemmingsdia’s gebruiken respectievelijk 1 en 8 spaken, met dezelfde snelheid ingesteld via [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) en een expliciete duur van 8 000 ms ingesteld via [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) om het verschil makkelijk waar te nemen.
+Dit voorbeeld maakt twee identieke paren dia's: een zwarte dia gevolgd door een dia met een gouden rechthoek. De doel‑dia's gebruiken respectievelijk 1 en 8 spaken, met dezelfde snelheid ingesteld via [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) en een expliciete duur van 8000 milliseconden ingesteld via [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) zodat het verschil gemakkelijk waarneembaar is.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,73 @@ try {
 }
 ```
 
-Open de uitvoerpresentatie in PowerPoint en voer de diavoorstelling uit. Ga van dia 1 naar dia 2, daarna van dia 3 naar dia 4. In PowerPoint‑afspelen onthult de gecontroleerde spoed van 1 de dia met één ronddraaiende veeg; de gecontroleerde spoed van 8 onthult deze via acht radiale sectoren tegelijk. De bestemmingsinhoud en overgangstiming zijn identiek, dus het verschil zit in het aantal onthullingssectoren.
+Open de gegenereerde presentatie in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2, vervolgens van dia 3 naar dia 4. In de weergave van PowerPoint onthult het gecontroleerde aantal spaken van 1 de dia met één klokwijzerbeweging; het gecontroleerde aantal van 8 onthult deze via acht radiale sectoren tegelijk. De doelinhoud en de overgangstiming zijn identiek, dus het verschil zit in het aantal onthullingssectoren.
+
+## **Vervagen naar zwart met de Reveal‑overgang**
+
+Stel het overgangstype van de doel‑dia in op Reveal en roep vervolgens [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) aan op de [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/)‑instellingen. Dit voorbeeld maakt een teal bron‑dia en een koraal‑doel‑dia, waarna beide worden gekloond. Elk paar gebruikt dezelfde twee‑seconde Reveal‑overgang. Alleen het tweede paar vervaagt via zwart.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
+
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.Transiti
+
+onSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open de opgeslagen presentatie in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 om teal direct in coral te laten vervagen. Ga vervolgens van dia 3 naar dia 4. Het scherm wordt kort donker tot bijna zwart voordat de coral‑dia verschijnt. Beide dia's behouden hun oorspronkelijke achtergrondkleuren.
+
+De onderstaande rijen tonen frames uit PowerPoint met intervallen van een halve seconde. Vergelijk het middelste frame in elke rij om het effect te zien.
+
+![PowerPoint‑afspeel​weergave met de fade‑through‑black uitgeschakeld (boven) en ingeschakeld (onder). Alleen de onderste rij passeert bijna zwart.](reveal-through-black.png)
 
 ## **Geavanceerde dia‑overgang toevoegen**
 
 Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) laat de kijker doorgaan door te klikken.
-- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) schakelt automatische voortzetting in.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) bepaalt de vertraging vóór automatische voortzetting, in milliseconden.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) stelt de kijker in staat om door op de muis te klikken vooruit te gaan.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) schakelt automatische voortgang in.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) geeft de vertraging vóór automatische voortgang op, in milliseconden.
 
-Schakel zowel klikken als timer‑voortzetting in zodat de kijker kan doorgaan met klikken of wachten op de timer. Om alleen de timer te gebruiken, geef je `false` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). De vertraging bepaalt wanneer de diavoorstelling voortschrijdt; hij stelt niet de duur van het visuele overgangseffect in.
+Schakel zowel klikken als tijdsgebonden voortgang in zodat de kijker kan doorgaan met een klik of wachten op de timer. Om alleen de timer te gebruiken, geef `false` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). De vertraging bepaalt wanneer de diavoorstelling voortschrijdt; hij stelt niet de duur van het visuele overgangseffect in.
 
-Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia’s en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia’s ook voortzetten. Gebruik een `input.pptx`‑bestand met ten minste drie dia's.
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortgang in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook vooruit laten gaan. Gebruik een `input.pptx`‑bestand met minimaal drie dia's.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +197,9 @@ try {
 }
 ```
 
-Om te controleren of timer‑voortzetting is ingeschakeld, roep je [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) aan. Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
+Om te controleren of tijdsgebonden voortgang is ingeschakeld, roep je [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) aan. Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
 
-Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer en schakelt automatische voortzetting uit voor dia’s met een vertraging groter dan twee seconden. Het schakelt muisklikken voor die dia’s in en slaat de bijgewerkte instellingen op.
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer en schakelt automatische voortgang uit voor dia's met een vertraging groter dan twee seconden. Het schakelt muiskliks in voor die dia's en slaat de bijgewerkte instellingen op.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -174,25 +228,25 @@ try {
 
 ## **Overgangstiming nauwkeurig regelen**
 
-Gebruik [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)-methode van de dia maakt deze instellingen beschikbaar via [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
+Gebruik [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)‑methode van de dia maakt deze instellingen toegankelijk via [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Methode | Doel |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Stelt de vertraging vóór automatische voortzetting van de dia in, in milliseconden. Geef `true` door aan [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) om deze timer te activeren. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Stelt de vertraging in voordat de dia automatisch wordt voortgezet, in milliseconden. Geef `true` door aan [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) om deze timer te activeren. |
 | [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium of Fast. Wordt gebruikt wanneer geen exacte duur is gespecificeerd. |
 
-[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) regelt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettingsvertraging afzonderlijk. Wanneer geen expliciete duur is opgegeven, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de waarde van [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) beïnvloedt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortgangsvertraging apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur op basis van het overgangstype en de [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde.
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Aparte balken geven de 750‑ms overgangsduur en de 5000‑ms automatische voortgangsinstelling weer.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Het gedeelde voorbeeld geeft elke dia een 750‑ms Fade‑overgang en schakelt onafhankelijk een automatische voortzetting in van 5 000 ms. De duur van de overgang bepaalt het effect; de voortzetting bepaalt wanneer de dia wordt verlaten. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
+*Het gedeelde voorbeeld geeft elke dia een 750‑ms Fade‑overgang en schakelt apart automatische voortgang in na 5000 ms in. De duur van de overgang bepaalt het effect; voortgang bepaalt wanneer de dia wordt verlaten. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Dezelfde duur toepassen op elke dia**
+### **Dezelfde duur op elke dia toepassen**
 
-Voor een consistente timing kun je hetzelfde effect en dezelfde exacte duur op elke dia toepassen. Dit voorbeeld laadt `input.pptx`, kiest Fade uit [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt onafhankelijk een automatische voortzetting in na 5 000 milliseconden en schakelt voortzetting via muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
+Voor een consistente timing kun je hetzelfde effect en dezelfde exacte duur op elke dia toepassen. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) en geeft elke overgang een duur van 750 milliseconden. Het schakelt apart automatische voortgang in na 5000 milliseconden en schakelt voortgang via muisklik uit, waarna het resultaat wordt opgeslagen als PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -205,7 +259,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Configureer automatische voortzetting onafhankelijk van de effectduur.
+        // Configureer automatische voortgang onafhankelijk van de effectduur.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -217,9 +271,9 @@ try {
 }
 ```
 
-### **Verschillende duur per dia instellen**
+### **Verschillende duurwaarden voor individuele dia's instellen**
 
-Dia’s kunnen verschillende effectduren hebben. Gebruik bijvoorbeeld een korte overgang voor een titel­dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 ms in voor de eerste dia en 1 200 ms voor de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia’s.
+Verschillende dia's kunnen verschillende effectduren hebben. Gebruik bijvoorbeeld een korte overgang voor een titeldia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met minimaal twee dia's.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -246,13 +300,13 @@ try {
 
 ### **Overgangen coördineren met geanimeerde output**
 
-Wanneer je een [animated GIF](/slides/nl/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5‑presentatie](/slides/nl/nodejs-java/export-to-html5/) of [video](/slides/nl/nodejs-java/convert-powerpoint-to-video/) maakt, stel dan exacte overgangsduren in vóór het exporteren om de beoogde timing te laten overeenkomen. Gebruik bijvoorbeeld een fade van 600 ms tussen scènes, en stel voor elke dia de voortzettingsvertraging apart in om tijd te bieden voor de bijbehorende voice‑over of inhoud.
+Bij het voorbereiden van een [animated GIF](/slides/nl/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/nl/nodejs-java/export-to-html5/), of [video](/slides/nl/nodejs-java/convert-powerpoint-to-video/), stel je exacte overgangsduren in vóór export om de beoogde timing te evenaren. Gebruik bijvoorbeeld een fade van 600 milliseconden tussen scènes en stel elke dia’s voortgangsvertraging apart in zodat er tijd is voor de bijbehorende voice‑over of inhoud.
 
-Voor GIF en video moet je de uitgaande framesnelheid afstemmen op de effectduur: 600 ms komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in via de exportinstellingen. Controleer de ondersteunde effecten en timingopties van het gekozen exportformaat en bekijk een voorbeeld om de synchronisatie te verifiëren.
+Voor GIF en video stem je de uitvoer‑frame‑rate af op de effectduur: 600 milliseconden komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in de exportinstellingen in. Controleer welke effecten en timingopties door het gekozen exportformaat worden ondersteund en bekijk een voorbeeld om de synchronisatie te bevestigen.
 
-### **Een bestaande overgangsduur uitlezen**
+### **Een bestaande overgangsduur lezen**
 
-Roep [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) aan vóór het wijzigen van de overgang om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de waarde van [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
+Roep [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) aan voordat je de overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De oningestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -277,9 +331,9 @@ try {
 
 ## **Morph‑overgang**
 
-De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia’s. Om een eenvoudige Morph‑effect te maken, dupliceer je een dia, verplaats of wijzig je de grootte van een object op de duplicaat, en pas je de Morph‑overgang toe op de tweede dia. Hierdoor krijgt de overgang de overeenkomstige objecten om te animeren tussen hun oorspronkelijke en aangepaste toestand.
+De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑effect te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Dit geeft de overgang overeenkomstige objecten om te animeren tussen hun oorspronkelijke en gewijzigde toestand.
 
-Het volgende voorbeeld maakt een dia met een tekstrechthoek, dupliceert de dia en verandert de positie en grootte van de rechthoek op de duplicaat. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)-enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatieweergave die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia en wijzigt de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatiewiewer die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -307,15 +361,13 @@ try {
 
 ## **Morph‑overgangstypen**
 
-De [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/)-enumeratie bepaalt hoe Morph content koppelt en animeert:
+De [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/)‑enumeratie bepaalt hoe Morph inhoud koppelt en animeert:
 
-- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als één geheel.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als een geheel object.
 - [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animeert tekst door woorden te koppelen waar mogelijk.
 - [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animeert tekst door tekens te koppelen waar mogelijk.
 
-Gebruik [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) om Morph te selecteren vóór je [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) aanroept. De waarde levert vervolgens een [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/)-object op, waarvan de [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType)-methode de koppelmodus kiest.
-
-Dit voorbeeld opent de presentatie die in het vorige hoofdstuk is aangemaakt en configureert de tweede dia om woord‑gebaseerde Morph‑animatie te gebruiken.
+Gebruik [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) om Morph te selecteren voordat je [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) aanroept. De waarde levert vervolgens een [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/)‑object, waarvan de [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType)‑methode de koppelingsmodus selecteert.
 
 ```javascript
 const java = require("java");
@@ -373,16 +425,16 @@ try {
 
 **Kan ik de afspeelsnelheid van een dia‑overgang regelen?**
 
-Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)-categorie (Slow, Medium of Fast) voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortzettingsvertraging.
+Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)‑categorie — Slow, Medium of Fast — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortgangsvertraging.
 
-**Kan ik audio aan een overgang koppelen en laten herhalen?**
+**Kan ik audio aan een overgang toevoegen en laten herhalen?**
 
-Ja. Koppel ingebedde audio met [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), geef `StartSound` uit de [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/)-enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), en schakel [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) in met `true`. Het geluid blijft herhalen tot het volgende geluidssignaal in de diavoorstelling.
+Ja. Ken ingesloten audio toe met [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), geef `StartSound` uit de [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/)‑enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) en schakel [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) in met `true`. De audio blijft herhalen tot het volgende geluidsevenement in de diavoorstelling.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Loop door de [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides)-collectie van de presentatie en roep [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) aan met dezelfde waarde voor elke dia‑overgang. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia’s.
+Loop door de [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides)‑collectie van de presentatie en roep voor elke dia [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) aan met dezelfde waarde. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Roep [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)-enumeratie; None betekent dat er geen overgangseffect is toegepast.
+Roep [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)‑enumeratie; `None` betekent dat er geen overgangseffect is toegepast.

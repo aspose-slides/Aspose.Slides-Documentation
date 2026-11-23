@@ -8,26 +8,26 @@ keywords:
 - diaátmenet
 - diaátmenet hozzáadása
 - diaátmenet alkalmazása
-- speciális diaátmenet
+- haladó diaátmenet
 - morph átmenet
-- átmenettípus
-- átmeneti effektus
+- átmenet típusa
+- átmenet effektus
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Alkalmazzon diaátmeneteket, állítsa be a diák automatikus előrehaladását, és testreszabja a Morph és egyéb átmeneti effektusokat az Aspose.Slides for PHP via Java segítségével."
+description: "Alkalmazzon diaátmeneteket, konfigurálja az automatikus dia előrehaladást, és testreszabja a Morph és egyéb átmeneti effektusokat az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-A diaátmenetek szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for PHP via Java használatával kiválaszthat egy átmenet‑effektust minden diához, konfigurálhatja az előrehaladást egérkattintás vagy időzítő alapján, és beállíthatja az effektusra jellemző opciókat. Ez a cikk PHP példákkal mutatja be az átmenetek alkalmazását, az átmenet pontos időtartamának beállítását, a diaidőzítés kezelését, valamint egy Morph átmenet létrehozását két dia között. A példák azt is bemutatják, hogyan menthetők a beállítások PPTX fájlba.
+A diavetítési átmenetek szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for PHP via Java segítségével minden diához kiválaszthat egy átmenet‑effektust, konfigurálhatja a csúszka előrehaladását egérkattintással vagy időzítővel, valamint beállíthatja az effektusra jellemző opciókat. Ez a cikk PHP példákat mutat be az átmenetek alkalmazására, a pontos átmeneti időtartamok beállítására, a diaidőzítés kezelésére, valamint egy Morph átmenet létrehozására két dia között. A példák azt is bemutatják, hogyan menthetőek a beállítások PPTX fájlba.
 
 ## **Diaátmenet hozzáadása**
 
-Átmenet alkalmazásához töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztállyal, és a dia átmenet‑beállításait érje el a [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) segítségével. Használja a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból származó értékkel, majd mentse a prezentációt.
+Az átmenet alkalmazásához töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztállyal, és érje el a dia átmenet beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) metódussal. Használja a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolás egy értékével, majd mentse a prezentációt.
 
-Az alábbi példa Circle átmenetet alkalmaz az első diára, és Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+A következő példa egy Circle átmenetet alkalmaz az első diára, és egy Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -51,9 +51,9 @@ try {
 
 ## **Kerék átmenet**
 
-A [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) metódus szabályozza, hány sugárirányú szektor fedje fel a céldiat. A [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) segítségével válassza ki a Wheel opciót a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból, majd hívja a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) metódust a [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/) beállításainak eléréséhez.
+A [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) metódus szabályozza, hány sugárirányú szektor fedje fel a céldiát. A [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) segítségével válassza ki a Wheel értéket a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból, majd hívja meg a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) metódust a [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/) beállításainak eléréséhez.
 
-A példa két azonos diapárt hoz létre. Minden pár egy fekete diával kezdődik, és egy arany téglalappal zárul. A 2. dia egy szektorral, a 4. dia nyolccal fed le. Mindkét átmenet lassú sebességet használ, amelyet a [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) metódussal állítanak be, és explicit 8 000 ms időtartamot a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) metódussal.
+A példa két azonos pár diát hoz létre. Minden pár egy fekete diával kezdődik, és egy arany téglalappal fedett diával végződik. A 2. dia egyetlen szektort használ, a 4. dia nyolcat. Mindkét átmenet ugyanazzal a lassú sebességgel működik, amit a [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) állít be, és explicit 8 000 ms időtartammal, amit a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) ad meg.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -103,19 +103,74 @@ try {
 }
 ```
 
-Nyissa meg a mentett prezentációt PowerPointban, és indítsa el a diavetítést. Lépjen a 1. diáról a 2. diára, hogy egy óramutató járásával megegyező szekciót lásson. Ezután lépjen a 3. diáról a 4. diára, hogy nyolc sugárirányú szektor fedje le egyszerre a téglalapot.
+Nyissa meg a mentett prezentációt a PowerPointban, és indítsa el a diavetítést. Lépjen a 1. diáról a 2. diára, hogy egyetlen óramutató‑irányú kört lásson. Ezután lépjen a 3. diáról a 4. diára, hogy nyolc sugárirányú szektor fedje fel egyszerre a téglalapot.
 
-## **Speciális diaátmenet hozzáadása**
+## **Fade Through Black a Reveal átmenettel**
 
-Beállíthatja, mennyi ideig marad a dia a képernyőn, és hogy egérkattintás indítja‑e a diavetítést. Az alábbi metódusok szabályozzák ezt a viselkedést:
+Állítsa be a céldiára a Reveal átmenetet, majd hívja meg a [setThroughBlack](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/#setThroughBlack) metódust a [RevealTransition](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/) beállításain. A példa egy türkiz forrásdiát és egy korall céldiát hoz létre, majd mindkettőt klónozza. Minden pár ugyanazt a kétszeni átlépéses Reveal átmenetet használja. Csak a második pár halványul át feketén.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi a felhasználó számára, hogy egérkattintással lépjen előre.
-- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) automatikus előrehaladást engedélyez.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) adja meg az automatikus előrehaladás késleltetését milliszekundumban.
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionLeftRightDirectionType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
 
-Engedélyezze mind a kattintást, mind az időzített előrehaladást, hogy a felhasználó kattintással vagy a várakozással léphessen tovább. Ha csak az időzítőt szeretné használni, adjon `false` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés azt szabályozza, mikor lép tovább a diavetítés; nem befolyásolja az átmenet vizuális időtartamát.
+$presentation = new Presentation();
+try {
+    $source = $presentation->getSlides()->get_Item(0);
+    $destination = $presentation->getSlides()->addClone($source);
 
-Ez a példa különböző effektusokat rendel az első három diához, és automatikus előrehaladást állít be 3, 5 és 7 másodperc után. Egérkattintással is lehet előre lépni ezeken a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
+    foreach ([
+        [$source, new Color(0, 128, 128), "Source"],
+        [$destination, new Color(255, 127, 80), "Destination"],
+    ] as [$slide, $color, $label]) {
+        $slide->getBackground()->setType(BackgroundType::OwnBackground);
+        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+        $shape->getTextFrame()->setText($label);
+        $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(44);
+    }
+
+    $presentation->getSlides()->addClone($source);
+    $clonedDestination = $presentation->getSlides()->addClone($destination);
+    foreach ([[$destination, false], [$clonedDestination, true]] as [$slide, $throughBlack]) {
+        $slide->getSlideShowTransition()->setType(TransitionType::Reveal);
+        $slide->getSlideShowTransition()->setSpeed(TransitionSpeed::Slow);
+        $slide->getSlideShowTransition()->setDuration(2000);
+        $slide->getSlideShowTransition()->getValue()->setDirection(TransitionLeftRightDirectionType::Left);
+        $slide->getSlideShowTransition()->getValue()->setThroughBlack($throughBlack);
+    }
+
+    $presentation->save("reveal-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nyissa meg a mentett prezentációt a PowerPointban, és indítsa el a diavetítést. Lépjen a 1. diáról a 2. diára, hogy a türkiz közvetlenül a korallra halványuljon. Ezután lépjen a 3. diáról a 4. diára. A képernyő röviden majdnem feketévé válik, mielőtt a korall dia megjelenik. Mindkét dia megtartja az eredeti háttérszínét.
+
+Az alábbi sorok a PowerPoint képkockáit mutatják félmásodperces intervallumban. Hasonlítsa össze a sor közepén lévő képkockát, hogy lássa a hatást.
+
+![PowerPoint lejátszás a feketével átfedés tiltásával (felső) és engedélyezésével (alsó). Csak az alsó sor halad át a szinte fekete állapoton.](reveal-through-black.png)
+
+## **Haladó diaátmenet hozzáadása**
+
+Konfigurálhatja, mennyi ideig marad a dia a képernyőn, és hogy egérkattintás vagy időzítő állítsa-e előre a diavetítést. A következő metódusok vezérlik ezt a viselkedést:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi a nézőnek a csúszka előrehaladását egérkattintással.
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) engedélyezi az automatikus előrehaladást.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) megadja a késleltetést automatikus előrehaladás előtt ezredmásodpercben.
+
+Engedélyezze mind a kattintást, mind az időzített előrehaladást, hogy a néző kattintással léphessen tovább, vagy várjon a timerre. Ha csak a timert szeretné használni, adjon át `false` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés szabályozza, mikor lép előre a diavetítés; nem a vizuális átmenet hatás időtartamát állítja be.
+
+Ez a példa különböző effektusokat rendel az első három diához, és automatikus előrehaladást állít be 3, 5 és 7 másodperc után. Egérkattintással is előre lehet lépni ezeken a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -152,9 +207,9 @@ try {
 }
 ```
 
-Az időzített előrehaladás engedélyezve van‑e, ellenőrizheti a [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter) meghívásával. Egy tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
+A timed előrehaladás engedélyezett‑állapotának ellenőrzéséhez hívja meg a [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metódust. Egy tárolt késleltetés önmagában nem jelzi, hogy a timer aktív.
 
-A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azon diákon, amelyek késleltetése nagyobb, mint két másodperc. Ezeken a diákon engedélyezi az egérkattintást, majd elmenti a módosított beállításokat.
+A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azoknál a diáknál, amelyek késleltetése meghaladja a két másodpercet. Ezeknél a diáknál engedélyezi a kattintást, majd elmenti a módosított beállításokat.
 
 ```php
 use aspose\slides\Presentation;
@@ -182,27 +237,27 @@ try {
 }
 ```
 
-## **Az átmenet időzítésének pontos szabályozása**
+## **Átmeneti időzítés pontos szabályozása**
 
-Használja a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) metódust az átmenet‑effektus pontos hosszának milliszekundumban történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezeket a beállításokat a [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/) objektumon keresztül teszi elérhetővé:
+Használja a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) metódust az átmeneti effektus pontos hosszának ezredmásodpercben történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezeken a beállításokon keresztül érhető el a [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/) objektumban:
 
-| Metódus | Leírás |
+| Metódus | Cél |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja az átmenet‑effektus tényleges időtartamát milliszekundumban. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja a késleltetést, mielőtt a dia automatikusan tovább lép, milliszekundumban. A [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) meghívásával aktiválja az időzítőt. |
-| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használatos, ha nincs pontos időtartam megadva. |
+| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja az átmeneti effektus időtartamát millimásodpercben. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja a késleltetést, mielőtt a dia automatikusan előrehalad, millimásodpercben. A [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) metódus `true` értékével aktiválja ezt a timert. |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használatos, ha pontos időtartam nincs megadva. |
 
-A [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) csak az átmenet‑effektust szabályozza; nem határozza meg, mennyi ideig látható a dia. Az automatikus előrehaladás késleltetését külön kell beállítani. Ha nincs explicit időtartam megadva, az Aspose.Slides az átmenet típusából és a [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) értékéből számítja ki az effektus időtartamát.
+A [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) csak az átmeneti effektust szabályozza; nem azt határozza meg, meddig marad a dia látható. Az automatikus előrehaladás késleltetését külön kell beállítani. Ha nincs explicit időtartam megadva, az Aspose.Slides a átmenet típusából és a [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) értékéből számítja ki a hatás hosszát.
 
 <!-- visual-explanation:slide-transition:start -->
-[![A különálló sávok jelzik a 750 ms átmeneti időtartamot és az 5 000 ms automatikus előrehaladási beállítást.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![A különálló sávok a 750 ms átmeneti időtartamot és az 5 000 ms automatikus előrehaladási beállítást jelölik.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Az itt bemutatott példa minden diához 750 ms Fade átmenetet ad, és külön engedélyezi az automatikus előrehaladást 5 000 ms után. Az átmenet időtartama az effektust szabályozza; az előrehaladás azt határozza meg, mikor hagyja el a diát. Ezek a sávok csak vázlatos beállítások, nem egy mért kombinált idővonal.*
+*Az itt bemutatott példa minden diát 750 ms Fade átmenettel lát el, és külön engedélyezi az automatikus előrehaladást 5 000 ms után. Az átmeneti idő a hatást szabályozza; a előrehaladás határozza meg, mikor hagyjuk el a diát. Ezek a sávok csak szemléltető beállítások, nem egy mérhető kombinált idővonal.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Azonos időtartam alkalmazása minden diára**
+### **Ugyanazt az időtartamot alkalmazni minden diára**
 
-Az egységes ritmus érdekében alkalmazzon ugyanazt az effektust és pontos időtartamot minden diára. Ez a példa beolvassa a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból a Fade‑et választja, és minden átmenethez 750 ms időtartamot állít be. Emellett külön engedélyezi az automatikus előrehaladást 5 000 ms után, és letiltja a kattintással történő előrehaladást, majd menti az eredményt PPTX‑ként.
+A következetes tempó érdekében alkalmazza ugyanazt az effektust és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból a Fade‑et választja, és minden átmenetnek 750 ms időtartamot ad. Külön engedélyezi az automatikus előrehaladást 5 000 ms után, és letiltja a kattintásos előrehaladást, majd PPTX‑ként elmenti az eredményt.
 
 ```php
 use aspose\slides\Presentation;
@@ -217,7 +272,7 @@ try {
         $transition->setType(TransitionType::Fade);
         $transition->setDuration(750);
 
-        // Állítsa be az automatikus előrehaladást az effektus időtartamától függetlenül.
+        // Állítsa be az automatikus előrehaladást külön a hatás időtartamától.
         $transition->setAdvanceAfter(true);
         $transition->setAdvanceAfterTime(5000);
         $transition->setAdvanceOnClick(false);
@@ -229,9 +284,9 @@ try {
 }
 ```
 
-### **Különböző időtartamok beállítása egyedi diákhoz**
+### **Eltérő időtartamok beállítása az egyes diákra**
 
-Különböző diák különböző átmeneti időtartamokat használhatnak. Például egy címoldalhoz rövid átmenetet, egy szekcióbevezetőhöz hosszabbat használhat. Ez a példa 500 ms‑ot állít be az első diára, és 1 200 ms‑ot a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+Az egyes diák különböző effektus‑időtartamokat használhatnak. Például egy rövid átmenetet állíthat be a címdiára, és hosszabbat egy szakasz bevezetőjére. Ez a példa 500 ms‑t állít be az első diára, és 1 200 ms‑t a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -260,13 +315,13 @@ try {
 
 ### **Átmenetek összehangolása animált kimenettel**
 
-Amikor [animált GIF](/slides/hu/php-java/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/php-java/export-to-html5/) vagy [videó](/slides/hu/php-java/convert-powerpoint-to-video/) készül, a pontos átmeneti időtartamokat exportálás előtt állítsa be, hogy megfeleljenek a kívánt ütemnek. Például használjon 600 ms‑os fade‑et a jelenetek között, és a dia előrehaladási késleltetését külön szabályozza, hogy legyen elegendő idő a narrációnak vagy a tartalomnak.
+Amikor [animated GIF](/slides/hu/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/hu/php-java/export-to-html5/) vagy [video](/slides/hu/php-java/convert-powerpoint-to-video/) készül, állítsa be a pontos átmeneti időtartamokat exportálás előtt, hogy megfeleljenek a kívánt tempónak. Például egy 600 ms‑os elhalványulást használhat a jelenetek között, és minden dia előrehaladási késleltetését külön szabályozhatja, hogy legyen idő a narrációra vagy a tartalomra.
 
-GIF‑nél és videónál a kimeneti képkockasebességet az effektus időtartamához kell igazítani: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5‑nél engedélyezze az animált átmeneteket az export beállításaiban. Ellenőrizze a választott exportformátum támogatott effektusait és időzítési lehetőségeit, és tekintse meg az előzetes megjelenítést a szinkronizáció ellenőrzéséhez.
+GIF‑nél és videónál a kimeneti képkockasebességet egyeztesse az effektus időtartamával: 600 ms 30 fps‑nél 18 képkockának felel meg. HTML5‑ben engedélyezze az animált átmeneteket az export beállításokban. Ellenőrizze a választott exportformátum támogatott effektusait és időzítési opcióit, és tekintse meg az előnézetet a szinkronizáció megerősítéséhez.
 
-### **Létező átmeneti időtartam kiolvasása**
+### **Meglévő átmeneti időtartam beolvasása**
 
-Módosítás előtt hívja meg a [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) metódust, hogy megállapítsa, tárolva van‑e explicit érték. A `-1` érték azt jelenti, hogy nincs explicit időtartam; egy nem negatív érték a tárolt időtartamot adja vissza milliszekundumban. A nem beállított érték nem a számított lejátszási idő: az Aspose.Slides a TransitionType és a [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) érték alapján határozza meg azt. Egy átmenettípus beállítása inicializálhat időtartamot, ezért először ellenőrizze az eredeti beállításokat.
+A módosítás előtt hívja meg a [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) metódust, hogy megállapítsa, van‑e explicit érték tárolva. A `-1` érték azt jelzi, hogy nincs explicit időtartam beállítva; egy nem negatív érték a tárolt időtartamot jelenti ezredmásodpercben. A nem beállított érték nem a számított lejátszási idő: az Aspose.Slides a tranzíció típusából és a [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) értékéből határozza meg a tényleges időtartamot. Egy átmenet típusának beállítása inicializálhat egy időtartamot, ezért először ellenőrizze az eredeti beállításokat.
 
 ```php
 use aspose\slides\Presentation;
@@ -291,9 +346,9 @@ try {
 
 ## **Morph átmenet**
 
-A Morph átmenet animálja a tárgyak változását egymást követő diáknál. Egy egyszerű Morph hatás létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át a tárgyat a klónon, és alkalmazza a Morph átmenetet a második diára. Így a megfelelő objektumok animálódnak az eredeti és a módosított állapot között.
+A Morph átmenet animálja a változásokat az egymást követő diák objektumai között. Egy egyszerű Morph hatás létrehozásához klónozzon egy diát, módosítsa vagy átméretezze az objektumot a klónon, és alkalmazza a Morph átmenetet a második diára. Ez a megfelelő objektumok animálását biztosítja az eredeti és a módosított állapot között.
 
-Az alábbi példa egy szöveges téglalappal rendelkező diát hoz létre, klónozza a diát, majd a klónon megváltoztatja a téglalap helyzetét és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból a Morph‑ot választja a második diára. Nyissa meg a mentett fájlt egy Morph‑ot támogató prezentációs megjelenítőben, hogy lássa a hatást diavetítés közben.
+A következő példa egy szövegtéglalappal ellátott diát hoz létre, klónozza a diát, majd a klónon megváltoztatja a téglalap helyzetét és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból a Morph‑ot választja a második diára. Nyissa meg a mentett fájlt egy olyan prezentációs nézőben, amely támogatja a Morph‑ot, hogy lássa a hatást a diavetítés során.
 
 ```php
 use aspose\slides\Presentation;
@@ -324,15 +379,15 @@ try {
 
 ## **Morph átmenet típusok**
 
-A [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogy a Morph hogyan párosít és animálja a tartalmat:
+A [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogy a Morph hogyan párosítja és animálja a tartalmat:
 
-- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) minden alakzatot teljes objektumként kezel.
-- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) a szöveget szavak szerint animálja, ahol lehetséges.
-- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) a szöveget karakterek szerint animálja, ahol lehetséges.
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) minden alakzatot egész objektumként kezel.
+- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) a szavakat párosítja, ha lehetséges, és így animálja a szöveget.
+- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) a karaktereket párosítja, ha lehetséges, és így animálja a szöveget.
 
-Használja a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt meghívná a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) metódust. Az így kapott érték egy [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/) objektumot ad, amelynek a [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) metódusa választja ki a párosítási módot.
+Használja a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt elérné a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) metódust. Az érték egy [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/) objektumot ad, amelynek a [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) metódusa választja ki a párosítási módot.
 
-Ez a példa megnyitja az előző szakaszban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra állítja.
+Ez a példa megnyitja az előző szekcióban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra konfigurálja.
 
 ```php
 use aspose\slides\Presentation;
@@ -361,11 +416,11 @@ try {
 }
 ```
 
-## **Átmeneti effektusok beállítása**
+## **Átmeneti hatások beállítása**
 
-Néhány átmenet további beállításokkal rendelkezik, például irány vagy a fekete képernyőről történő indulás. Az elérhető opciók attól függenek, melyik átmenetet választotta a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódussal. Először állítsa be a típust, majd a megfelelő átmenet‑objektumot használja a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) hívásával.
+Néhány átmenet további opciókat tesz elérhetővé, például irányt vagy azt, hogy a hatás fekete képernyőn indul‑e. Az elérhető opciók a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) által kiválasztott átmenettől függnek. Először állítsa be a típust, majd a megfelelő átmenet objektumot használja a [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) metódusból.
 
-Az alábbi példa egy Cut átmenetet alkalmaz az `input.pptx` első diájára. A [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) segítségével a [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) metódust hívja, így az átmenet fekete képernyőről indul.
+A következő példa egy Cut átmenetet alkalmaz a `input.pptx` első diájára. A [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) objektumon keresztül meghívja a [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) metódust, hogy az átmenet fekete képernyőről induljon.
 
 ```php
 use aspose\slides\Presentation;
@@ -391,18 +446,18 @@ try {
 
 ## **GYIK**
 
-**Kezelhetem a diaátmenet lejátszási sebességét?**
+**Vezérelhetem a diaátmenet lejátszási sebességét?**
 
-Igen. Használja a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) metódust, ha pontos effektus‑időt akar milliszekundumban megadni. Használja a [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) metódust, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam beállítva. Ezek a beállítások az átmenet‑effektust szabályozzák, függetlenül az automatikus előrehaladási késleltetéstől.
+Igen. Előnyben részesítse a [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) használatát, ha pontos effektus‑időtartamot millimásodpercben kíván megadni. Használja a [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) metódust, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicit időtartam megadva. Ezek a beállítások függetlenül szabályozzák az átmeneti hatást az automatikus előrehaladási késleltetéstől.
 
-**Csatolhatok hangot egy átmenethez, és beállíthatom a hurok‑lejátszást?**
+**Csatolhatok hangot egy átmenethez, és beállíthatom, hogy ismétlődjön?**
 
-Igen. A [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound) segítségével beágyazott hangot adhat, a [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) felsorolásból a StartSound értéket adja át a [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode) metódusnak, és a [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) metódust `true`‑ra állítva engedélyezi a hang hurkolását. A hang a következő hangeseményig körkörös lesz a diavetítésben.
+Igen. A beágyazott hangot a [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound) metódussal állíthatja be, a [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) felsorolásból a StartSound‑t adja át a [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode) metódusnak, és a [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) metódust `true`‑ra állítja. A hang addig ismétlődik, amíg a diavetítés következő hangeseménye be nem következik.
 
-**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzam minden diára?**
+**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet minden diára alkalmazzam?**
 
-Iteráljon végig a prezentáció [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) gyűjteményén, és a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust ugyanazzal az értékkel hívja meg minden dia átmeneténél. A időzítési és effektus‑opciókat ugyanabban a ciklusban állítsa be, hogy a viselkedés konzisztens maradjon a diák között.
+Iteráljon végig a prezentáció [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) gyűjteményén, és minden dia átmenetére hívja meg a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) metódust ugyanazzal az értékkel. Az időzítési és effektus‑opciókat ugyanabban a ciklusban állítsa be, hogy a viselkedés minden diához konzisztens legyen.
 
-**Hogyan ellenőrizhetem, melyik átmenet van beállítva egy adott dián?**
+**Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?**
 
-Hívja meg a [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez egy értéket ad vissza a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból; a None azt jelenti, hogy nincs alkalmazva átmenet‑effektus.
+Hívja meg a [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez egy értéket ad vissza a [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) felsorolásból; a None azt jelenti, hogy nincs átmenet‑effektus alkalmazva.

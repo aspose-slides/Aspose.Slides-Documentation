@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunumlarda Slayt Geçişlerini Yönetme
+title: .NET'te Sunumlarda Slayt Geçişlerini Yönet
 linktitle: Slayt Geçişi
 type: docs
 weight: 90
@@ -9,7 +9,7 @@ keywords:
 - slayt geçişi ekle
 - slayt geçişi uygula
 - gelişmiş slayt geçişi
-- Morph geçişi
+- morf geçişi
 - geçiş türü
 - geçiş efekti
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile slayt geçişlerini uygulayın, otomatik slayt ilerlemesini yapılandırın ve Morph ve diğer geçiş efektlerini özelleştirin."
+description: "Aspose.Slides for .NET ile slayt geçişlerini uygulayın, otomatik slayt ilerlemesini yapılandırın ve Morph ile diğer geçiş efektlerini özelleştirin."
 ---
 ## **Genel Bakış**
 
-Slide transitions control how slides appear during a slide show. With Aspose.Slides for .NET, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C# examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
+Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl göründüğünü kontrol eder. Aspose.Slides for .NET ile her slayt için bir geçiş efekti seçebilir, geçişin fare tıklamasıyla mı yoksa zamanlayıcıyla mı ilerleyeceğini yapılandırabilir ve efekti özel seçeneklerle ayarlayabilirsiniz. Bu makale, geçişleri uygulamak, kesin geçiş süreleri ayarlamak, slayt zamanlamasını yönetmek ve iki slayt arasında bir Morph geçişi oluşturmak için C# örnekleri kullanır. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini gösterir.
 
 ## **Slayt Geçişi Ekle**
 
-To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and access the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property. Set its [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration, then save the presentation.
+Bir geçiş uygulamak için bir sunumu [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) sınıfı ile yükleyin ve slaytın [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) özelliğine erişin. [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) özelliğini [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enum’undan bir değerle ayarlayın, ardından sunumu kaydedin.
 
-The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
+Aşağıdaki örnek, ilk slayta Circle geçişi ve ikinci slayta Comb geçişi uygular. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```csharp
 using System;
@@ -51,11 +51,11 @@ else
 }
 ```
 
-## **Wheel Geçişi**
+## **Tekerlek Geçişi**
 
-The [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) property of [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Wheel from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) before accessing [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) as [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
+[IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) arayüzünün [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) özelliği, hedef slaytı ortaya çıkaran radyal sektör sayısını kontrol eder. Geçişin [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) özelliğini [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) içinde Wheel olarak ayarlayın, ardından [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) özelliğine [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) olarak erişin.
 
-This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) and an explicit [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) of 8,000 milliseconds to make the difference easy to observe.
+Bu örnek iki aynı slayt çifti oluşturur: bir siyah slayt ve ardından altın bir dikdörtgen içeren bir slayt. Hedef slaytlar 1 ve 8 spoke sayısıyla, aynı [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) ve 8.000 milisaniye olarak belirlenmiş açık bir [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) ile oluşturulur, böylece fark gözlemlenebilir.
 
 ```csharp
 using System.Drawing;
@@ -96,19 +96,70 @@ for (var i = 0; i < spokeCounts.Length; i++)
 presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
 ```
 
-Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+Çıktı sunumunu PowerPoint’te açın ve slayt gösterisini başlatın. 1. slayttan 2. slayta, ardından 3. slayttan 4. slayta geçin. PowerPoint oynatımında, 1 spoke sayısı saat yönünde tek bir süpürme ile slaytı ortaya çıkarırken, 8 spoke sayısı aynı anda sekiz radyal sektörle ortaya çıkarır. Hedef içerik ve geçiş zamanlaması aynıdır; fark, ortaya çıkış sektörlerinin sayısıdır.
+
+## **Reveal Geçişiyle Siyah Üzerinden Solma**
+
+Hedef slaytın geçiş türünü Reveal olarak ayarlayın, ardından [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/) aracılığıyla [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/) özelliğini belirleyin. Örnek, bir turkuaz kaynak slaytı ve bir mercan hedef slaytı oluşturur, ardından her ikisini de klonlayarak iki saniyelik geçişi kapalı ve açık halde karşılaştırmanıza olanak tanır.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+PowerPoint slayt gösterisinde, 1. slayttan 2. slayta ilerleyin. Turkuaz doğrudan mercana geçer. Ardından 3. slayttan 4. slayta ilerleyin. Ekran, mercan slaytı görünmeden önce kısa bir süre neredeyse siyaha karartılır. Her iki slayt da özgün arka plan renklerini korur.
+
+Aşağıdaki satırlar PowerPoint’te yarım saniyelik aralıklarla alınan kareleri gösterir. Etkilenen ayarı görmek için her satırın orta karesine bakın.
+
+![PowerPoint oynatımında ThroughBlack devre dışı (üst) ve etkin (alt) olduğu durum. Yalnızca alt satır neredeyse siyaha geçiş yapar.](reveal-through-black.png)
 
 ## **Gelişmiş Slayt Geçişi Ekle**
 
-You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:
+Bir slaytın ekranda ne kadar kalacağını ve fare tıklamasıyla mı yoksa zamanlayıcıyla mı ilerleyeceğini yapılandırabilirsiniz. Aşağıdaki özellikler bu davranışı kontrol eder:
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) allows the viewer to advance by clicking the mouse.
-- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) enables automatic advancement.
-- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) specifies the delay before automatic advancement, in milliseconds.
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) izleyicinin fare tıklamasıyla ilerlemesini sağlar.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) otomatik ilerlemeyi etkinleştirir.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) otomatik ilerleme öncesi gecikmeyi milisaniye olarak belirtir.
 
-Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, set [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) to `false`. The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
+Hem tıklama hem de zamanlayıcı ilerlemesini etkinleştirerek izleyicinin tıklama yaparak ya da zamanlayıcıyı bekleyerek ilerlemesine izin verin. Yalnızca zamanlayıcıyı kullanmak için [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) özelliğini `false` yapın. Gecikme, slayt gösterisinin ne zaman ilerleyeceğini belirler; görsel geçiş efektinin süresini ayarlamaz.
 
-This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
+Bu örnek, ilk üç slayta farklı efektler atar ve otomatik ilerlemeyi sırasıyla 3, 5 ve 7 saniye sonra etkinleştirir. Bu slaytlar fare tıklamasıyla da ilerleyebilir. En az üç slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```csharp
 using System;
@@ -146,9 +197,9 @@ else
 }
 ```
 
-To check whether timed advancement is enabled, read [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). A stored delay alone does not indicate that the timer is active.
+Zamanlayıcı ilerlemesinin etkin olup olmadığını kontrol etmek için [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) değerini okuyun. Depolanan gecikme yalnızca bir zamanlayıcının aktif olduğunu göstermez.
 
-The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
+Sonraki örnek, yukarıda kaydedilen dosyayı açar, her etkin zamanlayıcıyı raporlar ve iki saniyeden uzun gecikmesi olan slaytlar için otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamasını etkinleştirir ve güncellenmiş ayarları kaydeder.
 
 ```csharp
 using System;
@@ -178,19 +229,19 @@ presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 
 ## **Geçiş Zamanlamasını Hassas Bir Şekilde Kontrol Et**
 
-Use [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) to specify the exact length of a transition effect in milliseconds. The slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
+Geçiş efektinin tam uzunluğunu milisaniye cinsinden belirtmek için [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) kullanın. Slaytın [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) özelliği bu ayarları [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/) aracılığıyla ortaya koyar:
 
 | Özellik | Amaç |
 | --- | --- |
-| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Sets the duration of the transition effect itself, in milliseconds. |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Sets the delay before the slide advances automatically, in milliseconds. Enable [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) to activate this timer. |
-| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Selects a predefined speed category from [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, or Fast. It is used when an exact duration is not specified. |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Geçiş efektinin kendisinin süresini milisaniye olarak ayarlar. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Slaytın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye olarak ayarlar. Bu zamanlayıcıyı etkinleştirmek için [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) özelliğini kullanın. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) enum’undan yavaş, orta veya hızlı gibi ön tanımlı bir hız kategorisi seçer. Kesin bir süre belirtilmediğinde kullanılır. |
 
-[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) value.
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) yalnızca geçiş efektini kontrol eder; slaytın ekranda ne kadar kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açık bir süre ayarlanmamışsa, Aspose.Slides geçiş türü ve [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) değerine göre etki süresini belirler.
 
 ### **Her Slayta Aynı Süreyi Uygula**
 
-For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
+Tutarlı bir tempo için aynı efekti ve kesin süreyi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) içerisinden Fade seçer ve her bir geçişe 750 milisaniye süre verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir ve fare tıklamasıyla ilerlemeyi devre dışı bırakır, ardından PPTX olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -205,7 +256,7 @@ foreach (var slide in presentation.Slides)
     transition.Type = TransitionType.Fade;
     transition.Duration = 750;
 
-    // Etkinin süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
+    // Geçiş süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
     transition.AdvanceAfter = true;
     transition.AdvanceAfterTime = 5000;
     transition.AdvanceOnClick = false;
@@ -216,7 +267,7 @@ presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 
 ### **Bireysel Slaytlar İçin Farklı Süreler Ayarla**
 
-Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
+Farklı slaytlar farklı efekt süreleri kullanabilir. Örneğin, başlık slaytı için kısa bir geçiş, bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek ilk slayta 500 milisaniye, ikinci slayta 1.200 milisaniye süresi ayarlar. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
 
 ```csharp
 using System;
@@ -246,13 +297,13 @@ else
 
 ### **Animasyonlu Çıktı ile Geçişleri Koordine Et**
 
-When preparing an [animated GIF](/slides/tr/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/tr/net/export-to-html5/), or [video](/slides/tr/net/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
+[animated GIF](/slides/tr/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/tr/net/export-to-html5/) veya [video](/slides/tr/net/convert-powerpoint-to-video/) hazırlarken, dışa aktarımdan önce kesin geçiş süreleri belirleyerek istenen tempoya uyun. Örneğin sahneler arasında 600 milisaniyelik bir solma kullanın ve her slaytın ilerleme gecikmesini ayrı ayrı ayarlayarak anlatım veya içerik süresine yer açın.
 
-For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
+GIF ve video için, çerçeve hızını efekt süresiyle eşleştirin: 600 milisaniye 30 fps’de 18 kareye denk gelir. HTML5’te, dışa aktarma ayarlarında animasyonlu geçişleri etkinleştirin. Seçili dışa aktarım formatının desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı ön izleyin.
 
 ### **Mevcut Bir Geçiş Süresini Oku**
 
-Read [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
+Geçişi değiştirmeden önce [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) değerini okuyarak açık bir değer depolanıp depolanmadığını belirleyin. `-1` değeri açık bir sürenin ayarlanmadığını, negatif olmayan bir değer ise milisaniye cinsinden depolanmış süreyi gösterir. Ayarlanmamış değer, oynatma süresinin hesaplanmış hali değildir: Aspose.Slides geçiş tipi ve [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) kullanılarak bu süre belirlenir. Bir geçiş türü ayarlamak, bir süreyi başlatabilir; bu yüzden önce orijinal ayarları inceleyin.
 
 ```csharp
 using System;
@@ -278,9 +329,9 @@ foreach (var slide in presentation.Slides)
 
 ## **Morph Geçişi**
 
-The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
+Morph geçişi, ardışık slaytlardaki nesneler arasındaki değişiklikleri animasyonlaştırır. Basit bir Morph efekti oluşturmak için bir slaytı klonlayın, klon üzerindeki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişi uygulayın. Böylece geçiş, nesnelerin orijinal ve değiştirilmiş durumları arasında animasyon sağlar.
 
-The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
+Aşağıdaki örnek bir metin dikdörtgeni içeren bir slayt oluşturur, slaytı klonlar ve klon üzerindeki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayt için [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enum’undan Morph seçer. Morph’u destekleyen bir sunum görüntüleyicide kaydedilmiş dosyayı açın ve slayt gösterisi sırasında etkisini izleyin.
 
 ```csharp
 using Aspose.Slides;
@@ -307,15 +358,15 @@ presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 
 ## **Morph Geçişi Türleri**
 
-The [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) enumeration controls how Morph matches and animates content:
+[TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) enum’u, Morph’un içeriği nasıl eşleştireceğini ve animasyonlayacağını belirler:
 
-- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) treats each shape as a whole object.
-- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching words where possible.
-- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching characters where possible.
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) her şekli bütün bir nesne olarak ele alır.
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) mümkün olduğunda kelimelere göre metni animasyonlandırır.
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) mümkün olduğunda karakterlere göre metni animasyonlandırır.
 
-Set the transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Morph before accessing its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) interface, whose [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) property selects the matching mode.
+Geçişin [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) özelliğini Morph olarak ayarlayın, ardından [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) üzerinden [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) arayüzünü alın; bu arayüzün [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) özelliği eşleşme modunu seçer.
 
-This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
+Bu örnek, önceki bölümde oluşturulan sunumu açar ve ikinci slaytı kelime temelli Morph animasyonu kullanacak şekilde yapılandırır.
 
 ```csharp
 using System;
@@ -350,14 +401,14 @@ else
 <!-- visual-explanation:slide-transition:start -->
 [![Morph eşleşme birimleri bütün şekil, ayrı ayrı kelimeler ve ayrı ayrı karakterler olarak gösterilir.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
 
-*Morph mümkün olduğunda bütün şekilleri, kelimeleri ya da karakterleri eşleştirebilir. Bu kutular hareket edilen birimleri tanımlar, gözlemlenen hareketi değil. Örnekte ikinci slaytta ByWord seçilmiştir.* 
+*Morph, mümkün olduğunda bütün şekilleri, kelimeleri veya karakterleri eşleştirebilir. Bu kutular, gözlemlenen hareket yerine eşleşen birimleri tanımlar. Örnek, ikinci slaytta ByWord seçer.*
 <!-- visual-explanation:slide-transition:end -->
 
 ## **Geçiş Efektlerini Ayarla**
 
-Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Set the type first, then use the appropriate interface from its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
+Bazı geçişler ek yön seçenekleri veya efekti siyah bir ekrandan başlatma gibi ek ayarlar sunar. Kullanılabilir seçenekler, seçilen geçişin [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) değerine bağlıdır. Önce türü ayarlayın, ardından [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) üzerinden uygun arayüzü kullanın.
 
-The following example applies a Cut transition to the first slide of `input.pptx`. It sets [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) through [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) so that the transition starts from a black screen.
+Aşağıdaki örnek, `input.pptx` dosyasının ilk slaytına Cut geçişi uygular. [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) aracılığıyla [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) ayarlayarak geçişin siyah bir ekrandan başlamasını sağlar.
 
 ```csharp
 using System;
@@ -384,16 +435,16 @@ else
 
 **Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?**
 
-Yes. Prefer [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) when you need an exact effect duration in milliseconds. Use [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
+Evet. Milisaniye cinsinden kesin bir efekt süresi gerektiğinde [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) tercih edin. Önceden tanımlı bir [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) kategorisinin (Slow, Medium veya Fast) yeterli olduğu ve açık bir süre ayarlanmamışsa [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) kullanın. Bu ayarlar, otomatik ilerleme gecikmesinden bağımsız olarak geçiş efektini kontrol eder.
 
-**Bir geçişe ses ekleyebilir ve döngüye alabilirim?**
+**Bir geçişe ses ekleyebilir ve döngüye alabilir miyim?**
 
-Yes. Assign embedded audio to [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), set [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) to StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). The audio loops until the next sound event in the slide show.
+Evet. Gömülü sesi [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/) özelliğine atayın, [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enum’undan StartSound seçerek [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) ayarlayın ve [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/) özelliğini etkinleştirin. Ses, slayt gösterisindeki bir sonraki ses olayına kadar döngüde devam eder.
 
 **Her slayta aynı geçişi uygulamanın en hızlı yolu nedir?**
 
-Loop through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and set each slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to the same value. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
+Sunumun [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) koleksiyonunda döngü oluşturun ve her slaydın geçiş [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) özelliğini aynı değere ayarlayın. Aynı döngü içinde zamanlama ve efekt seçeneklerini de ayarlayarak davranışı tüm slaytlarda tutarlı tutun.
 
 **Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol edebilirim?**
 
-Read the [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) property from the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). It returns a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.
+Slaydın [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) özelliğinden [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) değerini okuyun. Bu değer, [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enum’undan bir değer döndürür; None değeri, hiçbir geçiş etkisinin uygulanmadığını gösterir.

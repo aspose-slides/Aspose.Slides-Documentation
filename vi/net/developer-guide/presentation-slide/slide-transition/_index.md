@@ -1,5 +1,5 @@
 ---
-title: Quản lý chuyển đổi slide trong bản trình bày bằng .NET
+title: Quản lý chuyển đổi slide trong bài thuyết trình trên .NET
 linktitle: Chuyển đổi slide
 type: docs
 weight: 90
@@ -9,26 +9,26 @@ keywords:
 - thêm chuyển đổi slide
 - áp dụng chuyển đổi slide
 - chuyển đổi slide nâng cao
-- chuyển đổi Morph
+- chuyển đổi morph
 - loại chuyển đổi
 - hiệu ứng chuyển đổi
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Áp dụng chuyển đổi slide, cấu hình tiến tự động của slide, và tùy chỉnh Morph và các hiệu ứng chuyển đổi khác với Aspose.Slides cho .NET."
+description: "Áp dụng chuyển đổi slide, cấu hình tự động chuyển tiếp slide, và tùy chỉnh Morph và các hiệu ứng chuyển đổi khác với Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Hiệu ứng chuyển đổi slide điều khiển cách các slide xuất hiện trong buổi trình chiếu. Với Aspose.Slides cho .NET, bạn có thể chọn hiệu ứng chuyển đổi cho mỗi slide, cấu hình việc chuyển tiếp bằng nhấp chuột hoặc bộ hẹn giờ, và điều chỉnh các tùy chọn riêng cho một hiệu ứng. Bài viết này sử dụng các ví dụ C# để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
+Slide transitions control how slides appear during a slide show. With Aspose.Slides for .NET, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C# examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
 
 ## **Thêm chuyển đổi slide**
 
-Để áp dụng chuyển đổi, tải một bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) và truy cập thuộc tính [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) của slide. Đặt [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) thành một giá trị trong enum [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) , sau đó lưu bản trình bày.
+To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and access the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property. Set its [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration, then save the presentation.
 
-Ví dụ sau áp dụng chuyển đổi Circle cho slide đầu tiên và chuyển đổi Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
 
 ```csharp
 using System;
@@ -53,9 +53,9 @@ else
 
 ## **Chuyển đổi Wheel**
 
-Thuộc tính [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) của [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) kiểm soát số sector tia radial hiển thị slide đích. Đặt [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) của slide thành Wheel từ [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) trước khi truy cập [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) dưới dạng [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
+The [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) property of [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Wheel from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) before accessing [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) as [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
 
-Ví dụ này tạo hai cặp slide giống hệt: một slide đen tiếp theo là slide có hình chữ nhật màu vàng. Các slide đích sử dụng số spoke là 1 và 8, với cùng [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) và một [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) rõ ràng là 8.000 milgiây để dễ quan sát sự khác nhau.
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) and an explicit [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) of 8,000 milliseconds to make the difference easy to observe.
 
 ```csharp
 using System.Drawing;
@@ -96,19 +96,70 @@ for (var i = 0; i < spokeCounts.Length; i++)
 presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
 ```
 
-Mở bản trình bày đầu ra trong PowerPoint và chạy buổi trình chiếu. Tiến từ slide 1 sang slide 2, sau đó từ slide 3 sang slide 4. Trong chế độ phát của PowerPoint, số spoke đã xác nhận là 1 sẽ hiển thị slide bằng một quét chiều kim đồng hồ; số 8 sẽ hiển thị nó qua tám sector đồng thời. Nội dung đích và thời gian chuyển đổi đều giống nhau, vì vậy điểm khác nhau chỉ là số sector hiển thị.
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
+## **Mờ qua màu đen với chuyển đổi Reveal**
+
+Set the destination slide's transition type to Reveal, then use [IRevealTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/) to set [ThroughBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/irevealtransition/throughblack/). The example creates a teal source slide and a coral destination slide, then clones both so you can compare the same two-second transition with the fade disabled and enabled.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var source = presentation.Slides[0];
+var destination = presentation.Slides.AddClone(source);
+StyleSlide(source, Color.Teal, "Source");
+StyleSlide(destination, Color.Coral, "Destination");
+presentation.Slides.AddClone(source);
+presentation.Slides.AddClone(destination);
+
+foreach (var index in new[] { 1, 3 })
+{
+    var transition = presentation.Slides[index].SlideShowTransition;
+    transition.Type = TransitionType.Reveal;
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 2000;
+
+    var reveal = (IRevealTransition)transition.Value;
+    reveal.Direction = TransitionLeftRightDirectionType.Left;
+    reveal.ThroughBlack = index == 3;
+}
+
+presentation.Save("reveal-transitions.pptx", SaveFormat.Pptx);
+
+void StyleSlide(ISlide slide, Color background, string label)
+{
+    slide.Background.Type = BackgroundType.OwnBackground;
+    slide.Background.FillFormat.FillType = FillType.Solid;
+    slide.Background.FillFormat.SolidFillColor.Color = background;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+    shape.TextFrame.Text = label;
+    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 44;
+}
+```
+
+In a PowerPoint slide show, advance from slide 1 to slide 2. Teal fades directly into coral. Then advance from slide 3 to slide 4. The screen briefly darkens to near black before the coral slide appears. Both slides keep their original background colors.
+
+The rows below show frames from PowerPoint at half-second intervals. Compare the middle frame in each row to see the effect of the setting.
+
+![Phát lại PowerPoint với ThroughBlack bị tắt (trên) và bật (dưới). Chỉ hàng dưới chuyển sang gần màu đen.](reveal-through-black.png)
 
 ## **Thêm chuyển đổi slide nâng cao**
 
-Bạn có thể cấu hình thời gian một slide ở lại trên màn hình và việc nhấp chuột có tiến bộ buổi trình chiếu hay không. Các thuộc tính sau kiểm soát hành vi này:
+You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) cho phép người xem tiến tới bằng cách nhấp chuột.
-- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) cho phép tiến tự động.
-- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) xác định độ trễ trước khi tiến tự động, tính bằng milgiây.
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) cho phép người xem chuyển tiếp bằng cách nhấp chuột.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) cho phép chuyển tiếp tự động.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) chỉ định độ trễ trước khi slide tự động chuyển tiếp, tính bằng mili giây.
 
-Bật cả tiến bằng nhấp chuột và tiến theo thời gian để cho phép người xem chuyển tiếp bằng một cú nhấp hoặc chờ bộ hẹn giờ. Để chỉ dùng bộ hẹn giờ, đặt [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) thành `false`. Độ trễ kiểm soát thời điểm buổi trình chiếu tiến lên; nó không đặt thời lượng của hiệu ứng chuyển đổi hình ảnh.
+Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, set [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) to `false`. The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
 
-Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tiến tự động sau 3, 5 và 7 giây, tương ứng. Nhấp chuột cũng có thể tiến các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
+This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
 
 ```csharp
 using System;
@@ -146,9 +197,9 @@ else
 }
 ```
 
-Để kiểm tra xem tiến tự động theo thời gian có được bật hay không, đọc [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). Một độ trễ lưu trữ một mình không cho biết bộ hẹn giờ đang hoạt động.
+To check whether timed advancement is enabled, read [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). A stored delay alone does not indicate that the timer is active.
 
-Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ được bật, và tắt tiến tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho các slide đó và lưu các cài đặt đã cập nhật.
+The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
 
 ```csharp
 using System;
@@ -178,19 +229,19 @@ presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 
 ## **Kiểm soát thời gian chuyển đổi một cách chính xác**
 
-Sử dụng [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi tính bằng milgiây. Thuộc tính [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) của slide cung cấp các cài đặt này thông qua [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
+Use [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) to specify the exact length of a transition effect in milliseconds. The slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
 
 | Thuộc tính | Mục đích |
 | --- | --- |
-| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Đặt thời lượng của chính hiệu ứng chuyển đổi, tính bằng milgiây. |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Đặt độ trễ trước khi slide tiến tự động, tính bằng milgiây. Bật [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) để kích hoạt bộ hẹn giờ này. |
-| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Chọn một hạng tốc độ đã định sẵn từ enum [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, hoặc Fast. Được dùng khi không có thời lượng cụ thể được chỉ định. |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Đặt thời lượng của hiệu ứng chuyển đổi tính bằng mili giây. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Đặt độ trễ trước khi slide tự động chuyển tiếp, tính bằng mili giây. Bật [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) để kích hoạt bộ hẹn giờ này. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Chọn một danh mục tốc độ đã định nghĩa trước từ [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, hoặc Fast. Được sử dụng khi không chỉ định thời lượng chính xác. |
 
-[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) chỉ điều khiển hiệu ứng chuyển đổi; nó không quyết định thời gian slide vẫn hiển thị. Cấu hình độ trễ tiến tự động riêng biệt. Khi không đặt thời lượng rõ ràng, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên loại chuyển đổi và giá trị [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/).
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) value.
 
 ### **Áp dụng cùng một thời lượng cho mọi slide**
 
-Để duy trì nhịp độ nhất quán, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), và đặt mỗi chuyển đổi có thời lượng 750 milgiây. Nó riêng biệt bật tiến tự động sau 5.000 milgiây và tắt tiến bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
+For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -205,7 +256,7 @@ foreach (var slide in presentation.Slides)
     transition.Type = TransitionType.Fade;
     transition.Duration = 750;
 
-    // Cấu hình tiến tự động độc lập với thời lượng hiệu ứng.
+    // Cấu hình chuyển tiếp tự động độc lập với thời lượng hiệu ứng.
     transition.AdvanceAfter = true;
     transition.AdvanceAfterTime = 5000;
     transition.AdvanceOnClick = false;
@@ -214,9 +265,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 ```
 
-### **Đặt thời lượng khác nhau cho các slide riêng lẻ**
+### **Đặt thời lượng khác nhau cho từng slide**
 
-Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, dùng một chuyển đổi ngắn cho slide tiêu đề và một chuyển đổi dài hơn cho phần giới thiệu mục. Ví dụ này đặt 500 milgiây cho slide đầu tiên và 1.200 milgiây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
 
 ```csharp
 using System;
@@ -244,15 +295,15 @@ else
 }
 ```
 
-### **Phối hợp chuyển đổi với đầu ra hoạt hình**
+### **Điều phối chuyển đổi với đầu ra hoạt hình**
 
-Khi chuẩn bị một [animated GIF](/slides/vi/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/net/export-to-html5/), hoặc [video](/slides/vi/net/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để khớp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600 milgiây giữa các cảnh, và điều chỉnh độ trễ tiến của mỗi slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung của nó.
+When preparing an [animated GIF](/slides/vi/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/net/export-to-html5/), or [video](/slides/vi/net/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
 
-Đối với GIF và video, phối hợp tốc độ khung đầu ra với thời lượng hiệu ứng: 600 milgiây tương ứng với 18 khung ở 30 khung mỗi giây. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận đồng bộ.
+For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
 
 ### **Đọc thời lượng chuyển đổi hiện có**
 
-Đọc [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) trước khi sửa đổi chuyển đổi để xác định xem có giá trị cụ thể nào được lưu không. Giá trị `-1` nghĩa là không có thời lượng cụ thể được đặt; giá trị không âm chỉ thời lượng đã lưu tính bằng milgiây. Giá trị chưa đặt không phải là thời lượng phát lại được tính toán: Aspose.Slides sử dụng loại chuyển đổi và [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) để xác định thời lượng đó. Đặt loại chuyển đổi có thể khởi tạo thời lượng, vì vậy hãy kiểm tra các cài đặt gốc trước.
+Read [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
 
 ```csharp
 using System;
@@ -278,9 +329,9 @@ foreach (var slide in presentation.Slides)
 
 ## **Chuyển đổi Morph**
 
-Chuyển đổi Morph hoạt họa các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cung cấp cho chuyển đổi các đối tượng tương ứng để hoạt họa giữa trạng thái gốc và đã sửa đổi.
+The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
 
-Ví dụ sau tạo một slide có hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ enum [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong trình xem bản trình bày hỗ trợ Morph để xem hiệu ứng trong buổi trình chiếu.
+The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
 
 ```csharp
 using Aspose.Slides;
@@ -307,15 +358,15 @@ presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 
 ## **Các loại chuyển đổi Morph**
 
-Enum [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt họa nội dung:
+The [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) enumeration controls how Morph matches and animates content:
 
-- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) xử lý mỗi hình dạng như một đối tượng toàn bộ.
-- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) hoạt họa văn bản bằng cách ghép các từ khi có thể.
-- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) hoạt họa văn bản bằng cách ghép các ký tự khi có thể.
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) treats each shape as a whole object.
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching words where possible.
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching characters where possible.
 
-Đặt [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) của chuyển đổi thành Morph trước khi truy cập [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). Giá trị sau đó cung cấp giao diện [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/), thuộc tính [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) chọn chế độ khớp.
+Set the transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Morph before accessing its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) interface, whose [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) property selects the matching mode.
 
-Ví dụ này mở bản trình bày được tạo trong phần trước và cấu hình slide thứ hai để sử dụng hoạt họa Morph dựa trên từ.
+This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
 
 ```csharp
 using System;
@@ -349,14 +400,14 @@ else
 <!-- visual-explanation:slide-transition:start -->
 [![Các đơn vị khớp Morph được hiển thị dưới dạng hình dạng toàn bộ, các từ riêng lẻ và các ký tự riêng lẻ.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
 
-*Morph có thể khớp toàn bộ hình dạng, từ hoặc ký tự khi có thể. Các hộp này xác định các đơn vị khớp chứ không phải chuyển động quan sát được. Ví dụ chọn ByWord trên slide thứ hai.*
+*Morph có thể khớp toàn bộ hình dạng, từ hoặc ký tự khi có thể. Những hộp này xác định các đơn vị khớp thay vì chuyển động quan sát được. Ví dụ chọn ByWord trên slide thứ hai.*
 <!-- visual-explanation:slide-transition:end -->
 
 ## **Đặt hiệu ứng chuyển đổi**
 
-Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc việc hiệu ứng bắt đầu từ màn hình đen. Các tùy chọn có sẵn phụ thuộc vào [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) chuyển đổi đã chọn. Đặt loại trước, sau đó sử dụng giao diện thích hợp từ [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
+Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Set the type first, then use the appropriate interface from its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
 
-Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó đặt [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) thông qua [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
+The following example applies a Cut transition to the first slide of `input.pptx`. It sets [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) through [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) so that the transition starts from a black screen.
 
 ```csharp
 using System;
@@ -379,20 +430,20 @@ else
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
 **Tôi có thể kiểm soát tốc độ phát lại của một chuyển đổi slide không?**
 
-Có. Ưu tiên sử dụng [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) khi bạn cần thời lượng hiệu ứng chính xác tính bằng milgiây. Sử dụng [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) khi một hạng mục [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) đã định sẵn—Slow, Medium, hoặc Fast—đủ và không có thời lượng cụ thể nào được đặt. Các cài đặt này điều khiển hiệu ứng chuyển đổi một cách độc lập với độ trễ tiến tự động.
+Yes. Prefer [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) when you need an exact effect duration in milliseconds. Use [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
 
-**Tôi có thể đính kèm âm thanh vào một chuyển đổi và làm nó lặp lại không?**
+**Tôi có thể gắn âm thanh vào một chuyển đổi và lặp lại nó không?**
 
-Có. Gán âm thanh nhúng cho [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), đặt [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) thành StartSound từ enum [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/), và bật [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi trình chiếu.
+Yes. Assign embedded audio to [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), set [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) to StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). The audio loops until the next sound event in the slide show.
 
 **Cách nhanh nhất để áp dụng cùng một chuyển đổi cho mọi slide là gì?**
 
-Duyệt qua bộ sưu tập [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) của bản trình bày và đặt [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) của mỗi slide thành cùng một giá trị. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để giữ hành vi nhất quán giữa các slide.
+Loop through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and set each slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to the same value. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
 
-**Làm thế nào để kiểm tra chuyển đổi nào hiện đang được đặt trên một slide?**
+**Làm thế nào để kiểm tra chuyển đổi hiện tại trên một slide?**
 
-Đọc thuộc tính [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) từ [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) của slide. Nó trả về một giá trị từ enum [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/); None có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.
+Read the [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) property from the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). It returns a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.

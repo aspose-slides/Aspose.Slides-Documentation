@@ -1,15 +1,15 @@
 ---
-title: Dia-overgangen beheren in presentaties met C++
-linktitle: Dia-overgang
+title: Beheer diaovergangen in presentaties met C++
+linktitle: Diaovergang
 type: docs
 weight: 80
 url: /nl/cpp/slide-transition/
 keywords:
-- dia-overgang
-- dia-overgang toevoegen
-- dia-overgang toepassen
-- geavanceerde dia-overgang
-- morph-overgang
+- diaovergang
+- diaovergang toevoegen
+- diaovergang toepassen
+- geavanceerde diaovergang
+- morph‑overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Dia-overgangen toepassen, automatische voortzetting van dia's configureren, en Morph en andere overgangseffecten aanpassen met Aspose.Slides voor C++."
+description: "Diaovergangen toepassen, automatische voortzetting van dia's configureren, en Morph en andere overgangseffecten aanpassen met Aspose.Slides voor C++."
 ---
 ## **Overzicht**
 
-Dia‑overgangen bepalen hoe dia’s verschijnen tijdens een diavoorstelling. Met Aspose.Slides voor C++ kunt u voor elke dia een overgangseffect kiezen, voortgang configureren via muisklik of timer, en opties aanpassen die specifiek zijn voor een effect. Dit artikel gebruikt C++‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, diatiming te beheren en een Morph‑overgang tussen twee dia’s te maken. De voorbeelden tonen ook hoe de instellingen worden opgeslagen in een PPTX‑bestand.
+Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides for C++ kun je voor elke dia een overgangseffect kiezen, de voortgang per muisklik of timer configureren, en opties die specifiek zijn voor een effect aanpassen. Dit artikel gebruikt C++‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, de timing van dia's te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
 ## **Diaovergang toevoegen**
 
-Om een overgang toe te passen, laad een presentatie met de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑klasse en krijg via [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) toegang tot de overgangsinstellingen van een dia. Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met een waarde uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie, en sla vervolgens de presentatie op.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑klasse en krijg je toegang tot de overgangsinstellingen van een dia via [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met een waarde uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie, en sla vervolgens de presentatie op.
 
-Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia’s.
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,11 +60,11 @@ else
 presentation->Dispose();
 ```
 
-## **Wiel‑overgang**
+## **Wielovergang**
 
-De [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/)‑methode van [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) bepaalt het aantal radiale sectoren dat de bestemmingsdia onthult. Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met Wheel uit [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) voordat u [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) benadert via [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
+De [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/)‑methode van [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) regelt het aantal radiale sectoren dat de doel-dia onthult. Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met Wheel uit [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) voordat je [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) benadert als [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
 
-Dit voorbeeld maakt twee identieke paren dia’s: een zwarte dia gevolgd door een dia met een gouden rechthoek. De bestemmingsdia’s gebruiken respectievelijk 1 en 8 spaken, met dezelfde snelheid ingesteld via [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) en een expliciete duur van 8.000 ms ingesteld via [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) om het verschil duidelijk waar te maken.
+Dit voorbeeld maakt twee identieke paar dia's: een zwarte dia gevolgd door een dia met een gouden rechthoek. De doel-dia's gebruiken radiale aantallen van 1 en 8, met dezelfde snelheid ingesteld via [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) en een expliciete duur van 8.000 milliseconden ingesteld via [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) om het verschil duidelijk waarneembaar te maken.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -132,19 +132,99 @@ presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Open de uitvoer­presentatie in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 en vervolgens van dia 3 naar dia 4. In de PowerPoint‑weergave onthult de geverifieerde spoedwaarde 1 de dia met één klokwijzer‑beweging; de waarde 8 onthult de dia met acht radiale sectoren tegelijk. De inhoud en overgangstiming van de bestemmingsdia’s zijn identiek, alleen het aantal onthullingssectoren verschilt.
+Open de gegenereerde presentatie in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2, daarna van dia 3 naar dia 4. In PowerPoint‑afspelen onthult de gecontroleerde radiale teller van 1 de dia met één wijzerzin beweging; de gecontroleerde teller van 8 onthult de dia via acht radiale sectoren tegelijk. De doelinhoud en overgangstiming zijn identiek, dus het verschil zit in het aantal onthullingssectoren.
 
-## **Geavanceerde dia‑overgang toevoegen**
+## **Fade door zwart met de Reveal‑overgang**
 
-U kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
+Stel het overgangstype van de doel-dia in op Reveal, roep vervolgens [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/) aan op de [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/)‑interface. Het voorbeeld maakt een teal‑brondia en een koral‑doeldia, en kloont vervolgens beide zodat je dezelfde twee‑seconden‑overgang kunt vergelijken met de fade‑door‑zwart‑optie uitgeschakeld en ingeschakeld.
 
-- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) laat de kijker door een muisklik verdergaan.
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+In een PowerPoint‑diavoorstelling ga je van dia 1 naar dia 2. Teal vervaagt direct in koral. Vervolgens ga je van dia 3 naar dia 4. Het scherm wordt kort donker tot bijna zwart voordat de koral‑dia verschijnt. Beide dia's behouden hun oorspronkelijke achtergrondkleuren.
+
+De onderstaande rijen tonen frames uit PowerPoint met intervallen van een halve seconde. Vergelijk het middelframe in elke rij om het effect van de instelling te zien.
+
+![PowerPoint‑weergave met ThroughBlack uitgeschakeld (boven) en ingeschakeld (onder). Alleen de onderste rij gaat door bijna zwart heen.](reveal-through-black.png)
+
+## **Geavanceerde diaovergang toevoegen**
+
+Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
+
+- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) stelt de kijker in staat om door te klikken met de muis.
 - [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) schakelt automatische voortzetting in.
-- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) bepaalt de wachttijd vóór automatische voortzetting, in milliseconden.
+- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) specificeert de vertraging vóór automatische voortzetting, in milliseconden.
 
-Schakel zowel klik‑ als timer‑voortzetting in zodat de kijker kan doorgaan met een klik of kan wachten op de timer. Om alleen de timer te gebruiken, roep [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) aan met `false`. De wachttijd bepaalt wanneer de diavoorstelling voortzet; hij bepaalt niet de duur van het visuele overgangseffect.
+Schakel zowel klik‑ als tijdsgebaseerde voortzetting in zodat de kijker kan doorgaan met een klik of wachten op de timer. Om alleen de timer te gebruiken, roep je [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) aan met `false`. De vertraging bepaalt wanneer de diavoorstelling wordt voortgezet; hij stelt niet de duur van het visuele overgangseffect in.
 
-Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia’s en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia’s eveneens voortzetten. Gebruik een `input.pptx`‑bestand met minstens drie dia’s.
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook voortzetten. Gebruik een `input.pptx`‑bestand met minstens drie dia's.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -192,9 +272,9 @@ else
 presentation->Dispose();
 ```
 
-Om te controleren of timer‑voortzetting ingeschakeld is, roep [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/) aan. Een opgeslagen wachttijd op zichzelf geeft niet aan dat de timer actief is.
+Om te controleren of tijdsgebaseerde voortzetting is ingeschakeld, roep je [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/) aan. Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
 
-Het volgende voorbeeld opent het eerder opgeslagen bestand, meldt elke ingestelde timer, en schakelt automatische voortzetting uit voor dia’s met een wachttijd groter dan twee seconden. Voor die dia’s worden muisklikken ingeschakeld en worden de aangepaste instellingen opgeslagen.
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer, en schakelt automatische voortzetting uit voor dia's met een vertraging groter dan twee seconden. Het schakelt muisklikken in voor die dia's en slaat de bijgewerkte instellingen op.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -233,25 +313,25 @@ presentation->Dispose();
 
 ## **Overgangstiming nauwkeurig regelen**
 
-Gebruik [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)‑methode van de dia onthult deze instellingen via [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
+Gebruik [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)‑methode van de dia maakt deze instellingen beschikbaar via [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
 
 | Methode | Doel |
 | --- | --- |
 | [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Stelt de wachttijd vóór automatische voortzetting in, in milliseconden. Roep [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) met `true` aan om deze timer te activeren. |
-| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium, of Fast. Wordt gebruikt wanneer geen exacte duur is opgegeven. |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Stelt de vertraging in voordat de dia automatisch wordt voortgezet, in milliseconden. Roep [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) aan met `true` om deze timer te activeren. |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium of Fast. Deze wordt gebruikt wanneer geen exacte duur is opgegeven. |
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) regelt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettijd apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de waarde die [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) teruggeeft.
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) regelt alleen het overgangseffect; het bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettingsvertraging afzonderlijk. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de waarde die [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) retourneert.
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Aparte balken geven de overgangsduur van 750 ms en de automatische voortzettingsinstelling van 5.000 ms weer.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Het gedeelde voorbeeld geeft elke dia een Fade‑overgang van 750 ms en schakelt afzonderlijk automatische voortzetting in op 5 000 ms. De duur van de overgang regelt het effect; de voortzetting bepaalt wanneer de dia wordt verlaten. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
+*Het gedeelde voorbeeld geeft elke dia een Fade‑overgang van 750 ms en schakelt afzonderlijk automatische voortzetting in na 5 000 ms. De overgangsduur regelt het effect; de voortzetting regelt wanneer de dia wordt verlaten. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **Dezelfde duur toepassen op elke dia**
 
-Voor een gelijkmatig tempo past u hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt afzonderlijk automatische voortzetting in na 5 000 milliseconden en schakelt voortzetting via muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
+Voor een consistente timing, pas je hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt afzonderlijk automatische voortzetting in na 5.000 milliseconden en schakelt voortzetting per muisklik uit, en slaat vervolgens het resultaat op als PPTX.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -274,7 +354,7 @@ for (auto&& slide : presentation->get_Slides())
     transition->set_Type(TransitionType::Fade);
     transition->set_Duration(750);
 
-    // Configureer automatische voortzetting onafhankelijk van de effectduur.
+    // Configureer automatische voortzetting onafhankelijk van de duur van het effect.
     transition->set_AdvanceAfter(true);
     transition->set_AdvanceAfterTime(5000);
     transition->set_AdvanceOnClick(false);
@@ -285,9 +365,9 @@ presentation->Save(u"precise-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Verschillende duringen instellen per individuele dia**
+### **Verschillende duur instellen voor individuele dia's**
 
-Verschillende dia’s kunnen verschillende effectduren hebben. Bijvoorbeeld een korte overgang voor een titeldia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 ms in voor de eerste dia en 1 200 ms voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia’s.
+Verschillende dia's kunnen verschillende duur van het effect hebben. Gebruik bijvoorbeeld een korte overgang voor een titel-dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1.200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -325,15 +405,15 @@ else
 presentation->Dispose();
 ```
 
-### **Overgangen afstemmen op geanimeerde uitvoer**
+### **Overgangen coördineren met geanimeerde output**
 
-Bij het voorbereiden van een [geanimeerde GIF](/slides/nl/cpp/convert-powerpoint-to-animated-gif/), een [HTML5‑presentatie](/slides/nl/cpp/export-to-html5/), of een [video](/slides/nl/cpp/convert-powerpoint-to-video/), stelt u exacte overgangsduren in vóór export zodat het tempo overeenkomt met de beoogde weergave. Gebruik bijvoorbeeld een fade van 600 ms tussen scènes, en stel voor elke dia afzonderlijk de voortzettijd in om tijd te geven aan de voice‑over of inhoud.
+Bij het voorbereiden van een [animated GIF](/slides/nl/cpp/convert-powerpoint-to-animated-gif/), [HTML5‑presentatie](/slides/nl/cpp/export-to-html5/), of [video](/slides/nl/cpp/convert-powerpoint-to-video/), stel je exacte overgangsduren in vóór export om de beoogde timing te matchen. Gebruik bijvoorbeeld een fade van 600 milliseconden tussen scènes, en pas de voortzettingsvertraging van elke dia apart aan om tijd te geven voor de bijbehorende voice‑over of inhoud.
 
-Voor GIF‑ en video‑export stemt u de framesnelheid af op de effectduur: 600 ms komt overeen met 18 frames bij 30 fps. In HTML5 schakelt u geanimeerde overgangen in de exportinstellingen in. Controleer welke effecten en timingopties de gekozen exportindeling ondersteunt en bekijk een voorbeeld om de synchronisatie te bevestigen.
+Voor GIF en video, stem de output‑frame‑rate af op de effectduur: 600 milliseconden komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in de exportinstellingen in. Controleer de ondersteunde effecten en timing‑opties van het gekozen exportformaat, en bekijk een voorbeeld van de output om de synchronisatie te bevestigen.
 
-### **Een bestaande overgangsduur uitlezen**
+### **Bestaande overgangsduur lezen**
 
-Roep [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) aan voordat u de overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden weer. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de waarde die [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) teruggeeft om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de originele instellingen.
+Roep [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) aan voordat je de overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de waarde die [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) retourneert om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus bekijk eerst de oorspronkelijke instellingen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -369,9 +449,9 @@ presentation->Dispose();
 
 ## **Morph‑overgang**
 
-De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia’s. Om een eenvoudige Morph‑effect te maken, dupliceert u een dia, verplaatst of schaalt u een object op de kloon, en past u de Morph‑overgang toe op de tweede dia. Hierdoor worden de corresponderende objecten geanimeerd tussen hun oorspronkelijke en gewijzigde toestand.
+De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑werking te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Hierdoor heeft de overgang de corresponderende objecten om te animeren tussen hun oorspronkelijke en gewijzigde staat.
 
-Het volgende voorbeeld maakt een dia met een tekstrechthoek, dupliceert de dia, en verandert de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatieweergave die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia, en verandert de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatiewaarnemer die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -413,15 +493,13 @@ presentation->Dispose();
 
 ## **Morph‑overgangstypen**
 
-De [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/)‑enumeratie bepaalt hoe Morph inhoud koppelt en animeert:
+De [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/)‑enumeratie bepaalt hoe Morph content koppelt en animeert:
 
 - [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) behandelt elke vorm als één geheel.
 - [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door woorden te koppelen waar mogelijk.
 - [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door tekens te koppelen waar mogelijk.
 
-Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met Morph voordat u [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) benadert. De waarde levert vervolgens de [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/)‑interface, waarvan de [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/)‑methode de koppelmodus selecteert.
-
-Dit voorbeeld opent de presentatie die in de vorige sectie werd gemaakt en configureert de tweede dia om woordgebaseerde Morph‑animatie te gebruiken.
+Roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met Morph voordat je [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) benadert. De verkregen waarde levert de [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/)‑interface, waarvan de [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/)‑methode de koppelingsmodus selecteert.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -469,7 +547,7 @@ presentation->Dispose();
 
 ## **Overgangseffecten instellen**
 
-Sommige overgangen onthullen extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van het gekozen overgangstype. Stel eerst het type in, en gebruik daarna de juiste interface die door [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) wordt geretourneerd.
+Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van het gekozen overgangstype. Stel eerst het type in, en gebruik vervolgens de passende interface die door [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) wordt geretourneerd.
 
 Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het roept [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) aan met `true` via [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
@@ -510,18 +588,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Kan ik de afspeelsnelheid van een dia‑overgang regelen?**
+**Kan ik de afspeelsnelheid van een diaovergang regelen?**
 
-Ja. Geef de voorkeur aan [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) wanneer u een exacte effectduur in milliseconden nodig heeft. Gebruik [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/)‑categorie (Slow, Medium of Fast) voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de timer‑voortzetting.
+Ja. Gebruik [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/)‑categorie — Slow, Medium of Fast — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortzettingsvertraging.
 
 **Kan ik audio aan een overgang koppelen en laten herhalen?**
 
-Ja. Koppel ingesloten audio met [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), roep [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) aan met StartSound uit de [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/)‑enumeratie, en schakel herhaling in met [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). Het geluid blijft herhalen tot het volgende geluidsevenement in de diavoorstelling.
+Ja. Koppel ingesloten audio met [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), roep [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) aan met StartSound uit de [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/)‑enumeratie, en schakel herhalen in met [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). De audio blijft herhalen tot het volgende geluidsevent in de diavoorstelling.
 
-**Wat is de snelste manier om dezelfde overgang op alle dia’s toe te passen?**
+**Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Loop door de collectie die wordt geretourneerd door de [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/)‑methode van de presentatie en roep voor elke dia [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met dezelfde waarde. Stel eventuele timing‑ en effectopties in dezelfde lus in om consistent gedrag over alle dia’s te waarborgen.
+Loop door de collectie die wordt geretourneerd door de [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/)‑methode van de presentatie en roep [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) aan met dezelfde waarde voor de overgang van elke dia. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Roep [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) aan op de overgang die wordt geretourneerd door de [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)‑methode van de dia. Het geeft een waarde uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie terug; None betekent dat er geen overgangseffect is toegepast.
+Roep [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) aan op de overgang die wordt geretourneerd door de [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)‑methode van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)‑enumeratie; None betekent dat er geen overgangseffect is toegepast.

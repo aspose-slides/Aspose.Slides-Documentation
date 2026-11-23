@@ -1,15 +1,15 @@
 ---
-title: Beheer diaovergangen in presentaties met Python via Java
-linktitle: Diaovergang
+title: Dia-overgangen beheren in presentaties met Python via Java
+linktitle: Dia-overgang
 type: docs
 weight: 80
 url: /nl/python-java/slide-transition/
 keywords:
-- diaovergang
-- diaovergang toevoegen
-- diaovergang toepassen
-- geavanceerde diaovergang
-- morph-overgang
+- dia-overgang
+- dia-overgang toevoegen
+- dia-overgang toepassen
+- geavanceerde dia-overgang
+- Morph-overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pas diaovergangen toe, configureer automatische voortgang van dia's, en pas Morph en andere overgangseffecten aan met Aspose.Slides voor Python via Java."
+description: "Dia-overgangen toepassen, automatische voortgang van dia's configureren en Morph en andere overgangseffecten aanpassen met Aspose.Slides voor Python via Java."
 ---
 ## **Overzicht**
 
-Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides voor Python via Java kun je voor elke dia een overgangseffect kiezen, de voortgang via muisklik of timer configureren, en opties die specifiek zijn voor een effect aanpassen. Dit artikel gebruikt Python‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, de timing van dia's te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe de instellingen opgeslagen kunnen worden in een PPTX‑bestand.
+Dia‑overgangen bepalen hoe dia’s verschijnen tijdens een diavoorstelling. Met Aspose.Slides for Python via Java kun je voor elke dia een overgangseffect kiezen, de vooruitgang per muisklik of timer configureren en opties die specifiek zijn voor een effect aanpassen. Dit artikel gebruikt Python‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, diatiming te beheren en een Morph‑overgang tussen twee dia’s te creëren. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
-## **Diaovergang toevoegen**
+## **Dia‑overgang toevoegen**
 
-Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) klasse en krijg je toegang tot de overgangsinstellingen van de dia via [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) met een waarde uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) enumeratie, en sla daarna de presentatie op.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑klasse en krijg je toegang tot de overgangsinstellingen van de dia via [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) met een waarde uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)‑enumeratie, en sla daarna de presentatie op.
 
-Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia's.
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia’s.
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Wielovergang**
+## **Wheel‑overgang**
 
-Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) om Wheel te selecteren uit [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). Roep daarna [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) aan om de instellingen van [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) te benaderen. De methode [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) bepaalt hoeveel radiale sectoren de doeldia onthullen.
+Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) om Wheel te selecteren uit [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). Roep vervolgens [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) aan om de instellingen van [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) te benaderen. Met de [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes)‑methode bepaal je hoeveel radiale sectoren de bestemmingsdia onthullen.
 
-Het voorbeeld maakt twee identieke paren dia's. Elk paar begint met een zwarte dia en eindigt met een gouden rechthoek die de volledige dia beslaat. Beide doeldia's gebruiken dezelfde langzame snelheid ingesteld met [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) en dezelfde expliciete duur van 8,000 milliseconden ingesteld met [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). Alleen het aantal spaken verandert.
+Het voorbeeld maakt twee identieke paren dia’s. Elk paar begint met een zwarte dia en eindigt met een goudkleurige rechthoek die de volledige dia vult. Beide bestemmingsdia’s gebruiken dezelfde trage snelheid ingesteld met [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) en dezelfde expliciete duur van 8.000 ms ingesteld met [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). Alleen het aantal spaken verandert.
 
 ```python
 import jpype
@@ -102,19 +102,76 @@ finally:
     presentation.dispose()
 ```
 
-Open `wheel-transitions.pptx` in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 om een enkele, met de klok mee, beweging te zien die de gouden rechthoek onthult. Ga vervolgens van dia 3 naar dia 4 om acht radiale sectoren tegelijk dezelfde rechthoek te laten onthullen.
+Open `wheel-transitions.pptx` in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 om één klokwijzer‑beweging de gouden rechthoek te laten onthullen. Ga vervolgens van dia 3 naar dia 4 om acht radiale sectoren dezelfde rechthoek tegelijk te laten onthullen.
 
-## **Geavanceerde diaovergang toevoegen**
+## **Fade Through Black met de Reveal‑overgang**
+
+Stel het overgangstype van de bestemmingsdia in op Reveal en roep vervolgens [setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) aan op de instellingen van [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/). Het voorbeeld maakt een teal‑bron-dia en een koraal‑bestemmingsdia, en kloont beide. Elk paar gebruikt dezelfde twee‑seconden Reveal‑overgang. Alleen het tweede paar vervaagt via zwart.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Open `reveal-transitions.pptx` in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 om teal direct in koraal te laten vervagen. Ga vervolgens van dia 3 naar dia 4. Het scherm wordt kort donker, bijna zwart, voordat de koraal‑dia verschijnt. Beide dia’s behouden hun oorspronkelijke achtergrondkleuren.
+
+De rijen hieronder tonen frames uit PowerPoint met intervallen van een halve seconde. Vergelijk het middelste frame in elke rij om het effect te zien.
+
+![PowerPoint playback with fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **Geavanceerde dia‑overgang toevoegen**
 
 Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) staat de kijker toe om door te gaan door op de muis te klikken.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) maakt het mogelijk om door te gaan door te klikken.
 - [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) schakelt automatische voortgang in.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) geeft de vertraging vóór automatische voortgang op, in milliseconden.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) specificeert de vertraging vóór automatische voortgang, in milliseconden.
 
-Schakel zowel klik‑ als timer‑voortgang in zodat de kijker kan doorgaan met een klik of kan wachten op de timer. Om alleen de timer te gebruiken, geef je `False` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). De vertraging bepaalt wanneer de diavoorstelling voortgaat; hij stelt de duur van het visuele overgangseffect niet in.
+Schakel zowel klik‑ als tijdsgebaseerde voortgang in zodat de kijker kan doorgaan met een klik of kan wachten op de timer. Om alleen de timer te gebruiken, geef `False` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). De vertraging bepaalt wanneer de diavoorstelling voortschrijdt; hij zet de duur van het visuele overgangseffect niet.
 
-Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortgang in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook voortzetten. Gebruik een `input.pptx`‑bestand met ten minste drie dia's.
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia’s en schakelt automatische voortgang in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia’s ook voortzetten. Gebruik een `input.pptx`‑bestand met minstens drie dia’s.
 
 ```python
 import jpype
@@ -153,12 +210,12 @@ finally:
     presentation.dispose()
 ```
 
-Om te controleren of timer‑voortgang is ingeschakeld, roep je [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) aan. Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
+Om te controleren of tijdsgebaseerde voortgang ingeschakeld is, roep je [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) aan. Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
 
-Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer, en schakelt automatische voortgang uit voor dia's met een vertraging van meer dan twee seconden. Het schakelt muisklikken in voor die dia's en slaat de bijgewerkte instellingen op.
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer en schakelt automatische voortgang uit voor dia’s met een vertraging van meer dan twee seconden. Het schakelt muisklikken in voor die dia’s en slaat de bijgewerkte instellingen op.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -185,25 +242,26 @@ finally:
 
 ## **Overgangstiming nauwkeurig regelen**
 
-Gebruik [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)‑methode van de dia maakt deze instellingen bloot via [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/):
+Gebruik [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)‑methode van de dia maakt deze instellingen beschikbaar via [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/):
 
-| Method | Purpose |
+| Methode | Doel |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Stelt de vertraging in voordat de dia automatisch wordt voortgezet, in milliseconden. Geef `True` door aan [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) om deze timer te activeren. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Stelt de vertraging vóór automatische voortgang in, in milliseconden. Geef `True` aan [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) om deze timer te activeren. |
 | [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow, Medium of Fast. Wordt gebruikt wanneer geen exacte duur is opgegeven. |
 
-[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) regelt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortgangsvertraging apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde.
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) regelt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortgangsvertraging apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur op basis van het overgangstype en de [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde.
+
 
 <!-- visual-explanation:slide-transition:start -->
-[![Gescheiden balken geven de 750 ms overgangsduur en de 5.000 ms automatische voortgangsinstelling weer.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Het gedeelde voorbeeld geeft elke dia een 750‑ms Fade‑overgang en schakelt afzonderlijk automatische voortgang in op 5.000 ms. De overgangsduur regelt het effect; voortgang regelt wanneer de dia verlaten wordt. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
+*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Dezelfde duur toepassen op elke dia**
+### **Zelfde duur toepassen op elke dia**
 
-Voor een consistente tempo, pas je hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt afzonderlijk automatische voortgang in na 5.000 milliseconden en schakelt voortgang via muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
+Voor een gelijkmatig tempo kun je hetzelfde effect en dezelfde exacte duur op elke dia toepassen. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) en geeft elke overgang een duur van 750 milliseconden. Het schakelt automatisch voortgang in na 5.000 milliseconden en schakelt voortgang via muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
 
 ```python
 import jpype
@@ -221,7 +279,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # Stelt automatische voortgang in, onafhankelijk van de effectduur.
+        # Configureer automatische voortgang onafhankelijk van de duur van het effect.
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -231,9 +289,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Verschillende duurwaarden instellen voor individuele dia's**
+### **Verschillende duren instellen voor individuele dia’s**
 
-Verschillende dia's kunnen verschillende effectduur gebruiken. Gebruik bijvoorbeeld een korte overgang voor een titel‑dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1.200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia's.
+Verschillende dia’s kunnen verschillende effectduren hebben. Bijvoorbeeld een korte overgang voor een titeldia en een langere voor een sectie‑introductie. Dit voorbeeld stelt 500 ms in voor de eerste dia en 1.200 ms voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia’s.
 
 ```python
 import jpype
@@ -264,13 +322,13 @@ finally:
 
 ### **Overgangen coördineren met geanimeerde output**
 
-Bij het voorbereiden van een [animated GIF](/slides/nl/python-java/convert-powerpoint-to-animated-gif/), een [HTML5 presentation](/slides/nl/python-java/export-to-html5/) of een [video](/slides/nl/python-java/convert-powerpoint-to-video/), stel je exacte overgangsduren in vóór het exporteren om het beoogde tempo te behalen. Gebruik bijvoorbeeld een fade van 600 milliseconden tussen scènes, en pas elke dia‑voortgangsvertraging afzonderlijk aan om tijd te geven voor de bijbehorende vertelling of inhoud.
+Wanneer je een [animated GIF](/slides/nl/python-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/nl/python-java/export-to-html5/) of [video](/slides/nl/python-java/convert-powerpoint-to-video/) maakt, stel dan exacte overgangsduren in vóór export zodat ze overeenkomen met het beoogde tempo. Gebruik bijvoorbeeld een fade van 600 ms tussen scènes en pas elke dia‑voortgangsvertraging apart aan om tijd te geven aan de bijbehorende voice‑over of inhoud.
 
-Voor GIF en video, stem je de uitvoer‑frame‑rate af op de effectduur: 600 milliseconden komt overeen met 18 frames bij 30 frames per seconde. In HTML5 schakel je geanimeerde overgangen in via de exportinstellingen. Controleer de ondersteunde effecten en timing‑opties van het gekozen exportformaat, en bekijk een voorbeeld van de output om de synchronisatie te bevestigen.
+Voor GIF‑ en video‑export moet je de framesnelheid afstemmen op de effectduur: 600 ms komt overeen met 18 frames bij 30 fps. In HTML5 kun je geanimeerde overgangen activeren in de exportinstellingen. Controleer welke effecten en timingopties het gekozen exportformaat ondersteunt en bekijk een voorbeeld om synchronisatie te bevestigen.
 
-### **Bestaande overgangsduur lezen**
+### **Bestaande overgangsduur uitlezen**
 
-Roep [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) aan vóór het wijzigen van de overgang om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
+Roep [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) aan vóór je een overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)‑waarde om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
 
 ```python
 import jpype
@@ -297,9 +355,9 @@ finally:
 
 ## **Morph‑overgang**
 
-De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑effect te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Hierdoor krijgt de overgang de bijbehorende objecten om te animeren tussen hun oorspronkelijke en aangepaste staat.
+De Morph‑overgang animeert veranderingen tussen objecten op opeenvolgende dia’s. Om een eenvoudige Morph‑effect te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Hierdoor krijgen de overeenkomstige objecten animatie‑overgangen tussen hun oorspronkelijke en aangepaste toestand.
 
-Het volgende voorbeeld maakt een dia met een tekstrechthoek, kloont de dia, en verandert de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatieweergave die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia en wijzigt de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatiewatcher die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
 ```python
 import jpype
@@ -332,13 +390,15 @@ finally:
 
 ## **Morph‑overgangstypen**
 
-De [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/)‑enumeratie bepaalt hoe Morph inhoud overeenkomstig matcht en animeert:
+De [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/)‑enumeratie bepaalt hoe Morph overeenkomende inhoud matcht en animeert:
 
 - [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als één geheel.
-- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) animeert tekst door woorden, waar mogelijk, te matchen.
-- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) animeert tekst door tekens, waar mogelijk, te matchen.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) animeert tekst door woorden waar mogelijk te matchen.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) animeert tekst door tekens waar mogelijk te matchen.
 
-Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) om Morph te selecteren vóór het benaderen van [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue). De waarde is dan een instantie van de [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/)‑klasse, waarvan de [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType)‑methode de overeenkomstige modus selecteert.
+Gebruik [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) om Morph te selecteren voordat je [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) aanroept. De geretourneerde waarde is dan een instantie van de [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/)‑klasse, waarvan de [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType)‑methode de match‑modus selecteert.
+
+Dit voorbeeld opent de presentatie die in het vorige gedeelte is gemaakt en configureert de tweede dia om woord‑gebaseerde Morph‑animatie te gebruiken.
 
 ```python
 import jpype
@@ -370,7 +430,7 @@ finally:
 
 ## **Overgangseffecten instellen**
 
-Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van de overgang die met [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) is geselecteerd. Stel eerst het type in, en gebruik vervolgens de passende klasse via [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
+Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van de overgang die met [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) is geselecteerd. Stel eerst het type in, en gebruik vervolgens de juiste klasse via [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
 
 Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het roept [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) aan via [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
@@ -401,18 +461,18 @@ finally:
 
 ## **FAQ**
 
-**Kan ik de afspeelsnelheid van een diaovergang regelen?**
+**Kan ik de afspeelsnelheid van een dia‑overgang regelen?**
 
-Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)‑categorie — Slow, Medium of Fast — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortgangsvertraging.
+Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)‑categorie — Slow, Medium of Fast — volstaat en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortgangsvertraging.
 
-**Kan ik audio aan een overgang koppelen en deze laten loopen?**
+**Kan ik audio aan een overgang koppelen en laten herhalen?**
 
-Ja. Wijs ingebedde audio toe met [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound), geef `StartSound` uit de [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/)‑enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode), en schakel [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) in met `True`. Het geluid blijft loopen tot het volgende geluids‑event in de diavoorstelling.
+Ja. Wijs ingesloten audio toe met [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound), geef `StartSound` uit de [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/)‑enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode), en schakel [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) in met `True`. De audio blijft herhalen totdat het volgende geluidsevent in de diavoorstelling plaatsvindt.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Loop door de [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides)‑collectie van de presentatie en roep [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) aan met dezelfde waarde voor de overgang van elke dia. Stel alle timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
+Loop door de [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides)‑collectie van de presentatie en roep [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) aan met dezelfde waarde voor elke dia‑overgang. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia’s.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Roep [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)‑enumeratie; None_ betekent dat er geen overgangseffect is toegepast.
+Roep [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)‑enumeratie; `None_` betekent dat er geen overgangseffect is toegepast.

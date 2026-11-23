@@ -1,15 +1,15 @@
 ---
 title: Správa přechodů snímků v prezentacích na Androidu
-linktitle: Přechod snímků
+linktitle: Přechod snímku
 type: docs
 weight: 80
 url: /cs/androidjava/slide-transition/
 keywords:
 - přechod snímku
 - přidat přechod snímku
-- aplikovat přechod snímku
+- použít přechod snímku
 - pokročilý přechod snímku
-- Morph přechod
+- přechod Morph
 - typ přechodu
 - efekt přechodu
 - PowerPoint
@@ -18,11 +18,11 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aplikujte přechody snímků, nakonfigurujte automatické postupování snímků a přizpůsobte Morph a další efekty přechodů pomocí Aspose.Slides pro Android prostřednictvím Javy."
+description: "Použijte přechody snímků, nakonfigurujte automatické posouvání snímků a přizpůsobte Morph a další efekty přechodu pomocí Aspose.Slides pro Android prostřednictvím Javy."
 ---
 ## **Přehled**
 
-Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides for Android via Java můžete pro každý snímek vybrat efekt přechodu, nakonfigurovat postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v Javě k aplikaci přechodů, nastavení přesných délek přechodů, správě časování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
+Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides pro Android prostřednictvím Javy můžete pro každý snímek vybrat efekt přechodu, nakonfigurovat přechod kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v Javě k aplikaci přechodů, nastavení přesných délek přechodu, správě časování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
 ## **Přidání přechodu snímku**
 
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Přechod Wheel**
+## **Wheel přechod**
 
-Metoda [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) rozhraní [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) řídí počet radiálních sektorů, které odhalují cílový snímek. Nastavte typ přechodu snímku na Wheel pomocí [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) a [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) před přístupem k [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) jako [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
+Metoda [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) rozhraní [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) určuje počet radiálních segmentů, které odhalují cílový snímek. Nastavte typ přechodu snímku na Wheel z [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) pomocí [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) před přístupem k [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) jako [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
 
-Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky používají počet paprsků 1 a 8, s tou samou rychlostí nastavenou pomocí [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) a explicitní délkou 8 000 ms nastavenou pomocí [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) pro snadné pozorování rozdílu.
+Tento příklad vytvoří dvě identické dvojice snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky použijí počty segmentů 1 a 8, přičemž rychlost je nastavena stejným způsobem pomocí [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) a explicitní doba trvání 8 000 ms nastavená pomocí [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) usnadní pozorování rozdílu.
 
 ```java
 import android.graphics.Color;
@@ -95,19 +95,71 @@ try {
 }
 ```
 
-Otevřete výstupní prezentaci v PowerPointu a spusťte režim prezentace. Pokračujte ze snímku 1 na snímek 2, poté ze snímku 3 na snímek 4. Při přehrávání v PowerPointu ověřený počet paprsků 1 odhalí snímek jedním clockwise otáčením; ověřený počet 8 odhalí snímek osmi radiálními sektory současně. Obsah cílových snímků a časování přechodu jsou identické, rozdíl je v počtu odhalovacích sektorů.
+Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Přesuňte se ze snímku 1 na snímek 2, poté ze snímku 3 na snímek 4. V přehrávání PowerPointu se ověřený počet segmentů 1 projeví jedním pootočením po směru hodinových ručiček; ověřený počet 8 odhalí snímek osmi radiálními segmenty současně. Obsah cílových snímků i časování přechodu jsou identické, rozdíl tedy spočívá v počtu odhalovacích segmentů.
+
+## **Fade Through Black s přechodem Reveal**
+
+Nastavte typ přechodu cílového snímku na Reveal a poté zavolejte [setThroughBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irevealtransition/#setThroughBlack-boolean-) na jeho nastaveních [IRevealTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irevealtransition/). Příklad vytvoří tyrkysový zdrojový snímek a korálový cílový snímek, poté oba zduplikuje. Každá dvojice použije stejný dvousekundový přechod Reveal. Pouze druhá dvojice přechází přes černou.
+
+```java
+import android.graphics.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide source = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addClone(source);
+    ISlide[] slides = { source, destination };
+    int[] backgrounds = { Color.rgb(0, 128, 128), Color.rgb(255, 127, 80) };
+    String[] labels = { "Source", "Destination" };
+
+    for (int i = 0; i < slides.length; i++) {
+        ISlide slide = slides[i];
+        slide.getBackground().setType(BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+        slide.getBackground().getFillFormat().getSolidFillColor().setColor(backgrounds[i]);
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+        shape.getTextFrame().setText(labels[i]);
+        shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    ISlide clonedDestination = presentation.getSlides().addClone(destination);
+    for (ISlide slide : new ISlide[] { destination, clonedDestination }) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Reveal);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        IRevealTransition reveal = (IRevealTransition) transition.getValue();
+        reveal.setDirection(TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide == clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Otevřete uloženou prezentaci v PowerPointu a spusťte prezentaci. Přesuňte se ze snímku 1 na snímek 2 a uvidíte, jak tyrkys přímo přejde na korál. Pak přejděte ze snímku 3 na snímek 4. Obrazovka se na okamžik ztmaví téměř k černé, než se objeví korálový snímek. Oba snímky zachovají své původní barvy pozadí.
+
+Níže jsou uvedeny snímky z PowerPointu po půl‑sekundových intervalech. Porovnejte střední snímek v každém řádku, abyste viděli efekt.
+
+![PowerPoint playback with the fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
 
 ## **Přidání pokročilého přechodu snímku**
 
-Můžete nastavit, jak dlouho zůstane snímek na obrazovce a zda kliknutí myší posune prezentaci dál. Následující metody ovládají toto chování:
+Můžete nakonfigurovat, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci dál. Následující metody řídí toto chování:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) umožňuje uživateli postupovat kliknutím myši.  
-- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) povoluje automatické postupování.  
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) udává prodlevu před automatickým postupem v milisekundách.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) umožňuje divákovi posunout prezentaci kliknutím myši.
+- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) povoluje automatické posunutí.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) určuje prodlevu před automatickým posunutím v milisekundách.
 
-Povolte jak kliknutí, tak časované postupování, aby uživatel mohl pokračovat kliknutím nebo čekáním na časovač. Chcete‑li použít jen časovač, předávejte `false` metodě [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Prodleva určuje, kdy se prezentace posune dál; nenastavuje délku vizuálního efektu přechodu.
+Povolte jak kliknutí, tak časované posunutí, aby divák mohl pokračovat kliknutím nebo čekat na časovač. Chcete‑li použít pouze časovač, předávejte `false` do [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Prodleva určuje, kdy se prezentace posune; nenastavuje dobu trvání vizuálního efektu přechodu.
 
-Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické postupování po 3, 5 a 7 sekundách. Kliknutím myší lze tyto snímky také posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
+Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické posunutí po 3, 5 a 7 sekundách. Kliknutí myší mohou také tyto snímky posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```java
 import com.aspose.slides.*;
@@ -142,9 +194,9 @@ try {
 }
 ```
 
-Pro kontrolu, zda je časované postupování povoleno, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Uložená prodleva sama o sobě neznamená, že je časovač aktivní.
+Pro ověření, zda je časované posunutí povoleno, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Uložena prodleva sama o sobě neznamená, že je časovač aktivní.
 
-Další příklad otevře výše uložený soubor, vypíše každý povolený časovač a zakáže automatické postupování pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické posunutí pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```java
 import com.aspose.slides.*;
@@ -170,27 +222,27 @@ try {
 }
 ```
 
-## **Přesná kontrola časování přechodu**
+## **Přesné řízení časování přechodu**
 
-Použijte [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) k určení přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) snímku zpřístupňuje tato nastavení přes rozhraní [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
+Použijte [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) k určení přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) snímku odhaluje tato nastavení přes rozhraní [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
 
 | Metoda | Účel |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Nastaví dobu trvání samotného efektu přechodu v milisekundách. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Nastaví prodlevu před automatickým posunem snímku v milisekundách. Předejte `true` metodě [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) pro aktivaci časovače. |
-| [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Vybere předdefinovanou rychlost z výčtu [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána explicitní délka. |
+| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Nastavuje dobu trvání samotného efektu přechodu v milisekundách. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Nastavuje prodlevu před automatickým posunutím snímku v milisekundách. Pro aktivaci časovače předávejte `true` do [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-). |
+| [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána přesná doba trvání. |
 
-[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) ovlivňuje jen efekt přechodu; nevymezuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu pro posun nastavte samostatně. Pokud není explicitně nastavena délka, Aspose.Slides určí dobu trvání efektu ze typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--).
+[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) řídí jen efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu posunutí nastavte zvlášť. Pokud není explicitně nastavena doba trvání, Aspose.Slides určuje dobu trvání efektu z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--).
 
 <!-- visual-explanation:slide-transition:start -->
 [![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Sdílený příklad dává každému snímku 750 ms Fade přechod a samostatně povoluje automatické postupování po 5 000 ms. Délka přechodu řídí efekt; časování řídí, kdy snímek opustit. Tyto pruhy jsou schématickými nastaveními, ne měřenou kombinovanou časovou osou.*
+*The shared example gives each slide a 750‑ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Použít stejnou dobu na všechny snímky**
+### **Použít stejnou dobu trvání na všechny snímky**
 
-Pro jednotné tempo aplikujte stejný efekt a přesnou délku na všechny snímky. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) a každému přechodu přiřadí délku 750 ms. Samostatně povolí automatické postupování po 5 000 ms a zakáže postupování kliknutím myši, poté výsledek uloží jako PPTX.
+Pro jednotné tempo použijte stejný efekt a přesnou dobu trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) a každému přechodu nastaví dobu 750 ms. Samostatně povolí automatické posunutí po 5 000 ms a zakáže posunutí kliknutím myši, poté výsledek uloží jako PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -202,7 +254,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // Nastavte automatické postupování nezávisle na délce efektu.
+        // Nastavte automatické posouvání nezávisle na délce trvání efektu.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -214,9 +266,9 @@ try {
 }
 ```
 
-### **Nastavit různé délky pro jednotlivé snímky**
+### **Nastavit různé doby trvání pro jednotlivé snímky**
 
-Různé snímky mohou mít různé délky efektů. Například použijte krátký přechod pro úvodní snímek a delší pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Různé snímky mohou používat různé doby trvání efektu. Například můžete použít krátký přechod pro titulní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```java
 import com.aspose.slides.*;
@@ -243,13 +295,13 @@ try {
 
 ### **Koordinace přechodů s animovaným výstupem**
 
-Při přípravě [animated GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/androidjava/export-to-html5/) nebo [video](/slides/cs/androidjava/convert-powerpoint-to-video/) nastavte přesné délky přechodů před exportem, aby odpovídaly požadovanému tempu. Například použijte 600 ms fade mezi scénami a upravte prodlevu automatického posunu každého snímku zvlášť, aby byl dostatek času na komentář nebo obsah.
+Při přípravě [animated GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/androidjava/export-to-html5/) nebo [video](/slides/cs/androidjava/convert-powerpoint-to-video/) nastavte přesné doby trvání přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms přechod fade mezi scénami a oddělte prodlevu posunutí každého snímku, aby byl dostatek času na jeho výklad nebo obsah.
 
-Pro GIF a video koordinujte snímkovou frekvenci výstupu s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a časové možnosti vybraného formátu a předběžně si výstup prohlédněte, abyste potvrdili synchronizaci.
+Pro GIF a video koordinujte snímkovou rychlost výstupu s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a časovací možnosti vybraného formátu exportu a předem si prohlédněte výstup, aby byl synchronizován.
 
-### **Načíst existující délku přechodu**
+### **Načíst existující dobu trvání přechodu**
 
- Zavolejte [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavena žádná explicitní délka; ne‑záporná hodnota udává uloženou délku v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) pro určení této délky. Nastavení typu přechodu může inicializovat délku, proto nejprve prozkoumejte původní nastavení.
+Zavolejte [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` značí, že nebyla nastavena explicitní doba trvání; nezáporná hodnota udává uloženou dobu v milisekundách. Nezadaná hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) k určení této doby. Nastavení typu přechodu může načinit dobu trvání, takže nejprve prověřte původní nastavení.
 
 ```java
 import com.aspose.slides.*;
@@ -273,9 +325,9 @@ try {
 
 ## **Morph přechod**
 
-Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph klonujte snímek, přesunete nebo změníte velikost objektu na klonu a použijte Morph přechod na druhý snímek. Tímto způsobem se odpovídající objekty animují mezi původním a upraveným stavem.
+Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph zkopírujte snímek, přesunte nebo změňte velikost objektu na kopii a aplikujte přechod Morph na druhý snímek. To poskytne odpovídajícím objektům animaci mezi původním a upraveným stavem.
 
-Následující příklad vytvoří snímek s textovým obdélníkem, klonuje ho a změní pozici a velikost obdélníku na klonu. Poté vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) pro druhý snímek. Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
+Následující příklad vytvoří snímek s textovým obdélníkem, zkopíruje snímek a změní pozici a velikost obdélníku na kopii. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a sledujte efekt během prezentace.
 
 ```java
 import com.aspose.slides.*;
@@ -305,13 +357,13 @@ try {
 
 Výčet [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
 
-- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) zachází s každým tvarem jako s celým objektem.  
-- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) animuje text párováním slov, kde je to možné.  
-- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) animuje text párováním znaků, kde je to možné.
+- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) zachází s každým tvarem jako s celým objektem.
+- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) animuje text přiřazením slov, kde je to možné.
+- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) animuje text přiřazením znaků, kde je to možné.
 
 Použijte [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) k výběru Morph před přístupem k [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--). Hodnota pak poskytne rozhraní [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) vybírá režim přiřazení.
 
-Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nastaví druhý snímek tak, aby používal animaci Morph založenou na slovech.
+Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nakonfiguruje druhý snímek k animaci Morph založené na slovech.
 
 ```java
 import com.aspose.slides.*;
@@ -338,11 +390,11 @@ try {
 }
 ```
 
-## **Nastavení efektů přechodu**
+## **Nastavit efekty přechodu**
 
-Některé přechody nabízejí další možnosti, např. směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu vybraném pomocí [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). Nejprve nastavte typ a poté použijte vhodné rozhraní získané přes [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
+Některé přechody odhalují další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu zvoleném pomocí [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). Nejprve nastavte typ, poté použijte odpovídající rozhraní z [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-Následující příklad použije přechod Cut na první snímek souboru `input.pptx`. Zavolá [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) přes rozhraní [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/), aby přechod začínal z černé obrazovky.
+Následující příklad použije přechod Cut na první snímek souboru `input.pptx`. Zavolá [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) přes rozhraní [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/), takže přechod začne z černé obrazovky.
 
 ```java
 import com.aspose.slides.*;
@@ -369,16 +421,16 @@ try {
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-), pokud potřebujete přesnou dobu efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) — Slow, Medium nebo Fast — a není nastavena explicitní délka. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického postupování.
+Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-), když potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium nebo Fast, a není nastavena explicitní doba trvání. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického posunutí.
 
-**Mohu ke přechodu připojit zvuk a nechat jej opakovat?**
+**Mohu k přechodu přiřadit zvuk a nastavit smyčku?**
 
-Ano. Přiřaďte vložený zvuk pomocí [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), předajte hodnotu StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) metodě [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), a povolte [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) s `true`. Zvuk se bude opakovat až do dalšího zvukového události v prezentaci.
+Ano. Přiřaďte vestavěný zvuk pomocí [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), předáte StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), a povolíte [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) s hodnotou `true`. Zvuk se bude opakovat až do dalšího zvukového události v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak použít stejný přechod na všechny snímky?**
+**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
 
-Projděte kolekci [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) prezentace a zavolejte [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) se stejnou hodnotou pro přechod každého snímku. V téže smyčce nastavte i časování a volby efektu, aby chování bylo konzistentní napříč snímky.
+Projděte kolekci [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) prezentace a zavolejte [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) se stejnou hodnotou pro přechod každého snímku. Nastavte ve stejném cyklu i časování a možnosti efektu, aby chování bylo konzistentní napříč snímky.
 
-**Jak mohu zkontrolovat, který přechod je aktuálně nastaven na snímku?**
+**Jak zjistit, který přechod je aktuálně nastaven na snímku?**
 
-Zavolejte [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) na výsledku [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/); None znamená, že není aplikován žádný přechod.
+Zavolejte [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) na výsledku [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/); None znamená, že není nastaven žádný efekt přechodu.

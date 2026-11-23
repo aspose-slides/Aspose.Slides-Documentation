@@ -9,8 +9,8 @@ keywords:
 - slayt geçişi ekle
 - slayt geçişi uygula
 - gelişmiş slayt geçişi
-- morph geçişi
-- geçiş tipi
+- Morph geçişi
+- geçiş türü
 - geçiş efekti
 - PowerPoint
 - OpenDocument
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile slayt geçişlerini uygulayın, otomatik slayt ilerlemesini yapılandırın ve Morph ile diğer geçiş efektlerini özelleştirin."
+description: "Aspose.Slides for Node.js via Java ile slayt geçişlerini uygulayın, otomatik slayt ilerlemesini yapılandırın ve Morph ve diğer geçiş efektlerini özelleştirin."
 ---
 ## **Genel Bakış**
 
-Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl göründüğünü kontrol eder. Aspose.Slides for Node.js via Java ile her slayt için bir geçiş efekti seçebilir, ilerlemeyi fare tıklaması veya zamanlayıcı ile yapılandırabilir ve effect'e özgü seçenekleri ayarlayabilirsiniz. Bu makale, JavaScript örnekleri kullanarak geçişleri uygulamayı, kesin geçiş sürelerini ayarlamayı, slayt zamanlamasını yönetmeyi ve iki slayt arasında bir Morph geçişi oluşturmayı gösterir. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini de gösterir.
+Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl göründüğünü kontrol eder. Aspose.Slides for Node.js via Java ile her slayt için bir geçiş efekti seçebilir, geçişin fare tıklamasıyla mı yoksa zamanlayıcıyla mı ilerleyeceğini yapılandırabilir ve efekti özel seçeneklerle ayarlayabilirsiniz. Bu makale, geçişleri uygulamak, kesin geçiş süreleri ayarlamak, slayt zamanlamasını yönetmek ve iki slayt arasında bir Morph geçişi oluşturmak için JavaScript örnekleri kullanır. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini gösterir.
 
-## **Slayt Geçişi Ekleme**
+## **Slayt Geçişi Ekle**
 
-Bir geçiş uygulamak için bir sunumu [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfıyla yükleyin ve slaytın geçiş ayarlarına [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) üzerinden erişin. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enum'undan bir değerle [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) kullanın, ardından sunumu kaydedin.
+Bir geçiş uygulamak için, [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) sınıfıyla bir sunumu yükleyin ve slaytın geçiş ayarlarına [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) üzerinden erişin. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enumarasyonundan bir değerle [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) kullanın, ardından sunumu kaydedin.
 
-Aşağıdaki örnek, ilk slayta Circle geçişi ve ikinci slayta Comb geçişi uygular. En az iki slayta sahip bir `input.pptx` dosyası kullanın.
+Aşağıdaki örnek, ilk slayta Circle geçişi ve ikinci slayta Comb geçişi uygular. En az iki slayt içeren bir `input.pptx` dosyası kullanın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Wheel Geçişi**
+## **Tekerlek Geçişi**
 
-[WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) sınıfının [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) yöntemi, hedef slaytı ortaya çıkaran radyal sektör sayısını kontrol eder. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) üzerinden [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) ile slaytın geçiş tipini Wheel olarak ayarladıktan sonra, [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) olarak [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) alın.
+[WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) sınıfının [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) yöntemi, hedef slaytı ortaya çıkaran radyal sektör sayısını kontrol eder. [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) üzerinden [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) ile slaytın geçiş türünü Wheel olarak ayarladıktan sonra, [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) olarak [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) alın.
 
-Bu örnek iki aynı slayt çifti oluşturur: siyah bir slayt, ardından altın bir dikdörtgen içeren bir slayt. Hedef slaytlar 1 ve 8 spoke sayılarına sahiptir; aynı hız [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) ile ayarlanmış ve 8.000 milisaniye açıkça [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ile ayarlanmıştır, böylece fark gözle görülür.
+Bu örnek iki aynı slayt çifti oluşturur: bir siyah slayt ve ardından altın bir dikdörtgen içeren bir slayt. Hedef slaytlar 1 ve 8 spoke sayısı kullanır; aynı hız [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) ile ayarlanır ve farkın kolay gözlemlenebilmesi için [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) aracılığıyla 8.000 milisaniye açık bir süre ayarlanır.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,71 @@ try {
 }
 ```
 
-Çıktı sunumunu PowerPoint’te açın ve slayt gösterisini çalıştırın. 1. slayttan 2. slayta, ardından 3. slayttan 4. slayta ilerleyin. PowerPoint oynatımında, 1 spoke sayısı saat yönünde tek bir süpürme ile slaytı ortaya çıkarırken; 8 spoke sayısı aynı anda sekiz radyal sektörle ortaya çıkarır. Hedef içerik ve geçiş zamanlaması aynı olduğundan, fark ortaya çıkan sektör sayısındadır.
+Çıktı sunumunu PowerPoint’te açın ve slayt gösterisini çalıştırın. 1. slayttan 2. slayta, ardından 3. slayttan 4. slayta ilerleyin. PowerPoint oynatımında, 1 spoke sayısı saat yönünde tek bir tarama ile slaytı ortaya çıkarırken, 8 spoke sayısı aynı anda sekiz radyal sektörle ortaya çıkarır. Hedef içerik ve geçiş zamanlaması aynı olduğundan fark sadece ortaya çıkma sektörlerinin sayısıdır.
 
-## **Gelişmiş Slayt Geçişi Ekleme**
+## **Reveal Geçişi ile Siyah Üzerinden Solma**
 
-Bir slaytun ekranda ne kadar süre kalacağını ve fare tıklamasıyla slayt gösterisinin ilerleyip ilerlemeyeceğini yapılandırabilirsiniz. Aşağıdaki yöntemler bu davranışı kontrol eder:
+Hedef slaydın geçiş türünü Reveal olarak ayarlayın, ardından [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/) ayarları üzerinde [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) metodunu çağırın. Bu örnek bir turkuaz kaynak slayt ve bir mercan hedef slaytı oluşturur, ardından ikisini klonlar. Her çift aynı iki saniyelik Reveal geçişi kullanır. Sadece ikinci çift siyah üzerinden solma uygular.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) izleyicinin fare tıklamasıyla ilerlemesini sağlar.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
+
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kaydedilen sunumu PowerPoint’te açın ve slayt gösterisini başlatın. 1. slayttan 2. slayta ilerleyerek turkuazın mercana doğrudan solduğunu görün. Ardından 3. slayttan 4. slayta ilerleyin. Ekran, mercan slayt görünmeden önce kısa bir süre neredeyse siyaha kararır. Her iki slayt da özgün arka plan renklerini korur.
+
+Aşağıdaki satırlar, PowerPoint ekran görüntülerini yarım saniyelik aralıklarla gösterir. Etkiyi görmek için her satırdaki orta çerçeveyi karşılaştırın.
+
+![Siyah üzerinden geçiş kapalı (üst) ve açık (alt) olan PowerPoint oynatımı. Yalnızca alt satır neredeyse siyaha geçer.](reveal-through-black.png)
+
+## **Gelişmiş Slayt Geçişi Ekle**
+
+Slaytın ekranda ne kadar süre kalacağını ve fare tıklamasıyla slayt gösterisinin ilerleyip ilerlemeyeceğini yapılandırabilirsiniz. Aşağıdaki yöntemler bu davranışı kontrol eder:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) izleyicinin fareyle tıklayarak ilerlemesini sağlar.
 - [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) otomatik ilerlemeyi etkinleştirir.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) otomatik ilerlemeden önceki gecikmeyi milisaniye olarak belirtir.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) otomatik ilerleme gecikmesini milisaniye cinsinden belirtir.
 
-Hem tıklama hem de zamanlı ilerlemeyi etkinleştirerek izleyicinin bir tıklama ile devam etmesini veya zamanlayıcıyı beklemesini sağlayın. Yalnızca zamanlayıcıyı kullanmak için [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) yöntemine `false` gönderin. Gecikme slayt gösterisinin ne zaman ilerleyeceğini kontrol eder; görsel geçiş efektinin süresini ayarlamaz.
+Hem tıklama hem de zamanlanmış ilerlemeyi etkinleştirerek izleyicinin tıklamayla ilerlemesini ya da zamanlayıcının beklemesini sağlayabilirsiniz. Sadece zamanlayıcıyı kullanmak için [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metoduna `false` gönderin. Gecikme, slayt gösterisinin ne zaman ilerleyeceğini kontrol eder; görsel geçiş efektinin süresini ayarlamaz.
 
-Bu örnek, ilk üç slayta farklı efektler atar ve sırasıyla 3, 5 ve 7 saniye sonra otomatik ilerlemeyi etkinleştirir. Bu slaytlar fare tıklamasıyla da ilerleyebilir. En az üç slayta sahip bir `input.pptx` dosyası kullanın.
+Bu örnek, ilk üç slayta farklı efektler atar ve otomatik ilerlemeyi sırasıyla 3, 5 ve 7 saniye sonra etkinleştirir. Fare tıklamaları da bu slaytları ilerletebilir. En az üç slayt içeren bir `input.pptx` dosyası kullanın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +195,9 @@ try {
 }
 ```
 
-Zamanlı ilerlemenin etkin olup olmadığını kontrol etmek için [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) çağırın. Saklanan bir gecikme sadece zamanlayıcının aktif olduğu anlamına gelmez.
+Zamanlanmış ilerlemenin etkin olup olmadığını kontrol etmek için [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metodunu çağırın. Saklanan bir gecikme yalnız başına zamanlayıcının aktif olduğunu göstermez.
 
-Sonraki örnek, yukarıda kaydedilen dosyayı açar, etkin her zamanlayıcıyı raporlar ve iki saniyeden uzun gecikmeye sahip slaytlar için otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamasını etkinleştirir ve güncellenmiş ayarları kaydeder.
+Sonraki örnek, yukarıda kaydedilen dosyayı açar, her etkin zamanlayıcıyı raporlar ve iki saniyeden uzun gecikmesi olan slaytlar için otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamasını etkinleştirir ve güncellenmiş ayarları kaydeder.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -172,28 +224,27 @@ try {
 }
 ```
 
-## **Geçiş Zamanlamasını Hassas Bir Şekilde Kontrol Etme**
+## **Geçiş Zamanlamasını Kesin Olarak Kontrol Et**
 
-Geçiş efektinin kesin uzunluğunu milisaniye cinsinden belirtmek için [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) kullanın. Slaytın [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) yöntemi bu ayarları [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/) üzerinden açığa çıkar:
+Geçiş efektinin kesin uzunluğunu milisaniye cinsinden belirtmek için [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) kullanın. Slaytın [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) yöntemi bu ayarları [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/) üzerinden ortaya çıkarır:
 
-| Yöntem | Amaç |
+| **Yöntem** | **Amaç** |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Geçiş efektinin kendisinin süresini milisaniye olarak ayarlar. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Slaytın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye olarak ayarlar. Bu zamanlayıcıyı etkinleştirmek için [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) ile `true` gönderin. |
-| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) enum'undan önceden tanımlı bir hız kategorisi (Slow, Medium veya Fast) seçer. Kesin bir süre belirtilmediğinde kullanılır. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Geçiş efektinin kendisinin süresini milisaniye cinsinden ayarlar. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Slaytın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye cinsinden ayarlar. Bu zamanlayıcıyı etkinleştirmek için [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) metoduna `true` geçin. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) enumarasyonundan önceden tanımlı bir hız kategorisi (Yavaş, Orta, Hızlı) seçer. Kesin bir süre belirtilmediğinde kullanılır. |
 
-[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) yalnızca geçiş efektini kontrol eder; slaytın ekranda ne kadar süre kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açıkça bir süre ayarlanmamışsa, Aspose.Slides geçiş tipine ve [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) değerine göre etki süresini belirler.
-
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) yalnızca geçiş efektini kontrol eder; slaytın ekranda ne kadar süre kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açık bir süre ayarlanmamışsa, Aspose.Slides geçiş türü ve [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) değerine göre efekti belirler.
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750‑ms transition duration and 5,000‑ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Ayrı çubuklar 750 ms geçiş süresini ve 5.000 ms otomatik ilerleme ayarını gösterir.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Ortak örnek, her slayta 750 ms Fade geçişi verir ve ayrıca otomatik ilerlemeyi 5 000 ms’de etkinleştirir. Geçiş süresi efekti kontrol eder; ilerleme slayttan çıkma zamanını kontrol eder. Bu çubuklar ölçülen bir zaman çizelgesi değil, taslak ayarlardır.*
+*Ortak örnek, her slayta 750 ms Fade geçişi verir ve ayrıca 5.000 ms’de otomatik ilerlemeyi etkinleştirir. Geçiş süresi efekti kontrol eder; ilerleme ise slayttan ne zaman çıkılacağını kontrol eder. Bu çubuklar ölçülmüş bir birleşik zaman çizelgesi değil, tasarım amaçlı ayarlardır.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Her Slayta Aynı Süreyi Uygulama**
+### **Her Slayta Aynı Süreyi Uygula**
 
-Tutarlı bir tempo için aynı efekti ve kesin süreyi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) üzerinden Fade seçer ve her geçişe 750 milisaniye süre verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir, fare tıklamasıyla ilerlemeyi devre dışı bırakır ve sonucu PPTX olarak kaydeder.
+Tutarlı bir tempo için aynı efekti ve kesin süreyi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) üzerinden Fade seçer ve her geçişe 750 milisaniye süre verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir ve fare tıklamasıyla ilerlemeyi devre dışı bırakır, ardından sonucu PPTX olarak kaydeder.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -206,7 +257,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Etki süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
+        // Geçiş süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -218,9 +269,9 @@ try {
 }
 ```
 
-### **Bireysel Slaytlar İçin Farklı Süreler Ayarlama**
+### **Bireysel Slaytlar için Farklı Süreler Ayarla**
 
-Farklı slaytlar farklı efekt süreleri kullanabilir. Örneğin, başlık slaytı için kısa bir geçiş, bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek, ilk slayt için 500 ms, ikinci slayt için 1 200 ms ayarlar. En az iki slayta sahip bir `input.pptx` dosyası kullanın.
+Farklı slaytlar farklı efekt süreleri kullanabilir. Örneğin, bir başlık slaytı için kısa bir geçiş ve bir bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek birinci slayta 500 milisaniye, ikinci slayta 1.200 milisaniye süre ayarlar. En az iki slayt içeren bir `input.pptt` dosyası kullanın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -245,15 +296,15 @@ try {
 }
 ```
 
-### **Animasyonlu Çıktı ile Geçişleri Koordine Etme**
+### **Animasyonlu Çıktı ile Geçişleri Koordine Et**
 
-Bir [animated GIF](/slides/tr/nodejs-java/convert-powerpoint-to-animated-gif/) , [HTML5 presentation](/slides/tr/nodejs-java/export-to-html5/) veya [video](/slides/tr/nodejs-java/convert-powerpoint-to-video/) hazırlarken, dışa aktarmadan önce tam geçiş sürelerini ayarlayarak istenen tempoyu eşleştirin. Örneğin, sahneler arasında 600 ms geçiş fade’i kullanın ve her slaydın anlatım veya içeriği için yeterli zaman tanımak amacıyla ilerleme gecikmesini ayrı ayrı ayarlayın.
+[animated GIF](/slides/tr/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/tr/nodejs-java/export-to-html5/) veya [video](/slides/tr/nodejs-java/convert-powerpoint-to-video/) hazırlanırken, aktarım öncesinde kesin geçiş süreleri ayarlayarak istenen temposu eşleştirin. Örneğin, sahneler arasında 600 milisaniyelik bir solma kullanın ve her slaytın ilerleme gecikmesini ayrı ayrı ayarlayarak anlatım veya içerik için zaman tanıyın.
 
-GIF ve video için, etki süresiyle eşleşecek kare hızıyla koordinasyon sağlayın: 600 ms, 30 fps’de 18 kareye denk gelir. HTML5’te, dışa aktarma ayarlarında animasyonlu geçişleri etkinleştirin. Seçilen dışa aktarma biçiminin desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı önizleyin.
+GIF ve video için, efekt süresiyle eşleşecek bir kare hızı ayarlayın: 600 milisaniye, saniyede 30 karede 18 kareye denk gelir. HTML5’te dışa aktarma ayarlarında animasyonlu geçişleri etkinleştirin. Seçilen dışa aktarma formatının desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı ön izleyin.
 
-### **Mevcut Geçiş Süresini Okuma**
+### **Mevcut Bir Geçiş Süresini Oku**
 
-Geçişi değiştirmeden önce açık bir değer depolanıp depolanmadığını belirlemek için [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) çağırın. `-1` değeri açık bir süre ayarlanmadığını gösterir; negatif olmayan bir değer milisaniye cinsinden depolanmış süreyi belirtir. Ayarlanmamış değer, hesaplanan oynatma süresi değildir: Aspose.Slides geçiş tipini ve [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) değerini kullanarak bu süreyi belirler. Bir geçiş tipi ayarlamak bir süreyi başlatabilir, bu yüzden orijinal ayarları önce inceleyin.
+Geçişi değiştirmeden önce [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) metodunu çağırarak açık bir değer saklanıp saklanmadığını belirleyin. `-1` değeri açık bir sürenin ayarlanmadığını, negatif olmayan bir değer milisaniye cinsinden saklanan süreyi gösterir. Ayarlanmamış değer, hesaplanan oynatma süresi değildir: Aspose.Slides geçiş türü ve [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) değerine göre bu süreyi belirler. Bir geçiş türü ayarlamak bir süre başlatabilir, bu yüzden önce orijinal ayarları inceleyin.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -278,9 +329,9 @@ try {
 
 ## **Morph Geçişi**
 
-Morph geçişi, art arda gelen slaytlardaki nesneler arasındaki değişiklikleri canlandırır. Basit bir Morph efekti oluşturmak için bir slaytı kopyalayın, kopya üzerindeki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişini uygulayın. Bu, orijinal ve değiştirilmiş durumlar arasında animasyon yapılacak ilgili nesneleri sağlar.
+Morph geçişi, ardışık slaytlardaki nesneler arasındaki değişiklikleri canlandırır. Basit bir Morph efekti oluşturmak için bir slaytı klonlayın, klon üzerindeki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişi uygulayın. Bu, orijinal ve değiştirilmiş durumları arasında animasyon yapılacak karşılık gelen nesneleri sağlar.
 
-Aşağıdaki örnek bir metin dikdörtgeni içeren bir slayt oluşturur, slaytı kopyalar ve kopyadaki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayt için [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enum'undan Morph seçer. Kaydedilen dosyayı Morph’u destekleyen bir sunum görüntüleyicide açarak slayt gösterisi sırasında efekti görün.
+Aşağıdaki örnek bir metin dikdörtgenli bir slayt oluşturur, slaytı klonlar ve klon üzerindeki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayt için [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enumarasyonundan Morph seçer. Morph’u destekleyen bir sunum görüntüleyicide kaydedilen dosyayı açın ve slayt gösterisi sırasında efekti görün.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -306,15 +357,15 @@ try {
 }
 ```
 
-## **Morph Geçişi Türleri**
+## **Morph Geçiş Türleri**
 
-[TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) enum'ı, Morph’un içeriği nasıl eşleyeceğini ve canlandıracağını belirler:
+[TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) enumarasyonu, Morph’un içeriği nasıl eşleştirdiğini ve canlandırdığını kontrol eder:
 
 - [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) her şekli bütün bir nesne olarak ele alır.
 - [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) mümkün olduğunda kelimeleri eşleştirerek metni canlandırır.
 - [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) mümkün olduğunda karakterleri eşleştirerek metni canlandırır.
 
-Morph seçmek için [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) kullanın, ardından [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) alın. Bu değer bir [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/) nesnesi sağlar; bunun [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) yöntemi eşleşme modunu seçer.
+Morph’u seçmek için [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metodunu kullanın, ardından [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) metodundan bir [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/) nesnesi alın ve bu nesnenin [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) metodu ile eşleştirme modunu seçin.
 
 Bu örnek, önceki bölümde oluşturulan sunumu açar ve ikinci slaytı kelime tabanlı Morph animasyonu kullanacak şekilde yapılandırır.
 
@@ -343,11 +394,11 @@ try {
 }
 ```
 
-## **Geçiş Efektlerini Ayarlama**
+## **Geçiş Efektlerini Ayarla**
 
-Bazı geçişler ek seçenekler sunar; örneğin yön veya efektin siyah bir ekrandan başlaması gibi. Kullanılabilir seçenekler, [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) ile seçilen geçişe bağlıdır. İlk önce tipi ayarlayın, ardından [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) aracılığıyla uygun geçiş nesnesini kullanın.
+Bazı geçişler ek seçenekler sunar; örneğin yön veya efektin siyah bir ekrandan başlayıp başlamadığı gibi. Kullanılabilir seçenekler, [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) ile seçilen geçişe bağlıdır. İlk olarak türü ayarlayın, ardından [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) üzerinden uygun geçiş nesnesini kullanın.
 
-Aşağıdaki örnek, `input.pptx` dosyasının ilk slaytına Cut geçişi uygular. Geçişin siyah bir ekrandan başlamasını sağlamak için [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) üzerinden [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) çağırır.
+Aşağıdaki örnek, `input.pptx` dosyasının ilk slaytına Cut geçişi uygular. [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) üzerinden [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) metodunu çağırarak geçişin siyah bir ekrandan başlamasını sağlar.
 
 ```javascript
 const java = require("java");
@@ -374,16 +425,16 @@ try {
 
 **Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?**
 
-Evet. Milisaniye cinsinden kesin bir etki süresi gerektiğinde [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) tercih edin. Önceden tanımlı bir [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) (Slow, Medium veya Fast) yeterli olduğunda ve açık bir süre ayarlanmamışsa [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) kullanın. Bu ayarlar, geçiş efektini otomatik ilerleme gecikmesinden bağımsız olarak kontrol eder.
+Evet. Milisaniye cinsinden kesin bir efekt süresi gerektiğinde [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) tercih edin. Önceden tanımlı bir [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) kategorisi (Yavaş, Orta veya Hızlı) yeterli olduğunda ve açık bir süre ayarlanmamışsa [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) kullanın. Bu ayarlar geçiş efektini otomatik ilerleme gecikmesinden bağımsız olarak kontrol eder.
 
-**Geçişe ses ekleyebilir ve döngüye alabilir miyim?**
+**Bir geçişe ses ekleyip döngüye alabilir miyim?**
 
-Evet. [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound) ile gömülü ses atayın, [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) enum'undan StartSound değerini [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) ile gönderin ve [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) ile `true` ayarlayın. Ses, slayt gösterisindeki bir sonraki ses olayına kadar döngüye girer.
+Evet. [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound) ile gömülü ses atayın, [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) enumarasyonundan StartSound’ı [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) metoduna geçirin ve `true` ile [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) özelliğini etkinleştirin. Ses, slayt gösterisindeki bir sonraki ses olayı gerçekleşene kadar döngüde çalar.
 
-**Her slayta aynı geçişi uygulamanın en hızlı yolu nedir?**
+**Tüm slaytlara aynı geçişi uygulamanın en hızlı yolu nedir?**
 
-Sunumun [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) koleksiyonunu döngüye alın ve her slaydın geçişi için aynı değerle [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) çağırın. Aynı döngü içinde zamanlama ve efekt seçeneklerini ayarlayarak davranışı slaytlar arasında tutarlı tutun.
+Sunumun [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) koleksiyonunda döngü oluşturun ve her slaydın geçişi için aynı değerle [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) metodunu çağırın. Zamanlama ve efekt seçeneklerini aynı döngü içinde ayarlayarak davranışı tüm slaytlarda tutarlı tutun.
 
 **Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol edebilirim?**
 
-Slaydın [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) sonucunda [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) çağırın. Bu, [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enum'undan bir değer döndürür; None, hiçbir geçiş efektinin uygulanmadığını gösterir.
+Slaydın [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) sonucunda [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) metodunu çağırın. Bu, [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) enumarasyonundan bir değer döndürür; None, hiçbir geçiş etkisinin uygulanmadığını gösterir.

@@ -1,5 +1,5 @@
 ---
-title: C++를 사용하여 프레젠테이션의 슬라이드 전환 관리
+title: C++를 사용하여 프레젠테이션에서 슬라이드 전환 관리
 linktitle: 슬라이드 전환
 type: docs
 weight: 80
@@ -17,17 +17,17 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 슬라이드 전환을 적용하고 자동 슬라이드 진행을 구성하며 Morph 및 기타 전환 효과를 맞춤 설정합니다."
+description: "Aspose.Slides for C++를 사용하여 슬라이드 전환을 적용하고 자동 슬라이드 진행을 구성하며 Morph 및 기타 전환 효과를 사용자 정의합니다."
 ---
 ## **개요**
 
-슬라이드 전환은 슬라이드 쇼 중 슬라이드가 표시되는 방식을 제어합니다. Aspose.Slides for C++를 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 따른 진행을 구성하며, 효과에 특화된 옵션을 조정할 수 있습니다. 이 문서는 C++ 예제를 사용하여 전환을 적용하고, 정확한 전환 지속 시간을 설정하고, 슬라이드 타이밍을 관리하며, 두 슬라이드 간에 Morph 전환을 만드는 방법을 보여줍니다. 예제에서는 설정을 PPTX 파일에 저장하는 방법도 설명합니다.
+슬라이드 전환은 슬라이드 쇼 동안 슬라이드가 표시되는 방식을 제어합니다. Aspose.Slides for C++를 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 따라 진행을 구성하며, 효과에 특화된 옵션을 조정할 수 있습니다. 이 문서에서는 C++ 예제를 사용하여 전환을 적용하고, 정확한 전환 지속 시간을 설정하며, 슬라이드 타이밍을 관리하고, 두 슬라이드 사이에 Morph 전환을 만드는 방법을 보여줍니다. 또한 예제에서는 설정을 PPTX 파일로 저장하는 방법도 보여줍니다.
 
 ## **슬라이드 전환 추가**
 
-전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고, [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)을 통해 슬라이드의 전환 설정에 접근합니다. [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형에서 값을 선택하여 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)을 호출한 뒤 프레젠테이션을 저장합니다.
+전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고 [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/)을 통해 슬라이드의 전환 설정에 접근합니다. [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형의 값으로 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)을 호출한 다음 프레젠테이션을 저장합니다.
 
-다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 최소 두 개 슬라이드가 포함된 `input.pptx` 파일을 사용하세요.
+다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 최소 두 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,11 +60,11 @@ else
 presentation->Dispose();
 ```
 
-## **Wheel 전환**
+## **휠 전환**
 
-[IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/)의 [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) 메서드는 대상 슬라이드를 표시하는 방사형 구역 수를 제어합니다. [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)에서 Wheel을 선택한 뒤 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)을 호출하고, [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/)으로 돌아가 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/)에 접근합니다.
+[set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) 메서드는 [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/)에서 대상 슬라이드를 표시하는 방사형 섹터 수를 제어합니다. [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)에서 Wheel 값을 사용하여 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)을 호출한 다음 [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/)로서 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/)에 접근합니다.
 
-이 예제는 두 개의 동일한 슬라이드 쌍을 생성합니다: 검은색 슬라이드와 금색 사각형이 있는 슬라이드. 대상 슬라이드는 각각 1과 8개의 스포크 수를 사용하며, [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/)으로 동일한 속도를 설정하고, [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)으로 8,000밀리초의 명시적 지속 시간을 지정해 차이를 쉽게 관찰할 수 있게 합니다.
+이 예제는 두 개의 동일한 슬라이드 쌍을 생성합니다: 검은색 슬라이드와 그 다음에 금색 사각형이 있는 슬라이드. 대상 슬라이드는 1과 8의 spoke 수를 사용하며, [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/)을 통해 같은 속도를 설정하고, [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)으로 8,000밀리초의 명시적 지속 시간을 설정해 차이를 쉽게 관찰할 수 있도록 합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -132,19 +132,99 @@ presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-출력 프레젠테이션을 PowerPoint에서 열고 슬라이드 쇼를 실행합니다. 슬라이드 1에서 2로, 이어서 슬라이드 3에서 4로 진행합니다. PowerPoint 재생 시 스포크 수가 1인 경우 시계 방향 하나의 스윕으로 슬라이드가 표시되고, 8인 경우 8개의 방사형 구역이 동시에 표시됩니다. 대상 내용과 전환 타이밍은 동일하므로 차이는 표시 구역 수입니다.
+PowerPoint에서 출력 프레젠테이션을 열고 슬라이드 쇼를 실행하십시오. 슬라이드 1에서 슬라이드 2로, 그 다음 슬라이드 3에서 슬라이드 4로 진행합니다. PowerPoint 재생에서 검증된 1개의 spoke 수는 시계 방향 한 번의 스윕으로 슬라이드를 표시하고, 8개의 spoke 수는 여덟 개의 방사형 섹터를 동시에 표시합니다. 대상 콘텐츠와 전환 타이밍은 동일하므로 차이는 표시 섹터 수입니다.
+
+## **Reveal 전환을 사용한 검은색을 통한 페이드**
+
+대상 슬라이드의 전환 유형을 Reveal로 설정한 다음 [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/) 인터페이스에서 [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/)을 호출합니다. 예제는 청록색 원본 슬라이드와 산호색 대상 슬라이드를 생성하고, 두 슬라이드를 복제하여 검은색을 통한 페이드가 비활성화된 경우와 활성화된 경우의 동일한 2초 전환을 비교할 수 있게 합니다.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+PowerPoint 슬라이드 쇼에서 슬라이드 1에서 슬라이드 2로 진행합니다. 청록색이 바로 산호색으로 페이드됩니다. 그 다음 슬라이드 3에서 슬라이드 4로 진행합니다. 화면이 잠시 거의 검은색으로 어두워졌다가 산호색 슬라이드가 나타납니다. 두 슬라이드 모두 원래 배경 색을 유지합니다.
+
+아래 행들은 0.5초 간격으로 PowerPoint에서 캡처한 프레임을 보여줍니다. 각 행의 가운데 프레임을 비교하여 설정의 효과를 확인하십시오.
+
+![PowerPoint 재생에서 ThroughBlack 비활성화(상단) 및 활성화(하단). 하단 행만 거의 검은색을 통과합니다.](reveal-through-black.png)
 
 ## **고급 슬라이드 전환 추가**
 
-슬라이드가 화면에 머무는 시간과 마우스 클릭으로 슬라이드 쇼를 진행할지 여부를 구성할 수 있습니다. 다음 메서드가 해당 동작을 제어합니다:
+슬라이드가 화면에 머무는 시간과 마우스 클릭으로 슬라이드 쇼를 진행할지 여부를 구성할 수 있습니다. 다음 메서드들이 이 동작을 제어합니다:
 
-- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) 은 마우스 클릭으로 진행하도록 허용합니다.
+- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) 은 사용자가 마우스를 클릭하여 진행할 수 있게 합니다.
 - [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) 은 자동 진행을 활성화합니다.
 - [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) 은 자동 진행 전 지연 시간을 밀리초 단위로 지정합니다.
 
-클릭과 타이머 진행을 모두 활성화하면 클릭으로 이동하거나 타이머가 끝날 때까지 기다릴 수 있습니다. 타이머만 사용하려면 `false`와 함께 [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/)을 호출하십시오. 지연 시간은 슬라이드 쇼가 언제 진행되는지를 제어하며, 시각적 전환 효과의 지속 시간을 설정하지는 않습니다.
+클릭과 타이머 자동 진행을 모두 활성화하면 사용자는 클릭으로 진행하거나 타이머를 기다릴 수 있습니다. 타이머만 사용하려면 `false`와 함께 [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/)을 호출합니다. 지연 시간은 슬라이드 쇼가 언제 진행되는지를 제어하며, 시각 전환 효과의 지속 시간을 설정하지는 않습니다.
 
-이 예제는 첫 세 슬라이드에 서로 다른 효과를 할당하고, 각각 3초, 5초, 7초 후에 자동 진행을 활성화합니다. 마우스 클릭으로도 이러한 슬라이드를 진행할 수 있습니다. 최소 세 개 슬라이드가 포함된 `input.pptx` 파일을 사용하세요.
+이 예제는 첫 번째부터 세 번째 슬라이드에 서로 다른 효과를 할당하고 각각 3초, 5초, 7초 후에 자동 진행을 활성화합니다. 마우스 클릭으로도 슬라이드를 진행할 수 있습니다. 최소 세 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -192,9 +272,9 @@ else
 presentation->Dispose();
 ```
 
-타이머 진행이 활성화됐는지 확인하려면 [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/)을 호출합니다. 저장된 지연 시간만으로는 타이머가 활성 상태인지 판단할 수 없습니다.
+타이머 자동 진행이 활성화되었는지 확인하려면 [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/)을 호출하십시오. 저장된 지연 시간만으로는 타이머가 활성화됐다고 판단할 수 없습니다.
 
-다음 예제는 위에서 저장한 파일을 열어 각 슬라이드의 타이머를 보고, 2초 초과 지연을 가진 슬라이드의 자동 진행을 비활성화합니다. 해당 슬라이드에 마우스 클릭을 활성화하고 업데이트된 설정을 저장합니다.
+다음 예제는 위에서 저장한 파일을 열어 각 활성화된 타이머를 보고하고, 지연 시간이 2초를 초과하는 슬라이드에 대해 자동 진행을 비활성화합니다. 해당 슬라이드에 마우스 클릭을 활성화하고 업데이트된 설정을 저장합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -231,27 +311,25 @@ presentation->Save(u"adjusted-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **전환 타이밍을 정확히 제어**
+## **전환 타이밍 정밀 제어**
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)을 사용해 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) 메서드는 [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/)을 통해 이러한 설정을 노출합니다:
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) 을 사용하여 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) 메서드는 [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/) 을 통해 이러한 설정을 노출합니다.
 
-| 메서드 | 용도 |
+| 메서드 | 목적 |
 | --- | --- |
 | [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | 슬라이드가 자동으로 진행되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 `true`와 함께 [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/)를 호출합니다. |
-| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) 열거형에서 미리 정의된 속도 범주(Slow, Medium, Fast)를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우에 사용됩니다. |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | 슬라이드가 자동으로 진행되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 `true`와 함께 [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/)을 호출합니다. |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) 에서 사전 정의된 속도 범주인 Slow, Medium, Fast 중 하나를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우에 사용됩니다. |
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)은 전환 효과만 제어하며 슬라이드가 화면에 머무는 시간을 결정하지는 않습니다. 자동 진행 지연은 별도로 구성하십시오. 명시적 지속 시간이 설정되지 않은 경우, Aspose.Slides는 전환 유형과 [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) 반환 값을 기반으로 효과 지속 시간을 계산합니다.
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) 은 전환 효과만 제어하고, 슬라이드가 화면에 남는 시간은 결정하지 않습니다. 자동 진행 지연은 별도로 구성하십시오. 명시적 지속 시간이 설정되지 않으면 Aspose.Slides는 전환 유형과 [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) 이 반환하는 값을 기반으로 효과 지속 시간을 결정합니다.
 
+[![분리된 막대가 750ms 전환 지속 시간과 5,000ms 자동 진행 설정을 식별합니다.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 <!-- visual-explanation:slide-transition:start -->
-[![별도 막대가 750 ms 전환 지속 시간과 5 000 ms 자동 진행 설정을 표시합니다.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
-
-*공유 예제는 각 슬라이드에 750 ms Fade 전환을 적용하고, 별도로 5 000 ms 자동 진행을 활성화합니다. 전환 지속 시간은 효과를 제어하고, 진행은 슬라이드를 떠나는 시점을 제어합니다. 이 막대들은 측정된 전체 타임라인이 아닌 설정을 나타내는 개념도식입니다.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **모든 슬라이드에 동일한 지속 시간 적용**
 
-일관된 페이싱을 위해 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 이 예제는 `input.pptx`를 로드하고, [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초 지속 시간을 부여합니다. 또한 5 000밀리초 후 자동 진행을 별도로 활성화하고, 마우스 클릭 진행은 비활성화한 뒤 결과를 PPTX로 저장합니다.
+일관된 템포를 위해 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 이 예제는 `input.pptx`를 로드하고, [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초의 지속 시간을 부여합니다. 또한 5,000밀리초 후 자동 진행을 별도로 활성화하고 마우스 클릭에 의한 진행은 비활성화한 뒤 결과를 PPTX로 저장합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -274,7 +352,7 @@ for (auto&& slide : presentation->get_Slides())
     transition->set_Type(TransitionType::Fade);
     transition->set_Duration(750);
 
-    // 효과 지속 시간과 별도로 자동 진행을 구성합니다.
+    // 전환 효과 지속 시간과는 별도로 자동 진행을 구성합니다.
     transition->set_AdvanceAfter(true);
     transition->set_AdvanceAfterTime(5000);
     transition->set_AdvanceOnClick(false);
@@ -285,9 +363,9 @@ presentation->Save(u"precise-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **개별 슬라이드에 서로 다른 지속 시간 지정**
+### **개별 슬라이드에 서로 다른 지속 시간 설정**
 
-슬라이드마다 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어 타이틀 슬라이드에는 짧은 전환을, 섹션 소개 슬라이드에는 긴 전환을 적용합니다. 이 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1 200밀리초를 설정합니다. 최소 두 개 슬라이드가 포함된 `input.pptx` 파일을 사용하세요.
+슬라이드마다 서로 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어 제목 슬라이드에는 짧은 전환을, 섹션 소개 슬라이드에는 긴 전환을 사용합니다. 이 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1,200밀리초를 설정합니다. 최소 두 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -327,13 +405,13 @@ presentation->Dispose();
 
 ### **애니메이션 출력과 전환 조정**
 
-[animated GIF](/slides/ko/cpp/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/cpp/export-to-html5/), 또는 [video](/slides/ko/cpp/convert-powerpoint-to-video/)를 준비할 때 내보내기 전에 정확한 전환 지속 시간을 설정하여 원하는 페이싱에 맞춥니다. 예를 들어 장면 간에 600밀리초 페이드 전환을 사용하고, 각 슬라이드의 진행 지연을 별도로 조정해 나레이션이나 콘텐츠에 충분한 시간을 제공합니다.
+[animated GIF](/slides/ko/cpp/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/cpp/export-to-html5/) 또는 [video](/slides/ko/cpp/convert-powerpoint-to-video/) 를 준비할 때, 의도한 템포에 맞추려면 내보내기 전에 정확한 전환 지속 시간을 설정하십시오. 예를 들어 장면 사이에 600밀리초 페이드를 사용하고, 각 슬라이드의 진행 지연을 별도로 조정하여 내레이션이나 콘텐츠를 위한 시간을 확보합니다.
 
-GIF와 비디오의 경우 프레임 레이트를 효과 지속 시간에 맞추세요: 600밀리초는 초당 30프레임 기준 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화합니다. 선택한 내보내기 형식이 지원하는 효과와 타이밍 옵션을 확인하고, 출력 결과를 미리 보기로 동기화를 검증하십시오.
+GIF 및 비디오의 경우, 출력 프레임률을 효과 지속 시간에 맞추십시오: 600밀리초는 초당 30프레임에서 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화하십시오. 선택한 내보내기 형식이 지원하는 효과와 타이밍 옵션을 확인하고, 출력물을 미리 보아 동기화를 확인하십시오.
 
 ### **기존 전환 지속 시간 읽기**
 
-전환을 수정하기 전에 [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/)을 호출해 명시적 값이 저장되어 있는지 확인합니다. `-1` 값은 명시적 지속 시간이 설정되지 않았음을 의미하고, 0 이상의 값은 밀리초 단위로 저장된 지속 시간을 나타냅니다. 이 값은 재생 계산된 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) 반환 값을 사용해 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로 먼저 원본 설정을 검사하십시오.
+전환을 수정하기 전에 [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/)을 호출하여 명시적 값이 저장되어 있는지 확인합니다. `-1` 값은 명시적 지속 시간이 설정되지 않았음을 의미하고, 음이 아닌 값은 저장된 지속 시간을 밀리초 단위로 지정합니다. 설정되지 않은 값은 계산된 재생 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) 이 반환하는 값을 사용해 해당 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로 먼저 원래 설정을 점검하십시오.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -369,9 +447,9 @@ presentation->Dispose();
 
 ## **Morph 전환**
 
-Morph 전환은 연속된 슬라이드의 객체 변경을 애니메이션화합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고, 복제본에서 객체를 이동하거나 크기를 조정한 뒤 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 원본과 수정된 상태 사이의 해당 객체를 애니메이션으로 연결합니다.
+Morph 전환은 연속된 슬라이드에 있는 객체 간의 변화를 애니메이션화합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고 복제본에서 객체를 이동하거나 크기를 조정한 뒤 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 전환 대상 객체가 원래 상태와 변경된 상태 사이를 애니메이션합니다.
 
-다음 예제는 텍스트 사각형이 있는 슬라이드를 만든 뒤 해당 슬라이드를 복제하고, 복제본에서 사각형의 위치와 크기를 변경합니다. 그런 다음 두 번째 슬라이드에 대해 [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형에서 Morph를 선택합니다. Morph를 지원하는 프레젠테이션 뷰어에서 저장된 파일을 열어 슬라이드 쇼 중 효과를 확인하십시오.
+다음 예제는 텍스트 사각형이 있는 슬라이드를 만들고, 해당 슬라이드를 복제한 뒤 복제본에서 사각형의 위치와 크기를 변경합니다. 그런 다음 두 번째 슬라이드에 대해 [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형에서 Morph를 선택합니다. 저장된 파일을 Morph를 지원하는 프레젠테이션 뷰어에서 열어 슬라이드 쇼 중 효과를 확인하십시오.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -413,15 +491,15 @@ presentation->Dispose();
 
 ## **Morph 전환 유형**
 
-[TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 매치하고 애니메이션화하는 방식을 제어합니다:
+[TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 매칭하고 애니메이션하는 방식을 제어합니다:
 
-- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 각 도형을 전체 객체로 취급합니다.
-- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 가능한 경우 단어 단위로 텍스트를 애니메이션화합니다.
-- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 가능한 경우 문자 단위로 텍스트를 애니메이션화합니다.
+- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 각 형태를 전체 객체로 간주합니다.
+- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 가능한 경우 단어를 매칭하여 텍스트를 애니메이션합니다.
+- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 은 가능한 경우 문자를 매칭하여 텍스트를 애니메이션합니다.
 
-Morph를 선택하려면 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)에 Morph를 설정한 뒤 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/)에 접근합니다. 반환된 값은 [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/) 인터페이스를 제공하며, 여기서 [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) 메서드로 매치 모드를 선택합니다.
+전환을 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) 에 접근하기 전에 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) 에 Morph를 지정하여 호출합니다. 반환된 값은 [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/) 인터페이스를 제공하며, 이 인터페이스의 [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) 메서드가 매칭 모드를 선택합니다.
 
-이 예제는 이전 섹션에서 만든 프레젠테이션을 열고 두 번째 슬라이드에 단어 기반 Morph 애니메이션을 구성합니다.
+이 예제는 이전 섹션에서 만든 프레젠테이션을 열고 두 번째 슬라이드에 단어 기반 Morph 애니메이션을 사용하도록 구성합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -469,9 +547,9 @@ presentation->Dispose();
 
 ## **전환 효과 설정**
 
-일부 전환은 방향이나 검은 화면에서 시작하는지 여부와 같은 추가 옵션을 제공합니다. 사용 가능한 옵션은 선택한 전환 유형에 따라 다릅니다. 먼저 유형을 설정한 뒤 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/)가 반환하는 적절한 인터페이스를 사용하십시오.
+일부 전환은 방향이나 효과가 검은 화면에서 시작하는지와 같은 추가 옵션을 제공합니다. 사용 가능한 옵션은 선택한 전환 유형에 따라 다릅니다. 먼저 유형을 설정하고, 그런 다음 [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) 이 반환하는 적절한 인터페이스를 사용하십시오.
 
-다음 예제는 `input.pptx`의 첫 슬라이드에 Cut 전환을 적용합니다. [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/)을 통해 `true`와 함께 [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/)을 호출해 전환이 검은 화면에서 시작하도록 합니다.
+다음 예제는 `input.pptx`의 첫 번째 슬라이드에 Cut 전환을 적용합니다. [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) 를 통해 `true`와 함께 [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) 을 호출하여 전환이 검은 화면에서 시작하도록 합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -510,18 +588,18 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**슬라이드 전환의 재생 속도를 제어할 수 있나요?**
+**슬라이드 전환 재생 속도를 제어할 수 있나요?**
 
-예. 밀리초 단위의 정확한 효과 지속 시간이 필요할 경우 [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)을 사용하십시오. 미리 정의된 [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) 범주(느림, 보통, 빠름)만으로 충분하고 명시적 지속 시간을 지정하지 않을 경우 [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/)을 사용하십시오. 이 설정은 자동 진행 지연과 별도로 전환 효과만 제어합니다.
+예. 밀리초 단위의 정확한 효과 지속 시간이 필요할 때는 [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/)을 사용하십시오. 사전 정의된 [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) 범주(느림, 보통, 빠름)만으로 충분하고 명시적 지속 시간이 설정되지 않은 경우에는 [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/)을 사용하십시오. 이러한 설정은 자동 진행 지연과는 별개로 전환 효과를 제어합니다.
 
 **전환에 오디오를 첨부하고 반복 재생하도록 할 수 있나요?**
 
-예. [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/)으로 포함된 오디오를 지정하고, [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/) 열거형의 StartSound와 함께 [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/)를 호출한 뒤, [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/)으로 반복 재생을 활성화합니다. 오디오는 슬라이드 쇼에서 다음 사운드 이벤트가 발생할 때까지 반복됩니다.
+예. [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/) 으로 임베드된 오디오를 할당하고, [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/) 열거형의 StartSound와 함께 [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) 을 호출하며, [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/) 로 반복 재생을 활성화합니다. 오디오는 슬라이드 쇼에서 다음 사운드 이벤트가 발생할 때까지 반복됩니다.
 
-**모든 슬라이드에 동일한 전환을 적용하는 가장 빠른 방법은?**
+**모든 슬라이드에 동일한 전환을 적용하는 가장 빠른 방법은 무엇인가요?**
 
-프레젠테이션의 [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) 메서드가 반환하는 컬렉션을 순회하면서 각 슬라이드 전환에 대해 동일한 값을 사용해 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/)을 호출합니다. 동일한 루프 내에서 타이밍 및 효과 옵션을 설정하면 슬라이드 전반에 걸쳐 동작을 일관되게 유지할 수 있습니다.
+프레젠테이션의 [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) 메서드가 반환하는 컬렉션을 순회하면서 각 슬라이드의 전환에 대해 동일한 값을 사용해 [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) 을 호출합니다. 동일한 루프에서 타이밍 및 효과 옵션을 설정하면 슬라이드마다 동작이 일관됩니다.
 
-**현재 슬라이드에 설정된 전환이 무엇인지 확인하려면?**
+**슬라이드에 현재 설정된 전환이 무엇인지 확인하려면 어떻게 해야 하나요?**
 
-슬라이드의 [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) 메서드가 반환한 전환에 대해 [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/)을 호출합니다. 반환값은 [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형의 값이며, None이면 전환 효과가 적용되지 않은 것입니다.
+슬라이드의 [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) 메서드가 반환하는 전환에 대해 [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) 을 호출합니다. 이 메서드는 [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 열거형의 값을 반환하며, None은 전환 효과가 적용되지 않았음을 의미합니다.

@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Folienübergängen in Präsentationen mit Java
+title: Folienübergänge in Präsentationen mit Java verwalten
 linktitle: Folienübergang
 type: docs
 weight: 80
@@ -17,17 +17,17 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Folienübergänge anwenden, automatisches Voranschreiten von Folien konfigurieren und Morph- sowie andere Übergangseffekte mit Aspose.Slides für Java anpassen."
+description: "Folienübergänge anwenden, automatisches Voranschreiten der Folien konfigurieren und Morph- sowie andere Übergangseffekte mit Aspose.Slides für Java anpassen."
 ---
 ## **Übersicht**
 
-Folienübergänge steuern, wie Folien während einer Bildschirmpräsentation angezeigt werden. Mit Aspose.Slides für Java können Sie für jede Folie einen Übergangseffekt auswählen, das Voranschreiten per Mausklick oder Timer konfigurieren und optionsspezifische Einstellungen für einen Effekt anpassen. Dieser Artikel verwendet Java‑Beispiele, um Übergänge anzuwenden, genaue Übergangsdauern festzulegen, die Folienzeit zu verwalten und einen Morph‑Übergang zwischen zwei Folien zu erstellen. Die Beispiele zeigen außerdem, wie die Einstellungen in einer PPTX‑Datei gespeichert werden.
+Folienübergänge bestimmen, wie Folien während einer Präsentation angezeigt werden. Mit Aspose.Slides für Java können Sie für jede Folie einen Übergangseffekt auswählen, das Voranschreiten per Mausklick oder Timer konfigurieren und optionsspezifische Einstellungen für einen Effekt anpassen. Dieser Artikel verwendet Java‑Beispiele, um Übergänge anzuwenden, genaue Übergangsdauern festzulegen, die Folienzeit zu verwalten und einen Morph‑Übergang zwischen zwei Folien zu erstellen. Die Beispiele zeigen außerdem, wie die Einstellungen in einer PPTX‑Datei gespeichert werden.
 
 ## **Folienübergang hinzufügen**
 
-Um einen Übergang anzuwenden, laden Sie eine Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) und greifen über [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) auf die Übergabeeinstellungen der Folie zu. Verwenden Sie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) mit einem Wert aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), und speichern Sie anschließend die Präsentation.
+Um einen Übergang anzuwenden, laden Sie eine Präsentation mit der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑Klasse und greifen Sie über [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) auf die Übergangseinstellungen der Folie zu. Verwenden Sie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) mit einem Wert aus der [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/)‑Enumeration und speichern Sie anschließend die Präsentation.
 
-Das folgende Beispiel wendet einen Circle‑Übergang auf die erste Folie und einen Comb‑Übergang auf die zweite Folie an. Verwenden Sie eine Datei `input.pptx` mit mindestens zwei Folien.
+Das folgende Beispiel wendet einen Circle‑Übergang auf die erste Folie und einen Comb‑Übergang auf die zweite an. Verwenden Sie eine `input.pptx`‑Datei mit mindestens zwei Folien.
 
 ```java
 import com.aspose.slides.*;
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-## **Rad‑Übergang**
+## **Radialer Übergang**
 
-Die Methode [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-) von [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) steuert die Anzahl der radialen Sektoren, die die Ziel‑Folien enthüllen. Setzen Sie den Folienübergangstyp auf Wheel aus [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) mittels [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-), bevor Sie [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) als [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) abrufen.
+Die [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-)‑Methode von [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) steuert die Anzahl der radialen Sektoren, die die Ziel‑Folie enthüllen. Setzen Sie den Folien‑Übergangstyp auf Wheel aus [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) über [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-), bevor Sie über [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) auf [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) zugreifen.
 
-Dieses Beispiel erstellt zwei identische Folienpaare: eine schwarze Folie, gefolgt von einer Folie mit einem goldenen Rechteck. Die Ziel‑Folien verwenden Rad‑Zähler von 1 bzw. 8, mit derselben über [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) eingestellten Geschwindigkeit und einer expliziten Dauer von 8.000 Millisekunden, die über [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) festgelegt wird, um den Unterschied leicht erkennbar zu machen.
+Dieses Beispiel erzeugt zwei identische Folienpaare: eine schwarze Folie, gefolgt von einer Folie mit einem goldenen Rechteck. Die Ziel‑Folien verwenden Radanzahlen von 1 bzw. 8, mit gleicher Geschwindigkeit über [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) und einer expliziten Dauer von 8.000 ms über [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-), um den Unterschied leicht zu beobachten.
 
 ```java
 import java.awt.Color;
@@ -94,19 +94,71 @@ try {
 }
 ```
 
-Öffnen Sie die Ausgabedatei in PowerPoint und starten Sie die Bildschirmpräsentation. Wechseln Sie von Folie 1 zu Folie 2 und dann von Folie 3 zu Folie 4. In der PowerPoint‑Wiedergabe enthüllt die bestätigte Rad‑Anzahl von 1 die Folie mit einem einzigen, im Uhrzeigersinn verlaufenden Sweep; die bestätigte Anzahl von 8 enthüllt sie gleichzeitig über acht radiale Sektoren. Der Zielinhalt und die Übergangszeit sind identisch, sodass sich nur die Anzahl der Enthüllungssektoren unterscheidet.
+Öffnen Sie die Ausgabepäsentation in PowerPoint und starten Sie die Vorführung. Navigieren Sie von Folie 1 zu Folie 2 und dann von Folie 3 zu Folie 4. In der PowerPoint‑Wiedergabe enthüllt die bestätigte Radanzahl 1 die Folie mit einem einzigen, im Uhrzeigersinn verlaufenden Sweep; die bestätigte Anzahl 8 enthüllt sie durch acht radiale Sektoren gleichzeitig. Der Zielinhalt und die Übergangszeit sind identisch, sodass sich nur die Anzahl der Enthüllungssektoren unterscheidet.
+
+## **Einblenden durch Schwarz mit dem Reveal‑Übergang**
+
+Setzen Sie den Übergangstyp der Ziel‑Folie auf Reveal und rufen Sie anschließend [setThroughBlack](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/#setThroughBlack-boolean-) auf den [IRevealTransition](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/)‑Einstellungen auf. Das Beispiel erstellt eine türkisfarbene Quell‑Folie und eine korallfarbene Ziel‑Folie und klont beide. Jedes Paar verwendet denselben zweisekündigen Reveal‑Übergang. Nur das zweite Paar blendet durch Schwarz ein.
+
+```java
+import java.awt.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide source = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addClone(source);
+    ISlide[] slides = { source, destination };
+    Color[] backgrounds = { new Color(0, 128, 128), new Color(255, 127, 80) };
+    String[] labels = { "Source", "Destination" };
+
+    for (int i = 0; i < slides.length; i++) {
+        ISlide slide = slides[i];
+        slide.getBackground().setType(BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+        slide.getBackground().getFillFormat().getSolidFillColor().setColor(backgrounds[i]);
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+        shape.getTextFrame().setText(labels[i]);
+        shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    ISlide clonedDestination = presentation.getSlides().addClone(destination);
+    for (ISlide slide : new ISlide[] { destination, clonedDestination }) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Reveal);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        IRevealTransition reveal = (IRevealTransition) transition.getValue();
+        reveal.setDirection(TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide == clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Öffnen Sie die gespeicherte Präsentation in PowerPoint und starten Sie die Vorführung. Navigieren Sie von Folie 1 zu Folie 2, um das direkte Einblenden von Türkis nach Koralle zu sehen. Dann navigieren Sie von Folie 3 zu Folie 4. Der Bildschirm verdunkelt sich kurz fast bis Schwarz, bevor die Korallen‑Folie erscheint. Beide Folien behalten ihre ursprünglichen Hintergrundfarben.
+
+Die nachfolgenden Zeilen zeigen Frames aus PowerPoint in halben Sekundenabständen. Vergleichen Sie das mittlere Bild in jeder Zeile, um den Effekt zu sehen.
+
+![PowerPoint‑Wiedergabe mit deaktiviertem Fade‑Through‑Black (oben) und aktiviertem (unten). Nur die untere Zeile geht fast schwarz durch.](reveal-through-black.png)
 
 ## **Erweiterten Folienübergang hinzufügen**
 
-Sie können festlegen, wie lange eine Folie auf dem Bildschirm bleibt und ob ein Mausklick die Präsentation voranbringt. Die folgenden Methoden steuern dieses Verhalten:
+Sie können konfigurieren, wie lange eine Folie auf dem Bildschirm bleibt und ob ein Mausklick die Vorführung weiterführt. Die folgenden Methoden steuern dieses Verhalten:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) ermöglicht dem Betrachter, per Mausklick voranzuschalten.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) ermöglicht dem Betrachter das Vorankommen durch Mausklick.
 - [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) aktiviert das automatische Voranschreiten.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) gibt die Verzögerung vor dem automatischen Voranschreiten in Millisekunden an.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) legt die Verzögerung vor dem automatischen Voranschreiten in Millisekunden fest.
 
-Aktivieren Sie sowohl Klick‑ als auch Timer‑Voranschreiten, damit der Betrachter entweder per Klick weitergeht oder auf den Timer wartet. Um nur den Timer zu verwenden, übergeben Sie `false` an [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Die Verzögerung bestimmt, wann die Präsentation weiterschaltet; sie legt nicht die Dauer des visuellen Übergangseffekts fest.
+Aktivieren Sie sowohl Klick‑ als auch Timer‑Fortschritt, damit der Betrachter entweder per Klick weitergeht oder auf den Timer wartet. Um ausschließlich den Timer zu verwenden, übergeben Sie `false` an [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Die Verzögerung steuert, wann die Vorführung weitergeht; sie legt nicht die Dauer des visuellen Übergangseffekts fest.
 
-Dieses Beispiel weist den ersten drei Folien unterschiedliche Effekte zu und aktiviert das automatische Voranschreiten nach 3, 5 bzw. 7 Sekunden. Mausklicks können diese Folien ebenfalls voranbringen. Verwenden Sie eine Datei `input.pptx` mit mindestens drei Folien.
+Dieses Beispiel weist den ersten drei Folien unterschiedliche Effekte zu und aktiviert das automatische Voranschreiten nach 3, 5 bzw. 7 Sekunden. Mausklicks können diese Folien ebenfalls voranbringen. Verwenden Sie eine `input.pptx`‑Datei mit mindestens drei Folien.
 
 ```java
 import com.aspose.slides.*;
@@ -141,9 +193,9 @@ try {
 }
 ```
 
-Um zu prüfen, ob das zeitgesteuerte Voranschreiten aktiviert ist, rufen Sie [getAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) auf. Ein gespeicherter Verzögerungswert allein zeigt nicht an, dass der Timer aktiv ist.
+Um zu prüfen, ob das zeitgesteuerte Voranschreiten aktiviert ist, rufen Sie [getAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) auf. Ein gespeicherter Delay allein zeigt nicht, dass der Timer aktiv ist.
 
-Das nächste Beispiel öffnet die oben gespeicherte Datei, gibt für jede aktivierte Zeitsteuerung eine Meldung aus und deaktiviert das automatische Voranschreiten für Folien mit einer Verzögerung von mehr als zwei Sekunden. Für diese Folien wird das Voranschreiten per Klick wieder aktiviert und die aktualisierten Einstellungen werden gespeichert.
+Das nächste Beispiel öffnet die oben gespeicherte Datei, meldet jeden aktivierten Timer und deaktiviert das automatische Voranschreiten für Folien mit einer Verzögerung von mehr als zwei Sekunden. Für diese Folien wird der Mausklick aktiviert und die aktualisierten Einstellungen werden gespeichert.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +221,9 @@ try {
 }
 ```
 
-## **Übergangszeit exakt steuern**
+## **Übergangszeit präzise steuern**
 
-Verwenden Sie [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-), um die genaue Länge eines Übergangseffekts in Millisekunden anzugeben. Die Folie liefert über [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) die Einstellungen über das Interface [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/):
+Verwenden Sie [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-), um die genaue Länge eines Übergangseffekts in Millisekunden festzulegen. Die [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--)‑Methode der Folie stellt diese Einstellungen über [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/) bereit:
 
 | Methode | Zweck |
 | --- | --- |
@@ -179,17 +231,17 @@ Verwenden Sie [setDuration](https://reference.aspose.com/slides/java/com.aspose.
 | [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Legt die Verzögerung fest, bevor die Folie automatisch weitergeht, in Millisekunden. Übergeben Sie `true` an [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-), um diesen Timer zu aktivieren. |
 | [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Wählt eine vordefinierte Geschwindigkeitskategorie aus [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/): Slow, Medium oder Fast. Wird verwendet, wenn keine exakte Dauer angegeben ist. |
 
-[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) steuert nur den Übergangseffekt; sie bestimmt nicht, wie lange die Folie sichtbar bleibt. Die Verzögerung für das automatische Voranschreiten wird separat konfiguriert. Wenn keine explizite Dauer festgelegt ist, ermittelt Aspose.Slides die Effektdauer aus dem Übergangstyp und dem [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--)‑Wert.
+[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) steuert nur den Übergangseffekt; sie bestimmt nicht, wie lange die Folie sichtbar bleibt. Die Verzögerung für das automatische Voranschreiten muss separat konfiguriert werden. Wenn keine explizite Dauer gesetzt ist, ermittelt Aspose.Slides die Effekt­dauer aus dem Übergangstyp und dem [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--)‑Wert.
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate Balken zeigen die 750‑ms Übergangsdauer und die 5.000‑ms Einstellung für automatisches Voranschreiten.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separate Balken zeigen die 750‑ms Übergangsdauer und die 5.000‑ms Einstellung für die automatische Vorwärtsbewegung.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Das Beispiel weist jeder Folie einen 750‑ms Fade‑Übergang zu und aktiviert separat das automatische Voranschreiten nach 5.000 ms. Die Übergangsdauer steuert den Effekt; das Voranschreiten bestimmt, wann die Folie verlassen wird. Diese Balken stellen schematische Einstellungen dar, nicht eine gemessene kombinierte Zeitleiste.*
+*Das gemeinsame Beispiel gibt jeder Folie einen 750‑ms Fade‑Übergang und aktiviert separat die automatische Vorwärtsbewegung nach 5.000 ms. Die Übergangsdauer steuert den Effekt; die Vorwärtsbewegung bestimmt, wann die Folie verlassen wird. Diese Balken sind schematische Einstellungen, kein gemessener kombinierter Zeitplan.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Für jede Folie die gleiche Dauer anwenden**
+### **Gleiche Dauer auf jede Folie anwenden**
 
-Um ein gleichmäßiges Tempo zu erreichen, wenden Sie denselben Effekt und dieselbe exakte Dauer auf jede Folie an. Dieses Beispiel lädt `input.pptx`, wählt Fade aus [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) und gibt jedem Übergang eine Dauer von 750 Millisekunden. Es aktiviert separat das automatische Voranschreiten nach 5.000 Millisekunden und deaktiviert das Voranschreiten per Mausklick, bevor das Ergebnis als PPTX gespeichert wird.
+Für ein gleichmäßiges Tempo wenden Sie denselben Effekt und dieselbe exakte Dauer auf jede Folie an. Dieses Beispiel lädt `input.pptx`, wählt Fade aus [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), und gibt jedem Übergang eine Dauer von 750 ms. Es aktiviert separat das automatische Voranschreiten nach 5.000 ms und deaktiviert das Voranschreiten per Mausklick, dann speichert es das Ergebnis als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -201,7 +253,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // Automatisches Voranschreiten unabhängig von der Dauer des Effekts konfigurieren.
+        // Automatisches Voranschreiten unabhängig von der Effektdauer konfigurieren.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -215,7 +267,7 @@ try {
 
 ### **Unterschiedliche Dauern für einzelne Folien festlegen**
 
-Verschiedene Folien können unterschiedliche Effektdauern verwenden. Zum Beispiel kann für eine Titelfolie ein kurzer Übergang und für eine Abschnittseinleitung ein längerer Übergang eingesetzt werden. Dieses Beispiel legt 500 Millisekunden für die erste Folie und 1.200 Millisekunden für die zweite Folie fest. Verwenden Sie eine Datei `input.pptx` mit mindestens zwei Folien.
+Verschiedene Folien können unterschiedliche Effektdauern verwenden. Zum Beispiel kann eine Titelfolie einen kurzen Übergang und eine Abschnittseinführung einen längeren Übergang erhalten. Dieses Beispiel setzt 500 ms für die erste Folie und 1.200 ms für die zweite. Verwenden Sie eine `input.pptx`‑Datei mit mindestens zwei Folien.
 
 ```java
 import com.aspose.slides.*;
@@ -240,15 +292,15 @@ try {
 }
 ```
 
-### **Übergänge mit animierten Ausgaben koordinieren**
+### **Übergänge mit animierter Ausgabe koordinieren**
 
-Wenn Sie ein [animiertes GIF](/slides/de/java/convert-powerpoint-to-animated-gif/) , eine [HTML5‑Präsentation](/slides/de/java/export-to-html5/) oder ein [Video](/slides/de/java/convert-powerpoint-to-video/) vorbereiten, setzen Sie genaue Übergangsdauern vor dem Export, um das gewünschte Tempo zu treffen. Beispiel: Verwenden Sie einen 600‑ms‑Fade zwischen Szenen und passen Sie die Verzögerung für das Voranschreiten jeder Folie separat an, damit genügend Zeit für die Erzähler‑ oder Inhaltspräsentation bleibt.
+Beim Erstellen eines [animated GIF](/slides/de/java/convert-powerpoint-to-animated-gif/), einer [HTML5 presentation](/slides/de/java/export-to-html5/) oder eines [video](/slides/de/java/convert-powerpoint-to-video/) sollten Sie die exakten Übergangsdauern vor dem Export festlegen, um das beabsichtigte Tempo zu treffen. Verwenden Sie beispielsweise einen 600‑ms‑Fade zwischen Szenen und passen Sie jede Folien­verzögerung separat an, um Zeit für die Erzählung oder den Inhalt zu lassen.
 
-Für GIF und Video koordinieren Sie die Bildrate der Ausgabe mit der Effektdauer: 600 Millisekunden entsprechen 18 Frames bei 30 Frames pro Sekunde. In HTML5 aktivieren Sie animierte Übergänge in den Exporteinstellungen. Prüfen Sie die unterstützten Effekte und Timing‑Optionen des gewählten Exportformats und prüfen Sie die Ausgabe, um die Synchronisation zu bestätigen.
+Für GIF und Video koordinieren Sie die Ausgaberate mit der Effekt­dauer: 600 ms entsprechen 18 Frames bei 30 fps. In HTML5 aktivieren Sie animierte Übergänge in den Exporteinstellungen. Prüfen Sie die von dem gewählten Exportformat unterstützten Effekte und Timing‑Optionen und prüfen Sie die Vorschau, um die Synchronisation zu bestätigen.
 
-### **Bestehende Übergangsdauer auslesen**
+### **Vorhandene Übergangsdauer auslesen**
 
-Rufen Sie [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) auf, bevor Sie den Übergang ändern, um festzustellen, ob ein expliziter Wert gespeichert ist. Der Wert `-1` bedeutet, dass keine explizite Dauer gesetzt ist; ein nicht‑negativer Wert gibt die gespeicherte Dauer in Millisekunden an. Der nicht gesetzte Wert ist nicht die berechnete Wiedergabedauer: Aspose.Slides verwendet den Übergangstyp und den [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--)‑Wert, um diese Dauer zu bestimmen. Das Setzen eines Übergangstyps kann eine Dauer initialisieren, prüfen Sie daher zunächst die Originaleinstellungen.
+Rufen Sie [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) auf, bevor Sie den Übergang ändern, um festzustellen, ob ein expliziter Wert gespeichert ist. Ein Wert von `-1` bedeutet, dass keine explizite Dauer gesetzt ist; ein nicht‑negativer Wert gibt die gespeicherte Dauer in Millisekunden an. Der nicht gesetzte Wert ist nicht die berechnete Wiedergabedauer: Aspose.Slides verwendet den Übergangstyp und den [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--)‑Wert, um diese Dauer zu bestimmen. Das Setzen eines Übergangstyps kann eine Dauer initialisieren, daher sollten Sie zunächst die Originaleinstellungen prüfen.
 
 ```java
 import com.aspose.slides.*;
@@ -272,9 +324,9 @@ try {
 
 ## **Morph‑Übergang**
 
-Der Morph‑Übergang animiert Änderungen zwischen Objekten auf aufeinanderfolgenden Folien. Um einen einfachen Morph‑Effekt zu erzeugen, kopieren Sie eine Folie, verschieben oder skalieren Sie ein Objekt auf der Kopie und wenden den Morph‑Übergang auf die zweite Folie an. Dadurch erhalten die entsprechenden Objekte die Animation zwischen ihren ursprünglichen und modifizierten Zuständen.
+Der Morph‑Übergang animiert Änderungen zwischen Objekten auf aufeinanderfolgenden Folien. Um einen einfachen Morph‑Effekt zu erstellen, klonen Sie eine Folie, verschieben oder skalieren ein Objekt auf dem Klon und wenden den Morph‑Übergang auf die zweite Folie an. Dadurch erhalten die entsprechenden Objekte die Möglichkeit, zwischen dem ursprünglichen und dem modifizierten Zustand zu animieren.
 
-Das folgende Beispiel erstellt eine Folie mit einem Textrechteck, kopiert die Folie und ändert Position und Größe des Rechtecks auf der Kopie. Anschließend wählt es Morph aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) für die zweite Folie aus. Öffnen Sie die gespeicherte Datei in einem Präsentations‑Viewer, der Morph unterstützt, um den Effekt während einer Bildschirmpräsentation zu sehen.
+Das folgende Beispiel erstellt eine Folie mit einem Text‑Rechteck, klont die Folie und ändert die Position und Größe des Rechtecks im Klon. Anschließend wählt es Morph aus der [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/)‑Enumeration für die zweite Folie. Öffnen Sie die gespeicherte Datei in einem Präsentationsviewer, der Morph unterstützt, um den Effekt während einer Vorführung zu sehen.
 
 ```java
 import com.aspose.slides.*;
@@ -302,13 +354,13 @@ try {
 
 ## **Morph‑Übergangstypen**
 
-Die Aufzählung [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/) steuert, wie Morph Inhalte abgleicht und animiert:
+Die [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/)‑Enumeration bestimmt, wie Morph Inhalte abgleicht und animiert:
 
 - [ByObject](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByObject) behandelt jede Form als ganzes Objekt.
-- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) animiert Text, indem wo möglich Wörter abgeglichen werden.
-- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) animiert Text, indem wo möglich Zeichen abgeglichen werden.
+- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) animiert Text, indem nach Möglichkeit Wörter abgeglichen werden.
+- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) animiert Text, indem nach Möglichkeit Zeichen abgeglichen werden.
 
-Verwenden Sie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-), um Morph auszuwählen, bevor Sie [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) aufrufen. Der zurückgegebene Wert liefert das Interface [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/), dessen Methode [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-) den Abgleichmodus auswählt.
+Verwenden Sie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-), um Morph auszuwählen, bevor Sie [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) aufrufen. Der zurückgegebene Wert liefert die [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/)‑Schnittstelle, deren [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-)‑Methode den Abgleichmodus auswählt.
 
 Dieses Beispiel öffnet die im vorherigen Abschnitt erstellte Präsentation und konfiguriert die zweite Folie so, dass sie eine wortbasierte Morph‑Animation verwendet.
 
@@ -339,9 +391,9 @@ try {
 
 ## **Übergangseffekte festlegen**
 
-Einige Übergänge bieten zusätzliche Optionen, etwa Richtung oder ob der Effekt von einem schwarzen Bildschirm startet. Die verfügbaren Optionen hängen vom mit [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) gewählten Übergang ab. Setzen Sie zuerst den Typ und verwenden dann das passende Interface, das Sie über [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) erhalten.
+Einige Übergänge bieten zusätzliche Optionen, wie Richtung oder ob der Effekt von einem schwarzen Bildschirm startet. Die verfügbaren Optionen hängen vom zuvor mit [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) gewählten Übergang ab. Setzen Sie zuerst den Typ und nutzen Sie dann die passende Schnittstelle über [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--).
 
-Das folgende Beispiel wendet einen Cut‑Übergang auf die erste Folie von `input.pptx` an. Es ruft über [IOptionalBlackTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/) die Methode [setFromBlack](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) auf, sodass der Übergang von einem schwarzen Bildschirm startet.
+Das folgende Beispiel wendet einen Cut‑Übergang auf die erste Folie von `input.pptx` an. Es ruft über [IOptionalBlackTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/) [setFromBlack](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) auf, sodass der Übergang von einem schwarzen Bildschirm startet.
 
 ```java
 import com.aspose.slides.*;
@@ -368,16 +420,16 @@ try {
 
 **Kann ich die Wiedergabegeschwindigkeit eines Folienübergangs steuern?**
 
-Ja. Verwenden Sie [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-), wenn Sie eine exakte Effektdauer in Millisekunden benötigen. Nutzen Sie [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-), wenn eine vordefinierte [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/)‑Kategorie — Slow, Medium oder Fast — ausreicht und keine explizite Dauer gesetzt ist. Diese Einstellungen steuern den Übergangseffekt unabhängig von der Verzögerung für das automatische Voranschreiten.
+Ja. Verwenden Sie [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-), wenn Sie eine exakte Effekt­dauer in Millisekunden benötigen. Nutzen Sie [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-), wenn eine vordefinierte [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/)‑Kategorie (Slow, Medium oder Fast) ausreicht und keine explizite Dauer gesetzt ist. Diese Einstellungen steuern den Übergangseffekt unabhängig von der Verzögerung für das automatische Voranschreiten.
 
-**Kann ich einer Transition Audio anhängen und es wiederholen lassen?**
+**Kann ich einem Übergang Audio hinzufügen und es in einer Schleife wiedergeben?**
 
-Ja. Weisen Sie über [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-) eingebettetes Audio zu, übergeben Sie `StartSound` aus der Aufzählung [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/) an [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), und aktivieren Sie [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) mit `true`. Das Audio wiederholt sich, bis das nächste Sound‑Ereignis in der Präsentation eintritt.
+Ja. Weisen Sie eingebettetes Audio mit [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-) zu, übergeben Sie `StartSound` aus der [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/)‑Enumeration an [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), und aktivieren Sie [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) mit `true`. Das Audio wiederholt sich, bis das nächste Sound‑Ereignis in der Vorführung eintritt.
 
 **Was ist der schnellste Weg, denselben Übergang auf jede Folie anzuwenden?**
 
-Durchlaufen Sie die [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)‑Sammlung der Präsentation und rufen Sie für jede Folie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) mit demselben Wert auf. Legen Sie Timing‑ und Effektoptionen in derselben Schleife fest, um das Verhalten über alle Folien hinweg konsistent zu halten.
+Durchlaufen Sie die [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--)‑Sammlung der Präsentation und rufen Sie für jede Folie [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) mit dem gleichen Wert auf. Setzen Sie Timing‑ und Effekt‑Optionen im selben Durchlauf, um das Verhalten über alle Folien hinweg konsistent zu halten.
 
-**Wie kann ich prüfen, welcher Übergang derzeit einer Folie zugewiesen ist?**
+**Wie kann ich prüfen, welcher Übergang aktuell auf einer Folie eingestellt ist?**
 
-Rufen Sie [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) auf dem Ergebnis von [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) der Folie auf. Der Rückgabewert stammt aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/); None bedeutet, dass kein Übergangseffekt angewendet wurde.
+Rufen Sie [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) auf dem Ergebnis von [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) der Folie auf. Es liefert einen Wert aus der [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/)‑Enumeration; None bedeutet, dass kein Übergangseffekt angewendet ist.

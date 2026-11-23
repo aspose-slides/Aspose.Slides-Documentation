@@ -1,6 +1,6 @@
 ---
 title: Quản lý chuyển đổi slide trong bản trình chiếu bằng Java
-linktitle: Chuyển đổi Slide
+linktitle: Chuyển đổi slide
 type: docs
 weight: 80
 url: /vi/java/slide-transition/
@@ -9,7 +9,7 @@ keywords:
 - thêm chuyển đổi slide
 - áp dụng chuyển đổi slide
 - chuyển đổi slide nâng cao
-- chuyển đổi morph
+- chuyển đổi Morph
 - loại chuyển đổi
 - hiệu ứng chuyển đổi
 - PowerPoint
@@ -17,15 +17,15 @@ keywords:
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Áp dụng chuyển đổi slide, cấu hình tự động tiến tới slide, và tùy chỉnh Morph cũng như các hiệu ứng chuyển đổi khác với Aspose.Slides cho Java."
+description: "Áp dụng chuyển đổi slide, cấu hình chuyển tiếp slide tự động, và tùy chỉnh Morph và các hiệu ứng chuyển đổi khác với Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Các chuyển đổi slide kiểm soát cách các slide xuất hiện trong buổi chiếu slide. Với Aspose.Slides for Java, bạn có thể chọn hiệu ứng chuyển tiếp cho từng slide, cấu hình việc chuyển tiếp bằng cú nhấp chuột hoặc bộ hẹn giờ, và điều chỉnh các tùy chọn riêng cho mỗi hiệu ứng. Bài viết này sử dụng các ví dụ Java để áp dụng chuyển tiếp, đặt thời lượng chuyển tiếp chính xác, quản lý thời gian slide, và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
+Các chuyển đổi slide kiểm soát cách các slide xuất hiện trong buổi chiếu slide. Với Aspose.Slides for Java, bạn có thể chọn hiệu ứng chuyển đổi cho mỗi slide, cấu hình việc chuyển tiếp bằng nhấp chuột hoặc bộ hẹn giờ, và điều chỉnh các tùy chọn riêng cho một hiệu ứng. Bài viết này sử dụng các ví dụ Java để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide, và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
 
-## **Thêm chuyển tiếp cho slide**
+## **Thêm chuyển đổi slide**
 
-Để áp dụng một chuyển tiếp, tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và truy cập cài đặt chuyển tiếp của slide thông qua [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Sử dụng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) với một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), sau đó lưu bản trình chiếu.
+Để áp dụng một chuyển đổi, tải một bản trình diễn bằng lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) và truy cập cài đặt chuyển đổi của slide thông qua [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Sử dụng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) với giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), sau đó lưu bản trình diễn.
 
 Ví dụ sau áp dụng chuyển đổi Circle cho slide đầu tiên và chuyển đổi Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
@@ -47,11 +47,11 @@ try {
 }
 ```
 
-## **Chuyển tiếp bánh xe**
+## **Chuyển đổi Wheel**
 
-Phương thức [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-) của [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) kiểm soát số sector tia radial hiển thị slide đích. Đặt loại chuyển tiếp của slide thành Wheel từ [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) bằng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) trước khi truy cập [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) dưới dạng [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/).
+Phương thức [setSpokes](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/#setSpokes-long-) của [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/) kiểm soát số sector tia radial tiết lộ slide đích. Đặt loại chuyển đổi của slide thành Wheel từ [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) bằng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) trước khi truy cập [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--) dưới dạng [IWheelTransition](https://reference.aspose.com/slides/java/com.aspose.slides/iwheeltransition/).
 
-Ví dụ này tạo hai cặp slide giống hệt nhau: một slide đen và một slide có hình chữ nhật màu vàng. Các slide đích sử dụng số spoke là 1 và 8, với cùng tốc độ được đặt qua [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) và thời lượng rõ ràng 8.000 mil giây được đặt qua [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) để dễ quan sát sự khác biệt.
+Ví dụ này tạo hai cặp slide giống hệt nhau: một slide màu đen theo sau là một slide có hình chữ nhật màu vàng. Các slide đích sử dụng số spoke là 1 và 8, với tốc độ giống nhau được đặt qua [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) và thời lượng rõ ràng 8.000 mili giây được đặt qua [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) để dễ quan sát sự khác biệt.
 
 ```java
 import java.awt.Color;
@@ -94,19 +94,71 @@ try {
 }
 ```
 
-Mở bản trình chiếu đầu ra trong PowerPoint và chạy buổi chiếu slide. Tiến tới slide 2 từ slide 1, sau đó từ slide 3 tới slide 4. Trong chế độ phát lại PowerPoint, số spoke 1 hiển thị slide bằng một vòng quay theo chiều kim đồng hồ; số spoke 8 hiển thị nó qua tám sector tia đồng thời. Nội dung đích và thời gian chuyển tiếp là giống nhau, vì vậy sự khác biệt chỉ nằm ở số sector hiển thị.
+Mở bản trình diễn đầu ra trong PowerPoint và chạy buổi chiếu slide. Chuyển từ slide 1 sang slide 2, sau đó từ slide 3 sang slide 4. Trong phát lại PowerPoint, số spoke 1 được xác nhận sẽ tiết lộ slide bằng một vòng quét đồng hồ chiều kim đồng hồ; số 8 sẽ tiết lộ nó qua tám sector đồng thời. Nội dung đích và thời gian chuyển đổi là giống nhau, vì vậy sự khác biệt chỉ ở số sector tiết lộ.
 
-## **Thêm chuyển tiếp slide nâng cao**
+## **Fade Through Black với chuyển đổi Reveal**
 
-Bạn có thể cấu hình thời gian một slide ở lại trên màn hình và việc một cú nhấp chuột có chuyển tiếp hay không. Các phương thức sau kiểm soát hành vi này:
+Đặt loại chuyển đổi của slide đích thành Reveal, sau đó gọi [setThroughBlack](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/#setThroughBlack-boolean-) trên cài đặt [IRevealTransition](https://reference.aspose.com/slides/java/com.aspose.slides/irevealtransition/) của nó. Ví dụ tạo một slide nguồn màu teal và một slide đích màu coral, rồi sao chép cả hai. Mỗi cặp sử dụng cùng một chuyển đổi Reveal hai giây. Chỉ cặp thứ hai mới fade qua màu đen.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) cho phép người xem tiến tới bằng cách nhấp chuột.
-- [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) bật tự động tiến tới.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) chỉ định độ trễ trước khi tự động tiến tới, tính bằng mil giây.
+```java
+import java.awt.Color;
+import com.aspose.slides.*;
 
-Kích hoạt cả tiến tới bằng nhấp chuột và bằng thời gian để người xem có thể chuyển bằng một cú nhấp hoặc chờ bộ hẹn giờ. Để chỉ sử dụng bộ hẹn giờ, truyền `false` vào [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Độ trễ kiểm soát thời điểm buổi chiếu slide tiến tới; nó không đặt thời lượng của hiệu ứng chuyển tiếp trực quan.
+Presentation presentation = new Presentation();
+try {
+    ISlide source = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addClone(source);
+    ISlide[] slides = { source, destination };
+    Color[] backgrounds = { new Color(0, 128, 128), new Color(255, 127, 80) };
+    String[] labels = { "Source", "Destination" };
 
-Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tự động tiến tới sau 3, 5 và 7 giây tương ứng. Các slide cũng có thể tiến tới bằng cú nhấp chuột. Sử dụng tệp `input.pptx` có ít nhất ba slide.
+    for (int i = 0; i < slides.length; i++) {
+        ISlide slide = slides[i];
+        slide.getBackground().setType(BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(FillType.Solid);
+        slide.getBackground().getFillFormat().getSolidFillColor().setColor(backgrounds[i]);
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130);
+        shape.getTextFrame().setText(labels[i]);
+        shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    ISlide clonedDestination = presentation.getSlides().addClone(destination);
+    for (ISlide slide : new ISlide[] { destination, clonedDestination }) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Reveal);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        IRevealTransition reveal = (IRevealTransition) transition.getValue();
+        reveal.setDirection(TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide == clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Mở bản trình diễn đã lưu trong PowerPoint và bắt đầu buổi chiếu slide. Chuyển từ slide 1 sang slide 2 để thấy màu teal fade trực tiếp thành màu coral. Sau đó chuyển từ slide 3 sang slide 4. Màn hình sẽ tối dần gần đen trước khi slide coral xuất hiện. Cả hai slide vẫn giữ màu nền gốc của mình.
+
+Các hàng dưới đây hiển thị khung hình từ PowerPoint ở khoảng cách nửa giây. So sánh khung hình giữa trong mỗi hàng để thấy hiệu ứng.
+
+![PowerPoint playback with the fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **Thêm chuyển đổi slide nâng cao**
+
+Bạn có thể cấu hình thời gian một slide ở lại trên màn hình và liệu một nhấp chuột chuột có chuyển tiếp buổi chiếu hay không. Các phương thức sau kiểm soát hành vi này:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) cho phép người xem chuyển tiếp bằng cách nhấp chuột.
+- [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) bật chuyển tiếp tự động.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) chỉ định độ trễ trước khi tự động chuyển tiếp, tính bằng mili giây.
+
+Bật cả chuyển tiếp bằng nhấp chuột và theo thời gian để cho phép người xem di chuyển bằng một cú nhấp hoặc chờ bộ hẹn giờ. Để chỉ dùng bộ hẹn giờ, truyền `false` vào [setAdvanceOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Độ trễ kiểm soát thời điểm buổi chiếu chuyển tiếp; nó không đặt thời lượng của hiệu ứng chuyển đổi trực quan.
+
+Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật chuyển tiếp tự động sau 3, 5 và 7 giây, tương ứng. Các slide cũng có thể được chuyển tiếp bằng nhấp chuột. Sử dụng tệp `input.pptx` có ít nhất ba slide.
 
 ```java
 import com.aspose.slides.*;
@@ -141,9 +193,9 @@ try {
 }
 ```
 
-Để kiểm tra xem tự động tiến tới có được bật hay không, gọi [getAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Một độ trễ lưu trữ riêng không đồng nghĩa với việc bộ hẹn giờ đang hoạt động.
+Để kiểm tra xem chuyển tiếp theo thời gian có được bật hay không, gọi [getAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Một độ trễ được lưu không đồng nghĩa với việc bộ hẹn giờ đang hoạt động.
 
-Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ được bật, và tắt tự động tiến tới cho những slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho các slide đó và lưu lại cài đặt đã cập nhật.
+Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ được bật, và tắt chuyển tiếp tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho những slide đó và lưu các cài đặt đã cập nhật.
 
 ```java
 import com.aspose.slides.*;
@@ -169,27 +221,27 @@ try {
 }
 ```
 
-## **Kiểm soát thời gian chuyển tiếp một cách chính xác**
+## **Kiểm soát thời gian chuyển đổi một cách chính xác**
 
-Sử dụng [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) để chỉ định độ dài chính xác của một hiệu ứng chuyển tiếp tính bằng mil giây. Phương thức [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide cung cấp các cài đặt này thông qua [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/):
+Sử dụng [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi tính bằng mili giây. Phương thức [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide cho phép truy cập các cài đặt này thông qua [ISlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/):
 
 | Phương thức | Mục đích |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Đặt thời lượng của hiệu ứng chuyển tiếp, tính bằng mil giây. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Đặt độ trễ trước khi slide tự động tiến tới, tính bằng mil giây. Truyền `true` vào [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) để kích hoạt bộ hẹn giờ này. |
-| [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Chọn một mức tốc độ đã định trước từ [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/): Slow, Medium, hoặc Fast. Được sử dụng khi không chỉ định thời lượng cụ thể. |
+| [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Đặt thời lượng của chính hiệu ứng chuyển đổi, tính bằng mili giây. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Đặt độ trễ trước khi slide tự động chuyển tiếp, tính bằng mili giây. Truyền `true` vào [setAdvanceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) để kích hoạt bộ hẹn giờ này. |
+| [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Chọn một danh mục tốc độ đã định nghĩa trước từ [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/): Slow, Medium hoặc Fast. Được dùng khi không chỉ định thời lượng cụ thể. |
 
-[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) chỉ kiểm soát hiệu ứng chuyển tiếp; nó không quyết định thời gian slide ở lại hiển thị. Cấu hình độ trễ tự động tiến tới riêng biệt. Khi không có thời lượng rõ ràng, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--).
+[setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) chỉ kiểm soát hiệu ứng chuyển đổi; nó không quyết định thời gian slide còn hiển thị. Cấu hình độ trễ chuyển tiếp tự động riêng biệt. Khi không có thời lượng rõ ràng, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên loại chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) .
 
 <!-- visual-explanation:slide-transition:start -->
-[![Các thanh riêng biệt xác định thời lượng chuyển tiếp 750‑ms và cài đặt tự động tiến tới 5.000‑ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Ví dụ chung này đặt cho mỗi slide một chuyển đổi Fade 750‑ms và đồng thời bật tự động tiến tới sau 5.000 ms. Thời lượng chuyển đổi kiểm soát hiệu ứng; tiến tới kiểm soát thời điểm rời slide. Các thanh này là cài đặt sơ đồ, không phải một dòng thời gian đo đạc thực tế.*
+*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **Áp dụng cùng một thời lượng cho mọi slide**
 
-Để duy trì nhịp độ đồng nhất, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), và đặt thời lượng mỗi chuyển đổi là 750 mil giây. Đồng thời bật tự động tiến tới sau 5.000 mil giây và tắt tiến tới bằng nhấp chuột, rồi lưu kết quả dưới dạng PPTX.
+Để duy trì tốc độ nhất quán, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/), và đặt thời lượng 750 mili giây cho mỗi chuyển đổi. Đồng thời bật chuyển tiếp tự động sau 5.000 mili giây và tắt chuyển tiếp bằng nhấp chuột, rồi lưu kết quả dưới dạng PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -201,7 +253,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // Cấu hình tiến tới tự động độc lập với thời lượng hiệu ứng.
+        // Cấu hình tự động chuyển tiếp độc lập với thời lượng hiệu ứng.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -215,7 +267,7 @@ try {
 
 ### **Đặt thời lượng khác nhau cho từng slide riêng lẻ**
 
-Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng một chuyển đổi ngắn cho slide tiêu đề và một chuyển đổi dài hơn cho slide giới thiệu phần. Ví dụ này đặt 500 ms cho slide đầu tiên và 1.200 ms cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển đổi ngắn cho slide tiêu đề và chuyển đổi dài hơn cho phần giới thiệu chương. Ví dụ này đặt 500 mili giây cho slide đầu và 1.200 mili giây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```java
 import com.aspose.slides.*;
@@ -240,15 +292,15 @@ try {
 }
 ```
 
-### **Kết hợp chuyển đổi với đầu ra hoạt hình**
+### **Phối hợp chuyển đổi với đầu ra hoạt hình**
 
-Khi chuẩn bị một [animated GIF](/slides/vi/java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/java/export-to-html5/), hoặc [video](/slides/vi/java/convert-powerpoint-to-video/), hãy đặt thời lượng chuyển đổi chính xác trước khi xuất để khớp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600 ms giữa các cảnh và điều chỉnh độ trễ tiến tới của mỗi slide riêng để cho phép thời gian cho phần thuyết minh hoặc nội dung.
+Khi chuẩn bị một [animated GIF](/slides/vi/java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/java/export-to-html5/), hoặc [video](/slides/vi/java/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để phù hợp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600 mili giây giữa các cảnh, và điều chỉnh độ trễ chuyển tiếp của mỗi slide riêng biệt để dành thời gian cho phần thuyết minh hoặc nội dung của nó.
 
-Đối với GIF và video, đồng bộ tốc độ khung hình của đầu ra với thời lượng hiệu ứng: 600 ms tương đương 18 khung hình ở 30 fps. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận sự đồng bộ.
+Đối với GIF và video, phối hợp tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 mili giây tương đương 18 khung hình ở 30 fps. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận sự đồng bộ.
 
 ### **Đọc thời lượng chuyển đổi hiện có**
 
-Gọi [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) trước khi sửa đổi chuyển đổi để xác định liệu có giá trị cụ thể nào đã được lưu hay không. Giá trị `-1` có nghĩa là không có thời lượng cụ thể được đặt; giá trị không âm chỉ thời lượng đã lưu tính bằng mil giây. Giá trị chưa đặt không phải là thời lượng phát lại được tính toán: Aspose.Slides sử dụng loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) để xác định thời lượng đó. Đặt loại chuyển đổi có thể khởi tạo thời lượng, vì vậy hãy kiểm tra cài đặt gốc trước.
+Gọi [getDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getDuration--) trước khi sửa đổi chuyển đổi để xác định liệu một giá trị rõ ràng có được lưu không. Giá trị `-1` có nghĩa là không có thời lượng rõ ràng; một giá trị không âm chỉ thời lượng lưu tính bằng mili giây. Giá trị chưa được đặt không phải là thời lượng phát lại được tính toán: Aspose.Slides sử dụng loại chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getSpeed--) để xác định thời lượng đó. Đặt loại chuyển đổi có thể khởi tạo một thời lượng, vì vậy hãy kiểm tra cài đặt gốc trước.
 
 ```java
 import com.aspose.slides.*;
@@ -272,9 +324,9 @@ try {
 
 ## **Chuyển đổi Morph**
 
-Chuyển đổi Morph hoạt họa các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cung cấp các đối tượng liên quan để hoạt họa giữa trạng thái gốc và đã sửa đổi.
+Chuyển đổi Morph hoạt hình các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo một hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cho phép các đối tượng tương ứng được animate giữa trạng thái gốc và đã sửa đổi.
 
-Ví dụ sau tạo một slide có hình chữ nhật văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong một trình xem bản trình chiếu hỗ trợ Morph để xem hiệu ứng trong buổi chiếu slide.
+Ví dụ sau tạo một slide có hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí cùng kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong một trình xem bản trình diễn hỗ trợ Morph để xem hiệu ứng trong buổi chiếu slide.
 
 ```java
 import com.aspose.slides.*;
@@ -300,17 +352,17 @@ try {
 }
 ```
 
-## **Các loại Morph Transition**
+## **Các loại chuyển đổi Morph**
 
-Liệt kê [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt họa nội dung:
+Liệt kê [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/) điều khiển cách Morph khớp và animates nội dung:
 
-- [ByObject](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByObject) xử lý mỗi hình dạng như một đối tượng nguyên khối.
-- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) hoạt họa văn bản bằng cách khớp các từ khi có thể.
-- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) hoạt họa văn bản bằng cách khớp các ký tự khi có thể.
+- [ByObject](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByObject) xem mỗi hình dạng như một đối tượng toàn bộ.
+- [ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByWord) animates văn bản bằng cách khớp các từ khi có thể.
+- [ByChar](https://reference.aspose.com/slides/java/com.aspose.slides/transitionmorphtype/#ByChar) animates văn bản bằng cách khớp các ký tự khi có thể.
 
-Sử dụng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--). Giá trị trả về sẽ cung cấp giao diện [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/), trong đó phương thức [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-) chọn chế độ khớp.
+Sử dụng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--). Giá trị này sẽ cung cấp giao diện [IMorphTransition](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/), phương thức [setMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/imorphtransition/#setMorphType-int-) của nó chọn chế độ khớp.
 
-Ví dụ này mở bản trình chiếu được tạo trong phần trước và cấu hình slide thứ hai để sử dụng hoạt họa Morph dựa trên từ.
+Ví dụ này mở bản trình diễn được tạo trong phần trước và cấu hình slide thứ hai sử dụng hoạt ảnh Morph dựa trên từ.
 
 ```java
 import com.aspose.slides.*;
@@ -339,7 +391,7 @@ try {
 
 ## **Đặt hiệu ứng chuyển đổi**
 
-Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc việc hiệu ứng bắt đầu từ màn hình đen. Các tùy chọn khả dụng phụ thuộc vào chuyển đổi đã chọn bằng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-). Đặt loại trước, sau đó sử dụng giao diện thích hợp từ [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--).
+Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc liệu hiệu ứng có bắt đầu từ màn hình đen hay không. Các tùy chọn có sẵn phụ thuộc vào chuyển đổi đã chọn bằng [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-). Đặt loại trước, sau đó sử dụng giao diện phù hợp từ [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getValue--).
 
 Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó gọi [setFromBlack](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) thông qua [IOptionalBlackTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ioptionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
 
@@ -368,16 +420,16 @@ try {
 
 **Tôi có thể kiểm soát tốc độ phát lại của một chuyển đổi slide không?**
 
-Có. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mil giây. Sử dụng [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) đã định—Slow, Medium, hoặc Fast—đủ và không có thời lượng cụ thể được đặt. Những cài đặt này kiểm soát hiệu ứng chuyển đổi độc lập với độ trễ tự động tiến tới.
+Có. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setDuration-int-) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mili giây. Sử dụng [setSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) đã định nghĩa trước—Slow, Medium hoặc Fast—đủ và không có thời lượng rõ ràng được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển đổi độc lập với độ trễ chuyển tiếp tự động.
 
-**Tôi có thể đính kèm âm thanh vào chuyển đổi và làm cho nó lặp lại không?**
+**Tôi có thể đính kèm âm thanh vào một chuyển đổi và làm cho nó lặp lại không?**
 
-Có. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), truyền `StartSound` từ liệt kê [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/) vào [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), và bật [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) với `true`. Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi chiếu slide.
+Có. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), truyền `StartSound` từ liệt kê [TransitionSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/transitionsoundmode/) vào [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), và bật [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) với `true`. Âm thanh sẽ lặp cho tới khi có sự kiện âm thanh tiếp theo trong buổi chiếu.
 
 **Cách nhanh nhất để áp dụng cùng một chuyển đổi cho mọi slide là gì?**
 
-Lặp qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) của bản trình chiếu và gọi [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) với cùng một giá trị cho mỗi slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để duy trì hành vi nhất quán trên tất cả các slide.
+Duyệt qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) của bản trình diễn và gọi [setType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#setType-int-) với cùng một giá trị cho mỗi slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để giữ hành vi nhất quán trên toàn bộ slide.
 
 **Làm sao tôi kiểm tra được chuyển đổi nào đang được đặt trên một slide?**
 
-Gọi [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) trên kết quả của [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide. Nó trả về một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/); giá trị None có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.
+Gọi [getType](https://reference.aspose.com/slides/java/com.aspose.slides/islideshowtransition/#getType--) trên kết quả của [getSlideShowTransition](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide. Nó trả về một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/java/com.aspose.slides/transitiontype/); `None` có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.

@@ -1,6 +1,6 @@
 ---
-title: Quản lý chuyển đổi slide trong bài trình chiếu bằng Python
-linktitle: Chuyển đổi slide
+title: Quản lý chuyển đổi slide trong bản trình chiếu bằng Python
+linktitle: Chuyển đổi Slide
 type: docs
 weight: 90
 url: /vi/python-net/slide-transition/
@@ -14,18 +14,18 @@ keywords:
 - hiệu ứng chuyển đổi
 - PowerPoint
 - OpenDocument
-- bài trình chiếu
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Áp dụng chuyển đổi slide, cấu hình tự động chuyển tiếp slide, và tùy chỉnh Morph cùng các hiệu ứng chuyển đổi khác với Aspose.Slides cho Python qua .NET."
+description: "Áp dụng chuyển đổi slide, cấu hình tiến tự động của slide, và tùy chỉnh Morph và các hiệu ứng chuyển đổi khác với Aspose.Slides for Python qua .NET."
 ---
 ## **Tổng quan**
 
-Chuyển đổi slide kiểm soát cách các slide xuất hiện trong buổi chiếu slide. Với Aspose.Slides for Python qua .NET, bạn có thể chọn một hiệu ứng chuyển đổi cho mỗi slide, cấu hình việc chuyển tiếp bằng cú nhấp chuột hoặc bộ hẹn giờ, và điều chỉnh các tùy chọn cụ thể cho một hiệu ứng. Bài viết này sử dụng các ví dụ Python để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide, và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
+Hiệu ứng chuyển đổi slide điều khiển cách các slide xuất hiện trong một buổi trình chiếu. Với Aspose.Slides for Python qua .NET, bạn có thể chọn hiệu ứng chuyển đổi cho từng slide, cấu hình việc chuyển tiếp bằng cú nhấp chuột hoặc hẹn giờ, và điều chỉnh các tùy chọn riêng cho một hiệu ứng. Bài viết này sử dụng các ví dụ Python để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide, và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu các cài đặt vào tệp PPTX.
 
 ## **Thêm chuyển đổi slide**
 
-Để áp dụng chuyển đổi, tải một bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) và truy cập thuộc tính [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) của slide. Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của nó thành một giá trị từ enumeration [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), sau đó lưu bản trình chiếu.
+Để áp dụng một chuyển đổi, tải một bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) và truy cập thuộc tính [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) của slide. Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) thành một giá trị từ enumeration [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), sau đó lưu bản trình chiếu.
 
 Ví dụ sau áp dụng chuyển đổi Circle cho slide đầu tiên và chuyển đổi Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
@@ -42,11 +42,11 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-## **Chuyển đổi bánh xe**
+## **Chuyển đổi Wheel**
 
-Thuộc tính [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) của [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) kiểm soát số lượng sector tia radial mở ra slide đích. Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) chuyển đổi của slide thành WHEEL từ [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) trước khi truy cập [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) dưới dạng [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
+Thuộc tính [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) của [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) kiểm soát số lượng sector tia radial để hiển thị slide đích. Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của chuyển đổi slide thành WHEEL từ [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) trước khi truy cập [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) dưới dạng [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
 
-Ví dụ này tạo hai cặp slide giống hệt nhau: một slide đen tiếp theo là slide có hình chữ nhật màu vàng. Các slide đích sử dụng số lượng spokes là 1 và 8, với cùng [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) và một [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) rõ ràng là 8.000 mili giây để dễ quan sát sự khác biệt.
+Ví dụ này tạo hai cặp slide giống hệt nhau: một slide màu đen tiếp theo là một slide có hình chữ nhật màu vàng. Các slide đích sử dụng số lượng spokes là 1 và 8, với cùng [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) và một [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) rõ ràng là 8.000 mili giây để dễ dàng quan sát sự khác biệt.
 
 ```python
 import aspose.slides as slides
@@ -82,19 +82,64 @@ with slides.Presentation() as presentation:
     presentation.save("wheel-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Mở bản trình chiếu đầu ra trong PowerPoint và chạy buổi chiếu slide. Tiến từ slide 1 sang slide 2, sau đó từ slide 3 sang slide 4. Trong phát lại PowerPoint, số spoke đã xác nhận là 1 sẽ hiển thị slide bằng một vòng quay theo chiều kim đồng hồ; số 8 sẽ hiển thị nó qua tám sector tia radial đồng thời. Nội dung đích và thời gian chuyển đổi là giống nhau, vì vậy sự khác biệt chỉ là số lượng sector hiển thị.
+Mở bản trình chiếu đầu ra trong PowerPoint và chạy buổi trình chiếu. Tiến từ slide 1 tới slide 2, sau đó từ slide 3 tới slide 4. Khi phát trong PowerPoint, số spokes đã xác nhận là 1 sẽ hiển thị slide bằng một vòng quay theo chiều kim đồng hồ; số 8 sẽ hiển thị nó qua tám sector tia đồng thời. Nội dung đích và thời gian chuyển đổi đều giống nhau, vì vậy sự khác biệt chỉ là số lượng sector hiển thị.
+
+## **Fade Through Black với chuyển đổi Reveal**
+
+Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của chuyển đổi slide đích thành Reveal, sau đó thiết lập [through_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/through_black/) trên đối tượng [RevealTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/) được tạo ra. Ví dụ tạo một slide nguồn màu teal và một slide đích màu coral, sau đó sao chép cặp này. Cả hai cặp đều sử dụng cùng một chuyển đổi Reveal kéo dài hai giây. Chỉ cặp thứ hai sẽ fade qua màu đen.
+
+```python
+import aspose.slides as slides
+
+
+def style_slide(slide, background_color, label):
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.preset_color = background_color
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 160, 180, 400, 130)
+    shape.text_frame.text = label
+    shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 44
+
+
+with slides.Presentation() as presentation:
+    source = presentation.slides[0]
+    destination = presentation.slides.add_clone(source)
+    style_slide(source, slides.PresetColor.TEAL, "Source")
+    style_slide(destination, slides.PresetColor.CORAL, "Destination")
+    presentation.slides.add_clone(source)
+    presentation.slides.add_clone(destination)
+
+    for index in (1, 3):
+        transition = presentation.slides[index].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.REVEAL
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 2000
+        
+        reveal = transition.value
+        reveal.direction = slides.slideshow.TransitionLeftRightDirectionType.LEFT
+        reveal.through_black = index == 3
+
+    presentation.save("reveal-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Mở `reveal-transitions.pptx` trong PowerPoint và bắt đầu buổi trình chiếu. Tiến từ slide 1 tới slide 2 để xem màu teal fade trực tiếp sang coral. Sau đó tiến từ slide 3 tới slide 4. Màn hình sẽ tối lên nhanh chóng gần màu đen trước khi slide coral xuất hiện. Cả hai slide vẫn giữ màu nền gốc của mình.
+
+Các hàng dưới đây hiển thị các khung hình từ PowerPoint với khoảng thời gian nửa giây. So sánh khung hình ở giữa mỗi hàng để thấy hiệu ứng của thiết lập.
+
+![Phát lại PowerPoint với through_black bị tắt (trên) và bật (dưới). Chỉ hàng dưới đi qua gần màu đen.](reveal-through-black.png)
 
 ## **Thêm chuyển đổi slide nâng cao**
 
-Bạn có thể cấu hình thời gian một slide ở lại trên màn hình và liệu một cú nhấp chuột có chuyển tiếp buổi chiếu slide hay không. Các thuộc tính sau kiểm soát hành vi này:
+Bạn có thể cấu hình thời gian một slide vẫn hiển thị trên màn hình và liệu một cú nhấp chuột có tiến buổi trình chiếu hay không. Các thuộc tính sau kiểm soát hành vi này:
 
-- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) cho phép người xem chuyển tiếp bằng cách nhấp chuột.
-- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) cho phép tự động chuyển tiếp.
-- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) xác định độ trễ trước khi tự động chuyển tiếp, tính bằng mili giây.
+- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) cho phép người xem tiến lên bằng cách nhấp chuột.
+- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) cho phép tiến tự động.
+- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) đặt độ trễ trước khi tiến tự động, tính bằng mili giây.
 
-Kích hoạt cả chuyển tiếp bằng nhấp chuột và chuyển tiếp theo thời gian để cho phép người xem di chuyển bằng nhấp chuột hoặc chờ bộ hẹn giờ. Để chỉ sử dụng bộ hẹn giờ, đặt [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) thành `False`. Độ trễ kiểm soát thời điểm buổi chiếu slide tiến lên; nó không đặt thời lượng của hiệu ứng chuyển đổi trực quan.
+Bật cả tiến bằng nhấp chuột và tiến theo hẹn giờ để cho phép người xem di chuyển bằng một cú nhấp hoặc chờ hẹn giờ. Để chỉ dùng hẹn giờ, đặt [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) thành `False`. Độ trễ kiểm soát thời điểm buổi trình chiếu tiến; nó không thiết lập thời lượng của hiệu ứng chuyển đổi trực quan.
 
-Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tự động chuyển tiếp sau 3, 5 và 7 giây tương ứng. Nhấp chuột cũng có thể chuyển tiếp các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
+Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tiến tự động sau 3, 5 và 7 giây, tương ứng. Các cú nhấp chuột cũng có thể tiến các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
 
 ```python
 import aspose.slides as slides
@@ -124,9 +169,9 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least three slides.")
 ```
 
-Để kiểm tra xem tự động chuyển tiếp đã được bật hay chưa, đọc [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Một độ trễ đã lưu riêng lẻ không cho biết bộ hẹn giờ đang hoạt động.
+Để kiểm tra xem tiến tự động có được bật hay không, đọc [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Một độ trễ được lưu không đồng nghĩa với việc bộ hẹn giờ đang hoạt động.
 
-Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo từng bộ hẹn giờ đã bật, và tắt tự động chuyển tiếp cho các slide có độ trễ lớn hơn hai giây. Nó bật chuyển tiếp bằng nhấp chuột cho các slide đó và lưu các cài đặt đã cập nhật.
+Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ được bật và tắt tiến tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho những slide đó và lưu các cài đặt đã cập nhật.
 
 ```python
 import aspose.slides as slides
@@ -147,15 +192,15 @@ with slides.Presentation("advanced-transitions.pptx") as presentation:
 
 ## **Kiểm soát thời gian chuyển đổi một cách chính xác**
 
-Sử dụng [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi bằng mili giây. Thuộc tính [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) của slide cung cấp các cài đặt này thông qua [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
+Sử dụng [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi tính bằng mili giây. Thuộc tính [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) của slide cung cấp các cài đặt này qua [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
 
 | Thuộc tính | Mục đích |
 | --- | --- |
-| [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Đặt thời lượng của chính hiệu ứng chuyển đổi, tính bằng mili giây. |
-| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Đặt độ trễ trước khi slide tự động chuyển tiếp, tính bằng mili giây. Kích hoạt [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) để bật bộ hẹn giờ này. |
-| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Chọn một danh mục tốc độ đã định trước từ [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM hoặc FAST. Nó được dùng khi không chỉ định thời lượng chính xác. |
+| [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Đặt thời lượng của hiệu ứng chuyển đổi, tính bằng mili giây. |
+| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Đặt độ trễ trước khi slide tự động tiến, tính bằng mili giây. Bật [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) để kích hoạt bộ hẹn giờ này. |
+| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Chọn một danh mục tốc độ định trước từ [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM, hoặc FAST. Được sử dụng khi không chỉ định thời lượng chính xác. |
 
-[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) chỉ kiểm soát hiệu ứng chuyển đổi; nó không quyết định thời gian slide hiển thị. Cấu hình độ trễ tự động chuyển tiếp riêng biệt. Khi không đặt thời lượng rõ ràng, Aspose.Slides xác định thời lượng hiệu ứng dựa trên loại chuyển đổi và giá trị [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
+[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) chỉ kiểm soát hiệu ứng chuyển đổi; nó không quyết định thời gian slide vẫn hiển thị. Cấu hình độ trễ tiến tự động riêng biệt. Khi không đặt thời lượng rõ ràng, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên loại chuyển đổi và giá trị [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
 
 <!-- visual-explanation:slide-transition:start -->
 [![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
@@ -165,7 +210,7 @@ Sử dụng [duration](https://reference.aspose.com/slides/python-net/aspose.sli
 
 ### **Áp dụng cùng một thời lượng cho mọi slide**
 
-Để duy trì nhịp độ nhất quán, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), và đặt thời lượng 750 mili giây cho mỗi chuyển đổi. Nó riêng biệt bật tự động chuyển tiếp sau 5.000 mili giây và tắt chuyển tiếp bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
+Để duy trì tốc độ đồng nhất, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/), và đặt thời lượng cho mỗi chuyển đổi là 750 mili giây. Nó riêng biệt bật tiến tự động sau 5.000 mili giây và tắt tiến bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
 
 ```python
 import aspose.slides as slides
@@ -176,7 +221,7 @@ with slides.Presentation("input.pptx") as presentation:
         transition.type = slides.slideshow.TransitionType.FADE
         transition.duration = 750
 
-        # Cấu hình tự động chuyển tiếp độc lập với thời lượng hiệu ứng.
+        # Cấu hình tiến tự động một cách độc lập với thời lượng hiệu ứng.
         transition.advance_after = True
         transition.advance_after_time = 5000
         transition.advance_on_click = False
@@ -184,9 +229,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Đặt thời lượng khác nhau cho các slide riêng lẻ**
+### **Đặt thời lượng khác nhau cho từng slide riêng lẻ**
 
-Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển đổi ngắn cho slide tiêu đề và chuyển đổi dài hơn cho phần giới thiệu mục. Ví dụ này đặt 500 mili giây cho slide đầu tiên và 1.200 mili giây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển đổi ngắn cho slide tiêu đề và chuyển đổi dài hơn cho phần giới thiệu chương. Ví dụ này đặt 500 mili giây cho slide đầu tiên và 1.200 mili giây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```python
 import aspose.slides as slides
@@ -208,13 +253,13 @@ with slides.Presentation("input.pptx") as presentation:
 
 ### **Phối hợp chuyển đổi với đầu ra hoạt hình**
 
-Khi chuẩn bị một [animated GIF](/slides/vi/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/python-net/export-to-html5/), hoặc [video](/slides/vi/python-net/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để khớp với nhịp độ mong muốn. Ví dụ, sử dụng hiệu ứng mờ 600 mili giây giữa các cảnh, và điều chỉnh độ trễ chuyển tiếp của mỗi slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung của nó.
+Khi chuẩn bị một [animated GIF](/slides/vi/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/python-net/export-to-html5/), hoặc [video](/slides/vi/python-net/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để khớp với nhịp điệu mong muốn. Ví dụ, sử dụng fade 600 mili giây giữa các cảnh, và điều chỉnh độ trễ tiến mỗi slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung của nó.
 
-Đối với GIF và video, phối hợp tốc độ khung đầu ra với thời lượng hiệu ứng: 600 mili giây tương ứng với 18 khung hình ở tốc độ 30 khung/giây. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận đồng bộ.
+Đối với GIF và video, phối hợp tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 mili giây tương đương 18 khung hình ở tốc độ 30 khung/giây. Trong HTML5, bật chuyển đổi hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian mà định dạng xuất hỗ trợ, và xem trước đầu ra để xác nhận đồng bộ.
 
 ### **Đọc thời lượng chuyển đổi hiện có**
 
-Đọc [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) trước khi sửa đổi chuyển đổi để xác định liệu có giá trị rõ ràng được lưu hay không. Giá trị `-1` có nghĩa là không có thời lượng rõ ràng; giá trị không âm chỉ định thời lượng lưu trong mili giây. Giá trị chưa đặt không phải là thời lượng phát lại được tính: Aspose.Slides sử dụng loại chuyển đổi và giá trị [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) để xác định thời lượng đó. Đặt một loại chuyển đổi có thể khởi tạo thời lượng, vì vậy hãy kiểm tra các cài đặt gốc trước.
+Đọc [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) trước khi sửa đổi chuyển đổi để xác định xem có giá trị rõ ràng nào được lưu không. Giá trị `-1` có nghĩa là không có thời lượng rõ ràng được đặt; giá trị không âm chỉ định thời lượng đã lưu tính bằng mili giây. Giá trị chưa đặt không phải là thời lượng phát lại đã tính: Aspose.Slides sử dụng loại chuyển đổi và [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) để xác định thời lượng đó. Đặt một loại chuyển đổi có thể khởi tạo một thời lượng, vì vậy hãy kiểm tra các cài đặt gốc trước.
 
 ```python
 import aspose.slides as slides
@@ -232,9 +277,9 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **Chuyển đổi Morph**
 
-Chuyển đổi Morph hoạt ảnh các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cung cấp các đối tượng tương ứng để hoạt ảnh giữa trạng thái gốc và đã sửa đổi.
+Chuyển đổi Morph hoạt hình các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cung cấp cho các đối tượng tương ứng khả năng hoạt hình giữa trạng thái gốc và đã chỉnh sửa.
 
-Ví dụ sau tạo một slide có hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ enumeration [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong trình xem bản trình chiếu hỗ trợ Morph để xem hiệu ứng trong buổi chiếu slide.
+Ví dụ sau tạo một slide có một hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ enumeration [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong một trình xem bản trình chiếu hỗ trợ Morph để thấy hiệu ứng trong buổi trình chiếu.
 
 ```python
 import aspose.slides as slides
@@ -258,15 +303,15 @@ with slides.Presentation() as presentation:
 
 ## **Các loại chuyển đổi Morph**
 
-Enumeration [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt ảnh nội dung:
+Enumeration [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt hình nội dung:
 
-- [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) đối xử mỗi hình dạng như một đối tượng toàn bộ.
-- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) hoạt ảnh văn bản bằng cách ghép các từ khi có thể.
-- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) hoạt ảnh văn bản bằng cách ghép các ký tự khi có thể.
+- [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) xem mỗi hình dạng như một đối tượng toàn bộ.
+- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) hoạt hình văn bản bằng cách ghép các từ khi có thể.
+- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) hoạt hình văn bản bằng cách ghép các ký tự khi có thể.
 
-Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) chuyển đổi thành Morph trước khi truy cập [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Giá trị sau đó cung cấp đối tượng [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), thuộc tính [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) của nó chọn chế độ khớp.
+Đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của chuyển đổi thành Morph trước khi truy cập [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Giá trị sau đó cung cấp đối tượng [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), thuộc tính [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) của nó chọn chế độ khớp.
 
-Ví dụ này mở bản trình chiếu được tạo trong phần trước và cấu hình slide thứ hai để sử dụng hoạt ảnh Morph dựa trên từ.
+Ví dụ này mở bản trình chiếu được tạo ở phần trước và cấu hình slide thứ hai để sử dụng hoạt hình Morph dựa trên từ.
 
 ```python
 import aspose.slides as slides
@@ -288,9 +333,9 @@ with slides.Presentation("morph-transition.pptx") as presentation:
 
 ## **Đặt hiệu ứng chuyển đổi**
 
-Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc liệu hiệu ứng có bắt đầu từ màn hình đen không. Các tùy chọn có sẵn phụ thuộc vào [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) chuyển đổi đã chọn. Đặt loại trước, sau đó sử dụng đối tượng chuyển đổi thích hợp từ [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
+Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc liệu hiệu ứng có bắt đầu từ màn hình đen hay không. Các tùy chọn khả dụng phụ thuộc vào [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của chuyển đổi đã chọn. Đặt loại trước, sau đó sử dụng đối tượng chuyển đổi thích hợp từ [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
-Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó đặt [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) thông qua [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
+Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó đặt [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) qua [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
 
 ```python
 import aspose.slides as slides
@@ -311,16 +356,16 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Tôi có thể kiểm soát tốc độ phát lại của chuyển đổi slide không?**
 
-Có. Ưu tiên sử dụng [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mili giây. Sử dụng [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) đã định sẵn—SLOW, MEDIUM hoặc FAST—đủ và không có thời lượng rõ ràng được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển đổi độc lập với độ trễ tự động chuyển tiếp.
+Có. Ưu tiên sử dụng [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mili giây. Sử dụng [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) đã định – SLOW, MEDIUM, hoặc FAST – là đủ và không có thời lượng rõ ràng được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển đổi một cách độc lập với độ trễ tiến tự động.
 
-**Tôi có thể đính kèm âm thanh vào chuyển đổi và lặp lại nó không?**
+**Tôi có thể đính kèm âm thanh vào chuyển đổi và lặp lại không?**
 
-Có. Gán âm thanh nhúng vào [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), đặt [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) thành START_SOUND từ enumeration [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/), và bật [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi chiếu slide.
+Có. Gán âm thanh nhúng vào [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), đặt [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) thành START_SOUND từ enumeration [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/), và bật [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Âm thanh sẽ lặp lại cho tới sự kiện âm thanh tiếp theo trong buổi trình chiếu.
 
 **Cách nhanh nhất để áp dụng cùng một chuyển đổi cho mọi slide là gì?**
 
-Lặp qua bộ sưu tập [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) của bản trình chiếu và đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) chuyển đổi của mỗi slide thành cùng một giá trị. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để duy trì hành vi nhất quán trên tất cả các slide.
+Lặp qua bộ sưu tập [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) của bản trình chiếu và đặt [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) của mỗi slide thành cùng một giá trị. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để giữ hành vi nhất quán trên các slide.
 
-**Làm sao tôi có thể kiểm tra chuyển đổi nào hiện đang được đặt trên một slide?**
+**Làm sao tôi kiểm tra được chuyển đổi hiện đang được đặt trên một slide?**
 
 Đọc thuộc tính [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) từ [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) của slide. Nó trả về một giá trị từ enumeration [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); NONE có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.

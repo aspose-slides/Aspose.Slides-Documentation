@@ -1,15 +1,15 @@
 ---
 title: Управление переходами слайдов в презентациях с помощью JavaScript
-linktitle: Переход слайдов
+linktitle: Переход слайда
 type: docs
 weight: 80
 url: /ru/nodejs-java/slide-transition/
 keywords:
-- переход слайдов
-- добавить переход слайда
-- применить переход слайда
+- переход слайда
+- добавление перехода слайда
+- применение перехода слайда
 - расширенный переход слайда
-- Morph-переход
+- переход Morph
 - тип перехода
 - эффект перехода
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Применяйте переходы слайдов, настраивайте автоматическое переключение слайдов и адаптируйте Morph и другие эффекты переходов с помощью Aspose.Slides для Node.js через Java."
+description: "Применяйте переходы слайдов, настраивайте автоматическое продвижение слайдов и кастомизируйте переход Morph и другие эффекты переходов с помощью Aspose.Slides for Node.js via Java."
 ---
 ## **Обзор**
 
-Переходы слайдов управляют тем, как слайды отображаются во время показа слайдов. С помощью Aspose.Slides for Node.js via Java вы можете выбрать эффект перехода для каждого слайда, настроить переход по щелчку мыши или таймеру и скорректировать параметры, характерные для конкретного эффекта. В этой статье используются примеры на JavaScript для применения переходов, установки точных длительностей переходов, управления временем показа слайдов и создания перехода Morph между двумя слайдами. Примеры также показывают, как сохранить настройки в файл PPTX.
+Переходы слайдов управляют тем, как слайды появляются во время показа. С помощью Aspose.Slides for Node.js via Java вы можете выбрать эффект перехода для каждого слайда, настроить переход по клику мыши или таймеру и задать параметры, специфичные для эффекта. Эта статья использует примеры JavaScript для применения переходов, установки точных длительностей переходов, управления временем слайда и создания перехода Morph между двумя слайдами. Примеры также показывают, как сохранить настройки в файл PPTX.
 
-## **Добавление перехода слайда**
+## **Добавить переход слайда**
 
-Чтобы применить переход, загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и получите доступ к настройкам перехода слайда через метод [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Используйте [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) со значением из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), затем сохраните презентацию.
+Чтобы применить переход, загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) и получите настройки перехода слайда через [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Используйте [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) со значением из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), затем сохраните презентацию.
 
-В приведённом примере к первому слайду применяется переход Circle, а ко второму — Comb. Используйте файл `input.pptx` минимум с двумя слайдами.
+В следующем примере к первому слайду применяется переход Circle, а ко второму — Comb. Используйте файл `input.pptx` минимум с двумя слайдами.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Переход Wheel**
+## **Wheel Transition**
 
-Метод [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) класса [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) управляет количеством радиальных секторов, раскрывающих целевой слайд. Установите тип перехода слайда на Wheel через [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) с помощью [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) перед получением [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) как [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+Метод [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) класса [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) управляет числом радиальных секторов, раскрывающих целевой слайд. Установите тип перехода слайда в Wheel через [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) с помощью [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) перед получением [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) как [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-Этот пример создаёт две одинаковые пары слайдов: чёрный слайд, за которым следует слайд с золотым прямоугольником. Целевые слайды используют количество лучей 1 и 8, при одинаковой скорости, заданной через [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) и явной длительности 8 000 мс, установленной через [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), чтобы различия было легко заметить.
+Этот пример создаёт две одинаковые пары слайдов: чёрный слайд, за которым следует слайд с золотым прямоугольником. У целевых слайдов количество спиц — 1 и 8, скорость задаётся через [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed), а продолжительность — 8 000 мс через [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) для наглядного сравнения.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,71 @@ try {
 }
 ```
 
-Откройте полученную презентацию в PowerPoint и запустите показ слайдов. Перейдите со слайда 1 на слайд 2, затем со слайда 3 на слайд 4. При воспроизведении в PowerPoint подтверждённое количество лучей 1 раскрывает слайд одним вращением по часовой стрелке; подтверждённое количество 8 — одновременно восемью радиальными секторами. Содержимое целевых слайдов и время перехода одинаковы, поэтому различие только в числе раскрывающих секторов.
+Откройте полученную презентацию в PowerPoint и запустите показ слайдов. Перейдите со слайда 1 на слайд 2, затем со слайда 3 на слайд 4. При воспроизведении в PowerPoint проверенное значение спиц = 1 раскрывает слайд одним вращением по часовой стрелке; значение = 8 — через восемь радиальных секторов одновременно. Содержимое целевых слайдов и тайминг переходов одинаковы, различается лишь число секторов раскрытия.
 
-## **Добавление продвинутого перехода слайда**
+## **Fade Through Black с переходом Reveal**
 
-Вы можете настроить, как долго слайд остаётся на экране и будет ли щелчок мышью продвигать показ слайдов. Следующие методы управляют этим поведением:
+Установите тип перехода целевого слайда в Reveal, затем вызовите [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) у его настроек [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/). Этот пример создаёт бирюзовый исходный слайд и коралловый целевой слайд, затем клонирует оба. Каждая пара использует одинаковый двухсекундный переход Reveal. Только вторая пара переходит через чёрный цвет.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) позволяет зрителю переходить по щелчку мыши.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
+
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Откройте сохранённую презентацию в PowerPoint и запустите показ слайдов. Перейдите со слайда 1 на слайд 2, чтобы увидеть плавный переход бирюзового в коралловый без чёрного. Затем перейдите со слайда 3 на слайд 4. Экран на мгновение затемняется почти до чёрного, после чего появляется коралловый слайд. Оба слайда сохраняют исходные цвета фона.
+
+Ниже показаны кадры из PowerPoint с полусекундными интервалами. Сравните центральный кадр в каждой строке, чтобы увидеть эффект.
+
+![PowerPoint playback with the fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **Добавить расширенный переход слайда**
+
+Вы можете настроить, как долго слайд остаётся на экране и будет ли переход осуществляться по клику мыши. Следующие методы управляют этим поведением:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) позволяет зрителю перейти по клику мыши.
 - [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) включает автоматический переход.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) задает задержку перед автоматическим переходом в миллисекундах.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) задаёт задержку перед автоматическим переходом в миллисекундах.
 
-Включите оба типа перехода — по щелчку и по таймеру — чтобы зритель мог перейти по щелчку или дождаться таймера. Чтобы использовать только таймер, передайте `false` в [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Задержка управляет моментом перехода; она не задаёт длительность визуального эффекта перехода.
+Включите как кликовый, так и таймерный переход, чтобы зритель мог продолжить по нажатию или ждать таймер. Чтобы использовать только таймер, передайте `false` в [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Задержка контролирует момент перехода слайда; она не задаёт длительность визуального эффекта перехода.
 
-В этом примере разным первым трём слайдам назначаются разные эффекты и включается автоматический переход через 3, 5 и 7 секунд соответственно. По щелчку мыши эти слайды также могут переключаться. Используйте файл `input.pptx` минимум с тремя слайдами.
+Этот пример назначает разные эффекты первым трём слайдам и включает автоматический переход через 3, 5 и 7 секунд соответственно. По клику мыши эти слайды также могут переходить. Используйте файл `input.pptx` минимум с тремя слайдами.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +195,9 @@ try {
 }
 ```
 
-Чтобы проверить, включён ли автоматический переход, вызовите [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Хранёная задержка сама по себе не указывает, активен ли таймер.
+Чтобы проверить, включён ли таймерный переход, вызовите [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Хранимая задержка сама по себе не указывает, активен ли таймер.
 
-Следующий пример открывает файл, сохранённый выше, выводит информацию о каждом включённом таймере и отключает автоматический переход для слайдов с задержкой более двух секунд. Для этих слайдов включается переход по щелчку, после чего настройки сохраняются.
+Следующий пример открывает ранее сохранённый файл, выводит информацию о каждом включённом таймере и отключает автоматический переход для слайдов с задержкой более двух секунд. Для этих слайдов включаются клики мыши, после чего настройки сохраняются.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -174,25 +226,25 @@ try {
 
 ## **Точное управление временем перехода**
 
-Используйте [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) для указания точной длительности эффекта перехода в миллисекундах. Метод [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) слайда предоставляет эти настройки через объект [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
+Используйте [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) для указания точной длительности эффекта перехода в миллисекундах. Метод [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) слайда раскрывает эти настройки через объект [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
-| Method | Purpose |
+| Метод | Назначение |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Устанавливает длительность самого эффекта перехода в миллисекундах. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Задает задержку перед автоматическим переходом слайда в миллисекундах. Передайте `true` в [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter), чтобы активировать таймер. |
-| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Выбирает предопределённую категорию скорости из [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium или Fast. Используется, когда точная длительность не указана. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Устанавливает задержку перед автоматическим переходом слайда в миллисекундах. Передайте `true` в [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter), чтобы активировать таймер. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Выбирает предопределённую категорию скорости из [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium или Fast. Используется, когда точная длительность не задана. |
 
-[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) управляет только эффектом перехода; она не определяет, как долго слайд остаётся видимым. Автоматическую задержку перехода задавайте отдельно. Если явная длительность не задана, Aspose.Slides определяет её исходя из типа перехода и значения [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) управляет только эффектом перехода; он не определяет, как долго слайд остаётся видимым. Задержку автоматического перехода настраивайте отдельно. Если явная длительность не задана, Aspose.Slides определяет её на основе типа перехода и значения [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Отдельные полосы показывают длительность перехода 750 мс и настройку автоматического перехода 5 000 мс.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*В приведённом примере каждому слайду задаётся переход Fade длительностью 750 мс, а автоматически включается переход через 5 000 мс. Длительность перехода управляет эффектом; автоматический переход — моментом выхода со слайда. Эти полосы являются схематичными настройками, а не измеренной объединённой временной шкалой.*
+*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **Применить одинаковую длительность ко всем слайдам**
 
-Для одинакового темпа применяйте один и тот же эффект и точную длительность ко всем слайдам. Этот пример загружает `input.pptx`, выбирает Fade из [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) и задаёт каждому переходу длительность 750 мс. Затем отдельно включается автоматический переход через 5 000 мс, отключается переход по щелчку мыши и результат сохраняется в PPTX.
+Чтобы обеспечить одинаковый ритм, примените один и тот же эффект и точную длительность ко всем слайдам. Этот пример загружает `input.pptx`, выбирает Fade из [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) и задаёт каждой переходу длительность 750 мс. Затем отдельно включает автоматический переход через 5 000 мс и отключает переход по клику мыши, после чего сохраняет результат в PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -219,7 +271,7 @@ try {
 
 ### **Задать разные длительности для отдельных слайдов**
 
-Разные слайды могут иметь разные длительности эффектов. Например, можно задать короткий переход для титульного слайда и более длительный — для вступления в раздел. Этот пример задаёт 500 мс для первого слайда и 1 200 мс для второго. Используйте файл `input.pptx` минимум с двумя слайдами.
+Разные слайды могут иметь разные длительности эффектов. Например, используйте короткий переход для титульного слайда и более длительный — для введения раздела. Этот пример задаёт 500 мс для первого слайда и 1 200 мс для второго. Используйте файл `input.pptx` минимум с двумя слайдами.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -244,15 +296,15 @@ try {
 }
 ```
 
-### **Координация переходов с анимированным выводом**
+### **Синхронизация переходов с анимированным выводом**
 
-При подготовке [animated GIF](/slides/ru/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ru/nodejs-java/export-to-html5/) или [video](/slides/ru/nodejs-java/convert-powerpoint-to-video/) устанавливайте точные длительности переходов перед экспортом, чтобы они соответствовали задуманному темпу. Например, используйте 600‑мсный fade между сценами и отдельно задавайте задержку автоперехода для каждого слайда, чтобы обеспечить время для озвучивания или контента.
+При подготовке [animated GIF](/slides/ru/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ru/nodejs-java/export-to-html5/) или [video](/slides/ru/nodejs-java/convert-powerpoint-to-video/) задавайте точные длительности переходов перед экспортом, чтобы они соответствовали запланированному ритму. Например, используйте 600‑мс fade между сценами и отдельно настраивайте задержку перехода каждого слайда, чтобы было время для озвучки или содержания.
 
-Для GIF и видео согласуйте частоту кадров вывода с длительностью эффекта: 600 мс correspond to 18 frames at 30 fps. В HTML5 включите анимированные переходы в настройках экспорта. Проверьте поддерживаемые эффекты и параметры времени в выбранном формате экспорта и просмотрите результат для подтверждения синхронизации.
+Для GIF и видео согласуйте частоту кадров вывода с длительностью эффекта: 600 мс соответствует 18 кадрам при 30 fps. В HTML5 включите анимированные переходы в настройках экспорта. Проверьте поддерживаемые эффекты и параметры тайминга выбранного формата и просмотрите результат для подтверждения синхронизации.
 
 ### **Чтение существующей длительности перехода**
 
-Вызовите [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) до изменения перехода, чтобы определить, хранится ли явное значение. Значение `-1` значит, что явная длительность не задана; неотрицательное значение указывает сохранённую длительность в миллисекундах. Неустановленное значение — это не рассчитанная длительность воспроизведения: Aspose.Slides использует тип перехода и значение [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) для её определения. Установка типа перехода может инициализировать длительность, поэтому сначала проверьте исходные настройки.
+Вызовите [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) перед изменением перехода, чтобы определить, хранится ли явное значение. Значение `-1` означает, что длительность не задана явно; неотрицательное значение указывает сохранённую длительность в миллисекундах. Неустановленное значение не является рассчитанной длительностью воспроизведения: Aspose.Slides использует тип перехода и значение [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) для её определения. Установка типа перехода может инициализировать длительность, поэтому сначала проверьте исходные настройки.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -275,11 +327,11 @@ try {
 }
 ```
 
-## **Переход Morph**
+## **Morph Transition**
 
-Переход Morph анимирует изменения между объектами на последовательных слайдах. Чтобы создать простой эффект Morph, клонируйте слайд, переместите или измените размер объекта в копии и примените переход Morph к второму слайду. Это даёт анимировать соответствующие объекты между их исходным и изменённым состоянием.
+Переход Morph анимирует изменения между объектами на последовательных слайдах. Чтобы создать простой эффект Morph, клонируйте слайд, переместите или измените размер объекта на копии и примените переход Morph ко второму слайду. Это позволяет анимировать соответствующие объекты между их исходным и изменённым состоянием.
 
-В следующем примере создаётся слайд с текстовым прямоугольником, затем этот слайд клонируется, а позиция и размер прямоугольника в копии меняются. После этого для второго слайда выбирается Morph из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/). Откройте сохранённый файл в среде просмотра презентаций, поддерживающей Morph, чтобы увидеть эффект в ходе показа.
+В следующем примере создаётся слайд с текстовым прямоугольником, он клонируется, а на копии меняются позиция и размер прямоугольника. Затем для второго слайда выбирается Morph из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/). Откройте сохранённый файл в просмотрщике, поддерживающем Morph, чтобы увидеть эффект во время показа слайдов.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -305,17 +357,17 @@ try {
 }
 ```
 
-## **Типы перехода Morph**
+## **Типы Morph Transition**
 
 Перечисление [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) управляет тем, как Morph сопоставляет и анимирует содержимое:
 
-- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) рассматривает каждую форму как целый объект.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) рассматривает каждую форму как единый объект.
 - [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) анимирует текст, сопоставляя слова, где это возможно.
-- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) анимирует текст, сопоставляя отдельные символы.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) анимирует текст, сопоставляя символы, где это возможно.
 
-Используйте [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) для выбора Morph перед получением [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Затем полученный объект будет представлять [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), у которого метод [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) выбирает режим сопоставления.
+Используйте [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) для выбора Morph перед получением [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Полученное значение предоставляет объект [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), у которого метод [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) выбирает режим сопоставления.
 
-В этом примере открывается презентация, созданная в предыдущем разделе, и настраивается второй слайд для использования анимации Morph по словам.
+Этот пример открывает презентацию, созданную в предыдущем разделе, и настраивает второй слайд на анимацию Morph по словам.
 
 ```javascript
 const java = require("java");
@@ -342,11 +394,11 @@ try {
 }
 ```
 
-## **Установка эффектов перехода**
+## **Задать эффекты переходов**
 
-Некоторые переходы раскрывают дополнительные параметры, такие как направление или начало эффекта с чёрного экрана. Доступные параметры зависят от выбранного через [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) перехода. Сначала задайте тип, затем используйте соответствующий объект перехода, полученный через [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Некоторые переходы предоставляют дополнительные параметры, такие как направление или начало эффекта с чёрного экрана. Доступные параметры зависят от выбранного через [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) перехода. Сначала задайте тип, затем используйте соответствующий объект перехода, полученный через [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-Следующий пример применяет переход Cut к первому слайду `input.pptx`. Он вызывает [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) через [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/), чтобы переход начинался с чёрного экрана.
+В следующем примере к первому слайду `input.pptx` применяется переход Cut. Через [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) вызывается [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack), чтобы переход начинался с чёрного экрана.
 
 ```javascript
 const java = require("java");
@@ -371,18 +423,18 @@ try {
 
 ## **FAQ**
 
-**Можно ли управлять скоростью воспроизведения перехода слайда?**
+**Можно ли контролировать скорость воспроизведения перехода слайда?**
 
-Да. Предпочтительно использовать [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), когда нужна точная длительность эффекта в миллисекундах. Используйте [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed), если достаточно предопределённой категории [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) — Slow, Medium или Fast, и явная длительность не задаётся. Эти настройки управляют только эффектом перехода, независимо от задержки автоматического перехода.
+Да. Предпочтительно используйте [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), когда нужна точная длительность эффекта в миллисекундах. Используйте [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed), когда достаточно предопределённой категории [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) — Slow, Medium или Fast, и явная длительность не задаётся. Эти настройки управляют только эффектом перехода, независимо от задержки автоматического перехода.
 
-**Можно ли прикрепить звук к переходу и включить его зацикливание?**
+**Можно ли прикрепить аудио к переходу и включить его зацикливание?**
 
-Да. Присвойте встроенный звук с помощью [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), передайте значение StartSound из перечисления [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) в [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) и включите [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) со значением `true`. Звук будет повторяться до следующего звукового события в показе.
+Да. Присвойте встроенный звук через [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), передайте значение StartSound из перечисления [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) в [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) и включите [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) со значением `true`. Звук будет зацикливаться до следующего звукового события в показе.
 
 **Как быстрее всего применить один и тот же переход ко всем слайдам?**
 
-Пройдитесь по коллекции презентации — [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) — и вызовите [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) с одинаковым значением для перехода каждого слайда. В том же цикле задайте любые параметры времени и эффекта, чтобы поведение было одинаковым на всех слайдах.
+Пройдитесь по коллекции слайдов презентации через [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) и вызовите [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) с одинаковым значением для перехода каждого слайда. В том же цикле задайте любые параметры тайминга и эффекта, чтобы поведение было одинаковым на всех слайдах.
 
-**Как проверить, какой переход установлен у конкретного слайда?**
+**Как проверить, какой переход сейчас установлен на слайде?**
 
-Вызовите [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) у результата [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) слайда. Метод вернёт значение из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None означает, что переход не задан.
+Вызовите [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) у результата [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) слайда. Он вернёт значение из перечисления [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None означает отсутствие эффекта перехода.

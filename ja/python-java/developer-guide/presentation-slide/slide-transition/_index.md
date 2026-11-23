@@ -1,5 +1,5 @@
 ---
-title: Python via Java を使用したプレゼンテーションでスライド遷移を管理する
+title: Python via Java を使用したプレゼンテーションのスライド遷移の管理
 linktitle: スライド遷移
 type: docs
 weight: 80
@@ -18,17 +18,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用してスライド遷移を適用し、自動スライド進行を設定し、Morph やその他の遷移効果をカスタマイズします。"
+description: "Aspose.Slides for Python via Java を使用して、スライド遷移を適用し、自動スライド進行を構成し、Morph やその他の遷移効果をカスタマイズします。"
 ---
 ## **概要**
 
-スライド遷移はスライドショー中のスライドの表示方法を制御します。Aspose.Slides for Python via Java を使用すると、各スライドに遷移効果を選択し、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。本記事では、Python のサンプルを使用して遷移を適用し、正確な遷移時間を設定し、スライドのタイミングを管理し、2 つのスライド間に Morph 遷移を作成する方法を示します。また、設定を PPTX ファイルに保存する方法も例示しています。
+スライド遷移は、スライドショー中にスライドがどのように表示されるかを制御します。Aspose.Slides for Python via Java を使用すると、各スライドに遷移効果を選択し、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。本記事では Python のサンプルを用いて遷移を適用し、正確な遷移時間を設定し、スライドのタイミングを管理し、2 つのスライド間に Morph 遷移を作成する方法を示します。サンプルは設定を PPTX ファイルに保存する方法も示しています。
 
 ## **スライド遷移の追加**
 
-遷移を適用するには、[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスでプレゼンテーションをロードし、[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) を介してスライドの遷移設定にアクセスします。[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) を使用し、[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙体の値を指定してから、プレゼンテーションを保存します。
+遷移を適用するには、[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスでプレゼンテーションを読み込み、[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) でスライドの遷移設定にアクセスします。[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) に [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙から値を指定し、最後にプレゼンテーションを保存します。
 
-以下の例は、最初のスライドに Circle 遷移、2 番目のスライドに Comb 遷移を適用します。`input.pptx` ファイルを使用し、スライドが少なくとも 2 枚あることを確認してください。
+以下の例は、最初のスライドに Circle 遷移、2 番目のスライドに Comb 遷移を適用します。2 枚以上のスライドを含む `input.pptx` ファイルを使用してください。
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-## **ホイール遷移**
+## **Wheel 遷移**
 
-[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) を使用して、[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) から Wheel を選択します。次に、[getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) を呼び出して [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) 設定にアクセスします。その [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) メソッドは、目的スライドを表示する放射状セクタの数を制御します。
+[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) で [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) から Wheel を選択します。次に [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) で [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) 設定にアクセスし、[setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) メソッドで放射状セクタ数を制御します。
 
-この例では、同一のスライドペアを 2 組作成します。各ペアは黒色のスライドで開始し、スライド全体が金色の矩形で終了します。両方の目的スライドは、[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) で設定した同じスロー速度と、[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) で設定した 8,000 ミリ秒の同一の明示的な期間を使用します。変更されるのはスポーク数だけです。
+この例では同一のスライドペアを 2 つ作成します。各ペアは黒いスライドで始まり、全スライドに金色の矩形で終わります。両方の目的スライドは、[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) で遅い速度を設定し、[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) で 8,000 ミリ秒の明示的な期間を設定しています。スポーク数だけが変わります。
 
 ```python
 import jpype
@@ -102,19 +102,76 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint で `wheel-transitions.pptx` を開き、スライドショーを開始します。スライド 1 からスライド 2 に進むと、時計回りに 1 つのスイープで金色の矩形が表示されます。次にスライド 3 からスライド 4 に進むと、8 つの放射状セクタが同時に同じ矩形を表示します。
+`wheel-transitions.pptx` を PowerPoint で開き、スライドショーを開始します。スライド 1 から 2 に進むと、時計回りのスイープで金色の矩形が現れます。続いてスライド 3 から 4 に進むと、8 本の放射状セクタが同時に矩形を露出させます。
+
+## **Reveal 遷移によるブラックフェード**
+
+目的スライドの遷移タイプを Reveal に設定し、[setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) をその [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/) 設定に対して呼び出します。例では、ティールの元スライドとコーラルの目的スライドを作成し、両方をクローンします。各ペアは 2 秒の Reveal 遷移を使用しますが、2 番目のペアだけがブラックフェードを伴います。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+`reveal-transitions.pptx` を PowerPoint で開き、スライドショーを開始します。スライド 1 から 2 に進むと、ティールが直接コーラルにフェードします。スライド 3 から 4 に進むと、画面が一瞬ほぼ黒くなり、続いてコーラルスライドが表示されます。両スライドは元の背景色を保持します。
+
+下の行は 0.5 秒間隔の PowerPoint のフレームを示しています。各行の中央フレームを比較して効果を確認してください。
+
+![PowerPoint playback with fade through black disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
 
 ## **高度なスライド遷移の追加**
 
-スライドが画面に表示される時間や、マウスクリックでスライドショーを進めるかどうかを設定できます。次のメソッドがこの動作を制御します：
+スライドが画面に表示される時間や、マウスクリックでスライドショーを進めるかどうかを構成できます。次のメソッドでこの動作を制御します。
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) は、閲覧者がマウスクリックで進められるようにします。
-- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) は、自動的に進むようにします。
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) は、自動進行までの遅延をミリ秒で指定します。
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) は、マウスクリックで進められるようにします。
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) は自動進行を有効にします。
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) は自動進行までの遅延時間（ミリ秒）を指定します。
 
-クリックとタイマーの両方の進行を有効にすると、閲覧者はクリックで進めるか、タイマー待ちで進めることができます。タイマーのみを使用する場合は、[setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) に `False` を渡します。遅延はスライドショーが進むタイミングを制御しますが、視覚的遷移効果の期間は設定しません。
+クリックとタイマーの両方を有効にすれば、クリックでもタイマー待ちでもスライドを進められます。タイマーのみ使用する場合は、[setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) に `False` を渡します。遅延はスライドショーが進むタイミングを決めるもので、ビジュアル遷移効果の長さを設定するものではありません。
 
-この例では、最初の 3 枚のスライドに異なる効果を割り当て、3 秒、5 秒、7 秒後に自動進行を有効にします。マウスクリックでもこれらのスライドを進めることができます。`input.pptx` ファイルを使用し、スライドが少なくとも 3 枚あることを確認してください。
+この例は最初の 3 枚のスライドに異なる効果を割り当て、3 秒、5 秒、7 秒後に自動進行するよう設定します。マウスクリックでもこれらのスライドは進められます。`input.pptx` に最低 3 枚のスライドが必要です。
 
 ```python
 import jpype
@@ -153,9 +210,9 @@ finally:
     presentation.dispose()
 ```
 
-タイマー進行が有効かどうかを確認するには、[getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) を呼び出します。保存された遅延だけでは、タイマーがアクティブであることを示すわけではありません。
+タイマー進行が有効か確認するには、[getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) を呼び出します。遅延が保存されているだけでは、タイマーがアクティブであることを示しません。
 
-次の例では、上記で保存したファイルを開き、各有効なタイマーを報告し、2 秒以上の遅延が設定されたスライドの自動進行を無効にします。そのスライドのマウスクリックを有効にし、更新された設定を保存します。
+次の例は上記で保存したファイルを開き、各スライドのタイマーが有効かを報告し、2 秒を超える遅延があるスライドの自動進行を無効にします。これらのスライドはクリックで進められるようにし、更新された設定を保存します。
 
 ```python
 import jpype
@@ -185,25 +242,25 @@ finally:
 
 ## **遷移タイミングを正確に制御する**
 
-[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) を使用して、遷移効果の正確な長さ（ミリ秒）を指定します。スライドの [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) メソッドは、これらの設定を [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) を介して公開します。
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) を使用して、遷移効果の正確な長さをミリ秒単位で指定します。スライドの [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) メソッドは、[SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) を介してこれらの設定を公開します。
 
-| Method | Purpose |
+| メソッド | 目的 |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | 遷移効果自体の期間をミリ秒単位で設定します。 |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | スライドが自動的に進むまでの遅延をミリ秒単位で設定します。`True` を [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) に渡すと、このタイマーが有効になります。 |
-| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | 事前定義された速度カテゴリを [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) から選択します（Slow、Medium、Fast）。正確な期間が指定されていない場合に使用されます。 |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | 遷移効果自体の長さ（ミリ秒）を設定します。 |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | スライドが自動的に進むまでの遅延時間（ミリ秒）を設定します。自動タイマーを有効にするには [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) に `True` を渡します。 |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) 列挙から事前定義された速度（Slow、Medium、Fast）を選択します。明示的な期間が指定されていない場合に使用されます。 |
 
-[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) は遷移効果のみを制御し、スライドが表示され続ける時間は決定しません。自動進行の遅延は別個に設定してください。明示的な期間が設定されていない場合、Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) の値から効果期間を決定します。
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) は遷移効果のみを制御し、スライドが画面に残る時間は決定しません。自動進行の遅延は別途設定します。明示的な期間が設定されていない場合、Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) の値から効果の長さを算出します。
 
 <!-- visual-explanation:slide-transition:start -->
-[![個別のバーが 750 ms の遷移期間と 5,000 ms の自動進行設定を示しています。](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*この共有例は、各スライドに 750 ms の Fade 遷移を設定し、別々に 5,000 ms の自動進行を有効にします。遷移期間は効果を制御し、進行はスライドを離れるタイミングを制御します。これらのバーは概略設定であり、測定された総合タイムラインではありません。*
+*共有サンプルは各スライドに 750 ms の Fade 遷移を与え、別途 5,000 ms の自動進行を有効にしています。遷移期間は効果を制御し、進行はスライドを離れるタイミングを制御します。これらのバーは測定された合成タイムラインではなく、概念的な設定を示すものです。*
 <!-- visual-explanation:slide-transition:end -->
 
-### **すべてのスライドに同じ期間を適用する**
+### **すべてのスライドに同一期間を適用する**
 
-一貫したペースを保つために、すべてのスライドに同じ効果と正確な期間を適用します。この例は `input.pptx` をロードし、[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) から Fade を選択し、各遷移に 750 ミリ秒の期間を設定します。また、5,000 ミリ秒後に自動進行を個別に有効にし、マウスクリックによる進行を無効にしてから、結果を PPTX として保存します。
+一定のペースを保つため、すべてのスライドに同じ効果と正確な期間を適用します。この例は `input.pptx` を読み込み、[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) から Fade を選択し、各遷移に 750 ミリ秒の期間を設定します。さらに自動進行を 5,000 ミリ秒後に有効にし、マウスクリックによる進行は無効にして、結果を PPTX として保存します。
 
 ```python
 import jpype
@@ -221,7 +278,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # 効果の期間とは別に自動進行を設定します。
+        # エフェクトの期間とは別に自動進行を設定します。
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -231,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-### **個々のスライドに異なる期間を設定する**
+### **スライドごとに異なる期間を設定する**
 
-異なるスライドは異なる効果期間を使用できます。例えば、タイトルスライドには短い遷移、セクションの導入スライドには長い遷移を使用します。この例では、最初のスライドに 500 ミリ秒、2 番目のスライドに 1,200 ミリ秒を設定します。`input.pptx` ファイルを使用し、スライドが少なくとも 2 枚あることを確認してください。
+スライドごとに異なる効果期間を設定できます。たとえば、タイトルスライドは短い遷移にし、セクション紹介スライドは長めの遷移にします。この例は最初のスライドに 500 ミリ秒、2 番目のスライドに 1,200 ミリ秒の期間を設定します。`input.pptx` に少なくとも 2 枚のスライドが必要です。
 
 ```python
 import jpype
@@ -262,13 +319,15 @@ finally:
     presentation.dispose()
 ```
 
-### **アニメーション出力と遷移を調整する**
+### **アニメーション出力と遷移を連携させる**
 
-アニメーション GIF [アニメーション GIF](/slides/ja/python-java/convert-powerpoint-to-animated-gif/)、HTML5 プレゼンテーション [HTML5 プレゼンテーション](/slides/ja/python-java/export-to-html5/)、またはビデオ [ビデオ](/slides/ja/python-java/convert-powerpoint-to-video/) を作成する際は、エクスポート前に正確な遷移期間を設定し、意図したペースに合わせます。例えば、シーン間に 600 ミリ秒のフェードを使用し、各スライドの進行遅延を個別に調整してナレーションやコンテンツの時間を確保します。GIF とビデオの場合、出力フレームレートを効果期間に合わせて調整します：600 ミリ秒は 30 fps で 18 フレームに相当します。HTML5 では、エクスポート設定でアニメーション遷移を有効にします。選択したエクスポート形式がサポートする効果とタイミングオプションを確認し、出力をプレビューして同期を確認してください。
+[animated GIF](/slides/ja/python-java/convert-powerpoint-to-animated-gif/) や [HTML5 プレゼンテーション](/slides/ja/python-java/export-to-html5/)、[ビデオ](/slides/ja/python-java/convert-powerpoint-to-video/) を作成する際は、エクスポート前に正確な遷移期間を設定して意図したペースに合わせます。たとえば、シーン間に 600 ミリ秒のフェードを使用し、各スライドの進行遅延を個別に調整してナレーションやコンテンツの時間を確保します。
 
-### **既存の遷移期間を読み取る**
+GIF とビデオの場合は、効果期間に合わせてフレームレートを調整します。600 ミリ秒は 30fps で 18 フレームに相当します。HTML5 ではエクスポート設定でアニメーション遷移を有効にします。選択したエクスポート形式がサポートする効果とタイミングオプションを確認し、プレビューで同期を確認してください。
 
-遷移を変更する前に [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) を呼び出して、明示的な値が保存されているかどうかを判断します。`-1` の値は明示的な期間が設定されていないことを意味し、0 以上の値はミリ秒単位で保存された期間を示します。未設定の値は計算された再生期間ではありません：Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) の値を使用してその期間を決定します。遷移タイプを設定すると期間が初期化されることがあるので、最初に元の設定を確認してください。
+### **既存の遷移期間を読む**
+
+遷移を変更する前に [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) を呼び出して、明示的な値が保存されているか確認します。`-1` は明示的な期間が設定されていないことを示し、0 以上の値はミリ秒単位の保存期間を表します。未設定の値は再生時間の計算結果ではなく、Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) の値から期間を算出します。遷移タイプを設定すると期間が初期化されることがあるため、まず元の設定を確認してください。
 
 ```python
 import jpype
@@ -295,9 +354,9 @@ finally:
 
 ## **Morph 遷移**
 
-Morph 遷移は連続するスライド間のオブジェクトの変化をアニメーション化します。シンプルな Morph 効果を作成するには、スライドを複製し、複製上のオブジェクトを移動またはサイズ変更し、2 番目のスライドに Morph 遷移を適用します。これにより、元の状態と変更後の状態の間で対応するオブジェクトがアニメーションします。
+Morph 遷移は連続するスライド間のオブジェクトの変更をアニメーション化します。シンプルな Morph 効果を作成するには、スライドをクローンし、クローン上でオブジェクトを移動またはサイズ変更し、2 番目のスライドに Morph 遷移を適用します。これにより、元の状態と変更後の状態の間で対応するオブジェクトがアニメーションされます。
 
-以下の例は、テキスト矩形を含むスライドを作成し、スライドを複製して、複製上の矩形の位置とサイズを変更します。その後、2 番目のスライドに対して [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙体から Morph を選択します。Morph をサポートするプレゼンテーションビューアで保存されたファイルを開き、スライドショー中の効果を確認してください。
+以下の例はテキスト矩形を含むスライドを作成し、スライドをクローンしてクローン上で矩形の位置とサイズを変更します。次に、2 番目のスライドの [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙から Morph を選択します。Morph をサポートするプレゼンテーションビューアで保存ファイルを開くと、スライドショー中に効果を確認できます。
 
 ```python
 import jpype
@@ -328,15 +387,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Morph 遷移タイプ**
+## **Morph 遷移のタイプ**
 
-[TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) 列挙体は、Morph がコンテンツを一致させてアニメーション化する方法を制御します：
+[TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) 列挙は、Morph がコンテンツを一致させてアニメーション化する方法を制御します。
 
-- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) は各シェイプを全体のオブジェクトとして扱います。
-- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) は可能な場合、単語を一致させてテキストをアニメーション化します。
-- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) は可能な場合、文字を一致させてテキストをアニメーション化します。
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) は各シェイプを全体として扱います。
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) は可能な限り単語単位でテキストをアニメーション化します。
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) は可能な限り文字単位でテキストをアニメーション化します。
 
-[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) を使用して [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) にアクセスする前に Morph を選択します。その結果は [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/) クラスのインスタンスとなり、[setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) メソッドで一致モードを選択します。
+[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) で Morph を選択し、[getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) にアクセスします。取得した値は [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/) クラスのインスタンスで、[setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) メソッドで一致モードを選択できます。
+
+この例は前節で作成したプレゼンテーションを開き、2 番目のスライドに単語ベースの Morph アニメーションを設定します。
 
 ```python
 import jpype
@@ -366,11 +427,11 @@ finally:
     presentation.dispose()
 ```
 
-## **遷移効果の設定**
+## **遷移効果を設定する**
 
-一部の遷移は、方向や効果が黒画面から開始するかどうかなど追加オプションを提供します。利用可能なオプションは [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) で選択した遷移に依存します。まずタイプを設定し、次に [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) から適切なクラスを使用します。
+一部の遷移は方向や黒画面から開始するかどうかなど、追加オプションを提供します。利用できるオプションは [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) で選択した遷移に依存します。まずタイプを設定し、次に [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) で取得した適切なクラスを使用します。
 
-以下の例は、`input.pptx` の最初のスライドに Cut 遷移を適用します。[OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) を介して [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) を呼び出し、遷移が黒画面から開始するようにします。
+以下の例は `input.pptx` の最初のスライドに Cut 遷移を適用します。さらに [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) の [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) を呼び出し、遷移を黒画面から開始させます。
 
 ```python
 import jpype
@@ -397,20 +458,20 @@ finally:
     presentation.dispose()
 ```
 
-## **よくある質問**
+## **FAQ**
 
 **スライド遷移の再生速度を制御できますか？**
 
-はい。ミリ秒単位で正確な効果期間が必要な場合は、[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) を優先してください。事前定義された [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) カテゴリ（Slow、Medium、Fast）で十分で、明示的な期間が設定されていない場合は、[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) を使用します。これらの設定は自動進行遅延とは独立して遷移効果を制御します。
+はい。ミリ秒単位で正確な効果時間が必要な場合は [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) を使用してください。事前定義された [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)（Slow、Medium、Fast）で十分で、明示的な期間を設定しない場合は [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) を使用します。これらの設定は自動進行遅延とは独立して遷移効果を制御します。
 
-**遷移に音声を添付してループさせることはできますか？**
+**遷移に音声を添付し、ループさせることはできますか？**
 
-はい。[setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound) で埋め込み音声を割り当て、[TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) 列挙体の StartSound を [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) に渡し、[setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) を `True` で有効にします。音声はスライドショー内の次のサウンドイベントが発生するまでループします。
+はい。[setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound) で埋め込み音声を割り当て、[TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) 列挙の `StartSound` を [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) に渡し、[setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) に `True` を指定します。音声は次のサウンドイベントが発生するまでループします。
 
-**すべてのスライドに同じ遷移を適用する最速の方法は何ですか？**
+**すべてのスライドに同じ遷移を適用する最速の方法は？**
 
-プレゼンテーションの [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) コレクションをループし、各スライドの遷移に同じ値で [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) を呼び出します。同じループ内でタイミングや効果オプションを設定すれば、スライド間で動作を一貫させることができます。
+プレゼンテーションの [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) コレクションをループし、各スライドの遷移に対して同じ値で [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) を呼び出します。同じループ内でタイミングや効果オプションも設定すれば、スライド全体で動作を統一できます。
 
-**スライドに現在設定されている遷移を確認するにはどうすればよいですか？**
+**現在のスライドに設定されている遷移を確認するには？**
 
-スライドの [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) 結果に対して [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) を呼び出します。これにより、[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙体の値が返されます。None_ は遷移効果が適用されていないことを意味します。
+スライドの [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) の結果に対して [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) を呼び出します。返されるのは [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) 列挙の値で、`None_` は遷移効果が適用されていないことを示します。

@@ -17,11 +17,11 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Appliquer des transitions de diapositives, configurer l'avancement automatique des diapositives et personnaliser les transitions Morph et autres effets de transition avec Aspose.Slides pour PHP via Java."
+description: "Appliquez des transitions de diapositives, configurez l'avancement automatique des diapositives et personnalisez les effets Morph et autres effets de transition avec Aspose.Slides pour PHP via Java."
 ---
 ## **Vue d'ensemble**
 
-Les transitions de diapositive contrôlent la façon dont les diapositives apparaissent pendant un diaporama. Avec Aspose.Slides for PHP via Java, vous pouvez choisir un effet de transition pour chaque diapositive, configurer l’avancement par clic de souris ou par minuteur, et ajuster les options spécifiques à un effet. Cet article utilise des exemples PHP pour appliquer des transitions, définir des durées de transition précises, gérer le minutage des diapositives et créer une transition Morph entre deux diapositives. Les exemples montrent également comment enregistrer les paramètres dans un fichier PPTX.
+Les transitions de diapositives contrôlent la manière dont les diapositives apparaissent pendant un diaporama. Avec Aspose.Slides pour PHP via Java, vous pouvez choisir un effet de transition pour chaque diapositive, configurer l’avancement au clic de la souris ou par minuteur, et ajuster les options spécifiques à un effet. Cet article utilise des exemples PHP pour appliquer des transitions, définir des durées de transition exactes, gérer le minutage des diapositives et créer une transition Morph entre deux diapositives. Les exemples montrent également comment enregistrer les paramètres dans un fichier PPTX.
 
 ## **Ajouter une transition de diapositive**
 
@@ -49,11 +49,11 @@ try {
 }
 ```
 
-## **Transition Wheel**
+## **Transition en roue**
 
-La méthode [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) contrôle le nombre de secteurs radiaux qui dévoilent la diapositive de destination. Utilisez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pour sélectionner Wheel dans [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), puis appelez [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) pour accéder aux paramètres de [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
+La méthode [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) contrôle le nombre de secteurs radiaux qui dévoilent la diapositive de destination. Utilisez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pour sélectionner Wheel dans [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), puis appelez [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) pour accéder aux paramètres [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
 
-L’exemple crée deux paires de diapositives identiques. Chaque paire commence par une diapositive noire et se termine par une diapositive recouverte d’un rectangle doré. La diapositive 2 utilise un rayon et la diapositive 4 utilise huit rayons. Les deux transitions utilisent la même vitesse lente, définie avec [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), et une durée explicite de 8 000 millisecondes, définie avec [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
+L’exemple crée deux paires de diapositives identiques. Chaque paire commence par une diapositive noire et se termine par une diapositive recouverte d’un rectangle doré. La diapositive 2 utilise un rayon et la diapositive 4 en utilise huit. Les deux transitions utilisent la même vitesse lente, définie avec [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), et une durée explicite de 8 000 millisecondes, définie avec [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
 
 ```php
 use aspose\slides\BackgroundType;
@@ -103,19 +103,74 @@ try {
 }
 ```
 
-Ouvrez la présentation enregistrée dans PowerPoint et démarrez le diaporama. Passez de la diapositive 1 à la diapositive 2 pour voir un seul balayage horaire. Puis passez de la diapositive 3 à la diapositive 4 pour voir huit secteurs radiaux révéler le même rectangle simultanément.
+Ouvrez la présentation enregistrée dans PowerPoint et lancez le diaporama. Avancez de la diapositive 1 à la diapositive 2 pour voir un balayage horaire unique. Puis avancez de la diapositive 3 à la diapositive 4 pour voir huit secteurs radiaux révéler simultanément le même rectangle.
+
+## **Fondu via noir avec la transition Reveal**
+
+Définissez le type de transition de la diapositive de destination sur Reveal, puis appelez [setThroughBlack](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/#setThroughBlack) sur ses paramètres [RevealTransition](https://reference.aspose.com/slides/php-java/aspose.slides/revealtransition/). L’exemple crée une diapositive source teal et une diapositive de destination corail, puis les clone. Chaque paire utilise la même transition Reveal de deux secondes. Seule la seconde paire effectue un fondu via noir.
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionLeftRightDirectionType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $source = $presentation->getSlides()->get_Item(0);
+    $destination = $presentation->getSlides()->addClone($source);
+
+    foreach ([
+        [$source, new Color(0, 128, 128), "Source"],
+        [$destination, new Color(255, 127, 80), "Destination"],
+    ] as [$slide, $color, $label]) {
+        $slide->getBackground()->setType(BackgroundType::OwnBackground);
+        $slide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+        $slide->getBackground()->getFillFormat()->getSolidFillColor()->setColor($color);
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+        $shape->getTextFrame()->setText($label);
+        $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setFontHeight(44);
+    }
+
+    $presentation->getSlides()->addClone($source);
+    $clonedDestination = $presentation->getSlides()->addClone($destination);
+    foreach ([[$destination, false], [$clonedDestination, true]] as [$slide, $throughBlack]) {
+        $slide->getSlideShowTransition()->setType(TransitionType::Reveal);
+        $slide->getSlideShowTransition()->setSpeed(TransitionSpeed::Slow);
+        $slide->getSlideShowTransition()->setDuration(2000);
+        $slide->getSlideShowTransition()->getValue()->setDirection(TransitionLeftRightDirectionType::Left);
+        $slide->getSlideShowTransition()->getValue()->setThroughBlack($throughBlack);
+    }
+
+    $presentation->save("reveal-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ouvrez la présentation enregistrée dans PowerPoint et lancez le diaporama. Avancez de la diapositive 1 à la diapositive 2 pour voir le teal se fondre directement dans le corail. Puis avancez de la diapositive 3 à la diapositive 4. L’écran s’assombrit brièvement presque jusqu’au noir avant que la diapositive corail n’apparaisse. Les deux diapositives conservent leurs couleurs d’arrière‑plan d’origine.
+
+Les rangées ci‑dessous montrent des images PowerPoint à intervalles de demi‑seconde. Comparez l’image du milieu de chaque rangée pour voir l’effet.
+
+![Lecture PowerPoint avec fondu via noir désactivé (haut) et activé (bas). Seule la rangée du bas passe par un noir proche.](reveal-through-black.png)
 
 ## **Ajouter une transition de diapositive avancée**
 
-Vous pouvez configurer la durée pendant laquelle une diapositive reste à l’écran et si un clic de souris fait avancer le diaporama. Les méthodes suivantes contrôlent ce comportement :
+Vous pouvez configurer la durée d’affichage d’une diapositive et définir si un clic de souris fait avancer le diaporama. Les méthodes suivantes contrôlent ce comportement :
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) permet au spectateur d’avancer en cliquant avec la souris.
-- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) active l’avancement automatique.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) permet au spectateur d’avancer en cliquant la souris.  
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) active l’avancement automatique.  
 - [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) spécifie le délai avant l’avancement automatique, en millisecondes.
 
-Activez à la fois l’avancement par clic et le minutage pour permettre au spectateur de poursuivre avec un clic ou d’attendre le minuteur. Pour n’utiliser que le minuteur, transmettez `false` à [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Le délai contrôle le moment où le diaporama avance ; il ne définit pas la durée de l’effet de transition visuel.
+Activez à la fois l’avancement par clic et par minuteur pour laisser le spectateur passer à la diapositive soit en cliquant, soit en attendant le minuteur. Pour n’utiliser que le minuteur, passez `false` à [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Le délai contrôle le moment où le diaporama avance ; il ne définit pas la durée de l’effet visuel de transition.
 
-Cet exemple attribue des effets différents aux trois premières diapositives et active l’avancement automatique après 3, 5 et 7 secondes, respectivement. Des clics de souris peuvent également faire avancer ces diapositives. Utilisez un fichier `input.pptx` contenant au moins trois diapositives.
+Cet exemple attribue des effets différents aux trois premières diapositives et active l’avancement automatique après 3, 5 et 7 secondes respectivement. Les clics de souris peuvent également avancer ces diapositives. Utilisez un fichier `input.pptx` contenant au moins trois diapositives.
 
 ```php
 use aspose\slides\Presentation;
@@ -152,9 +207,9 @@ try {
 }
 ```
 
-Pour vérifier si l’avancement chronométré est activé, appelez [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Un délai stocké seul n’indique pas que le minuteur est actif.
+Pour vérifier si l’avancement par minuteur est activé, appelez [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Un délai stocké seul n’indique pas que le minuteur est actif.
 
-L’exemple suivant ouvre le fichier enregistré précédemment, signale chaque minuteur activé, et désactive l’avancement automatique pour les diapositives dont le délai dépasse deux secondes. Il active les clics de souris pour ces diapositives et enregistre les paramètres mis à jour.
+L’exemple suivant ouvre le fichier enregistré ci‑dessus, signale chaque minuteur activé, puis désactive l’avancement automatique pour les diapositives dont le délai dépasse deux secondes. Il active les clics de souris pour ces diapositives et enregistre les nouveaux paramètres.
 
 ```php
 use aspose\slides\Presentation;
@@ -189,20 +244,20 @@ Utilisez [setDuration](https://reference.aspose.com/slides/php-java/aspose.slide
 | Méthode | Objectif |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Définit la durée de l’effet de transition lui‑même, en millisecondes. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Définit le délai avant que la diapositive avance automatiquement, en millisecondes. Transmettez `true` à [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) pour activer ce minuteur. |
-| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Sélectionne une catégorie de vitesse prédéfinie dans [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) : Slow, Medium ou Fast. Elle est utilisée lorsqu’aucune durée exacte n’est spécifiée. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Définit le délai avant que la diapositive n’avance automatiquement, en millisecondes. Passez `true` à [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) pour activer ce minuteur. |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Sélectionne une catégorie de vitesse prédéfinie provenant de [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) : Slow, Medium ou Fast. Elle est utilisée lorsqu’aucune durée exacte n’est spécifiée. |
 
-[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) ne contrôle que l’effet de transition ; il ne détermine pas le temps pendant lequel la diapositive reste visible. Configurez séparément le délai d’avancement automatique. Lorsqu’aucune durée explicite n’est définie, Aspose.Slides détermine la durée de l’effet à partir du type de transition et de la valeur [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) contrôle uniquement l’effet de transition ; il ne détermine pas la durée pendant laquelle la diapositive reste visible. Configurez séparément le délai d’avancement automatique. Lorsqu’aucune durée explicite n’est définie, Aspose.Slides détermine la durée de l’effet à partir du type de transition et de la valeur [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
 [![Des barres distinctes identifient la durée de transition de 750 ms et le réglage d’avancement automatique de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*L'exemple partagé donne à chaque diapositive une transition de fondu de 750 ms et active séparément l'avancement automatique à 5 000 ms. La durée de transition contrôle l'effet ; l'avancement contrôle le moment de quitter la diapositive. Ces barres sont des réglages schématiques, pas une chronologie combinée mesurée.*
+*L’exemple partagé donne à chaque diapositive une transition Fade de 750 ms et active séparément l’avancement automatique à 5 000 ms. La durée de transition contrôle l’effet ; l’avancement contrôle le moment où l’on quitte la diapositive. Ces barres représentent des réglages schématiques, pas une chronologie mesurée combinée.*
 <!-- visual-explanation:slide-transition:end -->
 
 ### **Appliquer la même durée à chaque diapositive**
 
-Pour un rythme cohérent, appliquez le même effet et la même durée exacte à chaque diapositive. Cet exemple charge `input.pptx`, sélectionne Fade dans [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), et attribue à chaque transition une durée de 750 millisecondes. Il active séparément l’avancement automatique après 5 000 millisecondes et désactive l’avancement par clic de souris, puis enregistre le résultat au format PPTX.
+Pour un rythme cohérent, appliquez le même effet et la même durée exacte à chaque diapositive. Cet exemple charge `input.pptx`, sélectionne Fade dans [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), et attribue à chaque transition une durée de 750 millisecondes. Il active séparément l’avancement automatique après 5 000 millisecondes et désactive l’avancement par clic, puis enregistre le résultat au format PPTX.
 
 ```php
 use aspose\slides\Presentation;
@@ -217,7 +272,7 @@ try {
         $transition->setType(TransitionType::Fade);
         $transition->setDuration(750);
 
-        // Configurer l'avancement automatique indépendamment de la durée de l'effet.
+        // Configurez l'avancement automatique indépendamment de la durée de l'effet.
         $transition->setAdvanceAfter(true);
         $transition->setAdvanceAfterTime(5000);
         $transition->setAdvanceOnClick(false);
@@ -229,9 +284,9 @@ try {
 }
 ```
 
-### **Définir des durées différentes pour des diapositives individuelles**
+### **Définir des durées différentes pour les diapositives individuelles**
 
-Des diapositives différentes peuvent utiliser des durées d’effet différentes. Par exemple, utilisez une transition brève pour une diapositive de titre et une transition plus longue pour l’introduction d’une section. Cet exemple fixe 500 millisecondes pour la première diapositive et 1 200 millisecondes pour la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
+Des diapositives différentes peuvent utiliser des durées d’effet différentes. Par exemple, utilisez une transition brève pour une diapositive titre et une transition plus longue pour une introduction de section. Cet exemple règle 500 millisecondes pour la première diapositive et 1 200 millisecondes pour la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
 
 ```php
 use aspose\slides\Presentation;
@@ -260,13 +315,13 @@ try {
 
 ### **Coordonner les transitions avec la sortie animée**
 
-Lorsque vous préparez un [animated GIF](/slides/fr/php-java/convert-powerpoint-to-animated-gif/), une [HTML5 presentation](/slides/fr/php-java/export-to-html5/) ou une [video](/slides/fr/php-java/convert-powerpoint-to-video/), définissez des durées de transition exactes avant l’exportation pour correspondre au rythme prévu. Par exemple, utilisez un fondu de 600 millisecondes entre les scènes, et ajustez séparément le délai d’avancement de chaque diapositive pour laisser le temps à la narration ou au contenu.
+Lors de la préparation d’un [GIF animé](/slides/fr/php-java/convert-powerpoint-to-animated-gif/), d’une [présentation HTML5](/slides/fr/php-java/export-to-html5/) ou d’une [vidéo](/slides/fr/php-java/convert-powerpoint-to-video/), définissez des durées de transition exactes avant l’exportation afin d’harmoniser le rythme prévu. Par exemple, utilisez un fondu de 600 millisecondes entre les scènes, et ajustez séparément le délai d’avancement de chaque diapositive pour laisser le temps à la narration ou au contenu.
 
-Pour les GIF et les vidéos, coordonnez la fréquence d’images de sortie avec la durée de l’effet : 600 millisecondes correspondent à 18 images à 30 images par seconde. En HTML5, activez les transitions animées dans les paramètres d’exportation. Vérifiez les effets et options de minutage pris en charge par le format d’exportation choisi, et prévisualisez la sortie pour confirmer la synchronisation.
+Pour les GIF et les vidéos, coordonnez la fréquence d’images de sortie avec la durée de l’effet : 600 millisecondes correspondent à 18 images à 30 images par seconde. En HTML5, activez les transitions animées dans les paramètres d’exportation. Vérifiez les effets et options de minutage pris en charge par le format d’export choisi, et prévisualisez la sortie pour confirmer la synchronisation.
 
-### **Lire une durée de transition existante**
+### **Lire la durée d’une transition existante**
 
-Appelez [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) avant de modifier la transition pour déterminer si une valeur explicite est stockée. Une valeur de `-1` signifie qu’aucune durée explicite n’est définie ; une valeur non négative indique la durée stockée en millisecondes. La valeur non définie n’est pas la durée de lecture calculée : Aspose.Slides utilise le type de transition et la valeur [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) pour déterminer cette durée. La définition d’un type de transition peut initialiser une durée, il convient donc d’inspecter d’abord les paramètres d’origine.
+Appelez [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) avant de modifier la transition pour déterminer si une valeur explicite est stockée. Une valeur de `-1` signifie qu’aucune durée explicite n’est définie ; une valeur non négative indique la durée stockée en millisecondes. Cette valeur non définie n’est pas la durée de lecture calculée : Aspose.Slides utilise le type de transition et la valeur [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) pour déterminer cette durée. La définition d’un type de transition peut initialiser une durée, aussi inspectez d’abord les paramètres d’origine.
 
 ```php
 use aspose\slides\Presentation;
@@ -291,9 +346,9 @@ try {
 
 ## **Transition Morph**
 
-La transition Morph anime les changements entre les objets sur des diapositives consécutives. Pour créer un effet Morph simple, clonez une diapositive, déplacez ou redimensionnez un objet sur le clone, et appliquez la transition Morph à la deuxième diapositive. Cela donne aux objets correspondants la possibilité d’animer entre leurs états d’origine et modifié.
+La transition Morph anime les changements entre objets sur des diapositives consécutives. Pour créer un effet Morph simple, clonez une diapositive, déplacez ou redimensionnez un objet sur le clone, puis appliquez la transition Morph à la deuxième diapositive. Cela donne aux objets correspondants une animation entre leurs états d’origine et modifié.
 
-L’exemple suivant crée une diapositive contenant un rectangle de texte, clone la diapositive, puis modifie la position et la taille du rectangle sur le clone. Il sélectionne ensuite Morph dans l’énumération [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) pour la deuxième diapositive. Ouvrez le fichier enregistré dans un visualiseur de présentations prenant en charge Morph pour voir l’effet pendant un diaporama.
+L’exemple suivant crée une diapositive contenant un rectangle de texte, clone la diapositive, puis modifie la position et la taille du rectangle sur le clone. Il sélectionne ensuite Morph dans l’énumération [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) pour la deuxième diapositive. Ouvrez le fichier enregistré dans un visualiseur de présentation qui prend en charge Morph pour voir l’effet pendant un diaporama.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,13 +381,13 @@ try {
 
 L’énumération [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) contrôle la façon dont Morph associe et anime le contenu :
 
-- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) traite chaque forme comme un objet complet.
-- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) anime le texte en associant les mots lorsque c’est possible.
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) traite chaque forme comme un objet entier.  
+- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) anime le texte en associant les mots lorsque c’est possible.  
 - [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) anime le texte en associant les caractères lorsque c’est possible.
 
-Utilisez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pour sélectionner Morph avant d’accéder à [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). La valeur renvoie alors un objet [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/), dont la méthode [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) sélectionne le mode d’association.
+Utilisez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pour sélectionner Morph avant d’accéder à [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). La valeur fournit alors un objet [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/), dont la méthode [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) sélectionne le mode d’association.
 
-Cet exemple ouvre la présentation créée dans la section précédente et configure la deuxième diapositive pour utiliser l’animation Morph basée sur les mots.
+Cet exemple ouvre la présentation créée dans la section précédente et configure la deuxième diapositive pour utiliser une animation Morph basée sur les mots.
 
 ```php
 use aspose\slides\Presentation;
@@ -361,11 +416,11 @@ try {
 }
 ```
 
-## **Définir des effets de transition**
+## **Définir les effets de transition**
 
-Certaines transitions exposent des options supplémentaires, telles que la direction ou le fait que l’effet débute à partir d’un écran noir. Les options disponibles dépendent de la transition sélectionnée avec [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Définissez d’abord le type, puis utilisez l’objet de transition approprié obtenu via [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
+Certaines transitions exposent des options supplémentaires, telles que la direction ou le fait que l’effet commence à partir d’un écran noir. Les options disponibles dépendent de la transition sélectionnée avec [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Définissez d’abord le type, puis utilisez l’objet de transition approprié obtenu via [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
 
-L’exemple suivant applique une transition Cut à la première diapositive de `input.pptx`. Il appelle [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) via [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) afin que la transition démarre depuis un écran noir.
+L’exemple suivant applique une transition Cut à la première diapositive de `input.pptx`. Il appelle [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) via [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) afin que la transition débute à partir d’un écran noir.
 
 ```php
 use aspose\slides\Presentation;
@@ -391,18 +446,18 @@ try {
 
 ## **FAQ**
 
-**Puis‑je contrôler la vitesse de lecture d’une transition de diapositive ?**
+**Puis-je contrôler la vitesse de lecture d’une transition de diapositive ?**
 
-Oui. Privilégiez [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) lorsque vous avez besoin d’une durée d’effet exacte en millisecondes. Utilisez [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) lorsqu’une catégorie prédéfinie de [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) — Slow, Medium ou Fast — suffit et qu’aucune durée explicite n’est définie. Ces paramètres contrôlent l’effet de transition indépendamment du délai d’avancement automatique.
+Oui. Privilégiez [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) lorsque vous avez besoin d’une durée d’effet exacte en millisecondes. Utilisez [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) lorsqu’une catégorie [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) prédéfinie — Slow, Medium ou Fast — est suffisante et qu’aucune durée explicite n’est définie. Ces réglages contrôlent l’effet de transition indépendamment du délai d’avancement automatique.
 
-**Puis‑je attacher un son à une transition et le faire boucler ?**
+**Puis-je attacher un son à une transition et le faire boucler ?**
 
-Oui. Assignez un son incorporé avec [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), transmettez StartSound de l’énumération [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) à [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode), et activez [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) avec `true`. Le son se répète jusqu’au prochain événement sonore du diaporama.
+Oui. Assignez un son intégré avec [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), passez `StartSound` de l’énumération [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) à [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode), et activez [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) avec `true`. Le son se répète jusqu’au prochain événement sonore du diaporama.
 
 **Quelle est la façon la plus rapide d’appliquer la même transition à chaque diapositive ?**
 
-Parcourez la collection [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) de la présentation et appelez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) avec la même valeur pour la transition de chaque diapositive. Définissez les options de minutage et d’effet dans la même boucle afin de conserver un comportement homogène sur toutes les diapositives.
+Parcourez la collection [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) de la présentation et appelez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) avec la même valeur pour chaque transition de diapositive. Définissez les options de minutage et d’effet dans la même boucle afin de conserver un comportement cohérent sur toutes les diapositives.
 
-**Comment puis‑je vérifier quelle transition est actuellement définie sur une diapositive ?**
+**Comment vérifier quelle transition est actuellement définie sur une diapositive ?**
 
-Appelez [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) sur le résultat de [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) de la diapositive. Elle renvoie une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) ; None signifie qu’aucun effet de transition n’est appliqué.
+Appelez [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) sur le résultat de [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) de la diapositive. Elle renvoie une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) ; None indique qu’aucun effet de transition n’est appliqué.

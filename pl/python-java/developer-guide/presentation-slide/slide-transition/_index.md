@@ -18,17 +18,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejścia przy użyciu Aspose.Slides dla Pythona poprzez Javę."
+description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejść za pomocą Aspose.Slides dla Pythona poprzez Java."
 ---
 ## **Przegląd**
 
-Przejścia slajdów kontrolują sposób wyświetlania slajdów podczas pokazu. Dzięki Aspose.Slides dla Pythona poprzez Java możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie po kliknięciu myszy lub timerze oraz dostosować opcje specyficzne dla danego efektu. Ten artykuł używa przykładów w Pythonie, aby zastosować przejścia, ustawić dokładne czasy trwania przejścia, zarządzać timingiem slajdów i utworzyć przejście Morph między dwoma slajdami. Przykłady pokazują także, jak zapisać ustawienia do pliku PPTX.
+Przejścia slajdów kontrolują, jak slajdy pojawiają się podczas pokazu slajdów. Dzięki Aspose.Slides for Python via Java możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przejście po kliknięciu myszy lub po upływie określonego czasu oraz dostosować opcje specyficzne dla danego efektu. W tym artykule użyto przykładów w Pythonie, aby zastosować przejścia, ustawić dokładne czasy trwania przejść, zarządzać czasem wyświetlania slajdu oraz utworzyć przejście Morph pomiędzy dwoma slajdami. Przykłady pokazują także, jak zapisać ustawienia do pliku PPTX.
 
-## **Dodaj przejście slajdu**
+## **Dodawanie przejścia slajdu**
 
-Aby zastosować przejście, wczytaj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) i uzyskaj dostęp do ustawień przejścia slajdu poprzez [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) z wartością z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/), a następnie zapisz prezentację.
+Aby zastosować przejście, wczytaj prezentację za pomocą klasy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) i uzyskaj dostęp do ustawień przejścia slajdu przez [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition). Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) z wartością z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/), a następnie zapisz prezentację.
 
-Poniższy przykład stosuje przejście Circle do pierwszego slajdu i przejście Comb do drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
+Poniższy przykład stosuje przejście Circle dla pierwszego slajdu i przejście Comb dla drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Przejście kołowe**
+## **Przejście Wheel**
 
-Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType), aby wybrać Wheel z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). Następnie wywołaj [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue), aby uzyskać dostęp do ustawień [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/). Metoda [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) kontroluje liczbę promieniowych sektorów odsłaniających docelowy slajd.
+Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType), aby wybrać Wheel z [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). Następnie wywołaj [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue), aby uzyskać dostęp do ustawień [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/). Metoda [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) kontroluje, ile promieniowych sektorów odsłania docelowy slajd.
 
-Przykład tworzy dwie identyczne pary slajdów. Każda para zaczyna się czarnym slajdem i kończy pełnoekranowym złotym prostokątem. Oba docelowe slajdy używają tej samej wolnej prędkości ustawionej przy pomocy [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) oraz tego samego wyraźnego czasu trwania 8 000 milisekund ustawionego przy pomocy [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). Zmienia się tylko liczba szprych.
+Przykład tworzy dwie identyczne pary slajdów. Każda para zaczyna się od czarnego slajdu i kończy prostokątem złotym obejmującym cały slajd. Oba docelowe slajdy używają tej samej wolnej prędkości ustawionej przy pomocy [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) oraz tego samego wyraźnego czasu trwania 8 000 ms ustawionego przy pomocy [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). Zmienia się jedynie liczba szprych.
 
 ```python
 import jpype
@@ -102,19 +102,76 @@ finally:
     presentation.dispose()
 ```
 
-Otwórz `wheel-transitions.pptx` w PowerPoint i uruchom pokaz. Przejdź ze slajdu 1 do slajdu 2, aby zobaczyć jedną obracającą się w prawo sekcję odsłaniającą złoty prostokąt. Następnie przejdź ze slajdu 3 do slajdu 4, aby zobaczyć osiem promieniowych sektorów odsłaniających ten sam prostokąt jednocześnie.
+Otwórz `wheel-transitions.pptx` w programie PowerPoint i uruchom pokaz slajdów. Przejdź ze slajdu 1 do slajdu 2, aby zobaczyć jedną, zgodną z ruchem wskazówek zegara, trójkę odsłaniającą złoty prostokąt. Następnie przejdź ze slajdu 3 do slajdu 4, aby zobaczyć osiem promieniowych sektorów odsłaniających ten sam prostokąt jednocześnie.
 
-## **Dodaj zaawansowane przejście slajdu**
+## **Fade Through Black z przejściem Reveal**
 
-Możesz skonfigurować, jak długo slajd pozostaje na ekranie oraz czy kliknięcie myszy przechodzi do kolejnego slajdu. Następujące metody kontrolują to zachowanie:
+Ustaw typ przejścia docelowego slajdu na Reveal, a następnie wywołaj [setThroughBlack](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/#setThroughBlack) na jego ustawieniach [RevealTransition](https://reference.aspose.com/slides/python-java/aspose.slides/revealtransition/). Przykład tworzy niebieskozielony slajd źródłowy i różowy slajd docelowy, a następnie klonuje oba. Każda para używa dwusekundowego przejścia Reveal. Tylko druga para zanika przez czarny ekran.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) umożliwia widzowi przejście po kliknięciu myszy.  
-- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) włącza automatyczne przechodzenie.  
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, PresetColor, Presentation, SaveFormat, ShapeType
+from asposeslides.api import TransitionLeftRightDirectionType, TransitionSpeed, TransitionType
+
+
+def style_slide(slide, background_color, label):
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    fill = slide.getBackground().getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setPresetColor(background_color)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 160, 180, 400, 130)
+    shape.getTextFrame().setText(label)
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    portion.getPortionFormat().setFontHeight(44)
+
+
+presentation = Presentation()
+try:
+    source = presentation.getSlides().get_Item(0)
+    destination = presentation.getSlides().addClone(source)
+    style_slide(source, PresetColor.Teal, "Source")
+    style_slide(destination, PresetColor.Coral, "Destination")
+
+    presentation.getSlides().addClone(source)
+    cloned_destination = presentation.getSlides().addClone(destination)
+    for slide in (destination, cloned_destination):
+        transition = slide.getSlideShowTransition()
+        transition.setType(TransitionType.Reveal)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(2000)
+
+        reveal = transition.getValue()
+        reveal.setDirection(TransitionLeftRightDirectionType.Left)
+        reveal.setThroughBlack(slide is cloned_destination)
+
+    presentation.save("reveal-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Otwórz `reveal-transitions.pptx` w programie PowerPoint i uruchom pokaz slajdów. Przejdź ze slajdu 1 do slajdu 2, aby zobaczyć płynne przejście z niebieskozielonego na różowy. Następnie przejdź ze slajdu 3 do slajdu 4. Ekran krótko przyciemnia się do prawie czerni, zanim pojawi się różowy slajd. Oba slajdy zachowują swoje pierwotne kolory tła.
+
+Poniższe wiersze pokazują klatki z PowerPoint co pół sekundy. Porównaj środkową klatkę w każdym wierszu, aby zobaczyć efekt.
+
+![Odtwarzanie PowerPoint z wyłączonym (góra) i włączonym (dół) zanikiem przez czarny ekran. Tylko dolny wiersz przechodzi przez prawie czarny kolor.](reveal-through-black.png)
+
+## **Dodawanie zaawansowanego przejścia slajdu**
+
+Możesz skonfigurować, jak długo slajd pozostaje na ekranie i czy kliknięcie myszy powoduje przejście do kolejnego slajdu. Poniższe metody sterują tym zachowaniem:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) pozwala widzowi przejść dalej po kliknięciu myszy.
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) włącza automatyczne przejście.
 - [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) określa opóźnienie przed automatycznym przejściem, w milisekundach.
 
-Włącz oba tryby — kliknięcie i automatyczne przejście — aby widz mógł przejść po kliknięciu lub poczekać na timer. Aby używać wyłącznie timera, przekaż `False` do [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Opóźnienie decyduje o tym, kiedy pokaz przechodzi dalej; nie ustawia ono czasu trwania wizualnego efektu przejścia.
+Włącz jednocześnie przejście po kliknięciu i po upływie czasu, aby widz mógł przejść dalej kliknięciem lub poczekać na licznik. Aby używać wyłącznie timera, przekaż `False` do [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie ustawia ono czasu trwania wizualnego efektu przejścia.
 
-Przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przejście po 3, 5 i 7 sekundach odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` zawierającego co najmniej trzy slajdy.
+Ten przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przejście po 3, 5 i 7 sekundach odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` zawierającego co najmniej trzy slajdy.
 
 ```python
 import jpype
@@ -153,9 +210,9 @@ finally:
     presentation.dispose()
 ```
 
-Aby sprawdzić, czy automatyczne przejście jest włączone, wywołaj [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Przechowywane jedynie opóźnienie nie oznacza, że timer jest aktywny.
+Aby sprawdzić, czy automatyczne przejście jest włączone, wywołaj [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Zapisane opóźnienie samo w sobie nie oznacza, że timer jest aktywny.
 
-Kolejny przykład otwiera wcześniej zapisany plik, raportuje każdy włączony timer i wyłącza automatyczne przejście dla slajdów z opóźnieniem większym niż dwie sekundy. Dla tych slajdów włącza kliknięcia myszy i zapisuje zaktualizowane ustawienia.
+Kolejny przykład otwiera wcześniej zapisany plik, wypisuje każdy włączony timer i wyłącza automatyczne przejście dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
 
 ```python
 import jpype
@@ -183,27 +240,27 @@ finally:
     presentation.dispose()
 ```
 
-## **Precyzyjne kontrolowanie czasu przejścia**
+## **Precyzyjna kontrola czasu przejścia**
 
-Użyj [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration), aby określić dokładną długość efektu przejścia w milisekundach. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu udostępnia te ustawienia poprzez [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/):
+Użyj [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration), aby określić dokładną długość efektu przejścia w milisekundach. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu udostępnia te ustawienia za pośrednictwem klasy [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/):
 
 | Metoda | Cel |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | Ustawia czas trwania samego efektu przejścia, w milisekundach. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Przekaż `True` do [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter), aby aktywować ten timer. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Przekaż `True` do [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter), aby aktywować timer. |
 | [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | Wybiera jedną z predefiniowanych kategorii prędkości z [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast. Używana jest, gdy nie określono dokładnego czasu trwania. |
 
-[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) kontroluje wyłącznie efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Opóźnienie automatycznego przejścia konfiguruje się osobno. Gdy nie ustawiono explicite czasu trwania, Aspose.Slides określa go na podstawie typu przejścia i wartości zwracanej przez [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) kontroluje wyłącznie efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Opóźnienie automatycznego przejścia należy konfigurować osobno. Gdy nie zostanie podany wyraźny czas trwania, Aspose.Slides wylicza go na podstawie typu przejścia i wartości [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Oddzielne słupki identyfikują 750‑ms czas trwania przejścia i 5 000‑ms ustawienie automatycznego przejścia.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Oddzielne słupki wskazują 750‑ms czas trwania przejścia i 5 000‑ms ustawienie automatycznego przejścia.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Przykład współdzielony nadaje każdemu slajdowi przejście Fade trwające 750 ms i oddzielnie włącza automatyczne przejście po 5 000 ms. Czas trwania przejścia kontroluje efekt; przejście kontroluje moment opuszczenia slajdu. Te słupki przedstawiają schematyczne ustawienia, a nie zmierzoną łączną oś czasu.*  
+*Przykład daje każdemu slajdowi 750‑ms przejście Fade i oddzielnie włącza automatyczne przejście po 5 000 ms. Czas trwania przejścia steruje efektem; przejście steruje momentem opuszczenia slajdu. Te słupki są schematycznymi ustawieniami, a nie zmierzoną łączną oś czasu.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Zastosuj ten sam czas trwania dla każdego slajdu**
+### **Zastosowanie tego samego czasu trwania dla wszystkich slajdów**
 
-Aby zapewnić jednolite tempo, zastosuj ten sam efekt i dokładny czas trwania do każdego slajdu. Ten przykład ładuje `input.pptx`, wybiera Fade z [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/), i nadaje każdemu przejściu czas trwania 750 milisekund. Oddzielnie włącza automatyczne przejście po 5 000 milisekundach i wyłącza przejście po kliknięciu myszy, po czym zapisuje wynik jako PPTX.
+Aby uzyskać jednolite tempo, zastosuj ten sam efekt i dokładny czas trwania do każdego slajdu. Ten przykład wczytuje `input.pptx`, wybiera Fade z [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) i nadaje każdemu przejściu czas 750 ms. Oddzielnie włącza automatyczne przejście po 5 000 ms i wyłącza przejście po kliknięciu myszy, po czym zapisuje wynik jako PPTX.
 
 ```python
 import jpype
@@ -231,9 +288,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Ustaw różne czasy trwania dla poszczególnych slajdów**
+### **Ustawianie różnych czasów trwania dla poszczególnych slajdów**
 
-Różne slajdy mogą używać różnych czasów trwania efektu. Na przykład można zastosować krótkie przejście dla slajdu tytułowego i dłuższe dla wprowadzenia sekcji. Ten przykład ustawia 500 ms dla pierwszego slajdu i 1 200 ms dla drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
+Różne slajdy mogą mieć różne czasy trwania efektów. Na przykład użyj krótkiego przejścia dla slajdu tytułowego i dłuższego dla wprowadzenia sekcji. Ten przykład ustawia 500 ms dla pierwszego slajdu i 1 200 ms dla drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
 
 ```python
 import jpype
@@ -262,15 +319,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Koordynuj przejścia z animowanym wyjściem**
+### **Koordynacja przejść z animowanym wyjściem**
 
-Podczas przygotowywania [animowanego GIF](/slides/pl/python-java/convert-powerpoint-to-animated-gif/), [prezentacji HTML5](/slides/pl/python-java/export-to-html5/) lub [wideo](/slides/pl/python-java/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj 600‑milisekundowego zanikania między scenami i osobno ustaw opóźnienie automatycznego przejścia, aby umożliwić narrację lub treść.
+Podczas przygotowywania [animowanego GIF](/slides/pl/python-java/convert-powerpoint-to-animated-gif/), [prezentacji HTML5](/slides/pl/python-java/export-to-html5/) lub [wideo](/slides/pl/python-java/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj 600‑ms zaniku między scenami i dostosuj osobno opóźnienie przejścia każdego slajdu, aby umożliwić czas na narrację lub treść.
 
-Dla GIF‑ów i wideo skoordynuj liczbę klatek na sekundę z czasem trwania efektu: 600 ms to 18 klatek przy 30 fps. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, które efekty i opcje timingowe są obsługiwane przez wybrany format eksportu oraz podglądaj wynik, aby potwierdzić synchronizację.
+Dla GIF‑ów i wideo koordynuj liczbę klatek na sekundę z czasem trwania efektu: 600 ms odpowiada 18 klatkom przy 30 fps. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, które efekty i opcje czasu są obsługiwane przez wybrany format eksportu i podejrzyj wynik, aby potwierdzić synchronizację.
 
 ### **Odczyt istniejącego czasu trwania przejścia**
 
-Wywołaj [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) przed modyfikacją przejścia, aby ustalić, czy przechowywana jest explicite wartość. Wartość `-1` oznacza brak explicite ustawionego czasu; nieujemna wartość określa przechowywany czas trwania w milisekundach. Nieustawiona wartość nie jest wyliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i wartości zwracanej przez [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed), aby określić ten czas. Ustawienie typu przejścia może zainicjować czas, dlatego najpierw sprawdź oryginalne ustawienia.
+Wywołaj [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) przed modyfikacją przejścia, aby określić, czy zapisano wyraźną wartość. Wartość `-1` oznacza, że nie ustawiono konkretnego czasu trwania; wartość nieujemna określa zapisany czas w milisekundach. Brak ustawionej wartości nie jest równy wyliczonemu czasowi odtwarzania: Aspose.Slides wykorzystuje typ przejścia i wartość [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed), aby określić ten czas. Ustawienie typu przejścia może zainicjować czas, więc najpierw sprawdź oryginalne ustawienia.
 
 ```python
 import jpype
@@ -297,9 +354,9 @@ finally:
 
 ## **Przejście Morph**
 
-Przejście Morph animuje zmiany między obiektami na kolejnych slajdach. Aby stworzyć proste przejście Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu na klonie i zastosuj przejście Morph do drugiego slajdu. Dzięki temu odpowiadające sobie obiekty są animowane pomiędzy ich pierwotnym a zmodyfikowanym stanem.
+Przejście Morph animuje zmiany między obiektami na kolejnych slajdach. Aby stworzyć proste przejście Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu na klonie i zastosuj przejście Morph do drugiego slajdu. Dzięki temu odpowiadające obiekty zostaną animowane pomiędzy ich stanem pierwotnym a zmodyfikowanym.
 
-Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje go, a następnie zmienia pozycję i rozmiar prostokąta w klonie. Następnie wybiera Morph z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu.
+Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje slajd i zmienia pozycję oraz rozmiar prostokąta na klonie. Następnie wybiera Morph z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu slajdów.
 
 ```python
 import jpype
@@ -332,15 +389,15 @@ finally:
 
 ## **Typy przejścia Morph**
 
-Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) określa, w jaki sposób Morph dopasowuje i animuje zawartość:
+Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) kontroluje, w jaki sposób Morph dopasowuje i animuje treść:
 
-- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) traktuje każdy kształt jako całość.  
-- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) animuje tekst, dopasowując słowa tam, gdzie to możliwe.  
-- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) animuje tekst, dopasowując znaki tam, gdzie to możliwe.
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) traktuje każdy kształt jako cały obiekt.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) animuje tekst, dopasowując słowa, gdzie to możliwe.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) animuje tekst, dopasowując znaki, gdzie to możliwe.
 
-Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType), aby wybrać Morph przed dostępem do [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue). Wartość jest wtedy instancją klasy [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/), której metoda [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) wybiera tryb dopasowania.
+Użyj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType), aby wybrać Morph przed dostępem do [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue). Wartość będzie wtedy instancją klasy [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/), której metoda [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) wybiera tryb dopasowania.
 
-Ten przykład otwiera prezentację stworzoną w poprzedniej sekcji i konfiguruje drugi slajd tak, aby używał animacji Morph opartej na słowach.
+Ten przykład otwiera prezentację utworzoną w poprzedniej sekcji i konfiguruje drugi slajd tak, aby używał animacji Morph opartej na słowach.
 
 ```python
 import jpype
@@ -370,9 +427,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ustaw efekty przejścia**
+## **Ustawianie efektów przejścia**
 
-Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt rozpoczyna się od czarnego ekranu. Dostępne opcje zależą od wybranego przejścia przy użyciu [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType). Najpierw ustaw typ, a następnie użyj odpowiedniej klasy zwróconej przez [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
+Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt zaczyna się od czarnego ekranu. Dostępne opcje zależą od przejścia wybranego za pomocą [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType). Najpierw ustaw typ, a potem użyj odpowiedniej klasy zwróconej przez [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue).
 
 Poniższy przykład stosuje przejście Cut do pierwszego slajdu pliku `input.pptx`. Wywołuje [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) poprzez [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/), aby przejście zaczynało się od czarnego ekranu.
 
@@ -405,16 +462,16 @@ finally:
 
 **Czy mogę kontrolować szybkość odtwarzania przejścia slajdu?**
 
-Tak. Preferuj [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration), gdy potrzebny jest dokładny czas trwania efektu w milisekundach. Użyj [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed), gdy wystarczy predefiniowana kategoria [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast, a nie ustawiono explicite czasu trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przejścia.
+Tak. Użyj [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration), gdy potrzebny jest dokładny czas trwania efektu w milisekundach. Użyj [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed), gdy wystarczająca jest predefiniowana kategoria [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast, i nie ustawiono wyraźnego czasu trwania. Te ustawienia sterują efektem przejścia niezależnie od opóźnienia automatycznego przejścia.
 
-**Czy mogę dodać dźwięk do przejścia i sprawić, by był odtwarzany w pętli?**
+**Czy mogę dołączyć dźwięk do przejścia i sprawić, że będzie się powtarzał?**
 
-Tak. Przypisz osadzony dźwięk przy pomocy [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound), przekaż `StartSound` z wyliczenia [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) i włącz [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) z wartością `True`. Dźwięk będzie powtarzany, aż do następnego zdarzenia dźwiękowego w pokazie.
+Tak. Przypisz osadzony dźwięk za pomocą [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound), przekaż `StartSound` z wyliczenia [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) i włącz [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) ustawiając `True`. Dźwięk będzie powtarzany, dopóki nie nastąpi kolejny sygnał dźwiękowy w pokazie slajdów.
 
 **Jaki jest najszybszy sposób, aby zastosować to samo przejście do każdego slajdu?**
 
-Przejdź pętlą przez kolekcję [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) prezentacji i wywołaj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) z tą samą wartością dla każdego slajdu. Ustaw wszelkie opcje timingowe i efektowe w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
+Iteruj po kolekcji [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) prezentacji i wywołaj [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) z tą samą wartością dla przejścia każdego slajdu. W tej samej pętli ustaw wszelkie opcje czasu i efektu, aby zachować spójne zachowanie we wszystkich slajdach.
 
-**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
+**Jak sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
 
-Wywołaj [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) na wyniku [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu. Zwraca on wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/); `None_` oznacza, że żadne przejście nie jest zastosowane.
+Wywołaj [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) na wyniku [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu. Zwróci ona wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/); `None_` oznacza, że żaden efekt przejścia nie jest zastosowany.

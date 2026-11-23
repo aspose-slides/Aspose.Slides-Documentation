@@ -1,13 +1,13 @@
 ---
-title: Spravujte přechody snímků v prezentacích pomocí Pythonu
+title: Správa přechodů snímků v prezentacích pomocí Pythonu
 linktitle: Přechod snímku
 type: docs
 weight: 90
 url: /cs/python-net/slide-transition/
 keywords:
 - přechod snímku
-- přidat přechod snímku
-- aplikovat přechod snímku
+- přidání přechodu snímku
+- použití přechodu snímku
 - pokročilý přechod snímku
 - Morph přechod
 - typ přechodu
@@ -17,15 +17,15 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Aplikujte přechody snímků, nastavte automatické postoupení snímků a přizpůsobte Morph a další efekty přechodů pomocí Aspose.Slides pro Python přes .NET."
+description: "Aplikujte přechody snímků, nakonfigurujte automatické posunování snímků a přizpůsobte Morph a jiné efekty přechodů pomocí Aspose.Slides pro Python prostřednictvím .NET."
 ---
 ## **Přehled**
 
-Posuvné přechody řídí, jak se snímky zobrazují během promítání. S Aspose.Slides pro Python přes .NET můžete pro každý snímek zvolit efekt přechodu, nastavit postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v Pythonu k použití přechodů, nastavení přesných délek přechodů, správě časování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
+Přechody snímků určují, jak se snímky zobrazují během prezentace. S Aspose.Slides pro Python pomocí .NET můžete pro každý snímek zvolit efekt přechodu, nakonfigurovat postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v Pythonu k aplikaci přechodů, nastavení přesných délek trvání přechodu, správě načasování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
 ## **Přidání přechodu snímku**
 
-Chcete-li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a přistupte k vlastnosti snímku [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Nastavte její [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) na hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/). Poté prezentaci uložte.
+Pro aplikaci přechodu načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) a přistupte k vlastnosti snímku [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Nastavte její [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) na hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) a poté uložte prezentaci.
 
 Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
@@ -42,11 +42,11 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-## **Přechod Wheel**
+## **Kolečkový přechod**
 
-Vlastnost [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) třídy [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) určuje počet radiálních sektorů, které odhalují cílový snímek. Nastavte [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) přechodu snímku na WHEEL z [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) předtím, než přistoupíte k [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) jako [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
+Vlastnost [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) třídy [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) určuje počet radiálních sektorů, které odhalují cílový snímek. Nastavte [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) přechodu snímku na WHEEL z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) před přístupem k [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) jako [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
 
-Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky používají počty spoke 1 a 8, se stejnou [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) a explicitní [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) 8 000 ms, aby byl rozdíl snadno pozorovatelný.
+Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky používají počty paprsků 1 a 8, stejnou [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) a explicitní [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) 8 000 milisekund, aby byl rozdíl snadno pozorovatelný.
 
 ```python
 import aspose.slides as slides
@@ -82,17 +82,64 @@ with slides.Presentation() as presentation:
     presentation.save("wheel-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Otevřete výstupní prezentaci v PowerPointu a spusťte promítání. Přepněte ze snímku 1 na snímek 2 a poté ze snímku 3 na snímek 4. V přehrávání PowerPointu ověřený počet spoke 1 odhalí snímek jedním pootočením po směru hodinových ručiček; ověřený počet 8 odhalí snímek osmi radiálními sektory současně. Obsah cíle i načasování přechodu jsou stejné, rozdíl je tedy v počtu odhalovacích sektorů.
+Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Pokračujte ze snímku 1 na snímek 2 a pak ze snímku 3 na snímek 4. V přehrávání PowerPointu se ověřený počet paprsků 1 projeví jedním pootočením po směru hodinových ručiček; ověřený počet 8 odhalí snímek skrze osm radiálních sektorů najednou. Obsah cílových snímků a časování přechodu jsou identické, rozdíl je v počtu odhalovacích sektorů.
+
+## **Postupné stmívání černou pomocí přechodu Reveal**
+
+Nastavte [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) přechodu cílového snímku na Reveal a potom nastavte [through_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/through_black/) na objektu [RevealTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/revealtransition/). Příklad vytvoří tyrkysový zdrojový snímek a korálový cílový snímek, poté oba páry zduplikuje. Oba páry používají stejný dvousekundový přechod Reveal. Pouze druhý pár přechází černou.
+
+```python
+import aspose.slides as slides
+
+
+def style_slide(slide, background_color, label):
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.SOLID
+    slide.background.fill_format.solid_fill_color.preset_color = background_color
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 160, 180, 400, 130)
+    shape.text_frame.text = label
+    shape.text_frame.paragraphs[0].portions[0].portion_format.font_height = 44
+
+
+with slides.Presentation() as presentation:
+    source = presentation.slides[0]
+    destination = presentation.slides.add_clone(source)
+    style_slide(source, slides.PresetColor.TEAL, "Source")
+    style_slide(destination, slides.PresetColor.CORAL, "Destination")
+    presentation.slides.add_clone(source)
+    presentation.slides.add_clone(destination)
+
+    for index in (1, 3):
+        transition = presentation.slides[index].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.REVEAL
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 2000
+        
+        reveal = transition.value
+        reveal.direction = slides.slideshow.TransitionLeftRightDirectionType.LEFT
+        reveal.through_black = index == 3
+
+    presentation.save("reveal-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Otevřete `reveal-transitions.pptx` v PowerPointu a spusťte prezentaci. Pokračujte ze snímku 1 na snímek 2 a uvidíte, jak tyrkys přechází přímo na korál. Pak pokračujte ze snímku 3 na snímek 4. Obrazovka se na okamžik ztlumená k téměř černé, než se objeví korálový snímek. Oba snímky si zachovají původní barvy pozadí.
+
+Řádky níže zobrazují snímky z PowerPointu v půlsekundových intervalech. Porovnejte prostřední snímek v každém řádku, abyste viděli efekt nastavení.
+
+![Přehrávání v PowerPointu s vypnutým (nahoře) a zapnutým (dole) režimem through_black. Pouze spodní řada prochází téměř černou.](reveal-through-black.png)
 
 ## **Přidání pokročilého přechodu snímku**
 
-- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) umožňuje divákovi postoupit kliknutím myši.  
-- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) umožňuje automatické postoupání.  
-- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) určuje prodlevu před automatickým postoupáním v milisekundách.
+Můžete nakonfigurovat, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci dál. Následující vlastnosti řídí toto chování:
 
-Povolte jak kliknutí, tak časované postoupání, aby divák mohl pokračovat kliknutím nebo čekat na časovač. Chcete‑li použít jen časovač, nastavte [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) na `False`. Prodleva řídí, kdy se promítání posune dál; nenastavuje dobu trvání vizuálního efektu přechodu.
+- [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) umožňuje uživateli posunout prezentaci kliknutím.
+- [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) umožňuje automatické posunutí.
+- [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) určuje prodlevu před automatickým posunem v milisekundách.
 
-Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické postoupání po 3, 5 a 7 sekundách. Kliknutí myší mohou tyto snímky také posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
+Povolte jak kliknutí, tak časované posunutí, aby uživatel mohl pokračovat buď kliknutím, nebo čekáním na časovač. Pro použití jen časovače nastavte [advance_on_click](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) na `False`. Prodleva řídí, kdy se prezentace posune; nenastavuje délku vizuálního efektu přechodu.
+
+Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické posunutí po 3, 5 a 7 sekundách. Kliknutí myší mohou také posunout tyto snímky. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```python
 import aspose.slides as slides
@@ -122,9 +169,9 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least three slides.")
 ```
 
-Chcete‑li zjistit, zda je časované postoupání povoleno, přečtěte [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Uložená prodleva sama o sobě neznamená, že je časovač aktivní.
+Pro ověření, zda je časované posunutí povoleno, přečtěte [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Uložená prodleva sama o sobě neznamená, že je časovač aktivní.
 
-Další příklad otevře soubor uložený výše, nahlásí každý povolený časovač a zakáže automatické postoupání pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické posunutí pro snímky s prodlevou větší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```python
 import aspose.slides as slides
@@ -145,25 +192,25 @@ with slides.Presentation("advanced-transitions.pptx") as presentation:
 
 ## **Přesné řízení načasování přechodu**
 
-Použijte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) k zadání přesné délky efektu přechodu v milisekundách. Vlastnost snímku [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) zpřístupňuje tato nastavení prostřednictvím [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
+Použijte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) k určení přesné délky trvání efektu přechodu v milisekundách. Vlastnost [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) snímku poskytuje tato nastavení prostřednictvím [SlideShowTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/):
 
-| Vlastnost | Účel |
+| Property | Účel |
 | --- | --- |
-| [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Nastavuje dobu trvání samotného efektu přechodu v milisekundách. |
-| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Nastavuje prodlevu před tím, než se snímek automaticky posune dál, v milisekundách. Aktivujte [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) pro zapnutí tohoto časovače. |
-| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM nebo FAST. Používá se, pokud není zadána přesná doba trvání. |
+| [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Nastavuje délku trvání samotného efektu přechodu v milisekundách. |
+| [advance_after_time](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Určuje prodlevu před automatickým posunutím snímku v milisekundách. Pro aktivaci tohoto časovače povolte [advance_after](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). |
+| [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Výběr předdefinované rychlostní kategorie z [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM nebo FAST. Používá se, pokud není zadána přesná délka trvání. |
 
-[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) řídí pouze efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Načasování automatického postupu nastavte samostatně. Když není zadána explicitní doba trvání, Aspose.Slides určí dobu trvání efektu podle typu přechodu a hodnoty [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
+[duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) řídí pouze efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu posunutí nastavte odděleně. Když není explicitně nastavená délka, Aspose.Slides určuje dobu trvání efektu z typu přechodu a hodnoty [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Samostatné pruhy označují dobu trvání přechodu 750 ms a nastavení automatického postupu 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Samostatné pruhy identifikují 750 ms délku trvání přechodu a 5 000 ms nastavení automatického posunutí.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Sdílený příklad dává každému snímku 750 ms Fade přechod a samostatně povoluje automatický postup po 5 000 ms. Délka přechodu řídí efekt; postup určuje, kdy snímek opustit. Tyto pruhy jsou schematickými nastaveními, nikoli měřenou kombinovanou časovou osou.*
+*The shared example gives each slide a 750‑ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Použít stejnou dobu trvání na každý snímek**
+### **Použít stejnou délku trvání na všechny snímky**
 
-Pro konzistentní tempo použijte stejný efekt a přesnou dobu trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) a nastaví každému přechodu dobu trvání 750 ms. Samostatně povolí automatické postoupání po 5 000 ms a zakáže postoupání kliknutím myši, poté výsledek uloží jako PPTX.
+Pro konzistentní tempo použijte stejný efekt a přesnou délku trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) a nastaví každému přechodu délku trvání 750 ms. Samostatně povolí automatické posunutí po 5 000 ms a zakáže posun kliknutím, poté výsledek uloží jako PPTX.
 
 ```python
 import aspose.slides as slides
@@ -174,7 +221,7 @@ with slides.Presentation("input.pptx") as presentation:
         transition.type = slides.slideshow.TransitionType.FADE
         transition.duration = 750
 
-        # Nastavte automatické postoupení nezávisle na délce efektu.
+        # Nastavte automatické posunování nezávisle na délce trvání efektu.
         transition.advance_after = True
         transition.advance_after_time = 5000
         transition.advance_on_click = False
@@ -182,9 +229,9 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Nastavit různé doby trvání pro jednotlivé snímky**
+### **Nastavit různé délky trvání pro jednotlivé snímky**
 
-Různé snímky mohou používat různé doby trvání efektu. Například použijte krátký přechod pro titulek a delší přechod pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Různé snímky mohou mít různé délky trvání efektu. Například krátký přechod pro úvodní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```python
 import aspose.slides as slides
@@ -204,15 +251,15 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-### **Koordinace přechodů s animovaným výstupem**
+### **Koordinovat přechody s animovaným výstupem**
 
-Při přípravě [animated GIF](/slides/cs/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/python-net/export-to-html5/) nebo [video](/slides/cs/python-net/convert-powerpoint-to-video/) nastavte přesné doby trvání přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a samostatně upravte prodlevu postupu každého snímku, aby byl dostatek času na jeho komentář nebo obsah.
+Při přípravě [animated GIF](/slides/cs/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/python-net/export-to-html5/) nebo [video](/slides/cs/python-net/convert-powerpoint-to-video/) nastavte přesné délky trvání přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a upravte prodlevu posunu každého snímku samostatně, aby byl dostatek času na hlasový doprovod nebo obsah.
 
-Pro GIF a video koordinujte výstupní snímkovou frekvenci s délkou efektu: 600 ms odpovídá 18 rámcům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte, jaké efekty a možnosti časování podporuje zvolený exportní formát, a předem si výstup prohlédněte, abyste potvrdili synchronizaci.
+Pro GIF a video koordinujte výstupní snímkovou frekvenci s délkou trvání efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a možnosti načasování daného exportního formátu a náhledně ověřte synchronizaci.
 
-### **Načíst existující dobu trvání přechodu**
+### **Načíst existující délku trvání přechodu**
 
-Přečtěte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavena žádná explicitní doba trvání; nezáporná hodnota určuje uloženou dobu v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) k určení této doby. Nastavení typu přechodu může dobu trvání inicializovat, proto nejprve zkontrolujte původní nastavení.
+Před úpravou přechodu přečtěte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/), abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že žádná explicitní délka není nastavena; ne­záporná hodnota udává uloženou délku v milisekundách. Nezadaná hodnota není vypočtená doba přehrávání: Aspose.Slides určuje délku na základě typu přechodu a [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/). Nastavení typu přechodu může inicializovat délku, proto nejprve zkontrolujte původní nastavení.
 
 ```python
 import aspose.slides as slides
@@ -228,11 +275,11 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"Slide {slide.slide_number}: no explicit duration; timing depends on {transition.type} and {transition.speed}.")
 ```
 
-## **Přechod Morph**
+## **Morph přechod**
 
-Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph zkopírujte snímek, posuňte nebo změňte velikost objektu v kopii a použijte přechod Morph na druhý snímek. To poskytne přechodu odpovídající objekty, které se animují mezi původním a upraveným stavem.
+Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph zduplikujte snímek, upravte pozici nebo velikost objektu na duplikátu a použijte přechod Morph na druhý snímek. Tím získáte animaci odpovídajících objektů mezi jejich původním a upraveným stavem.
 
-Následující příklad vytvoří snímek s textovým obdélníkem, zkopíruje snímek a změní pozici a velikost obdélníku v kopii. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a zobrazte efekt během promítání.
+Následující příklad vytvoří snímek s textovým obdélníkem, zduplikuje jej a změní pozici a velikost obdélníku na duplikátu. Pak pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
 
 ```python
 import aspose.slides as slides
@@ -254,15 +301,17 @@ with slides.Presentation() as presentation:
     presentation.save("morph-transition.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Typy přechodu Morph**
+## **Typy Morph přechodu**
 
-Výčet [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) určuje, jak Morph mapuje a animuje obsah:
 
-- [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) považuje každý tvar za celý objekt.  
-- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animuje text shodou slov, kde je to možné.  
-- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animuje text shodou znaků, kde je to možné.
+- [BY_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) zachází s každým tvarem jako s celým objektem.
+- [BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animuje text porovnáním slov, kde je to možné.
+- [BY_CHAR](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) animuje text porovnáním znaků, kde je to možné.
 
-Nastavte přechod [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) na Morph před přístupem k jeho [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Hodnota pak poskytne objekt [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), jehož vlastnost [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) vybírá režim přiřazení.
+Nastavte [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) přechodu na Morph před přístupem k jeho [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/). Hodnota pak poskytne objekt [MorphTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), jehož vlastnost [morph_type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/morph_type/) vybírá režim mapování.
+
+Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nastaví druhý snímek na animaci Morph založenou na slovech.
 
 ```python
 import aspose.slides as slides
@@ -282,9 +331,9 @@ with slides.Presentation("morph-transition.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
-## **Nastavení efektů přechodu**
+## **Nastavit efekty přechodu**
 
-Některé přechody nabízejí další možnosti, například směr nebo zda efekt začíná na černé obrazovce. Dostupné možnosti závisí na vybraném přechodu [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/). Nejprve nastavte typ a poté použijte odpovídající objekt přechodu z jeho [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
+Některé přechody nabízejí další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na zvoleném [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/). Nejprve nastavte typ a poté použijte příslušný objekt přechodu získaný z jeho [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
 Následující příklad použije přechod Cut na první snímek `input.pptx`. Nastaví [from_black](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) prostřednictvím [OptionalBlackTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/optionalblacktransition/), aby přechod začínal z černé obrazovky.
 
@@ -307,16 +356,16 @@ with slides.Presentation("input.pptx") as presentation:
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Ano. Upřednostněte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/), když potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/), pokud stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) – SLOW, MEDIUM nebo FAST – a není nastavena explicitní doba. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického postupu.
+Ano. Upřednostněte [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/), pokud potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/), pokud stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM nebo FAST, a není nastaven explicitní čas. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického posunu.
 
-**Mohu k přechodu připojit audio a nechat jej smyčkovat?**
+**Mohu k přechodu připojit zvuk a nechat jej opakovat?**
 
-Ano. Přiřaďte vložené audio k [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), nastavte [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) na START_SOUND z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/) a povolte [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Audio bude smyčkovat až do dalšího zvukového události v promítání.
+Ano. Přiřaďte vložený zvuk k [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), nastavte [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) na START_SOUND z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionsoundmode/) a povolte [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Zvuk se bude opakovat až do další zvukové události v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak použít stejný přechod na všechny snímky?**
+**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
 
-Projděte kolekci [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) v prezentaci a pro každý snímek nastavte přechod [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) na stejnou hodnotu. V téže smyčce nastavte případné časování a možnosti efektu, aby chování bylo konzistentní napříč snímky.
+Procházejte kolekci [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) prezentace a nastavte každému snímku přechod [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) na stejnou hodnotu. V tomtéž cyklu nastavte jakékoli časování a možnosti efektu, aby chování zůstalo konzistentní napříč snímky.
 
-**Jak mohu zkontrolovat, který přechod je aktuálně nastaven na snímku?**
+**Jak mohu zjistit, který přechod je aktuálně nastaven na snímku?**
 
-Přečtěte vlastnost [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) ze snímku [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/). Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); NONE znamená, že není aplikován žádný efekt přechodu.
+Přečtěte si vlastnost [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) z [slide_show_transition](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/); NONE znamená, že není aplikován žádný přechod.

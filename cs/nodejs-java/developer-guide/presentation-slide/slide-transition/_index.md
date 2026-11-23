@@ -6,10 +6,10 @@ weight: 80
 url: /cs/nodejs-java/slide-transition/
 keywords:
 - přechod snímku
-- přidání přechodu snímku
-- aplikace přechodu snímku
+- přidat přechod snímku
+- aplikovat přechod snímku
 - pokročilý přechod snímku
-- přechod Morph
+- Morph přechod
 - typ přechodu
 - efekt přechodu
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Použijte přechody snímků, nakonfigurujte automatické posunování snímků a přizpůsobte Morph a další efekty přechodu pomocí Aspose.Slides for Node.js via Java."
+description: "Aplikujte přechody snímků, nakonfigurujte automatické posouvání snímků a přizpůsobte Morph a další efekty přechodů pomocí Aspose.Slides pro Node.js přes Java."
 ---
 ## **Přehled**
 
-Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides for Node.js via Java můžete pro každý snímek vybrat efekt přechodu, nastavit postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v JavaScriptu k aplikaci přechodů, nastavení přesné doby trvání přechodu, správě načasování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
+Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides pro Node.js přes Java můžete pro každý snímek vybrat efekt přechodu, nakonfigurovat posun pomocí kliknutí myší nebo časovače a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v JavaScriptu k aplikaci přechodů, nastavení přesných délek přechodu, správě načasování snímků a vytvoření Morph přechodu mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
-## **Přidání přechodu snímku**
+## **Přidat přechod snímku**
 
-Chcete‑li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a získáte nastavení přechodu snímku přes [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Použijte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), poté prezentaci uložte.
+Chcete‑li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) a získáte nastavení přechodu snímku prostřednictvím [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Použijte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), pak prezentaci uložte.
 
-Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Následující příklad aplikuje přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,11 +48,11 @@ try {
 }
 ```
 
-## **Přechod Wheel**
+## **Kolečkový přechod**
 
-Metoda [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) třídy [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) řídí počet radiálních úseků, které odhalí cílový snímek. Nastavte typ přechodu snímku na Wheel pomocí [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) a [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) před tím, než získáte [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) jako [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+Metoda [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) třídy [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) řídí počet radiálních sektorů, které odhalují cílový snímek. Nastavte typ přechodu snímku na Wheel z [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) pomocí [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) před tím, než získáte [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) jako [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky použijí počty úseků 1 a 8, se stejnou rychlostí nastavenou pomocí [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) a explicitní dobou trvání 8 000 ms nastavenou pomocí [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), aby byl rozdíl snadno pozorovatelný.
+Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky používají počet paprsků 1 a 8, se stejnou rychlostí nastavenou pomocí [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) a explicitní délkou 8 000 ms nastavenou pomocí [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), aby byl rozdíl snadno pozorovatelný.
 
 ```javascript
 const java = require("java");
@@ -96,19 +96,71 @@ try {
 }
 ```
 
-Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Postupujte ze snímku 1 na snímek 2, poté ze snímku 3 na snímek 4. V přehrávání v PowerPointu ověřený počet úseků 1 odhalí snímek jedním otáčením po směru hodinových ručiček; ověřený počet 8 odhalí snímek pomocí osmi radiálních úseků současně. Obsah cílových snímků a načasování přechodu jsou identické, rozdíl je v počtu odhalovacích úseků.
+Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Přepněte ze snímku 1 na snímek 2 a poté ze snímku 3 na snímek 4. V přehrávání PowerPointu ověřený počet paprsků 1 odhalí snímek jedním pootočením po směru hodinových ručiček; ověřený počet 8 odhalí snímek osmi radiálními sektory současně. Obsah cílových snímků i načasování přechodu jsou identické, rozdíl je tedy v počtu odhalovacích sektorů.
 
-## **Přidání pokročilého přechodu snímku**
+## **Prolínání přes černou s přechodem Reveal**
 
-Můžete nastavit, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci dál. Následující metody řídí toto chování:
+Nastavte typ přechodu cílového snímku na Reveal a poté zavolejte [setThroughBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/#setThroughBlack) na jeho nastavení [RevealTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/revealtransition/). Tento příklad vytvoří tyrkysový zdrojový snímek a korálový cílový snímek a oba klonuje. Každý pár používá stejný dvousekundový přechod Reveal. Pouze druhý pár přechází černou.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) umožňuje uživateli posunout prezentaci kliknutím myši.
-- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) povoluje automatické posunování.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) určuje zpoždění před automatickým posunem v milisekundách.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-Povolte oba typy posunu, aby uživatel mohl pokračovat kliknutím nebo čekat na časovač. Chcete‑li použít jen časovač, předávejte `false` do [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Zpoždění řídí, kdy se prezentace posune; nenastavuje dobu trvání vizuálního efektu přechodu.
+const presentation = new slides.Presentation();
+try {
+    const source = presentation.getSlides().get_Item(0);
+    const destination = presentation.getSlides().addClone(source);
+    const teal = java.newInstanceSync("java.awt.Color", 0, 128, 128);
+    const coral = java.newInstanceSync("java.awt.Color", 255, 127, 80);
 
-Tento příklad přiřadí různé efekty k prvnímu, druhému a třetímu snímku a povolí automatické posunování po 3, 5 a 7 sekundách. Kliknutí myší mohou také tyto snímky posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
+    for (const [slide, color, label] of [[source, teal, "Source"], [destination, coral, "Destination"]]) {
+        slide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+        const fill = slide.getBackground().getFillFormat();
+        fill.setFillType(java.newByte(slides.FillType.Solid));
+        fill.getSolidFillColor().setColor(color);
+
+        const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 160, 180, 400, 130);
+        const textFrame = shape.getTextFrame();
+        textFrame.setText(label);
+        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(44);
+    }
+
+    presentation.getSlides().addClone(source);
+    const clonedDestination = presentation.getSlides().addClone(destination);
+    for (const slide of [destination, clonedDestination]) {
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Reveal);
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(2000);
+
+        const reveal = transition.getValue();
+        reveal.setDirection(slides.TransitionLeftRightDirectionType.Left);
+        reveal.setThroughBlack(slide === clonedDestination);
+    }
+
+    presentation.save("reveal-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Otevřete uloženou prezentaci v PowerPointu a spusťte prezentaci. Přepněte ze snímku 1 na snímek 2 a uvidíte, jak tyrkysový přechází přímo do korálového. Pak přejděte ze snímku 3 na snímek 4. Obrazovka se na okamžik ztmavne k téměř černé, než se objeví korálový snímek. Oba snímky si zachovají původní barvu pozadí.
+
+Řádky níže ukazují snímky z PowerPointu v půlsekundových intervalech. Porovnejte střední snímek v každém řádku, abyste viděli efekt.
+
+![PowerPoint přehrávání s vypnutým prolínáním černou (nahoře) a zapnutým (dole). Pouze dolní řada prochází téměř černou.](reveal-through-black.png)
+
+## **Přidat pokročilý přechod snímku**
+
+Můžete nastavit, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci. Následující metody řídí toto chování:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) umožňuje divákovi posunout prezentaci kliknutím myši.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) povoluje automatický posun.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) určuje prodlevu před automatickým posunem v milisekundách.
+
+Povolte jak kliknutí, tak časovaný posun, aby divák mohl pokračovat kliknutím nebo počkat na časovač. Chcete‑li použít pouze časovač, předávejte `false` metodě [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Prodleva řídí, kdy se prezentace posune; neudává dobu trvání vizuálního efektu přechodu.
+
+Tento příklad přiřadí prvnímu třem snímkům různé efekty a povolí automatický posun po 3, 5 a 7 sekundách. Kliknutí myší mohou také tyto snímky posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,9 +195,9 @@ try {
 }
 ```
 
-Chcete‑li zjistit, zda je automatické posunování povoleno, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Uložené zpoždění samo o sobě neznamená, že je časovač aktivní.
+Chcete‑li zjistit, zda je časovaný posun povolen, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Uložená prodleva sama o sobě neznamená, že je časovač aktivní.
 
-Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické posunování pro snímky se zpožděním větším než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatický posun pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -172,27 +224,27 @@ try {
 }
 ```
 
-## **Přesná kontrola načasování přechodu**
+## **Přesně řídit načasování přechodu**
 
-Použijte [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) k zadání přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) snímku odhaluje tato nastavení přes [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
+Použijte [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) k určení přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) snímku vystavuje tato nastavení prostřednictvím [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Metoda | Účel |
 | --- | --- |
 | [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Nastavuje dobu trvání samotného efektu přechodu v milisekundách. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Nastavuje zpoždění před automatickým posunem snímku v milisekundách. Předejte `true` do [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) pro aktivaci tohoto časovače. |
-| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána explicitní doba trvání. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Nastavuje prodlevu před automatickým posunem snímku v milisekundách. Předávejte `true` metodě [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) pro aktivaci tohoto časovače. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána přesná doba trvání. |
 
-[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) řídí pouze efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatické zpoždění posunu nastavte odděleně. Když není explicitně nastaveno, Aspose.Slides určuje dobu trvání efektu z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) řídí jen efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu posunu nastavte samostatně. Když není explicitně nastavena doba trvání, Aspose.Slides určuje dobu trvání z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Oddělené pruhy označují dobu trvání přechodu 750 ms a nastavení automatického posunu 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Oddělené pruhy ukazují dobu trvání přechodu 750 ms a nastavení automatického posunu 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*Ukázkový příklad dává každému snímku přechod Fade s dobou 750 ms a samostatně povoluje automatické posunování po 5 000 ms. Doba trvání přechodu řídí efekt; posun určuje, kdy snímek opustit. Tyto pruhy jsou schematické nastavení, ne změřená kombinovaná časová osa.*
+*Sdílený příklad dává každému snímku 750‑ms Fade přechod a samostatně povoluje automatický posun po 5 000 ms. Délka přechodu řídí efekt; posun řídí, kdy snímek opustit. Tyto pruhy jsou schematické nastavení, ne měřená kombinovaná časová osa.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Použít stejnou dobu trvání na všechny snímky**
+### **Použít stejnou dobu trvání na každý snímek**
 
-Pro jednotné tempo použijte stejný efekt a přesnou dobu trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) a každému přechodu nastaví dobu 750 ms. Samostatně povolí automatické posunování po 5 000 ms a zakáže posun kliknutím, poté výsledek uloží jako PPTX.
+Pro konzistentní tempo použijte stejný efekt a přesnou dobu trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) a nastaví každému přechodu dobu trvání 750 milisekund. Samostatně povolí automatický posun po 5 000 milisekundách a zakáže posun kliknutím myši, poté výsledek uloží jako PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -205,7 +257,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Nakonfigurujte automatické posunování nezávisle na době trvání efektu.
+        // Nakonfigurujte automatické posouvání nezávisle na délce efektu.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -219,7 +271,7 @@ try {
 
 ### **Nastavit různé doby trvání pro jednotlivé snímky**
 
-Různé snímky mohou mít různé doby trvání efektu. Například použijte krátký přechod pro titulní snímek a delší přechod pro úvodní část sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Různé snímky mohou mít různé doby trvání efektu. Například použijte krátký přechod pro úvodní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 milisekund pro první snímek a 1 200 milisekund pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -246,13 +298,13 @@ try {
 
 ### **Koordinovat přechody s animovaným výstupem**
 
-Při přípravě [animated GIF](/slides/cs/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/nodejs-java/export-to-html5/) nebo [video](/slides/cs/nodejs-java/convert-powerpoint-to-video/), nastavte přesné doby trvání přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a upravte zpoždění posunu každého snímku zvlášť, aby bylo dost času na jeho vyprávění nebo obsah.
+Při přípravě [animated GIF](/slides/cs/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/nodejs-java/export-to-html5/) nebo [video](/slides/cs/nodejs-java/convert-powerpoint-to-video/) nastavte přesné doby trvání přechodů před exportem, aby odpovídaly požadovanému tempu. Například použijte 600‑ms fade mezi scénami a upravte každou prodlevu posunu snímku zvlášť, aby byl čas na jeho výpravu nebo obsah.
 
-Pro GIF a video koordinujte snímkovou frekvenci výstupu s dobou trvání efektu: 600 ms odpovídá 18 rámcům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a možnosti načasování vybraného exportního formátu a náhledně ověřte synchronizaci.
+Pro GIF a video koordinujte snímkovou frekvenci výstupu s dobou trvání efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a časové možnosti výstupního formátu a předem si prohlédněte výstup, abyste potvrdili synchronizaci.
 
-### **Přečíst existující dobu trvání přechodu**
+### **Načíst existující dobu trvání přechodu**
 
-Před úpravou přechodu zavolejte [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration), abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavená žádná explicitní doba; ne záporná hodnota udává uloženou dobu v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) k určení této doby. Nastavení typu přechodu může inicializovat dobu, proto nejprve prozkoumejte původní nastavení.
+Zavolejte [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavena explicitní doba trvání; nezáporná hodnota udává uloženou dobu v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) k určení této doby. Nastavení typu přechodu může inicializovat dobu trvání, proto si nejdříve prohlédněte původní nastavení.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -275,9 +327,9 @@ try {
 }
 ```
 
-## **Přechod Morph**
+## **Morph přechod**
 
-Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph klonujte snímek, přesuňte nebo změňte velikost objektu na klonu a na druhý snímek aplikujte přechod Morph. To poskytne objektům odpovídající animaci mezi původním a upraveným stavem.
+Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého Morph efektu klonujte snímek, na klonu přesunujte nebo měňte velikost objektu a aplikujte Morph přechod na druhý snímek. To umožní animovat odpovídající objekty mezi jejich původní a upravenou podobou.
 
 Následující příklad vytvoří snímek s textovým obdélníkem, klonuje snímek a změní pozici a velikost obdélníku na klonu. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
 
@@ -305,17 +357,17 @@ try {
 }
 ```
 
-## **Typy přechodu Morph**
+## **Typy Morph přechodu**
 
-Výčet [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) řídí, jak Morph mapuje a animuje obsah:
 
-- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) zachází s každým tvarem jako s celým objektem.
-- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animuje text spárováním slov, kde je to možné.
-- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animuje text spárováním znaků, kde je to možné.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) považuje každý tvar za celý objekt.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animuje text párováním slov, kde je to možné.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animuje text párováním znaků, kde je to možné.
 
-Použijte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) pro výběr Morph před získáním [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Hodnota pak poskytne objekt [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) vybere odpovídající režim.
+Použijte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) k výběru Morph před získáním [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Hodnota poté poskytne objekt [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) vybírá režim mapování.
 
-Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nastaví druhý snímek tak, aby používal animaci Morph na úrovni slov.
+Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nakonfiguruje druhý snímek tak, aby používal animaci Morph založenou na slovech.
 
 ```javascript
 const java = require("java");
@@ -342,11 +394,11 @@ try {
 }
 ```
 
-## **Nastavení efektů přechodu**
+## **Nastavit efekty přechodu**
 
-Některé přechody odhalují další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu vybraném pomocí [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Nejprve nastavte typ, pak použijte odpovídající objekt přechodu z [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Některé přechody nabízejí další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu vybraném pomocí [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Nejprve nastavte typ, pak použijte odpovídající objekt přechodu z [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-Následující příklad aplikuje přechod Cut na první snímek souboru `input.pptx`. Volá [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) přes [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/), aby přechod začínal z černé obrazovky.
+Následující příklad aplikuje Cut přechod na první snímek `input.pptx`. Zavolá [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) přes [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/), aby přechod začínal z černé obrazovky.
 
 ```javascript
 const java = require("java");
@@ -369,20 +421,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), když potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) — Slow, Medium nebo Fast — a není nastavená explicitní doba. Tato nastavení řídí efekt přechodu nezávisle na automatickém zpoždění posunu.
+Ano. Upřednostňujte [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration), když potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast, a není nastavená explicitní doba trvání. Tato nastavení řídí efekt přechodu nezávisle na automatické prodlevě posunu.
 
-**Mohu k přechodu připojit zvuk a nechat ho opakovat?**
+**Mohu k přechodu připojit audio a nechat jej opakovat?**
 
-Ano. Přiřaďte vložený zvuk pomocí [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), předávejte StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) a povolte [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) s hodnotou `true`. Zvuk bude smyčkovat až do dalšího zvukového události v prezentaci.
+Ano. Přiřaďte vložené audio pomocí [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), předávejte StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) metodě [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) a povolte [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) s `true`. Audio se bude opakovat, dokud nenastane další zvuková událost v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
+**Jaký je nejrychlejší způsob, jak použít stejný přechod na všechny snímky?**
 
-Projděte kolekci [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) prezentace a pro každý snímek zavolejte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) se stejnou hodnotou. V tomtéž cyklu nastavte případné načasování a možnosti efektu, aby chování zůstalo konzistentní napříč snímky.
+Projděte kolekci [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) prezentace a zavolejte [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) se stejnou hodnotou pro přechod každého snímku. V téže smyčce nastavte všechny časové a efektové možnosti, aby chování zůstalo konzistentní napříč snímky.
 
-**Jak mohu zjistit, který přechod je aktuálně nastaven na snímku?**
+**Jak mohu zkontrolovat, který přechod je aktuálně nastaven na snímku?**
 
-Zavolejte [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) na výsledku [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None znamená, že žádný přechod není aplikován.
+Zavolejte [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) na výsledek [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None znamená, že není aplikován žádný efekt přechodu.

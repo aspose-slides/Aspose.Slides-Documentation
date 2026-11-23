@@ -1,15 +1,15 @@
 ---
-title: Správa přechodů snímků v prezentacích pomocí C++
+title: Spravovat přechody snímků v prezentacích pomocí C++
 linktitle: Přechod snímku
 type: docs
 weight: 80
 url: /cs/cpp/slide-transition/
 keywords:
 - přechod snímku
-- přidat přechod snímku
-- použít přechod snímku
+- přidání přechodu snímku
+- použití přechodu snímku
 - pokročilý přechod snímku
-- morph přechod
+- Morph přechod
 - typ přechodu
 - efekt přechodu
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Použijte přechody snímků, nakonfigurujte automatické posouvání snímků a přizpůsobte Morph a další efekty přechodu pomocí Aspose.Slides pro C++."
+description: "Aplikujte přechody snímků, nakonfigurujte automatické posouvání snímků a přizpůsobte Morph a další efekty přechodu pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Slide transitions control how slides appear during a slide show. With Aspose.Slides for C++, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C++ examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
+Přechody snímků řídí, jak se snímky objevují během prezentace. S Aspose.Slides pro C++ můžete pro každý snímek vybrat efekt přechodu, nakonfigurovat přechod na kliknutí myší nebo časovač a upravit možnosti specifické pro konkrétní efekt. Tento článek používá příklady v C++ k aplikaci přechodů, nastavení přesné délky přechodu, správě časování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
-## **Přidat přechod snímku**
+## **Přidání přechodu snímku**
 
-To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and access a slide's transition settings through [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) with a value from the [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) enumeration, then save the presentation.
+Chcete‑li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) a přistupte k nastavení přechodu snímku prostřednictvím [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/). Zavolejte [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), poté prezentaci uložte.
 
-The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
+Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,11 +60,11 @@ else
 presentation->Dispose();
 ```
 
-## **Přechod Wheel**
+## **Kolečkový přechod**
 
-The [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) method of [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) with Wheel from [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) before accessing [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) as [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
+Metoda [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) rozhraní [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) určuje počet radiálních sektorů, které odhalují cílový snímek. Zavolejte [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) s hodnotou Wheel z [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) před přístupem k [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) jako [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
 
-This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same speed set through [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) and an explicit duration of 8,000 milliseconds set through [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) to make the difference easy to observe.
+Tento příklad vytvoří dva identické páry snímků: černý snímek následovaný snímkem se zlatým obdélníkem. Cílové snímky použijí počty paprsků 1 a 8, se stejnou rychlostí nastavenou pomocí [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) a explicitní délkou 8 000 ms nastavenou pomocí [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) pro snadné pozorování rozdílu.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -132,19 +132,99 @@ presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+Otevřete výstupní prezentaci v PowerPointu a spusťte prezentaci. Přecházejte ze snímku 1 na snímek 2, pak ze snímku 3 na snímek 4. V přehrávání PowerPointu se ověřený počet paprsků 1 projeví jedním hodinovým otáčením; ověřený počet 8 odhalí snímek osmi radiálními sektory najednou. Obsah cílových snímků a časování přechodu jsou identické, rozdíl je tedy jen v počtu odhalovacích sektorů.
 
-## **Přidat pokročilý přechod snímku**
+## **Prolínání přes černou s odhalením**
 
-You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
+Nastavte typ přechodu cílového snímku na Reveal a poté zavolejte [set_ThroughBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/set_throughblack/) na rozhraní [IRevealTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/irevealtransition/). Příklad vytvoří světle tyrkysový zdrojový snímek a korálový cílový snímek, následně je oba zduplikuje, aby bylo možné porovnat dvousekundový přechod s vypnutým a zapnutým prolínáním přes černou.
 
-- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) allows the viewer to advance by clicking the mouse.
-- [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) enables automatic advancement.
-- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) specifies the delay before automatic advancement, in milliseconds.
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ShapeType.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/SlideShowTransition/IRevealTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionLeftRightDirectionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
 
-Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, call [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) with `false`. The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
 
-This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
+auto styleSlide = [](SharedPtr<ISlide> slide, Color background, const String& label)
+{
+    slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+    auto fill = slide->get_Background()->get_FillFormat();
+    fill->set_FillType(FillType::Solid);
+    fill->get_SolidFillColor()->set_Color(background);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 160, 180, 400, 130);
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(label);
+    textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_FontHeight(44);
+};
+
+auto presentation = MakeObject<Presentation>();
+
+auto source = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddClone(source);
+styleSlide(source, Color::get_Teal(), u"Source");
+styleSlide(destination, Color::get_Coral(), u"Destination");
+presentation->get_Slides()->AddClone(source);
+presentation->get_Slides()->AddClone(destination);
+
+for (auto index : {1, 3})
+{
+    auto transition = presentation->get_Slide(index)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Reveal);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(2000);
+
+    auto reveal = ExplicitCast<IRevealTransition>(transition->get_Value());
+    reveal->set_Direction(TransitionLeftRightDirectionType::Left);
+    reveal->set_ThroughBlack(index == 3);
+}
+
+presentation->Save(u"reveal-transitions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+V PowerPointové prezentaci přejděte ze snímku 1 na snímek 2. Tyrkysová se přímo prolíná do korálové. Pak přejděte ze snímku 3 na snímek 4. Obrazovka se na okamžik ztmavne téměř na černo, než se objeví korálový snímek. Oba snímky si zachovají své původní barvy pozadí.
+
+Níže uvedené řádky ukazují snímky z PowerPointu po půlsekundových intervalech. Porovnejte prostřední snímek v každém řádku, abyste viděli vliv nastavení.
+
+![PowerPoint playback with ThroughBlack disabled (top) and enabled (bottom). Only the bottom row passes through near black.](reveal-through-black.png)
+
+## **Přidání pokročilého přechodu snímku**
+
+Můžete nakonfigurovat, jak dlouho snímek zůstane na obrazovce a zda se prezentace posune kliknutím myši. Následující metody řídí toto chování:
+
+- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) umožňuje divákovi posunout prezentaci kliknutím myši.
+- [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) zapíná automatický posun.
+- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) určuje prodlevu před automatickým posunem v milisekundách.
+
+Povolte oba způsoby posunu, aby divák mohl přejít kliknutím nebo počkat na časovač. Pokud chcete použít jen časovač, zavolejte [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) s hodnotou `false`. Prodleva určuje, kdy se prezentace posune; nenastavuje délku vizuálního efektu přechodu.
+
+Tento příklad přiřadí prvnímu třem snímkům různé efekty a povolí automatický posun po 3, 5 a 7 sekundách. Na tyto snímky lze také přejít kliknutím. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -192,9 +272,9 @@ else
 presentation->Dispose();
 ```
 
-To check whether timed advancement is enabled, call [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/). A stored delay alone does not indicate that the timer is active.
+Pro kontrolu, zda je automatický posun povolen, zavolejte [get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/). Uložena prodleva sama o sobě neznamená, že je časovač aktivní.
 
-The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatický posun pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -231,27 +311,27 @@ presentation->Save(u"adjusted-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Precizně řídit načasování přechodu**
+## **Přesné řízení časování přechodu**
 
-Use [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) to specify the exact length of a transition effect in milliseconds. The slide's [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) method exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
+Použijte [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) k určení přesné délky efektu přechodu v milisekundách. Metoda snímku [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) poskytuje tato nastavení přes rozhraní [ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/):
 
 | Method | Účel |
 | --- | --- |
-| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | Sets the duration of the transition effect itself, in milliseconds. |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Sets the delay before the slide advances automatically, in milliseconds. Call [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) with `true` to activate this timer. |
-| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Selects a predefined speed category from [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium, or Fast. It is used when an exact duration is not specified. |
+| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | Nastaví délku samotného efektu přechodu v milisekundách. |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | Nastaví prodlevu před automatickým posunem snímku v milisekundách. Zavolejte [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) s hodnotou `true` pro aktivaci tohoto časovače. |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není specifikována přesná délka. |
 
-[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and the value returned by [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) ovlivňuje pouze efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu posunu nastavte zvlášť. Když není nastavená explicitní délka, Aspose.Slides určuje délku efektu z typu přechodu a hodnoty vrácené metodou [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/).
 
 <!-- visual-explanation:slide-transition:start -->
-[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+[![Oddělené pruhy identifikují dobu 750 ms trvání přechodu a nastavení automatického posunu 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
+*Ukázkový příklad nastavení dává každému snímku 750 ms Fade přechod a samostatně povoluje automatický posun po 5 000 ms. Délka přechodu řídí efekt; posun určuje, kdy snímek opustit. Tyto pruhy jsou schematické nastavení, nikoli měřená kombinovaná časová osa.*
 <!-- visual-explanation:slide-transition:end -->
 
-### **Použít stejnou dobu trvání na každém snímku**
+### **Použití stejné délky pro každý snímek**
 
-For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
+Pro konzistentní tempo použijte stejný efekt a přesnou délku pro všechny snímky. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) a každému přechodu přiřadí délku 750 ms. Samostatně povolí automatický posun po 5 000 ms a zakáže posun kliknutím, poté výsledek uloží jako PPTX.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -274,7 +354,7 @@ for (auto&& slide : presentation->get_Slides())
     transition->set_Type(TransitionType::Fade);
     transition->set_Duration(750);
 
-    // Nakonfigurujte automatické posouvání nezávisle na době trvání efektu.
+    // Nakonfigurujte automatický posun nezávisle na délce efektu.
     transition->set_AdvanceAfter(true);
     transition->set_AdvanceAfterTime(5000);
     transition->set_AdvanceOnClick(false);
@@ -285,9 +365,9 @@ presentation->Save(u"precise-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Nastavit různé doby trvání pro jednotlivé snímky**
+### **Nastavení různých délek pro jednotlivé snímky**
 
-Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
+Různé snímky mohou mít různé délky efektu. Například použijte krátký přechod pro úvodní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -325,15 +405,15 @@ else
 presentation->Dispose();
 ```
 
-### **Koordinovat přechody s animovaným výstupem**
+### **Koordinace přechodů s animovaným výstupem**
 
-When preparing an [animovaný GIF](/slides/cs/cpp/convert-powerpoint-to-animated-gif/), [prezentace HTML5](/slides/cs/cpp/export-to-html5/), or [video](/slides/cs/cpp/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
+Při přípravě [animated GIF](/slides/cs/cpp/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/cpp/export-to-html5/) nebo [video](/slides/cs/cpp/convert-powerpoint-to-video/) nastavte přesné délky přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a samostatně upravte prodlevu posunu každého snímku, aby byl dostatek času na jeho výklad nebo obsah.
 
-For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
+Pro GIF a video koordinujte výstupní snímkovou frekvenci s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte, jaké efekty a časování jsou podporovány zvoleným formátem, a předběžně si výstup prohlédněte, abyste potvrdili synchronizaci.
 
-### **Přečíst existující dobu trvání přechodu**
+### **Čtení existující délky přechodu**
 
-Call [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and the value returned by [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
+Před úpravou přechodu zavolejte [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) a zjistěte, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že žádná explicitní délka není nastavena; nenegativní hodnota udává uloženou délku v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu vrácenou metodou [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) k určení této doby. Nastavení typu přechodu může inicializovat délku, proto nejprve prozkoumejte původní nastavení.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -367,11 +447,11 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
-## **Přechod Morph**
+## **Morph přechod**
 
-The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
+Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého Morph efektu duplikujte snímek, na duplikátu objekt přesuňte nebo změňte jeho velikost a aplikujte Morph přechod na druhý snímek. Tím získáte odpovídající objekty, které se animují mezi původním a upraveným stavem.
 
-The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
+Následující příklad vytvoří snímek s textovým obdélníkem, duplikuje jej a změní pozici a velikost obdélníku na duplikátu. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který Morph podporuje, a podívejte se na efekt během prezentace.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -411,17 +491,17 @@ presentation->Save(u"morph-transition.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Typy přechodu Morph**
+## **Typy Morph přechodu**
 
-The [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) enumeration controls how Morph matches and animates content:
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) řídí, jak Morph přiřazuje a animuje obsah:
 
-- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) treats each shape as a whole object.
-- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animates text by matching words where possible.
-- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animates text by matching characters where possible.
+- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) zachází s každým tvarem jako s celým objektem.
+- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animuje text tak, že kde je to možné odpovídá slova.
+- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) animuje text tak, že kde je to možné odpovídá znaky.
 
-Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) with Morph before accessing [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/) interface, whose [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) method selects the matching mode.
+Zavolejte [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) s hodnotou Morph před přístupem k [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/). Vrácená hodnota poskytne rozhraní [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/), jehož metoda [set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) vybírá režim přiřazení.
 
-This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
+Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nastaví druhý snímek tak, aby používal animaci Morph založenou na slovech.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -467,11 +547,11 @@ else
 presentation->Dispose();
 ```
 
-## **Nastavit efekty přechodu**
+## **Nastavení efektů přechodu**
 
-Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition type. Set the type first, then use the appropriate interface returned by [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
+Některé přechody nabízejí další možnosti, jako směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na vybraném typu přechodu. Nejprve nastavte typ, pak použijte odpovídající rozhraní vrácené metodou [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/).
 
-The following example applies a Cut transition to the first slide of `input.pptx`. It calls [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) with `true` through [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) so that the transition starts from a black screen.
+Následující příklad použije přechod Cut na první snímek `input.pptx`. Zavolá [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) s hodnotou `true` přes rozhraní [IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/), aby přechod začínal z černé obrazovky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -512,16 +592,16 @@ presentation->Dispose();
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Yes. Prefer [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) when you need an exact effect duration in milliseconds. Use [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
+Ano. Upřednostněte [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/), když potřebujete přesnou délku efektu v milisekundách. Použijte [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/) – Slow, Medium nebo Fast – a není nastavena explicitní délka. Tato nastavení řídí efekt přechodu nezávisle na prodlevě automatického posunu.
 
-**Mohu k přechodu připojit zvuk a nechat jej opakovat?**
+**Mohu k přechodu připojit zvuk a nechat ho opakovat?**
 
-Yes. Assign embedded audio with [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), call [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) with StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable looping with [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). The audio loops until the next sound event in the slide show.
+Ano. Přiřaďte vložený zvuk pomocí [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/), zavolejte [set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) s hodnotou StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/), a povolte opakování pomocí [set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/). Zvuk se bude opakovat až do další zvukové události v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak použít stejný přechod na každý snímek?**
+**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
 
-Loop through the collection returned by the presentation's [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) method and call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) with the same value for each slide's transition. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
+Projděte kolekci vrácenou metodou [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) prezentace a pro každý snímek zavolejte [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) se stejnou hodnotou. V tomtéž cyklu nastavte případné časování a možnosti efektu, aby chování zůstalo konzistentní napříč snímky.
 
-**Jak mohu zjistit, který přechod je na snímku momentálně nastaven?**
+**Jak zjistím, který přechod je aktuálně nastaven na snímku?**
 
-Call [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) on the transition returned by the slide's [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) method. It returns a value from the [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.
+Zavolejte [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) na přechodu vráceném metodou [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/); None znamená, že žádný přechod není aplikován.
