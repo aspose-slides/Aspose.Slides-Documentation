@@ -19,6 +19,7 @@ keywords:
 - 3D presentation
 - VBA project
 - image processing
+- Mail Merge
 - PowerPoint
 - OpenDocument
 - presentation
