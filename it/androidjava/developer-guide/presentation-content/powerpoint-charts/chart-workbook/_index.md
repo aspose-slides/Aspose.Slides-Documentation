@@ -20,31 +20,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Scopri Aspose.Slides per Android via Java: gestisci facilmente i workbook dei grafici nei formati PowerPoint e OpenDocument per ottimizzare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per Android via Java: gestisci facilmente i workbook dei grafici nei formati PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite stream dei workbook, usare le celle del workbook come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di workbook, utilizzare le celle del workbook come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Tratta anche dell'uso di workbook esterni come fonti di dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
+Copre inoltre l’uso di workbook esterni come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
 
-Per le celle del workbook che rappresentano dati mancanti, vedere [Controllare la visualizzazione delle celle vuote](/slides/it/androidjava/chart-series/) per la differenza tra una cella vuota e zero, e un confronto a linee dei relativi modi di visualizzazione disponibili.
+Per le celle del workbook che rappresentano dati mancanti, vedere [Controllare la visualizzazione delle celle vuote](/slides/it/androidjava/chart-series/) per la differenza tra una cella vuota e zero, e un confronto a linee dei diversi modi di visualizzazione disponibili.
 
 ## **Includere dati da righe e colonne nascoste**
 
-Utilizza [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) per controllare se un grafico traccia dati da righe e colonne di foglio di lavoro nascoste. Impostalo su `true` per tracciare solo le celle visibili, o su `false` per includere sia le celle visibili che quelle nascoste. Questa impostazione controlla il tracciamento del grafico; non nasconde né mostra righe o colonne del foglio di lavoro.
+Usa [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) per controllare se un grafico traccia i dati dalle righe e colonne nascoste del foglio di lavoro. Impostalo su `true` per tracciare solo le celle visibili, o su `false` per includere sia le celle visibili che quelle nascoste. Questa impostazione controlla il tracciamento del grafico; non nasconde né mostra le righe o colonne del foglio di lavoro.
 
-La [presentazione di esempio](hidden-source-data.pptx) contiene un grafico a colonne come prima forma nella prima diapositiva. Il foglio di lavoro incorporato, `Sheet1`, contiene l’intervallo di origine `A1:C4`. La riga 3 e la colonna C sono nascoste, ma le loro celle contengono ancora valori.
+La [presentazione di esempio](hidden-source-data.pptx) contiene un grafico a colonne come prima forma nella prima diapositiva. Il foglio di lavoro incorporato, `Sheet1`, contiene l’intervallo sorgente `A1:C4`. La riga 3 e la colonna C sono nascoste, ma le loro celle contengono comunque valori.
 
-| Riga foglio | A: Mese | B: Vendita al dettaglio | C: Vendita all'ingrosso (colonna nascosta) |
+| Riga del foglio | A: Mese | B: Vendita al dettaglio | C: Vendita all’ingrosso (colonna nascosta) |
 | --- | --- | --- | --- |
 | 2 | Gennaio | 10 | 30 |
 | 3 (riga nascosta) | Febbraio | 40 | 60 |
 | 4 | Marzo | 20 | 50 |
 
-Accedi alle celle di origine tramite [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) e leggi [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) per ispezionare il loro stato di nascondimento. Questo metodo segnala lo stato di nascondimento senza modificarlo. In questo file, B2 è visibile, B3 appartiene alla riga nascosta e C2 appartiene alla colonna nascosta; l’esempio stampa `false`, `true` e `true`, rispettivamente.
+Accedi alle celle sorgente tramite [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) e leggi [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) per verificarne lo stato nascosto. Questo metodo restituisce lo stato nascosto senza modificarlo. In questo file, B2 è visibile, B3 appartiene alla riga nascosta e C2 appartiene alla colonna nascosta; l’esempio stampa `false`, `true` e `true` rispettivamente.
 
-Per questo esempio, aggiorna i dati del grafico dopo aver modificato l’impostazione di tracciamento: mantieni il workbook incorporato con [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) e ricaricalo con [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). Quando includi tutte le celle, usa anche [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) per ripristinare l’intervallo completo, inclusa la categoria di febbraio nascosta. Cambiare semplicemente il flag non è sufficiente per aggiornare i dati della cache del grafico e le etichette delle categorie in questo esempio.
+Per questo esempio, aggiorna i dati del grafico dopo aver cambiato l’impostazione di tracciamento: conserva il workbook incorporato con [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) e ricaricalo con [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). Quando includi tutte le celle, usa anche [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) per ripristinare l’intervallo completo, inclusa la categoria di febbraio nascosta. Cambiare semplicemente il flag non è sufficiente per aggiornare i dati del grafico memorizzati nella cache e le etichette delle categorie.
 
 ```java
 import com.aspose.slides.*;
@@ -68,7 +68,7 @@ try {
             // Aggiorna i dati del grafico dal workbook incorporato.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Ripristina l'intervallo di origine completo, incluse le categorie nascoste.
+                // Ripristina l’intervallo sorgente completo, incluse le categorie nascoste.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-L’esempio salva due versioni della presentazione: una con solo i valori di Vendita al dettaglio visibili (10 e 20) e un’altra con tutti e sei i valori. Le immagini sotto illustrano i due modi di tracciamento. La riga 3 e la colonna C rimangono nascoste in entrambi i workbook incorporati.
+L’esempio salva due versioni della presentazione: una con solo i valori di vendita al dettaglio visibili (10 e 20) e un’altra con tutti e sei i valori. Le immagini sottostanti illustrano i due modi di tracciamento. La riga 3 e la colonna C rimangono nascoste in entrambi i workbook incorporati.
 
 | Solo celle visibili (`true`) | Tutte le celle (`false`) |
 | --- | --- |
-| ![Solo celle visibili: valori di Vendita al dettaglio 10 e 20 per Gennaio e Marzo.](hidden_cells_True.png) | ![Tutte le celle: valori di Vendita al dettaglio e Vendita all'ingrosso per Gennaio, Febbraio e Marzo.](hidden_cells_False.png) |
+| ![Solo celle visibili: valori di vendita al dettaglio 10 e 20 per gennaio e marzo.](hidden_cells_True.png) | ![Tutte le celle: valori di vendita al dettaglio e all’ingrosso per gennaio, febbraio e marzo.](hidden_cells_False.png) |
 
-Una cella nascosta contenente un valore è diversa da una cella vuota. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) controlla come vengono visualizzati i valori mancanti; non include né esclude i dati di origine nascosti. Vedi [Controllare la visualizzazione delle celle vuote](/slides/it/androidjava/chart-series/#control-the-display-of-empty-cells) per un esempio.
+Una cella nascosta contenente un valore è diversa da una cella vuota. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) controlla come vengono visualizzati i valori mancanti; non include né esclude dati sorgente nascosti. Vedi [Controllare la visualizzazione delle celle vuote](/slides/it/androidjava/chart-series/#control-the-display-of-empty-cells) per un esempio.
 
-## **Recuperare l'intervallo dati di un grafico**
+## **Recuperare l’intervallo dati di un grafico**
 
-Prima di aggiornare i dati del workbook in una presentazione esistente, ispeziona gli intervalli di origine per identificare quali celle di foglio di lavoro usa ogni grafico. Il metodo [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) restituisce l’intervallo dati corrente come formula qualificata dal foglio, ad es. `Sheet1!$A$1:$D$5`. Qui, `Sheet1` è il nome del foglio, `!` lo separa dall’intervallo di celle e `$A$1:$D$5` identifica le celle da A1 a D5, inclusi. I segni di dollaro indicano riferimenti assoluti di riga e colonna.
+Prima di aggiornare i dati del workbook in una presentazione esistente, controlla gli intervalli sorgente per identificare quali celle del foglio di lavoro utilizza ogni grafico. Il metodo [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) restituisce l’intervallo dati corrente come formula qualificata per il foglio di lavoro, ad esempio `Sheet1!$A$1:$D$5`. Qui, `Sheet1` è il nome del foglio, `!` lo separa dall’intervallo di celle e `$A$1:$D$5` identifica le celle da A1 a D5, inclusi. I simboli `$` indicano riferimenti assoluti a riga e colonna.
 
-Il metodo legge l’intervallo corrente senza modificare il grafico o il suo workbook. Se il grafico non usa un workbook come origine dati, lancia `InvalidOperationException`. Per ulteriori informazioni, vedere il [Riferimento API ChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
+Il metodo legge l’intervallo corrente senza modificare il grafico né il suo workbook. Se il grafico non utilizza un workbook come origine dati, viene generata un’`InvalidOperationException`. Per ulteriori informazioni, consulta il [Riferimento API ChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
 
-Questo esempio apre una presentazione e controlla le forme direttamente su ciascuna diapositiva per individuare i grafici. Stampa il nome di ogni grafico e il suo intervallo di origine. Se un grafico non usa un workbook, stampa un messaggio e passa al grafico successivo.
+Questo esempio apre una presentazione e controlla le forme direttamente su ogni diapositiva per individuare i grafici. Stampa il nome di ciascun grafico e il suo intervallo sorgente. Se un grafico non usa un workbook, stampa un messaggio e passa al grafico successivo.
 
 ```java
 import com.aspose.slides.*;
@@ -124,9 +124,9 @@ try {
 
 ## **Leggere e scrivere dati del grafico da un workbook**
 
-Aspose.Slides for Android via Java fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o avere una struttura simile all’origine.
+Aspose.Slides per Android via Java fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o avere una struttura simile a quella di origine.
 
-Questo esempio usa una presentazione con un grafico come prima forma nella prima diapositiva. Legge il workbook incorporato in un array di byte, cancella le serie e le categorie esistenti e riscrive lo stesso workbook. Le modifiche rimangono in memoria; l’esempio non salva la presentazione.
+Questo esempio utilizza una presentazione con un grafico come prima forma nella prima diapositiva. Legge il workbook incorporato in un array di byte, cancella le serie e le categorie esistenti e riscrive lo stesso workbook. Le modifiche rimangono in memoria; l’esempio non salva la presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -155,7 +155,7 @@ try {
 
 ### **Convalidare il layout del grafico dopo la modifica del workbook**
 
-Quando sostituisci un workbook incorporato con uno modificato, il grafico mantiene le raccolte originali di serie e categorie. Questa discrepanza può far fallire [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) con un errore di indice fuori intervallo. Cancella le serie e le categorie esistenti prima di scrivere nuovamente il workbook aggiornato nel grafico. Questo esempio usa un grafico che è la prima forma nella prima diapositiva. Il commento indica dove avverrebbe la modifica del workbook; l’esempio eseguibile riscrive il workbook originale e convalida il layout in memoria.
+Quando si sostituisce un workbook incorporato con uno modificato, il grafico conserva le collezioni di serie e categorie originali. Questa discrepanza può far fallire [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) con un errore di indice fuori intervallo. Cancella le serie e le categorie esistenti prima di scrivere il workbook aggiornato nel grafico. Questo esempio utilizza un grafico che è la prima forma nella prima diapositiva. Il commento indica dove avverrebbe la modifica del workbook; l’esempio eseguibile riscrive il workbook originale e convalida il layout in memoria.
 
 ```java
 import com.aspose.slides.*;
@@ -170,7 +170,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // Modifica i byte del workbook qui, ad esempio usando Aspose.Cells.
+        // Modifica i byte del workbook qui, ad esempio, usando Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -185,15 +185,67 @@ try {
 }
 ```
 
-La cancellazione delle raccolte rimuove i riferimenti a dati obsoleti prima che il workbook venga riscritto. Ricostruisci eventuali mappature di serie e categorie necessarie per il workbook aggiornato prima di utilizzare il grafico.
+La cancellazione delle collezioni rimuove i riferimenti a dati obsoleti prima che il workbook venga riscritto. Ricostruisci eventuali mappature di serie e categorie necessarie per il workbook aggiornato prima di usare il grafico.
+
+## **Scegliere come memorizzare le etichette delle categorie**
+
+Chiama [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) sulla raccolta di categorie vuota prima di aggiungere etichette. Usa le celle del foglio di lavoro per etichette che fanno riferimento a dati del workbook o che formano una gerarchia, ad esempio trimestri raggruppati per anno. Usa stringhe letterali per un unico livello di etichette che non richiede riferimenti a celle. Questa impostazione si applica solo alle categorie. Entrambi i grafici dell’esempio usano celle del foglio di lavoro per i valori delle serie numeriche.
+
+L’esempio crea due grafici a colonne e stampa la modalità di memorizzazione seguita da `Q1 Q2 Q3 Q4` per ciascuno. Per le etichette basate su foglio, [IChartCategory.getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getAsCell--) restituisce la cella sottostante e [IChartDataCell.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getValue--) restituisce la sua etichetta. Per le etichette letterali, leggi direttamente la stringa con [IChartCategory.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getValue--).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Impostare formati numerici personalizzati per le celle del workbook**
 
-Usa [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) per controllare come compaiono i valori numerici nel workbook incorporato di un grafico. Per esempio, un report può richiedere di visualizzare un tasso di conversione come percentuale con quattro decimali e un coefficiente con cinque decimali. Mantieni entrambi i valori numerici in modo che rimangano disponibili per i calcoli e il tracciamento del grafico.
+Usa [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) per controllare come appaiono i valori numerici nel workbook incorporato del grafico. Ad esempio, un report potrebbe richiedere un tasso di conversione visualizzato come percentuale con quattro decimali e un coefficiente con cinque decimali. Mantieni entrambi i valori numerici affinché rimangano disponibili per calcoli e tracciamento del grafico.
 
-Un formato numerico modifica la visualizzazione, non il valore memorizzato. Il formato `0.0000%` visualizza `0.125` come `12.5000%`; non sostituisce il numero memorizzato con `12.5`. Analogamente, `0.00000` visualizza `0.1234567` come `0.12346` senza arrotondare il valore memorizzato. Se il formato personalizzato è una stringa vuota (`""`), viene usato il formato restituito da [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--).
+Un formato numerico modifica la visualizzazione, non il valore memorizzato. Il formato `0.0000%` visualizza `0.125` come `12.5000%`; non sostituisce il numero memorizzato con `12.5`. Allo stesso modo, `0.00000` visualizza `0.1234567` come `0.12346` senza arrotondare il valore memorizzato. Se il formato personalizzato è una stringa vuota (`""`), viene usato il formato restituito da [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--).
 
-L’esempio seguente crea un grafico a colonne e accede alle sue celle tramite [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). Nel foglio 0, B2 contiene il tasso di conversione e C2 contiene il coefficiente. Entrambe le celle forniscono valori al grafico. L’esempio abilita anche le etichette dei valori collegate ai formati di origine.
+L’esempio seguente crea un grafico a colonne e accede alle sue celle tramite [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). Sul foglio 0, B2 contiene il tasso di conversione e C2 contiene il coefficiente. Entrambe le celle forniscono valori al grafico. L’esempio abilita inoltre le etichette dei valori collegate ai formati sorgente.
 
 ```java
 import com.aspose.slides.*;
@@ -244,17 +296,17 @@ try {
 }
 ```
 
-I formati delle celle del workbook sono separati dai formati impostati direttamente sugli assi del grafico o sulle etichette dei dati. In questo esempio, ogni etichetta visualizza il valore della propria cella di origine perché [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) è impostato su `true`, e segue il formato di origine perché [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) è impostato su `true`. Dopo aver salvato e riaperto la presentazione, le etichette mostrano `12.5000%` e `0.12346`, come mostrato sotto. L’asse verticale utilizza un proprio formato numerico, assegnato con [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) come `0.00`, con [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) impostato su `false`.
+I formati delle celle del workbook sono separati dai formati impostati direttamente sugli assi del grafico o sulle etichette dei dati. In questo esempio, ogni etichetta visualizza il valore della cella sorgente perché [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) è impostato su `true`, e segue il formato numerico della sorgente perché [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) è impostato su `true`. Dopo aver salvato e riaperto la presentazione, le etichette mostrano `12.5000%` e `0.12346`, come mostrato sotto. L’asse verticale usa un proprio formato numerico, assegnato con [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) impostato a `0.00`, con [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) impostato su `false`.
 
-Per formattare in modo indipendente un’etichetta di dati, imposta il suo flag di collegamento alla fonte su `false` e assegna un formato con [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). Questo non modifica il formato della cella del workbook. Per esempio, un formato di etichetta indipendente `0.00` visualizza il primo valore come `0.13`, mentre B2 continua a mostrare `12.5000%`. Vedi [Etichette dati del grafico](/slides/it/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) per la formattazione diretta delle etichette.
+Per formattare un’etichetta dei dati in modo indipendente, imposta il suo flag di collegamento alla sorgente su `false` e assegna un formato con [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). Questo non modifica il formato della cella del workbook. Ad esempio, un formato di etichetta indipendente `0.00` visualizza il primo valore come `0.13`, mentre B2 continua a visualizzare `12.5000%`. Vedi [Etichette dati del grafico](/slides/it/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) per la formattazione diretta delle etichette.
 
-L’immagine sotto è stata resa dalla presentazione salvata dopo averla riaperta:
+L’immagine sotto è stata generata dalla presentazione salvata dopo averla riaperta:
 
-![Grafico a colonne con etichette collegate alla fonte che mostrano 12.5000% e 0.12346 e un asse numerico formattato in modo indipendente.](custom-cell-formats.png)
+![Grafico a colonne con etichette collegate alla sorgente che mostrano 12.5000% e 0.12346 e un asse numerico formattato in modo indipendente.](custom-cell-formats.png)
 
 ## **Impostare una cella del workbook come etichetta dati del grafico**
 
-Puoi usare il testo delle celle del workbook come etichette dati del grafico.
+È possibile utilizzare il testo delle celle del workbook come etichette dati del grafico.
 
 Questo esempio aggiunge un grafico a bolle con dati predefiniti alla prima diapositiva di una presentazione esistente. Usa le celle A10:A12 sul foglio 0 per le prime tre etichette della prima serie, abilita le etichette dalle celle e salva la presentazione aggiornata.
 
@@ -282,7 +334,7 @@ try {
 
 ## **Gestire i fogli di lavoro**
 
-Il metodo [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) fornisce l’accesso ai fogli di lavoro in un workbook di grafico. Questo esempio crea un grafico a torta con dati predefiniti e stampa il nome di ciascun foglio di lavoro nella console.
+Il metodo [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) fornisce l’accesso ai fogli di lavoro di un workbook del grafico. Questo esempio crea un grafico a torta con dati predefiniti e stampa ogni nome di foglio di lavoro sulla console.
 
 ```java
 import com.aspose.slides.*;
@@ -304,9 +356,9 @@ try {
 
 ## **Specificare il tipo di origine dati**
 
-I valori dei punti della serie possono anche essere memorizzati direttamente come letterali numerici. Vedi [Impostare i valori della serie utilizzando letterali numerici](/slides/it/androidjava/chart-series/#set-series-values-using-numeric-literals) per un esempio completo che li salva e li legge. Il tipo di origine dei valori dei punti è separato dalla configurazione interna o esterna del workbook del grafico; l’uso di letterali numerici non rimuove, di per sé, il workbook incorporato.
+I valori dei punti della serie possono anche essere memorizzati direttamente come letterali numerici. Vedi [Impostare i valori della serie usando letterali numerici](/slides/it/androidjava/chart-series/#set-series-values-using-numeric-literals) per un esempio completo che li salva e li legge. Il tipo di origine dei valori è separato dalla configurazione interna o esterna del workbook del grafico; l’uso di letterali numerici non rimuove, di per sé, il workbook incorporato.
 
-Questo esempio crea un grafico a colonne 3D con dati predefiniti e imposta due nomi di serie usando diverse origini dati. Il primo nome usa un letterale stringa; il secondo usa la cella C1 sul foglio 0. L’enumerazione [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/) seleziona l’origine per ciascun nome. L’esempio salva la presentazione con i nomi delle serie aggiornati.
+Questo esempio crea un grafico a colonne 3D con dati predefiniti e imposta due nomi di serie usando origini dati differenti. Il primo nome usa una stringa letterale; il secondo usa la cella C1 sul foglio 0. L’enumerazione [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/) seleziona l’origine per ciascun nome. L’esempio salva la presentazione con i nomi delle serie aggiornati.
 
 ```java
 import com.aspose.slides.*;
@@ -334,7 +386,7 @@ try {
 
 ## **Rilevare formati di workbook incorporati non supportati**
 
-Aspose.Slides non supporta il formato workbook Excel binario (.xlsb) che può essere incorporato in alcuni grafici. Puoi usare il metodo [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) su [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) insieme all’enumerazione [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/) per individuare formati non supportati e saltare quei grafici. Questo esempio ispeziona le forme nella prima diapositiva di una presentazione esistente, ignora le forme non grafiche e stampa un messaggio diagnostico per ciascun grafico con un workbook .xlsb incorporato.
+Aspose.Slides non supporta il formato di workbook Excel binario (.xlsb) che può essere incorporato in alcuni grafici. È possibile usare il metodo [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) su [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) insieme all’enumerazione [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/) per rilevare i formati non supportati e saltare quei grafici. Questo esempio esamina le forme sulla prima diapositiva di una presentazione esistente, ignora le forme non grafiche e stampa un messaggio diagnostico per ogni grafico con un workbook .xlsb incorporato.
 
 ```java
 import com.aspose.slides.*;
@@ -367,7 +419,7 @@ try {
 
 ## **Workbook esterno**
 
-Aspose.Slides supporta l’utilizzo di workbook esterni come fonte di dati per i grafici.
+Aspose.Slides supporta l’uso di workbook esterni come fonte dati per i grafici.
 
 ### **Creare un workbook esterno**
 
@@ -404,11 +456,11 @@ try {
 
 ### **Impostare un workbook esterno**
 
-Utilizzando il metodo [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), puoi assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso al workbook esterno (se quest’ultimo è stato spostato).
+Utilizzando il metodo [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), è possibile assegnare un workbook esterno a un grafico come origine dati. Questo metodo può anche essere usato per aggiornare il percorso del workbook esterno (se quest’ultimo è stato spostato).
 
-Sebbene non sia possibile modificare i dati nei workbook memorizzati in posizioni remote o risorse, è comunque possibile usarli come fonte di dati esterna. Se viene fornito un percorso relativo per un workbook esterno, viene convertito automaticamente in un percorso assoluto.
+Sebbene non sia possibile modificare i dati in workbook memorizzati in posizioni remote o risorse, è comunque possibile usarli come fonte dati esterna. Se viene fornito un percorso relativo per un workbook esterno, questo viene convertito automaticamente in un percorso assoluto.
 
-Questo esempio utilizza un workbook esterno il cui foglio chiamato `Sheet1` contiene un nome di serie in B1, nomi di categoria in A2:A4 e valori numerici in B2:B4. L’esempio crea un grafico a torta, collega il workbook e usa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) per mappare A1:B4 a una serie e tre categorie. Salva la presentazione con il grafico collegato.
+Questo esempio utilizza un workbook esterno il cui foglio denominato `Sheet1` contiene un nome di serie in B1, nomi di categoria in A2:A4 e valori numerici in B2:B4. L’esempio crea un grafico a torta, collega il workbook e usa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) per mappare A1:B4 a una serie e tre categorie. Salva la presentazione con il grafico collegato.
 
 ```java
 import com.aspose.slides.*;
@@ -434,8 +486,8 @@ try {
 
 Il parametro `updateChartData` di [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) controlla se il workbook viene caricato.
 
-* Quando `updateChartData` è `false`, viene aggiornato solo il percorso del workbook. I dati del grafico non vengono caricati né aggiornati dal workbook di destinazione, quindi il workbook può essere non disponibile.  
-* Quando `updateChartData` è `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
+* Quando `updateChartData` è `false`, viene aggiornato solo il percorso del workbook. I dati del grafico non vengono caricati né aggiornati dal workbook di destinazione, quindi il workbook può essere indisponibile.
+* Quando `updateChartData` è `true`, i dati del grafico sono aggiornati dal workbook di destinazione.
 
 L’esempio seguente assegna un URL segnaposto con `updateChartData` impostato su `false`. Mantiene i dati predefiniti del grafico a torta e salva la presentazione senza caricare il workbook non disponibile.
 
@@ -457,9 +509,9 @@ try {
 
 ### **Ottenere il percorso del workbook di origine dati esterno di un grafico**
 
-Per identificare il workbook collegato a un grafico, verifica se il grafico utilizza una fonte dati esterna e recupera il suo percorso.
+Per identificare il workbook collegato a un grafico, verifica se il grafico usa una fonte dati esterna e recupera il suo percorso.
 
-Questo esempio ispeziona la prima forma nella prima diapositiva di una presentazione con un workbook esterno collegato. Se è un grafico collegato a un workbook esterno, stampa [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) nella console. Poi salva una copia della presentazione.
+Questo esempio esamina la prima forma sulla prima diapositiva di una presentazione con un workbook esterno collegato. Se si tratta di un grafico collegato a un workbook esterno, stampa [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) sulla console. Poi salva una copia della presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -488,9 +540,9 @@ try {
 
 ### **Modificare i dati del grafico**
 
-Puoi modificare i dati nei workbook esterni allo stesso modo in cui apporti modifiche al contenuto dei workbook interni. Quando un workbook esterno non può essere caricato, viene lanciata un’eccezione.
+È possibile modificare i dati nei workbook esterni esattamente come si modificano i contenuti dei workbook interni. Quando un workbook esterno non può essere caricato, viene sollevata un’eccezione.
 
-Questo esempio utilizza un grafico che è la prima forma nella prima diapositiva e collegato a un workbook esterno accessibile. Imposta il valore basato su cella del primo punto dati della prima serie a 100 e salva la presentazione aggiornata. La modifica dei valori delle celle può aggiornare il file XLSX esterno collegato, quindi usa una copia se devi preservare il workbook originale.
+Questo esempio utilizza un grafico che è la prima forma sulla prima diapositiva e è collegato a un workbook esterno accessibile. Imposta il valore basato su cella del primo punto dati della prima serie a 100 e salva la presentazione aggiornata. Modificare i valori delle celle può aggiornare il file XLSX esterno collegato, quindi usa una copia se devi conservare il workbook originale.
 
 ```java
 import com.aspose.slides.*;
@@ -524,9 +576,9 @@ try {
 
 ### **Recuperare un workbook dalla cache del grafico**
 
-Se un grafico utilizza un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella cache della presentazione. Crea [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/), chiama [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), e imposta [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) su `true` prima di aprire la presentazione.
+Se un grafico usa un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella cache della presentazione. Crea un [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/), chiama [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), e imposta [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) su `true` prima di aprire la presentazione.
 
-Il seguente esempio Java recupera i dati del workbook per un grafico che è la prima forma nella prima diapositiva e fa riferimento a un workbook esterno non disponibile. Accede ai dati recuperati tramite [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) e [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Il seguente esempio Java recupera i dati del workbook per un grafico che è la prima forma sulla prima diapositiva e fa riferimento a un workbook esterno non disponibile. Accede ai dati recuperati tramite [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) e [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -555,30 +607,30 @@ try {
 }
 ```
 
-Se il workbook esterno non è disponibile e il recupero è disabilitato, Aspose.Slides lancia un’eccezione. Abilita il recupero solo quando l’uso dei dati della cache del grafico è un’alternativa accettabile, poiché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l’ultimo aggiornamento della presentazione.
+Se il workbook esterno è indisponibile e il recupero è disabilitato, Aspose.Slides genera un’eccezione. Abilita il recupero solo quando l’utilizzo dei dati del grafico in cache è una soluzione accettabile, poiché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l’ultimo aggiornamento della presentazione.
 
 ## **FAQ**
 
 **Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
 
-Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) e un [percorso a un workbook esterno](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se l’origine è un workbook esterno, puoi leggere il percorso completo per verificare che sia stato usato un file esterno.
+Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) e un [percorso a un workbook esterno](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); se l’origine è un workbook esterno, è possibile leggere il percorso completo per verificare che sia stato utilizzato un file esterno.
 
-**Sono supportati i percorsi relativi ai workbook esterni e come vengono memorizzati?**
+**Sono supportati percorsi relativi a workbook esterni e come vengono memorizzati?**
 
-Sì. Se specifichi un percorso relativo, questo viene automaticamente convertito in un percorso assoluto. La presentazione memorizza il percorso assoluto nel file PPTX, quindi spostare il workbook potrebbe richiedere l’aggiornamento del collegamento.
+Sì. Se specifichi un percorso relativo, questo viene convertito automaticamente in un percorso assoluto. La presentazione memorizza il percorso assoluto nel file PPTX, quindi lo spostamento del workbook potrebbe richiedere l’aggiornamento del collegamento.
 
 **Posso usare workbook situati su risorse di rete/condivisioni?**
 
-Sì, tali workbook possono essere usati come fonte di dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata—possono essere usati solo come fonte.
+Sì, tali workbook possono essere usati come fonte dati esterna. Tuttavia, la modifica di workbook remoti direttamente da Aspose.Slides non è supportata: possono solo essere usati come sorgente.
 
-**Aspose.Slides sovrascrive l’XLSX esterno quando salva la presentazione?**
+**Aspose.Slides sovrascrive l’XLSX esterno durante il salvataggio della presentazione?**
 
-La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Modificare i dati del grafico basati su cella può anche aggiornare il file XLSX locale collegato. Usa una copia del workbook se l’originale deve rimanere invariato.
+La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Modificare i dati del grafico basati su celle può aggiornare anche il file XLSX locale collegato. Usa una copia del workbook se l’originale deve rimanere invariato.
 
-** Cosa devo fare se il file esterno è protetto da password?**
+**Cosa fare se il file esterno è protetto da password?**
 
-Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e collegarsi a quella copia.
+Aspose.Slides non accetta una password quando crea il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e collegarsi a quella copia.
 
-**Possono più grafici fare riferimento allo stesso workbook esterno?**
+**Più grafici possono fare riferimento allo stesso workbook esterno?**
 
 Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l’aggiornamento di quel file sarà riflesso in ciascun grafico al successivo caricamento dei dati.

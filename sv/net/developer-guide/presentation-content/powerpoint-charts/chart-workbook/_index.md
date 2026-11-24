@@ -1,50 +1,50 @@
 ---
-title: Hantera diagramarbetsböcker i presentationer i .NET
-linktitle: Diagramarbetsbok
+title: Hantera diagramarböcker i presentationer i .NET
+linktitle: Diagramarbok
 type: docs
 weight: 70
 url: /sv/net/chart-workbook/
 keywords:
-- diagramarbetsbok
+- diagramarbok
 - diagramdata
 - arbetsbokscell
-- datamärkning
-- arbetsblad
+- datapetikett
+- kalkylblad
 - datakälla
 - extern arbetsbok
 - extern data
 - diagramcache
-- arbetsboksåterställning
+- återställning av arbetsbok
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för .NET: hantera enkelt diagramarbetsböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för .NET: hantera diagramarböcker i PowerPoint- och OpenDocument-format enkelt för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboks‑celler som diagramdatamärkningar, får åtkomst till arbetsblads‑samlingar och anger datakälltyp för diagramvärden.
+Den här artikeln förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatapetiketter, får åtkomst till kalkylblads samlingar och specificerar datakälltyp för diagramvärden.
 
-Den täcker också arbete med externa arbetsböcker som diagramdatakällor. Exemplen visar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den täcker även arbete med externa arbetsböcker som diagramdatakällor. Exemplen visar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboks‑celler som representerar saknad data, se [Styr visning av tomma celler](/slides/sv/net/chart-series/) för skillnaden mellan en tom cell och noll samt en linjediagrams‑jämförelse av de tillgängliga visningslägena.
+För arbetsboksceller som representerar saknad data, se [Control the Display of Empty Cells](/slides/sv/net/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
 
 ## **Inkludera data från dolda rader och kolumner**
 
-Använd [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) för att styra huruvida ett diagram ritar data från dolda arbetsbladsrader och -kolumner. Sätt värdet till `true` för att rita endast synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagrammets plotning; den döljer eller visar inte arbetsbladsrader eller -kolumner.
+Använd [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) för att styra om ett diagram plottar data från dolda kalkylbladsrader och -kolumner. Sätt den till `true` för att bara plotta synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagrammets plottning; den döljer eller visar inte rader eller kolumner i kalkylbladet.
 
-[Exempel‑presentationen](hidden-source-data.pptx) innehåller ett stapeldiagram som det första objektet på den första bilden. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+[Exempelpresentationen](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första bilden. Det inbäddade kalkylbladet, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
 
 | Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Grossist (dold kolumn) |
 | --- | --- | --- | --- |
-| 2 | Januari | 10 | 30 |
-| 3 (dold rad) | Februari | 40 | 60 |
-| 4 | Mars | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Få åtkomst till källceller via [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) och läs [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) för att kontrollera deras dolda status. Denna egenskap är skrivskyddad. I detta exempel är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
+Få åtkomst till källceller via [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) och läs [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) för att undersöka deras dolda status. Denna egenskap är skrivskyddad. I detta exempel är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
 
-För detta exempel, uppdatera diagramdata efter att plotningsinställningen ändrats: behåll den inbäddade arbetsboken med [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) och läs in den igen med [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). När alla celler inkluderas, använd också [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att återställa hela intervallet, inklusive den dolda februari‑kategorin. Att bara ändra flaggan är otillräckligt för att uppdatera detta exempel‑cachas diagramdata och kategorimärkningar.
+För detta exempel, uppdatera diagramdata efter att ha ändrat plottningsinställningen: behåll den inbäddade arbetsboken med [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) och läs in den igen med [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). När alla celler inkluderas, använd också [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att återställa det fullständiga intervallet, inklusive den dolda februari‑kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempels cachade diagramdata och kategori‑etiketter.
 
 ```csharp
 using System;
@@ -72,7 +72,7 @@ if (slide.Shapes[0] is IChart chart)
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Återställ det kompletta källintervallet, inklusive dolda kategorier.
+            // Återställ hela källintervallet, inklusive dolda kategorier.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,21 +85,21 @@ else
 }
 ```
 
-Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en med alla sex värden. Bilderna nedanför renderades från de sparade presentationerna efter att de öppnats igen; båda filerna bevarar sin tilldelade plotningsinställning. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en med alla sex värden. Bilderna nedan renderades från de sparade presentationerna efter att de öppnats igen; båda filerna behåller sin tilldelade plottningsinställning. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
 
 | Endast synliga celler (`true`) | Alla celler (`false`) |
 | --- | --- |
-| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för januari och mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandels‑ och grossistvärden för januari, februari och mars.](hidden_cells_False.png) |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för January och March.](hidden_cells_True.png) | ![Alla celler: Detaljhandel- och grossistvärden för January, February och March.](hidden_cells_False.png) |
 
-En dold cell som innehåller ett värde skiljer sig från en tom cell. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Styr visning av tomma celler](/slides/sv/net/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+En dold cell som innehåller ett värde är annorlunda än en tom cell. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Control the Display of Empty Cells](/slides/sv/net/chart-series/#control-the-display-of-empty-cells) för ett exempel.
 
-## **Hämta ett diagram‑dataintervall**
+## **Hämta ett diagrammas dataintervall**
 
-Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källintervallen för att identifiera vilka arbetsblads‑celler varje diagram använder. Metoden [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) returnerar det aktuella dataintervallet som en arbetsblads‑kvalificerad formel, exempelvis `Sheet1!$A$1:$D$5`. Här är `Sheet1` arbetsbladsnamnet, `!` separerar det från cellintervallet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusive. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
+Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källintervallen för att identifiera vilka kalkylblads‑celler varje diagram använder. Metoden [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) returnerar det aktuella dataintervallet som en kalkylblads‑kvalificerad formel, till exempel `Sheet1!$A$1:$D$5`. Här är `Sheet1` kalkylbladsnamnet, `!` separerar det från cellintervallet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusivt. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
 
-Metoden läser det aktuella intervallet utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla kastas ett [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). För mer information, se [ChartData API‑referens](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+Metoden läser det aktuella intervallet utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla, kastas ett [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). För mer information, se [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
-Detta exempel öppnar en presentation och kontrollerar formerna på varje bild för diagram. Det skriver ut varje diagrams namn och källintervall. Om ett diagram inte använder en arbetsbok, skriver det ett meddelande och fortsätter till nästa diagram.
+Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagramnamn och källintervall. Om ett diagram inte använder en arbetsbok, skriver det ett meddelande och fortsätter till nästa diagram.
 
 ```csharp
 using System;
@@ -130,7 +130,7 @@ foreach (var slide in presentation.Slides)
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
 
-Aspose.Slides for .NET tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Observera** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
+Aspose.Slides for .NET tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramdatabok (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en liknande struktur som källan.
 
 Detta exempel använder en presentation med ett diagram som den första formen på den första bilden. Det läser den inbäddade arbetsboken till en ström, rensar befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna finns kvar i minnet; exemplet sparar inte presentationen.
 
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **Validera diagramlayout efter arbetsboksmodifiering**
+### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna mismatch kan leda till att [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka originalarbetsboken och validerar layouten i minnet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategori‑samlingar. Detta kan leda till att [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```csharp
 using System;
@@ -193,15 +193,71 @@ else
 }
 ```
 
-Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Återskapa eventuella nödvändiga serie‑ och kategorikartor för den uppdaterade arbetsboken innan du använder diagrammet.
+Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Återskapa eventuella nödvändiga serie‑ och kategori­mappningar för den uppdaterade arbetsboken innan du använder diagrammet.
+
+## **Välj hur kategorietiketter lagras**
+
+Ställ in [IChartCategoryCollection.UseCells](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorycollection/usecells/) på den tomma kategori‑samlingen innan du lägger till etiketter. Använd kalkylblads‑celler för etiketter som hänvisar till arbetsboksdata eller bildar en hierarki, till exempel kvartal grupperade per år. Använd sträng‑litteraler för en enda nivå av etiketter som inte behöver cell‑referenser. Denna inställning gäller endast kategorier. Båda diagrammen nedan använder kalkylblads‑celler för de numeriska serie‑värdena.
+
+Exemplet skapar två stapeldiagram och skriver ut `Q1 Q2 Q3 Q4` för varje, tillsammans med dess lagringsläge. För kalkylblads‑stödda etiketter ger [IChartCategory.AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/ascell/) åtkomst till den underliggande cellen och [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) returnerar dess etikett. För litterala etiketter läses strängen direkt från [IChartCategory.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/value/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+foreach (var useCells in new[] { true, false })
+{
+    var x = useCells ? 20 : 360;
+    var chart = shapes.AddChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+    var data = chart.ChartData;
+    data.Series.Clear();
+    data.Categories.Clear();
+    data.Categories.UseCells = useCells;
+
+    var workbook = data.ChartDataWorkbook;
+    var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+    var series = data.Series.Add(seriesName, chart.Type);
+    for (var row = 1; row <= 4; row++)
+    {
+        var label = $"Q{row}";
+        if (useCells)
+        {
+            var labelCell = workbook.GetCell(0, row, 0, label);
+            data.Categories.Add(labelCell);
+        }
+        else
+        {
+            data.Categories.Add(label);
+        }
+
+        var valueCell = workbook.GetCell(0, row, 1, row * 10);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    Console.Write($"UseCells = {data.Categories.UseCells}:");
+    foreach (var category in data.Categories)
+    {
+        var label = data.Categories.UseCells ? category.AsCell.Value : category.Value;
+        Console.Write($" {label}");
+    }
+    Console.WriteLine();
+}
+
+presentation.Save("category-labels.pptx", SaveFormat.Pptx);
+```
 
 ## **Ange anpassade talformat för arbetsboks‑celler**
 
-Använd [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) för att styra hur numeriska värden visas i ett diagram‑inbäddat arbetsblad. Till exempel kan en rapport behöva en konverteringsgrad visas som procent med fyra decimaler och en koefficient med fem decimaler. Håll båda värdena numeriska så att de förblir tillgängliga för beräkningar och diagramplotning.
+Använd [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) för att styra hur numeriska värden visas i ett diagram‑inbäddat arbetsblad. Till exempel kan en rapport behöva en omräkningsfrekvens visad som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena numeriska så de förblir tillgängliga för beräkningar och diagramplottning.
 
-Ett talformat ändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) istället.
+Ett talformat ändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att runda av det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) istället.
 
-Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). På arbetsblad 0 innehåller B2 konverteringsgraden och C2 koefficienten. Båda cellerna levererar diagramvärden. Exemplet aktiverar också värdemärkningar länkade till källformaten.
+Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). På kalkylblad 0 innehåller B2 omräkningsfrekvensen och C2 koefficienten. Båda cellerna levererar diagramvärden. Exemplet aktiverar också värdeetiketter länkade till källformaten.
 
 ```csharp
 using Aspose.Slides;
@@ -251,19 +307,19 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-Arbetsboks‑cellformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje märkning värdet från sin källcell eftersom [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) är aktiverat, och följer källans talformat eftersom [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) är `true`. Efter att presentationen sparats och öppnats igen visar märknings‑etterna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00`, med [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) satt till `false`.
+Arbetsboks‑cellformat är separata från format som sätts direkt på diagramaxlar eller datalabels. I detta exempel visar varje etikett sitt källcellsvärde eftersom [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) är aktiverat, och följer källans talformat eftersom [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) är `true`. Efter att presentationen sparats och öppnats igen visar etiketterna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00`, med [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) satt till `false`.
 
-För att formatera en datamärkning oberoende, sätt dess käll‑länk‑flagga till `false` och tilldela dess [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett oberoende märkningformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Diagramdatamärkningar](/slides/sv/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt märkning‑formatering.
+För att formatera en datalabel oberoende, sätt dess käll‑länk‑flagga till `false` och tilldela dess [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett oberoende etiketformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Chart Data Labels](/slides/sv/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt etikettformatering.
 
-Bilden nedanför renderades från den sparade presentationen efter att den öppnats igen:
+Bilden nedan renderades från den sparade presentationen efter att den öppnats igen:
 
-![Kolumndiagram med källkopplade etiketter som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
+![Stapeldiagram med käll‑länkade etiketter som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
 
-## **Ange en arbetsboks‑cell som diagramdatamärkning**
+## **Ange en arbetsboks‑cell som diagramdatapetikett**
 
-Du kan använda text från arbetsboks‑celler som diagramdatamärkningar.
+Du kan använda text från arbetsboks‑celler som diagramdatapetiketter.
 
-Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på arbetsblad 0 för de tre första märkningarna i den första serien, aktiverar märkningar från celler och sparar den uppdaterade presentationen.
+Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på kalkylblad 0 för de tre första etiketterna i den första serien, aktiverar etiketter från celler och sparar den uppdaterade presentationen.
 
 ```csharp
 using Aspose.Slides;
@@ -285,9 +341,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **Hantera arbetsblad**
+## **Hantera kalkylblad**
 
-Egenskapen [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) ger åtkomst till arbetsbladen i ett diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje arbetsbladsnamn till konsolen.
+[Egenskapen IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) ger åtkomst till kalkylbladen i ett diagramarbetsbok. Detta exempel skapar ett pajdiagram med standarddata och skriver ut varje kalkylblads namn till konsolen.
 
 ```csharp
 using System;
@@ -306,11 +362,11 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 }
 ```
 
-## **Ange datakälltyp**
+## **Specificera datakälltyp**
 
-Punktvärden för serier kan också lagras direkt som numeriska literaler. Se [Ange serievärden med numeriska literaler](/slides/sv/net/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Datakälltypen för punktvärden är separat från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska literaler tar i sig självt inte bort den inbäddade arbetsboken.
+Punktvärden i serier kan också lagras direkt som numeriska litteraler. Se [Set Series Values Using Numeric Literals](/slides/sv/net/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Datakälltypen för punktvärden är separat från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska litteraler tar i sig självt inte bort den inbäddade arbetsboken.
 
-Detta exempel skapar ett 3D‑stapeldiagram med standarddata och anger två serienamn med olika datakällor. Det första namnet använder en sträng‑literal; det andra använder cell C1 på arbetsblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
+Detta exempel skapar ett 3D-stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en sträng‑litteral; det andra använder cell C1 på kalkylblad 0. Enumerationen [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
 
 ```csharp
 using Aspose.Slides;
@@ -334,9 +390,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Detektera ej‑stödda inbäddade arbetsboksformat**
+## **Detektera ej stödda inbäddade arbetsboksformat**
 
-Aspose.Slides stöder inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda egenskapen [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) på [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) för att upptäcka ej‑stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
+Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda egenskapen [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) på [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) tillsammans med enumerationen [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) för att detektera ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över former som inte är diagram, och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```csharp
 using System;
@@ -363,19 +419,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-        // Läs eller ändra stödd diagramarbetsboksdata här.
+    // Läs eller ändra stödde diagramarbetsboksdata här.
 }
 ```
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stöder att använda externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
 
 ### **Skapa en extern arbetsbok**
 
 Använd [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) och [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
-Detta exempel skapar ett cirkeldiagram med standarddata och exporterar dess arbetsbok. Det stänger utdata‑strömmen innan den externa arbetsboken tilldelas som diagrammets datakälla, och sparar sedan den länkade presentationen.
+Detta exempel skapar ett pajdiagram med standarddata och exporterar dess arbetsbok. Det stänger utdata‑strömmen innan den tilldelar den externa arbetsboken som diagrammets datakälla, och sparar sedan den länkade presentationen.
 
 ```csharp
 using System.IO;
@@ -399,13 +455,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **Ange en extern arbetsbok**
+### **Ställ in en extern arbetsbok**
 
-Genom att använda metoden [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan även användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrresurser, kan du fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du ändå använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls, konverteras den automatiskt till en fullständig sökväg.
 
-Detta exempel använder en extern arbetsbok där arbetsbladet `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att mappa A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
+Detta exempel använder en extern arbetsbok vars kalkylblad `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett pajdiagram, länkar arbetsboken, och använder [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att mappa A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
 
 ```csharp
 using System.IO;
@@ -426,12 +482,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-Parametern `updateChartData` för [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) styr huruvida arbetsboken laddas.
+Parametern `updateChartData` för [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) styr om arbetsboken laddas.
 
-* När `updateChartData` är `false`, uppdateras endast arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `false`, uppdateras bara arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
 * När `updateChartData` är `true`, uppdateras diagramdata från mål‑arbetsboken.
 
-Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
+Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller pajdiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
 
 ```csharp
 using Aspose.Slides;
@@ -447,11 +503,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Hämta den externa datakällans arbetsbokssökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboks‑sökväg för ett diagram**
 
-För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsbokssökväg.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboks‑sökväg.
 
-Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram som är länkat till en extern arbetsbok, skriver exemplet ut [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) till konsolen. Det sparar sedan en kopia av presentationen.
+Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram länkat till en extern arbetsbok, skriver exemplet ut [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) till konsolen. Det sparar sedan en kopia av presentationen.
 
 ```csharp
 using System;
@@ -485,9 +541,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas, kastas ett undantag.
 
-Detta exempel använder ett diagram som är den första formen på den första bilden och som är länkat till en åtkomlig extern arbetsbok. Det sätter cell‑baserat värde för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Redigering av cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara original‑arbetsboken.
+Detta exempel använder ett diagram som är den första formen på den första bilden och är länkat till en åtkomlig extern arbetsbok. Det sätter det cell‑stödda värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara original‑arbetsboken.
 
 ```csharp
 using System;
@@ -526,11 +582,105 @@ else
 }
 ```
 
-### **Återskapa en arbetsbok från diagram‑cachen**
+## **Uppdatera diagramdata från källarbetsböcker**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarboken från de data som cachas i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), konfigurera dess [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), och sätt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) till `true` innan du öppnar presentationen.
+Aspose.Slides for .NET 26.11 lägger till [IChartData.RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) för ett diagram och [IPresentation.RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) för presentationen. Använd dem efter att källarbetsbokens värden har ändrats. Externa arbetsböcker måste vara åtkomliga och stödda.
 
-Följande C#‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar en otillgänglig extern arbetsbok. Det får åtkomst till den återställda data via [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) och [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Med [Aspose.Slides for .NET](/slides/sv/net/installation/) 26.11 eller senare installerat, uppdaterar detta exempel det första diagrammet på den första bilden i `charts.pptx`. Dess källarbok måste vara tillgänglig. Spara resultatet för att behålla de uppdaterade diagramdata.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+var chart = presentation.Slides[0].Shapes.OfType<IChart>().FirstOrDefault();
+if (chart == null)
+{
+    Console.WriteLine("The first slide must contain a chart.");
+    return;
+}
+
+chart.ChartData.RefreshData();
+presentation.Save("refreshed-chart.pptx", SaveFormat.Pptx);
+```
+
+För att uppdatera alla diagram, använd en separat presentations‑instans enligt följande. Att skicka `false` gör att ett uppdateringsfel propageras till anroparen; det återställer inte diagram som redan har uppdaterats.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("charts.pptx");
+presentation.RefreshChartsData(skipFailedCharts: false);
+presentation.Save("refreshed-charts.pptx", SaveFormat.Pptx);
+```
+
+Parametern har standardvärdet `true`: [RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) hoppar över ett misslyckat diagram och fortsätter med övriga. Den returnerar inga per‑diagram‑resultat, så ett slutfört anrop bevisar inte att varje diagram uppdaterades. Använd individuella [RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/)‑anrop om du behöver identifiera varje felande diagram.
+
+Uppdatering laddar om källdata. Den är separat från formelberäkning, diagramlayout‑validering och uppdatering av en OLE‑förhandsgranskning. Inspektera live‑cell‑stödda värden för att kontrollera en uppdatering i minnet. Ett [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) kan fortfarande beskriva det tidigare sparade diagrammet tills du sparar och öppnar presentationen igen.
+
+### **Läsa cachade diagramvärden utan en arbetsbok**
+
+I .NET 26.11 läser cachade‑värdes‑accessorer värdena som lagras med diagrammet utan att öppna dess arbetsbok. De är användbara när den länkade filen är otillgänglig och du bara behöver diagrammets senast lagrade data. Detta skiljer sig från att återskapa en arbetsbok med återställnings‑alternativet nedan.
+
+| Objekt | Cachad accessor |
+| --- | --- |
+| Vanlig serie‑datapunkt | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) |
+| Spridnings‑ eller bubbeldatapunkt | [CachedXValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedxvalue/), [CachedYValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedyvalue/) |
+| Bubbl‑datapunkt | [CachedBubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedbubblesize/) |
+| Diagramkategori | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/cachedvalue/) |
+
+Varje accessor returnerar ett [ICachedChartValue](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/). [Data](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/data/) exponerar det lagrade objektet; [ToString](https://reference.aspose.com/slides/net/aspose.slides.charts/cachedchartvalue/tostring/) ger text; [ToDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/todouble/) returnerar `NaN` för ett frånvarande eller icke‑numeriskt värde. En cache kan saknas eller vara föråldrad, även i ett nyss skapat diagram som ännu inte sparats. Anta inte att varje fält finns eller innehåller ett tal.
+
+Detta exempel läser alla dessa fält från `cached-chart.pptx`, en sparad presentation som innehåller diagram. En missing extern arbetsbok är acceptabel eftersom koden inte använder [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) eller levande arbetsboks‑celler.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("cached-chart.pptx");
+foreach (var slide in presentation.Slides)
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IChart chart)
+        continue;
+
+    foreach (var category in chart.ChartData.Categories)
+        PrintCache("Category", category.CachedValue);
+
+    foreach (var series in chart.ChartData.Series)
+    foreach (var point in series.DataPoints)
+    {
+        PrintCache("Value", point.CachedValue);
+        PrintCache("X", point.CachedXValue);
+        PrintCache("Y", point.CachedYValue);
+        PrintCache("Bubble size", point.CachedBubbleSize);
+    }
+}
+
+static void PrintCache(string name, ICachedChartValue value)
+{
+    var number = value.ToDouble();
+    if (value.Data == null)
+        Console.WriteLine($"{name}: no cached value");
+    else if (double.IsNaN(number))
+        Console.WriteLine($"{name}: {value} (not numeric)");
+    else
+        Console.WriteLine($"{name}: {number}");
+}
+```
+
+Använd uppdatering när du behöver aktuell källdata; använd cachade läsningar när det lagrade ögonblicksbilden räcker. Cachen är inte en fullständig kopia av arbetsboken och kan inte leverera ändringar som gjorts efter den senast uppdaterades.
+
+### **Återställ en arbetsbok från diagramcachen**
+
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarbetsboken från de data som cachas i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), konfigurera dess [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), och sätt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) till `true` innan du öppnar presentationen.
+
+Följande C#‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar till en otillgänglig extern arbetsbok. Det får åtkomst till den återställda datan via [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) och [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -554,7 +704,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // Läs eller ändra de återställda arbetsboksdata här.
+    // Läs eller ändra den återställda arbetsboksdata här.
 }
 else
 {
@@ -562,30 +712,30 @@ else
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om koden försöker åtkomma den externa arbetsboken medan den är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Aktivera återställning endast när användning av den cachade diagramdatan är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
 ## **FAQ**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); om källan är en extern arbetsbok kan du läsa hela sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) och en [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så om arbetsboken flyttas kan länken behöva uppdateras.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så en flytt av arbetsboken kan kräva en uppdatering av länken.
 
 **Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som extern datakälla. Däremot stöds inte redigering av fjärrarbetsböcker direkt från Aspose.Slides – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
-**Skriver Aspose.Slides över den externa XLSX‑filen vid sparning av presentationen?**
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Att redigera cell‑baserad diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
+Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Att redigera cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
-**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+**Vad bör jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord när en länk skapas. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/net/)) och länka till den kopian.
+Aspose.Slides accepterar inget lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/net/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil, kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.

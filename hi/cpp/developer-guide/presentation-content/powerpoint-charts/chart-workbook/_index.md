@@ -15,35 +15,35 @@ keywords:
 - बाहरी डेटा
 - चार्ट कैश
 - वर्कबुक पुनर्प्राप्ति
-- PowerPoint
+- पॉवरपॉइंट
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ की खोज करें: PowerPoint और OpenDocument स्वरूपों में चार्ट वर्कबुक को सहजता से प्रबंधित करें, ताकि आपकी प्रस्तुति डेटा को सुव्यवस्थित किया जा सके।"
+description: "Aspose.Slides for C++ की खोज करें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को आसानी से प्रबंधित करें और अपनी प्रस्तुति डेटा को सुव्यवस्थित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक कोशिकाओं को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रह तक पहुंचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार निर्दिष्ट करें।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीकों को समझाता है। यह दर्शाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में कैसे उपयोग करें, वर्कशीट संग्रहों तक पहुँचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्दिष्ट करें।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी शामिल करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक कैसे बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ कैसे प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को कैसे संपादित करें।
+यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक को कैसे बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ कैसे प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को कैसे संपादित करें।
 
-गुम डेटा का प्रतिनिधित्व करने वाली वर्कबुक कोशिकाओं के लिए, एक खाली कोशिका और शून्य के बीच अंतर तथा उपलब्ध प्रदर्शन मोड की लाइन-चार्ट तुलना के लिए देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/cpp/chart-series/)।
+गुम डेटा का प्रतिनिधित्व करने वाले वर्कबुक सेल्स के लिए, खाली सेल और शून्य के बीच अंतर के लिए [खाली सेल के प्रदर्शन को नियंत्रित करें](/slides/hi/cpp/chart-series/) देखें, साथ ही उपलब्ध प्रदर्शन मोड के लाइन‑चार्ट तुलना देखें।
 
-## **छिपी हुई पंक्तियों और कॉलम से डेटा शामिल करें**
+## **छुपी हुई पंक्तियों और स्तंभों से डेटा शामिल करें**
 
-Use [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) का उपयोग करके नियंत्रित करें कि क्या चार्ट छिपी हुई वर्कशीट पंक्तियों और कॉलम के डेटा को प्लॉट करता है। इसे `true` सेट करने से केवल दृश्यमान कोशिकाएँ प्लॉट होती हैं, या `false` सेट करने से दृश्यमान और छिपी हुई दोनों कोशिकाएँ शामिल होती हैं। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या कॉलम को छुपाती या दिखाती नहीं है।
+छुपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा प्लॉट करने को नियंत्रित करने के लिए [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) का उपयोग करें। केवल दृश्यमान सेल्स को प्लॉट करने के लिए इसे `true` सेट करें, या दृश्यमान और छुपी दोनों सेल्स को शामिल करने के लिए `false` सेट करें। यह सेटिंग केवल चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छुपाने या दिखाने का कार्य नहीं करती।
 
-[नमूना प्रस्तुति](hidden-source-data.pptx) में पहली स्लाइड की पहली आकृति के रूप में एक कॉलम चार्ट है। एंबेडेड वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज `A1:C4` है। पंक्ति 3 और कॉलम C छिपे हुए हैं, लेकिन उनकी कोशिकाओं में अभी भी मान हैं।
+[sample presentation](hidden-source-data.pptx) में पहली स्लाइड पर पहला आकार एक कॉलम चार्ट है। एम्बेडेड वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज, `A1:C4` मौजूद है। पंक्ति 3 और स्तंभ C छुपे हुए हैं, लेकिन उनके सेल अभी भी मान रखते हैं।
 
-| वर्कशीट पंक्ति | A: माह | B: खुदरा | C: थोक (छिपा कॉलम) |
+| कार्यपत्रक पंक्ति | A: महीना | B: रिटेल | C: थोक (छुपा स्तंभ) |
 | --- | --- | --- | --- |
 | 2 | जनवरी | 10 | 30 |
-| 3 (छिपी पंक्ति) | फ़रवरी | 40 | 60 |
+| 3 (छुपी हुई पंक्ति) | फरवरी | 40 | 60 |
 | 4 | मार्च | 20 | 50 |
 
-Access source cells through [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) और [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) पढ़ें ताकि उनकी छिपी स्थिति का निरीक्षण कर सकें। यह प्रॉपर्टी केवल पढ़ने योग्य है। इस फ़ाइल में, B2 दृश्यमान है, B3 छिपी पंक्ति से संबंधित है, और C2 छिपे कॉलम से संबंधित है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
+स्रोत सेल्स तक पहुँचने के लिए [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) का उपयोग करें और उनके छुपे होने की स्थिति की जाँच करने के लिए [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) पढ़ें। यह प्रॉपर्टी केवल‑पढ़ने योग्य है। इस फ़ाइल में, B2 दृश्यमान है, B3 छुपी पंक्ति से संबंधित है, और C2 छुपे स्तंभ से संबंधित है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
 
-For this example, refresh the chart data after changing the plotting setting: retain the embedded workbook with [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) and reload it with [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). When including all cells, also use [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) to restore the complete range, including the hidden February category. Simply changing the flag is insufficient to refresh this sample's cached chart data and category labels.
+इस उदाहरण के लिए, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रीफ्रेश करें: एम्बेडेड वर्कबुक को [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) से रखें और इसे [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) से दोबारा लोड करें। सभी सेल्स को शामिल करने पर, छुपी फ़रवरी श्रेणी को पुनर्स्थापित करने के लिए [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) भी उपयोग करें। केवल फ़्लैग बदलना इस नमूने के कैश्ड चार्ट डेटा और श्रेणी लेबल को रीफ़्रेश करने के लिए अपर्याप्त है।
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -79,12 +79,12 @@ if (chart != nullptr)
     {
         chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-        // एंबेडेड वर्कबुक से चार्ट डेटा को रीफ़्रेश करें।
+        // एम्बेडेड वर्कबुक से चार्ट डेटा रीफ़्रेश करें।
         workbookStream->set_Position(0);
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // छिपी श्रेणियों सहित संपूर्ण स्रोत रेंज को पुनर्स्थापित करें।
+            // छुपी श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
             chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
         }
 
@@ -98,21 +98,21 @@ else
 }
 ```
 
-The example saves two versions of the presentation: one with only the visible Retail values (10 and 20), and another with all six values. The images below illustrate the two plotting modes. Row 3 and column C remain hidden in both embedded workbooks.
+उदाहरण दो संस्करणों में प्रस्तुति को सहेजता है: एक जिसमें केवल दृश्यमान रिटेल मान (10 और 20) हैं, और दूसरा जिसमें सभी छह मान हैं। नीचे की छवियाँ दो प्लॉटिंग मोड को दर्शाती हैं। पंक्ति 3 और स्तंभ C दोनों एम्बेडेड वर्कबुक में छुपे रहते हैं।
 
-| केवल दृश्यमान कोशिकाएँ (`true`) | सभी कोशिकाएँ (`false`) |
+| केवल दृश्यमान सेल्स (`true`) | सभी सेल्स (`false`) |
 | --- | --- |
-| ![केवल दृश्यमान कोशिकाएँ: जनवरी और मार्च के लिए खुदरा मान 10 और 20।](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फ़रवरी और मार्च के लिए खुदरा और थोक मान।](hidden_cells_False.png) |
+| ![केवल दृश्यमान सेल्स: जनवरी और मार्च के लिए रिटेल मान 10 और 20.](hidden_cells_True.png) | ![सभी सेल्स: जनवरी, फरवरी, और मार्च के लिए रिटेल और थोक मान.](hidden_cells_False.png) |
 
-A hidden cell containing a value is different from an empty cell. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) controls how missing values are displayed; it does not include or exclude hidden source data. See [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/cpp/chart-series/#control-the-display-of-empty-cells) for an example.
+एक मान वाले छुपे सेल का व्यवहार खाली सेल से अलग होता है। [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) नियंत्रित करता है कि अनुपस्थित मान कैसे दिखाए जाएँ; यह छुपे स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिए देखें [खाली सेल के प्रदर्शन को नियंत्रित करें](/slides/hi/cpp/chart-series/#control-the-display-of-empty-cells)।
 
-## **चार्ट की डेटा रेंज प्राप्त करें**
+## **चार्ट के डेटा रेंज को प्राप्त करें**
 
-Before updating workbook data in an existing presentation, inspect the source ranges to identify which worksheet cells each chart uses. The [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) method returns the current data range as a worksheet-qualified formula, such as `Sheet1!$A$1:$D$5`. Here, `Sheet1` is the worksheet name, `!` separates it from the cell range, and `$A$1:$D$5` identifies cells A1 through D5, inclusive. The dollar signs indicate absolute row and column references.
+किसी मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंज को देखें ताकि यह पहचान सकें कि प्रत्येक चार्ट कौन सी वर्कशीट सेल्स का उपयोग करता है। [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) मेथड वर्तमान डेटा रेंज को एक वर्कशीट‑योग्य फ़ॉर्मूला के रूप में लौटाता है, जैसे `Sheet1!$A$1:$D$5`। यहाँ `Sheet1` वर्कशीट का नाम है, `!` इसे सेल रेंज से अलग करता है, और `$A$1:$D$5` सेल्स A1 से D5 तक को दर्शाता है, दोनों के साथ। डॉलर चिन्ह निरपेक्ष पंक्ति और स्तंभ संदर्भ को दर्शाते हैं।
 
-The method reads the current range without changing the chart or its workbook. If the chart does not use a workbook as its data source, it throws [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). For more information, see the [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+यह मेथड किसी बदलाव के बिना वर्तमान रेंज को पढ़ता है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता, तो यह [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) फेंकता है। अधिक जानकारी के लिए देखें [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/)।
 
-This example opens a presentation and checks the shapes directly on each slide for charts. It prints each chart's name and source range. If a chart does not use a workbook, it prints a message and continues to the next chart.
+यह उदाहरण एक प्रस्तुति को खोलता है और प्रत्येक स्लाइड पर सीधे शैप्स की जाँच करता है ताकि चार्ट मिलें। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक का उपयोग नहीं करता, तो यह एक संदेश प्रिंट कर अगले चार्ट पर आगे बढ़ता है।
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -155,9 +155,9 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 
 ## **वर्कबुक से चार्ट डेटा पढ़ें और लिखें**
 
-Aspose.Slides for C++ provides the [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides for C++ [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) और [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) मेथड प्रदान करता है जिससे आप चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells के साथ संपादित डेटा होता है) को पढ़ और लिख सकते हैं। **Note** कि चार्ट डेटा को वही संरचना रखनी चाहिए या स्रोत के समान संरचना होनी चाहिए।
 
-This example uses a presentation with a chart as the first shape on its first slide. It reads the embedded workbook into a stream, clears the existing series and categories, and writes the same workbook back. The changes remain in memory; the example does not save the presentation.
+यह उदाहरण एक प्रस्तुति का उपयोग करता है जिसमें पहली स्लाइड पर पहला आकार एक चार्ट है। यह एम्बेडेड वर्कबुक को एक स्ट्रीम में पढ़ता है, मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करता है, और वही वर्कबुक फिर से लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -196,9 +196,9 @@ else
 }
 ```
 
-### **वर्कबुक संशोधन के बाद चार्ट लेआउट सत्यापित करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट को मान्य करें**
 
-When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart. This example uses a chart that is the first shape on the first slide. The comment marks where workbook editing would occur; the runnable example writes the original workbook back and validates the layout in memory.
+जब आप एम्बेडेड वर्कबुक को संशोधित संस्करण से बदलते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी संग्रहों को रखता है। यह असंगति [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) को इंडेक्स‑ऑफ़‑रेंज त्रुटि के साथ विफल कर सकती है। अपडेटेड वर्कबुक को चार्ट में लिखने से पहले मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करें। यह उदाहरण पहली स्लाइड पर पहला आकार चार्ट का उपयोग करता है। टिप्पणी में बताया गया है जहाँ वर्कबुक संपादन होगा; निष्पादनयोग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को मान्य करता है।
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -225,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // वर्कबुक स्ट्रीम को यहाँ संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
+    // यहाँ वर्कबुक स्ट्रीम में संशोधन करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -240,15 +240,91 @@ else
 }
 ```
 
-Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
+संग्रहों को साफ़ करने से पुराने डेटा रेफ़रेंस हट जाते हैं, इससे पहले कि वर्कबुक वापस लिखी जाए। अपडेटेड वर्कबुक के लिए आवश्यक श्रृंखला और श्रेणी मैपिंग को फिर से निर्मित करें, फिर चार्ट का उपयोग करें।
 
-## **वर्कबुक कोशिकाओं के लिए कस्टम नंबर फ़ॉर्मेट सेट करें**
+## **श्रेणी लेबल को कैसे संग्रहीत करें चुनें**
 
-Use [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+खाली श्रेणी संग्रह पर लेबल जोड़ने से पहले [IChartCategoryCollection::set_UseCells](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorycollection/set_usecells/) को कॉल करें। वह श्रेणी लेबल जो वर्कबुक डेटा से जुड़ते हैं या पदानुक्रम बनाते हैं (जैसे वर्ष के आधार पर क्वार्टर्स) के लिए वर्कशीट सेल्स का उपयोग करें। एकल‑स्तर के लेबल जो सेल रेफ़रेंस की आवश्यकता नहीं रखते, उनके लिए स्ट्रिंग लिटरल का उपयोग करें। यह सेटिंग केवल श्रेणियों पर लागू होती है। दोनों चार्ट उदाहरण संख्यात्मक श्रृंखला मानों के लिए वर्कशीट सेल्स का उपयोग करते हैं।
 
-A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), the format assigned through [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) is used instead.
+उदाहरण दो कॉलम चार्ट बनाता है और प्रत्येक के लिए संग्रह मोड और लेबल `Q1 Q2 Q3 Q4` प्रिंट करता है। वर्कशीट‑समर्थित लेबल के लिए, [IChartCategory::get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_ascell/) अंतर्निहित सेल तक पहुँच देता है और [IChartDataCell::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_value/) उसका लेबल लौटाता है। लिटरल लेबल के लिए, सीधे [IChartCategory::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_value/) से स्ट्रिंग पढ़ें।
 
-The following example creates a column chart and accesses its cells through [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+for (auto useCells : {true, false})
+{
+    auto x = useCells ? 20 : 360;
+    auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, 20, 320, 250);
+    auto data = chart->get_ChartData();
+    auto categories = data->get_Categories();
+    data->get_Series()->Clear();
+    categories->Clear();
+    categories->set_UseCells(useCells);
+
+    auto workbook = data->get_ChartDataWorkbook();
+    auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Sales"));
+    auto series = data->get_Series()->Add(seriesName, chart->get_Type());
+    for (auto row = 1; row <= 4; ++row)
+    {
+        auto label = String::Format(u"Q{0}", row);
+        auto labelValue = ObjectExt::Box<String>(label);
+        if (useCells)
+        {
+            auto labelCell = workbook->GetCell(0, row, 0, labelValue);
+            categories->Add(labelCell);
+        }
+        else
+        {
+            categories->Add(labelValue);
+        }
+
+        auto valueCell = workbook->GetCell(0, row, 1, ObjectExt::Box<int32_t>(row * 10));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    Console::Write(u"UseCells = {0}:", categories->get_UseCells());
+    for (auto category : IterateOver(categories))
+    {
+        auto label = categories->get_UseCells() ? category->get_AsCell()->get_Value() : category->get_Value();
+        Console::Write(u" {0}", label->ToString());
+    }
+    Console::WriteLine();
+}
+
+presentation->Save(u"category-labels.pptx", Export::SaveFormat::Pptx);
+```
+
+## **वर्कबुक सेल्स के लिए कस्टम संख्या स्वरूप सेट करें**
+
+चार्ट के एम्बेडेड वर्कबुक में संख्यात्मक मानों को कैसे प्रदर्शित किया जाए, इसे नियंत्रित करने के लिए [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) का उपयोग करें। उदाहरण के लिए, रिपोर्ट को परिवर्तन दर को प्रतिशत के रूप में चार दशमलव स्थान के साथ तथा गुणांक को पाँच दशमलव स्थान के साथ दिखाना पड़ सकता है। दोनों मानों को संख्यात्मक रखें ताकि वे गणना व चार्ट प्लॉटिंग में उपलब्ध रहें।
+
+संख्या स्वरूप केवल प्रदर्शन को बदलता है, संग्रहीत मान को नहीं। स्वरूप `0.0000%` `0.125` को `12.5000%` दिखाता है; यह संग्रहीत संख्या को `12.5` में नहीं बदलता। इसी तरह, `0.00000` `0.1234567` को `0.12346` दिखाता है, लेकिन संग्रहीत मान को राउंड नहीं करता। यदि कस्टम स्वरूप एक खाली स्ट्रिंग (`""`) है, तो स्वरूप [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) द्वारा असाइन किया गया उपयोग होता है।
+
+निम्न उदाहरण एक कॉलम चार्ट बनाता है और इसके सेल्स को [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) के माध्यम से एक्सेस करता है। वर्कशीट 0 में, B2 में परिवर्तन दर और C2 में गुणांक है। दोनों सेल्स चार्ट मान प्रदान करते हैं। उदाहरण स्रोत स्वरूपों से जुड़ी मान लेबल को भी सक्षम करता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -321,19 +397,19 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) is called with `true`, and follows the source number format because [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) is called with `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own format of `0.00`, assigned through [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), with [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) called with `false`.
+वर्कबुक सेल स्वरूप चार्ट अक्ष या डेटा लेबल पर सीधे सेट किए गए स्वरूपों से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपने स्रोत सेल के मान को दिखाता है क्योंकि [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) को `true` किया गया है, और यह स्रोत संख्या स्वरूप को अपनाता है क्योंकि [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) को `true` किया गया है। प्रस्तुति को सहेजने और फिर खोलने के बाद, लेबल `12.5000%` और `0.12346` दिखाते हैं, जैसा कि नीचे दिखाया गया है। लंबवत अक्ष अपने स्वयं के स्वरूप `0.00` का उपयोग करता है, जिसे [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) के माध्यम से असाइन किया गया है, जबकि [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) `false` है।
 
-To format a data label independently, set its source-link flag to `false` and assign its format through [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/hi/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
+डेटा लेबल को स्वतंत्र रूप से स्वरूपित करने के लिए, उसके स्रोत‑लिंक फ़्लैग को `false` सेट करें और स्वरूप को [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) से असाइन करें। यह वर्कबुक सेल के स्वरूप को नहीं बदलता। उदाहरण के लिए, स्वतंत्र लेबल स्वरूप `0.00` पहले मान को `0.13` दिखाएगा, जबकि B2 अभी भी `12.5000%` दिखाएगा। सीधी लेबल स्वरूपिंग के लिए देखें [Chart Data Labels](/slides/hi/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
 
-The image below was rendered from the saved presentation after reopening it:
+नीचे की छवि सहेजी गई प्रस्तुति को पुनः खोलने के बाद रेंडर की गई है:
 
-![स्रोत-लिंक्ड लेबल वाले कॉलम चार्ट जिसमें 12.5000% और 0.12346 दिख रहा है तथा स्वतंत्र रूप से फ़ॉर्मेट किए गए संख्यात्मक अक्ष।](custom-cell-formats.png)
+![स्रोत‑लिंक्ड लेबल के साथ कॉलम चार्ट, जो 12.5000% और 0.12346 दिखा रहा है, तथा स्वतंत्र रूप से स्वरूपित संख्यात्मक अक्ष।](custom-cell-formats.png)
 
-## **एक वर्कबुक कोशिका को चार्ट डेटा लेबल के रूप में सेट करें**
+## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
 
-You can use text from workbook cells as chart data labels.
+आप वर्कबुक सेल्स के टेक्स्ट को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
 
-This example adds a bubble chart with default data to the first slide of an existing presentation. It uses cells A10:A12 on worksheet 0 for the first three labels in the first series, enables labels from cells, and saves the updated presentation.
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक डिफ़ॉल्ट डेटा वाले बबल चार्ट को जोड़ता है। यह वर्कशीट 0 में सेल A10:A12 का उपयोग पहले श्रृंखला के पहले तीन लेबल के लिए करता है, सेल‑आधारित लेबल को सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -374,9 +450,9 @@ series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **वर्कशीट को प्रबंधित करें**
+## **वर्कशीट प्रबंधन**
 
-The [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) method provides access to the worksheets in a chart workbook. This example creates a pie chart with default data and prints each worksheet name to the console.
+[IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) मेथड चार्ट वर्कबुक में मौजूद वर्कशीट्स तक पहुँच प्रदान करता है। यह उदाहरण डिफ़ॉल्ट डेटा वाले एक पाई चार्ट को बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -409,9 +485,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **डेटा स्रोत प्रकार निर्दिष्ट करें**
 
-Series point values can also be stored directly as numeric literals. See [Set Series Values Using Numeric Literals](/slides/hi/cpp/chart-series/#set-series-values-using-numeric-literals) for a complete example that saves and reads them. The source type of point values is separate from the chart's internal or external workbook configuration; using numeric literals does not, by itself, remove the embedded workbook.
+श्रृंखला बिंदु मानों को सीधे संख्यात्मक लिटरल के रूप में भी संग्रहीत किया जा सकता है। पूर्ण उदाहरण के लिए देखें [Set Series Values Using Numeric Literals](/slides/hi/cpp/chart-series/#set-series-values-using-numeric-literals) जो उन्हें सहेजता और पढ़ता है। बिंदु मानों का स्रोत प्रकार चार्ट की आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन से अलग होता है; संख्यात्मक लिटरल का उपयोग करने से एम्बेडेड वर्कबुक स्वतः हटता नहीं है।
 
-This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) enumeration selects the source for each name. The example saves the presentation with the updated series names.
+यह उदाहरण एक 3D कॉलम चार्ट को डिफ़ॉल्ट डेटा के साथ बनाता है और दो श्रृंखला नाम विभिन्न डेटा स्रोतों से सेट करता है। पहला नाम स्ट्रिंग लिटरल से आता है; दूसरा वर्कशीट 0 में सेल C1 से। [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) एनीमरेशन प्रत्येक नाम के स्रोत को चुनता है। उदाहरण प्रस्तुतिकरण को अपडेटेड श्रृंखला नामों के साथ सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -450,9 +526,9 @@ cellName->set_Data(nameCell);
 presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **असमर्थित एंबेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
+## **असमर्थित एम्बेडेड वर्कबुक स्वरूपों का पता लगाएँ**
 
-Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) method on [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) enumeration to detect unsupported formats and skip those charts. This example inspects the shapes on the first slide of an existing presentation, skips non-chart shapes, and prints a diagnostic message for each chart with an embedded .xlsb workbook.
+Aspose.Slides उन Excel बाइनरी वर्कबुक (.xlsb) स्वरूपों को समर्थन नहीं देता जो कुछ चार्ट में एम्बेड किए जा सकते हैं। आप [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) पर [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) मेथड को [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) एनीमरेशन के साथ उपयोग कर असमर्थित स्वरूपों का पता लगा सकते हैं और उन चार्ट को स्किप कर सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर शैप्स को जांचता है, गैर‑चार्ट शैप्स को छोड़ता है, और .xlsb एम्बेडेड वर्कबुक वाले प्रत्येक चार्ट के लिए एक डायग्नोस्टिक संदेश प्रिंट करता है।
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -491,19 +567,19 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // समर्थित चार्ट वर्कबुक डेटा को यहाँ पढ़ें या संशोधित करें।
+    // समर्थित चार्ट वर्कबुक डेटा यहाँ पढ़ें या संशोधित करें।
 }
 ```
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides supports using external workbooks as a data source for charts.
+Aspose.Slides चार्ट के लिए डेटा स्रोत के रूप में बाहरी वर्कबुक का उपयोग समर्थन करता है।
 
-### **एक बाहरी वर्कबुक बनाएं**
+### **बाहरी वर्कबुक बनाएं**
 
-Use [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) and [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) to export an embedded chart workbook to a file and link the chart to that external workbook.
+[ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) और [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) का उपयोग करके एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
 
-This example creates a pie chart with default data and exports its workbook. It closes the output stream before assigning the external workbook as the chart data source, then saves the linked presentation.
+यह उदाहरण डिफ़ॉल्ट डेटा वाले एक पाई चार्ट को बनाता है और उसकी वर्कबुक को निर्यात करता है। यह आउटपुट स्ट्रीम को बंद करता है, फिर बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करता है, और लिंक्ड प्रस्तुति को सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -537,13 +613,13 @@ chart->get_ChartData()->SetExternalWorkbook(workbookPath);
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **एक बाहरी वर्कबुक सेट करें**
+### **बाहरी वर्कबुक सेट करें**
 
-Using the [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
+[SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) मेथड का उपयोग करके आप चार्ट को बाहरी वर्कबुक को उसके डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पथ को अपडेट करने के लिए भी उपयोग किया जा सकता है (यदि वह स्थानांतरित किया गया हो)।
 
-While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
+आप दूरस्थ स्थानों या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। यदि कोई रिलेटिव पथ प्रदान किया जाता है, तो यह स्वतः पूर्ण पथ में बदल जाता है।
 
-This example uses an external workbook whose worksheet named `Sheet1` contains a series name in B1, category names in A2:A4, and numeric values in B2:B4. The example creates a pie chart, links the workbook, and uses [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) to map A1:B4 to one series and three categories. It saves the presentation with the linked chart.
+यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जहाँ `Sheet1` में B1 में श्रृंखला नाम, A2:A4 में श्रेणी नाम और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों पर मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -572,12 +648,12 @@ chartData->SetRange(u"Sheet1!$A$1:$B$4");
 presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-The `updateChartData` parameter of [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) controls whether the workbook is loaded.
+[SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) का `updateChartData` पैरामीटर यह नियंत्रित करता है कि वर्कबुक लोड हो।
 
-* When `updateChartData` is `false`, only the workbook path is updated. The chart data is not loaded or updated from the target workbook, so the workbook can be unavailable.
-* When `updateChartData` is `true`, the chart data is updated from the target workbook.
+* जब `updateChartData` `false` है, केवल वर्कबुक पथ अपडेट होता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक अनुपलब्ध हो सकती है।
+* जब `updateChartData` `true` है, चार्ट डेटा लक्ष्य वर्कबुक से अपडेट हो जाता है।
 
-The following example assigns a placeholder URL with `updateChartData` set to `false`. It retains the pie chart's default data and saves the presentation without loading the unavailable workbook.
+निम्न उदाहरण `updateChartData` को `false` करके एक प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -603,9 +679,9 @@ presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveF
 
 ### **एक चार्ट की बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करें**
 
-To identify the workbook linked to a chart, check whether the chart uses an external data source and retrieve its workbook path.
+किसी चार्ट से जुड़ी वर्कबुक को पहचानने के लिए, जाँचें कि वह बाहरी डेटा स्रोत उपयोग करता है या नहीं और उसका वर्कबुक पथ प्राप्त करें।
 
-This example inspects the first shape on the first slide of a presentation with a linked external workbook. If it is a chart linked to an external workbook, the example prints [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) to the console. It then saves a copy of the presentation.
+यह उदाहरण एक लिंक्ड बाहरी वर्कबुक वाले प्रस्तुति की पहली स्लाइड पर पहले शैप की जांच करता है। यदि यह बाहरी वर्कबुक से लिंक्ड चार्ट है, तो यह कंसोल में [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) प्रिंट करता है। फिर यह प्रस्तुति की एक कॉपी सहेजता है।
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -648,9 +724,9 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 ### **चार्ट डेटा संपादित करें**
 
-You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
+आप बाहरी वर्कबुक के डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक के सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक अपवाद फेंका जाता है।
 
-This example uses a chart that is the first shape on the first slide and is linked to an accessible external workbook. It sets the cell-backed value of the first data point in the first series to 100 and saves the updated presentation. Editing cell values can update the linked external XLSX file, so use a copy if you need to preserve the original workbook.
+यह उदाहरण पहली स्लाइड पर पहला शैप जो एक पहुंच योग्य बाहरी वर्कबुक से जुड़ा है, उसे उपयोग करता है। यह पहले श्रृंखला के पहले डेटा पॉइंट की सेल‑आधारित मान को 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए मूल वर्कबुक को संरक्षित रखने के लिए एक कॉपी का उपयोग करें।
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -704,11 +780,11 @@ else
 }
 ```
 
-### **चार्ट कैश से वर्कबुक पुनर्प्राप्त करें**
+### **चार्ट कैश से वर्कबुक पुनर्स्थापित करें**
 
-If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configure it with [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), and call [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) with `true` before opening the presentation.
+यदि कोई चार्ट बाहरी वर्कबुक का उपयोग करता है जो गायब या अनुपलब्ध है, तो Aspose.Slides प्रस्तुति में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः बनाना सकता है। [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) बनाएं, इसे [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) से कॉन्फ़िगर करें, और प्रस्तुति खोलने से पहले [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) को `true` सेट करें।
 
-The following C++ example recovers workbook data for a chart that is the first shape on the first slide and references an unavailable external workbook. It accesses the recovered data through [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) and [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+निम्न C++ उदाहरण एक चार्ट के लिए वर्कबुक डेटा को पुनः प्राप्त करता है जो पहली स्लाइड पर पहला शैप है और एक अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनः प्राप्त डेटा को [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) और [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) के माध्यम से एक्सेस करता है:
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -740,7 +816,7 @@ if (chart != nullptr)
 {
     auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // यहाँ पुनर्प्राप्त वर्कबुक डेटा को पढ़ें या संशोधित करें।
+    // यहाँ पुनर्प्राप्त किया गया वर्कबुक डेटा पढ़ें या संशोधित करें।
 }
 else
 {
@@ -748,17 +824,17 @@ else
 }
 ```
 
-If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws a [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
+यदि बाहरी वर्कबुक अनुपलब्ध है और पुनर्स्थापना निष्क्रिय है, तो Aspose.Slides एक [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) फेंकता है। पुनर्स्थापना केवल तभी सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग एक स्वीकार्य फ़ॉलबैक हो, क्योंकि कैश में बाहरी वर्कबुक में किए गए परिवर्तन शामिल नहीं हो सकते।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एंबेडेड वर्कबुक से जुड़ा है?**
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
 
-हां। एक चार्ट का [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) और [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़कर सुनिश्चित कर सकते हैं कि कोई बाहरी फ़ाइल उपयोग हो रही है।
+हां। एक चार्ट का [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) और एक [बाहरी वर्कबुक का पथ](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़कर सुनिश्चित कर सकते हैं कि एक बाहरी फ़ाइल उपयोग में है।
 
-**क्या बाहरी वर्कबुक के लिए सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
+**क्या बाहरी वर्कबुक के रिलेटिव पाथ समर्थित हैं, और वे कैसे संग्रहित होते हैं?**
 
-हां। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
+हां। यदि आप रिलेटिव पाथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से एब्सोल्यूट पाथ में बदल जाता है। प्रस्तुति एब्सोल्यूट पाथ को PPTX फ़ाइल में संग्रहित करती है, इसलिए वर्कबुक को перемещать करने पर लिंक को अपडेट करना पड़ सकता है।
 
 **क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
 
@@ -766,12 +842,12 @@ If the external workbook is unavailable and recovery is disabled, Aspose.Slides 
 
 **क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
 
-प्रस्तुति में [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) संग्रहीत रहता है। सेल-समर्थित चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल फ़ाइल को अपरिवर्तित रखना आवश्यक है, तो वर्कबुक की एक प्रति उपयोग करें।
+प्रस्तुति में [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) संग्रहित होता है। सेल‑आधारित चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल फ़ाइल अपरिवर्तित रहनी चाहिए, तो वर्कबुक की एक कॉपी उपयोग करें।
 
-**यदि बाहरी फ़ाइल पासवर्ड-संरक्षित है तो मुझे क्या करना चाहिए?**
+**यदि बाहरी फ़ाइल पासवर्ड‑सुरक्षित है, तो मैं क्या करूँ?**
 
-Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य तरीका यह है कि पहले सुरक्षा को हटाया जाए या किसी डिक्रिप्टेड प्रति (उदाहरण के लिए, [Aspose.Cells](https://reference.aspose.com/cells/cpp/) का उपयोग करके) तैयार की जाए और उस प्रति से लिंक किया जाए।
+Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। सामान्य उपाय है पहले सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिए, [Aspose.Cells](https://reference.aspose.com/cells/cpp/) का उपयोग करके) और उस कॉपी को लिंक करना।
 
-**क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
+**क्या कई चार्ट एक ही बाहरी वर्कबुक का संदर्भ दे सकते हैं?**
 
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि वे सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल में परिवर्तन अगली बार डेटा लोड होने पर सभी चार्ट में परिलक्षित होगा।
+हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर संकेत करते हैं, तो उस फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में परिवर्तन प्रतिबिंबित होगा।

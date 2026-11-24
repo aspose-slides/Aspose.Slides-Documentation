@@ -8,33 +8,33 @@ keywords:
 - دفتر عمل المخطط
 - بيانات المخطط
 - خلية دفتر العمل
-- تسمية البيانات
+- ملصق البيانات
 - ورقة العمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- مخبأ المخطط
+- مخبّئ المخطط
 - استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لـ Android عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي."
+description: "اكتشف Aspose.Slides لنظام Android عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات عرضك التقديمي."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. توضح كيفية قراءة وكتابة بيانات المخطط من خلال تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+تشرح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. توضح كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما يغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بالمخطط، وتحرير بيانات المخطط عندما يكون دفتر العمل متاحًا.
+كما يغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. توضح الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
-لبالخلايا التي تمثل بيانات مفقودة في دفتر العمل، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/androidjava/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خط للأنماط المتاحة للعرض.
+لخلايا دفتر العمل التي تمثل بيانات مفقودة، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/androidjava/chart-series/) للفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خطي لأوضاع العرض المتاحة.
 
-## **تضمين البيانات من الصفوف والأعمدة المخفيّة**
+## **تضمين البيانات من الصفوف والأعمدة المخفية**
 
-استخدم [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) للتحكم فيما إذا كان المخطط يرسم البيانات من الصفوف والأعمدة المخفيّة في ورقة العمل. اضبطه إلى `true` لرسم الخلايا الظاهرة فقط، أو `false` لتضمين كلًا من الخلايا الظاهرة والمخفية. يتحكم هذا الإعداد في رسم المخطط؛ ولا يخفي أو يُظهر صفوف أو أعمدة ورقة العمل.
+استخدم [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) للتحكم فيما إذا كان المخطط يرسم البيانات من صفوف وأعمدة ورقة العمل المخفية. اضبطه على `true` لتصوير الخلايا المرئية فقط، أو `false` لتضمين كل من الخلايا المرئية والمخفية. هذا الإعداد يتحكم في رسم المخطط؛ ولا يخفي أو يظهر صفوف أو أعمدة ورقة العمل.
 
-يحتوي [العرض التقديمي النموذجي](hidden-source-data.pptx) على مخطط عمودي كأول شكل في شريحته الأولى. تحتوي ورقة العمل المدمجة، `Sheet1`، على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
+العرض التوضيحي [sample presentation](hidden-source-data.pptx) يحتوي على مخطط عمودي كأول شكل في شريحةه الأولى. ورقة العمل المضمَّنة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
 
 | صف ورقة العمل | A: الشهر | B: التجزئة | C: الجملة (عمود مخفي) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ description: "اكتشف Aspose.Slides لـ Android عبر Java: إدارة دف
 | 3 (صف مخفي) | فبراير | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-يمكن الوصول إلى الخلايا المصدر من خلال [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) وقراءة [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) لتفقد حالة إخفائها. تُبلغ هذه الطريقة عن حالة الإخفاء دون تعديلها. في هذا الملف، B2 مرئية، B3 تندرج تحت الصف المخفي، وC2 تندرج تحت العمود المخفي؛ يطبع المثال `false`، `true`، و`true` على التوالي.
+الوصول إلى خلايا المصدر عبر [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) وقراءة [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) لتفقد حالة الإخفاء. هذه الطريقة تُبلغ عن حالة الإخفاء دون تغييرها. في هذا الملف، B2 مرئي، B3 ينتمي إلى الصف المخفي، وC2 ينتمي إلى العمود المخفي؛ المثال يطبع `false`، `true`، و`true` على التوالي.
 
-في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المدمج باستخدام [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) وأعد تحميله باستخدام [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). عند تضمين جميع الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلم ليس كافيًا لتحديث بيانات المخطط المخزنة مؤقتًا وعناوين الفئات في هذا النموذج.
+في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بكتاب العمل المضمّن باستخدام [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) وأعد تحميله باستخدام [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). عند تضمين كل الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزنة مؤقتًا وتسمية الفئات في هذا المثال.
 
 ```java
 import com.aspose.slides.*;
@@ -65,12 +65,12 @@ try {
         for (boolean visibleOnly : new boolean[] { true, false }) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // تحديث بيانات المخطط من دفتر العمل المدمج.
-            chart.getChartData().writeWorkbookStream(workbookData);
-            if (!visibleOnly) {
-                // استعادة النطاق المصدر الكامل، بما في ذلك الفئات المخفية.
-                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
-            }
+                // تحديث بيانات المخطط من دفتر العمل المضمّن.
+                chart.getChartData().writeWorkbookStream(workbookData);
+                if (!visibleOnly) {
+                    // استعادة النطاق المصدر الكامل، بما في ذلك الفئات المخفية.
+                    chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+                }
 
             presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
         }
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-يحفظ المثال نسختين من العرض التقديمي: واحدة تحتوي فقط على قيم التجزئة الظاهرة (10 و20)، والأخرى تحتوي على جميع القيم الست. الصور أدناه توضح وضعَي الرسم. يظل الصف 3 والعمود C مخفيين في كلا دفترَي العمل المدمجين.
+يحفظ المثال نسختين من العرض التقديمي: واحدة تحتوي فقط على قيم التجزئة الظاهرة (10 و20)، وأخرى تحتوي على جميع القيم الست. الصور أدناه توضح وضعي الرسم. يظل الصف 3 والعمود C مخفيين في كل من دفاتر العمل المضمّنة.
 
-| الخلايا الظاهرة فقط (`true`) | كل الخلايا (`false`) |
+| الخلايا الظاهرة فقط (`true`) | جميع الخلايا (`false`) |
 | --- | --- |
-| ![الخلايا الظاهرة فقط: قيم التجزئة 10 و20 لشهر يناير ومارس.](hidden_cells_True.png) | ![كل الخلايا: قيم التجزئة والجملة لشهر يناير وفبراير ومارس.](hidden_cells_False.png) |
+| ![الخلايا الظاهرة فقط: قيم التجزئة 10 و20 لشهري يناير ومارس.](hidden_cells_True.png) | ![جميع الخلايا: قيم التجزئة والجملة لشهري يناير وفبراير ومارس.](hidden_cells_False.png) |
 
-الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) في كيفية عرض القيم المفقودة؛ ولا يضمّن أو يستثني البيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/androidjava/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
+الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) في طريقة عرض القيم المفقودة؛ ولا يتضمن أو يستثني بيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/androidjava/chart-series/#control-the-display-of-empty-cells) لمثال.
 
-## **استرداد نطاق بيانات المخطط**
+## **استرجاع نطاق بيانات المخطط**
 
-قبل تحديث بيانات دفتر العمل في عرض تقديمي موجود، افحص نطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد طريقة [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) النطاق الحالي للبيانات كصيغة مؤهلة لورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يُحدد الخلايا من A1 إلى D5 شاملًا. العلامات الدولار تشير إلى مراجع صف وعمود مطلقة.
+قبل تحديث بيانات دفتر العمل في عرض تقديمي موجود، افحص النطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد طريقة [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) النطاق الحالي للبيانات كصيغة مؤهلة لورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدد الخلايا من A1 إلى D5 شاملًا. علامات الدولار تشير إلى مراجع صف وعمود مطلقة.
 
-تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر عمله. إذا لم يستخدم المخطط دفتر عمل كمصدر للبيانات، فإنها تُطلق استثناء `InvalidOperationException`. لمزيد من المعلومات، راجع [مرجع ChartData API](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
+تقْرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر عمله. إذا لم يستخدم المخطط دفتر عمل كمصدر بيانات، فإنها تُقذف `InvalidOperationException`. لمزيد من المعلومات، راجع [مرجع API لبيانات المخطط](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
 
-يفتح هذا المثال عرضًا تقديميًا ويتحقق من الأشكال مباشرةً في كل شريحة للبحث عن المخططات. يطبع اسم كل مخطط والنطاق المصدر. إذا لم يستخدم المخطط دفتر عمل، فإنه يطبع رسالة ويستمر إلى المخطط التالي.
+يفتح هذا المثال عرضًا تقديميًا ويتحقق من الأشكال مباشرة على كل شريحة للبحث عن مخططات. يطبع اسم كل مخطط ونطاق المصدر. إذا لم يستخدم مخطط دفتر عمل، يطبع رسالة ويتابع إلى المخطط التالي.
 
 ```java
 import com.aspose.slides.*;
@@ -124,9 +124,9 @@ try {
 
 ## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-توفر Aspose.Slides for Android عبر Java الطرق [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و[writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) التي تسمح لك بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات المخطط التي تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو يجب أن يكون لها بنية مشابهة للمصدر.
+توفر Aspose.Slides for Android via Java طريقتي [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و[writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) التي تسمح لك بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تُنظم بنفس الطريقة أو أن تكون ذات بنية مشابهة للمصدر.
 
-يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ دفتر العمل المدمج إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ويعيد كتابة نفس دفتر العمل. تظل التغييرات في الذاكرة؛ لا يقوم المثال بحفظ العرض التقديمي.
+يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ دفتر العمل المضمّن إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ثم يكتب نفس دفتر العمل مرة أخرى. التغييرات تبقى في الذاكرة؛ لا يقوم المثال بحفظ العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -153,9 +153,9 @@ try {
 }
 ```
 
-### **تحقق من تخطيط المخطط بعد تعديل دفتر العمل**
+### **التحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-عند استبدال دفتر العمل المدمج بآخر معدل، يحتفظ المخطط بالمجموعات الأصلية للسلاسل والفئات. يمكن أن يتسبب هذا الاختلاف في فشل [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) مع خطأ فهرس خارج النطاق. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث مرة أخرى إلى المخطط. يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى. تشير التعليقات إلى مكان تحرير دفتر العمل؛ يكتب المثال القابل للتنفيذ دفتر العمل الأصلي مرة أخرى ويُحقق من التخطيط في الذاكرة.
+عند استبدال دفتر عمل مضمّن بآخر مُعدل، يحتفظ المخطط بسلاسل وفئاته الأصلية. هذا الاختلاف قد يتسبب في فشل [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) بخطأ خارج النطاق. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث مرة أخرى إلى المخطط. يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى. تُظهر التعليقات مكان تعديل دفتر العمل؛ يكتب المثال دفتر العمل الأصلي مرة أخرى ويُحقق من التخطيط في الذاكرة.
 
 ```java
 import com.aspose.slides.*;
@@ -185,15 +185,67 @@ try {
 }
 ```
 
-إزالة المجموعات تمسح مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو خرائط فئات مطلوبة لدفتر العمل المُحدّث قبل استخدام المخطط.
+إزالة المجموعات تُزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو خريطات فئة مطلوبة لدفتر العمل المحدث قبل استخدام المخطط.
 
-## **تعيين تنسيقات رقمية مخصصة لخلايا دفتر العمل**
+## **اختيار طريقة تخزين تسميات الفئات**
 
-استخدم [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) للتحكم في كيفية ظهور القيم الرقمية في دفتر العمل المدمج للمخطط. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل التحويل كنسبة مئوية بأربع منازل عشرية ومعامل بعناصر عشرية خمس. احتفظ بالقيمتين كأرقام لتظل متاحة للحسابات ورسم المخطط.
+استدعِ [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) على مجموعة الفئات الفارغة قبل إضافة التسميات. استخدم خلايا ورقة العمل للتسميات التي تُشير إلى بيانات دفتر العمل أو تُنشئ تسلسلًا هرميًا، مثل الأرباع مُجمَّعة حسب السنة. استخدم السلاسل النصية للطبقة الواحدة من التسميات التي لا تحتاج مراجع خلايا. هذا الإعداد ينطبق فقط على الفئات. كلا المخططيّن في المثال يستخدمان خلايا ورقة العمل لقيم السلاسل العددية.
 
-تنسيق الرقم يغيّر طريقة العرض فقط، ولا يغيّر القيمة المخزنة. التنسيق `0.0000%` يعرض `0.125` كـ `12.5000%`؛ ولا يستبدل الرقم المخزن بـ `12.5`. بالمثل، `0.00000` يعرض `0.1234567` كـ `0.12346` دون تقريبه. إذا كان التنسيق المخصص سلسلة فارغة (`""`)، يُستخدم التنسيق الذي تُعيده [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) بدلاً منه.
+ينشئ المثال مخططين عموديين ويطبع وضع التخزين متبوعًا بـ `Q1 Q2 Q3 Q4` لكلٍ منهما. بالنسبة للتسميات المدعومة بخلايا ورقة العمل، تُعيد [IChartCategory.getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getAsCell--) الخلية الأساسية وتُعيد [IChartDataCell.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getValue--) تسميتها. بالنسبة للتسميات الحرفية، اقرأ السلسلة مباشرةً عبر [IChartCategory.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getValue--).
 
-ينشئ المثال التالي مخططًا عموديًا ويصل إلى خلاياه عبر [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). في ورقة العمل 0، يحتوي B2 على معدل التحويل وC2 على المعامل. كلتا الخلايا تزودان المخطط بالقيم. يُمكّن المثال أيضًا تسميات القيم المرتبطة بتنسيقات المصدر.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تعيين تنسيقات رقمية مخصَّصة لخلايا دفتر العمل**
+
+استخدم [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) للتحكم في طريقة ظهور القيم العددية في دفتر عمل المخطط المضمّن. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل التحويل كنسبة مئوية بأربع منازل عشرية ومعامل بخمس منازل عشرية. احتفظ بالقيمتين عدديًا حتى تظل متاحة للحسابات ورسم المخطط.
+
+تنسيق الرقم يغيّر العرض فقط، لا القيمة المخزّنة. التنسيق `0.0000%` يعرض `0.125` كـ `12.5000%`؛ ولا يستبدل الرقم المخزّن بـ `12.5`. بالمثل، `0.00000` يعرض `0.1234567` كـ `0.12346` دون تقريب القيمة المخزّنة. إذا كان التنسيق المخصَّص سلسلة فارغة (`""`)، يُستخدم التنسيق الذي تُعيده [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) بدلاً منه.
+
+المثال التالي ينشئ مخطط عمودي ويصل إلى خلاياه عبر [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). في ورقة العمل 0، يحتوي B2 على معدل التحويل وC2 على المعامل. كلتا الخليتين تزودان المخطط بالقيم. يُفعِّل المثال أيضًا ملصقات القيم المرتبطة بتنسيقات المصدر.
 
 ```java
 import com.aspose.slides.*;
@@ -244,17 +296,19 @@ try {
 }
 ```
 
-تنسيقات خلايا دفتر العمل منفصلة عن التنسيقات التي تُحدد مباشرةً على محاور المخطط أو تسميات البيانات. في هذا المثال، كل تسمية تعرض قيمة خلية المصدر لأنها [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) مضبوطة على `true`، وتتبّع تنسيق الرقم المصدر لأن [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) مضبوطة على `true`. بعد حفظ وإعادة فتح العرض التقديمي، تُظهر التسميات `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور العمودي تنسيق رقم خاص به، يُعيّن بـ [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) كـ `0.00`، مع [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) مضبوطة على `false`.
+تنسيقات خلايا دفتر العمل منفصلة عن التنسيقات المُعيَّنة مباشرةً على محاور المخطط أو ملصقات البيانات. في هذا المثال، كل ملصق يُظهر قيمة خلية المصدر لأن [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) مُعيَّن على `true`، ويتبع تنسيق الرقم المصدر لأن [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) مُعيَّن على `true`. بعد حفظ وإعادة فتح العرض التقديمي، تُظهر الملصقات `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور الرأسي تنسيق رقم خاص به، مُعيَّن عبر [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) كـ `0.00`، مع [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) مُعيَّن على `false`.
 
-لإعداد تنسيق لتسمية بيانات بصورة مستقلة، اضبط علم ربط المصدر إلى `false` وعيّن تنسيقًا بـ [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). لا يغيّر ذلك تنسيق خلية دفتر العمل. على سبيل المثال، تنسيق تسمية مستقل بـ `0.00` يعرض القيمة الأولى كـ `0.13`، بينما لا يزال B2 يعرض `12.5000%`. راجع [Chart Data Labels](/slides/ar/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) لتنسيق التسميات مباشرةً.
+لتنسيق ملصق بيانات بصورة مستقلة، عيّن علم الربط بالمصدر إلى `false` وعيّن تنسيقًا عبر [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). هذا لا يغيّر تنسيق خلية دفتر العمل. على سبيل المثال، تنسيق ملصق مستقل بـ `0.00` يعرض القيمة الأولى كـ `0.13` بينما ما زال B2 يعرض `12.5000%`. راجع [ملصقات بيانات المخطط](/slides/ar/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) لتنسيق الملصقات مباشرة.
 
-![مخطط عمودي مع تسميات مرتبطة بالمصدر تُظهر 12.5000% و0.12346 ومحور رقمي مخصص بشكل مستقل.](custom-cell-formats.png)
+الصورة أدناه مُصوَّرة من العرض التقديمي المحفوظ بعد إعادة فتحه:
 
-## **تعيين خلية دفتر عمل كعلامة بيانات للمخطط**
+![مخطط عمودي مع ملصقات مرتبطة بالمصدر تُظهر 12.5000% و0.12346 ومحور عددّي مُنسق بشكل مستقل.](custom-cell-formats.png)
 
-يمكنك استخدام النص من خلايا دفتر العمل كعلامات بيانات للمخطط.
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
 
-يضيف هذا المثال مخطط فقاعي ببيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم خلايا A10:A12 في ورقة العمل 0 لأول ثلاث تسميات في السلسلة الأولى، يُمكّن التسميات من الخلايا، ويحفظ العرض التقديمي المحدث.
+يمكنك استخدام النص من خلايا دفتر العمل كملصقات بيانات للمخطط.
+
+يضيف هذا المثال مخطط فقاعات ببيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للملصقات الثلاث الأولى في السلسلة الأولى، يُفعل الملصقات من الخلايا، ويحفظ العرض التقديمي المحدث.
 
 ```java
 import com.aspose.slides.*;
@@ -280,7 +334,7 @@ try {
 
 ## **إدارة أوراق العمل**
 
-توفر طريقة [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل في وحدة التحكم.
+توفر طريقة [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
 
 ```java
 import com.aspose.slides.*;
@@ -302,9 +356,9 @@ try {
 
 ## **تحديد نوع مصدر البيانات**
 
-يمكن أيضًا تخزين قيم نقاط السلسلة مباشرةً كقيم عددية صريحة. راجع [Set Series Values Using Numeric Literals](/slides/ar/androidjava/chart-series/#set-series-values-using-numeric-literals) للحصول على مثال كامل يُظهر كيف يتم حفظها وقرائتها. نوع مصدر قيم النقاط منفصل عن تكوين دفتر العمل الداخلي أو الخارجي للمخطط؛ استخدام القيم العددية الصريحة لا يزيل دفتر العمل المدمج بحد ذاته.
+يمكن أيضًا تخزين قيم نقاط السلسلة مباشرةً كقِيَم عددية حرفية. راجع [تعيين قيم السلسلة باستخدام القِيَم العددية الحرفية](/slides/ar/androidjava/chart-series/#set-series-values-using-numeric-literals) لمثال كامل يحفظها ويقرأها. نوع مصدر القيم منفصل عن تكوين دفتر العمل الداخلي أو الخارجي للمخطط؛ استخدام القِيَم العددية الحرفية لا يُزيل دفتر العمل المضمّن بحد ذاته.
 
-ينشئ هذا المثال مخططًا عموديًا ثلاثي الأبعاد ببيانات افتراضية ويُعيّن اسمين للسلسلتين باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم سلسلة صريحة؛ الثاني يستخدم الخلية C1 في ورقة العمل 0. يحدد تعداد [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي بأسماء السلاسل المحدثة.
+ينشئ هذا المثال مخطط عمودي ثلاثي الأبعاد ببيانات افتراضية ويعين اسمي سلسلتين باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم قيمة حرفية؛ الثاني يستخدم الخلية C1 في ورقة العمل 0. يحدد تعداد [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي بأسماء السلاسل المحدثة.
 
 ```java
 import com.aspose.slides.*;
@@ -330,9 +384,9 @@ try {
 }
 ```
 
-## **كشف تنسيقات دفتر العمل المدمج غير المدعومة**
+## **الكشف عن تنسيقات دفاتر العمل المضمّنة غير المدعومة**
 
-لا يدعم Aspose.Slides تنسيق دفتر عمل Excel الثنائي (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) على [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/) لتحديد التنسيقات غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض تقديمي موجود، يتخطى الأشكال غير المخططات، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مدمج.
+لا يدعم Aspose.Slides تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) على [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/) للكشف عن التنسيقات غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض تقديمي موجود، يتخطى الأشكال غير المخططات، ويطبع رسالة تشخيص لكل مخطط يحتوي على دفتر عمل .xlsb مضمّن.
 
 ```java
 import com.aspose.slides.*;
@@ -365,13 +419,13 @@ try {
 
 ## **دفتر عمل خارجي**
 
-يدعم Aspose.Slides استخدام دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+يدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-استخدم [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و[setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) لتصدير دفتر عمل المخطط المدمج إلى ملف وربط المخطط بذلك الدفتر الخارجي.
+استخدم [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) و[setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) لتصدير دفتر عمل مخطط مضمّن إلى ملف وربط المخطط بذلك الدفتر الخارجي.
 
-ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدر دفتر عمله. يكمل كتابة الملف قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض التقديمي المرتبط.
+ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدّر دفتر عمله. يكتمل كتابة الملف قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض التقديمي المرتبط.
 
 ```java
 import com.aspose.slides.*;
@@ -402,11 +456,11 @@ try {
 
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
+باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بياناته. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (في حال تم نقل الملف).
 
-على الرغم من عدم إمكانية تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، يمكنك الاستمرار في استخدامها كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+بينما لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، لا يزال بإمكانك استخدام such workbooks كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
-يستخدم هذا المثال دفتر عمل خارجي تكون ورقة العمل التي اسمها `Sheet1` تحتوي على اسم سلسلة في B1، أسماء فئات في A2:A4، وقيم عددية في B2:B4. ينشئ المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لتعيين النطاق A1:B4 لسلسلة واحدة وثلاث فئات. يحفظ العرض التقديمي بالمخطط المرتبط.
+يستخدم هذا المثال دفتر عمل خارجي تكون فيه ورقة العمل المسماة `Sheet1` تحتوي على اسم سلسلة في B1، أسماء فئات في A2:A4، وقيم عددية في B2:B4. ينشئ المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) لتعيين A1:B4 إلى سلسلة واحدة وثلاث فئات. يحفظ العرض التقديمي بالمخطط المرتبط.
 
 ```java
 import com.aspose.slides.*;
@@ -430,12 +484,12 @@ try {
 }
 ```
 
-معامل `updateChartData` في [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) يتحكم فيما إذا كان دفتر العمل يُحمَّل.
+معامل `updateChartData` في طريقة [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) يتحكم فيما إذا كان دفتر العمل يُحمَّل.
 
-* عندما تكون `updateChartData` `false`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل المستهدف، لذا يمكن أن يكون دفتر العمل غير متاح.
-* عندما تكون `updateChartData` `true`، يتم تحديث بيانات المخطط من دفتر العمل المستهدف.
+* عندما تكون `updateChartData` مساوية لـ `false`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل أو تحديث بيانات المخطط من دفتر العمل الهدف، وبالتالي يمكن أن يكون دفتر العمل غير متاح.
+* عندما تكون `updateChartData` مساوية لـ `true`, يتم تحديث بيانات المخطط من دفتر العمل الهدف.
 
-المثال التالي يعيّن عنوان URL كعنصر نائب مع `updateChartData` مضبط على `false`. يحتفظ بالبيانات الافتراضية للمخطط الدائري ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتاح.
+المثال التالي يعيِّن عنوان URL نائب مع `updateChartData` مُعَيَّن إلى `false`. يحتفظ ببيانات المخطط الدائرية الافتراضية ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتاح.
 
 ```java
 import com.aspose.slides.*;
@@ -453,11 +507,11 @@ try {
 }
 ```
 
-### **الحصول على مسار دفتر العمل كمصدر بيانات خارجي لمخطط**
+### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي لمخطط**
 
-لتحديد دفتر العمل المرتبط بمخطط، تحقّق ما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مسار دفتر العمل الخاص به.
+لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مسار دفتر العمل الخاص به.
 
-يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض تقديمي مرتبط بدفتر عمل خارجي. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع المثال [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) في وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي.
+يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض تقديمي يحتوي على دفتر عمل خارجي مرتبط. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) إلى وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -486,9 +540,9 @@ try {
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يُرمى استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تُجري بها تغييرات على محتويات دفاتر العمل الداخلية. عند عدم القدرة على تحميل دفتر عمل خارجي، تُقذف استثناء.
 
-يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى ومربوطًا بدفتر عمل خارجي يمكن الوصول إليه. يضع قيمة الخلية للنقطة البيانية الأولى في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي المحدث. تحرير قيم الخلايا يمكن أن يُحدِّث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة إلى الحفاظ على دفتر العمل الأصلي.
+يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى ومرتبطًا بدفتر عمل خارجي يمكن الوصول إليه. يعيّن القيمة المدعومة بالخلية لأول نقطة بيانات في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي المحدث. تحرير قيم الخلايا يمكن أن يُحدث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة إلى الحفاظ على دفتر العمل الأصلي.
 
 ```java
 import com.aspose.slides.*;
@@ -520,11 +574,11 @@ try {
 }
 ```
 
-### **استعادة دفتر عمل من ذاكرة مخطط التخزين المؤقت**
+### **استعادة دفتر عمل من ذاكرة مخبّئ المخطط**
 
-إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزَّنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/)، استدعِ [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-)، واضبط [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) على `true` قبل فتح العرض التقديمي.
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/)، استدعِ [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-)، واضبط [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) على `true` قبل فتح العرض التقديمي.
 
-يستعيد المثال الجافا التالي بيانات دفتر العمل لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) و[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+المثال التالي بلغة Java يستعيد بيانات دفتر العمل لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) و[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -553,30 +607,30 @@ try {
 }
 ```
 
-إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، يُرمى Aspose.Slides استثناء. فعّل الاستعادة فقط عندما يكون استخدام البيانات المخزَّنة مؤقتًا للمخطط خيارًا مقبولًا، لأن الذاكرة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، تُقذف Aspose.Slides استثناء. فعِّل الاستعادة فقط عندما يكون استخدام البيانات المخزنة مؤقتًا في المخطط خيارًا مقبولًا، لأن الذاكرة المؤقتة قد لا تحتوي على التغييرات التي تم إجراؤها على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أو مضمّن؟**
 
-نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. للمخطط [نوع مصدر البيانات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف تُخزن؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الرابط.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الارتباط.
 
-**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكة؟**
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات الشبكة؟**
 
-نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم تحرير دفاتر العمل عن بُعد مباشرةً عبر Aspose.Slides؛ يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تعديل دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
-**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). يمكن أيضًا أن تُحدِّث تحرير بيانات المخطط المرتبطة بالخلية الملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان يجب إبقاء الأصل غير متغيّر.
+يحفظ العرض التقديمي [ارتباطًا إلى الملف الخارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). تعديل بيانات المخطط المدعومة بالخلايا قد يُحدّث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان لابد من بقاء الأصل دون تغيير.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-لا يقبل Aspose.Slides كلمة مرور عند الربط. يُفضَّل إزالة الحماية مسبقًا أو إعداد نسخة غير مشفَّرة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/java/)) وربط تلك النسخة.
+لا تقبل Aspose.Slides كلمة مرور عند الربط. نهج شائع هو إزالة الحماية مسبقًا أو إعداد نسخة مفككة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/java/)) والربط بتلك النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. يخزن كل مخطط رابطه الخاص. إذا أشاروا جميعًا إلى نفس الملف، سيتم عكس تحديث ذلك الملف في كل مخطط عند تحميل البيانات مرة أخرى.
+نعم. كل مخطط يخزن ارتباطه الخاص. إذا أشارت جميعها إلى نفس الملف، فإن تحديث ذلك الملف سينعكس على كل مخطط في المرة التالية التي تُحمَّل فيها البيانات.

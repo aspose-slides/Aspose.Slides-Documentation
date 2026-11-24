@@ -8,33 +8,33 @@ keywords:
 - grafiekwerkboek
 - grafiekgegevens
 - werkboekcel
-- databel
+- databelabel
 - werkblad
 - gegevensbron
 - extern werkboek
 - externe gegevens
 - grafiekcache
-- herstel van werkboek
+- werkboekherstel
 - PowerPoint
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Python via Java: beheer grafiekwerkboeken moeiteloos in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Python via Java: beheer eenvoudig grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om de gegevens van uw presentatie te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met werkboekdiagrammen in Aspose.Slides kunt werken. Het toont hoe u diagramgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als diagram‑datlabels, werkbladcollecties kunt benaderen en het type gegevensbron voor diagramwaarden kunt opgeven.
+Dit artikel legt uit hoe u met grafiek‑werkboeken werkt in Aspose.Slides. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkboekstreams, werkboekcellen kunt gebruiken als grafiekdatumnamen, werkbladcollecties kunt benaderen en het gegevenstype van de gegevensbron voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkboeken als diagram‑gegevensbronnen. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een diagram is gekoppeld opvraagt en diagramgegevens bewerkt wanneer het werkboek beschikbaar is.
+Het behandelt ook het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een grafiek is gekoppeld opvraagt en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
 
-Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [De weergave van lege cellen regelen](/slides/nl/python-java/chart-series/) voor het verschil tussen een lege cel en nul, en een lijndiagramvergelijking van de beschikbare weergavemodi.
+Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [De weergave van lege cellen regelen](/slides/nl/python-java/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-## **Gegevens van verborgen rijen en kolommen opnemen**
+## **Gegevens opnemen uit verborgen rijen en kolommen**
 
-Gebruik [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) om te bepalen of een diagram gegevens uit verborgen werkblad‑rijen en -kolommen plot. Stel het in op `True` om alleen zichtbare cellen te plotten, of op `False` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling bepaalt het plotten van het diagram; ze verbergt of onthult geen werkblad‑rijen of -kolommen.
+Gebruik [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) om te bepalen of een grafiek gegevens plot uit verborgen werkbladrijen en -kolommen. Stel het in op `True` om alleen zichtbare cellen te plotten, of op `False` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling bepaalt het plotten van de grafiek; ze verbergt of maakt geen verborgen werkbladrijen of -kolommen zichtbaar.
 
-De [sample presentation](hidden-source-data.pptx) bevat een kolomdiagram als de eerste vorm op de eerste dia. Het ingesloten werkblad, `Sheet1`, bevat het volgende bronbereik, `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
+De [sample presentation](hidden-source-data.pptx) bevat een kolomgrafiek als het eerste object op de eerste dia. Het ingesloten werkblad, `Sheet1`, bevat het volgende bronbereik, `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
 
 | Werkbladrij | A: Maand | B: Detailhandel | C: Groothandel (verborgen kolom) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ De [sample presentation](hidden-source-data.pptx) bevat een kolomdiagram als de 
 | 3 (verborgen rij) | februari | 40 | 60 |
 | 4 | maart | 20 | 50 |
 
-Benader broncellen via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) en lees [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) om hun verborgen status te inspecteren. Deze methode rapporteert de verborgen status zonder deze te wijzigen. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij, en C2 tot de verborgen kolom; het voorbeeld geeft respectievelijk `False`, `True` en `True` weer.
+Toegang tot broncellen via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) en lees [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) om hun verborgen status te inspecteren. Deze methode meldt de verborgen status zonder deze te wijzigen. In dit bestand is B2 zichtbaar, behoort B3 tot de verborgen rij, en behoort C2 tot de verborgen kolom; het voorbeeld print respectievelijk `False`, `True` en `True`.
 
-Voor dit voorbeeld ververs de diagramgegevens na het wijzigen van de plotinstelling: behoud het ingebedde werkboek met [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en laad het opnieuw met [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Wanneer u alle cellen opneemt, gebruik dan ook [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is onvoldoende om de gecachte diagramgegevens en categorie‑labels van dit voorbeeld te verversen.
+Voor dit voorbeeld, ververst u de grafiekgegevens nadat u de plotinstelling hebt gewijzigd: behoud het ingesloten werkboek met [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en laad het opnieuw met [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Wanneer u alle cellen opneemt, gebruik dan ook [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is onvoldoende om de in dit voorbeeld gecachte grafiekgegevens en categorielabels te vernieuwen.
 
 ```python
 import jpype
@@ -71,7 +71,7 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # Ververs de diagramgegevens vanuit het ingebedde werkboek.
+            # Vernieuw de grafiekgegevens vanuit het ingesloten werkboek.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
                 # Herstel het volledige bronbereik, inclusief verborgen categorieën.
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare detailhandelswaarden (10 en 20), en een andere met alle zes waarden. De afbeeldingen hieronder illustreren de twee plotmodi. Rij 3 en kolom C blijven verborgen in beide ingebedde werkboeken.
+Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare detailhandelswaarden (10 en 20) en een andere met alle zes waarden. De onderstaande afbeeldingen illustreren de twee plotmodi. Rij 3 en kolom C blijven verborgen in beide ingesloten werkboeken.
 
 | Alleen zichtbare cellen (`True`) | Alle cellen (`False`) |
 | --- | --- |
-| ![Alleen zichtbare cellen: detailhandelswaarden 10 en 20 voor januari en maart.](hidden_cells_True.png) | ![Alle cellen: detailhandels‑ en groothandelswaarden voor januari, februari en maart.](hidden_cells_False.png) |
+| ![Alleen zichtbare cellen: Detailhandelswaarden 10 en 20 voor januari en maart.](hidden_cells_True.png) | ![Alle cellen: Detailhandels‑ en groothandelswaarden voor januari, februari en maart.](hidden_cells_False.png) |
 
-Een verborgen cel met een waarde verschilt van een lege cel. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) bepaalt hoe ontbrekende waarden worden weergegeven; het omvat of sluit geen verborgen brongegevens uit. Zie [De weergave van lege cellen regelen](/slides/nl/python-java/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
+Een verborgen cel die een waarde bevat, verschilt van een lege cel. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) bepaalt hoe ontbrekende waarden worden weergegeven; het neemt geen verborgen brongegevens op of sluit ze uit. Zie [De weergave van lege cellen regelen](/slides/nl/python-java/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
 
-## **Gegevensbereik van een diagram ophalen**
+## **Bereik van grafiekgegevens opvragen**
 
-Voordat u werkboekgegevens bijwerkt in een bestaande presentatie, inspecteert u de bronbereiken om te identificeren welke werkbladcellen elk diagram gebruikt. De methode [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, bijvoorbeeld `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` identificeert de cellen A1 tot en met D5, inclusief. De dollartekens duiden absolute rij‑ en kolomreferenties aan.
+Voordat u werkboekgegevens bijwerkt in een bestaande presentatie, controleert u de bronbereiken om te identificeren welke werkbladcellen elke grafiek gebruikt. De methode [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, zoals `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` identificeert de cellen A1 tot en met D5, inclusief. De dollartekens duiden absolute rij‑ en kolomreferenties aan.
 
-De methode leest het huidige bereik zonder het diagram of het werkboek te wijzigen. Als het diagram geen werkboek als gegevensbron gebruikt, wordt een `InvalidOperationException` gegooid. Zie de [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) voor meer informatie.
+De methode leest het huidige bereik zonder de grafiek of het werkboek te wijzigen. Als de grafiek geen werkboek als gegevensbron gebruikt, wordt `InvalidOperationException` gegooid. Zie voor meer informatie de [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
 
-Dit voorbeeld opent een presentatie en controleert de vormen direct op elke dia op diagrammen. Het geeft de naam en het bronbereik van elk diagram weer. Als een diagram geen werkboek gebruikt, wordt een bericht weergegeven en gaat het verder met het volgende diagram.
+Dit voorbeeld opent een presentatie en controleert de objecten direct op elke dia op grafieken. Het print de naam en het bronbereik van elke grafiek. Als een grafiek geen werkboek gebruikt, print hij een bericht en gaat door naar de volgende grafiek.
 
 ```python
 import jpype
@@ -127,9 +127,9 @@ finally:
 
 ## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
 
-Aspose.Slides for Python via Java biedt de methoden [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) waarmee u werkboek‑diagramgegevens (bevatten diagramgegevens bewerkt met Aspose.Cells) kunt lezen en schrijven. **Opmerking** dat de diagramgegevens op dezelfde manier moeten worden georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
+Aspose.Slides for Python via Java biedt de methoden [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) waarmee u werkboeken met grafiekgegevens kunt lezen en schrijven (bevat grafiekgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten zijn georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
 
-Dit voorbeeld gebruikt een presentatie met een diagram als de eerste vorm op de eerste dia. Het leest het ingebedde werkboek in een byte‑array, wist de bestaande series en categorieën, en schrijft hetzelfde werkboek terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
+Dit voorbeeld gebruikt een presentatie met een grafiek als het eerste object op de eerste dia. Het leest het ingesloten werkboek in een byte‑array, wist de bestaande reeksen en categorieën, en schrijft hetzelfde werkboek terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Diagramlay-out valideren na wijziging van werkboek**
+### **Grafieklay-out valideren na werkboekwijziging**
 
-Wanneer u een ingebed werkboek vervangt door een aangepast werkboek, behoudt het diagram zijn oorspronkelijke series‑ en categorieverzamelingen. Deze mismatch kan ervoor zorgen dat [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkboek terugschrijft naar het diagram. Dit voorbeeld gebruikt een diagram dat de eerste vorm op de eerste dia is. Het commentaar markeert waar de bewerking van het werkboek zou plaatsvinden; het uitvoerbare voorbeeld schrijft het oorspronkelijke werkboek terug en valideert de lay‑out in het geheugen.
+Wanneer u een ingesloten werkboek vervangt door een aangepast werkboek, behoudt de grafiek zijn oorspronkelijke reeks‑ en categorieverzamelingen. Deze mismatch kan ertoe leiden dat [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) faalt met een index‑out‑of‑range‑fout. Wis de bestaande reeksen en categorieën voordat u het bijgewerkte werkboek terugschrijft naar de grafiek. Dit voorbeeld gebruikt een grafiek die het eerste object op de eerste dia is. Het commentaar geeft aan waar de bewerking van het werkboek zou plaatsvinden; het uitvoerbare voorbeeld schrijft het originele werkboek terug en valideert de lay‑out in het geheugen.
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # Wijzig hier de bytes van het werkboek, bijvoorbeeld met Aspose.Cells.
+        # Wijzig hier de werkboekbytes, bijvoorbeeld met Aspose.Cells.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -196,15 +196,69 @@ finally:
     presentation.dispose()
 ```
 
-Het wissen van de verzamelingen verwijdert verouderde gegevensreferenties voordat het werkboek wordt weggeschreven. Bouw eventuele vereiste series‑ en categorietoewijzingen opnieuw op voor het bijgewerkte werkboek voordat u het diagram gebruikt.
+Het wissen van de collecties verwijdert verouderde gegevensreferenties voordat het werkboek wordt weggeschreven. Bouw eventuele vereiste reeks‑ en categorietoewijzingen opnieuw op voor het bijgewerkte werkboek voordat u de grafiek gebruikt.
+
+## **Kiezen hoe categorielabels op te slaan**
+
+Roep [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorycollection/#setUseCells) aan op de lege categorieverzameling vóór het toevoegen van labels. Gebruik werkbladcellen wanneer labels verwijzen naar werkboekgegevens of een hiërarchie vormen, zoals kwartalen gegroepeerd per jaar. Gebruik tekenreeks‑literalen voor een enkel niveau van labels dat geen celreferenties nodig heeft. Deze instelling is alleen van toepassing op categorieën. Beide onderstaande grafieken gebruiken werkbladcellen voor hun numerieke reekswerte.
+
+Het voorbeeld creëert twee kolomgrafieken en print de opslagmodus gevolgd door `Q1 Q2 Q3 Q4` voor elk. Voor werkblad‑ondersteunde labels retourneert [ChartCategory.getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getAsCell) de onderliggende cel en leest [ChartDataCell.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getValue) de label. Voor letterlijke labels retourneert [ChartCategory.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getValue) de tekenreeks direct.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    for use_cells in (True, False):
+        x = 20 if use_cells else 360
+        chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250)
+        chart_data = chart.getChartData()
+        chart_data.getSeries().clear()
+        categories = chart_data.getCategories()
+        categories.clear()
+        categories.setUseCells(use_cells)
+
+        workbook = chart_data.getChartDataWorkbook()
+        series_name = workbook.getCell(0, 0, 1, "Sales")
+        series = chart_data.getSeries().add(series_name, chart.getType())
+        for row in range(1, 5):
+            label = f"Q{row}"
+            if use_cells:
+                label_cell = workbook.getCell(0, row, 0, label)
+                categories.add(label_cell)
+            else:
+                categories.add(label)
+
+            value_cell = workbook.getCell(0, row, 1, jpype.JInt(row * 10))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        stored_in_cells = categories.getUseCells()
+        labels = []
+        for category in categories:
+            value = category.getAsCell().getValue() if stored_in_cells else category.getValue()
+            labels.append(str(value))
+        print(f"UseCells = {stored_in_cells}:", *labels)
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
 
 ## **Aangepaste getalformaten instellen voor werkboekcellen**
 
-Gebruik [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) om te bepalen hoe numerieke waarden verschijnen in het ingebedde werkboek van een diagram. Bijvoorbeeld, een rapport kan een conversieratio willen weergeven als een percentage met vier decimalen en een coëfficiënt met vijf decimalen. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en diagramplotting.
+Gebruik [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) om te bepalen hoe numerieke waarden verschijnen in het ingesloten werkboek van een grafiek. Bijvoorbeeld, een rapport kan een conversieratio als percentage met vier decimalen en een coëfficiënt met vijf decimalen moeten weergeven. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en grafiekplotting.
 
-Een getalformaat wijzigt de weergave, niet de opgeslagen waarde. Het formaat `0.0000%` toont `0.125` als `12.5000%`; het vervangt de opgeslagen waarde niet door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder de opgeslagen waarde af te ronden. Als het aangepaste formaat een lege tekenreeks (`""`) is, wordt het formaat dat door [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) wordt geretourneerd, in plaats daarvan gebruikt.
+Een getalformaat wijzigt de weergave, niet de opgeslagen waarde. Het formaat `0.0000%` toont `0.125` als `12.5000%`; het vervangt de opgeslagen getal niet door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder de opgeslagen waarde af te ronden. Als het aangepaste formaat een lege tekenreeks (`""`) is, wordt het formaat dat wordt geretourneerd door [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) gebruikt.
 
-Het volgende voorbeeld maakt een kolomdiagram en benadert zijn cellen via [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren diagramwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bronformaten.
+Het volgende voorbeeld maakt een kolomgrafiek en benadert zijn cellen via [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren grafiekwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bronformaten.
 
 ```python
 import jpype
@@ -259,19 +313,19 @@ finally:
     presentation.dispose()
 ```
 
-Werkboekcelformaten staan los van de formaten die rechtstreeks op diagramas of datalabels worden ingesteld. In dit voorbeeld toont elk label de waarde van de broncel omdat [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) is ingesteld op `True`, en volgt het brongetalformaat omdat [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) op `True` staat. Na het opslaan en opnieuw openen van de presentatie tonen de labels `12.5000%` en `0.12346`, zoals hieronder weergegeven. De verticale as gebruikt zijn eigen getalformaat, toegewezen met [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) als `0.00`, met [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) ingesteld op `False`.
+Werkboekcelformaten staan los van de formatten die rechtstreeks op grafiekassen of gegevenslabels worden ingesteld. In dit voorbeeld toont elk label de waarde van zijn broncel omdat [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) is ingesteld op `True`, en volgt het brongetalformaat omdat [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) is ingesteld op `True`. Na het opslaan en opnieuw openen van de presentatie tonen de labels `12.5000%` en `0.12346`, zoals hieronder weergegeven. De verticale as gebruikt een eigen getalformaat, ingesteld met [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) op `0.00`, waarbij [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) op `False` staat.
 
-Om een datalabel onafhankelijk te formatteren, zet u de bron‑link‑vlag op `False` en kent u een formaat toe met [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Dit verandert het formaat van de werkboekcel niet. Bijvoorbeeld, een onafhankelijk labelformaat van `0.00` toont de eerste waarde als `0.13`, terwijl B2 nog steeds `12.5000%` toont. Zie [Chart Data Labels](/slides/nl/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe label‑formattering.
+Om een gegevenslabel onafhankelijk te formatteren, zet u de bron‑koppeling op `False` en wijst u een formaat toe met [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Dit wijzigt het formaat van de werkboekcel niet. Bijvoorbeeld, een onafhankelijk labelformaat `0.00` toont de eerste waarde als `0.13`, terwijl B2 nog steeds `12.5000%` toont. Zie [Chart Data Labels](/slides/nl/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe labelopmaak.
 
-De afbeelding hieronder is gerenderd vanuit de opgeslagen presentatie na het heropenen:
+De onderstaande afbeelding is gegenereerd vanuit de opgeslagen presentatie na heropening:
 
-![Kolomdiagram met bron‑gekoppelde labels die 12.5000% en 0.12346 tonen en een onafhankelijk geformatteerde numerieke as.](custom-cell-formats.png)
+![Kolomgrafiek met bron‑gelinkte labels die 12.5000% en 0.12346 tonen en een onafhankelijk geformatteerde numerieke as.](custom-cell-formats.png)
 
-## **Werkboekcel gebruiken als diagram‑datalabel**
+## **Een werkboekcel als grafiekdatumnabel instellen**
 
-U kunt tekst uit werkboekcellen gebruiken als diagram‑datalabels.
+U kunt tekst uit werkboekcellen gebruiken als grafiekdatumnlabels.
 
-Dit voorbeeld voegt een boldiagram met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels vanuit cellen in, en slaat de bijgewerkte presentatie op.
+Dit voorbeeld voegt een bubbelgrafiek met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt de cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste reeks, schakelt labels uit cellen in, en slaat de bijgewerkte presentatie op.
 
 ```python
 import jpype
@@ -303,7 +357,7 @@ finally:
 
 ## **Werkbladen beheren**
 
-De methode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) biedt toegang tot de werkbladen in een diagram‑werkboek. Dit voorbeeld maakt een cirkeldiagram met standaardgegevens en geeft elke werkbladnaam weer in de console.
+De methode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) biedt toegang tot de werkbladen in een grafiekwerkboek. Dit voorbeeld maakt een cirkelgrafiek met standaardgegevens en print elke werkbladnaam naar de console.
 
 ```python
 import jpype
@@ -326,11 +380,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Geef het type gegevensbron op**
+## **Gegevenstype van de gegevensbron specificeren**
 
-Serie‑puntwaarden kunnen ook rechtstreeks als numerieke literals worden opgeslagen. Zie [Set Series Values Using Numeric Literals](/slides/nl/python-java/chart-series/#set-series-values-using-numeric-literals) voor een volledig voorbeeld dat ze opslaat en leest. Het bron‑type van puntwaarden is gescheiden van de interne of externe werkboekconfiguratie van het diagram; het gebruik van numerieke literals verwijdert niet automatisch het ingebedde werkboek.
+Puntwaarden van reeksen kunnen ook rechtstreeks als numerieke literalen worden opgeslagen. Zie [Reekswaarden instellen met numerieke literalen](/slides/nl/python-java/chart-series/#set-series-values-using-numeric-literals) voor een volledig voorbeeld dat ze opslaat en leest. Het gegevenstype van puntwaarden staat los van de interne of externe werkboekconfiguratie van de grafiek; het gebruik van numerieke literalen verwijdert niet automatisch het ingesloten werkboek.
 
-Dit voorbeeld maakt een 3D‑kolomdiagram met standaardgegevens en stelt twee serienamen in met verschillende gegevensbronnen. De eerste naam gebruikt een tekenreeks‑literal; de tweede gebruikt cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte serienamen.
+Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee reeksnamen in met verschillende gegevensbronnen. De eerste naam gebruikt een tekenreeks‑literal; de tweede gebruikt cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte reeksnamen.
 
 ```python
 import jpype
@@ -359,9 +413,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Niet‑ondersteunde embedded werkboekformaten detecteren**
+## **Detecteren van niet‑ondersteunde ingesloten werkboekformaten**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige diagrammen kan worden ingesloten. U kunt de methode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) op [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) gebruiken om niet‑ondersteunde formaten te detecteren en die diagrammen over te slaan. Dit voorbeeld inspecteert de vormen op de eerste dia van een bestaande presentatie, slaat niet‑diagramvormen over, en geeft een diagnostisch bericht weer voor elk diagram met een ingebed .xlsb‑werkboek.
+Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige grafieken kan worden ingesloten. U kunt de methode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) op [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de objecten op de eerste dia van een bestaande presentatie, slaat niet‑grafiekobjecten over, en print een diagnostisch bericht voor elke grafiek met een ingesloten .xlsb‑werkboek.
 
 ```python
 import jpype
@@ -388,20 +442,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Lees of wijzig hier de ondersteunde diagram-werkboekgegevens.
+        # Lees of wijzig ondersteunde grafiekwerkboekgegevens hier.
 finally:
     presentation.dispose()
 ```
 
 ## **Extern werkboek**
 
-Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor diagrammen.
+Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor grafieken.
 
-### **Extern werkboek aanmaken**
+### **Een extern werkboek maken**
 
-Gebruik [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) om een ingebed diagram‑werkboek naar een bestand te exporteren en het diagram aan dat externe werkboek te koppelen.
+Gebruik [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) en [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) om een ingesloten grafiekwerkboek naar een bestand te exporteren en de grafiek aan dat externe werkboek te koppelen.
 
-Dit voorbeeld maakt een cirkeldiagram met standaardgegevens en exporteert het werkboek. Het voltooit het bestands‑schrijven voordat het externe werkboek wordt toegewezen als gegevensbron van het diagram, en slaat vervolgens de gekoppelde presentatie op.
+Dit voorbeeld maakt een cirkelgrafiek met standaardgegevens en exporteert zijn werkboek. Het voltooit het schrijven van het bestand voordat het externe werkboek wordt toegewezen als de gegevensbron van de grafiek, en slaat vervolgens de gekoppelde presentatie op.
 
 ```python
 import jpype
@@ -429,13 +483,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Extern werkboek instellen**
+### **Een extern werkboek instellen**
 
-Met de methode [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) kunt u een extern werkboek aan een diagram toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het laatstgenoemde is verplaatst).
+Met de methode [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het bestand is verplaatst).
 
 Hoewel u de gegevens in werkboeken die op externe locaties of bronnen zijn opgeslagen, niet kunt bewerken, kunt u dergelijke werkboeken nog steeds als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-Dit voorbeeld gebruikt een extern werkboek waarvan het werkblad met de naam `Sheet1` een serienaam bevat in B1, categorienamen in A2:A4 en numerieke waarden in B2:B4. Het voorbeeld maakt een cirkeldiagram, koppelt het werkboek, en gebruikt [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) om A1:B4 te mappen naar één serie en drie categorieën. Het slaat de presentatie op met het gekoppelde diagram.
+Dit voorbeeld gebruikt een extern werkboek waarvan het werkblad met de naam `Sheet1` een reekstnaam in B1, categorienamen in A2:A4 en numerieke waarden in B2:B4 bevat. Het voorbeeld maakt een cirkelgrafiek, koppelt het werkboek, en gebruikt [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) om A1:B4 te koppelen aan één reeks en drie categorieën. Het slaat de presentatie op met de gekoppelde grafiek.
 
 ```python
 import jpype
@@ -465,10 +519,10 @@ finally:
 
 De parameter `updateChartData` van [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) bepaalt of het werkboek wordt geladen.
 
-* Wanneer `updateChartData` `False` is, wordt alleen het werkboekpad bijgewerkt. De diagramgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek, zodat het werkboek niet beschikbaar kan zijn.
-* Wanneer `updateChartData` `True` is, worden de diagramgegevens bijgewerkt vanuit het doel‑werkboek.
+* Wanneer `updateChartData` op `False` staat, wordt alleen het werkboek‑pad bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek, zodat het werkboek mogelijk niet beschikbaar is.
+* Wanneer `updateChartData` op `True` staat, worden de grafiekgegevens bijgewerkt vanuit het doel‑werkboek.
 
-Het volgende voorbeeld kent een tijdelijke URL toe met `updateChartData` ingesteld op `False`. Het behoudt de standaardgegevens van het cirkeldiagram en slaat de presentatie op zonder het niet‑beschikbare werkboek te laden.
+Het volgende voorbeeld wijst een tijdelijke URL toe met `updateChartData` ingesteld op `False`. Het behoudt de standaardgegevens van de cirkelgrafiek en slaat de presentatie op zonder het niet‑beschikbare werkboek te laden.
 
 ```python
 import jpype
@@ -492,11 +546,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Het pad van het externe gegevensbron‑werkboek van een diagram ophalen**
+### **Het pad van het externe gegevensbron‑werkboek van een grafiek opvragen**
 
-Om het werkboek te identificeren dat aan een diagram is gekoppeld, controleert u of het diagram een externe gegevensbron gebruikt en haalt u het werkboekpad op.
+Om het werkboek dat aan een grafiek is gekoppeld te identificeren, controleer of de grafiek een externe gegevensbron gebruikt en vraag zijn werkboek‑pad op.
 
-Dit voorbeeld inspecteert de eerste vorm op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een diagram is dat aan een extern werkboek is gekoppeld, geeft het voorbeeld [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) weer in de console. Vervolgens slaat het een kopie van de presentatie op.
+Dit voorbeeld inspecteert het eerste object op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een grafiek is die is gekoppeld aan een extern werkboek, print het voorbeeld [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) naar de console. Vervolgens slaat het een kopie van de presentatie op.
 
 ```python
 import jpype
@@ -527,11 +581,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Diagramgegevens bewerken**
+### **Grafiekgegevens bewerken**
 
-U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als u wijzigingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering geworpen.
+U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als u wijzigingen aanbrengt in interne werkboeken. Als een extern werkboek niet kan worden geladen, wordt een uitzondering gegooid.
 
-Dit voorbeeld gebruikt een diagram dat de eerste vorm op de eerste dia is en gekoppeld is aan een toegankelijk extern werkboek. Het stelt de cel‑ondersteunde waarde van het eerste gegevenspunt in de eerste serie in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken, dus gebruik een kopie als u het originele werkboek moet behouden.
+Dit voorbeeld gebruikt een grafiek die het eerste object op de eerste dia is en gekoppeld is aan een toegankelijk extern werkboek. Het stelt de cel‑gebaseerde waarde van het eerste datumpunt in de eerste reeks in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken; gebruik een kopie als u het oorspronkelijke werkboek wilt behouden.
 
 ```python
 import jpype
@@ -565,18 +619,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Werkboek herstellen vanuit de diagramcache**
+### **Een werkboek uit de grafiekkachel herstellen**
 
-Als een diagram een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het diagramwerkboek reconstrueren vanuit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) aan, roep [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) aan, en stel [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) in op `True` voordat u de presentatie opent.
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiekwerkboek reconstrueren vanuit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), roep [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) aan, en stel [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) in op `True` voordat u de presentatie opent.
 
-Het volgende Python‑voorbeeld herstelt werkboekgegevens voor een diagram dat de eerste vorm op de eerste dia is en verwijst naar een niet‑beschikbaar extern werkboek. Het benadert de herstelde gegevens via [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Het volgende Python‑voorbeeld herstelt werkboekgegevens voor een grafiek die het eerste object op de eerste dia is en verwijst naar een niet‑beschikbaar extern werkboek. Het krijgt toegang tot de herstelde gegevens via [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpile.startJVM()
 
 from asposeslides.api import Chart, LoadOptions, Presentation, SpreadsheetOptions
 
@@ -602,30 +656,30 @@ finally:
     presentation.dispose()
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, werpt Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte diagramgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in het externe werkboek zijn aangebracht.
+Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die in het externe werkboek zijn aangebracht nadat de presentatie voor het laatst is bijgewerkt.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik bepalen of een specifiek diagram is gekoppeld aan een extern of een ingebed werkboek?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een extern of een ingesloten werkboek?**
 
-Ja. Een diagram heeft een [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) en een [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); als de bron een extern werkboek is, kunt u het volledige pad lezen om er zeker van te zijn dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); als de bron een extern werkboek is, kunt u het volledige pad lezen om zeker te zijn dat een extern bestand wordt gebruikt.
 
 **Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
 
 Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus het verplaatsen van het werkboek kan vereisen dat de koppeling wordt bijgewerkt.
 
-**Kan ik werkboeken gebruiken die zich op netwerkbronnen/deelpunten bevinden?**
+**Kan ik werkboeken gebruiken die zich op netwerkmiddelen/‑shares bevinden?**
 
-Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund — ze kunnen alleen als bron worden gebruikt.
+Ja, dergelijke werkboeken kunnen worden gebruikt als een externe gegevensbron. Direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
 
-**Schrijft Aspose.Slides het externe XLSX‑bestand over bij het opslaan van de presentatie?**
+**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
 
-De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) op. Het bewerken van cel‑ondersteunde diagramgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
+De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) op. Het bewerken van cel‑gebaseerde grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
 
 **Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de beveiliging vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) en die koppeling te gebruiken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de beveiliging vooraf te verwijderen of een gedecryptte kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) en die kopie te koppelen.
 
-**Kunnen meerdere diagrammen naar hetzelfde externe werkboek verwijzen?**
+**Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
 
-Ja. Elk diagram slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elk diagram weergegeven de volgende keer dat de gegevens worden geladen.
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een bijwerking van dat bestand in elke grafiek weerspiegeld de volgende keer dat de gegevens worden geladen.

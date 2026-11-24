@@ -1,49 +1,49 @@
 ---
-title: "مدیریت کتاب‌کارهای نمودار در ارائه‌ها با Java"
-linktitle: "کتاب‌کار نمودار"
+title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از جاوا
+linktitle: کتاب‌کار نمودار
 type: docs
 weight: 70
 url: /fa/java/chart-workbook/
 keywords:
-- "کتاب‌کار نمودار"
-- "دادهٔ نمودار"
-- "سلول کتاب‌کار"
-- "برچسب داده"
-- "کاربرگ"
-- "منبع داده"
-- "کتاب‌کار خارجی"
-- "دادهٔ خارجی"
-- "کش نمودار"
-- "بازیابی کتاب‌کار"
-- "پاورپوینت"
-- "ارائه"
-- "جاوا"
-- "Aspose.Slides"
-description: "Aspose.Slides برای Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در قالب‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائهٔ خود را بهینه کنید."
+- کتاب‌کار نمودار
+- دادهٔ نمودار
+- سلول کتاب‌کار
+- برچسب داده
+- برگه‌کاری
+- منبع داده
+- کتاب‌کار خارجی
+- دادهٔ خارجی
+- کش نمودار
+- بازیابی کتاب‌کار
+- PowerPoint
+- ارائه
+- جاوا
+- Aspose.Slides
+description: "Aspose.Slides برای جاوا را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های پاورپوینت و OpenDocument مدیریت کنید تا داده‌های ارائهٔ خود را بهینه‌سازی کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های کاربرگ دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را تعیین کنید.
+این مقاله نحوه کار با کتاب‌کارهای نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب‌کار خواند و نوشت، از سلول‌های کتاب‌کار به‌عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌برگه‌ها دسترسی داشت و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
 
-همچنین نحوه کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی پیوست‌شده به یک نمودار را بازیابی کنید و داده‌های نمودار را وقتی کتاب‌کار در دسترس باشد، ویرایش کنید.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص می‌شود، مسیر کتاب‌کار خارجی پیوند شده به یک نمودار بازیابی می‌شود و داده‌های نمودار هنگام دسترس بودن کتاب‌کار ویرایش می‌شود.
 
-برای سلول‌های کتاب‌کاری که نمایانگر داده‌های گمشده هستند، به [کنترل نمایش سلول‌های خالی](/slides/fa/java/chart-series/) مراجعه کنید تا تفاوت بین یک سلول خالی و صفر، و مقایسهٔ خطی حالت‌های نمایش موجود را ببینید.
+برای سلول‌های کتاب‌کار که نمایانگر داده‌های مفقود هستند، به [Control the Display of Empty Cells](/slides/fa/java/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر و مقایسه‌های خطی نمایش حالت‌های مختلف را ببینید.
 
-## **شامل‌کردن داده‌ها از ردیف‌ها و ستون‌های پنهان**
+## **شامل داده‌ها از ردیف‌ها و ستون‌های مخفی**
 
-از [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) برای کنترل این که آیا یک نمودار داده‌های ردیف‌ها و ستون‌های پنهان کاربرگ را رسم می‌کند یا نه استفاده کنید. مقدار `true` باعث رسم فقط سلول‌های قابل مشاهده می‌شود و `false` هر دو سلول قابل مشاهده و پنهان را شامل می‌شود. این تنظیم فقط نحوهٔ رسم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های کاربرگ را مخفی یا آشکار نمی‌کند.
+از [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) برای کنترل اینکه آیا یک نمودار فقط داده‌های ردیف‌ها و ستون‌های مخفی برگه را ترسیم می‌کند استفاده کنید. مقدار `true` باعث ترسیم فقط سلول‌های قابل مشاهده می‌شود، و مقدار `false` هر دو سلول قابل مشاهده و مخفی را شامل می‌شود. این تنظیم فقط ترسیم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های برگه را مخفی یا نمایش نمی‌دهد.
 
-[نمونهٔ ارائه](hidden-source-data.pptx) شامل یک نمودار ستونی به عنوان اولین شکل در اولین اسلاید است. کاربرگ جاسازی‌شده، `Sheet1`، دامنهٔ منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C پنهان هستند، اما سلول‌های آن‌ها همچنان مقدار دارند.
+[نمونه ارائه](hidden-source-data.pptx) شامل یک نمودار ستونی به عنوان اولین شکل در اسلاید اول آن است. برگهٔ تعبیه‌شده، `Sheet1`، محدودهٔ منبع زیر را دارد: `A1:C4`. ردیف ۳ و ستون C مخفی هستند، اما سلول‌هایشان همچنان دارای مقادیر هستند.
 
-| سطر کاربرگ | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون پنهان) |
+| ردیف برگه | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
 | --- | --- | --- | --- |
 | 2 | ژانویه | 10 | 30 |
-| 3 (ردیف پنهان) | فوریه | 40 | 60 |
+| 3 (ردیف مخفی) | فوریه | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-به سلول‌های منبع از طریق [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی پیدا کنید و با استفاده از [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) وضعیت پنهان بودن آن‌ها را بررسی کنید. این متد وضعیت پنهان بودن را بدون تغییر آن گزارش می‌کند. در این مثال، B2 قابل مشاهده است، B3 به ردیف پنهان تعلق دارد و C2 به ستون پنهان؛ خروجی مثال به‌ترتیب `false`، `true` و `true` است.
+به سلول‌های منبع از طریق [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی پیدا کنید و وضعیت مخفی بودنشان را با [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) بررسی کنید. این متد وضعیت مخفی بودن را بدون تغییر آن گزارش می‌کند. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
 
-برای این مثال، پس از تغییر تنظیم رسم، داده‌های نمودار را تازه کنید: کتاب‌کار جاسازی‌شده را با [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) نگه دارید و با [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) آن را دوباره بارگذاری کنید. هنگام شامل‌کردن همهٔ سلول‌ها، همچنین از [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) برای بازگرداندن دامنهٔ کامل، شامل دستهٔ پنهان «فوریه»، استفاده کنید. فقط تغییر پرچم برای تازه‌سازی داده‌های کش‌شدهٔ این نمونه کافی نیست.
+برای این مثال، پس از تغییر تنظیم ترسیم، داده‌های نمودار را تازه کنید: کتاب‌کار تعبیه‌شده را با [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) نگه‌داری کنید و با [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) مجدداً بارگذاری کنید. هنگام شامل کردن همهٔ سلول‌ها، از [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) برای بازیابی محدودهٔ کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. صرفاً تغییر پرچم برای تازه‌سازی داده‌های کش‌شدهٔ این نمونه کافی نیست.
 
 ```java
 import com.aspose.slides.*;
@@ -64,10 +64,10 @@ try {
         for (boolean visibleOnly : new boolean[] { true, false }) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // داده‌های نمودار را از کتاب‌کار جاسازی‌شده تازه کنید.
+            // به‌روزرسانی داده‌های نمودار از کتاب‌کار تعبیه‌شده.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // دامنهٔ منبع کامل را بازگردانید، شامل دسته‌های پنهان.
+                // بازگرداندن محدودهٔ منبع کامل، شامل دسته‌های مخفی.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,21 +81,21 @@ try {
 }
 ```
 
-این مثال دو نسخه از ارائه را ذخیره می‌کند: یکی فقط با مقادیر خرده‌فروشی قابل مشاهده (10 و 20) و دیگری با همهٔ شش مقدار. تصاویر زیر دو حالت رسم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار جاسازی‌شده پنهان می‌مانند.
+مثال دو نسخه از ارائه را ذخیره می‌کند: یکی فقط با مقادیر خرده‌فروشی قابل مشاهده (10 و 20) و دیگری با تمام شش مقدار. تصاویر زیر دو حالت ترسیم را نشان می‌دهند. ردیف ۳ و ستون C در هر دو کتاب‌کار تعبیه‌شده مخفی می‌مانند.
 
-| فقط سلول‌های قابل مشاهده (`true`) | همهٔ سلول‌ها (`false`) |
+| فقط سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-یک سلول پنهان حاوی مقدار، متفاوت از یک سلول خالی است. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) نحوهٔ نمایش مقادیر گمشده را کنترل می‌کند؛ این تنظیم شامل یا حذف داده‌های منبع پنهان نمی‌شود. برای مثال به [کنترل نمایش سلول‌های خالی](/slides/fa/java/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
+یک سلول مخفی که دارای مقدار است با یک سلول خالی متفاوت است. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این تنظیم شامل یا حذف داده‌های منبع مخفی نمی‌شود. برای مثال به [Control the Display of Empty Cells](/slides/fa/java/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-## **بازیابی دامنهٔ دادهٔ یک نمودار**
+## **بازیابی محدودهٔ دادهٔ یک نمودار**
 
-قبل از به‌روزرسانی داده‌های کتاب‌کار در یک ارائهٔ موجود، دامنه‌های منبع را بررسی کنید تا مشخص شود هر نمودار چه سلول‌های کاربرگی را استفاده می‌کند. متد [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) دامنهٔ دادهٔ فعلی را به صورت یک فرمول کاربرگ‑کوانتوفایِد، مانند `Sheet1!$A$1:$D$5`، برمی‌گرداند. در اینجا، `Sheet1` نام کاربرگ است، `!` آن را از دامنهٔ سلول جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دولار نشان‌دهندهٔ مراجع مطلق ردیف و ستون است.
+قبل از به‌روزرسانی داده‌های کتاب‌کار در یک ارائه موجود، محدوده‌های منبع را بررسی کنید تا بفهمید هر نمودار از کدام سلول‌های برگه استفاده می‌کند. متد [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) محدودهٔ دادهٔ فعلی را به‌صورت فرمولی با شناسهٔ برگه باز می‌گرداند، مانند `Sheet1!$A$1:$D$5`. در اینجا، `Sheet1` نام برگه است، `!` آن را از محدودهٔ سلول جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 (شامل) را مشخص می‌کند. علامت‌های دلار اشاره به مراجع مطلق ردیف و ستون دارند.
 
-این متد دامنهٔ فعلی را بدون تغییر نمودار یا کتاب‌کار می‌خواند. اگر نمودار از کتاب‌کار به عنوان منبع داده استفاده نکند، `InvalidOperationException` پرتاب می‌شود. برای اطلاعات بیشتر، به [مرجع API ChartData](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/) مراجعه کنید.
+این متد محدودهٔ فعلی را بدون تغییر نمودار یا کتاب‌کار می‌خواند. اگر نمودار از کتاب‌کار به‌عنوان منبع داده استفاده نکند، `InvalidOperationException` پرتاب می‌شود. برای اطلاعات بیشتر به [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/) مراجعه کنید.
 
-این مثال یک ارائه را باز می‌کند و برای هر اسلاید شکل‌های موجود را بررسی می‌کند تا نمودارها را پیدا کند. نام هر نمودار و دامنهٔ منبع آن را چاپ می‌کند. اگر نموداری از کتاب‌کار استفاده نکند، پیام مربوطه چاپ شده و به نمودار بعدی ادامه می‌دهد.
+این مثال یک ارائه را باز می‌کند و اشکال موجود در هر اسلاید را برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و محدودهٔ منبع آن را چاپ می‌کند. اگر نموداری از کتاب‌کار استفاده نکند، پیامی چاپ می‌کند و به نمودار بعدی می‌پردازد.
 
 ```java
 import com.aspose.slides.*;
@@ -121,11 +121,11 @@ try {
 }
 ```
 
-## **خواندن و نوشتن دادهٔ نمودار از کتاب‌کار**
+## **خواندن و نوشتن داده‌های نمودار از کتاب‌کار**
 
-Aspose.Slides for Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) و [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که دادهٔ نمودار باید به همان شیوه سازماندهی شده باشد یا ساختاری مشابه منبع داشته باشد.
+Aspose.Slides for Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) و [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای دادهٔ نمودار (دارای داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **Note** اینکه داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
-این مثال از یک ارائه با یک نمودار به عنوان اولین شکل در اولین اسلاید استفاده می‌کند. کتاب‌کار جاسازی‌شده را به یک آرایهٔ بایت می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را باز می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
+این مثال از یک ارائه با یک نمودار به‌عنوان اولین شکل در اسلاید اول استفاده می‌کند. کتاب‌کار تعبیه‌شده را به آرایهٔ بایتی می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را باز می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -152,9 +152,9 @@ try {
 }
 ```
 
-### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب‌کار**
+### **اعتبارسنجی چیدمان نمودار پس از اصلاح کتاب‌کار**
 
-زمانی که یک کتاب‌کار جاسازی‌شده را با کتاب‌کاری اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود که [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) با خطای out‑of‑range ایندکس مواجه شود. پیش از نوشتن کتاب‌کار به‌روزشده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اولین اسلاید است استفاده می‌کند. نظرات نشان می‌دهند که ویرایش کتاب‌کار کجا انجام می‌شود؛ مثال اجرایی کتاب‌کار اصلی را باز می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
+هنگامی که یک کتاب‌کار تعبیه‌شده را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار سری‌ها و مجموعهٔ دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) با خطای out‑of‑range شود. پیش از نوشتن کتاب‌کار به‌روزشده به نمودار، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اسلاید اول است استفاده می‌کند. توضیح‌نامه جایی که ویرایش کتاب‌کار انجام می‌شود را نشان می‌دهد؛ مثال قابل اجرا فقط کتاب‌کار اصلی را باز می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -169,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // تغییر بایت‌های کتاب‌کار در اینجا، برای مثال با استفاده از Aspose.Cells.
+        // دیتای بایت کتاب‌کار را اینجا ویرایش کنید، برای مثال با استفاده از Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -184,15 +184,67 @@ try {
 }
 ```
 
-پاک‌کردن مجموعه‌ها مراجع دادهٔ منقضی‌شده را پیش از نوشتن کتاب‌کار حذف می‌کند. پیش از استفاده از نمودار، هر سری و دستهٔ لازم را برای کتاب‌کار به‌روزشده بازسازی کنید.
+پاک‌کردن مجموعه‌ها مراجع داده‌های منقضی‌شده را پیش از نوشتن کتاب‌کار حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دستهٔ موردنیاز برای کتاب‌کار به‌روزشده بازسازی شود.
 
-## **تنظیم قالب‌های عددی سفارشی برای سلول‌های کتاب‌کار**
+## **انتخاب روش ذخیره‌سازی برچسب‌های دسته**
 
-از [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) برای کنترل نحوهٔ نمایش مقادیر عددی در کتاب‌کار جاسازی‌شدهٔ نمودار استفاده کنید. برای مثال، ممکن است گزارشی نیاز داشته باشد نرخ تبدیل به صورت درصد با چهار رقم اعشار نمایش داده شود و ضریب با پنج رقم اعشار. هر دو مقدار باید به صورت عددی باقی بمانند تا برای محاسبات و رسم نمودار در دسترس باشند.
+قبل از اضافه کردن برچسب‌ها، بر روی مجموعهٔ خالی دسته‌ها متد [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) را فراخوانی کنید. برای برچسب‌هایی که به داده‌های کتاب‌کار ارجاع می‌دهند یا سلسله‌مراتبی مثل فصول بر پایه سال دارند، از سلول‌های برگه استفاده کنید. برای برچسب‌های تک‌سطحی که نیازی به ارجاع به سلول ندارند، از رشته‌های ثابت استفاده کنید. این تنظیم فقط برای دسته‌ها اعمال می‌شود. هر دو نمودار در مثال از سلول‌های برگه برای مقادیر سری‌های عددی استفاده می‌کنند.
 
-قالب عددی نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` مقدار `0.125` را به‌صورت `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` است. به‌طور مشابه، `0.00000` مقدار `0.1234567` را به‌صورت `0.12346` نشان می‌دهد بدون این‌که مقدار ذخیره‌شده گرد شود. اگر قالب سفارشی رشتهٔ خالی (`""`) باشد، قالب برگشت داده‑شده توسط [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) استفاده می‌شود.
+مثال دو نمودار ستونی ایجاد می‌کند و حالت ذخیره‌سازی را به همراه `Q1 Q2 Q3 Q4` برای هر یک چاپ می‌کند. برای برچسب‌های مبتنی بر سلول، [IChartCategory.getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getAsCell--) سلول پایه را برمی‌گرداند و [IChartDataCell.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getValue--) برچسب آن را می‌دهد. برای برچسب‌های ثابت، رشته را مستقیماً با [IChartCategory.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getValue--) می‌خوانید.
 
-در مثال زیر یک نمودار ستونی ایجاد می‌شود و سلول‌های آن از طریق [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی پیدا می‌کند. در کاربرگ 0، B2 حاوی نرخ تبدیل و C2 حاوی ضریب است. هر دو سلول مقدارهای نمودار را فراهم می‌کنند. مثال همچنین برچسب‌های مقادیر را که به قالب‌های منبع لینک شده‌اند فعال می‌کند.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنظیم قالب عددی سفارشی برای سلول‌های کتاب‌کار**
+
+از [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) برای کنترل نحوهٔ نمایش مقادیر عددی در کتاب‌کار تعبیه‌شدهٔ یک نمودار استفاده کنید. برای مثال، یک گزارش ممکن است نرخ تبدیل را به‌صورت درصد با چهار رقم اعشار و یک ضریب را با پنج رقم اعشار نمایش دهد. هر دو مقدار باید عددی باقی بمانند تا برای محاسبات و ترسیم نمودار در دسترس باشند.
+
+یک قالب عددی نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` مقدار `0.125` را به‌صورت `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` است. به‌صورت مشابه، `0.00000` مقدار `0.1234567` را به‌صورت `0.12346` نشان می‌دهد بدون تغییر عدد ذخیره‌شده. اگر قالب سفارشی یک رشتهٔ خالی (`""`) باشد، به جای آن قالبی که توسط [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) برگردانده می‌شود استفاده می‌شود.
+
+مثال زیر یک نمودار ستونی ایجاد می‌کند و سلول‌های آن را از طریق [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) می‌خواند. در برگه 0، B2 حاوی نرخ تبدیل و C2 حاوی ضریب است. هر دو سلول مقادیر نمودار را تأمین می‌کنند. مثال همچنین برچسب‌های مقدار را فعال می‌کند که به قالب‌های منبع پیوند دارند.
 
 ```java
 import com.aspose.slides.*;
@@ -243,17 +295,19 @@ try {
 }
 ```
 
-قالب‌های سلول کتاب‌کار جدا از قالب‌های تنظیم‌شده مستقیماً بر محورهای نمودار یا برچسب‌های داده هستند. در این مثال، هر برچسب مقدار سلول منبع خود را نشان می‌دهد چون [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) روی `true` تنظیم شده و به قالب عددی منبع لینک دارد چون [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) روی `true` است. پس از ذخیره و باز کردن مجدد ارائه، برچسب‌ها `12.5000%` و `0.12346` را نمایش می‌دهند، همان‌طور که در زیر مشاهده می‌شود. محور عمودی از قالب عددی خود استفاده می‌کند که با [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) به `0.00` تنظیم شده و با [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) روی `false` قرار گرفته است.
+قالب‌های سلول کتاب‌کار متفاوت از قالب‌های تنظیم‑شده مستقیم بر محورها یا برچسب‌های داده هستند. در این مثال، هر برچسب مقدار سلول منبع خود را نشان می‌دهد چون [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) روی `true` تنظیم شده و به قالب عددی منبع پیوند دارد چون [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) نیز روی `true` است. پس از ذخیره و بازگشایی ارائه، برچسب‌ها `12.5000%` و `0.12346` را نشان می‌دهند، همان‌طور که در زیر مشاهده می‌شود. محور عمودی قالب عددی خود را دارد که با [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) به‌صورت `0.00` تنظیم شده و [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) روی `false` است.
 
-برای قالب‌بندی مستقل یک برچسب داده، پرچم لینک به منبع آن را به `false` تنظیم کنید و با [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) قالبی اختصاص دهید. این کار قالب سلول کتاب‌کار را تغییر نمی‌دهد. به‌عنوان مثال، قالب مستقل `0.00` مقدار اول را به‌صورت `0.13` نمایش می‌دهد، در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای جزئیات بیشتر به [برچسب‌های دادهٔ نمودار](/slides/fa/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
+برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع آن را روی `false` بگذارید و با [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) قالبی اختصاص دهید. این کار قالب سلول کتاب‌کار را تغییر نمی‌دهد. برای مثال، قالب مستقل `0.00` مقدار اول را به‌صورت `0.13` نشان می‌دهد، در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای مثال مستقیم قالب‌بندی برچسب‌ها به [Chart Data Labels](/slides/fa/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
 
-![نمودار ستونی با برچسب‌های لینک‌شده به منبع که 12.5000% و 0.12346 را نشان می‌دهند و یک محور عددی به‌صورت مستقل قالب‌بندی شده است.](custom-cell-formats.png)
+تصویر زیر از ارائهٔ ذخیره‌شده پس از بازگشایی رندر شده است:
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
+## **تعیین یک سلول کتاب‌کار به‌عنوان برچسب دادهٔ نمودار**
 
 می‌توانید از متن سلول‌های کتاب‌کار به‌عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
 
-این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اولین اسلاید یک ارائهٔ موجود اضافه می‌کند. از سلول‌های A10:A12 در کاربرگ 0 برای اولین سه برچسب در اولین سری استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌کند و ارائه به‌روزشده را ذخیره می‌کند.
+این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اسلاید اول یک ارائه موجود اضافه می‌کند. از سلول‌های A10:A12 در برگه 0 برای اولین سه برچسب در سری اول استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌کند و ارائهٔ به‌روزشده را ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -277,9 +331,9 @@ try {
 }
 ```
 
-## **مدیریت کاربرگ‌ها**
+## **مدیریت برگه‌ها**
 
-متد [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) دسترسی به کاربرگ‌های موجود در کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر کاربرگ را به کنسول چاپ می‌کند.
+متد [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) دسترسی به برگه‌های موجود در کتاب‌کار یک نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر برگه را به‌کنسول چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -299,11 +353,11 @@ try {
 }
 ```
 
-## **مشخص‌کردن نوع منبع داده**
+## **مشخص کردن نوع منبع داده**
 
-مقدارهای نقاط سری می‌توانند به‌صورت مستقیم به عنوان literals عددی ذخیره شوند. برای مثال کامل به [تنظیم مقادیر سری با literals عددی](/slides/fa/java/chart-series/#set-series-values-using-numeric-literals) مراجعه کنید. نوع منبع مقادیر نقطه، جدا از پیکربندی داخلی یا خارجی کتاب‌کار نمودار است؛ استفاده از literals عددی به تنهایی کتاب‌کار جاسازی‌شده را حذف نمی‌کند.
+مقادیر نقاط سری می‌توانند به‌صورت ثابت‌های عددی نیز ذخیره شوند. برای مثال کامل که آنها را ذخیره و می‌خواند به [Set Series Values Using Numeric Literals](/slides/fa/java/chart-series/#set-series-values-using-numeric-literals) مراجعه کنید. نوع منبع مقادیر نقاط جدا از پیکربندی داخلی یا خارجی کتاب‌کار نمودار است؛ استفاده فقط از ثابت‌های عددی به‌خودی کتاب‌کار تعبیه‌شده را حذف نمی‌کند.
 
-این مثال یک نمودار ستونی 3‑بعدی با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده مختلف تنظیم می‌کند. نام اول از literal رشته‌ای استفاده می‌کند؛ نام دوم از سلول C1 در کاربرگ 0 استفاده می‌کند. enum [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روز‌شده ذخیره می‌کند.
+این مثال یک نمودار ستونی 3D با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده متفاوت تنظیم می‌کند. نام اول از یک ثابت رشته‌ای استفاده می‌کند؛ نام دوم از سلول C1 در برگه 0 استفاده می‌کند. شمارش [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روزشده ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -329,9 +383,9 @@ try {
 }
 ```
 
-## **تشخیص قالب‌های کتاب‌کار جاسازی‌شدهٔ پشتیبانی‑نشده**
+## **تشخیص قالب‌های کتاب‌کار تعبیه‌شدهٔ پشتیبانی‌نشده**
 
-Aspose.Slides از قالب کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) بر روی [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) همراه با enum [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) قالب‌های پشتیبانی‑نشده را شناسایی و از آن‌ها عبور کنید. این مثال شکل‌های اولین اسلاید یک ارائهٔ موجود را بررسی می‌کند، اشکال غیرنموداری را نادیده می‌گیرد و برای هر نموداری که کتاب‌کار .xlsb جاسازی‌شده دارد پیام عیب‌یابی چاپ می‌کند.
+Aspose.Slides از قالب کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها تعبیه شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) روی [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) همراه با شمارش [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی و آن نمودارها را نادیده بگیرید. این مثال اشکال اسلاید اول یک ارائهٔ موجود را بررسی می‌کند، اشکال غیرنموداری را رد می‌کند و برای هر نمودار با کتاب‌کار .xlsb تعبیه‌شده یک پیام تشخیصی چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -355,7 +409,7 @@ try {
             continue;
         }
 
-        // خواندن یا تغییر داده‌های کتاب‌کار نمودار پشتیبانی‌شده در اینجا.
+        // داده‌های پشتیبانی‌شدهٔ کتاب‌کار نمودار را اینجا بخوانید یا اصلاح کنید.
     }
 } finally {
     presentation.dispose();
@@ -364,13 +418,13 @@ try {
 
 ## **کتاب‌کار خارجی**
 
-Aspose.Slides از استفاده از کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
+Aspose.Slides پشتیبانی می‌کند از استفاده از کتاب‌کارهای خارجی به‌عنوان منبع داده برای نمودارها.
 
-### **ایجاد یک کتاب‌کار خارجی**
+### **ایجاد کتاب‌کار خارجی**
 
-از [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) و [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) برای استخراج کتاب‌کار جاسازی‌شدهٔ نمودار به یک فایل و پیوست نمودار به آن کتاب‌کار خارجی استفاده کنید.
+از [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) و [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) برای استخراج کتاب‌کار تعبیه‌شدهٔ یک نمودار به یک فایل و پیوند نمودار به آن کتاب‌کار خارجی استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را صادر می‌کند. نوشتن فایل را تکمیل می‌کند قبل از اینکه کتاب‌کار خارجی را به‌عنوان منبع دادهٔ نمودار اختصاص دهد، سپس ارائهٔ پیوست‌شده را ذخیره می‌کند.
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را صادر می‌نماید. نوشتن فایل کامل می‌شود قبل از اینکه کتاب‌کار خارجی به‌عنوان منبع دادهٔ نمودار اختصاص یابد، سپس ارائهٔ پیوندشده را ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -398,13 +452,13 @@ try {
 }
 ```
 
-### **تنظیم یک کتاب‌کار خارجی**
+### **تنظیم کتاب‌کار خارجی**
 
-با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به‌عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (اگر کتاب‌کار جابه‌جا شده باشد) استفاده شود.
+با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) می‌توانید یک کتاب‌کار خارجی را به‌عنوان منبع دادهٔ یک نمودار اختصاص دهید. این متد می‌تواند برای به‌روز‌رسانی مسیر کتاب‌کار خارجی نیز به کار رود (اگر کتاب‌کار منتقل شده باشد).
 
-اگرچه نمی‌توانید داده‌های کتاب‌کارهای ذخیره‌شده در موقعیت‌های دوردست یا منابع را ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی فراهم شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+در حالی که نمی‌توانید داده‌ها را در کتاب‌کارهایی که در مکان‌های ریموت یا منبع‌های خارجی ذخیره شده‌اند، ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این مثال از یک کتاب‌کار خارجی استفاده می‌کند که کاربرگی به نام `Sheet1` دارای نام سری در B1، نام دسته‌ها در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را پیوست می‌کند و با [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) محدودهٔ A1:B4 را به یک سری و سه دسته نگاشت می‌کند. ارائه با نمودار پیوست‌شده ذخیره می‌شود.
+این مثال از یک کتاب‌کار خارجی استفاده می‌کند که برگهٔ آن به نام `Sheet1` شامل یک نام سری در B1، نام‌های دسته در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را پیوند می‌دهد و با استفاده از [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) محدودهٔ A1:B4 را به یک سری و سه دسته نسبت می‌دهد. سپس ارائه را با نمودار پیوندشده ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -427,12 +481,12 @@ try {
 }
 ```
 
-پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) تعیین می‌کند که آیا کتاب‌کار بارگذاری شود یا نه.
+پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) کنترل می‌کند آیا کتاب‌کار بارگذاری شود یا نه.
 
-* وقتی `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود. دادهٔ نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شود، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
-* وقتی `updateChartData` برابر `true` باشد، دادهٔ نمودار از کتاب‌کار هدف به‌روز می‌شود.
+* وقتی `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روز می‌شود. داده‌های نمودار بارگذاری یا به‌روزرسانی نمی‌شوند، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
+* وقتی `updateChartData` برابر `true` باشد، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شود.
 
-مثال زیر یک URL جایگزین را با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شوند و ارائه بدون بارگذاری کتاب‌کار در دسترس نیست ذخیره می‌شود.
+مثال زیر یک URL جایگزین با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شود و ارائه بدون بارگذاری کتاب‌کار در دسترس ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -452,9 +506,9 @@ try {
 
 ### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
 
-برای شناسایی کتاب‌کاری که به یک نمودار پیوست شده است، بررسی کنید که آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را بازیابی کنید.
+برای شناسایی کتاب‌کار پیوند‌دار به یک نمودار، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را بازیابی کنید.
 
-این مثال اولین شکل در اولین اسلاید یک ارائه با کتاب‌کار خارجی پیوست‌شده را بررسی می‌کند. اگر یک نمودار پیوست به کتاب‌کار خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را ذخیره می‌کند.
+این مثال اولین شکل در اولین اسلاید یک ارائه با کتاب‌کار خارجی پیوندشده را بررسی می‌کند. اگر شکل یک نمودار پیونددار به کتاب‌کار خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را به‌کنسول چاپ می‌کند. سپس یک نسخهٔ کپی از ارائه را ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -481,11 +535,11 @@ try {
 }
 ```
 
-### **ویرایش دادهٔ نمودار**
+### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌های کتاب‌کارهای خارجی را همانند تغییر محتویات کتاب‌کارهای داخلی ویرایش کنید. وقتی کتاب‌کار خارجی قابل بارگذاری نباشد، استثنایی پرتاب می‌شود.
+می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همانند داده‌های کتاب‌کارهای داخلی ویرایش کنید. وقتی یک کتاب‌کار خارجی بارگذاری نشود، استثنا پرتاب می‌شود.
 
-این مثال از یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی قابل دسترس پیوست شده استفاده می‌کند. مقدار پشت‌سر‌سلولی اولین نقطه داده در اولین سری را به 100 تنظیم می‌کند و ارائه به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوست‌شده را به‌روزرسانی کند؛ بنابراین در صورت نیاز به حفظ کتاب‌کار اصلی، از یک کپی استفاده کنید.
+این مثال از یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی قابل دسترس پیوند دارد استفاده می‌کند. مقدار پشتیبانی‌شده از سلول اولین نقطه داده در اولین سری را به 100 تنظیم می‌کند و ارائهٔ به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روزرسانی کند، بنابراین برای حفظ نسخهٔ اصلی کتاب‌کار از یک کپی استفاده کنید.
 
 ```java
 import com.aspose.slides.*;
@@ -519,9 +573,9 @@ try {
 
 ### **بازیابی کتاب‌کار از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که مفقود یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، یک [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) ایجاد کنید، متد [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) را فراخوانی کنید و [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) را روی `true` تنظیم کنید.
+اگر یک نمودار از کتاب‌کار خارجی که مفقود یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) ایجاد کنید، متد [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) را صدا بزنید و قبل از باز کردن ارائه، [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) را روی `true` تنظیم کنید.
 
-مثال زیر در جاوا کتاب‌کار داده‌های یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی در دسترس نیست، بازیابی می‌کند. داده‌های بازیابی‌شده را از طریق [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی می‌یابد:
+مثال Java زیر کتاب‌کار داده‌ها را برای یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی در دسترس نیست بازیابی می‌کند. داده‌های بازیابی‌شده از طریق [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) دسترسی می‌یابد:
 
 ```java
 import com.aspose.slides.*;
@@ -541,7 +595,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // خواندن یا تغییر داده‌های کتاب‌کار بازیابی‌شده در اینجا.
+        // داده‌های کتاب‌کار بازیابی‌شده را اینجا بخوانید یا اصلاح کنید.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -550,30 +604,30 @@ try {
 }
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنایی پرتاب می‌کند. فقط زمانی بازیابی را فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار یک گزینهٔ پذیرش‌پذیر باشد، زیرا کش ممکن است شامل تغییرات انجام‑شده بر روی کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
+اگر کتاب‌کار خارجی در دسترس نباشد و بازسازی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. بازسازی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار یک گزینهٔ قابل قبول باشد، زیرا کش ممکن است شامل تغییرات اعمال‌شده به کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
 
-## **سؤال‌های متداول**
+## **سؤالات متداول**
 
-**آیا می‌توانم تشخیص دهم که یک نمودار خاص به کتاب‌کار خارجی یا جاسازی‌شده پیوست شده است؟**
+**آیا می‌توانم تشخیص دهم که یک نمودار خاص به کتاب‌کار خارجی یا تعبیه‌شده پیوند دارد؟**
 
-بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) و [مسیر به کتاب‌کار خارجی](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایل خارجی استفاده می‌شود.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) و [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید یک فایل خارجی استفاده می‌شود.
 
 **آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابه‌جایی کتاب‌کار ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابه‌جا کردن کتاب‌کار ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
 
-**آیا می‌توانم از کتاب‌کارهایی که در منابع/اشتراک‌های شبکه‌ای قرار دارند استفاده کنم؟**
+**آیا می‌توانم از کتاب‌کارهای قرار گرفته در منابع/به‌اشتراک‌گذاری‌های شبکه استفاده کنم؟**
 
-بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای دوردست از طریق Aspose.Slides پشتیبانی نمی‌شود؛ آن‌ها فقط می‌توانند به عنوان منبع استفاده شوند.
+بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای ریموت از Aspose.Slides پشتیبانی نمی‌شود—فقط می‌توان آنها را به‌عنوان منبع استفاده کرد.
 
 **آیا Aspose.Slides هنگام ذخیرهٔ ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-ارائه یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) را ذخیره می‌کند. ویرایش داده‌های نمودار که از سلول پشتیبانی می‌شود می‌تواند فایل XLSX محلی پیوست‌شده را نیز به‌روز کند. اگر کتاب‌کار اصلی باید دست‌نخورده بماند، یک کپی از آن استفاده کنید.
+ارائه یک [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ذخیره می‌کند. ویرایش داده‌های نمودار مبتنی بر سلول می‌تواند فایل XLSX محلی پیوندشده را نیز به‌روز کند. اگر نسخهٔ اصلی کتاب‌کار باید بدون تغییر بماند، از یک کپی استفاده کنید.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کاری باید انجام دهم؟**
+**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کار کنم؟**
 
-Aspose.Slides در هنگام پیوند از رمز عبور پشتیبانی نمی‌کند. یک راه معمول این است که پیش از پیوند حفاظت را حذف کنید یا یک کپی رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/java/)) تهیه کنید و به آن پیوند دهید.
+Aspose.Slides هنگام پیوند گرفتن رمز عبور قبول نمی‌کند. یک روش معمول این است که پیش از این محافظت را حذف کنید یا یک کپی رمز‌گشایی‌شده (مثلاً با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/java/)) آماده کنید و به آن پیوند دهید.
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی یکسان ارجاع دهند؟**
+**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی اشاره کنند؟**
 
-بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همگی به همان فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به همان فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها بازتاب می‌یابد.
