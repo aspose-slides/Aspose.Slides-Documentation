@@ -244,14 +244,14 @@ The workflows below solve different theme-related problems.
 
 ### **Apply an External Theme to a Master's Dependent Slides**
 
-Use [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) collection, which implements [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), and pass the theme file path to the method.
+Use [MasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/apply_external_theme_to_depending_slides/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) collection ([MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/)), and pass the theme file path to the method.
 
 The method performs the following operations:
 
 1. Creates a new master slide based on the selected master.
 1. Applies the external theme to the new master.
 1. Assigns the new master to all slides that previously depended on the selected master.
-1. Returns the newly created [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/).
+1. Returns the newly created [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/).
 
 The following example applies an external theme to the slides that depend on the first master and saves the presentation:
 
@@ -415,7 +415,7 @@ A theme format scheme contains separate [FormatScheme.fill_styles](https://refer
 
 ![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-When you access these collections in Python, the collection index is zero-based: `[0]` is the first stored style and `[2]` is the third. A shape's style-reference indexes are a separate concept, exposed through [IShapeStyle](https://reference.aspose.com/slides/python-net/aspose.slides/ishapestyle/). Modifying a theme style affects shapes that reference that theme style; shapes with direct formatting may remain unchanged.
+When you access these collections in Python, the collection index is zero-based: `[0]` is the first stored style and `[2]` is the third. A shape's style-reference indexes are a separate concept, exposed through [ShapeStyle](https://reference.aspose.com/slides/python-net/aspose.slides/shapestyle/). Modifying a theme style affects shapes that reference that theme style; shapes with direct formatting may remain unchanged.
 
 The following example checks that the required style entries exist, changes the first line style, changes the third fill style, enables an outer shadow in the third effect style, and saves the result:
 
@@ -442,13 +442,65 @@ For shapes that reference these slots, the first theme line style becomes red, t
 
 ![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
+## **Select Theme Fill and Line Styles for a Shape**
+
+A shape can select its fill and outline independently through [ShapeStyle.fill_style_index](https://reference.aspose.com/slides/python-net/aspose.slides/shapestyle/fill_style_index/) and [ShapeStyle.line_style_index](https://reference.aspose.com/slides/python-net/aspose.slides/shapestyle/line_style_index/). For both properties, index `1` selects the first entry in the corresponding theme collection (`fill_styles[0]` or `line_styles[0]`), and index `2` selects the second entry.
+
+The following example defines two fills (gold and sky blue) and two outlines (dark blue at 6 pt and dark red at 12 pt) in the default theme of a new presentation. It saves the slide at three stages so you can compare the results in PowerPoint.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    styles = presentation.master_theme.format_scheme
+
+    gold_fill = styles.fill_styles[0]
+    gold_fill.fill_type = slides.FillType.SOLID
+    gold_fill.solid_fill_color.preset_color = slides.PresetColor.GOLD
+    blue_fill = styles.fill_styles[1]
+    blue_fill.fill_type = slides.FillType.SOLID
+    blue_fill.solid_fill_color.preset_color = slides.PresetColor.SKY_BLUE
+
+    thin_line = styles.line_styles[0]
+    thin_line.fill_format.fill_type = slides.FillType.SOLID
+    thin_line.fill_format.solid_fill_color.preset_color = slides.PresetColor.DARK_BLUE
+    thin_line.width = 6
+    thick_line = styles.line_styles[1]
+    thick_line.fill_format.fill_type = slides.FillType.SOLID
+    thick_line.fill_format.solid_fill_color.preset_color = slides.PresetColor.DARK_RED
+    thick_line.width = 12
+
+    shapes = presentation.slides[0].shapes
+    left = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 205, 200, 130)
+    right = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 420, 205, 200, 130)
+    left.shape_style.fill_style_index = 1
+    right.shape_style.fill_style_index = 2
+    left.shape_style.line_style_index = 1
+    right.shape_style.line_style_index = 1
+    presentation.save("01-initial.pptx", slides.export.SaveFormat.PPTX)
+
+    right.shape_style.line_style_index = 2
+    presentation.save("02-line-changed.pptx", slides.export.SaveFormat.PPTX)
+
+    gold_fill.solid_fill_color.preset_color = slides.PresetColor.SEA_GREEN
+    presentation.save("03-theme-changed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Initial styles | Change the right outline | Edit the first theme fill |
+|:---:|:---:|:---:|
+| ![Gold and sky-blue rectangles with matching thin dark blue outlines](theme-style-initial.png) | ![The sky-blue rectangle now has a thick dark red outline](theme-style-line-changed.png) | ![The left rectangle is now green and both outlines are unchanged](theme-style-fill-changed.png) |
+
+Selecting a different line style changes only the right rectangle's outline. Editing the first theme fill updates every shape that uses it. Here, only the left rectangle turns green.
+
+On an existing shape, a local fill color, line color, or line width can override that part of the theme style. If changing a style index has no visible effect, check the shape's [direct formatting](/slides/python-net/shape-formatting/).
+
 ## **Determine Whether an Effective Solid Fill Uses a Theme Color**
 
 A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/) to resolve that hierarchy into immutable [IFillFormatEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/). First check [IFillFormatEffectiveData.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/fill_type/). Only when it is `FillType.SOLID` should you read the solid-fill properties.
 
 For a solid fill, [IFillFormatEffectiveData.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) returns the final rendered RGB value after inheritance, theme lookup, and color transformations are applied. [IFillFormatEffectiveData.solid_fill_scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/ifillformateffectivedata/solid_fill_scheme_color/) returns the corresponding logical [SchemeColor](https://reference.aspose.com/slides/python-net/aspose.slides/schemecolor/) slot, such as `TEXT1` or `ACCENT6`. A value of `SchemeColor.NOT_DEFINED` means that the effective solid fill is not based on a scheme color. In a workflow where fills are either theme colors or direct RGB colors, this value identifies a direct RGB fill.
 
-Do not use the local [IColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/icolorformat/scheme_color/) value alone to classify a fill. For example, a text portion can have no locally defined scheme color, so its local value is `NOT_DEFINED`, while its effective fill inherits a theme color and resolves to `TEXT1` or `ACCENT6`. Conversely, `solid_fill_scheme_color` tells you which logical theme slot produced the effective color, but it does not tell you whether that slot came from the object, paragraph, layout, master, or another level of the formatting hierarchy.
+Do not use the local [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) value alone to classify a fill. For example, a text portion can have no locally defined scheme color, so its local value is `NOT_DEFINED`, while its effective fill inherits a theme color and resolves to `TEXT1` or `ACCENT6`. Conversely, `solid_fill_scheme_color` tells you which logical theme slot produced the effective color, but it does not tell you whether that slot came from the object, paragraph, layout, master, or another level of the formatting hierarchy.
 
 The following example loads a presentation, audits both shape fills and text-portion fills, prints each final RGB value and associated scheme color, and flags solid fills that will not track theme color changes:
 
@@ -525,7 +577,7 @@ Use effective data for rendering diagnostics, validation, and comparisons. If yo
 
 **Does applying an external theme affect every slide in the presentation?**
 
-No. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
+No. [MasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/apply_external_theme_to_depending_slides/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
 
 **Can I apply a theme to a single slide without changing the master?**
 

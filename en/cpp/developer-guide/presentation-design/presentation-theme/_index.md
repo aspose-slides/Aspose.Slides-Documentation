@@ -637,6 +637,80 @@ For shapes that reference these slots, the first theme line style becomes red, t
 
 ![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
+## **Select Theme Fill and Line Styles for a Shape**
+
+A shape can select its fill and outline independently through [IShapeStyle::set_FillStyleIndex](https://reference.aspose.com/slides/cpp/aspose.slides/ishapestyle/set_fillstyleindex/) and [IShapeStyle::set_LineStyleIndex](https://reference.aspose.com/slides/cpp/aspose.slides/ishapestyle/set_linestyleindex/). For both setters, index `1` selects the first entry in the corresponding theme collection (`idx_get(0)`), and index `2` selects the second entry.
+
+The following example sets up two fill styles (gold and sky blue) and two line styles (dark blue at 6 pt and dark red at 12 pt) in the default theme of a new presentation. It saves the slide at three stages so you can compare the results in PowerPoint.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeStyle.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto styles = presentation->get_MasterTheme()->get_FormatScheme();
+
+auto goldFill = styles->get_FillStyles()->idx_get(0);
+goldFill->set_FillType(FillType::Solid);
+goldFill->get_SolidFillColor()->set_Color(Color::get_Gold());
+auto blueFill = styles->get_FillStyles()->idx_get(1);
+blueFill->set_FillType(FillType::Solid);
+blueFill->get_SolidFillColor()->set_Color(Color::get_SkyBlue());
+
+auto thinLine = styles->get_LineStyles()->idx_get(0);
+thinLine->get_FillFormat()->set_FillType(FillType::Solid);
+thinLine->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+thinLine->set_Width(6.0);
+auto thickLine = styles->get_LineStyles()->idx_get(1);
+thickLine->get_FillFormat()->set_FillType(FillType::Solid);
+thickLine->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+thickLine->set_Width(12.0);
+
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+auto left = shapes->AddAutoShape(ShapeType::Rectangle, 100, 205, 200, 130);
+auto right = shapes->AddAutoShape(ShapeType::Rectangle, 420, 205, 200, 130);
+auto leftStyle = left->get_ShapeStyle();
+auto rightStyle = right->get_ShapeStyle();
+leftStyle->set_FillStyleIndex(1);
+rightStyle->set_FillStyleIndex(2);
+leftStyle->set_LineStyleIndex(1);
+rightStyle->set_LineStyleIndex(1);
+presentation->Save(u"01-initial.pptx", SaveFormat::Pptx);
+
+rightStyle->set_LineStyleIndex(2);
+presentation->Save(u"02-line-changed.pptx", SaveFormat::Pptx);
+
+goldFill->get_SolidFillColor()->set_Color(Color::get_SeaGreen());
+presentation->Save(u"03-theme-changed.pptx", SaveFormat::Pptx);
+```
+
+| Initial styles | Change the right outline | Edit the first theme fill |
+|:---:|:---:|:---:|
+| ![Gold and sky-blue rectangles with matching thin dark blue outlines](theme-style-initial.png) | ![The sky-blue rectangle now has a thick dark red outline](theme-style-line-changed.png) | ![The left rectangle is now green and both outlines are unchanged](theme-style-fill-changed.png) |
+
+Selecting a different line style changes only the right rectangle's outline. Editing the first theme fill updates every shape that uses it. Here, only the left rectangle turns green.
+
+On an existing shape, a local fill color, line color, or line width can override that part of the theme style. If changing a style index has no visible effect, check the shape's [direct formatting](/slides/cpp/shape-formatting/).
+
 ## **Determine Whether an Effective Solid Fill Uses a Theme Color**
 
 A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/) to resolve that hierarchy into immutable [IFillFormatEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformateffectivedata/). First check [IFillFormatEffectiveData::get_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformateffectivedata/get_filltype/). Only when it is `FillType::Solid` should you read the solid-fill properties.
