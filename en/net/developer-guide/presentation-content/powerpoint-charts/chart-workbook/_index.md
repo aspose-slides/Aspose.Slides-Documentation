@@ -196,6 +196,62 @@ else
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Choose How to Store Category Labels**
+
+Set [IChartCategoryCollection.UseCells](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorycollection/usecells/) on the empty category collection before adding labels. Use worksheet cells for labels that refer to workbook data or form a hierarchy, such as quarters grouped by year. Use string literals for a single level of labels that needs no cell references. This setting applies only to categories. Both charts below use worksheet cells for the numeric series values.
+
+The example creates two column charts and prints `Q1 Q2 Q3 Q4` for each, along with its storage mode. For worksheet-backed labels, [IChartCategory.AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/ascell/) gives access to the underlying cell and [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) returns its label. For literal labels, read the string directly from [IChartCategory.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/value/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+foreach (var useCells in new[] { true, false })
+{
+    var x = useCells ? 20 : 360;
+    var chart = shapes.AddChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+    var data = chart.ChartData;
+    data.Series.Clear();
+    data.Categories.Clear();
+    data.Categories.UseCells = useCells;
+
+    var workbook = data.ChartDataWorkbook;
+    var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+    var series = data.Series.Add(seriesName, chart.Type);
+    for (var row = 1; row <= 4; row++)
+    {
+        var label = $"Q{row}";
+        if (useCells)
+        {
+            var labelCell = workbook.GetCell(0, row, 0, label);
+            data.Categories.Add(labelCell);
+        }
+        else
+        {
+            data.Categories.Add(label);
+        }
+
+        var valueCell = workbook.GetCell(0, row, 1, row * 10);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    Console.Write($"UseCells = {data.Categories.UseCells}:");
+    foreach (var category in data.Categories)
+    {
+        var label = data.Categories.UseCells ? category.AsCell.Value : category.Value;
+        Console.Write($" {label}");
+    }
+    Console.WriteLine();
+}
+
+presentation.Save("category-labels.pptx", SaveFormat.Pptx);
+```
+
 ## **Set Custom Number Formats for Workbook Cells**
 
 Use [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
