@@ -243,6 +243,82 @@ else
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Choose How to Store Category Labels**
+
+Call [IChartCategoryCollection::set_UseCells](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorycollection/set_usecells/) on the empty category collection before adding labels. Use worksheet cells for labels that refer to workbook data or form a hierarchy, such as quarters grouped by year. Use string literals for a single level of labels that needs no cell references. This setting applies only to categories. Both charts in the example use worksheet cells for the numeric series values.
+
+The example creates two column charts and prints the storage mode and the labels `Q1 Q2 Q3 Q4` for each. For worksheet-backed labels, [IChartCategory::get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_ascell/) gives access to the underlying cell and [IChartDataCell::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_value/) returns its label. For literal labels, read the string directly from [IChartCategory::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_value/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+for (auto useCells : {true, false})
+{
+    auto x = useCells ? 20 : 360;
+    auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, 20, 320, 250);
+    auto data = chart->get_ChartData();
+    auto categories = data->get_Categories();
+    data->get_Series()->Clear();
+    categories->Clear();
+    categories->set_UseCells(useCells);
+
+    auto workbook = data->get_ChartDataWorkbook();
+    auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Sales"));
+    auto series = data->get_Series()->Add(seriesName, chart->get_Type());
+    for (auto row = 1; row <= 4; ++row)
+    {
+        auto label = String::Format(u"Q{0}", row);
+        auto labelValue = ObjectExt::Box<String>(label);
+        if (useCells)
+        {
+            auto labelCell = workbook->GetCell(0, row, 0, labelValue);
+            categories->Add(labelCell);
+        }
+        else
+        {
+            categories->Add(labelValue);
+        }
+
+        auto valueCell = workbook->GetCell(0, row, 1, ObjectExt::Box<int32_t>(row * 10));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    Console::Write(u"UseCells = {0}:", categories->get_UseCells());
+    for (auto category : IterateOver(categories))
+    {
+        auto label = categories->get_UseCells() ? category->get_AsCell()->get_Value() : category->get_Value();
+        Console::Write(u" {0}", label->ToString());
+    }
+    Console::WriteLine();
+}
+
+presentation->Save(u"category-labels.pptx", Export::SaveFormat::Pptx);
+```
+
 ## **Set Custom Number Formats for Workbook Cells**
 
 Use [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.

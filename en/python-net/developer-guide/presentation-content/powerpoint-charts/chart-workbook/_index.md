@@ -164,6 +164,46 @@ with slides.Presentation("chart.pptx") as presentation:
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Choose How to Store Category Labels**
+
+Set [ChartCategoryCollection.use_cells](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorycollection/use_cells/) while the category collection is empty. Set it to `True` for labels that refer to worksheet cells or form a hierarchy, such as quarters grouped by year. Set it to `False` for a single level of labels supplied as strings. This setting applies only to categories. Both charts in the example use worksheet cells for their numeric series values.
+
+The example creates two column charts and prints the storage mode and the labels `Q1 Q2 Q3 Q4` for each. For cell-backed labels, [ChartCategory.as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/as_cell/) returns the worksheet cell, and [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) returns the label stored in it. For literal labels, read the string directly from [ChartCategory.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/value/).
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    for use_cells, x in [(True, 20), (False, 360)]:
+        chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, x, 20, 320, 250)
+        data = chart.chart_data
+        data.series.clear()
+        data.categories.clear()
+        data.categories.use_cells = use_cells
+
+        workbook = data.chart_data_workbook
+        series_name = workbook.get_cell(0, 0, 1, "Sales")
+        series = data.series.add(series_name, chart.type)
+        for row in range(1, 5):
+            label = f"Q{row}"
+            if use_cells:
+                label_cell = workbook.get_cell(0, row, 0, label)
+                data.categories.add(label_cell)
+            else:
+                data.categories.add(label)
+
+            value_cell = workbook.get_cell(0, row, 1, row * 10)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        labels = [category.as_cell.value if use_cells else category.value for category in data.categories]
+        print(f"use_cells = {data.categories.use_cells}:", *labels)
+
+    presentation.save("category-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Set Custom Number Formats for Workbook Cells**
 
 Use [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.

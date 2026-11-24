@@ -203,6 +203,59 @@ try {
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Choose How to Store Category Labels**
+
+Call [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorycollection/setusecells/) on the empty category collection before adding labels. Use worksheet cells for labels that refer to workbook data or form a hierarchy, such as quarters grouped by year. Use string literals for a single level of labels that needs no cell references. This setting applies only to categories. Both charts in the example use worksheet cells for the numeric series values.
+
+The example creates two column charts and prints the storage mode followed by `Q1 Q2 Q3 Q4` for each. For worksheet-backed labels, [ChartCategory.getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getascell/) returns the underlying cell and [ChartDataCell.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getvalue/) returns its label. For literal labels, read the string directly with [ChartCategory.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getvalue/). The example saves both charts in `category-labels.pptx`.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (const useCells of [true, false]) {
+        const x = useCells ? 20 : 360;
+        const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, x, 20, 320, 250);
+        const data = chart.getChartData();
+        data.getSeries().clear();
+        const categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        const workbook = data.getChartDataWorkbook();
+        const seriesName = workbook.getCell(0, 0, 1, "Sales");
+        const series = data.getSeries().add(seriesName, chart.getType());
+        for (let row = 1; row <= 4; row++) {
+            const label = "Q" + row;
+            if (useCells) {
+                const labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            const valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        const storedInCells = categories.getUseCells();
+        const labels = [];
+        for (let i = 0; i < categories.size(); i++) {
+            const category = categories.get_Item(i);
+            labels.push(storedInCells ? category.getAsCell().getValue() : category.getValue());
+        }
+        console.log("UseCells = " + storedInCells + ": " + labels.join(" "));
+    }
+
+    presentation.save("category-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Set Custom Number Formats for Workbook Cells**
 
 Use [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.

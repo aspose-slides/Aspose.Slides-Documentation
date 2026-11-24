@@ -188,6 +188,58 @@ try {
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Choose How to Store Category Labels**
+
+Call [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) on the empty category collection before adding labels. Use worksheet cells for labels that refer to workbook data or form a hierarchy, such as quarters grouped by year. Use string literals for a single level of labels that needs no cell references. This setting applies only to categories. Both charts in the example use worksheet cells for the numeric series values.
+
+The example creates two column charts and prints the storage mode followed by `Q1 Q2 Q3 Q4` for each. For worksheet-backed labels, [IChartCategory.getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getAsCell--) returns the underlying cell and [IChartDataCell.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getValue--) returns its label. For literal labels, read the string directly with [IChartCategory.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getValue--).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Set Custom Number Formats for Workbook Cells**
 
 Use [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
