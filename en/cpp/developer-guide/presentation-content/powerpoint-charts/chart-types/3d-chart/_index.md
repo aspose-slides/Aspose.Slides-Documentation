@@ -89,6 +89,82 @@ presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Apply a Picture Fill to a 3D Chart Surface**
+
+You can fill the [side wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_sidewall/), [back wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/), and [floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) of a 3D chart independently. Set the surface's [fill type](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to `Picture` and assign an image. To fit one copy of the image across the surface, set both the [picture fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) and the surface's [picture type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartwall/set_picturetype/) to `Stretch`.
+
+Save [arrow.png](arrow.png) in the working directory. The example rotates the chart and raises the maximum value on the vertical axis so the floor is visible between the columns. It then clones the slide twice and applies the arrow to a different surface on each slide. All three charts keep the same data, viewing angle, and background.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartWall.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/Chart/PictureType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/shared_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 20, 30, 680, 480);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_RotationX(40);
+chart->get_Rotation3D()->set_RotationY(30);
+
+auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+verticalAxis->set_IsAutomaticMaxValue(false);
+verticalAxis->set_MaxValue(24);
+
+auto backSlide = presentation->get_Slides()->AddClone(slide);
+auto floorSlide = presentation->get_Slides()->AddClone(slide);
+auto backChart = ExplicitCast<IChart>(backSlide->get_Shape(0));
+auto floorChart = ExplicitCast<IChart>(floorSlide->get_Shape(0));
+
+auto imageBytes = IO::File::ReadAllBytes(u"arrow.png");
+auto arrow = presentation->get_Images()->AddImage(imageBytes);
+
+for (const auto& surface : { chart->get_SideWall(), backChart->get_BackWall(), floorChart->get_Floor() })
+{
+    auto fill = surface->get_Format()->get_Fill();
+    fill->set_FillType(FillType::Picture);
+    auto pictureFill = fill->get_PictureFillFormat();
+    pictureFill->get_Picture()->set_Image(arrow);
+    pictureFill->set_PictureFillMode(PictureFillMode::Stretch);
+    surface->set_PictureType(PictureType::Stretch);
+}
+
+presentation->Save(u"chart-surfaces.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Microsoft PowerPoint shows the three slides as follows.
+
+| Side wall | Back wall | Floor |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Adjust the Height Proportions of a 3D Chart**
 
 Use [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.

@@ -69,6 +69,68 @@ try {
 }
 ```
 
+## **Apply a Picture Fill to a 3D Chart Surface**
+
+You can fill the [side wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getsidewall/), [back wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/), and [floor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) of a 3D chart independently. Set the surface's [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) to `Picture` and assign an image. Set both the [picture fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setpicturefillmode/) and the surface's [picture type](https://reference.aspose.com/slides/php-java/aspose.slides/chartwall/setpicturetype/) to `Stretch` to fit one copy of the image across the surface.
+
+Save [arrow.png](arrow.png) beside the PHP script. The example rotates the chart and raises the maximum value on the vertical axis so the floor is visible between the columns. It then clones the slide twice and applies the arrow to a different surface on each slide. All three charts keep the same data, viewing angle, and background.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\PictureType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 20, 30, 680, 480);
+    $chart->getRotation3D()->setRightAngleAxes(true);
+    $chart->getRotation3D()->setRotationX(40);
+    $chart->getRotation3D()->setRotationY(30);
+    
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->setAutomaticMaxValue(false);
+    $verticalAxis->setMaxValue(24);
+
+    $backSlide = $presentation->getSlides()->addClone($slide);
+    $floorSlide = $presentation->getSlides()->addClone($slide);
+    $backChart = $backSlide->getShapes()->get_Item(0);
+    $floorChart = $floorSlide->getShapes()->get_Item(0);
+
+    $image = Images::fromFile(__DIR__ . "/arrow.png");
+    try {
+        $arrow = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $surfaces = [$chart->getSideWall(), $backChart->getBackWall(), $floorChart->getFloor()];
+    foreach ($surfaces as $surface) {
+        $fill = $surface->getFormat()->getFill();
+        $fill->setFillType(FillType::Picture);
+        $pictureFill = $fill->getPictureFillFormat();
+        $pictureFill->getPicture()->setImage($arrow);
+        $pictureFill->setPictureFillMode(PictureFillMode::Stretch);
+        $surface->setPictureType(PictureType::Stretch);
+    }
+
+    $presentation->save(__DIR__ . "/chart-surfaces.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Microsoft PowerPoint shows the three slides as follows.
+
+| Side wall | Back wall | Floor |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Adjust the Height Proportions of a 3D Chart**
 
 Use [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
