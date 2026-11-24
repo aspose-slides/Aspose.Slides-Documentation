@@ -10,3 +10,6 @@
   or their members, and do not substitute Java API Reference links.
 - Use the corresponding class names in prose and link labels, such as `Shape`, `TextFrameFormat`,
   and `ThreeDFormat`. Verify member anchors on the class pages.
+- In samples with explicit cleanup, call `dispose` directly in `finally` when the object was created
+  before `try`. If construction inside `try` can fail before assignment, initialize the variable to
+  `None` first and check that it holds an object before disposing it.

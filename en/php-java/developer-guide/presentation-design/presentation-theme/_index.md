@@ -532,6 +532,65 @@ For shapes that reference these slots, the first theme line style becomes red, t
 
 ![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
+## **Select Theme Fill and Line Styles for a Shape**
+
+A shape can select its fill and outline independently through [ShapeStyle::setFillStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/#setFillStyleIndex) and [ShapeStyle::setLineStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/#setLineStyleIndex). For either method, index `1` selects the first entry in the corresponding theme collection (`get_Item(0)`), and index `2` selects the second (`get_Item(1)`).
+
+The following example sets up two fill styles (gold and sky blue) and two line styles (dark blue at 6 pt and dark red at 12 pt) in the default theme of a new presentation. It saves the slide at three stages so you can compare the results in PowerPoint.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $styles = $presentation->getMasterTheme()->getFormatScheme();
+
+    $goldFill = $styles->getFillStyles()->get_Item(0);
+    $goldFill->setFillType(FillType::Solid);
+    $goldFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 215, 0));
+    $blueFill = $styles->getFillStyles()->get_Item(1);
+    $blueFill->setFillType(FillType::Solid);
+    $blueFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 135, 206, 235));
+
+    $thinLine = $styles->getLineStyles()->get_Item(0);
+    $thinLine->getFillFormat()->setFillType(FillType::Solid);
+    $thinLine->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 139));
+    $thinLine->setWidth(6);
+    $thickLine = $styles->getLineStyles()->get_Item(1);
+    $thickLine->getFillFormat()->setFillType(FillType::Solid);
+    $thickLine->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $thickLine->setWidth(12);
+
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    $left = $shapes->addAutoShape(ShapeType::Rectangle, 100, 205, 200, 130);
+    $right = $shapes->addAutoShape(ShapeType::Rectangle, 420, 205, 200, 130);
+    $left->getShapeStyle()->setFillStyleIndex(1);
+    $right->getShapeStyle()->setFillStyleIndex(2);
+    $left->getShapeStyle()->setLineStyleIndex(1);
+    $right->getShapeStyle()->setLineStyleIndex(1);
+    $presentation->save("01-initial.pptx", SaveFormat::Pptx);
+
+    $right->getShapeStyle()->setLineStyleIndex(2);
+    $presentation->save("02-line-changed.pptx", SaveFormat::Pptx);
+
+    $goldFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 46, 139, 87));
+    $presentation->save("03-theme-changed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Initial styles | Change the right outline | Edit the first theme fill |
+|:---:|:---:|:---:|
+| ![Gold and sky-blue rectangles with matching thin dark blue outlines](theme-style-initial.png) | ![The sky-blue rectangle now has a thick dark red outline](theme-style-line-changed.png) | ![The left rectangle is now green and both outlines are unchanged](theme-style-fill-changed.png) |
+
+Selecting a different line style changes only the right rectangle's outline. Editing the first theme fill updates every shape that uses it. Here, only the left rectangle turns green.
+
+On an existing shape, a local fill color, line color, or line width can override that part of the theme style. If changing a style index has no visible effect, check the shape's [direct formatting](/slides/php-java/shape-formatting/).
+
 ## **Determine Whether an Effective Solid Fill Uses a Theme Color**
 
 A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) to resolve that hierarchy into immutable effective fill data. First check its `getFillType` result. Only when it is `FillType::Solid` should you read the solid-fill properties.

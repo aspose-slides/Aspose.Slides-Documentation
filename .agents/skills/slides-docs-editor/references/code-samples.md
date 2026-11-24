@@ -1,16 +1,15 @@
 # Code samples
 
-Every sample must be self-contained and valid for its platform: include imports/usings and label the
-code fence.
+Make each sample self-contained. Include the declarations its language requires to use the APIs shown
+and label the code fence with the language.
 
-Do not use `throw` statements in documentation samples. Handle missing objects, unexpected types,
-and unavailable data with conditional branches and non-throwing diagnostic output.
+Handle missing objects, unexpected types, and unavailable data with conditional branches and
+diagnostic messages. Avoid explicitly raising exceptions in documentation samples.
 
 In prose, link each mentioned public API class, interface, method, property, and enumeration directly
 to the platform API Reference member page when one exists. Verify the target.
 
-When mentioning a method in prose, omit trailing parentheses from its name, including in link labels:
-write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
+Omit trailing parentheses from method names in prose and link labels.
 
 ## Explain the examples
 
@@ -34,18 +33,20 @@ paraphrases, repeated setup descriptions, and filler added solely to increase le
 - Extract values used more than once, runtime casts, side effects, difficult chains, and semantically
   important intermediate results.
 - Evaluate non-trivial I/O, loading, parsing, conversion, factory, or lookup calls before passing their
-  results to another method. Apply the same rule to semantically meaningful nested construction.
+  results to another method. Extract a nested constructor call into a named variable when the value is reused
+  or the name clarifies its role. Keep simple, single-use values inline when their purpose is clear
+  from the surrounding call.
 - Clear property/getter/indexer chains may remain in conditions and arguments.
 - Do not extract a one-use interpolated string unless part of it needs clarification.
-- When a disposable object is created before a `try` block, dispose it directly in `finally` without
-  a null check. Keep a null guard only when construction occurs inside `try` and may fail before assignment.
 
 ## Platform rules
 
 Read only the applicable style/API reference:
 
 - Java or Android via Java: [java](platform-java.md).
+- Python via .NET: [python-net](platform-python-net.md).
 - Python via Java: [python-java](platform-python-java.md).
 - PHP via Java: [php-java](platform-php-java.md).
+- Node.js via Java or .NET: [nodejs](platform-nodejs.md).
 - C#: [net](platform-net.md).
 - C++: [cpp](platform-cpp.md).

@@ -473,6 +473,60 @@ For shapes that reference these slots, the first theme line style becomes red, t
 
 ![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
+## **Select Theme Fill and Line Styles for a Shape**
+
+A shape can select its fill and outline independently through [FillStyleIndex](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/fillstyleindex/) and [LineStyleIndex](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/linestyleindex/). For both properties, index `1` selects the first entry in the corresponding theme collection (`FillStyles[0]` or `LineStyles[0]`), and index `2` selects the second entry.
+
+The following example sets up two fill styles (gold and sky blue) and two line styles (dark blue at 6 pt and dark red at 12 pt) in the default theme of a new presentation. It saves the slide at three stages so you can compare the results in PowerPoint.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var styles = presentation.MasterTheme.FormatScheme;
+
+var goldFill = styles.FillStyles[0];
+goldFill.FillType = FillType.Solid;
+goldFill.SolidFillColor.Color = Color.Gold;
+var blueFill = styles.FillStyles[1];
+blueFill.FillType = FillType.Solid;
+blueFill.SolidFillColor.Color = Color.SkyBlue;
+
+var thinLine = styles.LineStyles[0];
+thinLine.FillFormat.FillType = FillType.Solid;
+thinLine.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+thinLine.Width = 6;
+var thickLine = styles.LineStyles[1];
+thickLine.FillFormat.FillType = FillType.Solid;
+thickLine.FillFormat.SolidFillColor.Color = Color.DarkRed;
+thickLine.Width = 12;
+
+var shapes = presentation.Slides[0].Shapes;
+var left = shapes.AddAutoShape(ShapeType.Rectangle, 100, 205, 200, 130);
+var right = shapes.AddAutoShape(ShapeType.Rectangle, 420, 205, 200, 130);
+left.ShapeStyle.FillStyleIndex = 1;
+right.ShapeStyle.FillStyleIndex = 2;
+left.ShapeStyle.LineStyleIndex = 1;
+right.ShapeStyle.LineStyleIndex = 1;
+presentation.Save("01-initial.pptx", SaveFormat.Pptx);
+
+right.ShapeStyle.LineStyleIndex = 2;
+presentation.Save("02-line-changed.pptx", SaveFormat.Pptx);
+
+goldFill.SolidFillColor.Color = Color.SeaGreen;
+presentation.Save("03-theme-changed.pptx", SaveFormat.Pptx);
+```
+
+| Initial styles | Change the right outline | Edit the first theme fill |
+|:---:|:---:|:---:|
+| ![Gold and sky-blue rectangles with matching thin dark blue outlines](theme-style-initial.png) | ![The sky-blue rectangle now has a thick dark red outline](theme-style-line-changed.png) | ![The left rectangle is now green and both outlines are unchanged](theme-style-fill-changed.png) |
+
+Selecting a different line style changes only the right rectangle's outline. Editing the first theme fill updates every shape that uses it. Here, only the left rectangle turns green.
+
+On an existing shape, a local fill color, line color, or line width can override that part of the theme style. If changing a style index has no visible effect, check the shape's [direct formatting](/slides/net/shape-formatting/).
+
 ## **Determine Whether an Effective Solid Fill Uses a Theme Color**
 
 A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [IFillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/geteffective/) to resolve that hierarchy into immutable [IFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/). First check [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/filltype/). Only when it is `FillType.Solid` should you read the solid-fill properties.
