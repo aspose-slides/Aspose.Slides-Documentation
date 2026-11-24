@@ -1,49 +1,49 @@
 ---
-title: Quản lý Sách làm việc Biểu đồ trong Bản trình bày bằng Python
-linktitle: Sách làm việc Biểu đồ
+title: Quản lý Sổ làm việc Biểu đồ trong Bài thuyết trình bằng Python
+linktitle: Sổ làm việc Biểu đồ
 type: docs
 weight: 70
 url: /vi/python-net/chart-workbook/
 keywords:
-- sách làm việc biểu đồ
+- sổ làm việc biểu đồ
 - dữ liệu biểu đồ
-- ô sách làm việc
+- ô sổ làm việc
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sách làm việc bên ngoài
+- sổ làm việc bên ngoài
 - dữ liệu bên ngoài
 - bộ nhớ đệm biểu đồ
-- khôi phục sách làm việc
+- khôi phục sổ làm việc
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - Python
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Python qua .NET: quản lý sách làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument một cách dễ dàng để tối ưu hóa dữ liệu trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho Python qua .NET: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bài thuyết trình của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sách làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ qua các luồng sách làm việc, sử dụng các ô sách làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập tập hợp bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng bao phủ việc làm việc với sách làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sách làm việc bên ngoài, lấy đường dẫn của sách làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sách làm việc có sẵn.
+Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
 
-Đối với các ô sách làm việc đại diện cho dữ liệu thiếu, hãy xem [Kiểm soát Hiển thị Các Ô Trống](/slides/vi/python-net/chart-series/) để biết sự khác biệt giữa một ô trống và số zero, và một so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
+Đối với các ô sổ làm việc đại diện cho dữ liệu bị thiếu, xem mục [Kiểm soát việc hiển thị các ô trống](/slides/vi/python-net/chart-series/) để biết sự khác biệt giữa ô trống và số 0, và so sánh biểu đồ đường cho các chế độ hiển thị khả dụng.
 
-## **Bao gồm Dữ liệu từ Các Hàng và Cột Ẩn**
+## **Bao gồm dữ liệu từ các hàng và cột ẩn**
 
-Sử dụng [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) để kiểm soát xem biểu đồ có vẽ dữ liệu từ các hàng và cột bảng tính ẩn hay không. Đặt nó thành `True` để chỉ vẽ các ô hiển thị, hoặc `False` để bao gồm cả ô hiển thị và ẩn. Cài đặt này kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện các hàng hoặc cột bảng tính.
+Sử dụng [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột ẩn của bảng tính hay không. Đặt giá trị `True` để chỉ vẽ các ô hiển thị, hoặc `False` để bao gồm cả các ô hiển thị và ẩn. Cài đặt này chỉ ảnh hưởng đến việc vẽ biểu đồ; nó không ẩn hoặc hiển thị lại các hàng hoặc cột của bảng tính.
 
-Bản trình bày mẫu([sample presentation](hidden-source-data.pptx)) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Bảng tính nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
+[Bản trình chiếu mẫu](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Bảng tính nhúng, `Sheet1`, có phạm vi nguồn sau: `A1:C4`. Hàng 3 và cột C được ẩn, nhưng các ô của chúng vẫn chứa giá trị.
 
-| Hàng bảng tính | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
+| Dòng bảng tính | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
 | --- | --- | --- | --- |
 | 2 | Tháng 1 | 10 | 30 |
-| 3 (hàng ẩn) | Tháng 2 | 40 | 60 |
+| 3 (dòng ẩn) | Tháng 2 | 40 | 60 |
 | 4 | Tháng 3 | 20 | 50 |
 
-Truy cập các ô nguồn thông qua [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) và đọc [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn và C2 thuộc cột ẩn; ví dụ in ra `False`, `True`, và `True` tương ứng.
+Truy cập các ô nguồn qua [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) và đọc [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ sẽ in ra `False`, `True`, và `True` tương ứng.
 
-Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại sách làm việc nhúng bằng [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và tải lại bằng [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Khi bao gồm tất cả các ô, cũng sử dụng [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng 2 ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục được lưu trong bộ nhớ đệm của mẫu này.
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại sổ làm việc nhúng bằng [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và tải lại bằng [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Khi bao gồm tất cả các ô, cũng sử dụng [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) để khôi phục lại phạm vi đầy đủ, bao gồm danh mục tháng 2 đã ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục đã được lưu trong mẫu này.
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         for visible_only in [True, False]:
             chart.plot_visible_cells_only = visible_only
 
-            # Làm mới dữ liệu biểu đồ từ sách làm việc được nhúng.
+            # Làm mới dữ liệu biểu đồ từ sổ làm việc nhúng.
             workbook_stream.seek(0)
             chart.chart_data.write_workbook_stream(workbook_stream)
             if not visible_only:
-                # Khôi phục toàn bộ phạm vi nguồn, bao gồm cả các danh mục ẩn.
+                # Khôi phục phạm vi nguồn đầy đủ, bao gồm các danh mục ẩn.
                 chart.chart_data.set_range("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", slides.export.SaveFormat.PPTX)
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Ví dụ lưu hai phiên bản của bản trình bày: một chỉ có các giá trị Bán lẻ hiển thị (10 và 20), và một có tất cả sáu giá trị. Các hình ảnh dưới đây được tạo từ các bản trình bày đã lưu sau khi mở lại; cả hai tệp đều giữ cài đặt vẽ đã chỉ định. Hàng 3 và cột C vẫn ẩn trong cả hai sách làm việc nhúng.
+Ví dụ lưu hai phiên bản của bản trình chiếu: một chỉ có các giá trị Bán lẻ hiển thị (`10` và `20`), và một có tất cả sáu giá trị. Các hình ảnh dưới đây được tạo từ các bản trình chiếu đã lưu sau khi mở lại; cả hai tệp đều giữ cài đặt vẽ đã chỉ định. Hàng 3 và cột C vẫn ẩn trong cả hai sổ làm việc nhúng.
 
 | Chỉ các ô hiển thị (`True`) | Tất cả các ô (`False`) |
 | --- | --- |
-| ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Một ô ẩn chứa giá trị khác với một ô trống. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) điều khiển cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát Hiển thị Các Ô Trống](/slides/vi/python-net/chart-series/#control-the-display-of-empty-cells) để xem ví dụ.
+Một ô ẩn chứa giá trị khác với một ô trống. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) kiểm soát cách hiển thị các giá trị bị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem mục [Kiểm soát việc hiển thị các ô trống](/slides/vi/python-net/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
 
-## **Truy xuất Phạm vi Dữ liệu của Biểu đồ**
+## **Lấy phạm vi dữ liệu của biểu đồ**
 
-Trước khi cập nhật dữ liệu sách làm việc trong một bản trình bày hiện có, hãy kiểm tra các phạm vi nguồn để xác định ô bảng tính nào mỗi biểu đồ sử dụng. Phương thức [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có chỉ định bảng tính, chẳng hạn `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên bảng tính, `!` tách nó khỏi phạm vi ô, và `$A$1:$D$5` chỉ các ô A1 đến D5, bao gồm. Dấu đô la chỉ tham chiếu tuyệt đối cho hàng và cột.
+Trước khi cập nhật dữ liệu sổ làm việc trong một bản trình chiếu hiện có, kiểm tra các phạm vi nguồn để xác định ô bảng tính nào được biểu đồ sử dụng. Phương thức [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có định danh bảng tính, chẳng hạn `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên bảng tính, `!` ngăn cách nó với phạm vi ô, và `$A$1:$D$5` chỉ các ô từ A1 đến D5, bao gồm cả hai. Dấu `$` biểu thị tham chiếu tuyệt đối cho hàng và cột.
 
-Phương thức này đọc phạm vi hiện tại mà không thay đổi biểu đồ hoặc sách làm việc của nó. Nếu biểu đồ không sử dụng sách làm việc làm nguồn dữ liệu, nó sẽ ném một ngoại lệ. Để biết thêm thông tin, xem [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
+Phương thức này chỉ đọc phạm vi hiện tại mà không thay đổi biểu đồ hoặc sổ làm việc. Nếu biểu đồ không sử dụng sổ làm việc làm nguồn dữ liệu, nó sẽ ném ngoại lệ. Để biết thêm thông tin, xem [Tham chiếu API ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
 
-Ví dụ này mở một bản trình bày và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên mỗi biểu đồ và phạm vi nguồn. Nếu không thể lấy phạm vi, nó in một thông báo chẩn đoán và tiếp tục với biểu đồ tiếp theo.
+Ví dụ này mở một bản trình chiếu và kiểm tra các hình dạng trên mỗi slide để tìm biểu đồ. Nó in ra tên của mỗi biểu đồ và phạm vi nguồn. Nếu không thể lấy phạm vi, nó sẽ in thông báo chẩn đoán và tiếp tục với biểu đồ tiếp theo.
 
 ```python
 import aspose.slides as slides
@@ -106,11 +106,11 @@ with slides.Presentation("presentation.pptx") as presentation:
                     print(f"{shape.name}: Unable to retrieve the chart data range. {error}")
 ```
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Sách làm việc**
+## **Đọc và ghi dữ liệu biểu đồ từ sổ làm việc**
 
-Aspose.Slides for Python via .NET cung cấp các phương thức [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) cho phép bạn đọc và ghi sách làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc phải có cấu trúc tương tự nguồn.
+Aspose.Slides for Python via .NET cung cấp các phương thức [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc có cấu trúc tương tự như nguồn.
 
-Ví dụ này sử dụng một bản trình bày có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc sách làm việc nhúng vào một luồng, xóa các series và category hiện có, và ghi lại cùng một sách làm việc. Các thay đổi vẫn giữ trong bộ nhớ; ví dụ không lưu bản trình bày.
+Ví dụ này sử dụng một bản trình chiếu có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc sổ làm việc nhúng vào một luồng, xóa các chuỗi và danh mục hiện có, và ghi lại cùng một sổ làm việc. Các thay đổi vẫn ở trong bộ nhớ; ví dụ không lưu bản trình chiếu.
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Xác thực Bố cục Biểu đồ Sau Khi Sửa Đổi Sách làm việc**
+### **Xác thực bố cục biểu đồ sau khi sửa đổi sổ làm việc**
 
-Khi bạn thay thế một sách làm việc nhúng bằng một sách đã sửa đổi, biểu đồ vẫn giữ các bộ sưu tập series và category gốc. Sự không khớp này có thể khiến [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) thất bại với lỗi chỉ mục ngoài phạm vi. Xóa các series và category hiện có trước khi ghi lại sách làm việc đã cập nhật vào biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nhận xét đánh dấu nơi việc chỉnh sửa sách sẽ diễn ra; ví dụ có thể chạy sẽ ghi lại sách làm việc gốc và xác thực bố cục trong bộ nhớ.
+Khi bạn thay thế sổ làm việc nhúng bằng một sổ đã sửa, biểu đồ vẫn giữ các chuỗi và danh mục ban đầu. Sự không khớp này có thể khiến [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) thất bại với lỗi “index out of range”. Hãy xóa các chuỗi và danh mục hiện có trước khi ghi lại sổ làm việc đã cập nhật vào biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu nơi việc chỉnh sửa sổ làm việc sẽ diễn ra; ví dụ thực thi ghi lại sổ làm việc gốc và xác thực bố cục trong bộ nhớ.
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # Chỉnh sửa luồng sách làm việc ở đây, ví dụ, sử dụng Aspose.Cells.
+        # Sửa đổi luồng sổ làm việc ở đây, ví dụ, sử dụng Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,55 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu lỗi thời trước khi sách làm việc được ghi lại. Xây dựng lại bất kỳ series và ánh xạ category cần thiết cho sách làm việc đã cập nhật trước khi sử dụng biểu đồ.
+Xóa các tập hợp sẽ loại bỏ các tham chiếu dữ liệu cũ trước khi sổ làm việc được ghi lại. Hãy xây dựng lại bất kỳ chuỗi và ánh xạ danh mục nào cần thiết cho sổ làm việc đã cập nhật trước khi sử dụng biểu đồ.
 
-## **Đặt Định dạng Số Tùy chỉnh cho Các Ô Sách làm việc**
+## **Chọn cách lưu trữ nhãn danh mục**
 
-Sử dụng [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) để kiểm soát cách các giá trị số hiển thị trong sách làm việc nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần tỷ lệ chuyển đổi được hiển thị dưới dạng phần trăm với bốn chữ số thập phân và một hệ số được hiển thị với năm chữ số thập phân. Giữ cả hai giá trị ở dạng số để chúng vẫn có thể dùng cho tính toán và vẽ biểu đồ.
+Đặt [ChartCategoryCollection.use_cells](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorycollection/use_cells/) khi tập hợp danh mục còn rỗng. Đặt `True` cho các nhãn tham chiếu đến các ô bảng tính hoặc tạo thành một cây phân cấp, chẳng hạn các quý nhóm theo năm. Đặt `False` cho một cấp duy nhất của các nhãn được cung cấp dưới dạng chuỗi. Cài đặt này chỉ áp dụng cho danh mục. Cả hai biểu đồ trong ví dụ đều sử dụng các ô bảng tính cho các giá trị chuỗi số.
 
-Một định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị lưu trữ. Định dạng `0.0000%` hiển thị `0.125` dưới dạng `12.5000%`; nó không thay thế số lưu trữ bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` dưới dạng `0.12346` mà không làm tròn giá trị lưu trữ. Nếu định dạng tùy chỉnh là chuỗi rỗng (`""`), [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) sẽ được dùng thay thế.
+Ví dụ tạo hai biểu đồ cột và in ra chế độ lưu trữ và các nhãn `Q1 Q2 Q3 Q4` cho mỗi biểu đồ. Đối với nhãn dựa trên ô, [ChartCategory.as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/as_cell/) trả về ô bảng tính, và [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) trả về nhãn được lưu trong ô. Đối với nhãn nguyên văn, đọc chuỗi trực tiếp từ [ChartCategory.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/value/).
 
-Ví dụ sau tạo một biểu đồ cột và truy cập các ô của nó qua [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). Trên bảng tính 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô đều cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị được liên kết với định dạng nguồn.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    for use_cells, x in [(True, 20), (False, 360)]:
+        chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, x, 20, 320, 250)
+        data = chart.chart_data
+        data.series.clear()
+        data.categories.clear()
+        data.categories.use_cells = use_cells
+
+        workbook = data.chart_data_workbook
+        series_name = workbook.get_cell(0, 0, 1, "Sales")
+        series = data.series.add(series_name, chart.type)
+        for row in range(1, 5):
+            label = f"Q{row}"
+            if use_cells:
+                label_cell = workbook.get_cell(0, row, 0, label)
+                data.categories.add(label_cell)
+            else:
+                data.categories.add(label)
+
+            value_cell = workbook.get_cell(0, row, 1, row * 10)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        labels = [category.as_cell.value if use_cells else category.value for category in data.categories]
+        print(f"use_cells = {data.categories.use_cells}:", *labels)
+
+    presentation.save("category-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Đặt định dạng số tùy chỉnh cho các ô sổ làm việc**
+
+Sử dụng [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) để kiểm soát cách các giá trị số hiển thị trong sổ làm việc nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần hiển thị tỷ lệ chuyển đổi dưới dạng phần trăm với bốn chữ số thập phân và hệ số dưới dạng năm chữ số thập phân. Giữ cả hai giá trị ở dạng số để chúng vẫn có thể dùng cho tính toán và vẽ biểu đồ.
+
+Định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị lưu trữ. Định dạng `0.0000%` hiển thị `0.125` thành `12.5000%`; nó không thay thế số lưu trữ bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` thành `0.12346` mà không làm tròn giá trị lưu trữ. Nếu định dạng tùy chỉnh là chuỗi rỗng (`""`), sẽ dùng [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) thay thế.
+
+Ví dụ sau tạo một biểu đồ cột và truy cập các ô của nó qua [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). Trên bảng tính 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô đều cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị liên kết với định dạng nguồn.
 
 ```python
 import aspose.slides as slides
@@ -216,17 +256,19 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Định dạng ô sách làm việc tách biệt với các định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị ô nguồn vì [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) được bật, và tuân theo định dạng số nguồn vì [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) là `True`. Sau khi lưu và mở lại bản trình bày, các nhãn hiển thị `12.5000%` và `0.12346`, như dưới đây. Trục đứng sử dụng [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) của riêng nó là `0.00`, với [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) đặt thành `False`.
+Định dạng ô sổ làm việc riêng biệt với các định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị của ô nguồn vì [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) được bật, và tuân theo định dạng số nguồn vì [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) là `True`. Sau khi lưu và mở lại bản trình chiếu, các nhãn hiển thị `12.5000%` và `0.12346`, như hình dưới. Trục tung sử dụng [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) riêng là `0.00`, với [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) đặt thành `False`.
 
-Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn của nó thành `False` và gán [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Điều này không thay đổi định dạng ô sách làm việc. Ví dụ, một định dạng nhãn độc lập `0.00` hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem [Nhãn Dữ liệu Biểu đồ](/slides/vi/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) để định dạng nhãn trực tiếp.
+Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn của nó thành `False` và gán [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Điều này không thay đổi định dạng của ô sổ làm việc. Ví dụ, định dạng độc lập `0.00` sẽ hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem mục [Chart Data Labels](/slides/vi/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) để biết cách định dạng nhãn trực tiếp.
 
-![Biểu đồ cột với các nhãn liên kết nguồn hiển thị 12.5000% và 0.12346 và trục số định dạng độc lập.](custom-cell-formats.png)
+Hình ảnh dưới được tạo từ bản trình chiếu đã lưu sau khi mở lại:
 
-## **Đặt Ô Sách làm việc làm Nhãn Dữ liệu Biểu đồ**
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-Bạn có thể sử dụng văn bản từ các ô sách làm việc làm nhãn dữ liệu biểu đồ.
+## **Đặt một ô sổ làm việc làm nhãn dữ liệu biểu đồ**
 
-Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một bản trình bày hiện có. Nó sử dụng các ô A10:A12 trên bảng tính 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ các ô, và lưu bản trình bày đã cập nhật.
+Bạn có thể sử dụng văn bản từ các ô sổ làm việc làm nhãn dữ liệu biểu đồ.
+
+Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một bản trình chiếu hiện có. Nó sử dụng các ô A10:A12 trên bảng tính 0 cho ba nhãn đầu tiên của chuỗi đầu tiên, bật nhãn từ ô, và lưu bản trình chiếu đã cập nhật.
 
 ```python
 import aspose.slides as slides
@@ -247,9 +289,9 @@ with slides.Presentation("chart2.pptx") as presentation:
     presentation.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Quản lý Bảng tính**
+## **Quản lý các bảng tính**
 
-Thuộc tính [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) cung cấp quyền truy cập vào các bảng tính trong một sách làm việc biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi bảng tính ra console.
+Thuộc tính [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) cung cấp quyền truy cập vào các bảng tính trong sổ làm việc biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi bảng tính ra console.
 
 ```python
 import aspose.slides as slides
@@ -265,11 +307,11 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **Chỉ định Loại Nguồn Dữ liệu**
+## **Chỉ định loại nguồn dữ liệu**
 
-Các giá trị điểm series cũng có thể được lưu trực tiếp dưới dạng literal số. Xem [Đặt Giá trị Dòng Series bằng Các Literal Số](/slides/vi/python-net/chart-series/#set-series-values-using-numeric-literals) để có ví dụ đầy đủ về cách lưu và đọc chúng. Loại nguồn của các giá trị điểm tách biệt với cấu hình sách làm việc nội bộ hoặc bên ngoài của biểu đồ; việc sử dụng literal số không tự động loại bỏ sách làm việc nhúng.
+Các giá trị điểm chuỗi cũng có thể được lưu trực tiếp dưới dạng các literal số. Xem mục [Set Series Values Using Numeric Literals](/slides/vi/python-net/chart-series/#set-series-values-using-numeric-literals) để biết một ví dụ đầy đủ về việc lưu và đọc chúng. Loại nguồn của các giá trị điểm tách biệt với cấu hình sổ làm việc nội bộ hoặc bên ngoài của biểu đồ; việc sử dụng literal số không tự động loại bỏ sổ làm việc nhúng.
 
-Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng literal chuỗi; tên thứ hai sử dụng ô C1 trên bảng tính 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu bản trình bày với các tên series đã cập nhật.
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên chuỗi bằng các nguồn dữ liệu khác nhau. Tên thứ nhất sử dụng literal chuỗi; tên thứ hai sử dụng ô C1 trên bảng tính 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu bản trình chiếu với các tên chuỗi đã cập nhật.
 
 ```python
 import aspose.slides as slides
@@ -292,9 +334,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Phát hiện Định dạng Sách làm việc Được Nhúng Không Hỗ trợ**
+## **Phát hiện định dạng sổ làm việc nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sách làm việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) trên [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) kết hợp với phân loại [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình bày hiện có, bỏ qua các hình không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có sách làm việc .xlsb được nhúng.
+Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) trên [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) cùng với phân loại [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình chiếu hiện có, bỏ qua các hình không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có sổ làm việc .xlsb nhúng.
 
 ```python
 import aspose.slides as slides
@@ -315,18 +357,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # Đọc hoặc chỉnh sửa dữ liệu sách làm việc biểu đồ được hỗ trợ tại đây.
+        # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc biểu đồ được hỗ trợ ở đây.
 ```
 
-## **Sách làm việc Bên ngoài**
+## **Sổ làm việc bên ngoài**
 
-Aspose.Slides hỗ trợ sử dụng sách làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sử dụng sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo Sách làm việc Bên ngoài**
+### **Tạo một sổ làm việc bên ngoài**
 
-Sử dụng [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) để xuất một sách làm việc biểu đồ nhúng ra tệp và liên kết biểu đồ với sách làm việc bên ngoài đó.
+Sử dụng [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) và [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) để xuất sổ làm việc biểu đồ nhúng ra file và liên kết biểu đồ với sổ làm việc bên ngoài đó.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất sách làm việc của nó. Nó đóng luồng đầu ra trước khi gán sách làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình bày đã liên kết.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất sổ làm việc của nó. Nó đóng luồng đầu ra trước khi gán sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình chiếu đã liên kết.
 
 ```python
 from pathlib import Path
@@ -349,13 +391,14 @@ with slides.Presentation() as presentation:
     presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Đặt Sách làm việc Bên ngoài**
 
-Bằng cách sử dụng phương thức [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), bạn có thể gán một sách làm việc bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sách làm việc bên ngoài (nếu sách đã được di chuyển).
+### **Đặt một sổ làm việc bên ngoài**
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sách làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể dùng các sách đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một sách làm việc bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Bằng cách sử dụng phương thức [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), bạn có thể gán một sổ làm việc bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc bên ngoài (nếu sổ đó đã được di chuyển).
 
-Ví dụ này sử dụng một sách làm việc bên ngoài có bảng tính tên `Sheet1` chứa tên series ở B1, tên danh mục ở A2:A4, và các giá trị số ở B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết sách làm việc, và sử dụng [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu bản trình bày với biểu đồ đã liên kết.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho sổ làm việc bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+
+Ví dụ này sử dụng một sổ làm việc bên ngoài mà bảng tính có tên `Sheet1` chứa tên chuỗi ở B1, tên danh mục ở A2:A4, và các giá trị số ở B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết sổ làm việc, và sử dụng [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) để ánh xạ A1:B4 thành một chuỗi và ba danh mục. Nó lưu bản trình chiếu với biểu đồ đã liên kết.
 
 ```python
 from pathlib import Path
@@ -375,12 +418,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tham số `update_chart_data` của [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) kiểm soát việc có tải sách làm việc hay không.
+Tham số `update_chart_data` của [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) kiểm soát việc có tải sổ làm việc hay không.
 
-* Khi `update_chart_data` là `False`, chỉ cập nhật đường dẫn sách làm việc. Dữ liệu biểu đồ không được tải hoặc cập nhật từ sách làm việc mục tiêu, vì vậy sách làm việc có thể không khả dụng.
-* Khi `update_chart_data` là `True`, dữ liệu biểu đồ được cập nhật từ sách làm việc mục tiêu.
+* Khi `update_chart_data` là `False`, chỉ đường dẫn sổ làm việc được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ sổ làm việc mục tiêu, vì vậy sổ làm việc có thể không tồn tại.
+* Khi `update_chart_data` là `True`, dữ liệu biểu đồ được cập nhật từ sổ làm việc mục tiêu.
 
-Ví dụ sau gán một URL placeholder với `update_chart_data` đặt thành `False`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải sách làm việc không khả dụng.
+Ví dụ sau gán một URL placeholder với `update_chart_data` đặt thành `False`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình chiếu mà không tải sổ làm việc không khả dụng.
 
 ```python
 import aspose.slides as slides
@@ -395,11 +438,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Lấy Đường dẫn Sách làm việc Nguồn Dữ liệu Bên ngoài của Biểu đồ**
+### **Lấy đường dẫn sổ làm việc nguồn dữ liệu bên ngoài của một biểu đồ**
 
-Để xác định sách làm việc được liên kết với một biểu đồ, kiểm tra liệu biểu đồ có sử dụng nguồn dữ liệu bên ngoài và lấy đường dẫn sách làm việc của nó.
+Để xác định sổ làm việc được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài hay không và lấy đường dẫn sổ làm việc của nó.
 
-Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình bày có sách làm việc bên ngoài được liên kết. Nếu đó là một biểu đồ được liên kết với sách làm việc bên ngoài, ví dụ sẽ in [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ra console. Sau đó nó lưu một bản sao của bản trình bày.
+Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình chiếu có sổ làm việc bên ngoài được liên kết. Nếu đó là một biểu đồ được liên kết với sổ làm việc bên ngoài, ví dụ sẽ in [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ra console. Sau đó nó lưu một bản sao của bản trình chiếu.
 
 ```python
 import aspose.slides as slides
@@ -421,11 +464,11 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sách làm việc bên ngoài tương tự như thay đổi nội dung của sách làm việc nội bộ. Khi một sách làm việc bên ngoài không thể tải, một ngoại lệ sẽ được ném.
+Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc bên ngoài giống như khi thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể tải, một ngoại lệ sẽ được ném.
 
-Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một sách làm việc bên ngoài có thể truy cập được. Nó đặt giá trị dựa trên ô cho điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy hãy dùng bản sao nếu bạn cần giữ nguyên sách làm việc gốc.
+Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một sổ làm việc bên ngoài có thể truy cập. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong chuỗi đầu tiên thành 100 và lưu bản trình chiếu đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy hãy sử dụng bản sao nếu bạn cần giữ nguyên sổ làm việc gốc.
 
 ```python
 import aspose.slides as slides
@@ -450,11 +493,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Khôi phục Sách làm việc từ Bộ nhớ Cache của Biểu đồ**
+### **Khôi phục sổ làm việc từ bộ nhớ đệm của biểu đồ**
 
-Nếu một biểu đồ sử dụng một sách làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sách làm việc biểu đồ từ dữ liệu được lưu trong bộ nhớ cache của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), cấu hình [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), và đặt [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) thành `True` trước khi mở bản trình bày.
+Nếu một biểu đồ sử dụng sổ làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu đã được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), cấu hình [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), và đặt [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) thành `True` trước khi mở bản trình chiếu.
 
-Ví dụ Python sau khôi phục dữ liệu sách làm việc cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu một sách làm việc bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục qua [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) và [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+Ví dụ Python dưới đây khôi phục dữ liệu sổ làm việc cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu đến một sổ làm việc bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục qua [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) và [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -470,35 +513,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # Đọc hoặc chỉnh sửa dữ liệu sách làm việc đã khôi phục ở đây.
+        # Đọc hoặc chỉnh sửa dữ liệu sổ làm việc đã khôi phục ở đây.
     else:
         print("The first shape is not a chart.")
 ```
 
-Nếu sách làm việc bên ngoài không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném một ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ được lưu trong cache là một phương án chấp nhận được, vì cache có thể không chứa các thay đổi đã thực hiện trên sách làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình bày.
+Nếu sổ làm việc bên ngoài không khả dụng và việc khôi phục bị tắt, Aspose.Slides sẽ ném ngoại lệ. Hãy bật tính năng khôi phục chỉ khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi được thực hiện trên sổ làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết đến một sách làm việc bên ngoài hay nhúng không?**
+**Tôi có thể xác định được một biểu đồ cụ thể có được liên kết với sổ làm việc bên ngoài hay sổ làm việc nhúng không?**
 
-Có. Một biểu đồ có một [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) và một [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); nếu nguồn là một sách làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn một tệp bên ngoài đang được sử dụng.
+Có. Một biểu đồ có [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) và một [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); nếu nguồn là sổ làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Các đường dẫn tương đối tới sách làm việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối đến sổ làm việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển sách làm việc có thể yêu cầu cập nhật liên kết.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình chiếu lưu đường dẫn tuyệt đối trong file PPTX, vì vậy việc di chuyển sổ làm việc có thể yêu cầu cập nhật liên kết.
 
-**Tôi có thể sử dụng sách làm việc nằm trên tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng sổ làm việc nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các sách làm việc như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa sách làm việc từ xa trực tiếp bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, những sổ làm việc như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình bày không?**
+**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình chiếu không?**
 
-Bản trình bày lưu một [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX cục bộ được liên kết. Hãy sử dụng bản sao của sách làm việc nếu bản gốc phải được giữ nguyên.
+Bản trình chiếu lưu một [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX địa phương đã liên kết. Hãy sử dụng bản sao của sổ làm việc nếu cần giữ nguyên bản gốc.
 
-**Tôi nên làm gì nếu tệp bên ngoài được bảo mật bằng mật khẩu?**
+**Nếu tệp bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách tiếp cận thông thường là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một sách làm việc bên ngoài không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.

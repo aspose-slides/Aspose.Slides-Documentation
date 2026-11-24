@@ -1,49 +1,49 @@
 ---
-title: Diagrammarbeitsmappen in Präsentationen mit C++ verwalten
-linktitle: Diagrammarbeitsmappe
+title: "Diagramm-Arbeitsmappen in Präsentationen mit C++ verwalten"
+linktitle: "Diagramm-Arbeitsmappe"
 type: docs
 weight: 70
 url: /de/cpp/chart-workbook/
 keywords:
-- Diagrammarbeitsmappe
+- Diagramm-Arbeitsmappe
 - Diagrammdaten
 - Arbeitsmappenzelle
 - Datenbeschriftung
 - Arbeitsblatt
 - Datenquelle
-- externe Arbeitsmappe
-- externe Daten
+- Externe Arbeitsmappe
+- Externe Daten
 - Diagramm-Cache
-- Arbeitsmappenwiederherstellung
+- Arbeitsmappen-Wiederherstellung
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für C++: Verwalten Sie Diagrammarbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für C++: Verwalten Sie Diagramm-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagramm‑Datenbeschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp der Quelle für Diagrammwerte festlegt.
+Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie Diagrammdaten über Arbeitsmappen‑Streams gelesen und geschrieben werden, wie Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwendet werden, wie auf Arbeitsblatt‑Sammlungen zugegriffen wird und wie der Datentyp für Diagrammwerte angegeben wird.
 
-Er behandelt zudem die Verwendung externer Arbeitsmappen als Datenquelle für Diagramme. Die Beispiele demonstrieren, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer externen Arbeitsmappe, die mit einem Diagramm verknüpft ist, ermittelt und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
+Er behandelt außerdem die Arbeit mit externen Arbeitsmappen als Diagrammdatenquellen. Die Beispiele zeigen, wie eine externe Arbeitsmappe erstellt und zugewiesen wird, wie der Pfad einer mit einem Diagramm verknüpften externen Arbeitsmappe abgerufen wird und wie Diagrammdaten bearbeitet werden, wenn die Arbeitsmappe verfügbar ist.
 
 Für Arbeitsmappen‑Zellen, die fehlende Daten darstellen, siehe [Steuerung der Anzeige leerer Zellen](/slides/de/cpp/chart-series/) für den Unterschied zwischen einer leeren Zelle und Null sowie einen Liniendiagramm‑Vergleich der verfügbaren Anzeigemodi.
 
-## **Daten aus versteckten Zeilen und Spalten einbeziehen**
+## **Daten aus ausgeblendeten Zeilen und Spalten einbeziehen**
 
-Verwenden Sie [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/), um zu steuern, ob ein Diagramm Daten aus versteckten Arbeitsblatt‑Zeilen und -Spalten plotten soll. Setzen Sie es auf `true`, um nur sichtbare Zellen zu plotten, oder auf `false`, um sowohl sichtbare als auch versteckte Zellen einzubeziehen. Diese Einstellung steuert das Plotten des Diagramms; sie blendet keine Arbeitsblatt‑Zeilen oder -Spalten ein oder aus.
+Verwenden Sie [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) , um zu steuern, ob ein Diagramm Daten aus ausgeblendeten Arbeitsblatt‑Zeilen und -Spalten darstellt. Setzen Sie es auf `true`, um nur sichtbare Zellen zu plotten, oder auf `false`, um sowohl sichtbare als auch ausgeblendete Zellen einzubeziehen. Diese Einstellung steuert das Plotten des Diagramms; sie blendet Arbeitsblatt‑Zeilen oder -Spalten nicht ein oder aus.
 
-Die [Beispielpräsentation](hidden-source-data.pptx) enthält ein Säulendiagramm als erste Form auf ihrer ersten Folie. Das eingebettete Arbeitsblatt `Sheet1` enthält den folgenden Quellbereich `A1:C4`. Zeile 3 und Spalte C sind versteckt, aber ihre Zellen enthalten weiterhin Werte.
+Die [Beispielpräsentation](hidden-source-data.pptx) enthält ein Säulendiagramm als erstes Objekt auf ihrer ersten Folie. Das eingebettete Arbeitsblatt `Sheet1` enthält den folgenden Quellbereich `A1:C4`. Zeile 3 und Spalte C sind ausgeblendet, aber ihre Zellen enthalten weiterhin Werte.
 
-| Arbeitsblattzeile | A: Monat | B: Einzelhandel | C: Großhandel (versteckte Spalte) |
+| Arbeitsblattzeile | A: Monat | B: Einzelhandel | C: Großhandel (ausgeblendete Spalte) |
 | --- | --- | --- | --- |
 | 2 | Januar | 10 | 30 |
-| 3 (versteckte Zeile) | Februar | 40 | 60 |
+| 3 (ausgeblendete Zeile) | Februar | 40 | 60 |
 | 4 | März | 20 | 50 |
 
-Greifen Sie über [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf Quellzellen zu und lesen Sie [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/), um deren versteckten Status zu prüfen. Diese Eigenschaft ist schreibgeschützt. In dieser Datei ist B2 sichtbar, B3 gehört zur versteckten Zeile und C2 zur versteckten Spalte; das Beispiel gibt `False`, `True` bzw. `True` aus.
+Greifen Sie über [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf Quellzellen zu und lesen Sie [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) , um ihren Ausblendestatus zu prüfen. Diese Eigenschaft ist schreibgeschützt. In dieser Datei ist B2 sichtbar, B3 gehört zur ausgeblendeten Zeile und C2 zur ausgeblendeten Spalte; das Beispiel gibt `False`, `True` und `True` aus.
 
-Für dieses Beispiel aktualisieren Sie die Diagrammdaten nach Änderung der Plot‑Einstellung: behalten Sie die eingebettete Arbeitsmappe mit [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) und laden Sie sie mit [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) erneut. Beim Einbeziehen aller Zellen verwenden Sie zudem [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/), um den vollständigen Bereich inklusive der versteckten Februar‑Kategorie wiederherzustellen. Einfach das Flag zu ändern reicht nicht aus, um die zwischengespeicherten Diagrammdaten und Kategorienamen dieses Beispiels zu aktualisieren.
+Für dieses Beispiel aktualisieren Sie die Diagrammdaten, nachdem Sie die Plot‑Einstellung geändert haben: Behalten Sie die eingebettete Arbeitsmappe mit [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) bei und laden Sie sie mit [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) neu. Wenn alle Zellen einbezogen werden, verwenden Sie außerdem [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) , um den vollständigen Bereich wiederherzustellen, einschließlich der ausgeblendeten Kategorie Februar. Das bloße Ändern des Flags reicht nicht aus, um die zwischengespeicherten Diagrammdaten und Kategorielabels dieses Beispiels zu aktualisieren.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -79,12 +79,12 @@ if (chart != nullptr)
     {
         chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-        // Diagrammdaten aus der eingebetteten Arbeitsmappe aktualisieren.
+        // Aktualisieren Sie die Diagrammdaten aus der eingebetteten Arbeitsmappe.
         workbookStream->set_Position(0);
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Den vollständigen Quellbereich wiederherstellen, einschließlich versteckter Kategorien.
+            // Stellen Sie den gesamten Quellbereich wieder her, einschließlich ausgeblendeter Kategorien.
             chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
         }
 
@@ -98,21 +98,21 @@ else
 }
 ```
 
-Das Beispiel speichert zwei Versionen der Präsentation: eine nur mit den sichtbaren Einzelhandelswerten (10 und 20) und eine mit allen sechs Werten. Die untenstehenden Bilder zeigen die beiden Plot‑Modi. Zeile 3 und Spalte C bleiben in beiden eingebetteten Arbeitsmappen versteckt.
+Das Beispiel speichert zwei Versionen der Präsentation: eine nur mit den sichtbaren Einzelhandelswerten (10 und 20) und eine mit allen sechs Werten. Die nachstehenden Bilder zeigen die beiden Plot‑Modi. Zeile 3 und Spalte C bleiben in beiden eingebetteten Arbeitsmappen ausgeblendet.
 
 | Nur sichtbare Zellen (`true`) | Alle Zellen (`false`) |
 | --- | --- |
-| ![Nur sichtbare Zellen: Einzelhandelswerte 10 und 20 für Januar und März.](hidden_cells_True.png) | ![Alle Zellen: Einzelhandels‑ und Großhandelswerte für Januar, Februar und März.](hidden_cells_False.png) |
+| ![Nur sichtbare Zellen: Einzelhandelswerte 10 und 20 für Januar und März.](hidden_cells_True.png) | ![Alle Zellen: Einzelhandels- und Großhandelswerte für Januar, Februar und März.](hidden_cells_False.png) |
 
-Eine versteckte Zelle, die einen Wert enthält, unterscheidet sich von einer leeren Zelle. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) steuert, wie fehlende Werte angezeigt werden; sie schließt keine versteckten Quelldaten ein oder aus. Siehe [Steuerung der Anzeige leerer Zellen](/slides/de/cpp/chart-series/#control-the-display-of-empty-cells) für ein Beispiel.
+Eine ausgeblendete Zelle, die einen Wert enthält, unterscheidet sich von einer leeren Zelle. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) steuert, wie fehlende Werte angezeigt werden; sie schließt ausgeblendete Quelldaten nicht ein oder aus. Siehe [Steuerung der Anzeige leerer Zellen](/slides/de/cpp/chart-series/#control-the-display-of-empty-cells) für ein Beispiel.
 
-## **Datenbereich eines Diagramms abrufen**
+## **Abrufen des Datenbereichs eines Diagramms**
 
-Bevor Sie Arbeitsmappendaten in einer bestehenden Präsentation aktualisieren, prüfen Sie die Quellbereiche, um zu ermitteln, welche Arbeitsblatt‑Zellen jedes Diagramm verwendet. Die Methode [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) gibt den aktuellen Datenbereich als arbeitsblattqualifizierte Formel zurück, z. B. `Sheet1!$A$1:$D$5`. Hier ist `Sheet1` der Arbeitsblatt‑Name, `!` trennt ihn vom Zellbereich, und `$A$1:$D$5` bezeichnet die Zellen A1 bis D5 inkl. Die Dollar‑Zeichen kennzeichnen absolute Zeilen‑ und Spaltenbezüge.
+Bevor Sie Arbeitsmappendaten in einer vorhandenen Präsentation aktualisieren, prüfen Sie die Quellbereiche, um zu ermitteln, welche Arbeitsblattzellen jedes Diagramm verwendet. Die Methode [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) gibt den aktuellen Datenbereich als arbeitsblattqualifizierte Formel zurück, z. B. `Sheet1!$A$1:$D$5`. Hier ist `Sheet1` der Arbeitsblattname, `!` trennt ihn vom Zellbereich, und `$A$1:$D$5` bezeichnet die Zellen A1 bis D5 inklusive. Die Dollarzeichen kennzeichnen absolute Zeilen‑ und Spaltenreferenzen.
 
-Die Methode liest den aktuellen Bereich, ohne das Diagramm oder seine Arbeitsmappe zu ändern. Wenn das Diagramm keine Arbeitsmappe als Datenquelle verwendet, wird eine [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) ausgelöst. Weitere Informationen finden Sie in der [ChartData‑API‑Referenz](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+Die Methode liest den aktuellen Bereich, ohne das Diagramm oder seine Arbeitsmappe zu ändern. Wenn das Diagramm keine Arbeitsmappe als Datenquelle verwendet, wirft es [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Weitere Informationen finden Sie in der [ChartData‑API‑Referenz](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
 
-Dieses Beispiel öffnet eine Präsentation und prüft die Formen jeder Folie direkt auf Diagramme. Es gibt den Namen jedes Diagramms und den Quellbereich aus. Wenn ein Diagramm keine Arbeitsmappe verwendet, gibt es eine Meldung aus und fährt mit dem nächsten Diagramm fort.
+Dieses Beispiel öffnet eine Präsentation und prüft die Formen jeder Folie direkt auf Diagramme. Es gibt den Namen jedes Diagramms und dessen Quellbereich aus. Wenn ein Diagramm keine Arbeitsmappe verwendet, gibt es eine Meldung aus und fährt mit dem nächsten Diagramm fort.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -155,9 +155,9 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 
 ## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
 
-Aspose.Slides für C++ stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) und [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) bereit, mit denen Sie Arbeitsmappen‑Diagrammdaten (die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis:** Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine dem Quellformat ähnliche Struktur besitzen.
+Aspose.Slides für C++ stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) und [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) bereit, mit denen Sie Diagrammdaten‑Arbeitsmappen (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen in gleicher Weise organisiert sein oder eine dem Quell‑Layout ähnliche Struktur aufweisen.
 
-Dieses Beispiel verwendet eine Präsentation mit einem Diagramm als erste Form auf ihrer ersten Folie. Es liest die eingebettete Arbeitsmappe in einen Stream, löscht die vorhandenen Serien und Kategorien und schreibt dieselbe Arbeitsmappe zurück. Die Änderungen verbleiben im Speicher; das Beispiel speichert die Präsentation nicht.
+Dieses Beispiel verwendet eine Präsentation mit einem Diagramm als erstes Objekt auf ihrer ersten Folie. Es liest die eingebettete Arbeitsmappe in einen Stream, löscht die vorhandenen Reihen und Kategorien und schreibt dieselbe Arbeitsmappe zurück. Die Änderungen verbleiben im Speicher; das Beispiel speichert die Präsentation nicht.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -198,7 +198,7 @@ else
 
 ### **Diagrammlayout nach Arbeitsmappen‑Änderung validieren**
 
-Wenn Sie eine eingebettete Arbeitsmappe durch eine modifizierte ersetzen, behält das Diagramm seine ursprünglichen Serien‑ und Kategorien‑Sammlungen. Diese Diskrepanz kann dazu führen, dass [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) mit einem „Index‑out‑of‑range“-Fehler fehlschlägt. Löschen Sie die vorhandenen Serien und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück in das Diagramm schreiben. Dieses Beispiel verwendet ein Diagramm, das die erste Form auf der ersten Folie ist. Der Kommentar markiert die Stelle, an der die Arbeitsmappe bearbeitet werden würde; das lauffähige Beispiel schreibt die ursprüngliche Arbeitsmappe zurück und validiert das Layout im Speicher.
+Wenn Sie eine eingebettete Arbeitsmappe durch eine modifizierte ersetzen, behält das Diagramm seine ursprünglichen Reihen‑ und Kategoriekollektionen bei. Diese Diskrepanz kann dazu führen, dass [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) mit einem Index‑out‑of‑Range‑Fehler fehlschlägt. Löschen Sie die bestehenden Reihen und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück ins Diagramm schreiben. Dieses Beispiel verwendet ein Diagramm, das das erste Objekt auf der ersten Folie ist. Der Kommentar markiert, wo die Arbeitsmappenbearbeitung stattfinden würde; das ausführbare Beispiel schreibt die ursprüngliche Arbeitsmappe zurück und validiert das Layout im Speicher.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -225,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // Modifizieren Sie hier den Arbeitsmappen-Stream, zum Beispiel mit Aspose.Cells.
+    // Modifizieren Sie den Arbeitsmappen-Stream hier, zum Beispiel mit Aspose.Cells.
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -240,15 +240,91 @@ else
 }
 ```
 
-Das Leeren der Sammlungen entfernt veraltete Datenreferenzen, bevor die Arbeitsmappe zurückgeschrieben wird. Stellen Sie vor der Nutzung des Diagramms die erforderlichen Serien‑ und Kategorien‑Zuordnungen für die aktualisierte Arbeitsmappe wieder her.
+Das Leeren der Sammlungen entfernt veraltete Datenreferenzen, bevor die Arbeitsmappe zurückgeschrieben wird. Bauen Sie alle erforderlichen Reihen‑ und Kategoriezusordnungen für die aktualisierte Arbeitsmappe wieder auf, bevor Sie das Diagramm verwenden.
 
-## **Benutzerdefinierte Zahlenformate für Arbeitsmappenzellen festlegen**
+## **Auswahl der Speicherung von Kategorielabeln**
 
-Verwenden Sie [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/), um zu steuern, wie numerische Werte in der eingebetteten Arbeitsmappe eines Diagramms angezeigt werden. Beispielsweise muss in einem Bericht ein Umrechnungskurs als Prozentsatz mit vier Dezimalstellen und ein Koeffizient mit fünf Dezimalstellen angezeigt werden. Beide Werte bleiben numerisch, damit sie für Berechnungen und Diagramm‑Plotting verfügbar bleiben.
+Rufen Sie [IChartCategoryCollection::set_UseCells](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorycollection/set_usecells/) für die leere Kategoriekollektion auf, bevor Sie Label hinzufügen. Verwenden Sie Arbeitsblatt‑Zellen für Label, die auf Arbeitsmappendaten verweisen oder eine Hierarchie bilden, z. B. Quartale nach Jahr gruppiert. Verwenden Sie Zeichenketten‑Literale für ein einstufiges Label, das keine Zellreferenzen benötigt. Diese Einstellung gilt nur für Kategorien. Beide Diagramme im Beispiel verwenden Arbeitsblatt‑Zellen für die numerischen Reihenwerte.
 
-Ein Zahlenformat ändert die Darstellung, nicht den gespeicherten Wert. Das Format `0.0000%` zeigt `0.125` als `12.5000%` an; es ersetzt die gespeicherte Zahl nicht durch `12.5`. Ebenso zeigt `0.00000` `0.1234567` als `0.12346` an, ohne den gespeicherten Wert zu runden. Wenn das benutzerdefinierte Format ein leerer String (`""`) ist, wird stattdessen das über [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) zugewiesene Format verwendet.
+Das Beispiel erstellt zwei Säulendiagramme und gibt den Speicher‑Modus sowie die Labels `Q1 Q2 Q3 Q4` für jedes aus. Für arbeitsblattbasierte Labels gibt [IChartCategory::get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_ascell/) Zugriff auf die zugrunde liegende Zelle und [IChartDataCell::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_value/) liefert ihr Label. Für Literallabels wird die Zeichenkette direkt aus [IChartCategory::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_value/) gelesen.
 
-Im folgenden Beispiel wird ein Säulendiagramm erstellt und über [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf seine Zellen zugegriffen. Auf Arbeitsblatt 0 enthält B2 den Umrechnungskurs und C2 den Koeffizienten. Beide Zellen liefern Diagrammwerte. Das Beispiel aktiviert zudem Werte‑Beschriftungen, die an die Quellformate gebunden sind.
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+for (auto useCells : {true, false})
+{
+    auto x = useCells ? 20 : 360;
+    auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, 20, 320, 250);
+    auto data = chart->get_ChartData();
+    auto categories = data->get_Categories();
+    data->get_Series()->Clear();
+    categories->Clear();
+    categories->set_UseCells(useCells);
+
+    auto workbook = data->get_ChartDataWorkbook();
+    auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Sales"));
+    auto series = data->get_Series()->Add(seriesName, chart->get_Type());
+    for (auto row = 1; row <= 4; ++row)
+    {
+        auto label = String::Format(u"Q{0}", row);
+        auto labelValue = ObjectExt::Box<String>(label);
+        if (useCells)
+        {
+            auto labelCell = workbook->GetCell(0, row, 0, labelValue);
+            categories->Add(labelCell);
+        }
+        else
+        {
+            categories->Add(labelValue);
+        }
+
+        auto valueCell = workbook->GetCell(0, row, 1, ObjectExt::Box<int32_t>(row * 10));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    Console::Write(u"UseCells = {0}:", categories->get_UseCells());
+    for (auto category : IterateOver(categories))
+    {
+        auto label = categories->get_UseCells() ? category->get_AsCell()->get_Value() : category->get_Value();
+        Console::Write(u" {0}", label->ToString());
+    }
+    Console::WriteLine();
+}
+
+presentation->Save(u"category-labels.pptx", Export::SaveFormat::Pptx);
+```
+
+## **Benutzerdefinierte Zahlenformate für Arbeitsmappen‑Zellen festlegen**
+
+Verwenden Sie [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) , um zu steuern, wie numerische Werte im eingebetteten Arbeitsbuch eines Diagramms angezeigt werden. Beispielsweise kann ein Bericht eine Umrechnungsrate als Prozentsatz mit vier Dezimalstellen und einen Koeffizienten mit fünf Dezimalstellen benötigen. Lassen Sie beide Werte numerisch, damit sie für Berechnungen und das Diagramm‑Plotten verfügbar bleiben.
+
+Ein Zahlenformat ändert die Anzeige, nicht den gespeicherten Wert. Das Format `0.0000%` zeigt `0.125` als `12.5000%` an; es ersetzt nicht die gespeicherte Zahl durch `12.5`. Ähnlich zeigt `0.00000` `0.1234567` als `0.12346` an, ohne den gespeicherten Wert zu runden. Wenn das benutzerdefinierte Format ein leerer String (`""`) ist, wird stattdessen das über [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) zugewiesene Format verwendet.
+
+Das nachstehende Beispiel erstellt ein Säulendiagramm und greift über [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf seine Zellen zu. In Arbeitsblatt 0 enthält B2 die Umrechnungsrate und C2 den Koeffizienten. Beide Zellen liefern Diagrammw erte. Das Beispiel aktiviert außerdem Wertlabel, die an die Quellformate gebunden sind.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -321,19 +397,19 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-Arbeitsmappen‑Zellformate sind von Formaten getrennt, die direkt auf Diagramm‑Achsen oder Datenbeschriftungen gesetzt werden. In diesem Beispiel zeigt jede Beschriftung den Wert ihrer Quellzelle, weil [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) mit `true` aufgerufen wird und weil [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) ebenfalls mit `true` gesetzt ist. Nach dem Speichern und erneuten Öffnen der Präsentation zeigen die Beschriftungen `12.5000%` und `0.12346` wie unten dargestellt. Die vertikale Achse verwendet ihr eigenes Format `0.00`, das über [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) zugewiesen wurde, wobei [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) mit `false` gesetzt ist.
+Arbeitsmappen‑Zellformate sind unabhängig von Formaten, die direkt auf Diagrammachsen oder Datenbeschriftungen gesetzt werden. In diesem Beispiel zeigt jedes Label den Wert seiner Quellzelle an, weil [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) mit `true` aufgerufen wird, und übernimmt das Quellzahlenformat, weil [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) mit `true` aufgerufen wird. Nach dem Speichern und erneuten Öffnen der Präsentation zeigen die Labels `12.5000%` und `0.12346` an, wie unten dargestellt. Die senkrechte Achse verwendet ihr eigenes Format `0.00`, das über [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) zugewiesen wird, wobei [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) mit `false` aufgerufen wird.
 
-Um ein Datenlabel unabhängig zu formatieren, setzen Sie dessen Quell‑Link‑Flag auf `false` und weisen Sie das Format über [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) zu. Dies ändert nicht das Format der Arbeitsmappen‑Zelle. Beispielsweise zeigt ein unabhängiges Label‑Format `0.00` den ersten Wert als `0.13` an, während B2 weiterhin `12.5000%` anzeigt. Siehe [Diagrammdatennamen](/slides/de/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) für direkte Label‑Formatierung.
+Um ein Datenlabel unabhängig zu formatieren, setzen Sie dessen Quell‑Link‑Flag auf `false` und weisen sein Format über [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) zu. Dies ändert nicht das Format der Arbeitsmappen‑Zelle. Beispiel: Ein unabhängiges Label‑Format `0.00` zeigt den ersten Wert als `0.13` an, während B2 weiterhin `12.5000%` anzeigt. Siehe [Diagrammdatenbeschriftungen](/slides/de/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) für direkte Label‑Formatierung.
 
-Das folgende Bild wurde aus der gespeicherten Präsentation nach dem erneuten Öffnen gerendert:
+Das nachstehende Bild wurde aus der gespeicherten Präsentation nach dem erneuten Öffnen gerendert:
 
-![Säulendiagramm mit quellenverknüpften Beschriftungen, die 12.5000% und 0.12346 zeigen, und einer unabhängig formatierten numerischen Achse.](custom-cell-formats.png)
+![Säulendiagramm mit quellenverknüpften Labels, die 12.5000% und 0.12346 anzeigen, sowie einer unabhängig formatierten numerischen Achse.](custom-cell-formats.png)
 
-## **Eine Arbeitsmappenzelle als Diagrammdatenbeschriftung festlegen**
+## **Eine Arbeitsmappen‑Zelle als Diagrammdaten‑Label festlegen**
 
-Sie können Text aus Arbeitsmappenzellen als Diagrammdatenbeschriftungen verwenden.
+Sie können Text aus Arbeitsmappen‑Zellen als Diagrammdaten‑Labels verwenden.
 
-Dieses Beispiel fügt einer bestehenden Präsentation auf der ersten Folie ein Bubble‑Diagramm mit Standarddaten hinzu. Es verwendet die Zellen A10:A12 auf Arbeitsblatt 0 für die ersten drei Beschriftungen der ersten Serie, aktiviert Beschriftungen aus Zellen und speichert die aktualisierte Präsentation.
+Dieses Beispiel fügt einer vorhandenen Präsentation auf der ersten Folie ein Blasendiagramm mit Standarddaten hinzu. Es verwendet die Zellen A10:A12 in Arbeitsblatt 0 für die ersten drei Labels der ersten Reihe, aktiviert Labels aus Zellen und speichert die aktualisierte Präsentation.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -376,7 +452,7 @@ presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 
 ## **Arbeitsblätter verwalten**
 
-Die Methode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) bietet Zugriff auf die Arbeitsblätter einer Diagramm‑Arbeitsmappe. Dieses Beispiel erstellt ein Kuchendiagramm mit Standarddaten und gibt jeden Arbeitsblatt‑Namen in der Konsole aus.
+Die Methode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) bietet Zugriff auf die Arbeitsblätter einer Diagramm‑Arbeitsmappe. Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten und gibt den Namen jedes Arbeitsblatts in der Konsole aus.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -409,9 +485,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **Datentyp der Datenquelle angeben**
 
-Serien‑Punktwerte können auch direkt als numerische Literale gespeichert werden. Siehe [Set Series Values Using Numeric Literals](/slides/de/cpp/chart-series/#set-series-values-using-numeric-literals) für ein vollständiges Beispiel, das das Speichern und Lesen demonstriert. Der Quelltyp der Punktwerte ist von der internen oder externen Arbeitsmappen‑Konfiguration des Diagramms getrennt; die Verwendung numerischer Literale entfernt nicht per se die eingebettete Arbeitsmappe.
+Reihenwert‑Punkte können auch direkt als numerische Literale gespeichert werden. Siehe [Reihenwerte mit numerischen Literalen festlegen](/slides/de/cpp/chart-series/#set-series-values-using-numeric-literals) für ein vollständiges Beispiel, das diese speichert und liest. Der Quelltyp der Punktewerte ist unabhängig von der internen oder externen Arbeitsmappen‑Konfiguration des Diagramms; die Verwendung numerischer Literale entfernt nicht automatisch die eingebettete Arbeitsmappe.
 
-Dieses Beispiel erstellt ein 3D‑Säulendiagramm mit Standarddaten und setzt zwei Serien‑Namen mithilfe verschiedener Datenquellen. Der erste Name verwendet einen Zeichenketten‑Literal; der zweite verwendet die Zelle C1 auf Arbeitsblatt 0. Die Aufzählung [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) wählt die Quelle für jeden Namen aus. Das Beispiel speichert die Präsentation mit den aktualisierten Serien‑Namen.
+Dieses Beispiel erstellt ein 3D‑Säulendiagramm mit Standarddaten und legt zwei Reihen‑Namen mit unterschiedlichen Datenquellen fest. Der erste Name verwendet ein Zeichenketten‑Literal; der zweite nutzt die Zelle C1 in Arbeitsblatt 0. Die Aufzählung [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) wählt die Quelle für jeden Namen aus. Das Beispiel speichert die Präsentation mit den aktualisierten Reihen‑Namen.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -422,7 +498,7 @@ Dieses Beispiel erstellt ein 3D‑Säulendiagramm mit Standarddaten und setzt zw
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IStringChartValue.h>
-#include <DOM/IChart.h>
+#include <DOM/IChart>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
@@ -433,26 +509,12 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
-
-auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 50, 50, 600, 400, true);
-auto literalName = chart->get_ChartData()->get_Series()->idx_get(0)->get_Name();
-
-literalName->set_DataSourceType(DataSourceType::StringLiterals);
-literalName->set_Data(ObjectExt::Box<String>(u"LiteralString"));
-
-auto cellName = chart->get_ChartData()->get_Series()->idx_get(1)->get_Name();
-auto nameCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, u"C1", ObjectExt::Box<String>(u"NewCell"));
-cellName->set_DataSourceType(DataSourceType::Worksheet);
-cellName->set_Data(nameCell);
-
-presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
+auto  ....  // Die Kommentare im Quellcode enthalten keine zu übersetzenden Texte.
 ```
 
-## **Nicht unterstützte eingebettete Arbeitsmappenformate erkennen**
+## **Nicht unterstützte eingebettete Arbeitsmappen‑Formate erkennen**
 
-Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb) nicht, das in einigen Diagrammen eingebettet sein kann. Sie können die Methode [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) auf [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen. Dieses Beispiel untersucht die Formen auf der ersten Folie einer bestehenden Präsentation, überspringt Nicht‑Diagramm‑Formen und gibt für jedes Diagramm mit einer eingebetteten .xlsb‑Arbeitsmappe eine Diagnosemeldung aus.
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Methode [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) auf [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen. Dieses Beispiel prüft die Formen auf der ersten Folie einer vorhandenen Präsentation, überspringt Nicht‑Diagramm‑Formen und gibt für jedes Diagramm mit einer eingebetteten .xlsb‑Arbeitsmappe eine Diagnosemeldung aus.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -491,7 +553,7 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Lese oder ändere hier unterstützte Diagramm-Arbeitsmappendaten.
+    // Unterstützte Diagramm-Arbeitsmappendaten hier lesen oder ändern.
 }
 ```
 
@@ -499,11 +561,11 @@ for (auto shape : IterateOver(slide->get_Shapes()))
 
 Aspose.Slides unterstützt die Verwendung externer Arbeitsmappen als Datenquelle für Diagramme.
 
-### **Externe Arbeitsmappe erstellen**
+### **Erstellen einer externen Arbeitsmappe**
 
-Verwenden Sie [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) und [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), um eine eingebettete Diagramm‑Arbeitsmappe in eine Datei zu exportieren und das Diagramm mit dieser externen Arbeitsmappe zu verknüpfen.
+Verwenden Sie [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) und [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) , um eine eingebettete Diagramm‑Arbeitsmappe in eine Datei zu exportieren und das Diagramm mit dieser externen Arbeitsmappe zu verknüpfen.
 
-Dieses Beispiel erstellt ein Kuchendiagramm mit Standarddaten und exportiert dessen Arbeitsmappe. Es schließt den Ausgabestream, bevor es die externe Arbeitsmappe als Datenquelle zuweist, und speichert anschließend die verknüpfte Präsentation.
+Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten und exportiert dessen Arbeitsmappe. Es schließt den Ausgabestream, bevor die externe Arbeitsmappe als Diagrammdatenquelle zugewiesen wird, und speichert anschließend die verknüpfte Präsentation.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -537,13 +599,13 @@ chart->get_ChartData()->SetExternalWorkbook(workbookPath);
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Externe Arbeitsmappe festlegen**
+### **Festlegen einer externen Arbeitsmappe**
 
-Mit der Methode [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) können Sie einem Diagramm eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um einen Pfad zu einer externen Arbeitsmappe zu aktualisieren (wenn diese verschoben wurde).
+Mit der Methode [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) können Sie einem Diagramm eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-Während Sie die Daten in Arbeitsmappen, die an entfernten Speicherorten oder Ressourcen liegen, nicht bearbeiten können, können Sie solche Arbeitsmappen weiterhin als externe Datenquelle nutzen. Wird ein relativer Pfad zu einer externen Arbeitsmappe angegeben, wird er automatisch in einen absoluten Pfad umgewandelt.
+Obwohl Sie die Daten in Arbeitsmappen, die an entfernten Orten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle nutzen. Wenn ein relativer Pfad für eine externe Arbeitsmappe angegeben wird, wird er automatisch in einen absoluten Pfad umgewandelt.
 
-Dieses Beispiel verwendet eine externe Arbeitsmappe, deren Arbeitsblatt `Sheet1` einen Serien‑Namen in B1, Kategorienamen in A2:A4 und numerische Werte in B2:B4 enthält. Das Beispiel erstellt ein Kuchendiagramm, verknüpft die Arbeitsmappe und verwendet [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/), um A1:B4 einer Serie und drei Kategorien zuzuordnen. Es speichert die Präsentation mit dem verknüpften Diagramm.
+Dieses Beispiel verwendet eine externe Arbeitsmappe, deren Arbeitsblatt `Sheet1` einen Reihen‑Namen in B1, Kategorienamen in A2:A4 und numerische Werte in B2:B4 enthält. Das Beispiel erstellt ein Kreisdiagramm, verknüpft die Arbeitsmappe und verwendet [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) , um A1:B4 einer Reihe und drei Kategorien zuzuordnen. Es speichert die Präsentation mit dem verknüpften Diagramm.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -574,10 +636,10 @@ presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveForma
 
 Der Parameter `updateChartData` von [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) steuert, ob die Arbeitsmappe geladen wird.
 
-* Wenn `updateChartData` **false** ist, wird nur der Pfad zur Arbeitsmappe aktualisiert. Die Diagrammdaten werden nicht aus der Ziel‑Arbeitsmappe geladen oder aktualisiert, sodass die Arbeitsmappe nicht vorhanden sein kann.
-* Wenn `updateChartData` **true** ist, werden die Diagrammdaten aus der Ziel‑Arbeitsmappe aktualisiert.
+* Wenn `updateChartData` `false` ist, wird nur der Arbeitsmappen‑Pfad aktualisiert. Die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert, sodass die Arbeitsmappe nicht verfügbar sein kann.
+* Wenn `updateChartData` `true` ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 
-Das folgende Beispiel setzt eine Platzhalter‑URL mit `updateChartData` = `false`. Es behält die Standarddaten des Kuchendiagramms bei und speichert die Präsentation, ohne die nicht verfügbare Arbeitsmappe zu laden.
+Das folgende Beispiel weist eine Platzhalter‑URL zu, wobei `updateChartData` auf `false` gesetzt ist. Es behält die Standarddaten des Kreisdiagramms bei und speichert die Präsentation, ohne die nicht verfügbare Arbeitsmappe zu laden.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -601,11 +663,11 @@ chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-wo
 presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Pfad der externen Datenquellenarbeitsmappe eines Diagramms abrufen**
+### **Abrufen des Pfads der externen Datenquellen‑Arbeitsmappe eines Diagramms**
 
 Um die mit einem Diagramm verknüpfte Arbeitsmappe zu ermitteln, prüfen Sie, ob das Diagramm eine externe Datenquelle verwendet, und rufen Sie dessen Arbeitsmappen‑Pfad ab.
 
-Dieses Beispiel untersucht die erste Form auf der ersten Folie einer Präsentation mit einer verknüpften externen Arbeitsmappe. Handelt es sich um ein Diagramm, das mit einer externen Arbeitsmappe verknüpft ist, gibt das Beispiel [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) in der Konsole aus. Anschließend wird eine Kopie der Präsentation gespeichert.
+Dieses Beispiel prüft das erste Objekt auf der ersten Folie einer Präsentation mit einer verknüpften externen Arbeitsmappe. Wenn es sich um ein Diagramm handelt, das mit einer externen Arbeitsmappe verknüpft ist, gibt das Beispiel [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) in der Konsole aus. Anschließend speichert es eine Kopie der Präsentation.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -648,9 +710,9 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 ### **Diagrammdaten bearbeiten**
 
-Sie können die Daten in externen Arbeitsmappen genauso bearbeiten wie die Inhalte interner Arbeitsmappen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können die Daten in externen Arbeitsmappen auf die gleiche Weise bearbeiten, wie Sie Änderungen an internen Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
 
-Dieses Beispiel verwendet ein Diagramm, das die erste Form auf der ersten Folie ist und mit einer zugänglichen externen Arbeitsmappe verknüpft ist. Es setzt den zellgestützten Wert des ersten Datenpunkts der ersten Serie auf 100 und speichert die aktualisierte Präsentation. Das Bearbeiten von Zellwerten kann die verknüpfte externe XLSX‑Datei aktualisieren; verwenden Sie daher eine Kopie, wenn das Original‑Arbeitsmappen erhalten bleiben soll.
+Dieses Beispiel verwendet ein Diagramm, das das erste Objekt auf der ersten Folie ist und mit einer zugänglichen externen Arbeitsmappe verknüpft ist. Es setzt den zellbasierten Wert des ersten Datenpunkts der ersten Reihe auf 100 und speichert die aktualisierte Präsentation. Das Bearbeiten von Zellwerten kann die verknüpfte externe XLSX‑Datei aktualisieren; verwenden Sie daher eine Kopie, wenn das Originalarbeitsbuch erhalten bleiben soll.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -704,11 +766,11 @@ else
 }
 ```
 
-### **Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
+### **Wiederherstellen einer Arbeitsmappe aus dem Diagramm‑Cache**
 
-Wenn ein Diagramm eine externe Arbeitsmappe verwendet, die fehlt oder nicht verfügbar ist, kann Aspose.Slides das Diagramm‑Arbeitsmappe aus den im Dokument zwischengespeicherten Daten rekonstruiert. Erzeugen Sie ein [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), konfigurieren Sie es mit [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), und rufen Sie vor dem Öffnen der Präsentation [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) mit **true** auf.
+Wenn ein Diagramm eine fehlende oder nicht verfügbare externe Arbeitsmappe verwendet, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Dokument zwischengespeicherten Daten rekonstruieren. Erstellen Sie [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), konfigurieren Sie sie mit [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) und rufen Sie [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) mit `true` auf, bevor Sie die Präsentation öffnen.
 
-Das folgende C++‑Beispiel stellt Arbeitsmappendaten für ein Diagramm wieder her, das die erste Form auf der ersten Folie ist und auf eine nicht verfügbare externe Arbeitsmappe verweist. Es greift über [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) und [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf die wiederhergestellten Daten zu:
+Das folgende C++‑Beispiel stellt Arbeitsmappendaten für ein Diagramm wieder her, das das erste Objekt auf der ersten Folie ist und auf eine nicht verfügbare externe Arbeitsmappe verweist. Es greift über [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) und [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) auf die wiederhergestellten Daten zu:
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -748,30 +810,30 @@ else
 }
 ```
 
-Wenn die externe Arbeitsmappe nicht verfügbar ist und die Wiederherstellung deaktiviert ist, wirft Aspose.Slides eine [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Aktivieren Sie die Wiederherstellung nur, wenn die Nutzung zwischengespeicherter Diagrammdaten ein akzeptablerFallback ist, da der Cache möglicherweise Änderungen, die nach dem letzten Aktualisieren der Präsentation an der externen Arbeitsmappe vorgenommen wurden, nicht enthält.
+Ist die externe Arbeitsmappe nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der zwischengespeicherten Diagrammdaten ein akzeptabler Ausweg ist, da der Cache möglicherweise nicht die Änderungen an der externen Arbeitsmappe enthält, die nach der letzten Aktualisierung der Präsentation vorgenommen wurden.
 
 ## **FAQ**
 
-**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder eingebetteten Arbeitsmappe verknüpft ist?**
+**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**
 
-Ja. Ein Diagramm verfügt über einen [Datentyp der Datenquelle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); wenn die Quelle eine externe Arbeitsmappe ist, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+Ja. Ein Diagramm verfügt über einen [Datentyp der Datenquelle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ; ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
 
 **Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
 
-Ja. Wird ein relativer Pfad angegeben, wird er automatisch in einen absoluten Pfad umgewandelt. Die Präsentation speichert den absoluten Pfad in der PPTX‑Datei, sodass ein Verschieben der Arbeitsmappe ein Aktualisieren des Links erforderlich machen kann.
+Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Die Präsentation speichert den absoluten Pfad in der PPTX‑Datei, sodass ein Verschieben der Arbeitsmappe möglicherweise eine Aktualisierung des Links erfordert.
 
-**Kann ich Arbeitsmappen verwenden, die sich auf Netzwerk‑Ressourcen/Freigaben befinden?**
+**Kann ich Arbeitsmappen auf Netzwerkressourcen/Freigaben verwenden?**
 
-Ja, solche Arbeitsmappen können als externe Datenquelle genutzt werden. Das direkte Bearbeiten entfernter Arbeitsmappen aus Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle verwendet werden.
+Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Arbeitsmappen mit Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle dienen.
 
 **Überschreibt Aspose.Slides die externe XLSX‑Datei beim Speichern der Präsentation?**
 
-Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Das Bearbeiten von zellgestützten Diagrammdaten kann außerdem die verknüpfte lokale XLSX‑Datei aktualisieren. Verwenden Sie eine Kopie der Arbeitsmappe, wenn das Original unverändert bleiben muss.
+Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) . Das Bearbeiten von zellbasierten Diagrammdaten kann auch die verknüpfte lokale XLSX‑Datei aktualisieren. Verwenden Sie eine Kopie der Arbeitsmappe, wenn das Original unverändert bleiben muss.
 
 **Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**
 
-Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz besteht darin, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie (z. B. mit [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) vorzubereiten und auf diese Kopie zu verweisen.
+Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz besteht darin, den Schutz im Vorfeld zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) und diese Kopie zu verknüpfen.
 
 **Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
 
-Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn sie alle auf dieselbe Datei zeigen, werden Aktualisierungen dieser Datei in jedem Diagramm beim nächsten Laden der Daten reflektiert.
+Ja. Jedes Diagramm speichert seinen eigenen Link. Zeigen sie alle auf dieselbe Datei, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm wirksam.

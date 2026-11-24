@@ -1,50 +1,50 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu bằng JavaScript
-linktitle: Sổ làm việc Biểu đồ
+title: Quản lý sổ làm việc biểu đồ trong bản trình chiếu bằng JavaScript
+linktitle: Sổ làm việc biểu đồ
 type: docs
 weight: 70
 url: /vi/nodejs-java/chart-workbook/
 keywords:
 - sổ làm việc biểu đồ
 - dữ liệu biểu đồ
-- ô sổ làm việc
+- ô workbook
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sổ làm việc bên ngoài
+- workbook bên ngoài
 - dữ liệu bên ngoài
-- cache biểu đồ
-- khôi phục sổ làm việc
+- bộ nhớ cache biểu đồ
+- khôi phục workbook
 - PowerPoint
 - bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Node.js qua Java: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides for Node.js via Java: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu trình chiếu của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua các luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet và chỉ định kiểu nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua các luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
+Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
 
-Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, xem [Kiểm soát hiển thị các ô trống](/slides/vi/nodejs-java/chart-series/) để tìm hiểu sự khác nhau giữa ô trống và số 0, và so sánh biểu đồ đường cho các chế độ hiển thị sẵn có.
+Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, xem [Kiểm soát hiển thị ô trống](/slides/vi/nodejs-java/chart-series/) để hiểu sự khác biệt giữa ô trống và giá trị zero, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
 
 ## **Bao gồm dữ liệu từ các hàng và cột ẩn**
 
-Sử dụng [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt giá trị `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả các ô hiển thị và ẩn. Cài đặt này chỉ ảnh hưởng đến việc vẽ biểu đồ; nó không ẩn hoặc hiện các hàng hoặc cột worksheet.
+Sử dụng [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) để kiểm soát việc biểu đồ vẽ dữ liệu từ các hàng và cột worksheet bị ẩn. Đặt thành `true` để vẽ chỉ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ô ẩn. Cài đặt này chỉ kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện các hàng hoặc cột worksheet.
 
-[Bản trình chiếu mẫu](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Worksheet nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
+[File mẫu trình chiếu](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Worksheet nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
 
 | Hàng worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
 | --- | --- | --- | --- |
-| 2 | Tháng 1 | 10 | 30 |
-| 3 (hàng ẩn) | Tháng 2 | 40 | 60 |
-| 4 | Tháng 3 | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Truy cập các ô nguồn qua [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) và đọc [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Phương thức này trả về trạng thái ẩn mà không thay đổi nó. Trong file này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ sẽ in ra `false`, `true`, và `true` tương ứng.
+Truy cập các ô nguồn thông qua [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) và đọc [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Phương thức này báo cáo trạng thái ẩn mà không thay đổi nó. Trong file này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `false`, `true`, và `true` tương ứng.
 
-Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại sổ làm việc nhúng bằng [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và tải lại bằng [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) để khôi phục lại phạm vi đầy đủ, bao gồm danh mục tháng 2 bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục đã được lưu trong bộ nhớ cache của ví dụ này. Ví dụ chuyển đổi bộ đệm Node.js trả về thành mảng byte Java trước khi truyền vào phương thức ghi.
+Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại workbook nhúng bằng [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và tải lại bằng [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng February bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục đã được lưu trong ví dụ này. Ví dụ chuyển đổi bộ nhớ đệm Node.js trả về thành mảng byte Java trước khi truyền vào phương thức ghi.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,10 +68,10 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Làm mới dữ liệu biểu đồ từ sổ làm việc nhúng.
+            // Làm mới dữ liệu biểu đồ từ workbook nhúng.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Khôi phục toàn bộ phạm vi nguồn, bao gồm các danh mục ẩn.
+                // Khôi phục toàn bộ phạm vi nguồn, bao gồm cả các danh mục ẩn.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-Ví dụ lưu hai phiên bản của bản trình chiếu: một chỉ có các giá trị Bán lẻ hiển thị (`10` và `20`), và một khác có tất cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn ẩn trong cả hai sổ làm việc nhúng.
+Ví dụ lưu hai phiên bản của trình chiếu: một phiên bản chỉ có các giá trị bán lẻ hiển thị (10 và 20), và một phiên bản có tất cả sáu giá trị. Các hình ảnh dưới đây minh họa hai chế độ vẽ. Hàng 3 và cột C vẫn ẩn trong cả hai workbook nhúng.
 
 | Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
 | --- | --- |
-| ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Một ô ẩn có giá trị khác với ô trống. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát hiển thị các ô trống](/slides/vi/nodejs-java/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
+Một ô ẩn chứa giá trị khác với một ô trống. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại trừ dữ liệu nguồn ẩn. Xem [Kiểm soát hiển thị ô trống](/slides/vi/nodejs-java/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
 
 ## **Lấy phạm vi dữ liệu của biểu đồ**
 
-Trước khi cập nhật dữ liệu sổ làm việc trong một bản trình chiếu hiện có, kiểm tra các phạm vi nguồn để xác định ô worksheet nào mỗi biểu đồ sử dụng. Phương thức [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có chỉ định worksheet, ví dụ `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên worksheet, `!` ngăn cách nó với phạm vi ô, và `$A$1:$D$5` xác định các ô từ A1 đến D5, bao gồm cả. Dấu `$` cho biết tham chiếu hàng và cột tuyệt đối.
+Trước khi cập nhật dữ liệu workbook trong một trình chiếu hiện có, hãy kiểm tra các phạm vi nguồn để xác định worksheet nào mà mỗi biểu đồ sử dụng. Phương thức [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có chỉ định worksheet, chẳng hạn `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên worksheet, `!` ngăn cách nó với phạm vi ô, và `$A$1:$D$5` xác định các ô từ A1 tới D5, bao gồm cả chúng. Dấu `$` chỉ tham chiếu tuyệt đối cho hàng và cột.
 
-Phương thức này đọc phạm vi hiện tại mà không thay đổi biểu đồ hay sổ làm việc của nó. Nếu biểu đồ không sử dụng sổ làm việc làm nguồn dữ liệu, nó sẽ ném ra `InvalidOperationException`. Để biết thêm thông tin, xem [Tham chiếu API ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
+Phương thức đọc phạm vi hiện tại mà không thay đổi biểu đồ hoặc workbook của nó. Nếu biểu đồ không sử dụng workbook làm nguồn dữ liệu, nó sẽ ném ra `InvalidOperationException`. Để biết thêm thông tin, xem [Tham chiếu API ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
 
-Ví dụ này mở một bản trình chiếu và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên và phạm vi nguồn của mỗi biểu đồ. Nếu một biểu đồ không sử dụng sổ làm việc, nó in thông báo và tiếp tục với biểu đồ tiếp theo.
+Ví dụ này mở một trình chiếu và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên và phạm vi nguồn của mỗi biểu đồ. Nếu một biểu đồ không sử dụng workbook, nó in ra thông báo và tiếp tục với biểu đồ tiếp theo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **Đọc và ghi dữ liệu biểu đồ từ sổ làm việc**
+## **Đọc và ghi dữ liệu biểu đồ từ workbook**
 
-Aspose.Slides for Node.js qua Java cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc phải có cấu trúc tương tự như nguồn.
+Aspose.Slides for Node.js via Java cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) cho phép bạn đọc và ghi các workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc phải có cấu trúc tương tự nguồn.
 
-Ví dụ này sử dụng một bản trình chiếu có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc sổ làm việc nhúng vào một mảng byte, xóa các series và category hiện có, và ghi lại cùng một sổ làm việc. Các thay đổi chỉ tồn tại trong bộ nhớ; ví dụ không lưu bản trình chiếu.
+Ví dụ này sử dụng một trình chiếu có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc workbook nhúng vào một mảng byte, xóa các series và category hiện có, và ghi lại cùng một workbook. Các thay đổi vẫn nằm trong bộ nhớ; ví dụ không lưu trình chiếu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **Xác thực bố cục biểu đồ sau khi sửa sổ làm việc**
+### **Xác thực bố cục biểu đồ sau khi sửa đổi workbook**
 
-Khi bạn thay thế sổ làm việc nhúng bằng một sổ làm việc đã được sửa đổi, biểu đồ sẽ giữ lại các collection series và category gốc. Sự không khớp này có thể khiến [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) thất bại với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi lại sổ làm việc đã cập nhật vào biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nhận xét chỉ ra nơi sẽ thực hiện việc chỉnh sửa sổ làm việc; ví dụ có thể chạy sẽ ghi lại sổ làm việc gốc và xác thực bố cục trong bộ nhớ.
+Khi bạn thay thế một workbook nhúng bằng một workbook đã chỉnh sửa, biểu đồ vẫn giữ lại các series và collection category ban đầu. Sự không khớp này có thể khiến [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) thất bại với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi workbook đã cập nhật trở lại biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu nơi sẽ thực hiện việc chỉnh sửa workbook; ví dụ có thể chạy sẽ ghi lại workbook gốc và xác thực bố cục trong bộ nhớ.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Chỉnh sửa các byte của sổ làm việc ở đây, ví dụ, sử dụng Aspose.Cells.
+        // Sửa đổi các byte workbook ở đây, ví dụ, sử dụng Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,68 @@ try {
 }
 ```
 
-Việc xóa các collection loại bỏ các tham chiếu dữ liệu cũ trước khi sổ làm việc được ghi lại. Hãy xây dựng lại bất kỳ series và mapping category nào cần thiết cho sổ làm việc đã cập nhật trước khi sử dụng biểu đồ.
+Xóa các collection sẽ loại bỏ các tham chiếu dữ liệu lỗi thời trước khi workbook được ghi lại. Hãy xây dựng lại bất kỳ series và ánh xạ category cần thiết cho workbook đã cập nhật trước khi sử dụng biểu đồ.
 
-## **Đặt định dạng số tùy chỉnh cho các ô sổ làm việc**
+## **Chọn cách lưu trữ nhãn danh mục**
 
-Sử dụng [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) để kiểm soát cách các giá trị số xuất hiện trong sổ làm việc nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần hiển thị tỷ lệ chuyển đổi dưới dạng phần trăm với bốn chữ số thập phân và hệ số dưới dạng năm chữ số thập phân. Giữ cả hai giá trị ở dạng số để chúng vẫn có thể được tính toán và vẽ biểu đồ.
+Gọi [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorycollection/setusecells/) trên collection danh mục rỗng trước khi thêm nhãn. Sử dụng các ô worksheet cho nhãn tham chiếu dữ liệu workbook hoặc tạo một cây phân cấp, chẳng hạn các quý được nhóm theo năm. Sử dụng chuỗi ký tự trực tiếp cho một cấp độ nhãn không cần tham chiếu ô. Cài đặt này chỉ áp dụng cho các category. Cả hai biểu đồ trong ví dụ đều sử dụng các ô worksheet cho các giá trị series số.
 
-Định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị lưu trữ. Định dạng `0.0000%` hiển thị `0.125` thành `12.5000%`; nó không thay thế số đã lưu bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` thành `0.12346` mà không làm tròn giá trị lưu. Nếu định dạng tùy chỉnh là chuỗi rỗng (`""`), định dạng trả về bởi [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) sẽ được sử dụng.
+Ví dụ tạo hai biểu đồ cột và in ra chế độ lưu trữ tiếp theo là `Q1 Q2 Q3 Q4` cho mỗi biểu đồ. Đối với nhãn dựa trên worksheet, [ChartCategory.getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getascell/) trả về ô nền và [ChartDataCell.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getvalue/) trả về nhãn của nó. Đối với nhãn dạng literal, đọc chuỗi trực tiếp bằng [ChartCategory.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getvalue/). Ví dụ lưu cả hai biểu đồ trong `category-labels.pptx`.
 
-Ví dụ sau tạo một biểu đồ cột và truy cập các ô của nó qua [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). Trên worksheet 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị liên kết tới định dạng nguồn.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (const useCells of [true, false]) {
+        const x = useCells ? 20 : 360;
+        const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, x, 20, 320, 250);
+        const data = chart.getChartData();
+        data.getSeries().clear();
+        const categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        const workbook = data.getChartDataWorkbook();
+        const seriesName = workbook.getCell(0, 0, 1, "Sales");
+        const series = data.getSeries().add(seriesName, chart.getType());
+        for (let row = 1; row <= 4; row++) {
+            const label = "Q" + row;
+            if (useCells) {
+                const labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            const valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        const storedInCells = categories.getUseCells();
+        const labels = [];
+        for (let i = 0; i < categories.size(); i++) {
+            const category = categories.get_Item(i);
+            labels.push(storedInCells ? category.getAsCell().getValue() : category.getValue());
+        }
+        console.log("UseCells = " + storedInCells + ": " + labels.join(" "));
+    }
+
+    presentation.save("category-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Đặt định dạng số tùy chỉnh cho các ô workbook**
+
+Sử dụng [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) để kiểm soát cách các giá trị số hiển thị trong workbook nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần tỷ lệ chuyển đổi hiển thị dưới dạng phần trăm với bốn chữ số thập phân và một hệ số hiển thị với năm chữ số thập phân. Giữ cả hai giá trị ở dạng số để chúng vẫn có thể dùng cho các phép tính và vẽ biểu đồ.
+
+Định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị lưu trữ. Định dạng `0.0000%` hiển thị `0.125` thành `12.5000%`; nó không thay thế số lưu trữ bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` thành `0.12346` mà không làm tròn giá trị lưu trữ. Nếu định dạng tùy chỉnh là chuỗi rỗng (`""`), định dạng trả về bởi [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) sẽ được dùng thay thế.
+
+Ví dụ sau tạo một biểu đồ cột và truy cập các ô của nó thông qua [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). Trên worksheet 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô đều cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị liên kết với định dạng nguồn.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,19 +313,19 @@ try {
 }
 ```
 
-Định dạng ô trong sổ làm việc tách biệt với định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị của ô nguồn vì [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) được đặt thành `true`, và tuân theo định dạng số nguồn vì [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) cũng được đặt thành `true`. Sau khi lưu và mở lại bản trình chiếu, các nhãn hiển thị `12.5000%` và `0.12346`, như hình dưới. Trục tung sử dụng định dạng số riêng, được gán bằng [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) là `0.00`, với [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) đặt thành `false`.
+Định dạng ô workbook riêng biệt với các định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị ô nguồn vì [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) được đặt thành `true`, và tuân theo định dạng số nguồn vì [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) được đặt thành `true`. Sau khi lưu và mở lại trình chiếu, các nhãn hiển thị `12.5000%` và `0.12346`, như hình dưới. Trục dọc sử dụng định dạng số riêng, được gán bằng [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) là `0.00`, với [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) được đặt thành `false`.
 
-Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn của nó thành `false` và gán định dạng bằng [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Điều này không thay đổi định dạng ô trong sổ làm việc. Ví dụ, một định dạng nhãn độc lập `0.00` sẽ hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem [Nhãn dữ liệu biểu đồ](/slides/vi/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) để biết cách định dạng trực tiếp nhãn.
+Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn của nó thành `false` và gán một định dạng bằng [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Điều này không thay đổi định dạng ô workbook. Ví dụ, một định dạng nhãn độc lập `0.00` sẽ hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem [Chart Data Labels](/slides/vi/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) để biết cách định dạng nhãn trực tiếp.
 
-Hình ảnh dưới đây được tạo từ bản trình chiếu đã lưu sau khi mở lại:
+Hình ảnh dưới đây được tạo ra từ trình chiếu đã lưu sau khi mở lại:
 
-![Biểu đồ cột với nhãn liên kết nguồn hiển thị 12.5000% và 0.12346 và trục số được định dạng độc lập.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **Đặt một ô sổ làm việc làm nhãn dữ liệu biểu đồ**
+## **Đặt một ô workbook làm nhãn dữ liệu biểu đồ**
 
-Bạn có thể sử dụng văn bản từ các ô sổ làm việc làm nhãn dữ liệu biểu đồ.
+Bạn có thể sử dụng văn bản từ các ô workbook làm nhãn dữ liệu biểu đồ.
 
-Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một bản trình chiếu hiện có. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu bản trình chiếu đã cập nhật.
+Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một trình chiếu hiện có. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu trình chiếu đã cập nhật.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,7 +351,7 @@ try {
 
 ## **Quản lý Worksheets**
 
-Phương thức [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) cung cấp quyền truy cập vào các worksheet trong sổ làm việc biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
+Phương thức [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) cung cấp quyền truy cập vào các worksheet trong một workbook biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in ra tên mỗi worksheet ra console.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -318,11 +371,11 @@ try {
 }
 ```
 
-## **Chỉ định kiểu nguồn dữ liệu**
+## **Chỉ định loại nguồn dữ liệu**
 
-Giá trị điểm series cũng có thể được lưu trữ trực tiếp dưới dạng số nguyên. Xem [Đặt giá trị Series bằng các ký tự số](/slides/vi/nodejs-java/chart-series/#set-series-values-using-numeric-literals) để biết một ví dụ đầy đủ về việc lưu và đọc chúng. Kiểu nguồn của các giá trị điểm tách biệt với cấu hình sổ làm việc nội bộ hoặc bên ngoài của biểu đồ; việc sử dụng các ký tự số không tự động loại bỏ sổ làm việc nhúng.
+Các giá trị điểm series cũng có thể được lưu trữ trực tiếp dưới dạng các literal số. Xem [Set Series Values Using Numeric Literals](/slides/vi/nodejs-java/chart-series/#set-series-values-using-numeric-literals) để có một ví dụ đầy đủ về việc lưu và đọc chúng. Loại nguồn cho các giá trị điểm tách biệt khỏi cấu hình workbook nội bộ hoặc ngoại vi của biểu đồ; việc sử dụng các literal số không tự động loại bỏ workbook nhúng.
 
-Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng chuỗi ký tự; tên thứ hai sử dụng ô C1 trên worksheet 0. Kiểu [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) được dùng để chọn nguồn cho mỗi tên. Ví dụ lưu bản trình chiếu với các tên series đã cập nhật.
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một literal chuỗi; tên thứ hai sử dụng ô C1 trên worksheet 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu trình chiếu với các tên series đã cập nhật.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -348,9 +401,9 @@ try {
 }
 ```
 
-## **Phát hiện định dạng sổ làm việc nhúng không được hỗ trợ**
+## **Phát hiện định dạng workbook nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể dùng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình chiếu hiện có, bỏ qua các hình không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có sổ làm việc .xlsb nhúng.
+Aspose.Slides không hỗ trợ định dạng workbook Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) cùng với phân loại [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một trình chiếu hiện có, bỏ qua các hình dạng không phải biểu đồ, và in ra thông báo chẩn đoán cho mỗi biểu đồ có workbook .xlsb nhúng.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,22 +429,22 @@ try {
             continue;
         }
 
-        // Đọc hoặc chỉnh sửa dữ liệu sổ làm việc biểu đồ được hỗ trợ ở đây.
+        // Đọc hoặc sửa đổi dữ liệu workbook biểu đồ được hỗ trợ ở đây.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sổ làm việc bên ngoài**
+## **Workbook bên ngoài**
 
-Aspose.Slides hỗ trợ sử dụng sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sử dụng workbook bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo một sổ làm việc bên ngoài**
+### **Tạo một Workbook bên ngoài**
 
-Sử dụng [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) để xuất sổ làm việc biểu đồ nhúng ra file và liên kết biểu đồ với sổ làm việc bên ngoài đó.
+Sử dụng [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) và [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) để xuất workbook biểu đồ nhúng ra một tệp và liên kết biểu đồ với workbook bên ngoài đó.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất sổ làm việc của nó. Nó hoàn thành việc ghi file trước khi gán sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình chiếu đã liên kết.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất workbook của nó. Nó hoàn thành việc ghi tệp trước khi gán workbook bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu trình chiếu đã liên kết.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,13 +471,13 @@ try {
 }
 ```
 
-### **Đặt một sổ làm việc bên ngoài**
+### **Đặt một Workbook bên ngoài**
 
-Bằng cách sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), bạn có thể gán một sổ làm việc bên ngoài cho biểu đồ như nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc bên ngoài (nếu sổ làm việc đã được di chuyển).
+Bằng cách sử dụng phương thức [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), bạn có thể gán một workbook bên ngoài cho một biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ làm việc đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho sổ làm việc bên ngoài, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu bên ngoài. Nếu đường dẫn tương đối cho một workbook bên ngoài được cung cấp, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Ví dụ này sử dụng một sổ làm việc bên ngoài mà worksheet có tên `Sheet1` chứa tên series trong B1, tên danh mục trong A2:A4 và các giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết sổ làm việc, và sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu bản trình chiếu với biểu đồ đã liên kết.
+Ví dụ này sử dụng một workbook bên ngoài mà worksheet có tên `Sheet1` chứa tên series ở B1, tên danh mục ở A2:A4, và các giá trị số ở B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết workbook, và sử dụng [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu trình chiếu với biểu đồ đã liên kết.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -447,12 +500,12 @@ try {
 }
 ```
 
-Tham số `updateChartData` của phương thức [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) kiểm soát việc có tải sổ làm việc hay không.
+Tham số `updateChartData` của phương thức [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) kiểm soát việc có tải workbook hay không.
 
-* Khi `updateChartData` là `false`, chỉ đường dẫn sổ làm việc được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ sổ làm việc mục tiêu, vì vậy sổ làm việc có thể không khả dụng.
-* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ sổ làm việc mục tiêu.
+* Khi `updateChartData` là `false`, chỉ đường dẫn workbook được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ workbook mục tiêu, vì vậy workbook có thể không có sẵn.
+* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ workbook mục tiêu.
 
-Ví dụ sau gán một URL placeholder với `updateChartData` được đặt là `false`. Nó giữ dữ liệu mặc định của biểu đồ tròn và lưu bản trình chiếu mà không tải sổ làm việc không khả dụng.
+Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ nguyên dữ liệu mặc định của biểu đồ tròn và lưu trình chiếu mà không tải workbook không có sẵn.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -470,11 +523,11 @@ try {
 }
 ```
 
-### **Lấy đường dẫn sổ làm việc nguồn dữ liệu bên ngoài của một biểu đồ**
+### **Lấy đường dẫn Workbook nguồn dữ liệu bên ngoài của một biểu đồ**
 
-Để xác định sổ làm việc được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài hay không và lấy đường dẫn sổ làm việc của nó.
+Để xác định workbook được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài và lấy đường dẫn workbook của nó.
 
-Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình chiếu có sổ làm việc bên ngoài được liên kết. Nếu đó là một biểu đồ được liên kết với sổ làm việc bên ngoài, ví dụ sẽ in [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ra console. Sau đó nó lưu một bản sao của bản trình chiếu.
+Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một trình chiếu có workbook bên ngoài đã liên kết. Nếu nó là một biểu đồ được liên kết với workbook bên ngoài, ví dụ in ra [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) trên console. Sau đó nó lưu một bản sao của trình chiếu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -504,9 +557,9 @@ try {
 
 ### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong sổ làm việc bên ngoài tương tự như cách bạn thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể tải, sẽ ném ra một ngoại lệ.
+Bạn có thể chỉnh sửa dữ liệu trong các workbook bên ngoài tương tự như khi thay đổi nội dung của các workbook nội bộ. Khi một workbook bên ngoài không thể tải, một ngoại lệ sẽ được ném.
 
-Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một sổ làm việc bên ngoài có thể truy cập được. Nó đặt giá trị hỗ trợ ô cho điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình chiếu đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy hãy sử dụng bản sao nếu bạn cần giữ nguyên sổ làm việc gốc.
+Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một workbook bên ngoài có thể truy cập. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu trình chiếu đã cập nhật. Chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy nên dùng bản sao nếu bạn cần giữ nguyên workbook gốc.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -539,11 +592,11 @@ try {
 }
 ```
 
-### **Khôi phục sổ làm việc từ cache của biểu đồ**
+### **Khôi phục Workbook từ bộ nhớ đệm biểu đồ**
 
-Nếu một biểu đồ sử dụng sổ làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu được cache trong bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), gọi [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/), và đặt [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) thành `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng một workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu được lưu trong cache của trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), gọi [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/), và đặt [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) thành `true` trước khi mở trình chiếu.
 
-Ví dụ JavaScript sau khôi phục dữ liệu sổ làm việc cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu tới một sổ làm việc bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục qua [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) và [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
+Ví dụ JavaScript sau khôi phục dữ liệu workbook cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu tới một workbook bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục thông qua [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) và [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -564,7 +617,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Đọc hoặc chỉnh sửa dữ liệu sổ làm việc đã khôi phục ở đây.
+        // Đọc hoặc sửa đổi dữ liệu workbook đã khôi phục ở đây.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -573,30 +626,30 @@ try {
 }
 ```
 
-Nếu sổ làm việc bên ngoài không khả dụng và chế độ khôi phục bị tắt, Aspose.Slides sẽ ném ra ngoại lệ. Hãy bật chế độ khôi phục chỉ khi việc sử dụng dữ liệu biểu đồ đã cache là một biện pháp dự phòng chấp nhận được, vì cache có thể không chứa các thay đổi đã được thực hiện trên sổ làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
+Nếu workbook bên ngoài không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides sẽ ném ra ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã được lưu trong cache là một phương án chấp nhận được, vì cache có thể không chứa các thay đổi được thực hiện trên workbook bên ngoài sau lần cập nhật cuối cùng của trình chiếu.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới sổ làm việc bên ngoài hay nhúng không?**
+**Tôi có thể xác định được liệu một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay là workbook nhúng không?**
 
-Có. Một biểu đồ có [kiểu nguồn dữ liệu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới sổ làm việc bên ngoài](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là sổ làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
+Có. Một biểu đồ có [loại nguồn dữ liệu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Các đường dẫn tương đối tới sổ làm việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình chiếu lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy khi di chuyển sổ làm việc có thể cần cập nhật liên kết.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Trình chiếu lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển workbook có thể cần cập nhật liên kết.
 
-**Tôi có thể sử dụng sổ làm việc nằm trên tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các sổ làm việc như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các workbook như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu trình chiếu không?**
 
-Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ hỗ trợ ô có thể cũng cập nhật tệp XLSX local đã liên kết. Hãy sử dụng bản sao của sổ làm việc nếu bản gốc phải được giữ nguyên.
+Trình chiếu lưu một [liên kết tới file bên ngoài](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật file XLSX cục bộ đã liên kết. Hãy sử dụng một bản sao của workbook nếu cần giữ nguyên bản gốc.
 
-**Nếu tệp bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách phổ biến là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi thiết lập liên kết. Một cách thường được dùng là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](https://reference.aspose.com/cells/java/)) và liên kết đến bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc bên ngoài không?**
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của nó. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ khi dữ liệu được tải lại.

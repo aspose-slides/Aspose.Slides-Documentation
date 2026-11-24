@@ -1,12 +1,12 @@
 ---
-title: Diagram munkafüzetek kezelése prezentációkban JavaScript használatával
-linktitle: Diagram munkafüzet
+title: Diagrammunkafüzetek kezelése bemutatókban JavaScript segítségével
+linktitle: Diagrammunkafüzet
 type: docs
 weight: 70
 url: /hu/nodejs-java/chart-workbook/
 keywords:
-- diagram munkafüzet
-- diagram adatok
+- diagrammunkafüzet
+- diagramadat
 - munkafüzet cella
 - adatcímke
 - munkalap
@@ -16,25 +16,25 @@ keywords:
 - diagram gyorsítótár
 - munkafüzet helyreállítás
 - PowerPoint
-- prezentáció
+- bemutató
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Node.js via Java megoldást: egyszerűen kezelje a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy optimalizálja prezentációi adatait."
+description: "Fedezze fel az Aspose.Slides for Node.js via Java-t: egyszerűen kezelje a diagrammunkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse a bemutató adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk ismerteti, hogyan dolgozhatunk diagram munkafüzetekkel az Aspose.Slides-ban. Bemutatja, hogyan olvassuk és írjuk a diagram adatokat munkafüzet‑adatfolyamok segítségével, hogyan használjuk a munkafüzet cellákat diagram adatcímkékként, hogyan érjük el a munkalap‑gyűjteményeket, és hogyan adhatjuk meg az adatforrás típusát a diagram értékekhez.
+Ez a cikk elmagyarázza, hogyan dolgozzunk diagramm‑munkafüzetekkel az Aspose.Slides-ben. Bemutatja, hogyan olvassunk és írjunk diagrammadatokat munkafüzet‑folyamokon keresztül, hogyan használjunk munkafüzet‑cellákat diagrammadatok címkéiként, hogyan érjünk el munkalap‑gyűjteményeket, és hogyan adhatjuk meg az adatforrás típusát a diagram értékekhez.
 
-Az is tárgyalt, hogyan használhatók külső munkafüzetek diagram adatforrásként. A példák bemutatják, hogyan hozhatunk létre és rendeljünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz kapcsolt külső munkafüzet útvonalát, és hogyan szerkeszthetjük a diagram adatokat, ha a munkafüzet elérhető.
+Azon felül leírja, hogyan használhatók külső munkafüzetek diagram adatforrásként. A példák bemutatják, hogyan hozzunk létre és rendeljünk hozzá egy külső munkafüzetet, hogyan szerezzük meg egy diagramhoz kapcsolt külső munkafüzet elérési útját, és hogyan szerkesszük a diagramadatokat, ha a munkafüzet elérhető.
 
-A hiányzó adatokat jelző munkafüzet‑cellákhoz lásd a [Az üres cellák megjelenítésének szabályozása](/slides/hu/nodejs-java/chart-series/) oldalát, ahol megtalálható a különbség egy üres cella és a nulla között, valamint egy vonaldiagram‑összehasonlítás a rendelkezésre álló megjelenítési módokról.
+A hiányzó adatot képviselő munkafüzet‑cellák esetén lásd a [Üres cellák megjelenítésének vezérlése](/slides/hu/nodejs-java/chart-series/) a üres cella és a nulla közti különbségről, valamint a vonaldiagram a rendelkezésre álló megjelenítési módok összehasonlításáról.
 
-## **Adatok belefoglalása rejtett sorokból és oszlopokból**
+## **Rejtett sorok és oszlopok adatinak bevonása**
 
-Használja a [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) metódust, hogy szabályozza, a diagram csak a látható munkalap‑sorokból és -oszlopokból származó adatokat ábrázolja‑e. Állítsa `true`‑ra, ha csak a látható cellákat szeretné ábrázolni, vagy `false`‑ra, ha a látható és a rejtett cellákat egyaránt bele akarja foglalni. Ez a beállítás a diagram ábrázolását befolyásolja; nem rejti el vagy jeleníti meg a munkalap sorait vagy oszlopait.
+Használd a [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) metódust annak szabályozására, hogy a diagram a rejtett munkalap‑sorokból és -oszlopokból származó adatokat ábrázoljon‑e. Állítsd `true`‑ra, hogy csak a látható cellákat ábrázolja, vagy `false`‑ra, hogy mind a látható, mind a rejtett cellákat vegye figyelembe. Ez a beállítás a diagram ábrázolását szabályozza; nem rejti el vagy jeleníti meg a munkalap sorait vagy oszlopait.
 
-A [példa prezentáció](hidden-source-data.pptx) első diáján egy oszlopdiagramot tartalmazó alakzatot mutat. A beágyazott munkalap, `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de a celláik értékkel rendelkeznek.
+A [sample presentation](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz első alakzatként az első dián. A beágyazott munkalap, `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de celláik még mindig értékeket tartalmaznak.
 
 | Munkalap sor | A: Hónap | B: Kiskereskedelem | C: Nagykereskedelem (rejtett oszlop) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ A [példa prezentáció](hidden-source-data.pptx) első diáján egy oszlopdiagr
 | 3 (rejtett sor) | február | 40 | 60 |
 | 4 | március | 20 | 50 |
 
-A forrás‑cellák elérése a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével történik, a rejtettség ellenőrzéséhez pedig a [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) metódust kell használni. Ez a módszer a rejtett állapotot jelenti vissza anélkül, hogy módosítaná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 pedig a rejtett oszlophoz; a példa **false**, **true** és **true** értékeket ír ki.
+A forráscellákat a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével érheted el, és a [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) segítségével ellenőrizheted a rejtett állapotukat. Ez a metódus a rejtett állapotot anélkül jelenti ki, hogy módosítaná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 pedig a rejtett oszlophoz; a példa ennek megfelelően `false`, `true`, és `true` értékeket ír ki.
 
-Ehhez a példához a diagram adatainak frissítése a megjelenítési beállítás módosítása után szükséges: tartsa meg a beágyazott munkafüzetet a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) segítségével, és töltsa be újra a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) segítségével. Az összes cella belefoglalásakor használja a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) metódust is, hogy helyreállítsa a teljes tartományt, beleértve a rejtett februári kategóriát. Csak a jelző módosítása nem elegendő a példa gyorsítótárazott diagram adatainak és kategória címkéinek frissítéséhez. A példa a visszaadott Node.js puffert Java bájt‑tömbbé alakítja, mielőtt a írási metódusnak átadná.
+Ehhez a példához a diagram adatainak frissítése a ábrázolási beállítás módosítása után történik: a beágyazott munkafüzetet a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) segítségével tartod meg, majd a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/)‑vel töltöd vissza. Az összes cella bevonásakor használd a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/)‑t is, hogy visszaállítsd a teljes tartományt, beleértve a rejtett februári kategóriát is. Csak a jelző módosítása nem elegendő a mintában gyorsítótárazott diagramadatok és kategóriacímkék frissítéséhez. A példa a visszakapott Node.js puffert Java‑byte‑tömbbé alakítja, mielőtt a írási metódusnak átadná.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,10 +68,10 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Frissítse a diagram adatokat a beágyazott munkafüzetről.
+            // Frissítse a diagramadatokat a beágyazott munkafüzettel.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Állítsa vissza a teljes forrás-tartományt, beleértve a rejtett kategóriákat.
+                // Állítsa vissza a teljes forrástartományt, beleértve a rejtett kategóriákat.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-A példa két verziót ment a prezentációból: egyet, amelyben csak a látható kiskereskedelmi értékek (10 és 20) szerepelnek, és egy másikat, amelyben mind a hat érték megjelenik. Az alábbi képek a két ábrázolási módot szemléltetik. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
+A példa a bemutató két változatát menti: egyet csak a látható kiskereskedelmi értékekkel (10 és 20), a másikat pedig mind a hat értékkel. Az alábbi képek a két ábrázolási módot szemléltetik. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
 
 | Csak látható cellák (`true`) | Minden cella (`false`) |
 | --- | --- |
-| ![Csak látható cellák: Kiskereskedelmi értékek 10 és 20 január és március hónapokra.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelmi és nagykereskedelmi értékek január, február és március hónapokra.](hidden_cells_False.png) |
+| ![Csak látható cellák: Kiskereskedelem értékek 10 és 20 januárra és márciusra.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelem és Nagykereskedelem értékek januárra, februárra és márciusra.](hidden_cells_False.png) |
 
-Egy rejtett cella, amely értéket tartalmaz, különbözik egy üres cellától. A [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) vezérli, hogy a hiányzó értékek hogyan jelenjenek meg; nem vonja be vagy zárja ki a rejtett forrás‑adatokat. Lásd a [Az üres cellák megjelenítésének szabályozása](/slides/hu/nodejs-java/chart-series/#control-the-display-of-empty-cells) példát.
+Egy értéket tartalmazó rejtett cella különbözik egy üres cellától. A [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) meghatározza, hogy a hiányzó értékek hogyan jelenjenek meg; nem vonja ki vagy adja hozzá a rejtett forrásadatot. Lásd a [Üres cellák megjelenítésének vezérlése](/slides/hu/nodejs-java/chart-series/#control-the-display-of-empty-cells) példát.
 
-## **Diagram adat tartományának lekérdezése**
+## **Diagram adat‑tartományának lekérdezése**
 
-Mielőtt egy meglévő prezentáció munkafüzet‑adatait frissítené, ellenőrizze a forrás‑tartományokat, hogy megtudja, mely munkalap‑cellákat használja az egyes diagramok. A [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) metódus az aktuális adat‑tartományt adja vissza munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` választja el a cellatartománytól, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli. A dollárjelek az abszolút sor‑ és oszlophivatkozásokat jelzik.
+Mielőtt frissítenéd a munkafüzet adatait egy meglévő bemutatóban, vizsgáld meg a forrás‑tartományokat, hogy megtudd, mely munkalap‑cellákat használja az egyes diagramok. A [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) metódus a jelenlegi adat‑tartományt adja vissza munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` választja el a cellatartományt, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli. A dollárjelek abszolút sor‑ és oszlop‑hivatkozásra utalnak.
 
-A metódus a tartományt anélkül olvassa, hogy módosítaná a diagramot vagy a munkafüzetet. Ha a diagram nem használ munkafüzetet adatforrásként, `InvalidOperationException`‑t dob. További információkért tekintse meg a [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) oldalt.
+A metódus a jelenlegi tartományt anélkül olvassa ki, hogy módosítaná a diagramot vagy a munkafüzetét. Ha a diagram nem használ munkafüzetet adatforrásként, `InvalidOperationException`‑t dob. További információkért lásd a [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)‑t.
 
-Ez a példa megnyit egy prezentációt, és minden dián közvetlenül ellenőrzi az alakzatokat diagramokért. Kiírja minden diagram nevét és forrás‑tartományát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, majd továbblép a következő diagramra.
+Ez a példa megnyit egy bemutatót, és minden dián közvetlenül ellenőrzi a diagramokat. Kiírja minden diagram nevét és forrás‑tartományát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra lép tovább.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **Diagram adatok olvasása és írása egy munkafüzetből**
+## **Diagram adatok olvasása és írása munkafüzetből**
 
-Az Aspose.Slides for Node.js via Java biztosítja a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) és a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) metódusokat, amelyek lehetővé teszik a diagram adat‑munkafüzetek (az Aspose.Cells‑el szerkesztett diagram adatokat tartalmazó) olvasását és írását. **Megjegyzés**, hogy a diagram adatainak ugyanolyan módon kell felépülniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrás.
+Az Aspose.Slides for Node.js via Java biztosítja a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) és a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) metódusokat, amelyekkel diagramadat‑munkafüzeteket (Aspose.Cells‑sel szerkesztett diagramadatokat tartalmazó) olvashatsz és írhatsz. **Note** hogy a diagramadatnak ugyanúgy fel kell épülnie, vagy hasonló szerkezettel kell rendelkeznie, mint a forrásnak.
 
-Ez a példa egy olyan prezentációt használ, amelynek első diáján az első alakzat egy diagram. Beolvassa a beágyazott munkafüzetet bájt‑tömbbe, törli a meglévő sorozatokat és kategóriákat, majd ugyanazt a munkafüzetet visszaírja. A változtatások a memóriában maradnak; a példa nem menti a prezentációt.
+Ez a példa egy olyan bemutatót használ, amelynek első alakzata az első dián egy diagram. Beolvassa a beágyazott munkafüzetet bájt‑tömbbe, törli a meglévő sorozatokat és kategóriákat, majd ugyanazt a munkafüzetet visszaírja. A változtatások csak a memóriában maradnak; a példa nem menti a bemutatót.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **Diagram elrendezésének ellenőrzése a munkafüzet módosítása után**
+### **Diagram elrendezésének ellenőrzése munkafüzet módosítása után**
 
-Amikor egy beágyazott munkafüzetet módosított változattal helyettesít, a diagram a korábbi sorozat‑ és kategória‑gyűjteményeket megtartja. Ez a nem egyezés a [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) hibához vezethet, amely „index‑out‑of‑range” kivételt dob. Törölje a meglévő sorozatokat és kategóriákat, mielőtt a frissített munkafüzetet visszaírná a diagramra. Ez a példa egy diagramot használ, amely az első dián az első alakzat. A megjegyzés jelzi, hol történne a munkafüzet szerkesztése; a futtatható példa visszaírja az eredeti munkafüzetet, és a memóriában ellenőrzi az elrendezést.
+Ha egy beágyazott munkafüzetet egy módosítottal helyettesítesz, a diagram megtartja az eredeti sorozat‑ és kategória‑gyűjteményeit. Ez az inkonzisztencia a [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) hibához vezethet, amely index‑kívül‑tartomány hibát dob. Töröld a meglévő sorozatokat és kategóriákat, mielőtt a frissített munkafüzetet visszaírnád a diagramra. Ez a példa egy diagramot használ, amely az első dián az első alakzat. A megjegyzés jelzi, hol történne a munkafüzet‑szerkesztés; a futtatható példa visszaírja az eredeti munkafüzetet és a memóriában ellenőrzi az elrendezést.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Módosítsa a munkafüzet bájtjait itt, például az Aspose.Cells használatával.
+        // Módosítsa itt a munkafüzet bájtjait, például az Aspose.Cells használatával.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,68 @@ try {
 }
 ```
 
-A gyűjtemények törlése megszünteti a régi adat‑referenciákat, mielőtt a munkafüzet visszaírásra kerül. Építse újra a szükséges sorozat‑ és kategória‑leképezéseket a frissített munkafüzethez, mielőtt a diagramot használja.
+A gyűjtemények törlése eltávolítja a régi adat‑hivatkozásokat, mielőtt a munkafüzet visszaírásra kerülne. Újraépíts minden szükséges sorozat‑ és kategória‑leképezést a frissített munkafüzethez, mielőtt a diagramot használnád.
+
+## **Válassza ki a kategória címkék tárolásának módját**
+
+A [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorycollection/setusecells/)‑t hívd meg az üres kategória‑gyűjteményen, mielőtt címkéket adnál hozzá. Használj munkalap‑cellákat azokhoz a címkékhez, amelyek munkafüzet‑adatokra hivatkoznak vagy hierarchiát alkotnak, például év szerint csoportosított negyedéveket. Használj karakter‑literálokat egyszerű szintű címkékhez, amelyeknek nincs szükségük cellahivatkozásokra. Ez a beállítás csak a kategóriákra vonatkozik. A példában mindkét diagram a numerikus sorozatértékekhez munkalap‑cellákat használ.
+
+A példa két oszlopdiagramot hoz létre, és kiírja a tárolási módot, majd a `Q1 Q2 Q3 Q4` sorozatot minden diagramra. Munkalap‑alapú címkék esetén a [ChartCategory.getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getascell/) visszaadja az alatta lévő cellát, a [ChartDataCell.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getvalue/) pedig a címkét. Literál címkék esetén közvetlenül a [ChartCategory.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getvalue/)‑vel olvasd ki a szöveget. A példa mindkét diagramot `category-labels.pptx`‑ben menti.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (const useCells of [true, false]) {
+        const x = useCells ? 20 : 360;
+        const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, x, 20, 320, 250);
+        const data = chart.getChartData();
+        data.getSeries().clear();
+        const categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        const workbook = data.getChartDataWorkbook();
+        const seriesName = workbook.getCell(0, 0, 1, "Sales");
+        const series = data.getSeries().add(seriesName, chart.getType());
+        for (let row = 1; row <= 4; row++) {
+            const label = "Q" + row;
+            if (useCells) {
+                const labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            const valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        const storedInCells = categories.getUseCells();
+        const labels = [];
+        for (let i = 0; i < categories.size(); i++) {
+            const category = categories.get_Item(i);
+            labels.push(storedInCells ? category.getAsCell().getValue() : category.getValue());
+        }
+        console.log("UseCells = " + storedInCells + ": " + labels.join(" "));
+    }
+
+    presentation.save("category-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Egyéni számformátumok beállítása munkafüzet cellákhoz**
 
-Használja a [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) metódust, hogy szabályozza, numerikus értékek hogyan jelenjenek meg egy diagram beágyazott munkafüzetében. Például egy jelentésben a konverziós arányt százalékban, négy tizedesjeggyel, a koefficienst pedig öt tizedesjeggyel kell megjeleníteni. Mindkét értéket tartsuk numerikus formában, hogy számítások és diagram ábrázolás céljából elérhetőek maradjanak.
+Használd a [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/)‑t annak szabályozására, hogy a numerikus értékek hogyan jelenjenek meg a diagram beágyazott munkafüzeteben. Például egy jelentéshez lehet, hogy a konverziós arányt százalékos formában, négy tizedesjeggyel, a koeficienset pedig öt tizedesjeggyel kell megjeleníteni. Mindkét értéket numerikus formában tartsd, hogy számításokhoz és diagramábrázoláshoz továbbra is elérhetőek legyenek.
 
-A számformátum a megjelenítést változtatja, nem a tárolt értéket. A `0.0000%` formátum a `0.125` értéket `12.5000%`‑ként jeleníti meg; nem cseréli le a tárolt számot `12.5`‑re. Hasonlóképpen, a `0.00000` a `0.1234567` értéket `0.12346`‑ként jeleníti meg, anélkül hogy a tárolt értéket lekerekítené. Ha az egyedi formátum üres karakterlánc (`""`), akkor a [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) által visszaadott formátum kerül felhasználásra.
+A számformátum a megjelenítést változtatja, nem a tárolt értéket. A `0.0000%` formátum `0.125`‑öt `12.5000%`‑ként jelenít meg; nem cseréli le a tárolt számot `12.5`‑re. Hasonlóan, a `0.00000` `0.1234567`‑et `0.12346`‑ként jelenít meg anélkül, hogy a tárolt értéket kerekítené. Ha az egyéni formátum egy üres karakterlánc (`""`), akkor a [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) által visszaadott formátum lesz használva.
 
-A következő példa egy oszlopdiagramot hoz létre, és a cellákat a [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével érheti el. Az 0‑s munkalapon a B2 tartalmazza a konverziós arányt, a C2 pedig a koefficienst. Mindkét cella a diagram értékeit szolgáltatja. A példa aktiválja a forrás‑formátumokra hivatkozó értékcímkéket.
+Az alábbi példa egy oszlopdiagramot hoz létre, és a [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/)‑on keresztül éri el a cellákat. A 0‑s munkalapon a B2 a konverziós arányt, a C2 a koeficienst tartalmazza. Mindkét cella diagramértékeket szolgáltat. A példa továbbá engedélyezi a forrásformátumokhoz kapcsolt értékcímkéket.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,19 +313,17 @@ try {
 }
 ```
 
-A munkafüzet cellaformátumok különállóak a diagram tengelyeire vagy adatcímkéire közvetlenül beállított formátumoktól. Ebben a példában minden címke a forrás‑cellája értékét jeleníti meg, mivel a [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true`‑ra van állítva, és a forrás számalakítást a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` beállítással követi. A prezentáció mentése és újbóli megnyitása után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogy az alább is látható. A függőleges tengely saját számformátumot használ, amelyet a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) `0.00`‑ra állít, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) pedig `false`‑ra.
+A munkafüzet cellaformátumok elkülönülnek a diagram tengelyeire vagy adatcímkéire közvetlenül beállított formátumoktól. Ebben a példában minden címke a saját forráscellájának értékét jeleníti meg, mert a [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true`‑ra van állítva, és a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) is `true`. A bemutató mentése és újranyitása után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogy alább is látható. A függőleges tengely saját számformátumot használ, amelyet a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) `0.00`‑ra állít, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) pedig `false`.
 
-Egy adatcímke önálló formázásához állítsa a forrás‑hivatkozás zászlót `false`‑ra, és adjon meg egy formátumot a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) segítségével. Ez nem változtatja meg a munkafüzet cellájának formátumát. Például egy önálló címkeformátum `0.00` esetén az első érték `0.13`‑ként jelenik meg, míg a B2 továbbra is `12.5000%`‑t mutat. Lásd a [Diagramadat‑címkék](/slides/hu/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) oldalt a közvetlen címkeformázáshoz.
+Egy adatcímke független formázásához állítsd a forrás‑hivatkozási jelzőt `false`‑ra, és rendelj hozzá egy formátumot a [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/)‑lel. Ez nem változtatja meg a munkafüzet cellaformátumát. Például egy független `0.00` címkeformátum az első értéket `0.13`‑ként jeleníti meg, miközben a B2 továbbra is `12.5000%`‑t mutat. Lásd a [Chart Data Labels](/slides/hu/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) szekciót a közvetlen címkeformázáshoz.
 
-Az alábbi kép a mentett prezentáció újbóli megnyitása után lett renderelve:
-
-![Oszlopdiagram forrás‑hivatkozású címkékkel, amelyek 12.5000% és 0.12346 értékeket mutatnak, valamint egy önállóan formázott numerikus tengellyel.](custom-cell-formats.png)
+![Oszlopdiagram forrásra hivatkozó címkékkel, amelyek 12.5000% és 0.12346 értékeket jelenítenek, valamint önállóan formázott numerikus tengely.](custom-cell-formats.png)
 
 ## **Munkafüzet cella beállítása diagram adatcímkének**
 
-Használhatja a munkafüzet cellák szövegét diagram adatcímkékként.
+Szöveget használhatsz a munkafüzet celláiból diagram adatcímkékként.
 
-Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal egy meglévő prezentáció első diájához. A 0‑s munkalap A10:A12 tartományát használja az első három címkehez az első sorozatban, engedélyezi a cellákból származó címkéket, és menti a frissített prezentációt.
+Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal egy meglévő bemutató első diájához. A 0‑s munkalap A10:A12 celláit használja az első sorozat első három címkéjéhez, engedélyezi a cellákból származó címkéket, és elmenti a módosított bemutatót.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,7 +349,7 @@ try {
 
 ## **Munkalapok kezelése**
 
-A [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) metódus hozzáférést biztosít a diagram munkafüzetének munkalapjaihoz. Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, és minden munkalap nevét a konzolra írja ki.
+A [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) metódus hozzáférést biztosít a diagram munkafüzetének munkalapjaihoz. Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, és minden munkalap nevét kiírja a konzolra.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -318,11 +369,11 @@ try {
 }
 ```
 
-## **Az adatforrás típusának megadása**
+## **Adatforrás típusának meghatározása**
 
-A sorozat‑pont értékek tárolhatók közvetlenül numerikus literálokként is. Lásd a [Sorozatértékek beállítása numerikus literálokkal](/slides/hu/nodejs-java/chart-series/#set-series-values-using-numeric-literals) oldalt egy teljes példáért, amely elmenti és beolvassa ezeket. A pontértékek forrás‑típusa különálló a diagram belső vagy külső munkafüzet‑konfigurációjától; a numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet.
+A sorozatpont értékek közvetlenül numerikus literálokként is tárolhatók. Lásd a [Set Series Values Using Numeric Literals](/slides/hu/nodejs-java/chart-series/#set-series-values-using-numeric-literals) teljes példát, amely elmenti és beolvassa ezeket. A pontértékek forrás‑típusa elkülönül a diagram belső vagy külső munkafüzet‑konfigurációjától; a numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet.
 
-Ez a példa egy 3D oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozat‑nevet állít be különböző adatforrásokkal. Az első név egy karakterlánc‑literál, a második a 0‑s munkalap C1 cellájára hivatkozik. A [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) felsorolás kiválasztja a forrást minden névhez. A példa menti a prezentációt a frissített sorozatnevekkel.
+Ez a példa egy 3D oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozatnevet állít be különböző adatforrásokkal. Az első név egy karakter‑literál, a második a 0‑s munkalap C1 cellájából származik. A [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) felsorolás választja ki minden név forrását. A példa a módosított sorozatnevekkel menti a bemutatót.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -348,9 +399,9 @@ try {
 }
 ```
 
-## **Nem támogatott beágyazott munkafüzet formátumok észlelése**
+## **Nem támogatott beágyazott munkafüzet formátumok felderítése**
 
-Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely néhány diagramba beágyazható. A [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) `getEmbeddedWorkbookType` metódusát a [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) felsorolással együtt használhatja a nem támogatott formátumok észlelésére, és átugorhatja ezeket a diagramokat. Ez a példa ellenőrzi az első dia alakzatait egy meglévő prezentációban, kihagyja a diagramok‑kívüli alakzatokat, és diagnosztikai üzenetet ír ki minden .xlsb‑t tartalmazó diagramhoz.
+Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely néhány diagramba beágyazható. A `getEmbeddedWorkbookType` metódust a [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)‑n és a [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) felsoroláson keresztül használhatod a nem támogatott formátumok felderítésére és az ilyen diagramok kihagyására. Ez a példa a meglévő bemutató első diájának alakzatait ellenőrzi, a nem diagram alakzatokat kihagyja, és minden beágyazott .xlsb munkafüzettel rendelkező diagramra diagnosztikai üzenetet ír ki.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,7 +427,7 @@ try {
             continue;
         }
 
-        // Olvassa vagy módosítsa a támogatott diagram munkafüzet adatokat itt.
+        // Olvasd vagy módosítsd a támogatott diagrammunkafüzet adatokat itt.
     }
 } finally {
     presentation.dispose();
@@ -389,9 +440,9 @@ Az Aspose.Slides támogatja a külső munkafüzetek diagram adatforrásként val
 
 ### **Külső munkafüzet létrehozása**
 
-Használja a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) és a [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metódusokat, hogy egy beágyazott diagram munkafüzetet exportáljon fájlba, és a diagramot ehhez a külső munkafüzethez csatolja.
+Használd a [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) és a [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metódusokat egy beágyazott diagrammunkafüzet exportálásához fájlba, majd a diagramhoz való kapcsoláshoz.
 
-Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, és exportálja a munkafüzettét. A fájl írása befejeződik, mielőtt a külső munkafüzetet diagram adatforrásként hozzárendelné, majd menti a linkelt prezentációt.
+Ez a példa egy alapértelmezett adatú kördiagramot hoz létre, és exportálja a munkafüzetét. A fájlírás befejezése után rendeli hozzá a külső munkafüzetet diagram adatforrásként, majd menti a kapcsolt bemutatót.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -420,11 +471,11 @@ try {
 
 ### **Külső munkafüzet beállítása**
 
-A [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metódussal egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ezt a metódust arra is használhatja, hogy frissítse a külső munkafüzet útvonalát (ha a fájl áthelyezésre került).
+A [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metódus segítségével egy külső munkafüzetet rendelhetsz egy diagramhoz adatforrásként. Ezzel a módszerrel a külső munkafüzet elérési útját is frissítheted (ha az áthelyezésre került).
 
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem szerkesztheti közvetlenül, továbbra is használhatja ezeket külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá alakul.
+Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatainak szerkesztése nem támogatott, ilyen munkafüzetek továbbra is használhatók külső adatforrásként. Ha relatív út van megadva egy külső munkafüzethez, az automatikusan teljes úttá konvertálódik.
 
-Ez a példa egy külső munkafüzetet használ, amelynek a `Sheet1` munkalapján a B1 cellában egy sorozat‑név, az A2:A4 tartományban kategória‑nevek, a B2:B4 tartományban numerikus értékek vannak. A példa kördiagramot hoz létre, csatolja a munkafüzetet, és a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) segítségével az A1:B4 tartományt egy sorozatra és három kategóriára map‑olja. A prezentációt a linkelt diagrammal menti.
+Ez a példa egy `Sheet1` nevű munkalappal rendelkező külső munkafüzetet használ, amely B1‑ben sorozatnevet, A2:A4‑ben kategórianévket és B2:B4‑ben numerikus értékeket tartalmaz. A példa egy kördiagramot hoz létre, összekapcsolja a munkafüzetet, és a [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/)‑t használja az A1:B4 tartomány egy sorozatra és három kategóriára való leképezéséhez. A diagrammal összekapcsolt bemutatót menti.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -447,12 +498,12 @@ try {
 }
 ```
 
-A [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) `updateChartData` paramétere szabályozza, hogy a munkafüzet betöltődjön‑e.
+Az `updateChartData` paraméter a [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metódusban szabályozza, hogy a munkafüzet be legyen‑töltve.
 
-* Ha az `updateChartData` `false`, csak a munkafüzet útvonala frissül. A diagram adatai nem töltődnek be vagy frissülnek a cél munkafüzetről, így a munkafüzet elérhetetlen is lehet.
-* Ha az `updateChartData` `true`, a diagram adatai frissülnek a cél munkafüzetről.
+* Amikor `updateChartData` **false**, csak a munkafüzet útvonala frissül. A diagram adatot nem töltik be vagy frissítik a cél‑munkafüzettel, ezért a munkafüzet lehet elérhetetlen.
+* Amikor `updateChartData` **true**, a diagram adat frissül a cél‑munkafüzettel.
 
-Az alábbi példa egy helyőrző URL‑t ad meg, az `updateChartData` pedig `false`‑ra van állítva. A kördiagram alapértelmezett adatait megtartja, és a prezentációt anélkül menti, hogy a nem elérhető munkafüzetet betöltené.
+Az alábbi példa egy helyőrző URL‑t ad meg, ahol az `updateChartData` **false**‑ra van állítva. A kördiagram alapértelmezett adatait megtartja, és a bemutatót a nem betöltött munkafüzet nélkül menti.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -470,11 +521,11 @@ try {
 }
 ```
 
-### **Diagram külső adatforrás‑munkafüzet útvonalának lekérdezése**
+### **Diagram külső adatforrás munkafüzetének elérési útjának lekérdezése**
 
-Annak meghatározásához, hogy melyik munkafüzet van csatolva egy diagramhoz, ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérdezze le a munkafüzet útvonalát.
+A diagramhoz kapcsolt munkafüzet azonosításához ellenőrizd, hogy a diagram külső adatforrást használ‑e, és kérd le annak munkafüzet‑útvonalát.
 
-Ez a példa az első dián az első alakzatot vizsgálja egy olyan prezentációban, amelyhez külső munkafüzet van csatolva. Ha a diagram külső munkafüzettel van összekapcsolva, a példa kiírja a [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) értékét a konzolra, majd a prezentáció egy másolatát menti.
+Ez a példa a bemutató első diájának első alakzatát ellenőrzi, amely külső munkafüzettel van összekapcsolva. Ha egy diagram külső munkafüzettel van összekapcsolva, a példa a [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/)‑t írja a konzolra. Ezután a bemutató egy másolatát elmenti.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -502,11 +553,11 @@ try {
 }
 ```
 
-### **Diagram adatainak szerkesztése**
+### **Diagramadatok szerkesztése**
 
-Külső munkafüzetek adatait ugyanúgy szerkesztheti, ahogy a belső munkafüzetekét. Ha egy külső munkafüzet nem tölthető be, kivétel keletkezik.
+A külső munkafüzetek adatait ugyanúgy szerkesztheted, ahogy a belső munkafüzetek tartalmát módosítanád. Ha egy külső munkafüzet nem tölthető be, kivétel keletkezik.
 
-Ez a példa egy diagramot használ, amely az első dián az első alakzat, és egy elérhető külső munkafüzettel van összekapcsolva. Az első sorozat első adatpontjának cella‑alapú értékét 100‑ra állítja, majd menti a frissített prezentációt. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX fájlt, ezért ha az eredeti munkafüzetet meg kell őrizni, használjon másolatot.
+Ez a példa egy olyan diagramot használ, amely az első dián az első alakzat, és hozzáférhető külső munkafüzettel van összekapcsolva. Az első sorozat első adatpontjának cella‑alapú értékét 100‑ra állítja, és menti a módosított bemutatót. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX fájlt, ezért használj másolatot, ha az eredeti munkafüzetet meg kell őrizni.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -539,11 +590,11 @@ try {
 }
 ```
 
-### **Munkafüzet visszaállítása a diagram gyorsítótárából**
+### **Munkafüzet helyreállítása a diagram gyorsítótárából**
 
-Ha egy diagram egy hiányzó vagy nem elérhető külső munkafüzetet használ, az Aspose.Slides visszaépítheti a diagram munkafüzettét a prezentációban gyorsítótárazott adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) objektumot, hívja meg a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/)‑t, és állítsa a [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/)‑t `true`‑ra, mielőtt megnyitná a prezentációt.
+Ha egy diagram egy hiányzó vagy elérhetetlen külső munkafüzetet használ, az Aspose.Slides újraépítheti a diagram munkafüzetét a bemutatóban gyorsítótárazott adatokból. Hozd létre a [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), hívd meg a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/), és a [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/)‑t állítsd **true**‑ra, mielőtt megnyitnád a bemutatót.
 
-Az alábbi JavaScript példa visszaállítja a munkafüzet adatokat egy olyan diagramhoz, amely az első dián az első alakzat, és egy nem elérhető külső munkafüzettel hivatkozik. A helyreállított adatokat a [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) és a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével éri el:
+Az alábbi JavaScript példa helyreállítja a munkafüzet adatokat egy olyan diagramhoz, amely az első dián az első alakzat, és egy elérhetetlen külső munkafüzetre hivatkozik. A helyreállított adatokat a [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) és a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével éri el:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -564,7 +615,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Olvassa vagy módosítsa a helyreállított munkafüzet adatait itt.
+        // Olvasd vagy módosítsd a helyreállított munkafüzet adatait itt.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -573,30 +624,30 @@ try {
 }
 ```
 
-Ha a külső munkafüzet nem elérhető, és a helyreállítás le van tiltva, az Aspose.Slides kivételt dob. A helyreállítást csak akkor engedélyezze, ha a gyorsítótárazott diagram adatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a prezentáció legutóbbi frissítése óta történt változásokat.
+Ha a külső munkafüzet elérhetetlen és a helyreállítás le van tiltva, az Aspose.Slides kivételt dob. Engedélyezd a helyreállítást csak akkor, ha a gyorsítótárazott diagramadatok használata elfogadható tartalékmegoldás, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a bemutató legutóbbi frissítése óta történt változtatásokat.
 
-## **GYIK**
+## **FAQ**
 
-**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van-e csatolva?**
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van‑e kapcsolva?**
 
-Igen. A diagramnek van egy [adatforrás típusa](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) és egy [útvonala egy külső munkafüzethez](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); ha a forrás egy külső munkafüzet, a teljes útvonal kiolvasásával ellenőrizhető, hogy külső fájlt használ-e.
+Igen. A diagram rendelkezik egy [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) és egy [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) tulajdonsággal; ha a forrás egy külső munkafüzet, kiolvashatod a teljes útvonalat, hogy megbizonyosodj arról, egy külső fájl van‑e használatban.
 
-**Támogatottak-e a relatív útvonalak a külső munkafüzetelekhez, és hogyan tárolódnak?**
+**Támogatottak a relatív utak a külső munkafüzetekhez, és hogyan tárolódnak?**
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan abszolút útvonalra konvertálódik. A prezentáció az abszolút útvonalat tárolja a PPTX fájlban, ezért a munkafüzet áthelyezésekor a hivatkozást frissíteni kell.
+Igen. Ha relatív utat adsz meg, az automatikusan átalakul abszolút úttá. A bemutató az abszolút utat tárolja a PPTX fájlban, ezért a munkafüzet áthelyezése esetén a hivatkozás frissítése szükséges lehet.
 
-**Használhatók-e a hálózati erőforrásokon/megosztásokon lévő munkafüzetek?**
+**Használhatók hálózati erőforrásokon/megosztott helyeken lévő munkafüzetek?**
 
-Igen, az ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ból nem támogatott – csak forrásként használhatók.
+Igen, az ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ben nem támogatott – csak forrásként használhatók.
 
-**Az Aspose.Slides felülírja-e a külső XLSX‑et a prezentáció mentésekor?**
+**Az Aspose.Slides felülírja a külső XLSX‑et a bemutató mentésekor?**
 
-A prezentáció egy [hivatkozást tárol a külső fájlra](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX fájlt is. Ha az eredeti munkafüzetet változatlanul kell hagyni, használjon másolatot.
+A bemutató egy [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) tárol. A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX fájlt is. Használj másolatot a munkafüzetről, ha az eredetit változatlanul kell hagyni.
 
-**Mit tegyek, ha a külső fájl jelszóval védett?**
+**Mi a teendő, ha a külső fájl jelszó‑védett?**
 
-Az Aspose.Slides nem fogad jelszót a csatoláskor. Egy gyakori megoldás, hogy előzetesen eltávolítja a védelmet, vagy egy feloldott másolatot készít (például az [Aspose.Cells](https://reference.aspose.com/cells/java/) segítségével), és arra hivatkozik.
+Az Aspose.Slides nem fogad jelszót a csatoláskor. Általános megoldás a védelem előzetes eltávolítása vagy egy dekódolt másolat előkészítése (például az [Aspose.Cells](https://reference.aspose.com/cells/java/) segítségével), majd a másolatra való hivatkozás.
 
 **Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
 
-Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramnál megjelenik, amikor legközelebb betöltik az adatokat.
+Igen. Minden diagram a saját linkjét tárolja. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.

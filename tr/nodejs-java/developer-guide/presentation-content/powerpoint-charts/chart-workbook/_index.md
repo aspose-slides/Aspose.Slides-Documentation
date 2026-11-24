@@ -1,5 +1,5 @@
 ---
-title: JavaScript kullanarak Sunumlarda Grafik Çalışma Kitaplarını Yönetme
+title: JavaScript Kullanarak Sunumlarda Grafik Çalışma Kitaplarını Yönet
 linktitle: Grafik Çalışma Kitabı
 type: docs
 weight: 70
@@ -11,8 +11,8 @@ keywords:
 - veri etiketi
 - çalışma sayfası
 - veri kaynağı
-- harici çalışma kitabı
-- harici veri
+- dış çalışma kitabı
+- dış veri
 - grafik önbelleği
 - çalışma kitabı kurtarma
 - PowerPoint
@@ -20,21 +20,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını sorunsuz yönetin ve sunum verilerinizi basitleştirin."
+description: "Aspose.Slides for Node.js via Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
+Bu makale Aspose.Slides'te grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
 
-Ayrıca harici çalışma kitaplarını grafik veri kaynakları olarak kullanmayı da kapsar. Örnekler, harici bir çalışma kitabı oluşturup atamayı, bir grafikle ilişkilendirilmiş harici çalışma kitabının yolunu almayı ve çalışma kitabı kullanılabilir olduğunda grafik verisini düzenlemeyi gösterir.
+Ayrıca dış çalışma kitaplarının grafik veri kaynakları olarak kullanılmasını kapsar. Örnekler, dış bir çalışma kitabı oluşturup atamayı, bir grafikle ilişkilendirilmiş dış çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verisini düzenlemeyi gösterir.
 
-Eksik veri temsil eden çalışma kitabı hücreleri için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/nodejs-java/chart-series/) sayfasına bakın; boş bir hücre ile sıfır arasındaki farkı ve mevcut gösterim modlarının bir çizgi grafik karşılaştırmasını öğrenebilirsiniz.
+Eksik veri temsil eden çalışma kitabı hücreleri için, boş bir hücre ile sıfır arasındaki farkı ve kullanılabilir görüntüleme modlarının bir çizgi grafik karşılaştırmasını görmek üzere [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/nodejs-java/chart-series/) bölümüne bakın.
 
 ## **Gizli Satır ve Sütunlardan Veri Dahil Et**
 
-[Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) yöntemini kullanarak bir grafiğin gizli çalışma sayfası satırları ve sütunlarından veri çizip çizmeyeceğini kontrol edin. Yalnızca görünür hücreleri çizmek için `true`, hem görünür hem de gizli hücreleri dahil etmek için `false` olarak ayarlayın. Bu ayar grafiğin çizimini kontrol eder; çalışma sayfası satırlarını veya sütunlarını gizlemez veya göstermez.
+Gizli çalışma sayfası satırları ve sütunlarından veri çizilip çizilmeyeceğini kontrol etmek için [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) yöntemini kullanın. Yalnızca görünür hücreleri çizmek için `true`, hem görünür hem de gizli hücreleri dahil etmek için `false` olarak ayarlayın. Bu ayar grafik çizimini kontrol eder; çalışma sayfası satırlarını veya sütunlarını gizlemez veya göstermez.
 
-[örnek sunum](hidden-source-data.pptx) içinde ilk slaytının ilk şekli olarak bir sütun grafik bulunur. Gömülü çalışma sayfası `Sheet1`, `A1:C4` aralığını içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
+[örnek sunum](hidden-source-data.pptx) ilk slaytındaki ilk şekil olarak bir sütun grafiği içerir. Gömülü çalışma sayfası `Sheet1`, `A1:C4` kaynak aralığını içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
 
 | Çalışma sayfası satırı | A: Ay | B: Perakende | C: Toptan (gizli sütun) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ Eksik veri temsil eden çalışma kitabı hücreleri için [Boş Hücrelerin Gö
 | 3 (gizli satır) | Şubat | 40 | 60 |
 | 4 | Mart | 20 | 50 |
 
-Kaynak hücrelere [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) ile erişin ve gizli durumlarını incelemek için [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) özelliğini okuyun. Bu yöntem gizli durumu değiştirmeden raporlar. Bu dosyada B2 görünür, B3 gizli satıra, C2 ise gizli sütuna aittir; örnek sırasıyla `false`, `true` ve `true` değerlerini yazdırır.
+Kaynak hücrelere [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) ile erişin ve gizli durumlarını incelemek için [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) metodunu okuyun. Bu yöntem gizli durumunu değiştirmeden raporlar. Bu dosyada B2 görünür, B3 gizli satıra aittir ve C2 gizli sütuna aittir; örnek sırasıyla `false`, `true` ve `true` yazdırır.
 
-Bu örnek için çizim ayarı değiştirildikten sonra grafik verisini yenileyin: gömülü çalışma kitabını [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ile tutun ve [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) ile yeniden yükleyin. Tüm hücreleri dahil ederken gizli Şubat kategorisini de içerecek şekilde tam aralığı geri yüklemek için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) kullanın. Bayrağı yalnızca değiştirmek bu örneğin önbelleğe alınmış grafik verisini ve kategori etiketlerini yenilemek için yeterli değildir. Örnek, yazma metoduna geçmeden önce döndürülen Node.js tamponunu bir Java bayt dizisine dönüştürür.
+Bu örnek için çizim ayarı değiştirildikten sonra grafik verisini yenileyin: gömülü çalışma kitabını [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ile tutun ve [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) ile tekrar yükleyin. Tüm hücreleri dahil ederken gizli Şubat kategorisini geri getirmek için [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) da kullanın; yalnızca bayrağı değiştirmek bu örneğin önbelleğe alınmış grafik verisini ve kategori etiketlerini yenilemek için yeterli değildir. Örnek, döndürülen Node.js tamponunu Java bayt dizisine dönüştürür ve yazma metoduna iletir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,10 +68,10 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Grafik verilerini gömülü çalışma kitabından yenileyin.
+            // Gömülü çalışma kitabından grafik verisini yenile.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Gizli kategoriler dahil olmak üzere tam kaynak aralığını geri yükleyin.
+                // Gizli kategoriler dahil tam kaynak aralığını geri yükle.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-Örnek, yalnızca görünür Perakende değerlerini (10 ve 20) içeren bir sürüm ve tüm altı değeri içeren bir sürüm olmak üzere iki sunum versiyonu kaydeder. Aşağıdaki görseller iki çizim modunu gösterir. 3. satır ve C sütunu her iki gömülü çalışma kitabında da gizli kalır.
+Örnek, yalnızca görünür Perakende değerleri (10 ve 20) içeren bir sunum sürümü ve tüm altı değeri içeren bir sürüm kaydeder. Aşağıdaki görseller iki çizim modunu gösterir. Satır 3 ve sütun C her iki gömülü çalışma kitabında da gizli kalır.
 
 | Yalnızca görünür hücreler (`true`) | Tüm hücreler (`false`) |
 | --- | --- |
-| ![Yalnızca görünür hücreler: Ocak ve Mart ayları için Perakende değerleri 10 ve 20.](hidden_cells_True.png) | ![Tüm hücreler: Ocak, Şubat ve Mart ayları için Perakende ve Toptan değerleri.](hidden_cells_False.png) |
+| ![Yalnızca görünür hücreler: Ocak ve Mart için Perakende değerleri 10 ve 20.](hidden_cells_True.png) | ![Tüm hücreler: Ocak, Şubat ve Mart için Perakende ve Toptan değerleri.](hidden_cells_False.png) |
 
-Değer içeren bir gizli hücre, boş bir hücreden farklıdır. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) eksik değerlerin nasıl görüntüleneceğini kontrol eder; gizli kaynak veriyi içermez veya dışlamaz. Örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/nodejs-java/chart-series/#control-the-display-of-empty-cells) sayfasına bakın.
+Değeri olan gizli bir hücre, boş bir hücreden farklıdır. Eksik değerlerin nasıl görüntüleneceğini kontrol eden [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) gizli kaynak verilerini eklemez veya çıkarmaz. Bir örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/nodejs-java/chart-series/#control-the-display-of-empty-cells) bölümüne bakın.
 
-## **Grafiğin Veri Aralığını Al**
+## **Bir Grafiğin Veri Aralığını Al**
 
-Mevcut bir sunumda çalışma kitabı verilerini güncellemeden önce, her grafiğin kullandığı çalışma sayfası hücrelerini belirlemek üzere kaynak aralıklarını inceleyin. [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) yöntemi, mevcut veri aralığını `Sheet1!$A$1:$D$5` gibi bir çalışma sayfası nitelikli formül olarak döndürür. Burada `Sheet1` çalışma sayfası adıdır, `!` hücre aralığından ayırır ve `$A$1:$D$5` A1'den D5'e kadar (dahil) hücreleri tanımlar. Dolar işaretleri mutlak satır ve sütun referanslarını gösterir.
+Mevcut bir sunumda çalışma kitabı verilerini güncellemeden önce, her grafiğin hangi çalışma sayfası hücrelerini kullandığını belirlemek için kaynak aralıklarını inceleyin. [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) metodu, `Sheet1!$A$1:$D$5` gibi bir çalışma sayfası nitelikli formül olarak geçerli veri aralığını döndürür. Burada `Sheet1` çalışma sayfası adıdır, `!` hücre aralığından ayırır ve `$A$1:$D$5` A1'den D5'e kadar olan hücreleri (dahil) belirtir. `$` işaretleri mutlak satır ve sütun referanslarını gösterir.
 
-Bu yöntem grafiği veya çalışma kitabını değiştirmeden mevcut aralığı okur. Grafik bir çalışma kitabını veri kaynağı olarak kullanmıyorsa `InvalidOperationException` fırlatır. Daha fazla bilgi için [ChartData API Referansı](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) sayfasına bakın.
+Metod, grafiği veya onun çalışma kitabını değiştirmeden geçerli aralığı okur. Grafik veri kaynağı olarak bir çalışma kitabı kullanmıyorsa `InvalidOperationException` fırlatır. Daha fazla bilgi için [ChartData API Referansı](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) bölümüne bakın.
 
-Bu örnek bir sunumu açar ve her slayttaki şekilleri doğrudan grafikleri için inceler. Her grafiğin adını ve kaynak aralığını yazdırır. Bir grafik çalışma kitabı kullanmıyorsa bir mesaj yazdırır ve bir sonraki grafiğe geçer.
+Bu örnek bir sunumu açar ve her slayttaki şekillerde grafik olup olmadığını kontrol eder. Her grafiğin adını ve kaynak aralığını yazdırır. Grafik bir çalışma kitabı kullanmıyorsa bir mesaj yazar ve bir sonraki grafik ile devam eder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,9 +131,9 @@ try {
 }
 ```
 
-## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
+## **Bir Çalışma Kitabından Grafik Verisini Oku ve Yaz**
 
-Aspose.Slides for Node.js via Java, [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ve [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) yöntemlerini sunar; bu yöntemler grafik verileri (Aspose.Cells ile düzenlenen) içeren çalışma kitaplarını okumanıza ve yazmanıza olanak tanır. **Not** grafik verilerinin aynı biçimde ya da kaynağa benzer bir yapıda düzenlenmiş olması gerekir.
+Aspose.Slides for Node.js via Java, grafik veri çalışma kitaplarını (Aspose.Cells ile düzenlenen) okumanıza ve yazmanıza izin veren [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ve [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) yöntemlerini sağlar. **Not**: grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
 Bu örnek, ilk slaytının ilk şekli olarak bir grafik içeren bir sunum kullanır. Gömülü çalışma kitabını bir bayt dizisine okur, mevcut serileri ve kategorileri temizler ve aynı çalışma kitabını geri yazar. Değişiklikler bellekte kalır; örnek sunumu kaydetmez.
 
@@ -167,7 +167,7 @@ try {
 
 ### **Çalışma Kitabı Değiştirildikten Sonra Grafik Düzenini Doğrula**
 
-Gömülü bir çalışma kitabını değiştirilmiş bir kitapla değiştirdiğinizde, grafik orijinal seri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) metodunun indeks dışı hata vermesine yol açabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slaytın ilk şekli olarak bir grafik kullanır. Yorum, çalışma kitabı düzenlemenin nerede gerçekleşeceğini işaret eder; çalışan örnek orijinal çalışma kitabını geri yazar ve bellekteki düzeni doğrular.
+Gömülü bir çalışma kitabını değiştirilen bir kitapla değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını tutar. Bu uyumsuzluk, [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) metodunun indeks dışı hata vermesine neden olabilir. Güncellenen çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slaytın ilk şekli olarak bir grafik kullanır. Yorum satırı, çalışma kitabı düzenlemesinin nerede gerçekleşeceğini gösterir; çalıştırılabilir örnek, orijinal çalışma kitabını geri yazar ve düzeni bellek içinde doğrular.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Burada çalışma kitabı baytlarını değiştirin, örneğin Aspose.Cells kullanarak.
+        // Çalışma kitabı baytlarını burada değiştirin, örneğin Aspose.Cells kullanarak.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,68 @@ try {
 }
 ```
 
-Koleksiyonların temizlenmesi, çalışma kitabı geri yazılmadan önce eski veri referanslarını kaldırır. Güncellenmiş çalışma kitabı için gerekli seri ve kategori eşlemeleri yeniden oluşturulmalıdır.
+Koleksiyonların temizlenmesi, çalışma kitabı geri yazılmadan önce eski veri başvurularını kaldırır. Güncellenen çalışma kitabı için gerekli serileri ve kategori eşlemelerini yeniden oluşturun, ardından grafiği kullanın.
 
-## **Çalışma Kitabı Hücreleri İçin Özel Sayı Formatları Ayarla**
+## **Kategori Etiketlerini Saklama Yöntemini Seç**
 
-[ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) yöntemini kullanarak bir grafiğin gömülü çalışma kitabındaki sayısal değerlerin nasıl görüneceğini kontrol edin. Örneğin bir rapor, dönüşüm oranını yüzde olarak dört ondalık basamak ve katsayısını beş ondalık basamak ile gösterebilir. Her iki değeri de sayısal tutun; böylece hesaplamalar ve grafik çizimi için kullanılabilir.
+Etiket eklemeden önce boş kategori koleksiyonunda [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorycollection/setusecells/) metodunu çağırın. Çalışma kitabı hücrelerini, çalışma kitabı verisine başvuran veya yıl bazında gruplanmış çeyrekler gibi hiyerarşi oluşturan etiketler için kullanın. Tek seviyeli, hücre referansı gerektirmeyen etiketler için doğrudan dize ifadeleri kullanın. Bu ayar yalnızca kategorilere uygulanır. Örnekteki her iki grafik de sayısal seri değerleri için çalışma kitabı hücrelerini kullanır.
 
-Sayı formatı, görüntüyü değiştirir, saklanan değeri değil. `0.0000%` formatı `0.125` değerini `12,5000%` olarak gösterir; saklanan sayı `12.5` olmaz. Benzer şekilde, `0.00000` `0.1234567` değerini `0.12346` olarak gösterir, fakat saklanan değeri yuvarlamaz. Özel format boş bir dize (`""`) ise, [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) tarafından döndürülen format kullanılır.
+Örnek iki sütun grafik oluşturur ve her biri için depolama modunu ve ardından `Q1 Q2 Q3 Q4` etiketlerini yazdırır. Çalışma kitabı destekli etiketler için [ChartCategory.getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getascell/) temel hücreyi ve [ChartDataCell.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getvalue/) etiketini döndürür. Düz dize etiketleri için doğrudan [ChartCategory.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getvalue/) okunur. Örnek her iki grafiği `category-labels.pptx` içinde kaydeder.
 
-Aşağıdaki örnek bir sütun grafik oluşturur ve hücrelerine [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) ile erişir. Çalışma sayfası 0'da B2 dönüşüm oranını, C2 ise katsayısını içerir. Her iki hücre de grafik değerlerini sağlar. Örnek ayrıca kaynak formatlara bağlı veri etiketlerini etkinleştirir.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (const useCells of [true, false]) {
+        const x = useCells ? 20 : 360;
+        const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, x, 20, 320, 250);
+        const data = chart.getChartData();
+        data.getSeries().clear();
+        const categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        const workbook = data.getChartDataWorkbook();
+        const seriesName = workbook.getCell(0, 0, 1, "Sales");
+        const series = data.getSeries().add(seriesName, chart.getType());
+        for (let row = 1; row <= 4; row++) {
+            const label = "Q" + row;
+            if (useCells) {
+                const labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            const valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        const storedInCells = categories.getUseCells();
+        const labels = [];
+        for (let i = 0; i < categories.size(); i++) {
+            const category = categories.get_Item(i);
+            labels.push(storedInCells ? category.getAsCell().getValue() : category.getValue());
+        }
+        console.log("UseCells = " + storedInCells + ": " + labels.join(" "));
+    }
+
+    presentation.save("category-labels.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Çalışma Kitabı Hücreleri İçin Özel Sayı Biçimleri Belirle**
+
+Grafiğin gömülü çalışma kitabındaki sayısal değerlerin nasıl görüneceğini kontrol etmek için [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) kullanın. Örneğin, bir rapor dönüşüm oranını dört ondalık basamaklı yüzde olarak ve bir katsayıyı beş ondalık basamaklı yüzde olarak gösterebilir. Her iki değeri de sayısal tutarak hesaplamalar ve grafik çizimi için kullanılabilir bırakın.
+
+Sayı biçimi yalnızca görüntüyü değiştirir, depolanan değeri değiştirmez. `0.0000%` biçimi `0.125` değerini `12.5000%` olarak gösterir; sayı hâlâ `0.125` olarak saklanır. Benzer şekilde, `0.00000` biçimi `0.1234567` değerini `0.12346` olarak gösterir, ancak depolanan değer yuvarlanmaz. Özel biçim boş bir dize (`""`) ise, [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) tarafından döndürülen biçim kullanılır.
+
+Aşağıdaki örnek bir sütun grafik oluşturur ve hücrelerine [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) aracılığıyla erişir. Çalışma sayfası 0'da B2 dönüşüm oranını, C2 ise katsayıyı içerir. Her iki hücre de grafik değerlerini sağlar. Örnek ayrıca kaynak biçimlere bağlı değer etiketlerini etkinleştirir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,17 +313,19 @@ try {
 }
 ```
 
-Çalışma kitabı hücre formatları, doğrudan eksenlere veya veri etiketlerine ayarlanan formatlardan ayrı tutulur. Bu örnekte her etiket, [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true` olduğundan kaynak hücrenin değerini gösterir ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` olduğundan kaynak sayı formatını izler. Sunumu kaydedip tekrar açtıktan sonra etiketler `12,5000%` ve `0,12346` biçiminde görüntülenir, aşağıda gösterildiği gibi. Dikey eksen kendi sayı formatını, [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) `0.00` olarak ayarlandı ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` olarak ayarlandı.
+Çalışma kitabı hücre biçimleri, doğrudan eksenlere veya veri etiketlerine uygulanan biçimlerden ayrıdır. Bu örnekte, her etiket [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true` olduğu için kaynak hücrenin değerini gösterir ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` olduğu için kaynak sayı biçimini izler. Sunumu kaydedip yeniden açtıktan sonra etiketler aşağıdaki gibi `12.5000%` ve `0.12346` gösterir. Dikey eksen, [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) `0.00` ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` ile kendi sayı biçimini kullanır.
 
-Bağımsız bir veri etiketini biçimlendirmek için kaynak‑bağlantı bayrağını `false` yapın ve [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) ile bir format atayın. Bu, çalışma kitabı hücresinin formatını değiştirmez. Örneğin `0.00` bağımsız etiket formatı ilk değeri `0,13` olarak gösterirken B2 hâlâ `12,5000%` gösterir. Doğrudan etiket biçimlendirme için [Grafik Veri Etiketleri](/slides/tr/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) sayfasına bakın.
+Bir veri etiketini bağımsız biçimlendirmek için, kaynak‑bağlantı bayrağını `false` yapın ve [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) ile bir biçim atayın. Bu, çalışma kitabı hücresinin biçimini değiştirmez. Örneğin, bağımsız bir etiket biçimi `0.00` ilk değeri `0.13` olarak gösterirken B2 hâlâ `12.5000%` gösterir. Doğrudan etiket biçimlendirme için [Grafik Veri Etiketleri](/slides/tr/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) bölümüne bakın.
 
-![Kaynak bağlantılı etiketlerle 12,5000% ve 0,12346 gösteren sütun grafik ve bağımsız biçimlendirilmiş sayısal eksen.](custom-cell-formats.png)
+Aşağıdaki görsel, sunumu kaydedip yeniden açtıktan sonra oluşturulmuştur:
 
-## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarla**
+![Kaynak‑bağlantılı etiketleri 12.5000% ve 0.12346 gösteren, bağımsız biçimlendirilmiş sayısal ekseni olan sütun grafik.](custom-cell-formats.png)
 
-Grafik veri etiketleri olarak çalışma kitabı hücrelerindeki metni kullanabilirsiniz.
+## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Kullan**
 
-Bu örnek, mevcut bir sunumun ilk slaydına varsayılan verilerle bir balon grafik ekler. İlk serideki ilk üç etiket için çalışma sayfası 0'da A10:A12 aralığını kullanır, hücrelerden etiketleri etkinleştirir ve güncellenmiş sunumu kaydeder.
+Çalışma kitabı hücrelerinden gelen metni grafik veri etiketleri olarak kullanabilirsiniz.
+
+Bu örnek, mevcut bir sunumun ilk slaytına varsayılan veriye sahip bir balon grafik ekler. İlk serinin ilk üç etiketi için çalışma sayfası 0'daki A10:A12 hücrelerini kullanır, hücrelerden etiketleri etkinleştirir ve güncellenmiş sunumu kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -296,7 +351,7 @@ try {
 
 ## **Çalışma Sayfalarını Yönet**
 
-[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) yöntemi, bir grafik çalışma kitabındaki çalışma sayfalarına erişim sağlar. Bu örnek, varsayılan verilerle bir pasta grafik oluşturur ve her çalışma sayfasının adını konsola yazar.
+[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) yöntemi, bir grafik çalışma kitabındaki çalışma sayfalarına erişim sağlar. Bu örnek bir pasta grafik oluşturur, varsayılan veri ekler ve her bir çalışma sayfası adını konsola yazar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -318,9 +373,9 @@ try {
 
 ## **Veri Kaynağı Türünü Belirle**
 
-Seri nokta değerleri doğrudan sayısal sabitler olarak da depolanabilir. Kaydetme ve okuma örnekleri için [Seri Değerlerini Sayısal Sabitler Kullanarak Ayarlama](/slides/tr/nodejs-java/chart-series/#set-series-values-using-numeric-literals) sayfasına bakın. Nokta değerlerinin kaynak türü, grafiğin iç veya dış çalışma kitabı yapılandırmasından bağımsızdır; sayısal sabitler kullanmak tek başına gömülü çalışma kitabını kaldırmaz.
+Seri nokta değerleri doğrudan sayısal sabitler olarak da saklanabilir. Kaydedip okuyabileceğiniz tam bir örnek için [Sayısal Sabitler Kullanarak Seri Değerlerini Ayarla](/slides/tr/nodejs-java/chart-series/#set-series-values-using-numeric-literals) bölümüne bakın. Nokta değerlerinin veri kaynağı türü, grafiğin iç ya da dış çalışma kitabı yapılandırmasından ayrı bir özelliktir; sayısal sabitler kullanmak, gömülü çalışma kitabını otomatik olarak kaldırmaz.
 
-Bu örnek, varsayılan verilerle bir 3B sütun grafik oluşturur ve iki seri adını farklı veri kaynaklarıyla ayarlar. İlk ad bir dize sabiti; ikincisi ise çalışma sayfası 0'da C1 hücresidir. [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) enumu, her ad için kaynağı seçer. Örnek, güncellenmiş seri adlarıyla sunumu kaydeder.
+Bu örnek, varsayılan veri içeren bir 3D sütun grafik oluşturur ve iki seri adını farklı veri kaynaklarıyla belirler. İlk ad bir dize sabiti, ikincisi çalışma sayfası 0'da C1 hücresidir. [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) enum’ı her ad için kaynağı seçer. Örnek, güncellenmiş seri adlarıyla sunumu kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,9 +401,9 @@ try {
 }
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Formatlarını Algıla**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algıla**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` metodunu ve [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enumunu kullanarak desteklenmeyen formatları tespit edebilir ve bu grafikleri atlayabilirsiniz. Bu örnek, mevcut bir sunumun ilk slaydındaki şekilleri inceler, grafik olmayanları atlar ve .xlsb gömülü çalışma kitabı bulunan her grafik için tanılayıcı bir mesaj yazar.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` metodunu ve [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enum’ını kullanabilirsiniz. Bu örnek, mevcut bir sunumun ilk slaytındaki şekilleri inceler, grafik olmayan şekilleri atlar ve .xlsb gömülü çalışma kitabı olan her grafik için bir tanı mesajı yazar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -381,15 +436,15 @@ try {
 }
 ```
 
-## **Harici Çalışma Kitabı**
+## **Dış Çalışma Kitabı**
 
-Aspose.Slides, grafikler için veri kaynağı olarak harici çalışma kitaplarını kullanmayı destekler.
+Aspose.Slides, dış çalışma kitaplarını grafikler için veri kaynağı olarak kullanmayı destekler.
 
-### **Harici Çalışma Kitabı Oluştur**
+### **Dış Çalışma Kitabı Oluştur**
 
-[readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ve [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) kullanarak bir gömülü grafik çalışma kitabını bir dosyaya dışa aktarın ve grafiği bu harici çalışma kitabına bağlayın.
+Gömülü bir grafik çalışma kitabını bir dosyaya dışa aktarmak ve grafiği bu dış çalışma kitabına bağlamak için [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) ve [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) yöntemlerini kullanın.
 
-Bu örnek, varsayılan verilerle bir pasta grafik oluşturur ve çalışma kitabını dışa aktarır. Dosya yazma işlemi tamamlandıktan sonra harici çalışma kitabını veri kaynağı olarak atar, ardından bağlantılı sunumu kaydeder.
+Bu örnek bir pasta grafik oluşturur, varsayılan veri ekler ve çalışma kitabını dışa aktarır. Dosya yazımı tamamlandıktan sonra dış çalışma kitabını veri kaynağı olarak atar ve bağlanmış sunumu kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -416,13 +471,13 @@ try {
 }
 ```
 
-### **Harici Çalışma Kitabı Ayarla**
+### **Dış Çalışma Kitabı Ata**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) yöntemiyle bir grafiğe harici bir çalışma kitabı veri kaynağı olarak atayabilirsiniz. Bu yöntem, harici çalışma kitabının konumu (dosya taşındıysa) güncellenmek istendiğinde de kullanılabilir.
+[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metodunu kullanarak bir dış çalışma kitabını grafik için veri kaynağı olarak atayabilirsiniz. Bu metod aynı zamanda dış çalışma kitabının konumunu (taşındıysa) güncellemek için de kullanılabilir.
 
-Uzaktaki konumlarda veya kaynaklarda saklanan çalışma kitaplarındaki verileri doğrudan düzenleyemezsiniz, ancak bu çalışma kitapları harici veri kaynağı olarak kullanılabilir. Bir harici çalışma kitabının göreli yolu sağlanırsa, tam yola otomatik olarak dönüştürülür.
+Uzak konumlardaki ya da kaynaklardaki çalışma kitaplarının verileri doğrudan düzenlenemese de, bu çalışma kitapları dış veri kaynağı olarak kullanılabilir. Bir dış çalışma kitabı için göreli bir yol verilirse, otomatik olarak tam yola dönüştürülür.
 
-Bu örnek, `Sheet1` adlı çalışma sayfasında B1'de bir seri adı, A2:A4'te kategori adları ve B2:B4'te sayısal değerler içeren bir harici çalışma kitabı kullanır. Pasta grafik oluşturur, çalışma kitabını bağlar ve [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Bağlantılı grafiği içeren sunumu kaydeder.
+Bu örnek, `Sheet1` adlı çalışma sayfasında B1’de bir seri adı, A2:A4’te kategori adları ve B2:B4’te sayısal değerler bulunan bir dış çalışma kitabı kullanır. Pasta grafik oluşturur, çalışma kitabını bağlar ve [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Bağlantılı grafik ile sunumu kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -447,10 +502,10 @@ try {
 
 [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) metodundaki `updateChartData` parametresi, çalışma kitabının yüklenip yüklenmeyeceğini kontrol eder.
 
-* `updateChartData` **false** olduğunda, yalnızca çalışma kitabı yolu güncellenir. Grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez; bu nedenle çalışma kitabı mevcut olmayabilir.
-* `updateChartData` **true** olduğunda, grafik verisi hedef çalışma kitabından güncellenir.
+* `updateChartData` **false** olduğunda yalnızca çalışma kitabı yolu güncellenir. Grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez, bu nedenle çalışma kitabı mevcut olmayabilir.
+* `updateChartData` **true** olduğunda grafik verisi hedef çalışma kitabından güncellenir.
 
-Aşağıdaki örnek, `updateChartData` **false** olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verileri korunur ve kullanılabilir olmayan çalışma kitabı yüklenmeden sunum kaydedilir.
+Aşağıdaki örnek, `updateChartData` **false** olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verisini korur ve erişilemeyen çalışma kitabını yüklemeden sunumu kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -468,11 +523,11 @@ try {
 }
 ```
 
-### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Al**
+### **Bir Grafiğin Dış Veri Kaynağı Çalışma Kitabı Yolunu Al**
 
-Bir grafiğin bağlı olduğu çalışma kitabını belirlemek için, grafiğin harici bir veri kaynağı kullanıp kullanmadığını kontrol edin ve çalışma kitabı yolunu alın.
+Bir grafikle ilişkilendirilmiş çalışma kitabını belirlemek için, grafiğin dış veri kaynağı kullanıp kullanmadığını kontrol edin ve çalışma kitabı yolunu alın.
 
-Bu örnek, harici bir çalışma kitabına bağlanmış bir grafiğin bulunduğu bir sunumun ilk slaydındaki ilk şekli inceler. Eğer grafik harici bir çalışma kitabına bağlandıysa, [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) konsola yazdırır. Ardından sunumun bir kopyasını kaydeder.
+Bu örnek, bir dış çalışma kitabına bağlı bir grafiği olan bir sunumun ilk slaytındaki ilk şekli inceler. Eğer dış çalışma kitabına bağlı bir grafik ise, [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) metodunu konsola yazar. Ardından sunumun bir kopyasını kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -502,9 +557,9 @@ try {
 
 ### **Grafik Verisini Düzenle**
 
-Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki verileri düzenlediğiniz gibi değiştirebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
+Dış çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki gibi düzenleyebilirsiniz. Dış bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
-Bu örnek, ilk slaydın ilk şekli olan ve erişilebilir bir harici çalışma kitabına bağlanmış bir grafiği kullanır. İlk serideki ilk veri noktasının hücre‑temelli değerini 100 olarak ayarlar ve güncellenmiş sunumu kaydeder. Hücre değerlerini düzenlemek, bağlı harici XLSX dosyasını güncelleyebilir; orijinal çalışma kitabını korumanız gerekiyorsa bir kopya kullanın.
+Bu örnek, bir grafiğin ilk slayttaki ilk şekli olduğunu ve erişilebilir bir dış çalışma kitabına bağlandığını varsayar. İlk serideki ilk veri noktasının hücre‑tabanlı değerini 100 yapar ve güncellenmiş sunumu kaydeder. Hücre değerlerini düzenlemek, bağlantılı dış XLSX dosyasını güncelleyebilir; bu yüzden orijinali korumak istiyorsanız bir kopya kullanın.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -537,11 +592,11 @@ try {
 }
 ```
 
-### **Grafik Önbelleğinden Çalışma Kitabını Kurtar**
+### **Grafik Önbelleğinden Çalışma Kitabını Geri Yükle**
 
-Bir grafik, eksik ya da kullanılamayan bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınan verilerden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) oluşturun, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) çağırın ve [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) özelliğini `true` yapın; ardından sunumu açın.
+Bir grafik, eksik veya kullanılamayan bir dış çalışma kitabına sahipse, Aspose.Slides, sunumda önbelleğe alınmış veriden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) oluşturun, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) çağırın ve [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) `true` yapın, ardından sunumu açın.
 
-Aşağıdaki JavaScript örneği, ilk slaydın ilk şekli olan ve kullanılabilir olmayan harici bir çalışma kitabına referans veren bir grafiğin çalışma kitabı verilerini kurtarır. Kurtarılan verilere [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) ve [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) aracılığıyla erişir:
+Aşağıdaki JavaScript örneği, ilk slayttaki ilk şekil olan ve erişilemeyen bir dış çalışma kitabına referans veren bir grafiğin çalışma kitabı verilerini geri yükler. Geri yüklenen verilere [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) ve [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) aracılığıyla erişir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -562,7 +617,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Burada kurtarılan çalışma kitabı verilerini okuyun veya değiştirin.
+        // Kurtarılan çalışma kitabı verilerini burada okuyun veya değiştirin.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -571,30 +626,30 @@ try {
 }
 ```
 
-Harici çalışma kitabı kullanılabilir değilse ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Ön bellekteki grafik verilerini kullanmak kabul edilebilir bir geri dönüş ise kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendiğinde harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
+Dış çalışma kitabı kullanılabilir değilse ve geri yükleme devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Önbellekten grafik verisini kullanmak kabul edilebilir bir geri dönüş ise yalnızca geri yüklemeyi etkinleştirin; önbellek, dış çalışma kitabı son güncellemelerinden sonra yapılan değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
+**Belirli bir grafiğin dış mı yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
 
-Evet. Bir grafiğin [veri kaynağı türü](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) ve bir [harici çalışma kitabına yolu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) vardır; kaynak harici bir çalışma kitabıysa, tam yolu okuyarak dış bir dosyanın kullanıldığını doğrulayabilirsiniz.
+Evet. Bir grafik, [veri kaynağı türü](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) ve [dış çalışma kitabı yolu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) içerir; kaynak dış bir çalışma kitabı ise tam yolu okuyarak bir dış dosyanın kullanıldığını doğrulayabilirsiniz.
 
-**Harici çalışma kitapları için göreli yollar destekleniyor mu ve nasıl depolanıyor?**
+**Dış çalışma kitapları için göreli yollar destekleniyor mu, nasıl depolanıyor?**
 
-Evet. Göreli bir yol belirttiğinizde otomatik olarak mutlak yola dönüştürülür. Sunum, mutlak yolu PPTX dosyasında saklar; bu yüzden çalışma kitabını taşıdığınızda bağlantıyı güncellemeniz gerekebilir.
+Evet. Göreli bir yol belirtirseniz otomatik olarak mutlak yola dönüştürülür. Sunum, mutlak yolu PPTX dosyasında saklar; bu nedenle çalışma kitabını taşımak bağlantının güncellenmesini gerektirebilir.
 
 **Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**
 
-Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak Aspose.Slides, uzak çalışma kitaplarını doğrudan düzenlemeyi desteklemez; yalnızca kaynak olarak kullanılabilirler.
+Evet, bu tür çalışma kitapları dış veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides tarafından uzaktaki çalışma kitapları doğrudan düzenlenemez; yalnızca bir kaynak olarak kullanılabilirler.
 
-**Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
+**Aspose.Slides sunumu kaydederken dış XLSX dosyasını üzerine yazıyor mu?**
 
-Sunum, harici dosyaya bir [bağlantı](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) saklar. Hücre‑temelli grafik verilerini düzenlemek, bağlı yerel XLSX dosyasını da güncelleyebilir. Orijinal dosyanın değişmemesi gerekiyorsa çalışma kitabının bir kopyasını kullanın.
+Sunum, dış dosyaya bir [bağlantı](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) saklar. Hücre‑tabanlı grafik verileri düzenlenirse bağlı yerel XLSX dosyası da güncellenebilir. Orijinalinin değişmemesi gerekiyorsa çalışma kitabının bir kopyasını kullanın.
 
-**Harici dosya parola korumalıysa ne yapmalıyım?**
+**Dış dosya şifre korumalıysa ne yapmalıyım?**
 
-Aspose.Slides, bağlarken şifre kabul etmez. Yaygın bir yaklaşım, şifre korumasını önceden kaldırmak ya da [Aspose.Cells](https://reference.aspose.com/cells/java/) kullanarak şifresi çözülmüş bir kopya hazırlamak ve bu kopyaya bağlanmaktır.
+Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak ya da şifresiz bir kopya hazırlamaktır (örneğin, [Aspose.Cells](https://reference.aspose.com/cells/java/) kullanarak).
 
-**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**
+**Birden fazla grafik aynı dış çalışma kitabına referans verebilir mi?**
 
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyayı güncellemek her grafik için bir sonraki veri yüklemesinde yansır.
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklemede tüm grafiklerde yansır.

@@ -6,35 +6,35 @@ weight: 70
 url: /pt/net/chart-workbook/
 keywords:
 - pasta de trabalho de gráfico
-- dados do gráfico
-- célula da pasta de trabalho
+- dados de gráfico
+- célula de pasta de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
 - pasta de trabalho externa
 - dados externos
-- cache do gráfico
+- cache de gráfico
 - recuperação de pasta de trabalho
 - PowerPoint
 - apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra Aspose.Slides for .NET: gerencie facilmente pastas de trabalho de gráficos nos formatos PowerPoint e OpenDocument para otimizar os dados da sua apresentação."
+description: "Descubra o Aspose.Slides para .NET: gerencie facilmente pastas de trabalho de gráficos no PowerPoint e em formatos OpenDocument para otimizar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos através de streams de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de fluxos de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados de gráficos, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
 
-Ele também aborda o trabalho com pastas de trabalho externas como fontes de dados para gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-Para células de pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazia](/slides/pt/net/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
+Para células da pasta de trabalho que representam dados ausentes, consulte [Controlar a Exibição de Células Vazias](/slides/pt/net/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
 
 ## **Incluir Dados de Linhas e Colunas Ocultas**
 
-Use [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) para controlar se um gráfico traça dados de linhas e colunas ocultas da planilha. Defina como `true` para traçar apenas células visíveis ou `false` para incluir tanto células visíveis quanto ocultas. Essa configuração controla a plotagem do gráfico; não oculta nem exibe linhas ou colunas da planilha.
+Use [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) para controlar se um gráfico traça dados de linhas e colunas de planilha ocultas. Defina como `true` para traçar apenas células visíveis, ou `false` para incluir tanto células visíveis quanto ocultas. Esta configuração controla a plotagem do gráfico; não oculta nem revela linhas ou colunas da planilha.
 
-A [sample presentation](hidden-source-data.pptx) contém um gráfico de colunas como o primeiro objeto em seu primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem a seguir, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem seguinte, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
 
 | Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ A [sample presentation](hidden-source-data.pptx) contém um gráfico de colunas 
 | 3 (linha oculta) | Fevereiro | 40 | 60 |
 | 4 | Março | 20 | 50 |
 
-Acesse as células de origem através de [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) e leia [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) para inspecionar seu status de ocultação. Esta propriedade é somente leitura. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
+Acesse as células de origem através de [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) e leia [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) para inspeccionar seu status de ocultação. Esta propriedade é somente leitura. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
 
-Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: mantenha a pasta de trabalho incorporada com [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e recarregue-a com [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Ao incluir todas as células, use também [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de fevereiro oculta. Simplemente mudar o sinalizador não é suficiente para atualizar os dados em cache do gráfico e os rótulos de categoria deste exemplo.
+Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: retenha a pasta de trabalho incorporada com [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e recarregue-a com [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Ao incluir todas as células, use também [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de Fevereiro oculta. Simplesmente mudar a flag não é suficiente para atualizar os dados em cache deste exemplo e os rótulos de categoria.
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // Atualiza os dados do gráfico a partir da pasta de trabalho incorporada.
+        // Atualize os dados do gráfico a partir da pasta de trabalho incorporada.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Restaura o intervalo de origem completo, incluindo categorias ocultas.
+            // Restaurar o intervalo de origem completo, incluindo categorias ocultas.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,21 +85,21 @@ else
 }
 ```
 
-O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo foram renderizadas a partir das apresentações salvas após reabri‑las; ambos os arquivos preservam a configuração de plotagem atribuída. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
+O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20), e outra com todos os seis valores. As imagens abaixo foram renderizadas a partir das apresentações salvas depois de reabri‑las; ambos os arquivos preservam sua configuração de plotagem atribuída. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
 
 | Apenas células visíveis (`true`) | Todas as células (`false`) |
 | --- | --- |
 | ![Apenas células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
 
-Uma célula oculta que contém um valor é diferente de uma célula vazia. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazia](/slides/pt/net/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+Uma célula oculta que contém um valor difere de uma célula vazia. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Consulte [Controlar a Exibição de Células Vazias](/slides/pt/net/chart-series/#control-the-display-of-empty-cells) para um exemplo.
 
 ## **Recuperar o Intervalo de Dados de um Gráfico**
 
-Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) retorna o intervalo de dados atual como uma fórmula qualificada da planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` a separa do intervalo de células, e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
+Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspeccione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) devolve o intervalo de dados atual como uma fórmula qualificada da planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` separa‑o do intervalo de células, e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
 
-O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como fonte de dados, ele lança [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Para mais informações, veja a [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como origem de dados, ele lança [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Para mais informações, veja a [Referência da API ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
-Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide em busca de gráficos. Ele imprime o nome de cada gráfico e o intervalo de origem. Se um gráfico não usar uma pasta de trabalho, ele imprime uma mensagem e continua para o próximo gráfico.
+Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide para encontrar gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se um gráfico não usar uma pasta de trabalho, ele imprime uma mensagem e continua para o próximo gráfico.
 
 ```csharp
 using System;
@@ -128,11 +128,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Ler e Gravar Dados do Gráfico de uma Pasta de Trabalho**
+## **Ler e Gravar Dados de Gráficos a partir de uma Pasta de Trabalho**
 
-Aspose.Slides for .NET fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Note** que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à da origem.
+Aspose.Slides for .NET fornece os métodos [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Observação**: os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à origem.
 
-Este exemplo usa uma apresentação com um gráfico como o primeiro objeto em seu primeiro slide. Ele lê a pasta de trabalho incorporada em um stream, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
+Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê a pasta de trabalho incorporada para um fluxo, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem em memória; o exemplo não salva a apresentação.
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **Validar o Layout do Gráfico Após Modificação da Pasta de Trabalho**
+### **Validar o Layout do Gráfico após Modificação da Pasta de Trabalho**
 
-Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico retém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta no gráfico. Este exemplo usa um gráfico que é o primeiro objeto no primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout na memória.
+Quando você substitui uma pasta de trabalho incorporada por uma modificada, o gráfico mantém as coleções de séries e categorias originais. Essa incompatibilidade pode fazer com que [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta no gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout na memória.
 
 ```csharp
 using System;
@@ -193,11 +193,67 @@ else
 }
 ```
 
-Limpar as coleções remove referências de dados obsoletas antes que a pasta de trabalho seja gravada de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
+Limpar as coleções remove referências a dados obsoletos antes que a pasta de trabalho seja gravada. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
+
+## **Escolher Como Armazenar Rótulos de Categoria**
+
+Defina [IChartCategoryCollection.UseCells](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorycollection/usecells/) na coleção de categoria vazia antes de adicionar rótulos. Use células da planilha para rótulos que fazem referência a dados da pasta de trabalho ou formam uma hierarquia, como trimestres agrupados por ano. Use literais de string para um único nível de rótulos que não necessita de referências a células. Esta configuração se aplica apenas a categorias. Ambos os gráficos abaixo usam células da planilha para os valores das séries numéricas.
+
+O exemplo cria dois gráficos de colunas e imprime `Q1 Q2 Q3 Q4` para cada um, junto com seu modo de armazenamento. Para rótulos baseados em planilha, [IChartCategory.AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/ascell/) fornece acesso à célula subjacente e [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) devolve seu rótulo. Para rótulos literais, leia a string diretamente de [IChartCategory.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/value/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+foreach (var useCells in new[] { true, false })
+{
+    var x = useCells ? 20 : 360;
+    var chart = shapes.AddChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+    var data = chart.ChartData;
+    data.Series.Clear();
+    data.Categories.Clear();
+    data.Categories.UseCells = useCells;
+
+    var workbook = data.ChartDataWorkbook;
+    var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+    var series = data.Series.Add(seriesName, chart.Type);
+    for (var row = 1; row <= 4; row++)
+    {
+        var label = $"Q{row}";
+        if (useCells)
+        {
+            var labelCell = workbook.GetCell(0, row, 0, label);
+            data.Categories.Add(labelCell);
+        }
+        else
+        {
+            data.Categories.Add(label);
+        }
+
+        var valueCell = workbook.GetCell(0, row, 1, row * 10);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+
+    Console.Write($"UseCells = {data.Categories.UseCells}:");
+    foreach (var category in data.Categories)
+    {
+        var label = data.Categories.UseCells ? category.AsCell.Value : category.Value;
+        Console.Write($" {label}");
+    }
+    Console.WriteLine();
+}
+
+presentation.Save("category-labels.pptx", SaveFormat.Pptx);
+```
 
 ## **Definir Formatos Numéricos Personalizados para Células da Pasta de Trabalho**
 
-Use [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada ao gráfico. Por exemplo, um relatório pode precisar exibir uma taxa de conversão como porcentagem com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores numéricos para que permaneçam disponíveis para cálculos e plotagem do gráfico.
+Use [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada de um gráfico. Por exemplo, um relatório pode precisar exibir uma taxa de conversão como porcentagem com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores numéricos para que continuem disponíveis para cálculos e plotagem do gráfico.
 
 Um formato numérico altera a exibição, não o valor armazenado. O formato `0.0000%` exibe `0.125` como `12.5000%`; não substitui o número armazenado por `12.5`. Da mesma forma, `0.00000` exibe `0.1234567` como `0.12346` sem arredondar o valor armazenado. Se o formato personalizado for uma string vazia (`""`), será usado [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/).
 
@@ -251,11 +307,13 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-Os formatos de célula da pasta de trabalho são separados dos formatos definidos diretamente nos eixos do gráfico ou nos rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) está habilitado e segue o formato numérico de origem porque [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) é `true`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, como mostrado abaixo. O eixo vertical usa seu próprio [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) de `0.00`, com [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) definido como `false`.
+Os formatos de célula da pasta de trabalho são independentes dos formatos definidos diretamente nos eixos do gráfico ou nos rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) está habilitado, e segue o formato numérico da origem porque [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) está `true`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, como mostrado abaixo. O eixo vertical usa seu próprio [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) de `0.00`, com [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) definido como `false`.
 
-Para formatar um rótulo de dados de forma independente, defina seu sinalizador de vínculo à origem como `false` e atribua seu [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente de `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Veja [Rótulos de Dados do Gráfico](/slides/pt/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
+Para formatar um rótulo de dado independentemente, defina seu flag de link de origem como `false` e atribua um [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente de `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Consulte [Rótulos de Dados de Gráficos](/slides/pt/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
 
-![Gráfico de colunas com rótulos vinculados à fonte exibindo 12.5000% e 0.12346 e um eixo numérico formatado independentemente.](custom-cell-formats.png)
+A imagem abaixo foi renderizada a partir da apresentação salva depois de reabri‑la:
+
+![Gráfico de colunas com rótulos vinculados à fonte mostrando 12.5000% e 0.12346 e um eixo numérico formatado independentemente.](custom-cell-formats.png)
 
 ## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
 
@@ -306,7 +364,7 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **Especificar o Tipo de Fonte de Dados**
 
-Os valores dos pontos de série também podem ser armazenados diretamente como literais numéricos. Veja [Definir Valores de Série Usando Literais Numéricos](/slides/pt/net/chart-series/#set-series-values-using-numeric-literals) para um exemplo completo que os salva e os lê. O tipo de fonte dos valores dos pontos é separado da configuração interna ou externa da pasta de trabalho do gráfico; usar literais numéricos não remove, por si só, a pasta de trabalho incorporada.
+Os valores dos pontos de série também podem ser armazenados diretamente como literais numéricos. Consulte [Definir Valores de Série Usando Literais Numéricos](/slides/pt/net/chart-series/#set-series-values-using-numeric-literals) para um exemplo completo que os salva e os lê. O tipo de origem dos valores dos pontos é separado da configuração interna ou externa da pasta de trabalho do gráfico; usar literais numéricos não remove, por si só, a pasta de trabalho incorporada.
 
 Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando fontes de dados diferentes. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
 
@@ -332,9 +390,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Detectar Formatos de Pasta de Trabalho Incorporados Não Suportados**
+## **Detectar Formatos de Pasta de Trabalho Incorporada Não Suportados**
 
-Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar a propriedade [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) em [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
+Aspose.Slides não suporta o formato de pasta de trabalho Excel binário (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar a propriedade [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) em [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não sejam gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
 
 ```csharp
 using System;
@@ -361,19 +419,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // Leia ou modifique os dados da pasta de trabalho de gráfico suportados aqui.
+    // Leia ou modifique os dados da pasta de trabalho do gráfico suportados aqui.
 }
 ```
 
 ## **Pasta de Trabalho Externa**
 
-Aspose.Slides suporta o uso de pastas de trabalho externas como fonte de dados para gráficos.
+Aspose.Slides oferece suporte ao uso de pastas de trabalho externas como fonte de dados para gráficos.
 
 ### **Criar uma Pasta de Trabalho Externa**
 
 Use [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) para exportar uma pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
 
-Este exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele fecha o stream de saída antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, depois salva a apresentação vinculada.
+Este exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele fecha o fluxo de saída antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, então salva a apresentação vinculada.
 
 ```csharp
 using System.IO;
@@ -399,11 +457,11 @@ presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 
 ### **Definir uma Pasta de Trabalho Externa**
 
-Usando o método [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se a mesma tiver sido movida).
+Usando o método [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Este método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta foi movida).
 
-Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda assim é possível usar essas pastas como fonte externa de dados. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
+Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, você ainda pode usar essas pastas como fonte externa de dados. Se for fornecido um caminho relativo para a pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
 
-Este exemplo usa uma pasta de trabalho externa cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) para mapear A1:B4 a uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
+Este exemplo usa uma pasta de trabalho externa cuja planilha denominada `Sheet1` contém um nome de série em B1, nomes de categorias em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
 
 ```csharp
 using System.IO;
@@ -424,12 +482,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-O parâmetro `updateChartData` de [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) controla se a pasta de trabalho é carregada.
+O parâmetro `updateChartData` de [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) controla se a pasta de trabalho será carregada.
 
-* Quando `updateChartData` é `false`, apenas o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados ou atualizados a partir da pasta de trabalho de destino, de modo que a pasta de trabalho pode estar indisponível.
+* Quando `updateChartData` é `false`, apenas o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados nem atualizados a partir da pasta de trabalho de destino, portanto a pasta de trabalho pode estar indisponível.
 * Quando `updateChartData` é `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
-O exemplo a seguir atribui uma URL de espaço reservado com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
+O exemplo a seguir atribui uma URL de marcador de posição com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
 
 ```csharp
 using Aspose.Slides;
@@ -445,11 +503,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Obter o Caminho da Pasta de Trabalho de Fonte de Dados Externa de um Gráfico**
+### **Obter o Caminho da Pasta de Trabalho Fonte de Dados Externa de um Gráfico**
 
 Para identificar a pasta de trabalho vinculada a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de pasta de trabalho.
 
-Este exemplo inspeciona o primeiro objeto no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
+Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
 
 ```csharp
 using System;
@@ -485,7 +543,7 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
-Este exemplo usa um gráfico que é o primeiro objeto no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série como 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
+Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série como 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
 
 ```csharp
 using System;
@@ -526,7 +584,7 @@ else
 
 ## **Atualizar Dados do Gráfico a partir de Pastas de Trabalho de Origem**
 
-Aspose.Slides for .NET 26.11 adiciona [IChartData.RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) para um gráfico e [IPresentation.RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) para a apresentação. Use-os após alteração dos valores na pasta de trabalho de origem. As pastas de trabalho externas devem estar acessíveis e ser suportadas.
+Aspose.Slides for .NET 26.11 adiciona [IChartData.RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) para um gráfico e [IPresentation.RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) para a apresentação. Use‑os após os valores da pasta de trabalho de origem serem alterados. Pastas de trabalho externas devem estar acessíveis e ser suportadas.
 
 Com o [Aspose.Slides for .NET](/slides/pt/net/installation/) 26.11 ou posterior instalado, este exemplo atualiza o primeiro gráfico no primeiro slide de `charts.pptx`. Sua pasta de trabalho de origem deve estar disponível. Salve o resultado para manter os dados de gráfico atualizados.
 
@@ -549,7 +607,7 @@ chart.ChartData.RefreshData();
 presentation.Save("refreshed-chart.pptx", SaveFormat.Pptx);
 ```
 
-Para atualizar todos os gráficos, use uma instância de apresentação separada da seguinte forma. Passar `false` faz com que uma falha na atualização seja propagada ao chamador; não desfaz os gráficos já atualizados.
+Para atualizar todos os gráficos, use uma instância de apresentação separada da seguinte forma. Passar `false` faz com que uma falha de atualização seja propagada ao chamador; não desfaz os gráficos já atualizados.
 
 ```csharp
 using Aspose.Slides;
@@ -560,24 +618,24 @@ presentation.RefreshChartsData(skipFailedCharts: false);
 presentation.Save("refreshed-charts.pptx", SaveFormat.Pptx);
 ```
 
-O parâmetro padrão é `true`: [RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) ignora um gráfico que falhou e continua com os demais. Ele não retorna resultados por gráfico, portanto uma chamada concluída não prova que todos os gráficos foram atualizados. Use chamadas individuais de [RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) se precisar identificar cada gráfico que falhou.
+O parâmetro padrão é `true`: [RefreshChartsData](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/refreshchartsdata/) ignora um gráfico com falha e continua com os demais. Ele não devolve resultados por gráfico, portanto uma chamada concluída não prova que todos os gráficos foram atualizados. Use chamadas individuais de [RefreshData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/refreshdata/) se precisar identificar cada gráfico com falha.
 
-A atualização recarrega os dados de origem. É separada do cálculo de fórmulas, da validação de layout do gráfico e da atualização de uma pré‑visualização OLE. Inspecione valores ao vivo baseados em células para verificar a atualização na memória. Um [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) ainda pode descrever o gráfico salvo anteriormente até que você salve e reabra a apresentação.
+Atualizar recarrega os dados de origem. É independente do cálculo de fórmulas, validação de layout do gráfico e atualização de visualização OLE. Inspecione valores ao vivo baseados em célula para verificar uma atualização em memória. Um [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) ainda pode descrever o gráfico salvo anteriormente até que você salve e reabra a apresentação.
 
-### **Ler Valores em Cache do Gráfico sem uma Pasta de Trabalho**
+### **Ler Valores de Gráfico em Cache sem uma Pasta de Trabalho**
 
-No .NET 26.11, os acessores de valores em cache leem os valores armazenados com o gráfico sem abrir sua pasta de trabalho. São úteis quando o arquivo vinculado está indisponível e você precisa apenas dos últimos dados armazenados do gráfico. Isso difere de reconstruir uma pasta de trabalho usando a opção de recuperação abaixo.
+No .NET 26.11, os acessores de valor em cache leem os valores armazenados com o gráfico sem abrir sua pasta de trabalho. Eles são úteis quando o arquivo vinculado está indisponível e você só precisa dos últimos dados armazenados do gráfico. Isso difere de reconstruir uma pasta de trabalho usando a opção de recuperação abaixo.
 
 | Objeto | Acessor em cache |
 | --- | --- |
-| Ponto de série comum | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) |
+| Ponto de série ordinário | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedvalue/) |
 | Ponto de dispersão ou bolha | [CachedXValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedxvalue/), [CachedYValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedyvalue/) |
 | Ponto de bolha | [CachedBubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/cachedbubblesize/) |
 | Categoria do gráfico | [CachedValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/cachedvalue/) |
 
-Cada acessor retorna [ICachedChartValue](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/). [Data](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/data/) expõe o objeto armazenado; [ToString](https://reference.aspose.com/slides/net/aspose.slides.charts/cachedchartvalue/tostring/) fornece texto; [ToDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/todouble/) retorna `NaN` para um valor ausente ou não numérico. Um cache pode estar ausente ou desatualizado, inclusive em um gráfico recém‑criado que ainda não foi salvo. Não presuma que todo campo exista ou contenha um número.
+Cada acessor devolve [ICachedChartValue](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/). [Data](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/data/) expõe o objeto armazenado; [ToString](https://reference.aspose.com/slides/net/aspose.slides.charts/cachedchartvalue/tostring/) fornece texto; [ToDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/icachedchartvalue/todouble/) devolve `NaN` para um valor ausente ou não numérico. Um cache pode estar ausente ou desatualizado, inclusive em um gráfico recém‑criado que ainda não foi salvo. Não presuma que todo campo exista ou contenha um número.
 
-Este exemplo lê todos esses campos de `cached-chart.pptx`, uma apresentação salva que contém gráficos. Uma pasta de trabalho externa ausente é aceitável porque o código não acessa [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) nem células ao vivo da pasta de trabalho.
+Este exemplo lê todos esses campos de `cached-chart.pptx`, uma apresentação salva contendo gráficos. Uma pasta de trabalho externa ausente é aceitável porque o código não acessa [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) ou células de pasta de trabalho ao vivo.
 
 ```csharp
 using System;
@@ -616,13 +674,13 @@ static void PrintCache(string name, ICachedChartValue value)
 }
 ```
 
-Use a atualização quando precisar de dados de origem atuais; use leituras em cache quando a captura armazenada for suficiente. O cache não é uma cópia completa da pasta de trabalho e não pode fornecer alterações feitas depois da última atualização.
+Use atualização quando precisar de dados de origem atuais; use leituras em cache quando a captura armazenada for suficiente. O cache não é uma cópia completa da pasta de trabalho e não pode fornecer alterações feitas após a última atualização.
 
 ### **Recuperar uma Pasta de Trabalho a partir do Cache do Gráfico**
 
-Se um gráfico usar uma pasta de trabalho externa que esteja ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configure suas [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), e defina [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
+Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configure seu [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), e defina [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
 
-O exemplo C# a seguir recupera dados da pasta de trabalho para um gráfico que é o primeiro objeto no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) e [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+O exemplo C# a seguir recupera dados da pasta de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) e [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -654,30 +712,30 @@ else
 }
 ```
 
-Se o código acessar a pasta de trabalho externa enquanto ela estiver indisponível e a recuperação estiver desabilitada, Aspose.Slides lançará uma [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Habilite a recuperação somente quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+Se o código acessar a pasta de trabalho externa enquanto ela está indisponível e a recuperação estiver desativada, Aspose.Slides lança um [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Habilite a recuperação somente quando usar os dados em cache do gráfico for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) e um [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico tem um [tipo de fonte de dados](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); se a origem for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Os caminhos relativos para pastas de trabalho externas são suportados e como eles são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do link.
+Sim. Se você especificar um caminho relativo, ele é convertido automaticamente em um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do link.
 
-**Posso usar pastas de trabalho localizadas em recursos/redes?**
+**Posso usar pastas de trabalho localizadas em recursos/redes compartilhadas?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte externa de dados. No entanto, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada—elas podem ser usadas apenas como fonte.
+Sim, essas pastas podem ser usadas como fonte externa de dados. Contudo, editar pastas de trabalho remotas diretamente pelo Aspose.Slides não é suportado — elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Editar dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
+A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Editar dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
 
-**O que devo fazer se o arquivo externo estiver protegido por senha?**
+**O que fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/net/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/net/)) e vincular a essa cópia.
 
-**Vários gráficos podem fazer referência à mesma pasta de trabalho externa?**
+**Posso ter vários gráficos referenciando a mesma pasta de trabalho externa?**
 
-Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima carga dos dados.
+Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.

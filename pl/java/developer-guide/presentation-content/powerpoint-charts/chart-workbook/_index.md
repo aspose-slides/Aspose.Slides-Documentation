@@ -13,37 +13,37 @@ keywords:
 - źródło danych
 - zewnętrzny skoroszyt
 - zewnętrzne dane
-- bufor wykresu
+- pamięć podręczna wykresu
 - odzyskiwanie skoroszytu
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Odkryj Aspose.Slides for Java: z łatwością zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
+description: "Odkryj Aspose.Slides dla Javy: bezproblemowo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
-## **Przegląd**
+## **Overview**
 
-Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu przy użyciu strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskać dostęp do kolekcji arkuszy oraz określić typ źródła danych dla wartości wykresu.
 
-Omówiono także pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, odczytać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
+Opisuje również pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
 
-W przypadku komórek skoroszytu reprezentujących brakujące dane, zobacz [Control the Display of Empty Cells](/slides/pl/java/chart-series/) dotyczące różnicy między pustą komórką a zerem oraz porównania wykresu liniowego dostępnych trybów wyświetlania.
+W przypadku komórek skoroszytu reprezentujących brakujące dane, zobacz [Kontroluj wyświetlanie pustych komórek](/slides/pl/java/chart-series/) aby poznać różnicę między pustą komórką a zerem oraz porównanie wykresu liniowego dostępnych trybów wyświetlania.
 
-## **Dołącz dane z ukrytych wierszy i kolumn**
+## **Include Data from Hidden Rows and Columns**
 
-Użyj [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) aby kontrolować, czy wykres rysuje dane z ukrytych wierszy i kolumn arkusza. Ustaw na `true`, aby rysować tylko widoczne komórki, lub na `false`, aby uwzględnić zarówno widoczne, jak i ukryte komórki. To ustawienie kontroluje rysowanie wykresu; nie ukrywa ani nie odsłania wierszy lub kolumn arkusza.
+Use [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) to control whether a chart plots data from hidden worksheet rows and columns. Set it to `true` to plot only visible cells, or `false` to include both visible and hidden cells. This setting controls chart plotting; it does not hide or unhide worksheet rows or columns.
 
-[Sample presentation](hidden-source-data.pptx) zawiera wykres słupkowy jako pierwszy kształt na pierwszym slajdzie. Osadzony arkusz, `Sheet1`, zawiera zakres źródłowy `A1:C4`. Wiersz 3 i kolumna C są ukryte, ale ich komórki nadal zawierają wartości.
+The [sample presentation](hidden-source-data.pptx) contains a column chart as the first shape on its first slide. The embedded worksheet, `Sheet1`, contains the following source range, `A1:C4`. Row 3 and column C are hidden, but their cells still contain values.
 
-| Wiersz arkusza | A: Miesiąc | B: Sprzedaż detaliczna | C: Sprzedaż hurtowa (ukryta kolumna) |
+| Worksheet row | A: Month | B: Retail | C: Wholesale (hidden column) |
 | --- | --- | --- | --- |
-| 2 | Styczeń | 10 | 30 |
-| 3 (ukryty wiersz) | Luty | 40 | 60 |
-| 4 | Marzec | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Uzyskaj dostęp do komórek źródłowych przez [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) i odczytaj [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) aby sprawdzić ich status ukrycia. Metoda ta zgłasza status ukrycia bez jego zmiany. W tym pliku B2 jest widoczne, B3 należy do ukrytego wiersza, a C2 do ukrytej kolumny; przykład wypisuje kolejno `false`, `true` i `true`.
+Access source cells through [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) and read [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) to inspect their hidden status. This method reports the hidden status without changing it. In this file, B2 is visible, B3 belongs to the hidden row, and C2 belongs to the hidden column; the example prints `false`, `true`, and `true`, respectively.
 
-W tym przykładzie odśwież dane wykresu po zmianie ustawienia rysowania: zachowaj osadzony skoroszyt metodą [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) i wczytaj go ponownie metodą [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). Przy uwzględnianiu wszystkich komórek użyj także [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) aby przywrócić pełny zakres, włączając ukrytą kategorię luty. Samo zmienienie flagi nie wystarczy, aby odświeżyć buforowane dane wykresu i etykiety kategorii w tym przykładzie.
+For this example, refresh the chart data after changing the plotting setting: retain the embedded workbook with [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) and reload it with [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). When including all cells, also use [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) to restore the complete range, including the hidden February category. Simply changing the flag is insufficient to refresh this sample's cached chart data and category labels.
 
 ```java
 import com.aspose.slides.*;
@@ -74,6 +74,7 @@ try {
             presentation.save("hidden_cells_" + visibleOnly + ".pptx", SaveFormat.Pptx);
         }
     } else {
+        // Pierwszy kształt nie jest wykresem.
         System.out.println("The first shape is not a chart.");
     }
 } finally {
@@ -81,21 +82,21 @@ try {
 }
 ```
 
-Przykład zapisuje dwie wersje prezentacji: jedną tylko z widocznymi wartościami sprzedaży detalicznej (10 i 20), oraz drugą ze wszystkimi sześcioma wartościami. Poniższe obrazy ilustrują dwa tryby wykreślania. Wiersz 3 i kolumna C pozostają ukryte w obu osadzonych skoroszytach.
+The example saves two versions of the presentation: one with only the visible Retail values (10 and 20), and another with all six values. The images below illustrate the two plotting modes. Row 3 and column C remain hidden in both embedded workbooks.
 
-| Tylko widoczne komórki (`true`) | Wszystkie komórki (`false`) |
+| Only visible cells (`true`) | All cells (`false`) |
 | --- | --- |
-| ![Tylko widoczne komórki: wartości sprzedaży detalicznej 10 i 20 dla stycznia i marca.](hidden_cells_True.png) | ![Wszystkie komórki: wartości sprzedaży detalicznej i hurtowej dla stycznia, lutego i marca.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Ukryta komórka zawierająca wartość różni się od pustej komórki. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) kontroluje, jak wyświetlane są brakujące wartości; nie włącza ani nie wyłącza ukrytych danych źródłowych. Zobacz [Control the Display of Empty Cells](/slides/pl/java/chart-series/#control-the-display-of-empty-cells) dla przykładu.
+A hidden cell containing a value is different from an empty cell. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) controls how missing values are displayed; it does not include or exclude hidden source data. See [Kontroluj wyświetlanie pustych komórek](/slides/pl/java/chart-series/#control-the-display-of-empty-cells) for an example.
 
-## **Pobranie zakresu danych wykresu**
+## **Retrieve a Chart's Data Range**
 
-Przed aktualizacją danych skoroszytu w istniejącej prezentacji sprawdź zakresy źródłowe, aby zidentyfikować, które komórki arkusza używa każdy wykres. Metoda [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) zwraca bieżący zakres danych jako formułę kwalifikowaną arkuszem, np. `Sheet1!$A$1:$D$5`. Tutaj `Sheet1` to nazwa arkusza, `!` oddziela ją od zakresu komórek, a `$A$1:$D$5` wskazuje komórki od A1 do D5 włącznie. Znaki dolara oznaczają bezwzględne odwołania do wierszy i kolumn.
+Before updating workbook data in an existing presentation, inspect the source ranges to identify which worksheet cells each chart uses. The [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) method returns the current data range as a worksheet-qualified formula, such as `Sheet1!$A$1:$D$5`. Here, `Sheet1` is the worksheet name, `!` separates it from the cell range, and `$A$1:$D$5` identifies cells A1 through D5, inclusive. The dollar signs indicate absolute row and column references.
 
-Metoda odczytuje bieżący zakres bez zmiany wykresu ani jego skoroszytu. Jeśli wykres nie używa skoroszytu jako źródła danych, zgłasza `InvalidOperationException`. Więcej informacji znajdziesz w [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/).
+The method reads the current range without changing the chart or its workbook. If the chart does not use a workbook as its data source, it throws `InvalidOperationException`. For more information, see the [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/).
 
-Ten przykład otwiera prezentację i sprawdza kształty bezpośrednio na każdym slajdzie pod kątem wykresów. Wypisuje nazwę każdego wykresu oraz jego zakres źródłowy. Jeśli wykres nie używa skoroszytu, wypisuje komunikat i przechodzi do kolejnego wykresu.
+This example opens a presentation and checks the shapes directly on each slide for charts. It prints each chart's name and source range. If a chart does not use a workbook, it prints a message and continues to the next chart.
 
 ```java
 import com.aspose.slides.*;
@@ -121,11 +122,11 @@ try {
 }
 ```
 
-## **Odczyt i zapis danych wykresu z skoroszytu**
+## **Read and Write Chart Data from a Workbook**
 
-Aspose.Slides for Java udostępnia metody [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) i [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---), które pozwalają odczytywać i zapisywać skoroszyty danych wykresu (zawierające dane edytowane przy pomocy Aspose.Cells). **Uwaga**: dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
+Aspose.Slides for Java provides the [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) and [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Uwaga** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
-Ten przykład używa prezentacji z wykresem jako pierwszym kształtem na pierwszym slajdzie. Odczytuje osadzony skoroszyt do tablicy bajtów, Czyści istniejące serie i kategorie, i zapisuje ten sam skoroszyt z powrotem. Zmiany pozostają w pamięci; przykład nie zapisuje prezentacji.
+This example uses a presentation with a chart as the first shape on its first slide. It reads the embedded workbook into a byte array, clears the existing series and categories, and writes the same workbook back. The changes remain in memory; the example does not save the presentation.
 
 ```java
 import com.aspose.slides.*;
@@ -152,9 +153,9 @@ try {
 }
 ```
 
-### **Sprawdź układ wykresu po modyfikacji skoroszytu**
+### **Validate Chart Layout After Workbook Modification**
 
-Gdy zamienisz osadzony skoroszyt na zmodyfikowany, wykres zachowuje pierwotne kolekcje serii i kategorii. To niezgodność może spowodować niepowodzenie [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) z błędem indeksu poza zakresem. Wyczyść istniejące serie i kategorie przed zapisaniem zaktualizowanego skoroszytu z powrotem do wykresu. Przykład używa wykresu będącego pierwszym kształtem na pierwszym slajdzie. Komentarz wskazuje, gdzie miałoby nastąpić edytowanie skoroszytu; działający przykład zapisuje oryginalny skoroszyt z powrotem i w pamięci weryfikuje układ.
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart. This example uses a chart that is the first shape on the first slide. The comment marks where workbook editing would occur; the runnable example writes the original workbook back and validates the layout in memory.
 
 ```java
 import com.aspose.slides.*;
@@ -184,15 +185,67 @@ try {
 }
 ```
 
-Czyszczenie kolekcji usuwa przestarzałe odwołania danych przed zapisaniem skoroszytu. Przed użyciem wykresu odtwórz wymagane mapowania serii i kategorii dla zaktualizowanego skoroszytu.
+Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
-## **Ustaw własne formaty liczbowe dla komórek skoroszytu**
+## **Choose How to Store Category Labels**
 
-Użyj [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) aby kontrolować, jak wartości liczbowe wyświetlają się w osadzonym skoroszycie wykresu. Na przykład raport może wymagać wyświetlenia współczynnika konwersji jako procentu z czterema miejscami po przecinku oraz współczynnika z pięcioma miejscami po przecinku. Zachowaj obie wartości jako liczby, aby były dostępne do obliczeń i rysowania wykresu.
+Call [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) on the empty category collection before adding labels. Use worksheet cells for labels that refer to workbook data or form a hierarchy, such as quarters grouped by year. Use string literals for a single level of labels that needs no cell references. This setting applies only to categories. Both charts in the example use worksheet cells for the numeric series values.
 
-Format liczbowy zmienia jedynie sposób wyświetlania, nie przechowywaną wartość. Format `0.0000%` wyświetla `0.125` jako `12.5000%`; nie zastępuje przechowywanej liczby `12.5`. Analogicznie, `0.00000` wyświetla `0.1234567` jako `0.12346` bez zaokrąglania przechowywanej wartości. Jeśli niestandardowy format jest pustym ciągiem (`""`), używany jest format zwrócony przez [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--).
+The example creates two column charts and prints the storage mode followed by `Q1 Q2 Q3 Q4` for each. For worksheet-backed labels, [IChartCategory.getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getAsCell--) returns the underlying cell and [IChartDataCell.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getValue--) returns its label. For literal labels, read the string directly with [IChartCategory.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getValue--).
 
-Poniższy przykład tworzy wykres słupkowy i uzyskuje dostęp do jego komórek przez [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--). W arkuszu 0, B2 zawiera współczynnik konwersji, a C2 współczynnik. Obie komórki dostarczają wartości wykresu. Przykład włącza także etykiety wartości powiązane z formatami źródłowymi.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Set Custom Number Formats for Workbook Cells**
+
+Use [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), the format returned by [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) is used instead.
+
+The following example creates a column chart and accesses its cells through [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
 
 ```java
 import com.aspose.slides.*;
@@ -243,19 +296,19 @@ try {
 }
 ```
 
-Formaty komórek skoroszytu są oddzielne od formatów ustawionych bezpośrednio na osiach wykresu lub etykietach danych. W tym przykładzie każda etykieta wyświetla wartość swojej komórki źródłowej, ponieważ [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) jest ustawione na `true`, a format liczbowy pochodzi ze źródła, ponieważ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) jest ustawione na `true`. Po zapisaniu i ponownym otwarciu prezentacji etykiety wyświetlają `12.5000%` i `0.12346`, jak pokazano poniżej. Pionowa oś używa własnego formatu liczbowego, ustawionego metodą [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) na `0.00`, przy czym [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) jest ustawione na `false`.
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) is set to `true`, and follows the source number format because [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) is set to `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own number format, assigned with [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) as `0.00`, with [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) set to `false`.
 
-Aby sformatować etykietę danych niezależnie, ustaw jej flagę powiązania ze źródłem na `false` i przypisz format metodą [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). Nie zmienia to formatu komórki skoroszytu. Na przykład niezależny format etykiety `0.00` wyświetli pierwszą wartość jako `0.13`, podczas gdy B2 nadal wyświetla `12.5000%`. Zobacz [Chart Data Labels](/slides/pl/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) dla bezpośredniego formatowania etykiet.
+To format a data label independently, set its source-link flag to `false` and assign a format with [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/pl/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
 
-Obraz poniżej został wygenerowany z zapisanej prezentacji po jej ponownym otwarciu:
+The image below was rendered from the saved presentation after reopening it:
 
-![Wykres słupkowy z etykietami powiązanymi ze źródłem, pokazującymi 12.5000% i 0.12346 oraz niezależnie sformatowaną oś liczbową.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **Ustaw komórkę skoroszytu jako etykietę danych wykresu**
+## **Set a Workbook Cell as a Chart Data Label**
 
-Możesz używać tekstu z komórek skoroszytu jako etykiet danych wykresu.
+You can use text from workbook cells as chart data labels.
 
-Ten przykład dodaje wykres bąbelkowy z domyślnymi danymi do pierwszego slajdu istniejącej prezentacji. Używa komórek A10:A12 w arkuszu 0 jako pierwszych trzech etykiet w pierwszej serii, włącza etykiety z komórek i zapisuje zaktualizowaną prezentację.
+This example adds a bubble chart with default data to the first slide of an existing presentation. It uses cells A10:A12 on worksheet 0 for the first three labels in the first series, enables labels from cells, and saves the updated presentation.
 
 ```java
 import com.aspose.slides.*;
@@ -279,9 +332,9 @@ try {
 }
 ```
 
-## **Zarządzaj arkuszami**
+## **Manage Worksheets**
 
-Metoda [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) zapewnia dostęp do arkuszy w skoroszycie wykresu. Ten przykład tworzy wykres kołowy z domyślnymi danymi i wypisuje nazwy poszczególnych arkuszy na konsolę.
+The [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) method provides access to the worksheets in a chart workbook. This example creates a pie chart with default data and prints each worksheet name to the console.
 
 ```java
 import com.aspose.slides.*;
@@ -301,11 +354,11 @@ try {
 }
 ```
 
-## **Określ typ źródła danych**
+## **Specify the Data Source Type**
 
-Wartości punktów serii mogą być również przechowywane bezpośrednio jako literały liczbowe. Zobacz [Set Series Values Using Numeric Literals](/slides/pl/java/chart-series/#set-series-values-using-numeric-literals) dla pełnego przykładu, który zapisuje i odczytuje je. Typ źródła wartości punktów jest oddzielny od wewnętrznej lub zewnętrznej konfiguracji skoroszytu wykresu; użycie literałów liczbowych nie usuwa automatycznie osadzonego skoroszytu.
+Series point values can also be stored directly as numeric literals. See [Set Series Values Using Numeric Literals](/slides/pl/java/chart-series/#set-series-values-using-numeric-literals) for a complete example that saves and reads them. The source type of point values is separate from the chart's internal or external workbook configuration; using numeric literals does not, by itself, remove the embedded workbook.
 
-Ten przykład tworzy trójwymiarowy wykres słupkowy z domyślnymi danymi i ustawia dwie nazwy serii przy użyciu różnych źródeł danych. Pierwsza nazwa korzysta z literału ciągu znaków; druga używa komórki C1 w arkuszu 0. Wyliczenie [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) wybiera źródło dla każdej nazwy. Przykład zapisuje prezentację z zaktualizowanymi nazwami serii.
+This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) enumeration selects the source for each name. The example saves the presentation with the updated series names.
 
 ```java
 import com.aspose.slides.*;
@@ -331,9 +384,9 @@ try {
 }
 ```
 
-## **Wykryj nieobsługiwane formaty osadzonych skoroszytów**
+## **Detect Unsupported Embedded Workbook Formats**
 
-Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) na interfejsie [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/), aby wykrywać nieobsługiwane formaty i pomijać takie wykresy. Ten przykład przegląda kształty na pierwszym slajdzie istniejącej prezentacji, pomija kształty niebędące wykresami i wypisuje komunikat diagnostyczny dla każdego wykresu z osadzonym skoroszytem .xlsb.
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) method on [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts. This example inspects the shapes on the first slide of an existing presentation, skips non-chart shapes, and prints a diagnostic message for each chart with an embedded .xlsb workbook.
 
 ```java
 import com.aspose.slides.*;
@@ -357,22 +410,22 @@ try {
             continue;
         }
 
-        // Wczytaj lub zmodyfikuj obsługiwane dane skoroszytu wykresu tutaj.
+        // Odczytaj lub zmodyfikuj obsługiwane dane skoroszytu wykresu tutaj.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Zewnętrzny skoroszyt**
+## **External Workbook**
 
-Aspose.Slides obsługuje używanie zewnętrznych skoroszytów jako źródła danych dla wykresów.
+Aspose.Slides supports using external workbooks as a data source for charts.
 
-### **Utwórz zewnętrzny skoroszyt**
+### **Create an External Workbook**
 
-Użyj [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) i [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) aby wyeksportować osadzony skoroszyt wykresu do pliku i połączyć wykres z tym zewnętrznym skoroszytem.
+Use [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) and [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) to export an embedded chart workbook to a file and link the chart to that external workbook.
 
-Ten przykład tworzy wykres kołowy z domyślnymi danymi i eksportuje jego skoroszyt. Zapis pliku kończy się przed przypisaniem zewnętrznego skoroszytu jako źródła danych wykresu, a następnie zapisuje powiązaną prezentację.
+This example creates a pie chart with default data and exports its workbook. It completes the file write before assigning the external workbook as the chart data source, then saves the linked presentation.
 
 ```java
 import com.aspose.slides.*;
@@ -400,13 +453,13 @@ try {
 }
 ```
 
-### **Ustaw zewnętrzny skoroszyt**
+### **Set an External Workbook**
 
-Używając metody [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-), możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może być również użyta do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został on przeniesiony).
+Using the [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
-Choć nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona na pełną ścieżkę.
+While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-Ten przykład używa zewnętrznego skoroszytu, którego arkusz o nazwie `Sheet1` zawiera nazwę serii w B1, nazwy kategorii w A2:A4 oraz wartości liczbowe w B2:B4. Przykład tworzy wykres kołowy, łączy skoroszyt i używa [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) aby zmapować A1:B4 na jedną serię i trzy kategorie. Zapisuje prezentację z połączonym wykresem.
+This example uses an external workbook whose worksheet named `Sheet1` contains a series name in B1, category names in A2:A4, and numeric values in B2:B4. The example creates a pie chart, links the workbook, and uses [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) to map A1:B4 to one series and three categories. It saves the presentation with the linked chart.
 
 ```java
 import com.aspose.slides.*;
@@ -429,12 +482,12 @@ try {
 }
 ```
 
-Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) kontroluje, czy skoroszyt zostanie załadowany.
+The `updateChartData` parameter of [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) controls whether the workbook is loaded.
 
-* Gdy `updateChartData` ma wartość `false`, aktualizowana jest jedynie ścieżka do skoroszytu. Dane wykresu nie są ładowane ani aktualizowane z docelowego skoroszytu, więc skoroszyt może być niedostępny.
-* Gdy `updateChartData` ma wartość `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
+* When `updateChartData` is `false`, only the workbook path is updated. The chart data is not loaded or updated from the target workbook, so the workbook can be unavailable.
+* When `updateChartData` is `true`, the chart data is updated from the target workbook.
 
-Poniższy przykład przypisuje adres URL zastępczy z `updateChartData` ustawionym na `false`. Zachowuje domyślne dane wykresu kołowego i zapisuje prezentację bez ładowania niedostępnego skoroszytu.
+The following example assigns a placeholder URL with `updateChartData` set to `false`. It retains the pie chart's default data and saves the presentation without loading the unavailable workbook.
 
 ```java
 import com.aspose.slides.*;
@@ -452,11 +505,11 @@ try {
 }
 ```
 
-### **Pobierz ścieżkę skoroszytu zewnętrznego źródła danych wykresu**
+### **Get the External Data Source Workbook Path of a Chart**
 
-Aby zidentyfikować skoroszyt powiązany z wykresem, sprawdź, czy wykres używa zewnętrznego źródła danych i odczytaj jego ścieżkę.
+To identify the workbook linked to a chart, check whether the chart uses an external data source and retrieve its workbook path.
 
-Ten przykład przegląda pierwszy kształt na pierwszym slajdzie prezentacji z powiązanym zewnętrznym skoroszytem. Jeśli jest to wykres połączony z zewnętrznym skoroszytem, przykład wypisuje [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) na konsolę. Następnie zapisuje kopię prezentacji.
+This example inspects the first shape on the first slide of a presentation with a linked external workbook. If it is a chart linked to an external workbook, the example prints [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) to the console. It then saves a copy of the presentation.
 
 ```java
 import com.aspose.slides.*;
@@ -483,11 +536,11 @@ try {
 }
 ```
 
-### **Edytuj dane wykresu**
+### **Edit Chart Data**
 
-Możesz edytować dane w zewnętrznych skoroszytach tak samo, jak wprowadzane zmiany w zawartości wewnętrznych skoroszytów. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje rzucony wyjątek.
+You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-Ten przykład używa wykresu będącego pierwszym kształtem na pierwszym slajdzie i połączonego z dostępnym zewnętrznym skoroszytem. Ustawia wartość komórkową pierwszego punktu danych w pierwszej serii na 100 i zapisuje zaktualizowaną prezentację. Edycja wartości komórek może zaktualizować powiązany zewnętrzny plik XLSX, więc użyj kopii, jeśli musisz zachować oryginalny skoroszyt.
+This example uses a chart that is the first shape on the first slide and is linked to an accessible external workbook. It sets the cell-backed value of the first data point in the first series to 100 and saves the updated presentation. Editing cell values can update the linked external XLSX file, so use a copy if you need to preserve the original workbook.
 
 ```java
 import com.aspose.slides.*;
@@ -519,11 +572,11 @@ try {
 }
 ```
 
-### **Odzyskaj skoroszyt z pamięci podręcznej wykresu**
+### **Recover a Workbook from the Chart Cache**
 
-Jeśli wykres używa zewnętrznego skoroszytu, który jest nieobecny lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych buforowanych w prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), wywołaj [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), i ustaw [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) na `true` przed otwarciem prezentacji.
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), call [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), and set [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) to `true` before opening the presentation.
 
-Poniższy przykład w Javie odzyskuje dane skoroszytu dla wykresu będącego pierwszym kształtem na pierwszym slajdzie i odwołującego się do niedostępnego zewnętrznego skoroszytu. Dostęp do odzyskanych danych uzyskuje poprzez [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) i [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+The following Java example recovers workbook data for a chart that is the first shape on the first slide and references an unavailable external workbook. It accesses the recovered data through [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) and [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -543,7 +596,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Wczytaj lub zmodyfikuj odzyskane dane skoroszytu tutaj.
+        // Odczytaj lub zmodyfikuj tutaj odzyskane dane skoroszytu.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -552,30 +605,30 @@ try {
 }
 ```
 
-Jeśli zewnętrzny skoroszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides rzuca wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie buforowanych danych wykresu jest dopuszczalnym rozwiązaniem awaryjnym, ponieważ bufor może nie zawierać zmian wprowadzonych do zewnętrznego skoroszytu po ostatniej aktualizacji prezentacji.
+If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws an exception. Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
 
-## **Najczęściej zadawane pytania**
+## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
+**Can I determine whether a specific chart is linked to an external or an embedded workbook?**
 
-Tak. Wykres ma [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) oraz [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
+Yes. A chart has a [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) and a [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); if the source is an external workbook, you can read the full path to make sure an external file is being used.
 
-**Czy ścieżki względne do zewnętrznych skoroszytów są obsługiwane i jak są przechowywane?**
+**Are relative paths to external workbooks supported, and how are they stored?**
 
-Tak. Jeśli podasz ścieżkę względną, zostaje ona automatycznie przekształcona na ścieżkę bezwzględną. Prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX, więc przeniesienie skoroszytu może wymagać aktualizacji łącza.
+Yes. If you specify a relative path, it is automatically converted to an absolute path. The presentation stores the absolute path in the PPTX file, so moving the workbook may require updating the link.
 
-**Czy mogę używać skoroszytów znajdujących się na zasobach sieciowych/udostępnionych?**
+**Can I use workbooks located on network resources/shares?**
 
-Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest obsługiwana — mogą być używane jedynie jako źródło.
+Yes, such workbooks can be used as an external data source. However, editing remote workbooks directly from Aspose.Slides is not supported—they can only be used as a source.
 
-**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
+**Does Aspose.Slides overwrite the external XLSX when saving the presentation?**
 
-Prezentacja przechowuje [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Edycja danych wykresu opartych na komórkach może również zaktualizować powiązany lokalny plik XLSX. Użyj kopii skoroszytu, jeśli oryginał musi pozostać niezmieniony.
+The presentation stores a [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Editing cell-backed chart data can also update the linked local XLSX file. Use a copy of the workbook if the original must remain unchanged.
 
-**Co zrobić, jeśli plik zewnętrzny jest chroniony hasłem?**
+**What should I do if the external file is password-protected?**
 
-Aspose.Slides nie przyjmuje hasła przy łączeniu. Typowym podejściem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](https://reference.aspose.com/cells/java/)) i połączenie się z tą kopią.
+Aspose.Slides does not accept a password when linking. A common approach is to remove protection in advance or prepare a decrypted copy (for example, using [Aspose.Cells](https://reference.aspose.com/cells/java/)) and link to that copy.
 
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
+**Can multiple charts reference the same external workbook?**
 
-Tak. Każdy wykres przechowuje własne łącze. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym ładowaniu danych.
+Yes. Each chart stores its own link. If they all point to the same file, updating that file will be reflected in each chart the next time the data is loaded.

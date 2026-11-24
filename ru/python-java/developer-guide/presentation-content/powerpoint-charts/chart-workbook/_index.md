@@ -8,7 +8,7 @@ keywords:
 - рабочая книга диаграммы
 - данные диаграммы
 - ячейка рабочей книги
-- подпись данных
+- метка данных
 - лист
 - источник данных
 - внешняя рабочая книга
@@ -20,31 +20,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Откройте для себя Aspose.Slides for Python via Java: легко управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая данные ваших презентаций."
+description: "Откройте для себя Aspose.Slides for Python via Java: легко управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая работу с данными презентаций."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как читать и записывать данные диаграмм через потоки рабочих книг, использовать ячейки рабочей книги в качестве подписей данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
+Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как читать и записывать данные диаграммы через потоки рабочей книги, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
 
-Она также охватывает работу с внешними рабочими книгами в качестве источников данных для диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
+Она также охватывает работу с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
 
-Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Control the Display of Empty Cells](/slides/ru/python-java/chart-series/) для разницы между пустой ячейкой и нулём, а также сравнение линий диаграмм доступных режимов отображения.
+Для ячеек рабочей книги, представляющих отсутствующие данные, см. [Control the Display of Empty Cells](/slides/ru/python-java/chart-series/) для различий между пустой ячейкой и нулём, а также сравнение режимов отображения в линейной диаграмме.
 
 ## **Включать данные из скрытых строк и столбцов**
 
 Используйте [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) для управления тем, будет ли диаграмма строить данные из скрытых строк и столбцов листа. Установите `True`, чтобы строить только видимые ячейки, или `False`, чтобы включать как видимые, так и скрытые ячейки. Эта настройка управляет построением диаграммы; она не скрывает и не отображает строки или столбцы листа.
 
-Пример презентации ([sample presentation](hidden-source-data.pptx)) содержит столбчатую диаграмму как первую фигуру на первом слайде. Встроенный лист `Sheet1` содержит следующий исходный диапазон `A1:C4`. Строка 3 и столбец C скрыты, но их ячейки всё равно содержат значения.
+[sample presentation](hidden-source-data.pptx) содержит столбчатую диаграмму как первую форму на первом слайде. Встроенный лист, `Sheet1`, содержит исходный диапазон `A1:C4`. Строка 3 и столбец C скрыты, но их ячейки всё равно содержат значения.
 
 | Строка листа | A: Месяц | B: Розница | C: Оптовая (скрытый столбец) |
 | --- | --- | --- | --- |
-| 2 | Январь | 10 | 30 |
-| 3 (скрытая строка) | Февраль | 40 | 60 |
-| 4 | Март | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Получайте исходные ячейки через [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) и читайте [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden), чтобы проверить их статус скрытия. Этот метод сообщает статус скрытия без его изменения. В этом файле B2 видима, B3 относится к скрытой строке, а C2 — к скрытому столбцу; пример выводит `False`, `True` и `True` соответственно.
+Получайте доступ к исходным ячейкам через [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) и читайте [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) для проверки их скрытого состояния. Этот метод сообщает о скрытом состоянии без его изменения. В этом файле B2 видим, B3 относится к скрытой строке, а C2 — к скрытому столбцу; пример выводит `False`, `True` и `True` соответственно.
 
-Для этого примера обновите данные диаграммы после изменения настройки построения: удержите встроенную рабочую книгу с помощью [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и перезагрузите её с помощью [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Когда включаются все ячейки, также используйте [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) для восстановления полного диапазона, включая скрытую категорию февраля. Простое изменение флага недостаточно для обновления кэшированных данных диаграммы и подписей категорий в этом примере.
+Для этого примера обновите данные диаграммы после изменения настройки построения: сохраните встроенную рабочую книгу с помощью [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и загрузите её снова с помощью [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). При включении всех ячеек также используйте [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) для восстановления полного диапазона, включая скрытую категорию February. Простое изменение флага недостаточно для обновления кэшированных данных диаграммы и меток категорий в этом примере.
 
 ```python
 import jpype
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-Пример сохраняет две версии презентации: одну только с видимыми значениями розницы (10 и 20), а другую со всеми шестью значениями. Ниже приведены изображения, иллюстрирующие два режима построения. Строка 3 и столбец C остаются скрытыми в обеих встроенных рабочих книгах.
+Пример сохраняет две версии презентации: одну только с видимыми значениями Retail (10 и 20), другую со всеми шести значениями. Ниже изображения, иллюстрирующие два режима построения. Строка 3 и столбец C остаются скрытыми в обеих встроенных рабочих книгах.
 
 | Только видимые ячейки (`True`) | Все ячейки (`False`) |
 | --- | --- |
-| ![Только видимые ячейки: значения розницы 10 и 20 для января и марта.](hidden_cells_True.png) | ![Все ячейки: значения розницы и оптовой цены для января, февраля и марта.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
 Скрытая ячейка, содержащая значение, отличается от пустой ячейки. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) управляет тем, как отображаются отсутствующие значения; он не включает и не исключает скрытые исходные данные. См. [Control the Display of Empty Cells](/slides/ru/python-java/chart-series/#control-the-display-of-empty-cells) для примера.
 
 ## **Получить диапазон данных диаграммы**
 
-Перед обновлением данных рабочей книги в существующей презентации проверьте исходные диапазоны, чтобы определить, какие ячейки листа использует каждая диаграмма. Метод [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) возвращает текущий диапазон данных в виде формулы, квалифицированной листом, например `Sheet1!$A$1:$D$5`. Здесь `Sheet1` — имя листа, `!` отделяет его от диапазона ячеек, а `$A$1:$D$5` обозначает ячейки от A1 до D5 включительно. Знаки доллара указывают абсолютные ссылки на строки и столбцы.
+Перед обновлением данных рабочей книги в существующей презентации проверьте исходные диапазоны, чтобы определить, какие ячейки листа использует каждая диаграмма. Метод [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) возвращает текущий диапазон данных в виде формулы, квалифицированной листом, например `Sheet1!$A$1:$D$5`. Здесь `Sheet1` — имя листа, `!` отделяет его от диапазона ячеек, а `$A$1:$D$5` указывает ячейки от A1 до D5 включительно. Знаки `$` обозначают абсолютные ссылки на строки и столбцы.
 
-Метод читает текущий диапазон без изменения диаграммы или её рабочей книги. Если диаграмма не использует рабочую книгу в качестве источника данных, он бросает `InvalidOperationException`. Для получения дополнительной информации см. [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
+Метод читает текущий диапазон без изменения диаграммы или её рабочей книги. Если диаграмма не использует рабочую книгу в качестве источника данных, он бросает `InvalidOperationException`. Подробнее см. в [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
 
-Этот пример открывает презентацию и проверяет фигуры напрямую на каждом слайде в поисках диаграмм. Он выводит имя каждой диаграммы и её исходный диапазон. Если диаграмма не использует рабочую книгу, он выводит сообщение и переходит к следующей диаграмме.
+Этот пример открывает презентацию и проверяет формы напрямую на каждом слайде на наличие диаграмм. Он выводит имя каждой диаграммы и её исходный диапазон. Если диаграмма не использует рабочую книгу, выводится сообщение, и проверка продолжается со следующей диаграммой.
 
 ```python
 import jpype
@@ -127,9 +127,9 @@ finally:
 
 ## **Чтение и запись данных диаграммы из рабочей книги**
 
-Aspose.Slides for Python via Java предоставляет методы [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream), позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные в Aspose.Cells). **Примечание** что данные диаграммы должны быть организованы тем же образом или иметь структуру, похожую на исходную.
+Aspose.Slides for Python via Java предоставляет методы [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream), позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные в Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаковым образом или иметь структуру, аналогичную исходной.
 
-Этот пример использует презентацию с диаграммой как первой фигурой на первом слайде. Он читает встроенную рабочую книгу в массив байтов, очищает существующие серии и категории и снова записывает ту же рабочую книгу. Изменения остаются в памяти; пример не сохраняет презентацию.
+Этот пример использует презентацию с диаграммой как первой формой на первом слайде. Он читает встроенную рабочую книгу в массив байтов, очищает существующие серии и категории и записывает ту же рабочую книгу обратно. Изменения остаются в памяти; пример не сохраняет презентацию.
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Проверить макет диаграммы после изменения рабочей книги**
+### **Проверка макета диаграммы после изменения рабочей книги**
 
-Когда вы заменяете встроенную рабочую книгу изменённой, диаграмма сохраняет оригинальные коллекции серий и категорий. Это несоответствие может вызвать ошибку при выполнении [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout). Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму. Этот пример использует диаграмму, которая является первой фигурой на первом слайде. Комментарий отмечает место, где могла бы происходить правка рабочей книги; исполняемый пример записывает оригинальную рабочую книгу обратно и проверяет макет в памяти.
+Когда вы заменяете встроенную рабочую книгу модифицированной, диаграмма сохраняет свои исходные коллекции серий и категорий. Это несоответствие может привести к ошибке [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) с сообщением «index out of range». Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму. Этот пример использует диаграмму, которая является первой формой на первом слайде. Комментарий отмечает место, где должно происходить редактирование рабочей книги; исполняемый пример записывает оригинальную рабочую книгу обратно и проверяет макет в памяти.
 
 ```python
 import jpype
@@ -196,15 +196,69 @@ finally:
     presentation.dispose()
 ```
 
-Очистка коллекций удаляет устаревшие ссылки на данные перед записью рабочей книги. Воссоздайте необходимые серии и сопоставления категорий для обновлённой рабочей книги перед использованием диаграммы.
+Очистка коллекций удаляет устаревшие ссылки на данные перед записью рабочей книги. Восстановите необходимые соответствия серий и категорий для обновлённой рабочей книги перед использованием диаграммы.
 
-## **Установить пользовательские числовые форматы для ячеек рабочей книги**
+## **Выбор способа хранения меток категорий**
 
-Используйте [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) для управления тем, как числовые значения отображаются в встроенной рабочей книге диаграммы. Например, в отчёте может потребоваться отображать коэффициент конверсии в виде процента с четырьмя знаками после запятой и коэффициент с пятью знаками после запятой. Оставьте оба значения числовыми, чтобы они оставались доступными для вычислений и построения диаграмм.
+Вызовите [ChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorycollection/#setUseCells) у пустой коллекции категорий перед добавлением меток. Используйте ячейки листа, когда метки ссылаются на данные рабочей книги или образуют иерархию, например кварталы, сгруппированные по годам. Используйте строковые литералы для одноуровневых меток, которым не нужны ссылки на ячейки. Эта настройка применяется только к категориям. Оба примера ниже используют ячейки листа для своих числовых значений серий.
 
-Числовой формат изменяет только отображение, а не сохраняемое значение. Формат `0.0000%` отображает `0.125` как `12.5000%`; он не заменяет сохранённое число на `12.5`. Аналогично, `0.00000` отображает `0.1234567` как `0.12346` без округления сохранённого значения. Если пользовательский формат — пустая строка (`""`), используется формат, возвращаемый [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat).
+Пример создаёт два столбчатых графика и выводит режим хранения, а затем `Q1 Q2 Q3 Q4` для каждого. Для меток, подкреплённых листом, [ChartCategory.getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getAsCell) возвращает базовую ячейку, а [ChartDataCell.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getValue) считывает её метку. Для буквальных меток [ChartCategory.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getValue) возвращает строку напрямую.
 
-Следующий пример создаёт столбчатую диаграмму и получает доступ к её ячейкам через [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). На листе 0 ячейка B2 содержит коэффициент конверсии, а C2 — коэффициент. Обе ячейки поставляют значения для диаграммы. Пример также включает подписи значений, связанные с исходными форматами.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    for use_cells in (True, False):
+        x = 20 if use_cells else 360
+        chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250)
+        chart_data = chart.getChartData()
+        chart_data.getSeries().clear()
+        categories = chart_data.getCategories()
+        categories.clear()
+        categories.setUseCells(use_cells)
+
+        workbook = chart_data.getChartDataWorkbook()
+        series_name = workbook.getCell(0, 0, 1, "Sales")
+        series = chart_data.getSeries().add(series_name, chart.getType())
+        for row in range(1, 5):
+            label = f"Q{row}"
+            if use_cells:
+                label_cell = workbook.getCell(0, row, 0, label)
+                categories.add(label_cell)
+            else:
+                categories.add(label)
+
+            value_cell = workbook.getCell(0, row, 1, jpype.JInt(row * 10))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+        stored_in_cells = categories.getUseCells()
+        labels = []
+        for category in categories:
+            value = category.getAsCell().getValue() if stored_in_cells else category.getValue()
+            labels.append(str(value))
+        print(f"UseCells = {stored_in_cells}:", *labels)
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Установка пользовательских числовых форматов для ячеек рабочей книги**
+
+Используйте [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) для контроля отображения числовых значений в встроенной рабочей книге диаграммы. Например, в отчёте может потребоваться отображать коэффициент конверсии в виде процента с четырьмя знаками после запятой и коэффициент с пятью знаками после запятой. Оставьте оба значения числовыми, чтобы они оставались доступными для вычислений и построения диаграмм.
+
+Числовой формат меняет только отображение, а не сохранённое значение. Формат `0.0000%` выводит `0.125` как `12.5000%`; он не заменяет хранимое число на `12.5`. Аналогично, `0.00000` выводит `0.1234567` как `0.12346`, не округляя сохранённое значение. Если пользовательский формат — пустая строка (`""`), используется формат, возвращаемый [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat).
+
+В следующем примере создаётся столбчатая диаграмма и доступ к её ячейкам осуществляется через [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). На листе 0 ячейка B2 содержит коэффициент конверсии, а C2 — коэффициент. Обе ячейки снабжают диаграмму значениями. Пример также включает подписи значений, связанные с исходными форматами.
 
 ```python
 import jpype
@@ -259,19 +313,19 @@ finally:
     presentation.dispose()
 ```
 
-Форматы ячеек рабочей книги отделены от форматов, задаваемых непосредственно на осях диаграммы или подписи данных. В этом примере каждая подпись отображает значение своей исходной ячейки, потому что [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) установлено в `True`, а [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) — в `True`. После сохранения и повторного открытия презентации подписи отображают `12.5000%` и `0.12346`, как показано ниже. Вертикальная ось использует свой собственный числовой формат, заданный через [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) как `0.00`, при этом [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) установлен в `False`.
+Форматы ячеек рабочей книги отдельны от форматов, задаваемых напрямую на осях диаграммы или подпях данных. В этом примере каждая подпись отображает значение своей исходной ячейки, потому что [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) установлен в `True`, а [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) — в `True`. После сохранения и повторного открытия презентации подписи показывают `12.5000%` и `0.12346`, как показано ниже. Вертикальная ось использует собственный числовой формат, установленный через [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) как `0.00`, а [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) установлен в `False`.
 
-Чтобы форматировать подпись данных независимо, установите её флаг ссылки на источник в `False` и задайте формат через [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Это не изменит формат ячейки рабочей книги. Например, независимый формат подписи `0.00` отображает первое значение как `0.13`, тогда как B2 по‑прежнему отображает `12.5000%`. См. [Chart Data Labels](/slides/ru/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) для непосредственного форматирования подписей.
+Чтобы отформатировать подпись данных независимо, установите её флаг связи с источником в `False` и задайте формат через [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Это не меняет формат ячейки рабочей книги. Например, независимый формат подписи `0.00` выводит первое значение как `0.13`, тогда как B2 по‑прежнему показывает `12.5000%`. См. [Chart Data Labels](/slides/ru/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) для прямого форматирования подписей.
 
 Изображение ниже было получено из сохранённой презентации после её повторного открытия:
 
-![Столбчатая диаграмма с подписями, связанными с источником, показывающая 12.5000% и 0.12346, и независимо отформатированной числовой осью.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **Установить ячейку рабочей книги в качестве подписи данных диаграммы**
+## **Установка ячейки рабочей книги в качестве подписи данных диаграммы**
 
 Вы можете использовать текст из ячеек рабочей книги в качестве подписей данных диаграммы.
 
-Этот пример добавляет пузырьковую диаграмму с данными по умолчанию на первый слайд существующей презентации. Он использует ячейки A10:A12 на листе 0 для первых трёх подписей в первой серии, включает подписи из ячеек и сохраняет обновлённую презентацию.
+Этот пример добавляет пузырчатую диаграмму с данными по умолчанию на первый слайд существующей презентации. Он использует ячейки A10:A12 на листе 0 для первых трёх меток первой серии, включает подписи из ячеек и сохраняет обновлённую презентацию.
 
 ```python
 import jpype
@@ -303,7 +357,7 @@ finally:
 
 ## **Управление листами**
 
-Метод [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) предоставляет доступ к листам в рабочей книге диаграммы. Этот пример создаёт круговую диаграмму с данными по умолчанию и выводит названия каждого листа в консоль.
+Метод [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) предоставляет доступ к листам в рабочей книге диаграммы. Этот пример создаёт круговую диаграмму с данными по умолчанию и выводит имя каждого листа в консоль.
 
 ```python
 import jpype
@@ -326,11 +380,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Указать тип источника данных**
+## **Указание типа источника данных**
 
-Значения точек серии могут также храниться непосредственно как числовые литералы. См. [Set Series Values Using Numeric Literals](/slides/ru/python-java/chart-series/#set-series-values-using-numeric-literals) для полного примера, который сохраняет и читает их. Тип источника значений точек отделён от внутренней или внешней конфигурации рабочей книги диаграммы; использование числовых литералов само по себе не удаляет встроенную рабочую книгу.
+Значения точек серии также могут храниться непосредственно как числовые литералы. См. [Set Series Values Using Numeric Literals](/slides/ru/python-java/chart-series/#set-series-values-using-numeric-literals) для полного примера, который сохраняет и читает их. Тип источника точечных значений отдельно от внутренней или внешней конфигурации рабочей книги диаграммы; использование числовых литералов само по себе не удаляет встроенную рабочую книгу.
 
-Этот пример создаёт 3D столбчатую диаграмму с данными по умолчанию и задаёт два имени серии, используя разные источники данных. Первое имя задаётся строковым литералом; второе использует ячейку C1 на листе 0. Перечисление [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) выбирает источник для каждого имени. Пример сохраняет презентацию с обновлёнными именами серий.
+Этот пример создаёт 3D столбчатую диаграмму с данными по умолчанию и задаёт два имени серии, используя разные источники данных. Первое имя задаётся строковым литералом; второе — ячейкой C1 на листе 0. Перечисление [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) выбирает источник для каждого имени. Пример сохраняет презентацию с обновлёнными именами серий.
 
 ```python
 import jpype
@@ -361,10 +415,10 @@ finally:
 
 ## **Обнаружение неподдерживаемых форматов встроенных рабочих книг**
 
-Aspose.Slides не поддерживает формат бинарных рабочих книг Excel (.xlsb), которые могут быть встроены в некоторые диаграммы. Вы можете использовать метод [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) на объекте [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/), чтобы обнаружить неподдерживаемые форматы и пропустить такие диаграммы. Этот пример проверяет фигуры на первом слайде существующей презентации, пропускает не‑диаграммные фигуры и выводит диагностическое сообщение для каждой диаграммы со встроенной рабочей книгой .xlsb.
+Aspose.Slides не поддерживает формат двоичной рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) класса [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска соответствующих диаграмм. Этот пример проверяет формы на первом слайде существующей презентации, пропускает не‑диаграммные формы и выводит диагностическое сообщение для каждой диаграммы с вложенной рабочей книгой .xlsb.
 
 ```python
-import jpype
+import jpway
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -388,7 +442,7 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Прочитать или изменить поддерживаемые данные рабочей книги диаграммы здесь.
+        # Читайте или изменяйте поддерживаемые данные рабочей книги диаграммы здесь.
 finally:
     presentation.dispose()
 ```
@@ -397,9 +451,9 @@ finally:
 
 Aspose.Slides поддерживает использование внешних рабочих книг в качестве источника данных для диаграмм.
 
-### **Создать внешнюю рабочую книгу**
+### **Создание внешней рабочей книги**
 
-Используйте [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook), чтобы экспортировать встроенную рабочую книгу диаграммы в файл и связать диаграмму с этой внешней рабочей книгой.
+Используйте [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) и [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) для экспорта встроенной рабочей книги диаграммы в файл и привязки диаграммы к этой внешней рабочей книге.
 
 Этот пример создаёт круговую диаграмму с данными по умолчанию и экспортирует её рабочую книгу. Он завершает запись файла перед назначением внешней рабочей книги в качестве источника данных диаграммы, затем сохраняет связанную презентацию.
 
@@ -429,13 +483,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Установить внешнюю рабочую книгу**
+### **Назначение внешней рабочей книги**
 
-С помощью метода [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей книге (если файл был перемещён).
+С помощью метода [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также можно использовать для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, такие книги всё равно могут использоваться в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
+Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, вы всё равно можете использовать такие книги в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
 
-Этот пример использует внешнюю рабочую книгу, лист которой с именем `Sheet1` содержит имя серии в B1, имена категорий в A2:A4 и числовые значения в B2:B4. Пример создаёт круговую диаграмму, связывает рабочую книгу и использует [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) для сопоставления A1:B4 с одной серией и тремя категориями. Он сохраняет презентацию со связанной диаграммой.
+Этот пример использует внешнюю рабочую книгу, у которой лист `Sheet1` содержит имя серии в B1, имена категорий в A2:A4 и числовые значения в B2:B4. Пример создаёт круговую диаграмму, связывает рабочую книгу и использует [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) для сопоставления A1:B4 с одной серией и тремя категориями. Затем сохраняет презентацию со связанной диаграммой.
 
 ```python
 import jpype
@@ -463,12 +517,12 @@ finally:
     presentation.dispose()
 ```
 
-Параметр `updateChartData` метода [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) определяет, будет ли рабочая книга загружена.
+Параметр `updateChartData` метода [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) управляет тем, будет ли рабочая книга загружена.
 
-* Когда `updateChartData` равно `False`, обновляется только путь к рабочей книге. Данные диаграммы не загружаются и не обновляются из целевой рабочей книги, поэтому рабочая книга может быть недоступна.
-* Когда `updateChartData` равно `True`, данные диаграммы обновляются из целевой рабочей книги.
+* Когда `updateChartData` равен `False`, обновляется только путь к рабочей книге. Данные диаграммы не загружаются и не обновляются из целевой рабочей книги, поэтому рабочая книга может быть недоступна.
+* Когда `updateChartData` равен `True`, данные диаграммы обновляются из целевой рабочей книги.
 
-Следующий пример назначает заполнитель URL с `updateChartData` равным `False`. Он сохраняет диаграмму со стандартными данными и сохраняет презентацию без загрузки недоступной рабочей книги.
+Следующий пример назначает URL‑заполнитель с `updateChartData` установленным в `False`. Он сохраняет презентацию без загрузки недоступной рабочей книги, оставляя данные круговой диаграммы по умолчанию.
 
 ```python
 import jpype
@@ -492,11 +546,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Получить путь к внешней рабочей книге источника данных диаграммы**
+### **Получение пути к внешней рабочей книге источника данных диаграммы**
 
-Чтобы определить, к какой рабочей книге привязана диаграмма, проверьте, использует ли диаграмма внешний источник данных, и получите путь к её рабочей книге.
+Чтобы определить, к какой рабочей книге привязана диаграмма, проверьте, использует ли диаграмма внешний источник данных, и получите её путь к рабочей книге.
 
-Этот пример проверяет первую фигуру на первом слайде презентации с внешней связанной рабочей книгой. Если это диаграмма, связанная с внешней рабочей книгой, пример выводит [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) в консоль. Затем он сохраняет копию презентации.
+Этот пример проверяет первую форму на первом слайде презентации со связанной внешней рабочей книгой. Если это диаграмма, привязанная к внешней рабочей книге, пример выводит [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) в консоль. Затем сохраняет копию презентации.
 
 ```python
 import jpype
@@ -527,11 +581,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Редактировать данные диаграммы**
+### **Редактирование данных диаграммы**
 
-Вы можете редактировать данные во внешних рабочих книгах так же, как и внутренних. Если внешняя рабочая книга не может быть загружена, генерируется исключение.
+Вы можете редактировать данные во внешних рабочих книгах так же, как вносите изменения во внутренние рабочие книги. Если внешняя рабочая книга не может быть загружена, будет выброшено исключение.
 
-Этот пример использует диаграмму, которая является первой фигурой на первом слайде и связана с доступной внешней рабочей книгой. Он задаёт значение первой точки данных первой серии, поддерживаемое ячейкой, равным 100 и сохраняет обновлённую презентацию. Редактирование значений ячеек может обновить связанный внешний файл XLSX, поэтому используйте копию, если необходимо сохранить оригинальную книгу.
+Этот пример использует диаграмму, которая является первой формой на первом слайде и связана с доступной внешней рабочей книгой. Он задаёт значение первой точки данных первой серии, подкреплённое ячейкой, равным 100 и сохраняет обновлённую презентацию. Редактирование значений ячеек может обновлять связанный внешний файл XLSX, поэтому используйте копию, если необходимо сохранить оригинальную рабочую книгу.
 
 ```python
 import jpype
@@ -565,11 +619,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Восстановить рабочую книгу из кэша диаграммы**
+### **Восстановление рабочей книги из кэша диаграммы**
 
-Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может воссоздать рабочую книгу диаграммы из данных, кэшированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), вызовите [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) и установите [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) в `True` перед открытием презентации.
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из кэшированных данных презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), вызовите [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) и установите [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) в `True` перед открытием презентации.
 
-Следующий пример на Python восстанавливает данные рабочей книги для диаграммы, которая является первой фигурой на первом слайде и ссылается на недоступную внешнюю рабочую книгу. Он получает восстановленные данные через [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) и [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Следующий пример на Python восстанавливает данные рабочей книги для диаграммы, которая является первой формой на первом слайде и ссылается на недоступную внешнюю рабочую книгу. Он получает восстановленные данные через [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) и [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -595,37 +649,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # Прочитать или изменить восстановленные данные рабочей книги здесь.
+        # Читайте или изменяйте восстановленные данные рабочей книги здесь.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides бросает исключение. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, поскольку кэш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
+Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides бросает исключение. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, поскольку кэш может не содержать изменения, внесённые во внешнюю рабочую книгу после последнего обновления презентации.
 
 ## **FAQ**
 
-**Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
+**Можно ли определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
 
 Да. У диаграммы есть [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) и [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
 
 **Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
 
-Да. При указании относительного пути он автоматически преобразуется в абсолютный. Презентация сохраняет абсолютный путь в файле PPTX, поэтому перемещение рабочей книги может потребовать обновления ссылки.
+Да. Если указать относительный путь, он автоматически преобразуется в абсолютный. Презентация сохраняет абсолютный путь в файле PPTX, поэтому при перемещении рабочей книги может потребоваться обновить связь.
 
 **Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
 
-Да, такие рабочие книги могут использоваться в качестве внешнего источника данных. Однако прямое редактирование удалённых рабочих книг из Aspose.Slides не поддерживается — они могут использоваться только как источник.
+Да, такие книги могут быть использованы как внешний источник данных. Однако редактирование удалённых рабочих книг напрямую из Aspose.Slides не поддерживается — они могут использоваться только как источник.
 
 **Перезаписывает ли Aspose.Slides внешний XLSX при сохранении презентации?**
 
-Презентация хранит [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Редактирование данных диаграммы, поддерживаемых ячейкой, может также обновить связанный локальный файл XLSX. Используйте копию рабочей книги, если оригинал должен оставаться неизменным.
+Презентация хранит [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Редактирование данных, подкреплённых ячейками, также может обновлять связанный локальный файл XLSX. Используйте копию рабочей книги, если оригинал должен оставаться неизменным.
 
 **Что делать, если внешний файл защищён паролем?**
 
-Aspose.Slides не принимает пароль при связывании. Обычно защищённость снимают заранее или подготавливают расшифрованную копию (например, с помощью [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) и связывают её.
+Aspose.Slides не принимает пароль при связывании. Обычный подход — снять защиту заранее или подготовить расшифрованную копию (например, с помощью [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) и привязать её.
 
 **Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
 
-Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, обновление этого файла будет отражено в каждой диаграмме при следующей загрузке данных.
+Да. Каждая диаграмма хранит свою собственную связь. Если все они указывают на один и тот же файл, обновление этого файла будет отражено в каждой диаграмме при следующей загрузке данных.

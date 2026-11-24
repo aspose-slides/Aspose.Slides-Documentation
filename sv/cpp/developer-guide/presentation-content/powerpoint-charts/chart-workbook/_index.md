@@ -1,5 +1,5 @@
 ---
-title: Hantera diagramarbetsböcker i presentationer med C++
+title: Hantera diagramarbok i presentationer med C++
 linktitle: Diagramarbok
 type: docs
 weight: 70
@@ -14,36 +14,36 @@ keywords:
 - extern arbetsbok
 - extern data
 - diagramcache
-- återställning av arbetsbok
+- arbetsboksåterställning
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för C++: hantera enkelt diagramarbetsböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
+description: "Upptäck Aspose.Slides för C++: hantera diagramarbok på ett enkelt sätt i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och specificerar datakälltyp för diagramvärden.
+Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkning, får åtkomst till arbetsbladssamlingar och anger datakälltyp för diagramvärden.
 
-Den täcker också hur man arbetar med externa arbetsböcker som datakällor för diagram. Exemplen visar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkat till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den täcker även arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkat till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboksceller som representerar saknade data, se [Styr visning av tomma celler](/slides/sv/cpp/chart-series/) för skillnaden mellan en tom cell och noll samt en linjediagramjämförelse av de tillgängliga visningslägena.
+För arbetsboks‑celler som representerar saknad data, se [Styr visning av tomma celler](/slides/sv/cpp/chart-series/) för skillnaden mellan en tom cell och noll samt en linjediagramjämförelse av de tillgängliga visningslägena.
 
 ## **Inkludera data från dolda rader och kolumner**
 
-Använd [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) för att styra om ett diagram plottar data från dolda arbetsbladsrader och -kolumner. Sätt den till `true` för att plotta endast synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramplottning; den döljer eller visar inte rader eller kolumner i arbetsbladet.
+Använd [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) för att styra om ett diagram ritar data från dolda arbetsbladsrader och -kolumner. Ställ in den till `true` för att rita endast synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramritning; den döljer eller visar inte arbetsbladsrader eller -kolumner.
 
-Det [sample presentation](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första bilden. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källområde, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+[Exempelpresentation](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första bilden. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källområde, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
 
-| Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dolt kolumn) |
+| Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dold kolumn) |
 | --- | --- | --- | --- |
 | 2 | Januari | 10 | 30 |
-| 3 (dolt rad) | Februari | 40 | 60 |
+| 3 (dold rad) | Februari | 40 | 60 |
 | 4 | Mars | 20 | 50 |
 
-Få åtkomst till källceller via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) och läs [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) för att undersöka deras dolda status. Denna egenskap är skrivskyddad. I detta exempel är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` i den ordningen.
+Få åtkomst till källcellerna via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) och läs [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) för att inspektera deras dolda status. Denna egenskap är skrivskyddad. I detta exempel är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
 
-För detta exempel, uppdatera diagramdata efter att ha ändrat plotinställningen: behåll den inbäddade arbetsboken med [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och ladda om den med [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). När alla celler inkluderas, använd också [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att återställa hela området, inklusive den dolda februari-kategorin. Att enbart ändra flaggan räcker inte för att uppdatera detta exempels cachade diagramdata och kategorimärkningar.
+För detta exempel, uppdatera diagramdata efter att plotinställningen har ändrats: behåll den inbäddade arbetsboken med [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och läs in den igen med [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). När alla celler inkluderas, använd också [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att återställa hela området, inklusive den dolda februari‑kategorin. Att bara ändra flaggan är inte tillräckligt för att uppdatera detta exempels cachade diagramdata och kategorimärkningar.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -84,7 +84,7 @@ if (chart != nullptr)
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Återställ hela källintervallet, inklusive dolda kategorier.
+            // Återställ det fullständiga källområdet, inklusive dolda kategorier.
             chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
         }
 
@@ -98,21 +98,21 @@ else
 }
 ```
 
-Exemplet sparar två versioner av presentationen: en med bara de synliga detaljhandelsvärdena (10 och 20) och en med alla sex värden. Bilderna nedan illustrerar de två plotningslägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en annan med alla sex värden. Bilderna nedan illustrerar de två plotlägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
 
 | Endast synliga celler (`true`) | Alla celler (`false`) |
 | --- | --- |
-| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för Januari och Mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandels- och partihandelsvärden för Januari, Februari och Mars.](hidden_cells_False.png) |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för Januari och Mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandel- och Partihandelsvärden för Januari, Februari och Mars.](hidden_cells_False.png) |
 
-En dold cell som innehåller ett värde skiljer sig från en tom cell. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) styr hur saknade värden visas; den inkluderar inte eller exkluderar inte dold källdata. Se [Styr visning av tomma celler](/slides/sv/cpp/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+En dold cell som innehåller ett värde är annorlunda än en tom cell. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Styr visning av tomma celler](/slides/sv/cpp/chart-series/#control-the-display-of-empty-cells) för ett exempel.
 
-## **Hämta ett diagrammets dataintervall**
+## **Hämta ett diagrams dataintervall**
 
-Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källområdena för att identifiera vilka arbetsblads-celler varje diagram använder. Metoden [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) returnerar det aktuella dataintervallet som en arbetsblads‑kvalificerad formel, till exempel `Sheet1!$A$1:$D$5`. Här är `Sheet1` arbetsbladsnamnet, `!` avgränsar det från cellområdet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusivt. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
+Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källområdena för att identifiera vilka arbetsblads­celler varje diagram använder. Metoden [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) returnerar det aktuella dataområdet som en arbetsblads‑kvalificerad formel, t.ex. `Sheet1!$A$1:$D$5`. Här är `Sheet1` arbetsbladets namn, `!` separerar det från cellområdet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusive. Dollartecknen anger absoluta rad‑ och kolumnreferenser.
 
-Metoden läser det aktuella intervallet utan att förändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla, kastar den [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). För mer information, se [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+Metoden läser det aktuella området utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla, kastas ett [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). För mer information, se [ChartData API-referens](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
 
-Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagramnamn och källintervall. Om ett diagram inte använder en arbetsbok skrivs ett meddelande och fortsätter till nästa diagram.
+Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagramnamn och källområde. Om ett diagram inte använder en arbetsbok, skriver det ut ett meddelande och fortsätter till nästa diagram.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -155,7 +155,7 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 
 ## **Läs och skriv diagramdata från en arbetsbok**
 
-Aspose.Slides för C++ erbjuder metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Note** att diagramdata måste vara organiserad på samma sätt eller ha en strukturellt liknande källa.
+Aspose.Slides for C++ tillhandahåller [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) metoder som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerade med Aspose.Cells). **Obs** att diagramdata måste organiseras på samma sätt eller ha en struktur som liknar källan.
 
 Detta exempel använder en presentation med ett diagram som den första formen på den första bilden. Det läser den inbäddade arbetsboken till en ström, rensar befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna finns kvar i minnet; exemplet sparar inte presentationen.
 
@@ -198,7 +198,7 @@ else
 
 ### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna inkonsekvens kan leda till att [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategori­samlingar. Denna missmatch kan orsaka att [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver den uppdaterade arbetsboken tillbaka till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -225,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // Modifiera arbetsbokströmmen här, till exempel med Aspose.Cells.
+    // Modifiera arbetsboksströmmen här, till exempel med Aspose.Cells.
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -240,15 +240,91 @@ else
 }
 ```
 
-Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategorimappningar för den uppdaterade arbetsboken innan du använder diagrammet.
+Rensning av samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategori‑mappningar för den uppdaterade arbetsboken innan du använder diagrammet.
 
-## **Ange anpassade talformat för arbetsboks-celler**
+## **Välj hur kategori‑etiketter lagras**
 
-Använd [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) för att styra hur numeriska värden visas i ett diagrammets inbäddade arbetsbok. Till exempel kan en rapport behöva en konverteringskurs som visas som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena som numeriska så att de förblir tillgängliga för beräkningar och diagramplottning.
+Anropa [IChartCategoryCollection::set_UseCells](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorycollection/set_usecells/) på den tomma kategori­samlingen innan du lägger till etiketter. Använd arbetsblads­celler för etiketter som hänvisar till arbetsboksdata eller bildar en hierarki, t.ex. kvartal grupperade efter år. Använd sträng‑litteraler för en enkel nivå av etiketter som inte behöver cellreferenser. Denna inställning gäller endast för kategorier. Båda diagrammen i exemplet använder arbetsblads­celler för de numeriska serievärdena.
 
-Ett talformat ändrar visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används formatet som tilldelats via [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) istället.
+Exemplet skapar två stapeldiagram och skriver ut lagringsläget samt etiketterna `Q1 Q2 Q3 Q4` för var och en. För arbetsblads‑stödda etiketter ger [IChartCategory::get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_ascell/) åtkomst till den underliggande cellen och [IChartDataCell::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_value/) returnerar dess etikett. För litterära etiketter läses strängen direkt från [IChartCategory::get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_value/).
 
-Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). På arbetsblad 0 innehåller B2 konverteringskursen och C2 koefficienten. Båda cellerna förser diagrammet med värden. Exemplet aktiverar också värdemärkningar som är länkade till källformaten.
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <initializer_list>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+for (auto useCells : {true, false})
+{
+    auto x = useCells ? 20 : 360;
+    auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, 20, 320, 250);
+    auto data = chart->get_ChartData();
+    auto categories = data->get_Categories();
+    data->get_Series()->Clear();
+    categories->Clear();
+    categories->set_UseCells(useCells);
+
+    auto workbook = data->get_ChartDataWorkbook();
+    auto seriesName = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Sales"));
+    auto series = data->get_Series()->Add(seriesName, chart->get_Type());
+    for (auto row = 1; row <= 4; ++row)
+    {
+        auto label = String::Format(u"Q{0}", row);
+        auto labelValue = ObjectExt::Box<String>(label);
+        if (useCells)
+        {
+            auto labelCell = workbook->GetCell(0, row, 0, labelValue);
+            categories->Add(labelCell);
+        }
+        else
+        {
+            categories->Add(labelValue);
+        }
+
+        auto valueCell = workbook->GetCell(0, row, 1, ObjectExt::Box<int32_t>(row * 10));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
+
+    Console::Write(u"UseCells = {0}:", categories->get_UseCells());
+    for (auto category : IterateOver(categories))
+    {
+        auto label = categories->get_UseCells() ? category->get_AsCell()->get_Value() : category->get_Value();
+        Console::Write(u" {0}", label->ToString());
+    }
+    Console::WriteLine();
+}
+
+presentation->Save(u"category-labels.pptx", Export::SaveFormat::Pptx);
+```
+
+## **Ange anpassade talformat för arbetsboks­celler**
+
+Använd [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) för att styra hur numeriska värden visas i ett diagrams inbäddade arbetsbok. Till exempel kan en rapport behöva en omräkningsfrekvens som visas som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena som numeriska så att de förblir tillgängliga för beräkningar och diagramplotting.
+
+Ett talformat ändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används formatet som tilldelats via [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) istället.
+
+Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). På arbetsblad 0 innehåller B2 omräkningsfrekvensen och C2 koefficienten. Båda cellerna tillhandahåller diagramvärden. Exemplet aktiverar också värdeetiketter kopplade till källformaten.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -321,17 +397,17 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-Arbetsboks‑celformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje märkning sitt källcellsvärde eftersom [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) anropas med `true`, och följer källans talformat eftersom [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) anropas med `true`. Efter att presentationen sparats och öppnats igen visar märkningarna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget format `0.00`, tilldelat via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), med [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) anropat med `false`.
+Arbetsboks­cellformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje etikett sitt källcellsvärde eftersom [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) anropas med `true`, och följer källtalformatet eftersom [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) anropas med `true`. Efter att presentationen sparats och öppnats igen visar etiketterna `12.5000%` och `0.12346`, som nedan. Den vertikala axeln använder sitt eget format `0.00`, tilldelat via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), med [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) satt till `false`.
 
-För att formatera en datamärkning oberoende, sätt dess käll‑länk‑flagga till `false` och tilldela dess format via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett oberoende märkningformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Chart Data Labels](/slides/sv/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt märkningformatering.
+För att formatera en datamärkning oberoende, sätt dess käll‑länk‑flagga till `false` och tilldela dess format via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett självständigt etikettformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Diagramdatamärkningar](/slides/sv/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt etikettformatering.
 
-![Stapeldiagram med källkopplade etiketter som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
+![Stapeldiagram med källkopplade etiketter som visar 12.5000% och 0.12346 samt en självständigt formaterad numerisk axel.](custom-cell-formats.png)
 
-## **Ange en arbetsbokscell som diagramdatamärkning**
+## **Ställ in en arbetsboks­cell som diagramdatamärkesetikett**
 
-Du kan använda text från arbetsboks-celler som diagramdatamärkningar.
+Du kan använda text från arbetsboks­celler som diagramdatamärkning.
 
-Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på arbetsblad 0 för de första tre märkningarna i den första serien, aktiverar märkningar från celler och sparar den uppdaterade presentationen.
+Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på arbetsblad 0 för de tre första etiketterna i den första serien, aktiverar etiketter från celler och sparar den uppdaterade presentationen.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -407,7 +483,7 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **Ange datakälltyp**
 
-Serievärden kan också lagras direkt som numeriska litteraler. Se [Set Series Values Using Numeric Literals](/slides/sv/cpp/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Källtypen för värden är separat från diagrammets interna eller externa arbetsbokskonfiguration; att använda numeriska litteraler tar i sig självt inte bort den inbäddade arbetsboken.
+Serievärden kan också lagras direkt som numeriska litteraler. Se [Set Series Values Using Numeric Literals](/slides/sv/cpp/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Datakälltypen för serievärden är separat från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska litteraler tar i sig självt inte bort den inbäddade arbetsboken.
 
 Detta exempel skapar ett 3D‑stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en sträng‑litteral; det andra använder cell C1 på arbetsblad 0. Enumerationen [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
 
@@ -448,9 +524,9 @@ cellName->set_Data(nameCell);
 presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Detektera otillåtna inbäddade arbetsboksformat**
 
-Aspose.Slides stödjer inte Excel‑binärarbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda metoden [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) på [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) tillsammans med enumerationen [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer och skriver ut ett diagnosmeddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
+Aspose.Slides stöder inte Excel‑binärarbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda metoden [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) på [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) tillsammans med enumerationen [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) för att identifiera ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -489,19 +565,19 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Läs eller modifiera stödd diagramarbetsboksdata här.
+    // Läs eller ändra stödd diagramarboksdata här.
 }
 ```
 
-## **Externt arbetsbok**
+## **Externa arbetsböcker**
 
-Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stöder att använda externa arbetsböcker som datakälla för diagram.
 
-### **Skapa ett externt arbetsbok**
+### **Skapa en extern arbetsbok**
 
 Använd [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
-Detta exempel skapar ett cirkeldiagram med standarddata och exporterar dess arbetsbok. Det stänger utdata‑strömmen innan den tilldelar den externa arbetsboken som diagrammets datakälla, och sparar sedan den länkade presentationen.
+Detta exempel skapar ett cirkeldiagram med standarddata och exporterar dess arbetsbok. Det stänger utdata‑strömmen innan den externa arbetsboken tilldelas som diagrammets datakälla, och sparar sedan den länkade presentationen.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -535,13 +611,13 @@ chart->get_ChartData()->SetExternalWorkbook(workbookPath);
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Ange ett externt arbetsbok**
+### **Ange en extern arbetsbok**
 
-Genom att använda metoden [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du ändå använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Detta exempel använder en extern arbetsbok vars arbetsblad `Sheet1` innehåller ett serienamn i B1, kategorinamnen i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att mappar A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
+Detta exempel använder en extern arbetsbok där arbetsbladet `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att kartlägga A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -572,8 +648,8 @@ presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveForma
 
 `updateChartData`‑parametern för [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) styr om arbetsboken laddas.
 
-* När `updateChartData` är `false` uppdateras endast arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
-* När `updateChartData` är `true` uppdateras diagramdata från mål‑arbetsboken.
+* När `updateChartData` är `false`, uppdateras endast arbetsbokens sökväg. Diagramdata laddas inte eller uppdateras från målarbetsboken, så arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `true`, uppdateras diagramdata från målarbetsboken.
 
 Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
 
@@ -599,11 +675,11 @@ chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-wo
 presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Hämta den externa datakällans arbetsboksväg för ett diagram**
+### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
 
-För att identifiera arbetsboken som är länkat till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboks­väg.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboksökväg.
 
-Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram som är länkat till en extern arbetsbok, skriver exemplet ut [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) till konsolen. Det sparar sedan en kopia av presentationen.
+Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram länkat till en extern arbetsbok, skriver exemplet ut [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) till konsolen. Det sparar sedan en kopia av presentationen.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -646,9 +722,9 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Detta exempel använder ett diagram som är den första formen på den första bilden och som är länkat till en åtkomlig extern arbetsbok. Det sätter det cell‑stödda värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Redigering av cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du behöver bevara original‑arbetsboken.
+Detta exempel använder ett diagram som är den första formen på den första bilden och som är länkat till en åtkomlig extern arbetsbok. Det sätter det cell‑stödda värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Redigering av cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du behöver bevara den ursprungliga arbetsboken.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -704,9 +780,9 @@ else
 
 ### **Återskapa en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarboken från den data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), konfigurera den med [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), och anropa [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) med `true` innan du öppnar presentationen.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides återkonstruera diagramarboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), konfigurera den med [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), och anropa [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) med `true` innan presentationen öppnas.
 
-Följande C++‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar en otillgänglig extern arbetsbok. Det får åtkomst till den återställda data via [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) och [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Följande C++‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar en otillgänglig extern arbetsbok. Det får åtkomst till den återställda datan via [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) och [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -746,30 +822,30 @@ else
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller förändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterats.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Aktivera återställning endast när det är acceptabelt att använda den cachade diagramdatan som reserv, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
 ## **FAQ**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
+**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva att länken uppdateras.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytt av arbetsboken kan kräva en uppdatering av länken.
 
-**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
+**Kan jag använda arbetsböcker som ligger på nätverksresurser/delningar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan bara användas som källa.
+Ja, sådana arbetsböcker kan användas som extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan bara användas som källa.
 
 **Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Att redigera cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
+Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Att redigera cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
 **Vad ska jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en dekrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil, kommer uppdateringar av den filen att återspeglas i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.

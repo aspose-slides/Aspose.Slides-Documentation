@@ -9,7 +9,7 @@ keywords:
 - diagramdata
 - arbetsbokscell
 - datamärkning
-- kalkylblad
+- arbetsblad
 - datakälla
 - extern arbetsbok
 - extern data
@@ -20,31 +20,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Android via Java: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för Android via Java: hantera diagramarböcker i PowerPoint- och OpenDocument-format på ett enkelt sätt för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboks‑celler som diagramdatamärkning, får åtkomst till kalkylblads‑samlingar och anger datakällans typ för diagramvärden.
+Denna artikel förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsboksströmmar, använder arbetsboks-celler som diagramdatamärkningar, får åtkomst till arbetsblads-samlingar och specificerar datakälltyp för diagramvärden.
 
-Den behandlar också hur man arbetar med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar också arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboks‑celler som representerar saknad data, se [Styr visning av tomma celler](/slides/sv/androidjava/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
+För arbetsboks-celler som representerar saknad data, se [Kontrollera visning av tomma celler](/slides/sv/androidjava/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
 
 ## **Inkludera data från dolda rader och kolumner**
 
-Använd [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) för att styra om ett diagram ritar data från dolda kalkylbladsrader och -kolumner. Sätt den till `true` för att bara rita synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramritning; den döljer eller visar inte kalkylbladsrader eller -kolumner.
+Använd [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) för att styra om ett diagram ritar data från dolda arbetsbladrader och -kolumner. Sätt den till `true` för att endast rita synliga celler, eller `false` för att inkludera både synliga och dolda celler. Denna inställning styr diagramritning; den döljer eller visar inte arbetsbladrader eller -kolumner.
 
-[exempelpresentation](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på sin första bild. Den inbäddade arbetsboken, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+[Sample presentation](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första bilden. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källområde, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
 
-| Kalkylbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dold kolumn) |
+| Arbetsbladsrad | A: Månad | B: Detaljhandel | C: Partihandel (dold kolumn) |
 | --- | --- | --- | --- |
-| 2 | januari | 10 | 30 |
-| 3 (dold rad) | februari | 40 | 60 |
-| 4 | mars | 20 | 50 |
+| 2 | Januari | 10 | 30 |
+| 3 (dold rad) | Februari | 40 | 60 |
+| 4 | Mars | 20 | 50 |
 
-Få åtkomst till källcellerna via [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) och läs [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) för att inspektera deras dolda status. Denna metod rapporterar den dolda statusen utan att ändra den. I den här filen är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `false`, `true` och `true` respektive.
+Få åtkomst till källceller via [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) och läs [IChartDataCell.isHidden](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#isHidden--) för att undersöka deras dolda status. Denna metod rapporterar den dolda statusen utan att ändra den. I den här filen är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `false`, `true` respektive `true`.
 
-För det här exemplet, uppdatera diagramdata efter att plottningsinställningen har ändrats: behåll den inbäddade arbetsboken med [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och läs in den igen med [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). När alla celler inkluderas, använd även [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att återställa hela intervallet, inklusive den dolda februari‑kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempel's cachade diagramdata och kategorietiketter.
+För detta exempel, uppdatera diagramdata efter att du ändrat ritinställningen: behåll den inbäddade arbetsboken med [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och läs in den igen med [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---). När du inkluderar alla celler, använd även [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att återställa hela intervallet, inklusive den dolda februari-kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempelts cachade diagramdata och kategorimärkningar.
 
 ```java
 import com.aspose.slides.*;
@@ -68,7 +68,7 @@ try {
             // Uppdatera diagramdata från den inbäddade arbetsboken.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Återställ hela källintervallet, inklusive dolda kategorier.
+                // Återställ det kompletta källintervallet, inklusive dolda kategorier.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en annan med alla sex värdena. Bilderna nedan illustrerar de två plottningslägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20) och en med alla sex värden. Bilderna nedan illustrerar de två ritlägena. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
 
 | Endast synliga celler (`true`) | Alla celler (`false`) |
 | --- | --- |
 | ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för januari och mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandels- och partihandelsvärden för januari, februari och mars.](hidden_cells_False.png) |
 
-En dold cell som innehåller ett värde skiljer sig från en tom cell. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) styr hur saknade värden visas; den inkluderar eller exkluderar inte dolda källdata. Se [Styr visning av tomma celler](/slides/sv/androidjava/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+En dold cell som innehåller ett värde skiljer sig från en tom cell. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Kontrollera visning av tomma celler](/slides/sv/androidjava/chart-series/#control-the-display-of-empty-cells) för ett exempel.
 
-## **Hämta diagrammets dataområde**
+## **Hämta ett diagrams dataområde**
 
-Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källintervallen för att identifiera vilka kalkylblads‑celler varje diagram använder. Metoden [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) returnerar det aktuella dataområdet som en kalkylbladsavgränsad formel, t.ex. `Sheet1!$A$1:$D$5`. Här är `Sheet1` kalkylbladsnamnet, `!` separerar det från cellintervallet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusive. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
+Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källintervallen för att identifiera vilka arbetsblads-celler varje diagram använder. Metoden [IChartData.getRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getRange--) returnerar det aktuella dataområdet som en arbetsblads‑kvalificerad formel, t.ex. `Sheet1!$A$1:$D$5`. Här är `Sheet1` arbetsbladsnamnet, `!` separerar det från cellintervallet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusive. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
 
-Metoden läser det aktuella intervallet utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla kastas `InvalidOperationException`. För mer information, se [ChartData API-referens](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
+Metoden läser det aktuella intervallet utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla kastar den `InvalidOperationException`. För mer information, se [ChartData API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/).
 
-Det här exemplet öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagramnamn och källintervall. Om ett diagram inte använder en arbetsbok skrivs ett meddelande ut och programmet fortsätter till nästa diagram.
+Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagramnamn och källintervall. Om ett diagram inte använder en arbetsbok, skriver det ett meddelande och fortsätter till nästa diagram.
 
 ```java
 import com.aspose.slides.*;
@@ -124,9 +124,9 @@ try {
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
 
-Aspose.Slides för Android via Java tillhandahåller [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) metoder som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs!** att diagramdata måste organiseras på samma sätt eller ha en struktur som liknar källan.
+Aspose.Slides för Android via Java tillhandahåller [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och [writeWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) metoder som låter dig läsa och skriva diagramarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Note** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
-Det här exemplet använder en presentation med ett diagram som den första formen på sin första bild. Det läser den inbäddade arbetsboken till en byte‑array, rensar befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna förblir i minnet; exemplet sparar inte presentationen.
+Detta exempel använder en presentation med ett diagram som den första formen på den första bilden. Det läser in den inbäddade arbetsboken till en byte‑array, rensar befintliga serier och kategorier och skriver tillbaka samma arbetsbok. Ändringarna finns kvar i minnet; exemplet sparar inte presentationen.
 
 ```java
 import com.aspose.slides.*;
@@ -155,7 +155,7 @@ try {
 
 ### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategori‑samlingar. Denna oöverensstämmelse kan leda till att [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver den uppdaterade arbetsboken tillbaka till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna mismatch kan orsaka att [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#validateChartLayout--) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentaren markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```java
 import com.aspose.slides.*;
@@ -185,15 +185,67 @@ try {
 }
 ```
 
-Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Återskapa eventuella nödvändiga serie‑ och kategorikartläggningar för den uppdaterade arbetsboken innan du använder diagrammet.
+Att rensa samlingarna tar bort föråldrade datreferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategorikopplingar för den uppdaterade arbetsboken innan du använder diagrammet.
+
+## **Välja hur kategorimärkningar ska lagras**
+
+Anropa [IChartCategoryCollection.setUseCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorycollection/#setUseCells-boolean-) på den tomma kategorisamlingen innan du lägger till märkningar. Använd arbetsblads‑celler för märkningar som hänvisar till arbetsboksdata eller bildar en hierarki, t.ex. kvartal grupperade efter år. Använd sträng‑litteraler för en enda nivå av märkningar som inte kräver cellreferenser. Denna inställning gäller endast för kategorier. Båda diagrammen i exemplet använder arbetsblads‑celler för de numeriska serievärdena.
+
+Exemplet skapar två stapeldiagram och skriver ut lagringsläget följt av `Q1 Q2 Q3 Q4` för varje. För arbetsbladsbaserade märkningar returnerar [IChartCategory.getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getAsCell--) den underliggande cellen och [IChartDataCell.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getValue--) dess märkning. För litterala märkningar läses strängen direkt med [IChartCategory.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getValue--).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    for (boolean useCells : new boolean[] {true, false}) {
+        int x = useCells ? 20 : 360;
+        IChart chart = shapes.addChart(ChartType.ClusteredColumn, x, 20, 320, 250);
+        IChartData data = chart.getChartData();
+        data.getSeries().clear();
+        IChartCategoryCollection categories = data.getCategories();
+        categories.clear();
+        categories.setUseCells(useCells);
+
+        IChartDataWorkbook workbook = data.getChartDataWorkbook();
+        IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+        IChartSeries series = data.getSeries().add(seriesName, chart.getType());
+        for (int row = 1; row <= 4; row++) {
+            String label = "Q" + row;
+            if (useCells) {
+                IChartDataCell labelCell = workbook.getCell(0, row, 0, label);
+                categories.add(labelCell);
+            } else {
+                categories.add(label);
+            }
+
+            IChartDataCell valueCell = workbook.getCell(0, row, 1, row * 10);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        System.out.print("UseCells = " + categories.getUseCells() + ":");
+        for (IChartCategory category : categories) {
+            Object label = categories.getUseCells() ? category.getAsCell().getValue() : category.getValue();
+            System.out.print(" " + label);
+        }
+        System.out.println();
+    }
+
+    presentation.save("category-labels.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Ange anpassade talformat för arbetsboks‑celler**
 
-Använd [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) för att styra hur numeriska värden visas i ett diagrams inbäddade arbetsbok. Till exempel kan en rapport behöva en konverteringsgrad som visas som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena numeriska så de förblir tillgängliga för beräkningar och diagramritning.
+Använd [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) för att styra hur numeriska värden visas i ett diagrams inbäddade arbetsbok. Till exempel kan en rapport behöva ett omräkningsförhållande som visas som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena numeriska så att de förblir tillgängliga för beräkningar och diagramritning.
 
-Ett talformat förändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`) används formatet som returneras av [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) istället.
+Ett talformat ändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att runda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`) används formatet som returneras av [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) istället.
 
-Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). På kalkylblad 0 innehåller B2 konverteringsgraden och C2 koefficienten. Båda cellerna levererar diagramvärden. Exemplet aktiverar också värdeetiketter som är länkade till källformaten.
+Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). På arbetsblad 0 innehåller B2 omräkningsförhållandet och C2 koefficienten. Båda cellerna levererar diagramvärden. Exemplet aktiverar också värdemärkningar länkade till källformaten.
 
 ```java
 import com.aspose.slides.*;
@@ -244,19 +296,19 @@ try {
 }
 ```
 
-Arbetsboks‑cellformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje etikett värdet från sin källcell eftersom [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) är satt till `true`, och följer källans talformat eftersom [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) är satt till `true`. Efter att presentationen sparats och öppnats igen visar etiketterna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget talformat, tilldelat med [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) som `0.00`, med [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) satt till `false`.
+Arbetsboks‑celformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje märkning värdet från sin källcell eftersom [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) är `true`, och följer källans talformat eftersom [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) är `true`. Efter att presentationen sparats och öppnats igen visar märkningarna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder eget talformat, tilldelat med [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) som `0.00`, och [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) är `false`.
 
-För att formatera en datamärkning oberoende, sätt dess källlänksflagga till `false` och tilldela ett format med [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). Detta ändrar inte arbetsbokens cellformat. Till exempel visas ett oberoende etikettformat `0.00` som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Chart Data Labels](/slides/sv/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) för direkt etikettformatering.
+För att formatera en datamärkning oberoende, sätt dess källa‑länkningsflagga till `false` och tilldela ett format med [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett oberoende märkningformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Diagramdatamärkningar](/slides/sv/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) för direkt märkningformatering.
 
 Bilden nedan renderades från den sparade presentationen efter att den öppnats igen:
 
-![Stapeldiagram med käll‑länkade etiketter som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
+![Stapeldiagram med käll‑länkade märkningar som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
 
 ## **Ange en arbetsboks‑cell som diagramdatamärkning**
 
 Du kan använda text från arbetsboks‑celler som diagramdatamärkningar.
 
-Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på kalkylblad 0 för de tre första etiketterna i den första serien, aktiverar etiketter från celler och sparar den uppdaterade presentationen.
+Detta exempel lägger till ett bubbeldiagram med standarddata till den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på arbetsblad 0 för de första tre märkningarna i den första serien, aktiverar märkningar från celler och sparar den uppdaterade presentationen.
 
 ```java
 import com.aspose.slides.*;
@@ -280,9 +332,9 @@ try {
 }
 ```
 
-## **Hantera kalkylblad**
+## **Hantera arbetsblad**
 
-[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--)‑metoden ger åtkomst till kalkylbladen i ett diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje kalkylbladsnamn till konsolen.
+Metoden [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getWorksheets--) ger åtkomst till arbetsbladen i ett diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje arbetsblads namn i konsolen.
 
 ```java
 import com.aspose.slides.*;
@@ -302,11 +354,11 @@ try {
 }
 ```
 
-## **Ange datakällans typ**
+## **Specificera datakälltyp**
 
-Serie‑punktvärden kan också lagras direkt som numeriska litteraler. Se [Set Series Values Using Numeric Literals](/slides/sv/androidjava/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Källtypen för punktvärden är separerad från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska litteraler tar i sig självt inte bort den inbäddade arbetsboken.
+Serie‑punktvärden kan också lagras direkt som numeriska litteraler. Se [Ange serievärden med numeriska litteraler](/slides/sv/androidjava/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Datakälltypen för punktvärden är separat från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska litteraler tar inte bort den inbäddade arbetsboken.
 
-Detta exempel skapar ett 3D-stapeldiagram med standarddata och anger två serienamn med olika datakällor. Det första namnet använder en stränglitteral; det andra använder cell C1 på kalkylblad 0. [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/)‑enumerationen väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
+Detta exempel skapar ett 3D‑stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en sträng‑litteral; det andra använder cell C1 på arbetsblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
 
 ```java
 import com.aspose.slides.*;
@@ -332,9 +384,9 @@ try {
 }
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Upptäcka ej stödda inbäddade arbetsboksformat**
 
-Aspose.Slides stödjer inte Excel‑binära arbetsboken (.xlsb) som kan inbäddas i vissa diagram. Du kan använda [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) på [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) tillsammans med [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/)‑enumerationen för att upptäcka ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer och skriver ut ett diagnostikmeddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
+Aspose.Slides stödjer inte Excel‑binära arbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda [getEmbeddedWorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) på [IChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/workbooktype/) för att upptäcka ej stödda format och hoppa över de diagrammen. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```java
 import com.aspose.slides.*;
@@ -358,22 +410,22 @@ try {
             continue;
         }
 
-        // Läs eller modifiera stödd diagramarboksdata här.
+        // Läs eller ändra stödd diagramarboksdata här.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Extern arbetsbok**
+## **Externt arbetsbok**
 
 Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
 
-### **Skapa en extern arbetsbok**
+### **Skapa ett externt arbetsbok**
 
-Använd [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
+Använd [readWorkbookStream](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#readWorkbookStream--) och [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till det externa arbetsboken.
 
-Detta exempel skapar ett cirkeldiagram med standarddata och exporterar dess arbetsbok. Det slutför filskrivningen innan den externa arbetsboken tilldelas som diagrammets datakälla, och sparar sedan den länkade presentationen.
+Detta exempel skapar ett cirkeldiagram med standarddata och exporterar dess arbetsbok. Det slutför filskrivningen innan den tilldelar det externa arbetsboken som diagramdatakälla, och sparar sedan den länkade presentationen.
 
 ```java
 import com.aspose.slides.*;
@@ -402,13 +454,13 @@ try {
 }
 ```
 
-### **Ange en extern arbetsbok**
+### **Tilldela ett externt arbetsbok**
 
-Genom att använda [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-)‑metoden kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) kan du tilldela ett externt arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till det externa arbetsboken (om det senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för ett externt arbetsbok anges konverteras den automatiskt till en fullständig sökväg.
 
-Detta exempel använder en extern arbetsbok där kalkylbladet `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att mappa A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
+Detta exempel använder ett externt arbetsbok vars arbetsblad `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att mappa A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
 
 ```java
 import com.aspose.slides.*;
@@ -434,7 +486,7 @@ try {
 
 `updateChartData`‑parametern för [setExternalWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) styr om arbetsboken laddas.
 
-* När `updateChartData` är `false` uppdateras bara arbetsboks‑sökvägen. Diagramdata laddas inte eller uppdateras från mål‑arbetsboken, så att arbetsboken kan vara otillgänglig.
+* När `updateChartData` är `false` uppdateras bara arbetsboksökvägen. Diagramdata laddas eller uppdateras inte från mål‑arbetsboken, så arbetsboken kan vara oåtkomlig.
 * När `updateChartData` är `true` uppdateras diagramdata från mål‑arbetsboken.
 
 Följande exempel tilldelar en platshållar‑URL med `updateChartData` satt till `false`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
@@ -459,7 +511,7 @@ try {
 
 För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboksökväg.
 
-Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram länkat till en extern arbetsbok skriver exemplet ut [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) till konsolen. Det sparar sedan en kopia av presentationen.
+Detta exempel inspekterar den första formen på den första bilden i en presentation med ett länkat externt arbetsbok. Om det är ett diagram länkat till ett externt arbetsbok, skriver exemplet ut [getExternalWorkbookPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) i konsolen. Det sparar sedan en kopia av presentationen.
 
 ```java
 import com.aspose.slides.*;
@@ -488,9 +540,9 @@ try {
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När ett externt arbetsbok inte kan laddas kastas ett undantag.
 
-Detta exempel använder ett diagram som är den första formen på den första bilden och är länkat till en åtkomlig extern arbetsbok. Det sätter det cell‑stödda värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara den ursprungliga arbetsboken.
+Detta exempel använder ett diagram som är den första formen på den första bilden och som är länkat till ett åtkomligt externt arbetsbok. Det sätter cell‑baserat värde för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara original‑arbetsboken.
 
 ```java
 import com.aspose.slides.*;
@@ -524,9 +576,9 @@ try {
 
 ### **Återskapa en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarboken från de data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/), anropa [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), och sätt [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) till `true` innan presentationen öppnas.
+Om ett diagram använder ett externt arbetsbok som saknas eller är oåtkomligt, kan Aspose.Slides rekonstruera diagramarboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/), anropa [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), och sätt [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) till `true` innan presentationen öppnas.
 
-Följande Java‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar till en otillgänglig extern arbetsbok. Det får åtkomst till den återställda datan via [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) och [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Följande Java‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar ett otillgängligt externt arbetsbok. Det får åtkomst till den återställda datan via [IChart.getChartData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getChartData--) och [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -546,7 +598,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Läs eller modifiera den återställda arbetsboksdatan här.
+        // Läs eller ändra den återställda arbetsboksdata här.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -555,24 +607,30 @@ try {
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av den cachade diagramdatan är ett acceptabelt reservalternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om det externa arbetsboken är otillgängligt och återställning är inaktiverad, kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt reservalternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i det externa arbetsboken efter att presentationen senast uppdaterades.
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**  
-Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) och en [path to an external workbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
+**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-**Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**  
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva att länken uppdateras.
+Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) och en [path to an external workbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); om källan är ett externt arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
-**Kan jag använda arbetsböcker placerade på nätverksresurser/delningar?**  
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte — de kan endast användas som källa.
+**Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**  
-Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Att redigera cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så en flytt av arbetsboken kan kräva att länken uppdateras.
 
-**Vad ska jag göra om den externa filen är lösenordsskyddad?**  
-Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/java/)) och länka till den kopian.
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-**Kan flera diagram referera till samma externa arbetsbok?**  
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Däremot stöds inte redigering av fjärrlagrade arbetsböcker direkt från Aspose.Slides – de kan endast användas som källa.
+
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
+
+Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--). Att redigera cell‑baserad diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
+
+**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+
+Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig lösning är att ta bort skyddet i förväg eller förbereda en dekrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/java/)) och länka till den kopian.
+
+**Kan flera diagram referera till samma externa arbetsbok?**
+
 Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.

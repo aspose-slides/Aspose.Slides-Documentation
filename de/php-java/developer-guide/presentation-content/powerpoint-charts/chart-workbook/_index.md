@@ -1,6 +1,6 @@
 ---
 title: Diagramm-Arbeitsmappen in Präsentationen mit PHP verwalten
-linktitle: Diagramm-Arbeitsmappe
+linktitle: Diagrammarbeitsmappe
 type: docs
 weight: 70
 url: /de/php-java/chart-workbook/
@@ -14,7 +14,7 @@ keywords:
 - externe Arbeitsmappe
 - externe Daten
 - Diagramm-Cache
-- Arbeitsmappen-Wiederherstellung
+- Arbeitsmappenwiederherstellung
 - PowerPoint
 - Präsentation
 - PHP
@@ -23,27 +23,27 @@ description: "Entdecken Sie Aspose.Slides für PHP via Java: Verwalten Sie Diagr
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagrammdaten‑Beschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp für Diagrammwerte angibt.
+Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagrammdaten‑Beschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp für Diagrammwerte festlegt.
 
-Er behandelt außerdem die Arbeit mit externen Arbeitsmappen als Datenquelle für Diagramme. Die Beispiele zeigen, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer mit einem Diagramm verknüpften externen Arbeitsmappe abruft und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
+Er behandelt außerdem die Arbeit mit externen Arbeitsmappen als Datenquelle für Diagramme. Die Beispiele demonstrieren, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer mit einem Diagramm verknüpften externen Arbeitsmappe abruft und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
 
-Für Arbeitsmappen‑Zellen, die fehlende Daten darstellen, siehe [Control the Display of Empty Cells](/slides/de/php-java/chart-series/) für den Unterschied zwischen einer leeren Zelle und Null sowie einen Liniendiagramm‑Vergleich der verfügbaren Anzeigemodi.
+Für Arbeitsmappen‑Zellen, die fehlende Daten darstellen, siehe [Steuerung der Anzeige leerer Zellen](/slides/de/php-java/chart-series/) für den Unterschied zwischen einer leeren Zelle und Null sowie einen Liniendiagramm‑Vergleich der verfügbaren Anzeigemodi.
 
-## **Daten aus ausgeblendeten Zeilen und Spalten einbeziehen**
+## **Daten aus versteckten Zeilen und Spalten einbeziehen**
 
-Verwenden Sie [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/), um zu steuern, ob ein Diagramm Daten aus ausgeblendeten Arbeitsblatt‑zeilen und -spalten darstellt. Setzen Sie es auf `true`, um nur sichtbare Zellen zu plotten, oder auf `false`, um sowohl sichtbare als auch ausgeblendete Zellen einzubeziehen. Diese Einstellung steuert das Plotten des Diagramms; sie blendet weder Arbeitsblatt‑Zeilen noch -Spalten ein oder aus.
+Verwenden Sie [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/), um zu steuern, ob ein Diagramm Daten aus versteckten Arbeitsblatt‑Zeilen und -Spalten darstellt. Setzen Sie es auf `true`, um nur sichtbare Zellen zu plotten, oder auf `false`, um sowohl sichtbare als auch versteckte Zellen einzubeziehen. Diese Einstellung beeinflusst das Plotten des Diagramms; sie verbirgt oder zeigt Arbeitsblatt‑Zeilen oder -Spalten nicht an.
 
-Die [sample presentation](hidden-source-data.pptx) enthält ein Säulendiagramm als erstes Objekt auf ihrer ersten Folie. Das eingebettete Arbeitsblatt `Sheet1` enthält den folgenden Quellbereich `A1:C4`. Zeile 3 und Spalte C sind ausgeblendet, aber ihre Zellen enthalten weiterhin Werte.
+Die [Beispielpräsentation](hidden-source-data.pptx) enthält ein Säulendiagramm als erste Form auf der ersten Folie. Das eingebettete Arbeitsblatt `Sheet1` enthält den folgenden Quellbereich `A1:C4`. Zeile 3 und Spalte C sind ausgeblendet, aber ihre Zellen enthalten weiterhin Werte.
 
-| Arbeitsblatt‑Zeile | A: Monat | B: Einzelhandel | C: Großhandel (ausgeblendete Spalte) |
+| Arbeitsblatt‑Zeile | A: Monat | B: Einzelhandel | C: Großhandel (versteckte Spalte) |
 | --- | --- | --- | --- |
 | 2 | Januar | 10 | 30 |
-| 3 (ausgeblendete Zeile) | Februar | 40 | 60 |
+| 3 (versteckte Zeile) | Februar | 40 | 60 |
 | 4 | März | 20 | 50 |
 
-Greifen Sie über [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf Quellzellen zu und lesen Sie [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/), um deren ausgeblendeten Status zu prüfen. Diese Methode meldet den ausgeblendeten Status, ohne ihn zu ändern. In dieser Datei ist B2 sichtbar, B3 gehört zur ausgeblendeten Zeile und C2 zur ausgeblendeten Spalte; das Beispiel gibt `false`, `true` und `true` aus.
+Greifen Sie über [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf die Quellzellen zu und lesen Sie [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/), um ihren Sichtbarkeitsstatus zu prüfen. Diese Methode gibt den versteckten Status zurück, ohne ihn zu ändern. In dieser Datei ist B2 sichtbar, B3 gehört zur versteckten Zeile und C2 zur versteckten Spalte; das Beispiel gibt `false`, `true` und `true` aus.
 
-Für dieses Beispiel aktualisieren Sie die Diagrammdaten, nachdem Sie die Plot‑Einstellung geändert haben: behalten Sie die eingebettete Arbeitsmappe mit [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) und laden Sie sie mit [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) erneut. Beim Einbeziehen aller Zellen verwenden Sie außerdem [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um den vollständigen Bereich, einschließlich der ausgeblendeten Februar‑Kategorie, wiederherzustellen. Das bloße Ändern des Flags reicht nicht aus, um die zwischengespeicherten Diagrammdaten und Kategoriebeschriftungen dieses Beispiels zu aktualisieren.
+Für dieses Beispiel aktualisieren Sie die Diagrammdaten, nachdem Sie die Plot‑Einstellung geändert haben: Bewahren Sie die eingebettete Arbeitsmappe mit [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) und laden Sie sie mit [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) erneut. Wenn Sie alle Zellen einbeziehen, verwenden Sie außerdem [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um den vollständigen Bereich wiederherzustellen, einschließlich der versteckten Februar‑Kategorie. Das bloße Ändern des Flags reicht nicht aus, um die zwischengespeicherten Diagrammdaten und Kategoriebeschriftungen dieses Beispiels zu aktualisieren.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // Diagrammdaten aus der eingebetteten Arbeitsmappe aktualisieren.
+            // Aktualisieren Sie die Diagrammdaten aus der eingebetteten Arbeitsmappe.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // Den vollständigen Quellbereich wiederherstellen, einschließlich ausgeblendeter Kategorien.
+                // Stellen Sie den vollständigen Quellbereich wieder her, einschließlich versteckter Kategorien.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,19 +82,21 @@ try {
 }
 ```
 
-Das Beispiel speichert zwei Versionen der Präsentation: eine nur mit den sichtbaren Einzelhandelswerten (10 und 20) und eine mit allen sechs Werten. Die untenstehenden Bilder zeigen die beiden Plot‑Modi. Zeile 3 und Spalte C bleiben in beiden eingebetteten Arbeitsmappen ausgeblendet.
+Das Beispiel speichert zwei Versionen der Präsentation: eine nur mit den sichtbaren Einzelhandelswerten (10 und 20) und eine andere mit allen sechs Werten. Die untenstehenden Bilder zeigen die beiden Plot‑Modi. Zeile 3 und Spalte C bleiben in beiden eingebetteten Arbeitsmappen ausgeblendet.
 
 | Nur sichtbare Zellen (`true`) | Alle Zellen (`false`) |
 | --- | --- |
 | ![Nur sichtbare Zellen: Einzelhandelswerte 10 und 20 für Januar und März.](hidden_cells_True.png) | ![Alle Zellen: Einzelhandels‑ und Großhandelswerte für Januar, Februar und März.](hidden_cells_False.png) |
 
-Eine ausgeblendete Zelle, die einen Wert enthält, unterscheidet sich von einer leeren Zelle. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) steuert, wie fehlende Werte angezeigt werden; sie schließt ausgeblendete Quelldaten nicht ein oder aus. Siehe [Control the Display of Empty Cells](/slides/de/php-java/chart-series/#control-the-display-of-empty-cells) für ein Beispiel.
+Eine versteckte Zelle, die einen Wert enthält, unterscheidet sich von einer leeren Zelle. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) steuert, wie fehlende Werte angezeigt werden; sie schließt versteckte Quelldaten nicht ein oder aus. Siehe [Steuerung der Anzeige leerer Zellen](/slides/de/php-java/chart-series/#control-the-display-of-empty-cells) für ein Beispiel.
 
-## **Datenbereich eines Diagramms abrufen**
+## **Den Datenbereich eines Diagramms ermitteln**
 
-Bevor Sie Arbeitsmappendaten in einer vorhandenen Präsentation aktualisieren, prüfen Sie die Quellbereiche, um zu ermitteln, welche Arbeitsblattzellen jedes Diagramm verwendet. Die Methode [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) gibt den aktuellen Datenbereich als arbeitsblattqualifizierte Formel zurück, z. B. `Sheet1!$A$1:$D$5`. Hier ist `Sheet1` der Arbeitsblattname, `!` trennt ihn vom Zellbereich, und `$A$1:$D$5` bezeichnet die Zellen A1 bis D5 einschließlich. Die Dollarzeichen kennzeichnen absolute Zeilen‑ und Spaltenbezüge.
+Bevor Sie Arbeitsmappendaten in einer bestehenden Präsentation aktualisieren, prüfen Sie die Quellbereiche, um zu ermitteln, welche Arbeitsblattzellen jedes Diagramm verwendet. Die Methode [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) gibt den aktuellen Datenbereich als arbeitsblattqualifizierte Formel zurück, zum Beispiel `Sheet1!$A$1:$D$5`. Hier ist `Sheet1` der Arbeitsblattname, `!` trennt ihn vom Zellbereich, und `$A$1:$D$5` bezeichnet die Zellen A1 bis D5 inklusive. Die Dollarzeichen kennzeichnen absolute Zeilen‑ und Spaltenreferenzen.
 
-Die Methode liest den aktuellen Bereich, ohne das Diagramm oder seine Arbeitsmappe zu ändern. Wenn das Diagramm keine Arbeitsmappe als Datenquelle verwendet, wird eine Ausnahme ausgelöst. Weitere Informationen finden Sie in der [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+Die Methode liest den aktuellen Bereich, ohne das Diagramm oder seine Arbeitsmappe zu ändern. Wenn das Diagramm keine Arbeitsmappe als Datenquelle verwendet, wirft sie eine Ausnahme. Weitere Informationen finden Sie in der [ChartData API-Referenz](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+
+Dieses Beispiel öffnet eine Präsentation und prüft die Formen auf jeder Folie direkt auf Diagramme. Es gibt den Namen jedes Diagramms und den Quellbereich aus. Wenn ein Diagramm keine Arbeitsmappe verwendet, gibt es eine Meldung aus und fährt mit dem nächsten Diagramm fort.
 
 ```php
 use aspose\slides\Presentation;
@@ -129,9 +131,9 @@ try {
 
 ## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
 
-Aspose.Slides for PHP via Java bietet die Methoden [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) und [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/), mit denen Sie Diagramm‑Arbeitsmappendaten (die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine ähnliche Struktur wie die Quelle besitzen.
+Aspose.Slides für PHP über Java stellt die Methoden [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) und [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) bereit, mit denen Sie Diagramm‑Arbeitsmappen (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine Struktur aufweisen, die der Quelle ähnelt.
 
-Dieses Beispiel verwendet eine Präsentation mit einem Diagramm als erstes Objekt auf der ersten Folie. Es liest die eingebettete Arbeitsmappe in ein Byte‑Array, löscht die vorhandenen Serien und Kategorien und schreibt dieselbe Arbeitsmappe zurück. Die Änderungen verbleiben im Speicher; das Beispiel speichert die Präsentation nicht.
+Dieses Beispiel verwendet eine Präsentation mit einem Diagramm als erste Form auf der ersten Folie. Es liest die eingebettete Arbeitsmappe in ein Byte‑Array, löscht die vorhandenen Reihen und Kategorien und schreibt dieselbe Arbeitsmappe zurück. Die Änderungen bleiben im Speicher; das Beispiel speichert die Präsentation nicht.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,7 +162,7 @@ try {
 
 ### **Diagrammlayout nach Arbeitsmappen‑Änderung validieren**
 
-Wenn Sie eine eingebettete Arbeitsmappe durch eine geänderte ersetzen, behält das Diagramm seine ursprünglichen Serien‑ und Kategorien‑Sammlungen bei. Diese Diskrepanz kann dazu führen, dass [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) mit einem Index‑out‑of‑range‑Fehler fehlschlägt. Löschen Sie die vorhandenen Serien und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück in das Diagramm schreiben. Dieses Beispiel verwendet ein Diagramm, das das erste Objekt auf der ersten Folie ist. Der Kommentar markiert, wo die Arbeitsmappen‑Bearbeitung erfolgen würde; das ausführbare Beispiel schreibt die Original‑Arbeitsmappe zurück und validiert das Layout im Speicher.
+Wenn Sie eine eingebettete Arbeitsmappe durch eine modifizierte ersetzen, behält das Diagramm seine ursprünglichen Reihen‑ und Kategoriesammlungen bei. Diese Diskrepanz kann dazu führen, dass [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) mit einem Index‑out‑of‑range‑Fehler fehlschlägt. Löschen Sie die vorhandenen Reihen und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück in das Diagramm schreiben. Dieses Beispiel verwendet ein Diagramm, das die erste Form auf der ersten Folie ist. Der Kommentar markiert die Stelle, an der die Arbeitsmappe bearbeitet würde; das ausführbare Beispiel schreibt die Original‑Arbeitsmappe zurück und validiert das Layout im Speicher.
 
 ```php
 use aspose\slides\Presentation;
@@ -190,15 +192,72 @@ try {
 }
 ```
 
-Das Löschen der Sammlungen entfernt veraltete Datenreferenzen, bevor die Arbeitsmappe zurückgeschrieben wird. Re‑bauen Sie bei Bedarf die erforderlichen Serien‑ und Kategoriezusammenstellungen für die aktualisierte Arbeitsmappe, bevor Sie das Diagramm verwenden.
+Das Leeren der Sammlungen entfernt veraltete Datenverweise, bevor die Arbeitsmappe zurückgeschrieben wird. Bauen Sie alle erforderlichen Reihen‑ und Kategoriezusammenführungen für die aktualisierte Arbeitsmappe neu auf, bevor Sie das Diagramm verwenden.
+
+## **Auswahl, wie Kategoriebeschriftungen gespeichert werden**
+
+Rufen Sie [ChartCategoryCollection::setUseCells](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorycollection/setusecells/) für die leere Kategoriesammlung auf, bevor Sie Beschriftungen hinzufügen. Verwenden Sie Arbeitsblatt‑Zellen, wenn sich die Beschriftungen auf Arbeitsmappendaten beziehen oder eine Hierarchie bilden, z. B. Quartale nach Jahr gruppiert. Verwenden Sie Zeichenketten‑Literale für eine einstufige Beschriftung, die keine Zellreferenzen benötigt. Diese Einstellung gilt nur für Kategorien. Beide Diagramme im Beispiel verwenden Arbeitsblatt‑Zellen für die numerischen Reihenwerte.
+
+Das Beispiel erstellt zwei Säulendiagramme und gibt den Speicher‑Modus gefolgt von `Q1 Q2 Q3 Q4` für jedes aus. Für werkblattbasierte Beschriftungen liefert [ChartCategory::getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getascell/) die zugrunde liegende Zelle und [ChartDataCell::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getvalue/) deren Beschriftung. Für literale Beschriftungen wird die Zeichenkette direkt mit [ChartCategory::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getvalue/) gelesen.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    foreach ([true, false] as $useCells) {
+        $x = $useCells ? 20 : 360;
+        $chart = $shapes->addChart(ChartType::ClusteredColumn, $x, 20, 320, 250);
+        $data = $chart->getChartData();
+        $data->getSeries()->clear();
+        $categories = $data->getCategories();
+        $categories->clear();
+        $categories->setUseCells($useCells);
+
+        $workbook = $data->getChartDataWorkbook();
+        $seriesName = $workbook->getCell(0, 0, 1, "Sales");
+        $series = $data->getSeries()->add($seriesName, $chart->getType());
+        for ($row = 1; $row <= 4; $row++) {
+            $label = "Q" . $row;
+            if ($useCells) {
+                $labelCell = $workbook->getCell(0, $row, 0, $label);
+                $categories->add($labelCell);
+            } else {
+                $categories->add($label);
+            }
+
+            $valueCell = $workbook->getCell(0, $row, 1, $row * 10);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $storedInCells = java_values($categories->getUseCells());
+        echo "UseCells = ", ($storedInCells ? "true" : "false"), ":";
+        $categoryCount = java_values($categories->size());
+        for ($i = 0; $i < $categoryCount; $i++) {
+            $category = $categories->get_Item($i);
+            $label = $storedInCells ? $category->getAsCell()->getValue() : $category->getValue();
+            echo " ", java_values($label);
+        }
+        echo PHP_EOL;
+    }
+
+    $presentation->save("category-labels.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Benutzerdefinierte Zahlenformate für Arbeitsmappen‑Zellen festlegen**
 
-Verwenden Sie [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/), um zu steuern, wie numerische Werte in der eingebetteten Arbeitsmappe eines Diagramms angezeigt werden. Beispielsweise kann ein Bericht eine Umrechnungsrate als Prozentsatz mit vier Dezimalstellen und einen Koeffizienten mit fünf Dezimalstellen anzeigen. Beide Werte bleiben numerisch, damit sie für Berechnungen und Diagramm‑Plotting verfügbar bleiben.
+Verwenden Sie [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/), um zu steuern, wie numerische Werte im eingebetteten Arbeitsblatt eines Diagramms angezeigt werden. Beispielsweise kann ein Bericht eine Umrechnungsrate als Prozentsatz mit vier Dezimalstellen und einen Koeffizienten mit fünf Dezimalstellen benötigen. Beide Werte sollten numeric bleiben, damit sie für Berechnungen und das Plotten des Diagramms verfügbar sind.
 
-Ein Zahlenformat ändert nur die Darstellung, nicht den gespeicherten Wert. Das Format `0.0000%` zeigt `0.125` als `12.5000%` an; es ersetzt nicht die gespeicherte Zahl durch `12.5`. Ebenso zeigt `0.00000` `0.1234567` als `0.12346` an, ohne den gespeicherten Wert zu runden. Wenn das benutzerdefinierte Format ein leerer String (`""`) ist, wird das von [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) zurückgegebene Format stattdessen verwendet.
+Ein Zahlenformat ändert die Anzeige, nicht den gespeicherten Wert. Das Format `0.0000%` zeigt `0.125` als `12.5000%` an; es ersetzt nicht die gespeicherte Zahl durch `12.5`. Ähnlich zeigt `0.00000` `0.1234567` als `0.12346` an, ohne den gespeicherten Wert zu runden. Wenn das benutzerdefinierte Format ein leerer String (`""`) ist, wird das von [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) zurückgegebene Format stattdessen verwendet.
 
-Das folgende Beispiel erstellt ein Säulendiagramm und greift über [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf dessen Zellen zu. Auf Arbeitsblatt 0 enthält B2 die Umrechnungsrate und C2 den Koeffizienten. Beide Zellen liefern Diagrammwerte. Das Beispiel aktiviert zudem Wertbeschriftungen, die an die Quellformate gebunden sind.
+Das folgende Beispiel erstellt ein Säulendiagramm und greift über [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf dessen Zellen zu. Im Arbeitsblatt 0 enthält B2 die Umrechnungsrate und C2 den Koeffizienten. Beide Zellen liefern Diagrammwerte. Das Beispiel aktiviert außerdem Wertebeschriftungen, die mit den Quellformaten verknüpft sind.
 
 ```php
 use aspose\slides\Presentation;
@@ -253,19 +312,19 @@ try {
 }
 ```
 
-Arbeitsmappen‑Zellformate sind getrennt von Formaten, die direkt an Diagrammachsen oder Datenbeschriftungen gesetzt werden. In diesem Beispiel zeigt jede Beschriftung den Wert ihrer Quellzelle an, weil [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) auf `true` gesetzt ist und [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ebenfalls auf `true`. Nach dem Speichern und erneuten Öffnen der Präsentation zeigen die Beschriftungen `12.5000%` und `0.12346` an, wie unten dargestellt. Die vertikale Achse verwendet ihr eigenes Zahlenformat, das über [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) mit `0.00` festgelegt wird, wobei [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) auf `false` steht.
+Arbeitsblattzellen‑Formate sind unabhängig von den direkt an Diagrammachsen oder Datenbeschriftungen gesetzten Formaten. In diesem Beispiel zeigt jede Beschriftung den Wert seiner Quellzelle an, weil [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) auf `true` gesetzt ist, und weil es dem Quell‑Zahlenformat folgt, da [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ebenfalls `true` ist. Nach dem Speichern und erneuten Öffnen der Präsentation zeigen die Beschriftungen `12.5000%` und `0.12346` wie unten dargestellt. Die vertikale Achse verwendet ein eigenes Zahlenformat, das mit [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) auf `0.00` gesetzt wurde, wobei [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) auf `false` steht.
 
-Um eine Datenbeschriftung unabhängig zu formatieren, setzen Sie deren Quell‑Link‑Flag auf `false` und weisen Sie ein Format mit [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) zu. Dies ändert das Format der Arbeitsmappen‑Zelle nicht. Beispielsweise zeigt ein unabhängiges Beschriftungsformat `0.00` den ersten Wert als `0.13` an, während B2 weiterhin `12.5000%` anzeigt. Siehe [Chart Data Labels](/slides/de/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) für die direkte Beschriftungsformatierung.
+Um eine Datenbeschriftung unabhängig zu formatieren, setzen Sie deren Quell‑Verknüpfungs‑Flag auf `false` und weisen Sie ein Format mit [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) zu. Dies ändert nicht das Format der Arbeitsmappen‑Zelle. Beispiel: Ein unabhängiges Beschriftungsformat von `0.00` zeigt den ersten Wert als `0.13` an, während B2 weiterhin `12.5000%` anzeigt. Siehe [Chart Data Labels](/slides/de/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) für direkte Beschriftungsformatierung.
 
-Das untenstehende Bild wurde aus der gespeicherten Präsentation nach dem erneuten Öffnen gerendert:
+Das Bild unten wurde aus der gespeicherten Präsentation nach dem erneuten Öffnen gerendert:
 
-![Säulendiagramm mit quellengebundenen Beschriftungen, die 12.5000 % und 0.12346 anzeigen, sowie einer unabhängig formatierten numerischen Achse.](custom-cell-formats.png)
+![Säulendiagramm mit quellverknüpften Beschriftungen, die 12.5000% und 0.12346 anzeigen, und einer unabhängig formatierten numerischen Achse.](custom-cell-formats.png)
 
-## **Eine Arbeitsmappe‑Zelle als Diagrammdaten‑Beschriftung festlegen**
+## **Eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen**
 
-Sie können Text aus Arbeitsmappen‑Zellen als Diagrammdaten‑Beschriftungen verwenden.
+Sie können Text aus Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwenden.
 
-Dieses Beispiel fügt einer bestehenden Präsentation auf der ersten Folie ein Blasendiagramm mit Standarddaten hinzu. Es verwendet die Zellen A10:A12 auf Arbeitsblatt 0 für die ersten drei Beschriftungen der ersten Serie, aktiviert Beschriftungen aus Zellen und speichert die aktualisierte Präsentation.
+Dieses Beispiel fügt einer bestehenden Präsentation auf der ersten Folie ein Blasendiagramm mit Standarddaten hinzu. Es verwendet die Zellen A10:A12 im Arbeitsblatt 0 für die ersten drei Beschriftungen der ersten Reihe, aktiviert Beschriftungen aus Zellen und speichert die aktualisierte Präsentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -293,7 +352,7 @@ try {
 
 ## **Arbeitsblätter verwalten**
 
-Die Methode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) bietet Zugriff auf die Arbeitsblätter in einer Diagramm‑Arbeitsmappe. Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten und gibt jeden Arbeitsblattnamen in der Konsole aus.
+Die Methode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) ermöglicht den Zugriff auf die Arbeitsblätter einer Diagramm‑Arbeitsmappe. Dieses Beispiel erstellt ein Tortendiagramm mit Standarddaten und gibt den Namen jedes Arbeitsblatts in der Konsole aus.
 
 ```php
 use aspose\slides\Presentation;
@@ -314,11 +373,11 @@ try {
 }
 ```
 
-## **Datentyp der Datenquelle angeben**
+## **Den Datentyp der Datenquelle festlegen**
 
-Serien‑Punktwerte können auch direkt als numerische Literale gespeichert werden. Siehe [Set Series Values Using Numeric Literals](/slides/de/php-java/chart-series/#set-series-values-using-numeric-literals) für ein vollständiges Beispiel, das sie speichert und liest. Der Quelltyp der Punktwerte ist getrennt von der internen oder externen Arbeitsmappen‑Konfiguration des Diagramms; die Verwendung numerischer Literale entfernt die eingebettete Arbeitsmappe nicht von selbst.
+Werte von Reihenpunkten können auch direkt als numerische Literale gespeichert werden. Siehe [Reihenwerte mit numerischen Literalen festlegen](/slides/de/php-java/chart-series/#set-series-values-using-numeric-literals) für ein vollständiges Beispiel, das diese speichert und liest. Der Quelltyp von Punktewerten ist getrennt von der internen oder externen Arbeitsmappen‑Konfiguration des Diagramms; die Verwendung numerischer Literale entfernt die eingebettete Arbeitsmappe nicht automatisch.
 
-Dieses Beispiel erstellt ein 3D‑Säulendiagramm mit Standarddaten und legt zwei Serien‑Namen mit unterschiedlichen Datenquellen fest. Der erste Name verwendet ein String‑Literal; der zweite verwendet Zelle C1 auf Arbeitsblatt 0. Die Aufzählung [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) wählt die Quelle für jeden Namen. Das Beispiel speichert die Präsentation mit den aktualisierten Serien‑Namen.
+Dieses Beispiel erstellt ein 3D‑Säulendiagramm mit Standarddaten und legt zwei Reihen‑Namen fest, die unterschiedliche Datenquellen verwenden. Der erste Name verwendet ein String‑Literal; der zweite verwendet die Zelle C1 im Arbeitsblatt 0. Die Aufzählung [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) wählt die Quelle für jeden Namen aus. Das Beispiel speichert die Präsentation mit den aktualisierten Reihen‑Namen.
 
 ```php
 use aspose\slides\Presentation;
@@ -347,9 +406,9 @@ try {
 }
 ```
 
-## **Nicht unterstützte eingebettete Arbeitsmappen‑Formate erkennen**
+## **Nicht unterstützte eingebettete Arbeitsmappe‑Formate erkennen**
 
-Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb) nicht, das in einigen Diagrammen eingebettet sein kann. Sie können die Methode `getEmbeddedWorkbookType` auf [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen. Dieses Beispiel prüft die Objekte auf der ersten Folie einer vorhandenen Präsentation, überspringt Nicht‑Diagramm‑Objekte und gibt für jedes Diagramm mit einer eingebetteten .xlsb‑Arbeitsmappe eine Diagnosemeldung aus.
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Methode `getEmbeddedWorkbookType` auf [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen. Dieses Beispiel untersucht die Formen auf der ersten Folie einer bestehenden Präsentation, überspringt Nicht‑Diagramm‑Formen und gibt für jedes Diagramm mit einer eingebetteten .xlsb‑Arbeitsmappe eine Diagnosemeldung aus.
 
 ```php
 use aspose\slides\Presentation;
@@ -377,7 +436,7 @@ try {
             continue;
         }
 
-        // Lesen oder ändern Sie unterstützte Diagramm-Arbeitsmappendaten hier.
+        // Lesen oder ändern Sie unterstützte Diagramm-Workbook-Daten hier.
     }
 } finally {
     $presentation->dispose();
@@ -388,11 +447,11 @@ try {
 
 Aspose.Slides unterstützt die Verwendung externer Arbeitsmappen als Datenquelle für Diagramme.
 
-### **Externe Arbeitsmappe erstellen**
+### **Eine externe Arbeitsmappe erstellen**
 
 Verwenden Sie [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) und [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/), um eine eingebettete Diagramm‑Arbeitsmappe in eine Datei zu exportieren und das Diagramm mit dieser externen Arbeitsmappe zu verknüpfen.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten und exportiert dessen Arbeitsmappe. Es schließt den Datei‑Write‑Vorgang ab, bevor die externe Arbeitsmappe als Diagrammdatenquelle zugewiesen wird, und speichert die verknüpfte Präsentation.
+Dieses Beispiel erstellt ein Tortendiagramm mit Standarddaten und exportiert dessen Arbeitsmappe. Es schließt das Schreiben der Datei ab, bevor die externe Arbeitsmappe als Diagrammdaten‑Quelle zugewiesen wird, und speichert anschließend die verknüpfte Präsentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -424,13 +483,13 @@ try {
 }
 ```
 
-### **Externe Arbeitsmappe festlegen**
+### **Eine externe Arbeitsmappe festlegen**
 
-Mit der Methode [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) können Sie einer Diagramm‑Datenquelle eine externe Arbeitsmappe zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
+Mit der Methode [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) können Sie einem Diagramm eine externe Arbeitsmappe als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-Obwohl Sie Daten in Arbeitsmappen, die an entfernten Orten oder Ressourcen gespeichert sind, nicht direkt bearbeiten können, können solche Arbeitsmappen dennoch als externe Datenquelle verwendet werden. Wird ein relativer Pfad für eine externe Arbeitsmappe angegeben, wird er automatisch in einen vollqualifizierten Pfad umgewandelt.
+Obwohl Sie die Daten in Arbeitsmappen, die an entfernten Orten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle verwenden. Wird ein relativer Pfad für eine externe Arbeitsmappe angegeben, wird er automatisch in einen vollständigen Pfad umgewandelt.
 
-Dieses Beispiel verwendet eine externe Arbeitsmappe, deren Arbeitsblatt `Sheet1` einen Seriennamen in B1, Kategorienamen in A2:A4 und numerische Werte in B2:B4 enthält. Das Beispiel erstellt ein Kreisdiagramm, verknüpft die Arbeitsmappe und verwendet [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um A1:B4 einer Serie und drei Kategorien zuzuordnen. Es speichert die Präsentation mit dem verknüpften Diagramm.
+Dieses Beispiel verwendet eine externe Arbeitsmappe, deren Arbeitsblatt `Sheet1` einen Reihen‑Namen in B1, Kategorienamen in A2:A4 und numerische Werte in B2:B4 enthält. Das Beispiel erstellt ein Tortendiagramm, verknüpft die Arbeitsmappe und verwendet [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um A1:B4 einer Reihe und drei Kategorien zuzuordnen. Es speichert die Präsentation mit dem verknüpften Diagramm.
 
 ```php
 use aspose\slides\Presentation;
@@ -457,10 +516,10 @@ try {
 
 Der Parameter `updateChartData` von [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) steuert, ob die Arbeitsmappe geladen wird.
 
-* Wenn `updateChartData` **false** ist, wird nur der Pfad zur Arbeitsmappe aktualisiert. Die Diagrammdaten werden nicht aus der Ziel‑Arbeitsmappe geladen oder aktualisiert, sodass die Arbeitsmappe nicht vorhanden sein kann.
-* Wenn `updateChartData` **true** ist, werden die Diagrammdaten aus der Ziel‑Arbeitsmappe aktualisiert.
+* Wenn `updateChartData` `false` ist, wird nur der Pfad zur Arbeitsmappe aktualisiert. Die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert, sodass die Arbeitsmappe nicht verfügbar sein kann.
+* Wenn `updateChartData` `true` ist, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 
-Das folgende Beispiel weist eine Platzhalter‑URL mit `updateChartData` = false zu. Es behält die Standarddaten des Kreisdiagramms bei und speichert die Präsentation, ohne die nicht verfügbare Arbeitsmappe zu laden.
+Das folgende Beispiel weist eine Platzhalter‑URL zu, wobei `updateChartData` auf `false` gesetzt ist. Es behält die Standarddaten des Tortendiagramms bei und speichert die Präsentation, ohne die nicht verfügbare Arbeitsmappe zu laden.
 
 ```php
 use aspose\slides\Presentation;
@@ -480,11 +539,11 @@ try {
 }
 ```
 
-### **Pfad der externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
+### **Den Pfad der externen Datenquellen‑Arbeitsmappe eines Diagramms ermitteln**
 
-Um die mit einem Diagramm verknüpfte Arbeitsmappe zu ermitteln, prüfen Sie, ob das Diagramm eine externe Datenquelle verwendet und rufen Sie dessen Arbeitsmappen‑Pfad ab.
+Um die mit einem Diagramm verknüpfte Arbeitsmappe zu ermitteln, prüfen Sie, ob das Diagramm eine externe Datenquelle verwendet, und rufen Sie den Pfad der Arbeitsmappe ab.
 
-Dieses Beispiel überprüft das erste Objekt auf der ersten Folie einer Präsentation mit einer verknüpften externen Arbeitsmappe. Handelt es sich um ein Diagramm, das mit einer externen Arbeitsmappe verknüpft ist, gibt das Beispiel [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) in der Konsole aus. Anschließend wird eine Kopie der Präsentation gespeichert.
+Dieses Beispiel untersucht die erste Form auf der ersten Folie einer Präsentation mit einer verknüpften externen Arbeitsmappe. Wenn es sich um ein Diagramm handelt, das mit einer externen Arbeitsmappe verknüpft ist, gibt das Beispiel [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) in der Konsole aus. Anschließend speichert es eine Kopie der Präsentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -516,9 +575,9 @@ try {
 
 ### **Diagrammdaten bearbeiten**
 
-Sie können die Daten in externen Arbeitsmappen genauso ändern, wie Sie Inhalte interner Arbeitsmappen bearbeiten. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können die Daten in externen Arbeitsmappen auf die gleiche Weise bearbeiten, wie Sie Änderungen an internen Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
 
-Dieses Beispiel verwendet ein Diagramm, das das erste Objekt auf der ersten Folie ist und mit einer zugänglichen externen Arbeitsmappe verknüpft ist. Es setzt den zellenbasierten Wert des ersten Datenpunkts der ersten Serie auf 100 und speichert die aktualisierte Präsentation. Das Bearbeiten von Zellenwerten kann die verknüpfte externe XLSX‑Datei aktualisieren; verwenden Sie daher eine Kopie, wenn das Original erhalten bleiben soll.
+Dieses Beispiel verwendet ein Diagramm, das die erste Form auf der ersten Folie ist und mit einer zugänglichen externen Arbeitsmappe verknüpft ist. Es setzt den zellbasierten Wert des ersten Datenpunkts der ersten Reihe auf 100 und speichert die aktualisierte Präsentation. Das Editieren von Zellwerten kann die verknüpfte externe XLSX‑Datei aktualisieren; verwenden Sie daher eine Kopie, wenn das Original erhalten bleiben soll.
 
 ```php
 use aspose\slides\Presentation;
@@ -551,11 +610,11 @@ try {
 }
 ```
 
-### **Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
+### **Eine Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
 
-Wenn ein Diagramm eine externe Arbeitsmappe verwendet, die fehlt oder nicht verfügbar ist, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Dokument zwischengespeicherten Daten rekonstruieren. Erzeugen Sie ein [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), rufen Sie [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) auf und setzen Sie [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) auf `true`, bevor Sie die Präsentation öffnen.
+Wenn ein Diagramm eine externe Arbeitsmappe verwendet, die fehlt oder nicht verfügbar ist, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Präsentations‑Cache gespeicherten Daten rekonstruieren. Erzeugen Sie [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), rufen Sie [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) auf und setzen Sie [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) vor dem Öffnen der Präsentation auf `true`.
 
-Das folgende PHP‑Beispiel stellt Arbeitsmappendaten für ein Diagramm wieder her, das das erste Objekt auf der ersten Folie ist und auf eine nicht verfügbare externe Arbeitsmappe verweist. Es greift über [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) und [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf die wiederhergestellten Daten zu:
+Das folgende PHP‑Beispiel stellt Arbeitsmappendaten für ein Diagramm wieder her, das die erste Form auf der ersten Folie ist und auf eine nicht verfügbare externe Arbeitsmappe verweist. Es greift über [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) und [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) auf die wiederhergestellten Daten zu:
 
 ```php
 use aspose\slides\Presentation;
@@ -577,7 +636,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // Lesen oder ändern Sie hier die wiederhergestellten Arbeitsmappendaten.
+        // Lesen oder ändern Sie hier die wiederhergestellten Arbeitsmappen-Daten.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -586,30 +645,30 @@ try {
 }
 ```
 
-Ist die externe Arbeitsmappe nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der zwischengespeicherten Diagrammdaten ein akzeptabler Rückfall ist, da der Cache möglicherweise Änderungen enthält, die nach dem letzten Aktualisieren der Präsentation an der externen Arbeitsmappe vorgenommen wurden.
+Falls die externe Arbeitsmappe nicht verfügbar ist und die Wiederherstellung deaktiviert ist, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der zwischengespeicherten Diagrammdaten ein akzeptabler Ausweichweg ist, da der Cache möglicherweise nicht die nach dem letzten Aktualisieren der Präsentation vorgenommenen Änderungen der externen Arbeitsmappe enthält.
 
 ## **FAQ**
 
 **Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**
 
-Ja. Ein Diagramm besitzt einen [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) und einen [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+Ja. Ein Diagramm verfügt über einen [Datentyp der Quelle](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
 
 **Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
 
-Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Die Präsentation speichert den absoluten Pfad in der PPTX‑Datei, sodass ein Verschieben der Arbeitsmappe eine Aktualisierung des Links erfordern kann.
+Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Die Präsentation speichert den absoluten Pfad in der PPTX‑Datei, sodass ein Verschieben der Arbeitsmappe möglicherweise ein Aktualisieren des Links erfordert.
 
 **Kann ich Arbeitsmappen auf Netzwerkressourcen/Freigaben verwenden?**
 
-Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten entfernter Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt — sie können lediglich als Quelle dienen.
+Ja. Solche Arbeitsmappen können als externe Datenquelle verwendet werden. Jedoch wird das direkte Bearbeiten entfernter Arbeitsmappen über Aspose.Slides nicht unterstützt – sie können nur als Quelle verwendet werden.
 
-**Überschreibt Aspose.Slides die externe XLSX‑Datei beim Speichern der Präsentation?**
+**Überschreibt Aspose.Slides die externe XLSX-Datei beim Speichern der Präsentation?**
 
-Die Präsentation speichert einen [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Das Bearbeiten von zellenbasierten Diagrammdaten kann auch die verknüpfte lokale XLSX‑Datei aktualisieren. Verwenden Sie eine Kopie der Arbeitsmappe, wenn das Original unverändert bleiben muss.
+Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Das Bearbeiten zellbasierter Diagrammdaten kann außerdem die verknüpfte lokale XLSX‑Datei aktualisieren. Verwenden Sie eine Kopie der Arbeitsmappe, wenn das Original unverändert bleiben muss.
 
-**Was soll ich tun, wenn die externe Datei durch ein Passwort geschützt ist?**
+**Was soll ich tun, wenn die externe Datei mit einem Passwort geschützt ist?**
 
-Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz besteht darin, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie (zum Beispiel mit [Aspose.Cells](https://reference.aspose.com/cells/java/)) vorzubereiten und diese Kopie zu verknüpfen.
+Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz ist, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](https://reference.aspose.com/cells/java/)) und auf diese Kopie zu verlinken.
 
 **Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
 
-Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn sie alle auf dieselbe Datei zeigen, wird eine Aktualisierung dieser Datei in jedem Diagramm beim nächsten Laden der Daten wirksam.
+Ja. Jedes Diagramm speichert seinen eigenen Link. Zeigen sie alle auf dieselbe Datei, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm wirksam.

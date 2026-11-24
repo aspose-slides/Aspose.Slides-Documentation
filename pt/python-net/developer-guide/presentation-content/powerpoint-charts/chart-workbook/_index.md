@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Pastas de Trabalho de Gráficos em Apresentações com Python
+title: Gerenciar pastas de trabalho de gráficos em apresentações com Python
 linktitle: Pasta de Trabalho de Gráfico
 type: docs
 weight: 70
@@ -19,31 +19,31 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Descubra Aspose.Slides para Python via .NET: gerencie facilmente pastas de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra Aspose.Slides para Python via .NET: gerencie facilmente pastas de trabalho de gráficos nos formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de streams de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de origem dos dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele demonstra como ler e gravar dados de gráficos por meio de fluxos de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
 
-Ele também cobre o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-Para células de pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/python-net/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
+Para células de pasta de trabalho que representam dados ausentes, consulte [Controlar a exibição de células vazias](/slides/pt/python-net/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
 
-## **Incluir Dados de Linhas e Colunas Ocultas**
+## **Incluir dados de linhas e colunas ocultas**
 
-Use [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina‑o como `True` para plotar apenas células visíveis, ou `False` para incluir células visíveis e ocultas. Essa configuração controla a plotagem do gráfico; não oculta nem exibe linhas ou colunas da planilha.
+Use [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina como `True` para plotar apenas células visíveis, ou `False` para incluir tanto células visíveis quanto ocultas. Essa configuração controla a plotagem do gráfico; não oculta nem exibe linhas ou colunas da planilha.
 
-A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como o primeiro objeto em seu primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem a seguir, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
 
 | Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (hidden row) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | Janeiro | 10 | 30 |
+| 3 (linha oculta) | Fevereiro | 40 | 60 |
+| 4 | Março | 20 | 50 |
 
-Acesse as células de origem através de [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) e leia [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) para inspecionar seu status de ocultação. Essa propriedade é somente leitura. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
+Acesse células de origem através de [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) e leia [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) para inspecionar seu status de ocultação. Essa propriedade é somente leitura. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `False`, `True` e `True`, respectivamente.
 
-Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: retenha a pasta de trabalho incorporada com [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e recarregue‑a com [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Ao incluir todas as células, use também [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para restaurar o intervalo completo, incluindo a categoria oculta de fevereiro. Alterar apenas a flag é insuficiente para atualizar os dados de gráfico armazenados em cache e os rótulos de categoria deste exemplo.
+Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: mantenha a pasta de trabalho incorporada com [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e recarregue-a com [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). Ao incluir todas as células, também use [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para restaurar o intervalo completo, incluindo a categoria de fevereiro oculta. Alterar apenas a bandeira não é suficiente para atualizar os dados em cache do gráfico e os rótulos de categoria deste exemplo.
 
 ```python
 import aspose.slides as slides
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo foram renderizadas a partir das apresentações salvas após reabri‑las; ambos os arquivos preservam sua configuração de plotagem atribuída. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
+O exemplo salva duas versões da apresentação: uma contendo apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo foram renderizadas a partir das apresentações salvas após reabri‑las; ambos os arquivos mantêm a configuração de plotagem atribuída. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
 
 | Apenas células visíveis (`True`) | Todas as células (`False`) |
 | --- | --- |
 | ![Apenas células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
 
-Uma célula oculta contendo um valor é diferente de uma célula vazia. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/python-net/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+Uma célula oculta que contém um valor difere de uma célula vazia. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Veja [Controlar a exibição de células vazias](/slides/pt/python-net/chart-series/#control-the-display-of-empty-cells) para um exemplo.
 
-## **Recuperar o Intervalo de Dados de um Gráfico**
+## **Recuperar o intervalo de dados de um gráfico**
 
-Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células de planilha cada gráfico usa. O método [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) devolve o intervalo de dados atual como uma fórmula qualificada por planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` a separa do intervalo de células e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de cifrão indicam referências absolutas de linha e coluna.
+Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) retorna o intervalo de dados atual como uma fórmula qualificada pela planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` separa‑a do intervalo de células, e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
 
-O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como fonte de dados, ele gera uma exceção. Para mais informações, veja a [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
+O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como fonte de dados, ele lança uma exceção. Para mais informações, veja a [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
 
-Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide para gráficos. Ele imprime o nome de cada gráfico e o intervalo de origem. Se o intervalo não puder ser obtido, ele imprime uma mensagem de diagnóstico e continua para o próximo gráfico.
+O exemplo abre uma apresentação e verifica as formas diretamente em cada slide em busca de gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se o intervalo não puder ser recuperado, ele imprime uma mensagem de diagnóstico e continua para o próximo gráfico.
 
 ```python
 import aspose.slides as slides
@@ -106,11 +106,11 @@ with slides.Presentation("presentation.pptx") as presentation:
                     print(f"{shape.name}: Unable to retrieve the chart data range. {error}")
 ```
 
-## **Ler e Gravar Dados de Gráficos a partir de uma Pasta de Trabalho**
+## **Ler e gravar dados de gráfico a partir de uma pasta de trabalho**
 
-Aspose.Slides for Python via .NET fornece os métodos [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados editados com Aspose.Cells). **Nota** que os dados do gráfico precisam estar organizados da mesma maneira ou ter uma estrutura semelhante à fonte.
+Aspose.Slides for Python via .NET fornece os métodos [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráficos editados com Aspose.Cells). **Nota** que os dados do gráfico devem ser organizados da mesma maneira ou ter uma estrutura semelhante à origem.
 
-Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê a pasta de trabalho incorporada em um stream, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem em memória; o exemplo não salva a apresentação.
+O exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê a pasta de trabalho incorporada em um fluxo, limpa as séries e categorias existentes, e grava a mesma pasta de trabalho de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Validar o Layout do Gráfico Após Modificação da Pasta de Trabalho**
+### **Validar o layout do gráfico após modificação da pasta de trabalho**
 
-Quando você substitui uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta ao gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout em memória.
+Quando você substitui uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode causar falha em [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta ao gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário marca onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout na memória.
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # Modifique o stream da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
+        # Modifique o fluxo da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,55 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Limpar as coleções remove referências a dados obsoletos antes que a pasta de trabalho seja gravada. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
+Limpar as coleções remove referências de dados obsoletas antes que a pasta de trabalho seja gravada de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
 
-## **Definir Formatos Numéricos Personalizados para Células da Pasta de Trabalho**
+## **Escolher como armazenar rótulos de categoria**
 
-Use [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada do gráfico. Por exemplo, um relatório pode precisar exibir uma taxa de conversão como porcentagem com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores como numéricos para que permaneçam disponíveis para cálculos e plotagem de gráficos.
+Defina [ChartCategoryCollection.use_cells](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorycollection/use_cells/) enquanto a coleção de categorias está vazia. Defina como `True` para rótulos que se referem a células da planilha ou formam uma hierarquia, como trimestres agrupados por ano. Defina como `False` para um único nível de rótulos fornecidos como strings. Esta configuração aplica‑se apenas às categorias. Ambos os gráficos no exemplo usam células da planilha para seus valores de séries numéricas.
 
-Um formato numérico altera a exibição, não o valor armazenado. O formato `0.0000%` exibe `0.125` como `12.5000%`; não substitui o número armazenado por `12.5`. De modo semelhante, `0.00000` exibe `0.1234567` como `0.12346` sem arredondar o valor armazenado. Se o formato personalizado for uma string vazia (`""`), [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) será usado em vez disso.
+O exemplo cria dois gráficos de colunas e imprime o modo de armazenamento e os rótulos `Q1 Q2 Q3 Q4` para cada um. Para rótulos baseados em células, [ChartCategory.as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/as_cell/) devolve a célula da planilha, e [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) devolve o rótulo armazenado nela. Para rótulos literais, leia a string diretamente de [ChartCategory.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/value/).
 
-O exemplo a seguir cria um gráfico de colunas e acessa suas células via [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). Na planilha 0, B2 contém a taxa de conversão e C2 contém o coeficiente. Ambas as células fornecem valores ao gráfico. O exemplo também habilita rótulos de valor vinculados aos formatos de origem.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    for use_cells, x in [(True, 20), (False, 360)]:
+        chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, x, 20, 320, 250)
+        data = chart.chart_data
+        data.series.clear()
+        data.categories.clear()
+        data.categories.use_cells = use_cells
+
+        workbook = data.chart_data_workbook
+        series_name = workbook.get_cell(0, 0, 1, "Sales")
+        series = data.series.add(series_name, chart.type)
+        for row in range(1, 5):
+            label = f"Q{row}"
+            if use_cells:
+                label_cell = workbook.get_cell(0, row, 0, label)
+                data.categories.add(label_cell)
+            else:
+                data.categories.add(label)
+
+            value_cell = workbook.get_cell(0, row, 1, row * 10)
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        labels = [category.as_cell.value if use_cells else category.value for category in data.categories]
+        print(f"use_cells = {data.categories.use_cells}:", *labels)
+
+    presentation.save("category-labels.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Definir formatos numéricos personalizados para células da pasta de trabalho**
+
+Use [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada de um gráfico. Por exemplo, um relatório pode precisar que a taxa de conversão seja exibida como porcentagem com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores numéricos para que permaneçam disponíveis para cálculos e plotagem do gráfico.
+
+Um formato numérico altera a exibição, não o valor armazenado. O formato `0.0000%` exibe `0.125` como `12.5000%`; não substitui o número armazenado por `12.5`. Da mesma forma, `0.00000` exibe `0.1234567` como `0.12346` sem arredondar o valor armazenado. Se o formato personalizado for uma string vazia (`""`), [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) será usado em seu lugar.
+
+O exemplo a seguir cria um gráfico de colunas e acessa suas células através de [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). Na planilha 0, B2 contém a taxa de conversão e C2 contém o coeficiente. Ambas as células fornecem valores ao gráfico. O exemplo também habilita rótulos de valor vinculados aos formatos de origem.
 
 ```python
 import aspose.slides as slides
@@ -216,17 +256,19 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Os formatos de célula da pasta de trabalho são separados dos formatos definidos diretamente nos eixos ou rótulos de dados do gráfico. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) está habilitado, e segue o formato numérico de origem porque [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) é `True`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, como mostrado abaixo. O eixo vertical usa seu próprio [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) de `0.00`, com [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) definido como `False`.
+Os formatos de célula da pasta de trabalho são independentes dos formatos definidos diretamente nos eixos do gráfico ou nos rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) está habilitado, e segue o formato numérico da origem porque [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) está `True`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, como mostrado abaixo. O eixo vertical usa seu próprio [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) de `0.00`, com [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) definido como `False`.
 
-Para formatar um rótulo de dados de forma independente, defina sua flag de vínculo à fonte como `False` e atribua seu [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Veja [Rótulos de Dados do Gráfico](/slides/pt/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
+Para formatar um rótulo de dado de forma independente, defina sua bandeira de vínculo à origem como `False` e atribua seu [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Consulte [Chart Data Labels](/slides/pt/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
 
-![Gráfico de colunas com rótulos vinculados à fonte mostrando 12.5000% e 0.12346 e um eixo numérico formatado independentemente.](custom-cell-formats.png)
+A imagem abaixo foi renderizada a partir da apresentação salva após reabri‑la:
 
-## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
+![Gráfico de colunas com rótulos vinculados à origem mostrando 12.5000% e 0.12346 e um eixo numérico formatado de forma independente.](custom-cell-formats.png)
+
+## **Definir uma célula da pasta de trabalho como rótulo de dados do gráfico**
 
 Você pode usar texto de células da pasta de trabalho como rótulos de dados do gráfico.
 
-Este exemplo adiciona um gráfico de bolhas com dados padrão ao primeiro slide de uma apresentação existente. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva a apresentação atualizada.
+O exemplo adiciona um gráfico de bolhas com dados padrão ao primeiro slide de uma apresentação existente. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva a apresentação atualizada.
 
 ```python
 import aspose.slides as slides
@@ -247,7 +289,7 @@ with slides.Presentation("chart2.pptx") as presentation:
     presentation.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gerenciar Planilhas**
+## **Gerenciar planilhas**
 
 A propriedade [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) fornece acesso às planilhas em uma pasta de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime o nome de cada planilha no console.
 
@@ -265,11 +307,11 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **Especificar o Tipo de Origem de Dados**
+## **Especificar o tipo de origem de dados**
 
-Os valores dos pontos da série também podem ser armazenados diretamente como literais numéricos. Consulte [Definir Valores da Série Usando Literais Numéricos](/slides/pt/python-net/chart-series/#set-series-values-using-numeric-literals) para um exemplo completo que salva e lê esses valores. O tipo de origem dos valores dos pontos é separado da configuração interna ou externa da pasta de trabalho do gráfico; usar literais numéricos não remove a pasta de trabalho incorporada.
+Os valores dos pontos da série também podem ser armazenados diretamente como literais numéricos. Consulte [Set Series Values Using Numeric Literals](/slides/pt/python-net/chart-series/#set-series-values-using-numeric-literals) para um exemplo completo que os salva e lê. O tipo de origem dos valores dos pontos é separado da configuração interna ou externa da pasta de trabalho do gráfico; usar literais numéricos não remove, por si só, a pasta de trabalho incorporada.
 
-Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando fontes de dados diferentes. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
+O exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de séries usando diferentes fontes de dados. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de séries atualizados.
 
 ```python
 import aspose.slides as slides
@@ -292,9 +334,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Detectar Formatos de Pastas de Trabalho Incorporadas Não Suportados**
+## **Detectar formatos de pastas de trabalho incorporadas não suportados**
 
-Aspose.Slides não oferece suporte ao formato de pasta de trabalho Excel binária (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar a propriedade [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) em [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
+Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar a propriedade [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) em [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
 
 ```python
 import aspose.slides as slides
@@ -315,18 +357,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # Leia ou modifique os dados da pasta de trabalho de gráfico suportados aqui.
+        # Ler ou modificar os dados suportados da pasta de trabalho do gráfico aqui.
 ```
 
-## **Pasta de Trabalho Externa**
+## **Pasta de trabalho externa**
 
-Aspose.Slides oferece suporte ao uso de pastas de trabalho externas como fonte de dados para gráficos.
+Aspose.Slides suporta o uso de pastas de trabalho externas como fonte de dados para gráficos.
 
-### **Criar uma Pasta de Trabalho Externa**
+### **Criar uma pasta de trabalho externa**
 
-Use [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) para exportar a pasta de trabalho de um gráfico incorporado para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
+Use [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) e [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) para exportar uma pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
 
-Este exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele fecha o stream de saída antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, então salva a apresentação vinculada.
+O exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele fecha o fluxo de saída antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, então salva a apresentação vinculada.
 
 ```python
 from pathlib import Path
@@ -349,13 +391,13 @@ with slides.Presentation() as presentation:
     presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Definir uma Pasta de Trabalho Externa**
+### **Definir uma pasta de trabalho externa**
 
-Usando o método [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se o arquivo foi movido).
+Usando o método [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho para a pasta de trabalho externa (se esta foi movida).
 
-Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, elas ainda podem ser usadas como fonte de dados externa. Se for fornecido um caminho relativo para a pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
+Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usar essas pastas de trabalho como fonte de dados externa. Se o caminho relativo para uma pasta de trabalho externa for fornecido, ele será convertido automaticamente para um caminho completo.
 
-Este exemplo usa uma pasta de trabalho externa cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
+O exemplo usa uma pasta de trabalho externa cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categorias em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
 
 ```python
 from pathlib import Path
@@ -377,10 +419,10 @@ with slides.Presentation() as presentation:
 
 O parâmetro `update_chart_data` de [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) controla se a pasta de trabalho é carregada.
 
-* Quando `update_chart_data` é `False`, somente o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados nem atualizados a partir da pasta de trabalho de destino, de modo que a pasta de trabalho pode estar indisponível.
-* Quando `update_chart_data` é `True`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
+- Quando `update_chart_data` é `False`, apenas o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados ou atualizados a partir da pasta de trabalho de destino, podendo a pasta de trabalho estar indisponível.
+- Quando `update_chart_data` é `True`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
-O exemplo a seguir atribui uma URL de espaço reservado com `update_chart_data` definido como `False`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
+O exemplo a seguir atribui uma URL de placeholder com `update_chart_data` definido como `False`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
 
 ```python
 import aspose.slides as slides
@@ -395,11 +437,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Obter o Caminho da Pasta de Trabalho Fonte de Dados Externa de um Gráfico**
+### **Obter o caminho da pasta de trabalho da fonte de dados externa de um gráfico**
 
 Para identificar a pasta de trabalho vinculada a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de pasta de trabalho.
 
-Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) no console. Em seguida, salva uma cópia da apresentação.
+O exemplo inspecciona a primeira forma no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) no console. Em seguida, salva uma cópia da apresentação.
 
 ```python
 import aspose.slides as slides
@@ -421,11 +463,11 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Editar Dados do Gráfico**
+### **Editar dados do gráfico**
 
-Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
+Você pode editar os dados em pastas de trabalho externas da mesma forma que faz alterações no conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
-Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série para 100 e salva a apresentação atualizada. A edição de valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
+O exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados na primeira série como 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
 
 ```python
 import aspose.slides as slides
@@ -450,11 +492,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Recuperar uma Pasta de Trabalho do Cache do Gráfico**
+### **Recuperar uma pasta de trabalho a partir do cache do gráfico**
 
-Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), configure seu [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), e defina [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) como `True` antes de abrir a apresentação.
+Se um gráfico usar uma pasta de trabalho externa que esteja ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados armazenados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), configure seu [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) e defina [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) como `True` antes de abrir a apresentação.
 
-O exemplo Python a seguir recupera os dados da pasta de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) e [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+O exemplo Python a seguir recupera dados de pasta de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) e [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -470,35 +512,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # Leia ou modifique os dados da pasta de trabalho recuperada aqui.
+        # Ler ou modificar os dados da pasta de trabalho recuperada aqui.
     else:
         print("The first shape is not a chart.")
 ```
 
-Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
-## **Perguntas Frequentes**
+## **Perguntas frequentes**
 
 **Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico possui um [tipo de origem dos dados](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); se a origem for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) e um [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); se a origem for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Os caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados, e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele é convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, de modo que mover a pasta de trabalho pode exigir a atualização do vínculo.
+Sim. Se você especificar um caminho relativo, ele será convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do vínculo.
 
 **Posso usar pastas de trabalho localizadas em recursos/rede compartilhada?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, editar pastas de trabalho remotas diretamente do Aspose.Slides não é suportado — elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. No entanto, editar pastas de trabalho remotas diretamente do Aspose.Slides não é suportado — elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Editar dados de gráfico baseados em célula pode também atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
+A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Editar dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
 
 **O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita uma senha ao criar o vínculo. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) e vincular a essa cópia.
+Aspose.Slides não aceita uma senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) e vincular a essa cópia.
 
 **Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 
-Sim. Cada gráfico armazena seu próprio vínculo. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.
+Sim. Cada gráfico armazena seu próprio vínculo. Se todos apontarem para o mesmo arquivo, atualizar esse arquivo será refletido em cada gráfico na próxima vez que os dados forem carregados.
