@@ -1,5 +1,5 @@
 ---
-title: Prezentációs témák kezelése Pythonban Java-val
+title: Prezentációs témák kezelése Pythonban Java segítségével
 linktitle: Prezentációs téma
 type: docs
 weight: 10
@@ -17,30 +17,30 @@ keywords:
 - kiegészítő paletta
 - téma betűtípus
 - téma stílus
-- téma effektus
+- téma effekt
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Az Aspose.Slides Python-Java verziójában a mester prezentációs témák kezelése, a PowerPoint fájlok egységes márkázással történő létrehozása, testreszabása és konvertálása."
+description: "Mester prezentációs témák az Aspose.Slides-ban Pythonhoz Java-n keresztül, a PowerPoint fájlok egységes megjelenéssel történő létrehozásához, testreszabásához és átalakításához."
 ---
 ## **Bevezetés**
 
-A bemutató téma egy koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet határoz meg. A témára érzékeny objektumok ezekre a közös definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre sok objektumot frissíthet.
+A prezentáció témája egy koordinált színek, betűtípusok, háttérstílusok, kitöltések, vonalak és effektek halmazát definiálja. A téma‑érzékeny objektumok ezekre a közös definíciókra hivatkoznak, ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma változtatása egyszerre sok objektumot frissíthet.
 
-Az Aspose.Slides‑ban a prezentáció‑szintű téma a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasterTheme) metóduson keresztül érhető el. Egy prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülbírálásokat. Egy mester a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterthememanager/#getOverrideTheme) metódussal felülbírálhatja a prezentáció témáját, míg egy elrendezés vagy egy önálló dia a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseoverridethememanager/#getOverrideTheme) metódussal felülbírálhatja a örökölt témát. Gyakorlatban egy dia hatékony témája ezen öröklődési lánc mentén kerül feloldásra: prezentációs téma, mester‑felülbírálás, elrendezés‑felülbírálás és dia‑felülbírálás.
+Az Aspose.Slides-ban a prezentáció‑szintű téma a [Presentation.getMasterTheme](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasterTheme) segítségével érhető el. A prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülbírálásokat. Egy mester felülbírálhatja a prezentáció témáját a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/python-java/aspose.slides/masterthememanager/#getOverrideTheme) segítségével, míg egy elrendezés vagy egy egyedi dia felülbírálhatja a örökölt témát a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/python-java/aspose.slides/baseoverridethememanager/#getOverrideTheme) segítségével. Gyakorlatban egy dia hatékony témája ezen öröklődési láncon keresztül kerül feloldásra: prezentáció téma, mester felülbírálás, elrendezés felülbírálás és dia felülbírálás.
 
-![Téma összetevők: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
+![Téma összetevők: színek, betűtípusok, háttérstílusok és effektek](theme-constituents.png)
 
-Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma vizsgálata, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektus‑stílusok frissítése, valamint a hatékony értékek olvasása az öröklődés és a felülbírálások feloldása után.
+Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: egy téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektustílusok frissítése, valamint a hatékony értékek kiolvasása az öröklődés és a felülbírálások feloldása után.
 
-## **Téma vizsgálata**
+## **Téma ellenőrzése**
 
-A [MasterTheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus‑sémáját és formátumsémáját a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/mastertheme/#getColorScheme), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/mastertheme/#getFontScheme) és [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/mastertheme/#getFormatScheme) metódusokon keresztül teszi hozzáférhetővé. Ezeknek a gyűjteményeknek a vizsgálata a módosítás előtt különösen hasznos, ha egy prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+A [MasterTheme](https://reference.aspose.com/slides/python-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus-sémáját és formátum-sémáját teszi elérhetővé a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/python-java/aspose.slides/mastertheme/#getColorScheme), a [MasterTheme.getFontScheme](https://reference.aspose.com/slides/python-java/aspose.slides/mastertheme/#getFontScheme) és a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/python-java/aspose.slides/mastertheme/#getFormatScheme) segítségével. Ezeknek a gyűjteményeknek a vizsgálata a módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stíluselelemek száma és tartalma változhat.
 
-Az alábbi példa beolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér, kitöltés, vonal és effektus‑stílus van tárolva a témában:
+Az alábbi példa beolvassa a fő téma tulajdonságait, és jelzi, hány háttér-, kitöltés-, vonal‑ és effektus‑stílus van a témában tárolva:
 
 ```python
 import jpype
@@ -54,6 +54,7 @@ from asposeslides.api import Presentation
 presentation = Presentation("input.pptx")
 try:
     theme = presentation.getMasterTheme()
+
     print("Theme name:", theme.getName())
     print("Accent 1:", theme.getColorScheme().getAccent1().getColor())
     print("Major Latin font:", theme.getFontScheme().getMajor().getLatinFont().getFontName())
@@ -66,13 +67,13 @@ finally:
     presentation.dispose()
 ```
 
-Ha egy fájl több mestert használ, ne tételezzük fel, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Vizsgáljuk meg a diával kapcsolatos mestert, és használjuk a cikk későbbre nyújtott hatékony‑téma munkafolyamatot, ha elrendezés‑ vagy dia‑felülbírálások is előfordulhatnak.
+Ha egy fájl több mestert használ, ne feltételezzük, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Ellenőrizzük a diával kapcsolatos mestert, és a későbbiekben bemutatott hatékony‑téma munkafolyamatot alkalmazzuk, ha elrendezés‑ vagy dia‑felülbírálások lehetnek jelen.
 
 ## **Téma színeinek módosítása**
 
-A témára érzékeny kitöltések, vonalak és szöveg logikai színre hivatkozhat a [SchemeColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/schemecolor/) felsorolásból. Amikor a megfelelő bejegyzést módosítjuk a [ColorScheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/colorscheme/) gyűjtményben, minden olyan objektum, amely még mindig erre a téma‑színre hivatkozik, az új érték szerint kerül feloldásra. Azok az objektumok, amelyek közvetlen RGB‑színt használnak, nem változnak meg téma‑szín frissítésekor.
+A téma‑érzékeny kitöltések, vonalak és szöveg logikai színre hivatkozhat a [SchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/schemecolor/) felsorolásban. Ha a megfelelő bejegyzést módosítjuk a [ColorScheme](https://reference.aspose.com/slides/python-java/aspose.slides/colorscheme/)‑ben, minden, még mindig azt a téma‑színt referáló objektum az új értékhez lesz feloldva. A közvetlen RGB‑színt használó objektumok nem változnak meg egy téma‑szín frissítésekor.
 
-Az alábbi vég‑végi példa létrehoz egy alakzatot, amely az `Accent4`‑et használja, megváltoztatja a téma `Accent4` színét pirosra, menti a prezentációt, újra megnyitja, és kiírja a hatékony kitöltőszínt:
+Az alábbi vég‑ig példa egy olyan alakzatot hoz létre, amely a `Accent4` színt használja, a téma `Accent4` színét pirosra változtatja, elmenti a prezentációt, újra megnyitja, és kiírja a hatékony kitöltési színt:
 
 ```python
 import jpype
@@ -87,10 +88,13 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4)
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED)
+
     presentation.save("theme-color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -105,19 +109,19 @@ finally:
     saved_presentation.dispose()
 ```
 
-Mivel a téglalap továbbra is az `Accent4`‑hez van kapcsolva, látható színe a téma módosítása után piros lesz. Ha a sémaszínt közvetlen színre cseréljük az alakzaton, a későbbi `Accent4` módosítások már nem befolyásolják azt a kitöltést.
+Mivel a téglalap továbbra is a `Accent4`‑hez van kapcsolva, látható színe a téma módosítása után piros lesz. Ha a téma‑színt közvetlen színre cseréljük az alakzaton, a későbbi `Accent4` változások már nem befolyásolják azt a kitöltést.
 
-### **Színek használata a kiegészítő palettáról**
+### **Színek használata a kiegészítő palettából**
 
-A PowerPoint világosabb és sötétebb változatokat származtat egy téma‑színből színátalakítások alkalmazásával. Az Aspose.Slides ezeket az átalakításokat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/colortransformoperation/) felsorolásban teszi elérhetővé.
+A PowerPoint világosabb és sötétebb variánsokat származtat egy téma‑színből színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/python-java/aspose.slides/colortransformoperation/) felsorolásban teszi elérhetővé.
 
-![Fő téma‑színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
+![A fő téma színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
 **1** – A fő téma színek.
 
-**2** – A fő téma színeiből származó világosabb és sötétebb változatok.
+**2** – A fő téma színeiből előállított világosabb és sötétebb variánsok.
 
-Az alábbi példa hat téglalapot hoz létre az `Accent4`‑ alapján, ötön luminancia‑átalakítást alkalmaz, és elmenti az eredményt:
+Az alábbi példa hat téglalapot hoz létre a `Accent4` alapján, ötön luminancia‑transzformációt alkalmaz, és elmenti az eredményt:
 
 ```python
 import jpype
@@ -169,31 +173,33 @@ finally:
     presentation.dispose()
 ```
 
-Ezek a változatok továbbra is a téma‑színen alapulnak. Ha később az `Accent4` változik, a transzformált színek az új `Accent4` értékből lesznek újraszámolva.
+Ezek a variánsok továbbra is a téma‑színen alapulnak. Ha a `Accent4` később változik, a transzformált színek újra lesznek számítva az új `Accent4` értékből.
 
-### **`SchemeColor` értékek leképezése a `ColorScheme` helyekre**
+### **A `SchemeColor` értékek leképezése a `ColorScheme` helyekre**
 
-A [SchemeColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/colorscheme/) ugyanazokat a témahelyeket a `Dark1`, `Light1`, `Dark2` és `Light2` név alatt teszi közzé. A leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/python-java/aspose.slides/colorscheme/) ugyanazokat a téma‑helyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi közzé. A leképezés rögzített:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ezek ugyanazoknak a témahelyeknek alternatív elnevezései; nem olyan értékek, amelyeket dinamikusan konvertálnak az egyik formából a másikba.
+Ezek ugyanazon téma‑helyek alternatív nevei; nem dinamikusan konvertált értékek.
 
 ## **Téma betűtípusainak módosítása**
 
-Egy téma‑betűtípus‑séma nagy betűtípus‑készletet tartalmaz a címsorokhoz és kisebb betűtípus‑készletet a törzsszöveghez. A [FontScheme.getMajor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontscheme/#getMajor) és a [FontScheme.getMinor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fontscheme/#getMinor) metódusok teszik ezeket a készleteket elérhetővé.
+Egy téma betűtípus‑sémája fő betűtípus‑készletet tartalmaz a címsorokhoz, illetve kisebb betűtípus‑készletet a törzs szöveghez. A [FontScheme.getMajor](https://reference.aspose.com/slides/python-java/aspose.slides/fontscheme/#getMajor) és a [FontScheme.getMinor](https://reference.aspose.com/slides/python-java/aspose.slides/fontscheme/#getMinor) metódusok teszik ezeket a készleteket elérhetővé.
 
-PowerPoint‑kompatibilis téma‑betűtípus‑azonosítók használhatók a szövegformázásban:
+A PowerPoint‑kompatibilis téma‑betűtípus azonosítók a szövegformázásban használhatók:
 
-* `+mn-lt` – Szövegtörzs betűtípusa Latin (Minor Latin Font)
-* `+mj-lt` – Címsor betűtípusa Latin (Major Latin Font)
-* `+mn-ea` – Szövegtörzs betűtípusa Kelet‑ázsiai (Minor East Asian Font)
-* `+mj-ea` – Címsor betűtípusa Kelet‑ázsiai (Major East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading Font Latin (Major Latin Font)
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` – Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` – Heading Font Complex Script (Major Complex Script Font)
 
-Az alábbi példa egy olyan címsort hoz létre, amely a fő Latin téma‑betűtípust használja, valamint egy törzssorot, amely a kisebb Latin téma‑betűtípust használja. Ezután módosítja a téma‑betűtípusokat, és elmenti az eredményt:
+Az alábbi példa létrehoz egy címsort, amely a fő Latin téma‑betűtípust használja, valamint egy törzssort, amely a kisebb Latin téma‑betűtípust használja. Ezután megváltoztatja a téma betűtípusaival, és elmenti az eredményt:
 
 ```python
 import jpype
@@ -227,30 +233,81 @@ finally:
     presentation.dispose()
 ```
 
-A címsor a fő betűtípust, a törzsszöveg a kisebb betűtípust követi. A szöveg, amelynek explicit betűtípus‑neve van a témaazonosító helyett, nem vált automatikusan át, ha a téma‑betűtípus‑séma megváltozik.
+A címsor a fő betűtípust követi, a törzs szöveg a kisebb betűtípust. Az a szöveg, amely kifejezetten betűtípus‑nevet tartalmaz a téma‑azonosító helyett, nem vált automatikusan, amikor a téma betűtípus‑sémája megváltozik.
 
-A fő és kisebb betűtípus‑gyűjtemények tartalmazhatnak betűtípus‑leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek a vizsgálatához, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/python-java/script-specific-font-mappings/) oldalt.
+A fő és kisebb betűtípus‑gyűjtemények tartalmazhatnak betűtípus‑leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek az ellenőrzéséhez, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/python-java/script-specific-font-mappings/) oldalt.
 
 {{% alert color="success" title="Tip" %}}
-További információk a bemutató betűtípusairól a [PowerPoint Fonts](/slides/hu/python-java/powerpoint-fonts/) oldalon találhatók.
+
+További információk a prezentáció betűtípusairól a [PowerPoint Fonts](/slides/hu/python-java/powerpoint-fonts/) oldalon találhatók.
+
 {{% /alert %}}
+
+### **Téma betűtípus‑referenciák feloldása**
+
+Szöveg ellenőrzésekor a [FontData.getFontName](https://reference.aspose.com/slides/python-java/aspose.slides/fontdata/#getFontName) visszaadhat egy téma‑referenciát, például `+mn-lt`, ahelyett, hogy betűcsalád nevet adna vissza. Hívja a [FontData.getFontName](https://reference.aspose.com/slides/python-java/aspose.slides/fontdata/#getFontName)‑t a megfelelő hatékony téma adatával a referencia feloldásához. A `+mj` és `+mn` előtagok a fő és a kisebb betűtípus‑készletet jelölik; a `-lt`, `-ea` és `-cs` utótagok a latin, kelet‑ázsiai és komplex script betűtípusokat választják ki.
+
+Szerezze be a hatékony témát a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective) metódussal annak a téma‑kezelőnek, amelyik a vizsgált szöveget tartalmazó objektumra vonatkozik. Egy normál dián lévő szöveg esetén használja a dia téma‑kezelőjét, hogy a kontextus magában foglalja a dia örökölt témáját és a helyi felülbírálásokat. Egy elrendezés vagy mester ellenőrzésekor használja a saját hatékony témáját. Ne tételezze fel, hogy az első mester témája minden dia számára érvényes.
+
+Az alábbi példa egy olyan szövegrészt hoz létre, amely kifejezetten a kisebb Latin betűtípust hivatkozza. A [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#initFontSchemeFromInherited) segítségével inicializálja a dia betűtípus‑sémáját, és a fő és kisebb Latin családokat `Arial`‑ra és `Calibri`‑ra állítja, hogy az eredmény bemeneti fájl nélkül reprodukálható legyen.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    theme = slide.getThemeManager().getOverrideTheme()
+    theme.initFontSchemeFromInherited()
+    major_font = FontData("Arial")
+    theme.getFontScheme().getMajor().setLatinFont(major_font)
+    minor_font = FontData("Calibri")
+    theme.getFontScheme().getMinor().setLatinFont(minor_font)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 60)
+    shape.getTextFrame().setText("Text using the minor theme font")
+
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    theme_font = FontData("+mn-lt")
+    portion.getPortionFormat().setLatinFont(theme_font)
+
+    font = portion.getPortionFormat().getLatinFont()
+    effective_theme = slide.getThemeManager().createThemeEffective()
+    print(f"{font.getFontName()} -> {font.getFontName(effective_theme)}")
+
+    explicit_font = FontData("Verdana")
+    print(f"{explicit_font.getFontName()} -> {explicit_font.getFontName(effective_theme)}")
+finally:
+    presentation.dispose()
+```
+
+A kimenet `+mn-lt -> Calibri` majd `Verdana -> Verdana`. A tárolt referencia változatlan marad, míg a kifejezett családnév változatlanul visszatér. Ha a rész `+mj-lt`‑t használt volna, ez `Arial`‑ra oldódna fel ebben a témában.
+
+A téma‑referencia feloldása meghatározza a téma által megadott betűcsaládot. Nem ellenőrzi a betűtípus elérhetőségét, illetve nem határozza meg, hogy a helyettesítés vagy glyph fallback után melyik betűtípus‑fájl kerül végül felhasználásra a renderelés során. Lásd a [Font Selection Sequence](/slides/hu/python-java/font-selection-sequence/) és a [Font Substitution](/slides/hu/python-java/font-substitution/) oldalakat ezekhez a különálló lépésekhez.
 
 ## **Téma másolása vagy alkalmazása**
 
-Az alábbi munkafolyamatok különböző téma‑kapcsolódó problémákat oldanak meg.
+Az alábbi munkafolyamatok különböző téma‑kapcsolatos problémákat oldanak meg.
 
-### **Külső téma alkalmazása egy mesterhez kapcsolódó diákra**
+### **Külső téma alkalmazása egy mesterhez tartozó diákra**
 
-Használja a [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#applyExternalThemeToDependingSlides) metódust, ha rendelkezik egy PowerPoint téma‑fájllal (`.thmx`), és minden, egy adott mesterhez kapcsolódó diát új stílussal szeretne ellátni. Válassza ki a mestert a [Presentation.getMasters](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasters) gyűjteményből, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/) képvisel, majd adja át a téma‑fájl útvonalát a metódusnak.
+Használja a [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#applyExternalThemeToDependingSlides) metódust, ha rendelkezik egy PowerPoint téma fájllal (`.thmx`), és minden, egy adott mesterhez tartozó diát újratervezni szeretne. Válassza ki a mestert a [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) gyűjteményből, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/python-java/aspose.slides/masterslidecollection/) képvisel, majd adja át a téma fájl útvonalát a metódusnak.
 
 A metódus a következő műveleteket hajtja végre:
 
-1. Létrehozza az új mester diát a kiválasztott mester alapján.
+1. Létrehoz egy új mester‑diát a kiválasztott mester alapján.
 1. Alkalmazza a külső témát az új mesterre.
-1. Az új mestert hozzárendeli minden diához, amely korábban a kiválasztott mesterhez tartozott.
-1. Visszaadja a frissen létrehozott [MasterSlide] objektumot.
+1. Hozzárendeli az új mestert minden diához, amely korábban a kiválasztott mesterhez tartozott.
+1. Visszaadja a frissen létrehozott [MasterSlide](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/)‑t.
 
-Az alábbi példa alkalmaz egy külső témát az első mesterhez kapcsolódó diákra, majd elmenti a prezentációt:
+Az alábbi példa egy külső témát alkalmaz az első mesterhez tartozó diákra, és elmenti a prezentációt:
 
 ```python
 import jpype
@@ -265,26 +322,26 @@ presentation = Presentation("presentation.pptx")
 try:
     selected_master = presentation.getMasters().get_Item(0)
     themed_master = selected_master.applyExternalThemeToDependingSlides("corporate-theme.thmx")
-
     print("Created master:", themed_master.getName())
+
     presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Egy érvénytelen, sérült vagy nem támogatott téma [PptxReadException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxreadexception/) kivételt okozhat. Ellenőrizze a felhasználók által megadott útvonalakat, kezelje a fájlrendszer‑hozzáférés hibáit, és csak akkor mentse a prezentációt, ha a téma sikeresen alkalmazva lett.
+Egy érvénytelen, sérült vagy nem támogatott téma [PptxReadException](https://reference.aspose.com/slides/python-java/aspose.slides/pptxreadexception/)-t okozhat. Érvényesítse a felhasználók által megadott útvonalakat, kezelje a fájlrendszer‑hozzáférési hibákat, és csak akkor mentse a prezentációt, ha a téma sikeresen alkalmazásra került.
 
-Csak a kiválasztott mesterhez tartozó diák kerülnek átirányításra. Az más mesterekhez tartozó diák megtartják meglévő mestereiket és témáikat. A témára érzékeny színek, betűtípusok, kitöltések, vonalak, háttér‑ és effektus‑elemek a külső témához viszonyítva kerülnek feloldásra. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanok maradhatnak. Az elrendezés‑szintű és dia‑szintű felülbírálások szintén felülírhatják az új mesterből örökölt értékeket.
+Csak azok a diák, amelyek a kiválasztott mesterhez tartoztak, kerülnek újra hozzárendelésre. Az egyéb mesterekhez tartozó diák megtartják meglévő mestereiket és témáikat. A téma‑érzékeny színek, betűtípusok, kitöltések, vonalak, háttér és effektek a külső témához lesznek feloldva. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanok maradhatnak. Az elrendezés‑szintű és dia‑szintű felülbírálások szintén elsőbbséget élvezhetnek az új mesterből örökölt értékekkel szemben.
 
-A téma olyan betűtípusokra hivatkozhat, amelyek nincsenek jelen a futási környezetben. A következetes megjelenítés és export érdekében telepítse a szükséges betűtípusokat, biztosítsa őket a [custom font sources](/slides/hu/python-java/custom-font/) segítségével, vagy konfigurálja a [font substitution](/slides/hu/python-java/font-substitution/) beállításokat.
+A téma hivatkozhat olyan betűtípusokra, amelyek nem állnak rendelkezésre a futtatási környezetben. A konzisztens renderelés és export érdekében telepítse a szükséges betűtípusokat, biztosítsa azokat [egyéni betűtípus‑forrásokon](/slides/hu/python-java/custom-font/) keresztül, vagy konfigurálja a [betűtípus‑helyettesítést](/slides/hu/python-java/font-substitution/).
 
-Ez egy közvetlen mester‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útvonalát várja, és nem igényel manuális dia‑ vagy elrendezés‑szintű téma‑felülbírálások létrehozását.
+Ez egy közvetlen mester‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útját fogadja, és nem igényel manuális létrehozást dia‑ vagy elrendezés‑szintű téma‑felülbírálásokhoz.
 
-### **Különböző külső témák alkalmazása egy több‑mesteres prezentációban**
+### **Különböző külső témák alkalmazása több‑mesteres prezentációban**
 
-Ha a releváns mester nincs előre ismert, szerezze be egy reprezentatív dia segítségével a [Slide.getLayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getLayoutSlide) és a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslide/#getMasterSlide) metódusokkal. Tárolja az eredeti mester‑referenciákat a témák alkalmazása előtt, mivel minden hívás egy új mestert hoz létre a prezentációban.
+Ha a releváns mester előre nem ismert, szerezze be egy reprezentatív dia segítségével a [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) és a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/#getMasterSlide) metódusokkal. Tárolja az eredeti mester‑referenciákat, mielőtt bármilyen témát alkalmazna, mivel minden hívás egy új mestert hoz létre a prezentációban.
 
-Az alábbi példa két szakasz diáit használja a mesterek megtalálásához, majd minden csoporthoz egy különböző külső témát alkalmaz:
+Az alábbi példa két szakaszból származó diák segítségével megtalálja a mestereiket, és minden csoporthoz különböző külső témát alkalmaz:
 
 ```python
 import jpype
@@ -311,16 +368,17 @@ try:
 
             print("First themed master:", first_themed_master.getName())
             print("Second themed master:", second_themed_master.getName())
+
             presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Az első hívás csak az `first_group_master`‑hez tartozó diákra hat, a második hívás csak a `second_group_master`‑hez tartozó diákra. Más mesterekhez tartozó diákok nincsenek újraformázva.
+Az első hívás csak a `first_group_master`‑hez tartozó diákra hat, a második pedig csak a `second_group_master`‑hez tartozó diákra. Más mesterekhez tartozó diákok nem kapnak új stílust.
 
-### **Forrás téma megőrzése diák áthelyezésekor**
+### **Forrástéma megőrzése diák áthelyezésekor**
 
-Ha egy diát egy másik prezentációba szeretne áthelyezni, miközben megőrzi az eredeti tervezést, klónozza a forrás mestert a célprezentációba a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#addClone) használatával, majd a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addClone) és a klónozott mesterrel klónozza. Ez a mester, az elrendezései és a hozzá kapcsolódó téma együtt kerül át.
+Ha egy diát egy másik prezentációba szeretne áthelyezni, miközben megőrzi az eredeti megjelenését, klónozza a forrás‑mestert a cél‑prezentációba a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/masterslidecollection/#addClone) segítségével, majd klónozza a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) és a klónozott mesterrel. Ez a mester, az elrendezései és a hozzá tartozó téma együtt kerül átvitelre.
 
 ```python
 import jpype
@@ -336,9 +394,11 @@ try:
     target = Presentation("target.pptx")
     try:
         source_slide = source.getSlides().get_Item(0)
+
         source_master = source_slide.getLayoutSlide().getMasterSlide()
         cloned_master = target.getMasters().addClone(source_master)
         target.getSlides().addClone(source_slide, cloned_master, True)
+
         target.save("theme-preserved.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -346,11 +406,11 @@ finally:
     source.dispose()
 ```
 
-Ez a preferált munkafolyamat, ha a forrás dia megjelenésének változatlannak kell maradnia a célhelyen. Egy nem kapcsolódó cél‑mesterre történő egyszerű klónozás megváltoztathatja a téma‑alapú színeket, betűtípusokat, háttereket és effektusokat.
+Ez az előnyben részesített munkafolyamat, ha a forrás‑diának ugyanúgy kell kinéznie a célhelyen. Csak a tartalmat klónozva egy nem kapcsolódó cél‑mesterre megváltoztathatja a téma‑vezérelt színeket, betűtípusokat, háttereket és effekteket.
 
-### **Témaértékek alkalmazása egy meglévő diára**
+### **Téma értékek alkalmazása meglévő diára**
 
-Ha a cél dia a jelenlegi mesterén és elrendezésén marad, inicializáljon egy dia‑szintű felülbírálást a forrás téma alapján. Az [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/python-java/aspose.slides/overridetheme/#initColorSchemeFrom), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/python-java/aspose.slides/overridetheme/#initFontSchemeFrom) és [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/python-java/aspose.slides/overridetheme/#initFormatSchemeFrom) metódusok másolják a három fő téma‑komponenst a felülbírálásba.
+Ha a cél‑dia a jelenlegi mesterén és elrendezésén marad, inicializáljon egy dia‑szintű felülbírálást a forrástémából. A [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#initColorSchemeFrom), a [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#initFontSchemeFrom) és a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#initFormatSchemeFrom) metódusok a három fő téma‑komponenst másolják a felülbírálásba.
 
 ```python
 import jpype
@@ -366,10 +426,12 @@ try:
     target = Presentation("target.pptx")
     try:
         target_slide = target.getSlides().get_Item(0)
+
         override_theme = target_slide.getThemeManager().getOverrideTheme()
         override_theme.initColorSchemeFrom(source.getMasterTheme().getColorScheme())
         override_theme.initFontSchemeFrom(source.getMasterTheme().getFontScheme())
         override_theme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme())
+
         target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -377,11 +439,11 @@ finally:
     source.dispose()
 ```
 
-Ez megváltoztatja a dia által használt témát anélkül, hogy a többi diára öröklött témát módosítaná. A helyi felülbírálás eltávolításához és az örökölt értékek visszaállításához hívja meg az [OverrideTheme.clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/overridetheme/#clear) metódust.
+Ez megváltoztatja a dián használt témát anélkül, hogy a többi dia örökölt témáját módosítaná. A helyi felülbírálás eltávolításához és az örökölt értékek visszaállításához hívja a [OverrideTheme.clear](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#clear)‑t.
 
 ### **Téma felülbírálás alkalmazása egy elrendezésre**
 
-Egy elrendezés‑szintű felülbírálás a azt használó diákra vonatkozik, hacsak egy adott dia nem rendelkezik saját felülbírálással. Ugyanezeket az inicializációs metódusokat a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/layoutslidethememanager/) segítségével is használhatja:
+Az elrendezés‑szintű felülbírálás az arra a elrendezésre épülő diákra hat, hacsak egy adott dia nem rendelkezik saját felülbírálással. Ugyanazokat a inicializáló metódusokat a [LayoutSlideThemeManager](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslidethememanager/) használatával is alkalmazhatja:
 
 ```python
 import jpype
@@ -397,11 +459,13 @@ try:
     target = Presentation("target.pptx")
     try:
         target_slide = target.getSlides().get_Item(0)
+
         target_layout = target_slide.getLayoutSlide()
         override_theme = target_layout.getThemeManager().getOverrideTheme()
         override_theme.initColorSchemeFrom(source.getMasterTheme().getColorScheme())
         override_theme.initFontSchemeFrom(source.getMasterTheme().getFontScheme())
         override_theme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme())
+
         target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -409,17 +473,24 @@ finally:
     source.dispose()
 ```
 
-Használjon mester‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak közös alap‑tervre van szüksége, elrendezés‑felülbírálást, ha egy elrendezés‑családnak más stílusra van szüksége, és csak diára alkalmazott felülbírálást valódi kivételekhez. A túlzott dia‑szintű felülbírálások megnehezítik a későbbi globális téma‑módosítások megjósolását.
+Használjon mester‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak közös alaptervet kell megosztania; elrendezés‑felülbírálást akkor, ha egy elrendezés‑család más stílust igényel, valamint dia‑felülbírálást csak valódi kivételek esetén. A túlzott dia‑szintű felülbírálások megnehezítik a későbbi globális téma‑változtatások előrejelzését.
+
+
+<!-- visual-explanation:presentation-theme:start -->
+[![Egy mester‑téma két elrendezést táplál; egy elrendezés‑felülbírálás a diákra hat, kivéve egy helyi felülbírálással rendelkező diát.](visual-presentation-theme-20ad12f2193b.svg)](visual-presentation-theme-20ad12f2193b.svg)
+
+*Egy elrendezés‑felülbírálás a arra az elrendezésre épülő diákra vonatkozik, hacsak egy dia saját felülbírálást nem biztosít. A téma‑alapú értékek feloldott sémájukat követik; a kifejezetten formázott objektumok megtarthatják helyi megjelenésüket. Tartsa a felülbírálásokat olyan szűken, mint a tervezett kivétel.*
+<!-- visual-explanation:presentation-theme:end -->
 
 ## **Téma háttérstílusainak frissítése**
 
-A téma háttér‑kitöltései a [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/python-java/aspose.slides/formatscheme/#getBackgroundFillStyles) metódusban vannak tárolva. A PowerPoint az UI‑jában több háttér‑választási lehetőséget jeleníthet meg, mint ahány kitöltés‑definíció fizikailag tárolva van ebben a gyűjteményben, mert az UI a téma‑kitöltéseket kombinálhatja a téma‑színekkel és egyéb stílus‑referenciákkal.
+A téma háttér‑kitöltései a [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/python-java/aspose.slides/formatscheme/#getBackgroundFillStyles)‑ben tárolódnak. A PowerPoint a felhasználói felületén több háttér‑választást jeleníthet meg, mint a ténylegesen a gyűjteményben tárolt kitöltés‑definíciók száma, mivel a felület a téma‑kitöltéseket téma‑színekkel és egyéb stílus‑referenciákkal tudja kombinálni.
 
-![PowerPoint háttér‑stílus galéria egy prezentáció témához](presentation-design_8.png)
+![PowerPoint háttér‑stílus galéria egy prezentáció‑témához](presentation-design_8.png)
 
-Mielőtt háttér‑stílust használna, vizsgálja meg a tárolt gyűjteményt és az aktuális [Background.getStyleIndex](https://reference.aspose.com/slides/hu/python-java/aspose.slides/background/#getStyleIndex) értéket. A `0`‑as stílus‑index azt jelenti, hogy nincs témához tartozó kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér a gyűjtemény közvetlen indexelésétől, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne tételezzük fel, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
+Mielőtt háttér‑stílust használna, ellenőrizze a tárolt gyűjteményt és az aktuális [Background.getStyleIndex](https://reference.aspose.com/slides/python-java/aspose.slides/background/#getStyleIndex) értékét. A `0`‑as stílus‑index azt jelenti, hogy nincs témához kötött kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér attól, amikor a gyűjteményt közvetlenül indexeljük, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne tételezze fel, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
 
-Az alábbi példa jelzi a rendelkezésre álló háttér‑kitöltés számát, egy témához tartozó háttér‑referenciát rendeli az első mesterhez, és elmenti a prezentációt:
+Az alábbi példa jelzi a rendelkezésre álló háttér‑kitöltések számát, egy téma‑háttér‑referenciát rendel az első mesterhez, és elmenti a prezentációt:
 
 ```python
 import jpype
@@ -440,30 +511,35 @@ try:
         master_slide = presentation.getMasters().get_Item(0)
         master_slide.getBackground().setType(BackgroundType.Themed)
         master_slide.getBackground().setStyleIndex(1)
+
         presentation.save("theme-background.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-A látható eredmény a mester által hivatkozott téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülbírálásoktól függ. Ha egy dia saját háttérrel rendelkezik, csak a mester háttér módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/background/#getEffective) metódust, ha a végső háttérre van szüksége az öröklődés alkalmazása után.
+A látható eredmény a mester által hivatkozott téma‑bejegyzéstől és az elrendezés‑ vagy dia‑szintű háttér‑felülbírálásoktól függ. Ha egy dia saját háttért használ, csak a mester háttér módosítása nem változtatja meg azt a diát. Használja a [Background.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/background/#getEffective)‑t, ha a végső háttérre van szüksége az öröklődés alkalmazása után.
 
 {{% alert color="warning" title="Warning" %}}
-Ne kezelje a stílus‑indexet nulláral kezdődő gyűjtemény‑indexként. Kerülje a stílusszámok kemény kódolását egy fájlból, és annak feltételezését, hogy másik fájlban ugyanúgy néz ki; a téma‑stílusdefiníciók prezentációnként eltérnek.
+
+Ne kezelje a stílus‑indexet nullára kezdődő gyűjtemény‑indexként. Kerülje a stílus‑számok kódban történő hard‑kódolását, és ne feltételezze, hogy egy fájlban használt szám ugyanúgy néz ki egy másik fájlban; a téma‑stílus‑definíciók prezentációnként eltérnek.
+
 {{% /alert %}}
 
 {{% alert color="success" title="Tip" %}}
+
 A közvetlen háttér‑formázáshoz és a háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/python-java/presentation-background/) oldalt.
+
 {{% /alert %}}
 
-## **Téma effektusainak frissítése**
+## **Téma effektek frissítése**
 
-A téma formátumsémája különálló kitöltés‑, vonal‑ és effektus‑stílus‑gyűjteményeket tartalmaz, amelyeket a [FormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/python-java/aspose.slides/formatscheme/#getFillStyles), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/python-java/aspose.slides/formatscheme/#getLineStyles) és [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/python-java/aspose.slides/formatscheme/#getEffectStyles) metódusok tesznek elérhetővé. A tipikus Office‑témák gyakran három fő stílus‑bejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázást képviselik, de a kódnak sajátként kell vizsgálnia minden gyűjteményt, ahelyett, hogy egy rögzített számot feltételezne.
+Egy téma formátum‑sémája különálló kitöltés‑, vonal‑ és effektus‑stílus‑gyűjteményeket tartalmaz, amelyeket a [FormatScheme.getFillStyles](https://reference.aspose.com/slides/python-java/aspose.slides/formatscheme/#getFillStyles), a [FormatScheme.getLineStyles](https://reference.aspose.com/slides/python-java/aspose.slides/formatscheme/#getLineStyles) és a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/python-java/aspose.slides/formatscheme/#getEffectStyles) exponálnak. A tipikus Office‑témák gyakran három fő stíluselemet tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy rögzített számot feltételezne.
 
-![Finom, közepes és intenzív téma‑effektusok ugyanazon alakzaton alkalmazva](presentation-design_10.png)
+![Finom, közepes és intenzív téma‑effektek ugyanarra az alakzatra alkalmazva](presentation-design_10.png)
 
-Amikor ezeket a gyűjteményeket Python‑on keresztül Java‑val éri el, a gyűjtemény‑index nulla‑alapú: a `get_Item(0)` az első tárolt stílus, a `get_Item(2)` a harmadik. Egy alakzat stílus‑referencia‑indexei egy külön koncepció, amelyet a [ShapeStyle](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapestyle/) exponál. Egy téma‑stílus módosítása azokat az alakzatokat érinti, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázással rendelkező alakzatok változatlanok maradhatnak.
+Python‑on keresztül Java‑ban történő eléréskor a gyűjtemény indexelése nullára kezdődik: a `get_Item(0)` az első tárolt stílus, a `get_Item(2)` a harmadik. Egy alakzat stílus‑referencia indexei egy külön koncepció, amely a [ShapeStyle](https://reference.aspose.com/slides/python-java/aspose.slides/shapestyle/)‑ben jelenik meg. Egy téma‑stílus módosítása azokat az alakzatokat érinti, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázású alakzatok változatlanok maradhatnak.
 
-Az alábbi példa ellenőrzi, hogy a szükséges stílus‑bejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, engedélyezi a külső árnyékot a harmadik effektus‑stílusban, és elmenti az eredményt:
+Az alábbi példa ellenőrzi, hogy a szükséges stíluselemek léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, a harmadik effektus‑stílusban aktivál egy külső árnyékot, majd elmenti az eredményt:
 
 ```python
 import jpype
@@ -489,24 +565,87 @@ try:
         effect_format = format_scheme.getEffectStyles().get_Item(2).getEffectFormat()
         effect_format.enableOuterShadowEffect()
         effect_format.getOuterShadowEffect().setDistance(10)
+
         presentation.save("theme-effects.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Azokra az alakzatokra, amelyek ezekre a helyekre hivatkoznak, az első téma‑vonal‑stílus pirosra változik, a harmadik téma‑kitöltés‑stílus szilárd erdőzöld lesz, a harmadik effektus‑stílus pedig egy 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, hogy melyik stílus‑helyet hivatkozzák az egyes alakzatok, és hogy a közvetlen formázás felülbírálja‑e a témát.
+Az ilyen slotokra hivatkozó alakzatok esetén az első téma‑vonal‑stílus pirosra változik, a harmadik téma‑kitöltés‑stílus szilárd erdei zöld lesz, a harmadik effektus‑stílus pedig egy 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, hogy melyik slotra hivatkozik az adott alakzat, és hogy a közvetlen formázás felülbírálja‑e a témát.
 
-![Téma‑effektus‑stílusok a vonal‑, kitöltés‑ és árnyék‑beállítások módosítása után](presentation-design_11.png)
+![Téma‑effektus‑stílusok a vonal, kitöltés és árnyék beállításainak módosítása után](presentation-design_11.png)
 
-## **Megállapítás, hogy egy hatékony szilárd kitöltés téma színt használ-e**
+## **Alakzat kitöltés‑ és vonal‑stílusának kiválasztása a témából**
 
-Egy kitöltés lehet közvetlenül egy objektumon tárolva, vagy örökölhető egy bekezdésből, elrendezésből, mesterből, téma‑stílusból vagy egyéb formázási szintről. Hívja meg a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fillformat/#getEffective) metódust, hogy ezt a hierarchiát változtathatatlan hatékony kitöltő‑adatokká alakítsa. Először ellenőrizze a `getFillType`‑ot a hatékony adatokon. Csak akkor olvassa ki a szilárd‑kitöltés tulajdonságait, ha az érték `FillType.Solid`.
+Egy alakzat a [ShapeStyle.setFillStyleIndex](https://reference.aspose.com/slides/python-java/aspose.slides/shapestyle/#setFillStyleIndex) és a [ShapeStyle.setLineStyleIndex](https://reference.aspose.com/slides/python-java/aspose.slides/shapestyle/#setLineStyleIndex) segítségével függetlenül választhatja ki a kitöltését és a körvonalát. Mindkét metódus esetén az `1`‑es index a megfelelő téma‑gyűjtemény első bejegyzését jelöli (`get_Item(0)`), a `2`‑es index a másodikat (`get_Item(1)`).
 
-Szilárd kitöltés esetén a `getSolidFillColor` visszaadja a végső renderelt RGB‑értéket az öröklődés, téma‑keresés és színátalakítások alkalmazása után. A `getSolidFillSchemeColor` visszaadja a megfelelő logikai [SchemeColor] helyet, például `Text1` vagy `Accent6`. A `SchemeColor.NotDefined` érték azt jelenti, hogy a hatékony szilárd kitöltés nem sémaszín alapján lett meghatározva. Egy olyan munkafolyamatban, ahol a kitöltések vagy téma‑színek, vagy közvetlen RGB‑színek, ez az érték egy közvetlen RGB‑kitöltést jelöl.
+Az alábbi példa két kitöltési stílust (arany és égszínkék) és két vonal‑stílust (sötétkék 6 pt és sötétvörös 12 pt) állít be az új prezentáció alap‑témájában. A diákat három szakaszban menti, hogy össze tudja hasonlítani az eredményeket a PowerPoint‑ban.
 
-Ne csak a helyi [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/colorformat/#getSchemeColor) értéket használja a kitöltés osztályozásához. Például egy szövegrésznek lehet, hogy nincs helyi sémaszíne, ezért a helyi érték `NotDefined`, míg a hatékony kitöltés örökölt téma‑színt kap, és `Text1` vagy `Accent6` lesz. Ezzel szemben a `getSolidFillSchemeColor` megmondja, mely logikai téma‑hely állította elő a hatékony színt, de nem jelzi, hogy ez a hely az objektumból, bekezdésből, elrendezésből, mesterből vagy egy másik formázási szintről származik.
+```python
+import jpype
+import asposeslides
 
-Az alábbi példa betölti egy prezentációt, auditálja az alakzat‑kitöltéseket és a szövegrész‑kitöltéseket, kiírja minden végső RGB‑értéket és a hozzá tartozó sémaszínt, és megjelöli azokat a szilárd kitöltéseket, amelyek nem követik a téma‑szín változásait:
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    styles = presentation.getMasterTheme().getFormatScheme()
+
+    gold_fill = styles.getFillStyles().get_Item(0)
+    gold_fill.setFillType(FillType.Solid)
+    gold_fill.getSolidFillColor().setColor(Color(255, 215, 0))
+    blue_fill = styles.getFillStyles().get_Item(1)
+    blue_fill.setFillType(FillType.Solid)
+    blue_fill.getSolidFillColor().setColor(Color(135, 206, 235))
+
+    thin_line = styles.getLineStyles().get_Item(0)
+    thin_line.getFillFormat().setFillType(FillType.Solid)
+    thin_line.getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    thin_line.setWidth(6)
+    thick_line = styles.getLineStyles().get_Item(1)
+    thick_line.getFillFormat().setFillType(FillType.Solid)
+    thick_line.getFillFormat().getSolidFillColor().setColor(Color(139, 0, 0))
+    thick_line.setWidth(12)
+
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    left = shapes.addAutoShape(ShapeType.Rectangle, 100, 205, 200, 130)
+    right = shapes.addAutoShape(ShapeType.Rectangle, 420, 205, 200, 130)
+    left.getShapeStyle().setFillStyleIndex(1)
+    right.getShapeStyle().setFillStyleIndex(2)
+    left.getShapeStyle().setLineStyleIndex(1)
+    right.getShapeStyle().setLineStyleIndex(1)
+    presentation.save("01-initial.pptx", SaveFormat.Pptx)
+
+    right.getShapeStyle().setLineStyleIndex(2)
+    presentation.save("02-line-changed.pptx", SaveFormat.Pptx)
+
+    gold_fill.getSolidFillColor().setColor(Color(46, 139, 87))
+    presentation.save("03-theme-changed.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Kiinduló stílusok | A jobb körvonal módosítása | Az első téma‑kitöltés szerkesztése |
+|:---:|:---:|:---:|
+| ![Arany és égszínkék téglalapok illeszkedő vékony sötétkék körvonallal](theme-style-initial.png) | ![Az égszínkék téglalap most vastag sötétvörös körvonallal rendelkezik](theme-style-line-changed.png) | ![A bal téglalap most zöld, a körvonalak változatlanok](theme-style-fill-changed.png) |
+
+Eltérő vonal‑stílus kiválasztása csak a jobb téglalap körvonalát változtatja. Az első téma‑kitöltés szerkesztése minden olyan alakzatot frissít, amely azt használja. Itt csak a bal téglalap válik zöldre.
+
+Egy meglévő alakzaton egy helyi kitöltési szín, vonal‑szín vagy vonal‑szélesség felülbírálhatja a téma‑stílus ezen részét. Ha egy stílus‑index módosítása nem hoz látható változást, ellenőrizze az alakzat [közvetlen formázását](/slides/hu/python-java/shape-formatting/).
+
+## **Megállapítás, hogy a hatékony szilárd kitöltés téma‑színt használ-e**
+
+A kitöltés közvetlenül egy objektumon tárolható, vagy egy bekezdés‑, elrendezés‑, mester‑, téma‑stílus‑ vagy egyéb formázási szintből örökölhető. Hívja a [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective)‑t, hogy a hierarchiát egy változtathatatlan hatékony kitöltési adatba feloldja. Először ellenőrizze a `getFillType`‑ot a hatékony adatobjektumban. Csak akkor olvassa ki a szilárd‑kitöltés tulajdonságait, ha az `FillType.Solid`.
+
+Szilárd kitöltés esetén a `getSolidFillColor` adja vissza a végső renderelt RGB‑értéket az öröklődés, téma‑keresés és színtranszformációk alkalmazása után. A `getSolidFillSchemeColor` visszaadja a megfelelő logikai [SchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/schemecolor/) slotot, például `Text1` vagy `Accent6`. A `SchemeColor.NotDefined` érték azt jelenti, hogy a hatékony szilárd kitöltés nem egy schemából származik. Egy olyan munkafolyamatban, ahol a kitöltések vagy téma‑színek vagy közvetlen RGB‑színek, ez az érték egy közvetlen RGB‑kitöltést jelöl.
+
+Ne csak a helyi [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getSchemeColor) értéket használja a kitöltés besorolásához. Például egy szövegrésznek lehet nincs helyi schemecolor‑definíciója, így a helyi értéke `NotDefined`, míg a hatékony kitöltés örökölt egy téma‑színt, és `Text1`‑re vagy `Accent6`‑ra oldódik fel. Ezzel szemben a `getSolidFillSchemeColor` megmondja, mely logikai téma‑slot adta a hatékony színt, de nem jelzi, hogy ez a slot az objektumtól, bekezdéstől, elrendezéstől, mestertől vagy más szinttől származik-e.
+
+Az alábbi példa betölti a prezentációt, ellenőrzi az alakzat‑ és szövegrész‑kitöltéseket, kiírja minden végső RGB‑értéket és a kapcsolódó schemecolor‑t, valamint jelzi azokat a szilárd kitöltéseket, amelyek nem követik a téma‑szín változásait:
 
 ```python
 import jpype
@@ -549,15 +688,15 @@ finally:
     presentation.dispose()
 ```
 
-A `NotDefined` ágazat egy auditlistát biztosít a szilárd kitöltésekről, amelyek nem reagálnak a téma‑színhelyek változásaira. Tekintse át ezeket az objektumokat, amikor egy prezentációnak új márka‑palettát kell követnie. A jelentett RGB‑érték továbbra is a jelenlegi megjelenést mutatja, míg a sémával kapcsolatos érték elmagyarázza, hogy ez a megjelenés kapcsolódik‑e a témához.
+A `NotDefined` ága egy auditlistát ad a szilárd kitöltésekről, amelyek nem reagálnak a téma‑szín slotok változására. Tekintse át ezeket az objektumokat, amikor egy prezentációnak egy új márkaszínpaletta szerint kell működnie. A jelentett RGB‑érték továbbra is a jelenlegi megjelenést mutatja, míg a scheme‑érték magyarázza, hogy ez a megjelenés kapcsolódik‑e a témához.
 
-A hatékony formátum‑objektumok pillanatfelvételek. A prezentáció témájának, egy téma‑felülbírálásnak vagy bármely örökölt formázásnak a módosítása után hívja meg újra a `getEffective`‑et, és olvassa ki az új hatékony kitöltő‑adatot, mielőtt összehasonlítaná vagy jelentést készítene a színekről.
+A hatékony‑formátum objektumok pillanatfelvételek. A prezentáció téma, egy téma‑felülbírálás vagy bármely örökölt formázás módosítása után hívja a `getEffective`‑et újra, és olvassa ki az új hatékony kitöltési adatot, mielőtt összehasonlítaná vagy jelenteni szeretné a színeket.
 
 ## **Hatékony témaértékek olvasása**
 
-A nyers téma‑objektumok azt mutatják, hogy egy adott szinten mi van definiálva. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások feloldása után. Egy dia esetén hívja meg a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective) metódust. Egy háttérhez használja a [Background.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/background/#getEffective), egy kitöltéshez pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fillformat/#getEffective) metódust.
+A nyers témaobjektumok megmutatják, mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások feloldása után. Egy dia esetén hívja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective)-t. Háttérhez használja a [Background.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/background/#getEffective), kitöltéshez pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective)-t.
 
-Az alábbi példa beolvassa a hatékony témát, a háttért és az első alakzat kitöltését egy diához:
+Az alábbi példa beolvassa a hatékony témát, a háttért és az első alakzat kitöltését egy diákról:
 
 ```python
 import jpype
@@ -571,8 +710,10 @@ from asposeslides.api import FillType, Presentation
 presentation = Presentation("input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     effective_theme = slide.getThemeManager().createThemeEffective()
     effective_background = slide.getBackground().getEffective()
+    
     print("Effective major Latin font:", effective_theme.getFontScheme().getMajor().getLatinFont().getFontName())
     print("Effective minor Latin font:", effective_theme.getFontScheme().getMinor().getLatinFont().getFontName())
     print("Effective background fill type:", effective_background.getFillFormat().getFillType())
@@ -585,22 +726,22 @@ finally:
     presentation.dispose()
 ```
 
-Használja a hatékony adatokat renderelési diagnosztikához, validációhoz és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getMasterTheme)‑t vizsgálja, kihagyhat egy mestert, elrendezést, diát vagy alakzatot felülbíráló elemet, amely megváltoztatja a végső megjelenést.
+Használja a hatékony adatot renderelési diagnosztikához, validáláshoz és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasterTheme)‑t vizsgálja, lemaradhat egy mester, elrendezés, dia vagy alakzat felülbírálásáról, amely megváltoztatja a végső megjelenést.
 
-## **FAQ**
+## **GYIK**
 
-**Az external téma alkalmazása hat minden diára a prezentációban?**
+**Az külső téma alkalmazása minden diára hat a prezentációban?**
 
-Nem. A [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslide/#applyExternalThemeToDependingSlides) csak a kiválasztott mesterhez tartozó diákra rendeli újra a témát. Más mestereket használó diák megtartják meglévő témáikat.
+Nem. A [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#applyExternalThemeToDependingSlides) csak azon diákra vonatkozik, amelyek a kiválasztott mestert használják. A más mestereket használó diák megtartják meglévő témáikat.
 
-**Alkalmazhatok témát egyetlen diára a mester módosítása nélkül?**
+**Alkalmazhatok témát egyetlen diára anélkül, hogy a mestert módosítanám?**
 
-Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidethememanager/)‑ját, és inicializálja a felülbírálás‑témáját. A változás csak arra a diara lesz lokális; a többi dia a meglévő témáját örökli.
+Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/python-java/aspose.slides/slidethememanager/)‑jét, és inicializálja annak felülbírálás‑témáját. A módosítás csak arra a diára marad helyi, a többi dia továbbra is a meglévő témáját örökli.
 
-**Mi a legbiztonságosabb módja egy téma átvitelének az egyik prezentációból a másikba?**
+**Mi a legbiztonságosabb módja annak, hogy egy téma egy prezentációból a másikba kerüljön?**
 
-Ha egy diát áthelyezve meg akarja őrizni a forrás megjelenését, klónozza a forrás mestert a célnál a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/masterslidecollection/#addClone) és a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slidecollection/#addClone) segítségével. Így a mester, az elrendezések és a téma együtt kerülnek át.
+Diák áthelyezésekor és eredeti megjelenésének megőrzésekor klónozza a forrás‑mestert a célba, majd a diát a mesterrel együtt a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/masterslidecollection/#addClone) és a [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) segítségével. Ez együtt tartja a mestert, az elrendezéseket és a témát.
 
-**Hogyan láthatom a hatékony értékeket az öröklődés és a felülbírálások után?**
+**Hogyan tekinthetem meg a hatékony értékeket az öröklődés és a felülbírálások után?**
 
-Használja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective) metódust egy dia vagy elrendezés téma esetén, valamint a megfelelő hatékony‑adat metódusokat formátum‑objektumokhoz, mint a [Background.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/background/#getEffective) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/fillformat/#getEffective). Ezek az API‑k a öröklődés és a felülbírálások alkalmazása utáni feloldott értékeket adják vissza.
+Használja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective)‑t egy dia vagy elrendezés témához, valamint a megfelelő hatékony‑adat metódusokat formátum‑objektumokhoz, például a [Background.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/background/#getEffective) és a [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective)‑t. Ezek az API‑k a öröklődés és a felülbírálások után feloldott értékeket adják vissza.

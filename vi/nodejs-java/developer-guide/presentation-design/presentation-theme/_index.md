@@ -1,46 +1,46 @@
 ---
-title: Quản lý giao diện bản trình chiếu trong JavaScript
-linktitle: Giao diện bản trình chiếu
+title: Quản lý Chủ đề Bản trình chiếu trong JavaScript
+linktitle: Chủ đề Bản trình chiếu
 type: docs
 weight: 10
 url: /vi/nodejs-java/presentation-theme/
 keywords:
-- giao diện PowerPoint
-- giao diện bản trình chiếu
-- giao diện slide
-- đặt giao diện
-- thay đổi giao diện
-- quản lý giao diện
-- giao diện bên ngoài
+- chủ đề PowerPoint
+- chủ đề bản trình chiếu
+- chủ đề slide
+- đặt chủ đề
+- thay đổi chủ đề
+- quản lý chủ đề
+- chủ đề bên ngoài
 - THMX
-- màu giao diện
+- màu chủ đề
 - bảng màu bổ sung
-- phông giao diện
-- phong cách giao diện
-- hiệu ứng giao diện
+- phông chữ chủ đề
+- kiểu chủ đề
+- hiệu ứng chủ đề
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quản lý giao diện bản trình chiếu trong JavaScript với Aspose.Slides cho Node.js để tạo, tùy chỉnh và chuyển đổi các tệp PowerPoint với thương hiệu nhất quán."
+description: "Quản lý chủ đề bản trình chiếu trong JavaScript bằng Aspose.Slides cho Node.js để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu nhất quán."
 ---
 ## **Giới thiệu**
 
-Một giao diện bản trình chiếu xác định một bộ phối hợp các màu sắc, phông chữ, kiểu nền, màu nền, đường kẻ và hiệu ứng. Các đối tượng nhận thức giao diện tham chiếu tới các định nghĩa chung này thay vì lưu trữ mỗi thuộc tính trực quan dưới dạng giá trị cố định, vì vậy việc thay đổi giao diện có thể cập nhật nhiều đối tượng cùng một lúc.
+Một chủ đề trình chiếu định nghĩa một tập hợp phối hợp các màu, phông chữ, kiểu nền, màu tô, đường viền và hiệu ứng. Các đối tượng nhận thức chủ đề tham chiếu đến các định nghĩa chung này thay vì lưu trữ mỗi thuộc tính trực quan dưới dạng giá trị cố định, vì vậy việc thay đổi chủ đề có thể cập nhật nhiều đối tượng cùng lúc.
 
-Trong Aspose.Slides, giao diện ở mức bản trình chiếu có sẵn qua [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getmastertheme/). Bản trình chiếu cũng có thể chứa các ghi đè giao diện ở các cấp thấp hơn. Một master có thể ghi đè giao diện của bản trình chiếu qua [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterthememanager/), trong khi một layout hoặc một slide riêng lẻ có thể ghi đè giao diện được kế thừa của nó qua [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseoverridethememanager/). Thực tế, giao diện hiệu quả cho một slide được giải quyết qua chuỗi kế thừa này: giao diện bản trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
+Trong Aspose.Slides, chủ đề ở cấp độ toàn bộ bản trình chiếu có sẵn thông qua [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/). Một bản trình chiếu cũng có thể chứa các ghi đè chủ đề ở các cấp thấp hơn. Một master có thể ghi đè chủ đề bản trình chiếu thông qua [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterthememanager/), trong khi một layout hoặc một slide riêng lẻ có thể ghi đè chủ đề được kế thừa thông qua [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). Trong thực tế, chủ đề thực tế cho một slide được giải quyết thông qua chuỗi kế thừa này: chủ đề bản trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
 
-![Thành phần giao diện: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
+![Thành phần chủ đề: màu, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
 
-Các phần dưới đây giới thiệu các quy trình làm việc với giao diện phổ biến nhất: kiểm tra giao diện, thay đổi màu sắc và phông chữ, sao chép hoặc áp dụng giao diện, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị hiệu quả sau khi kế thừa và ghi đè đã được giải quyết.
+Các phần dưới đây trình bày các quy trình công việc chủ đề phổ biến nhất: kiểm tra một chủ đề, thay đổi màu và phông chữ, sao chép hoặc áp dụng một chủ đề, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị thực tế sau khi kế thừa và ghi đè đã được giải quyết.
 
-## **Kiểm tra giao diện**
+## **Kiểm tra Chủ đề**
 
-Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mastertheme/) cung cấp lược đồ màu, lược đồ phông và lược đồ định dạng của giao diện thông qua [MasterTheme.getColorScheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mastertheme/) và [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/mastertheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi một bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục style có thể khác nhau.
+Đối tượng [MasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/) cung cấp lược đồ màu, lược đồ phông chữ và lược đồ định dạng của chủ đề thông qua [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/) và [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể khác nhau.
 
-Ví dụ sau đọc các thuộc tính chính của giao diện và báo cáo có bao nhiêu style nền, màu nền, đường kẻ và hiệu ứng được lưu trong giao diện:
+Ví dụ sau đọc các thuộc tính chủ đề chính và báo cáo số lượng kiểu nền, màu tô, đường viền và hiệu ứng được lưu trong chủ đề:
 
 ```javascript
 const aspose = {};
@@ -49,6 +49,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const theme = presentation.getMasterTheme();
+    
     console.log("Theme name: " + theme.getName());
     console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
     console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
@@ -62,13 +63,13 @@ try {
 }
 ```
 
-Nếu một tệp sử dụng nhiều master, đừng giả định rằng mọi slide đều có cùng một giao diện hiệu quả. Kiểm tra master liên kết với slide, và sử dụng quy trình làm việc giao diện‑hiệu quả được mô tả sau trong bài viết khi có khả năng tồn tại ghi đè layout hoặc slide.
+Nếu tệp sử dụng nhiều master, đừng giả định rằng mọi slide đều có cùng một chủ đề thực tế. Kiểm tra master liên kết với slide, và sử dụng quy trình công việc chủ đề thực tế được trình bày sau trong bài viết khi có thể có các ghi đè layout hoặc slide.
 
-## **Thay đổi màu giao diện**
+## **Thay đổi Màu Chủ đề**
 
-Các màu nền, đường kẻ và văn bản nhận thức giao diện có thể tham chiếu tới một màu logic từ enumeration [SchemeColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [ColorScheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/colorscheme/), mọi đối tượng vẫn tham chiếu tới màu giao diện đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu giao diện.
+Các màu tô, đường viền và văn bản nhận thức chủ đề có thể tham chiếu đến một màu logic từ kiểu liệt kê [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/), tất cả các đối tượng vẫn tham chiếu đến màu chủ đề đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi việc cập nhật màu chủ đề.
 
-Ví dụ toàn diện sau tạo một hình dạng sử dụng `Accent4`, thay đổi màu `Accent4` của giao diện thành màu đỏ, lưu bản trình chiếu, mở lại và in màu nền hiệu quả:
+Ví dụ toàn diện sau tạo một hình dạng sử dụng `Accent4`, thay đổi màu `Accent4` của chủ đề thành màu đỏ, lưu bản trình chiếu, mở lại và in ra màu tô thực tế:
 
 ```javascript
 const aspose = {};
@@ -78,10 +79,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -90,6 +94,7 @@ try {
 const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
 try {
     const savedSlide = savedPresentation.getSlides().get_Item(0);
+
     const savedShape = savedSlide.getShapes().get_Item(0);
     const effectiveFill = savedShape.getFillFormat().getEffective();
     console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
@@ -98,19 +103,19 @@ try {
 }
 ```
 
-Vì hình chữ nhật vẫn liên kết với `Accent4`, màu hiển thị của nó sẽ trở thành màu đỏ sau khi giao diện được thay đổi. Nếu bạn thay thế màu scheme bằng màu trực tiếp trên hình, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng tới nền đó.
+Vì hình chữ nhật vẫn được liên kết với `Accent4`, màu hiển thị của nó sẽ trở thành màu đỏ sau khi chủ đề được thay đổi. Nếu bạn thay thế màu scheme bằng một màu trực tiếp trên hình dạng, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng đến màu tô đó nữa.
 
-### **Sử dụng màu từ Bảng màu bổ sung**
+### **Sử dụng Màu từ Bảng màu Bổ sung**
 
-PowerPoint tạo ra các biến thể sáng hơn và tối hơn từ một màu giao diện bằng cách áp dụng các biến đổi màu. Aspose.Slides cung cấp các biến đổi này thông qua enumeration [ColorTransformOperation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/colortransformoperation/).
+PowerPoint tạo ra các biến thể nhẹ hơn và tối hơn từ một màu chủ đề bằng cách áp dụng các biến đổi màu. Aspose.Slides cung cấp các biến đổi này qua kiểu liệt kê [ColorTransformOperation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colortransformoperation/).
 
-![Màu giao diện chính và các màu sáng hơn, tối hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
+![Màu chủ đề chính và các màu nhẹ hơn, tối hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
 
-**1** - Màu giao diện chính.
+**1** - Màu chủ đề chính.
 
-**2** - Các biến thể sáng hơn và tối hơn được tạo từ màu giao diện chính.
+**2** - Các biến thể nhẹ hơn và tối hơn được tạo từ các màu chủ đề chính.
 
-Ví dụ sau tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng biến đổi độ sáng cho năm hình trong số chúng, và lưu kết quả:
+Ví dụ sau tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng các biến đổi độ sáng cho năm trong số chúng, và lưu kết quả:
 
 ```javascript
 const aspose = {};
@@ -159,31 +164,33 @@ try {
 }
 ```
 
-Các biến thể này vẫn dựa trên màu giao diện. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `Accent4` mới.
+Các biến thể này vẫn dựa trên màu chủ đề. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `Accent4` mới.
 
-### **Ánh xạ giá trị `SchemeColor` sang các vị trí trong `ColorScheme`**
+### **Ánh xạ Giá trị `SchemeColor` tới Các vị trí `ColorScheme`**
 
-Enumeration [SchemeColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [ColorScheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/colorscheme/) cung cấp các vị trí giao diện tương đương dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Ánh xạ này cố định:
+Kiểu liệt kê [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/) cung cấp cùng các vị trí chủ đề dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Ánh xạ này cố định:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Đây là các tên thay thế cho cùng một vị trí giao diện; chúng không phải là các giá trị được chuyển đổi động từ dạng này sang dạng kia.
+Đây là các tên thay thế cho cùng một vị trí chủ đề; chúng không phải là các giá trị được chuyển đổi động từ dạng này sang dạng khác.
 
-## **Thay đổi phông chữ giao diện**
+## **Thay đổi Phông chữ Chủ đề**
 
-Một lược đồ phông chữ giao diện chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các phương thức [FontScheme.getMajor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontscheme/) và [FontScheme.getMinor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontscheme/) cung cấp các bộ này.
+Một lược đồ phông chữ chủ đề chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các phương thức [FontScheme.getMajor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) và [FontScheme.getMinor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) cung cấp các bộ này.
 
-Các định danh phông chữ giao diện tương thích PowerPoint có thể được dùng trong định dạng văn bản:
+Các định danh phông chữ chủ đề tương thích với PowerPoint có thể được sử dụng trong định dạng văn bản:
 
-* `+mn-lt` - Phông chữ nội dung Latin (Minor Latin Font)
-* `+mj-lt` - Phông chữ tiêu đề Latin (Major Latin Font)
-* `+mn-ea` - Phông chữ nội dung Đông Á (Minor East Asian Font)
-* `+mj-ea` - Phông chữ tiêu đề Đông Á (Major East Asian Font)
+* `+mn‑lt` - Phông chữ thân thể Latin (Minor Latin Font)
+* `+mj‑lt` - Phông chữ tiêu đề Latin (Major Latin Font)
+* `+mn‑ea` - Phông chữ thân thể Đông Á (Minor East Asian Font)
+* `+mj‑ea` - Phông chữ tiêu đề Đông Á (Major East Asian Font)
+* `+mn‑cs` - Phông chữ thân thể Script phức hợp (Minor Complex Script Font)
+* `+mj‑cs` - Phông chữ tiêu đề Script phức hợp (Major Complex Script Font)
 
-Ví dụ sau tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi các phông chữ giao diện và lưu kết quả:
+Ví dụ sau tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi phông chữ chủ đề và lưu kết quả:
 
 ```javascript
 const aspose = {};
@@ -203,36 +210,79 @@ try {
 
     presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
     presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+
     presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ cụ thể thay vì định danh giao diện sẽ không tự động chuyển khi lược đồ phông chữ giao diện thay đổi.
+Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ rõ ràng thay vì định danh chủ đề sẽ không tự động chuyển khi lược đồ phông chữ chủ đề thay đổi.
 
-Các bộ phông chính và phụ cũng có thể chứa các ánh xạ phông cho các hệ thống viết riêng lẻ, chẳng hạn Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc loại bỏ các ánh xạ này, xem mục [Script-Specific Theme Fonts](/slides/vi/nodejs-java/script-specific-font-mappings/).
+Các bộ phông chính và phụ cũng có thể chứa các ánh xạ phông cho các hệ viết riêng lẻ, chẳng hạn như Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc xoá các ánh xạ này, xem [Script‑Specific Theme Fonts](/slides/vi/nodejs-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
 Để biết thêm thông tin về phông chữ trong bản trình chiếu, xem [PowerPoint Fonts](/slides/vi/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Sao chép hoặc áp dụng một giao diện**
+### **Giải quyết Tham chiếu Phông chữ Chủ đề**
 
-Các quy trình dưới đây giải quyết các vấn đề khác nhau liên quan đến giao diện.
+Khi kiểm tra văn bản, [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) có thể trả về một tham chiếu chủ đề như `+mn‑lt` thay vì tên họ phông. Gọi [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) với chủ đề thực tế tương ứng để giải quyết tham chiếu đó. Các tiền tố `+mj` và `+mn` chọn bộ phông chính và phụ; các hậu tố `-lt`, `-ea` và `-cs` chọn phông Latin, Đông Á và Script phức hợp tương ứng.
 
-### **Áp dụng giao diện bên ngoài cho các slide phụ thuộc vào một Master**
+Lấy chủ đề thực tế thông qua [Slide.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) trên đối tượng mà chủ đề áp dụng cho văn bản được kiểm tra. Đối với văn bản thường trên một slide, gọi phương thức này trên slide để ngữ cảnh bao gồm chủ đề kế thừa của slide và các ghi đè cục bộ. Khi kiểm tra một layout hoặc master, dùng chủ đề thực tế của riêng chúng. Đừng giả định rằng chủ đề của master đầu tiên áp dụng cho mọi slide.
 
-Sử dụng [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) khi bạn có một tệp giao diện PowerPoint (`.thmx`) và muốn thay đổi kiểu dáng của mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) được biểu diễn bởi [MasterSlideCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslidecollection/), và truyền đường dẫn tệp giao diện vào phương thức.
+Ví dụ sau tạo một đoạn văn bản tham chiếu rõ ràng đến phông Latin phụ. Nó khởi tạo lược đồ phông slide thông qua [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) và đặt họ phông Latin chính và phụ thành `Arial` và `Calibri`, làm cho kết quả có thể tái tạo mà không cần tệp đầu vào.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const theme = slide.getThemeManager().getOverrideTheme();
+    theme.initFontSchemeFromInherited();
+    theme.getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Arial"));
+    theme.getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Calibri"));
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Text using the minor theme font");
+
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    const font = portion.getPortionFormat().getLatinFont();
+    const effectiveTheme = slide.createThemeEffective();
+    console.log(font.getFontName() + " -> " + font.getFontName(effectiveTheme));
+
+    const explicitFont = new aspose.slides.FontData("Verdana");
+    console.log(explicitFont.getFontName() + " -> " + explicitFont.getFontName(effectiveTheme));
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả là `+mn‑lt -> Calibri` tiếp theo là `Verdana -> Verdana`. Tham chiếu đã lưu vẫn giữ nguyên, trong khi tên họ phông rõ ràng được trả về nguyên trạng. Nếu đoạn văn sử dụng `+mj‑lt`, nó sẽ giải quyết thành `Arial` trong chủ đề này.
+
+Giải quyết một tham chiếu chủ đề xác định họ phông được chỉ định bởi chủ đề. Nó không kiểm tra tính khả dụng của phông hoặc xác định tệp phông thực sự được dùng sau khi thay thế hoặc fallback glyph trong quá trình render. Xem [Font Selection Sequence](/slides/vi/nodejs-java/font-selection-sequence/) và [Font Substitution](/slides/vi/nodejs-java/font-substitution/) cho các bước riêng biệt đó.
+
+## **Sao chép hoặc Áp dụng Chủ đề**
+
+Các quy trình công việc dưới đây giải quyết các vấn đề khác nhau liên quan đến chủ đề.
+
+### **Áp dụng Chủ đề Ngoài vào Các Slide Phụ Thuộc của Master**
+
+Sử dụng [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) khi bạn có tệp chủ đề PowerPoint (`.thmx`) và muốn thay đổi phong cách của mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) được biểu diễn bằng [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), và truyền đường dẫn tệp chủ đề cho phương thức.
 
 Phương thức thực hiện các thao tác sau:
 
 1. Tạo một master slide mới dựa trên master đã chọn.
-1. Áp dụng giao diện bên ngoài cho master mới.
+1. Áp dụng chủ đề bên ngoài vào master mới.
 1. Gán master mới cho tất cả các slide trước đây phụ thuộc vào master đã chọn.
-1. Trả về đối tượng [MasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) vừa tạo.
+1. Trả về đối tượng [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) vừa được tạo.
 
-Ví dụ sau áp dụng giao diện bên ngoài cho các slide phụ thuộc vào master thứ nhất và lưu bản trình chiếu:
+Ví dụ sau áp dụng một chủ đề ngoài cho các slide phụ thuộc vào master đầu tiên và lưu bản trình chiếu:
 
 ```javascript
 const aspose = {};
@@ -244,25 +294,26 @@ try {
     const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
     console.log("Created master: " + themedMaster.getName());
+
     presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Một giao diện không hợp lệ, bị hỏng hoặc không được hỗ trợ có thể gây ra [PptxReadException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxreadexception/). Hãy xác thực các đường dẫn do người dùng cung cấp, xử lý các lỗi truy cập hệ thống tệp, và chỉ lưu bản trình chiếu sau khi giao diện đã được áp dụng thành công.
+Một chủ đề không hợp lệ, bị hỏng hoặc không hỗ trợ có thể gây ra [PptxReadException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxreadexception/). Xác thực các đường dẫn do người dùng cung cấp, xử lý các lỗi truy cập hệ thống tệp, và chỉ lưu bản trình chiếu sau khi chủ đề đã được áp dụng thành công.
 
-Chỉ những slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và giao diện hiện tại. Các màu, phông chữ, màu nền, đường kẻ và hiệu ứng nhận thức giao diện sẽ được giải quyết dựa trên giao diện bên ngoài. Các màu, phông chữ, màu nền và các định dạng rõ ràng khác có thể vẫn không thay đổi. Các ghi đè ở mức layout và slide cũng có thể ưu tiên hơn các giá trị được kế thừa từ master mới.
+Chỉ các slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và chủ đề hiện có. Các màu, phông chữ, màu tô, đường viền, nền và hiệu ứng nhận thức chủ đề được giải quyết dựa trên chủ đề bên ngoài. Các màu, phông chữ, màu tô và định dạng rõ ràng có thể vẫn không thay đổi. Các ghi đè ở cấp layout và slide cũng có thể có ưu tiên hơn các giá trị kế thừa từ master mới.
 
-Giao diện có thể tham chiếu tới các phông chữ không có sẵn trong môi trường chạy. Để đảm bảo việc hiển thị và xuất ra nhất quán, hãy cài đặt các phông chữ cần thiết, cung cấp chúng qua [nguồn phông tùy chỉnh](/slides/vi/nodejs-java/custom-font/), hoặc cấu hình [thay thế phông](/slides/vi/nodejs-java/font-substitution/).
+Chủ đề có thể tham chiếu đến các phông không có sẵn trong môi trường runtime. Để đảm bảo render và xuất nhất quán, hãy cài đặt các phông cần thiết, cung cấp chúng qua [custom font sources](/slides/vi/nodejs-java/custom-font/), hoặc cấu hình [font substitution](/slides/vi/nodejs-java/font-substitution/).
 
-Đây là một quy trình làm việc trực tiếp ở mức master: phương thức nhận đường dẫn tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè giao diện ở mức slide hay layout.
+Đây là quy trình công việc trực tiếp ở cấp master: phương thức nhận đường dẫn tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè chủ đề ở cấp slide hay layout.
 
-### **Áp dụng các giao diện bên ngoài khác nhau trong một bản trình chiếu đa‑master**
+### **Áp dụng Các Chủ đề Ngoài Khác nhau trong Bản Trình chiếu Nhiều‑Master**
 
-Khi master liên quan chưa được biết trước, hãy lấy nó từ một slide tiêu biểu thông qua [Slide.getLayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/) và [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/). Lưu trữ các tham chiếu master gốc trước khi áp dụng bất kỳ giao diện nào vì mỗi lần gọi sẽ tạo một master mới trong bản trình chiếu.
+Khi master liên quan không được biết trước, lấy nó từ một slide đại diện thông qua [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) và [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/). Lưu các tham chiếu master gốc trước khi áp dụng bất kỳ chủ đề nào vì mỗi lần gọi sẽ tạo một master mới trong bản trình chiếu.
 
-Ví dụ sau sử dụng các slide từ hai phần để xác định master của chúng và áp dụng một giao diện bên ngoài khác nhau cho mỗi nhóm:
+Ví dụ sau sử dụng các slide từ hai phần để xác định master của chúng và áp dụng một chủ đề ngoài khác nhau cho mỗi nhóm:
 
 ```javascript
 const aspose = {};
@@ -284,6 +335,7 @@ try {
 
             console.log("First themed master: " + firstThemedMaster.getName());
             console.log("Second themed master: " + secondThemedMaster.getName());
+
             presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
         }
     }
@@ -292,11 +344,11 @@ try {
 }
 ```
 
-Lệnh gọi đầu tiên chỉ ảnh hưởng đến các slide phụ thuộc vào `firstGroupMaster`, và lệnh gọi thứ hai chỉ ảnh hưởng đến các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không bị thay đổi kiểu dáng.
+Lệnh gọi đầu tiên chỉ ảnh hưởng đến các slide phụ thuộc vào `firstGroupMaster`, và lệnh gọi thứ hai chỉ ảnh hưởng đến các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không được thay đổi phong cách.
 
-### **Bảo tồn giao diện nguồn khi di chuyển slide**
+### **Bảo toàn Chủ đề Nguồn Khi Di chuyển Slide**
 
-Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và giữ nguyên thiết kế gốc, hãy sao chép master nguồn vào bản trình chiếu đích bằng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslidecollection/), sau đó sao chép slide bằng [SlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/) và master đã sao chép. Điều này sẽ mang theo master, các layout và giao diện liên quan cùng nhau.
+Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và giữ nguyên thiết kế gốc, sao chép master nguồn vào bản trình chiếu đích bằng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), sau đó sao chép slide bằng [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) và master đã sao chép. Việc này mang theo master, các layout và chủ đề liên quan cùng nhau.
 
 ```javascript
 const aspose = {};
@@ -307,8 +359,11 @@ try {
     const target = new aspose.slides.Presentation("target.pptx");
     try {
         const sourceSlide = source.getSlides().get_Item(0);
+
         const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+
         target.getSlides().addClone(sourceSlide, clonedMaster, true);
+
         target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -318,11 +373,11 @@ try {
 }
 ```
 
-Đây là quy trình ưu tiên khi slide nguồn phải hiển thị giống hệt trong đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể làm thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên giao diện.
+Đây là quy trình ưu tiên khi slide nguồn phải trông giống hệt trong đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể thay đổi màu, phông chữ, nền và hiệu ứng dựa trên chủ đề.
 
-### **Áp dụng các giá trị giao diện cho một slide hiện có**
+### **Áp dụng Giá trị Chủ đề cho Slide hiện có**
 
-Nếu slide đích phải ở lại master và layout hiện tại, hãy khởi tạo một ghi đè mức slide từ giao diện nguồn. Các phương thức [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/overridetheme/), và [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/overridetheme/) sao chép ba thành phần chính của giao diện vào ghi đè.
+Nếu slide đích phải ở lại master và layout hiện tại, khởi tạo một ghi đè cấp slide từ chủ đề nguồn. Các phương thức [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) và [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) sao chép ba thành phần chủ đề chính vào ghi đè.
 
 ```javascript
 const aspose = {};
@@ -334,10 +389,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -347,11 +404,11 @@ try {
 }
 ```
 
-Điều này thay đổi giao diện được slide sử dụng mà không thay đổi giao diện được kế thừa bởi các slide khác. Để xóa bỏ ghi đè cục bộ và quay lại giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/overridetheme/).
+Điều này thay đổi chủ đề được slide đó sử dụng mà không thay đổi chủ đề kế thừa bởi các slide khác. Để xoá ghi đè cục bộ và quay lại các giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/).
 
-### **Áp dụng ghi đè giao diện cho một layout**
+### **Áp dụng Ghi đè Chủ đề cho Layout**
 
-Ghi đè mức layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng thông qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslidethememanager/):
+Một ghi đè cấp layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng thông qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -363,10 +420,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -376,17 +435,23 @@ try {
 }
 ```
 
-Sử dụng giao diện ở mức master hoặc bản trình chiếu khi nhiều layout và slide cần chia sẻ cùng một thiết kế cơ bản, sử dụng ghi đè layout khi một nhóm layout cần kiểu dáng khác, và chỉ dùng ghi đè slide cho các ngoại lệ thực sự. Quá nhiều ghi đè mức slide sẽ làm cho các thay đổi giao diện toàn cục sau này khó dự đoán.
+Sử dụng chủ đề master hoặc cấp bản trình chiếu khi nhiều layout và slide cần chia sẻ cùng thiết kế cơ bản, sử dụng ghi đè layout khi một nhóm layout cần phong cách khác, và chỉ dùng ghi đè slide cho những ngoại lệ thực sự. Việc ghi đè quá mức ở cấp slide sẽ làm cho các thay đổi chủ đề toàn cục sau này khó dự đoán.
 
-## **Cập nhật kiểu nền giao diện**
+<!-- visual-explanation:presentation-theme:start -->
+[![Một chủ đề master cung cấp hai layout; một ghi đè layout ảnh hưởng đến các slide của nó ngoại trừ một slide có ghi đè cục bộ hơn.](visual-presentation-theme-20ad12f2193b.svg)](visual-presentation-theme-20ad12f2193b.svg)
 
-Các màu nền của giao diện được lưu trong [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/formatscheme/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số định nghĩa màu nền thực tế trong bộ sưu tập này vì giao diện người dùng có thể kết hợp màu nền giao diện với màu giao diện và các tham chiếu style khác.
+*Một ghi đè layout áp dụng cho các slide sử dụng layout đó trừ khi một slide cung cấp ghi đè riêng. Các giá trị dựa trên chủ đề tuân theo lược đồ đã giải quyết; các đối tượng định dạng rõ ràng có thể giữ nguyên giao diện cục bộ. Giữ ghi đè hẹp như ngoại lệ thiết kế dự định.*
+<!-- visual-explanation:presentation-theme:end -->
 
-![Bộ sưu tập kiểu nền PowerPoint cho một giao diện bản trình chiếu](presentation-design_8.png)
+## **Cập nhật Kiểu nền Chủ đề**
 
-Trước khi sử dụng một kiểu nền, hãy kiểm tra bộ sưu tập đã lưu và [Background.getStyleIndex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/background/) hiện tại. Chỉ số kiểu `0` có nghĩa là không có màu nền giao diện; các giá trị dương là các tham chiếu kiểu nền giao diện. Điều này khác với việc đánh chỉ số trực tiếp trong bộ sưu tập JavaScript, nơi chỉ số `0` là mục đầu tiên được lưu. Đừng giả định rằng mọi bản trình chiếu đều có cùng số lượng kiểu nền.
+Các màu nền của chủ đề được lưu trong [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa màu tô vật lý được lưu trong bộ sưu tập này vì giao diện người dùng có thể kết hợp màu nền chủ đề với màu chủ đề và các tham chiếu kiểu khác.
 
-Ví dụ sau báo cáo số lượng màu nền khả dụng, gán một tham chiếu nền giao diện cho master đầu tiên, và lưu bản trình chiếu:
+![Bộ sưu tập kiểu nền PowerPoint cho một chủ đề bản trình chiếu](presentation-design_8.png)
+
+Trước khi sử dụng một kiểu nền, kiểm tra bộ sưu tập đã lưu và giá trị hiện tại của [Background.getStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/). Một chỉ số kiểu `0` nghĩa là không có màu nền chủ đề; các giá trị dương là các tham chiếu kiểu nền chủ đề. Điều này khác với việc đánh số trực tiếp bộ sưu tập JavaScript, trong đó chỉ số `0` là mục đầu tiên được lưu. Đừng giả định rằng mọi bản trình chiếu chứa cùng số lượng kiểu màu nền.
+
+Ví dụ sau báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền chủ đề cho master đầu tiên và lưu bản trình chiếu:
 
 ```javascript
 const aspose = {};
@@ -404,31 +469,32 @@ try {
     const masterSlide = presentation.getMasters().get_Item(0);
     masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
     masterSlide.getBackground().setStyleIndex(1);
+
     presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Kết quả hiển thị phụ thuộc vào mục giao diện mà master tham chiếu và bất kỳ ghi đè nền nào ở mức layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không ảnh hưởng đến slide đó. Sử dụng [Background.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/background/) khi bạn cần biết nền cuối cùng sau khi kế thừa đã được áp dụng.
+Kết quả hiển thị phụ thuộc vào mục nhập chủ đề được master tham chiếu và bất kỳ ghi đè nền nào ở cấp layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không thay đổi slide đó. Sử dụng [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) khi bạn cần biết nền cuối cùng sau khi kế thừa đã được áp dụng.
 
 {{% alert color="warning" title="Warning" %}}
-Đừng xem chỉ số kiểu như một chỉ số bộ sưu tập dựa trên zero. Cũng tránh mã hóa cứng một số kiểu từ một tệp và cho rằng nó sẽ có cùng giao diện trong tệp khác; các định nghĩa kiểu giao diện là đặc thù cho từng bản trình chiếu.
+Đừng coi chỉ số kiểu như một chỉ số bộ sưu tập bắt đầu từ 0. Đồng thời tránh hard‑code một số kiểu từ một tệp và cho rằng nó sẽ có cùng diện mạo trong tệp khác; các định nghĩa kiểu chủ đề là riêng từng bản trình chiếu.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Đối với định dạng nền trực tiếp và kế thừa nền, xem mục [Presentation Background](/slides/vi/nodejs-java/presentation-background/).
+Đối với định dạng nền trực tiếp và kế thừa nền, xem [Presentation Background](/slides/vi/nodejs-java/presentation-background/).
 {{% /alert %}}
 
-## **Cập nhật hiệu ứng giao diện**
+## **Cập nhật Hiệu ứng Chủ đề**
 
-Một lược đồ định dạng giao diện chứa các bộ sưu tập riêng biệt cho màu nền, đường kẻ và hiệu ứng được mở ra qua [FormatScheme.getFillStyles](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/formatscheme/), và [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/formatscheme/). Các giao diện Office điển hình thường có ba mục style chính tương ứng với định dạng nhẹ, trung bình và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định một số lượng cố định.
+Một lược đồ định dạng chủ đề chứa các bộ sưu tập màu tô, đường viền và hiệu ứng riêng biệt, được mở ra qua [FormatScheme.getFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/), và [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). Các chủ đề Office thông thường thường chứa ba mục kiểu chính tương ứng với định dạng nhẹ, trung bình và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
 
-![Hiệu ứng giao diện nhẹ, trung bình và mạnh được áp dụng cho cùng một hình dạng](presentation-design_10.png)
+![Hiệu ứng chủ đề nhẹ, trung bình và mạnh được áp dụng cho cùng một hình dạng](presentation-design_10.png)
 
-Khi truy cập các bộ sưu tập này trong JavaScript, chỉ số bộ sưu tập là dựa trên zero: chỉ số `0` là style đầu tiên được lưu và chỉ số `2` là style thứ ba. Các chỉ số tham chiếu style của hình dạng là một khái niệm riêng, được mở ra qua [ShapeStyle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapestyle/). Việc sửa đổi một style giao diện sẽ ảnh hưởng đến các hình dạng tham chiếu tới style đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
+Khi bạn truy cập các bộ sưu tập này trong JavaScript, chỉ số bộ sưu tập bắt đầu từ 0: chỉ số `0` là kiểu đầu tiên được lưu và chỉ số `2` là kiểu thứ ba. Các chỉ số tham chiếu kiểu của một hình dạng là một khái niệm riêng, được mở ra qua [ShapeStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/). Thay đổi một kiểu chủ đề ảnh hưởng đến các hình dạng tham chiếu kiểu đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
 
-Ví dụ sau kiểm tra các mục style cần thiết tồn tại, thay đổi style đường kẻ đầu tiên, thay đổi style màu nền thứ ba, bật bóng ngoài cho style hiệu ứng thứ ba, và lưu kết quả:
+Ví dụ sau kiểm tra rằng các mục kiểu cần thiết tồn tại, thay đổi kiểu đường viền đầu tiên, thay đổi kiểu màu tô thứ ba, bật bóng đổ bên ngoài trong kiểu hiệu ứng thứ ba, và lưu kết quả:
 
 ```javascript
 const aspose = {};
@@ -441,7 +507,6 @@ try {
     if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
         throw new Error("The theme does not contain the style entries required by this example.");
     }
-
     formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -449,25 +514,84 @@ try {
     const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
     effectFormat.enableOuterShadowEffect();
     effectFormat.getOuterShadowEffect().setDistance(10);
+
     presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Đối với các hình dạng tham chiếu các vị trí này, style đường kẻ giao diện đầu tiên sẽ trở thành màu đỏ, style màu nền thứ ba sẽ thành màu xanh rừng đặc, và style hiệu ứng thứ ba sẽ có bóng ngoài với khoảng cách 10 điểm. Kết quả hình ảnh chính xác vẫn phụ thuộc vào mỗi hình dạng tham chiếu vị trí style nào và liệu định dạng trực tiếp có ghi đè giao diện hay không.
+Đối với các hình dạng tham chiếu các vị trí này, kiểu đường viền chủ đề đầu tiên trở thành màu đỏ, kiểu màu tô chủ đề thứ ba trở thành màu xanh rừng đặc sắc, và kiểu hiệu ứng thứ ba có thêm bóng đổ bên ngoài với khoảng cách 10 điểm. Kết quả hình ảnh cụ thể vẫn phụ thuộc vào mỗi hình dạng tham chiếu vị trí nào và liệu định dạng trực tiếp có ghi đè chủ đề hay không.
 
-![Các style hiệu ứng giao diện sau khi thay đổi đường kẻ, màu nền và cài đặt bóng](presentation-design_11.png)
+![Kiểu hiệu ứng chủ đề sau khi thay đổi đường viền, màu tô và cài đặt bóng đổ](presentation-design_11.png)
 
-## **Xác định liệu một màu nền rắn hiệu quả có sử dụng màu giao diện hay không**
+## **Chọn Kiểu Màu Tô và Đường Viền Chủ đề cho Hình dạng**
 
-Một màu nền có thể được lưu trực tiếp trên một đối tượng hoặc được kế thừa từ đoạn văn, layout, master, style giao diện, hoặc mức định dạng khác. Gọi [FillFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/) để giải quyết cây phân cấp này thành một ảnh chụp màu nền rắn bất biến. Đầu tiên kiểm tra giá trị `getFillType`. Chỉ khi nó là `FillType.Solid` mới nên đọc các thuộc tính màu nền rắn.
+Một hình dạng có thể chọn màu tô và viền một cách độc lập qua [ShapeStyle.setFillStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setfillstyleindex/) và [ShapeStyle.setLineStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setlinestyleindex/). Đối với mỗi phương thức, chỉ số `1` chọn mục đầu tiên trong bộ sưu tập chủ đề tương ứng (`get_Item(0)`), và chỉ số `2` chọn mục thứ hai (`get_Item(1)`).
 
-Đối với màu nền rắn, `getSolidFillColor` trả về giá trị RGB cuối cùng sau khi kế thừa, tra cứu giao diện và áp dụng các biến đổi màu. Phương thức `getSolidFillSchemeColor` trả về vị trí logic [SchemeColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/schemecolor/) tương ứng, chẳng hạn `Text1` hoặc `Accent6`. Giá trị `SchemeColor.NotDefined` có nghĩa là màu nền rắn hiệu quả không dựa trên một màu scheme. Trong một quy trình làm việc nơi các màu nền chỉ là màu giao diện hoặc màu RGB trực tiếp, giá trị này xác định một màu nền RGB trực tiếp.
+Ví dụ sau thiết lập hai kiểu màu tô (vàng và xanh da trời) và hai kiểu đường viền (xanh đậm 6 pt và đỏ đậm 12 pt) trong chủ đề mặc định của một bản trình chiếu mới. Nó lưu slide ở ba giai đoạn để bạn có thể so sánh kết quả trong PowerPoint.
 
-Đừng chỉ sử dụng giá trị địa phương [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/colorformat/) để phân loại một màu nền. Ví dụ, một đoạn văn bản có thể không có màu scheme được định nghĩa cục bộ, vì vậy giá trị cục bộ là `NotDefined`, trong khi màu nền hiệu quả của nó kế thừa một màu giao diện và giải quyết thành `Text1` hoặc `Accent6`. Ngược lại, `getSolidFillSchemeColor` cho bạn biết vị trí logic giao diện đã tạo ra màu hiệu quả, nhưng không cho biết vị trí đó đến từ đối tượng, đoạn văn, layout, master hay mức nào khác của cây định dạng.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ví dụ sau tải một bản trình chiếu, kiểm tra cả màu nền của hình dạng và đoạn văn bản, in mỗi giá trị RGB cuối cùng và màu scheme liên quan, và đánh dấu các màu nền rắn sẽ không theo dõi các thay đổi màu giao diện:
+const presentation = new aspose.slides.Presentation();
+try {
+    const styles = presentation.getMasterTheme().getFormatScheme();
+
+    const goldFill = styles.getFillStyles().get_Item(0);
+    goldFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 215, 0));
+    const blueFill = styles.getFillStyles().get_Item(1);
+    blueFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    blueFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 135, 206, 235));
+
+    const thinLine = styles.getLineStyles().get_Item(0);
+    thinLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thinLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    thinLine.setWidth(6);
+    const thickLine = styles.getLineStyles().get_Item(1);
+    thickLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thickLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 139, 0, 0));
+    thickLine.setWidth(12);
+
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    const left = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 205, 200, 130);
+    const right = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 420, 205, 200, 130);
+    left.getShapeStyle().setFillStyleIndex(java.newShort(1));
+    right.getShapeStyle().setFillStyleIndex(java.newShort(2));
+    left.getShapeStyle().setLineStyleIndex(1);
+    right.getShapeStyle().setLineStyleIndex(1);
+    presentation.save("01-initial.pptx", aspose.slides.SaveFormat.Pptx);
+
+    right.getShapeStyle().setLineStyleIndex(2);
+    presentation.save("02-line-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 46, 139, 87));
+    presentation.save("03-theme-changed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Kiểu ban đầu | Thay đổi viền bên phải | Chỉnh sửa màu tô chủ đề đầu tiên |
+|:---:|:---:|:---:|
+| ![Hình chữ nhật vàng và xanh da trời với viền mỏng xanh đậm đồng nhất](theme-style-initial.png) | ![Hình chữ nhật xanh da trời giờ có viền dày đỏ đậm](theme-style-line-changed.png) | ![Hình chữ nhật bên trái giờ chuyển thành màu xanh lục và cả hai viền không thay đổi](theme-style-fill-changed.png) |
+
+Chọn một kiểu đường viền khác chỉ thay đổi viền của hình chữ nhật bên phải. Chỉnh sửa màu tô chủ đề đầu tiên cập nhật mọi hình dạng sử dụng nó. Ở đây, chỉ hình chữ nhật bên trái chuyển sang màu xanh lục.
+
+Trên một hình dạng đã tồn tại, một màu tô cục bộ, màu viền hoặc độ dày viền có thể ghi đè phần đó của kiểu chủ đề. Nếu việc thay đổi chỉ số kiểu không có hiệu quả hiển thị, hãy kiểm tra [định dạng trực tiếp](/slides/vi/nodejs-java/shape-formatting/) của hình dạng.
+
+## **Xác định liệu Màu Tô Rắn Thực tế có Sử dụng Màu Chủ đề hay Không**
+
+Một màu tô có thể được lưu trực tiếp trên đối tượng hoặc được kế thừa từ đoạn văn, layout, master, kiểu chủ đề hoặc một mức định dạng khác. Gọi [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) để giải quyết chuỗi phân cấp này thành một ảnh chụp nhanh màu tô bất biến. Đầu tiên kiểm tra giá trị `getFillType`. Chỉ khi giá trị là `FillType.Solid` mới đọc các thuộc tính màu tô rắn.
+
+Đối với màu tô rắn, `getSolidFillColor` trả về giá trị RGB cuối cùng sau khi kế thừa, tra cứu chủ đề và áp dụng các biến đổi màu. Phương thức `getSolidFillSchemeColor` trả về vị trí logic [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) tương ứng, chẳng hạn `Text1` hoặc `Accent6`. Giá trị `SchemeColor.NotDefined` nghĩa là màu tô rắn thực tế không dựa trên một màu scheme. Trong quy trình mà màu tô chỉ là màu chủ đề hoặc màu RGB trực tiếp, giá trị này xác định một màu RGB trực tiếp.
+
+Đừng chỉ dựa vào giá trị địa phương [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) để phân loại màu tô. Ví dụ, một đoạn văn có thể không có màu scheme được định nghĩa cục bộ, vì vậy giá trị địa phương là `NotDefined`, trong khi màu tô thực tế kế thừa màu chủ đề và giải quyết thành `Text1` hoặc `Accent6`. Ngược lại, `getSolidFillSchemeColor` cho bạn biết vị trí logic chủ đề đã tạo ra màu thực tế, nhưng không cho biết vị trí này đến từ đối tượng, đoạn văn, layout, master hay mức độ định dạng nào khác.
+
+Ví dụ sau tải một bản trình chiếu, kiểm tra cả màu tô hình dạng và màu tô đoạn văn, in mỗi giá trị RGB cuối cùng và scheme màu tương ứng, và đánh dấu các màu tô rắn sẽ không theo dõi thay đổi màu chủ đề:
 
 ```javascript
 const aspose = {};
@@ -535,15 +659,15 @@ try {
 }
 ```
 
-Nhánh `NotDefined` cung cấp danh sách kiểm tra các màu nền rắn sẽ không phản hồi với các thay đổi trong các vị trí màu giao diện. Xem lại các đối tượng này khi bản trình chiếu phải tuân theo một bảng màu thương hiệu mới. Giá trị RGB được báo cáo vẫn hiển thị ngoại hình hiện tại, trong khi giá trị scheme giải thích liệu ngoại hình đó có liên kết với giao diện hay không.
+Nhánh `NotDefined` cung cấp danh sách kiểm tra các màu tô rắn sẽ không phản hồi khi thay đổi các vị trí màu chủ đề. Xem lại các đối tượng này khi một bản trình chiếu phải tuân theo bảng màu thương hiệu mới. Giá trị RGB được báo vẫn hiển thị diện mạo hiện tại, trong khi giá trị scheme giải thích liệu diện mạo đó có liên kết với chủ đề hay không.
 
-Các đối tượng định dạng hiệu quả là các ảnh chụp. Sau khi thay đổi giao diện bản trình chiếu, một ghi đè giao diện, hoặc bất kỳ định dạng kế thừa nào, hãy gọi lại `getEffective` và đọc một đối tượng màu nền rắn mới trước khi so sánh hoặc báo cáo màu.
+Các đối tượng định dạng thực tế là ảnh chụp nhanh. Sau khi thay đổi chủ đề bản trình chiếu, một ghi đè chủ đề, hoặc bất kỳ định dạng kế thừa nào, gọi lại `getEffective` và đọc một đối tượng màu tô thực tế mới trước khi so sánh hoặc báo cáo màu.
 
-## **Đọc các giá trị giao diện hiệu quả**
+## **Đọc Giá trị Chủ đề Thực tế**
 
-Các đối tượng giao diện thô cho bạn biết những gì được định nghĩa ở một mức cụ thể. Các giá trị hiệu quả cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi kế thừa và ghi đè cục bộ được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseoverridethememanager/). Đối với nền, dùng [Background.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/background/), và đối với màu nền, dùng [FillFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/).
+Các đối tượng chủ đề thô cho bạn biết những gì được định nghĩa ở một cấp độ cụ thể. Các giá trị thực tế cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi kế thừa và ghi đè cục bộ được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). Đối với nền, dùng [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/), và đối với màu tô, dùng [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/).
 
-Ví dụ sau đọc giao diện hiệu quả, nền và màu nền hình dạng đầu tiên từ một slide:
+Ví dụ sau đọc chủ đề thực tế, nền và màu tô hình dạng đầu tiên từ một slide:
 
 ```javascript
 const aspose = {};
@@ -552,11 +676,14 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const effectiveTheme = slide.getThemeManager().createThemeEffective();
     const effectiveBackground = slide.getBackground().getEffective();
+
     console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
     console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
     console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+
     if (slide.getShapes().size() > 0) {
         const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         console.log("First shape effective fill type: " + effectiveFill.getFillType());
@@ -569,22 +696,22 @@ try {
 }
 ```
 
-Sử dụng dữ liệu hiệu quả để chuẩn đoán hiển thị, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getmastertheme/), bạn có thể bỏ qua một master, layout, slide hoặc ghi đè hình dạng thay đổi ngoại hình cuối cùng.
+Sử dụng dữ liệu thực tế để chẩn đoán render, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/), bạn có thể bỏ lỡ một master, layout, slide hoặc ghi đè hình dạng thay đổi diện mạo cuối cùng.
 
 ## **Câu hỏi thường gặp**
 
-**Áp dụng một giao diện bên ngoài có ảnh hưởng tới mọi slide trong bản trình chiếu không?**
+**Áp dụng một chủ đề ngoài có ảnh hưởng tới mọi slide trong bản trình chiếu không?**
 
-Không. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) chỉ gán lại các slide phụ thuộc vào master đã chọn. Các slide sử dụng các master khác giữ nguyên giao diện hiện tại.
+Không. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) chỉ gán lại các slide phụ thuộc vào master đã chọn. Các slide sử dụng các master khác giữ nguyên chủ đề hiện có.
 
-**Tôi có thể áp dụng một giao diện cho một slide duy nhất mà không thay đổi master không?**
+**Tôi có thể áp dụng một chủ đề cho một slide duy nhất mà không thay đổi master không?**
 
-Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidethememanager/) của slide và khởi tạo ghi đè giao diện của nó. Thay đổi sẽ chỉ áp dụng cho slide đó; các slide khác vẫn kế thừa giao diện hiện tại.
+Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidethememanager/) của slide và khởi tạo ghi đè chủ đề của nó. Thay đổi sẽ chỉ áp dụng cục bộ cho slide đó; các slide khác vẫn kế thừa chủ đề hiện tại.
 
-**Cách an toàn nhất để chuyển giao diện từ bản trình chiếu này sang bản trình chiếu khác là gì?**
+**Cách an toàn nhất để mang một chủ đề từ bản trình chiếu này sang bản trình chiếu khác là gì?**
 
-Khi di chuyển một slide và giữ nguyên ngoại hình nguồn, sao chép master nguồn vào bản đích và sao chép slide cùng master đó bằng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslidecollection/) và [SlideCollection.addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/). Điều này giữ nguyên master, các layout và giao diện cùng nhau.
+Khi di chuyển một slide và bảo toàn giao diện nguồn, sao chép master nguồn vào bản đích và sao chép slide cùng master đó bằng [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) và [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/). Điều này giữ nguyên master, layout và chủ đề cùng nhau.
 
-**Làm sao tôi có thể xem các giá trị hiệu quả sau khi kế thừa và ghi đè?**
+**Làm sao tôi có thể xem các giá trị thực tế sau khi kế thừa và ghi đè?**
 
-Sử dụng [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseoverridethememanager/) cho một slide hoặc layout và các phương thức dữ liệu‑hiệu quả tương ứng cho các đối tượng định dạng như [Background.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/background/) và [FillFormat.getEffective](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/). Các API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.
+Sử dụng [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/) cho một slide hoặc layout và các phương thức dữ liệu thực tế tương ứng cho các đối tượng định dạng như [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) và [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/). Những API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.
