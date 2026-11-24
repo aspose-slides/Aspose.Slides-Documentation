@@ -1,46 +1,46 @@
 ---
-title: ".NET में प्रस्तुति थीम्स प्रबंधित करें"
-linktitle: "प्रेजेंटेशन थीम"
+title: .NET में प्रस्तुति थीम प्रबंधित करें
+linktitle: प्रस्तुति थीम
 type: docs
 weight: 10
 url: /hi/net/presentation-theme/
 keywords:
-- "PowerPoint थीम"
-- "प्रेजेंटेशन थीम"
-- "स्लाइड थीम"
-- "थीम सेट करें"
-- "थीम बदलें"
-- "थीम प्रबंधित करें"
-- "बाहरी थीम"
-- "THMX"
-- "थीम रंग"
-- "अतिरिक्त पैलेट"
-- "थीम फ़ॉन्ट"
-- "थीम शैली"
-- "थीम प्रभाव"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रेजेंटेशन"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET में मास्टर प्रस्तुति थीम्स का उपयोग करके PowerPoint फ़ाइलों को निरंतर ब्रांडिंग के साथ बनाएं, अनुकूलित करें और रूपांतरित करें।"
+- PowerPoint थीम
+- प्रस्तुति थीम
+- स्लाइड थीम
+- थीम सेट करें
+- थीम बदलें
+- थीम प्रबंधित करें
+- बाहरी थीम
+- THMX
+- थीम रंग
+- अतिरिक्त पैलेट
+- थीम फ़ॉन्ट
+- थीम शैली
+- थीम प्रभाव
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET में मास्टर प्रस्तुति थीम का उपयोग करके PowerPoint फ़ाइलों को निरंतर ब्रांडिंग के साथ बनाएं, अनुकूलित करें और रूपांतरित करें।"
 ---
 ## **परिचय**
 
-एक प्रस्तुति थीम रंगों, फ़ॉन्ट्स, पृष्ठभूमि शैलियों, भरावों, रेखाओं और प्रभावों का समन्वित सेट परिभाषित करती है। थीम‑सचेत वस्तुएँ इन साझा परिभाषाओं को संदर्भित करती हैं न कि प्रत्येक दृश्य गुण को स्थायी मान के रूप में संग्रहीत करती हैं, इसलिए थीम में परिवर्तन कई वस्तुओं को एक साथ अद्यतन कर सकता है।
+एक प्रस्तुति थीम रंगों, फ़ॉन्टों, पृष्ठभूमि शैलियों, भरावों, रेखाओं और प्रभावों का समन्वित सेट परिभाषित करता है। थीम‑सचेत ऑब्जेक्ट्स इन साझा परिभाषाओं को संदर्भित करते हैं вместо प्रत्येक दृश्य गुण को स्थिर मान के रूप में संग्रहीत करने के, इसलिए थीम परिवर्तन कई ऑब्जेक्ट्स को एक साथ अपडेट कर सकता है।
 
-Aspose.Slides में, प्रस्तुति‑स्तर की थीम [Presentation.MasterTheme](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/mastertheme/) गुण के माध्यम से उपलब्ध होती है। एक प्रस्तुति में निचले स्तरों पर भी थीम ओवरराइड हो सकते हैं। एक मास्टर [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/masterthememanager/overridetheme/) के माध्यम से प्रस्तुति थीम को ओवरराइड कर सकता है, एक लेआउट अपने विरासत में मिली थीम को [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) के माध्यम से ओवरराइड कर सकता है, और एक व्यक्तिगत स्लाइड भी ऐसा ही कर सकती है। व्यावहारिक रूप से, एक स्लाइड के लिए प्रभावी थीम इस विरासत श्रृंखला के माध्यम से निर्धारित होती है: प्रस्तुति थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
+Aspose.Slides में, प्रस्तुति‑स्तर की थीम [Presentation.MasterTheme](https://reference.aspose.com/slides/net/aspose.slides/presentation/mastertheme/) प्रॉपर्टी के माध्यम से उपलब्ध है। एक प्रस्तुति निचले स्तरों पर भी थीम ओवरराइड रख सकती है। एक मास्टर [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/masterthememanager/overridetheme/) के माध्यम से प्रस्तुति थीम को ओवरराइड कर सकता है, एक लेआउट [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) के माध्यम से अपनी विरासत में मिली थीम को ओवरराइड कर सकता है, और एक व्यक्तिगत स्लाइड भी वही कर सकता है। व्यवहार में, स्लाइड के लिए प्रभावी थीम इस विरासत श्रृंखला के माध्यम से निर्धारित होती है: प्रस्तुति थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![थीम घटक: रंग, फ़ॉन्ट, पृष्ठभूमि शैलियाँ, और प्रभाव](theme-constituents.png)
 
-निम्नलिखित अनुभाग सबसे सामान्य थीम कार्य‑प्रवाह दिखाते हैं: थीम निरीक्षण, रंग और फ़ॉन्ट बदलना, थीम कॉपी या लागू करना, पृष्ठभूमि तथा प्रभाव शैलियों को अद्यतन करना, तथा विरासत और ओवरराइड हल हो जाने के बाद प्रभावी मानों को पढ़ना।
+निम्नलिखित अनुभाग सबसे सामान्य थीम वर्कफ़्लो दिखाते हैं: थीम का निरीक्षण, रंगों और फ़ॉन्टों को बदलना, थीम को कॉपी या लागू करना, पृष्ठभूमि और प्रभाव शैलियों को अपडेट करना, और विरासत तथा ओवरराइड के बाद प्रभावी मान पढ़ना।
 
-## **एक थीम का निरीक्षण करें**
+## **थीम का निरीक्षण करें**
 
-[MasterTheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/mastertheme/) वस्तु थीम के [ColorScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/mastertheme/fontscheme/) और [FormatScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/mastertheme/formatscheme/) को उजागर करती है। इन्हें बदलने से पहले इन संग्रहों का निरीक्षण करना विशेष रूप से उपयोगी होता है जब प्रस्तुति बाहरी स्रोत से आती है, क्योंकि शैली प्रविष्टियों की संख्या और सामग्री भिन्न हो सकती है।
+[MasterTheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/) ऑब्जेक्ट थीम के [ColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/fontscheme/), और [FormatScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/mastertheme/formatscheme/) को उजागर करता है। इन संग्रहों का निरीक्षण करना, विशेष रूप से तब उपयोगी है जब प्रस्तुति बाहरी स्रोत से आती है क्योंकि शैली प्रविष्टियों की संख्या और सामग्री बदल सकती है।
 
-निम्न उदाहरण मुख्य थीम गुण पढ़ता है और रिपोर्ट करता है कि थीम में कितनी पृष्ठभूमि, भराव, रेखा और प्रभाव शैलियाँ संग्रहीत हैं:
+निम्न उदाहरण मुख्य थीम गुण पढ़ता है और रिपोर्ट करता है कि थीम में कितनी पृष्ठभूमि, भराव, रेखा, और प्रभाव शैलियाँ संग्रहीत हैं:
 
 ```csharp
 using System;
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-यदि कोई फ़ाइल कई मास्टर उपयोग करती है, तो यह न मानें कि प्रत्येक स्लाइड में समान प्रभावी थीम है। स्लाइड से संबद्ध मास्टर का निरीक्षण करें, और बाद में जब लेआउट या स्लाइड ओवरराइड मौजूद हो सकते हैं, तो इस लेख में दर्शाए गए प्रभावी‑थीम कार्य‑प्रवाह का उपयोग करें।
+यदि कोई फ़ाइल कई मास्टर उपयोग करती है, तो यह न मानें कि प्रत्येक स्लाइड का प्रभावी थीम समान है। स्लाइड से जुड़े मास्टर का निरीक्षण करें, और लेआउट या स्लाइड ओवरराइड मौजूद होने पर इस लेख के बाद दिखाए गए प्रभावी‑थीम वर्कफ़्लो का उपयोग करें।
 
 ## **थीम रंग बदलें**
 
-थीम‑सचेत भराव, रेखाएं और पाठ [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) enumeration से तार्किक रंग का संदर्भ ले सकते हैं। जब आप थीम के [IColorScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/icolorscheme/) में संबंधित प्रविष्टि बदलते हैं, तो सभी वस्तुएँ जो अभी भी उस थीम रंग को संदर्भित करती हैं, नए मान के अनुसार हल हो जाती हैं। जिन वस्तुओं ने प्रत्यक्ष RGB रंग उपयोग किया है, वे थीम‑रंग अपडेट से नहीं बदलतीं।
+थीम‑सचेत भराव, रेखाएँ, और पाठ [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) enumeration से एक तार्किक रंग का संदर्भ ले सकते हैं। जब आप थीम के [IColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/icolorscheme/) में संबंधित प्रविष्टि बदलते हैं, तो सभी ऑब्जेक्ट जो अभी भी उस थीम रंग को संदर्भित करते हैं नए मान के विरुद्ध हल हो जाते हैं। जो ऑब्जेक्ट सीधे RGB रंग का उपयोग करते हैं, वे थीम‑रंग अपडेट से नहीं बदलते।
 
-निम्न अंत‑से‑अंत उदाहरण एक आकार बनाता है जो `Accent4` का उपयोग करता है, थीम के `Accent4` रंग को लाल में बदलता है, प्रस्तुति को सहेजता है, पुनः खोलता है, और प्रभावी भराव रंग प्रिंट करता है:
+निम्न अंत‑से‑अंत उदाहरण एक आकार बनाता है जो `Accent4` का उपयोग करता है, थीम के `Accent4` रंग को लाल बदलता है, प्रस्तुति को सहेजता है, पुनः खोलता है, और प्रभावी भराव रंग प्रिंट करता है:
 
 ```csharp
 using System;
@@ -75,9 +75,11 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
 presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 presentation.Save("theme-color.pptx", SaveFormat.Pptx);
 
@@ -88,19 +90,19 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-क्योंकि आयत `Accent4` से जुड़ी रहती है, थीम बदलने के बाद उसका दिखाई देने वाला रंग लाल हो जाता है। यदि आप आकार पर प्रत्यक्ष रंग के साथ स्कीम रंग को बदलते हैं, तो बाद में `Accent4` में परिवर्तन उस भराव को प्रभावित नहीं करेंगे।
+चूँकि आयत `Accent4` से जुड़ी रहती है, थीम बदलने के बाद उसका दृश्यमान रंग लाल हो जाता है। यदि आप आकार पर योजना रंग को सीधे रंग से बदल देते हैं, तो बाद में `Accent4` में बदलाव उस भराव को प्रभावित नहीं करेंगे।
 
-### **अतिरिक्त पैलेट से रंग उपयोग करें**
+### **अतिरिक्त पैलेट से रंगों का उपयोग करें**
 
-PowerPoint थीम रंग से हल्के और गहरे विविधताएँ उत्पन्न करने के लिए रंग परिवर्तन लागू करता है। Aspose.Slides इन परिवर्तनों को [ColorTransformOperation](https://reference.aspose.com/slides/hi/net/aspose.slides/colortransformoperation/) के माध्यम से उजागर करता है।
+PowerPoint एक थीम रंग से हल्के और गहरे संस्करण उत्पन्न करता है रंग परिवर्तन लागू करके। Aspose.Slides इन परिवर्तन को [ColorTransformOperation](https://reference.aspose.com/slides/net/aspose.slides/colortransformoperation/) के माध्यम से उजागर करता है।
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![मुख्य थीम रंग और अतिरिक्त पैलेट से उत्पन्न हल्के व गहरे रंग](additional-palette-colors.png)
 
 **1** - मुख्य थीम रंग।
 
-**2** - मुख्य थीम रंगों से उत्पन्न हल्के और गहरे विविधताएँ।
+**2** - मुख्य थीम रंग से उत्पन्न हल्के और गहरे संस्करण।
 
-निम्न उदाहरण `Accent4` पर आधारित छह आयतें बनाता है, उनमें से पाँच पर ल्यूमिनेंस परिवर्तन लागू करता है, और परिणाम सहेजता है:
+निम्न उदाहरण छह आयतें बनाता है जो `Accent4` पर आधारित हैं, पाँच पर चमक परिवर्तन लागू करता है, और परिणाम सहेजता है:
 
 ```csharp
 using Aspose.Slides;
@@ -144,31 +146,33 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-ये विविधताएँ अभी भी थीम रंग पर आधारित रहती हैं। यदि बाद में `Accent4` बदलता है, तो परिवर्तित रंग नए `Accent4` मान से पुनः गणना होते हैं।
+ये रूपांतरण अभी भी थीम रंग पर आधारित रहते हैं। यदि बाद में `Accent4` बदलता है, तो परिवर्तित रंग नए `Accent4` मान से पुनः गणना किए जाते हैं।
 
-### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स से मैप करें**
+### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स से मिलाएँ**
 
-[SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) enumeration `Text1`, `Background1`, `Text2`, `Background2` का उपयोग करती है, जबकि [IColorScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/icolorscheme/) वही थीम स्लॉट्स को `Dark1`, `Light1`, `Dark2`, `Light2` के रूप में उजागर करता है। मैपिंग स्थिर है:
+[SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) enumeration `Text1`, `Background1`, `Text2`, और `Background2` का उपयोग करती है, जबकि [IColorScheme](https://reference.aspose.com/slides/net/aspose.slides.theme/icolorscheme/) वही थीम स्लॉट `Dark1`, `Light1`, `Dark2`, और `Light2` के रूप में उजागर करता है। मानचित्रण स्थिर है:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-ये समान थीम स्लॉट्स के वैकल्पिक नाम हैं; ये कोई डायनामिक रूपांतरण नहीं हैं।
+ये समान थीम स्लॉट के वैकल्पिक नाम हैं; ये मान नहीं हैं जो एक रूप से दूसरे रूप में गतिशील रूप से बदले जाते हैं।
 
 ## **थीम फ़ॉन्ट बदलें**
 
-एक थीम फ़ॉन्ट स्कीम में शीर्षकों के लिए मुख्य फ़ॉन्ट सेट और बॉडी टेक्स्ट के लिए गौण फ़ॉन्ट सेट होता है। [FontScheme.Major](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/fontscheme/major/) और [FontScheme.Minor](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/fontscheme/minor/) गुण इन सेटों को उजागर करते हैं।
+एक थीम फ़ॉन्ट योजना में हेडिंग के लिए एक प्रमुख फ़ॉन्ट सेट और बॉडी टेक्स्ट के लिए एक गौण फ़ॉन्ट सेट होता है। [FontScheme.Major](https://reference.aspose.com/slides/net/aspose.slides.theme/fontscheme/major/) और [FontScheme.Minor](https://reference.aspose.com/slides/net/aspose.slides.theme/fontscheme/minor/) प्रॉपर्टी इन सेटों को उजागर करती हैं।
 
-PowerPoint‑संगत थीम फ़ॉन्ट पहचानकर्ता पाठ फ़ॉर्मेटिंग में उपयोग किए जा सकते हैं:
+PowerPoint‑संगत थीम फ़ॉन्ट पहचानकर्ताओं का उपयोग टेक्स्ट फ़ॉर्मेटिंग में किया जा सकता है:
 
 * `+mn-lt` - बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
-* `+mj-lt` - शीर्षक फ़ॉन्ट लैटिन (Major Latin Font)
-* `+mn-ea` - बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
-* `+mj-ea` - शीर्षक फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
+* `+mj-lt` - हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
+* `+mn-ea` - बॉडी फ़ॉन्ट ईस्ट एशियान (Minor East Asian Font)
+* `+mj-ea` - हेडिंग फ़ॉन्ट ईस्ट एशियान (Major East Asian Font)
+* `+mn-cs` - बॉडी फ़ॉन्ट कॉम्प्लेक्स स्क्रिप्ट (Minor Complex Script Font)
+* `+mj-cs` - हेडिंग फ़ॉन्ट कॉम्प्लेक्स स्क्रिप्ट (Major Complex Script Font)
 
-निम्न उदाहरण एक शीर्षक बनाता है जो मुख्य लैटिन थीम फ़ॉन्ट उपयोग करता है और एक बॉडी पंक्ति जो गौण लैटिन थीम फ़ॉन्ट उपयोग करती है। फिर थीम फ़ॉन्ट बदलता है और परिणाम सहेजता है:
+निम्न उदाहरण एक हेडिंग बनाता है जो प्रमुख लैटिन थीम फ़ॉन्ट का उपयोग करता है और एक बॉडी लाइन बनाता है जो गौण लैटिन थीम फ़ॉन्ट का उपयोग करती है। फिर यह थीम फ़ॉन्ट बदलता है और परिणाम सहेजता है:
 
 ```csharp
 using Aspose.Slides;
@@ -191,30 +195,68 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-शीर्षक मुख्य फ़ॉन्ट का अनुसरण करता है और बॉडी टेक्स्ट गौण फ़ॉन्ट का। स्पष्ट फ़ॉन्ट नाम वाले पाठ, जो थीम पहचानकर्ता नहीं है, थीम फ़ॉन्ट स्कीम बदलने पर स्वचालित रूप से नहीं बदलेंगे।
+हेडिंग प्रमुख फ़ॉन्ट का अनुसरण करती है और बॉडी टेक्स्ट गौण फ़ॉन्ट का। वह टेक्स्ट जिसकी स्पष्ट फ़ॉन्ट नाम थीम पहचानकर्ता के बजाय है, थीम फ़ॉन्ट योजना बदलने पर स्वचालित रूप से नहीं बदलता।
 
-मुख्य और गौण फ़ॉन्ट संग्रह व्यक्तिगत लेखन प्रणालियों, जैसे सिरिलिक, अरबी, जापानी, जॉर्जियन, और थाना, के लिए फ़ॉन्ट मैपिंग भी रख सकते हैं। इन्हें निरीक्षण, जोड़ने, बदलने या हटाने के लिए देखें: [Script-Specific Theme Fonts](/slides/hi/net/script-specific-font-mappings/)।
+प्रमुख और गौण फ़ॉन्ट संग्रह में व्यक्तिगत लेखन प्रणालियों, जैसे सायरिलिक, अरबी, जापानी, जॉर्जियन, और थाना के लिए फ़ॉन्ट मैपिंग भी हो सकती है। इन्हें निरीक्षण, जोड़ने, बदलने या हटाने के लिए देखें [Script‑Specific Theme Fonts](/slides/hi/net/script-specific-font-mappings/)।
 
 {{% alert color="info" title="Tip" %}}
-प्रेज़ेंटेशन फ़ॉन्ट के बारे में अधिक जानकारी के लिए देखें: [PowerPoint Fonts](/slides/hi/net/powerpoint-fonts/)।
+थीम फ़ॉन्ट के बारे में अधिक जानकारी के लिए देखें [PowerPoint Fonts](/slides/hi/net/powerpoint-fonts/)।
 {{% /alert %}}
 
-## **थीम कॉपी या लागू करें**
+### **थीम फ़ॉन्ट संदर्भों को हल करें**
 
-नीचे दिए गए कार्य‑प्रवाह विभिन्न थीम‑संबंधी समस्याओं को हल करते हैं।
+टेक्स्ट का निरीक्षण करते समय, [IFontData.FontName](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/fontname/) में `+mn-lt` जैसी थीम रेफरेंस हो सकती है बजाय फ़ॉन्ट परिवार नाम के। उपयुक्त [IThemeEffectiveData](https://reference.aspose.com/slides/net/aspose.slides.theme/ithemeeffectivedata/) के साथ [IFontData.GetFontName](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/getfontname/) को कॉल करें। `+mj` और `+mn` उपसर्ग क्रमशः प्रमुख और गौण फ़ॉन्ट सेट चुनते हैं; `-lt`, `-ea`, `-cs` प्रत्यय उनके लैटिन, ईस्ट एशियान, और कॉम्प्लेक्स स्क्रिप्ट फ़ॉन्ट चुनते हैं।
 
-### **एक मास्टर‑निर्भर स्लाइड्स पर बाहरी थीम लागू करें**
+उस ऑब्जेक्ट पर [IThemeable.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/ithemeable/createthemeeffective/) से प्रभावी थीम प्राप्त करें जिसके ऊपर टेक्स्ट लागू होता है। सामान्य स्लाइड टेक्स्ट के लिए `slide.CreateThemeEffective()` प्रयोग करें ताकि संदर्भ में उस स्लाइड की विरासत थीम और स्थानीय ओवरराइड शामिल हों। जब लेआउट या मास्टर का निरीक्षण कर रहे हों तो उसके अपने प्रभावी थीम का उपयोग करें। यह न मानें कि पहले मास्टर की थीम हर स्लाइड पर लागू है।
 
-जब आपके पास PowerPoint थीम फ़ाइल (`.thmx`) हो और आप किसी विशेष मास्टर पर निर्भर सभी स्लाइड्स को पुनः स्टाइल करना चाहते हों, तो [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) का उपयोग करें। [Presentation.Masters](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/masters/) संग्रह से वह मास्टर चुनें, जो [IMasterSlideCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslidecollection/) को लागू करता है, और मेथड को थीम फ़ाइल पथ पास करें।
+निम्न उदाहरण एक टेक्स्ट भाग बनाता है जो स्पष्ट रूप से गौण लैटिन फ़ॉन्ट को संदर्भित करता है। यह [IOverrideTheme.InitFontSchemeFromInherited](https://reference.aspose.com/slides/net/aspose.slides.theme/ioverridetheme/initfontschemefrominherited/) के माध्यम से स्लाइड फ़ॉन्ट योजना को प्रारंभ करता है और प्रमुख और गौण लैटिन फ़ॉन्ट को क्रमशः `Arial` और `Calibri` सेट करता है, जिससे इनपुट फ़ाइल के बिना परिणाम पुनरुत्पादनीय बनता है।
 
-मेथड निम्न कार्य करता है:
+```csharp
+using System;
+using Aspose.Slides;
 
-1. चुने हुए मास्टर के आधार पर एक नया मास्टर स्लाइड बनाता है।
-2. बाहरी थीम को नए मास्टर पर लागू करता है।
-3. पहले चुने हुए मास्टर पर निर्भर सभी स्लाइड्स को नए मास्टर से संबद्ध करता है।
-4. नए बनाए गए [IMasterSlide](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslide/) को वापस करता है।
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-निम्न उदाहरण पहले मास्टर पर निर्भर स्लाइड्स पर बाहरी थीम लागू करता है, प्रस्तुति सहेजता है, और परिणाम पुनः खोलता है:
+var theme = slide.ThemeManager.OverrideTheme;
+theme.InitFontSchemeFromInherited();
+theme.FontScheme.Major.LatinFont = new FontData("Arial");
+theme.FontScheme.Minor.LatinFont = new FontData("Calibri");
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Text using the minor theme font";
+
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+
+var font = portion.PortionFormat.LatinFont;
+var effectiveTheme = slide.CreateThemeEffective();
+Console.WriteLine($"{font.FontName} -> {font.GetFontName(effectiveTheme)}");
+
+var explicitFont = new FontData("Verdana");
+Console.WriteLine($"{explicitFont.FontName} -> {explicitFont.GetFontName(effectiveTheme)}");
+```
+
+आउटपुट `+mn-lt -> Calibri` के बाद `Verdana -> Verdana` है। संग्रहीत रेफ़रेंस अपरिवर्तित रहता है, जबकि स्पष्ट फ़ॉन्ट नाम जैसा है वैसा ही लौटाया जाता है। यदि भाग `+mj-lt` उपयोग करता, तो यह इस थीम में `Arial` पर हल होता।
+
+थीम रेफ़रेंस को हल करने से निर्धारित होता है कि थीम द्वारा कौन सी फ़ॉन्ट परिवार निर्दिष्ट है। यह फ़ॉन्ट उपलब्धता या रेंडरिंग के दौरान ग्लिफ़ फॉलबैक के बाद उपयोग की गई फ़ाइल की जांच नहीं करता। उन अलग चरणों के लिए देखें [Font Selection Sequence](/slides/hi/net/font-selection-sequence/) और [Font Substitution](/slides/hi/net/font-substitution/)।
+
+## **थीम को कॉपी या लागू करें**
+
+नीचे दिए गए वर्कफ़्लो विभिन्न थीम‑संबंधित समस्याओं को हल करते हैं।
+
+### **बाहरी थीम को किसी मास्टर‑निर्भर स्लाइड पर लागू करें**
+
+जब आपके पास PowerPoint थीम फ़ाइल (`.thmx`) हो और आप किसी विशिष्ट मास्टर पर निर्भर सभी स्लाइड्स की शैली बदलना चाहते हों, तो [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) का उपयोग करें। [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) संग्रह से वह मास्टर चुनें, जो [IMasterSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/) को लागू करता है, और थीम फ़ाइल पथ को मौड में पास करें।
+
+यह विधि निम्न कार्य करती है:
+
+1. चुने हुए मास्टर के आधार पर एक नया मास्टर स्लाइड बनाती है।
+1. बाहरी थीम को नए मास्टर पर लागू करती है।
+1. पूर्व में चुने हुए मास्टर पर निर्भर सभी स्लाइड्स को नए मास्टर से जोड़ती है।
+1. नव निर्मित [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/) को लौटाती है।
+
+निम्न उदाहरण पहली मास्टर पर निर्भर स्लाइड्स पर बाहरी थीम को लागू करता है, प्रस्तुति सहेजता है, और परिणाम पुनः खोलता है:
 
 ```csharp
 using System;
@@ -223,25 +265,26 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("presentation.pptx");
 var selectedMaster = presentation.Masters[0];
-var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
 
+var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
 Console.WriteLine($"Created master: {themedMaster.Name}");
+
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-एक असमान्य, भ्रष्ट या असमर्थित थीम [PptxException](https://reference.aspose.com/slides/hi/net/aspose.slides/pptxexception/) या उसकी किसी फ़ॉर्मेट‑संबंधी उप‑क्लास को उत्पन्न कर सकता है। उपयोगकर्ता द्वारा प्रदान किए गए पथ को मान्य करें, फ़ाइल‑सिस्टम त्रुटियों को संभालें, और थीम सफलतापूर्वक लागू होने के बाद ही प्रस्तुति सहेजें।
+एक अमान्य, क्षतिग्रस्त या असमर्थित थीम [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) या उसके फ़ॉर्मेट‑संबंधी सबक्लास को उत्पन्न कर सकती है। उपयोगकर्ता द्वारा प्रदान किए गए पथ को वैध करें, फ़ाइल‑सिस्टम एक्सेस विफलताओं को संभालें, और केवल तब प्रस्तुति सहेजें जब थीम सफलतापूर्वक लागू हो गई हो।
 
-केवल उन स्लाइड्स को पुनः असाइन किया जाता है जो चुने हुए मास्टर पर निर्भर थे। अन्य मास्टरों से जुड़े स्लाइड्स अपनी मौजूदा मास्टर और थीम बनाए रखते हैं। थीम‑सचेत रंग, फ़ॉन्ट, भराव, रेखा, पृष्ठभूमि और प्रभाव बाहरी थीम के विरुद्ध हल होते हैं। प्रत्यक्ष रूप से निर्धारित रंग, फ़ॉन्ट, भराव और अन्य स्पष्ट फ़ॉर्मेटिंग अपरिवर्तित रह सकती है। लेआउट‑स्तर और स्लाइड‑स्तर ओवरराइड भी नई मास्टर से विरासती मानों पर प्राथमिकता ले सकते हैं।
+केवल वे स्लाइड्स जिन्हें चुने हुए मास्टर पर निर्भरता थी, पुनः असाइन की जाती हैं। अन्य मास्टर से जुड़े स्लाइड्स अपने मौजूदा मास्टर और थीम को बरकरार रखते हैं। थीम‑सचेत रंग, फ़ॉन्ट, भराव, रेखाएँ, पृष्ठभूमि और प्रभाव बाहरी थीम के विरुद्ध हल होते हैं। सीधे असाइन किए गए रंग, फ़ॉन्ट, भराव और अन्य स्पष्ट फ़ॉर्मेटिंग अपरिवर्तित रह सकते हैं। लेआउट‑स्तर और स्लाइड‑स्तर के ओवरराइड भी नई मास्टर से विरासत मानों पर प्राथमिकता ले सकते हैं।
 
-थीम ऐसे फ़ॉन्ट का संदर्भ दे सकती है जो रन‑टाइम परिवेश में उपलब्ध नहीं हैं। निरंतर रेंडरिंग और निर्यात के लिए आवश्यक फ़ॉन्ट स्थापित करें, उन्हें [custom font sources](/slides/hi/net/custom-font/) के माध्यम से प्रदान करें, या [font substitution](/slides/hi/net/font-substitution/) कॉन्फ़िगर करें।
+थीम ऐसे फ़ॉन्ट का संदर्भ दे सकता है जो रन‑टाइम वातावरण में उपलब्ध न हों। निरंतर रेंडरिंग और निर्यात के लिये आवश्यक फ़ॉन्ट स्थापित करें, उन्हें [कस्टम फ़ॉन्ट स्रोत](/slides/hi/net/custom-font/) के माध्यम से प्रदान करें, या [फ़ॉन्ट प्रतिस्थापन](/slides/hi/net/font-substitution/) को कॉन्फ़िगर करें।
 
-यह प्रत्यक्ष मास्टर‑स्तर कार्य‑प्रवाह है: मेथड `.thmx` फ़ाइल पथ को स्वीकार करता है और स्लाइड‑स्तर या लेआउट‑स्तर थीम ओवरराइड को मैन्युअल रूप से बनाने की आवश्यकता नहीं होती।
+यह एक सीधा मास्टर‑स्तर वर्कफ़्लो है: विधि `.thmx` फ़ाइल पथ को स्वीकार करती है और स्लाइड‑स्तर या लेआउट‑स्तर के थीम ओवरराइड को मैन्युअल रूप से बनाने की आवश्यकता नहीं होती।
 
 ### **बहु‑मास्टर प्रस्तुति में विभिन्न बाहरी थीम लागू करें**
 
-जब आवश्यक मास्टर पहले से ज्ञात न हो, तो इसे प्रतिनिधि स्लाइड से [ISlide.LayoutSlide](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/layoutslide/) और [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/hi/net/aspose.slides/ilayoutslide/masterslide/) के माध्यम से प्राप्त करें। थीम लागू करने से पहले मूल मास्टर संदर्भों को संग्रहीत करें क्योंकि प्रत्येक कॉल प्रस्तुति में एक नया मास्टर बनाती है।
+जब संबंधित मास्टर पहले से ज्ञात न हो, तो उसे प्रतिनिधि स्लाइड से [ISlide.LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/islide/layoutslide/) और [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/masterslide/) के माध्यम से प्राप्त करें। थीम लागू करने से पहले मूल मास्टर रेफ़रेंसेज़ को सहेजें क्योंकि प्रत्येक कॉल प्रस्तुति में एक नया मास्टर बनाता है।
 
-निम्न उदाहरण दो अनुभागों की स्लाइड्स से उनके मास्टर खोजता है और प्रत्येक समूह पर अलग बाहरी थीम लागू करता है:
+निम्न उदाहरण दो अनुभागों की स्लाइड्स का उपयोग करके उनके मास्टर ढूँढता है और प्रत्येक समूह पर अलग बाहरी थीम लागू करता है:
 
 ```csharp
 using System;
@@ -270,16 +313,17 @@ else
 
         Console.WriteLine($"First themed master: {firstThemedMaster.Name}");
         Console.WriteLine($"Second themed master: {secondThemedMaster.Name}");
+
         presentation.Save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-पहला कॉल केवल `firstGroupMaster` पर निर्भर स्लाइड्स को प्रभावित करता है, और दूसरा कॉल केवल `secondGroupMaster` पर निर्भर स्लाइड्स को। अन्य मास्टरों से जुड़े स्लाइड्स पुनः स्टाइल नहीं होते।
+पहला कॉल केवल `firstGroupMaster` पर निर्भर स्लाइड्स को प्रभावित करता है, और दूसरा कॉल केवल `secondGroupMaster` पर निर्भर स्लाइड्स को। किसी अन्य मास्टर से जुड़ी स्लाइड्स को री‑स्टाइल नहीं किया जाता।
 
-### **स्लाइड्स को स्थानांतरित करते समय स्रोत थीम बनाए रखें**
+### **स्लाइड्स को स्थानांतरित करते समय स्रोत थीम को संरक्षित रखें**
 
-यदि आप किसी स्लाइड को किसी अन्य प्रस्तुति में ले जाना चाहते हैं और उसकी मूल डिज़ाइन को बनाए रखना चाहते हैं, तो स्रोत मास्टर को लक्ष्य प्रस्तुति में [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslidecollection/addclone/) से क्लोन करें, फिर स्लाइड को [ISlideCollection.AddClone](https://reference.aspose.com/slides/hi/net/aspose.slides/islidecollection/addclone/) और क्लोन किए हुए मास्टर से क्लोन करें। यह मास्टर, उसके लेआउट और संबंधित थीम को एक साथ ले जाता है।
+यदि आप स्लाइड को अन्य प्रस्तुति में ले जाना चाहते हैं और उसकी मूल डिज़ाइन को संरक्षित रखना चाहते हैं, तो स्रोत मास्टर को लक्ष्य प्रस्तुति में [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/) से क्लोन करें, फिर क्लोन किए गए मास्टर के साथ स्लाइड को [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) से क्लोन करें। इससे मास्टर, उसके लेआउट और संबंधित थीम एक साथ स्थानांतरित होते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -289,6 +333,7 @@ using var source = new Presentation("source-theme.pptx");
 using var target = new Presentation("target.pptx");
 
 var sourceSlide = source.Slides[0];
+
 var sourceMaster = sourceSlide.LayoutSlide.MasterSlide;
 var clonedMaster = target.Masters.AddClone(sourceMaster);
 target.Slides.AddClone(sourceSlide, clonedMaster, true);
@@ -296,11 +341,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-यह वह पसंदीदा कार्य‑प्रवाह है जब स्रोत स्लाइड को गंतव्य में समान दिखना आवश्यक हो। केवल सामग्री को किसी असंबंधित गंतव्य मास्टर पर क्लोन करने से थीम‑प्रेरित रंग, फ़ॉन्ट, पृष्ठभूमि और प्रभाव बदल सकते हैं।
+यह वर्कफ़्लो तब पसंदीदा है जब स्रोत स्लाइड को लक्ष्य में समान दिखना आवश्यक हो। केवल सामग्री को असंबंधित लक्ष्य मास्टर पर क्लोन करने से थीम‑आधारित रंग, फ़ॉन्ट, पृष्ठभूमि और प्रभाव बदल सकते हैं।
 
 ### **मौजूदा स्लाइड पर थीम मान लागू करें**
 
-यदि लक्ष्य स्लाइड को अपने वर्तमान मास्टर और लेआउट पर रहना है, तो स्रोत थीम से स्लाइड‑स्तर ओवरराइड प्रारंभ करें। [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/overridetheme/initfontschemefrom/) और [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/overridetheme/initformatschemefrom/) मेथड तीन मुख्य थीम घटकों को ओवरराइड में कॉपी करते हैं।
+यदि लक्ष्य स्लाइड को अपने वर्तमान मास्टर और लेआउट पर रहना आवश्यक है, तो स्रोत थीम से स्लाइड‑स्तर ओवरराइड को प्रारंभ करें। [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initfontschemefrom/), और [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/initformatschemefrom/) विधियां तीन मुख्य थीम घटकों को ओवरराइड में कॉपी करती हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -318,11 +363,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-यह अन्य स्लाइड्स द्वारा विरासत में मिली थीम को बदले बिना उस स्लाइड द्वारा उपयोग की गई थीम को बदलता है। स्थानीय ओवरराइड को हटाने और विरासत मानों पर वापस लौटने के लिए [OverrideTheme.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/overridetheme/clear/) को कॉल करें।
+यह स्लाइड द्वारा उपयोग की गई थीम को बदलता है बिना अन्य स्लाइड्स की विरासत थीम को बदले। स्थानीय ओवरराइड को हटाकर विरासत मानों पर लौटने के लिये [OverrideTheme.Clear](https://reference.aspose.com/slides/net/aspose.slides.theme/overridetheme/clear/) को कॉल करें।
 
 ### **लेआउट पर थीम ओवरराइड लागू करें**
 
-लेआउट‑स्तर ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट का उपयोग करती हैं, जब तक कि किसी विशेष स्लाइड का अपना ओवरराइड न हो। वही प्रारंभिक मेथड लेआउट की [LayoutSlideThemeManager](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/layoutslidethememanager/) के माध्यम से उपयोग किए जा सकते हैं:
+लेआउट‑स्तर ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट का उपयोग करती हैं, जब तक कि कोई विशिष्ट स्लाइड अपना स्वयं का ओवरराइड न रखे। वही प्रारंभिक विधियां लेआउट के [LayoutSlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/layoutslidethememanager/) के माध्यम से उपयोग की जा सकती हैं:
 
 ```csharp
 using Aspose.Slides;
@@ -340,17 +385,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-जब कई लेआउट और स्लाइड एक ही बेस डिज़ाइन साझा करने चाहिए तो मास्टर या प्रस्तुति‑स्तर थीम उपयोग करें, जब एक लेआउट परिवार को अलग शैली की आवश्यकता हो तो लेआउट ओवरराइड, और केवल असाधारण मामलों के लिए स्लाइड ओवरराइड। अत्यधिक स्लाइड‑स्तर ओवरराइड बाद में वैश्विक थीम बदलने को पूर्वानुमानित करना कठिन बनाते हैं।
+जब कई लेआउट और स्लाइड को एक ही बेस डिज़ाइन साझा करना हो तो मास्टर या प्रस्तुति‑स्तर थीम का उपयोग करें, एक लेआउट परिवार को अलग शैली चाहिए तो लेआउट ओवरराइड और वास्तविक अपवादों के लिये स्लाइड ओवरराइड उपयोग करें। अत्यधिक स्लाइड‑स्तर ओवरराइड बाद की वैश्विक थीम परिवर्तन को भविष्यवाणी करना कठिन बना देते हैं।
 
-## **थीम पृष्ठभूमि शैलियों को अद्यतन करें**
+## **थीम पृष्ठभूमि शैलियों को अपडेट करें**
 
-थीम की पृष्ठभूमि भरावें [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) में संग्रहीत होती हैं। PowerPoint UI में अधिक पृष्ठभूमि विकल्प दिखा सकता है क्योंकि UI थीम भराव को थीम रंग और अन्य शैली संदर्भों के साथ संयोजित कर सकता है।
+थीम की पृष्ठभूमि भरावें [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) में संग्रहीत होती हैं। PowerPoint UI में अधिक पृष्ठभूमि विकल्प दिखा सकता है क्योंकि UI थीम भराव को थीम रंग और अन्य शैली रेफ़रेंस के साथ संयोजित कर सकता है।
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![प्रस्तुति थीम के लिए PowerPoint पृष्ठभूमि शैली गैलरी](presentation-design_8.png)
 
-पृष्ठभूमि शैली उपयोग करने से पहले, संग्रहीत संग्रह और वर्तमान [Background.StyleIndex](https://reference.aspose.com/slides/hi/net/aspose.slides/background/styleindex/) की जांच करें। `StyleIndex` थीम भराव न होने पर `0` उपयोग करता है; सकारात्मक मान थीम पृष्ठभूमि‑शैली संदर्भ होते हैं। यह .NET संग्रह के सीधे इंडेक्सिंग से अलग है, जहाँ `[0]` पहला संग्रहित आइटम दर्शाता है। यह न मानें कि प्रत्येक प्रस्तुति में समान संख्या में पृष्ठभूमि भराव शैलियाँ होंगी।
+पृष्ठभूमि शैली उपयोग करने से पहले संग्रहीत संग्रह और वर्तमान [Background.StyleIndex](https://reference.aspose.com/slides/net/aspose.slides/background/styleindex/) का निरीक्षण करें। `StyleIndex` `0` का उपयोग बिना थीम भराव के करता है; सकारात्मक मूल्य थीम पृष्ठभूमि‑शैली रेफ़रेंस होते हैं। यह .NET संग्रह के सीधे इंडेक्सिंग से अलग है, जहाँ `[0]` पहला संग्रहीत आइटम दर्शाता है। यह न मानें कि प्रत्येक प्रस्तुति में समान संख्या में पृष्ठभूमि भराव शैलियाँ हों।
 
-निम्न उदाहरण उपलब्ध पृष्ठभूमि भराव गिनती रिपोर्ट करता है, प्रथम मास्टर को थीम पृष्ठभूमि संदर्भ असाइन करता है, और प्रस्तुति सहेजता है:
+निम्न उदाहरण उपलब्ध पृष्ठभूमि भराव गिनती रिपोर्ट करता है, पहले मास्टर को थीम‑पृष्ठभूमि रेफ़रेंस असाइन करता है, और प्रस्तुति को सहेजता है:
 
 ```csharp
 using System;
@@ -358,6 +403,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("input.pptx");
+
 var backgroundStyles = presentation.MasterTheme.FormatScheme.BackgroundFillStyles;
 Console.WriteLine($"Background fill styles: {backgroundStyles.Count}");
 
@@ -372,25 +418,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-दिखाई देने वाला परिणाम मास्टर द्वारा संदर्भित थीम प्रविष्टि और लेआउट या स्लाइड स्तर पर किसी भी पृष्ठभूमि ओवरराइड पर निर्भर करता है। यदि कोई स्लाइड अपनी स्वयं की पृष्ठभूमि उपयोग करती है, तो केवल मास्टर पृष्ठभूमि बदलने से वह स्लाइड नहीं बदलेगी। विरासत लागू होने के बाद अंतिम पृष्ठभूमि जानने के लिए [Background.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/background/geteffective/) का उपयोग करें।
+दर्शनीय परिणाम मास्टर द्वारा संदर्भित थीम प्रविष्टि और लेआउट या स्लाइड स्तर पर किसी भी पृष्ठभूमि ओवरराइड पर निर्भर करता है। यदि स्लाइड अपनी स्वयं की पृष्ठभूमि उपयोग करती है, तो केवल मास्टर पृष्ठभूमि बदलने से वह स्लाइड नहीं बदलेगी। विरासत लागू होने के बाद अंतिम पृष्ठभूमि जानने के लिये [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/) का उपयोग करें।
 
 {{% alert color="warning" title="Warning" %}}
-`StyleIndex` को शून्य‑आधारित संग्रह इंडेक्स न समझें। एक फ़ाइल से शैली संख्या को हार्ड‑कोड कर दूसरे फ़ाइल में समान उपस्थिति की उम्मीद न रखें; थीम शैली परिभाषाएँ प्रस्तुति‑विशिष्ट होती हैं।
+`StyleIndex` को शून्य‑आधारित संग्रह सूचक मानें नहीं। साथ ही किसी एक फ़ाइल से शैली संख्या को हार्ड‑कोड करके दूसरे फ़ाइल में समान रूप मानने से बचें; थीम शैली परिभाषाएँ प्रस्तुति‑विशिष्ट होती हैं।
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-प्रत्यक्ष पृष्ठभूमि फ़ॉर्मेटिंग और पृष्ठभूमि विरासत के बारे में देखें: [Presentation Background](/slides/hi/net/presentation-background/)।
+प्रत्यक्ष पृष्ठभूमि फ़ॉर्मेटिंग और पृष्ठभूमि विरासत के लिये देखें [Presentation Background](/slides/hi/net/presentation-background/)।
 {{% /alert %}}
 
-## **थीम प्रभावों को अद्यतन करें**
+## **थीम प्रभाव अपडेट करें**
 
-एक थीम फ़ॉर्मेट स्कीम में अलग-अलग [FillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/linestyles/), और [EffectStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/effectstyles/) संग्रह होते हैं। सामान्य Office थीम में अक्सर तीन प्रमुख शैली प्रविष्टियाँ होती हैं जो दृश्य रूप से सूक्ष्म, मध्यम, और तीव्र फ़ॉर्मेटिंग से मेल खाती हैं, लेकिन कोड को प्रत्येक संग्रह को निरीक्षण करना चाहिए, न कि निश्चित गिनती मान लेना।
+थीम फ़ॉर्मेट योजना में अलग‑अलग [FillStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/linestyles/), और [EffectStyles](https://reference.aspose.com/slides/net/aspose.slides.theme/formatscheme/effectstyles/) संग्रह होते हैं। सामान्य Office थीम अक्सर तीन प्रमुख शैली प्रविष्टियाँ रखती हैं जो दृश्य रूप से सूक्ष्म, मध्यम, और तीव्र फ़ॉर्मेटिंग से मेल खाती हैं, लेकिन कोड को प्रत्येक संग्रह को निरीक्षण करना चाहिए न कि स्थिर गिनती मान लेना चाहिए।
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![एक ही आकार पर लागू सूक्ष्म, मध्यम, और तीव्र थीम प्रभाव](presentation-design_10.png)
 
-C# में इन संग्रहों को पहुंचते समय इंडेक्स शून्य‑आधारित होता है: `[0]` पहला संग्रहित शैली और `[2]` तीसरा। एक आकार का शैली‑संदर्भ इंडेक्स अलग अवधारणा है, जिसे [IShapeStyle](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapestyle/) के माध्यम से उजागर किया जाता है। थीम शैली को बदलना उन आकारों को प्रभावित करता है जो उस थीम शैली को संदर्भित करते हैं; प्रत्यक्ष फ़ॉर्मेटिंग वाली आकारें अविचल रह सकती हैं।
+C# में इन संग्रहों तक पहुँचते समय संग्रह सूचक शून्य‑आधारित होता है: `[0]` पहला संग्रहीत शैली और `[2]` तृतीय है। आकार की शैली‑रेफ़रेंस सूचक अलग अवधारणा है, जिसे [IShapeStyle](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/) के माध्यम से उजागर किया जाता है। थीम शैली को संशोधित करने से उन आकारों पर असर पड़ेगा जो उस थीम शैली को संदर्भित करते हैं; सीधे फ़ॉर्मेट किए गए आकार अपरिवर्तित रह सकते हैं।
 
-निम्न उदाहरण जाँचता है कि आवश्यक शैली प्रविष्टियाँ मौजूद हैं, पहले रेखा शैली को बदलता है, तीसरी भराव शैली को बदलता है, तीसरी प्रभाव शैली में बाहरी छाया सक्षम करता है, और परिणाम सहेजता है:
+निम्न उदाहरण जांचता है कि आवश्यक शैली प्रविष्टियाँ मौजूद हैं, पहली रेखा शैली बदलता है, तृतीय भराव शैली बदलता है, तृतीय प्रभाव शैली में बाहरी छाया सक्रिय करता है, और परिणाम सहेजता है:
 
 ```csharp
 using System;
@@ -416,19 +462,73 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-इन स्लॉट्स को संदर्भित करने वाले आकारों के लिए पहली थीम रेखा शैली लाल हो जाती है, तीसरी थीम भराव शैली ठोस फ़ॉरेस्ट ग्रीन, और तीसरी प्रभाव शैली में 10 पॉइंट दूरी के साथ बाहरी छाया जुड़ जाती है। सटीक दृश्य परिणाम अभी भी इस पर निर्भर करता है कि प्रत्येक आकार कौन से शैली स्लॉट को संदर्भित करता है और क्या प्रत्यक्ष फ़ॉर्मेटिंग थीम को ओवरराइड करती है।
+इन स्लॉटों को संदर्भित करने वाले आकारों के लिये, पहली थीम रेखा शैली लाल हो जाती है, तृतीय थीम भराव शैली ठोस फॉरेस्ट ग्रीन हो जाती है, और तृतीय प्रभाव शैली में दूरी 10 पॉइंट वाली बाहरी छाया जुड़ जाती है। सटीक दृश्य परिणाम अभी भी इस पर निर्भर करता है कि प्रत्येक आकार कौन से शैली स्लॉट को संदर्भित करता है और क्या सीधे फ़ॉर्मेटिंग थीम को ओवरराइड करती है।
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![लाइन, भराव और छाया सेटिंग्स बदलने के बाद थीम प्रभाव शैलियाँ](presentation-design_11.png)
 
-## **निर्धारित करें कि क्या प्रभावी ठोस भराव थीम रंग का उपयोग करता है**
+## **एक आकार के लिये थीम भराव और रेखा शैलियाँ चुनें**
 
-एक भराव वस्तु पर प्रत्यक्ष रूप से संग्रहीत हो सकता है या पैराग्राफ, लेआउट, मास्टर, थीम शैली, या अन्य फ़ॉर्मेटिंग स्तर से विरासत में मिल सकता है। उसे ठीक करने के लिए [IFillFormat.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformat/geteffective/) को कॉल करें, जिससे वह पदानुक्रम [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/) में अपरिवर्तनीय बन जाता है। पहले [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/filltype/) जाँचें। केवल जब यह `FillType.Solid` हो, तभी ठोस‑भराव गुण पढ़ें।
+एक आकार अपने भराव और रूपरेखा को स्वतंत्र रूप से [FillStyleIndex](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/fillstyleindex/) और [LineStyleIndex](https://reference.aspose.com/slides/net/aspose.slides/ishapestyle/linestyleindex/) के द्वारा चुन सकता है। दोनों प्रॉपर्टी के लिये, सूचक `1` संबंधित थीम संग्रह की पहली प्रविष्टि (`FillStyles[0]` या `LineStyles[0]`) चुनता है, और सूचक `2` दूसरी प्रविष्टि चुनता है।
 
-ठोस भराव के लिए, [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) विरासत, थीम लुक‑अप और रंग परिवर्तन लागू करने के बाद अंतिम RGB मान लौटाता है। [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) संबंधित तर्कसंगत [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) स्लॉट देता है, जैसे `Text1` या `Accent6`। `SchemeColor.NotDefined` मान का अर्थ है कि प्रभावी ठोस भराव किसी स्कीम रंग पर आधारित नहीं है। ऐसी कार्य‑प्रवाह में जहाँ भराव या तो थीम रंग या प्रत्यक्ष RGB रंग होते हैं, यह मान प्रत्यक्ष RGB भराव को पहचानता है।
+निम्न उदाहरण दो भराव शैलियाँ (सोना और आकाश‑नीला) और दो रेखा शैलियाँ (6 pt पर गहरा नीला और 12 pt पर गहरा लाल) को नई प्रस्तुति की डिफ़ॉल्ट थीम में सेट करता है। यह स्लाइड को तीन चरणों में सहेजता है ताकि आप PowerPoint में परिणाम तुलना कर सकें।
 
-स्थानीय [IColorFormat.SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/icolorformat/schemecolor/) मान को अकेले उपयोग करके भराव को वर्गीकृत न करें। उदाहरण के लिए, कोई पाठ भाग स्थानीय रूप से स्कीम रंग परिभाषित नहीं कर सकता, इसलिए उसका स्थानीय मान `NotDefined` होता है, जबकि उसका प्रभावी भराव थीम रंग से विरासत में मिल सकता है और `Text1` या `Accent6` पर हल हो सकता है। इसके विपरीत, `SolidFillSchemeColor` बताता है कि कौन सा तर्कसंगत थीम स्लॉट प्रभावी रंग उत्पन्न करता है, लेकिन यह नहीं बताता कि वह स्लॉट वस्तु, पैराग्राफ, लेआउट, मास्टर या किसी अन्य स्तर से आया है।
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-निम्न उदाहरण एक प्रस्तुति लोड करता है, दोनों आकार भराव और पाठ‑भाग भराव का ऑडिट करता है, प्रत्येक अंतिम RGB मान और संबंधित स्कीम रंग प्रिंट करता है, और उन ठोस भरावों को चिन्हित करता है जो थीम रंग परिवर्तन का अनुसरण नहीं करेंगे:
+using var presentation = new Presentation();
+var styles = presentation.MasterTheme.FormatScheme;
+
+var goldFill = styles.FillStyles[0];
+goldFill.FillType = FillType.Solid;
+goldFill.SolidFillColor.Color = Color.Gold;
+var blueFill = styles.FillStyles[1];
+blueFill.FillType = FillType.Solid;
+blueFill.SolidFillColor.Color = Color.SkyBlue;
+
+var thinLine = styles.LineStyles[0];
+thinLine.FillFormat.FillType = FillType.Solid;
+thinLine.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+thinLine.Width = 6;
+var thickLine = styles.LineStyles[1];
+thickLine.FillFormat.FillType = FillType.Solid;
+thickLine.FillFormat.SolidFillColor.Color = Color.DarkRed;
+thickLine.Width = 12;
+
+var shapes = presentation.Slides[0].Shapes;
+var left = shapes.AddAutoShape(ShapeType.Rectangle, 100, 205, 200, 130);
+var right = shapes.AddAutoShape(ShapeType.Rectangle, 420, 205, 200, 130);
+left.ShapeStyle.FillStyleIndex = 1;
+right.ShapeStyle.FillStyleIndex = 2;
+left.ShapeStyle.LineStyleIndex = 1;
+right.ShapeStyle.LineStyleIndex = 1;
+presentation.Save("01-initial.pptx", SaveFormat.Pptx);
+
+right.ShapeStyle.LineStyleIndex = 2;
+presentation.Save("02-line-changed.pptx", SaveFormat.Pptx);
+
+goldFill.SolidFillColor.Color = Color.SeaGreen;
+presentation.Save("03-theme-changed.pptx", SaveFormat.Pptx);
+```
+
+| प्रारम्भिक शैलियाँ | दाएँ रूपरेखा बदलें | पहली थीम भराव संपादित करें |
+|:---:|:---:|:---:|
+| ![सोने और आकाश‑नीले आयतें समान पतली गहरी नीली रूपरेखा के साथ](theme-style-initial.png) | ![अब आकाश‑नीली आयत के पास मोटी गहरी लाल रूपरेखा है](theme-style-line-changed.png) | ![बाएँ आयत अब हरा है और दोनों रूपरेखा अपरिवर्तित हैं](theme-style-fill-changed.png) |
+
+विभिन्न रेखा शैली चुनने से केवल दाएँ आयत की रूपरेखा बदलती है। पहली थीम भराव संपादित करने से सभी आकार जिनका उपयोग हो रहा है, अपडेट होते हैं। यहाँ, केवल बायाँ आयत हरा हो जाता है।
+
+किसी मौजूदा आकार पर, स्थानीय भराव रंग, रेखा रंग, या रेखा चौड़ाई थीम शैली के उस भाग को ओवरराइड कर सकती है। यदि शैली सूचक बदलने से कोई दृश्य प्रभाव नहीं दिखता, तो आकार की [direct formatting](/slides/hi/net/shape-formatting/) जाँचें।
+
+## **निर्धारित करें कि क्या प्रभावी सॉलिड भराव थीम रंग का उपयोग करता है**
+
+भराव ऑब्जेक्ट पर सीधे संग्रहीत हो सकता है या पैराग्राफ, लेआउट, मास्टर, थीम शैली, या किसी अन्य फ़ॉर्मेटिंग स्तर से विरासत में मिल सकता है। उस पदानुक्रम को अपरिवर्तनीय [IFillFormatEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/) में बदलने के लिये [IFillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/geteffective/) को कॉल करें। पहले [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/filltype/) जांचें। केवल जब यह `FillType.Solid` हो तब ही सॉलिड‑भराव गुण पढ़ें।
+
+सॉलिड भराव के लिये, [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) विरासत, थीम लुक‑अप, और रंग परिवर्तन लागू होने के बाद अंतिम RGB मान लौटाता है। [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) संबंधित तार्किक [SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/schemecolor/) स्लॉट लौटाता है, जैसे `Text1` या `Accent6`। `SchemeColor.NotDefined` का मान दर्शाता है कि प्रभावी सॉलिड भराव योजना रंग पर आधारित नहीं है। इस वर्कफ़्लो में जहाँ भराव केवल थीम रंग या सीधे RGB रंग होते हैं, यह मान सीधे RGB भराव को पहचानता है।
+
+स्थानीय [IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) मान को अकेले भराव वर्गीकृत करने के लिये उपयोग न करें। उदाहरण के लिये, कोई टेक्स्ट भाग में स्थानीय स्तर पर कोई योजना रंग परिभाषित नहीं हो सकता, इसलिए उसका स्थानीय मान `NotDefined` होता है, जबकि उसका प्रभावी भराव थीम रंग विरासत में लेता है और `Text1` या `Accent6` में हल होता है। उलट, `SolidFillSchemeColor` बताता है कि कौन सा तार्किक थीम स्लॉट प्रभावी रंग उत्पन्न करता है, पर यह नहीं बताता कि वह स्लॉट ऑब्जेक्ट, पैराग्राफ, लेआउट, मास्टर या किसी अन्य स्तर से आया है।
+
+निम्न उदाहरण एक प्रस्तुति लोड करता है, दोनों आकार भराव और टेक्स्ट‑भाग भराव का ऑडिट करता है, प्रत्येक अंतिम RGB मान और संबंधित योजना रंग प्रिंट करता है, और उन सॉलिड भरावों को चिन्हित करता है जो थीम रंग परिवर्तन का अनुसरण नहीं करेंगे:
 
 ```csharp
 using System;
@@ -495,15 +595,15 @@ static void AuditFill(string objectName, IFillFormat localFill)
 }
 ```
 
-`NotDefined` शाखा उन ठोस भरावों की ऑडिट सूची प्रदान करती है जो थीम रंग स्लॉट परिवर्तन पर प्रतिक्रिया नहीं देंगे। जब प्रस्तुति को नई ब्रांड पैलेट का पालन करना हो, तो इन वस्तुओं की समीक्षा करें। रिपोर्ट किया गया RGB मान अभी भी वर्तमान उपस्थिति दर्शाता है, जबकि स्कीम मान बताता है कि वह उपस्थिति थीम से जुड़ी है या नहीं।
+`NotDefined` शाखा उन सॉलिड भरावों की ऑडिट सूची प्रदान करती है जो थीम रंग स्लॉट्स में परिवर्तन पर प्रतिक्रिया नहीं देते। जब प्रस्तुति को नई ब्रांड पैलेट का अनुसरण करना हो, तो उन वस्तुओं की समीक्षा करें। रिपोर्ट किया गया RGB मान अभी भी वर्तमान स्वरूप दिखाता है, जबकि योजना मान यह बताता है कि वह स्वरूप थीम से जुड़ा है या नहीं।
 
-प्रभावी‑फ़ॉर्मेट वस्तुएँ स्नैपशॉट होती हैं। प्रस्तुति थीम, थीम ओवरराइड, या कोई भी विरासत फ़ॉर्मेटिंग बदलने के बाद, `GetEffective` को पुनः कॉल करें और तुलना या रिपोर्टिंग से पहले नया `IFillFormatEffectiveData` ऑब्जेक्ट पढ़ें।
+प्रभावी‑फ़ॉर्मेट ऑब्जेक्ट स्नैपशॉट होते हैं। प्रस्तुति थीम, थीम ओवरराइड, या किसी विरासत फ़ॉर्मेटिंग को बदलने के बाद, फिर से `GetEffective` कॉल करें और तुलना या रिपोर्ट करने से पहले नया `IFillFormatEffectiveData` ऑब्जेक्ट पढ़ें।
 
 ## **प्रभावी थीम मान पढ़ें**
 
-कच्चे थीम वस्तुएँ आपको बताती हैं कि किसी विशेष स्तर पर क्या परिभाषित है। प्रभावी मान आपको बताते हैं कि विरासत और स्थानीय ओवरराइड हल हो जाने के बाद स्लाइड या आकार वास्तव में क्या उपयोग करता है। स्लाइड के लिए, [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) को कॉल करें। पृष्ठभूमि के लिए, [Background.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/background/geteffective/) का उपयोग करें, और भराव के लिए [FillFormat.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/fillformat/geteffective/) का।
+कच्चे थीम ऑब्जेक्ट बताते हैं कि किसी विशेष स्तर पर क्या परिभाषित है। प्रभावी मान बताते हैं कि विरासत और स्थानीय ओवरराइड हल होने के बाद स्लाइड या आकार वास्तव में क्या उपयोग करता है। स्लाइड के लिये, [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) को कॉल करें। पृष्ठभूमि के लिये, [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/) उपयोग करें, और भराव के लिये, [FillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/fillformat/geteffective/) उपयोग करें।
 
-निम्न उदाहरण एक स्लाइड से प्रभावी थीम, पृष्ठभूमि, और पहले आकार भराव को पढ़ता है:
+निम्न उदाहरण एक स्लाइड से प्रभावी थीम, पृष्ठभूमि, और प्रथम आकार भराव पढ़ता है:
 
 ```csharp
 using System;
@@ -511,6 +611,7 @@ using Aspose.Slides;
 
 using var presentation = new Presentation("input.pptx");
 var slide = presentation.Slides[0];
+
 var effectiveTheme = slide.ThemeManager.CreateThemeEffective();
 var effectiveBackground = slide.Background.GetEffective();
 
@@ -529,22 +630,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-रेंडरिंग निदान, वैधता और तुलनाओं के लिए प्रभावी डेटा उपयोग करें। यदि आप केवल [Presentation.MasterTheme](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/mastertheme/) का निरीक्षण करते हैं, तो आप किसी मास्टर, लेआउट, स्लाइड, या आकार ओवरराइड को चूक सकते हैं जो अंतिम उपस्थिति को बदलता है।
+रेंडरिंग निदान, वैधता, और तुलना के लिये प्रभावी डेटा का उपयोग करें। यदि आप केवल [Presentation.MasterTheme](https://reference.aspose.com/slides/net/aspose.slides/presentation/mastertheme/) का निरीक्षण करते हैं, तो आप मास्टर, लेआउट, स्लाइड, या आकार ओवरराइड को चूक सकते हैं जो अंतिम स्वरूप को बदलते हैं।
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या बाहरी थीम लागू करने से प्रस्तुति की प्रत्येक स्लाइड प्रभावित होती है?**
 
-नहीं। [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) केवल उन स्लाइड्स को पुनः असाइन करता है जो चुने हुए मास्टर पर निर्भर थीं। अन्य मास्टरों का उपयोग करने वाली स्लाइड्स अपनी मौजूदा थीम बनाए रखती हैं।
+नहीं। [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) केवल उन स्लाइड्स को पुनः असाइन करता है जो चयनित मास्टर पर निर्भर हैं। अन्य मास्टर उपयोग करने वाली स्लाइड्स अपने मौजूदा थीम को बरकरार रखती हैं।
 
-**क्या मैं मास्टर बदले बिना एकल स्लाइड पर थीम लागू कर सकता हूँ?**
+**क्या मैं किसी एकल स्लाइड पर थीम लागू कर सकता हूँ बिना मास्टर बदले?**
 
-हां। स्लाइड के [SlideThemeManager](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/slidethememanager/) का प्रयोग करके उसके ओवरराइड थीम को प्रारंभ करें। परिवर्तन केवल उसी स्लाइड तक सीमित रहता है; अन्य स्लाइड्स अपने मौजूदा थीम को विरासत में लेती रहेंगी।
+हाँ। स्लाइड के [SlideThemeManager](https://reference.aspose.com/slides/net/aspose.slides.theme/slidethememanager/) का उपयोग करके उसकी ओवरराइड थीम को प्रारंभ करें। परिवर्तन केवल उस स्लाइड तक सीमित रहता है; अन्य स्लाइड्स अपनी मौजूदा थीम विरासत में लेती रहती हैं।
 
 **एक प्रस्तुति से दूसरी में थीम ले जाने का सबसे सुरक्षित तरीका क्या है?**
 
-जब आप स्लाइड को स्थानांतरित कर उसकी स्रोत उपस्थिति बनाए रखते हैं, तो स्रोत मास्टर को लक्ष्य में क्लोन करें और फिर उस मास्टर के साथ स्लाइड को क्लोन करें, इसके लिए [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslidecollection/addclone/) और [ISlideCollection.AddClone](https://reference.aspose.com/slides/hi/net/aspose.slides/islidecollection/addclone/) का उपयोग करें। यह मास्टर, लेआउट और थीम को एक साथ रखता है।
+जब स्लाइड को ले जा रहे हों और उसकी स्रोत उपस्थिति को संरक्षित रखना हों, तो स्रोत मास्टर को लक्ष्य में क्लोन करें और फिर उस मास्टर के साथ स्लाइड को [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/imasterslidecollection/addclone/) और [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) से क्लोन करें। यह मास्टर, लेआउट और थीम को साथ रखता है।
 
-**विरासत और ओवरराइड के बाद प्रभावी मान कैसे देखें?**
+**विरासत और ओवरराइड के बाद प्रभावी मान कैसे देखूँ?**
 
-स्लाइड या लेआउट थीम के लिए [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) तथा फ़ॉर्मेट वस्तुओं जैसे [Background.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/background/geteffective/) और [FillFormat.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides/fillformat/geteffective/) के अनुरूप प्रभावी‑डेटा मेथड्स का उपयोग करें। ये API विरासत और ओवरराइड लागू होने के बाद हल किए गए मान लौटाते हैं।
+स्लाइड या लेआउट थीम के लिये [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) और फ़ॉर्मेट ऑब्जेक्ट्स जैसे [Background.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/background/geteffective/) तथा [FillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/fillformat/geteffective/) की संबंधित प्रभावी‑डेटा विधियों का उपयोग करें। ये API विरासत और ओवरराइड लागू होने के बाद हल किए गए मान लौटाते हैं।

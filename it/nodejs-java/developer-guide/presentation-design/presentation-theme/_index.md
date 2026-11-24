@@ -1,46 +1,46 @@
 ---
-title: Gestire i temi delle presentazioni in JavaScript
+title: Gestire i temi della presentazione in JavaScript
 linktitle: Tema della presentazione
 type: docs
 weight: 10
 url: /it/nodejs-java/presentation-theme/
 keywords:
 - Tema PowerPoint
-- Tema della presentazione
-- Tema della diapositiva
-- Imposta tema
-- Modifica tema
-- Gestisci tema
-- Tema esterno
+- tema della presentazione
+- tema della diapositiva
+- imposta tema
+- cambia tema
+- gestisci tema
+- tema esterno
 - THMX
-- Colore del tema
-- Palette aggiuntiva
-- Carattere del tema
-- Stile del tema
-- Effetto del tema
+- colore del tema
+- tavolozza aggiuntiva
+- carattere del tema
+- stile del tema
+- effetto del tema
 - PowerPoint
 - OpenDocument
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gestisci i temi principali delle presentazioni in JavaScript con Aspose.Slides per Node.js per creare, personalizzare e convertire file PowerPoint con un branding coerente."
+description: "I temi master delle presentazioni in JavaScript con Aspose.Slides per Node.js per creare, personalizzare e convertire file PowerPoint con branding coerente."
 ---
 ## **Introduzione**
 
-Un tema di presentazione definisce un set coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema fanno riferimento a queste definizioni condivise invece di memorizzare ogni proprietà visiva come valore fisso, così una modifica del tema può aggiornare molti oggetti contemporaneamente.
+Un tema di presentazione definisce un set coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema si riferiscono a queste definizioni condivise invece di memorizzare ogni proprietà visiva come valore fisso, così un cambiamento di tema può aggiornare molti oggetti contemporaneamente.
 
-In Aspose.Slides, il tema a livello di presentazione è disponibile tramite [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getmastertheme/). Una presentazione può anche contenere sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterthememanager/), mentre un layout o una singola diapositiva può sovrascrivere il tema ereditato tramite [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseoverridethememanager/). In pratica, il tema effettivo per una diapositiva viene risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
+In Aspose.Slides, il tema a livello di presentazione è disponibile tramite [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/). Una presentazione può anche contenere sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterthememanager/), mentre un layout o una diapositiva individuale può sovrascrivere il suo tema ereditato tramite [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). In pratica, il tema effettivo per una diapositiva è risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
 
 ![Componenti del tema: colori, caratteri, stili di sfondo ed effetti](theme-constituents.png)
 
-Le sezioni seguenti mostrano i flussi di lavoro più comuni sui temi: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare gli stili di sfondo ed effetti, e leggere i valori effettivi dopo che ereditarietà e sovrascritture sono state risolte.
+Le sezioni seguenti mostrano i flussi di lavoro più comuni legati al tema: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare stili di sfondo ed effetti, e leggere i valori effettivi dopo che ereditarietà e sovrascritture sono state risolte.
 
-## **Ispezionare un Tema**
+## **Esaminare un Tema**
 
-L'oggetto [MasterTheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/mastertheme/) espone lo schema di colori, lo schema di caratteri e lo schema di formattazione del tema tramite [MasterTheme.getColorScheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/mastertheme/) e [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/mastertheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, poiché il numero e il contenuto delle voci di stile possono variare.
+L’oggetto [MasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/) espone lo schema di colori, lo schema di caratteri e lo schema di formati del tema tramite [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/) e [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, poiché il numero e il contenuto delle voci di stile possono variare.
 
-L'esempio seguente legge le proprietà principali del tema e riporta quante voci di stile di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
+L’esempio seguente legge le proprietà principali del tema e riporta quante impostazioni di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
 
 ```javascript
 const aspose = {};
@@ -49,6 +49,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const theme = presentation.getMasterTheme();
+    
     console.log("Theme name: " + theme.getName());
     console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
     console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
@@ -62,13 +63,13 @@ try {
 }
 ```
 
-Se un file utilizza più master, non dare per scontato che ogni diapositiva abbia lo stesso tema effettivo. Ispeziona il master associato alla diapositiva e utilizza il flusso di lavoro sul tema effettivo mostrato più avanti in questo articolo quando potrebbero essere presenti sovrascritture a livello di layout o diapositiva.
+Se un file utilizza più master, non dare per scontato che ogni diapositiva abbia lo stesso tema effettivo. Esamina il master associato alla diapositiva e usa il flusso di lavoro sul tema effettivo mostrato più avanti in questo articolo quando possono essere presenti sovrascritture di layout o di diapositiva.
 
 ## **Modificare i Colori del Tema**
 
-I riempimenti, le linee e il testo sensibili al tema possono fare riferimento a un colore logico dell'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/schemecolor/). Quando si modifica la voce corrispondente nello [ColorScheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/colorscheme/), tutti gli oggetti che ancora fanno riferimento a quel colore del tema vengono risolti rispetto al nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
+I riempimenti, le linee e il testo sensibili al tema possono riferirsi a un colore logico della [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) enumerazione. Quando cambi la voce corrispondente nella [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/), tutti gli oggetti che ancora fanno riferimento a quel colore del tema sono risolti contro il nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
 
-L'esempio end‑to‑end seguente crea una forma che utilizza `Accent4`, cambia il colore `Accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
+L’esempio end‑to‑end seguente crea una forma che utilizza `Accent4`, cambia il colore `Accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
 
 ```javascript
 const aspose = {};
@@ -78,10 +79,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -90,6 +94,7 @@ try {
 const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
 try {
     const savedSlide = savedPresentation.getSlides().get_Item(0);
+
     const savedShape = savedSlide.getShapes().get_Item(0);
     const effectiveFill = savedShape.getFillFormat().getEffective();
     console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
@@ -98,18 +103,19 @@ try {
 }
 ```
 
-Poiché il rettangolo rimane collegato a `Accent4`, il suo colore visibile diventa rosso dopo la modifica del tema. Se si sostituisce il colore dello schema con un colore diretto sulla forma, le modifiche successive a `Accent4` non influenzeranno più quel riempimento.
+Poiché il rettangolo rimane collegato a `Accent4`, il suo colore visibile diventa rosso dopo la modifica del tema. Se sostituisci il colore della tavolozza con un colore diretto sulla forma, le modifiche successive a `Accent4` non influenzeranno più quel riempimento.
 
-### **Utilizzare i Colori della Palette Aggiuntiva**
+### **Usare i Colori dalla Tavolozza Aggiuntiva**
 
-PowerPoint genera varianti più chiare e più scure di un colore del tema applicando trasformazioni di colore. Aspose.Slides espone queste trasformazioni tramite l'enumerazione [ColorTransformOperation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/colortransformoperation/).
+PowerPoint deriva varianti più chiare e più scure da un colore del tema applicando trasformazioni di colore. Aspose.Slides espone queste trasformazioni tramite la [ColorTransformOperation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colortransformoperation/) enumerazione.
 
-![Colori principali del tema e varianti più chiare e più scure generate dalla palette aggiuntiva](additional-palette-colors.png)
+![Colori principali del tema e colori più chiari e più scuri generati dalla tavolozza aggiuntiva](additional-palette-colors.png)
 
-**1** – Colori principali del tema.  
+**1** – Colori principali del tema.
+
 **2** – Varianti più chiare e più scure prodotte dai colori principali del tema.
 
-L'esempio seguente crea sei rettangoli basati su `Accent4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
+L’esempio seguente crea sei rettangoli basati su `Accent4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
 
 ```javascript
 const aspose = {};
@@ -160,29 +166,31 @@ try {
 
 Queste varianti rimangono basate sul colore del tema. Se `Accent4` cambia in seguito, i colori trasformati vengono ricalcolati dal nuovo valore di `Accent4`.
 
-### **Mappare i Valori di `SchemeColor` negli Slot di `ColorScheme`**
+### **Mappare i Valori di `SchemeColor` agli Slot di `ColorScheme`**
 
-L'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/schemecolor/) utilizza `Text1`, `Background1`, `Text2` e `Background2`, mentre lo [ColorScheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/colorscheme/) espone gli stessi slot del tema come `Dark1`, `Light1`, `Dark2` e `Light2`. La mappatura è fissa:
+La enumerazione [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) utilizza `Text1`, `Background1`, `Text2` e `Background2`, mentre la [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/) espone gli stessi slot del tema come `Dark1`, `Light1`, `Dark2` e `Light2`. La mappatura è fissa:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Si tratta di nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all'altra.
+Questi sono nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all’altra.
 
 ## **Modificare i Caratteri del Tema**
 
-Uno schema di caratteri del tema contiene un set di caratteri principale per i titoli e un set secondario per il corpo del testo. I metodi [FontScheme.getMajor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontscheme/) e [FontScheme.getMinor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontscheme/) espongono tali set.
+Uno schema di caratteri del tema contiene un set di caratteri principale per le intestazioni e un set minore per il corpo del testo. I metodi [FontScheme.getMajor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) e [FontScheme.getMinor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) espongono tali set.
 
 Gli identificatori di caratteri del tema compatibili con PowerPoint possono essere usati nella formattazione del testo:
 
-* `+mn-lt` – Carattere del corpo Latin (Minor Latin Font)
-* `+mj-lt` – Carattere del titolo Latin (Major Latin Font)
-* `+mn-ea` – Carattere del corpo East Asian (Minor East Asian Font)
-* `+mj-ea` – Carattere del titolo East Asian (Major East Asian Font)
+* `+mn‑lt` – Carattere del corpo Latin (Minor Latin Font)
+* `+mj‑lt` – Carattere dell’intestazione Latin (Major Latin Font)
+* `+mn‑ea` – Carattere del corpo East Asian (Minor East Asian Font)
+* `+mj‑ea` – Carattere dell’intestazione East Asian (Major East Asian Font)
+* `+mn‑cs` – Carattere del corpo Complex Script (Minor Complex Script Font)
+* `+mj‑cs` – Carattere dell’intestazione Complex Script (Major Complex Script Font)
 
-L'esempio seguente crea un titolo che utilizza il carattere Latin maggiore del tema e una riga di corpo che utilizza il carattere Latin minore del tema. Quindi modifica i caratteri del tema e salva il risultato:
+L’esempio seguente crea un’intestazione che utilizza il carattere Latin principale del tema e una riga di corpo che utilizza il carattere Latin minore del tema. Cambia quindi i caratteri del tema e salva il risultato:
 
 ```javascript
 const aspose = {};
@@ -202,19 +210,64 @@ try {
 
     presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
     presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+
     presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Il titolo segue il carattere maggiore e il testo del corpo segue il carattere minore. Il testo che ha un nome di carattere esplicito anziché un identificatore di tema non cambierà automaticamente quando lo schema di caratteri del tema viene modificato.
+L’intestazione segue il carattere principale e il testo del corpo segue il carattere minore. Un testo che ha un nome di carattere esplicito invece di un identificatore del tema non cambierà automaticamente quando lo schema di caratteri del tema cambia.
 
-Le raccolte di caratteri maggiore e minore possono anche contenere mappature di caratteri per sistemi di scrittura individuali, come cirillico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, vedere [Script-Specific Theme Fonts](/slides/it/nodejs-java/script-specific-font-mappings/).
+Le collezioni di caratteri principali e minori possono anche contenere mappature di caratteri per sistemi di scrittura individuali, come cirillico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, vedere [Script-Specific Theme Fonts](/slides/it/nodejs-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-Per ulteriori informazioni sui caratteri delle presentazioni, consultare [PowerPoint Fonts](/slides/it/nodejs-java/powerpoint-fonts/).
+{{% alert color="info" title="Suggerimento" %}}
+
+Per ulteriori informazioni sui caratteri della presentazione, vedere [PowerPoint Fonts](/slides/it/nodejs-java/powerpoint-fonts/).
+
 {{% /alert %}}
+
+### **Risolvere i Riferimenti ai Caratteri del Tema**
+
+Durante l’ispezione del testo, [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) può restituire un riferimento al tema come `+mn‑lt` invece di un nome di famiglia di caratteri. Chiama [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) con il tema effettivo appropriato per risolvere quel riferimento. I prefissi `+mj` e `+mn` selezionano i set di caratteri principali e minori; i suffissi `-lt`, `-ea` e `-cs` selezionano i loro caratteri Latin, East Asian e Complex Script, rispettivamente.
+
+Ottieni il tema effettivo tramite [Slide.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) sull’oggetto a cui si applica il tema del testo ispezionato. Per testo ordinario su una diapositiva, chiama questo metodo sulla diapositiva così il contesto include il tema ereditato da quella diapositiva e le sovrascritture locali. Quando si ispeziona un layout o un master, usa il suo tema effettivo. Non dare per scontato che il tema del primo master si applichi a tutte le diapositive.
+
+L’esempio seguente crea una porzione di testo che fa esplicitamente riferimento al carattere Latin minore. Inizializza lo schema di caratteri di una diapositiva tramite [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) e imposta le famiglie Latin principali e minori su `Arial` e `Calibri`, rendendo il risultato riproducibile senza un file di input.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const theme = slide.getThemeManager().getOverrideTheme();
+    theme.initFontSchemeFromInherited();
+    theme.getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Arial"));
+    theme.getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Calibri"));
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Text using the minor theme font");
+
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    const font = portion.getPortionFormat().getLatinFont();
+    const effectiveTheme = slide.createThemeEffective();
+    console.log(font.getFontName() + " -> " + font.getFontName(effectiveTheme));
+
+    const explicitFont = new aspose.slides.FontData("Verdana");
+    console.log(explicitFont.getFontName() + " -> " + explicitFont.getFontName(effectiveTheme));
+} finally {
+    presentation.dispose();
+}
+```
+
+L’output è `+mn‑lt -> Calibri` seguito da `Verdana -> Verdana`. Il riferimento memorizzato rimane invariato, mentre un nome di famiglia esplicito è restituito così com’è. Se la porzione avesse usato `+mj‑lt`, si sarebbe risolto in `Arial` in questo tema.
+
+Risolvere un riferimento al tema identifica la famiglia di caratteri specificata dal tema. Non verifica la disponibilità del carattere né determina il file del carattere effettivamente usato dopo la sostituzione o il fallback dei glifi durante il rendering. Vedi [Font Selection Sequence](/slides/it/nodejs-java/font-selection-sequence/) e [Font Substitution](/slides/it/nodejs-java/font-substitution/) per questi passaggi separati.
 
 ## **Copiare o Applicare un Tema**
 
@@ -222,16 +275,16 @@ I flussi di lavoro seguenti risolvono diversi problemi legati al tema.
 
 ### **Applicare un Tema Esterno alle Diapositive Dipendenti da un Master**
 
-Usare [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslide/) quando si dispone di un file tema PowerPoint (`.thmx`) e si vuole ridisegnare ogni diapositiva che dipende da un master specifico. Selezionare il master dalla collezione [Presentation.getMasters](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/), rappresentata da [MasterSlideCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslidecollection/), e passare il percorso del file tema al metodo.
+Usa [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) quando disponi di un file tema PowerPoint (`.thmx`) e vuoi ridisegnare ogni diapositiva che dipende da un determinato master. Seleziona il master dalla collezione [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) rappresentata da [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), e passa il percorso del file tema al metodo.
 
 Il metodo esegue le seguenti operazioni:
 
 1. Crea un nuovo master slide basato sul master selezionato.  
-2. Applica il tema esterno al nuovo master.  
-3. Assegna il nuovo master a tutte le diapositive che in precedenza dipendevano dal master selezionato.  
-4. Restituisce il nuovo [MasterSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslide/).
+1. Applica il tema esterno al nuovo master.  
+1. Assegna il nuovo master a tutte le diapositive che in precedenza dipendevano dal master selezionato.  
+1. Restituisce il nuovo [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/).
 
-L'esempio seguente applica un tema esterno alle diapositive che dipendono dal primo master e salva la presentazione:
+L’esempio seguente applica un tema esterno alle diapositive che dipendono dal primo master e salva la presentazione:
 
 ```javascript
 const aspose = {};
@@ -243,25 +296,26 @@ try {
     const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
     console.log("Created master: " + themedMaster.getName());
+
     presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Un tema non valido, corrotto o non supportato può causare [PptxReadException](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/pptxreadexception/). Convalidare i percorsi forniti dagli utenti, gestire gli errori di accesso al file system e salvare la presentazione solo dopo che il tema è stato applicato con successo.
+Un tema non valido, corrotto o non supportato può causare [PptxReadException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxreadexception/). Convalida i percorsi forniti dagli utenti, gestisci gli errori di accesso al file‑system e salva la presentazione solo dopo che il tema è stato applicato correttamente.
 
-Solo le diapositive che dipendevano dal master selezionato vengono riassegnate. Le diapositive associate ad altri master mantengono i loro master e temi esistenti. I colori, i caratteri, i riempimenti, le linee, gli sfondi e gli effetti sensibili al tema vengono risolti rispetto al tema esterno. I formati assegnati direttamente (colori, caratteri, riempimenti, ecc.) potrebbero rimanere invariati. Le sovrascritture a livello di layout e diapositiva possono anche prevalere sui valori ereditati dal nuovo master.
+Solo le diapositive che dipendevano dal master selezionato vengono riassegnate. Le diapositive associate ad altri master mantengono i loro master e temi esistenti. I colori, i caratteri, i riempimenti, le linee, gli sfondi e gli effetti sensibili al tema sono risolti contro il tema esterno. I colori, i caratteri, i riempimenti e le altre formattazioni assegnate direttamente possono rimanere invariati. Le sovrascritture a livello di layout e diapositiva possono anche avere la precedenza sui valori ereditati dal nuovo master.
 
-Il tema può fare riferimento a caratteri non disponibili nell'ambiente di runtime. Per una resa coerente ed esportazione, installare i caratteri richiesti, fornirli tramite [custom font sources](/slides/it/nodejs-java/custom-font/), o configurare la [font substitution](/slides/it/nodejs-java/font-substitution/).
+Il tema può fare riferimento a caratteri non disponibili nell’ambiente di runtime. Per una resa e un’esportazione coerenti, installa i caratteri richiesti, fornisci font tramite [custom font sources](/slides/it/nodejs-java/custom-font/), o configura [font substitution](/slides/it/nodejs-java/font-substitution/).
 
-Questo è un flusso di lavoro diretto a livello di master: il metodo accetta un percorso a un file `.thmx` e non richiede la creazione manuale di sovrascritture di tema a livello di layout o diapositiva.
+Questo è un flusso di lavoro diretto a livello di master: il metodo accetta un percorso di file `.thmx` e non richiede la creazione manuale di sovrascritture di tema a livello di layout o diapositiva.
 
-### **Applicare Temi Esterni Differenti in una Presentazione con Più Master**
+### **Applicare Temi Esterni Differenti in una Presentazione Multi‑Master**
 
-Quando il master rilevante non è noto in anticipo, ottenerlo da una diapositiva rappresentativa attraverso [Slide.getLayoutSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slide/) e [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslide/). Conservare i riferimenti ai master originali prima di applicare qualsiasi tema, poiché ogni chiamata crea un altro master nella presentazione.
+Quando il master pertinente non è noto in anticipo, ottienilo da una diapositiva rappresentativa tramite [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) e [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/). Conserva i riferimenti ai master originali prima di applicare qualsiasi tema perché ogni chiamata crea un nuovo master nella presentazione.
 
-L'esempio seguente usa diapositive di due sezioni per individuare i loro master e applica un tema esterno diverso a ciascun gruppo:
+L’esempio seguente usa diapositive di due sezioni per individuare i loro master e applica un tema esterno diverso a ciascun gruppo:
 
 ```javascript
 const aspose = {};
@@ -283,6 +337,7 @@ try {
 
             console.log("First themed master: " + firstThemedMaster.getName());
             console.log("Second themed master: " + secondThemedMaster.getName());
+
             presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
         }
     }
@@ -293,9 +348,9 @@ try {
 
 La prima chiamata influisce solo sulle diapositive che dipendevano da `firstGroupMaster`, e la seconda solo su quelle che dipendevano da `secondGroupMaster`. Le diapositive appartenenti a qualsiasi altro master non vengono ridisegnate.
 
-### **Preservare il Tema di Origine Quando Si Spostano Diapositive**
+### **Preservare un Tema di Origine Quando si Spostano Diapositive**
 
-Se si desidera spostare una diapositiva in un'altra presentazione preservandone il design originale, clonare il master di origine nella presentazione di destinazione con [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslidecollection/), quindi clonare la diapositiva con [SlideCollection.addClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slidecollection/) e il master clonato. In questo modo il master, i suoi layout e il tema associato vengono trasferiti insieme.
+Se desideri spostare una diapositiva in un’altra presentazione mantenendo il suo design originale, clona il master di origine nella presentazione di destinazione con [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), quindi clona la diapositiva con [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) e il master clonato. Questo porta con sé il master, i suoi layout e il relativo tema.
 
 ```javascript
 const aspose = {};
@@ -306,8 +361,11 @@ try {
     const target = new aspose.slides.Presentation("target.pptx");
     try {
         const sourceSlide = source.getSlides().get_Item(0);
+
         const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+
         target.getSlides().addClone(sourceSlide, clonedMaster, true);
+
         target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -317,11 +375,11 @@ try {
 }
 ```
 
-Questo è il flusso di lavoro consigliato quando la diapositiva di origine deve apparire identica nella destinazione. Clonare semplicemente il contenuto su un master di destinazione non correlato può modificare colori, caratteri, sfondi ed effetti guidati dal tema.
+Questo è il flusso di lavoro consigliato quando la diapositiva di origine deve apparire identica nella destinazione. Clonare semplicemente il contenuto su un master di destinazione non correlato può modificare i colori, i caratteri, gli sfondi e gli effetti guidati dal tema.
 
 ### **Applicare Valori del Tema a una Diapositiva Esistente**
 
-Se la diapositiva di destinazione deve rimanere sul master e layout attuali, inizializzare una sovrascrittura a livello di diapositiva dal tema di origine. I metodi [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/overridetheme/) e [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/overridetheme/) copiano i tre componenti principali del tema nella sovrascrittura.
+Se la diapositiva di destinazione deve rimanere sul suo master e layout attuali, inizializza una sovrascrittura a livello di diapositiva dal tema di origine. I metodi [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) e [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) copiano i tre componenti principali del tema nella sovrascrittura.
 
 ```javascript
 const aspose = {};
@@ -333,10 +391,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -346,11 +406,11 @@ try {
 }
 ```
 
-Questo cambia il tema usato da quella diapositiva senza alterare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiamare [OverrideTheme.clear](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/overridetheme/).
+Questo modifica il tema usato da quella diapositiva senza cambiare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiama [OverrideTheme.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/).
 
 ### **Applicare una Sovrascrittura di Tema a un Layout**
 
-Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una diapositiva specifica non abbia una sua sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite il [LayoutSlideThemeManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslidethememanager/):
+Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una specifica diapositiva non abbia la propria sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite il [LayoutSlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -362,10 +422,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -375,17 +437,24 @@ try {
 }
 ```
 
-Usare un tema a livello di master o presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout necessita di uno stile diverso, e una sovrascrittura di diapositiva solo per vere eccezioni. Un eccesso di sovrascritture a livello di diapositiva rende più difficile prevedere i cambiamenti globali del tema in futuro.
+Usa un tema a livello di master o di presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout necessita di uno stile diverso, e una sovrascrittura di diapositiva solo per vere eccezioni. Sovrascritture eccessive a livello di diapositiva rendono più difficile prevedere i cambiamenti globali del tema in seguito.
+
+
+<!-- visual-explanation:presentation-theme:start -->
+[![Un tema master alimenta due layout; una sovrascrittura del layout influisce sulle sue diapositive eccetto una diapositiva con una sovrascrittura più locale.](visual-presentation-theme-20ad12f2193b.svg)](visual-presentation-theme-20ad12f2193b.svg)
+
+*Una sovrascrittura del layout si applica alle diapositive che usano quel layout a meno che una diapositiva fornisca la propria sovrascrittura. I valori basati sul tema seguono lo schema risolto; gli oggetti formattati esplicitamente possono mantenere il loro aspetto locale. Mantieni le sovrascritture il più stretto possibile rispetto all’eccezione di design prevista.*
+<!-- visual-explanation:presentation-theme:end -->
 
 ## **Aggiornare gli Stili di Sfondo del Tema**
 
-I riempimenti di sfondo del tema sono memorizzati in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/formatscheme/). PowerPoint può presentare più scelte di sfondo nella sua interfaccia rispetto al numero di definizioni di riempimento effettivamente memorizzate in questa collezione, perché l'interfaccia può combinare riempimenti di tema con colori di tema e altre referenze di stile.
+I riempimenti di sfondo del tema sono memorizzati in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). PowerPoint può presentare più scelte di sfondo nella sua UI rispetto al numero di definizioni di riempimento effettivamente memorizzate in questa collezione perché la UI può combinare riempimenti del tema con colori del tema e altri riferimenti di stile.
 
-![Galleria degli stili di sfondo di PowerPoint per un tema di presentazione](presentation-design_8.png)
+![Galleria di stili di sfondo PowerPoint per un tema di presentazione](presentation-design_8.png)
 
-Prima di utilizzare uno stile di sfondo, ispezionare la collezione memorizzata e il valore corrente di [Background.getStyleIndex](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/background/). Un indice di stile pari a `0` indica nessun riempimento tematico; valori positivi sono referenze di stile di sfondo tematico. Questo è diverso dall'indicizzare direttamente la collezione JavaScript, dove l'indice `0` indica il primo elemento memorizzato. Non presumere che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
+Prima di usare uno stile di sfondo, ispeziona la collezione memorizzata e il valore corrente di [Background.getStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/). Un indice di stile pari a `0` significa nessun riempimento tematico; valori positivi sono riferimenti a stili di sfondo del tema. Questo è diverso dall’indicizzare direttamente la collezione JavaScript, dove l’indice `0` indica il primo elemento memorizzato. Non dare per scontato che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
 
-L'esempio seguente riporta il conteggio dei riempimenti di sfondo disponibili, assegna una referenza di sfondo tematico al primo master e salva la presentazione:
+L’esempio seguente riporta il conteggio dei riempimenti di sfondo disponibili, assegna un riferimento di sfondo tematico al primo master e salva la presentazione:
 
 ```javascript
 const aspose = {};
@@ -403,31 +472,36 @@ try {
     const masterSlide = presentation.getMasters().get_Item(0);
     masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
     masterSlide.getBackground().setStyleIndex(1);
+
     presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Il risultato visivo dipende dall'elemento del tema referenziato dal master e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva usa il proprio sfondo, modificare solo lo sfondo del master potrebbe non influenzare quella diapositiva. Usare [Background.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/background/) quando è necessario conoscere lo sfondo finale dopo l'applicazione dell'ereditarietà.
+Il risultato visivo dipende dalla voce di tema a cui fa riferimento il master e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva usa il proprio sfondo, modificare solo lo sfondo del master potrebbe non cambiare quella diapositiva. Usa [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) quando devi conoscere lo sfondo finale dopo l’applicazione dell’ereditarietà.
 
-{{% alert color="warning" title="Warning" %}}
-Non trattare l'indice di stile come indice zero‑based di una collezione. Evita anche di codificare un numero di stile da un file e presumere che abbia lo stesso aspetto in un altro file; le definizioni di stile del tema sono specifiche della presentazione.
+{{% alert color="warning" title="Attenzione" %}}
+
+Non trattare l’indice di stile come un indice di collezione a zero. Evita anche di codificare un numero di stile da un file e presumerlo identico in un altro file; le definizioni di stile del tema sono specifiche per la presentazione.
+
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-Per la formattazione diretta dello sfondo e l'ereditarietà dello sfondo, vedere [Presentation Background](/slides/it/nodejs-java/presentation-background/).
+{{% alert color="info" title="Suggerimento" %}}
+
+Per la formattazione diretta dello sfondo e l’ereditarietà dello sfondo, vedere [Presentation Background](/slides/it/nodejs-java/presentation-background/).
+
 {{% /alert %}}
 
 ## **Aggiornare gli Effetti del Tema**
 
-Uno schema di formattazione del tema contiene collezioni separate di riempimento, linea ed effetti, esposte tramite [FormatScheme.getFillStyles](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/formatscheme/) e [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/formatscheme/). I temi tipici di Office spesso contengono tre voci di stile principali che corrispondono visivamente a formattazioni sottili, moderate e intense, ma il codice dovrebbe ispezionare ogni collezione invece di presumere un conteggio fisso.
+Uno schema di formati del tema contiene collezioni separate di riempimento, linea ed effetti esposte tramite [FormatScheme.getFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/) e [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). I temi tipici di Office spesso contengono tre voci di stile principali che corrispondono visivamente a formattazioni subtle, moderate e intense, ma il codice dovrebbe ispezionare ogni collezione invece di assumere un conteggio fisso.
 
-![Effetti del tema sottili, moderati e intensi applicati alla stessa forma](presentation-design_10.png)
+![Effetti di tema subtle, moderate e intense applicati alla stessa forma](presentation-design_10.png)
 
-Quando si accede a queste collezioni in JavaScript, l'indice della collezione è zero‑based: l'indice `0` è il primo stile memorizzato e l'indice `2` è il terzo. Gli indici di referenza di stile di una forma sono un concetto separato, esposto tramite [ShapeStyle](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapestyle/). Modificare uno stile di tema influisce sulle forme che lo referenziano; le forme con formattazione diretta potrebbero rimanere invariate.
+Quando accedi a queste collezioni in JavaScript, l’indice della collezione è a zero: l’indice `0` è il primo stile memorizzato e l’indice `2` è il terzo. Gli indici di riferimento di stile di una forma sono un concetto separato, esposti tramite [ShapeStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/). Modificare uno stile del tema influisce sulle forme che fanno riferimento a quello stile; le forme con formattazione diretta possono rimanere invariate.
 
-L'esempio seguente verifica che le voci di stile richieste esistano, modifica il primo stile di linea, il terzo stile di riempimento, abilita un'ombra esterna nel terzo stile di effetto e salva il risultato:
+L’esempio seguente verifica che le voci di stile richieste esistano, cambia il primo stile di linea, cambia il terzo stile di riempimento, abilita un’ombra esterna nel terzo stile di effetto e salva il risultato:
 
 ```javascript
 const aspose = {};
@@ -440,7 +514,6 @@ try {
     if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
         throw new Error("The theme does not contain the style entries required by this example.");
     }
-
     formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -448,25 +521,84 @@ try {
     const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
     effectFormat.enableOuterShadowEffect();
     effectFormat.getOuterShadowEffect().setDistance(10);
+
     presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Per le forme che referenziano questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta opaco e il terzo stile di effetto ottiene un'ombra esterna con una distanza di 10 punti. Il risultato visivo esatto dipende comunque da quali slot di stile ogni forma referenzia e se la formattazione diretta sovrascrive il tema.
+Per le forme che fanno riferimento a questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta solido e il terzo stile di effetto ottiene un’ombra esterna con una distanza di 10 punti. Il risultato visivo esatto dipende ancora da quali slot di stile ciascuna forma fa riferimento e se una formattazione diretta sovrascrive il tema.
 
 ![Stili di effetto del tema dopo la modifica di linea, riempimento e ombra](presentation-design_11.png)
 
+## **Selezionare Stili di Riempimento e Linea del Tema per una Forma**
+
+Una forma può selezionare indipendentemente il suo riempimento e il contorno tramite [ShapeStyle.setFillStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setfillstyleindex/) e [ShapeStyle.setLineStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setlinestyleindex/). Per entrambi i metodi, l’indice `1` seleziona la prima voce nella collezione tematica corrispondente (`get_Item(0)`), e l’indice `2` seleziona la seconda (`get_Item(1)`).
+
+L’esempio seguente imposta due stili di riempimento (oro e azzurro cielo) e due stili di linea (blu scuro a 6 pt e rosso scuro a 12 pt) nel tema predefinito di una nuova presentazione. Salva la diapositiva in tre fasi così da poter confrontare i risultati in PowerPoint.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const styles = presentation.getMasterTheme().getFormatScheme();
+
+    const goldFill = styles.getFillStyles().get_Item(0);
+    goldFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 215, 0));
+    const blueFill = styles.getFillStyles().get_Item(1);
+    blueFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    blueFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 135, 206, 235));
+
+    const thinLine = styles.getLineStyles().get_Item(0);
+    thinLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thinLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    thinLine.setWidth(6);
+    const thickLine = styles.getLineStyles().get_Item(1);
+    thickLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thickLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 139, 0, 0));
+    thickLine.setWidth(12);
+
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    const left = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 205, 200, 130);
+    const right = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 420, 205, 200, 130);
+    left.getShapeStyle().setFillStyleIndex(java.newShort(1));
+    right.getShapeStyle().setFillStyleIndex(java.newShort(2));
+    left.getShapeStyle().setLineStyleIndex(1);
+    right.getShapeStyle().setLineStyleIndex(1);
+    presentation.save("01-initial.pptx", aspose.slides.SaveFormat.Pptx);
+
+    right.getShapeStyle().setLineStyleIndex(2);
+    presentation.save("02-line-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 46, 139, 87));
+    presentation.save("03-theme-changed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Stili iniziali | Cambia il contorno destro | Modifica il primo riempimento del tema |
+|:---:|:---:|:---:|
+| ![Rettangoli oro e azzurro cielo con contorni sottili blu scuro corrispondenti](theme-style-initial.png) | ![Il rettangolo azzurro cielo ora ha un contorno rosso scuro spesso](theme-style-line-changed.png) | ![Il rettangolo sinistro è ora verde e entrambi i contorni sono invariati](theme-style-fill-changed.png) |
+
+Selezionare uno stile di linea diverso cambia solo il contorno del rettangolo destro. Modificare il primo riempimento del tema aggiorna ogni forma che lo utilizza. Qui, solo il rettangolo sinistro diventa verde.
+
+Su una forma esistente, un colore di riempimento locale, un colore di linea o una larghezza di linea possono sovrascrivere quella parte dello stile del tema. Se cambiare un indice di stile non produce alcun effetto visibile, controlla la [formattazione diretta](/slides/it/nodejs-java/shape-formatting/) della forma.
+
 ## **Determinare se un Riempimento Solido Effettivo Usa un Colore del Tema**
 
-Un riempimento può essere memorizzato direttamente su un oggetto o ereditato da un paragrafo, layout, master, stile di tema o altro livello di formattazione. Chiamare [FillFormat.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fillformat/) per risolvere quella gerarchia in un'istantanea immutabile del riempimento effettivo. Prima controllare il valore `getFillType`. Solo quando è `FillType.Solid` si dovrebbero leggere le proprietà del riempimento solido.
+Un riempimento può essere memorizzato direttamente su un oggetto o ereditato da un paragrafo, layout, master, stile del tema o un altro livello di formattazione. Chiama [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) per risolvere quella gerarchia in un’istantanea immutabile del riempimento effettivo. Prima controlla il valore di `getFillType`. Solo quando è `FillType.Solid` dovresti leggere le proprietà del riempimento solido.
 
-Per un riempimento solido, `getSolidFillColor` restituisce il valore RGB finale renderizzato dopo l'ereditarietà, la ricerca nel tema e le trasformazioni di colore. Il metodo `getSolidFillSchemeColor` restituisce lo slot logico corrispondente di [SchemeColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/schemecolor/), ad esempio `Text1` o `Accent6`. Un valore `SchemeColor.NotDefined` indica che il riempimento solido effettivo non è basato su un colore di schema. In un flusso di lavoro dove i riempimenti sono o colori di tema o colori RGB diretti, questo valore identifica un riempimento RGB diretto.
+Per un riempimento solido, `getSolidFillColor` restituisce il valore RGB finale renderizzato dopo ereditarietà, ricerca del tema e applicazione delle trasformazioni di colore. Il metodo `getSolidFillSchemeColor` restituisce lo slot logico corrispondente di [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/), come `Text1` o `Accent6`. Un valore `SchemeColor.NotDefined` indica che il riempimento solido effettivo non si basa su un colore di schema. In un flusso di lavoro dove i riempimenti sono o colori del tema o colori RGB diretti, questo valore identifica un riempimento RGB diretto.
 
-Non utilizzare il valore locale [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/colorformat/) da solo per classificare un riempimento. Per esempio, una porzione di testo può non avere un colore di schema definito localmente, quindi il suo valore locale è `NotDefined`, mentre il suo riempimento effettivo eredita un colore di tema e risolve a `Text1` o `Accent6`. Al contrario, `getSolidFillSchemeColor` indica quale slot logico del tema ha prodotto il colore effettivo, ma non dice se quello slot provenga dall'oggetto, dal paragrafo, dal layout, dal master o da un altro livello della gerarchia.
+Non usare il valore locale di [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) da solo per classificare un riempimento. Per esempio, una porzione di testo può non avere un colore di schema definito localmente, quindi il suo valore locale è `NotDefined`, mentre il suo riempimento effettivo eredita un colore del tema e si risolve in `Text1` o `Accent6`. Al contrario, `getSolidFillSchemeColor` indica quale slot logico del tema ha prodotto il colore effettivo, ma non indica se quello slot proviene dall’oggetto, dal paragrafo, dal layout, dal master o da un altro livello della gerarchia di formattazione.
 
-L'esempio seguente carica una presentazione, registra sia i riempimenti delle forme sia i riempimenti delle porzioni di testo, stampa ogni valore RGB finale e il colore di schema associato, e segnala i riempimenti solidi che non seguiranno le modifiche ai colori del tema:
+L’esempio seguente carica una presentazione, controlla sia i riempimenti delle forme sia i riempimenti delle porzioni di testo, stampa ogni valore RGB finale e lo schema di colore associato, e contrassegna i riempimenti solidi che non seguiranno le modifiche del colore del tema:
 
 ```javascript
 const aspose = {};
@@ -534,15 +666,15 @@ try {
 }
 ```
 
-Il ramo `NotDefined` fornisce un elenco di audit dei riempimenti solidi che non risponderanno alle variazioni degli slot di colore del tema. Rivedere quegli oggetti quando una presentazione deve aderire a una nuova palette di brand. Il valore RGB riportato mostra ancora l'aspetto corrente, mentre il valore di schema spiega se quell'aspetto è collegato al tema.
+Il ramo `NotDefined` fornisce un elenco di audit di riempimenti solidi che non risponderanno ai cambiamenti negli slot di colore del tema. Rivedi quegli oggetti quando una presentazione deve aderire a una nuova tavolozza di brand. Il valore RGB riportato mostra ancora l’aspetto corrente, mentre il valore di schema spiega se quell’aspetto è collegato al tema.
 
-Gli oggetti di formato effettivo sono istantanee. Dopo aver modificato il tema della presentazione, una sovrascrittura di tema o qualsiasi formattazione ereditata, chiamare nuovamente `getEffective` e leggere un nuovo oggetto di riempimento effettivo prima di confrontare o riportare i colori.
+Gli oggetti di formato efficace sono istantanee. Dopo aver cambiato il tema della presentazione, una sovrascrittura del tema o qualsiasi formattazione ereditata, chiama nuovamente `getEffective` e leggi un nuovo oggetto di riempimento effettivo prima di comparare o segnalare i colori.
 
 ## **Leggere i Valori Effettivi del Tema**
 
-Gli oggetti tema grezzi indicano cosa è definito a un particolare livello. I valori effettivi indicano cosa una diapositiva o una forma utilizza realmente dopo che ereditarietà e sovrascritture locali sono state risolte. Per una diapositiva, chiamare [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseoverridethememanager/). Per uno sfondo, usare [Background.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/background/), e per un riempimento, usare [FillFormat.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fillformat/).
+Gli oggetti tema grezzi ti dicono cosa è definito a un determinato livello. I valori effettivi ti dicono cosa una diapositiva o forma utilizza effettivamente dopo che ereditarietà e sovrascritture locali sono state risolte. Per una diapositiva, chiama [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). Per uno sfondo, usa [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/), e per un riempimento usa [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/).
 
-L'esempio seguente legge il tema effettivo, lo sfondo e il riempimento della prima forma da una diapositiva:
+L’esempio seguente legge il tema effettivo, lo sfondo e il primo riempimento di forma da una diapositiva:
 
 ```javascript
 const aspose = {};
@@ -551,11 +683,14 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const effectiveTheme = slide.getThemeManager().createThemeEffective();
     const effectiveBackground = slide.getBackground().getEffective();
+
     console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
     console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
     console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+
     if (slide.getShapes().size() > 0) {
         const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         console.log("First shape effective fill type: " + effectiveFill.getFillType());
@@ -568,22 +703,22 @@ try {
 }
 ```
 
-Usare i dati effettivi per diagnosi di rendering, convalida e confronti. Se si ispeziona solo [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getmastertheme/), si possono perdere master, layout, sovrascritture di diapositiva o di forma che cambiano l'aspetto finale.
+Usa i dati efficaci per diagnosi di rendering, convalida e confronti. Se ispezioni solo [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/), potresti perdere una sovrascrittura di master, layout, diapositiva o forma che cambia l’aspetto finale.
 
 ## **FAQ**
 
-**L'applicazione di un tema esterno influisce su tutte le diapositive della presentazione?**
+**L’applicazione di un tema esterno influisce su tutte le diapositive della presentazione?**
 
-No. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslide/) riassegna solo le diapositive che dipendono dal master selezionato. Le diapositive che usano altri master mantengono i loro temi esistenti.
+No. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) riassegna solo le diapositive che dipendono dal master selezionato. Le diapositive che usano altri master conservano i loro temi esistenti.
 
 **Posso applicare un tema a una singola diapositiva senza cambiare il master?**
 
-Sì. Utilizzare il [SlideThemeManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slidethememanager/) della diapositiva e inizializzare il suo tema di sovrascrittura. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi attuali.
+Sì. Usa il [SlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidethememanager/) della diapositiva e inizializza la sua sovrascrittura del tema. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi esistenti.
 
-**Qual è il modo più sicuro per trasferire un tema da una presentazione all'altra?**
+**Qual è il modo più sicuro per trasferire un tema da una presentazione a un’altra?**
 
-Quando si sposta una diapositiva preservandone l'aspetto di origine, clonare il master di origine nella destinazione e clonare la diapositiva con quel master usando [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslidecollection/) e [SlideCollection.addClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slidecollection/). Questo mantiene insieme master, layout e tema.
+Quando si sposta una diapositiva preservandone l’aspetto di origine, clonare il master di origine nella destinazione e clonare la diapositiva con quel master usando [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) e [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/). Questo mantiene insieme master, layout e tema.
 
 **Come posso vedere i valori effettivi dopo ereditarietà e sovrascritture?**
 
-Usare [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseoverridethememanager/) per un tema di diapositiva o layout e i relativi metodi di dati effettivi per oggetti di formato come [Background.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/background/) e [FillFormat.getEffective](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fillformat/). Queste API restituiscono i valori risolti dopo l'applicazione di ereditarietà e sovrascritture.
+Usa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/) per un tema di diapositiva o layout e i metodi di dati efficaci corrispondenti per oggetti di formato come [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) e [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/). Queste API restituiscono i valori risolti dopo che ereditarietà e sovrascritture sono state applicate.

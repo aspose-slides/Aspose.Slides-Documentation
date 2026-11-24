@@ -5,42 +5,40 @@ type: docs
 weight: 10
 url: /ru/nodejs-java/presentation-theme/
 keywords:
-- Тема PowerPoint
-- Тема презентации
-- Тема слайда
-- Установить тему
-- Изменить тему
-- Управлять темой
-- Внешняя тема
+- тема PowerPoint
+- тема презентации
+- тема слайда
+- установить тему
+- изменить тему
+- управлять темой
+- внешняя тема
 - THMX
-- Цвет темы
-- Дополнительная палитра
-- Шрифт темы
-- Стиль темы
-- Эффект темы
+- цвет темы
+- дополнительная палитра
+- шрифт темы
+- стиль темы
+- эффект темы
 - PowerPoint
 - OpenDocument
-- Презентация
+- презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Управляйте темами презентаций в JavaScript с помощью Aspose.Slides для Node.js, создавайте, настраивайте и конвертируйте файлы PowerPoint с единообразным брендингом."
+description: "Управляйте темами презентаций в JavaScript с помощью Aspose.Slides для Node.js, создавайте, настраивайте и конвертируйте файлы PowerPoint с единым брендингом."
 ---
 ## **Введение**
 
-Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, поддерживающие темы, ссылаются на эти общие определения вместо того, чтобы сохранять каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить множество объектов одновременно.
+Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, учитывающие тему, ссылаются на эти общие определения вместо хранения каждого визуального свойства как фиксированного значения, поэтому изменение темы может одновременно обновить множество объектов.
 
-В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/getmastertheme/). Презентация также может содержать переопределения темы на более низких уровнях. Мастер может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterthememanager/), тогда как макет или отдельный слайд могут переопределять наследованную тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseoverridethememanager/). На практике эффективная тема слайда определяется через эту цепочку наследования: тема презентации, переопределение мастера, переопределение макета и переопределение слайда.
+В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/). Презентация также может содержать переопределения темы на более низких уровнях. Master может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterthememanager/), тогда как макет или отдельный слайд могут переопределять унаследованную тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). На практике эффективная тема для слайда определяется через эту цепочку наследования: тема презентации, переопределение master, переопределение макета и переопределение слайда.
 
-![Компоненты темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
+![Элементы темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
 
-Ниже показаны наиболее распространённые сценарии работы с темами: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
+Ниже приведены самые распространённые сценарии работы с темой: проверка темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
 
-## **Просмотр темы**
+## **Проверка темы**
 
-Объект [MasterTheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/mastertheme/) открывает схему цветов темы, схему шрифтов и схему форматов через [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/mastertheme/) и [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/mastertheme/). Просмотр этих коллекций перед изменением особенно полезен, когда презентация поступает из внешнего источника, поскольку количество и содержание элементов стилей могут различаться.
-
-Следующий пример считывает основные свойства темы и сообщает, сколько стилей фона, заливки, линии и эффектов хранится в теме:
+The [MasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/) object exposes the theme's color scheme, font scheme, and format scheme through [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/), and [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mastertheme/). Inspecting these collections before changing them is especially useful when a presentation comes from an external source because the number and content of style entries can vary.
 
 ```javascript
 const aspose = {};
@@ -49,6 +47,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const theme = presentation.getMasterTheme();
+    
     console.log("Theme name: " + theme.getName());
     console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
     console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
@@ -62,13 +61,13 @@ try {
 }
 ```
 
-Если файл использует несколько мастеров, не следует предполагать, что у каждого слайда одинаковая эффективная тема. Просмотрите мастер, связанный со слайдом, и используйте workflow эффективной темы, показанный позже в этой статье, когда могут присутствовать переопределения макета или слайда.
+Если файл использует несколько master‑слайдов, не следует предполагать, что каждый слайд имеет одну и ту же эффективную тему. Проверьте master, связанный со слайдом, и используйте рабочий процесс эффективной темы, показанный далее в статье, когда могут присутствовать переопределения макета или слайда.
 
 ## **Изменение цветов темы**
 
-Заливки, линии и текст, поддерживающие темы, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/schemecolor/). Когда вы меняете соответствующий элемент в [ColorScheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/colorscheme/), все объекты, продолжающие ссылаться на этот цвет темы, применяют новое значение. Объекты, использующие прямой RGB‑цвет, не меняются при обновлении цвета темы.
+Theme-aware fills, lines, and text can refer to a logical color from the [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) enumeration. When you change the corresponding entry in the [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/), all objects that still reference that theme color are resolved against the new value. Objects that use a direct RGB color are not changed by a theme-color update.
 
-Следующий сквозной пример создаёт форму, использующую `Accent4`, меняет цвет темы `Accent4` на красный, сохраняет презентацию, открывает её заново и выводит эффективный цвет заливки:
+The following end-to-end example creates a shape that uses `Accent4`, changes the theme's `Accent4` color to red, saves the presentation, reopens it, and prints the effective fill color:
 
 ```javascript
 const aspose = {};
@@ -78,10 +77,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -90,6 +92,7 @@ try {
 const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
 try {
     const savedSlide = savedPresentation.getSlides().get_Item(0);
+
     const savedShape = savedSlide.getShapes().get_Item(0);
     const effectiveFill = savedShape.getFillFormat().getEffective();
     console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
@@ -98,18 +101,19 @@ try {
 }
 ```
 
-Поскольку прямоугольник остаётся связанным с `Accent4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы прямым цветом в форме, последующие изменения `Accent4` больше не будут влиять на эту заливку.
+Поскольку прямоугольник остаётся связанным с `Accent4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы прямым цветом на фигуре, последующие изменения `Accent4` уже не будут влиять на эту заливку.
 
 ### **Использование цветов из дополнительной палитры**
 
-PowerPoint получает более светлые и более тёмные варианты из цвета темы, применяя преобразования цвета. Aspose.Slides предоставляет эти преобразования через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/colortransformoperation/).
+PowerPoint derives lighter and darker variants from a theme color by applying color transformations. Aspose.Slides exposes these transformations through the [ColorTransformOperation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colortransformoperation/) enumeration.
 
-![Основные цвета темы и более светлые и более тёмные цвета, сгенерированные из дополнительной палитры](additional-palette-colors.png)
+![Основные цвета темы и более светлые и тёмные цвета, сформированные из дополнительной палитры](additional-palette-colors.png)
 
-**1** – Основные цвета темы.  
-**2** – Более светлые и более тёмные варианты, полученные из основных цветов темы.
+**1** - Основные цвета темы.
 
-Следующий пример создаёт шесть прямоугольников на основе `Accent4`, применяет преобразования яркости к пяти из них и сохраняет результат:
+**2** - Более светлые и тёмные варианты, полученные из основных цветов темы.
+
+The following example creates six rectangles based on `Accent4`, applies luminance transformations to five of them, and saves the result:
 
 ```javascript
 const aspose = {};
@@ -158,31 +162,33 @@ try {
 }
 ```
 
-Эти варианты продолжают основываться на цветовом схеме темы. Если `Accent4` позже изменится, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
+Эти варианты остаются основанными на цвете темы. Если `Accent4` изменится позже, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
 
-### **Отображение значений `SchemeColor` в слоты `ColorScheme`**
+### **Сопоставление значений `SchemeColor` со слотами `ColorScheme`**
 
-Перечисление [SchemeColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/schemecolor/) использует `Text1`, `Background1`, `Text2` и `Background2`, тогда как [ColorScheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/colorscheme/) открывает те же слоты темы как `Dark1`, `Light1`, `Dark2` и `Light2`. Соответствие фиксировано:
+The [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) enumeration uses `Text1`, `Background1`, `Text2`, and `Background2`, while the [ColorScheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorscheme/) exposes the same theme slots as `Dark1`, `Light1`, `Dark2`, and `Light2`. The mapping is fixed:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Это альтернативные названия одних и тех же слотов темы; они не являются значениями, динамически преобразуемыми из одной формы в другую.
+These are alternate names for the same theme slots; they are not values that are dynamically converted from one form to another.
 
 ## **Изменение шрифтов темы**
 
-Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор для основного текста. Методы [FontScheme.getMajor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontscheme/) и [FontScheme.getMinor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fontscheme/) открывают эти наборы.
+A theme font scheme contains a major font set for headings and a minor font set for body text. The [FontScheme.getMajor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) and [FontScheme.getMinor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontscheme/) methods expose those sets.
 
-Идентификаторы шрифтов темы, совместимые с PowerPoint, могут использоваться при форматировании текста:
+PowerPoint-compatible theme font identifiers can be used in text formatting:
 
-* `+mn-lt` – Основной шрифт латиница (Minor Latin Font)
-* `+mj-lt` – Шрифт заголовка латиница (Major Latin Font)
-* `+mn-ea` – Основной шрифт восточно‑азиатский (Minor East Asian Font)
-* `+mj-ea` – Шрифт заголовка восточно‑азиатский (Major East Asian Font)
+* `+mn-lt` - Шрифт тела Latin (Minor Latin Font)
+* `+mj-lt` - Шрифт заголовка Latin (Major Latin Font)
+* `+mn-ea` - Шрифт тела East Asian (Minor East Asian Font)
+* `+mj-ea` - Шрифт заголовка East Asian (Major East Asian Font)
+* `+mn-cs` - Шрифт тела Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Шрифт заголовка Complex Script (Major Complex Script Font)
 
-Следующий пример создаёт один заголовок, использующий основной латинский шрифт темы, и одну строку основного текста, использующую вспомогательный латинский шрифт темы. Затем меняет шрифты темы и сохраняет результат:
+The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
 ```javascript
 const aspose = {};
@@ -202,36 +208,79 @@ try {
 
     presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
     presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+
     presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Заголовок следует основному шрифту, а основной текст – вспомогательному. Текст, у которого явно указано имя шрифта вместо идентификатора темы, не переключится автоматически при изменении схемы шрифтов темы.
+The heading follows the major font and the body text follows the minor font. Text that has an explicit font name instead of a theme identifier will not automatically switch when the theme font scheme changes.
 
-Основные и вспомогательные наборы шрифтов могут также содержать соответствия для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить эти соответствия, см. [Script-Specific Theme Fonts](/slides/ru/nodejs-java/script-specific-font-mappings/).
+The major and minor font collections can also contain font mappings for individual writing systems, such as Cyrillic, Arabic, Japanese, Georgian, and Thaana. To inspect, add, replace, or remove these mappings, see [Script-Specific Theme Fonts](/slides/ru/nodejs-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Подсказка" %}}
-Для получения дополнительной информации о шрифтах презентации см. [PowerPoint Fonts](/slides/ru/nodejs-java/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+Для получения дополнительной информации о шрифтах презентаций см. [PowerPoint Fonts](/slides/ru/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
+
+### **Разрешение ссылок на шрифты темы**
+
+When inspecting text, [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) can return a theme reference such as `+mn-lt` instead of a font family name. Call [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) with the appropriate effective theme to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [Slide.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) on the object whose theme applies to the inspected text. For ordinary text on a slide, call this method on the slide so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const theme = slide.getThemeManager().getOverrideTheme();
+    theme.initFontSchemeFromInherited();
+    theme.getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Arial"));
+    theme.getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Calibri"));
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Text using the minor theme font");
+
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    const font = portion.getPortionFormat().getLatinFont();
+    const effectiveTheme = slide.createThemeEffective();
+    console.log(font.getFontName() + " -> " + font.getFontName(effectiveTheme));
+
+    const explicitFont = new aspose.slides.FontData("Verdana");
+    console.log(explicitFont.getFontName() + " -> " + explicitFont.getFontName(effectiveTheme));
+} finally {
+    presentation.dispose();
+}
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/ru/nodejs-java/font-selection-sequence/) and [Font Substitution](/slides/ru/nodejs-java/font-substitution/) for those separate steps.
 
 ## **Копирование или применение темы**
 
-Ниже представлены рабочие процессы, решающие разные задачи, связанные с темой.
+The workflows below solve different theme-related problems.
 
-### **Применить внешнюю тему к слайдам, зависящим от мастера**
+### **Применение внешней темы к слайдам, зависящим от master**
 
-Используйте [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) , когда у вас есть файл темы PowerPoint (`.thmx`) и требуется изменить стиль всех слайдов, зависящих от конкретного мастера. Выберите мастер из коллекции [Presentation.getMasters](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/), представленной [MasterSlideCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslidecollection/), и передайте путь к файлу темы в метод.
+Use [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) collection, which is represented by [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), and pass the theme file path to the method.
 
-Метод выполняет следующие операции:
+The method performs the following operations:
 
-1. Создаёт новый мастер‑слайд на основе выбранного мастера.  
-1. Применяет внешнюю тему к новому мастеру.  
-1. Присваивает новый мастер всем слайдам, ранее зависявшим от выбранного мастера.  
-1. Возвращает только что созданный [MasterSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/).
+1. Creates a new master slide based on the selected master.
+1. Applies the external theme to the new master.
+1. Assigns the new master to all slides that previously depended on the selected master.
+1. Returns the newly created [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/).
 
-Следующий пример применяет внешнюю тему к слайдам, зависящим от первого мастера, и сохраняет презентацию:
+The following example applies an external theme to the slides that depend on the first master and saves the presentation:
 
 ```javascript
 const aspose = {};
@@ -243,25 +292,26 @@ try {
     const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
     console.log("Created master: " + themedMaster.getName());
+
     presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Недопустимая, повреждённая или неподдерживаемая тема может вызвать [PptxReadException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxreadexception/). Проверяйте пути, передаваемые пользователями, обрабатывайте ошибки доступа к файловой системе и сохраняйте презентацию только после успешного применения темы.
+An invalid, corrupted, or unsupported theme can cause [PptxReadException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxreadexception/). Validate paths supplied by users, handle file-system access failures, and save the presentation only after the theme has been applied successfully.
 
-Переприсваиваются только слайды, зависящие от выбранного мастера. Слайды, связанные с другими мастерами, сохраняют свои текущие мастера и темы. Цвета, шрифты, заливки, линии, фоны и эффекты, зависящие от темы, рассчитываются по внешней теме. Прямо назначенные цвета, шрифты, заливки и другое явное форматирование могут оставаться без изменений. Переопределения уровня макета и уровня слайда также могут иметь приоритет над значениями, унаследованными от нового мастера.
+Only the slides that depended on the selected master are reassigned. Slides associated with other masters retain their existing masters and themes. Theme-aware colors, fonts, fills, lines, backgrounds, and effects are resolved against the external theme. Directly assigned colors, fonts, fills, and other explicit formatting may remain unchanged. Layout-level and slide-level overrides can also take precedence over values inherited from the new master.
 
-Тема может ссылаться на шрифты, недоступные в среде выполнения. Для согласованного рендеринга и экспорта установите необходимые шрифты, предоставьте их через [custom font sources](/slides/ru/nodejs-java/custom-font/), или настройте [font substitution](/slides/ru/nodejs-java/font-substitution/).
+The theme can reference fonts that are not available in the runtime environment. For consistent rendering and export, install the required fonts, provide them through [custom font sources](/slides/ru/nodejs-java/custom-font/), or configure [font substitution](/slides/ru/nodejs-java/font-substitution/).
 
-Это прямой workflow уровня мастера: метод принимает путь к файлу `.thmx` и не требует ручного создания переопределений темы на уровнях слайда или макета.
+This is a direct master-level workflow: the method accepts a file path to a `.thmx` file and does not require manually creating slide-level or layout-level theme overrides.
 
-### **Применить разные внешние темы в презентации с несколькими мастерами**
+### **Применение разных внешних тем в презентации с несколькими master'ами**
 
-Когда нужный мастер неизвестен заранее, получите его из представительного слайда через [Slide.getLayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/) и [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/). Сохраните оригинальные ссылки на мастера до применения тем, поскольку каждый вызов создаёт новый мастер в презентации.
+When the relevant master is not known in advance, obtain it from a representative slide through [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) and [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/). Store the original master references before applying any themes because each call creates another master in the presentation.
 
-Следующий пример использует слайды из двух разделов, находит их мастера и применяет различную внешнюю тему к каждой группе:
+The following example uses slides from two sections to locate their masters and applies a different external theme to each group:
 
 ```javascript
 const aspose = {};
@@ -283,6 +333,7 @@ try {
 
             console.log("First themed master: " + firstThemedMaster.getName());
             console.log("Second themed master: " + secondThemedMaster.getName());
+
             presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
         }
     }
@@ -291,11 +342,11 @@ try {
 }
 ```
 
-Первый вызов влияет только на слайды, зависящие от `firstGroupMaster`, второй – только на слайды, зависящие от `secondGroupMaster`. Слайды, принадлежащие другим мастерам, не переоформляются.
+The first call affects only slides that depended on `firstGroupMaster`, and the second call affects only slides that depended on `secondGroupMaster`. Slides belonging to any other master are not restyled.
 
-### **Сохранить исходную тему при перемещении слайдов**
+### **Сохранение исходной темы при перемещении слайдов**
 
-Если нужно переместить слайд в другую презентацию, сохранив оригинальный дизайн, клонируйте исходный мастер в целевую презентацию с помощью [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslidecollection/), затем клонируйте слайд с помощью [SlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/) и клонированного мастера. Это переносит мастер, его макеты и связанную тему вместе.
+If you want to move a slide to another presentation and preserve its original design, clone the source master into the target presentation with [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/), then clone the slide with [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) and the cloned master. This carries the master, its layouts, and the associated theme together.
 
 ```javascript
 const aspose = {};
@@ -306,8 +357,11 @@ try {
     const target = new aspose.slides.Presentation("target.pptx");
     try {
         const sourceSlide = source.getSlides().get_Item(0);
+
         const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+
         target.getSlides().addClone(sourceSlide, clonedMaster, true);
+
         target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -317,11 +371,11 @@ try {
 }
 ```
 
-Это предпочтительный workflow, когда исходный слайд должен выглядеть одинаково в целевом файле. Простое клонирование содержимого на несвязанный мастер‑назначения может изменить цвета, шрифты, фоны и эффекты, управляемые темой.
+This is the preferred workflow when the source slide must look the same in the destination. Simply cloning content onto an unrelated destination master can change theme-driven colors, fonts, backgrounds, and effects.
 
-### **Применить значения темы к существующему слайду**
+### **Применение значений темы к существующему слайду**
 
-Если целевой слайд должен оставаться на текущем мастере и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/overridetheme/) и [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/overridetheme/) копируют три основных компонента темы в переопределение.
+If the target slide must stay on its current master and layout, initialize a slide-level override from the source theme. The [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/), and [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) methods copy the three main theme components into the override.
 
 ```javascript
 const aspose = {};
@@ -333,10 +387,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -346,11 +402,11 @@ try {
 }
 ```
 
-Это меняет тему, используемую этим слайдом, не затрагивая тему, наследуемую другими слайдами. Чтобы удалить локальное переопределение и вернуться к унаследованным значениям, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/overridetheme/).
+This changes the theme used by that slide without changing the theme inherited by other slides. To remove the local override and return to inherited values, call [OverrideTheme.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/).
 
-### **Применить переопределение темы к макету**
+### **Применение переопределения темы к макету**
 
-Переопределение уровня макета применяется к слайдам, использующим этот макет, если только конкретный слайд не имеет собственного переопределения. Те же методы инициализации могут быть использованы через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslidethememanager/):
+A layout-level override applies to slides that use that layout, unless a particular slide has its own override. The same initialization methods can be used through the [LayoutSlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -362,10 +418,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -375,17 +433,23 @@ try {
 }
 ```
 
-Используйте тему уровня мастера или презентации, когда многие макеты и слайды должны делить один базовый дизайн; переопределение макета – когда одной группе макетов нужен иной стиль; и переопределение слайда – только для истинных исключений. Чрезмерное количество переопределений на уровне слайда усложняет предсказуемость последующих глобальных изменений темы.
+Use a master or presentation-level theme when many layouts and slides should share the same base design, a layout override when one layout family needs different styling, and a slide override only for true exceptions. Excessive slide-level overrides make later global theme changes harder to predict.
+
+<!-- visual-explanation:presentation-theme:start -->
+[![Тема master снабжает двумя макетами; переопределение макета влияет на его слайды, кроме слайда с более локальным переопределением.](visual-presentation-theme-20ad12f2193b.svg)](visual-presentation-theme-20ad12f2193b.svg)
+
+*Переопределение макета применяется к слайдам, использующим этот макет, если только слайд не задаёт собственное переопределение. Значения, основанные на теме, следуют их разрешённой схеме; явно отформатированные объекты могут сохранять локальный внешний вид. Держите переопределения настолько узкими, насколько это необходимо для предполагаемого исключения дизайна.* 
+<!-- visual-explanation:presentation-theme:end -->
 
 ## **Обновление стилей фона темы**
 
-Заливки фона темы хранятся в [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/formatscheme/). PowerPoint может предлагать в интерфейсе больше вариантов фона, чем реально хранится в этой коллекции, поскольку UI может комбинировать заливки темы с цветовыми ссылками и другими стилями.
+The theme's background fills are stored in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). PowerPoint can present more background choices in its UI than the number of fill definitions physically stored in this collection because the UI can combine theme fills with theme colors and other style references.
 
 ![Галерея стилей фона PowerPoint для темы презентации](presentation-design_8.png)
 
-Перед использованием стиля фона просмотрите хранящуюся коллекцию и текущий [Background.getStyleIndex](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/background/). Индекс стиля `0` означает отсутствие тематической заливки; положительные значения – ссылки на стили фоновой темы. Это отличается от прямой индексации JavaScript‑коллекции, где `0` обозначает первый элемент. Не предполагайте, что у каждой презентации одинаковое количество стилей фоновой заливки.
+Before using a background style, inspect the stored collection and the current [Background.getStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/). A style index of `0` means no themed fill; positive values are theme background-style references. This is different from indexing the JavaScript collection directly, where index `0` means the first stored item. Do not assume that every presentation contains the same number of background fill styles.
 
-Следующий пример выводит количество доступных фоновых заливок, назначает тематическую ссылку фона первому мастеру и сохраняет презентацию:
+The following example reports the available background fill count, assigns a themed background reference to the first master, and saves the presentation:
 
 ```javascript
 const aspose = {};
@@ -403,31 +467,32 @@ try {
     const masterSlide = presentation.getMasters().get_Item(0);
     masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
     masterSlide.getBackground().setStyleIndex(1);
+
     presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Видимый результат зависит от темы, на которую ссылается мастер, и от любых переопределений фона на уровнях макета или слайда. Если у слайда собственный фон, изменение только фона мастера может не отразиться на этом слайде. Используйте [Background.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/background/) , когда требуется узнать окончательный фон после применения наследования.
+The visible result depends on the theme entry referenced by the master and on any background overrides at the layout or slide level. If a slide uses its own background, changing only the master background may not change that slide. Use [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) when you need to know the final background after inheritance has been applied.
 
-{{% alert color="warning" title="Предупреждение" %}}
-Не рассматривайте индекс стиля как нулевой индекс коллекции. Также избегайте жёстко заданных номеров стилей из одного файла, полагая, что они будут выглядеть одинаково в другом файле; определения стилей темы специфичны для каждой презентации.
+{{% alert color="warning" title="Warning" %}}
+Do not treat the style index as a zero-based collection index. Also avoid hard-coding a style number from one file and assuming it has the same appearance in another file; theme style definitions are presentation-specific.
 {{% /alert %}}
 
-{{% alert color="info" title="Подсказка" %}}
-Для прямого форматирования фона и наследования фона см. [Presentation Background](/slides/ru/nodejs-java/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+For direct background formatting and background inheritance, see [Presentation Background](/slides/ru/nodejs-java/presentation-background/).
 {{% /alert %}}
 
 ## **Обновление эффектов темы**
 
-Схема форматов темы содержит отдельные коллекции заливок, линий и эффектов, открываемые через [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/formatscheme/) и [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/formatscheme/). Обычные офисные темы часто включают три основных стиля, визуально соответствующих «тёплый», «умеренный» и «интенсивный» формат, но код должен проверять каждую коллекцию, а не полагаться на фиксированное количество элементов.
+A theme format scheme contains separate fill, line, and effect style collections exposed through [FormatScheme.getFillStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/), and [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/formatscheme/). Typical Office themes often contain three principal style entries that correspond visually to subtle, moderate, and intense formatting, but code should inspect each collection instead of assuming a fixed count.
 
-![Тёплые, умеренные и интенсивные эффекты темы, применённые к одной фигуре](presentation-design_10.png)
+![Тонкие, умеренные и интенсивные эффекты темы, применённые к одной и той же фигуре](presentation-design_10.png)
 
-При доступе к этим коллекциям в JavaScript индексация начинается с нуля: индекс `0` – первая сохранённая стилизация, индекс `2` – третья. Индексы ссылок стилей фигуры – отдельная концепция, открываемая через [ShapeStyle](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapestyle/). Изменение стиля темы влияет на фигуры, ссылающиеся на этот стиль; фигуры с прямым форматированием могут оставаться без изменений.
+When you access these collections in JavaScript, the collection index is zero-based: index `0` is the first stored style and index `2` is the third. A shape's style-reference indexes are a separate concept, exposed through [ShapeStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/). Modifying a theme style affects shapes that reference that theme style; shapes with direct formatting may remain unchanged.
 
-Следующий пример проверяет наличие необходимых стилей, меняет первый линейный стиль, третий заливочный стиль, включает внешнюю тень в третьем эффекте и сохраняет результат:
+The following example checks that the required style entries exist, changes the first line style, changes the third fill style, enables an outer shadow in the third effect style, and saves the result:
 
 ```javascript
 const aspose = {};
@@ -440,7 +505,6 @@ try {
     if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
         throw new Error("The theme does not contain the style entries required by this example.");
     }
-
     formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -448,25 +512,84 @@ try {
     const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
     effectFormat.enableOuterShadowEffect();
     effectFormat.getOuterShadowEffect().setDistance(10);
+
     presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Для фигур, ссылающихся на эти слоты, первый линейный стиль темы станет красным, третий заливочный стиль – сплошным тёмно‑зелёным, а третий эффект получит внешнюю тень с отступом 10 пунктов. Точный визуальный результат всё равно зависит от того, какие слоты стилей каждая фигура использует и перекрывается ли тема прямым форматированием.
+For shapes that reference these slots, the first theme line style becomes red, the third theme fill style becomes solid forest green, and the third effect style gains an outer shadow with a distance of 10 points. The exact visual result still depends on which style slots each shape references and whether direct formatting overrides the theme.
 
-![Стили эффектов темы после изменения линии, заливки и тени](presentation-design_11.png)
+![Стили эффектов темы после изменения линий, заливки и настроек тени](presentation-design_11.png)
+
+## **Выбор стилей заливки и контура темы для фигуры**
+
+A shape can select its fill and outline independently through [ShapeStyle.setFillStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setfillstyleindex/) and [ShapeStyle.setLineStyleIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapestyle/setlinestyleindex/). For either method, index `1` selects the first entry in the corresponding theme collection (`get_Item(0)`), and index `2` selects the second (`get_Item(1)`).
+
+The following example sets up two fill styles (gold and sky blue) and two line styles (dark blue at 6 pt and dark red at 12 pt) in the default theme of a new presentation. It saves the slide at three stages so you can compare the results in PowerPoint.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const styles = presentation.getMasterTheme().getFormatScheme();
+
+    const goldFill = styles.getFillStyles().get_Item(0);
+    goldFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 215, 0));
+    const blueFill = styles.getFillStyles().get_Item(1);
+    blueFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+    blueFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 135, 206, 235));
+
+    const thinLine = styles.getLineStyles().get_Item(0);
+    thinLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thinLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    thinLine.setWidth(6);
+    const thickLine = styles.getLineStyles().get_Item(1);
+    thickLine.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thickLine.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 139, 0, 0));
+    thickLine.setWidth(12);
+
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+    const left = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 205, 200, 130);
+    const right = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 420, 205, 200, 130);
+    left.getShapeStyle().setFillStyleIndex(java.newShort(1));
+    right.getShapeStyle().setFillStyleIndex(java.newShort(2));
+    left.getShapeStyle().setLineStyleIndex(1);
+    right.getShapeStyle().setLineStyleIndex(1);
+    presentation.save("01-initial.pptx", aspose.slides.SaveFormat.Pptx);
+
+    right.getShapeStyle().setLineStyleIndex(2);
+    presentation.save("02-line-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    goldFill.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 46, 139, 87));
+    presentation.save("03-theme-changed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Initial styles | Change the right outline | Edit the first theme fill |
+|:---:|:---:|:---:|
+| ![Золотые и небесно-голубые прямоугольники с соответствующими тонкими темно-синими контурами](theme-style-initial.png) | ![Небесно-голубой прямоугольник теперь имеет толстый темно-красный контур](theme-style-line-changed.png) | ![Левый прямоугольник теперь зеленый, а оба контура остаются без изменений](theme-style-fill-changed.png) |
+
+Selecting a different line style changes only the right rectangle's outline. Editing the first theme fill updates every shape that uses it. Here, only the left rectangle turns green.
+
+On an existing shape, a local fill color, line color, or line width can override that part of the theme style. If changing a style index has no visible effect, check the shape's [direct formatting](/slides/ru/nodejs-java/shape-formatting/).
 
 ## **Определение, использует ли эффективная сплошная заливка цвет темы**
 
-Заливка может быть задана непосредственно на объекте или унаследована от абзаца, макета, мастера, стиля темы или другого уровня форматирования. Вызовите [FillFormat.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fillformat/) , чтобы превратить эту иерархию в неизменяемый снимок эффективной заливки. Сначала проверьте значение `getFillType`. Только если оно равно `FillType.Solid`, следует читать свойства сплошной заливки.
+A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) to resolve that hierarchy into an immutable effective-fill snapshot. First check its `getFillType` value. Only when it is `FillType.Solid` should you read the solid-fill properties.
 
-Для сплошной заливки `getSolidFillColor` возвращает финальное RGB‑значение после применения наследования, поиска в теме и преобразований цвета. Метод `getSolidFillSchemeColor` выдаёт соответствующий логический слот [SchemeColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/schemecolor/), например `Text1` или `Accent6`. Значение `SchemeColor.NotDefined` означает, что эффективная сплошная заливка не основана на цветовом слоте схемы. В рабочем процессе, где заливки либо темы, либо прямые RGB‑цвета, это значение указывает на прямую RGB‑заливку.
+For a solid fill, `getSolidFillColor` returns the final rendered RGB value after inheritance, theme lookup, and color transformations are applied. The `getSolidFillSchemeColor` method returns the corresponding logical [SchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/schemecolor/) slot, such as `Text1` or `Accent6`. A value of `SchemeColor.NotDefined` means that the effective solid fill is not based on a scheme color. In a workflow where fills are either theme colors or direct RGB colors, this value identifies a direct RGB fill.
 
-Не используйте только локальное значение [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/colorformat/) для классификации заливки. Например, у части текста может не быть локального схемного цвета (`NotDefined`), но её эффективная заливка может наследовать цвет темы и разрешаться в `Text1` или `Accent6`. С другой стороны, `getSolidFillSchemeColor` сообщает, какой логический слот темы создал эффективный цвет, но не указывает, с какого уровня (объект, абзац, макет, мастер) он пришёл.
+Do not use the local [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) value alone to classify a fill. For example, a text portion can have no locally defined scheme color, so its local value is `NotDefined`, while its effective fill inherits a theme color and resolves to `Text1` or `Accent6`. Conversely, `getSolidFillSchemeColor` tells you which logical theme slot produced the effective color, but it does not tell you whether that slot came from the object, paragraph, layout, master, or another level of the formatting hierarchy.
 
-Следующий пример загружает презентацию, проверяет заливки фигур и текста, выводит каждое окончательное RGB‑значение и связанный слот схемы, а также отмечает сплошные заливки, которые не будут отслеживать изменения цветов темы:
+The following example loads a presentation, audits both shape fills and text-portion fills, prints each final RGB value and associated scheme color, and flags solid fills that will not track theme color changes:
 
 ```javascript
 const aspose = {};
@@ -534,15 +657,15 @@ try {
 }
 ```
 
-Ветка `NotDefined` предоставляет список сплошных заливок, не реагирующих на изменения слотów цветов темы. Проверьте эти объекты, когда презентация должна соответствовать новой бренд‑палитре. Выведенное RGB‑значение показывает текущее отображение, а значение схемы поясняет, привязано ли оно к теме.
+The `NotDefined` branch provides an audit list of solid fills that will not respond to changes in theme color slots. Review those objects when a presentation must follow a new brand palette. The reported RGB value still shows the current appearance, while the scheme value explains whether that appearance is connected to the theme.
 
-Эффективные объекты формата – это снимки. После изменения темы презентации, переопределения темы или любого унаследованного форматирования вызовите `getEffective` снова и получите новый объект эффективной заливки перед сравнением или выводом цветов.
+Effective-format objects are snapshots. After changing the presentation theme, a theme override, or any inherited formatting, call `getEffective` again and read a new effective-fill object before comparing or reporting colors.
 
 ## **Чтение эффективных значений темы**
 
-Необработанные объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после разрешения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseoverridethememanager/). Для фона используйте [Background.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/background/), а для заливки – [FillFormat.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fillformat/).
+Raw theme objects tell you what is defined at a particular level. Effective values tell you what a slide or shape actually uses after inheritance and local overrides are resolved. For a slide, call [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/). For a background, use [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/), and for a fill, use [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/).
 
-Следующий пример считывает эффективную тему, фон и первую заливку фигуры со слайда:
+The following example reads the effective theme, background, and first shape fill from a slide:
 
 ```javascript
 const aspose = {};
@@ -551,11 +674,14 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const effectiveTheme = slide.getThemeManager().createThemeEffective();
     const effectiveBackground = slide.getBackground().getEffective();
+
     console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
     console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
     console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+
     if (slide.getShapes().size() > 0) {
         const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         console.log("First shape effective fill type: " + effectiveFill.getFillType());
@@ -568,22 +694,22 @@ try {
 }
 ```
 
-Используйте эффективные данные для диагностики рендеринга, проверки и сравнения. Если смотреть только на [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/getmastertheme/), можно пропустить переопределения мастера, макета, слайда или фигуры, меняющие окончательный вид.
+Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation.getMasterTheme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getmastertheme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Применение внешней темы влияет на каждый слайд в презентации?**
+**Does applying an external theme affect every slide in the presentation?**
 
-Нет. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) переприсваивает только слайды, зависящие от выбранного мастера. Слайды, использующие другие мастеры, сохраняют свои текущие темы.
+No. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
 
-**Можно ли применить тему к одному слайду без изменения мастера?**
+**Can I apply a theme to a single slide without changing the master?**
 
-Да. Используйте [SlideThemeManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidethememanager/) слайда и инициализируйте его переопределение темы. Изменение останется локальным для этого слайда; остальные слайды продолжат наследовать свои текущие темы.
+Yes. Use the slide's [SlideThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidethememanager/) and initialize its override theme. The change remains local to that slide; other slides continue to inherit their existing themes.
 
-**Какой самый безопасный способ перенести тему из одной презентации в другую?**
+**What is the safest way to carry a theme from one presentation to another?**
 
-При перемещении слайда и сохранении его исходного вида клонируйте исходный мастер в целевую презентацию и клонируйте слайд с этим мастером, используя [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslidecollection/) и [SlideCollection.addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidecollection/). Это сохраняет мастер, макеты и тему вместе.
+When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) and [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/). This keeps the master, layouts, and theme together.
 
-**Как увидеть эффективные значения после наследования и переопределений?**
+**How can I see the effective values after inheritance and overrides?**
 
-Используйте [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseoverridethememanager/) для темы слайда или макета и соответствующие методы получения эффективных данных для форматных объектов, таких как [Background.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/background/) и [FillFormat.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/fillformat/). Эти API возвращают разрешённые значения после применения наследования и переопределений.
+Use [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseoverridethememanager/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/background/) and [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/). These APIs return the resolved values after inheritance and overrides are applied.

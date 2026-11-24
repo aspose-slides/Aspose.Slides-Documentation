@@ -6,7 +6,7 @@ weight: 10
 url: /hu/php-java/presentation-theme/
 keywords:
 - PowerPoint téma
-- bemutató téma
+- prezentációs téma
 - dia téma
 - téma beállítása
 - téma módosítása
@@ -15,31 +15,31 @@ keywords:
 - THMX
 - téma szín
 - kiegészítő paletta
-- téma betűtípus
-- téma stílus
-- téma effektus
+- téma betűtípusa
+- téma stílusa
+- téma effektusa
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - PHP
 - Aspose.Slides
-description: "Mesterprezentációs témák az Aspose.Slides for PHP (Java-on keresztül) segítségével a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához egységes márkázással."
+description: "Az Aspose.Slides PHP (Java segítségével) fő prezentációs témái a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához konzisztens márkázással."
 ---
 ## **Bevezetés**
 
-Egy bemutató téma egy összehangolt szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet határoz meg. A témaérzékeny objektumok ezekre a megosztott definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre több objektumot is frissíthet.
+A prezentációs téma egy koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet definiál. A téma‑tudatos objektumok ezekre a közös definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma‑váltás egyszerre több objektumot frissíthet.
 
-Az Aspose.Slides‑ben a bemutató‑szintű témához a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) biztosít hozzáférést. Egy bemutató alacsonyabb szinteken is tartalmazhat téma‑felülbírálásokat. A master felülbírálhatja a bemutató témáját a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterthememanager/) segítségével, míg egy elrendezés vagy egy egyedi dia felülbírálhatja a neki örökölt témát a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseoverridethememanager/) segítségével. Gyakorlati szempontból a dia hatékony témája ezen öröklődési lánc mentén kerül feloldásra: bemutatói téma, master felülbírálás, elrendezés felülbírálás és dia felülbírálás.
+Az Aspose.Slides-ben a prezentáció-szintű téma a [Presentation::getMasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) metóduson keresztül érhető el. A prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülbírálásokat. Egy master felülbírálhatja a prezentáció témáját a [MasterThemeManager::getOverrideTheme](https://reference.aspose.com/slides/php-java/aspose.slides/masterthememanager/) segítségével, míg egy elrendezés vagy egyedi dia felülbírálhatja a örökölt témát a [BaseOverrideThemeManager::getOverrideTheme](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/) metódussal. Gyakorlatban egy dia hatékony témája ezen öröklődési lánc mentén kerül feloldásra: prezentációs téma, master felülbírálás, elrendezés felülbírálás és dia felülbírálás.
 
-![Téma alkotóelemei: színek, betűtípusok, háttérstílusok és effektek](theme-constituents.png)
+![Téma komponensek: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
 
-Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektus‑stílusok frissítése, valamint a hatékony értékek lekérdezése az öröklődés és felülbírálások feloldása után.
+Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektusstílusok frissítése, valamint az öröklődés és felülbírálások feloldása után kapott hatékony értékek olvasása.
 
 ## **Téma ellenőrzése**
 
-A [MasterTheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus‑sémáját és formátumsémáját a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/mastertheme/) és [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/mastertheme/) segítségével teszi elérhetővé. Ezeknek a gyűjteményeknek az ellenőrzése különösen hasznos, ha a bemutató külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+A [MasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus‑sémáját és formátumsémáját a [MasterTheme::getColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/), a [MasterTheme::getFontScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/) és a [MasterTheme::getFormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/) metódusokon keresztül teszi elérhetővé. Ezeknek a gyűjteményeknek az ellenőrzése a módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mert a stílusbejegyzések száma és tartalma változhat.
 
-Az alábbi példa beolvassa a fő téma tulajdonságait, és jelentést készít arról, hogy hány háttér‑, kitöltés‑, vonal‑ és effektus‑stílus tárolódik a témában:
+Az alábbi példa kiolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér‑, kitöltés‑, vonal‑ és effektusstílus van tárolva a témában:
 
 ```php
 use aspose\slides\Presentation;
@@ -47,6 +47,7 @@ use aspose\slides\Presentation;
 $presentation = new Presentation("input.pptx");
 try {
     $theme = $presentation->getMasterTheme();
+
     echo "Theme name: " . $theme->getName() . PHP_EOL;
     echo "Accent 1: " . $theme->getColorScheme()->getAccent1()->getColor() . PHP_EOL;
     echo "Major Latin font: " . $theme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
@@ -60,13 +61,13 @@ try {
 }
 ```
 
-Ha egy fájl több master‑t használ, ne feltételezze, hogy minden dia ugyanazt a hatékony témát használja. Ellenőrizze a diához tartozó master‑t, és használja a később ebből a cikkből bemutatott hatékony‑téma munkafolyamatot, amikor elrendezési vagy dia‑felülbírálások létezhetnek.
+Ha a fájl több master‑t használ, ne feltételezzük, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Ellenőrizzük a diára vonatkozó master‑t, és a később bemutatott “effective‑theme” munkafolyamatot használjuk, amikor elrendezési vagy dia‑felülbírálások is létezhetnek.
 
-## **Témaszínek módosítása**
+## **Téma színeinek módosítása**
 
-A téma‑érzékeny kitöltések, vonalak és szövegek a [SchemeColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/schemecolor/) felsorolt logikai színére hivatkozhatnak. Amikor a [ColorScheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/colorscheme/) megfelelő bejegyzését megváltoztatja, minden, még mindig a téma‑színre hivatkozó objektum az új értékkel kerül feloldásra. Azokra az objektumokra, amelyek közvetlen RGB‑színt használnak, a téma‑szín‑frissítés nem hat.
+A téma‑tudatos kitöltések, vonalak és szövegek egy logikai színre hivatkozhatnak a [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) felsorolásból. Amikor a megfelelő bejegyzést módosítjuk a [ColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/colorscheme/)‑ben, minden olyan objektum, amely még mindig az adott téma‑színre hivatkozik, az új értékhez lesz feloldva. Azok az objektumok, amelyek közvetlen RGB‑színt használnak, nem változnak meg egy téma‑szín frissítésekor.
 
-Az alábbi vég‑végi példa egy olyan alakzatot hoz létre, amely az `Accent4` színt használja, megváltoztatja a téma `Accent4` színét vörösre, elmenti a bemutatót, újra megnyitja, és kiírja a hatékony kitöltőszínt:
+Az alábbi vég‑végi példa egy `Accent4` színt használó alakzatot hoz létre, a téma `Accent4` színét pirosra állítja, elmenti a prezentációt, újra megnyitja, majd kiírja a hatékony kitöltés‑színt:
 
 ```php
 use aspose\slides\FillType;
@@ -78,10 +79,13 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+
     $presentation->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
+
     $presentation->save("theme-color.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -90,6 +94,7 @@ try {
 $savedPresentation = new Presentation("theme-color.pptx");
 try {
     $savedSlide = $savedPresentation->getSlides()->get_Item(0);
+
     $savedShape = $savedSlide->getShapes()->get_Item(0);
     $effectiveColor = $savedShape->getFillFormat()->getEffective()->getSolidFillColor();
     echo sprintf("Effective fill color: A=%d, R=%d, G=%d, B=%d", java_values($effectiveColor->getAlpha()), java_values($effectiveColor->getRed()), java_values($effectiveColor->getGreen()), java_values($effectiveColor->getBlue())) . PHP_EOL;
@@ -98,18 +103,19 @@ try {
 }
 ```
 
-Mivel a téglalap továbbra is a `Accent4`‑hez van kapcsolva, a látható színe pirosra vált a téma módosítása után. Ha a séma‑színt közvetlen színre cseréli az alakzaton, a későbbi `Accent4`‑módosítások már nem befolyásolják azt a kitöltést.
+Mivel a téglalap továbbra is a `Accent4`‑hez van kapcsolva, a látható színe pirosra vált a téma módosítása után. Ha a téma‑színt közvetlen színre cseréljük az alakzaton, a későbbi `Accent4`‑változások már nem befolyásolják azt a kitöltést.
 
-### **Kiegészítő palettáról színek használata**
+### **Színek használata a kiegészítő palettáról**
 
-A PowerPoint világosabb és sötétebb variánsokat származtat egy téma‑színből színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/colortransformoperation/) felsoroltban teszi elérhetővé.
+A PowerPoint a téma‑színből világosabb és sötétebb változatokat színtranszformációk alkalmazásával származtat. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/php-java/aspose.slides/colortransformoperation/) felsorolás segítségével teszi elérhetővé.
 
-![A fő téma színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
+![A fő téma színei, valamint a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
-**1** – Fő téma színek.  
-**2** – A fő téma színekből előállított világosabb és sötétebb variánsok.
+**1** – A fő téma színei.
 
-Az alábbi példa hat téglalapot hoz létre az `Accent4` alapján, ötön luminancia‑transzformációt alkalmaz, és elmenti az eredményt:
+**2** – A fő téma színekből előállított világosabb és sötétebb változatok.
+
+Az alábbi példa hat téglalapot hoz létre `Accent4` alapján, az ötöt luminansz‑transzformációval módosítja, majd elmenti az eredményt:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -161,31 +167,33 @@ try {
 }
 ```
 
-Ezek a variánsok továbbra is a téma‑színen alapulnak. Ha a `Accent4` később megváltozik, a transzformált színek az új `Accent4` értékből kerülnek újraszámításra.
+Ezek a változatok továbbra is a téma‑színen alapulnak. Ha a `Accent4` később megváltozik, a transzformált színek az új `Accent4` értékből kerülnek újraszámításra.
 
 ### **A `SchemeColor` értékek leképezése a `ColorScheme` helyekre**
 
-A [SchemeColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/schemecolor/) felsorolt a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/colorscheme/) ugyanazokat a téma‑helyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi közzé. A leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/colorscheme/) ugyanazokat a témahelyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi közzé. A leképezés rögzített:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ezek ugyanazon témahelyek alternatív nevei; nem dinamikusan átalakított értékek.
+Ezek ugyanazon témahelyek alternatív elnevezései; nem dinamikusan konvertált értékek.
 
-## **Téma‑betűtípusok módosítása**
+## **Téma betűtípusainak módosítása**
 
-A téma‑betűtípus‑séma egy fő betűtípus‑készletet tartalmaz a címsorokhoz és egy kisegész betűtípus‑készletet a törzsszöveghez. A [FontScheme.getMajor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontscheme/) és a [FontScheme.getMinor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontscheme/) metódusok ezen készleteket teszik elérhetővé.
+A téma betűtípus‑sémája egy fő betűtípus‑készletet tartalmaz a címsorokhoz és egy mellékes betűtípus‑készletet a törzsszöveghez. A [FontScheme::getMajor](https://reference.aspose.com/slides/php-java/aspose.slides/fontscheme/) és a [FontScheme::getMinor](https://reference.aspose.com/slides/php-java/aspose.slides/fontscheme/) metódusok ezeket a készleteket teszik elérhetővé.
 
-A PowerPoint‑kompatibilis téma‑betűtípus‑azonosítók a szövegformázásban használhatók:
+A PowerPoint‑kompatibilis téma‑betűtípus azonosítók a szövegformázásban használhatók:
 
-* `+mn-lt` – Body Font Latin (Minor Latin Font)
-* `+mj-lt` – Heading Font Latin (Major Latin Font)
-* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
-* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
+* `+mn‑lt` – Body Font Latin (Minor Latin Font)
+* `+mj‑lt` – Heading Font Latin (Major Latin Font)
+* `+mn‑ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj‑ea` – Heading Font East Asian (Major East Asian Font)
+* `+mn‑cs` – Body Font Complex Script (Minor Complex Script Font)
+* `+mj‑cs` – Heading Font Complex Script (Major Complex Script Font)
 
-Az alábbi példa egy címsort hoz létre, amely a fő latin téma‑betűtípust használja, illetve egy törzssort, amely a kisegész latin téma‑betűtípust használja. Ezután megváltoztatja a téma‑betűtípusokat, és elmenti az eredményt:
+Az alábbi példa létrehoz egy címsort, amely a fő Latin téma‑betűtípust, valamint egy törzssort, amely a mellékes Latin téma‑betűtípust használja. Ezután módosítja a téma‑betűtípusokat és elmenti az eredményt:
 
 ```php
 use aspose\slides\FontData;
@@ -207,36 +215,80 @@ try {
 
     $presentation->getMasterTheme()->getFontScheme()->getMajor()->setLatinFont(new FontData("Aptos Display"));
     $presentation->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+
     $presentation->save("theme-fonts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-A címsor a fő betűtípust, a törzsszöveg a kisegész betűtípust követi. A szöveg, amely kifejezett betűtárgyalási nevet tartalmaz a téma‑azonosító helyett, nem vált automatikusan, amikor a téma‑betűtípus‑séma megváltozik.
+A címsor a fő betűtípusnak, a törzsszöveg pedig a mellékes betűtípusnak felel meg. Az explicit betűtípus‑névvel ellátott szöveg nem vált automatikusan, ha a téma‑betűtípus‑sémát megváltoztatják.
 
-A fő és kisegész betűtípus‑gyűjtemények tartalmazhatnak betűtípus‑leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek az ellenőrzéséhez, hozzáadásához, cseréjéhez vagy eltávolításához tekintse meg a [Script‑Specific Theme Fonts](/slides/hu/php-java/script-specific-font-mappings/) oldalt.
+A fő és mellékes betűtípus‑gyűjtemények egyedi írásrendszerekre – például cirill, arab, japán, grúz vagy thaana – is tartalmazhatnak betűtípus‑leképezéseket. Ezeknek a leképezéseknek az ellenőrzéséhez, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/php-java/script-specific-font-mappings/) oldalt.
 
 {{% alert color="info" title="Tip" %}}
-További információ a bemutató‑betűtípusokról a [PowerPoint Fonts](/slides/hu/php-java/powerpoint-fonts/) oldalon található.
+További információk a prezentációs betűtípusokról: lásd a [PowerPoint Fonts](/slides/hu/php-java/powerpoint-fonts/) oldalt.
 {{% /alert %}}
+
+### **Téma‑betűtípus hivatkozások feloldása**
+
+Szöveg ellenőrzésekor a [FontData::getFontName](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) visszaadhat egy téma‑hivatkozást (például `+mn‑lt`) a betűcsaládnév helyett. Hívjuk a [FontData::getFontName](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/)‑t a megfelelő hatékony téma‑adatokkal a hivatkozás feloldásához. A `+mj` és `+mn` előtagok a fő‑ illetve mellékes betűtípus‑készletet választják; a `-lt`, `-ea` és `-cs` utótagok a Latin, East Asian és Complex Script betűtípusokat jelölik.
+
+A hatékony témát a [Slide::createThemeEffective](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) metódussal kapjuk meg azon objektumnál, amelynek a témája a vizsgált szövegre vonatkozik. Egy normál dián lévő szöveg esetén ezt a metódust a diához kell hívni, így a kontextus tartalmazza a dia örökölt témáját és a helyi felülbírálásokat. Elrendezés vagy master ellenőrzésekor a saját hatékony témáját használjuk. Ne feltételezzük, hogy az első master témája minden dián érvényes.
+
+Az alábbi példa egy szövegrészt hoz létre, amely kifejezetten a mellékes Latin betűtípusra hivatkozik. Egy slide‑betűtípus‑sémát inicializál a [OverrideTheme::initFontSchemeFromInherited](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/) segítségével, és a fő‑ és mellékes Latin családokat `Arial`‑ra és `Calibri`‑ra állítja, így az eredmény bemeneti fájl nélkül reprodukálható.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $theme = $slide->getThemeManager()->getOverrideTheme();
+    $theme->initFontSchemeFromInherited();
+    $theme->getFontScheme()->getMajor()->setLatinFont(new FontData("Arial"));
+    $theme->getFontScheme()->getMinor()->setLatinFont(new FontData("Calibri"));
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 400, 60);
+    $shape->getTextFrame()->setText("Text using the minor theme font");
+
+    $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+
+    $font = $portion->getPortionFormat()->getLatinFont();
+    $effectiveTheme = $slide->createThemeEffective();
+    echo $font->getFontName() . " -> " . $font->getFontName($effectiveTheme) . PHP_EOL;
+
+    $explicitFont = new FontData("Verdana");
+    echo $explicitFont->getFontName() . " -> " . $explicitFont->getFontName($effectiveTheme) . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+A kimenet `+mn‑lt -> Calibri`, majd `Verdana -> Verdana`. A tárolt hivatkozás változatlan marad, míg a kifejezett családnév változatlanul visszatér. Ha a rész `+mj‑lt`‑et használt volna, a téma szerint `Arial`‑ra oldódna fel.
+
+A téma‑hivatkozás feloldása megmondja, hogy a téma mely betűcsaládját határozza meg. Nem ellenőrzi a betűtípus‑elérhetőséget vagy a helyettesítés/karakter‑fallback során végül használt betűtípus‑fájlt. Lásd a [Font Selection Sequence](/slides/hu/php-java/font-selection-sequence/) és a [Font Substitution](/slides/hu/php-java/font-substitution/) oldalakat a különálló lépésekhez.
 
 ## **Téma másolása vagy alkalmazása**
 
-Az alábbi munkafolyamatok különböző téma‑problémákat oldanak meg.
+Az alábbi munkafolyamatok különböző téma‑kapcsolatos problémákat oldanak meg.
 
-### **Külső téma alkalmazása egy mesterhez tartozó diákra**
+### **Külső téma alkalmazása egy master‑függő diákra**
 
-Használja a [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) metódust, ha rendelkezik egy PowerPoint témafájl (.thmx)‑vel, és minden, egy adott masterhez tartozó diát újraszabni szeretne. Válassza ki a master‑t a [Presentation::getMasters](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) gyűjteményből, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/) képvisel, majd adja meg a témafájl elérési útját a metódusnak.
+Használjuk a [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) metódust, ha egy PowerPoint témafájlt (`.thmx`) szeretnénk alkalmazni, és minden olyan diát átformázni, amely egy adott master‑re támaszkodik. Válasszuk ki a master‑t a [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) kollekcióból, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) képvisel, majd adjuk át a témafájl útvonalát a metódusnak.
 
 A metódus a következő műveleteket hajtja végre:
 
 1. Létrehoz egy új master‑diát a kiválasztott master alapján.  
 1. Alkalmazza a külső témát az új master‑re.  
-1. Hozzárendeli az új master‑t azokhoz a diákhoz, amelyek korábban a kiválasztott masterhez tartoztak.  
-1. Visszaadja az így létrehozott [MasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/)-t.
+1. Az új master‑t hozzárendeli minden diához, amely korábban a kiválasztott master‑re támaszkodott.  
+1. Visszaadja a frissen létrehozott [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) objektumot.
 
-Az alábbi példa egy külső témát alkalmaz az első masterhez tartozó diákra, és elmenti a bemutatót:
+Az alábbi példa külső témát alkalmaz az első master‑re támaszkodó diákra, majd elmenti a prezentációt:
 
 ```php
 use aspose\slides\Presentation;
@@ -248,25 +300,26 @@ try {
     $themedMaster = $selectedMaster->applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
     echo "Created master: " . java_values($themedMaster->getName()) . PHP_EOL;
+
     $presentation->save("presentation-with-external-theme.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Érvénytelen, sérült vagy nem támogatott téma esetén [PptxReadException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxreadexception/) keletkezhet. Ellenőrizze a felhasználók által megadott útvonalakat, kezelje a fájlrendszer‑hozzáférési hibákat, és csak akkor mentse a bemutatót, amikor a téma sikeresen alkalmazásra került.
+Érvénytelen, sérült vagy nem támogatott téma esetén [PptxReadException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxreadexception/) keletkezhet. Ellenőrizzük a felhasználók által megadott útvonalakat, kezeljük a fájlrendszer‑hozzáférési hibákat, és csak a téma sikeres alkalmazása után mentsük a prezentációt.
 
-Csak a kiválasztott masterhez tartozó diák kerülnek átrendezésre. Más masterhez tartozó diák megőrzik eredeti master‑üket és témájukat. A téma‑érzékeny színek, betűtípusok, kitöltések, vonalak, háttér‑ és effektus‑stílusok a külső témával kerülnek feloldásra. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanok maradhatnak. Az elrendezési‑ és dia‑szintű felülbírálások szintén felülírhatják az új master‑től örökölt értékeket.
+Csak azok a diák, amelyek a kiválasztott master‑re támaszkodtak, lesznek átállítva. A többi master‑hez tartozó diák megtartják meglévő master‑eiket és témáikat. A téma‑tudatos színek, betűtípusok, kitöltések, vonalak, hátterek és effektusok az új külső témához lesznek feloldva. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanok maradhatnak. Az elrendezés‑szintű és dia‑szintű felülbírálások szintén felülírhatják az új master‑től örökölt értékeket.
 
-A téma olyan betűtípusokra hivatkozhat, amelyek nincsenek jelen a futtatási környezetben. A következetes megjelenítés és export érdekében telepítse a szükséges betűtípusokat, biztosítsa őket [custom font sources](/slides/hu/php-java/custom-font/) segítségével, vagy konfigurálja a [font substitution](/slides/hu/php-java/font-substitution/) beállítást.
+A téma hivatkozhat olyan betűtípusokra, amelyek nem érhetők el a futási környezetben. Az egységes megjelenítés és export érdekében telepítsük a szükséges betűtípusokat, biztosítsuk őket a [custom font sources](/slides/hu/php-java/custom-font/) segítségével, vagy konfiguráljuk a [font substitution](/slides/hu/php-java/font-substitution/) beállítást.
 
-Ez egy közvetlen master‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útját várja, és nem igényel manuális dia‑ vagy elrendezési‑szintű téma‑felülbírálás létrehozását.
+Ez egy közvetlen master‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útvonalát várja, és nem igényel manuális slide‑ vagy layout‑szintű téma‑felülbírálások létrehozását.
 
-### **Különböző külső témák alkalmazása többmesteres bemutatóban**
+### **Különböző külső témák alkalmazása több‑masteres prezentációban**
 
-Ha a releváns master előre nem ismert, szerezze be egy reprezentatív dia segítségével a [Slide::getLayoutSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/) és a [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslide/) metódusokkal. Minden hívás egy új master‑t hoz létre a bemutatóban, ezért mentse el az eredeti master‑referenciákat a témák alkalmazása előtt.
+Ha a releváns master előre nem ismert, szerezze be azt egy reprezentatív dia [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) és [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) segítségével. A téma‑alkalmazások előtt tárolja el az eredeti master‑referenciákat, mivel minden hívás egy új master‑t hoz létre a prezentációban.
 
-Az alábbi példa két szakaszból származó diák segítségével meghatározza a master‑eket, és mindkét csoporthoz külön‑külön külső témát alkalmaz:
+Az alábbi példa két szakaszból származó diákat használ a master‑ek megtalálásához, majd minden csoportnak más‑más külső témát alkalmaz:
 
 ```php
 use aspose\slides\Presentation;
@@ -288,6 +341,7 @@ try {
 
             echo "First themed master: " . java_values($firstThemedMaster->getName()) . PHP_EOL;
             echo "Second themed master: " . java_values($secondThemedMaster->getName()) . PHP_EOL;
+
             $presentation->save("multi-master-with-external-themes.pptx", SaveFormat::Pptx);
         }
     }
@@ -296,11 +350,11 @@ try {
 }
 ```
 
-Az első hívás csak a `$firstGroupMaster`‑hez tartozó diákra hat, a második csak a `$secondGroupMaster`‑hez tartozó diákra. Más masterhez tartozó diákok nincsenek átalakítva.
+Az első hívás csak azokra a diákra hat, amelyek `$firstGroupMaster`‑re támaszkodtak, a második hívás pedig csak a `$secondGroupMaster`‑re támaszkodókra. A többi master‑hez tartozó diák nem lesznek átformálva.
 
 ### **Forrástéma megőrzése diák áthelyezésekor**
 
-Ha egy diát egy másik bemutatóba szeretne helyezni, és megtartani az eredeti megjelenését, klónozza a forrás‑master‑t a cél‑bemutatóba a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/) segítségével, majd klónozza a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidecollection/) és a klónozott master használatával. Így a master, az elrendezései és a hozzájuk tartozó téma együttesen kerül átvitelre.
+Ha egy diát egy másik prezentációba szeretne áthelyezni, és meg akarja őrizni annak eredeti dizájnját, klónozza a forrás‑master‑t a cél‑prezentációba a [MasterSlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) segítségével, majd a diát a [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) és a klónozott master‑rel klónozza. Ez együtt szállítja a master‑t, annak elrendezéseit és a hozzá tartozó témát.
 
 ```php
 use aspose\slides\Presentation;
@@ -311,9 +365,12 @@ try {
     $target = new Presentation("target.pptx");
     try {
         $sourceSlide = $source->getSlides()->get_Item(0);
+
         $sourceMaster = $sourceSlide->getLayoutSlide()->getMasterSlide();
         $clonedMaster = $target->getMasters()->addClone($sourceMaster);
+
         $target->getSlides()->addClone($sourceSlide, $clonedMaster, true);
+
         $target->save("theme-preserved.pptx", SaveFormat::Pptx);
     } finally {
         $target->dispose();
@@ -323,11 +380,11 @@ try {
 }
 ```
 
-Ez a preferált munkafolyamat, ha a forrás‑dia megjelenése azonos kell legyen a cél‑bemutatóban. A tartalom egyszerű klónozása egy nem kapcsolódó cél‑masterbe megváltoztathatja a téma‑alapú színeket, betűtípusokat, háttereket és effekteket.
+Ez a preferált munkafolyamat, amikor a forrásdia ugyanúgy kell, hogy megjelenjen a célnál. A tartalmat egy nem kapcsolódó cél‑master‑re klónozva megváltozhat a téma‑alapú szín, betűtípus, háttér és effektus.
 
-### **Témaértékek alkalmazása meglévő diára**
+### **Témaértékek alkalmazása egy meglévő diára**
 
-Ha a cél‑diasnak a jelenlegi master‑en és elrendezésen kell maradnia, inicializáljon egy dia‑szintű felülbírálást a forrástémából. A [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/php-java/aspose.slides/overridetheme/) és [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/php-java/aspose.slides/overridetheme/) metódusok a három fő téma‑komponenst másolják a felülbírálásba.
+Ha a cél‑dia a saját master‑én és elrendezésén marad, inicializáljon egy dia‑szintű felülbírálást a forrástémából. A [OverrideTheme::initColorSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/), a [OverrideTheme::initFontSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/) és a [OverrideTheme::initFormatSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/) metódusok a három fő téma‑komponenst átmásolják a felülbírálásba.
 
 ```php
 use aspose\slides\Presentation;
@@ -338,10 +395,12 @@ try {
     $target = new Presentation("target.pptx");
     try {
         $targetSlide = $target->getSlides()->get_Item(0);
+
         $overrideTheme = $targetSlide->getThemeManager()->getOverrideTheme();
         $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
         $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
         $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+
         $target->save("theme-applied-to-slide.pptx", SaveFormat::Pptx);
     } finally {
         $target->dispose();
@@ -351,11 +410,11 @@ try {
 }
 ```
 
-Ez megváltoztatja a dia által használt témát anélkül, hogy a többi dia örökölt témáját módosítaná. A helyi felülbírálás eltávolításához és az örökölt értékek visszaállításához hívja a [OverrideTheme.clear](https://reference.aspose.com/slides/hu/php-java/aspose.slides/overridetheme/) metódust.
+Ez megváltoztatja a diára vonatkozó témát anélkül, hogy a többi dia örökölt témáját módosítaná. A helyi felülbírálás eltávolításához, és az örökölt értékek visszaállításához hívja meg a [OverrideTheme::clear](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/) metódust.
 
-### **Témafelülbírálás alkalmazása elrendezésre**
+### **Téma felülbírálás alkalmazása egy elrendezésre**
 
-Az elrendezés‑szintű felülbírálás az adott elrendezést használó diákra vonatkozik, kivéve, ha egy adott dia saját felülbírálással rendelkezik. Ugyanezeket az inicializáló metódusokat a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/layoutslidethememanager/) segítségével használhatja:
+Az elrendezés‑szintű felülbírálás az adott elrendezést használó diákra hat, kivéve ha egy konkrét dia saját felülbírálással rendelkezik. Ugyanezeket az inicializáló metódusokat használhatja a [LayoutSlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslidethememanager/) segítségével:
 
 ```php
 use aspose\slides\Presentation;
@@ -366,10 +425,12 @@ try {
     $target = new Presentation("target.pptx");
     try {
         $targetSlide = $target->getSlides()->get_Item(0);
+        
         $overrideTheme = $targetSlide->getLayoutSlide()->getThemeManager()->getOverrideTheme();
         $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
         $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
         $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+
         $target->save("theme-applied-to-layout.pptx", SaveFormat::Pptx);
     } finally {
         $target->dispose();
@@ -379,17 +440,17 @@ try {
 }
 ```
 
-Használjon master‑ vagy bemutató‑szintű témát, ha sok elrendezésnek és diáknak közös alap‑designra van szüksége; használjon elrendezés‑felülbírálást, ha egy elrendezés‑családnak más stílusra van szüksége; és csak dia‑felülbírálást alkalmazzon valós kivételek esetén. A túlzott dia‑szintű felülbírálások megnehezítik a későbbi globális téma‑változtatások előreláthatóságát.
+Használjon master vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak kell ugyanazt az alaprendszert megosztania; használjon elrendezés‑felülbírálást, ha egy elrendezés‑családnak más stílusra van szüksége; és csak dia‑felülbírálást alkalmazzon valódi kivételekhez. A túlzott dia‑szintű felülbírálások megnehezítik a későbbi globális téma‑változtatások előrejelzését.
 
 ## **Téma háttérstílusok frissítése**
 
-A téma háttér‑kitöltései a [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/php-java/aspose.slides/formatscheme/)‑ben tárolódnak. A PowerPoint a felhasználói felületén több háttér‑választási lehetőséget jeleníthet meg, mint amennyi kitöltés‑definíció fizikailag tárolva van ebben a gyűjteményben, mivel a UI kombinálhat téma‑kitöltéseket téma‑színekkel és egyéb stílus‑referenciákkal.
+A téma háttér‑kitöltései a [FormatScheme::getBackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/)‑ben tárolódnak. A PowerPoint a felhasználói felületen több háttér‑választást jeleníthet meg, mint ahány kitöltés‑definíció fizikailag tárolva van ebben a kollekcióban, mert a felület kombinálhat téma‑kitöltéseket téma‑színekkel és más stílus‑hivatkozásokkal.
 
-![PowerPoint háttérstílus‑galéria egy bemutató‑témához](presentation-design_8.png)
+![PowerPoint háttérstílus galéria egy prezentációs témához](presentation-design_8.png)
 
-Mielőtt háttérstílust használna, ellenőrizze a tárolt gyűjteményt és a jelenlegi [Background.getStyleIndex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/background/) értéket. A `0`‑es index azt jelenti, hogy nincs téma‑kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér a PHP gyűjtemény közvetlen indexelésétől, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne feltételezze, hogy minden bemutató ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
+Mielőtt háttérstílust használnánk, ellenőrizzük a tárolt kollekciót és a jelenlegi [Background::getStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/background/) értéket. A `0`‑s index azt jelenti, hogy nincs téma‑kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér attól, hogy a PHP‑kollekció indexelését közvetlenül használnánk, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne feltételezzük, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
 
-Az alábbi példa jelenti a rendelkezésre álló háttér‑kitöltés számát, egy téma‑háttér‑referenciát rendel az első masterhez, és elmenti a bemutatót:
+Az alábbi példa a rendelkezésre álló háttér‑kitöltések számát jelenti, egy téma‑háttér‑referenciát rendeli az első master‑hez, majd elmenti a prezentációt:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -407,31 +468,32 @@ try {
     $masterSlide = $presentation->getMasters()->get_Item(0);
     $masterSlide->getBackground()->setType(BackgroundType::Themed);
     $masterSlide->getBackground()->setStyleIndex(1);
+
     $presentation->save("theme-background.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-A látható eredmény a master által hivatkozott téma‑bejegyzéstől, valamint az elrendezési vagy dia‑szintű háttér‑felülbírálásoktól függ. Ha egy dia saját háttérrel rendelkezik, a csak a master háttér módosítása nem feltétlenül változtatja meg a dia megjelenését. Használja a [Background.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/background/)‑t, ha a teljes öröklődés után alkalmazott végső háttérre van szüksége.
+A látható eredmény a master által referált téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülbírálásoktól függ. Ha egy dia saját hátteret használ, a csak a master hátterének módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/)‑t, ha a végleges háttérre van szükség az öröklődés után.
 
 {{% alert color="warning" title="Warning" %}}
-Ne tekintse a stílus‑indexet nullától induló gyűjtemény‑indexnek. Kerülje azt is, hogy egy fájlból származó stílusszámot keményen kódolja, és azt feltételezze, hogy egy másik fájlban ugyanazt a megjelenést adja; a téma‑stílusdefiníciók bemutatónként eltérőek.
+Ne kezelje a stílus‑indexet null‑alapú kollekció‑indexként. Emellett kerülje a stílus‑szám kézi kódolását egy fájlból, és annak feltételezését, hogy egy másik fájlban ugyanazt a megjelenést eredményezi; a téma‑stílus‑definíciók prezentációnként eltérőek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-A közvetlen háttérformázás és a háttér‑öröklődés részletei a [Presentation Background](/slides/hu/php-java/presentation-background/) oldalon találhatók.
+Közvetlen háttér‑formázáshoz és háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/php-java/presentation-background/) oldalt.
 {{% /alert %}}
 
 ## **Téma effektusok frissítése**
 
-A téma formátumsémája különálló kitöltés‑, vonal‑ és effektus‑stílus‑gyűjteményeket tartalmaz, amelyeket a [FormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/php-java/aspose.slides/formatscheme/) és [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/php-java/aspose.slides/formatscheme/) metódusok tesznek elérhetővé. A tipikus Office‑témák gyakran három fő stílus‑bejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy rögzített számra támaszkodna.
+A téma formátumsémája külön kitöltés‑, vonal‑ és effektus‑stílus‑gyűjteményeket tartalmaz, amelyeket a [FormatScheme::getFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/), a [FormatScheme::getLineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/) és a [FormatScheme::getEffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/) metódusok tesznek elérhetővé. A tipikus Office‑témák gyakran három fő stílus‑bejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázást képviselik, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy rögzített számra támaszkodna.
 
-![Finom, közepes és intenzív témaeffektek, amelyek ugyanarra az alakzatra vannak alkalmazva](presentation-design_10.png)
+![Finom, közepes és intenzív téma‑effektusok ugyanazon alakzaton alkalmazva](presentation-design_10.png)
 
-PHP‑ban ezekhez a gyűjteményekhez való hozzáféréskor a gyűjtemény indexe nullától indul: a `get_Item(0)` az első tárolt stílus, a `get_Item(2)` a harmadik. Egy alakzat stílus‑referencia‑indexei egy külön fogalom, amely a [ShapeStyle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapestyle/)‑ben érhető el. Egy téma‑stílus módosítása a rá hivatkozó alakzatokra hat, míg a közvetlen formázással rendelkező alakzatok változatlanok maradhatnak.
+PHP‑ben ezeknek a gyűjteményeknek az indexelése null‑alapú: a `get_Item(0)` az első tárolt stílust, a `get_Item(2)` a harmadikat jelenti. Az alakzat‑stílus‑referencia indexek egy külön koncepció, amelyet a [ShapeStyle](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/) tesz elérhetővé. Egy téma‑stílus módosítása azok az alakzatok érint, amelyek hivatkoznak arra a téma‑stílusra; a közvetlen formázással rendelkező alakzatok változatlanok maradhatnak.
 
-Az alábbi példa ellenőrzi, hogy a szükséges stílus‑bejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, engedélyezi a külső árnyékot a harmadik effektus‑stílusban, majd elmenti az eredményt:
+Az alábbi példa ellenőrzi, hogy a szükséges stílus‑bejegyzések léteznek-e, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, bekapcsol egy külső árnyékot a harmadik effektus‑stílusban, majd elmenti az eredményt:
 
 ```php
 use aspose\slides\FillType;
@@ -452,25 +514,85 @@ try {
     $effectFormat = $formatScheme->getEffectStyles()->get_Item(2)->getEffectFormat();
     $effectFormat->enableOuterShadowEffect();
     $effectFormat->getOuterShadowEffect()->setDistance(10.0);
+
     $presentation->save("theme-effects.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-A referált slotokat használó alakzatok esetén az első téma‑vonal‑stílus pirosra, a harmadik téma‑kitöltés‑stílus szilárd erdei zöldre, a harmadik effektus‑stílus pedig a 10 pont távolságú külső árnyékra változik. A pontos vizuális eredmény továbbra is attól függ, hogy az egyes alakzatok mely slotokra hivatkoznak, és hogy a közvetlen formázás felülírja‑e a témát.
+Az ilyen slotokra hivatkozó alakzatok esetén az első téma‑vonal‑stílus pirosra, a harmadik téma‑kitöltés‑stílus szilárd erdőzöldre, a harmadik effektus‑stílus pedig egy 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, mely slotokra hivatkozik az adott alakzat, és hogy a közvetlen formázás felülírja-e a témát.
 
 ![Téma‑effektus‑stílusok a vonal, kitöltés és árnyék beállításainak módosítása után](presentation-design_11.png)
 
-## **Megállapítás, hogy egy hatékony szilárd kitöltés téma‑színt használ‑e**
+## **Kitöltés‑ és vonal‑stílusok kiválasztása egy alakzatra**
 
-A kitöltés lehet közvetlenül egy objektumon tárolva, vagy öröklődhet bekezdésből, elrendezésből, master‑ből, téma‑stílusból vagy egy másik formázási szintből. Hívja a [FillFormat::getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/) metódust, hogy ezt a hierarchiát feloldja egy változtathatatlan hatékony kitöltési adatra. Először ellenőrizze a `getFillType` eredményét. Csak akkor, ha ez `FillType::Solid`, olvassa el a szilárd‑kitöltés tulajdonságait.
+Egy alakzat a [ShapeStyle::setFillStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/#setFillStyleIndex) és a [ShapeStyle::setLineStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/#setLineStyleIndex) metódusok segítségével függetlenül választhatja ki a kitöltést és a körvonalat. Mindkét metódus esetén az `1` index a megfelelő téma‑gyűjtemény első bejegyzését (`get_Item(0)`) jelöli, a `2` index a másodikat (`get_Item(1)`).
 
-Szilárd kitöltés esetén a `getSolidFillColor` a végső, megjelenített RGB‑értéket adja vissza az öröklődés, a téma‑keresés és a színtranszformációk után. A `getSolidFillSchemeColor` metódus a megfelelő logikai [SchemeColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/schemecolor/) slotot adja vissza, például `Text1` vagy `Accent6`. A `SchemeColor::NotDefined` érték azt jelenti, hogy a hatékony szilárd kitöltés nem egy séma‑színen alapul. Egy olyan munkafolyamatban, ahol a kitöltések vagy téma‑színek, vagy közvetlen RGB‑színek, ez az érték a közvetlen RGB‑kitöltést jelöli.
+Az alábbi példa két kitöltés‑stílust (arany és égkék) és két vonal‑stílust (sötétkék 6 pt és sötétrózsaszín 12 pt) hoz létre egy új prezentáció alap‑témájában. A diát három szakaszban menti, így összehasonlíthatók az eredmények a PowerPoint‑ban.
 
-Ne csak a helyi [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/colorformat/) értékét használja az osztályozáshoz. Például egy szövegrésznek lehet, hogy nincs helyi séma‑színe (`NotDefined`), de a hatékony kitöltése örököl egy téma‑színt, amely `Text1`‑re vagy `Accent6`‑ra vonatkozik. Ezzel szemben a `getSolidFillSchemeColor` megmutatja, hogy mely logikai téma‑slot hozta létre a hatékony színt, de nem mondja meg, hogy a slot az objektumból, bekezdésből, elrendezésből, master‑ből vagy egy másik szintből származik.
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-Az alábbi példa betölti a bemutatót, auditálja mind az alakzat‑kitöltéseket, mind a szövegrész‑kitöltéseket, kiírja minden végső RGB‑értéket és a hozzájuk tartozó séma‑színt, valamint megjelöli azokat a szilárd kitöltéseket, amelyek nem követik a téma‑szín‑változásokat:
+$presentation = new Presentation();
+try {
+    $styles = $presentation->getMasterTheme()->getFormatScheme();
+
+    $goldFill = $styles->getFillStyles()->get_Item(0);
+    $goldFill->setFillType(FillType::Solid);
+    $goldFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 215, 0));
+    $blueFill = $styles->getFillStyles()->get_Item(1);
+    $blueFill->setFillType(FillType::Solid);
+    $blueFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 135, 206, 235));
+
+    $thinLine = $styles->getLineStyles()->get_Item(0);
+    $thinLine->getFillFormat()->setFillType(FillType::Solid);
+    $thinLine->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 139));
+    $thinLine->setWidth(6);
+    $thickLine = $styles->getLineStyles()->get_Item(1);
+    $thickLine->getFillFormat()->setFillType(FillType::Solid);
+    $thickLine->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $thickLine->setWidth(12);
+
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    $left = $shapes->addAutoShape(ShapeType::Rectangle, 100, 205, 200, 130);
+    $right = $shapes->addAutoShape(ShapeType::Rectangle, 420, 205, 200, 130);
+    $left->getShapeStyle()->setFillStyleIndex(1);
+    $right->getShapeStyle()->setFillStyleIndex(2);
+    $left->getShapeStyle()->setLineStyleIndex(1);
+    $right->getShapeStyle()->setLineStyleIndex(1);
+    $presentation->save("01-initial.pptx", SaveFormat::Pptx);
+
+    $right->getShapeStyle()->setLineStyleIndex(2);
+    $presentation->save("02-line-changed.pptx", SaveFormat::Pptx);
+
+    $goldFill->getSolidFillColor()->setColor(new Java("java.awt.Color", 46, 139, 87));
+    $presentation->save("03-theme-changed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Kezdeti stílusok | Jobb körvonal módosítása | Első téma‑kitöltés szerkesztése |
+|:---:|:---:|:---:|
+| ![Arany és égkék téglalapok egyező vékony sötétkék körvonalakkal](theme-style-initial.png) | ![Az égkék téglalap most vastag sötétrózsaszín körvonallal rendelkezik](theme-style-line-changed.png) | ![A bal téglalap most zöld, a körvonalak változatlanok](theme-style-fill-changed.png) |
+
+Másik vonal‑stílus kiválasztása csak a jobb téglalap körvonalát változtatja. Az első téma‑kitöltés szerkesztése minden, azt használó alakzatot frissít. Itt csak a bal téglalap válik zöldre.
+
+Egy meglévő alakzaton a helyi kitöltő‑szín, vonal‑szín vagy vonal‑vastagság felülbírálhatja a téma‑stílus adott részét. Ha egy stílus‑index módosítása nem hoz látható változást, ellenőrizze az alakzat [direct formatting](/slides/hu/php-java/shape-formatting/) beállításait.
+
+## **Annak meghatározása, hogy egy hatékony szilárd kitöltés téma‑színt használ-e**
+
+A kitöltés tárolható közvetlenül egy objektumon, vagy örökölhető bekezdésből, elrendezésből, master‑ből, téma‑stílusból vagy egyéb formázási szintből. Hívja a [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/)‑t, hogy az öröklődési hierarchiát egy változhatatlan hatékony kitöltés‑adatba oldja fel. Először ellenőrizze a `getFillType` eredményét. Csak akkor olvassa a szilárd‑kitöltés tulajdonságait, ha az érték `FillType::Solid`.
+
+Szilárd kitöltés esetén a `getSolidFillColor` visszaadja a végső renderelt RGB‑értéket az öröklődés, a téma‑lekérdezés és a színtranszformációk alkalmazása után. A `getSolidFillSchemeColor` metódus a megfelelő logikai [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) slotot adja vissza, például `Text1` vagy `Accent6`. A `SchemeColor::NotDefined` érték azt jelenti, hogy a hatékony szilárd kitöltés nem egy sémához tartozik. Egy olyan munkafolyamatban, ahol a kitöltések csak téma‑színek vagy közvetlen RGB‑színek lehetnek, ez az érték jelzi a közvetlen RGB‑kitöltést.
+
+Ne használja csak a helyi [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/) értéket a kitöltés osztályozásához. Például egy szövegrésznek lehet, hogy nincs helyi sémaszín‑definíciója, így a helyi értéke `NotDefined`, míg hatékony kitöltése egy téma‑színből öröklődik és `Text1`‑re vagy `Accent6`‑ra oldódik fel. Ezzel ellentétben a `getSolidFillSchemeColor` megmondja, mely logikai téma‑slot hozta létre a hatékony színt, de nem mondja meg, hogy az a slot honnan származik (objektum, bekezdés, elrendezés, master vagy más szint).
+
+Az alábbi példa betölti egy prezentációt, ellenőrzi a forma‑ és szövegrész‑kitöltéseket, kiírja minden végső RGB‑értéket és a hozzá tartozó sémaszínt, valamint megjelöli azokat a szilárd kitöltéseket, amelyek nem követik a téma‑szín‑változásokat:
 
 ```php
 use aspose\slides\FillType;
@@ -532,15 +654,15 @@ try {
 }
 ```
 
-A `NotDefined` ág egy auditlistát ad a szilárd kitöltésekről, amelyek nem reagálnak a téma‑szín‑slotok változásaira. Ezeket az objektumokat akkor ellenőrizze, amikor egy bemutatónak egy új márka‑palettát kell követnie. A jelentett RGB‑érték továbbra is a jelenlegi megjelenést mutatja, míg a séma‑érték magyarázatot ad arra, hogy ez a megjelenés kapcsolódik‑e a témához.
+A `NotDefined` ágba tartozó kitöltések listája azoknak a szilárd kitöltéseknek az auditja, amelyek nem reagálnak a téma‑szín‑slotok változásaira. Ezeket az objektumokat érdemes felülvizsgálni, ha egy prezentációnak egy új márka‑palettát kell követnie. A jelentett RGB‑érték még mindig a jelenlegi megjelenést mutatja, míg a sémáérték azt magyarázza, hogy ez a megjelenés kapcsolódik-e a témához.
 
-A hatékony formátumú objektumok "pillanatképek". A bemutató téma, egy téma‑felülbírálás vagy bármely örökölt formázás módosítása után hívja újra a `getEffective`‑et, és olvassa ki az új hatékony kitöltési adatokat, mielőtt összehasonlítaná vagy jelentést készítene a színekről.
+A hatékony‑formátum‑objektumok pillanatfelvételek. A prezentáció témájának, egy téma‑felülbírálásnak vagy bármely örökölt formázás megváltoztatása után hívja újra a `getEffective`‑et, és olvassa ki az új hatékony kitöltés‑adatokat, mielőtt összehasonlítaná vagy jelenteni kívánná a színeket.
 
-## **Hatékony témaértékek olvasása**
+## **Hatékony téma‑értékek olvasása**
 
-A nyers témaobjektumok megmutatják, mi van meghatározva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások feloldása után. Egy diára a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseoverridethememanager/) hívható. Háttérre a [Background.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/background/), kitöltésre pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/) használható.
+A nyers témaobjektumok azt mutatják, hogy mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások feloldása után. Diára a [BaseOverrideThemeManager::createThemeEffective](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/) metódust hívjuk. Háttérre a [Background::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/), kitöltésre pedig a [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) metódust.
 
-Az alábbi példa egy dia hatékony témáját, háttérét és első alakzat kitöltését olvassa be:
+Az alábbi példa beolvassa a hatékony témát, háttér‑stílust és az első alakzat kitöltését egy diáról:
 
 ```php
 use aspose\slides\FillType;
@@ -549,11 +671,14 @@ use aspose\slides\Presentation;
 $presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $effectiveTheme = $slide->getThemeManager()->createThemeEffective();
     $effectiveBackground = $slide->getBackground()->getEffective();
+
     echo "Effective major Latin font: " . $effectiveTheme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
     echo "Effective minor Latin font: " . $effectiveTheme->getFontScheme()->getMinor()->getLatinFont()->getFontName() . PHP_EOL;
     echo "Effective background fill type: " . java_values($effectiveBackground->getFillFormat()->getFillType()) . PHP_EOL;
+
     if (java_values($slide->getShapes()->size()) > 0) {
         $effectiveFill = $slide->getShapes()->get_Item(0)->getFillFormat()->getEffective();
         echo "First shape effective fill type: " . java_values($effectiveFill->getFillType()) . PHP_EOL;
@@ -567,22 +692,22 @@ try {
 }
 ```
 
-Használja a hatékony adatokat diagnosztikához, érvényesítéshez és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) ellenőrzi, kihagyhat egy master‑, elrendezés‑, dia‑ vagy alakzat‑felülbírálást, amely megváltoztatja a végső megjelenést.
+Használja a hatékony adatokat renderelési diagnosztikához, ellenőrzéshez és összehasonlításhoz. Ha csak a [Presentation::getMasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑et ellenőrzi, lemaradhat egy master, elrendezés, dia vagy alakzat felülbírálásáról, amely megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**A külső téma alkalmazása minden diára hat a bemutatóban?**
+**Érintheti-e egy külső téma minden diákat a prezentációban?**
 
-Nem. A [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslide/) csak azokat a diákat rendeli újra, amelyek a kiválasztott masterhez tartoznak. Más master‑t használó diák megtartják meglévő témájukat.
+Nem. A [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) csak azokat a diákat rendeli újra, amelyek a kiválasztott master‑re támaszkodnak. A más master‑eket használó diák megtartják meglévő témáikat.
 
-**Alkalmazhatok témát egyetlen diára anélkül, hogy a master‑t megváltoztatnám?**
+**Alkalmazhatok-e témát egyetlen diára anélkül, hogy a master‑t változtatnám?**
 
-Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidethememanager/)‑jét, és inicializálja a felülbírálás‑témát. A változás csak az adott diára vonatkozik; a többi dia továbbra is a meglévő témáikat örökli.
+Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)‑ét, és inicializálja a felülbíráló témát. A módosítás csak arra a diára lesz lokális; a többi dia továbbra is a saját meglévő témáját örökli.
 
-**Mi a legbiztonságosabb módja egy téma átvitelének egyik bemutatóból a másikba?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egy prezentációból egy másikba?**
 
-Amikor egy diát áthelyez és meg szeretné őrizni a forrás‑megjelenését, klónozza a forrás‑master‑t a cél‑bemutatóba, majd a diát a klónozott masterrel a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/masterslidecollection/) és a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidecollection/) segítségével. Így a master, az elrendezések és a téma együtt marad.
+Amikor egy diát áthelyez és meg akarja őrizni a forrás‑dizájnt, klónozza a forrás‑master‑t a célba, majd a diát a klónozott master‑rel klónozza a [MasterSlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) és a [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) segítségével. Ez együtt tartja a master‑t, az elrendezéseket és a témát.
 
 **Hogyan tekinthetem meg a hatékony értékeket az öröklődés és felülbírálások után?**
 
-Használja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseoverridethememanager/)‑t egy dia vagy elrendezés téma esetén, valamint a megfelelő hatékony‑adat‑metódusokat formátumobjektumokhoz, például a [Background.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/background/) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fillformat/) hívásokhoz. Ezek az API‑k a feloldott értékeket adják vissza az öröklődés és felülbírálások alkalmazása után.
+Használja a [BaseOverrideThemeManager::createThemeEffective](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/)‑t egy dia vagy elrendezés téma esetén, valamint a megfelelő hatékony‑adat metódusokat a formátum‑objektumokhoz, például a [Background::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/) és a [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/). Ezek az API‑k visszaadják a feloldott értékeket az öröklődés és felülbírálások alkalmazása után.
