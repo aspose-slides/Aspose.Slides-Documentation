@@ -1,44 +1,44 @@
----  
-title: Áp dụng hiệu ứng hình dạng trong bản trình chiếu bằng Python qua Java  
-linktitle: Hiệu ứng hình dạng  
-type: docs  
-weight: 30  
-url: /vi/python-java/shape-effect/  
-keywords:  
-- hiệu ứng hình dạng  
-- hiệu ứng bóng  
-- hiệu ứng phản chiếu  
-- hiệu ứng hào quang  
-- hiệu ứng cạnh mềm  
-- định dạng hiệu ứng  
-- PowerPoint  
-- bản trình chiếu  
-- Python  
-- Java  
-- Aspose.Slides  
-description: "Biến đổi các tệp PPT và PPTX của bạn với các hiệu ứng hình dạng nâng cao bằng Aspose.Slides cho Python qua Java — tạo các slide ấn tượng, chuyên nghiệp trong vài giây."  
+---
+title: "Áp dụng hiệu ứng hình dạng trong bản thuyết trình bằng Python qua Java"
+linktitle: "Hiệu ứng Hình dạng"
+type: docs
+weight: 30
+url: /vi/python-java/shape-effect/
+keywords:
+- "hiệu ứng hình dạng"
+- "hiệu ứng bóng"
+- "hiệu ứng phản chiếu"
+- "hiệu ứng hào quang"
+- "hiệu ứng viền mềm"
+- "định dạng hiệu ứng"
+- "PowerPoint"
+- "bản thuyết trình"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Biến đổi các tệp PPT và PPTX của bạn với các hiệu ứng hình dạng nâng cao bằng Aspose.Slides cho Python qua Java—tạo các slide ấn tượng, chuyên nghiệp trong vài giây."
 ---
 ## **Giới thiệu**
 
-Trong khi hiệu ứng trong PowerPoint có thể được sử dụng để làm nổi bật một hình dạng, chúng khác với [đổ màu](/slides/vi/python-java/shape-formatting/#gradient-fill) hoặc viền. Sử dụng các hiệu ứng PowerPoint, bạn có thể tạo các phản chiếu thuyết phục trên một hình dạng, lan tỏa hào quang của hình, v.v.
+Trong khi các hiệu ứng trong PowerPoint có thể được sử dụng để làm nổi bật một hình dạng, chúng khác với [đổ màu](/slides/vi/python-java/shape-formatting/#gradient-fill) hoặc viền. Bằng cách sử dụng các hiệu ứng PowerPoint, bạn có thể tạo ra các phản chiếu thuyết phục trên một hình dạng, lan tỏa ánh hào quang của hình dạng, v.v.
 
-![Hiệu ứng hình dạng](shape-effect.png)
+![Shape effect](shape-effect.png)
 
-PowerPoint cung cấp sáu hiệu ứng có thể được áp dụng cho các hình dạng. Bạn có thể áp dụng một hoặc nhiều hiệu ứng cho một hình dạng.
+PowerPoint cung cấp sáu hiệu ứng có thể áp dụng cho các hình dạng. Bạn có thể áp dụng một hoặc nhiều hiệu ứng cho một hình dạng.
 
-Một số sự kết hợp của các hiệu ứng trông đẹp hơn so với các sự kết hợp khác. Vì lý do này, PowerPoint cung cấp các tùy chọn dưới **Preset**. Các tùy chọn Preset là những sự kết hợp của hai hoặc nhiều hiệu ứng được biết là trông tốt. Nhờ vậy, khi chọn một preset, bạn sẽ không phải lãng phí thời gian để thử nghiệm hoặc kết hợp các hiệu ứng khác nhau để tìm ra một sự kết hợp ưng ý.
+Một số kết hợp của các hiệu ứng trông đẹp hơn các kết hợp khác. Vì lý do này, PowerPoint cung cấp các tùy chọn dưới **Preset**. Các tùy chọn Preset là sự kết hợp của hai hoặc nhiều hiệu ứng được biết là trông tốt. Bằng cách này, khi chọn một preset, bạn sẽ không phải tốn thời gian thử nghiệm hoặc kết hợp các hiệu ứng khác nhau để tìm một sự kết hợp thích hợp.
 
-Aspose.Slides cung cấp các thuộc tính và phương thức trong lớp [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) cho phép bạn áp dụng các hiệu ứng tương tự cho các hình dạng trong bản trình chiếu PowerPoint.
+Aspose.Slides cung cấp các thuộc tính và phương thức trong lớp [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) cho phép bạn áp dụng các hiệu ứng tương tự cho các hình dạng trong bài thuyết trình PowerPoint.
 
 ## **Áp dụng hiệu ứng bóng**
 
-Aspose.Slides for Python qua Java hỗ trợ bóng ngoài và bóng trong cho các hình dạng. Bạn có thể tùy chỉnh màu sắc, hướng, khoảng cách và bán kính làm mờ của chúng để phù hợp với thiết kế bản trình chiếu của mình.
+Aspose.Slides for Python via Java hỗ trợ bóng ngoài và bóng trong cho các hình dạng. Bạn có thể tùy chỉnh màu, hướng, khoảng cách và bán kính làm mờ của chúng để phù hợp với thiết kế bản trình bày của bạn.
 
 ### **Áp dụng bóng ngoài**
 
-Sử dụng bóng ngoài để làm cho một thẻ hoặc bảng nổi bật so với nền slide. Bóng mở rộng ra ngoài các cạnh của hình dạng, tạo cảm giác rằng hình dạng được nâng lên trên slide. Điều chỉnh màu sắc, hướng, khoảng cách và bán kính làm mờ để phù hợp với ánh sáng và phong cách của mẫu của bạn.
+Sử dụng bóng ngoài để làm cho một thẻ hoặc bảng nổi bật hơn so với nền slide. Bóng sẽ mở rộng ra ngoài các cạnh của hình dạng, tạo ấn tượng rằng hình dạng được nâng lên trên slide. Điều chỉnh màu, hướng, khoảng cách và bán kính làm mờ của nó để phù hợp với ánh sáng và kiểu dáng của mẫu của bạn.
 
-Đoạn mã Python này cho thấy cách áp dụng [hiệu ứng bóng ngoài](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) cho một hình chữ nhật:
+This Python code shows how to apply the [hiệu ứng bóng ngoài](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) to a rectangle:
 
 ```python
 import jpype
@@ -65,15 +65,15 @@ finally:
     presentation.dispose()
 ```
 
-![Hiệu ứng bóng](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
 ### **Áp dụng bóng trong**
 
-Khi tái tạo kiểu dáng hình ảnh của một mẫu, sử dụng bóng trong để tạo cho thẻ hoặc bảng một bóng tối âm. Bóng ngoài mở rộng ra bên ngoài hình dạng và làm cho nó trông như được nâng lên, trong khi bóng trong tạo bóng cho bên trong các cạnh của nó.
+Khi tái tạo phong cách trực quan của mẫu, sử dụng bóng trong để tạo cho thẻ hoặc bảng một vẻ ngoài lõm. Bóng ngoài mở rộng ra bên ngoài hình dạng và làm nó trông nổi lên, trong khi bóng trong làm tối bên trong các cạnh của nó.
 
-Gọi [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), sau đó cấu hình bóng trả về bởi [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Giá trị bán kính làm mờ lớn hơn tạo ra các cạnh mềm hơn.
+Call [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), then configure the shadow returned by [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Larger blur radius values produce softer edges.
 
-Ví dụ Python này tạo một thẻ màu xanh nhạt với bóng trong màu xám đậm và lưu nó dưới dạng tệp PPTX. Hướng bóng là 225 độ, khoảng cách là 7 điểm, và bán kính làm mờ là 6 điểm:
+This Python example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file. The shadow direction is 225 degrees, its distance is 7 points, and its blur radius is 6 points:
 
 ```python
 import jpype
@@ -108,13 +108,73 @@ finally:
 
 ![Hình chữ nhật màu xanh nhạt với bóng trong](inner_shadow_effect.png)
 
-Để loại bỏ bóng trong, gọi [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) trên đối tượng effect format của hình dạng.
+Để xóa bỏ bóng trong, gọi [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) trên định dạng hiệu ứng của hình dạng.
+
+### **Áp dụng, Thay đổi và Xóa bỏ bóng Preset**
+
+Call [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), then use [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) to select a [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) to remove the shadow while preserving the fill and outline.
+
+The example clones the rectangle at each stage so you can compare all four states side by side on one slide. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle. A direction of 45° places the second below and to the right.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, PresetShadowType, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    text_frame = shape.getTextFrame()
+    text_frame.setText("No shadow")
+    paragraph_format = text_frame.getParagraphs().get_Item(0).getParagraphFormat()
+    paragraph_format.getDefaultPortionFormat().setFontHeight(14)
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().enablePresetShadowEffect()
+    shadow = shape.getEffectFormat().getPresetShadowEffect()
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow)
+    shadow.setDistance(10)
+    shadow.setDirection(225)
+    text_frame.setText("TopLeftDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow)
+    shadow.setDirection(45)
+    text_frame.setText("BottomRightDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().disablePresetShadowEffect()
+    text_frame.setText("No shadow")
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Gốc | Preset đầu tiên | Preset thứ hai | Sau khi xóa |
+| :---: | :---: | :---: | :---: |
+| ![Không có bóng](preset_shadow_original.png) | ![Bóng Đổ Trên Trái](preset_shadow_top_left.png) | ![Bóng Đổ Dưới Phải](preset_shadow_bottom_right.png) | ![Không có bóng sau khi xóa](preset_shadow_removed.png) |
 
 ## **Áp dụng hiệu ứng phản chiếu**
 
-Để áp dụng hiệu ứng phản chiếu trong Aspose.Slides cho Python qua Java, bạn có thể thêm một phản chiếu giống gương vào các hình dạng, điều chỉnh các tham số như khoảng cách, độ trong suốt và kích thước. Hiệu ứng này nâng cao thẩm mỹ cho bản trình chiếu của bạn bằng cách mang lại cho các hình dạng một vẻ ngoài tinh tế và chuyên nghiệp hơn. Nó dễ dàng thực hiện với mã đơn giản, cho phép áp dụng nhanh chóng trên nhiều yếu tố để đạt được thiết kế đồng nhất.
+Để áp dụng một hiệu ứng phản chiếu trong Aspose.Slides for Python via Java, bạn có thể thêm một phản chiếu giống gương vào các hình dạng, điều chỉnh các tham số như khoảng cách, độ trong suốt và kích thước. Hiệu ứng này nâng cao thẩm mỹ của bản thuyết trình bằng cách tạo cho các hình dạng một diện mạo tinh tế và chuyên nghiệp hơn. Nó dễ thực hiện với đoạn mã đơn giản, cho phép áp dụng nhanh chóng trên nhiều thành phần để có thiết kế đồng nhất.
 
-Đoạn mã Python này cho thấy cách áp dụng [hiệu ứng phản chiếu](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) cho một hình dạng:
+This Python code shows how to apply the [hiệu ứng phản chiếu](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) to a shape:
 
 ```python
 import jpype
@@ -145,9 +205,9 @@ finally:
 
 ## **Áp dụng hiệu ứng hào quang**
 
-Để áp dụng hiệu ứng hào quang cho một hình dạng trong Aspose.Slides cho Python qua Java, bạn có thể thêm một hào quang mềm mại, phát sáng xung quanh các hình dạng, điều chỉnh các thuộc tính như màu sắc và kích thước. Hiệu ứng này giúp làm nổi bật các hình dạng và thêm một yếu tố trực quan hấp dẫn, thu hút mắt vào bản trình chiếu của bạn. Nó dễ dàng thực hiện với ít mã, nâng cao tổng thể giao diện của các slide.
+Để áp dụng hiệu ứng hào quang cho một hình dạng trong Aspose.Slides for Python via Java, bạn có thể thêm một hào quang mềm mại và phát sáng quanh các hình dạng, điều chỉnh các thuộc tính như màu và kích thước. Hiệu ứng này giúp các hình dạng nổi bật và thêm một yếu tố trực quan hấp dẫn cho bản thuyết trình của bạn. Nó dễ thực hiện với một đoạn mã ngắn gọn, nâng cao tổng thể giao diện của các slide.
 
-Đoạn mã Python này cho thấy cách áp dụng [hiệu ứng hào quang](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) cho một hình dạng:
+This Python code shows how to apply the [hiệu ứng hào quang](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) to a shape:
 
 ```python
 import jpype
@@ -175,11 +235,11 @@ finally:
 
 ![Hiệu ứng hào quang](glow_effect.png)
 
-## **Áp dụng hiệu ứng cạnh mềm**
+## **Áp dụng hiệu ứng viền mềm**
 
-Để áp dụng hiệu ứng cạnh mềm trong Aspose.Slides cho Python qua Java, bạn có thể tạo một chuyển tiếp mượt mà, mờ xung quanh các cạnh của một hình dạng. Hiệu ứng này mang lại một vẻ ngoài tinh tế và nhẹ nhàng hơn, phù hợp cho các thiết kế cần một diện mạo nhẹ nhàng, mềm mại hơn. Bạn có thể dễ dàng điều chỉnh các tham số như bán kính để đạt được hiệu quả mong muốn trên nhiều hình dạng trong bản trình chiếu của mình.
+Để áp dụng hiệu ứng viền mềm trong Aspose.Slides for Python via Java, bạn có thể tạo một chuyển đổi mượt mà, mờ dần quanh các cạnh của một hình dạng. Hiệu ứng này mang lại vẻ ngoài tinh tế và nhẹ nhàng, phù hợp cho các thiết kế cần một diện mạo mềm mại hơn. Bạn có thể dễ dàng điều chỉnh các tham số như bán kính để đạt được hiệu quả mong muốn trên nhiều hình dạng trong bản thuyết trình.
 
-Đoạn mã Python này cho thấy cách áp dụng [hiệu ứng cạnh mềm](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) cho một hình dạng:
+This Python code shows how to apply the [hiệu ứng viền mềm](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) to a shape:
 
 ```python
 import jpype
@@ -203,19 +263,19 @@ finally:
     presentation.dispose()
 ```
 
-![Hiệu ứng cạnh mềm](soft_edges_effect.png)
+![Hiệu ứng viền mềm](soft_edges_effect.png)
 
 ## **Áp dụng hiệu ứng làm mờ**
 
-Sử dụng làm mờ hình dạng để làm mềm phần tô và viền của hình mà vẫn giữ cho hình có thể chỉnh sửa được. Gọi [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) trên effect format của hình. Bán kính được đo bằng điểm (1/72 inch): sử dụng giá trị không âm, với giá trị lớn hơn tạo ra hiệu ứng mờ mạnh hơn. Bán kính bằng không sẽ giữ nguyên ngoại hình.
+Sử dụng làm mờ hình dạng để làm mềm màu nền và viền của hình dạng trong khi vẫn giữ khả năng chỉnh sửa. Gọi [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) trên định dạng hiệu ứng của hình dạng. Bán kính được đo bằng điểm (1/72 inch): sử dụng giá trị không âm, giá trị lớn hơn tạo độ mờ mạnh hơn. Bán kính bằng không giữ nguyên ngoại hình.
 
-Cài đặt [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) kiểm soát giới hạn hiển thị của hiệu ứng. Khi `False`, hiệu ứng mờ bị cắt trong giới hạn đã tô màu ban đầu, bao gồm cả viền. Khi `True`, hiệu ứng mờ có thể mở rộng ra ngoài các giới hạn đó. Cả hai cài đặt đều không thay đổi vị trí hoặc kích thước của hình.
+Cài đặt [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) kiểm soát giới hạn hiển thị của hiệu ứng. Khi `False`, độ mờ bị cắt trong giới hạn đã vẽ ban đầu, bao gồm cả viền. Khi `True`, độ mờ có thể mở rộng ra ngoài các giới hạn đó. Cả hai cài đặt đều không thay đổi vị trí hay kích thước của hình dạng.
 
-Bảng so sánh dưới đây sử dụng cùng một phần tô, viền và kích thước hình cho toàn bộ. Hàng trên sử dụng `grow = False`; hàng dưới sử dụng `grow = True`.
+So sánh dưới đây sử dụng cùng một màu nền, viền và kích thước hình dạng xuyên suốt. Hàng trên dùng `grow = False`; hàng dưới dùng `grow = True`.
 
 ![Hình chữ nhật gốc so sánh với bán kính làm mờ 5 và 15 điểm, với grow tắt và bật](shape_blur_comparison.png)
 
-Ví dụ Python này tạo một hình chữ nhật màu cam với viền màu xanh đậm, áp dụng làm mờ 5 điểm, và sau đó cập nhật lên làm mờ 15 điểm bằng cách gọi lại [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Nó lưu cả hai trạng thái đã làm mờ, sau đó gọi [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) và lưu hình mà không có hiệu ứng làm mờ.
+This Python example creates an orange rectangle with a dark blue outline, applies a 5‑point blur, and then updates it to a 15‑point blur by calling [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) again. It saves both blurred states, then calls [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) and saves the shape without blur.
 
 ```python
 import jpype
@@ -250,17 +310,17 @@ finally:
     presentation.dispose()
 ```
 
-Làm mờ hình ảnh ảnh hưởng đến cả phần tô và viền cùng lúc. Hiệu ứng cạnh mềm làm mờ dần các cạnh của hình, trong khi làm mờ bóng chỉ làm mềm bóng. Các hiệu ứng biến đổi hình ảnh hoạt động trên nội dung hình ảnh; ví dụ này áp dụng làm mờ trực tiếp lên effect format của hình mà không chuyển đổi hình thành ảnh.
+Làm mờ hình dạng ảnh hưởng đến cả màu nền và viền cùng lúc. Hiệu ứng viền mềm làm mờ các cạnh của hình dạng, trong khi làm mờ bóng chỉ ảnh hưởng tới bóng. Các hiệu ứng biến đổi hình ảnh hoạt động trên nội dung ảnh; ví dụ này áp dụng làm mờ trực tiếp lên định dạng hiệu ứng của hình dạng mà không chuyển đổi hình dạng thành ảnh.
 
 ## **Câu hỏi thường gặp**
 
 **Tôi có thể áp dụng nhiều hiệu ứng cho cùng một hình dạng không?**
 
-Có, bạn có thể kết hợp các hiệu ứng khác nhau, chẳng hạn như bóng, phản chiếu và hào quang, trên một hình duy nhất để tạo nên một diện mạo động hơn.
+Có, bạn có thể kết hợp các hiệu ứng khác nhau, chẳng hạn như bóng, phản chiếu và hào quang, trên một hình dạng duy nhất để tạo ra vẻ ngoài sinh động hơn.
 
-**Những hình dạng nào tôi có thể áp dụng hiệu ứng?**
+**Tôi có thể áp dụng hiệu ứng cho những hình dạng nào?**
 
-Bạn có thể áp dụng hiệu ứng cho nhiều loại hình dạng, bao gồm các hình tự động, biểu đồ, bảng, hình ảnh, đối tượng SmartArt, đối tượng OLE và hơn nữa.
+Bạn có thể áp dụng hiệu ứng cho nhiều loại hình dạng, bao gồm các hình tự động, biểu đồ, bảng, hình ảnh, đối tượng SmartArt, đối tượng OLE, và nhiều loại khác.
 
 **Tôi có thể áp dụng hiệu ứng cho các hình dạng được nhóm không?**
 

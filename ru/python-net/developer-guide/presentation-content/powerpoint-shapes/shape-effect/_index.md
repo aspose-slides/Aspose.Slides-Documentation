@@ -16,27 +16,27 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Преобразуйте ваши файлы PPT, PPTX и ODP с помощью продвинутых эффектов фигур в Aspose.Slides для Python — создавайте яркие, профессиональные слайды за секунды."
+description: "Преобразуйте ваши файлы PPT, PPTX и ODP с помощью продвинутых эффектов фигур, используя Aspose.Slides для Python — создавайте яркие, профессиональные слайды за секунды."
 ---
 ## **Введение**
 
-While effects in PowerPoint can be used to make a shape stand out, they differ from [заливки](/slides/ru/python-net/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
+Эффекты в PowerPoint могут использоваться для выделения формы, но они отличаются от [заливок](/slides/ru/python-net/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint можно создавать убедительные отражения на форме, распространять сияние формы и т.д.
 
 ![Эффект формы](shape-effect.png)
 
-PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape.
+PowerPoint предоставляет шесть эффектов, которые можно применять к формам. Вы можете применить один или несколько эффектов к форме.
 
-Some combinations of effects look better than others. For this reason, PowerPoint has options under **Preset**. The Preset options are essentially a known good‑looking combination of two or more effects. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
+Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине в PowerPoint есть параметры в разделе **Preset**. Параметры Preset представляют собой проверенные комбинации из двух и более эффектов с хорошим внешним видом. Таким образом, выбирая предустановку, вам не придется терять время на тестирование или комбинирование различных эффектов в поисках удачной комбинации.
 
-Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
+Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/), позволяющие применять те же эффекты к формам в презентациях PowerPoint.
 
 ## **Применить эффект тени**
 
-Aspose.Slides for Python via .NET supports outer and inner shadows for shapes. You can customize their color, direction, distance, and blur radius to match your presentation's design.
+Aspose.Slides для Python через .NET поддерживает внешние и внутренние тени для форм. Вы можете настроить их цвет, направление, расстояние и радиус размытия, чтобы соответствовать дизайну вашей презентации.
 
 ### **Применить внешнюю тень**
 
-Use an outer shadow to make a card or panel stand out against the slide background. The shadow extends beyond the shape's edges, creating the impression that the shape is raised above the slide. Adjust its color, direction, distance, and blur radius to match the lighting and styling of your template.
+Используйте внешнюю тень, чтобы выделить карточку или панель на фоне слайда. Тень выходит за пределы краев формы, создавая впечатление, что форма поднята над слайдом. Настройте её цвет, направление, расстояние и радиус размытия в соответствии с освещением и стилем вашего шаблона.
 
 This Python code shows how to apply the [эффект внешней тени](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) to a rectangle:
 
@@ -59,11 +59,11 @@ with slides.Presentation() as presentation:
 
 ### **Применить внутреннюю тень**
 
-When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.
+При воспроизведении визуального стиля шаблона используйте внутреннюю тень, чтобы придать карточке или панели вдавленное изображение. Внешняя тень выходит за пределы формы и создаёт ощущение подъёма, тогда как внутренняя тень затемняет внутренние части её краев.
 
-Call [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/), then configure [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). Larger blur-radius values produce softer edges.
+Вызовите [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/), затем настройте [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). Большие значения радиуса размытия дают более мягкие края.
 
-This Python example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file:
+В этом примере на Python создаётся светло‑голубая карточка с темно‑серой внутренней тенью и сохраняется в файле PPTX:
 
 ```python
 import aspose.slides as slides
@@ -88,11 +88,59 @@ with slides.Presentation() as presentation:
 
 ![Светло‑голубой прямоугольник с внутренней тенью](inner_shadow_effect.png)
 
-To remove the inner shadow, call [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) on the shape's effect format.
+Чтобы удалить внутреннюю тень, вызовите [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) у формата эффектов формы.
+
+### **Применить, изменить и удалить предустановленную тень**
+
+Вызовите [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) и задайте свойству тени [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) значение типа [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/). Чтобы переключить стили, измените предустановку у той же формы. Вызовите [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/), чтобы удалить тень, сохранив заливку и контур.
+
+Этот пример демонстрирует четыре стадии рядом на одном слайде. Перед каждым изменением прямоугольник клонируется, чтобы вы могли сравнить результаты. Оба теневых эффекта смещены на 10 пунктов. Направление 225° размещает первую тень выше и слева от прямоугольника, а 45° — вторую ниже и справа.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(800, 120, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    shape = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 15, 30, 170, 60)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.text_frame.text = "No shadow"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 14
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.enable_preset_shadow_effect()
+    shadow = shape.effect_format.preset_shadow_effect
+    shadow.preset = slides.PresetShadowType.TOP_LEFT_DROP_SHADOW
+    shadow.distance = 10
+    shadow.direction = 225
+    shape.text_frame.text = "TopLeftDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shadow.preset = slides.PresetShadowType.BOTTOM_RIGHT_DROP_SHADOW
+    shadow.direction = 45
+    shape.text_frame.text = "BottomRightDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.disable_preset_shadow_effect()
+    shape.text_frame.text = "No shadow"
+
+    presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Оригинал | Первая предустановка | Вторая предустановка | После удаления |
+| :---: | :---: | :---: | :---: |
+| ![Без тени](preset_shadow_original.png) | ![Тень сверху‑слева](preset_shadow_top_left.png) | ![Тень снизу‑справа](preset_shadow_bottom_right.png) | ![Без тени после удаления](preset_shadow_removed.png) |
 
 ## **Применить эффект отражения**
 
-To apply a reflection effect in Aspose.Slides for Python via .NET, you can add a mirror‑like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
+Чтобы применить эффект отражения в Aspose.Slides для Python через .NET, вы можете добавить зеркальное отражение к формам, регулируя такие параметры, как расстояние, прозрачность и размер. Этот эффект улучшает эстетическое восприятие ваших презентаций, придавая формам более отполированный и утончённый вид. Его легко реализовать с помощью простого кода, позволяющего быстро применять эффект к нескольким элементам для согласованного дизайна.
 
 This Python code shows how to apply the [эффект отражения](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) to a shape:
 
@@ -116,7 +164,7 @@ with slides.Presentation() as presentation:
 
 ## **Применить эффект свечения**
 
-To apply a glow effect to a shape in Aspose.Slides for Python via .NET, you can add a soft, luminous aura around shapes, adjusting properties like color and size. This effect helps make shapes stand out and adds an attractive, eye‑catching visual element to your presentation. It's easy to implement with minimal code, enhancing the overall look of your slides.
+Чтобы применить эффект свечения к форме в Aspose.Slides для Python через .NET, вы можете добавить мягкое, светящееся сияние вокруг формы, настраивая такие свойства, как цвет и размер. Этот эффект помогает выделить формы и добавляет привлекательный, бросающийся в глаза визуальный элемент в вашу презентацию. Его легко реализовать с минимальным объёмом кода, улучшая общий внешний вид ваших слайдов.
 
 This Python code shows how to apply the [эффект свечения](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) to a shape:
 
@@ -138,7 +186,7 @@ with slides.Presentation() as presentation:
 
 ## **Применить эффект мягких краёв**
 
-To apply a soft edges effect in Aspose.Slides for Python via .NET, you can create a smooth, blurred transition around the edges of a shape. This effect adds a more subtle and refined look, perfect for designs that need a gentle, softer appearance. You can easily adjust parameters like radius to achieve the desired effect across various shapes in your presentation.
+Чтобы применить эффект мягких краёв в Aspose.Slides для Python через .NET, вы можете создать плавный, размытый переход вокруг краёв формы. Этот эффект придаёт более утончённый и деликатный вид, идеально подходящий для дизайнов, требующих мягкого, нежного отображения. Параметры, такие как радиус, можно легко настроить для получения желаемого результата на разных формах в вашей презентации.
 
 This Python code shows how to apply the [мягкие края](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) to a shape:
 
@@ -159,15 +207,15 @@ with slides.Presentation() as presentation:
 
 ## **Применить эффект размытия**
 
-Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+Используйте размытие формы, чтобы смягчить заливку и контур формы, оставаясь при этом редактируемой. Вызовите [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) у формата эффектов формы. Радиус измеряется в пунктах (1/72 дюйма): используйте неотрицательное значение, при этом большие значения дают более сильное размытие. Радиус, равный нулю, не меняет внешний вид.
 
-The [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) setting controls the visible bounds of the effect. With `False`, the blur is clipped to the original painted bounds, including the outline. With `True`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+Параметр [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) управляет видимыми границами эффекта. При `False` размытие обрезается до исходных нарисованных границ, включая контур. При `True` размытие может выходить за эти границы. Ни одна из настроек не меняет положение или размеры формы.
 
-The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = False`; the bottom row uses `grow = True`.
+Сравнение ниже использует одинаковую заливку, контур и размеры формы на протяжении всего примера. Верхняя строка использует `grow = False`; нижняя строка — `grow = True`.
 
-![Исходный прямоугольник сравнивается с размитием радиуса 5 и 15 пунктов, при отключённом и включённом grow](shape_blur_comparison.png)
+![Исходный прямоугольник, сравнение с радиусами размытия 5 и 15 пунктов, с отключённым и включённым grow](shape_blur_comparison.png)
 
-This Python example creates an orange rectangle with a dark blue outline, applies a 5‑point blur, and then updates it to a 15‑point blur by calling [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) again. It saves both blurred states, then calls [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) and saves the shape without blur.
+В этом примере на Python создаётся оранжевый прямоугольник с темно‑синим контуром, применяется размытие с радиусом 5 пунктов, затем обновляется до радиуса 15 пунктов повторным вызовом [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/). Сохраняются оба состояния с размытием, после чего вызывается [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) и сохраняется форма без размытия.
 
 ```python
 import aspose.slides as slides
@@ -192,18 +240,18 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
+Размытие формы влияет одновременно на заливку и контур. Эффект мягких краёв смягчает только края формы, тогда как размытие тени смягчает только её тень. Эффекты трансформации изображения работают с содержимым изображения; в этом примере размытие применяется напрямую к формату эффектов формы без преобразования её в изображение.
 
 ## **Часто задаваемые вопросы**
 
-**Могу ли я применить несколько эффектов к одной фигуре?**
+**Можно ли применять несколько эффектов к одной и той же форме?**
 
-Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной фигуре, чтобы создать более динамичный вид.
+Да, вы можете комбинировать различные эффекты, такие как тень, отражение и свечения, на одной форме для создания более динамичного внешнего вида.
 
-**Каким фигурам можно применять эффекты?**
+**К каким формам можно применять эффекты?**
 
-Вы можете применять эффекты к различным фигурам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и др.
+Эффекты можно применять к различным формулам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и многое другое.
 
-**Можно ли применять эффекты к сгруппированным фигурам?**
+**Можно ли применять эффекты к сгруппированным формам?**
 
-Да, эффекты можно применять к сгруппированным фигурам. Эффект будет применён ко всей группе.
+Да, эффекты можно применять к сгруппированным формам. Эффект будет применён ко всей группе.

@@ -1,5 +1,5 @@
 ---
-title: Zastosowanie efektów kształtów w prezentacjach przy użyciu Javy
+title: Stosowanie efektów kształtów w prezentacjach przy użyciu Javy
 linktitle: Efekt kształtu
 type: docs
 weight: 30
@@ -15,29 +15,29 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Przekształć swoje pliki PPT i PPTX za pomocą zaawansowanych efektów kształtów przy użyciu Aspose.Slides dla Javy - twórz efektowne, profesjonalne slajdy w kilka sekund."
+description: "Przekształć swoje pliki PPT i PPTX za pomocą zaawansowanych efektów kształtów przy użyciu Aspose.Slides dla Javy — twórz efektowne, profesjonalne slajdy w kilka sekund."
 ---
 ## **Wprowadzenie**
 
-Podczas gdy efekty w PowerPoint mogą być używane, aby wyróżnić kształt, różnią się od [wypełnień](/slides/pl/java/shape-formatting/#gradient-fill) lub obrysów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia na kształcie, rozpraszać poświatę kształtu itp.
+Podczas gdy efekty w PowerPoint mogą być używane do wyróżnienia kształtu, różnią się od [wypełnień](/slides/pl/java/shape-formatting/#gradient-fill) lub konturów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia na kształcie, rozprzestrzeniać poświatę kształtu itp.
 
 ![Efekt kształtu](shape-effect.png)
 
 PowerPoint udostępnia sześć efektów, które można zastosować do kształtów. Możesz zastosować jeden lub więcej efektów do kształtu.
 
-Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint oferuje opcje w sekcji **Preset**. Opcje Preset to kombinacje dwóch lub więcej efektów, które są znane jako dobrze wyglądające. W ten sposób, wybierając preset, nie będziesz musiał tracić czasu na testowanie lub łączenie różnych efektów w celu znalezienia odpowiedniej kombinacji.
+Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint udostępnia opcje w sekcji **Preset**. Opcje Preset to kombinacje dwóch lub więcej efektów, które wiadomo, że wyglądają dobrze. Dzięki temu, wybierając preset, nie musisz tracić czasu na testowanie lub łączenie różnych efektów, aby znaleźć dobrą kombinację.
 
-Aspose.Slides udostępnia właściwości i metody w klasie [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) , które pozwalają zastosować te same efekty do kształtów w prezentacjach PowerPoint.
+Aspose.Slides udostępnia właściwości i metody w klasie [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/), które pozwalają stosować te same efekty do kształtów w prezentacjach PowerPoint.
 
 ## **Zastosowanie efektu cienia**
 
-Aspose.Slides dla Javy obsługuje zewnętrzne i wewnętrzne cienie dla kształtów. Możesz dostosować ich kolor, kierunek, odległość i promień rozmycia, aby pasowały do projektu prezentacji.
+Aspose.Slides for Java obsługuje zewnętrzne i wewnętrzne cienie dla kształtów. Możesz dostosować ich kolor, kierunek, odległość i promień rozmycia, aby dopasować je do projektu prezentacji.
 
-### **Zastosowanie zewnętrznego cienia**
+### **Zastosowanie cienia zewnętrznego**
 
-Użyj zewnętrznego cienia, aby karta lub panel wyróżniały się na tle slajdu. Cień rozciąga się poza krawędzie kształtu, tworząc wrażenie, że kształt jest uniesiony nad slajdem. Dostosuj jego kolor, kierunek, odległość i promień rozmycia, aby pasowały do oświetlenia i stylu szablonu.
+Użyj cienia zewnętrznego, aby karta lub panel wyróżniały się na tle slajdu. Cień wykracza poza krawędzie kształtu, tworząc wrażenie, że kształt jest uniesiony nad slajdem. Dostosuj jego kolor, kierunek, odległość i promień rozmycia, aby pasowały do oświetlenia i stylu szablonu.
 
-Ten kod Java pokazuje, jak zastosować [efekt zewnętrznego cienia](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) do prostokąta:
+Ten kod w języku Java pokazuje, jak zastosować [efekt cienia zewnętrznego](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) do prostokąta:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +61,13 @@ try {
 
 ![Efekt cienia](shadow_effect.png)
 
-### **Zastosowanie wewnętrznego cienia**
+### **Zastosowanie cienia wewnętrznego**
 
-Podczas odtwarzania wizualnego stylu szablonu użyj wewnętrznego cienia, aby nadać karcie lub panelowi wklęsły wygląd. Zewnętrzny cień rozciąga się poza kształt i sprawia, że wygląda na podniesiony, natomiast wewnętrzny cień przyciemnia wnętrze jego krawędzi.
+Podczas odtwarzania wizualnego stylu szablonu, użyj cienia wewnętrznego, aby nadać karcie lub panelowi wklęsły wygląd. Cień zewnętrzny wykracza poza kształt i sprawia, że wydaje się podniesiony, podczas gdy cień wewnętrzny przyciemnia wnętrze jego krawędzi.
 
-Wywołaj [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--), a następnie skonfiguruj cień zwrócony przez [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--). Większe wartości promienia rozmycia powodują łagodniejsze krawędzie.
+Wywołaj [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--), a następnie skonfiguruj cień zwrócony przez [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--). Większe wartości promienia rozmycia dają miększe krawędzie.
 
-Ten przykład Java tworzy jasnoniebieską kartę z ciemnoszarym wewnętrznym cieniem i zapisuje ją jako plik PPTX. Kierunek cienia wynosi 225 stopni, jego odległość to 7 punktów, a promień rozmycia to 6 punktów:
+Ten przykład w języku Java tworzy jasno niebieską kartę z ciemnoszarym cieniem wewnętrznym i zapisuje ją jako plik PPTX. Kierunek cienia wynosi 225 stopni, jego odległość to 7 punktów, a promień rozmycia to 6 punktów:
 
 ```java
 import com.aspose.slides.*;
@@ -95,15 +95,68 @@ try {
 }
 ```
 
-![Jasnoniebieski prostokąt z wewnętrznym cieniem](inner_shadow_effect.png)
+![Jasnoniebieski prostokąt z cieniem wewnętrznym](inner_shadow_effect.png)
 
-Aby usunąć wewnętrzny cień, wywołaj [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) na formacie efektu kształtu.
+Aby usunąć cień wewnętrzny, wywołaj [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) na formacie efektów kształtu.
+
+### **Zastosowanie, zmiana i usunięcie cienia Preset**
+
+Wywołaj [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) i użyj [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-), aby wybrać [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/). Aby przełączyć style, zmień preset na tym samym kształcie. Wywołaj [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--), aby usunąć cień, zachowując wypełnienie i kontur.
+
+Ten przykład pokazuje cztery etapy obok siebie na jednym slajdzie. Oba cienie są przesunięte o 10 punktów. Kierunek 225° umieszcza pierwszy cień powyżej i po lewej stronie prostokąta, a 45° umieszcza drugi poniżej i po prawej stronie.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Oryginał | Pierwszy preset | Drugi preset | Po usunięciu |
+| :---: | :---: | :---: | :---: |
+| ![Brak cienia](preset_shadow_original.png) | ![Cień górny lewy](preset_shadow_top_left.png) | ![Cień dolny prawy](preset_shadow_bottom_right.png) | ![Brak cienia po usunięciu](preset_shadow_removed.png) |
 
 ## **Zastosowanie efektu odbicia**
 
-Aby zastosować efekt odbicia w Aspose.Slides dla Javy, możesz dodać lustrzane odbicie do kształtów, dostosowując parametry takie jak odległość, przezroczystość i rozmiar. Ten efekt poprawia estetykę prezentacji, nadając kształtom bardziej wyrafinowany i dopracowany wygląd. Jest łatwy do wdrożenia przy użyciu prostego kodu, umożliwiając szybkie zastosowanie na wielu elementach w celu uzyskania spójnego projektu.
+Aby zastosować efekt odbicia w Aspose.Slides for Java, możesz dodać lustrzaną refleksję do kształtów, dostosowując parametry takie jak odległość, przezroczystość i rozmiar. Efekt ten podnosi estetykę prezentacji, nadając kształtom bardziej wyrafinowany i dopracowany wygląd. Jest łatwy do wdrożenia przy użyciu prostego kodu, umożliwiając szybkie zastosowanie w wielu elementach dla spójnego projektu.
 
-Ten kod Java pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) do kształtu:
+Ten kod w języku Java pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) do kształtu:
 
 ```java
 import com.aspose.slides.*;
@@ -129,9 +182,9 @@ try {
 
 ## **Zastosowanie efektu poświaty**
 
-Aby zastosować efekt poświaty do kształtu w Aspose.Slides dla Javy, możesz dodać miękką, świetlistą aurę wokół kształtów, dostosowując właściwości takie jak kolor i rozmiar. Ten efekt pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający wzrok element wizualny do prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, poprawiając ogólny wygląd slajdów.
+Aby zastosować efekt poświaty do kształtu w Aspose.Slides for Java, możesz dodać miękką, świetlistą aurę wokół kształtów, dostosowując właściwości takie jak kolor i rozmiar. Efekt ten pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający uwagę element wizualny do Twojej prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, podnosząc ogólny wygląd slajdów.
 
-Ten kod Java pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) do kształtu:
+Ten kod w języku Java pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) do kształtu:
 
 ```java
 import com.aspose.slides.*;
@@ -156,9 +209,9 @@ try {
 
 ## **Zastosowanie efektu miękkich krawędzi**
 
-Aby zastosować efekt miękkich krawędzi w Aspose.Slides dla Javy, możesz stworzyć płynne, rozmyte przejście wokół krawędzi kształtu. Ten efekt dodaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów wymagających delikatnego, łagodnego wyglądu. Możesz łatwo dostosować parametry takie jak promień, aby uzyskać pożądany efekt na różnych kształtach w prezentacji.
+Aby zastosować efekt miękkich krawędzi w Aspose.Slides for Java, możesz stworzyć gładkie, rozmyte przejście wokół krawędzi kształtu. Efekt ten dodaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów wymagających delikatnego, łagodnego wyglądu. Możesz łatwo dostosować parametry takie jak promień, aby uzyskać pożądany efekt na różnych kształtach w prezentacji.
 
-Ten kod Java pokazuje, jak zastosować [efekt miękkich krawędzi](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) do kształtu:
+Ten kod w języku Java pokazuje, jak zastosować [efekt miękkich krawędzi](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) do kształtu:
 
 ```java
 import com.aspose.slides.*;
@@ -181,15 +234,15 @@ try {
 
 ## **Zastosowanie efektu rozmycia**
 
-Użyj rozmycia kształtu, aby zmiękczyć wypełnienie i obrys kształtu, zachowując jednocześnie możliwość edycji. Wywołaj [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) na formacie efektu kształtu. Promień jest mierzony w punktach (1/72 cala): użyj wartości nieujemnej, przy czym większe wartości powodują silniejsze rozmycie. Promień równy zero pozostawia wygląd niezmieniony.
+Użyj rozmycia kształtu, aby zmiękczyć wypełnienie i kontur kształtu, zachowując jednocześnie możliwość edycji kształtu. Wywołaj [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) na formacie efektów kształtu. Promień jest mierzony w punktach (1/72 cala): użyj wartości nieujemnej, przy czym większe wartości powodują silniejsze rozmycie. Promień równy zero pozostawia wygląd niezmieniony.
 
-Ustawienie [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) kontroluje widoczne granice efektu. Przy `false` rozmycie jest przycięte do oryginalnych pomalowanych granic, włączając obrys. Przy `true` rozmycie może wykraczać poza te granice. Żadne z ustawień nie zmienia pozycji ani wymiarów kształtu.
+Ustawienie [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) kontroluje widoczne granice efektu. Przy wartości `false` rozmycie jest przycięte do oryginalnych pomalowanych granic, włącznie z konturem. Przy wartości `true` rozmycie może wykraczać poza te granice. Żadne z ustawień nie zmienia pozycji ani wymiarów kształtu.
 
-Poniższe porównanie używa tego samego wypełnienia, obrysu i wymiarów kształtu w całym przykładzie. Górny wiersz używa `grow = false`; dolny wiersz używa `grow = true`.
+Poniższe porównanie używa tego samego wypełnienia, konturu i wymiarów kształtu w całym zestawie. Górny wiersz używa `grow = false`; dolny wiersz używa `grow = true`.
 
-![Oryginalny prostokąt porównany z promieniami rozmycia 5 i 15 punktów, przy wyłączonym i włączonym grow](shape_blur_comparison.png)
+![Prostokąt oryginalny porównany z promieniami rozmycia 5 i 15 punktów, przy wyłączonym i włączonym grow](shape_blur_comparison.png)
 
-Ten przykład Java tworzy pomarańczowy prostokąt z ciemnoniebieskim obrysem, nakłada rozmycie o promieniu 5 punktów, a następnie aktualizuje je do rozmycia o promieniu 15 punktów, ponownie wywołując [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Zapisuje oba rozmyte stany, a następnie wywołuje [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) i zapisuje kształt bez rozmycia.
+Ten przykład w języku Java tworzy pomarańczowy prostokąt z ciemnoniebieskim konturem, stosuje rozmycie 5 punktów, a następnie aktualizuje je do 15 punktów, ponownie wywołując [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Zapisuje oba rozmyte stany, potem wywołuje [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) i zapisuje kształt bez rozmycia.
 
 ```java
 import com.aspose.slides.*;
@@ -219,18 +272,18 @@ try {
 }
 ```
 
-Rozmycie kształtu wpływa jednocześnie na wypełnienie i obrys. Efekt miękkich krawędzi przyciemnia krawędzie kształtu, podczas gdy rozmycie cienia zmiękcza tylko cień. Efekty transformacji obrazu działają na zawartość obrazu; ten przykład nakłada rozmycie bezpośrednio na format efektu kształtu, bez konwertowania go na obraz.
+Rozmycie kształtu wpływa jednocześnie na wypełnienie i kontur. Efekt miękkich krawędzi przyciemnia krawędzie kształtu, podczas gdy rozmycie cienia zmiękcza tylko cień. Efekty transformacji obrazu działają na zawartość obrazu; ten przykład stosuje rozmycie bezpośrednio do formatu efektów kształtu, bez konwertowania kształtu na obraz.
 
 ## **FAQ**
 
 **Czy mogę zastosować wiele efektów do tego samego kształtu?**
 
-Tak, możesz łączyć różne efekty, takie jak cień, odbicie i poświata, na jednym kształcie, aby uzyskać bardziej dynamiczny wygląd.
+Tak, możesz łączyć różne efekty, takie jak cień, odbicie i poświata, na pojedynczym kształcie, aby uzyskać bardziej dynamiczny wygląd.
 
-**Jakie kształty mogę poddać efektom?**
+**Do jakich kształtów mogę zastosować efekty?**
 
 Możesz stosować efekty do różnych kształtów, w tym autokształtów, wykresów, tabel, obrazów, obiektów SmartArt, obiektów OLE i innych.
 
 **Czy mogę zastosować efekty do grupowanych kształtów?**
 
-Tak, możesz zastosować efekty do grupowanych kształtów. Efekt zostanie zastosowany do całej grupy.
+Tak, możesz stosować efekty do grupowanych kształtów. Efekt zostanie zastosowany do całej grupy.

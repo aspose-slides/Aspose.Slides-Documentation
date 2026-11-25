@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Εφέ Σχήματος σε Παρουσιάσεις σε Android
+title: Εφαρμογή εφέ σχήματος σε παρουσιάσεις σε Android
 linktitle: Εφέ Σχήματος
 type: docs
 weight: 30
@@ -16,29 +16,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προχωρημένα εφέ σχήματος χρησιμοποιώντας την Aspose.Slides για Android μέσω Java—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
+description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προηγμένα εφέ σχήματος χρησιμοποιώντας το Aspose.Slides για Android μέσω Java—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
 ---
 ## **Εισαγωγή**
 
-Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνετε ένα σχήμα να ξεχωρίζει, διαφέρουν από τα [συμπληρώματα](/slides/el/androidjava/shape-formatting/#gradient-fill) ή τα περιγράμματα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διανείμετε τη λάμψη ενός σχήματος κ.λπ.
+Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνουν ένα σχήμα να ξεχωρίζει, διαφέρουν από τα [γέμισματα](/slides/el/androidjava/shape-formatting/#gradient-fill) ή τα περιγράμματα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαστέλλετε τη λάμψη του σχήματος κ.λπ.
 
-![Εφέ σχήματος](shape-effect.png)
+![Shape effect](shape-effect.png)
 
 Το PowerPoint παρέχει έξι εφέ που μπορούν να εφαρμοστούν σε σχήματα. Μπορείτε να εφαρμόσετε ένα ή περισσότερα εφέ σε ένα σχήμα.
 
-Κάποιες συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για αυτόν τον λόγο, το PowerPoint παρέχει επιλογές κάτω από **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που είναι γνωστό ότι δείχνουν ωραία. Έτσι, επιλέγοντας ένα preset, δεν χρειάζεται να σπαταλήσετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
+Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτερα από άλλους. Για αυτόν τον λόγο, το PowerPoint προσφέρει επιλογές κάτω από **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που θεωρούνται καλοί. Με τον τρόπο αυτό, επιλέγοντας ένα preset, δεν θα χρειαστεί να σπαταλήσετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν ωραίο συνδυασμό.
 
-Η Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) που σας επιτρέπουν να εφαρμόζετε τα ίδια εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
+Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) που επιτρέπουν την εφαρμογή των ίδιων εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
 
-## **Εφαρμογή Εφέ Σκιάς**
+## **Εφαρμογή Εφέ Σκίασης**
 
-Η Aspose.Slides για Android μέσω Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζουν με το σχέδιο της παρουσίασής σας.
+Aspose.Slides for Android via Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με το σχέδιο της παρουσίασής σας.
 
 ### **Εφαρμογή Εξωτερικής Σκιάς**
 
-Χρησιμοποιήστε μια εξωτερική σκιά ώστε ένα κάρτα ή πίνακας να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά επεκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι υψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζουν με τον φωτισμό και το στυλ του προτύπου σας.
+Χρησιμοποιήστε μια εξωτερική σκιά ώστε μια κάρτα ή πάνελ να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολών για να ταιριάζει με το φωτισμό και το στυλ του προτύπου σας.
 
-Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το [εφέ εξωτερικής σκιάς](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) σε ένα ορθογώνιο:
+Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το [εξωτερικό εφέ σκιάς](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) σε ένα ορθογώνιο:
 
 ```java
 import com.aspose.slides.*;
@@ -60,15 +60,15 @@ try {
 }
 ```
 
-![Εφέ σκιάς](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
 ### **Εφαρμογή Εσωτερικής Σκιάς**
 
-Κατά την αναπαραγωγή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα μια εσοχή. Μια εξωτερική σκιά επεκτείνεται έξω από το σχήμα και το κάνει να φαίνεται υψωμένο, ενώ μια εσωτερική σκιά σκιάζει το εσωτερικό των άκρων του.
+Κατά την αντιγραφή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πάνελ μια εσομένη εμφάνιση. Μια εξωτερική σκιά επεκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά σκιαδεύει το εσωτερικό των άκρων του.
 
-Καλέστε το [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), στη συνέχεια διαμορφώστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Μεγαλύτερες τιμές ακτίνας θολώματος παράγουν πιο απαλά άκρα.
+Καλέστε [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), στη συνέχεια διαμορφώστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Μεγαλύτερες τιμές ακτίνας θολώματος παράγουν πιο μαλακά άκρα.
 
-Αυτό το παράδειγμα Java δημιουργεί μια ανοιχτόμπλε κάρτα με μια σκούρο γκρι εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόστασή της είναι 7 σημεία και η ακτίνα θολώματος είναι 6 σημεία:
+Αυτό το παράδειγμα Java δημιουργεί μια ανοιχτό μπλε κάρτα με μια σκούρα γκρι εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόστασή της είναι 7 σημεία, και η ακτίνα θολώματος είναι 6 σημεία:
 
 ```java
 import com.aspose.slides.*;
@@ -96,13 +96,66 @@ try {
 }
 ```
 
-![Ανοιχτό μπλε ορθογώνιο με εσωτερική σκιά](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-Για να αφαιρέσετε την εσωτερική σκιά, καλέστε το [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) στη μορφή εφέ του σχήματος.
+Για να καταργήσετε την εσωτερική σκιά, καλέστε [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) στο format εφέ του σχήματος.
+
+### **Εφαρμογή, Αλλαγή και Κατάργηση Προεπιλεγμένης Σκιάς**
+
+Καλέστε [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) και χρησιμοποιήστε το [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) για να επιλέξετε έναν [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) για να αφαιρέσετε τη σκιά διατηρώντας το γέμισμα και το περίγραμμα.
+
+Αυτό το παράδειγμα δείχνει τέσσερις φάσεις δίπλα‑δίπλα σε μία διαφάνεια. Και οι δύο σκιές έχουν offset 10 σημείων. Μία κατεύθυνση 225° τοποθετεί τη πρώτη σκιά πάνω και αριστερά του ορθογωνίου, και 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Αρχικό | Πρώτο preset | Δεύτερο preset | Μετά την αφαίρεση |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
 ## **Εφαρμογή Εφέ Αντανάκλασης**
 
-Για να εφαρμόσετε ένα εφέ αντανάκλασης στην Aspose.Slides για Android μέσω Java, μπορείτε να προσθέσετε μια καθρεπτική αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας προσδίδοντας στα σχήματα μια πιο polished και σοφιστικέ εμφάνιση. Είναι εύκολο να υλοποιηθεί με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για συνεπές σχέδιο.
+Για την εφαρμογή εφέ αντανάκλασης σε Aspose.Slides for Android via Java, μπορείτε να προσθέσετε μια καθρέφτη‑όπως αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας προσφέροντας στα σχήματα μια πιο τελειοποιημένη και εκλεπτυσμένη εμφάνιση. Είναι εύκολο να υλοποιηθεί με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για συνεπή σχεδίαση.
 
 Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το [εφέ αντανάκλασης](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) σε ένα σχήμα:
 
@@ -126,11 +179,11 @@ try {
 }
 ```
 
-![Εφέ αντανάκλασης](reflection_effect.png)
+![Reflection effect](reflection_effect.png)
 
 ## **Εφαρμογή Εφέ Λάμψης**
 
-Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στην Aspose.Slides για Android μέσω Java, μπορείτε να προσθέσετε μια απαλή, φωτεινή αύρα γύρω από σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο να υλοποιηθεί με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών σας.
+Για να εφαρμόσετε ένα εφέ λάμψης σε σχήμα σε Aspose.Slides for Android via Java, μπορείτε να προσθέσετε μια απαλή, φωτεινή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο να υλοποιηθεί με ελάχιστο κώδικα, ενισχύοντας τη συνολική εμφάνιση των διαφανειών σας.
 
 Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το [εφέ λάμψης](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) σε ένα σχήμα:
 
@@ -153,11 +206,11 @@ try {
 }
 ```
 
-![Εφέ λάμψης](glow_effect.png)
+![Glow effect](glow_effect.png)
 
 ## **Εφαρμογή Εφέ Μαλακών Άκρων**
 
-Για να εφαρμόσετε ένα εφέ μαλακών άκρων στην Aspose.Slides για Android μέσω Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που χρειάζονται μια ήπια, πιο ήπια παρουσίαση. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να πετύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα της παρουσίασής σας.
+Για να εφαρμόσετε ένα εφέ μαλακών άκρων σε Aspose.Slides for Android via Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, τέλεια για σχέδια που χρειάζονται μια ήπια, πιο απαλής εμφάνιση. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να πετύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα στην παρουσίασή σας.
 
 Αυτός ο κώδικας Java δείχνει πώς να εφαρμόσετε το [εφέ μαλακών άκρων](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) σε ένα σχήμα:
 
@@ -178,19 +231,19 @@ try {
 }
 ```
 
-![Εφέ μαλακών άκρων](soft_edges_effect.png)
+![Soft edges effect](soft_edges_effect.png)
 
 ## **Εφαρμογή Εφέ Θολώματος**
 
-Χρησιμοποιήστε το θόλωση σχήματος για να μαλακώσετε τη γέμιση και το περίγραμμα ενός σχήματος διατηρώντας το σχήμα επεξεργάσιμο. Καλέστε το [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) στη μορφή εφέ του σχήματος. Η ακτίνα μετράται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μια μη αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν ισχυρότερη θόλωση. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
+Χρησιμοποιήστε θόλωση σχήματος για να μαλακώσετε το γέμισμα και το περίγραμμα ενός σχήματος διατηρώντας το σχήμα επεξεργάσιμο. Καλέστε το [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) στο format εφέ του σχήματος. Η ακτίνα μετριέται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μία μη αρνητική τιμή, με μεγαλύτερες τιμές που παράγουν πιο έντονη θόλωση. Μία ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
 
-Η ρύθμιση [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) ελέγχει τα ορατά όρια του εφέ. Με `false`, η θόλωση περιορίζεται στα αρχικά χρωματισμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, η θόλωση μπορεί να επεκταθεί πέρα από αυτά τα όρια. Καμία ρύθμιση δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
+Η ρύθμιση [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) ελέγχει τα ορατά όρια του εφέ. Με `false`, η θόλωση περιορίζεται στα αρχικά βαμμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, η θόλωση μπορεί να επεκταθεί πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
 
-Η παρακάτω σύγκριση χρησιμοποιεί την ίδια γέμιση, περίγραμμα και διαστάσεις σχήματος σε όλο το κείμενο. Η πάνω σειρά χρησιμοποιεί `grow = false`; η κάτω σειρά χρησιμοποιεί `grow = true`.
+Η σύγκριση παρακάτω χρησιμοποιεί το ίδιο γέμισμα, περίγραμμα και διαστάσεις σχήματος σε όλο το κείμενο. Η επάνω σειρά χρησιμοποιεί `grow = false`; η κάτω σειρά χρησιμοποιεί `grow = true`.
 
-![Πρωτότυπο ορθογώνιο συγκρινόμενο με ακτίνες θολώματος 5 και 15 σημείων, με grow ανενεργό και ενεργό](shape_blur_comparison.png)
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-Αυτό το παράδειγμα Java δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωση 5 σημείων, και στη συνέχεια το ενημερώνει σε θόλωση 15 σημείων καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Αποθηκεύει και τις δύο καταστάσεις θολώματος, στη συνέχεια καλεί το [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) και αποθηκεύει το σχήμα χωρίς θόλωση.
+Αυτό το παράδειγμα Java δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωση 5 σημείων, και στη συνέχεια το ενημερώνει σε θόλωση 15 σημείων καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Αποθηκεύει και τις δύο καταστάσεις με θόλωση, στη συνέχεια καλεί το [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) και αποθηκεύει το σχήμα χωρίς θόλωση.
 
 ```java
 import com.aspose.slides.*;
@@ -220,7 +273,7 @@ try {
 }
 ```
 
-Η θόλωση σχήματος επηρεάζει ταυτόχρονα τη γέμιση και το περίγραμμα. Ένα εφέ μαλακών άκρων εξασθενίζει τις άκρες του σχήματος, ενώ η θόλωση σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση απευθείας στη μορφή εφέ του σχήματος χωρίς να μετατρέπει το σχήμα σε εικόνα.
+Η θόλωση σχήματος επηρεάζει το γέμισμα και το περίγραμμα μαζί. Ένα εφέ μαλακών άκρων εξασθενεί τις άκρες του σχήματος, ενώ η θόλωση σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση απευθείας στο format εφέ του σχήματος χωρίς μετατροπή του σχήματος σε εικόνα.
 
 ## **Συχνές Ερωτήσεις**
 
@@ -230,7 +283,7 @@ try {
 
 **Σε ποια σχήματα μπορώ να εφαρμόσω εφέ;**
 
-Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE κ.λπ.
+Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων των αυτό-σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE και άλλων.
 
 **Μπορώ να εφαρμόσω εφέ σε ομαδοποιημένα σχήματα;**
 

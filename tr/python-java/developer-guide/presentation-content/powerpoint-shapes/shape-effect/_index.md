@@ -1,5 +1,5 @@
 ---
-title: Python ile Java Kullanarak Sunumlarda Şekil Efektleri Uygula
+title: Python üzerinden Java ile Sunumlarda Şekil Efektlerini Uygulama
 linktitle: Şekil Efekti
 type: docs
 weight: 30
@@ -9,8 +9,8 @@ keywords:
 - gölge efekti
 - yansıma efekti
 - parıltı efekti
-- yumuşak kenarlar efekti
-- efekt formatı
+- yumuşak kenar efekti
+- efekt biçimi
 - PowerPoint
 - sunum
 - Python
@@ -20,25 +20,25 @@ description: "Aspose.Slides for Python via Java kullanarak gelişmiş şekil efe
 ---
 ## **Giriş**
 
-PowerPoint'te efektler bir şeklin öne çıkmasını sağlamak için kullanılabilir, ancak [doldurmaları](/slides/tr/python-java/shape-formatting/#gradient-fill) ya da anahatlardan farklıdır. PowerPoint efektlerini kullanarak bir şeklin üzerinde ikna edici yansımalar oluşturabilir, şeklin parıltısını yayabilir vb.
+PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, [dolgular](/slides/tr/python-java/shape-formatting/#gradient-fill) veya hatlardan farklıdır. PowerPoint efektlerini kullanarak bir şekil üzerinde ikna edici yansımalar oluşturabilir, şeklin parıltısını yayabilirsiniz, vb.
 
 ![Şekil efekti](shape-effect.png)
 
-PowerPoint altı efekt sunar ve bunları şekillere uygulayabilirsiniz. Bir şekle bir veya daha fazla efekt uygulayabilirsiniz.
+PowerPoint, şekillere uygulanabilen altı efekt sunar. Bir şekle bir veya daha fazla efekt uygulayabilirsiniz.
 
-Bazı efekt kombinasyonları diğerlerinden daha iyidir. Bu nedenle PowerPoint **Preset** altında seçenekler sunar. Preset seçenekleri, iki veya daha fazla etkiden oluşan ve iyi göründüğü bilinen kombinasyonlardır. Böylece bir preset seçerek farklı efektleri deneme veya birleştirme zahmetine girmezsiniz.
+Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle PowerPoint, **Preset** altında seçenekler sunar. Preset seçenekleri, iyi göründüğü bilinen iki veya daha fazla efektin kombinasyonlarıdır. Böylece bir preset seçerek farklı efektleri denemek veya birleştirmek için zaman harcamazsınız.
 
-Aspose.Slides, [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) sınıfı altında, PowerPoint sunumlarındaki şekillere aynı efektleri uygulamanızı sağlayan özellikler ve yöntemler sunar.
+Aspose.Slides, [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) sınıfı altında aynı efektleri PowerPoint sunumlarındaki şekillere uygulamanızı sağlayan özellikler ve metodlar sunar.
 
-## **Gölge Efekti Uygula**
+## **Gölge Efekti Uygulama**
 
-Aspose.Slides for Python via Java, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklık yarıçapını sunum tasarımınıza uygun şekilde özelleştirebilirsiniz.
+Aspose.Slides for Python via Java, şekiller için dış ve iç gölgeleri destekler. Renklerini, yönünü, mesafesini ve bulanıklık yarıçapını sunumunuzun tasarımıyla eşleşecek şekilde özelleştirebilirsiniz.
 
 ### **Dış Gölge Uygula**
 
-Dış gölgeyi, bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlamak için kullanın. Gölge, şeklin kenarlarının ötesine uzanarak şeklin slayt üzerinde yükselmiş izlenimini verir. Renk, yön, mesafe ve bulanıklık yarıçapını şablonunuzun aydınlatması ve stiline uygun şekilde ayarlayın.
+Dış gölgeyi, bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlamak için kullanın. Gölge, şeklin kenarlarının dışında uzanır ve şeklin slayt üzerinde yükselmiş gibi görünmesini sağlar. Renk, yön, mesafe ve bulanıklık yarıçapını şablonunuzun aydınlatması ve stiline göre ayarlayın.
 
-Bu Python kodu, bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) uygulamayı gösterir:
+Bu Python kodu, bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
@@ -69,11 +69,11 @@ finally:
 
 ### **İç Gölge Uygula**
 
-Bir şablonun görsel stilini yeniden üretirken, bir kartın veya panelin gömülü bir görünüm kazanması için iç gölgeyi kullanın. Dış gölge şeklin dışına uzanırken yükselmiş görünür; iç gölge ise kenarların içini gölgeler.
+Bir şablonun görsel stilini yeniden üretirken, bir kartın veya panelin geriye doğru gömülmüş görünmesini sağlamak için iç gölgeyi kullanın. Dış gölge, şeklin dışına uzanarak yükselmiş görünürken, iç gölge kenarların içini gölgeler.
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) yöntemini çağırın, ardından [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) tarafından döndürülen gölgeyi yapılandırın. Daha büyük bulanıklık yarıçapı değerleri daha yumuşak kenarlar üretir.
+[enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) metodunu çağırın, ardından [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) tarafından döndürülen gölgeyi yapılandırın. Daha büyük bulanıklık yarıçapı değerleri daha yumuşak kenarlar üretir.
 
-Bu Python örneği, açık mavi bir kart oluşturur, koyu gri bir iç gölge ekler ve PPTX dosyası olarak kaydeder. Gölge yönü 225 derece, mesafesi 7 nokta ve bulanıklık yarıçapı 6 noktadır:
+Bu Python örneği, açık mavi bir kart oluşturur, koyu gri bir iç gölge ekler ve PPTX dosyası olarak kaydeder. Gölge yönü 225°, mesafesi 7 puan ve bulanıklık yarıçapı 6 puandır:
 
 ```python
 import jpype
@@ -106,15 +106,75 @@ finally:
     presentation.dispose()
 ```
 
-![İç gölgelendirilmiş açık mavi dikdörtgen](inner_shadow_effect.png)
+![İç gölgeli açık mavi dikdörtgen](inner_shadow_effect.png)
 
-İç gölgeyi kaldırmak için, şeklin efekt formatında [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) yöntemini çağırın.
+İç gölgeyi kaldırmak için şeklin efekt formatında [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) metodunu çağırın.
 
-## **Yansıma Efekti Uygula**
+### **Preset Gölgeyi Uygula, Değiştir ve Kaldır**
 
-Aspose.Slides for Python via Java'da yansıma efekti uygulamak için, şekillere bir ayna gibi yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm kazandırarak sunumlarınızın estetiğini artırır. Basit kod ile kolayca uygulanabilir ve tutarlı bir tasarım için birden çok öğeye hızlı bir şekilde uygulanabilir.
+[enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect) metodunu çağırın, ardından bir [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/) seçmek için [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) metodunu kullanın. Aynı şekil üzerinde stilleri değiştirmek için preset'i değiştirin. Gölgeyi, doldurma ve konturu koruyarak kaldırmak için [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) metodunu çağırın.
 
-Bu Python kodu, bir şekle [yansıma efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) uygulamayı gösterir:
+Örnek, her aşamada dikdörtgeyi kopyalar, böylece dört durumu tek bir slaytta yan yana karşılaştırabilirsiniz. Her iki gölge de 10 puan kaydırılmıştır. 225° yön, ilk gölgeyi dikdörtgenin sol üstüne konumlandırır. 45° yön, ikinci gölgeyi aşağı ve sağa konumlandırır.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, PresetShadowType, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    text_frame = shape.getTextFrame()
+    text_frame.setText("No shadow")
+    paragraph_format = text_frame.getParagraphs().get_Item(0).getParagraphFormat()
+    paragraph_format.getDefaultPortionFormat().setFontHeight(14)
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().enablePresetShadowEffect()
+    shadow = shape.getEffectFormat().getPresetShadowEffect()
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow)
+    shadow.setDistance(10)
+    shadow.setDirection(225)
+    text_frame.setText("TopLeftDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow)
+    shadow.setDirection(45)
+    text_frame.setText("BottomRightDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().disablePresetShadowEffect()
+    text_frame.setText("No shadow")
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Orijinal | İlk preset | İkinci preset | Kaldırma sonrası |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+
+## **Yansıma Efekti Uygulama**
+
+Aspose.Slides for Python via Java'da bir yansıma efekti uygulamak için şekillere ayna gibi bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, sunumlarınızın estetiğini artırarak şekillere daha profesyonel ve şık bir görünüm kazandırır. Basit kodla kolayca uygulanabilir ve birden çok öğeye tutarlı bir tasarım sağlar.
+
+Bu Python kodu, bir şekle [yansıma efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
@@ -143,11 +203,11 @@ finally:
 
 ![Yansıma efekti](reflection_effect.png)
 
-## **Parıltı Efekti Uygula**
+## **Parıltı Efekti Uygulama**
 
-Aspose.Slides for Python via Java'da bir şekle parıltı efekti uygulamak için, şekillerin etrafına yumuşak, ışıldayan bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekillerin öne çıkmasını sağlar ve sunumunuza çekici, göz alıcı bir görsel öğe ekler. Minimum kodla kolayca uygulanır ve slaytlarınızın genel görünümünü geliştirir.
+Aspose.Slides for Python via Java'da bir şekle parıltı efekti uygulamak için şekillerin etrafına yumuşak, ışıklı bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarır ve sunumunuza göz alıcı bir görsel öğe ekler. Minimum kodla uygulanabilir ve slaytlarınızın genel görünümünü iyileştirir.
 
-Bu Python kodu, bir şekle [parıltı efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) uygulamayı gösterir:
+Bu Python kodu, bir şekle [parıltı efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
@@ -175,11 +235,11 @@ finally:
 
 ![Parıltı efekti](glow_effect.png)
 
-## **Yumuşak Kenarlar Efekti Uygula**
+## **Yumuşak Kenar Efekti Uygulama**
 
-Aspose.Slides for Python via Java'da yumuşak kenarlar efekti uygulamak için, bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve zarif bir görünüm kazandırır, hafif ve daha yumuşak bir dış görünüm isteyen tasarımlar için mükemmeldir. İstediğiniz etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
+Aspose.Slides for Python via Java'da bir yumuşak kenar efekti uygulamak için bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve rafine bir görünüm ekler; özellikle nazik, yumuşak bir görünüm isteyen tasarımlar için idealdir. Yarıçap gibi parametreleri kolayca ayarlayarak istediğiniz etkiyi farklı şekillerde elde edebilirsiniz.
 
-Bu Python kodu, bir şekle [yumuşak kenarlar efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) uygulamayı gösterir:
+Bu Python kodu, bir şekle [yumuşak kenar efekti](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) nasıl uygulanacağını gösterir:
 
 ```python
 import jpype
@@ -203,19 +263,19 @@ finally:
     presentation.dispose()
 ```
 
-![Yumuşak kenarlar efekti](soft_edges_effect.png)
+![Yumuşak kenar efekti](soft_edges_effect.png)
 
-## **Bulanıklaştırma Efekti Uygula**
+## **Bulanıklaştırma Efekti Uygulama**
 
-Şekil bulanıklığı, bir şeklin dolgu ve anahattını yumuşatarak şekli düzenlenebilir tutar. Şeklin efekt formatında [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) yöntemini çağırın. Yarıçap, nokta cinsinden ölçülür (1/72 inç): negatif olmayan bir değer kullanın, daha büyük değerler daha güçlü bulanıklık üretir. Sıfır yarıçap görünümü değiştirmez.
+Şekil bulanıklığı, şeklin doldurma ve konturunu yumuşatırken şeklin düzenlenebilir kalmasını sağlar. Şeklin efekt formatında [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) metodunu çağırın. Yarıçap puan cinsindendir (1/72 inç): negatif olmayan bir değer kullanın; daha büyük değerler daha güçlü bulanıklık üretir. Yarıçap sıfır olduğunda görünüm değişmez.
 
-[getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) ayarı, efektin görünen sınırlarını kontrol eder. `False` olduğunda, bulanıklaştırma orijinal boyanmış sınırlarla, anahat dahil, sınırlanır. `True` olduğunda, bulanıklaştırma bu sınırların ötesine uzanabilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
+[getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) ayarı, etkinin görünür sınırlarını kontrol eder. `False` olduğunda, bulanıklık orijinal boyalı sınırlara, kontura dahil, kırpılır. `True` olduğunda, bulanıklık bu sınırların ötesine uzanabilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
 
-Aşağıdaki karşılaştırma, aynı dolgu, anahat ve şekil boyutlarıyla tüm örneklerde aynı koşulları kullanır. Üst satır `grow = False`; alt satır `grow = True` kullanır.
+Aşağıdaki karşılaştırma, tüm süreç boyunca aynı doldurma, kontur ve şekil ölçülerini kullanır. Üst satır `grow = False`; alt satır `grow = True` kullanır.
 
-![Orijinal dikdörtgen, 5 ve 15 nokta bulanıklaştırma yarıçaplarıyla, büyüme devre dışı ve etkin durumlarıyla karşılaştırma](shape_blur_comparison.png)
+![Büyütme devre dışı ve etkin iken 5 ve 15 puan bulanıklık yarıçaplarıyla karşılaştırılan orijinal dikdörtgen](shape_blur_comparison.png)
 
-Bu Python örneği, turuncu bir dikdörtgen oluşturur, koyu mavi bir anahat ekler, 5 nokta bulanıklık uygular ve ardından [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) tekrar çağrılarak 15 nokta bulanıklığa günceller. Her iki bulanıklaştırılmış durumu kaydeder, ardından [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) çağrısıyla bulanıklık olmadan şekli kaydeder.
+Bu Python örneği, turuncu bir dikdörtgen oluşturur, koyu mavi bir kontur ekler, 5 puanlık bir bulanıklık uygular ve ardından aynı şekle tekrar [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) çağrısı yaparak 15 puanlık bir bulanıklığa yükseltir. Her iki bulanıklaştırılmış durumu kaydeder, ardından [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) metodunu çağırarak gölgesiz bir şekil kaydeder.
 
 ```python
 import jpype
@@ -250,18 +310,18 @@ finally:
     presentation.dispose()
 ```
 
-Şekil bulanıklığı, dolgu ve anahattı birlikte etkiler. Yumuşak kenarlar efekti şeklin kenarlarını soluklaştırırken, gölge bulanıklığı yalnızca gölgeyi yumuşatır. Görüntü dönüşüm efektleri görüntü içeriği üzerinde çalışır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin efekt formatına bulanıklık uygular.
+Şekil bulanıklığı, doldurma ve konturu birlikte etkiler. Yumuşak kenar efekti şeklin kenarlarını soldururken, gölge bulanıklığı sadece gölgeyi yumuşatır. Görüntü dönüşüm efektleri görüntü içeriği üzerinde çalışır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin efekt formatına bulanıklık uygular.
 
 ## **SSS**
 
 **Aynı şekle birden fazla efekt uygulayabilir miyim?**
 
-Evet, bir şekle gölge, yansıma ve parıltı gibi farklı efektleri birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
+Evet, bir gölge, yansıma ve parıltı gibi farklı efektleri aynı şekle birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
 
 **Hangi şekillere efekt uygulayabilirim?**
 
 Otomatik şekiller, grafikler, tablolar, resimler, SmartArt nesneleri, OLE nesneleri ve daha fazlası dahil olmak üzere çeşitli şekillere efekt uygulayabilirsiniz.
 
-**Gruplandırılmış şekillere efekt uygulayabilir miyim?**
+**Gruplanmış şekillere efekt uygulayabilir miyim?**
 
-Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerine uygulanır.
+Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerinde uygulanır.

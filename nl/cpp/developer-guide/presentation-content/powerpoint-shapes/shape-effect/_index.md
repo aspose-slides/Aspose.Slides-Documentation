@@ -1,43 +1,43 @@
 ---
 title: Vormeffecten toepassen in presentaties met C++
-linktitle: Vorm effect
+linktitle: Vormeffect
 type: docs
 weight: 30
 url: /nl/cpp/shape-effect/
 keywords:
-- vorm effect
-- schaduw effect
-- reflectie effect
-- gloei effect
+- vormeffect
+- schaduweffect
+- reflectie-effect
+- gloeieffect
 - zachte randen effect
 - effectformaat
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Transformeer je PPT- en PPTX-bestanden met geavanceerde vormeffecten met behulp van Aspose.Slides voor C++ — maak verbluffende, professionele dia's in enkele seconden."
+description: "Transformeer uw PPT‑ en PPTX‑bestanden met geavanceerde vormeffecten met Aspose.Slides voor C++ — maak in enkele seconden opvallende, professionele dia's."
 ---
-## **Introductie**
+## **Inleiding**
 
-Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [vullingen](/slides/nl/cpp/shape-formatting/#gradient-fill) of contouren. Met PowerPoint-effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
+Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [opvullingen](/slides/nl/cpp/shape-formatting/#gradient-fill) of contouren. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
 
 ![Vorm effect](shape-effect.png)
 
 PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meer effecten op een vorm toepassen.
 
-Sommige combinaties van effecten zien er beter uit dan andere. Daarom heeft PowerPoint opties onder **Voorinstelling**. De voorinstellingsopties zijn in wezen een combinatie van twee of meer effecten die goed samen passen. Op deze manier hoef je, door een voorinstelling te kiezen, geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
+Sommige combinaties van effecten zien er beter uit dan andere. Om die reden heeft PowerPoint opties onder **Preset**. De Preset‑opties vormen in wezen een combinatie van twee of meer effecten waarvan bekend is dat ze goed samen werken. Op deze manier hoef je bij het selecteren van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
 
-Aspose.Slides biedt eigenschappen en methoden onder de [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) klasse die je in staat stellen dezelfde effecten toe te passen op vormen in PowerPoint‑presentaties.
+Aspose.Slides biedt eigenschappen en methoden onder de [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/)‑klasse die je in staat stellen dezelfde effecten op vormen in PowerPoint‑presentaties toe te passen.
 
-## **Schaduweffect toepassen**
+## **Toepassen van een Schaduweffect**
 
-Aspose.Slides voor C++ ondersteunt buiten‑ en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsstraal aanpassen aan het ontwerp van je presentatie.
+Aspose.Slides for C++ ondersteunt buitenste en binnenste schaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsradius aanpassen zodat ze passen bij het ontwerp van je presentatie.
 
-### **Buitenste schaduw toepassen**
+### **Toepassen van een buitenste schaduw**
 
-Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de slide‑achtergrond. De schaduw strekt zich uit buiten de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de slide zweeft. Pas de kleur, richting, afstand en vervagingsstraal aan om overeen te komen met de belichting en stijl van je sjabloon.
+Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de achtergrond van de dia. De schaduw strekt zich uit voorbij de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en vervagingsradius aan zodat ze overeenkomen met de belichting en opmaak van je template.
 
-Deze C++‑code laat zien hoe je het [buitenste schaduw effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) toepast op een rechthoek:
+Deze C++‑code laat zien hoe je het [buitenste schaduweffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) op een rechthoek toepast:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -69,15 +69,15 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Schaduw effect](shadow_effect.png)
+![Schaduweffect](shadow_effect.png)
 
-### **Binnenste schaduw toepassen**
+### **Toepassen van een binnenste schaduw**
 
-Bij het nabootsen van de visuele stijl van een sjabloon, gebruik een binnenschaduw om een kaart of paneel een ingetogen uiterlijk te geven. Een buitenste schaduw strekt zich buiten de vorm uit en laat deze omhoog lijken, terwijl een binnenschaduw de binnenkant van de randen schaduwt.
+Wanneer je de visuele stijl van een template reproduceren, gebruik je een binnenste schaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenste schaduw strekt zich buiten de vorm uit en laat deze verhoogd lijken, terwijl een binnenste schaduw de binnenkant van de randen verduistert.
 
-Roep [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) aan en configureer vervolgens [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Grotere vervagingsstraalwaarden geven zachtere randen.
+Roep [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) aan en configureer vervolgens [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Grotere waarden voor de vervagingsradius geven zachtere randen.
 
-Dit C++‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als een PPTX‑bestand:
+Deze C++‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenste schaduw en slaat deze op als een PPTX‑bestand:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -116,15 +116,90 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Lichtblauwe rechthoek met een binnenschaduw](inner_shadow_effect.png)
+![Lichtblauwe rechthoek met een binnenste schaduw](inner_shadow_effect.png)
 
-Om de binnenschaduw te verwijderen, roep je [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) aan op het effectformaat van de vorm.
+Om de binnenste schaduw te verwijderen, roep je [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) aan op het effectformaat van de vorm.
 
-## **Reflectie effect toepassen**
+### **Toepassen, wijzigen en verwijderen van een preset‑schaduw**
 
-Om een reflectie‑effect toe te passen in Aspose.Slides voor C++, kun je een spiegelachtige reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met simpele code, waardoor snelle toepassing over meerdere elementen mogelijk is voor een consistent ontwerp.
+Roep [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) aan en gebruik [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) om een [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) te selecteren. Om stijlen te wisselen, wijzig je de preset op dezelfde vorm. Roep [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) aan om de schaduw te verwijderen terwijl de opvulling en contour behouden blijven.
 
-Deze C++‑code laat zien hoe je het [reflectie effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) toepast op een vorm:
+Dit voorbeeld behoudt een kopie van de rechthoek in elke fase. Beide schaduwen zijn 10 punten verschoven. Een richting van 225° plaatst de eerste schaduw boven en links van de rechthoek, en 45° plaatst de tweede eronder en rechts.
+
+```cpp
+#include <DOM/Effects/IPresetShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetShadowType.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/enum.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(800, 120, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+auto outline = shape->get_LineFormat()->get_FillFormat();
+outline->set_FillType(FillType::Solid);
+outline->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+auto textFrame = shape->get_TextFrame();
+textFrame->set_Text(u"No shadow");
+textFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(14);
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+auto effectFormat = shape->get_EffectFormat();
+effectFormat->EnablePresetShadowEffect();
+auto shadow = effectFormat->get_PresetShadowEffect();
+shadow->set_Preset(PresetShadowType::TopLeftDropShadow);
+shadow->set_Distance(10);
+shadow->set_Direction(225);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+shadow->set_Preset(PresetShadowType::BottomRightDropShadow);
+shadow->set_Direction(45);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+effectFormat->DisablePresetShadowEffect();
+textFrame->set_Text(u"No shadow");
+
+presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
+```
+
+| Origineel | Eerste preset | Tweede preset | Na verwijdering |
+| :---: | :---: | :---: | :---: |
+| ![Geen schaduw](preset_shadow_original.png) | ![BovenLinksValSchaduw](preset_shadow_top_left.png) | ![OnderRechtsValSchaduw](preset_shadow_bottom_right.png) | ![Geen schaduw na verwijdering](preset_shadow_removed.png) |
+
+## **Toepassen van een reflectie‑effect**
+
+Om een reflectie‑effect toe te passen in Aspose.Slides for C++, kun je een spiegelachtige reflectie aan vormen toevoegen, waarbij je parameters zoals afstand, transparantie en grootte aanpast. Dit effect verbetert de esthetiek van je presentaties door vormen een gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor je het snel kunt toepassen op meerdere elementen voor een consistent ontwerp.
+
+Deze C++‑code laat zien hoe je het [reflectie‑effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) op een vorm toepast:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -155,13 +230,13 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Reflectie‑effect](reflection_effect.png)
+![Reflectie-effect](reflection_effect.png)
 
-## **Gloei‑effect toepassen**
+## **Toepassen van een gloeieffect**
 
-Om een gloei‑effect toe te voegen aan een vorm in Aspose.Slides voor C++, kun je een zachte, lichtgevende aura rondom vormen plaatsen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia’s wordt verbeterd.
+Om een gloeieffect op een vorm toe te passen in Aspose.Slides for C++, kun je een zachte, lumineuze aura rond vormen toevoegen, waarbij je eigenschappen zoals kleur en grootte aanpast. Dit effect helpt vormen te laten opvallen en voegt een aantrekkelijk, in het oog springend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia's wordt verbeterd.
 
-Deze C++‑code laat zien hoe je het [gloei‑effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) toepast op een vorm:
+Deze C++‑code laat zien hoe je het [gloeieffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) op een vorm toepast:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -192,13 +267,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Gloei‑effect](glow_effect.png)
+![Gloeieffect](glow_effect.png)
 
-## **Zachte randen‑effect toepassen**
+## **Toepassen van een zachtrand‑effect**
 
-Om een zachte randen‑effect toe te passen in Aspose.Slides voor C++, kun je een soepele, vervaagde overgang rond de randen van een vorm creëren. Dit effect voegt een subtieler en verfijnder uiterlijk toe, perfect voor ontwerpen die een zachte, subtiele uitstraling nodig hebben. Je kunt eenvoudig parameters zoals straal aanpassen om het gewenste effect te bereiken op verschillende vormen in je presentatie.
+Om een zachtrand‑effect toe te passen in Aspose.Slides for C++, kun je een vloeiende, vervaagde overgang rondom de randen van een vorm creëren. Dit effect voegt een subtielere en verfijndere uitstraling toe, perfect voor ontwerpen die een zachte, zachtere look nodig hebben. Je kunt eenvoudig parameters zoals radius aanpassen om het gewenste effect over verschillende vormen in je presentatie te bereiken.
 
-Deze C++‑code laat zien hoe je het [zachte randen](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) toepast op een vorm:
+Deze C++‑code laat zien hoe je de [zachte randen](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) op een vorm toepast:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -225,19 +300,19 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Zachte randen‑effect](soft_edges_effect.png)
+![Zachte randen effect](soft_edges_effect.png)
 
-## **Vervaag‑effect toepassen**
+## **Toepassen van een vervagingseffect**
 
-Gebruik vormvervaging om de vulling en contour van een vorm zachter te maken terwijl de vorm bewerkbaar blijft. Roep [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aan op het effectformaat van de vorm. De straal wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging geven. Een straal van nul laat het uiterlijk ongewijzigd.
+Gebruik vervaging van een vorm om de opvulling en contour van een vorm zachter te maken terwijl de vorm bewerkbaar blijft. Roep [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aan op het effectformaat van de vorm. De radius wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging opleveren. Een radius van nul laat het uiterlijk onveranderd.
 
-De [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) instelling bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging begrensd tot de oorspronkelijke geschilderde grenzen, inclusief de contour. Met `true` kan de vervaging buiten die grenzen uitbreiden. Geen van beide instellingen verandert de positie of afmetingen van de vorm.
+De [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/)‑instelling bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging begrensd tot de oorspronkelijke gepinte grenzen, inclusief de contour. Met `true` kan de vervaging verder reiken dan die grenzen. Geen van beide instellingen wijzigt de positie of afmetingen van de vorm.
 
-De onderstaande vergelijking gebruikt dezelfde vulling, contour en vormafmetingen overal. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
+De onderstaande vergelijking gebruikt dezelfde opvulling, contour en vormafmetingen gedurende het hele voorbeeld. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
 
-![Originele rechthoek vergeleken met vervagingsstraal van 5 en 15 punten, met grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
+![Originele rechthoek vergeleken met vervagingsstraal van 5 en 15 punten, met Grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
 
-Dit C++‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aan te roepen. Het slaat beide vervaagde toestanden op, roept vervolgens [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) aan en slaat de vorm zonder vervaging op.
+Dit C++‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe, en werkt vervolgens bij naar een vervaging van 15 punten door opnieuw [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aan te roepen. Het slaat beide vervaagde toestanden op, roept daarna [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) aan en slaat de vorm zonder vervaging op.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -277,18 +352,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Vormvervaging beïnvloedt zowel de vulling als de contour tegelijk. Een zachte randen‑effect vervaagt de randen van de vorm, terwijl schaduwvervaging alleen de schaduw verzacht. Beeldtransformatieteffecten werken op de beeldinhoud; dit voorbeeld past vervaging direct toe op het effectformaat van de vorm zonder de vorm naar een afbeelding te converteren.
+Vervaging van een vorm beïnvloedt zowel de opvulling als de contour tegelijk. Een zachtrand‑effect vervaagt de randen van de vorm, terwijl schaduw‑vervaging alleen de schaduw verzacht. Effecten voor beeldtransformatie werken op de afbeeldingsinhoud; dit voorbeeld past vervaging direct toe op het effectformaat van de vorm zonder de vorm naar een afbeelding te converteren.
 
 ## **Veelgestelde vragen**
 
-**Kan ik meerdere effecten toepassen op dezelfde vorm?**
+**Kan ik meerdere effecten op dezelfde vorm toepassen?**
 
 Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één vorm om een dynamischer uiterlijk te creëren.
 
 **Op welke vormen kan ik effecten toepassen?**
 
-Je kunt effecten toepassen op diverse vormen, waaronder auto‑shapes, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
+Je kunt effecten toepassen op verschillende vormen, waaronder autoshapes, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
 
 **Kan ik effecten toepassen op gegroepeerde vormen?**
 
-Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt toegepast op de hele groep.
+Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt toegepast op de volledige groep.

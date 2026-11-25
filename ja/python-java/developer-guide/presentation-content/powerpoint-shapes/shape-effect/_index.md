@@ -1,5 +1,5 @@
 ---
-title: Python via Java を使用したプレゼンテーションでのシェイプ効果の適用
+title: Python (via Java) を使用してプレゼンテーションにシェイプ効果を適用する
 linktitle: シェイプ効果
 type: docs
 weight: 30
@@ -10,7 +10,7 @@ keywords:
 - 反射効果
 - グロー効果
 - ソフトエッジ効果
-- 効果フォーマット
+- エフェクトフォーマット
 - PowerPoint
 - プレゼンテーション
 - Python
@@ -18,28 +18,27 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for Python via Java を使用して高度なシェイプ効果で PPT および PPTX ファイルを変換し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
-## **概要**
+## **はじめに**
 
-PowerPoint の効果は形状を目立たせるために使用できますが、[塗りつぶし](/slides/ja/python-java/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint の効果を使用すると、形状に説得力のある反射を作成したり、形状のグローを広げたりすることができます。
+PowerPoint の効果はシェイプを際立たせるために使用できますが、[塗りつぶし](/slides/ja/python-java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPoint の効果を使用すると、シェイプにリアルな反射を作成したり、シェイプのグローを広げたりすることができます。
 
 ![Shape effect](shape-effect.png)
 
-PowerPoint は、形状に適用できる 6 つの効果を提供しています。1 つまたは複数の効果を形状に適用できます。
+PowerPoint では、シェイプに適用できる 6 つの効果が提供されています。シェイプに 1 つまたは複数の効果を適用できます。
 
-効果の組み合わせの中には、他より見栄えが良いものがあります。そのため、PowerPoint は **Preset** の下にオプションを提供しています。Preset オプションは、見栄えが良いとされる 2 つ以上の効果の組み合わせです。これにより、プリセットを選択すれば、時間をかけてさまざまな効果をテストしたり組み合わせたりする必要がなくなります。
+効果の組み合わせによっては、他よりも見栄えが良くなります。そのため、PowerPoint は **Preset** の下にオプションを提供しています。Preset オプションは、見栄えが良いと知られている 2 つ以上の効果の組み合わせです。このように、プリセットを選択すれば、最適な組み合わせを探すために効果をテストしたり組み合わせたりする時間を無駄にする必要がありません。
 
-Aspose.Slides は、PowerPoint プレゼンテーションの形状に同じ効果を適用できるように、[EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供しています。
+Aspose.Slides は、PowerPoint プレゼンテーションのシェイプに同じ効果を適用できるように、[EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供しています。
 
 ## **影効果の適用**
 
-Aspose.Slides for Python via Java は、形状に対する外側と内側の影をサポートしています。色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
+Aspose.Slides for Python via Java は、シェイプの外側および内側の影をサポートしています。影の色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
 
-### **外側の影を適用**
+### **外側影の適用**
 
-外側の影を使用して、カードやパネルをスライドの背景に対して目立たせます。影は形状のエッジの外側に広がり、形状がスライド上に浮き上がっているように見えます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイリングに合わせます。
+外側影を使用すると、カードやパネルがスライドの背景に対して際立ちます。影はシェイプのエッジの外側に広がり、シェイプがスライド上に持ち上がっているように見えます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせてください。
 
-この Python コードは、長方形に[外側の影エフェクト](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) を適用する方法を示しています：
-
+この Python コードは、長方形に [外側影効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) を適用する方法を示しています。
 ```python
 import jpype
 import asposeslides
@@ -67,14 +66,13 @@ finally:
 
 ![影効果](shadow_effect.png)
 
-### **内側の影を適用**
+### **内側影の適用**
 
-テンプレートのビジュアルスタイリングを再現する場合、内側の影を使用してカードやパネルにくぼんだ外観を付けます。外側の影は形状の外側に広がり、浮き上がって見えるのに対し、内側の影はエッジの内部をシェーディングします。
+テンプレートのビジュアルスタイルを再現する際は、内側影を使用してカードやパネルにくぼんだ外観を与えます。外側影はシェイプの外側に広がり、持ち上がって見えるのに対し、内側影はエッジの内側を影付けします。
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) を呼び出し、続いて [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) が返す影を構成します。ぼかし半径の値が大きいほど、エッジは柔らかくなります。
+まず [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) が返す影を構成します。ぼかし半径の値が大きいほど、エッジが柔らかくなります。
 
-この Python の例は、淡い青色のカードに濃い灰色の内側の影を付けて PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです：
-
+この Python の例は、薄い青色のカードに濃い灰色の内側影を付け、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです。
 ```python
 import jpype
 import asposeslides
@@ -106,16 +104,74 @@ finally:
     presentation.dispose()
 ```
 
-![内側の影がある淡い青色の長方形](inner_shadow_effect.png)
+![内側影付きの淡青色長方形](inner_shadow_effect.png)
 
-内側の影を削除するには、形状の effect format に対して [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) を呼び出します。
+内側影を削除するには、シェイプの EffectFormat に対して [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) を呼び出します。
+
+### **プリセット影の適用、変更、削除**
+
+まず [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect) を呼び出し、次に [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) を使用して [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/) を選択します。同じシェイプでスタイルを切り替えるには、プリセットを変更します。塗りつぶしと輪郭を保持したまま影を削除するには、[disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) を呼び出します。
+
+この例は各段階で長方形をクローンし、1 枚のスライド上で 4 つの状態を並べて比較できるようにしています。両方の影は 10 ポイントオフセットされています。方向が 225° の場合、最初の影は長方形の左上に配置されます。方向が 45° の場合、2 番目の影は右下に配置されます。
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, PresetShadowType, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    text_frame = shape.getTextFrame()
+    text_frame.setText("No shadow")
+    paragraph_format = text_frame.getParagraphs().get_Item(0).getParagraphFormat()
+    paragraph_format.getDefaultPortionFormat().setFontHeight(14)
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().enablePresetShadowEffect()
+    shadow = shape.getEffectFormat().getPresetShadowEffect()
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow)
+    shadow.setDistance(10)
+    shadow.setDirection(225)
+    text_frame.setText("TopLeftDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow)
+    shadow.setDirection(45)
+    text_frame.setText("BottomRightDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().disablePresetShadowEffect()
+    text_frame.setText("No shadow")
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| 原本 | 最初のプリセット | 2 番目のプリセット | 削除後 |
+| :---: | :---: | :---: | :---: |
+| ![影なし](preset_shadow_original.png) | ![左上ドロップ影](preset_shadow_top_left.png) | ![右下ドロップ影](preset_shadow_bottom_right.png) | ![削除後の影なし](preset_shadow_removed.png) |
 
 ## **反射効果の適用**
 
-Aspose.Slides for Python via Java で反射効果を適用するには、形状に鏡面のような反射を追加し、距離、透過率、サイズなどのパラメーターを調整できます。この効果は、形状により洗練された外観を与えてプレゼンテーションの美観を高めます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用して一貫したデザインを実現できます。
+Aspose.Slides for Python via Java で反射効果を適用するには、シェイプに鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整できます。この効果はシェイプをより洗練された外観にし、プレゼンテーションの美観を高めます。シンプルなコードで簡単に実装でき、複数の要素に迅速に適用して統一感のあるデザインが実現できます。
 
-この Python コードは、形状に[反射効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) を適用する方法を示しています：
-
+この Python コードは、シェイプに [反射効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) を適用する方法を示しています。
 ```python
 import jpype
 import asposeslides
@@ -145,10 +201,9 @@ finally:
 
 ## **グロー効果の適用**
 
-Aspose.Slides for Python via Java で形状にグロー効果を適用するには、形状の周囲に柔らかい光のオーラを追加し、色やサイズなどのプロパティを調整できます。この効果は形状を際立たせ、プレゼンテーションに目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の見た目を向上させます。
+Aspose.Slides for Python via Java でシェイプにグロー効果を適用するには、シェイプの周囲に柔らかく光るオーラを追加し、色やサイズなどのプロパティを調整できます。この効果はシェイプを際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の見栄えが向上します。
 
-この Python コードは、形状に[グロー効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) を適用する方法を示しています：
-
+この Python コードは、シェイプに [グロー効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) を適用する方法を示しています。
 ```python
 import jpype
 import asposeslides
@@ -177,10 +232,9 @@ finally:
 
 ## **ソフトエッジ効果の適用**
 
-Aspose.Slides for Python via Java でソフトエッジ効果を適用すると、形状のエッジ周辺に滑らかでぼやけたトランジションを作り出せます。この効果は、より微妙で上品な外観を加え、優しい外観が必要なデザインに最適です。半径などのパラメーターを簡単に調整して、プレゼンテーション内のさまざまな形状に望む効果を実現できます。
+Aspose.Slides for Python via Java でソフトエッジ効果を適用するには、シェイプのエッジ周辺に滑らかでぼやけたトランジションを作成できます。この効果はより繊細で洗練された外観を加え、柔らかく穏やかな外観が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまなシェイプに目的の効果を実現できます。
 
-この Python コードは、形状に[ソフトエッジ効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) を適用する方法を示しています：
-
+この Python コードは、シェイプに [ソフトエッジ効果](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) を適用する方法を示しています。
 ```python
 import jpype
 import asposeslides
@@ -207,16 +261,15 @@ finally:
 
 ## **ぼかし効果の適用**
 
-形状のぼかしを使用すると、形状の塗りつぶしとアウトラインをソフトにしながら、形状自体は編集可能なままにできます。形状の effect format に対して [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) を呼び出します。半径はポイント単位 (1/72 インチ) で測定され、0 以上の値を使用し、値が大きいほどぼかしが強くなります。半径が 0 の場合は外観は変更されません。
+シェイプのぼかしを使用して、シェイプの塗りつぶしと輪郭をソフトにしながら、シェイプを編集可能な状態に保ちます。シェイプの EffectFormat で [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) を呼び出します。半径はポイント (1/72 インチ) で測定され、負でない値を使用し、値が大きいほど強いぼかしになります。半径が 0 の場合、外観は変わりません。
 
-[getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) 設定は効果の可視境界を制御します。`False` の場合、ぼかしは元の描画境界（アウトラインを含む）にクリップされます。`True` の場合、ぼかしはその境界を超えて広がることができます。どちらの設定も形状の位置やサイズは変更しません。
+[getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) 設定は効果の可視範囲を制御します。`False` の場合、ぼかしは元の描画範囲（輪郭を含む）にクリップされます。`True` の場合、ぼかしはその範囲を超えて拡張できます。いずれの設定もシェイプの位置やサイズは変更しません。
 
-以下の比較は、全体で同じ塗りつぶし、アウトライン、形状サイズを使用しています。上段は `grow = False`、下段は `grow = True` です。
+以下の比較は、全体で同じ塗りつぶし、輪郭、シェイプサイズを使用しています。上段は `grow = False`、下段は `grow = True` を使用しています。
 
-![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+![ぼかし半径 5 と 15 ポイント、grow 無効/有効のオリジナル長方形比較](shape_blur_comparison.png)
 
-この Python の例は、オレンジ色の長方形に濃い青色のアウトラインを付け、5 ポイントのぼかしを適用し、続いて [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) を再度呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存した後、[disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) を呼び出し、ぼかしのない形状を保存します。
-
+この Python の例は、オレンジ色の長方形に濃い青色の輪郭を付け、5 ポイントのぼかしを適用し、次に [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) を再度呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存し、次に [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) を呼び出してぼかしなしのシェイプを保存します。
 ```python
 import jpype
 import asposeslides
@@ -250,18 +303,18 @@ finally:
     presentation.dispose()
 ```
 
-形状のぼかしは塗りつぶしとアウトラインの両方に影響します。ソフトエッジ効果は形状のエッジをフェードさせますが、影のぼかしは影だけをソフトにします。画像変換効果は画像コンテンツに対して動作しますが、この例では形状を画像に変換せず、直接 shape の effect format にぼかしを適用しています。
+シェイプのぼかしは塗りつぶしと輪郭の両方に影響します。ソフトエッジ効果はシェイプのエッジをフェードさせ、影のぼかしは影だけをソフトにします。画像変換効果は画像コンテンツに対して動作しますが、この例ではシェイプを画像に変換せず、シェイプの EffectFormat に直接ぼかしを適用しています。
 
-## **FAQ**
+## **よくある質問**
 
-**同じ形状に複数の効果を適用できますか？**
+**同じシェイプに複数の効果を適用できますか？**
 
-はい、影、反射、グローなど異なる効果を組み合わせて、単一の形状によりダイナミックな外観を作り出すことができます。
+はい、影、反射、グローなど、さまざまな効果を組み合わせて単一のシェイプに適用し、よりダイナミックな外観を作成できます。
 
-**どのような形状に効果を適用できますか？**
+**どのシェイプに効果を適用できますか？**
 
-オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな形状に効果を適用できます。
+自動図形、チャート、表、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプに効果を適用できます。
 
-**グループ化された形状に効果を適用できますか？**
+**グループ化されたシェイプに効果を適用できますか？**
 
-はい、グループ化された形状全体に効果を適用できます。効果はグループ全体に適用されます。
+はい、グループ化されたシェイプにも効果を適用できます。効果はグループ全体に適用されます。

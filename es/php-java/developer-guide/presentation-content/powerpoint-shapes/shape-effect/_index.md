@@ -8,30 +8,30 @@ keywords:
 - efecto de forma
 - efecto de sombra
 - efecto de reflexión
-- efecto de brillo
+- efecto de resplandor
 - efecto de bordes suaves
 - formato de efecto
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Transforma tus archivos PPT y PPTX con efectos de forma avanzados usando Aspose.Slides for PHP a través de Java: crea diapositivas impactantes y profesionales en segundos."
+description: "Transforma tus archivos PPT y PPTX con avanzados efectos de forma usando Aspose.Slides para PHP a través de Java—crea diapositivas impactantes y profesionales en segundos."
 ---
 ## **Introducción**
 
-Aunque los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de los [rellenos](/slides/es/php-java/shape-formatting/#gradient-fill) o contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el brillo de una forma, etc.
+Aunque los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de los [rellenos](/slides/es/php-java/shape-formatting/#gradient-fill) o contornos. Con los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
 
 ![Efecto de forma](shape-effect.png)
 
-PowerPoint proporciona seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o varios efectos a una forma.
+PowerPoint ofrece seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o más efectos a una forma.
 
-Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint ofrece opciones bajo **Preset**. Las opciones Preset son combinaciones de dos o más efectos que se sabe que quedan bien. De este modo, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+Algunas combinaciones de efectos se ven mejor que otras. Por este motivo, PowerPoint ofrece opciones bajo **Preset**. Las opciones Preset son combinaciones de dos o más efectos que se sabe que quedan bien. De esta forma, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) que permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
+Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) que te permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
 ## **Aplicar un efecto de sombra**
 
-Aspose.Slides for PHP a través de Java admite sombras externas e internas para las formas. Puedes personalizar su color, dirección, distancia y radio de desenfoque para que coincidan con el diseño de tu presentación.
+Aspose.Slides for PHP a través de Java admite sombras externas e internas para las formas. Puedes personalizar su color, dirección, distancia y radio de desenfoque para que coincida con el diseño de tu presentación.
 
 ### **Aplicar una sombra externa**
 
@@ -65,11 +65,11 @@ try {
 
 ### **Aplicar una sombra interna**
 
-Al reproducir el estilo visual de una plantilla, usa una sombra interna para dar a una tarjeta o panel un aspecto hundido. Una sombra externa se extiende fuera de la forma y la hace parecer elevada, mientras que una sombra interna sombrea el interior de sus bordes.
+Al reproducir el estilo visual de una plantilla, utiliza una sombra interna para dar a una tarjeta o panel una apariencia hundida. Una sombra externa se extiende fuera de la forma y la hace parecer elevada, mientras que una sombra interna sombrea el interior de sus bordes.
 
-Llama a [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect), luego configura la sombra devuelta por [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). Los valores mayores del radio de desenfoque producen bordes más suaves.
+Llama a [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect), luego configura la sombra devuelta por [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). Valores de radio de desenfoque más grandes generan bordes más suaves.
 
-Este ejemplo PHP crea una tarjeta azul claro con una sombra interna gris oscuro y la guarda como un archivo PPTX. La dirección de la sombra es 225 grados, su distancia es 7 puntos y su radio de desenfoque es 6 puntos:
+Este ejemplo PHP crea una tarjeta azul claro con una sombra interna gris oscura y la guarda como un archivo PPTX. La dirección de la sombra es 225 grados, su distancia es 7 puntos y su radio de desenfoque es 6 puntos:
 
 ```php
 use aspose\slides\FillType;
@@ -105,9 +105,71 @@ try {
 
 Para eliminar la sombra interna, llama a [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) en el formato de efectos de la forma.
 
+### **Aplicar, cambiar y eliminar una sombra predefinida**
+
+Llama a [enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) para habilitar una sombra predefinida. Utiliza [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) para seleccionar un [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) o cambiar a otro estilo en la misma forma. Llama a [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) para eliminar la sombra conservando el relleno y el contorno.
+
+Este ejemplo PHP clona el rectángulo después de cada una de las tres primeras etapas para que puedas comparar las cuatro etapas una al lado de la otra en una diapositiva. Ambas sombras están desplazadas 10 puntos. Una dirección de 225° coloca la primera sombra arriba y a la izquierda del rectángulo, y 45° coloca la segunda abajo y a la derecha.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\PresetShadowType;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(800, 120, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $shape = $shapes->addAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $lineFill = $shape->getLineFormat()->getFillFormat();
+    $lineFill->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $lineFill->getSolidFillColor()->setColor($lineColor);
+    $shape->getTextFrame()->setText("No shadow");
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(14);
+    $shapes->addClone($shape);
+
+    $shape->setX(215);
+    $effects = $shape->getEffectFormat();
+    $effects->enablePresetShadowEffect();
+    $shadow = $effects->getPresetShadowEffect();
+    $shadow->setPreset(PresetShadowType::TopLeftDropShadow);
+    $shadow->setDistance(10);
+    $shadow->setDirection(225);
+    $shape->getTextFrame()->setText("TopLeftDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(415);
+    $shadow->setPreset(PresetShadowType::BottomRightDropShadow);
+    $shadow->setDirection(45);
+    $shape->getTextFrame()->setText("BottomRightDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(615);
+    $effects->disablePresetShadowEffect();
+    $shape->getTextFrame()->setText("No shadow");
+
+    $presentation->save("preset_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Original | Primer preset | Segundo preset | Después de la eliminación |
+| :---: | :---: | :---: | :---: |
+| ![Sin sombra](preset_shadow_original.png) | ![Sombra superior izquierda](preset_shadow_top_left.png) | ![Sombra inferior derecha](preset_shadow_bottom_right.png) | ![Sin sombra después de la eliminación](preset_shadow_removed.png) |
+
 ## **Aplicar un efecto de reflexión**
 
-Para aplicar un efecto de reflexión en Aspose.Slides for PHP a través de Java, puedes añadir una reflexión similar a un espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto mejora la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código sencillo, lo que permite una aplicación rápida en varios elementos para mantener un diseño coherente.
+Para aplicar un efecto de reflexión en Aspose.Slides for PHP a través de Java, puedes añadir una reflexión similar a un espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto mejora la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código sencillo, lo que permite una aplicación rápida en varios elementos para un diseño coherente.
 
 Este código PHP muestra cómo aplicar el [efecto de reflexión](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) a una forma:
 
@@ -136,11 +198,11 @@ try {
 
 ![Efecto de reflexión](reflection_effect.png)
 
-## **Aplicar un efecto de brillo**
+## **Aplicar un efecto de resplandor**
 
-Para aplicar un efecto de brillo a una forma en Aspose.Slides for PHP a través de Java, puedes añadir un aura suave y luminosa alrededor de las formas, ajustando propiedades como el color y el tamaño. Este efecto ayuda a que las formas destaquen y aporta un elemento visual atractivo y llamativo a tu presentación. Es fácil de implementar con poco código, mejorando el aspecto general de tus diapositivas.
+Para aplicar un efecto de resplandor a una forma en Aspose.Slides for PHP a través de Java, puedes añadir una aura suave y luminosa alrededor de las formas, ajustando propiedades como el color y el tamaño. Este efecto ayuda a que las formas destaquen y añade un elemento visual atractivo y llamativo a tu presentación. Es fácil de implementar con código mínimo, mejorando el aspecto general de tus diapositivas.
 
-Este código PHP muestra cómo aplicar el [efecto de brillo](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) a una forma:
+Este código PHP muestra cómo aplicar el [efecto de resplandor](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) a una forma:
 
 ```php
 use aspose\slides\Presentation;
@@ -162,11 +224,11 @@ try {
 }
 ```
 
-![Efecto de brillo](glow_effect.png)
+![Efecto de resplandor](glow_effect.png)
 
 ## **Aplicar un efecto de bordes suaves**
 
-Para aplicar un efecto de bordes suaves en Aspose.Slides for PHP a través de Java, puedes crear una transición lisa y difuminada alrededor de los bordes de una forma. Este efecto aporta un aspecto más sutil y refinado, perfecto para diseños que necesitan una apariencia suave y delicada. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en varias formas de tu presentación.
+Para aplicar un efecto de bordes suaves en Aspose.Slides for PHP a través de Java, puedes crear una transición lisa y difuminada alrededor de los bordes de una forma. Este efecto añade un aspecto más sutil y refinado, perfecto para diseños que requieren una apariencia suave y delicada. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en distintas formas de tu presentación.
 
 Este código PHP muestra cómo aplicar el [efecto de bordes suaves](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) a una forma:
 
@@ -193,15 +255,15 @@ try {
 
 ## **Aplicar un efecto de desenfoque**
 
-Utiliza el desenfoque de forma para suavizar el relleno y el contorno de una forma manteniéndola editable. Llama a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) en el formato de efectos de la forma. El radio se mide en puntos (1/72 de pulgada): usa un valor no negativo, con valores mayores que producen un desenfoque más intenso. Un radio de cero deja el aspecto sin cambios.
+Utiliza el desenfoque de forma para suavizar el relleno y el contorno de una forma manteniéndola editable. Llama a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) en el formato de efectos de la forma. El radio se mide en puntos (1/72 de pulgada): usa un valor no negativo, con valores mayores que producen un desenfoque más intenso. Un radio de cero deja la apariencia sin cambios.
 
-La configuración [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) controla los límites visibles del efecto. Con `false`, el desenfoque se recorta a los límites pintados originales, incluido el contorno. Con `true`, el desenfoque puede extenderse más allá de esos límites. Ninguna de las configuraciones cambia la posición o las dimensiones de la forma.
+La configuración [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) controla los límites visibles del efecto. Con `false`, el desenfoque se recorta a los límites pintados originales, incluido el contorno. Con `true`, el desenfoque puede extenderse más allá de esos límites. Ninguna de las dos opciones modifica la posición o las dimensiones de la forma.
 
-La comparación a continuación usa el mismo relleno, contorno y dimensiones de forma en todo momento. La fila superior utiliza `grow = false`; la fila inferior utiliza `grow = true`.
+La comparación a continuación utiliza el mismo relleno, contorno y dimensiones de forma en todo momento. La fila superior usa `grow = false`; la fila inferior usa `grow = true`.
 
 ![Rectángulo original comparado con radios de desenfoque de 5 y 15 puntos, con grow desactivado y activado](shape_blur_comparison.png)
 
-Este ejemplo PHP crea un rectángulo naranja con un contorno azul oscuro, le aplica un desenfoque de 5 puntos y luego lo actualiza a un desenfoque de 15 puntos llamando nuevamente a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect). Guarda ambos estados desenfocados, luego llama a [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) y guarda la forma sin desenfoque.
+Este ejemplo PHP crea un rectángulo naranja con un contorno azul oscuro, aplica un desenfoque de 5 puntos y luego lo actualiza a un desenfoque de 15 puntos llamando a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) nuevamente. Guarda ambos estados desenfocados, después llama a [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) y guarda la forma sin desenfoque.
 
 ```php
 use aspose\slides\FillType;
@@ -235,13 +297,13 @@ try {
 }
 ```
 
-El desenfoque de forma afecta tanto al relleno como al contorno simultáneamente. Un efecto de bordes suaves desvanece los bordes de la forma, mientras que el desenfoque de sombra suaviza solo la sombra. Los efectos de transformación de imagen actúan sobre el contenido de la imagen; este ejemplo aplica el desenfoque directamente al formato de efectos de la forma sin convertirla a una imagen.
+El desenfoque de forma afecta al relleno y al contorno simultáneamente. Un efecto de bordes suaves desvanece los bordes de la forma, mientras que el desenfoque de sombra suaviza solo la sombra. Los efectos de transformación de imagen actúan sobre el contenido de la imagen; este ejemplo aplica el desenfoque directamente al formato de efectos de la forma sin convertir la forma en una imagen.
 
 ## **Preguntas frecuentes**
 
 **¿Puedo aplicar varios efectos a la misma forma?**
 
-Sí, puedes combinar diferentes efectos, como sombra, reflexión y brillo, en una única forma para crear una apariencia más dinámica.
+Sí, puedes combinar diferentes efectos, como sombra, reflexión y resplandor, en una única forma para crear una apariencia más dinámica.
 
 **¿A qué formas puedo aplicar efectos?**
 

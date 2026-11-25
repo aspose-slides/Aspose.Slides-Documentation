@@ -9,36 +9,36 @@ keywords:
 - छाया प्रभाव
 - परावर्तन प्रभाव
 - चमक प्रभाव
-- नरम किनारे प्रभाव
-- इफ़ेक्ट फ़ॉर्मेट
+- कोमल किनारे प्रभाव
+- प्रभाव प्रारूप
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python का उपयोग करके उन्नत आकार प्रभावों के साथ अपने PPT, PPTX और ODP फ़ाइलों को बदलें—सेकंडों में आकर्षक, पेशेवर स्लाइड्स बनाएं।"
+description: "Aspose.Slides for Python का उपयोग करके उन्नत आकार प्रभावों के साथ अपनी PPT, PPTX और ODP फ़ाइलों को बदलें—सेकंडों में आकर्षक, पेशेवर स्लाइड्स बनाएं।"
 ---
 ## **परिचय**
 
-जबकि PowerPoint में इफ़ेक्ट्स को किसी आकार को उभारने के लिए इस्तेमाल किया जा सकता है, वे [fills](/slides/hi/python-net/shape-formatting/#gradient-fill) या outlines से भिन्न होते हैं। PowerPoint इफ़ेक्ट्स का उपयोग करके आप किसी आकार पर भरोसेमंद प्रतिबिंब, आकार की चमक को फैलाना आदि बना सकते हैं।
+PowerPoint में प्रभावों का उपयोग किसी आकार को प्रमुख बनाने के लिए किया जा सकता है, लेकिन ये [भरण](/slides/hi/python-net/shape-formatting/#gradient-fill) या outlines से अलग होते हैं। PowerPoint प्रभावों का उपयोग करके आप किसी आकार पर विश्वसनीय प्रतिबिंब बना सकते हैं, आकार की चमक फैलाने आदि कर सकते हैं।
 
-![Shape effect](shape-effect.png)
+![आकार प्रभाव](shape-effect.png)
 
-PowerPoint छह इफ़ेक्ट्स प्रदान करता है जिन्हें आकारों पर लागू किया जा सकता है। आप एक या अधिक इफ़ेक्ट्स को किसी आकार पर लागू कर सकते हैं।
+PowerPoint छह प्रभाव प्रदान करता है जिन्हें आकारों पर लागू किया जा सकता है। आप एक या अधिक प्रभाव एक आकार पर लागू कर सकते हैं।
 
-इफ़ेक्ट्स के कुछ संयोजन दूसरों से बेहतर दिखते हैं। इस कारण से, PowerPoint के पास **Preset** नामक विकल्प है। प्रीसेट विकल्प मूल रूप से दो या अधिक इफ़ेक्ट्स के एक अच्छी दिखने वाले संयोजन होते हैं। इस तरह, प्रीसेट चुन कर आपको विभिन्न इफ़ेक्ट्स को आज़माने या मिलाने में समय बर्बाद नहीं करना पड़ेगा।
+कुछ प्रभाव संयोजन अन्य की तुलना में बेहतर दिखते हैं। इस कारण से, PowerPoint **Preset** के तहत विकल्प प्रदान करता है। Preset विकल्प मूलतः दो या अधिक प्रभावों का एक ज्ञात अच्छा संयोजन होता है। इस तरह, एक प्रीसेट चयन करके आपको विभिन्न प्रभावों का परीक्षण या संयोजन करने में समय नहीं बर्बाद करना पड़ेगा।
 
-Aspose.Slides प्रदान करता है प्रॉपर्टीज़ और मेथड्स [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) क्लास के तहत, जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान इफ़ेक्ट्स लागू करने की अनुमति देते हैं।
+Aspose.Slides [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) वर्ग के तहत गुण और विधियाँ प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान प्रभाव लागू करने की अनुमति देती हैं।
 
-## **शैडो इफ़ेक्ट लागू करें**
+## **छाया प्रभाव लागू करें**
 
-Aspose.Slides for Python via .NET आकारों के लिए बाहरी और आंतरिक शैडो का समर्थन करता है। आप उनके रंग, दिशा, दूरी और ब्लर रेडियस को अपनी प्रस्तुति के डिज़ाइन के अनुसार अनुकूलित कर सकते हैं।
+Aspose.Slides for Python via .NET आकारों के लिए बाहरी और आंतरिक छायाएँ समर्थन करता है। आप उनका रंग, दिशा, दूरी और ब्लर त्रिज्या को अपने प्रस्तुतीकरण की डिज़ाइन के अनुसार अनुकूलित कर सकते हैं।
 
-### **बाहरी शैडो लागू करें**
+### **बाहरी छाया लागू करें**
 
-बाहरी शैडो का उपयोग करके किसी कार्ड या पैनल को स्लाइड बैकग्राउंड के खिलाफ उभारा जा सकता है। शैडो आकार की किनारों से बाहर तक फैलता है, जिससे ऐसा प्रभाव बनता है कि आकार स्लाइड पर उठा हुआ है। इसके रंग, दिशा, दूरी और ब्लर रेडियस को अपने टेम्पलेट की लाइटिंग और शैली के अनुसार समायोजित करें।
+बाहरी छाया का उपयोग करके कोई कार्ड या पैनल स्लाइड पृष्ठभूमि के विरुद्ध प्रमुख बनता है। छाया आकार की किनारों से बाहर तक विस्तृत होती है, जिससे ऐसा प्रभाव उत्पन्न होता है कि आकार स्लाइड के ऊपर उठा हुआ है। अपने टेम्प्लेट की प्रकाश व्यवस्था और शैली से मेल खाने के लिए इसका रंग, दिशा, दूरी और ब्लर त्रिज्या समायोजित करें।
 
-यह Python कोड दिखाता है कि कैसे [outer shadow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) को एक आयत पर लागू किया जाए:
+यह Python कोड दिखाता है कि कैसे एक आयत पर [outer shadow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) लागू किया जाए:
 
 ```python
 import aspose.slides as slides
@@ -55,15 +55,15 @@ with slides.Presentation() as presentation:
     presentation.save("shadow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Shadow effect](shadow_effect.png)
+![छाया प्रभाव](shadow_effect.png)
 
-### **आंतरिक शैडो लागू करें**
+### **आंतरिक छाया लागू करें**
 
-किसी टेम्पलेट की दृश्य शैली को दोहराते समय, आंतरिक शैडो का उपयोग करके कार्ड या पैनल को सम्मिलित दिखाया जा सकता है। बाहरी शैडो आकार के बाहर तक विस्तारित होता है और उसे उठाया हुआ दिखाता है, जबकि आंतरिक शैडो किनारों के अंदर भाग को छाया देता है।
+टेम्प्लेट की दृश्य शैली को पुनः बनाते समय, किसी कार्ड या पैनल को अंतर्निहित रूप से ढँका दिखाने के लिए आंतरिक छाया का उपयोग करें। बाहरी छाया आकार के बाहर तक विस्तृत होती है और इसे उठी हुई बनाती है, जबकि आंतरिक छाया उसके किनारों के अंदर को शेड करती है।
 
-[enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/) को कॉल करें, फिर [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/) को कॉन्फ़िगर करें। बड़े ब्लर-रेडियस मान नरम किनारे उत्पन्न करते हैं।
+[enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/) को कॉल करें, फिर [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/) को कॉन्फ़िगर करें। बड़ी ब्लर‑त्रिज्या मान धीमी किनारें बनाते हैं।
 
-यह Python उदाहरण एक हल्के नीले कार्ड को गहरे ग्रे आंतरिक शैडो के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
+यह Python उदाहरण हल्का नीला कार्ड डार्क ग्रे आंतरिक छाया के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
 
 ```python
 import aspose.slides as slides
@@ -86,15 +86,63 @@ with slides.Presentation() as presentation:
     presentation.save("inner_shadow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![आंतरिक छाया के साथ हल्का नीला आयत](inner_shadow_effect.png)
 
-आंतरिक शैडो को हटाने के लिए, आकार की इफ़ेक्ट फ़ॉर्मेट पर [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) को कॉल करें।
+आंतरिक छाया हटाने के लिए, आकार के effect format पर [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) को कॉल करें।
 
-## **रिफ्लेक्शन इफ़ेक्ट लागू करें**
+### **प्रीसेट छाया लागू करें, बदलें और हटाएँ**
 
-Aspose.Slides for Python via .NET में रिफ्लेक्शन इफ़ेक्ट लागू करने के लिए, आप आकारों में दर्पण जैसी प्रतिबिंब जोड़ सकते हैं, दूरी, ट्रांसपेरेंसी और साइज जैसे पैरामीटर समायोजित कर सकते हैं। यह इफ़ेक्ट आपकी प्रस्तुतियों की सौंदर्यता को बढ़ाता है, आकारों को अधिक पॉलिश्ड और परिष्कृत रूप देता है। इसे सरल कोड के साथ आसानी से लागू किया जा सकता है, जिससे कई तत्वों पर लगातार डिज़ाइन लागू करना तेज़ हो जाता है।
+[enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) को कॉल करें और छाया की [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) गुण को एक [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/) मान पर सेट करें। शैली बदलने के लिए, उसी आकार पर प्रीसेट को बदलें। छाया को हटाने के लिए, जबकि भराव और रूपरेखा को बरकरार रखें, [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) को कॉल करें।
 
-यह Python कोड दिखाता है कि कैसे [reflection effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) को एक आकार पर लागू किया जाए:
+यह उदाहरण एक स्लाइड पर चार चरणों को एक साथ दिखाता है। यह प्रत्येक परिवर्तन से पहले आयत को क्लोन करता है ताकि आप परिणामों की तुलना कर सकें। दोनों छायाएँ 10 पॉइंट से ऑफ़सेट हैं। 225° की दिशा पहली छाया को आयत के ऊपर और बाएँ रखती है, और 45° की दिशा दूसरी छाया को नीचे और दाएँ रखती है।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(800, 120, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    shape = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 15, 30, 170, 60)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.text_frame.text = "No shadow"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 14
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.enable_preset_shadow_effect()
+    shadow = shape.effect_format.preset_shadow_effect
+    shadow.preset = slides.PresetShadowType.TOP_LEFT_DROP_SHADOW
+    shadow.distance = 10
+    shadow.direction = 225
+    shape.text_frame.text = "TopLeftDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shadow.preset = slides.PresetShadowType.BOTTOM_RIGHT_DROP_SHADOW
+    shadow.direction = 45
+    shape.text_frame.text = "BottomRightDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.disable_preset_shadow_effect()
+    shape.text_frame.text = "No shadow"
+
+    presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| मूल | पहला प्रीसेट | दूसरा प्रीसेट | हटाने के बाद |
+| :---: | :---: | :---: | :---: |
+| ![कोई छाया नहीं](preset_shadow_original.png) | ![ऊपर-बाएँ ड्रॉप छाया](preset_shadow_top_left.png) | ![नीचे‑दाएँ ड्रॉप छाया](preset_shadow_bottom_right.png) | ![हटाने के बाद कोई छाया नहीं](preset_shadow_removed.png) |
+
+## **परावर्तन प्रभाव लागू करें**
+
+Aspose.Slides for Python via .NET में परावर्तन प्रभाव लागू करने के लिए, आप आकारों में एक दर्पण‑समान परावर्तन जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे मानकों को समायोजित कर सकते हैं। यह प्रभाव आपके प्रस्तुतियों की सौंदर्यशास्त्र को बेहतर बनाता है, आकारों को अधिक चमकदार और परिष्कृत लुक देता है। यह सरल कोड के साथ आसानी से लागू किया जा सकता है, जिससे कई तत्वों पर समान डिज़ाइन शीघ्रता से लागू हो जाता है।
+
+यह Python कोड दिखाता है कि कैसे एक आकार पर [reflection effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) लागू किया जाए:
 
 ```python
 import aspose.slides as slides
@@ -112,13 +160,13 @@ with slides.Presentation() as presentation:
     presentation.save("reflection_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Reflection effect](reflection_effect.png)
+![परावर्तन प्रभाव](reflection_effect.png)
 
-## **ग्लो इफ़ेक्ट लागू करें**
+## **चमक प्रभाव लागू करें**
 
-Aspose.Slides for Python via .NET में किसी आकार पर ग्लो इफ़ेक्ट लागू करने के लिए, आप आकारों के चारों ओर मुलायम, प्रकाशमान आभा जोड़ सकते हैं, रंग और साइज जैसी प्रॉपर्टीज़ को समायोजित कर सकते हैं। यह इफ़ेक्ट आकारों को उभारता है और आपकी प्रस्तुति में आकर्षक, आंखों को पकड़ने वाला दृश्य तत्व जोड़ता है। इसे न्यूनतम कोड के साथ आसानी से लागू किया जा सकता है, जिससे स्लाइड्स की कुल दिखावट सुधरती है।
+Aspose.Slides for Python via .NET में कोई आकार पर चमक प्रभाव लागू करने के लिए, आप आकारों के चारों ओर एक नरम, प्रकाशमान आभा जोड़ सकते हैं, रंग और आकार जैसे गुणों को समायोजित कर सकते हैं। यह प्रभाव आकारों को प्रमुख बनाता है और आपके प्रस्तुतीकरण में आकर्षक दृश्य तत्व जोड़ता है। न्यूनतम कोड के साथ इसे आसानी से लागू किया जा सकता है, जिससे आपकी स्लाइड्स का समग्र दृश्य बेहतर होता है।
 
-यह Python कोड दिखाता है कि कैसे [glow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) को एक आकार पर लागू किया जाए:
+यह Python कोड दिखाता है कि कैसे एक आकार पर [glow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) लागू किया जाए:
 
 ```python
 import aspose.slides as slides
@@ -134,13 +182,13 @@ with slides.Presentation() as presentation:
     presentation.save("glow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Glow effect](glow_effect.png)
+![चमक प्रभाव](glow_effect.png)
 
-## **सॉफ्ट एजेज इफ़ेक्ट लागू करें**
+## **कोमल किनारे प्रभाव लागू करें**
 
-Aspose.Slides for Python via .NET में सॉफ्ट एजेज इफ़ेक्ट लागू करने के लिए, आप आकार के किनारों के आसपास एक स्मूद, ब्लर ट्रांज़िशन बना सकते हैं। यह इफ़ेक्ट अधिक सूक्ष्म और परिष्कृत दिखावट जोड़ता है, उन डिज़ाइनों के लिए उपयुक्त है जिन्हें कोमल, नरम अभिव्यक्ति चाहिए। आप रेडियस जैसे पैरामीटर को आसानी से समायोजित कर विभिन्न आकारों में वांछित प्रभाव प्राप्त कर सकते हैं।
+Aspose.Slides for Python via .NET में कोमल किनारे प्रभाव लागू करने के लिए, आप आकार के किनारों के आसपास एक स्मूद, धुंधला संक्रमण बना सकते हैं। यह प्रभाव अधिक सूक्ष्म और परिष्कृत लुक जोड़ता है, जो उन डिज़ाइनों के लिए उपयुक्त है जिन्हें कोमल, हल्का रूप चाहिए। आप विभिन्न आकारों में वांछित प्रभाव प्राप्त करने के लिए त्रिज्या जैसे मानकों को आसानी से समायोजित कर सकते हैं।
 
-यह Python कोड दिखाता है कि कैसे [soft edges](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) को एक आकार पर लागू किया जाए:
+यह Python कोड दिखाता है कि कैसे एक आकार पर [soft edges](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) लागू किया जाए:
 
 ```python
 import aspose.slides as slides
@@ -155,19 +203,19 @@ with slides.Presentation() as presentation:
     presentation.save("soft_edges_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![कोमल किनारे प्रभाव](soft_edges_effect.png)
 
-## **ब्लर इफ़ेक्ट लागू करें**
+## **ब्लर प्रभाव लागू करें**
 
-शेप ब्लर का उपयोग करके आप आकार की भराव और आउटलाइन को नरम बना सकते हैं जबकि आकार को संपादित योग्य रख सकते हैं। आकार की इफ़ेक्ट फ़ॉर्मेट पर [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) को कॉल करें। रेडियस पॉइंट्स (1/72 इंच) में मापा जाता है: गैर-नकारात्मक मान उपयोग करें, बड़े मान अधिक तीव्र ब्लर पैदा करेंगे। शून्य रेडियस होने पर दिखाई देने वाला रूप वही रहता है।
+आकार ब्लर का उपयोग करके आप आकार की भराव और रूपरेखा को नरम बना सकते हैं जबकि आकार संपादन योग्य बना रहता है। आकार के effect format पर [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) को कॉल करें। त्रिज्या पॉइंट में मापी जाती है (1/72 इंच): एक गैर‑नकारात्मक मान उपयोग करें, जहाँ बड़े मान अधिक तेज़ ब्लर उत्पन्न करते हैं। शून्य त्रिज्या आकार को अपरिवर्तित छोड़ देती है।
 
-[grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) सेटिंग इफ़ेक्ट की दृश्य सीमा को नियंत्रित करती है। `False` के साथ, ब्लर मूल पेंटेड सीमा तक सीमित रहता है, जिसमें आउटलाइन भी शामिल है। `True` के साथ, ब्लर उन सीमाओं से बाहर तक विस्तारित हो सकता है। दोनों सेटिंग्स आकार की स्थिति या आयामों को नहीं बदलतीं।
+[grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) सेटिंग प्रभाव की दृश्यमान सीमा को नियंत्रित करती है। `False` होने पर, ब्लर मूल पेंट की सीमाओं तक सीमित रहता है, जिसमें रूपरेखा भी शामिल है। `True` होने पर, ब्लर उन सीमाओं से परे भी विस्तारित हो सकता है। कोई भी सेटिंग आकार की स्थिति या आयामों को नहीं बदलती।
 
-नीचे दिया गया तुलना समान भराव, आउटलाइन और आकार आयामों के साथ की गई है। शीर्ष पंक्ति में `grow = False`; नीचे की पंक्ति में `grow = True`।
+नीचे दिया गया तुलना समान भराव, रूपरेखा और आकार आयामों के साथ किया गया है। शीर्ष पंक्ति में `grow = False`; नीचे की पंक्ति में `grow = True`।
 
-![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+![मूल आयत की तुलना 5 और 15 पॉइंट ब्लर त्रिज्या के साथ, जहाँ grow निष्क्रिय और सक्षम है](shape_blur_comparison.png)
 
-यह Python उदाहरण एक नारंगी आयत को गहरे नीले आउटलाइन के साथ बनाता है, 5 पॉइंट ब्लर लागू करता है, फिर फिर से [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) को कॉल करके 15 पॉइंट ब्लर में अपडेट करता है। यह दोनों ब्लर किए हुए स्थितियों को सहेजता है, फिर [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) को कॉल करके बिना ब्लर के आकार को सहेजता है।
+यह Python उदाहरण एक नारंगी आयत को डार्क ब्लू रूपरेखा के साथ बनाता है, 5‑पॉइंट ब्लर लागू करता है, फिर फिर से [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) को कॉल करके 15‑पॉइंट ब्लर में अपडेट करता है। यह दोनों ब्लर किए हुए स्थितियों को सहेजता है, फिर [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) को कॉल करके ब्लर के बिना आकार को सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -192,18 +240,18 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Shape blur भराव और आउटलाइन दोनों को एक साथ प्रभावित करता है। सॉफ्ट एजेज इफ़ेक्ट आकार के किनारों को फीका करता है, जबकि शैडो ब्लर केवल शैडो को नरम बनाता है। इमेज ट्रांसफ़ॉर्मेशन इफ़ेक्ट्स इमेज कंटेंट पर काम करते हैं; यह उदाहरण आकार को इमेज में बदलें बिना सीधे आकार की इफ़ेक्ट फ़ॉर्मेट पर ब्लर लागू करता है।
+आकार ब्लर भराव और रूपरेखा को एक साथ प्रभावित करता है। कोमल किनारे प्रभाव आकार की किनारों को धुंधला करता है, जबकि छाया ब्लर केवल छाया को नरम करता है। छवि रूपांतरण प्रभाव छवि सामग्री पर कार्य करते हैं; यह उदाहरण आकार को प्रतिमा में परिवर्तित किए बिना सीधे आकार के effect format पर ब्लर लागू करता है।
 
 ## **FAQ**
 
-**क्या मैं एक ही आकार पर कई इफ़ेक्ट्स लागू कर सकता हूँ?**
+**क्या मैं एक ही आकार पर कई प्रभाव लागू कर सकता हूँ?**
 
-हाँ, आप शैडो, रिफ्लेक्शन, ग्लो आदि विभिन्न इफ़ेक्ट्स को एक ही आकार पर मिलाकर अधिक गतिशील दिखावट बना सकते हैं।
+हां, आप एक ही आकार पर विभिन्न प्रभावों, जैसे छाया, परावर्तन और चमक, को मिलाकर अधिक गतिशील स्वरूप बना सकते हैं।
 
-**मैं किन आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
+**मैं किन आकारों पर प्रभाव लागू कर सकता हूँ?**
 
-आप विभिन्न आकारों पर इफ़ेक्ट्स लागू कर सकते हैं, जिसमें ऑटोषेप्स, चार्ट, टेबल, तस्वीरें, SmartArt ऑब्जेक्ट्स, OLE ऑब्जेक्ट्स और अन्य शामिल हैं।
+आप विभिन्न आकारों पर प्रभाव लगा सकते हैं, जिनमें ऑटॉशेप्स, चार्ट, टेबल, चित्र, SmartArt ऑब्जेक्ट, OLE ऑब्जेक्ट और अधिक शामिल हैं।
 
-**क्या मैं ग्रुप किए गए आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
+**क्या मैं समूहित आकारों पर प्रभाव लगा सकता हूँ?**
 
-हाँ, आप ग्रुप किए गए आकारों पर इफ़ेक्ट्स लागू कर सकते हैं। इफ़ेक्ट पूरे समूह पर लागू होगा।
+हां, आप समूहित आकारों पर प्रभाव लगा सकते हैं। प्रभाव पूरे समूह पर लागू होगा।

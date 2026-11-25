@@ -1,5 +1,5 @@
 ---
-title: Aplicar Efeitos de Forma em Apresentações no .NET
+title: Aplicar efeitos de forma em apresentações no .NET
 linktitle: Efeito de Forma
 type: docs
 weight: 30
@@ -7,7 +7,7 @@ url: /pt/net/shape-effect/
 keywords:
 - efeito de forma
 - efeito de sombra
-- efeito de reflexão
+- efeito de reflexo
 - efeito de brilho
 - efeito de bordas suaves
 - formato de efeito
@@ -20,19 +20,19 @@ description: "Transforme seus arquivos PPT e PPTX com efeitos avançados de form
 ---
 ## **Introdução**
 
-Enquanto os efeitos no PowerPoint podem ser usados para fazer uma forma se destacar, eles diferem de [preenchimentos](/slides/pt/net/shape-formatting/#gradient-fill) ou contornos. Usando os efeitos do PowerPoint, você pode criar reflexos convincentes em uma forma, espalhar o brilho de uma forma, etc.
+Embora os efeitos no PowerPoint possam ser usados para fazer uma forma se destacar, eles diferem de [preenchimentos](/slides/pt/net/shape-formatting/#gradient-fill) ou contornos. Usando os efeitos do PowerPoint, você pode criar reflexos convincentes em uma forma, espalhar o brilho de uma forma, etc.
 
 ![Efeito de forma](shape-effect.png)
 
 O PowerPoint oferece seis efeitos que podem ser aplicados a formas. Você pode aplicar um ou mais efeitos a uma forma.
 
-Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint tem opções em **Preset**. As opções Preset são essencialmente uma combinação conhecida e visualmente atraente de dois ou mais efeitos. Dessa forma, ao selecionar um preset, você não precisará perder tempo testando ou combinando diferentes efeitos para encontrar uma boa combinação.
+Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint tem opções em **Predefinição**. As opções de Predefinição são essencialmente uma combinação conhecida de boa aparência de dois ou mais efeitos. Dessa forma, ao selecionar uma predefinição, você não precisará perder tempo testando ou combinando efeitos diferentes para encontrar uma boa combinação.
 
 Aspose.Slides fornece propriedades e métodos na classe [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) que permitem aplicar os mesmos efeitos a formas em apresentações do PowerPoint.
 
 ## **Aplicar um Efeito de Sombra**
 
-Aspose.Slides for .NET oferece suporte a sombras externas e internas para formas. Você pode personalizar sua cor, direção, distância e raio de desfoque para combinar com o design da sua apresentação.
+Aspose.Slides para .NET oferece suporte a sombras externas e internas para formas. Você pode personalizar sua cor, direção, distância e raio de desfoque para combinar com o design da sua apresentação.
 
 ### **Aplicar uma Sombra Externa**
 
@@ -61,11 +61,11 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ### **Aplicar uma Sombra Interna**
 
-Ao reproduzir o estilo visual de um modelo, use uma sombra interna para dar a um cartão ou painel uma aparência rebaixada. Uma sombra externa se estende fora da forma e faz com que ela pareça elevada, enquanto uma sombra interna sombreia o interior de suas bordas.
+Ao reproduzir o estilo visual de um modelo, use uma sombra interna para dar a um cartão ou painel uma aparência rebaixada. Uma sombra externa se estende fora da forma e faz com que pareça elevada, enquanto uma sombra interna sombreia o interior de suas bordas.
 
 Chame [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), então configure [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Valores maiores produzem bordas mais suaves.
 
-Este exemplo C# cria um cartão azul claro com uma sombra interna cinza escura e o salva como um arquivo PPTX:
+Este exemplo C# cria um cartão azul-claro com uma sombra interna cinza-escura e o salva como um arquivo PPTX:
 
 ```csharp
 using System.Drawing;
@@ -94,11 +94,61 @@ presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 
 Para remover a sombra interna, chame [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) no formato de efeito da forma.
 
+### **Aplicar, Alterar e Remover uma Sombra de Predefinição**
+
+Chame [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) e defina [Predefinição](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) para um [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) nomeado. Para alternar estilos, altere a predefinição na mesma forma. Chame [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) para remover a sombra mantendo o preenchimento e o contorno.
+
+Este exemplo mantém uma cópia do retângulo em cada etapa. Ambas as sombras são deslocadas em 10 pontos. Uma direção de 225° posiciona a primeira sombra acima e à esquerda do retângulo, e 45° posiciona a segunda abaixo e à direita.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(800, 120, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var shape = shapes.AddAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+shape.TextFrame.Text = "No shadow";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.EnablePresetShadowEffect();
+var shadow = shape.EffectFormat.PresetShadowEffect;
+shadow.Preset = PresetShadowType.TopLeftDropShadow;
+shadow.Distance = 10;
+shadow.Direction = 225;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shadow.Preset = PresetShadowType.BottomRightDropShadow;
+shadow.Direction = 45;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.DisablePresetShadowEffect();
+shape.TextFrame.Text = "No shadow";
+
+presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
+```
+
+| Original | Primeira predefinição | Segunda predefinição | Após remoção |
+| :---: | :---: | :---: | :---: |
+| ![Sem sombra](preset_shadow_original.png) | ![Sombra superior esquerda](preset_shadow_top_left.png) | ![Sombra inferior direita](preset_shadow_bottom_right.png) | ![Sem sombra após remoção](preset_shadow_removed.png) |
+
 ## **Aplicar um Efeito de Reflexão**
 
-Para aplicar um efeito de reflexão no Aspose.Slides for .NET, você pode adicionar uma reflexão semelhante a um espelho às formas, ajustando parâmetros como distância, transparência e tamanho. Esse efeito aprimora a estética de suas apresentações ao conferir às formas uma aparência mais polida e sofisticada. É fácil de implementar com código simples, permitindo aplicação rápida em vários elementos para um design consistente.
+Para aplicar um efeito de reflexo no Aspose.Slides para .NET, você pode adicionar uma reflexão semelhante a um espelho às formas, ajustando parâmetros como distância, transparência e tamanho. Esse efeito aprimora a estética de suas apresentações ao dar às formas uma aparência mais polida e sofisticada. É fácil de implementar com código simples, permitindo aplicação rápida em múltiplos elementos para um design consistente.
 
-Este código C# mostra como aplicar o [efeito de reflexão](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) a uma forma:
+Este código C# mostra como aplicar o [efeito de reflexo](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) a uma forma:
 
 ```c#
 using Aspose.Slides;
@@ -117,11 +167,11 @@ shape.EffectFormat.ReflectionEffect.BlurRadius = 2;
 presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Efeito de reflexão](reflection_effect.png)
+![Efeito de reflexo](reflection_effect.png)
 
 ## **Aplicar um Efeito de Brilho**
 
-Para aplicar um efeito de brilho a uma forma no Aspose.Slides for .NET, você pode adicionar uma aura suave e luminosa ao redor das formas, ajustando propriedades como cor e tamanho. Esse efeito ajuda a destacar as formas e adiciona um elemento visual atraente aos seus slides. É fácil de implementar com código mínimo, melhorando a aparência geral das suas apresentações.
+Para aplicar um efeito de brilho a uma forma no Aspose.Slides para .NET, você pode adicionar uma aura suave e luminosa ao redor das formas, ajustando propriedades como cor e tamanho. Esse efeito ajuda a fazer as formas se destacarem e adiciona um elemento visual atraente e chamativo à sua apresentação. É fácil de implementar com código mínimo, aprimorando a aparência geral dos seus slides.
 
 Este código C# mostra como aplicar o [efeito de brilho](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) a uma forma:
 
@@ -145,7 +195,7 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **Aplicar um Efeito de Bordas Suaves**
 
-Para aplicar um efeito de bordas suaves no Aspose.Slides for .NET, você pode criar uma transição lisa e desfocada ao redor das bordas de uma forma. Esse efeito adiciona uma aparência mais sutil e refinada, perfeita para designs que precisam de um aspecto mais suave. Você pode ajustar facilmente parâmetros como o raio para obter o efeito desejado em várias formas da sua apresentação.
+Para aplicar um efeito de bordas suaves no Aspose.Slides para .NET, você pode criar uma transição lisa e borrada ao redor das bordas de uma forma. Esse efeito adiciona uma aparência mais sutil e refinada, perfeita para designs que precisam de um aspecto gentil e mais suave. Você pode ajustar facilmente parâmetros como raio para alcançar o efeito desejado em diversas formas na sua apresentação.
 
 Este código C# mostra como aplicar as [bordas suaves](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) a uma forma:
 
@@ -167,15 +217,15 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ## **Aplicar um Efeito de Desfoque**
 
-Use o desfoque de forma para suavizar o preenchimento e o contorno de uma forma mantendo-a editável. Chame [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) no formato de efeito da forma. O raio é medido em pontos (1/72 polegada): use um valor não negativo, com valores maiores produzindo desfoque mais intenso. Um raio zero deixa a aparência inalterada.
+Use o desfoque de forma para suavizar o preenchimento e o contorno de uma forma mantendo-a editável. Chame [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) no formato de efeito da forma. O raio é medido em pontos (1/72 polegada): use um valor não negativo, sendo que valores maiores produzem um desfoque mais forte. Um raio zero deixa a aparência inalterada.
 
-A configuração [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) controla os limites visíveis do efeito. Com `false`, o desfoque é recortado aos limites originalmente pintados, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões da forma.
+A configuração [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) controla os limites visíveis do efeito. Com `false`, o desfoque é recortado aos limites pintados originais, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões da forma.
 
-A comparação abaixo usa o mesmo preenchimento, contorno e dimensões da forma em todas as situações. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
+A comparação abaixo usa o mesmo preenchimento, contorno e dimensões da forma em todo o exemplo. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
 
 ![Retângulo original comparado com raios de desfoque de 5 e 15 pontos, com grow desativado e ativado](shape_blur_comparison.png)
 
-Este exemplo C# cria um retângulo laranja com contorno azul escuro, aplica um desfoque de 5 pontos e, em seguida, atualiza para um desfoque de 15 pontos chamando [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) novamente. Ele salva ambos os estados desfocados, depois chama [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) e salva a forma sem desfoque.
+Este exemplo C# cria um retângulo laranja com um contorno azul escuro, aplica um desfoque de 5 pontos e, em seguida, atualiza para um desfoque de 15 pontos chamando [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) novamente. Ele salva ambos os estados desfocados, então chama [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) e salva a forma sem desfoque.
 
 ```csharp
 using System.Drawing;
@@ -202,18 +252,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-O desfoque de forma afeta o preenchimento e o contorno juntos. Um efeito de bordas suaves desfoca as bordas da forma, enquanto o desfoque de sombra suaviza apenas a sombra. Os efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito da forma sem converter a forma em imagem.
+O desfoque de forma afeta o preenchimento e o contorno juntos. Um efeito de bordas suaves desvanece as bordas da forma, enquanto o desfoque de sombra suaviza apenas a sombra. Os efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito da forma sem converter a forma em imagem.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Posso aplicar múltiplos efeitos à mesma forma?**
+**Posso aplicar vários efeitos à mesma forma?**
 
-Sim, você pode combinar diferentes efeitos, como sombra, reflexão e brilho, em uma única forma para criar uma aparência mais dinâmica.
+Sim, você pode combinar diferentes efeitos, como sombra, reflexo e brilho, em uma única forma para criar uma aparência mais dinâmica.
 
-**A quais formas posso aplicar efeitos?**
+**Quais formas posso aplicar efeitos?**
 
-Você pode aplicar efeitos a várias formas, incluindo autoshapes, gráficos, tabelas, imagens, objetos SmartArt, objetos OLE e mais.
+Você pode aplicar efeitos a várias formas, incluindo autoshapes, gráficos, tabelas, imagens, objetos SmartArt, objetos OLE e muito mais.
 
 **Posso aplicar efeitos a formas agrupadas?**
 
-Sim, você pode aplicar efeitos a formas agrupadas. O efeito será aplicado ao grupo inteiro.
+Sim, você pode aplicar efeitos a formas agrupadas. O efeito será aplicado a todo o grupo.

@@ -1,5 +1,5 @@
 ---
-title: Alakzat hatások alkalmazása prezentációkban PHP-vel
+title: Alakzat hatások alkalmazása bemutatókban PHP használatával
 linktitle: Alakzat hatás
 type: docs
 weight: 30
@@ -7,37 +7,37 @@ url: /hu/php-java/shape-effect/
 keywords:
 - alakzat hatás
 - árnyék hatás
-- reflexió hatás
-- fénylő hatás
-- lágy szélek hatás
-- hatásformátum
+- tükröződés hatás
+- ragyogás hatás
+- lágy szél hatás
+- hatás formátum
 - PowerPoint
-- prezentáció
+- bemutató
 - PHP
 - Aspose.Slides
-description: "Alakítsa át PPT és PPTX fájljait fejlett alakzathatásokkal az Aspose.Slides for PHP via Java használatával – hozzon létre lenyűgöző, professzionális diákat percek alatt."
+description: "Alakítsa át PPT és PPTX fájljait fejlett alakzat hatásokkal az Aspose.Slides for PHP via Java segítségével — hozzon létre lenyűgöző, professzionális diákat percek alatt."
 ---
 ## **Bevezetés**
 
-Miközben a PowerPoint hatásait arra lehet használni, hogy egy alakzat kiemelkedjen, különböznek a [kitöltésektől](/slides/hu/php-java/shape-formatting/#gradient-fill) vagy a körvonalaktól. A PowerPoint hatások segítségével meggyőző tükrözéseket hozhat létre egy alakzaton, terjesztheti az alakzat fénylődését stb.
+Miközben a PowerPoint hatásait használhatja egy alakzat kiemelésére, ezek különböznek a [kitöltésektől](/slides/hu/php-java/shape-formatting/#gradient-fill) vagy a körvonaltól. PowerPoint hatásait felhasználva meggyőző tükröződéseket hozhat létre egy alakzaton, szétterítheti az alakzat ragyogását stb.
 
-![Alakzat hatás](shape-effect.png)
+![Alakzat hatása](shape-effect.png)
 
-A PowerPoint hat effektust kínál, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
+A PowerPoint hat hatást biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
 
-Néhány hatáskombináció jobban néz ki, mint mások. Emiatt a PowerPoint a **Preset** alatt lehetőségeket kínál. Az Előre beállított (Preset) lehetőségek két vagy több, általában jól kinéző hatás kombinációi. Így egy előre beállított lehetőség kiválasztásával nem kell időt vesztegetnie különféle hatások tesztelésével vagy kombinálásával a megfelelő kombináció megtalálásához.
+Néhány hatáskombináció jobb, mint mások. Emiatt a PowerPoint a **Előbeállítás** alatt kínál lehetőségeket. Az előbeállítási lehetőségek két vagy több hatás kombinációi, amelyekről ismert, hogy jól néznek ki. Így, ha egy előbeállítást választ, nem kell időt pazarolnia a különböző hatások tesztelésére vagy kombinálására egy szép kombináció megtalálásához.
 
-Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) osztály alatt olyan tulajdonságokat és metódusokat biztosít, amelyekkel ugyanazokat a hatásokat alkalmazhatja PowerPoint‑prezentációk alakzataira.
+Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) osztályban biztosít tulajdonságokat és metódusokat, amelyek lehetővé teszik, hogy ugyanazokat a hatásokat alkalmazza a PowerPoint bemutatók alakzataira.
 
 ## **Árnyékhatás alkalmazása**
 
-Az Aspose.Slides for PHP via Java támogatja a külső és belső árnyékokat alakzatoknál. Testreszabhatja a színüket, irányukat, távolságukat és elmosási sugarukat, hogy illeszkedjenek a prezentációja dizájnjához.
+Az Aspose.Slides for PHP via Java támogatja a külső és belső árnyékokat az alakzatoknál. Testreszabhatja azok színét, irányát, távolságát és elmosódási sugarát, hogy illeszkedjen a bemutató tervezéséhez.
 
 ### **Külső árnyék alkalmazása**
 
-Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia hátteréből. Az árnyék túlnyúlik az alakzat szélén, így az alakzat a dia fölé emelkedettnek tűnik. Állítsa be a színét, irányát, távolságát és elmosási sugarát, hogy megfeleljen a sablon megvilágításának és stílusának.
+Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttérrel szemben. Az árnyék a forma szélein túlra nyúlik, így a forma a dia fölé emelkedettnek tűnik. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy megfeleljen a sablon megvilágításának és stílusának.
 
-Ez a PHP kód bemutatja, hogyan alkalmazza a [külső árnyék hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) egy téglalapra:
+Ez a PHP kód mutatja, hogyan kell alkalmazni a [külső árnyékhatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) egy téglalapra:
 
 ```php
 use aspose\slides\Presentation;
@@ -65,11 +65,11 @@ try {
 
 ### **Belső árnyék alkalmazása**
 
-Sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy egy kártya vagy panel recesszív megjelenést kapjon. A külső árnyék az alakzat külső részén terjed, és emelkedett hatást kelt, míg a belső árnyék az élek belsejét árnyalja.
+Amikor egy sablon vizuális stílusát reprodukálja, használjon belső árnyékot, hogy egy kártya vagy panel recesszív megjelenést kapjon. A külső árnyék a forma kívülére nyúlik, és azt a benyomást kelti, hogy a forma emelkedett, míg a belső árnyék a szélek belsejét árnyékolja.
 
-Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect), majd konfigurálja a [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) által visszaadott árnyékot. A nagyobb elmosási sugárértékek lágyabb éleket eredményeznek.
+Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) metódust, majd állítsa be a [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) által visszaadott árnyékot. A nagyobb elmosódási sugarak lágyabb szélűek.
 
-Ez a PHP példa egy világoskék kártyát hoz létre sötét szürke belső árnyékkal, és PPTX fájlként menti. Az árnyék iránya 225 fok, távolsága 7 pont, elmosási sugara 6 pont:
+Ez a PHP példa egy világoskék kártyát hoz létre egy sötétszürke belső árnyékkal, és PPTX fájlként menti. Az árnyék iránya 225 fok, távolsága 7 pont, elmosódási sugara 6 pont:
 
 ```php
 use aspose\slides\FillType;
@@ -103,13 +103,73 @@ try {
 
 ![Világoskék téglalap belső árnyékkal](inner_shadow_effect.png)
 
-A belső árnyék eltávolításához hívja meg a [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) metódust az alakzat effectformátumán.
+A belső árnyék eltávolításához hívja meg a [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) metódust az alakzat hatásformátumán.
 
-## **Reflexió hatás alkalmazása**
+### **Előre beállított árnyék alkalmazása, módosítása és eltávolítása**
 
-A reflexió hatás alkalmazásához az Aspose.Slides for PHP via Java‑ban hozzáadhat tükörszerű tükrözést az alakzatokhoz, beállítva a távolságot, átlátszóságot és méretet. Ez a hatás fokozza az előadás esztétikáját, polírozottabbá és kifinomultabbá téve az alakzatokat. Könnyen megvalósítható egyszerű kóddal, gyorsan alkalmazható több elemre a konzisztens tervezés érdekében.
+Hívja meg a [enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) metódust egy előre beállított árnyék engedélyezéséhez. Használja a [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) metódust egy [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) kiválasztásához vagy egy másik stílusra való váltáshoz ugyanazon az alakzaton. Hívja meg a [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) metódust az árnyék eltávolításához a kitöltés és a körvonal megőrzése mellett.
 
-Ez a PHP kód bemutatja, hogyan alkalmazza a [reflexió hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) egy alakzatra:
+Ez a PHP példa a téglalapot másolja az első három lépés után, hogy négy lépést hasonlíthasson össze egy dián. Mindkét árnyék 10 ponttal van eltolva. A 225° irány az első árnyékot a téglalap bal felső részébe helyezi, a 45° irány a másodikat jobb alsó részébe.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\PresetShadowType;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(800, 120, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $shape = $shapes->addAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $lineFill = $shape->getLineFormat()->getFillFormat();
+    $lineFill->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $lineFill->getSolidFillColor()->setColor($lineColor);
+    $shape->getTextFrame()->setText("No shadow");
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(14);
+    $shapes->addClone($shape);
+
+    $shape->setX(215);
+    $effects = $shape->getEffectFormat();
+    $effects->enablePresetShadowEffect();
+    $shadow = $effects->getPresetShadowEffect();
+    $shadow->setPreset(PresetShadowType::TopLeftDropShadow);
+    $shadow->setDistance(10);
+    $shadow->setDirection(225);
+    $shape->getTextFrame()->setText("TopLeftDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(415);
+    $shadow->setPreset(PresetShadowType::BottomRightDropShadow);
+    $shadow->setDirection(45);
+    $shape->getTextFrame()->setText("BottomRightDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(615);
+    $effects->disablePresetShadowEffect();
+    $shape->getTextFrame()->setText("No shadow");
+
+    $presentation->save("preset_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Eredeti | Első előbeállítás | Második előbeállítás | Eltávolítás után |
+| :---: | :---: | :---: | :---: |
+| ![Nincs árnyék](preset_shadow_original.png) | ![Bal felső vetett árnyék](preset_shadow_top_left.png) | ![Jobb alsó vetett árnyék](preset_shadow_bottom_right.png) | ![Nincs árnyék eltávolítás után](preset_shadow_removed.png) |
+
+## **Tükröződés hatás alkalmazása**
+
+A PHP kód megmutatja, hogyan kell alkalmazni a [tükröződés hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) egy alakzatra:
 
 ```php
 use aspose\slides\Presentation;
@@ -134,13 +194,11 @@ try {
 }
 ```
 
-![Reflexió hatás](reflection_effect.png)
+![Tükröződés hatás](reflection_effect.png)
 
-## **Fénylő hatás alkalmazása**
+## **Ragyogás hatás alkalmazása**
 
-A fénylő hatás alkalmazásához az Aspose.Slides for PHP via Java‑ban lágy, ragyogó aurát adhat az alakzatok köré, beállítva például a színt és a méretet. Ez a hatás segít kiemelni az alakzatokat, és vonzó, szemfelébb vonzó vizuális elemet ad a prezentációnak. Könnyen megvalósítható minimális kóddal, javítva a diák általános megjelenését.
-
-Ez a PHP kód bemutatja, hogyan alkalmazza a [fénylő hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) egy alakzatra:
+A PHP kód megmutatja, hogyan kell alkalmazni a [ragyogás hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) egy alakzatra:
 
 ```php
 use aspose\slides\Presentation;
@@ -162,13 +220,11 @@ try {
 }
 ```
 
-![Fénylő hatás](glow_effect.png)
+![Ragyogás hatás](glow_effect.png)
 
-## **Lágy szélek hatás alkalmazása**
+## **Lágy szél hatás alkalmazása**
 
-A lágy szélek hatás alkalmazásához az Aspose.Slides for PHP via Java‑ban sima, elmosott átmenetet hozhat létre az alakzat szélei körül. Ez a hatás finomabb és kifinomultabb megjelenést biztosít, ideális olyan tervekhez, amelyeknek gyengéd, lágyabb megjelenésre van szükségük. Könnyen állíthatja a sugár paramétert, hogy a kívánt hatást elérje a prezentáció különböző alakzatai között.
-
-Ez a PHP kód bemutatja, hogyan alkalmazza a [lágy szélek hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) egy alakzatra:
+A PHP kód megmutatja, hogyan kell alkalmazni a [lágy szél hatást](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) egy alakzatra:
 
 ```php
 use aspose\slides\Presentation;
@@ -189,19 +245,19 @@ try {
 }
 ```
 
-![Lágy szélek hatás](soft_edges_effect.png)
+![Lágy szél hatás](soft_edges_effect.png)
 
-## **Elmosás hatás alkalmazása**
+## **Elmosódás hatás alkalmazása**
 
-Használjon alakzat‑elmosást a kitöltés és a körvonal puhításához, miközben az alakzat szerkeszthető marad. Hívja meg a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metódust az alakzat effectformátumán. A sugár pontban mérhető (1/72 hüvelyk): használjon nem negatív értéket, a nagyobb értékek erősebb elmosást eredményeznek. A nulla sugár változatlan megjelenést hagy.
+Használja a forma elmosódását a kitöltés és a körvonal lágyításához, miközben a forma szerkeszthető marad. Hívja meg a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metódust az alakzat hatásformátumán. A sugár pontban van mérve (1/72 hüvelyk): használjon nem negatív értéket, a nagyobb értékek erősebb elmosódást eredményeznek. A nulla sugár változatlan megjelenést hagy.
 
-A [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) beállítás szabályozza a hatás látható határait. `false` esetén az elmosás az eredeti festett határokra, a körvonalra korlátozódik. `true` esetén az elmosás túlnyúlhat ezeken a határokon. Egyik beállítás sem változtatja meg az alakzat helyzetét vagy méreteit.
+A [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) beállítás szabályozza a hatás látható határait. `false` esetén az elmosódás az eredeti festett határokra, beleértve a körvonalat, van korlátozva. `true` esetén az elmosódás túlnyúlhat ezeken a határokon. Egyik beállítás sem módosítja az alakzat helyzetét vagy méretét.
 
-Az alábbi összehasonlítás ugyanazt a kitöltést, körvonalat és alakzateméretet használja minden esetben. A felső sorban `grow = false`; az alsó sorban `grow = true`.
+Az alábbi összehasonlítás ugyanazt a kitöltést, körvonalat és alakzati méreteket használja. A felső sorban `grow = false`; az alsó sorban `grow = true`.
 
-![Eredeti téglalap összehasonlítva 5 és 15 pont elmosási sugarakkal, a növekedés letiltott és engedélyezett állapotával](shape_blur_comparison.png)
+![Eredeti téglalap összehasonlítva 5 és 15 pont elmosódási sugarakkal, a grow letiltott és engedélyezett állapotban](shape_blur_comparison.png)
 
-Ez a PHP példa egy narancssárga téglalapot hoz létre sötétkék körvonallal, 5 pont elmosást alkalmaz, majd újra meghívja a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metódust 15 pont elmosásra. Mindkét elmosott állapotot menti, majd meghívja a [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) metódust, és a shape‑ot elmosás nélkül menti.
+Ez a PHP példa egy narancssárga téglalapot hoz létre egy sötétkék körvonallal, 5 pontos elmosódást alkalmaz, majd a [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) újbóli meghívásával 15 pontra növeli. Mindkét elmosódott állapotot menti, majd a [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) meghívásával elmenti az árnyék nélküli alakzatot.
 
 ```php
 use aspose\slides\FillType;
@@ -235,18 +291,18 @@ try {
 }
 ```
 
-Az alakzat‑elmosás a kitöltést és a körvonalat együtt érinti. A lágy szélek hatás az alakzat széleit fokozza, míg az árnyék‑elmosás csak az árnyékot lágyítja. A képek átalakítási hatásai a kép tartalmára vonatkoznak; ez a példa közvetlenül az alakzat effectformátumára alkalmaz elmosást, anélkül, hogy az alakzatot képpé konvertálná.
+A forma elmosódása egyszerre érinti a kitöltést és a körvonalt. A lágy szél hatás a forma széleit halványítja, míg az árnyék elmosódása csak az árnyékot lágyítja. A képtranszformációs hatások a kép tartalmán működnek; ez a példa közvetlenül a forma hatásformátumára alkalmaz elmosódást anélkül, hogy a formát képpé konvertálná.
 
 ## **GYIK**
 
 **Alkalmazhatok több hatást ugyanarra az alakzatra?**
 
-Igen, több különböző hatást, például árnyékot, reflexiót és fénylő hatást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
+Igen, különböző hatásokat, például árnyékot, tükröződést és ragyogást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
 
 **Milyen alakzatokra alkalmazhatok hatásokat?**
 
-Különféle alakzatokra alkalmazhat hatásokat, beleértve az autoshape‑eket, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
+Különféle alakzatokra alkalmazhat hatásokat, köztük automatikus alakzatokra, diagramokra, táblázatokra, képekre, SmartArt objektumokra, OLE objektumokra és egyéb elemekre.
 
 **Alkalmazhatok hatásokat csoportosított alakzatokra?**
 
-Igen, hatásokat alkalmazhat csoportosított alakzatokra is. A hatás az egész csoportra lesz alkalmazva.
+Igen, hatásokat alkalmazhat csoportosított alakzatokra. A hatás az egész csoportra vonatkozik.

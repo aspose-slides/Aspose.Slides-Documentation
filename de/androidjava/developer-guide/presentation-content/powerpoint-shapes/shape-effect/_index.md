@@ -1,44 +1,44 @@
 ---
-title: "Formeffekte in Präsentationen auf Android anwenden"
-linktitle: "Formeffekt"
+title: Formeffekte in Präsentationen auf Android anwenden
+linktitle: Formeffekt
 type: docs
 weight: 30
 url: /de/androidjava/shape-effect/
 keywords:
-- "Formeffekt"
-- "Schatteneffekt"
-- "Reflexionseffekt"
-- "Leuchteffekt"
-- "Weiche Kanten Effekt"
-- "Effektformat"
-- "PowerPoint"
-- "Präsentation"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "Transformieren Sie Ihre PPT- und PPTX-Dateien mit fortgeschrittenen Formeffekten mithilfe von Aspose.Slides für Android via Java — erstellen Sie in Sekunden eindrucksvolle, professionelle Folien."
+- Formeffekt
+- Schatteneffekt
+- Reflexionseffekt
+- Leuchteffekt
+- Weiche Kanten Effekt
+- Effektformat
+- PowerPoint
+- Präsentation
+- Android
+- Java
+- Aspose.Slides
+description: "Transformieren Sie Ihre PPT- und PPTX-Dateien mit erweiterten Formeffekten mithilfe von Aspose.Slides für Android via Java — erstellen Sie in Sekundenschnelle eindrucksvolle, professionelle Folien."
 ---
-## **Einleitung**
+## **Einführung**
 
-Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/de/androidjava/shape-formatting/#gradient-fill) oder Konturen. Mit PowerPoint‑Effekten können Sie überzeugende Spiegelungen einer Form erzeugen, den Schein einer Form verbreiten usw.
+Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/de/androidjava/shape-formatting/#gradient-fill) oder Konturen. Mit PowerPoint‑Effekten können Sie überzeugende Spiegelungen einer Form erzeugen, das Leuchten einer Form verbreiten usw.
 
 ![Shape effect](shape-effect.png)
 
 PowerPoint bietet sechs Effekte, die auf Formen angewendet werden können. Sie können einer Form einen oder mehrere Effekte zuweisen.
 
-Einige Kombinationen von Effekten sehen besser aus als andere. Aus diesem Grund bietet PowerPoint Optionen unter **Preset**. Die Preset‑Optionen sind Kombinationen aus zwei oder mehr Effekten, die bekanntermaßen gut aussehen. So müssen Sie beim Auswählen eines Presets keine Zeit damit verbringen, verschiedene Effekte zu testen oder zu kombinieren, um eine passende Kombination zu finden.
+Einige Kombinationen von Effekten sehen besser aus als andere. Aus diesem Grund stellt PowerPoint Optionen unter **Preset** bereit. Die Preset‑Optionen sind Kombinationen aus zwei oder mehr Effekten, von denen bekannt ist, dass sie gut aussehen. Auf diese Weise müssen Sie durch Auswahl eines Presets keine Zeit damit verschwenden, verschiedene Effekte zu testen oder zu kombinieren, um eine passende Kombination zu finden.
 
 Aspose.Slides stellt Eigenschaften und Methoden in der Klasse [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) bereit, mit denen Sie dieselben Effekte auf Formen in PowerPoint‑Präsentationen anwenden können.
 
 ## **Schatteneffekt anwenden**
 
-Aspose.Slides für Android via Java unterstützt äußere und innere Schatten für Formen. Sie können deren Farbe, Richtung, Abstand und Weichzeichnungsradius an das Design Ihrer Präsentation anpassen.
+Aspose.Slides für Android via Java unterstützt äußere und innere Schatten für Formen. Sie können deren Farbe, Richtung, Abstand und Unschärferadius an das Design Ihrer Präsentation anpassen.
 
-### **Außenschatten anwenden**
+### **Äußeren Schatten anwenden**
 
-Verwenden Sie einen Außenschatten, um eine Karte oder ein Panel gegenüber dem Folienhintergrund hervorzuheben. Der Schatten erstreckt sich über die Formkanten hinaus und vermittelt den Eindruck, dass die Form über der Folie schwebt. Passen Sie Farbe, Richtung, Abstand und Weichzeichnungsradius an die Beleuchtung und das Styling Ihrer Vorlage an.
+Verwenden Sie einen äußeren Schatten, um eine Karte oder ein Bedienfeld gegenüber dem Folienhintergrund hervorzuheben. Der Schatten erstreckt sich über die Kanten der Form hinaus und erzeugt den Eindruck, dass die Form über die Folie gehoben ist. Passen Sie Farbe, Richtung, Abstand und Unschärferadius an die Beleuchtung und das Styling Ihrer Vorlage an.
 
-Dieser Java‑Code zeigt, wie Sie den [outer shadow effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) auf ein Rechteck anwenden:
+This Java code shows how to apply the [äußeren Schatteneffekt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) to a rectangle:
 
 ```java
 import com.aspose.slides.*;
@@ -60,15 +60,15 @@ try {
 }
 ```
 
-![Shadow effect](shadow_effect.png)
+![Schatteneffekt](shadow_effect.png)
 
-### **Innenschatten anwenden**
+### **Inneren Schatten anwenden**
 
-Wenn Sie das visuelle Styling einer Vorlage reproduzieren, verwenden Sie einen Innenschatten, um einer Karte oder einem Panel ein vertieftes Aussehen zu verleihen. Ein Außenschatten erstreckt sich außerhalb der Form und lässt sie erhöht erscheinen, während ein Innenschatten die Innenseite ihrer Kanten abdunkelt.
+Bei der Reproduktion des visuellen Stils einer Vorlage verwenden Sie einen inneren Schatten, um einer Karte oder einem Bedienfeld ein vertieftes Erscheinungsbild zu verleihen. Ein äußerer Schatten erstreckt sich außerhalb der Form und lässt sie erhöht wirken, während ein innerer Schatten die Innenseite ihrer Kanten abschattet.
 
-Rufen Sie [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) auf und konfigurieren Sie anschließend den Schatten, der von [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) zurückgegeben wird. Größere Werte für den Weichzeichnungsradius erzeugen weichere Kanten.
+Rufen Sie [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) auf und konfigurieren Sie dann den von [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) zurückgegebenen Schatten. Größere Unschärferadiuswerte erzeugen weichere Kanten.
 
-Dieses Java‑Beispiel erzeugt eine hellblaue Karte mit einem dunkelgrauen Innenschatten und speichert sie als PPTX‑Datei. Die Schattenrichtung beträgt 225 Grad, der Abstand 7 Punkte und der Weichzeichnungsradius 6 Punkte:
+Dieses Java‑Beispiel erstellt eine hellblaue Karte mit einem dunkelgrauen inneren Schatten und speichert sie als PPTX‑Datei. Die Schattenrichtung beträgt 225 Grad, der Abstand beträgt 7 Punkte und der Unschärferadius 6 Punkte:
 
 ```java
 import com.aspose.slides.*;
@@ -96,15 +96,68 @@ try {
 }
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Hellblaues Rechteck mit innerem Schatten](inner_shadow_effect.png)
 
-Um den Innenschatten zu entfernen, rufen Sie [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) auf dem Effektformat der Form auf.
+Um den inneren Schatten zu entfernen, rufen Sie [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) im Effektformat der Form auf.
+
+### **Voreingestellten Schatten anwenden, ändern und entfernen**
+
+Rufen Sie [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) auf und verwenden Sie [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-), um einen [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/) auszuwählen. Um den Stil zu wechseln, ändern Sie das Preset derselben Form. Rufen Sie [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) auf, um den Schatten zu entfernen und gleichzeitig die Füllung und Kontur beizubehalten.
+
+Dieses Beispiel zeigt vier Phasen nebeneinander auf einer Folie. Beide Schatten sind um 10 Punkte versetzt. Eine Richtung von 225° positioniert den ersten Schatten oberhalb und links vom Rechteck, und 45° positioniert den zweiten darunter und rechts.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Original | Erstes Preset | Zweites Preset | Nach Entfernung |
+| :---: | :---: | :---: | :---: |
+| ![Kein Schatten](preset_shadow_original.png) | ![ObenLinksSchatten](preset_shadow_top_left.png) | ![UntenRechtsSchatten](preset_shadow_bottom_right.png) | ![Kein Schatten nach Entfernung](preset_shadow_removed.png) |
 
 ## **Reflexionseffekt anwenden**
 
-Um einen Reflexionseffekt in Aspose.Slides für Android via Java anzuwenden, können Sie Formen einen spiegelähnlichen Glanz hinzufügen und Parameter wie Abstand, Transparenz und Größe anpassen. Dieser Effekt verbessert die Ästhetik Ihrer Präsentationen, indem er Formen ein polierteres und anspruchsvolleres Aussehen verleiht. Er lässt sich mit einfachem Code leicht umsetzen und ermöglicht eine schnelle Anwendung auf mehrere Elemente für ein konsistentes Design.
+Um in Aspose.Slides für Android via Java einen Reflexionseffekt anzuwenden, können Sie Formen eine spiegelähnliche Reflexion hinzufügen und Parameter wie Abstand, Transparenz und Größe anpassen. Dieser Effekt verbessert die Ästhetik Ihrer Präsentationen, indem er Formen ein eleganteres und raffinierteres Aussehen verleiht. Er ist mit einfachem Code leicht implementierbar und ermöglicht eine schnelle Anwendung auf mehrere Elemente für ein konsistentes Design.
 
-Dieser Java‑Code zeigt, wie Sie den [reflection effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) auf eine Form anwenden:
+This Java code shows how to apply the [Reflexionseffekt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) to a shape:
 
 ```java
 import com.aspose.slides.*;
@@ -126,13 +179,13 @@ try {
 }
 ```
 
-![Reflection effect](reflection_effect.png)
+![Reflexionseffekt](reflection_effect.png)
 
 ## **Leuchteffekt anwenden**
 
-Um einen Leuchteffekt auf eine Form in Aspose.Slides für Android via Java anzuwenden, können Sie einen weichen, leuchtenden Schimmer um Formen hinzufügen und Eigenschaften wie Farbe und Größe anpassen. Dieser Effekt lässt Formen hervorstechen und fügt Ihrer Präsentation ein attraktiv‑auffälliges visuelles Element hinzu. Er lässt sich mit minimalem Code leicht implementieren und verbessert das Gesamtbild Ihrer Folien.
+Um in Aspose.Slides für Android via Java einen Leuchteffekt auf eine Form anzuwenden, können Sie eine weiche, leuchtende Aura um Formen hinzufügen und Eigenschaften wie Farbe und Größe anpassen. Dieser Effekt hilft, Formen hervorzuheben und verleiht Ihrer Präsentation ein attraktives, auffälliges visuelles Element. Er ist mit minimalem Code leicht zu implementieren und verbessert das Gesamtbild Ihrer Folien.
 
-Dieser Java‑Code zeigt, wie Sie den [glow effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) auf eine Form anwenden:
+This Java code shows how to apply the [Leuchteffekt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) to a shape:
 
 ```java
 import com.aspose.slides.*;
@@ -153,13 +206,13 @@ try {
 }
 ```
 
-![Glow effect](glow_effect.png)
+![Leuchteffekt](glow_effect.png)
 
 ## **Weiche Kanten‑Effekt anwenden**
 
-Um einen weichen Kanten‑Effekt in Aspose.Slides für Android via Java anzuwenden, können Sie einen sanften, unscharfen Übergang um die Ränder einer Form erzeugen. Dieser Effekt verleiht ein dezenteres und verfeinertes Aussehen, ideal für Designs, die ein sanftes Erscheinungsbild benötigen. Sie können Parameter wie den Radius leicht anpassen, um den gewünschten Effekt auf verschiedene Formen in Ihrer Präsentation zu erzielen.
+Um in Aspose.Slides für Android via Java einen Weiche‑Kanten‑Effekt anzuwenden, können Sie einen sanften, unscharfen Übergang rund um die Kanten einer Form erzeugen. Dieser Effekt verleiht ein subtileres und raffinierteres Aussehen, perfekt für Designs, die ein sanftes, weicheres Erscheinungsbild benötigen. Sie können Parameter wie den Radius leicht anpassen, um den gewünschten Effekt bei verschiedenen Formen in Ihrer Präsentation zu erzielen.
 
-Dieser Java‑Code zeigt, wie Sie den [soft edges effect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) auf eine Form anwenden:
+This Java code shows how to apply the [Weiche‑Kanten‑Effekt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) to a shape:
 
 ```java
 import com.aspose.slides.*;
@@ -178,19 +231,19 @@ try {
 }
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Weiche Kanten](soft_edges_effect.png)
 
 ## **Unschärfe‑Effekt anwenden**
 
-Verwenden Sie Form‑Unschärfe, um Füllung und Kontur einer Form zu mildern, während die Form bearbeitbar bleibt. Rufen Sie [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) auf dem Effektformat der Form auf. Der Radius wird in Punkten (1/72 Zoll) gemessen: Verwenden Sie einen nicht‑negativen Wert, wobei größere Werte zu stärkerer Unschärfe führen. Ein Radius von Null lässt das Aussehen unverändert.
+Verwenden Sie Form‑Unschärfe, um die Füllung und Kontur einer Form zu mildern, während die Form bearbeitbar bleibt. Rufen Sie [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) im Effektformat der Form auf. Der Radius wird in Punkten (1/72 Zoll) gemessen: Verwenden Sie einen nichtnegativen Wert, wobei größere Werte stärkere Unschärfe erzeugen. Ein Radius von null lässt das Aussehen unverändert.
 
-Die Einstellung [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) steuert die sichtbaren Grenzen des Effekts. Bei `false` wird die Unschärfe auf die ursprünglich gemalten Grenzen, einschließlich der Kontur, beschränkt. Bei `true` kann die Unschärfe über diese Grenzen hinausgehen. Keine der beiden Einstellungen verändert Position oder Abmessungen der Form.
+Die Einstellung [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) steuert die sichtbaren Begrenzungen des Effekts. Bei `false` wird die Unschärfe auf die ursprünglich gemalten Begrenzungen, einschließlich der Kontur, zugeschnitten. Bei `true` kann die Unschärfe über diese Begrenzungen hinausgehen. Keine der Einstellungen ändert Position oder Abmessungen der Form.
 
-Der Vergleich unten verwendet durchgehend dieselbe Füllung, Kontur und Formabmessungen. Die obere Reihe verwendet `grow = false`; die untere Reihe verwendet `grow = true`.
+Der Vergleich unten verwendet dieselbe Füllung, Kontur und Formabmessungen durchgehend. Die obere Zeile verwendet `grow = false`; die untere Zeile verwendet `grow = true`.
 
-![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+![Originales Rechteck im Vergleich mit Unschärferadiussen von 5 und 15 Punkten, bei deaktiviertem und aktiviertem Wachstum](shape_blur_comparison.png)
 
-Dieses Java‑Beispiel erstellt ein oranges Rechteck mit einer dunkelblauen Kontur, wendet eine 5‑Punkt‑Unschärfe an und erhöht anschließend die Unschärfe auf 15 Punkte, indem es erneut [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aufruft. Beide unscharfen Zustände werden gespeichert, danach wird [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) aufgerufen und die Form ohne Unschärfe gespeichert.
+Dieses Java‑Beispiel erstellt ein orangefarbenes Rechteck mit einer dunkelblauen Kontur, wendet eine Unschärfe von 5 Punkten an und erhöht sie anschließend auf 15 Punkte, indem es erneut [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aufruft. Es speichert beide unscharfen Zustände, ruft dann [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) auf und speichert die Form ohne Unschärfe.
 
 ```java
 import com.aspose.slides.*;
@@ -220,18 +273,18 @@ try {
 }
 ```
 
-Form‑Unschärfe wirkt sich gleichzeitig auf Füllung und Kontur aus. Ein weicher Kanten‑Effekt verblasst die Ränder der Form, während Schatten‑Unschärfe nur den Schatten mildert. Bild‑Transformations‑Effekte arbeiten am Bildinhalt; dieses Beispiel wendet Unschärfe direkt auf das Effektformat der Form an, ohne die Form in ein Bild zu konvertieren.
+Form‑Unschärfe wirkt sich gleichzeitig auf Füllung und Kontur aus. Ein Weiche‑Kanten‑Effekt verblasst die Kanten der Form, während Schatten‑Unschärfe nur den Schatten weichzeichnet. Bild‑Transformations‑Effekte wirken auf Bildinhalte; dieses Beispiel wendet Unschärfe direkt auf das Effektformat der Form an, ohne die Form in ein Bild zu konvertieren.
 
 ## **FAQ**
 
 **Kann ich mehrere Effekte auf dieselbe Form anwenden?**
 
-Ja, Sie können verschiedene Effekte wie Schatten, Reflexion und Leuchteffekt auf einer einzigen Form kombinieren, um ein dynamischeres Aussehen zu erzielen.
+Ja, Sie können verschiedene Effekte wie Schatten, Reflexion und Leuchten auf einer einzelnen Form kombinieren, um ein dynamischeres Erscheinungsbild zu erzeugen.
 
 **Auf welche Formen kann ich Effekte anwenden?**
 
-Sie können Effekte auf verschiedene Formen anwenden, einschließlich Autoformen, Diagrammen, Tabellen, Bildern, SmartArt‑Objekten, OLE‑Objekten und mehr.
+Sie können Effekte auf verschiedene Formen anwenden, darunter Autoformen, Diagramme, Tabellen, Bilder, SmartArt‑Objekte, OLE‑Objekte und mehr.
 
 **Kann ich Effekte auf gruppierte Formen anwenden?**
 
-Ja, Sie können Effekte auf gruppierte Formen anwenden. Der Effekt wird dann auf die gesamte Gruppe angewendet.
+Ja, Sie können Effekte auf gruppierte Formen anwenden. Der Effekt wird auf die gesamte Gruppe angewendet.

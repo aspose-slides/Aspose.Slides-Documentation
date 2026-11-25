@@ -16,27 +16,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ubah file PPT dan PPTX Anda dengan efek bentuk lanjutan menggunakan Aspose.Slides untuk Android via Java—buat slide yang menawan dan profesional dalam hitungan detik."
+description: "Ubah file PPT dan PPTX Anda dengan efek bentuk tingkat lanjut menggunakan Aspose.Slides untuk Android via Java—buat slide yang menawan dan profesional dalam hitungan detik."
 ---
 ## **Pendahuluan**
 
-Meskipun efek di PowerPoint dapat digunakan untuk menonjolkan sebuah bentuk, efek tersebut berbeda dari [isian](/slides/id/androidjava/shape-formatting/#gradient-fill) atau garis tepi. Dengan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya pada bentuk, dll.
+Sementara efek di PowerPoint dapat digunakan untuk membuat sebuah bentuk menonjol, mereka berbeda dari [isi](/slides/id/androidjava/shape-formatting/#gradient-fill) atau garis tepi. Dengan menggunakan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya pada bentuk, dll.
 
 ![Efek bentuk](shape-effect.png)
 
 PowerPoint menyediakan enam efek yang dapat diterapkan pada bentuk. Anda dapat menerapkan satu atau lebih efek pada sebuah bentuk.
 
-Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Karena itu, PowerPoint menyediakan opsi di bawah **Preset**. Opsi Preset adalah kombinasi dua atau lebih efek yang diketahui menghasilkan tampilan yang baik. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu menguji atau menggabungkan efek yang berbeda untuk menemukan kombinasi yang bagus.
+Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Karena itu, PowerPoint menyediakan opsi di bawah **Preset**. Opsi Preset adalah kombinasi dua atau lebih efek yang diketahui terlihat bagus. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu menguji atau menggabungkan efek yang berbeda untuk menemukan kombinasi yang bagus.
 
-Aspose.Slides menyediakan properti dan metode di bawah kelas [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) yang memungkinkan Anda menerapkan efek yang sama pada bentuk dalam presentasi PowerPoint.
+Aspose.Slides menyediakan properti dan metode di kelas [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) yang memungkinkan Anda menerapkan efek yang sama pada bentuk dalam presentasi PowerPoint.
 
-## **Menerapkan Efek Bayangan**
+## **Terapkan Efek Bayangan**
 
-Aspose.Slides untuk Android via Java mendukung bayangan luar dan dalam untuk bentuk. Anda dapat menyesuaikan warna, arah, jarak, dan radius keburaman agar sesuai dengan desain presentasi Anda.
+Aspose.Slides for Android via Java mendukung bayangan luar dan dalam untuk bentuk. Anda dapat menyesuaikan warna, arah, jarak, dan radius blur untuk mencocokkan desain presentasi Anda.
 
-### **Menerapkan Bayangan Luar**
+### **Terapkan Bayangan Luar**
 
-Gunakan bayangan luar untuk membuat kartu atau panel menonjol dari latar belakang slide. Bayangan tersebut meluas di luar tepi bentuk, menciptakan kesan bahwa bentuk tersebut terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius keburaman agar cocok dengan pencahayaan dan gaya template Anda.
+Gunakan bayangan luar untuk membuat kartu atau panel menonjol di latar belakang slide. Bayangan meluas melampaui tepi bentuk, menciptakan kesan bahwa bentuk terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius blur untuk mencocokkan pencahayaan dan gaya templat Anda.
 
 Kode Java berikut menunjukkan cara menerapkan [efek bayangan luar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) pada sebuah persegi panjang:
 
@@ -62,13 +62,13 @@ try {
 
 ![Efek bayangan](shadow_effect.png)
 
-### **Menerapkan Bayangan Dalam**
+### **Terapkan Bayangan Dalam**
 
-Saat mereproduksi gaya visual template, gunakan bayangan dalam untuk memberi kartu atau panel penampilan menjorok ke dalam. Bayangan luar meluas di luar bentuk dan membuatnya tampak terangkat, sementara bayangan dalam memberi bayangan pada sisi dalam tepinya.
+Saat mereproduksi gaya visual sebuah templat, gunakan bayangan dalam untuk memberi kartu atau panel tampilan terbenam. Bayangan luar meluas di luar bentuk dan membuatnya tampak terangkat, sedangkan bayangan dalam memberi bayangan pada bagian dalam tepinya.
 
-Panggil [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), lalu konfigurasikan bayangan yang dikembalikan oleh [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Nilai radius keburaman yang lebih besar menghasilkan tepi yang lebih lembut.
+Panggil [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), kemudian konfigurasikan bayangan yang dikembalikan oleh [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Nilai radius blur yang lebih besar menghasilkan tepi yang lebih lembut.
 
-Contoh Java ini membuat kartu biru muda dengan bayangan dalam abu‑abu gelap dan menyimpannya sebagai file PPTX. Arah bayangan adalah 225 derajat, jaraknya 7 poin, dan radius keburaman 6 poin:
+Contoh Java ini membuat kartu biru muda dengan bayangan dalam abu‑abu gelap dan menyimpannya sebagai file PPTX. Arah bayangan 225 derajat, jaraknya 7 poin, dan radius blurnya 6 poin:
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +100,62 @@ try {
 
 Untuk menghapus bayangan dalam, panggil [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) pada format efek bentuk.
 
-## **Menerapkan Efek Refleksi**
+### **Terapkan, Ubah, dan Hapus Bayangan Preset**
 
-Untuk menerapkan efek refleksi di Aspose.Slides untuk Android via Java, Anda dapat menambahkan refleksi seperti cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberikan bentuk tampilan yang lebih halus dan elegan. Mudah diimplementasikan dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
+Panggil [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) dan gunakan [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) untuk memilih [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/). Untuk mengganti gaya, ubah preset pada bentuk yang sama. Panggil [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) untuk menghapus bayangan sambil mempertahankan isi dan outline.
+
+Contoh ini menampilkan empat tahap berdampingan pada satu slide. Kedua bayangan memiliki offset 10 poin. Arah 225° menempatkan bayangan pertama di atas dan kiri persegi panjang, dan 45° menempatkan bayangan kedua di bawah dan kanan.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Asli | Preset pertama | Preset kedua | Setelah dihapus |
+| :---: | :---: | :---: | :---: |
+| ![Tanpa bayangan](preset_shadow_original.png) | ![Bayangan Drop Kiri Atas](preset_shadow_top_left.png) | ![Bayangan Drop Kanan Bawah](preset_shadow_bottom_right.png) | ![Tanpa bayangan setelah dihapus](preset_shadow_removed.png) |
+
+## **Terapkan Efek Refleksi**
+
+Untuk menerapkan efek refleksi di Aspose.Slides for Android via Java, Anda dapat menambahkan refleksi seperti cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberi bentuk tampilan yang lebih halus dan elegan. Sangat mudah diimplementasikan dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
 
 Kode Java berikut menunjukkan cara menerapkan [efek refleksi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) pada sebuah bentuk:
 
@@ -128,9 +181,9 @@ try {
 
 ![Efek refleksi](reflection_effect.png)
 
-## **Menerapkan Efek Cahaya (Glow)**
+## **Terapkan Efek Cahaya**
 
-Untuk menerapkan efek cahaya pada sebuah bentuk di Aspose.Slides untuk Android via Java, Anda dapat menambahkan aura lembut yang bersinar di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu membuat bentuk menonjol dan menambahkan elemen visual yang menarik pada presentasi Anda. Mudah diimplementasikan dengan kode minimal, meningkatkan tampilan keseluruhan slide Anda.
+Untuk menerapkan efek cahaya pada sebuah bentuk di Aspose.Slides for Android via Java, Anda dapat menambahkan aura lembut yang bersinar di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu membuat bentuk menonjol dan menambah elemen visual yang menarik pada presentasi Anda. Sangat mudah diimplementasikan dengan kode minimal, meningkatkan tampilan keseluruhan slide Anda.
 
 Kode Java berikut menunjukkan cara menerapkan [efek cahaya](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) pada sebuah bentuk:
 
@@ -155,9 +208,9 @@ try {
 
 ![Efek cahaya](glow_effect.png)
 
-## **Menerapkan Efek Pinggiran Lembut**
+## **Terapkan Efek Pinggiran Lembut**
 
-Untuk menerapkan efek pinggiran lembut di Aspose.Slides untuk Android via Java, Anda dapat membuat transisi halus dan kabur di sekitar pinggiran bentuk. Efek ini menambahkan tampilan yang lebih halus dan halus, cocok untuk desain yang memerlukan penampilan lembut. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
+Untuk menerapkan efek pinggiran lembut di Aspose.Slides for Android via Java, Anda dapat membuat transisi halus dan kabur di sekitar tepi sebuah bentuk. Efek ini menambah tampilan yang lebih halus dan halus, cocok untuk desain yang memerlukan penampilan lembut. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
 
 Kode Java berikut menunjukkan cara menerapkan [efek pinggiran lembut](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) pada sebuah bentuk:
 
@@ -180,17 +233,17 @@ try {
 
 ![Efek pinggiran lembut](soft_edges_effect.png)
 
-## **Menerapkan Efek Keburaman**
+## **Terapkan Efek Blur**
 
-Gunakan keburaman bentuk untuk melunakkan isian dan garis tepi bentuk sambil tetap mempertahankan kemampuan mengedit bentuk. Panggil [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai non‑negatif, dengan nilai yang lebih besar menghasilkan keburaman yang lebih kuat. Radius nol tidak mengubah penampilan.
+Gunakan blur bentuk untuk melunakkan isi dan outline bentuk sambil mempertahankan bentuk tetap dapat diedit. Panggil [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai non‑negatif, dengan nilai yang lebih besar menghasilkan blur yang lebih kuat. Radius nol tidak mengubah tampilan.
 
-Pengaturan [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) mengontrol batas tampak efek. Dengan `false`, keburaman dipotong pada batas yang semula dilukis, termasuk garis tepi. Dengan `true`, keburaman dapat meluas di luar batas tersebut. Tidak ada pengaturan yang mengubah posisi atau dimensi bentuk.
+Pengaturan [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) mengontrol batas tampak efek. Dengan `false`, blur dipotong pada batas terlukis asli, termasuk outline. Dengan `true`, blur dapat meluas melewati batas tersebut. Kedua pengaturan tidak mengubah posisi atau dimensi bentuk.
 
-Perbandingan di bawah menggunakan isian, garis tepi, dan dimensi bentuk yang sama sepanjang proses. Baris atas menggunakan `grow = false`; baris bawah menggunakan `grow = true`.
+Perbandingan di bawah menggunakan isi, outline, dan dimensi bentuk yang sama sepanjang contoh. Baris atas menggunakan `grow = false`; baris bawah menggunakan `grow = true`.
 
-![Persegi panjang asli dibandingkan dengan radius keburaman 5 dan 15 poin, dengan grow dinonaktifkan dan diaktifkan](shape_blur_comparison.png)
+![Persegi panjang asli dibandingkan dengan radius blur 5 dan 15 poin, dengan grow dinonaktifkan dan diaktifkan](shape_blur_comparison.png)
 
-Contoh Java ini membuat persegi panjang oranye dengan garis tepi biru tua, menerapkan keburaman 5 poin, lalu memperbaruinya menjadi keburaman 15 poin dengan memanggil [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) lagi. Kedua keadaan keburaman disimpan, kemudian memanggil [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) dan menyimpan bentuk tanpa keburaman.
+Contoh Java ini membuat persegi panjang oranye dengan outline biru tua, menerapkan blur 5 poin, lalu memperbaruinya menjadi blur 15 poin dengan memanggil kembali [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Ia menyimpan kedua keadaan blur, kemudian memanggil [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) dan menyimpan bentuk tanpa blur.
 
 ```java
 import com.aspose.slides.*;
@@ -220,17 +273,17 @@ try {
 }
 ```
 
-Keburaman bentuk memengaruhi isian dan garis tepi secara bersamaan. Efek pinggiran lembut memudarkan pinggiran bentuk, sementara keburaman bayangan melunakkan hanya bayangan. Efek transformasi gambar beroperasi pada konten gambar; contoh ini menerapkan keburaman langsung pada format efek bentuk tanpa mengonversi bentuk menjadi gambar.
+Blur bentuk memengaruhi isi dan outline bersama-sama. Efek pinggiran lembut memudarkan tepi bentuk, sedangkan blur bayangan melunakkan hanya bayangan. Efek transformasi gambar bekerja pada konten gambar; contoh ini menerapkan blur langsung pada format efek bentuk tanpa mengubah bentuk menjadi gambar.
 
 ## **FAQ**
 
 **Apakah saya dapat menerapkan beberapa efek pada bentuk yang sama?**
 
-Ya, Anda dapat menggabungkan efek yang berbeda, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan tampilan yang lebih dinamis.
+Ya, Anda dapat menggabungkan berbagai efek, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan penampilan yang lebih dinamis.
 
-**Bentuk apa saja yang dapat saya terapkan efek?**
+**Bentuk apa yang dapat saya terapkan efek?**
 
-Anda dapat menerapkan efek pada berbagai bentuk, termasuk autoshape, diagram, tabel, gambar, objek SmartArt, objek OLE, dan lainnya.
+Anda dapat menerapkan efek pada berbagai bentuk, termasuk autoshape, diagram, tabel, gambar, objek SmartArt, objek OLE, dan lain‑lain.
 
 **Apakah saya dapat menerapkan efek pada bentuk yang dikelompokkan?**
 

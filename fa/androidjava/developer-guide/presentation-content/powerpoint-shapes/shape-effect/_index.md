@@ -1,44 +1,44 @@
 ---
 title: اعمال افکت‌های شکل در ارائه‌ها بر روی اندروید
-linktitle: اثر شکل
+linktitle: افکت شکل
 type: docs
 weight: 30
 url: /fa/androidjava/shape-effect/
 keywords:
 - افکت شکل
 - افکت سایه
-- افکت انعکاس
+- افکت بازتاب
 - افکت درخشندگی
 - افکت لبه‌های نرم
-- قالب افکت
+- فرمت افکت
 - PowerPoint
 - ارائه
 - Android
 - Java
 - Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل با Aspose.Slides برای اندروید از طریق Java تغییر شکل دهید—در عرض چند ثانیه اسلایدهای چشم‌نوازی و حرفه‌ای ایجاد کنید."
+description: "با استفاده از Aspose.Slides برای اندروید از طریق جاوا، فایل‌های PPT و PPTX خود را با افکت‌های پیشرفته شکل تبدیل کنید—اسلایدهای برجسته و حرفه‌ای را در ثانیه‌ها ایجاد کنید."
 ---
 ## **مقدمه**
 
-در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته کردن یک شکل استفاده شوند، این افکت‌ها با [پرکننده‌ها](/slides/fa/androidjava/shape-formatting/#gradient-fill) یا خطوط مرزی متفاوت هستند. با استفاده از افکت‌های PowerPoint می‌توانید بازتاب‌های قانع‌کننده‌ای بر روی یک شکل ایجاد کنید، درخشانی شکل را گسترش دهید، و غیره.
+در حالی که افکت‌ها در پاورپوینت می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها متفاوت از [پرکننده‌ها](/slides/fa/androidjava/shape-formatting/#gradient-fill) یا خطوط مرزی هستند. با استفاده از افکت‌های پاورپوینت می‌توانید انعکاس‌های قانع‌کننده روی یک شکل ایجاد کنید، درخشندگی شکل را گسترش دهید و غیره.
 
 ![اثر شکل](shape-effect.png)
 
-PowerPoint شش افکت را ارائه می‌دهد که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
+پاورپوینت شش افکت ارائه می‌دهد که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
 
-برخی ترکیب‌های افکت‌ها نسبت به سایرین زیباتر به‌نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **پیش تنظیم** ارائه می‌دهد. گزینه‌های پیش تنظیم ترکیبی از دو یا چند افکت هستند که به‌نظر می‌رسد خوب‌اند. به این ترتیب، با انتخاب یک پیش تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب ندارید.
+برخی ترکیب‌های افکت بهتر از دیگران به نظر می‌رسند. به همین دلیل، پاورپوینت گزینه‌هایی تحت **Preset** ارائه می‌دهد. گزینه‌های Preset ترکیبی از دو یا چند افکت هستند که شناخته شده‌اند که ظاهر خوبی دارند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب ندارید.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) ارائه می‌دهد که به شما امکان می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های PowerPoint اعمال کنید.
+Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) ارائه می‌دهد که به شما امکان می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های پاورپوینت اعمال کنید.
 
 ## **اعمال افکت سایه**
 
-Aspose.Slides برای Android از طریق Java از سایه‌های خارجی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را به‌گونه‌ای تنظیم کنید که با طراحی ارائه شما مطابقت داشته باشد.
+Aspose.Slides برای اندروید از طریق جاوا از سایه‌های بیرونی و درونی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را برای تطبیق با طراحی ارائه‌تان سفارشی کنید.
 
-### **اعمال سایه خارجی**
+### **اعمال سایه بیرونی**
 
-از سایه خارجی برای برجسته کردن یک کارت یا پنل در برابر پس‌زمینه اسلاید استفاده کنید. این سایه از مرزهای شکل فراتر می‌رود و این تصور را ایجاد می‌کند که شکل بالای اسلاید قرار دارد. رنگ، جهت، فاصله و شعاع تاری آن را تنظیم کنید تا با نور و سبک قالب شما منطبق باشد.
+از سایه بیرونی برای برجسته کردن یک کارت یا پنل در برابر پس‌زمینه اسلاید استفاده کنید. سایه فراتر از لبه‌های شکل گسترش می‌یابد و احساس می‌کند که شکل از اسلاید برجسته شده است. رنگ، جهت، فاصله و شعاع تاری آن را مطابق با روشنایی و سبک قالب خود تنظیم کنید.
 
-این کد Java نشان می‌دهد چگونه [افکت سایه خارجی](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) را بر روی یک مستطیل اعمال کنید:
+این کد جاوا نشان می‌دهد چگونه [افکت سایه بیرونی](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) را به یک مستطیل اعمال کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -60,15 +60,15 @@ try {
 }
 ```
 
-![افکت سایه](shadow_effect.png)
+![اثر سایه](shadow_effect.png)
 
 ### **اعمال سایه داخلی**
 
-هنگام بازتولید سبک بصری یک قالب، از سایه داخلی استفاده کنید تا به یک کارت یا پنل ظاهری نشسته بدهید. یک سایه خارجی خارج از شکل گسترش می‌یابد و باعث می‌شود شکل بالا آمده به نظر برسد، در حالی که یک سایه داخلی لبه‌های داخلی آن را سایه می‌زند.
+هنگام بازتولید سبک بصری یک قالب، از سایه داخلی برای دادن ظاهر فرو رفته به یک کارت یا پنل استفاده کنید. یک سایه بیرونی خارج از شکل گسترش می‌یابد و باعث می‌شود شکل برجسته به نظر برسد، در حالی که سایه داخلی داخل لبه‌های آن را سایه‌دار می‌کند.
 
-متد [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) را فراخوانی کنید، سپس سایه‌ای که توسط [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) برگردانده می‌شود را پیکربندی کنید. مقادیر بزرگتر شعاع تاری لبه‌های نرم‌تری تولید می‌کنند.
+Call [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), then configure the shadow returned by [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Larger blur radius values produce softer edges.
 
-این مثال Java یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به‌صورت یک فایل PPTX ذخیره می‌کند. جهت سایه ۲۲۵ درجه، فاصله آن ۷ پوینت و شعاع تاری ۶ پوینت است:
+این مثال جاوا یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به صورت فایل PPTX ذخیره می‌نماید. جهت سایه ۲۲۵ درجه، فاصله آن ۷ نقطه و شعاع تاری ۶ نقطه است:
 
 ```java
 import com.aspose.slides.*;
@@ -98,13 +98,66 @@ try {
 
 ![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
 
-برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) را بر روی قالب افکت شکل فراخوانی کنید.
+برای حذف سایه داخلی، [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) را روی فرمت افکت شکل فراخوانی کنید.
 
-## **اعمال افکت انعکاس**
+### **اعمال، تغییر و حذف سایه پیش‌تنظیم‌شده**
 
-برای اعمال افکت انعکاس در Aspose.Slides برای Android از طریق Java، می‌توانید بازتابی مشابه آینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیشرفته به اشکال ارتقا می‌دهد. پیاده‌سازی آن با کد ساده آسان است و امکان اعمال سریع بر روی عناصر متعدد برای طراحی یکدست را فراهم می‌کند.
+Call [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) and use [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) to select a [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) to remove the shadow while preserving the fill and outline.
 
-این کد Java نشان می‌دهد چگونه [افکت انعکاس](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) را بر روی یک شکل اعمال کنید:
+این مثال چهار مرحله را به‌صورت کنار هم بر روی یک اسلاید نشان می‌دهد. هر دو سایه با ۱۰ نقطه جابجا شده‌اند. جهت ۲۲۵° سایه اول را بالای چپ مستطیل قرار می‌دهد و ۴۵° دوم را پایین راست.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| اصلی | پیش‌تنظیم اول | پیش‌تنظیم دوم | پس از حذف |
+| :---: | :---: | :---: | :---: |
+| ![بدون سایه](preset_shadow_original.png) | ![سایه پایین‑چپ](preset_shadow_top_left.png) | ![سایه بالا‑راست](preset_shadow_bottom_right.png) | ![بدون سایه پس از حذف](preset_shadow_removed.png) |
+
+## **اعمال افکت بازتاب**
+
+برای اعمال افکت بازتاب در Aspose.Slides برای اندروید از طریق جاوا، می‌توانید بازتابی مشابه آینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیشرفته به اشکال ارتقا می‌بخشد. پیاده‌سازی آن با کد ساده آسان است و امکان اعمال سریع بر روی چندین عنصر برای داشتن طراحی یکدست را فراهم می‌کند.
+
+این کد جاوا نشان می‌دهد چگونه [افکت بازتاب](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) را به یک شکل اعمال کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -126,13 +179,13 @@ try {
 }
 ```
 
-![افکت انعکاس](reflection_effect.png)
+![اثر بازتاب](reflection_effect.png)
 
 ## **اعمال افکت درخشندگی**
 
-برای اعمال افکت درخشندگی بر روی یک شکل در Aspose.Slides برای Android از طریق Java، می‌توانید هاله‌ای نرم و نورانی دور اشکال اضافه کنید و خصوصیت‌هایی مانند رنگ و اندازه را تنظیم نمایید. این افکت به برجسته شدن اشکال کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. پیاده‌سازی آن با حداقل کد آسان است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
+برای اعمال افکت درخشندگی به یک شکل در Aspose.Slides برای اندروید از طریق جاوا، می‌توانید هاله‌ای نرم و روشن دور اشکال ایجاد کنید و خصوصاتی همچون رنگ و اندازه را تنظیم نمایید. این افکت به برجسته شدن اشکال کمک کرده و عنصر بصری جذابی به ارائه شما می‌افزاید. پیاده‌سازی آن با کمترین کد آسان است و ظاهر کلی اسلایدها را ارتقا می‌دهد.
 
-این کد Java نشان می‌دهد چگونه [افکت درخشندگی](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) را بر روی یک شکل اعمال کنید:
+این کد جاوا نشان می‌دهد چگونه [افکت درخشندگی](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) را به یک شکل اعمال کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -153,13 +206,13 @@ try {
 }
 ```
 
-![افکت درخشندگی](glow_effect.png)
+![اثر درخشندگی](glow_effect.png)
 
 ## **اعمال افکت لبه‌های نرم**
 
-برای اعمال افکت لبه‌های نرم در Aspose.Slides برای Android از طریق Java، می‌توانید یک انتقال صاف و تاری دور لبه‌های یک شکل ایجاد کنید. این افکت ظاهری ظریف‌تر و براق‌تر می‌افزاید که برای طرح‌هایی که به ظاهر ملایم و نرم نیاز دارند، ایده‌آل است. می‌توانید به‌راحتی پارامترهایی مانند شعاع را تنظیم کنید تا اثر دلخواه را در اشکال مختلف ارائه خود به دست آورید.
+برای اعمال افکت لبه‌های نرم در Aspose.Slides برای اندروید از طریق جاوا، می‌توانید انتقالی صاف و مات در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ظریف‌تری می‌بخشد که برای طرح‌هایی که نیاز به ظاهر ملایم و نرم دارند مناسب است. می‌توانید به سادگی پارامترهایی مانند شعاع را تنظیم کنید تا اثر دلخواه را بر روی اشکال مختلف در ارائه خود بدست آورید.
 
-این کد Java نشان می‌دهد چگونه [افکت لبه‌های نرم](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) را بر روی یک شکل اعمال کنید:
+این کد جاوا نشان می‌دهد چگونه [افکت لبه‌های نرم](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) را به یک شکل اعمال کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -178,19 +231,19 @@ try {
 }
 ```
 
-![افکت لبه‌های نرم](soft_edges_effect.png)
+![اثر لبه‌های نرم](soft_edges_effect.png)
 
 ## **اعمال افکت تاری**
 
-از تاری شکل برای نرم کردن پرکننده و خط مرزی یک شکل استفاده کنید در حالی که شکل قابل ویرایش باقی می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) را بر روی قالب افکت شکل فراخوانی کنید. شعاع بر حسب پوینت (1/72 اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید، مقادیر بزرگتر تاری قوی‌تری ایجاد می‌کنند. شعاع صفر ظاهر را تغییری نمی‌دهد.
+از تاری شکل برای نرم کردن پرکننده و خط مرزی شکل استفاده کنید در حالی که شکل قابل ویرایش می‌ماند. با فراخوانی [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) روی فرمت افکت شکل، می‌توانید شعاع را که بر حسب نقطه (۱/۷۲ اینچ) اندازه‌گیری می‌شود تنظیم کنید: مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگتر باعث تاری قوی‌تر می‌شوند. شعاع صفر ظاهر را تغییر نمی‌دهد.
 
-تنظیم [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) مرزهای قابل مشاهده اثر را کنترل می‌کند. با `false`، تاری به مرزهای اولیه نقاشی شده محدود می‌شود، شامل خط مرزی. با `true`، تاری می‌تواند فراتر از آن مرزها گسترش یابد. هیچ‌کدام از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
+تنظیم [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) مرزهای قابل مشاهده اثر را کنترل می‌کند. با `false`، تاری به مرزهای کشیده شده اولیه، از جمله خط مرزی، محدود می‌شود. با `true`، تاری می‌تواند فراتر از آن مرزها گسترش یابد. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
 
-مقایسه زیر از همان پرکننده، خط مرزی و ابعاد شکل در تمام موارد استفاده می‌کند. ردیف بالا از `grow = false` استفاده می‌کند؛ ردیف پایین از `grow = true` استفاده می‌کند.
+مقایسه زیر از همان پرکننده، خط مرزی و ابعاد شکل برای تمام نمونه‌ها استفاده می‌کند. ردیف بالا `grow = false` دارد؛ ردیف پایین `grow = true` دارد.
 
-![مستطیل اصلی مقایسه‌شده با شعاع‌های تاری ۵ و ۱۵ پوینت، با grow غیرفعال و فعال](shape_blur_comparison.png)
+![مستطیل اصلی مقایسه شده با شعاع‌های تاری 5 و 15 نقطه، با grow غیرفعال و فعال](shape_blur_comparison.png)
 
-این مثال Java یک مستطیل نارنجی با خط مرزی آبی تیره ایجاد می‌کند، تاری ۵ پوینتی اعمال می‌کند و سپس با فراخوانی مجدد [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) به تاری ۱۵ پوینت به‌روزرسانی می‌کند. هر دو حالت تاری را ذخیره می‌کند، سپس با فراخوانی [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) شکل را بدون تاری ذخیره می‌کند.
+این مثال جاوا یک مستطیل نارنجی با خط مرزی آبی تیره ایجاد می‌کند، تاری 5 نقطه‌ای اعمال می‌کند و سپس با فراخوانی مجدد [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) آن را به 15 نقطه تغییر می‌دهد. هر دو حالت تاری را ذخیره می‌کند، سپس [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) را فراخوانی کرده و شکل بدون تاری ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -220,18 +273,15 @@ try {
 }
 ```
 
-تاری شکل بر روی پرکننده و خط مرزی به‌صورت همزمان اثر می‌گذارد. یک افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تاری سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوی تصویر عمل می‌کنند؛ این مثال تاری را مستقیماً بر قالب افکت شکل اعمال می‌کند بدون این‌که شکل به تصویر تبدیل شود.
+تاری شکل هم پرکننده و هم خط مرزی را تحت تاثیر قرار می‌دهد. افکت لبه‌های نرم لبه‌های شکل را ملایم می‌کند، در حالی که تاری سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر اعمال می‌شوند؛ این مثال تاری را مستقیماً بر فرمت افکت شکل اعمال می‌کند بدون تبدیل شکل به تصویر.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم چندین افکت را بر روی یک شکل اعمال کنم؟**
+**آیا می‌توانم چندین افکت را بر روی همان شکل اعمال کنم؟**  
+بله، می‌توانید افکت‌های مختلفی مانند سایه، بازتاب و درخشندگی را بر روی یک شکل ترکیب کنید تا ظاهر پویاتری بدست آورید.
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و درخشندگی را بر روی یک شکل ترکیب کنید تا ظاهر پویاتری به‌دست آورید.
+**به چه اشکالی می‌توانم افکت‌ها را اعمال کنم؟**  
+می‌توانید افکت‌ها را به انواع مختلفی از اشکال اعمال کنید، از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیاء SmartArt، اشیاء OLE و موارد دیگر.
 
-**به چه اشکالی می‌توانم افکت‌ها را اعمال کنم؟**
-
-می‌توانید افکت‌ها را بر روی انواع مختلفی از اشکال اعمال کنید، از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیای SmartArt، اشیای OLE و غیره.
-
-**آیا می‌توانم افکت‌ها را بر روی اشکال گروه‌دار اعمال کنم؟**
-
-بله، می‌توانید افکت‌ها را بر روی اشکال گروه‌دار اعمال کنید. افکت بر کل گروه اعمال خواهد شد.
+**آیا می‌توانم افکت‌ها را بر روی اشکال گروه‌بندی‌شده اعمال کنم؟**  
+بله، می‌توانید افکت‌ها را به اشکال گروه‌بندی‌شده اعمال کنید. افکت بر کل گروه اعمال خواهد شد.

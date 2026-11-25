@@ -1,45 +1,44 @@
 ---
-title: اعمال افکت‌های شکل در ارائه‌ها با استفاده از Python از طریق Java
-linktitle: افکت شکل
+title: "اعمال افکت‌های شکل در ارائه‌ها با استفاده از Python از طریق Java"
+linktitle: "افکت شکل"
 type: docs
 weight: 30
 url: /fa/python-java/shape-effect/
 keywords:
-- افکت شکل
-- افکت سایه
-- افکت بازتاب
-- افکت درخشش
-- افکت لبه‌های نرم
-- فرمت افکت
-- پاورپوینت
-- ارائه
-- پایتون
-- جاوا
-- Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با افکت‌های پیشرفته شکل با استفاده از Aspose.Slides برای Python از طریق Java تبدیل کنید — در عرض چند ثانیه اسلایدهای برجسته و حرفه‌ای ایجاد کنید."
+- "افکت شکل"
+- "افکت سایه"
+- "افکت انعکاس"
+- "افکت تابش"
+- "افکت لبه‌های نرم"
+- "قالب افکت"
+- "PowerPoint"
+- "ارائه"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل با Aspose.Slides برای Python از طریق Java تبدیل کنید—در چند ثانیه اسلایدهای چشم‌نواز و حرفه‌ای ایجاد کنید."
 ---
 ## **معرفی**
 
-در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته شدن یک شکل استفاده شوند، با [پرکننده‌ها](/slides/fa/python-java/shape-formatting/#gradient-fill) یا خطوط مرزی متفاوت هستند. با استفاده از افکت‌های PowerPoint می‌توانید بازتاب‌های قانع‌کننده‌ای روی یک شکل ایجاد کنید، نوردهی شکل را پخش کنید و غیره.
+در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته‌کردن یک شکل استفاده شوند، آنها با [پرکننده‌ها](/slides/fa/python-java/shape-formatting/#gradient-fill) یا خطوط دور متفاوت هستند. با استفاده از افکت‌های PowerPoint می‌توانید انعکاس‌های قانع‌کننده‌ای روی یک شکل ایجاد کنید، تابش شکل را گسترش دهید و غیره.
 
-![افکت شکل](shape-effect.png)
+![Shape effect](shape-effect.png)
 
-PowerPoint شش افکت را ارائه می‌دهد که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را به یک شکل اعمال کنید.
+PowerPoint شش افکت را فراهم می‌کند که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
 
-برخی ترکیب‌های افکت بهتر از سایرین به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** ارائه می‌دهد. گزینه‌های Preset ترکیبی از دو یا چند افکت هستند که شناخته شده است که ظاهر خوبی دارند. به این ترتیب، با انتخاب یک preset، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب ندارید.
+برخی ترکیب‌های افکت بهتر از سایرین به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** ارائه می‌دهد. گزینه‌های Preset ترکیبی از دو یا چند افکت هستند که معلوم است زیبا به نظر می‌رسند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به از دست دادن زمان در آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب ندارید.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) فراهم می‌کند که به شما اجازه می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های PowerPoint اعمال کنید.
+Aspose.Slides ویژگی‌ها و روش‌هایی را تحت کلاس [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) فراهم می‌کند که به شما امکان می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های PowerPoint اعمال کنید.
 
 ## **اعمال افکت سایه**
 
-Aspose.Slides for Python via Java از سایه‌های بیرونی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع محو کردن آن‌ها را مطابق با طرح ارائه خود سفارشی کنید.
+Aspose.Slides برای Python از طریق Java از سایه‌های بیرونی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را برای مطابقت با طراحی ارائه خود سفارشی کنید.
 
 ### **اعمال سایه بیرونی**
 
-از سایه بیرونی استفاده کنید تا یک کارت یا پنل در برابر پس‌زمینه اسلاید برجسته شود. سایه خارج از لبه‌های شکل گسترش می‌یابد و حس ارتفاع شکل نسبت به اسلاید را ایجاد می‌کند. رنگ، جهت، فاصله و شعاع محو کردن آن را مطابق با نورپردازی و سبک قالب خود تنظیم کنید.
+از سایه بیرونی برای برجسته‌کردن یک کارت یا پنل نسبت به پس‌زمینهٔ اسلاید استفاده کنید. سایه فراتر از لبه‌های شکل گسترش می‌یابد و احساسی می‌دهد که شکل بالای اسلاید بلند شده است. رنگ، جهت، فاصله و شعاع تاری آن را برای مطابقت با نورپردازی و سبک قالب خود تنظیم کنید.
 
-این کد Python نشان می‌دهد چگونه [اثر سایه بیرونی](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) را بر روی یک مستطیل اعمال کنید:
-
+این کد Python نشان می‌دهد چگونه افکت [افکت سایه بیرونی](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) را روی یک مستطیل اعمال کنید:
 ```python
 import jpype
 import asposeslides
@@ -65,16 +64,15 @@ finally:
     presentation.dispose()
 ```
 
-![افکت سایه](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
 ### **اعمال سایه داخلی**
 
-هنگام بازآفرینی سبک بصری یک قالب، از سایه داخلی استفاده کنید تا به یک کارت یا پنل ظاهر فرو رفته بدهید. سایه بیرونی خارج از شکل گسترش می‌یابد و آن را بالا می‌آورد، در حالی که سایه داخلی داخل لبه‌های شکل را تاریک می‌کند.
+هنگام بازتولید سبک بصری یک قالب، از سایه داخلی برای ایجاد ظاهر فرو رفته یک کارت یا پنل استفاده کنید. سایه بیرونی خارج از شکل گسترش می‌یابد و آن را بلند نشان می‌دهد، در حالی که سایه داخلی داخل لبه‌های آن را سایه‌دار می‌کند.
 
-متد [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) را فراخوانی کنید، سپس سایه‌ای که توسط [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) برگردانده می‌شود را پیکربندی کنید. مقادیر بزرگتر شعاع محو، لبه‌های نرم‌تری تولید می‌کند.
+Call [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), then configure the shadow returned by [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Larger blur radius values produce softer edges.
 
-این مثال Python یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به صورت فایل PPTX ذخیره می‌نماید. جهت سایه ۲۲۵ درجه، فاصله آن ۷ پوینت و شعاع محو ۶ پوینت است:
-
+این مثال Python یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و به عنوان فایل PPTX ذخیره می‌نماید. جهت سایه ۲۲۵ درجه است، فاصله آن ۷ پوینت و شعاع تاری ۶ پوینت می‌باشد:
 ```python
 import jpype
 import asposeslides
@@ -106,16 +104,74 @@ finally:
     presentation.dispose()
 ```
 
-![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) را بر روی فرمت افکت شکل فراخوانی کنید.
+برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) را بر روی قالب افکت شکل فراخوانی کنید.
 
-## **اعمال افکت بازتاب**
+### **اعمال، تغییر و حذف یک سایه پیش‌تنظیم**
 
-برای اعمال افکت بازتاب در Aspose.Slides for Python via Java، می‌توانید بازتابی شبیه آینه را به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با افزودن ظاهر صیقلی و پیشرفته به اشکال ارتقا می‌دهد. پیاده‌سازی آن با کد ساده‌ای انجام می‌شود و امکان اعمال سریع بر روی عناصر متعدد برای طراحی یکنواخت را فراهم می‌کند.
+متد [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect) را فراخوانی کنید، سپس از [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/) استفاده کنید. برای تغییر سبک‌ها، پیش‌تنظیم را بر روی همان شکل تغییر دهید. برای حذف سایه در حالی که پرکننده و خط دور حفظ می‌شوند، متد [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) را فراخوانی کنید.
 
-این کد Python نشان می‌دهد چگونه [اثر بازتاب](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) را بر روی یک شکل اعمال کنید:
+این مثال مستطیل را در هر مرحله کلون می‌کند تا بتوانید چهار وضعیت را به‌ طور کنار هم در یک اسلاید مقایسه کنید. هر دو سایه ۱۰ پوینت جابجا شده‌اند. جهت ۲۲۵° سایه اول را بالای مستطیل و به سمت چپ قرار می‌دهد. جهت ۴۵° سایه دوم را زیر مستطیل و به سمت راست قرار می‌دهد.
+```python
+import jpype
+import asposeslides
 
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, PresetShadowType, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    text_frame = shape.getTextFrame()
+    text_frame.setText("No shadow")
+    paragraph_format = text_frame.getParagraphs().get_Item(0).getParagraphFormat()
+    paragraph_format.getDefaultPortionFormat().setFontHeight(14)
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().enablePresetShadowEffect()
+    shadow = shape.getEffectFormat().getPresetShadowEffect()
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow)
+    shadow.setDistance(10)
+    shadow.setDirection(225)
+    text_frame.setText("TopLeftDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow)
+    shadow.setDirection(45)
+    text_frame.setText("BottomRightDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().disablePresetShadowEffect()
+    text_frame.setText("No shadow")
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| اصل | پیش‌تنظیم اول | پیش‌تنظیم دوم | پس از حذف |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+
+## **اعمال افکت انعکاس**
+
+برای اعمال افکت انعکاس در Aspose.Slides برای Python از طریق Java، می‌توانید انعکاسی شبیه آیینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیچیده به اشکال ارتقاء می‌دهد. با کد ساده قابل پیاده‌سازی است و امکان اعمال سریع در چندین عنصر برای یک طراحی یکنواخت را فراهم می‌کند.
+
+این کد Python نشان می‌دهد چگونه افکت [افکت انعکاس](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) را بر یک شکل اعمال کنید:
 ```python
 import jpype
 import asposeslides
@@ -141,14 +197,13 @@ finally:
     presentation.dispose()
 ```
 
-![افکت بازتاب](reflection_effect.png)
+![Reflection effect](reflection_effect.png)
 
-## **اعمال افکت درخشش**
+## **اعمال افکت تابش**
 
-برای اعمال افکت درخشش به یک شکل در Aspose.Slides for Python via Java، می‌توانید هاله‌ای نرم و روشن دور اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته شدن اشکال کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. پیاده‌سازی آن با کمترین کد امکان‌پذیر است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
+برای اعمال افکت تابش بر یک شکل در Aspose.Slides برای Python از طریق Java، می‌توانید هاله‌ای نرم و درخشانی در اطراف اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته‌کردن اشکال کمک می‌کند و یک عنصر بصری جذاب و چشم‌نواز به ارائه شما می‌افزاید. با کمترین کد قابل پیاده‌سازی است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
 
-این کد Python نشان می‌دهد چگونه [اثر درخشش](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) را بر روی یک شکل اعمال کنید:
-
+این کد Python نشان می‌دهد چگونه افکت [افکت تابش](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) را بر یک شکل اعمال کنید:
 ```python
 import jpype
 import asposeslides
@@ -173,14 +228,13 @@ finally:
     presentation.dispose()
 ```
 
-![افکت درخشش](glow_effect.png)
+![Glow effect](glow_effect.png)
 
 ## **اعمال افکت لبه‌های نرم**
 
-برای اعمال افکت لبه‌های نرم در Aspose.Slides for Python via Java، می‌توانید انتقالی صاف و محو در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ملایم‌تر و صیقلی‌تری می‌بخشد که برای طراحی‌هایی که به ظاهری ملایم و نرم نیاز دارند مناسب است. می‌توانید به راحتی پارامترهایی مانند شعاع را تنظیم کنید تا اثر مطلوب را بر روی اشکال مختلف در ارائه خود به دست آورید.
+برای اعمال افکت لبه‌های نرم در Aspose.Slides برای Python از طریق Java، می‌توانید انتقالی صاف و تاریک در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ظریف‌تری می‌دهد که برای طرح‌هایی که نیاز به ظاهر ملایم و نرم دارند، مناسب است. می‌توانید به‌ راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت مطلوب را بر روی اشکال مختلف در ارائه خود به دست آورید.
 
-این کد Python نشان می‌دهد چگونه [اثر لبه‌های نرم](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) را بر روی یک شکل اعمال کنید:
-
+این کد Python نشان می‌دهد چگونه افکت [افکت لبه‌های نرم](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) را بر یک شکل اعمال کنید:
 ```python
 import jpype
 import asposeslides
@@ -203,20 +257,19 @@ finally:
     presentation.dispose()
 ```
 
-![افکت لبه‌های نرم](soft_edges_effect.png)
+![Soft edges effect](soft_edges_effect.png)
 
-## **اعمال افکت محو شدن**
+## **اعمال افکت تاری**
 
-از محو شدن شکل برای نرم کردن پرکننده و خط مرزی شکل استفاده کنید در حالی که شکل قابل ویرایش باقی می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) را بر روی فرمت افکت شکل فراخوانی کنید. شعاع بر حسب پوینت (1/72 اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگتر محو شدن قوی‌تری تولید می‌کند. شعاع صفر ظاهر را تغییر نمی‌دهد.
+از تاری شکل برای نرم‌کردن پرکننده و خط دور یک شکل استفاده کنید در حالی که شکل قابل ویرایش باقی می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) را بر روی قالب افکت شکل فراخوانی کنید. شعاع بر حسب پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید، مقادیر بزرگ‌تر تاری قوی‌تری ایجاد می‌کنند. شعاع صفر ظاهر را تغییری نمی‌دهد.
 
-تنظیم [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) محدوده قابل مشاهده اثر را کنترل می‌کند. با `False`، محو شدن به حدود رنگ‌آمیخته اولیه، شامل خط مرزی، محدود می‌شود. با `True`، محو شدن می‌تواند از این حدود فراتر رود. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهد.
+تنظیم [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) مرزهای قابل‌مشاهدهٔ افکت را کنترل می‌کند. با `False`، تار به مرزهای اولیهٔ نقاشی شده، از جمله خط دور، محدود می‌شود. با `True`، تار می‌تواند فراتر از آن مرزها گسترش یابد. هیچ کدام از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
 
-مقایسه زیر از همان پرکننده، خط مرزی و ابعاد شکل در تمام موارد استفاده می‌کند. ردیف بالایی از `grow = False` استفاده می‌کند؛ ردیف پایین از `grow = True`.
+مقایسهٔ زیر در تمام طول از همان پرکننده، خط دور و ابعاد شکل استفاده می‌کند. ردیف بالایی از `grow = False` استفاده می‌کند؛ ردیف پایین از `grow = True`.
 
-![مستطیل اصلی مقایسه‌شده با شعاع‌های محو 5 و 15 پوینت، با رشد غیرفعال و فعال](shape_blur_comparison.png)
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-این مثال Python یک مستطیل نارنجی با خط مرزی آبی تیره ایجاد می‌کند، محو 5 پوینتی اعمال می‌کند و سپس با فراخوانی دوباره [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) آن را به 15 پوینت ارتقا می‌دهد. هر دو حالت محو شده را ذخیره می‌کند، سپس با فراخوانی [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) شکل را بدون محو ذخیره می‌کند.
-
+این مثال Python یک مستطیل نارنجی با خط دور آبی تیره ایجاد می‌کند، تاری ۵ پوینتی اعمال می‌نماید و سپس با فراخوانی مجدد [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) به تاری ۱۵ پوینتی به‌روزرسانی می‌گردد. هر دو حالت تاری را ذخیره می‌کند، سپس [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) را فراخوانی کرده و شکل بدون تاری را ذخیره می‌کند.
 ```python
 import jpype
 import asposeslides
@@ -250,18 +303,18 @@ finally:
     presentation.dispose()
 ```
 
-محو شدن شکل هم پرکننده و هم خط مرزی را به‌صورت مشترک تحت تأثیر قرار می‌دهد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که محو شدن سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوی تصویر عمل می‌کنند؛ این مثال محو را مستقیم بر فرمت افکت شکل بدون تبدیل به تصویر اعمال می‌کند.
+تاری شکل همزمان بر پرکننده و خط دور اثر می‌گذارد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تاری سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر کار می‌کنند؛ این مثال تاری را مستقیماً بر قالب افکت شکل اعمال می‌کند بدون اینکه شکل به تصویر تبدیل شود.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم چندین افکت را روی یک شکل اعمال کنم؟**
+**آیا می‌توانم چندین افکت را بر روی یک شکل اعمال کنم؟**
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، بازتاب و درخشش را بر روی یک شکل ترکیب کنید تا ظاهر دینامیک‌تری به دست آورید.
+بله، می‌توانید افکت‌های مختلف مانند سایه، انعکاس و تابش را بر یک شکل ترکیب کنید تا ظاهر پویاتری به دست آورید.
 
-**کدام اشکال می‌توانم افکت‌ها را به آن‌ها اعمال کنم؟**
+**به چه اشکالی می‌توانم افکت اعمال کنم؟**
 
-می‌توانید افکت‌ها را به انواع اشکال از جمله شکل‌های خودکار، نمودارها، جداول، تصاویر، اشیای SmartArt، اشیای OLE و موارد دیگر اعمال کنید.
+می‌توانید افکت‌ها را بر روی اشکال مختلفی اعمال کنید، از جمله اشکال اتوماتیک، نمودارها، جداول، تصاویر، اشیاء SmartArt، اشیاء OLE و غیره.
 
-**آیا می‌توانم افکت‌ها را به شکل‌های گروهی اعمال کنم؟**
+**آیا می‌توانم افکت‌ها را بر روی اشکال گروهی اعمال کنم؟**
 
-بله، می‌توانید افکت‌ها را به شکل‌های گروهی اعمال کنید. افکت بر کل گروه اعمال خواهد شد.
+بله، می‌توانید افکت‌ها را بر روی اشکال گروهی اعمال کنید. افکت بر کل گروه اعمال خواهد شد.
