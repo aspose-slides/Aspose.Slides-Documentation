@@ -1,10 +1,11 @@
 ---
-title: Support for an Interruptible Library
+title: Interrupt Long-Running Presentation Operations in Python
+linktitle: Interrupt Presentation Operations
 type: docs
 weight: 120
 url: /python-java/support-for-interruptable-library/
 keywords:
-- interruptable library
+- interruptible operations
 - interruption token
 - cancellation token
 - long-running task
@@ -15,27 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Make long-running tasks cancelable with Aspose.Slides for Python via Java. Interrupt rendering and conversions for PowerPoint and OpenDocument safely, with examples."
+description: "Learn how to cancel long-running presentation operations in Aspose.Slides for Python via Java and return a partial result when exporting slides in a loop."
 ---
 
 ## **Overview**
 
-Aspose.Slides provides an interruptible processing mechanism for long-running presentation tasks, such as deserialization, serialization, and rendering. This mechanism is based on the [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) classes.
+Aspose.Slides for Python via Java can interrupt long-running operations such as loading, saving, and rendering presentations. Your application can use the same interruption token to stop a loop before it starts processing the next slide.
 
-An [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) can be assigned to [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) and passed to the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) constructor. When [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) is called, the associated long-running task is interrupted.
+## **Interrupt a Presentation Operation**
 
-## **Interruptible Library**
+Create an [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/), obtain its token with [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken), and pass the token to [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). Pass the load options to the [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). To request cancellation, call [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) on the source. An interruptible operation stops when it observes the request. Use `jpype.JClass` to catch the Java exception `com.aspose.slides.exceptions.OperationCanceledException` in Python.
 
-Aspose.Slides for Python via Java provides the [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) classes. They allow you to interrupt long-running tasks such as deserialization, serialization, and rendering.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) is the source of the token(s) passed to [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken).
-- When [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) is called and the [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) instance is passed to the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) constructor, invoking [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) interrupts any long-running task associated with that [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-
-The following code snippet demonstrates interrupting a running task:
+The example converts `sample.pptx` to `sample.ppt` on a background thread. The calling thread waits up to 10 seconds for the conversion to finish. If the conversion is still running, it requests cancellation and waits for the worker to exit.
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -45,51 +40,149 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **Connect a Python Timeout to Aspose.Slides**
+
+To set a time limit on a presentation operation, use a [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer) to call [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) when the timeout expires. The example allows 20 seconds to load `sample.pptx` and export it to `sample.pdf`. If the export finishes early, the application cancels the scheduled request.
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **Stop Before Processing the Next Slide**
+
+Use the same [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) for the presentation and the loop that exports its slides. Check [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested) before each export. If the caller can use a partial result, return the slide numbers for the exports that completed successfully.
+
+Use a presentation named `sample.pptx` with at least two slides. The [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) overload that takes a Java `int[]` uses slide numbers starting at 1. Use `jpype.JArray(jpype.JInt)` to build that array in Python. The example saves each slide to a separate PDF and requests cancellation immediately after it records the first successful export.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # Run the action in a separate thread.
-    time.sleep(10)  # Timeout.
-    token_source.interrupt()  # Stop the conversion.
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
+
+The example writes `slide-1.pdf` and prints `Starting slide 1` followed by `Completed: [1]`. The loop observes the request before starting slide 2. If cancellation arrives during a save, the loop exits before it records that slide as complete.
+
+If the caller needs to handle cancellation, replace the check and its `break` at the top of the loop with `token.throwIfInterruptionRequested()`. Remove the `try`/`except` around the save so cancellation during an export also reaches the caller. With the same input, the example prints only `Starting slide 1` and writes `slide-1.pdf`. At the start of the second iteration, [throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) raises `com.aspose.slides.exceptions.OperationCanceledException` before the next export begins. The exception propagates to the caller before the function can return the list.
 
 ## **FAQ**
 
-**What is the purpose of the Aspose.Slides interrupt library?**
+**When should I request cancellation?**
 
-It provides a mechanism to interrupt long-running operations—such as loading, saving, or rendering presentations—before they complete. This is useful when processing time must be limited or the task is no longer needed.
+Request cancellation when an operation exceeds your time limit or when your application no longer needs the result.
 
 **What is the difference between [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/)?**
 
-- [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) is passed to the Aspose.Slides API and checked during long-running operations.
-- [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) is used in your code to create tokens and trigger interruptions by calling [interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt).
+The source lets your application request cancellation. The token lets Aspose.Slides and your application check for that request.
 
-**What tasks can be interrupted?**
+**Can I cancel an operation from a Python timer?**
 
-Any Aspose.Slides task that accepts an [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/)—such as loading a presentation with [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) or saving with [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)—can be interrupted.
+Yes. Schedule a call to [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) on the source associated with the presentation.
 
-**Does interruption happen immediately?**
+**Which operations can I interrupt?**
 
-No. Interruption is cooperative: the operation periodically checks the token and stops as soon as it detects that [interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) has been called.
+You can interrupt loading, saving, and rendering. Pass the token to the [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) through [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). The presentation can then observe cancellation during subsequent operations such as saving to PDF.
 
-**What happens if I call [interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) after a task has already completed?**
+**Does an operation stop immediately?**
 
-Nothing—the call has no effect if the corresponding task has already completed.
+Cancellation is cooperative. An operation checks the token periodically and stops when it observes the request.
 
-**Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) for multiple tasks?**
+**What happens if I call [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) after an operation finishes?**
 
-Yes—but after you call [interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) on that source, all tasks using its tokens will be interrupted. Use separate token sources to manage tasks independently.
+The completed operation keeps its result.
+
+**Can multiple operations share an [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/)?**
+
+Yes. Calling [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) requests cancellation for every operation that uses a token from that source. Use a separate source for each operation you want to cancel independently.
