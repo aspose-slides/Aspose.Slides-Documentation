@@ -197,6 +197,73 @@ try {
 
 `DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
+### **Report Existing Shape Locks**
+
+To review a template, open it and read the lock object for each shape. The [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) method returns `true` when all flags on that object are disabled and `false` when at least one is enabled. A group and its children have separate lock objects, so inspect the children even when the group has no locks.
+
+This example checks movement for autoshapes, picture frames, and groups. It also checks cropping for pictures and ungrouping for groups. The report lists the enabled flags it recognizes and marks shape types it does not inspect.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Suppose slide 1 of `Sample.pptx` contains a group named `Layout` with ungrouping locked, a picture named `Photo` inside it with cropping locked, and an unlocked rectangle named `Free`. The report skips `Free` and prints these two lines:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+The report reads the stored shape-level editing flags without changing them or saving the presentation. Document-level write protection is a separate setting, and enforcement of each flag depends on the editor.
+
 ### **Conclusion**
 
 Aspose.Slides for PHP via Java lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `false` when you need to remove those restrictions.
@@ -213,5 +280,5 @@ Yes. Apply locks only to shapes on the selected slides. This does not change the
 
 **How can I apply locks to individual shapes inside a group?**
 
-Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.
+Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups, following the traversal in the reporting example.
 

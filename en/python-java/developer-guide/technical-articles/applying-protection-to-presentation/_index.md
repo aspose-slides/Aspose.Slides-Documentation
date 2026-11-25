@@ -203,6 +203,69 @@ finally:
 
 In `DiagramLocked.pptx`, PowerPoint disables the **Ungroup** command when you select the whole diagram.
 
+### **Report Existing Shape Locks**
+
+To review a template, open it and read the lock object for each shape. The [getNoLocks](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/#getNoLocks) method returns `True` when all flags on that object are disabled and `False` when at least one is enabled. A group and its children have separate lock objects, so inspect the children even when the group has no locks.
+
+This example checks movement for autoshapes, picture frames, and groups. It also checks cropping for pictures and ungrouping for groups. The report lists the enabled flags it recognizes and marks shape types it does not inspect.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, GroupShape, PictureFrame, Presentation
+
+
+def inspect_shapes(shapes, slide_number, prefix=""):
+    for shape in shapes:
+        path = f"{prefix}{shape.getName()}"
+        label = f"Slide {slide_number} | {path} | {shape.getClass().getSimpleName()}"
+        flags = []
+
+        if isinstance(shape, GroupShape):
+            shape_lock = shape.getGroupShapeLock()
+            if shape_lock.getUngroupingLocked():
+                flags.append("UngroupingLocked")
+        elif isinstance(shape, PictureFrame):
+            shape_lock = shape.getPictureFrameLock()
+            if shape_lock.getCropLocked():
+                flags.append("CropLocked")
+        elif isinstance(shape, AutoShape):
+            shape_lock = shape.getAutoShapeLock()
+        else:
+            print(f"{label} | Uninspected")
+            continue
+
+        if shape_lock.getPositionLocked():
+            flags.append("PositionLocked")
+        if not shape_lock.getNoLocks():
+            restrictions = ", ".join(flags) if flags else "Active flag not identified"
+            print(f"{label} | {restrictions}")
+
+        if isinstance(shape, GroupShape):
+            inspect_shapes(shape.getShapes(), slide_number, f"{path}/")
+
+
+presentation = Presentation("Sample.pptx")
+try:
+    for slide in presentation.getSlides():
+        inspect_shapes(slide.getShapes(), slide.getSlideNumber())
+finally:
+    presentation.dispose()
+```
+
+Suppose slide 1 of `Sample.pptx` contains a group named `Layout` with ungrouping locked, a picture named `Photo` inside it with cropping locked, and an unlocked rectangle named `Free`. The report skips `Free` and prints these two lines:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+The report reads the stored shape-level editing flags without changing them or saving the presentation. Document-level write protection is a separate setting, and enforcement of each flag depends on the editor.
+
 ### **Conclusion**
 
 Aspose.Slides for Python via Java lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `False` when you need to remove those restrictions.
@@ -219,4 +282,4 @@ Yes. Apply locks only to shapes on the selected slides. This does not change the
 
 **How can I apply locks to individual shapes inside a group?**
 
-Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.
+Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups, following the traversal in the reporting example.

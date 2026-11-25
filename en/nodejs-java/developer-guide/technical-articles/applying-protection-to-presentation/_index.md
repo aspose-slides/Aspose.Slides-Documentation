@@ -199,6 +199,72 @@ try {
 
 `DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
+### **Report Existing Shape Locks**
+
+To review a template, open it and read the lock object for each shape. The [getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks) method returns `true` when all flags on that object are disabled and `false` when at least one is enabled. A group and its children have separate lock objects, so inspect the children even when the group has no locks.
+
+This example checks movement for autoshapes, picture frames, and groups. It also checks cropping for pictures and ungrouping for groups. The report lists the enabled flags it recognizes and marks shape types it does not inspect.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Suppose slide 1 of `Sample.pptx` contains a group named `Layout` with ungrouping locked, a picture named `Photo` inside it with cropping locked, and an unlocked rectangle named `Free`. The report skips `Free` and prints these two lines:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+The report reads the stored shape-level editing flags without changing them or saving the presentation. Document-level write protection is a separate setting, and enforcement of each flag depends on the editor.
+
 ### **Conclusion**
 
 Aspose.Slides for Node.js via Java lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `false` when you need to remove those restrictions.
@@ -215,4 +281,4 @@ Yes. Apply locks only to shapes on the selected slides. This does not change the
 
 **How can I apply locks to individual shapes inside a group?**
 
-Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.
+Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups, following the traversal in the reporting example.
