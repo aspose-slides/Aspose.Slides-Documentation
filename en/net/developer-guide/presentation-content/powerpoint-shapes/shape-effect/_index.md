@@ -95,6 +95,56 @@ presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 
 To remove the inner shadow, call [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) on the shape's effect format.
 
+### **Apply, Change, and Remove a Preset Shadow**
+
+Call [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) and set [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) to a named [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) to remove the shadow while preserving the fill and outline.
+
+This example keeps a copy of the rectangle at each stage. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle, and 45° places the second below and to the right.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(800, 120, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var shape = shapes.AddAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+shape.TextFrame.Text = "No shadow";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.EnablePresetShadowEffect();
+var shadow = shape.EffectFormat.PresetShadowEffect;
+shadow.Preset = PresetShadowType.TopLeftDropShadow;
+shadow.Distance = 10;
+shadow.Direction = 225;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shadow.Preset = PresetShadowType.BottomRightDropShadow;
+shadow.Direction = 45;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.DisablePresetShadowEffect();
+shape.TextFrame.Text = "No shadow";
+
+presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
+```
+
+| Original | First preset | Second preset | After removal |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+
 ## **Apply a Reflection Effect**
 
 To apply a reflection effect in Aspose.Slides for .NET, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.

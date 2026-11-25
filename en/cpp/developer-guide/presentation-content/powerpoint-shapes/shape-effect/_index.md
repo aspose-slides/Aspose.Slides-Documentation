@@ -121,6 +121,81 @@ presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 
 To remove the inner shadow, call [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) on the shape's effect format.
 
+### **Apply, Change, and Remove a Preset Shadow**
+
+Call [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) and use [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) to select a [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) to remove the shadow while preserving the fill and outline.
+
+This example keeps a copy of the rectangle at each stage. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle, and 45° places the second below and to the right.
+
+```cpp
+#include <DOM/Effects/IPresetShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetShadowType.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/enum.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(800, 120, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+auto outline = shape->get_LineFormat()->get_FillFormat();
+outline->set_FillType(FillType::Solid);
+outline->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+auto textFrame = shape->get_TextFrame();
+textFrame->set_Text(u"No shadow");
+textFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(14);
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+auto effectFormat = shape->get_EffectFormat();
+effectFormat->EnablePresetShadowEffect();
+auto shadow = effectFormat->get_PresetShadowEffect();
+shadow->set_Preset(PresetShadowType::TopLeftDropShadow);
+shadow->set_Distance(10);
+shadow->set_Direction(225);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+shadow->set_Preset(PresetShadowType::BottomRightDropShadow);
+shadow->set_Direction(45);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+effectFormat->DisablePresetShadowEffect();
+textFrame->set_Text(u"No shadow");
+
+presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
+```
+
+| Original | First preset | Second preset | After removal |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+
 ## **Apply a Reflection Effect**
 
 To apply a reflection effect in Aspose.Slides for C++, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
