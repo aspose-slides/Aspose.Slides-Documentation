@@ -1,40 +1,35 @@
 ---
-title: Kesintiye Ulaşılabilir Kütüphane Desteği
+title: Python'da Uzun Süreli Sunum İşlemlerini Kesintiye Uğratma
+linktitle: Sunum İşlemlerini Kesintiye Uğratma
 type: docs
 weight: 120
 url: /tr/python-java/support-for-interruptable-library/
 keywords:
-- kesintiye ulaşılabilir kütüphane
+- kesintiye uğrayabilir işlemler
 - kesinti belirteci
 - iptal belirteci
 - uzun süren görev
-- görevi kes
+- görevi kesintiye uğrat
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile uzun süren görevleri iptal edilebilir hâle getirin. PowerPoint ve OpenDocument için renderleme ve dönüşümleri güvenli bir şekilde, örneklerle kesintiye uğratın."
+description: "Aspose.Slides for Python via Java'da uzun süren sunum işlemlerini nasıl iptal edeceğinizi ve slaytları bir döngü içinde dışa aktarırken kısmi bir sonuç nasıl döndüreceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, serileştirme, serileştirme ve renderleme gibi uzun süren sunum görevleri için kesintiye izin veren bir işleme mekanizması sağlar. Bu mekanizma, [InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) sınıflarına dayanır.
+Aspose.Slides for Python via Java, uzun süren işlemleri (yükleme, kaydetme ve sunumları render etme gibi) kesintiye uğratabilir. Uygulamanız aynı kesinti belirtecini bir döngüyü, bir sonraki slaytı işlemeye başlamadan durdurmak için kullanabilir.
 
-Bir [InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) [LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) nesnesine atanabilir ve [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcısına geçirilebilir. [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrıldığında, ilişkili uzun süren görev kesintiye uğrar.
+## **Bir Sunum İşlemini Kesintiye Uğratma**
 
-## **Kesintiye Ulaşılabilir Kütüphane**
+Bir [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) oluşturun, token'ını [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken) ile alın ve token'ı [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) ile geçirin. Yükleme seçeneklerini [Presentation yapıcı](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) içine aktarın. İptal talep etmek için kaynağın [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) metodunu çağırın. Kesintiye uğrayabilir bir işlem, isteği gördüğünde durur. Python’da Java istisnası `com.aspose.slides.exceptions.OperationCanceledException` yakalamak için `jpype.JClass` kullanın.
 
-Aspose.Slides for Python via Java, [InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) sınıflarını sağlar. Bunlar, serileştirme, serileştirme ve renderleme gibi uzun süren görevleri kesmenize olanak tanır.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setInterruptionToken) yöntemiyle geçirilen token(ler)in kaynağıdır.
-- [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setInterruptionToken) çağrıldığında ve [LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) örneği [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcısına geçirildiğinde, [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) yürütülmesi, o [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) ile ilişkili herhangi bir uzun süren görevi kesintiye uğratır.
-
-Aşağıdaki kod parçacığı çalışan bir görevi kesintiye uğratmayı gösterir:
+Örnek, `sample.pptx` dosyasını arka plan iş parçacığında `sample.ppt` biçimine dönüştürür. Çağıran iş parçacığı dönüşümün tamamlanması için en fazla 10 saniye bekler. Dönüşüm hâlâ çalışıyorsa, iptal talep eder ve çalışan iş parçacığının çıkmasını bekler.
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -44,51 +39,149 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **Aspose.Slides'a Bir Python Zaman Aşımını Bağlama**
+
+Bir sunum işlemi için zaman sınırı belirlemek amacıyla, zaman aşımı süresi dolduğunda [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) metodunu çağıran bir [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer) kullanın. Örnek, `sample.pptx` dosyasını yüklemek ve `sample.pdf` olarak dışa aktarmak için 20 saniye tanır. Dışa aktarma erken tamamlanırsa, uygulama planlanan isteği iptal eder.
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **Sonraki Slaytı İşlemeye Başlamadan Durdurma**
+
+Sunum ve slaytlarını dışa aktaran döngü için aynı [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) kullanın. Her dışa aktarmadan önce [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested) kontrol edin. Eğer çağıran kısmi bir sonuç kullanabiliyorsa, başarılı bir şekilde tamamlanan dışa aktarmaların slayt numaralarını döndürün.
+
+En az iki slaytı olan `sample.pptx` adlı bir sunum kullanın. Java `int[]` alan [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) aşırı yüklemesi, slayt numaralarını 1’den başlatarak kullanır. Bu diziyi Python’da oluşturmak için `jpype.JArray(jpype.JInt)` kullanın. Örnek, her slaytı ayrı bir PDF’ye kaydeder ve ilk başarılı dışa aktarımı kaydettikten hemen sonra iptal talep eder.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # Eylemi ayrı bir iş parçacığında çalıştır.
-    time.sleep(10)  # Zaman aşımı.
-    token_source.interrupt()  # Dönüştürmeyi durdur.
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
+
+Örnek, `slide-1.pdf` yazar ve `Starting slide 1` ardından `Completed: [1]` çıktısını verir. Döngü, slayt 2’ye başlamadan önce iptal isteğini görür. Kaydetme sırasında iptal gelirse, döngü slaytı tamamlanmış olarak kaydetmeden çıkar.
+
+Eğer çağıranın iptali işlemesi gerekiyorsa, döngünün üst kısmındaki kontrol ve `break` ifadesini `token.throwIfInterruptionRequested()` ile değiştirin. Kaydetme etrafındaki `try`/`except` bloğunu kaldırın, böylece dışa aktarma sırasında oluşan iptal de çağırana ulaşır. Aynı girişle örnek yalnızca `Starting slide 1` yazdırır ve `slide-1.pdf` oluşturur. İkinci yinelemenin başında, [throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) yöntemi, bir sonraki dışa aktarım başlamadan önce `com.aspose.slides.exceptions.OperationCanceledException` hatasını fırlatır. İstisna, fonksiyonun listeyi döndürmesinden önce çağırana yayılır.
 
 ## **SSS**
 
-**Aspose.Slides kesinti kütüphanesinin amacı nedir?**
+**İptali ne zaman talep etmeliyim?**
 
-Uzun süren işlemleri—sunumları yükleme, kaydetme veya renderleme gibi—tamamlanmadan önce kesintiye uğratmak için bir mekanizma sağlar. İşlem süresi sınırlı olduğunda ya da göreve artık ihtiyaç duyulmadığında yararlıdır.
+İşlem zaman sınırınızı aştığında veya uygulamanız sonucu artık ihtiyaç duymadığında iptal talep edin.
 
-**[InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) arasındaki fark nedir?**
+**[InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) arasındaki fark nedir?**
 
-- [InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) Aspose.Slides API'sine geçirilir ve uzun süren işlemler sırasında kontrol edilir.
-- [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) kodunuzda tokenlar oluşturmak ve [interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrısı yaparak kesintileri tetiklemek için kullanılır.
+Kaynak, uygulamanızın iptal talep etmesini sağlar. Token ise Aspose.Slides ve uygulamanızın bu talebi kontrol etmesine izin verir.
 
-**Hangi görevler kesintiye uğratılabilir?**
+**Bir Python zamanlayıcısından bir işlemi iptal edebilir miyim?**
 
-Bir [InterruptionToken](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontoken/) kabul eden herhangi bir Aspose.Slides görevi—örneğin [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) ile bir sunumu yüklemek ya da [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) ile kaydetmek—kesintiye uğratılabilir.
+Evet. Sunumla ilişkili kaynağa [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrısı zamanlayıcıyla planlayabilirsiniz.
 
-**Kesinti hemen gerçekleşir mi?**
+**Hangi işlemleri kesintiye uğratabilirim?**
 
-Hayır. Kesinti iş birliğine dayalıdır: işlem periyodik olarak tokenı kontrol eder ve [interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrıldığını fark eder etmez durur.
+Yükleme, kaydetme ve render etme işlemlerini kesintiye uğratabilirsiniz. Token’ı [Presentation yapıcı](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) üzerinden [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) ile geçirin. Sunum, PDF’ye kaydetme gibi sonraki işlemler sırasında iptali gözlemleyebilir.
 
-**Bir görev zaten tamamlandıktan sonra [interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrısı yaparsam ne olur?**
+**İşlem hemen durur mu?**
 
-Hiçbir şey—ilgili görev zaten tamamlandıysa çağrı hiçbir etki yapmaz.
+İptal iş birliğine dayalıdır. İşlem token’ı periyodik olarak kontrol eder ve isteği gördüğünde durur.
 
-**Aynı [InterruptionTokenSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/) birden fazla görev için yeniden kullanılabilir mi?**
+**[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) metodunu bir işlem bittikten sonra çağırırsam ne olur?**
 
-Evet—ancak o kaynakta [interrupt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrıldıktan sonra, tokenlarını kullanan tüm görevler kesintiye uğrar. Görevleri bağımsız yönetmek için ayrı token kaynakları kullanın.
+Tamamlanan işlem sonucunu korur.
+
+**Birden fazla işlem aynı [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) kullanabilir mi?**
+
+Evet. [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) çağrısı, o kaynağın token’ını kullanan tüm işlemler için iptal talep eder. Bağımsız olarak iptal etmek istediğiniz her işlem için ayrı bir kaynak kullanın.

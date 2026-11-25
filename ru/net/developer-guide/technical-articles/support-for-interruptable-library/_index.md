@@ -1,10 +1,11 @@
 ---
-title: Поддержка библиотеки Interruptable
+title: Прерывание длительных операций с презентациями в .NET
+linktitle: Прерывание операций с презентацией
 type: docs
 weight: 150
 url: /ru/net/support-for-interruptable-library/
 keywords:
-- прерываемая библиотека
+- прерываемые операции
 - токен прерывания
 - токен отмены
 - длительная задача
@@ -15,18 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Сделайте длительные задачи отменяемыми с помощью Aspose.Slides для .NET. Безопасно прерывайте рендеринг и конвертацию PowerPoint и OpenDocument, используя примеры."
+description: "Узнайте, как отменять длительные операции с презентациями в Aspose.Slides для .NET и получать частичный результат при экспорте слайдов в цикле."
 ---
+## **Обзор**
 
-## **Библиотека Interruptable**
+Aspose.Slides для .NET может прерывать длительные операции, такие как загрузка, сохранение и рендеринг презентаций. Ваше приложение может использовать тот же токен прерывания, чтобы остановить цикл до того, как он начнёт обрабатывать следующий слайд.
 
-В [Aspose.Slides 18.4](https://releases.aspose.com/slides/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/) мы представили классы [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/). Они позволяют прерывать длительные операции, такие как десериализация, сериализация и рендеринг.
+## **Прерывание операции с презентацией**
 
-- [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) — источник токена(ов), передаваемых в [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Когда [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/interruptiontoken/) установлен и экземпляр [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) передаётся в конструктор [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), вызов [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) прерывает любую длительную задачу, связанную с этой [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+Создайте [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), назначьте его [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) в [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/), и передайте параметры загрузки в [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Чтобы запросить отмену, вызовите [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) у источника. Прерываемая операция останавливается, когда она обнаруживает запрос.
 
-Следующий фрагмент кода демонстрирует прерывание выполняющейся задачи:
+В примере начинается конвертация `sample.pptx` в `sample.ppt` в фоновой задаче, и через 10 секунд запрашивается отмена. Если конвертация завершится раньше, вывод уже будет готов.
+
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -39,7 +45,7 @@ public static void Run()
     };
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Run(action, tokenSource.Token); // запустить действие в отдельном потоке
+    Run(action, tokenSource.Token); // выполнить действие в отдельном потоке
     Thread.Sleep(10000);            // тайм-аут
     tokenSource.Interrupt();        // остановить конвертацию
 }
@@ -50,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Подключить отмену .NET к Aspose.Slides**
 
-## **CancellationToken .NET и библиотека Interruptable**
+Если ваше приложение использует .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), перенаправьте его запрос на отмену в Aspose.Slides. В примере начинается экспорт `sample.pptx` в `sample.pdf` с тайм‑аутом 20 секунд. Пока экспорт выполняется, каждые 500 миллисекунд проверяется [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested). Когда свойство становится `true`, вызывается [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
-Когда необходимо использовать [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) совместно с прерываемой библиотекой Aspose.Slides, оберните обработку [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) и прерывайте [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/), если [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) равно `true`.
-
-Этот пример на C# показывает, как это работает:
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -75,8 +83,7 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // запустить действие в отдельном потоке
-
+    Task task = Run(action, tokenSource.Token); // выполнить действие в отдельном потоке
     while (!task.Wait(500)) // ожидать и отслеживать, установлен ли cancellationToken.IsCancellationRequested
     {
         if (cancellationToken.IsCancellationRequested)
@@ -96,34 +103,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Остановить перед обработкой следующего слайда**
+
+Используйте один и тот же [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) как для презентации, так и для цикла, экспортирующего её слайды. Перед началом каждого экспорта проверяйте [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) . Если вызывающая сторона может работать с частичным результатом, возвращайте номера слайдов, успешно экспортированных.
+
+Возьмите презентацию с именем `sample.pptx`, содержащую как минимум два слайда. В примере запрос отмены делается сразу после записи первого успешного экспорта.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+В примере создаётся `slide-1.pdf` и выводятся сообщения `Starting slide 1`, а затем `Completed: [1]`. Цикл видит запрос перед началом обработки слайда 2. Если отмена вместо этого прерывает [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) во время экспорта, блок `catch` выходит из цикла до того, как код отметит текущий слайд как завершённый.
+
+Если вызывающей стороне необходимо обрабатывать отмену, замените проверку `if` и её `break` в начале цикла вызовом [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) на токене. Уберите `try`/`catch` вокруг экспорта, чтобы отмена во время сохранения также передавалась вызывающей стороне. При тех же входных данных пример выводит только `Starting slide 1` и сохраняет `slide-1.pdf`. В начале второй итерации вызывающая сторона получает [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) до начала экспорта. Метод не возвращает список.
 
 ## **FAQ**
 
-**Какова цель библиотеки прерывания Aspose.Slides?**
+**Когда следует запрашивать отмену?**
 
-Она предоставляет механизм прерывания длительных операций — загрузки, сохранения или рендеринга презентаций — до их завершения. Это полезно, когда требуется ограничить время обработки или задача более не нужна.
+Запрашивайте отмену, когда операция превышает установленный вами предел времени или когда вашему приложению больше не нужен результат.
 
-**В чём разница между [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/)?**
+**В чём разница между [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` передаётся в API Aspose.Slides и проверяется во время длительных операций.
-- `InterruptionTokenSource` используется в вашем коде для создания токенов и вызова прерывания через `Interrupt()`.
+Источник позволяет вашему приложению запросить отмену. Токен позволяет Aspose.Slides и вашему приложению проверять наличие такого запроса.
 
-**Можно ли использовать .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) с библиотекой прерывания?**
+**Можно ли использовать .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) с Aspose.Slides?**
 
-Да. Вы можете отслеживать [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) в логике приложения и вызывать [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/), когда требуется отмена. Это позволяет Aspose.Slides интегрироваться со стандартными процессами отмены в .NET.
+Да. Когда ваш .NET‑токен сигнализирует об отмене, вызовите [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) у источника, связанного с презентацией.
 
-**Какие задачи можно прерывать?**
+**Какие операции можно прервать?**
 
-Любая задача Aspose.Slides, принимающая [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) — например, загрузка презентации через `Presentation(path, loadOptions)` или сохранение через `Presentation.Save(...)` — может быть прервана.
+Можно прерывать загрузку, сохранение и рендеринг. Передайте токен в [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) через [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). Презентация тогда сможет обнаруживать отмену во время последующих операций, таких как [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
 
-**Прерывание происходит мгновенно?**
+**Останавливается ли операция немедленно?**
 
-Нет. Прерывание кооперативное: операция периодически проверяет токен и останавливается, как только обнаруживает вызов [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/).
+Отмена является кооперативной. Операция периодически проверяет токен и останавливается, когда обнаруживает запрос.
 
-**Что произойдёт, если вызвать [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) после завершения задачи?**
+**Что происходит, если вызвать [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) после завершения операции?**
 
-Ничего — вызов не имеет эффекта, если соответствующая задача уже завершена.
+Завершённая операция сохраняет свой результат.
 
-**Можно ли повторно использовать один [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/) для нескольких задач?**
+**Могут ли несколько операций использовать один [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-Да — но после вызова [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) на этом источнике все задачи, использующие его токены, будут прерваны. Для независимого управления задачами используйте отдельные источники токенов.
+Да. Вызов [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) запрашивает отмену для каждой операции, использующей токен из этого источника. Используйте отдельный источник для каждой операции, которую требуется отменять независимо.

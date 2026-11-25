@@ -1,38 +1,38 @@
 ---
-title: Interruptable लाइब्रेरी के लिए समर्थन
+title: ".NET में लंबी अवधि वाले प्रेजेंटेशन ऑपरेशन को बाधित करें"
+linktitle: "प्रेजेंटेशन ऑपरेशन को बाधित करें"
 type: docs
 weight: 150
 url: /hi/net/support-for-interruptable-library/
 keywords:
-- interruptable लाइब्रेरी
-- interruption टोकन
-- cancellation टोकन
-- लंबी अवधि का कार्य
-- बाधित कार्य
-- PowerPoint
-- OpenDocument
-- प्रेज़ेंटेशन
-- .NET
-- C#
-- Aspose.Slides
-description: ".NET के लिए Aspose.Slides के साथ लंबी अवधि के कार्यों को रद्द करने योग्य बनाएं। PowerPoint और OpenDocument के लिए रेंडरिंग और रूपांतरण को सुरक्षित रूप से बाधित करें, उदाहरणों के साथ."
+- "बाधित करने योग्य ऑपरेशन"
+- "इंटरप्शन टोकन"
+- "रद्दीकरण टोकन"
+- "लंबे समय तक चलने वाला कार्य"
+- "कार्य को बाधित करें"
+- "PowerPoint"
+- "OpenDocument"
+- "प्रेजेंटेशन"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET में लंबी अवधि वाले प्रेजेंटेशन ऑपरेशन को रद्द करने और लूप में स्लाइड्स निर्यात करते समय आंशिक परिणाम लौटाने के बारे में जानें।"
 ---
-## **अवलोकन**
+## **समीक्षा**
 
-Aspose.Slides for .NET लंबी अवधि के प्रेज़ेंटेशन कार्यों, जैसे कि डीसिरियलाइज़ेशन, सीरियलाइज़ेशन और रेंडरिंग, के लिए एक इंटर्रप्टेबल प्रोसेसिंग मैकेनिज्म प्रदान करता है। यह मैकेनिज्म `InterruptionToken` और `InterruptionTokenSource` क्लासों पर आधारित है।
+Aspose.Slides for .NET लंबे समय तक चलने वाले कार्यों जैसे कि लोड करना, सेव करना और प्रेजेंटेशन रेंडर करना को बाधित कर सकता है। आपका अनुप्रयोग अगला स्लाइड प्रोसेस करने से पहले लूप को रोकने के लिए वही इंटरप्शन टोकन उपयोग कर सकता है।
 
-`InterruptionToken` को `LoadOptions` को असाइन किया जा सकता है और `Presentation` कन्स्ट्रक्टर को पास किया जा सकता है। जब `InterruptionTokenSource.Interrupt()` को कॉल किया जाता है, तो संबंधित लंबी अवधि का कार्य बाधित हो जाता है। यह लेख यह भी दर्शाता है कि इस मैकेनिज्म को मानक .NET `CancellationToken` के साथ कैसे उपयोग किया जाए, जिससे रद्दीकरण अनुरोधों की निगरानी की जा सके और रद्दीकरण का अनुरोध होने पर `Interrupt()` को कॉल किया जाए।
+## **प्रेजेंटेशन ऑपरेशन को बाधित करें**
 
-## **इंटर्रप्टेबल लाइब्रेरी**
+एक [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) बनाएँ, उसके [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) को [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) को असाइन करें, और लोड विकल्पों को [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) को पास करें। रद्दीकरण का अनुरोध करने के लिए, स्रोत पर [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) को कॉल करें। एक इंटरप्टेबल ऑपरेशन तब रुकता है जब वह अनुरोध को देखता है।
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/hi/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), we introduced the [InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontokensource/) classes. They allow you to interrupt long-running tasks such as deserialization, serialization, and rendering.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontokensource/) टोकन(स) का स्रोत है जो [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/iloadoptions/interruptiontoken/) को पास किया जाता है।
-- जब [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/iloadoptions/interruptiontoken/) सेट किया जाता है और [LoadOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/) की इंस्टेंस को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) कन्स्ट्रक्टर में पास किया जाता है, तो [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontokensource/interrupt/) को कॉल करने से उस [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) से जुड़ा कोई भी लंबा कार्य बाधित हो जाता है।
-
-निम्नलिखित कोड स्निपेट चल रहे कार्य को बाधित करने का प्रदर्शन करता है:
+उदाहरण बैकग्राउंड टास्क में `sample.pptx` को `sample.ppt` में बदलना शुरू करता है और 10 सेकंड के बाद रद्दीकरण का अनुरोध करता है। यदि रूपांतरण पहले समाप्त हो जाता है, तो आउटपुट पहले ही पूर्ण हो जाता है।
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken और इंटर्रप्टेबल लाइब्रेरी**
+## **.NET रद्दीकरण को Aspose.Slides से जोड़ें**
 
-When you need to use a [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) alongside the Aspose.Slides Interruptible library, wrap the [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) processing and interrupt the [InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontoken/) when [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) is `true`.
-
-यह C# कोड इस कार्य को दर्शाता है:
+यदि आपका अनुप्रयोग एक .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) उपयोग करता है, तो उसकी रद्दीकरण अनुरोध को Aspose.Slides को अग्रेषित करें। उदाहरण `sample.pptx` को `sample.pdf` में निर्यात करना शुरू करता है और 20 सेकंड का टाइमआउट सेट करता है। निर्यात चलने के दौरान, यह हर 500 मिलीसेकंड में [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) को जांचता है। जब यह प्रॉपर्टी `true` हो जाती है, तो यह [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) को कॉल करता है।
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -81,14 +83,14 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // एक अलग थ्रेड में क्रिया चलाएँ
+    Task task = Run(action, tokenSource.Token); // क्रिया को एक अलग थ्रेड में चलाएँ
 
-    while (!task.Wait(500)) // रुकें और मॉनिटर करें कि cancellationToken.IsCancellationRequested सेट है या नहीं
+    while (!task.Wait(500)) // प्रतीक्षा करें और देखें कि cancellationToken.IsCancellationRequested सेट है या नहीं
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // Presentation प्रोसेसिंग को बाधित करें
+            tokenSource.Interrupt(); // Presentation प्रोसेसिंग को रोकें
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **अगले स्लाइड को प्रोसेस करने से पहले रोकें**
+
+प्रेजेंटेशन और उसके स्लाइड्स को निर्यात करने वाले लूप दोनों के लिए वही [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) उपयोग करें। प्रत्येक निर्यात शुरू करने से पहले [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) जाँचें। यदि कॉलर आंशिक परिणाम का उपयोग कर सकता है, तो सफलतापूर्वक पूर्ण हुए निर्यातों के स्लाइड नंबर वापस करें।
+
+कम से कम दो स्लाइड्स वाले `sample.pptx` नामक प्रेजेंटेशन का उपयोग करें। उदाहरण पहले सफल निर्यात को रिकॉर्ड करने के तुरंत बाद रद्दीकरण का अनुरोध करता है।
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+उदाहरण `slide-1.pdf` लिखता है और `Starting slide 1` प्रिंट करता है, उसके बाद `Completed: [1]`। लूप स्लाइड 2 शुरू होने से पहले अनुरोध को देखता है। यदि रद्दीकरण निर्यात के दौरान [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) को बाधित करता है, तो `catch` ब्लॉक कोड को वर्तमान स्लाइड को पूर्ण के रूप में रिकॉर्ड करने से पहले लूप से बाहर निकल देता है।
+
+यदि कॉलर को रद्दीकरण संभालना है, तो लूप के शीर्ष पर `if` जांच और उसका `break` को टोकन पर [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) कॉल से बदलें। निर्यात के आसपास का `try`/`catch` हटाएँ ताकि सेव के दौरान रद्दीकरण भी कॉलर तक पहुँचे। वही इनपुट उपयोग करने पर, उदाहरण केवल `Starting slide 1` प्रिंट करता है और `slide-1.pdf` लिखता है। दूसरे इटरेशन की शुरुआत में, कॉलर को निर्यात शुरू होने से पहले एक [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) मिलता है। मेथड कोई सूची वापस नहीं करता।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides इंटर्रप्ट लाइब्रेरी का उद्देश्य क्या है?**
+**मुझे रद्दीकरण कब अनुरोध करना चाहिए?**
 
-यह लंबी अवधि के ऑपरेशनों—जैसे कि प्रेज़ेंटेशन को लोड करना, सेव करना, या रेंडर करना—को समाप्त होने से पहले बाधित करने का मैकेनिज्म प्रदान करता है। यह तब उपयोगी होता है जब प्रोसेसिंग समय सीमित होना चाहिए या कार्य अब आवश्यक नहीं रहता।
+जब कोई ऑपरेशन आपके समय सीमा से अधिक हो जाता है या आपका अनुप्रयोग परिणाम की अब आवश्यकता नहीं रखता तो रद्दीकरण अनुरोध करें।
 
-**[InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontoken/) और [InterruptionTokenSource](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/) में क्या अंतर है?**
+**[InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) और [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) के बीच अंतर क्या है?**
 
-- `InterruptionToken` को Aspose.Slides API को पास किया जाता है और लंबी अवधि के ऑपरेशनों के दौरान जाँचा जाता है।
-- `InterruptionTokenSource` का उपयोग आपके कोड में टोकन बनाने और `Interrupt()` को कॉल करके बाधित करने के लिए किया जाता है।
+स्रोत आपके अनुप्रयोग को रद्दीकरण का अनुरोध करने देता है। टोकन Aspose.Slides और आपके अनुप्रयोग को उस अनुरोध की जाँच करने देता है।
 
-**क्या मैं .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) को इंटर्रप्ट लाइब्रेरी के साथ उपयोग कर सकता हूँ?**
+**क्या मैं Aspose.Slides के साथ .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) का उपयोग कर सकता हूँ?**
 
-हां। आप अपने एप्लिकेशन लॉजिक में [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) की निगरानी कर सकते हैं और रद्दीकरण के अनुरोध पर [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/interrupt/) को कॉल कर सकते हैं। यह Aspose.Slides को मानक .NET रद्दीकरण वर्कफ़्लो के साथ एकीकृत करने में सक्षम बनाता है।
+हाँ। जब आपका .NET टोकन रद्दीकरण संकेत देता है, तो प्रेजेंटेशन से जुड़े स्रोत पर [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) को कॉल करें।
 
-**क्या कार्य बाधित किए जा सकते हैं?**
+**मैं किस ऑपरेशन को बाधित कर सकता हूँ?**
 
-कोई भी Aspose.Slides कार्य जो [InterruptionToken](https://reference.aspose.com/slides/hi/net/aspose.slides/interruptiontoken/) स्वीकार करता है—जैसे `Presentation(path, loadOptions)` से प्रेज़ेंटेशन लोड करना या `Presentation.Save(...)` से सेव करना—को बाधित किया जा सकता है।
+आप लोडिंग, सेविंग और रेंडरिंग को बाधित कर सकते हैं। टोकन को [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) के माध्यम से [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) को पास करें। तब प्रेजेंटेशन बाद के ऑपरेशनों जैसे कि [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) के दौरान रद्दीकरण देख सकता है।
 
-**क्या बाधित करना तुरंत होता है?**
+**क्या कोई ऑपरेशन तुरंत रुकता है?**
 
-नहीं। बाधित करना सहयोगात्मक होता है: ऑपरेशन नियमित रूप से टोकन को जाँचता है और जैसे ही यह पहचानता है कि [Interrupt()](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/interrupt/) को कॉल किया गया है, रोक देता है।
+रद्दीकरण सहयोगी है। एक ऑपरेशन टोकन को नियमित रूप से जांचता है और जब वह अनुरोध देखता है तो रुक जाता है।
 
-**यदि मैं किसी कार्य के पूरा होने के बाद [Interrupt()](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/interrupt/) को कॉल करता हूँ तो क्या होता है?**
+**यदि कोई ऑपरेशन समाप्त होने के बाद मैं [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) कॉल करूँ तो क्या होता है?**
 
-कुछ नहीं—यदि संबंधित कार्य पहले ही पूरा हो चुका है, तो कॉल का कोई प्रभाव नहीं रहता।
+पूरा हुआ ऑपरेशन अपना परिणाम बनाए रखता है।
 
-**क्या मैं कई कार्यों के लिए एक ही [InterruptionTokenSource](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/) का पुन: उपयोग कर सकता हूँ?**
+**क्या कई ऑपरेशन एक [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) साझा कर सकते हैं?**
 
-हां—लेकिन जब आप उस स्रोत पर [Interrupt()](https://reference.aspose.com/slides/hi/net/aspose.slides/iinterruptiontokensource/interrupt/) को कॉल करते हैं, तो उसके टोकन का उपयोग करने वाले सभी कार्य बाधित हो जाएंगे। कार्यों को स्वतंत्र रूप से प्रबंधित करने के लिए अलग-अलग टोकन स्रोतों का उपयोग करें।
+हाँ। [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) कॉल करने से उस स्रोत से टोकन उपयोग करने वाले प्रत्येक ऑपरेशन के लिए रद्दीकरण अनुरोध किया जाता है। प्रत्येक ऑपरेशन को स्वतंत्र रूप से रद्दीकरण करने के लिए अलग स्रोत उपयोग करें।

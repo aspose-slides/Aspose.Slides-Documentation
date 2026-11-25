@@ -1,10 +1,11 @@
 ---
-title: Podpora přerušitelné knihovny
+title: Přerušení dlouho běžících operací prezentace v C++
+linktitle: Přerušení operací prezentace
 type: docs
 weight: 150
 url: /cs/cpp/support-for-interruptable-library/
 keywords:
-- přerušitelná knihovna
+- přerušitelné operace
 - token přerušení
 - token zrušení
 - dlouho běžící úloha
@@ -14,80 +15,202 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Umožněte zrušení dlouho běžících úloh pomocí Aspose.Slides pro C++. Bezpečně přerušte vykreslování a konverze pro PowerPoint a OpenDocument, včetně příkladů."
+description: "Zjistěte, jak zrušit dlouho běžící operace prezentace v Aspose.Slides pro C++ a vrátit částečný výsledek při exportu snímků ve smyčce."
 ---
 ## **Přehled**
 
-Aspose.Slides poskytuje přerušitelné zpracování pro dlouho běžící úlohy prezentací, jako je deserializace, serializace a renderování. Tento mechanismus je založen na třídách `InterruptionToken` a `InterruptionTokenSource`.
+Aspose.Slides pro C++ může přerušit dlouho běžící operace, jako je načítání, ukládání a vykreslování prezentací. Vaše aplikace může použít stejný token přerušení k zastavení smyčky před tím, než začne zpracovávat další snímek.
 
-`InterruptionToken` může být přiřazen k `LoadOptions` a předán konstruktoru `Presentation`. Když je voláno `InterruptionTokenSource::Interrupt()`, související dlouho běžící úloha je přerušena.
+## **Přerušit operaci prezentace**
 
-## **Přerušitelná knihovna**
+Vytvořte [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/), získejte jeho token pomocí [get_Token](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/get_token/), předávejte token do [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/), a předávejte možnosti načítání do [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/). Pro požádání o zrušení zavolejte [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) na zdroj. Přerušitelná operace se zastaví, když zaznamená požadavek.
 
-V [Aspose.Slides 18.4](https://releases.aspose.com/slides/cs/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/) jsme představili třídy [InterruptionToken](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/). Umožňují přerušit dlouho běžící úlohy, jako je deserializace, serializace a renderování.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/) je zdrojem tokenu(ů) předávaných do [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_interruptiontoken/).
-- Když je [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_interruptiontoken/) nastaven a instance [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/) je předána konstruktoru [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/), volání [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/interrupt/) přeruší jakoukoli dlouho běžící úlohu spojenou s touto [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-
-Následující úryvek kódu ukazuje, jak přerušit běžící úlohu:
+Příklad zahajuje konverzi `sample.pptx` na `sample.ppt` v úloži pozadí a požaduje zrušení, pokud úloha stále běží po 10 sekundách. Pokud konverze skončí dříve, výstup je již kompletní.
 
 ```cpp
-void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
-{
-    auto threadFunction = std::function<void()>([&action, &token]() -> void
-    {
-        action(token);
-    });
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
-    thread->Start();
+using namespace Aspose::Slides;
+using namespace System;
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
+});
+
+if (conversion.wait_for(std::chrono::seconds(10)) == std::future_status::timeout)
+    source->Interrupt();
+
+try
+{
+    conversion.get();
 }
-
-void Run()
+catch (const OperationCanceledException&)
 {
-    String dataDir = GetDataPath();
-
-    auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
-    {
-        auto options = System::MakeObject<LoadOptions>();
-        options->set_InterruptionToken(token);
-
-        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
-        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
-    });
-
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
-    auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    
-    Run(action, tokenSource->get_Token()); // spustí akci v samostatném vlákně
-    Threading::Thread::Sleep(10000);       // časový limit
-    tokenSource->Interrupt();              // zastaví konverzi
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
 }
 ```
 
-## **Často kladené otázky**
+## **Propojit zrušení aplikace s Aspose.Slides**
 
-**Jaký je účel přerušitelné knihovny Aspose.Slides?**
+Pokud vaše aplikace používá [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/), použijte [Register](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/register/), abyste předali požadavky na zrušení do [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/). Příklad exportuje `sample.pptx` do `sample.pdf` v úloži pozadí. Pokud export stále běží po 20 sekundách, aplikace zavolá [CancellationTokenSource::Cancel](https://reference.aspose.com/slides/cpp/system.threading/cancellationtokensource/cancel/), což spustí registrovaný zpětné volání.
 
-Poskytuje mechanismus k přerušení dlouho běžících operací — například načítání, ukládání nebo renderování prezentací — před jejich dokončením. To je užitečné, když je nutné omezit dobu zpracování nebo úloha již není potřeba.
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <system/threading/cancellation_token.h>
+#include <system/threading/cancellation_token_source.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-**Jaký je rozdíl mezi [InterruptionToken](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/)?**
+using namespace Aspose::Slides;
+using namespace System;
 
-- `InterruptionToken` je předáván API Aspose.Slides a během dlouho běžících operací kontrolován.
-- `InterruptionTokenSource` se používá ve vašem kódu k vytváření tokenů a k vyvolání přerušení voláním `Interrupt()`.
+auto cancellation = MakeObject<Threading::CancellationTokenSource>();
+auto cancellationToken = cancellation->get_Token();
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto interrupt = Action<>([source]() { source->Interrupt(); });
+auto registration = cancellationToken.Register(interrupt);
 
-**Jaké úlohy lze přerušit?**
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.pdf", Export::SaveFormat::Pdf);
+});
 
-Jakákoli úloha Aspose.Slides, která přijímá [InterruptionToken](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontoken/) — například načítání prezentace pomocí `Presentation(path, loadOptions)` nebo ukládání pomocí `Presentation::Save(...)` — může být přerušena.
+if (conversion.wait_for(std::chrono::seconds(20)) == std::future_status::timeout)
+    cancellation->Cancel();
 
-**Dochází k přerušení okamžitě?**
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
+registration.Dispose();
+```
 
-Ne. Přerušení je kooperativní: operace periodicky kontroluje token a zastaví se, jakmile zjistí, že bylo voláno [Interrupt()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/interrupt/).
+## **Zastavit před zpracováním dalšího snímku**
 
-**Co se stane, pokud zavolám [Interrupt()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/interrupt/) po tom, co úloha již byla dokončena?**
+Použijte stejný [IInterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/) pro prezentaci i smyčku, která exportuje její snímky. Před zahájením každého exportu zkontrolujte [get_IsInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/get_isinterruptionrequested/). Pokud volající může použít částečný výsledek, vraťte čísla snímků pro exporty, které byly úspěšně dokončeny.
 
-Nič — volání nemá žádný efekt, pokud byla odpovídající úloha již dokončena.
+Použijte prezentaci s názvem `sample.pptx` obsahující alespoň dva snímky. Příklad požádá o zrušení okamžitě po zaznamenání prvního úspěšného exportu.
 
-**Mohu znovu použít stejný [InterruptionTokenSource](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/) pro více úloh?**
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <DOM/ISlideCollection.h>
+#include <system/array.h>
+#include <iostream>
+#include <vector>
 
-Ano — ale po volání [Interrupt()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/interruptiontokensource/interrupt/) na tomto zdroji budou všechny úlohy používající jeho tokeny přerušeny. Pro samostatné řízení úloh používejte samostatné zdroje tokenů.
+using namespace Aspose::Slides;
+using namespace System;
+
+auto exportSlides = [](String path, SharedPtr<InterruptionTokenSource> source)
+{
+    std::vector<int32_t> completed;
+    auto token = source->get_Token();
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(path, options);
+    auto slideCount = presentation->get_Slides()->get_Count();
+
+    for (auto number = 1; number <= slideCount; ++number)
+    {
+        if (token->get_IsInterruptionRequested())
+            break;
+
+        std::cout << "Starting slide " << number << '\n';
+        auto filename = String::Format(u"slide-{0}.pdf", number);
+        auto slides = MakeArray<int32_t>({number});
+        try
+        {
+            presentation->Save(filename, slides, Export::SaveFormat::Pdf);
+        }
+        catch (const OperationCanceledException&)
+        {
+            if (!token->get_IsInterruptionRequested())
+                throw;
+            break;
+        }
+
+        completed.push_back(number);
+        if (number == 1)
+            source->Interrupt();
+    }
+    return completed;
+};
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto completed = exportSlides(u"sample.pptx", source);
+std::cout << "Completed: [";
+for (size_t i = 0; i < completed.size(); ++i)
+    std::cout << (i == 0 ? "" : ", ") << completed[i];
+std::cout << "]\n";
+```
+
+Příklad zapíše `slide-1.pdf` a vytiskne `Starting slide 1` následované `Completed: [1]`. Smyčka zaznamená požadavek před tím, než začne snímek 2. Pokud zrušení místo toho přeruší [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) během exportu, blok `catch` ukončí smyčku dříve, než kód zaznamená aktuální snímek jako dokončený.
+
+Pokud volající potřebuje zpracovat zrušení, nahraďte kontrolu `if` a její `break` na začátku smyčky voláním [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) na tokenu. Odstraňte blok `try`/`catch` kolem exportu, aby zrušení během ukládání také dosáhlo volajícího. Se stejným vstupem příklad vytiskne pouze `Starting slide 1` a zapíše `slide-1.pdf`. Na začátku druhé iterace volající obdrží [System::OperationCanceledException](https://reference.aspose.com/slides/cpp/system/details_operationcanceledexception/) před zahájením exportu. Volající nedostane žádný seznam dokončených snímků.
+
+## **FAQ**
+
+**Kdy bych měl požádat o zrušení?**
+
+Požádejte o zrušení, když operace přesáhne váš časový limit nebo když vaše aplikace již výsledek nepotřebuje.
+
+**Jaký je rozdíl mezi [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
+
+Zdroj umožňuje vaší aplikaci požádat o zrušení. Token umožňuje Aspose.Slides i vaší aplikaci kontrolovat tento požadavek.
+
+**Mohu použít [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) s Aspose.Slides?**
+
+Ano. Když token vaší aplikace signalizuje zrušení, zavolejte [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) na zdroj spojený s prezentací.
+
+**Které operace mohu přerušit?**
+
+Můžete přerušit načítání, ukládání a vykreslování. Předejte token do [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/) pomocí [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/). Prezentace tak může sledovat zrušení během následných operací, jako je [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
+
+**Zastaví se operace okamžitě?**
+
+Zrušení je kooperativní. Operace periodicky kontroluje token a zastaví se, když zaznamená požadavek.
+
+**Co se stane, když zavolám [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) po dokončení operace?**
+
+Dokončená operace si zachová svůj výsledek.
+
+**Mohou více operací sdílet [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
+
+Ano. Volání [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) požaduje zrušení pro každou operaci, která používá token z tohoto zdroje. Pro každou operaci, kterou chcete rušit nezávisle, použijte samostatný zdroj.

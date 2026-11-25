@@ -1,38 +1,38 @@
 ---
-title: Kesilebilir Kütüphane Desteği
+title: ".NET'te Uzun Süreli Sunum İşlemlerini Kesintiye Uğratma"
+linktitle: "Sunum İşlemlerini Kesintiye Uğrat"
 type: docs
 weight: 150
 url: /tr/net/support-for-interruptable-library/
 keywords:
-- kesilebilir kütüphane
-- kesinti tokenı
-- iptal tokenı
-- uzun süren görev
-- görevi kes
+- kesintiye uğrayabilir işlemler
+- kesinti belirteci
+- iptal belirteci
+- uzun süreli görev
+- görevi kesintiye uğrat
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile uzun süren görevleri iptal edilebilir hale getirin. PowerPoint ve OpenDocument için renderlemeyi ve dönüşümleri güvenli bir şekilde kesintiye uğratın, örneklerle."
+description: "Aspose.Slides for .NET'te uzun süren sunum işlemlerini nasıl iptal edeceğinizi ve slaytları bir döngü içinde dışa aktarırken kısmi bir sonuç nasıl döndüreceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for .NET, serileştirme, serileştirme ve renderleme gibi uzun süren sunum görevleri için kesilebilir bir işleme mekanizması sağlar. Bu mekanizma `InterruptionToken` ve `InterruptionTokenSource` sınıflarına dayanır.
+Aspose.Slides for .NET, sunumları yükleme, kaydetme ve oluşturma gibi uzun süren işlemleri kesintiye uğratabilir. Uygulamanız aynı interruption token'ı kullanarak bir döngüyü, bir sonraki slaytı işlemeye başlamadan durdurabilir.
 
-`InterruptionToken`, `LoadOptions`'a atanabilir ve `Presentation` yapıcıya geçirilebilir. `InterruptionTokenSource.Interrupt()` çağrıldığında, ilişkili uzun süren görev kesilir. Makale ayrıca bu mekanizmanın standart .NET `CancellationToken` ile birlikte nasıl kullanılacağını, iptal isteklerini izleyerek ve iptal istendiğinde `Interrupt()` çağırarak gösterir.
+## **Sunum İşlemini Kesintiye Uğratma**
 
-## **Kesilebilir Kütüphane**
+Bir [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) oluşturun, onun [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) özelliğini [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) üzerine atayın ve yükleme seçeneklerini [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) metoduna geçirin. İptali talep etmek için kaynağın [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metodunu çağırın. Kesintiye uğrayabilir bir işlem, isteği gördüğünde durur.
 
-Aspose.Slides 18.4 sürümünde ([Aspose.Slides 18.4](https://releases.aspose.com/slides/tr/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/)), [InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontokensource/) sınıflarını tanıttık. Bu sınıflar, serileştirme, serileştirme ve renderleme gibi uzun süren görevleri kesmenize olanak tanır.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontokensource/) **yönlendirilen token(ler)in kaynağıdır** ve bu token(ler) [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/iloadoptions/interruptiontoken/) üzerinden geçirilir.
-- [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/iloadoptions/interruptiontoken/) ayarlandığında ve [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) örneği [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yapıcıya geçirildiğinde, [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontokensource/interrupt/) çağrısı o [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) ile ilişkili herhangi bir uzun süren görevi keser.
-
-Aşağıdaki kod parçacığı çalışan bir görevi kesmeyi gösterir:
+Örnek, `sample.pptx` dosyasını `sample.ppt` biçimine arka plan görevinde dönüştürmeye başlar ve 10 saniye sonra iptal talep eder. Dönüştürme daha erken tamamlanırsa, çıktı zaten tamamlanmış olur.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -47,7 +47,7 @@ public static void Run()
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Run(action, tokenSource.Token); // eylemi ayrı bir iş parçacığında çalıştır
     Thread.Sleep(10000);            // zaman aşımı
-    tokenSource.Interrupt();        // dönüşümü durdur
+    tokenSource.Interrupt();        // dönüştürmeyi durdur
 }
 
 private static void Run(Action<IInterruptionToken> action, IInterruptionToken token)
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken ve Kesilebilir Kütüphane**
+## **.NET İptalini Aspose.Slides ile Bağlamak**
 
-Aspose.Slides Kesilebilir kütüphanesiyle birlikte bir [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) kullanmanız gerektiğinde, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) işleme sürecini sarmalayıp, [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) `true` olduğunda [InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontoken/) kesintiye uğratmalısınız.
-
-Bu C# kodu işlemi gösterir:
+Eğer uygulamanız bir .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) kullanıyorsa, iptal isteğini Aspose.Slides'e iletin. Örnek, `sample.pptx` dosyasını `sample.pdf` olarak dışa aktarmaya başlar ve 20 saniyelik bir zaman aşımı ayarlar. Dışa aktarma çalışırken, her 500 milisaniyede bir [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) kontrol eder. Özellik `true` olduğunda, [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metodunu çağırır.
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -83,12 +85,12 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Task task = Run(action, tokenSource.Token); // eylemi ayrı bir iş parçacığında çalıştır
 
-    while (!task.Wait(500)) // bekle ve cancellationToken.IsCancellationRequested'in ayarlanıp ayarlanmadığını izle
+    while (!task.Wait(500)) // bekle ve cancellationToken.IsCancellationRequested ayarlanıp ayarlanmadığını izle
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // Presentation işlemini kesintiye uğrat
+            tokenSource.Interrupt(); // Presentation işleme işlemini kesintiye uğrat
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **FAQ**
+## **Bir Sonraki Slaytı İşlemeye Başlamadan Durdurmak**
 
-**Aspose.Slides kesinti kütüphanesinin amacı nedir?**
+Sunum ve onun slaytlarını dışa aktaran döngü için aynı [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) kullanın. Her dışa aktarmaya başlamadan önce [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) kontrol edin. Çağıran kısmi bir sonuç kullanabiliyorsa, başarılı bir şekilde tamamlanan dışa aktarmaların slayt numaralarını geri döndürün.
 
-Uzun süren işlemleri—sunumları yükleme, kaydetme veya renderleme gibi—tamamlanmadan kesmenizi sağlayan bir mekanizma sunar. İşlem süresi sınırlı olduğunda veya görev artık gerekmediğinde kullanışlıdır.
+`sample.pptx` adlı ve en az iki slayta sahip bir sunum kullanın. Örnek, ilk başarılı dışa aktarmayı kaydettikten hemen sonra iptal talep eder.
 
-**[InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontoken/) ile [InterruptionTokenSource](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/) arasındaki fark nedir?**
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- `InterruptionToken`, Aspose.Slides API'sine geçirilir ve uzun süren işlemler sırasında kontrol edilir.
-- `InterruptionTokenSource`, kodunuzda token oluşturmak ve `Interrupt()` çağrısı yaparak kesintiyi tetiklemek için kullanılır.
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
 
-**.NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) kesinti kütüphanesiyle birlikte kullanılabilir mi?**
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
 
-Evet. Uygulama mantığınızda [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)'ı izleyebilir ve iptal istendiğinde [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/interrupt/) çağırabilirsiniz. Bu, Aspose.Slides'in standart .NET iptal akışlarıyla bütünleşmesini sağlar.
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
 
-**Hangi görevler kesilebilir?**
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
 
-[InterruptionToken](https://reference.aspose.com/slides/tr/net/aspose.slides/interruptiontoken/) kabul eden her Aspose.Slides görevi—örneğin `Presentation(path, loadOptions)` ile bir sunumu yükleme veya `Presentation.Save(...)` ile kaydetme—kesilebilir.
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
 
-**Kesinti hemen gerçekleşir mi?**
+    return completed;
+}
+```
 
-Hayır. Kesinti işbirlikçidir: işlem periyodik olarak tokenı kontrol eder ve [Interrupt()](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/interrupt/) çağrıldığını tespit ettiğinde durur.
+Örnek `slide-1.pdf` dosyasını yazar ve `Starting slide 1` ardından `Completed: [1]` mesajını verir. Döngü, slayt 2'ye başlamadan önce isteği görür. Eğer iptal, dışa aktarma sırasında [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) yöntemini kesintiye uğratırsa, `catch` bloğu kodun mevcut slaytı tamamlandı olarak kaydetmeden döngüyü sonlandırır.
 
-**Bir görev zaten tamamlanmışken [Interrupt()](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/interrupt()) çağrılırsa ne olur?**
+Eğer çağıranın iptali ele alması gerekiyorsa, döngünün başındaki `if` kontrolünü ve `break` ifadesini token üzerinde [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) çağrısı ile değiştirin. Dışa aktarma etrafındaki `try`/`catch` bloklarını kaldırın, böylece kaydetme sırasında iptal de çağırana ulaşır. Aynı girdiyle örnek yalnızca `Starting slide 1` yazdırır ve `slide-1.pdf` dosyasını yazar. İkinci yinelemenin başında, dışa aktarma başlamadan önce çağıran bir [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) alır. Metot hiçbir liste döndürmez.
 
-Hiçbir şey olmaz—görev zaten tamamlanmışsa çağrının bir etkisi yoktur.
+## **SSS**
 
-**Aynı [InterruptionTokenSource](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/) birden çok görev için yeniden kullanılabilir mi?**
+**İptali ne zaman talep etmeliyim?**
 
-Evet—ancak o kaynak üzerinde [Interrupt()](https://reference.aspose.com/slides/tr/net/aspose.slides/iinterruptiontokensource/interrupt/) çağrısı yapıldığında, tokenlarını kullanan tüm görevler kesilir. Görevleri bağımsız yönetmek için ayrı token kaynakları kullanın.
+İşlem zaman sınırınızı aşarsa veya uygulamanız artık sonuca ihtiyaç duymuyorsa iptali talep edin.
+
+**[InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) ve [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) arasındaki fark nedir?**
+
+Kaynak, uygulamanızın iptali talep etmesini sağlar. Belirteç ise Aspose.Slides ve uygulamanızın bu talebi kontrol etmesine olanak tanır.
+
+**Bir .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) ile Aspose.Slides'i kullanabilir miyim?**
+
+Evet. .NET belirteciniz iptali işaret ettiğinde, sunumla ilişkili kaynaktaki [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metodunu çağırın.
+
+**Hangi işlemleri kesintiye uğratabilirim?**
+
+Yükleme, kaydetme ve oluşturma işlemlerini kesintiye uğratabilirsiniz. Belirteci, [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) aracılığıyla [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) metoduna iletin. Böylece sunum, sonraki işlemler sırasında, örneğin [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) gibi, iptal durumunu gözlemleyebilir.
+
+**İşlem hemen durur mu?**
+
+İptal işbirlikçi bir şekilde gerçekleşir. İşlem belirteci periyodik olarak kontrol eder ve isteği gördüğünde durur.
+
+**Bir işlem bitmişken [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) çağrısı yaparsam ne olur?**
+
+Tamamlanan işlem sonucunu korur.
+
+**Birden fazla işlem aynı [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) paylaşabilir mi?**
+
+Evet. [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) çağrısı, o kaynaktan bir belirteç kullanan tüm işlemler için iptali talep eder. Bağımsız olarak iptal etmek istediğiniz her işlem için ayrı bir kaynak kullanın.

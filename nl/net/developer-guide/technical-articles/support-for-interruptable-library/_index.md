@@ -1,38 +1,38 @@
 ---
-title: Ondersteuning voor onderbreekbare bibliotheek
+title: Onderbreek langdurige presentatiebewerkingen in .NET
+linktitle: Onderbreek presentatiebewerkingen
 type: docs
 weight: 150
 url: /nl/net/support-for-interruptable-library/
 keywords:
-- onderbreekbare bibliotheek
+- onderbreekbare bewerkingen
 - onderbrekingstoken
 - annuleringstoken
 - langdurige taak
-- taak onderbreken
+- onderbreek taak
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Maak langdurige taken annuleerbaar met Aspose.Slides voor .NET. Onderbreek veilig het renderen en de conversies voor PowerPoint en OpenDocument, met voorbeelden."
+description: "Leer hoe u langdurige presentatiebewerkingen in Aspose.Slides voor .NET kunt annuleren en een gedeeltelijk resultaat kunt retourneren bij het exporteren van dia's in een lus."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor .NET biedt een onderbreekbare verwerkingsmechanisme voor langdurige presentatietaken, zoals deserialisatie, serialisatie en weergave. Dit mechanisme is gebaseerd op de `InterruptionToken`‑ en `InterruptionTokenSource`‑klassen.
+Aspose.Slides for .NET kan langdurige bewerkingen zoals het laden, opslaan en renderen van presentaties onderbreken. Uw applicatie kan dezelfde interruption‑token gebruiken om een lus te stoppen voordat deze de volgende dia verwerkt.
 
-Een `InterruptionToken` kan worden toegewezen aan `LoadOptions` en doorgegeven aan de `Presentation`‑constructor. Wanneer `InterruptionTokenSource.Interrupt()` wordt aangeroepen, wordt de bijbehorende langdurige taak onderbroken. Het artikel toont ook hoe dit mechanisme samen met de standaard .NET `CancellationToken` kan worden gebruikt door annuleringsverzoeken te monitoren en `Interrupt()` aan te roepen wanneer annulering wordt gevraagd.
+## **Een presentatiebewerking onderbreken**
 
-## **Onderbreekbare bibliotheek**
+Maak een [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), wijs de [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) toe aan [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) en geef de load‑opties door aan de [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Om een annulering aan te vragen, roep [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) aan op de bron. Een onderbreekbare bewerking stopt wanneer ze het verzoek opmerkt.
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/nl/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/) hebben we de [InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontoken/)‑ en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontokensource/)‑klassen geïntroduceerd. Ze stellen u in staat om langdurige taken zoals deserialisatie, serialisatie en weergave te onderbreken.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontokensource/) is de bron van de token(s) die worden doorgegeven aan [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Wanneer [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/iloadoptions/interruptiontoken/) is ingesteld en de [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/)‑instantie wordt doorgegeven aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑constructor, onderbreekt het aanroepen van [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontokensource/interrupt/) elke langdurige taak die aan die [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) is gekoppeld.
-
-De volgende code‑fragment toont hoe een draaiende taak wordt onderbroken:
+Het voorbeeld start met het converteren van `sample.pptx` naar `sample.ppt` in een achtergrondtaak en vraagt na 10 seconden om annulering. Als de conversie eerder klaar is, is de uitvoer al voltooid.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -46,7 +46,7 @@ public static void Run()
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Run(action, tokenSource.Token); // voer de actie uit in een aparte thread
-    Thread.Sleep(10000);            // time-out
+    Thread.Sleep(10000);            // tijdslimiet
     tokenSource.Interrupt();        // stop de conversie
 }
 
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken en Onderbreekbare bibliotheek**
+## **.NET‑annulering koppelen aan Aspose.Slides**
 
-Wanneer u een [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) naast de Aspose.Slides‑onderbreekbare bibliotheek wilt gebruiken, wikkel dan de verwerking van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en onderbreek de [InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontoken/) wanneer [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) `true` is.
-
-Deze C#‑code demonstreert de werking:
+Als uw applicatie een .NET‑[CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) gebruikt, stuur dan het annuleringsverzoek door naar Aspose.Slides. Het voorbeeld start met het exporteren van `sample.pptx` naar `sample.pdf` en stelt een timeout van 20 seconden in. Terwijl de export loopt, controleert het elke 500 milliseconden [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested). Zodra de eigenschap `true` wordt, wordt [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) aangeroepen.
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -83,7 +85,7 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Task task = Run(action, tokenSource.Token); // voer de actie uit in een aparte thread
 
-    while (!task.Wait(500)) // wacht en controleer of cancellationToken.IsCancellationRequested is ingesteld
+    while (!task.Wait(500)) // wacht en controleer of cancellationToken.IsCancellationRequested is gezet
     {
         if (cancellationToken.IsCancellationRequested)
         {
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Stoppen voordat de volgende dia verwerkt wordt**
+
+Gebruik dezelfde [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) voor zowel de presentatie als de lus die de dia’s exporteert. Controleer [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) voordat elke export gestart wordt. Indien de aanroeper een gedeeltelijk resultaat kan gebruiken, geef dan de dia‑nummers terug voor de exporten die succesvol voltooid zijn.
+
+Gebruik een presentatie met de naam `sample.pptx` die minimaal twee dia’s bevat. Het voorbeeld vraagt direct na de eerste geslaagde export om annulering.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+Het voorbeeld schrijft `slide-1.pdf` en toont `Starting slide 1` gevolgd door `Completed: [1]`. De lus ziet het verzoek voordat dia 2 gestart wordt. Als annulering in plaats daarvan [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) onderbreekt tijdens een export, verlaat de `catch`‑blok de lus voordat de code de huidige dia als voltooid registreert.
+
+Indien de aanroeper annulering moet afhandelen, vervang dan de `if`‑controle en de `break` bovenaan de lus door een aanroep van [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) op de token. Verwijder de `try`/`catch` rond de export zodat annulering tijdens een opslaan eveneens de aanroeper bereikt. Met dezelfde invoer toont het voorbeeld alleen `Starting slide 1` en schrijft `slide-1.pdf`. Aan het begin van de tweede iteratie ontvangt de aanroeper een [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) voordat de export start. De methode retourneert geen lijst.
+
 ## **FAQ**
 
-**Wat is het doel van de Aspose.Slides‑onderbreekbare bibliotheek?**
+**Wanneer moet ik een annulering aanvragen?**
 
-Het biedt een mechanisme om langdurige bewerkingen—zoals het laden, opslaan of weergeven van presentaties—te onderbreken voordat ze zijn voltooid. Dit is nuttig wanneer de verwerkingstijd beperkt moet worden of de taak niet langer nodig is.
+Vraag een annulering aan wanneer een bewerking uw tijdslimiet overschrijdt of wanneer uw applicatie het resultaat niet meer nodig heeft.
 
-**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/)?**
+**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` wordt aan de Aspose.Slides‑API doorgegeven en tijdens langdurige bewerkingen gecontroleerd.
-- `InterruptionTokenSource` wordt in uw code gebruikt om tokens te maken en onderbrekingen te activeren door `Interrupt()` aan te roepen.
+De bron laat uw applicatie een annulering verzoeken. De token laat Aspose.Slides en uw applicatie dat verzoek controleren.
 
-**Kan ik .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) gebruiken met de onderbreekbare bibliotheek?**
+**Kan ik een .NET‑[CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) gebruiken met Aspose.Slides?**
 
-Ja. U kunt de [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) in uw toepassingslogica monitoren en [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/interrupt/) aanroepen wanneer annulering wordt gevraagd. Dit maakt het mogelijk dat Aspose.Slides integreert met de standaard .NET‑annuleringsworkflows.
+Ja. Wanneer uw .NET‑token annulering signaleert, roep dan [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) aan op de bron die bij de presentatie hoort.
 
-**Welke taken kunnen worden onderbroken?**
+**Welke bewerkingen kan ik onderbreken?**
 
-Elke Aspose.Slides‑taak die een [InterruptionToken](https://reference.aspose.com/slides/nl/net/aspose.slides/interruptiontoken/) accepteert—zoals het laden van een presentatie met `Presentation(path, loadOptions)` of het opslaan met `Presentation.Save(...)`—kan worden onderbroken.
+U kunt het laden, opslaan en renderen onderbreken. Geef de token door aan de [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) via [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). De presentatie kan dan tijdens latere bewerkingen zoals [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) annulering waarnemen.
 
-**Wordt onderbreking onmiddellijk uitgevoerd?**
+**Stopt een bewerking onmiddellijk?**
 
-Nee. Onderbreking is coöperatief: de bewerking controleert periodiek de token en stopt zodra [Interrupt()](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/interrupt/) is aangeroepen.
+Annulering is coöperatief. Een bewerking controleert periodiek de token en stopt wanneer ze het verzoek opmerkt.
 
-**Wat gebeurt er als ik [Interrupt()](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/interrupt/) aanroep nadat een taak al is voltooid?**
+**Wat gebeurt er als ik [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) roep nadat een bewerking is voltooid?**
 
-Niets—de oproep heeft geen effect als de bijbehorende taak reeds is afgerond.
+De voltooide bewerking behoudt haar resultaat.
 
-**Kan ik dezelfde [InterruptionTokenSource](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/) hergebruiken voor meerdere taken?**
+**Kunnen meerdere bewerkingen een [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) delen?**
 
-Ja—maar nadat u [Interrupt()](https://reference.aspose.com/slides/nl/net/aspose.slides/iinterruptiontokensource/interrupt/) op die bron hebt aangeroepen, worden alle taken die zijn tokens gebruiken onderbroken. Gebruik aparte token‑bronnen om taken onafhankelijk te beheren.
+Ja. Het aanroepen van [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) vraagt annulering voor elke bewerking die een token van die bron gebruikt. Gebruik een aparte bron voor elke bewerking die u onafhankelijk wilt annuleren.

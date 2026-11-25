@@ -1,93 +1,216 @@
 ---
-title: बाधा-सक्षम लाइब्रेरी के लिए समर्थन
+title: C++ में लंबी अवधि की प्रेजेंटेशन ऑपरेशनों को बाधित करें
+linktitle: प्रेजेंटेशन ऑपरेशनों को बाधित करें
 type: docs
 weight: 150
 url: /hi/cpp/support-for-interruptable-library/
 keywords:
-- बाधा-सक्षम लाइब्रेरी
-- बाधा टोकन
+- बाध्यात्मक ऑपरेशन्स
+- इंटरप्शन टोकन
 - रद्दीकरण टोकन
-- दीर्घकालिक कार्य
-- कार्य बाधित करना
+- लंबी अवधि का कार्य
+- बाधित कार्य
 - PowerPoint
 - OpenDocument
 - प्रेजेंटेशन
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ दीर्घकालिक कार्यों को रद्दीकरण योग्य बनाएं। PowerPoint और OpenDocument के लिए रेंडरिंग और रूपांतरण को सुरक्षित रूप से बाधित करें, उदाहरणों के साथ।"
+description: "Aspose.Slides for C++ में लंबी अवधि की प्रेजेंटेशन ऑपरेशनों को रद्द करना सीखें और लूप में स्लाइड्स को एक्सपोर्ट करते समय एक आंशिक परिणाम लौटाएँ।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-Aspose.Slides दीर्घकालिक प्रेजेंटेशन कार्यों, जैसे डीसिरियलाइज़ेशन, सिरियलाइज़ेशन, और रेंडरिंग, के लिए एक बाधा योग्य प्रोसेसिंग तंत्र प्रदान करती है। यह तंत्र `InterruptionToken` और `InterruptionTokenSource` क्लासों पर आधारित है।
+Aspose.Slides for C++ लंबी अवधि के ऑपरेशनों जैसे लोडिंग, सेविंग, और प्रेजेंटेशन रेंडरिंग को बाधित कर सकता है। आपका एप्लिकेशन वही interruption token का उपयोग करके अगले स्लाइड को प्रोसेस करने से पहले लूप को रोक सकता है।
 
-`InterruptionToken` को `LoadOptions` को असाइन किया जा सकता है और `Presentation` कॉन्स्ट्रक्टर को पास किया जा सकता है। जब `InterruptionTokenSource::Interrupt()` को कॉल किया जाता है, तो संबंधित दीर्घकालिक कार्य बाधित हो जाता है।
+## **प्रेजेंटेशन ऑपरेशन को बाधित करें**
 
-## **बाधा‑सक्षम लाइब्रेरी**
+एक [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) बनाएं, उसका टोकन [get_Token](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/get_token/) के साथ प्राप्त करें, टोकन को [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) में पास करें, और लोड विकल्प को [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/) को पास करें। रद्दीकरण का अनुरोध करने के लिए स्रोत पर [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) को कॉल करें। एक बाध्यात्मक ऑपरेशन तब रुकता है जब वह अनुरोध को देखता है।
 
-[Aspose.Slides 18.4](https://releases.aspose.com/slides/hi/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/) में, हमने [InterruptionToken](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontoken/) और [InterruptionTokenSource](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/) क्लासें पेश कीं। ये आपको डीसिरियलाइज़ेशन, सिरियलाइज़ेशन, और रेंडरिंग जैसे दीर्घकालिक कार्यों को बाधित करने की अनुमति देती हैं।
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/) वह स्रोत है जो टोकन(स) को [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/set_interruptiontoken/) को पास करता है।
-- जब [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/set_interruptiontoken/) सेट किया जाता है और [LoadOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/loadoptions/) इंस्टेंस को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) कॉन्स्ट्रक्टर को पास किया जाता है, तो [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/interrupt/) को कॉल करने से उस [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) से जुड़े किसी भी दीर्घकालिक कार्य को बाधित किया जाता है।
-
-निम्नलिखित कोड स्निपेट चल रहे कार्य को बाधित करने का प्रदर्शन करता है:
+उदाहरण बैकग्राउंड टास्क में `sample.pptx` को `sample.ppt` में बदलना शुरू करता है और यदि कार्य 10 सेकंड के बाद भी चल रहा है तो रद्दीकरण का अनुरोध करता है। यदि रूपांतरण पहले ही समाप्त हो जाता है, तो आउटपुट पहले से ही पूरा हो गया है।
 
 ```cpp
-void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
-{
-    auto threadFunction = std::function<void()>([&action, &token]() -> void
-    {
-        action(token);
-    });
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
-    thread->Start();
+using namespace Aspose::Slides;
+using namespace System;
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
+});
+
+if (conversion.wait_for(std::chrono::seconds(10)) == std::future_status::timeout)
+    source->Interrupt();
+
+try
+{
+    conversion.get();
 }
-
-void Run()
+catch (const OperationCanceledException&)
 {
-    String dataDir = GetDataPath();
-
-    auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
-    {
-        auto options = System::MakeObject<LoadOptions>();
-        options->set_InterruptionToken(token);
-
-        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
-        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
-    });
-
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
-    auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    
-    Run(action, tokenSource->get_Token()); // क्रिया को एक अलग थ्रेड में चलाएँ
-    Threading::Thread::Sleep(10000);       // समय समाप्ति
-    tokenSource->Interrupt();              // रूपांतरण को रोकें
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **एप्लिकेशन रद्दीकरण को Aspose.Slides से जोड़ें**
 
-**Aspose.Slides बाधा लाइब्रेरी का उद्देश्य क्या है?**
+यदि आपका एप्लिकेशन एक [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) का उपयोग करता है, तो रद्दीकरण अनुरोधों को [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) पर फॉरवर्ड करने के लिए [Register](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/register/) का उपयोग करें। उदाहरण `sample.pptx` को `sample.pdf` में बैकग्राउंड टास्क में एक्सपोर्ट करता है। यदि एक्सपोर्ट 20 सेकंड के बाद भी चल रहा है, तो एप्लिकेशन [CancellationTokenSource::Cancel](https://reference.aspose.com/slides/cpp/system.threading/cancellationtokensource/cancel/) को कॉल करता है, जो पंजीकृत कॉलबैक को invoke करता है।
 
-यह दीर्घकालिक ऑपरेशनों—जैसे प्रेजेंटेशन को लोड करना, सेव करना, या रेंडर करना—को पूरा होने से पहले बाधित करने का तंत्र प्रदान करता है। यह तब उपयोगी होता है जब प्रोसेसिंग समय सीमित होना चाहिए या कार्य अब आवश्यक नहीं रहता।
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <system/threading/cancellation_token.h>
+#include <system/threading/cancellation_token_source.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-**[InterruptionToken](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontoken/) और [InterruptionTokenSource](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/) में क्या अंतर है?**
+using namespace Aspose::Slides;
+using namespace System;
 
-- `InterruptionToken` को Aspose.Slides API को पास किया जाता है और दीर्घकालिक ऑपरेशनों के दौरान जाँच किया जाता है।
-- `InterruptionTokenSource` को आपके कोड में टोकन बनाने और `Interrupt()` कॉल करके बाधाएँ प्रारंभ करने के लिए उपयोग किया जाता है।
+auto cancellation = MakeObject<Threading::CancellationTokenSource>();
+auto cancellationToken = cancellation->get_Token();
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto interrupt = Action<>([source]() { source->Interrupt(); });
+auto registration = cancellationToken.Register(interrupt);
 
-**कौन से कार्य बाधित किए जा सकते हैं?**
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.pdf", Export::SaveFormat::Pdf);
+});
 
-कोई भी Aspose.Slides कार्य जो [InterruptionToken](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontoken/) को स्वीकार करता है—जैसे `Presentation(path, loadOptions)` के साथ प्रेजेंटेशन लोड करना या `Presentation::Save(...)` के साथ सेव करना—बाधित किया जा सकता है।
+if (conversion.wait_for(std::chrono::seconds(20)) == std::future_status::timeout)
+    cancellation->Cancel();
 
-**क्या बाधा तुरंत होती है?**
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
+registration.Dispose();
+```
 
-नहीं। बाधा सहयोगी है: ऑपरेशन नियमित रूप से टोकन की जाँच करता है और जैसे ही यह पता करता है कि [Interrupt()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/interrupt/) को कॉल किया गया है, तुरंत रुक जाता है।
+## **अगले स्लाइड को प्रोसेस करने से पहले रोकें**
 
-**यदि मैं किसी कार्य के पूर्ण होने के बाद [Interrupt()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/interrupt/) कॉल करता हूँ तो क्या होता है?**
+प्रेजेंटेशन और उसके स्लाइड्स को एक्सपोर्ट करने वाले लूप दोनों के लिए एक ही [IInterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/) का उपयोग करें। प्रत्येक एक्सपोर्ट शुरू करने से पहले [get_IsInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/get_isinterruptionrequested/) को जांचें। यदि कॉलर आंशिक परिणाम का उपयोग कर सकता है, तो सफलतापूर्वक पूर्ण हुए एक्सपोर्ट्स के स्लाइड नंबर वापस करें।
 
-कुछ नहीं—यदि संबंधित कार्य पहले ही पूर्ण हो चुका है, तो कॉल का कोई प्रभाव नहीं होता।
+कम से कम दो स्लाइड्स वाला `sample.pptx` नामक प्रेजेंटेशन उपयोग करें। उदाहरण पहले सफल एक्सपोर्ट को रिकॉर्ड करने के बाद तुरंत रद्दीकरण का अनुरोध करता है।
 
-**क्या मैं एक ही [InterruptionTokenSource](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/) को कई कार्यों के लिए पुनः उपयोग कर सकता हूँ?**
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <DOM/ISlideCollection.h>
+#include <system/array.h>
+#include <iostream>
+#include <vector>
 
-हां—लेकिन एक बार जब आप उस स्रोत पर [Interrupt()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/interruptiontokensource/interrupt/) कॉल करते हैं, तो उसके टोकन प्रयोग करने वाले सभी कार्य बाधित हो जाएंगे। कार्यों को स्वतंत्र रूप से प्रबंधित करने के लिए अलग-अलग टोकन स्रोतों का उपयोग करें।
+using namespace Aspose::Slides;
+using namespace System;
+
+auto exportSlides = [](String path, SharedPtr<InterruptionTokenSource> source)
+{
+    std::vector<int32_t> completed;
+    auto token = source->get_Token();
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(path, options);
+    auto slideCount = presentation->get_Slides()->get_Count();
+
+    for (auto number = 1; number <= slideCount; ++number)
+    {
+        if (token->get_IsInterruptionRequested())
+            break;
+
+        std::cout << "Starting slide " << number << '\n';
+        auto filename = String::Format(u"slide-{0}.pdf", number);
+        auto slides = MakeArray<int32_t>({number});
+        try
+        {
+            presentation->Save(filename, slides, Export::SaveFormat::Pdf);
+        }
+        catch (const OperationCanceledException&)
+        {
+            if (!token->get_IsInterruptionRequested())
+                throw;
+            break;
+        }
+
+        completed.push_back(number);
+        if (number == 1)
+            source->Interrupt();
+    }
+    return completed;
+};
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto completed = exportSlides(u"sample.pptx", source);
+std::cout << "Completed: [";
+for (size_t i = 0; i < completed.size(); ++i)
+    std::cout << (i == 0 ? "" : ", ") << completed[i];
+std::cout << "]\n";
+```
+
+उदाहरण `slide-1.pdf` लिखता है और `Starting slide 1` को प्रिंट करता है, उसके बाद `Completed: [1]`। लूप स्लाइड 2 शुरू करने से पहले अनुरोध को देख लेता है। यदि रद्दीकरण के बजाय एक्सपोर्ट के दौरान [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) को बाधित करता है, तो `catch` ब्लॉक कोड को वर्तमान स्लाइड को पूर्ण मानने से पहले लूप से बाहर निकल जाता है।
+
+यदि कॉलर को रद्दीकरण को संभालना हो, तो लूप के शीर्ष पर `if` जांच और उसका `break` को टोकन पर [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) कॉल से बदलें। एक्सपोर्ट के चारों ओर का `try`/`catch` हटाएँ ताकि सेव के दौरान रद्दीकरण भी कॉलर तक पहुंच सके। समान इनपुट के साथ, उदाहरण केवल `Starting slide 1` प्रिंट करता है और `slide-1.pdf` लिखता है। दूसरी इटरेशन की शुरुआत में, एक्सपोर्ट शुरू होने से पहले कॉलर को एक [System::OperationCanceledException](https://reference.aspose.com/slides/cpp/system/details_operationcanceledexception/) मिलता है। कॉलर को पूर्ण हुए स्लाइड्स की कोई सूची नहीं मिलती।
+
+## **FAQ**
+
+**मुझे कब रद्दीकरण का अनुरोध करना चाहिए?**
+
+जब कोई ऑपरेशन आपके समय सीमा से अधिक हो जाए या आपका एप्लिकेशन परिणाम की अब आवश्यकता न रखे, तब रद्दीकरण का अनुरोध करें।
+
+**[InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) और [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) में क्या अंतर है?**
+
+स्रोत आपको रद्दीकरण का अनुरोध करने की अनुमति देता है। टोकन Aspose.Slides और आपके एप्लिकेशन को उस अनुरोध की जाँच करने देता है।
+
+**क्या मैं एक [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) को Aspose.Slides के साथ उपयोग कर सकता हूँ?**
+
+हां। जब आपके एप्लिकेशन का टोकन रद्दीकरण का संकेत देता है, तो प्रेजेंटेशन से जुड़े स्रोत पर [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) को कॉल करें।
+
+**मैं किन ऑपरेशनों को बाधित कर सकता हूँ?**
+
+आप लोडिंग, सेविंग और रेंडरिंग को बाधित कर सकते हैं। टोकन को [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) के माध्यम से [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/) में पास करें। प्रेजेंटेशन तब बाद के ऑपरेशनों जैसे कि [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) के दौरान रद्दीकरण देख सकता है।
+
+**क्या कोई ऑपरेशन तुरंत रुकता है?**
+
+रद्दीकरण सहयोगी होता है। कोई ऑपरेशन टोकन को समय-समय पर जांचता है और अनुरोध देखे जाने पर रुकता है।
+
+**यदि मैं किसी ऑपरेशन के समाप्त होने के बाद [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) कॉल करता हूँ तो क्या होता है?**
+
+पूरा हुआ ऑपरेशन अपना परिणाम रखता है।
+
+**क्या कई ऑपरेशनों के साथ एक [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) साझा किया जा सकता है?**
+
+हां। [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) को कॉल करने से उस स्रोत से टोकन उपयोग करने वाले प्रत्येक ऑपरेशन के लिए रद्दीकरण का अनुरोध होता है। उन ऑपरेशनों को स्वतंत्र रूप से रद्द करने के लिए प्रत्येक के लिए अलग स्रोत उपयोग करें।

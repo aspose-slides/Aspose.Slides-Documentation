@@ -1,83 +1,173 @@
 ---
-title: Supporto per la libreria interruttibile
+title: Interrompi operazioni di presentazione a lunga esecuzione in Java
+linktitle: Interrompi le operazioni di presentazione
 type: docs
 weight: 120
 url: /it/java/support-for-interruptable-library/
 keywords:
-- libreria interruttibile
+- operazioni interrompibili
 - token di interruzione
 - token di cancellazione
-- attività a lunga durata
-- interrompere l'attività
+- attività a lunga esecuzione
+- interruzione attività
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Rendi le attività a lunga durata annullabili con Aspose.Slides per Java. Interrompi in modo sicuro il rendering e le conversioni per PowerPoint e OpenDocument, con esempi."
+description: "Scopri come annullare operazioni di presentazione a lunga esecuzione in Aspose.Slides per Java e restituire un risultato parziale durante l'esportazione delle diapositive in un ciclo."
 ---
 ## **Panoramica**
 
-Aspose.Slides fornisce un meccanismo di elaborazione interrompibile per operazioni di presentazione a lunga durata, come deserializzazione, serializzazione e rendering. Questo meccanismo si basa sulle classi `InterruptionToken` e `InterruptionTokenSource`.
+Aspose.Slides per Java può interrompere operazioni a lungo termine come il caricamento, il salvataggio e il rendering delle presentazioni. La tua applicazione può utilizzare lo stesso token di interruzione per fermare un ciclo prima che inizi l'elaborazione della diapositiva successiva.
 
-Un `InterruptionToken` può essere assegnato a `LoadOptions` e passato al costruttore `Presentation`. Quando viene chiamato `InterruptionTokenSource.interrupt()`, l'operazione a lunga durata associata viene interrotta.
+## **Interrompere un'operazione di presentazione**
 
-## **Libreria interruttibile**
+Create an [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/), obtain its token with [getToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#getToken--), and pass the token to [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). Pass the load options to the [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-). To request cancellation, call [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) on the source. An interruptible operation stops when it observes the request.
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/it/java/release-notes/2018/aspose-slides-for-java-18-4-release-notes/), abbiamo introdotto le classi [InterruptionToken](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontoken/) e [InterruptionTokenSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/). Esse consentono di interrompere operazioni a lunga durata come deserializzazione, serializzazione e rendering.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/) è la sorgente del token(i) passato a [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/it/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-).
-- Quando [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/it/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-) è impostato e l'istanza [LoadOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/loadoptions/) viene passata al costruttore [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/), l'invocazione di [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/#interrupt--) interrompe qualsiasi operazione a lunga durata associata a quella [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-
-Il seguente frammento di codice dimostra l'interruzione di un'operazione in corso:
+L'esempio converte `sample.pptx` in `sample.ppt` in un thread in background. Il thread chiamante attende fino a 10 secondi il completamento della conversione. Se la conversione è ancora in esecuzione, richiede la cancellazione e attende che il worker termini.
 
 ```java
-final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
 
-Runnable interruption = new Runnable() {
-    public void run() {
-        LoadOptions loadOptions = new LoadOptions();
-        loadOptions.setInterruptionToken(tokenSource.getToken());
-
-        Presentation presentation = new Presentation("sample.pptx", loadOptions);
-        try{
+InterruptionTokenSource source = new InterruptionTokenSource();
+Thread worker = new Thread(() -> {
+    LoadOptions options = new LoadOptions();
+    options.setInterruptionToken(source.getToken());
+    try {
+        Presentation presentation = new Presentation("sample.pptx", options);
+        try {
             presentation.save("sample.ppt", SaveFormat.Ppt);
+        } finally {
+            presentation.dispose();
         }
-        finally {
+    } catch (OperationCanceledException canceled) {
+        System.out.println("Conversion canceled");
+    }
+});
+
+worker.start();
+worker.join(10000);
+if (worker.isAlive()) {
+    source.interrupt();
+    worker.join();
+}
+```
+
+## **Collegare un timeout Java a Aspose.Slides**
+
+Per impostare un limite di tempo su un'operazione di presentazione, utilizza un [ScheduledExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html) per chiamare [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) quando il timeout scade. L'esempio consente 20 secondi per caricare `sample.pptx` ed esportarlo in `sample.pdf`. Se l'esportazione termina in anticipo, l'applicazione annulla la richiesta programmata.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.concurrent.*;
+
+InterruptionTokenSource source = new InterruptionTokenSource();
+LoadOptions options = new LoadOptions();
+options.setInterruptionToken(source.getToken());
+
+ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
+ScheduledFuture<?> timeout = timer.schedule(source::interrupt, 20, TimeUnit.SECONDS);
+try {
+    Presentation presentation = new Presentation("sample.pptx", options);
+    try {
+        presentation.save("sample.pdf", SaveFormat.Pdf);
+    } finally {
+        presentation.dispose();
+    }
+} catch (OperationCanceledException canceled) {
+    System.out.println("Presentation processing was canceled");
+} finally {
+    timeout.cancel(false);
+    timer.shutdown();
+}
+```
+
+## **Interrompere prima di elaborare la diapositiva successiva**
+
+Utilizza lo stesso [IInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/) per la presentazione e per il ciclo che esporta le sue diapositive. Verifica [isInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#isInterruptionRequested--) prima di ogni esportazione. Se il chiamante può utilizzare un risultato parziale, restituisci i numeri delle diapositive per le esportazioni completate con successo.
+
+Usa una presentazione denominata `sample.pptx` con almeno due diapositive. La sovraccarico di [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int---int-) che accetta un array di numeri di diapositiva conta da 1. L'esempio salva ogni diapositiva in un PDF separato e richiede la cancellazione subito dopo aver registrato la prima esportazione riuscita.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.ArrayList;
+import java.util.List;
+
+class SlideExporter {
+    List<Integer> exportSlides(String path, InterruptionTokenSource source) {
+        List<Integer> completed = new ArrayList<>();
+        IInterruptionToken token = source.getToken();
+        LoadOptions options = new LoadOptions();
+        options.setInterruptionToken(token);
+        Presentation presentation = new Presentation(path, options);
+        try {
+            for (int number = 1; number <= presentation.getSlides().size(); number++) {
+                if (token.isInterruptionRequested()) {
+                    break;
+                }
+
+                System.out.println("Starting slide " + number);
+                try {
+                    presentation.save("slide-" + number + ".pdf", new int[] { number }, SaveFormat.Pdf);
+                } catch (OperationCanceledException canceled) {
+                    if (token.isInterruptionRequested()) {
+                        break;
+                    }
+                    throw canceled;
+                }
+
+                completed.add(number);
+                if (number == 1) {
+                    source.interrupt();
+                }
+            }
+            return completed;
+        } finally {
             presentation.dispose();
         }
     }
-};
+}
 
-Thread thread = new Thread(interruption);
-thread.start();          // esegui l'azione in un thread separato
-Thread.sleep(10000);     // tempo di attesa
-tokenSource.interrupt(); // interrompi la conversione
+InterruptionTokenSource source = new InterruptionTokenSource();
+SlideExporter exporter = new SlideExporter();
+List<Integer> completed = exporter.exportSlides("sample.pptx", source);
+System.out.println("Completed: " + completed);
 ```
 
-## **FAQ**
+L'esempio scrive `slide-1.pdf` e stampa `Starting slide 1` seguito da `Completed: [1]`. Il ciclo osserva la richiesta prima di avviare la diapositiva 2. Se la cancellazione arriva durante un salvataggio, il ciclo esce prima di registrare quella diapositiva come completata.
 
-**Qual è lo scopo della libreria di interruzione di Aspose.Slides?**
+Se il chiamante deve gestire la cancellazione, sostituisci il controllo e il relativo `break` all'inizio del ciclo con `token.throwIfInterruptionRequested()`. Rimuovi il `try`/`catch` intorno al salvataggio in modo che la cancellazione durante un'esportazione raggiunga anche il chiamante. Con lo stesso input, l'esempio stampa solo `Starting slide 1` e scrive `slide-1.pdf`. All'inizio della seconda iterazione, [throwIfInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#throwIfInterruptionRequested--) genera `com.aspose.slides.exceptions.OperationCanceledException` prima che inizi la successiva esportazione. Il metodo non restituisce alcun elenco.
 
-Fornisce un meccanismo per interrompere operazioni a lunga durata—come il caricamento, il salvataggio o il rendering di presentazioni—prima che terminino. È utile quando il tempo di elaborazione deve essere limitato o l'operazione non è più necessaria.
+## **Domande frequenti**
 
-**Qual è la differenza tra [InterruptionToken](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontoken/) e [InterruptionTokenSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/)?**
+**Quando dovrei richiedere la cancellazione?**
 
-- `InterruptionToken` viene passato all'API Aspose.Slides e verificato durante le operazioni a lunga durata.
-- `InterruptionTokenSource` viene utilizzato nel tuo codice per creare token e attivare interruzioni chiamando `Interrupt()`.
+Richiedi la cancellazione quando un'operazione supera il tuo limite di tempo o quando la tua applicazione non ha più bisogno del risultato.
 
-**Quali attività possono essere interrotte?**
+**Qual è la differenza tra [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) e [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
 
-Qualsiasi attività Aspose.Slides che accetta un [InterruptionToken](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontoken/)—come il caricamento di una presentazione con `Presentation(path, loadOptions)` o il salvataggio con `Presentation.save(...)`—può essere interrotta.
+La sorgente consente alla tua applicazione di richiedere la cancellazione. Il token permette ad Aspose.Slides e alla tua applicazione di verificare tale richiesta.
 
-**L'interruzione avviene immediatamente?**
+**Posso annullare un'operazione da un timer Java?**
 
-No. L'interruzione è cooperativa: l'operazione controlla periodicamente il token e si arresta non appena rileva che [Interrupt()](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/#interrupt--) è stato chiamato.
+Sì. Programma una chiamata a [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) sulla sorgente associata alla presentazione.
 
-**Cosa succede se chiamo [Interrupt()](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/#interrupt--) dopo che un'operazione è già terminata?**
+**Quali operazioni posso interrompere?**
 
-Niente—la chiamata non ha effetto se l'operazione corrispondente è già terminata.
+Puoi interrompere il caricamento, il salvataggio e il rendering. Passa il token al [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-) tramite [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). La presentazione può quindi osservare la cancellazione durante operazioni successive, come il salvataggio in PDF.
 
-**Posso riutilizzare lo stesso [InterruptionTokenSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/) per più attività?**
+**Un'operazione si interrompe immediatamente?**
 
-Sì—ma dopo aver chiamato [Interrupt()](https://reference.aspose.com/slides/it/java/com.aspose.slides/interruptiontokensource/#interrupt--) su quella sorgente, tutte le attività che usano i suoi token verranno interrotte. Usa sorgenti di token separate per gestire le attività in modo indipendente.
+La cancellazione è cooperativa. Un'operazione verifica il token periodicamente e si interrompe quando osserva la richiesta.
+
+**Cosa succede se chiamo [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) dopo che un'operazione è terminata?**
+
+L'operazione completata mantiene il suo risultato.
+
+**Possono più operazioni condividere un [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
+
+Sì. Chiamare [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) richiede la cancellazione per ogni operazione che utilizza un token da quella sorgente. Usa una sorgente separata per ciascuna operazione che desideri annullare in modo indipendente.

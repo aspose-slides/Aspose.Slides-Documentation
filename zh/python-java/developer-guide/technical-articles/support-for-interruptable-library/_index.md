@@ -1,13 +1,14 @@
 ---
-title: 支持可中断库
+title: 在 Python 中中断长时间运行的演示文稿操作
+linktitle: 中断演示文稿操作
 type: docs
 weight: 120
 url: /zh/python-java/support-for-interruptable-library/
 keywords:
-- 可中断库
+- 可中断的操作
 - 中断令牌
 - 取消令牌
-- 长期任务
+- 长时间运行任务
 - 中断任务
 - PowerPoint
 - OpenDocument
@@ -15,26 +16,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 将长期任务设为可取消。安全地中断 PowerPoint 和 OpenDocument 的渲染和转换，并提供示例。"
+description: "了解如何在 Aspose.Slides for Python via Java 中取消长时间运行的演示文稿操作，并在循环导出幻灯片时返回部分结果。"
 ---
-## **概述**
+## **概览**
 
-Aspose.Slides 提供可中断的处理机制，用于诸如反序列化、序列化和渲染等长期运行的演示文稿任务。此机制基于[InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/)和[InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/)类。
+Aspose.Slides for Python via Java 可以中断诸如加载、保存和呈现演示文稿等长时间运行的操作。您的应用程序可以使用相同的中断令牌在循环开始处理下一张幻灯片之前停止循环。
 
-[InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/) 可以分配给[LoadOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/)，并传递给[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)构造函数。当调用[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt)时，相关的长期任务会被中断。
+## **中断演示文稿操作**
 
-## **可中断库**
+创建一个 [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/)，使用 [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken) 获取其令牌，并将令牌传递给 [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken)。将加载选项传递给 [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)。若要请求取消，请在源上调用 [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt)。可中断的操作在检测到请求后停止。使用 `jpype.JClass` 在 Python 中捕获 Java 异常 `com.aspose.slides.exceptions.OperationCanceledException`。
 
-Aspose.Slides for Python via Java 提供[InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/)和[InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/)类。它们允许您中断如反序列化、序列化和渲染等长期运行的任务。
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/) 是传递给[LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/#setInterruptionToken)的令牌来源。
-- 当调用[LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/#setInterruptionToken)且将[LoadOptions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/)实例传递给[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)构造函数时，调用[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt)会中断与该[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)相关的任何长期任务。
-
-下面的代码片段演示了如何中断正在运行的任务：
+示例在后台线程中将 `sample.pptx` 转换为 `sample.ppt`。调用线程最多等待 10 秒以完成转换。如果转换仍在运行，它会请求取消并等待工作线程退出。
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -44,51 +39,149 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **将 Python 超时连接到 Aspose.Slides**
+
+要为演示文稿操作设置时间限制，请使用 [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer) 在超时到期时调用 [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt)。示例允许在 20 秒内加载 `sample.pptx` 并导出为 `sample.pdf`。如果导出提前完成，应用程序会取消已安排的请求。
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **在处理下一张幻灯片之前停止**
+
+对演示文稿和导出其幻灯片的循环使用相同的 [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/)。在每次导出前检查 [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested)。如果调用方可以使用部分结果，则返回已成功完成导出的幻灯片编号。
+
+使用名为 `sample.pptx`、至少包含两张幻灯片的演示文稿。接受 Java `int[]` 的 [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 重载使用从 1 开始的幻灯片编号。使用 `jpype.JArray(jpype.JInt)` 在 Python 中构建该数组。示例将每张幻灯片保存为单独的 PDF，并在记录第一次成功导出后立即请求取消。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # 在单独的线程中运行该操作。
-    time.sleep(10)  # 超时。
-    token_source.interrupt()  # 停止转换。
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
+
+示例写入 `slide-1.pdf` 并打印 `Starting slide 1`，随后是 `Completed: [1]`。循环在启动第 2 张幻灯片前检测到请求。如果在保存过程中收到取消请求，循环将在记录该幻灯片为完成之前退出。
+
+如果调用方需要处理取消，请将循环顶部的检查及其 `break` 替换为 `token.throwIfInterruptionRequested()`。移除保存周围的 `try`/`except`，使导出期间的取消也能传递给调用方。使用相同的输入，示例仅打印 `Starting slide 1` 并写入 `slide-1.pdf`。在第二次迭代开始时，[throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) 在下一个导出开始前抛出 `com.aspose.slides.exceptions.OperationCanceledException`。该异常在函数返回列表之前传播到调用方。
 
 ## **常见问题**
 
-**Aspose.Slides 中断库的用途是什么？**
+**何时应请求取消？**
 
-它提供一种机制，可在加载、保存或渲染演示文稿等长期操作完成之前中断这些操作。当处理时间需要受限或任务不再需要时，这非常有用。
+当操作超过您的时间限制或您的应用程序不再需要结果时请求取消。
 
-**[InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/) 与 [InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/) 有何区别？**
+**[InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) 与 [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) 有何区别？**
 
-- [InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/) 被传递给 Aspose.Slides API 并在长期操作期间进行检查。
-- [InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/) 用于您的代码中创建令牌并通过调用[interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt)触发中断。
+源允许您的应用程序请求取消。令牌允许 Aspose.Slides 和您的应用程序检查该请求。
 
-**哪些任务可以被中断？**
+**我能从 Python 定时器取消操作吗？**
 
-任何接受 [InterruptionToken](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontoken/) 的 Aspose.Slides 任务——例如使用[Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/)加载演示文稿或使用[Presentation.save](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#save)保存——都可以被中断。
+可以。安排对与演示文稿关联的源调用 [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt)。
 
-**中断会立即发生吗？**
+**我可以中断哪些操作？**
 
-不会。中断是协作式的：操作会定期检查令牌，并在检测到已调用[interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt)时立即停止。
+您可以中断加载、保存和渲染。通过 [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) 将令牌传递给 [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)。随后演示文稿在后续操作（例如保存为 PDF）中即可检测到取消。
 
-**如果在任务已完成后调用 [interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt) 会怎么样？**
+**操作会立即停止吗？**
 
-什么也不会发生——如果相应的任务已经完成，调用没有任何影响。
+取消是合作式的。操作会定期检查令牌，并在检测到请求后停止。
 
-**我可以在多个任务中复用同一个 [InterruptionTokenSource](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/) 吗？**
+**如果在操作完成后调用 [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) 会怎样？**
 
-可以——但在对该源调用[interrupt](https://reference.aspose.com/slides/zh/python-java/aspose.slides/interruptiontokensource/#interrupt)后，所有使用其令牌的任务都会被中断。请使用独立的令牌源来独立管理任务。
+已完成的操作会保留其结果。
+
+**多个操作可以共享一个 [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) 吗？**
+
+可以。调用 [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) 会请求取消所有使用该源令牌的操作。对于希望独立取消的每个操作，请使用单独的源。

@@ -1,38 +1,38 @@
 ---
-title: Hỗ trợ Thư viện có thể ngắt
+title: Ngắt các thao tác trên bản trình chiếu chạy lâu trong .NET
+linktitle: Ngắt các thao tác trên bản trình chiếu
 type: docs
 weight: 150
 url: /vi/net/support-for-interruptable-library/
 keywords:
-- thư viện có thể ngắt
+- các thao tác có thể ngắt
 - token ngắt
 - token hủy
-- tác vụ chạy lâu
-- ngắt tác vụ
+- công việc chạy lâu
+- ngắt công việc
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Biến các tác vụ chạy lâu có thể hủy với Aspose.Slides cho .NET. Ngắt việc render và chuyển đổi cho PowerPoint và OpenDocument một cách an toàn, kèm theo các ví dụ."
+description: "Tìm hiểu cách hủy các thao tác trên bản trình chiếu chạy lâu trong Aspose.Slides cho .NET và trả về kết quả một phần khi xuất các slide trong vòng lặp."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho .NET cung cấp cơ chế xử lý có thể ngắt cho các tác vụ trình chiếu chạy lâu, chẳng hạn như giải tuần tự hoá, tuần tự hoá và render. Cơ chế này dựa trên các lớp `InterruptionToken` và `InterruptionTokenSource`.
+Aspose.Slides for .NET có thể ngắt các thao tác chạy lâu như tải, lưu và render bản trình chiếu. Ứng dụng của bạn có thể sử dụng cùng một interruption token để dừng một vòng lặp trước khi nó bắt đầu xử lý slide tiếp theo.
 
-Một `InterruptionToken` có thể được gán cho `LoadOptions` và truyền vào hàm tạo `Presentation`. Khi gọi `InterruptionTokenSource.Interrupt()`, tác vụ chạy lâu liên quan sẽ bị ngắt. Bài viết cũng chỉ ra cách sử dụng cơ chế này cùng với `CancellationToken` chuẩn của .NET bằng cách theo dõi yêu cầu hủy và gọi `Interrupt()` khi có yêu cầu hủy.
+## **Ngắt một thao tác trên Bản trình chiếu**
 
-## **Thư viện có khả năng ngắt**
+Tạo một [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), gán [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) của nó cho [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/), và truyền các tùy chọn tải vào [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Để yêu cầu hủy, gọi [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) trên nguồn. Một thao tác có thể ngắt sẽ dừng khi nó phát hiện yêu cầu.
 
-Trong [Aspose.Slides 18.4](https://releases.aspose.com/slides/vi/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), chúng tôi đã giới thiệu các lớp [InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontoken/) và [InterruptionTokenSource](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontokensource/). Chúng cho phép bạn ngắt các tác vụ chạy lâu như giải tuần tự hoá, tuần tự hoá và render.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontokensource/) là nguồn tạo token được truyền cho [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Khi [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/iloadoptions/interruptiontoken/) được thiết lập và đối tượng [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/) được truyền vào hàm tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/), việc gọi [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontokensource/interrupt/) sẽ ngắt bất kỳ tác vụ chạy lâu nào liên quan tới [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
-
-Đoạn mã dưới đây minh họa cách ngắt một tác vụ đang chạy:
+Ví dụ bắt đầu chuyển đổi `sample.pptx` sang `sample.ppt` trong một tác vụ nền và yêu cầu hủy sau 10 giây. Nếu quá trình chuyển đổi hoàn thành sớm hơn, đầu ra đã hoàn tất.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken và Thư viện có khả năng ngắt**
+## **Kết nối hủy .NET với Aspose.Slides**
 
-Khi bạn cần sử dụng một [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) cùng với thư viện Aspose.Slides có khả năng ngắt, hãy bao bọc quá trình xử lý của [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) và ngắt [InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontoken/) khi [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) là `true`.
-
-Mã C# dưới đây trình bày cách thực hiện:
+Nếu ứng dụng của bạn sử dụng .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), chuyển tiếp yêu cầu hủy của nó tới Aspose.Slides. Ví dụ bắt đầu xuất `sample.pptx` sang `sample.pdf` và đặt thời gian chờ 20 giây. Trong khi quá trình xuất đang chạy, nó kiểm tra [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) mỗi 500 miligiây. Khi thuộc tính này trở thành `true`, nó gọi [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -83,7 +85,7 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Task task = Run(action, tokenSource.Token); // chạy hành động trong một luồng riêng
 
-    while (!task.Wait(500)) // đợi và giám sát xem cancellationToken.IsCancellationRequested đã được đặt chưa
+    while (!task.Wait(500)) // đợi và giám sát xem cancellationToken.IsCancellationRequested đã được đặt hay chưa
     {
         if (cancellationToken.IsCancellationRequested)
         {
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **Dừng trước khi xử lý Slide tiếp theo**
 
-**Mục đích của thư viện ngắt Aspose.Slides là gì?**
+Sử dụng cùng một [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) cho cả bản trình chiếu và vòng lặp xuất các slide của nó. Kiểm tra [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) trước khi bắt đầu mỗi lần xuất. Nếu người gọi có thể sử dụng kết quả một phần, hãy trả về các số slide cho các lần xuất đã hoàn thành thành công.
 
-Nó cung cấp cơ chế để ngắt các thao tác chạy lâu—như tải, lưu hoặc render các bản trình chiếu—trước khi chúng hoàn thành. Điều này hữu ích khi thời gian xử lý cần được giới hạn hoặc tác vụ không còn cần thiết.
+Sử dụng một bản trình chiếu có tên `sample.pptx` với ít nhất hai slide. Ví dụ yêu cầu hủy ngay sau khi ghi nhận lần xuất thành công đầu tiên.
 
-**Sự khác biệt giữa [InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontoken/) và [InterruptionTokenSource](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/) là gì?**
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- `InterruptionToken` được truyền vào API Aspose.Slides và được kiểm tra trong các thao tác chạy lâu.
-- `InterruptionTokenSource` được sử dụng trong mã của bạn để tạo token và kích hoạt việc ngắt bằng cách gọi `Interrupt()`.
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
 
-**Tôi có thể dùng .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) với thư viện ngắt không?**
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
 
-Có. Bạn có thể theo dõi [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) trong logic ứng dụng và gọi [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/interrupt/) khi có yêu cầu hủy. Điều này cho phép Aspose.Slides tích hợp với quy trình hủy chuẩn của .NET.
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
 
-**Những tác vụ nào có thể bị ngắt?**
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
 
-Bất kỳ tác vụ nào của Aspose.Slides chấp nhận một [InterruptionToken](https://reference.aspose.com/slides/vi/net/aspose.slides/interruptiontoken/)—chẳng hạn như tải một bản trình chiếu bằng `Presentation(path, loadOptions)` hoặc lưu bằng `Presentation.Save(...)`—có thể bị ngắt.
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
 
-**Việc ngắt có xảy ra ngay lập tức không?**
+    return completed;
+}
+```
 
-Không. Việc ngắt là hợp tác: thao tác sẽ kiểm tra token định kỳ và dừng lại ngay khi phát hiện rằng [Interrupt()](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/interrupt/) đã được gọi.
+Ví dụ ghi `slide-1.pdf` và in `Starting slide 1` tiếp theo là `Completed: [1]`. Vòng lặp nhận yêu cầu trước khi bắt đầu slide 2. Nếu việc hủy thay vào đó ngắt [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) trong quá trình xuất, khối `catch` sẽ thoát vòng lặp trước khi mã ghi lại slide hiện tại là đã hoàn thành.
 
-**Nếu tôi gọi [Interrupt()](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/interrupt/) sau khi một tác vụ đã hoàn thành thì sao?**
+Nếu người gọi cần xử lý hủy, thay thế kiểm tra `if` và `break` ở đầu vòng lặp bằng một lời gọi tới [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) trên token. Loại bỏ khối `try`/`catch` quanh quá trình xuất để việc hủy trong khi lưu cũng được truyền tới người gọi. Với cùng đầu vào, ví dụ chỉ in `Starting slide 1` và ghi `slide-1.pdf`. Khi bắt đầu vòng lặp thứ hai, người gọi nhận được một [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) trước khi quá trình xuất bắt đầu. Phương thức không trả về danh sách nào.
 
-Không có gì xảy ra—lệnh gọi không có hiệu lực nếu tác vụ tương ứng đã hoàn thành.
+## **FAQ**
 
-**Tôi có thể tái sử dụng cùng một [InterruptionTokenSource](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/) cho nhiều tác vụ không?**
+**Khi nào tôi nên yêu cầu hủy?**
 
-Có—nhưng sau khi bạn gọi [Interrupt()](https://reference.aspose.com/slides/vi/net/aspose.slides/iinterruptiontokensource/interrupt/) trên nguồn đó, tất cả các tác vụ sử dụng token của nó sẽ bị ngắt. Hãy sử dụng các nguồn token riêng biệt để quản lý các tác vụ một cách độc lập.
+Yêu cầu hủy khi một thao tác vượt quá thời gian giới hạn của bạn hoặc khi ứng dụng của bạn không còn cần kết quả nữa.
+
+**Sự khác nhau giữa [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) và [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
+
+Nguồn cho phép ứng dụng của bạn yêu cầu hủy. Token cho phép Aspose.Slides và ứng dụng của bạn kiểm tra yêu cầu đó.
+
+**Tôi có thể sử dụng .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) với Aspose.Slides không?**
+
+Có. Khi token .NET của bạn báo hiệu hủy, hãy gọi [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) trên nguồn liên kết với bản trình chiếu.
+
+**Các thao tác nào tôi có thể ngắt?**
+
+Bạn có thể ngắt việc tải, lưu và render. Truyền token vào [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) thông qua [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). Bản trình chiếu sau đó có thể nhận biết hủy trong các thao tác tiếp theo như [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
+
+**Thao tác có dừng ngay lập tức không?**
+
+Việc hủy là hợp tác. Thao tác kiểm tra token định kỳ và dừng khi phát hiện yêu cầu.
+
+**Điều gì xảy ra nếu tôi gọi [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) sau khi một thao tác đã hoàn thành?**
+
+Thao tác đã hoàn thành sẽ giữ kết quả của nó.
+
+**Nhiều thao tác có thể chia sẻ một [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
+
+Có. Gọi [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) sẽ yêu cầu hủy cho mọi thao tác sử dụng token từ nguồn đó. Sử dụng một nguồn riêng cho mỗi thao tác mà bạn muốn hủy độc lập.
