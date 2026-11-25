@@ -1,55 +1,55 @@
 ---
-title: Java でシェイプレックを使用してプレゼンテーションの編集を制限する
-linktitle: プレゼンテーション編集の制限
+title: Java でシェイロックを使用してプレゼンテーションの編集を制限する
+linktitle: プレゼンテーションの編集を制限
 type: docs
 weight: 60
 url: /ja/java/applying-protection-to-presentation/
 keywords:
 - 編集の防止
-- 編集から保護
-- シェイプレック
-- 位置ロック
-- 選択ロック
-- サイズ変更ロック
-- グループ化ロック
+- 編集からの保護
+- シェイプのロック
+- 位置のロック
+- 選択のロック
+- サイズ変更のロック
+- グループ化のロック
 - PowerPoint
 - PPTX
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PPTX プレゼンテーションのシェイプをロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
+description: "Aspose.Slides for Java を使用して PPTX プレゼンテーション内のシェイプをロックおよびロック解除し、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
 ---
 ## **背景**
 
-Aspose.Slides for Java の一般的な使用法は、PowerPoint (PPTX) プレゼンテーションを自動化ワークフローの一環として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際、図形への変更を制限することで意図したレイアウトやコンテンツを保護できます。
+Aspose.Slides for Java の一般的な使用例は、PowerPoint（PPTX）プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、シェイプへの変更を制限すると、意図したレイアウトとコンテンツを保護できます。
 
-この記事では、スライド上で図形がどのように構成されているか、そして PPTX プレゼンテーションで図形ロックを適用および削除する方法を説明します。これらのロックにより、個々の図形に対する特定の編集操作を制限できます。
+この記事では、スライド上でシェイプがどのように構成されているか、そして PPTX プレゼンテーションでシェイプロックを適用および削除する方法を説明します。これらのロックにより、個々のシェイプに対する特定の編集操作を制限できます。
 
 ## **スライドの構成**
 
-プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化された図形、画像フレーム、ビデオフレーム、コネクタ、その他プレゼンテーションの構築に使用される要素で構成されています。Aspose.Slides for Java では、スライド上の各要素は、[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) インターフェイスを実装するオブジェクト、またはそのクラスを継承したオブジェクトで表されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、そしてプレゼンテーションを構築するために使用される他の要素などのコンポーネントで構成されます。Aspose.Slides for Java では、スライド上の各要素は [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) インターフェイスを実装するオブジェクト、またはそれを継承したクラスで表されます。
 
-異なる図形タイプは異なるロックオプションを提供します。[IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) インターフェイスは図形ロックの基本インターフェイスです。Aspose.Slides for Java は以下のロックインターフェイスを提供します：
+シェイプタイプごとに異なるロックオプションが公開されています。[IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) インターフェイスはシェイプロックの基本インターフェイスです。Aspose.Slides for Java は以下のロックインターフェイスを提供します。
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) オートシェイプをロックします。  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) コネクタ形状をロックします。  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) グラフィカル オブジェクトをロックします。  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) グループ形状をロックします。  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) 画像フレームをロックします。  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) はオートシェイプをロックします。  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) はコネクタシェイプをロックします。  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) はグラフィカルオブジェクトをロックします。  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) はグループシェイプをロックします。  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) は画像フレームをロックします。  
 
-ロックを [プレゼンテーション](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 全体に適用するには、スライドを反復し、各サポートされている図形に適切なロックを設定します。
+[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 全体にロックを適用するには、スライドを走査し、各サポートされているシェイプに適切なロックを設定します。
 
 ## **保護の適用と削除**
 
-対応するプレゼンテーション エディターは、図形ロックを使用して個別の編集操作を制限します。ファイル暗号化およびドキュメントレベルの書き込み保護は、別個の [プレゼンテーション保護設定](/slides/ja/java/password-protected-presentation/) です。
+互換性のあるプレゼンテーションエディタはシェイプロックを使用して個々の編集操作を制限します。ファイル暗号化とドキュメントレベルの書き込み保護は別個の [presentation protection settings](/slides/ja/java/password-protected-presentation/) です。
 
-### **PPTX 図形への保護の適用**
+### **PPTX シェイプへの保護の適用**
 
-Aspose.Slides for Java は、スライド上の図形を操作するための [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) インターフェイスを提供します。
+Aspose.Slides for Java はスライド上のシェイプを操作するための [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) インターフェイスを提供します。
 
-この例では、オートシェイプに対して `true` を指定して [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-)、[setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-)、[setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) を呼び出し、グループ形状、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動のために [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) を使用します。グループでは、グループ化を制限するために [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) も使用します。
+サンプルはオートシェイプに対して `true` とともに [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-)、[setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-)、[setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) を呼び出し、グループシェイプ、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動に対して [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) を使用し、グループは [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) でグループ化を制限します。
 
-この例は既存の PPTX プレゼンテーションを読み込み、各スライドの図形コレクション内の図形をチェックし、これらの制限を適用したコピーを保存します。4 つの処理対象タイプ以外の図形は変更されません。ループはグループ内の子図形を走査しません。
+サンプルは既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプコレクション内のシェイプを確認し、これらの制限を適用したコピーを保存します。4 つの対象タイプ以外のシェイプは変更されません。ループはグループ内の子シェイプを走査しません。
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +95,7 @@ try {
 
 ### **保護の削除**
 
-図形ロックを削除するには、その値を `false` に設定します。以下の例では、図形ロックが設定されたプレゼンテーションを読み込み、[IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、`false` を [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) に渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
+シェイプロックを削除するには、その値を `false` に設定します。以下のサンプルはシェイプロックが設定されたプレゼンテーションを読み込み、[IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) を通じて選択、移動、サイズ変更の制限をクリアします。また、[IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) に `false` を渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-### **画像のトリミングの保持**
+### **画像の切り抜きの保持**
 
-作業ディレクトリに `photo.jpg` という名前の写真を配置します。この例では左側を 12%、右側を 8% トリミングし、画像フレームのロックに対して [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) を呼び出します。`true` を渡すことで、さらにトリミングできなくなり、既存のトリミングが保持されます。
+作業ディレクトリに `photo.jpg` という名前の写真を配置します。サンプルは左側から 12％、右側から 8％ を切り抜き、その後画像フレームのロックに対して [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) を呼び出します。`true` を渡すとさらに切り抜きが制限され、既存の切り抜きが保持されます。
 
 ```java
 import com.aspose.slides.*;
@@ -169,11 +169,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` はトリミングロックを `true` として保存します。PowerPoint では、写真が選択されていると **Crop** コマンドが無効になります。
+`PictureLocked.pptx` は切り抜きロックを `true` として保存します。PowerPoint では写真が選択されていると **Crop** コマンドが無効になります。
 
 ### **図のグループ化を維持**
 
-この例では矩形と矢印をグループ化し、グループのロックに対して [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) を呼び出して、図のコンポーネントが一緒に保持されるようにします。グループの移動やコンポーネントの塗りつぶし変更など、他の編集は引き続き可能です。
+サンプルは長方形と矢印をグループ化し、グループのロックに対して [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) を呼び出すことで、図の構成要素をまとめたままにします。グループの移動や構成要素の塗り替えといった他の編集は引き続き可能です。
 
 ```java
 import com.aspose.slides.*;
@@ -193,22 +193,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` はアン・グループロックを `true` として保存します。PowerPoint では、全体の図が選択されていると **Ungroup** コマンドが無効になります。
+`DiagramLocked.pptx` はアンガルーピングロックを `true` として保存します。PowerPoint では全体の図が選択されていると **Ungroup** コマンドが無効になります。
+
+### **既存のシェイプロックのレポート**
+
+テンプレートを確認するには、それを開いて各シェイプのロックオブジェクトを読み取ります。[getNoLocks](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/#getNoLocks--) メソッドは、オブジェクト上のすべてのフラグが無効な場合に `true` を、少なくとも 1 つが有効な場合に `false` を返します。グループとその子には別々のロックオブジェクトがあるため、グループにロックがなくても子を検査します。
+
+このサンプルはオートシェイプ、画像フレーム、グループの移動をチェックし、画像の切り抜きとグループのアンガルーピングも確認します。レポートは認識した有効なフラグを一覧表示し、検査しないシェイプタイプにはマークを付けます。
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            StringJoiner flags = new StringJoiner(", ");
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = flags.length() > 0 ? flags.toString() : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+`Sample.pptx` のスライド 1 に、アンガルーピングがロックされた `Layout` という名前のグループがあり、その中に切り抜きがロックされた `Photo` という画像が、そしてロックされていない矩形 `Free` があるとします。レポートは `Free` をスキップし、次の 2 行を出力します。
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+レポートはプレゼンテーションを変更したり保存したりせずに、保存されているシェイプレベルの編集フラグを読み取ります。ドキュメントレベルの書き込み保護は別個の設定であり、各フラグの適用はエディタに依存します。
 
 ### **結論**
 
-Aspose.Slides for Java を使用すると、個々の図形に対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。各図形タイプがサポートするロックを選択し、制限を削除する必要がある場合はその値を `false` に設定します。
+Aspose.Slides for Java を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。シェイプタイプごとにサポートされているロックを選択し、制限を解除したいときは値を `false` に設定してください。
 
-## **よくある質問**
+## **FAQ**
 
-**このプレゼンテーションで図形ロックとパスワード保護を組み合わせることはできますか？**
+**プレゼンテーション内でシェイプロックとパスワード保護を同時に使用できますか？**
 
-はい。図形ロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。同じファイルで両方を使用できます。
+はい。シェイプロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同一ファイルで使用できます。
 
-**特定のスライドだけの編集を制限し、他のスライドには影響させないことはできますか？**
+**特定のスライドだけで編集を制限し、他のスライドには影響を与えませんか？**
 
-はい。選択したスライドの図形にのみロックを適用します。これにより、他のスライドのロック設定は変更されません。
+はい。選択したスライドのシェイプにのみロックを適用します。これにより他のスライドのロック設定は変更されません。
 
-**グループ内の個々の図形にロックを適用するにはどうすればよいですか？**
+**グループ内の個々のシェイプにロックを適用するにはどうすればよいですか？**
 
-グループの [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) メソッドが返すコレクションを反復し、各子図形に適切なロックを適用します。入れ子になったグループについても同様に繰り返します。上記の例はスライドの図形コレクションのみを処理しているため、個々のグループメンバーにはロックが設定されません。
+グループの [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) メソッドが返すコレクションを走査し、各子シェイプに適切なロックを適用します。入れ子になったグループがある場合は、レポートサンプルの走査ロジックに従って同様に処理します。

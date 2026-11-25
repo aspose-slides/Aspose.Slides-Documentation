@@ -1,12 +1,12 @@
 ---
-title: تقييد تعديل العرض باستخدام أقفال الأشكال في بايثون
-linktitle: تقييد تعديل العرض
+title: قصر تحرير العروض التقديمية بأقفال الأشكال في بايثون
+linktitle: قصر تحرير العروض
 type: docs
 weight: 70
 url: /ar/python-net/applying-protection-to-presentation/
 keywords:
-- منع التعديلات
-- الحماية من التحرير
+- منع التحرير
+- حماية من التحرير
 - قفل الشكل
 - قفل الموقع
 - قفل الاختيار
@@ -14,42 +14,42 @@ keywords:
 - قفل التجميع
 - PowerPoint
 - PPTX
-- العرض
+- العرض التقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides for Python عبر .NET لتقييد الاختيار، الحركة، تغيير الحجم، والتجميع."
+description: "تعرف على كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides للبايثون عبر .NET لتقييد الاختيار والحركة وتغيير الحجم والتجميع."
 ---
 ## **الخلفية**
 
-استخدام شائع لـ Aspose.Slides for Python عبر .NET هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل آلي. عندما يتلقى المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
+استخدام شائع لـ Aspose.Slides for Python via .NET هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل مؤتمت. عندما يتلقى المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
 
-تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تتيح لك هذه الأقفال تقييد عمليات تحرير معينة على الأشكال الفردية.
+توضح هذه المقالة كيف يتم تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تتيح لك هذه الأقفال تقييد عمليات تحرير محددة على الأشكال الفردية.
 
-## **تركيب الشريحة**
+## **تكوين الشريحة**
 
-تتكون شريحة العرض من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء عرض تقديمي. في Aspose.Slides for Python عبر .NET، يُمثَّل كل عنصر في الشريحة ككائن يُورث من فئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) .
+تتكون شريحة العرض من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لإنشاء عرض تقديمي. في Aspose.Slides for Python via .NET، يُمثَّل كل عنصر على الشريحة ككائن يرث من الفئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) .
 
-تُظهر أنواع الأشكال المختلفة خيارات قفل مختلفة. فئة [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) هي الفئة الأساسية لأقفال الأشكال. توفر Aspose.Slides for Python عبر .NET الفئات القفلية التالية:
+أنواع الأشكال المختلفة تكشف عن خيارات قفل مختلفة. الفئة [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) هي الفئة الأساسية لأقفال الأشكال. توفر Aspose.Slides for Python via .NET الفئات القفلية التالية:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) تقفل الأشكال التلقائية.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) تقفل أشكال الموصل.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) تقفل الكائنات الرسومية.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) تقفل الأشكال المجمعة.  
-- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) تقفل إطارات الصور.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) يقفل الأشكال التلقائية.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) يقفل أشكال الموصلات.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) يقفل الكائنات الرسومية.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) يقفل الأشكال المجمعة.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) يقفل إطارات الصور.  
 
-لتطبيق الأقفال عبر [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، قم بالتكرار عبر شرائحه وضع الأقفال المناسبة على كل شكل مدعوم.
+لتطبيق أقفال عبر [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، قم بالتكرار عبر الشرائح واضبط الأقفال المناسبة على كل شكل مدعوم.
 
 ## **تطبيق وإزالة الحماية**
 
-تستخدم محررات العروض المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. تشفير الملفات وحماية الكتابة على مستوى المستند هي إعدادات [إعدادات حماية العرض](/slides/ar/python-net/password-protected-presentation/) منفصلة.
+تستخدم محررات العروض التقديمية المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. التشفير وحماية الكتابة على مستوى المستند هي إعدادات [presentation protection settings](/slides/ar/python-net/password-protected-presentation/) منفصلة.
 
 ### **تطبيق الحماية على أشكال PPTX**
 
-توفر Aspose.Slides for Python عبر .NET فئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) للعمل مع الأشكال على الشريحة.
+توفر Aspose.Slides for Python via .NET الفئة [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) للعمل مع الأ أشكال على الشريحة.
 
-تُعيّن المثال الخصائص [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/)، [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/)، و[size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) إلى `True` للأشكال التلقائية، مع أقفال مكافئة للأشكال المجمعة، الموصلات، وإطارات الصور. تستخدم الموصلات [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) للحركة؛ وتستخدم المجموعات أيضًا [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) لتقييد التجميع.
+يضبط المثال [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/), [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/), و [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) على `True` للأشكال التلقائية، مع أقفال مكافئة لأشكال المجموعات، الموصلات، وإطارات الصور. تستخدم الموصلات [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) للتحريك؛ وتستخدم المجموعات أيضًا [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) لتقييد التجميع.
 
-يقوم المثال بتحميل عرض PPTX موجود، يتحقق من الأشكال في مجموعة الأشكال لكل شريحة، ويحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المعالجة دون تعديل. لا يتجول الحلقة عبر الأشكال الفرعية داخل مجموعة.
+يقوم المثال بتحميل عرض PPTX موجود، يفحص الأشكال في مجموعة الأشكال لكل شريحة، ويحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المتعامل معها دون تعديل. لا يتجول الحلقة عبر الأشكال الفرعية داخل مجموعة.
 
 ```python
 import aspose.slides as slides
@@ -80,7 +80,7 @@ with slides.Presentation("Sample.pptx") as presentation:
 
 ### **إزالة الحماية**
 
-لإزالة قفل الشكل، عيّن قيمته إلى `False`. يحمل المثال التالي عرضًا يحتوي على أقفال الأشكال ويزيل قيود الاختيار، الحركة، وتغيير الحجم من خلال [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/)، [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/)، و[PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/). كما يزيل [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) ويحفظ نسخة من العرض. تُترك إعدادات الأقفال الأخرى دون تغيير.
+لإزالة قفل الشكل، اضبط قيمته على `False`. يقوم المثال التالي بتحميل عرض يحتوي على أقفال الأشكال ويزيل قيود الاختيار، التحريك، وتغيير الحجم عبر [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/), و [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/). كما يزيل [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) ويحفظ نسخة من العرض. تُترك إعدادات الأقفال الأخرى دون تغيير.
 
 ```python
 import aspose.slides as slides
@@ -111,7 +111,7 @@ with slides.Presentation("ProtectedSample.pptx") as presentation:
 
 ### **الحفاظ على قص الصورة**
 
-ضع صورة باسم `photo.jpg` في دليل العمل. يقص المثال 12% من اليسار و8% من اليمين، ثم يعيّن [crop_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/crop_locked/) على إطار الصورة للحفاظ على القص.
+ضع صورة باسم `photo.jpg` في دليل العمل. يقوم المثال بقص 12% من اليسار و8% من اليمين، ثم يضبط [crop_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/crop_locked/) على إطار الصورة. هذا العلم يقيّد قصًا إضافيًا ويحافظ على القص الحالي.
 
 ```python
 from pathlib import Path
@@ -133,11 +133,11 @@ with slides.Presentation() as presentation:
     presentation.save("PictureLocked.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`PictureLocked.pptx` يخزن قفل القص كـ `True`. في PowerPoint، يتم تعطيل أمر **Crop** عندما تكون الصورة مختارة.
+`PictureLocked.pptx` يخزن قفل القص كـ `True`. في PowerPoint، يتم تعطيل أمر **Crop** عندما تكون الصورة محددة.
 
-### **إبقاء المخطط مجموعة**
+### **الحفاظ على تجميع المخطط**
 
-يقوم المثال بتجميع مستطيل وسهم، ثم يعيّن [ungrouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/ungrouping_locked/) على المجموعة نفسها لإبقاء مكونات المخطط معًا. تظل التعديلات الأخرى، مثل تحريك المجموعة أو تغيير تعبئة مكون، متاحة.
+يقوم المثال بتجميع مستطيل وسهم، ثم يضبط [ungrouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/ungrouping_locked/) على المجموعة نفسها للحفاظ على مكوّنات المخطط معًا. تظل التعديلات الأخرى، مثل تحريك المجموعة أو تغيير تعبئة مكوّن، متاحة.
 
 ```python
 import aspose.slides as slides
@@ -155,20 +155,68 @@ with slides.Presentation() as presentation:
 
 `DiagramLocked.pptx` يخزن قفل فك التجميع كـ `True`. في PowerPoint، يتم تعطيل أمر **Ungroup** عندما يتم تحديد المخطط بالكامل.
 
+### **الإبلاغ عن أقفال الأشكال الموجودة**
+
+لمراجعة قالب، افتحه واقرأ كائن القفل لكل شكل. [no_locks](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/no_locks/) يكون `True` عندما تكون جميع العلامات على ذلك الكائن معطلة و`False` عندما يكون على الأقل واحدة مفعلة. للمجموعة وأطفالها كائنات قفل منفصلة، لذا افحص الأطفال حتى عندما لا تحتوي المجموعة على أقفال.
+
+يفحص هذا المثال التحريك للأشكال التلقائية، إطارات الصور، والمجموعات، والقص للصور، وفك التجميع للمجموعات. يبلغ عن العلامات التي يتعرف عليها ويحدد أنواع الأشكال التي لا يفحصها.
+
+```python
+import aspose.slides as slides
+
+
+def inspect_shapes(shapes, slide_number, prefix=""):
+    for shape in shapes:
+        path = prefix + shape.name
+        label = f"Slide {slide_number} | {path} | {type(shape).__name__}"
+        if not isinstance(shape, (slides.GroupShape, slides.PictureFrame, slides.AutoShape)):
+            print(f"{label} | Uninspected")
+            continue
+
+        shape_lock = shape.shape_lock
+        if not shape_lock.no_locks:
+            flags = []
+            if isinstance(shape, slides.GroupShape) and shape_lock.ungrouping_locked:
+                flags.append("ungrouping_locked")
+            if isinstance(shape, slides.PictureFrame) and shape_lock.crop_locked:
+                flags.append("crop_locked")
+            if shape_lock.position_locked:
+                flags.append("position_locked")
+            restrictions = ", ".join(flags) if flags else "Active flag not identified"
+            print(f"{label} | {restrictions}")
+
+        if isinstance(shape, slides.GroupShape):
+            inspect_shapes(shape.shapes, slide_number, path + "/")
+
+
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
+        inspect_shapes(slide.shapes, slide.slide_number)
+```
+
+لنفترض أن الشريحة 1 من `Sample.pptx` تحتوي على مجموعة باسم `Layout` مع قفل فك التجميع، وصورة باسم `Photo` داخلها مع قفل القص، ومستطيل غير مقفل باسم `Free`. يتخطى التقرير `Free` ويطبع السطرين التاليين:
+
+```text
+Slide 1 | Layout | GroupShape | ungrouping_locked
+Slide 1 | Layout/Photo | PictureFrame | crop_locked
+```
+
+يقرأ التقرير العلامات المخزنة على مستوى الشكل دون تغييرها أو حفظ العرض. حماية الكتابة على مستوى المستند هي إعداد منفصل، ويعتمد تطبيق كل علامة على المحرر.
+
 ### **الخلاصة**
 
-تتيح لك Aspose.Slides for Python عبر .NET تقييد عمليات تحرير معينة على الأشكال الفردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، وعِد قيمها إلى `False` عندما تحتاج إلى إزالة تلك القيود.
+يسمح لك Aspose.Slides for Python via .NET بتقييد عمليات تحرير محددة على الأشكال الفردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، واضبط قيمها على `False` عندما تحتاج إلى إزالة تلك القيود.
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني الجمع بين أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
+**هل يمكنني دمج أقفال الأشكال والحماية بكلمة مرور في نفس العرض التقديمي؟**
 
-نعم. أقفال الأشكال تُقيد عمليات تحرير معينة، بينما [حماية كلمة المرور](/slides/ar/python-net/password-protected-presentation/) يمكن أن تقيد فتح أو تعديل العرض. يمكنك استخدام كلاهما في نفس الملف.
+نعم. تقيد أقفال الأشكال عمليات تحرير معينة، بينما يمكن لـ [password protection](/slides/ar/python-net/password-protected-presentation/) تقييد فتح أو تعديل العرض التقديمي. يمكنك استخدام كلاهما في نفس الملف.
 
-**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على الأخرى؟**
+**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على الأخريات؟**
 
-نعم. قم بتطبيق الأقفال فقط على الأشكال في الشرائح المحددة. هذا لا يغيّر إعدادات الأقفال في الشرائح الأخرى.
+نعم. طبّق الأقفال فقط على الأشكال في الشرائح المختارة. هذا لا يغيّر إعدادات القفل على الشرائح الأخرى.
 
-**كيف يمكنني تطبيق الأقفال على الأشكال الفردية داخل مجموعة؟**
+**كيف يمكنني تطبيق أقفال على الأشكال الفردية داخل مجموعة؟**
 
-قم بالتكرار عبر مجموعة [الأشكال](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) الخاصة بالمجموعة وطبق الأقفال المناسبة على كل شكل فرعي. كرّر ذلك لأي مجموعات متداخلة. الأمثلة أعلاه تعالج مجموعة الأشكال الخاصة بالشريحة فقط، لذا لا تقوم بتعيين أقفال على أعضاء المجموعة الفرديين.
+قم بالتكرار عبر مجموعة [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) الخاصة بالمجموعة وطبق الأقفال المناسبة على كل شكل فرعي. كرّر ذلك لأي مجموعات متداخلة، متبعًا طريقة الاستعراض في مثال التقرير.

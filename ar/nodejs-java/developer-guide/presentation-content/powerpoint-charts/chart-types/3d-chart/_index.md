@@ -1,6 +1,6 @@
 ---
-title: تخصيص المخططات ثلاثية الأبعاد في العروض التقديمية باستخدام JavaScript
-linktitle: مخطط 3D
+title: تخصيص المخططات ثلاثية الأبعاد في العروض التقديمية باستخدام جافاسكريبت
+linktitle: مخطط ثلاثي الأبعاد
 type: docs
 url: /ar/nodejs-java/3d-chart/
 keywords:
@@ -12,17 +12,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إنشاء مخططات ثلاثية الأبعاد في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ Node.js عبر Java. ضبط الدوران، نسب الارتفاع، عمق المخطط، والمسافات بين السلاسل بأمثلة JavaScript."
+description: "إنشاء مخططات ثلاثية الأبعاد في العروض التقديمية PowerPoint باستخدام Aspose.Slides للـ Node.js عبر Java. ضبط الدوران، نسب الارتفاع، عمق المخطط، والمسافات بين السلاسل باستخدام أمثلة JavaScript."
 ---
 ## **نظرة عامة**
 
-تتيح لك Aspose.Slides لـ Node.js عبر Java تخصيص عرض مخطط ثلاثي الأبعاد عبر طريقة [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getrotation3d/) . توضح هذه المقالة كيفية تعديل الدوران، نسب الارتفاع، العمق، المحاور القائمة على الزاوية القائمة، والمسافات بين السلاسل، ثم حفظ العرض التقديمي بصيغة PPTX.
+تتيح لك Aspose.Slides for Node.js عبر Java تخصيص طريقة عرض مخطط ثلاثي الأبعاد من خلال طريقة [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getrotation3d/) . توضح هذه المقالة كيفية ضبط الدوران، نسب الارتفاع، العمق، المحاور ذات الزاوية القائمة، والمسافات بين السلاسل، ثم حفظ العرض التقديمي بتنسيق PPTX.
 
 ## **تعيين الدوران والعمق لمخطط ثلاثي الأبعاد**
 
-المثال أدناه ينشئ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ويستخدم [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإضافة مخطط عمودي ثلاثي الأبعاد مكدس إلى الشريحة الأولى. يستبدل السلاسل والفئات الافتراضية بسلسلتين تحتوي كل منهما على ثلاثة قيم. يشير فهرس ورقة العمل `0` إلى ورقة البيانات الأولى للمخطط؛ الصف `0` يحتوي على أسماء السلاسل، والعمود `0` يحتوي على تسميات الفئات.
+المثال أدناه ينشئ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ويستخدم [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإضافة مخطط عمودي ثلاثي الأبعاد مكدس إلى الشريحة الأولى. يستبدل السلاسل والفئات الافتراضية بسلسلتين تحتوي كل منهما على ثلاث قيم. يحدد فهرس ورقة العمل `0` ورقة البيانات الأولى للمخطط؛ الصف `0` يحتوي على أسماء السلاسل، والعمود `0` يحتوي على تسميات الفئات.
 
-[setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationx/) و[setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationy/) يضبطان دوران المخطط إلى 40 و270 درجة على التوالي. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) يضبط عمقه إلى 150% من عرضه، بينما [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrightangleaxes/) يفعّل المحاور القائمة على الزاوية القائمة بدلًا من المنظور. العرض التقديمي الناتج يحتوي على المخطط المملوء بهذه إعدادات العرض الثلاثي الأبعاد.
+تقوم الطريقتان [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationx/) و [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationy/) بتعيين دوران المخطط إلى 40 و 270 درجة على التوالي. تقوم الطريقة [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) بتعيين عمقه إلى 150٪ من عرضه، بينما تمكّن الطريقة [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrightangleaxes/) المحاور ذات الزاوية القائمة بدلاً من المنظور. يحتوي العرض التقديمي الناتج على المخطط المملوء بهذه إعدادات العرض ثلاثية الأبعاد.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -68,11 +68,65 @@ try {
 }
 ```
 
+## **تطبيق تعبئة صورة على سطح مخطط ثلاثي الأبعاد**
+
+يمكنك تعبئة [side wall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getsidewall/) و [back wall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getbackwall/) و [floor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getfloor/) لمخطط ثلاثي الأبعاد بشكل مستقل. اضبط [fill type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) للسطح على `Picture` وعيّن صورة. اضبط كل من [picture fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/setpicturefillmode/) ونوع الصورة للسطح [picture type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartwall/setpicturetype/) على `Stretch` لتطبيق نسخة واحدة من الصورة على كامل السطح.
+
+احفظ [arrow.png](arrow.png) في دليل العمل. يقوم المثال بتدوير المخطط ويرفع القيمة القصوى على المحور الرأسي بحيث يكون الأرضية مرئية بين الأعمدة. ثم يستنسخ الشريحة مرتين ويطبّق السهم على سطح مختلف في كل شريحة. تحتفظ جميع المخططات الثلاثة بنفس البيانات وزاوية الرؤية والخلفية.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const chart = slide.getShapes().addChart(slides.ChartType.Column3D, 20, 30, 680, 480);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX(java.newByte(40));
+    chart.getRotation3D().setRotationY(30);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(24);
+
+    const backSlide = presentation.getSlides().addClone(slide);
+    const floorSlide = presentation.getSlides().addClone(slide);
+    const backChart = backSlide.getShapes().get_Item(0);
+    const floorChart = floorSlide.getShapes().get_Item(0);
+
+    const image = slides.Images.fromFile("arrow.png");
+    try {
+        const arrow = presentation.getImages().addImage(image);
+        const surfaces = [chart.getSideWall(), backChart.getBackWall(), floorChart.getFloor()];
+        for (const surface of surfaces) {
+            const fill = surface.getFormat().getFill();
+            fill.setFillType(java.newByte(slides.FillType.Picture));
+            const pictureFill = fill.getPictureFillFormat();
+            pictureFill.getPicture().setImage(arrow);
+            pictureFill.setPictureFillMode(slides.PictureFillMode.Stretch);
+            surface.setPictureType(slides.PictureType.Stretch);
+        }
+    } finally {
+        image.dispose();
+    }
+
+    presentation.save("chart-surfaces.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Microsoft PowerPoint يظهر الشرائح الثلاثة كما يلي.
+
+| جدار جانبي | جدار خلفي | أرضية |
+| --- | --- | --- |
+| ![سهم يشير إلى داخل المخطط على الجدار الجانبي](side-wall.png) | ![سهم يشير إلى اليمين عبر الجدار الخلفي](back-wall.png) | ![سهم يشير إلى اليمين عبر الأرضية بين الأعمدة](floor.png) |
+
 ## **ضبط نسب الارتفاع لمخطط ثلاثي الأبعاد**
 
-استخدم [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) لتعيين ارتفاع المخطط ثلاثي الأبعاد كنسبة مئوية من عرضه. يغيّر هذا نسب المشهد ثلاثي الأبعاد دون تغيير حجم كائن المخطط على الشريحة.
+استخدم [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) لتعيين ارتفاع مخطط ثلاثي الأبعاد كنسبة مئوية من عرضه. يغيّر هذا نسب المشهد ثلاثي الأبعاد دون تعديل حجم كائن المخطط على الشريحة.
 
-المثال التالي ينشئ مخطط [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) بالبيانات الافتراضية: ثلاث سلاسل وأربع فئات. يحفظ ثلاث عروض تقديمية بنسب ارتفاع 50%، 100%، و200%. يبقى موضع المخطط وعرضه وارتفاعه ثابتًا. البيانات، الدوران، العمق، مسافة السلاسل، والتنسيق متطابقة في جميع الملفات الثلاثة؛ يتغير فقط نسبة الارتفاع.
+المثال التالي ينشئ مخطط [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) ببيانات افتراضية: ثلاث سلاسل وأربع فئات. يحفظ ثلاث عروض تقديمية بنسب ارتفاع 50٪، 100٪، و200٪. يبقى موضع المخطط وعرضه وارتفاعه ثابتًا. البيانات، الدوران، العمق، مسافات السلاسل، والتنسيق هي نفسها في جميع الملفات الثلاثة؛ فقط نسبة الارتفاع تتغير.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -98,40 +152,40 @@ try {
 }
 ```
 
-الصور التالية توضح نفس إعدادات الارتفاع في مثال .NET المكافئ وتم تصديرها باستخدام Microsoft PowerPoint. النسبة الأصغر تُنتج مشهدًا أكثر تسطيحًا، بينما النسبة الأكبر تُنتج مشهدًا أعلى داخل نفس كائن المخطط. قد يقوم PowerPoint أيضًا بضبط فواصل علامات المحور وتوقعات التسميات لتناسب المشهد.
+توضح الصور التالية نفس إعدادات الارتفاع في المثال .NET المكافئ وتم تصديرها باستخدام Microsoft PowerPoint. النسبة الأصغر تنتج مشهدًا أكثر تسطحًا، بينما النسبة الأكبر تنتج مشهدًا أعلى ضمن نفس كائن المخطط. قد يقوم PowerPoint أيضًا بتعديل فواصل العلامات على المحاور ووضع التسميات لتناسب المشهد.
 
-| الارتفاع: 50% | الارتفاع: 100% | الارتفاع: 200% |
+| الارتفاع: 50٪ | الارتفاع: 100٪ | الارتفاع: 200٪ |
 | --- | --- | --- |
 | ![مخطط عمودي ثلاثي الأبعاد بارتفاع يساوي 50٪ من عرضه](height_percent_50.png) | ![مخطط عمودي ثلاثي الأبعاد بارتفاع يساوي 100٪ من عرضه](height_percent_100.png) | ![مخطط عمودي ثلاثي الأبعاد بارتفاع يساوي 200٪ من عرضه](height_percent_200.png) |
 
-تتحكم هذه الطرق في جوانب مختلفة من المخطط:
+تتحكم هذه الأساليب في جوانب مختلفة من المخطط:
 
-| الطريقة | التأثير |
+| Method | Effect |
 | --- | --- |
 | [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) | ارتفاع المشهد ثلاثي الأبعاد كنسبة مئوية من عرضه. |
-| [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setheight/) | ارتفاع كائن المخطط على الشريحة، بوحدات النقاط. |
+| [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setheight/) | ارتفاع كائن المخطط على الشريحة، بالنقاط. |
 | [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | عمق المشهد ثلاثي الأبعاد كنسبة مئوية من عرضه. |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | المسافة بين السلاسل على محور العمق، كنسبة مئوية من عرض العلامة. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | مسافة بين السلاسل على محور العمق، كنسبة مئوية من عرض العلامة. |
 
-تؤثر إعدادات الارتفاع على المخططات العمودية والشريطية ثلاثية الأبعاد، بما في ذلك المتغيرات الأسطوانية، المخروطية، والهرمية، وكذلك المخططات الخطية، المساحية، الدائرية، والسطحية ثلاثية الأبعاد. المقارنة أعلاه تستخدم النوع `Column3D` المؤكد. لا تغير الإعداد مظهر مخطط `ClusteredColumn` ثنائي الأبعاد أو مخطط `BubbleWith3D`؛ هذه الأسماء هي أعضاء في الفئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). للحصول على إعدادات مظهر أخرى للمخططات، راجع [Chart Formatting](/slides/ar/nodejs-java/chart-formatting/).
+يؤثر إعداد الارتفاع على المخططات العمودية والشريطية ثلاثية الأبعاد، بما في ذلك المتنوعات الأسطوانية، المخروطية، والهرمية، وكذلك مخططات الخط والمساحة، والدوائر، والسطوح ثلاثية الأبعاد. المقارنة أعلاه تستخدم النوع المؤكد `Column3D`. لا يغيّر الإعداد مظهر مخطط `ClusteredColumn` ثنائي الأبعاد أو مخطط `BubbleWith3D`؛ هذه الأسماء أعضاء في فئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). لإعدادات مظهر المخطط الأخرى، راجع [تنسيق المخطط](/slides/ar/nodejs-java/chart-formatting/).
 
 ## **ضبط الفجوة بين السلاسل**
 
-استخدم [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) للتحكم في المسافة بين سلاسل البيانات على محور العمق في مخطط ثلاثي الأبعاد، معبرًا عنها كنسبة مئوية من عرض العلامة. استخدم قيمًا من **0 إلى 500** شاملًا: `0` يزيل الفجوة، بينما القيم الأكبر تزيد من المسافة. مع عمق مخطط ثابت، زيادة الفجوة تجعل العلامات أرق على محور العمق.
+استخدم [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) للتحكم في المسافة بين سلاسل البيانات على محور العمق لمخطط ثلاثي الأبعاد، معبرًا عنها كنسبة مئوية من عرض العلامة. استخدم قيمًا من **0 إلى 500** شاملة: `0` يزيل الفجوة، بينما القيم الأكبر تزيد المسافة. مع عمق مخطط ثابت، زيادة الفجوة تجعل العلامات أرق على محور العمق.
 
-الوصول إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). يطبق الإعداد على كل سلسلة في تلك المجموعة، وليس فقط السلسلة المستخدمة للوصول إليها. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getgapdepth/) يُرجع فجوة العمق ويعكس إعداد المجموعة الأصلية.
+يمكن الوصول إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). ينطبق الإعداد على كل سلسلة في تلك المجموعة، وليس فقط السلسلة المستخدمة للوصول إليها. تُعيد [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getgapdepth/) الفجوة في العمق وتعكس إعداد المجموعة الأصلية.
 
-تؤثر هذه الإعدادات على المخططات العمودية والشريطية ثلاثية الأبعاد، بما في ذلك المتغيرات الأسطوانية، المخروطية، والهرمية، وكذلك مخططات الخط والمساحة ثلاثية الأبعاد. يعتمد المظهر على ما إذا كانت السلاسل مرتبة في العمق، أو مجمعة، أو مكدسة. للحصول على مقارنة واضحة للفجوات بين السلاسل المنفصلة، استخدم `ChartType.Column3D` من الفئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/).
+يؤثر هذا الإعداد على المخططات العمودية والشريطية ثلاثية الأبعاد، بما في ذلك المتنوعات الأسطوانية، المخروطية، والهرمية، وكذلك مخططات الخط والمساحة ثلاثية الأبعاد. تعتمد المظهرية على ما إذا كانت السلاسل مرتبة في العمق أو مجمّعة أو مكدسة. للمقارنة الواضحة للفجوات بين السلاسل المنفصلة، استخدم `ChartType.Column3D` من فئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/).
 
-تتحكم هذه الطرق في جوانب مختلفة من المخطط:
+تتحكم هذه الأساليب في جوانب مختلفة من المخطط:
 
-| الطريقة | التأثير |
+| Method | Effect |
 | --- | --- |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | المسافة بين السلاسل على محور العمق، كنسبة مئوية من عرض العلامة. |
-| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) | المسافة بين مجموعات الأعمدة أو الأشرطة المتجاورة، كنسبة مئوية من عرض العمود أو الشريط. |
-| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | عمق المخطط الكامل، كنسبة مئوية من عرض المخطط. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | مسافة بين السلاسل على محور العمق، كنسبة مئوية من عرض العلامة. |
+| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) | مسافة بين مجموعات الأعمدة أو الأشرطة المتجاورة، كنسبة مئوية من عرض العمود أو الشريط. |
+| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | عمق المخطط الكلي، كنسبة مئوية من عرض المخطط. |
 
-المثال المستقل التالي يستخدم بيانات المخطط الافتراضية، التي تحتوي على ثلاث سلاسل وأربع فئات. يحفظ عرضين تقديميين ببيانات، دوران، عرض الفجوة، وعمق المخطط متطابقة؛ يتغير فقط عمق الفجوة.
+المثال المستقل التالي يستخدم بيانات المخطط الافتراضية، التي تحتوي على ثلاث سلاسل وأربع فئات. يحفظ عرضين تقديميين ببيانات، دوران، عرض فجوة، وعمق مخطط متطابقة؛ فقط فجوة العمق تتغير.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -162,15 +216,15 @@ try {
 }
 ```
 
-الصور التالية توضح نفس إعدادات عمق الفجوة في مثال .NET المكافئ وتم تصديرها باستخدام Microsoft PowerPoint.
+توضح الصور التالية نفس إعدادات الفجوة في المثال .NET المكافئ وتم تصديرها باستخدام Microsoft PowerPoint.
 
-| عمق الفجوة: 0% | عمق الفجوة: 500% |
+| فجوة العمق: 0٪ | فجوة العمق: 500٪ |
 | --- | --- |
 | ![مخطط عمودي ثلاثي الأبعاد بدون فجوة بين السلاسل على محور العمق](gap_depth_0.png) | ![مخطط عمودي ثلاثي الأبعاد بفجوة 500٪ بين السلاسل على محور العمق](gap_depth_500.png) |
 
-## **تغيير نوع السلسلة ثلاثية الأبعاد وشكل الشريط**
+## **تغيير نوع السلسلة ثلاثي الأبعاد وشكل الشريط**
 
-في مخطط أسطواني مجمع، تبدأ السلسلة الأولى بشكل شريط أسطواني. يطبع المثال القيم الصحيحة التي تُرجعها [ChartSeries.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/gettype/) و[ChartSeries.getBar3DShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getbar3dshape/) قبل وبعد كل تغيير. الجدول يعطي أسماء الثوابت المقابلة.
+في مخطط أسطواني مُجمّع، تبدأ السلسلة الأولى بشكل شريط أسطواني. يطبع المثال القيم الصحيحة التي تُرجعها [ChartSeries.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/gettype/) و [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getbar3dshape/) قبل وبعد كل تغيير. تُظهر الجدول الأسماء الثابتة المقابلة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -196,26 +250,26 @@ try {
 }
 ```
 
-| تغيير السلسلة الأولى | نوع السلسلة | شكل الشريط |
+| تغيير للسلسلة الأولى | نوع السلسلة | شكل الشريط |
 | --- | --- | --- |
 | إنشاء المخطط | `ClusteredCylinder` | `Cylinder` |
 | تعيين نوع السلسلة إلى `ClusteredCone` | `ClusteredCone` | `Cone` |
 | تعيين شكل الشريط إلى `Box` | `ClusteredColumn3D` | `Box` |
 
-تغيير الشكل إلى `Box` يغير أيضًا نوع السلسلة إلى `ClusteredColumn3D`. إذا كان كودك يتفرع بناءً على نوع السلسلة، استدعِ `series.getType()` بعد تغيير الشكل. القيمة المخزنة مسبقًا قبل التعيين ستختار ما زالت فرع `ClusteredCone`.
+تغيير الشكل إلى `Box` يغيّر أيضًا نوع السلسلة إلى `ClusteredColumn3D`. إذا كان شفرتك تتفرع بناءً على نوع السلسلة، استدعِ `series.getType()` بعد تغيير الشكل. القيمة المخزنة مؤقتًا قبل التعيين ما زالت ستختار فرع `ClusteredCone`.
 
-![مقارنة PowerPoint تُظهر السلسلة الأولى كأنابيب أسطوانية، مخروطية، وأعمدة مستطيلة من اليسار إلى اليمين](series-shapes.png)
+![مقارنة PowerPoint تُظهر السلسلة الأولى كأسطوانات، مخاريط، وأعمدة مستطيلة من اليسار إلى اليمين](series-shapes.png)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما أنواع المخططات التي تدعم الوضع ثلاثي الأبعاد في Aspose.Slides؟**
+**أي أنواع المخططات تدعم وضع 3D في Aspose.Slides?**
 
-يدعم Aspose.Slides المتغيرات الثلاثية الأبعاد من المخططات العمودية، بما في ذلك Column 3D وClustered Column 3D وStacked Column 3D و100% Stacked Column 3D، بالإضافة إلى الأنواع الثلاثية الأبعاد المرتبطة التي يتم عرضها عبر فئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). للحصول على قائمة دقيقة ومحدثة، تحقق من أعضاء [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) في مرجع API للإصدار المثبت لديك.
+يدعم Aspose.Slides المتنوعات ثلاثية الأبعاد لمخططات الأعمدة، بما في ذلك Column 3D، Clustered Column 3D، Stacked Column 3D، و100% Stacked Column 3D، جنبًا إلى جنب مع الأنواع الثلاثية ذات الصلة التي تكشف عنها فئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) . للحصول على قائمة دقيقة ومحدثة، تحقق من أعضاء فئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) في مرجع API للنسخة المثبتة لديك.
 
 **هل يمكنني الحصول على صورة نقطية لمخطط ثلاثي الأبعاد لتقرير أو للويب؟**
 
-نعم. يمكنك تصدير المخطط إلى صورة باستخدام [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) أو [تحويل الشريحة بالكامل](/slides/ar/nodejs-java/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة نقطية أو تريد تضمين المخطط في مستندات، لوحات معلومات، أو صفحات ويب دون الحاجة إلى PowerPoint.
+نعم. يمكنك تصدير المخطط إلى صورة باستخدام [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) أو [تصيير الشريحة بالكامل](/slides/ar/nodejs-java/convert-powerpoint-to-png/) إلى صيغ مثل PNG أو JPEG. هذا مفيد عندما تحتاج إلى معاينة نقطية أو تريد تضمين المخطط في مستندات، لوحات معلومات، أو صفحات ويب دون الحاجة إلى PowerPoint.
 
-**ما مدى كفاءة بناء وعرض المخططات الثلاثية الأبعاد الكبيرة؟**
+**ما مدى أداء بناء وعرض مخططات ثلاثية الأبعاد الكبيرة؟**
 
-تعتمد الأداء على حجم البيانات وتعقيد العرض البصري. للحصول على أفضل النتائج، احرص على تقليل تأثيرات 3D إلى الحد الأدنى، وتجنب القوام الثقيلة على الجدران ومساحات الرسم، وحدّ عدد نقاط البيانات لكل سلسلة عندما يكون ذلك ممكنًا، وقم بالعرض إلى إخراج بالحجم المناسب (الدقة والأبعاد) لتطابق شاشة العرض أو احتياجات الطباعة المستهدفة.
+يعتمد الأداء على حجم البيانات وتعقيد العرض المرئي. للحصول على أفضل النتائج، احرص على تقليل تأثيرات 3D إلى الحد الأدنى، وتجنب القوام الثقيلة على الجدران ومناطق الرسم، وحدّ عدد نقاط البيانات لكل سلسلة عندما يكون ذلك ممكنًا، وقم بالتصيير إلى مخرج بحجم مناسب (الدقة والأبعاد) لتتناسب مع شاشة العرض أو احتياجات الطباعة المستهدفة.

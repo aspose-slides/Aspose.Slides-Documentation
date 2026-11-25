@@ -1,56 +1,56 @@
 ---
-title: Ограни��ить редактирование презентации с помощью блокировок фигур в Python
-linktitle: Ограничить редактирование презентации
+title: Ограничить редактирование презентаций с помощью блокировок форм в Python
+linktitle: Ограничить редактирование презентаций
 type: docs
 weight: 60
 url: /ru/python-java/applying-protection-to-presentation/
 keywords:
-- запретить редактирование
+- предотвратить редактирование
 - защитить от редактирования
-- заблокировать фигуру
-- заблокировать положение
-- заблокировать выбор
-- заблокировать изменение размера
-- заблокировать группировку
+- блокировать форму
+- блокировать позицию
+- блокировать выбор
+- блокировать изменение размера
+- блокировать группировку
 - PowerPoint
 - PPTX
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Узнайте, как блокировать и разблокировать фигуры в PPTX презентациях с помощью Aspose.Slides for Python via Java, чтобы ограничить выбор, перемещение, изменение размеров и группировку."
+description: "Узнайте, как блокировать и разблокировать формы в PPTX‑презентациях с помощью Aspose.Slides for Python via Java, чтобы ограничить выбор, перемещение, изменение размера и группировку."
 ---
-## **Фон**
+## **Предыстория**
 
-Обычное применение Aspose.Slides for Python via Java — создавать, обновлять и сохранять презентации PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур помогает сохранить задуманный макет и содержимое.
+Распространённое применение Aspose.Slides for Python via Java — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают эти презентации, ограничение изменений форм позволяет сохранить задуманную макет и содержимое.
 
-В этой статье объясняется, как фигуры организованы на слайдах и как применять и удалять блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить конкретные операции редактирования отдельных фигур.
+В этой статье объясняется, как формы организованы на слайдах и как применять и удалять блокировки форм в презентации PPTX. Эти блокировки позволяют ограничить конкретные операции редактирования отдельных форм.
 
 ## **Состав слайда**
 
-Слайд презентации состоит из компонентов, таких как автоматические формы, таблицы, объекты OLE, сгруппированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for Python via Java каждый элемент на слайде представлен объектом, наследующимся от класса [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/).
+Слайд презентации состоит из компонентов, таких как автофигуры, таблицы, OLE‑объекты, сгруппированные формы, рамки изображений, видеокадры, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for Python via Java каждый элемент на слайде представлен объектом, наследующим класс [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
 
-Разные типы фигур предоставляют разные варианты блокировок. Класс [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) является базовым классом для блокировок фигур. Aspose.Slides for Python via Java предоставляет следующие классы блокировок:
+Разные типы форм предоставляют различные варианты блокировок. Класс [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) является базовым классом для блокировок форм. Aspose.Slides for Python via Java предоставляет следующие классы блокировок:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) блокирует автоконтуры.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) блокирует соединительные фигуры.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) блокирует автофигуры.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) блокирует формы‑соединители.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) блокирует графические объекты.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) блокирует группы фигур.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) блокирует сгруппированные формы.  
 - [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) блокирует рамки изображений.  
 
-Чтобы применить блокировки ко всей [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), пройдитесь по её слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
+Чтобы применить блокировки к всей [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), пройдитесь по её слайдам и установите соответствующие блокировки для каждой поддерживаемой формы.
 
 ## **Применение и удаление защиты**
 
-Совместимые редакторы презентаций используют блокировки фигур для ограничения отдельных операций редактирования. Шифрование файлов и защита записи на уровне документа являются отдельными [настройками защиты презентации](/slides/ru/python-java/password-protected-presentation/).
+Совместимые редакторы презентаций используют блокировки форм для ограничения отдельных операций редактирования. Шифрование файлов и защита записи на уровне документа являются отдельными [настройками защиты презентации](/slides/ru/python-java/password-protected-presentation/).
 
-### **Применение защиты к фигурам PPTX**
+### **Применение защиты к формам PPTX**
 
-Aspose.Slides for Python via Java предоставляет класс [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) для работы с фигурами на слайде.
+Aspose.Slides for Python via Java предоставляет класс [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) для работы с формами на слайде.
 
-В примере вызываются методы [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) и [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) со значением `True` для автоконтуров, а также эквивалентные блокировки для групп фигур, соединителей и рамок изображений. Для соединителей используется [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) для перемещения; для групп — также [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) для ограничения группировки.
+В примере вызываются [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) и [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) с `True` для автоформ, с эквивалентными блокировками для сгруппированных форм, соединителей и рамок изображений. Соединители используют [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) для перемещения; группы также используют [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) для ограничения группировки.
 
-Пример загружает существующую PPTX‑презентацию, проверяет фигуры в коллекции фигур каждого слайда и сохраняет копию с применёнными ограничениями. Фигуры, не входящие в четыре обрабатываемых типа, остаются без изменений. Цикл не обходит дочерние фигуры внутри группы.
+Пример загружает существующую PPTX‑презентацию, проверяет формы в коллекции форм каждого слайда и сохраняет копию с применёнными ограничениями. Формы, не относящиеся к четырём рассматриваемым типам, остаются без изменений. Цикл не проходит по дочерним формам внутри группы.
 
 ```python
 import jpype
@@ -94,7 +94,7 @@ finally:
 
 ### **Удаление защиты**
 
-Чтобы удалить блокировку фигуры, установите её значение в `False`. В следующем примере загружается презентация с блокировками фигур и очищаются ограничения выбора, перемещения и изменения размеров через [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) и [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Кроме того, ограничение группировки удаляется передачей `False` в [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), после чего сохраняется копия презентации. Другие параметры блокировок остаются без изменений.
+Чтобы удалить блокировку формы, установите её значение в `False`. В следующем примере загружается презентация с блокировками форм и очищаются ограничения выбора, перемещения и изменения размера через [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) и [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Также удаляется ограничение группировки, передавая `False` в [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), и сохраняется копия презентации. Другие настройки блокировок остаются без изменений.
 
 ```python
 import jpype
@@ -136,9 +136,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Сохранить обрезку изображения**
+### **Сохранение обрезки изображения**
 
-Поместите фотографию с именем `photo.jpg` в рабочий каталог. Пример обрезает 12 % слева и 8 % справа, затем вызывает [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) со значением `True`, чтобы сохранить обрезку.
+Поместите фотографию с именем `photo.jpg` в рабочий каталог. В примере выполняется обрезка 12 % слева и 8 % справа, затем вызывается [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) с `True` для сохранения обрезки.
 
 ```python
 from pathlib import Path
@@ -171,11 +171,11 @@ finally:
     presentation.dispose()
 ```
 
-В файле `PictureLocked.pptx` PowerPoint отключает команду **Crop**, когда вы выбираете изображение.
+В файле `PictureLocked.pptx` PowerPoint отключает команду **Crop**, когда вы выбираете фотографию.
 
-### **Сохранить группировку диаграммы**
+### **Сохранять диаграмму сгруппированной**
 
-Пример группирует прямоугольник и стрелку, затем вызывает [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) со значением `True`, чтобы удержать две фигуры вместе. По‑прежнему можно перемещать группу или менять заливку компонента.
+В примере прямоугольник и стрелка объединяются в группу, затем вызывается [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) с `True`, чтобы сохранить две формы вместе. Вы всё ещё можете перемещать группу или менять заливку компонента.
 
 ```python
 import jpype
@@ -202,20 +202,83 @@ finally:
 
 В файле `DiagramLocked.pptx` PowerPoint отключает команду **Ungroup**, когда вы выбираете всю диаграмму.
 
+### **Отчёт о существующих блокировках форм**
+
+Чтобы просмотреть шаблон, откройте его и прочитайте объект блокировки для каждой формы. Метод [getNoLocks](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/#getNoLocks) возвращает `True`, когда все флаги в этом объекте отключены, и `False`, когда включён хотя бы один. У группы и её дочерних элементов отдельные объекты блокировок, поэтому проверяйте дочерние элементы, даже если у группы нет блокировок.
+
+В этом примере проверяется перемещение автоформ, рамок изображений и групп. Также проверяется обрезка изображений и разгруппировка для групп. Отчёт перечисляет включённые флаги, которые он распознаёт, и отмечает типы форм, которые он не проверяет.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, GroupShape, PictureFrame, Presentation
+
+
+def inspect_shapes(shapes, slide_number, prefix=""):
+    for shape in shapes:
+        path = f"{prefix}{shape.getName()}"
+        label = f"Slide {slide_number} | {path} | {shape.getClass().getSimpleName()}"
+        flags = []
+
+        if isinstance(shape, GroupShape):
+            shape_lock = shape.getGroupShapeLock()
+            if shape_lock.getUngroupingLocked():
+                flags.append("UngroupingLocked")
+        elif isinstance(shape, PictureFrame):
+            shape_lock = shape.getPictureFrameLock()
+            if shape_lock.getCropLocked():
+                flags.append("CropLocked")
+        elif isinstance(shape, AutoShape):
+            shape_lock = shape.getAutoShapeLock()
+        else:
+            print(f"{label} | Uninspected")
+            continue
+
+        if shape_lock.getPositionLocked():
+            flags.append("PositionLocked")
+        if not shape_lock.getNoLocks():
+            restrictions = ", ".join(flags) if flags else "Active flag not identified"
+            print(f"{label} | {restrictions}")
+
+        if isinstance(shape, GroupShape):
+            inspect_shapes(shape.getShapes(), slide_number, f"{path}/")
+
+
+presentation = Presentation("Sample.pptx")
+try:
+    for slide in presentation.getSlides():
+        inspect_shapes(slide.getShapes(), slide.getSlideNumber())
+finally:
+    presentation.dispose()
+```
+
+Предположим, что слайд 1 файла `Sample.pptx` содержит группу с именем `Layout`, у которой заблокирована разгруппировка, изображение с именем `Photo` внутри неё с заблокированной обрезкой и разблокированный прямоугольник с именем `Free`. Отчёт пропускает `Free` и выводит две строки:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Отчёт читает сохранённые флаги редактирования на уровне формы без их изменения или сохранения презентации. Защита записи на уровне документа — отдельная настройка, а применение каждого флага зависит от редактора.
+
 ### **Заключение**
 
-Aspose.Slides for Python via Java позволяет ограничивать конкретные операции редактирования отдельных фигур или применять одинаковые ограничения к нескольким слайдам. Выбирайте блокировки, поддерживаемые каждым типом фигур, и устанавливайте их значения в `False`, когда необходимо снять ограничения.
+Aspose.Slides for Python via Java позволяет ограничивать конкретные операции редактирования отдельных форм или применять те же ограничения к нескольким слайдам. Выбирайте блокировки, поддерживаемые каждым типом формы, и устанавливайте их значения в `False`, когда необходимо снять ограничения.
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Могу ли я комбинировать блокировки фигур и защиту паролем в одной презентации?**
+**Можно ли комбинировать блокировки форм и защиту паролем в одной презентации?**
 
-Да. Блокировки фигур ограничивают конкретные операции редактирования, тогда как [защита паролем](/slides/ru/python-java/password-protected-presentation/) может ограничивать открытие или изменение презентации. Вы можете использовать оба механизма в одном файле.
+Да. Блокировки форм ограничивают конкретные операции редактирования, в то время как [защита паролем](/slides/ru/python-java/password-protected-presentation/) может ограничивать открытие или изменение презентации. Вы можете использовать оба метода в одном файле.
 
-**Могу ли я ограничить редактирование только на отдельных слайдах, не затрагивая остальные?**
+**Можно ли ограничить редактирование на отдельных слайдах, не затрагивая остальные?**
 
-Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не меняет параметры блокировок на остальных слайдах.
+Да. Применяйте блокировки только к формам на выбранных слайдах. Это не изменит настройки блокировок на остальных слайдах.
 
-**Как применить блокировки к отдельным фигурам внутри группы?**
+**Как применить блокировки к отдельным формам внутри группы?**
 
-Пройдитесь по коллекции, возвращаемой методом группы [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes), и примените соответствующие блокировки к каждой дочерней фигуре. Повторите эту процедуру для всех вложенных групп. В приведённых выше примерах обрабатывается только коллекция фигур слайда, поэтому блокировки на отдельные элементы группы не устанавливаются.
+Пройдитесь по коллекции, возвращаемой методом [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) группы, и примените соответствующие блокировки к каждой дочерней форме. Повторите это для всех вложенных групп, следуя обходу, показанному в примере отчёта.

@@ -5,23 +5,23 @@ type: docs
 url: /pl/cpp/3d-chart/
 keywords:
 - wykres 3D
-- rotacja
+- obrót
 - głębokość
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz wykresy 3D w prezentacjach PowerPoint za pomocą Aspose.Slides for C++. Dostosuj rotację, proporcje wysokości, głębokość wykresu oraz odstępy między seriami przy użyciu przykładów w C++."
+description: "Twórz wykresy 3D w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++. Dostosuj obrót, proporcje wysokości, głębokość wykresu i odstępy między seriami za pomocą przykładów w C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides for C++ umożliwia dostosowanie widoku wykresu 3D przy użyciu [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Ten artykuł pokazuje, jak ustawić rotację, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
+Aspose.Slides for C++ umożliwia dostosowanie widoku wykresu 3D za pomocą [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Ten artykuł pokazuje, jak regulować obrót, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
 
-## **Ustaw rotację i głębokość wykresu 3D**
+## **Ustaw obrót i głębokość wykresu 3D**
 
-Przykład poniżej tworzy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) i przy użyciu [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) dodaje wykres skumulowanych kolumn 3D do pierwszego slajdu. Zastępuje domyślne serie i kategorie dwoma seriami zawierającymi po trzy wartości. Indeks arkusza `0` wskazuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` zawiera etykiety kategorii.
+Poniższy przykład tworzy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) i przy użyciu [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) dodaje wykres kolumnowy 3D skumulowany do pierwszego slajdu. Zastępuje domyślne serie i kategorie dwoma seriami zawierającymi po trzy wartości. Indeks arkusza `0` identyfikuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` etykiety kategorii.
 
-Metody [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) i [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ustawiają rotację wykresu na odpowiednio 40 i 270 stopni. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) ustawia jego głębokość na 150 % szerokości, natomiast [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) włącza osie pod kątem prostym zamiast perspektywy. Powstała prezentacja zawiera wykres wypełniony danymi z tymi ustawieniami widoku 3D.
+Metody [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) i [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ustawiają obrót wykresu odpowiednio na 40 i 270 stopni. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) ustawia jego głębokość na 150 % szerokości, natomiast [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) włącza osie pod kątem prostym zamiast perspektywy. Uzyskana prezentacja zawiera wykres z tymi ustawieniami widoku 3D.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -88,11 +88,87 @@ presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Zastosuj wypełnienie obrazem na powierzchni wykresu 3D**
+
+Można niezależnie wypełnić [side wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_sidewall/), [back wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) i [floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) wykresu 3D. Ustaw typ wypełnienia powierzchni na `Picture` za pomocą [fill type](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) i przypisz obraz. Aby dopasować jedną kopię obrazu do całej powierzchni, ustaw zarówno [picture fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/), jak i [picture type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartwall/set_picturetype/) powierzchni na `Stretch`.
+
+Zapisz [arrow.png](arrow.png) w katalogu roboczym. Przykład obraca wykres i podnosi maksymalną wartość na osi pionowej, aby podłoga była widoczna między kolumnami. Następnie klonuje slajd dwukrotnie i nakłada strzałkę na inną powierzchnię w każdym slajdzie. Wszystkie trzy wykresy zachowują te same dane, kąt widzenia i tło.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartWall.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/Chart/PictureType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/shared_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 20, 30, 680, 480);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_RotationX(40);
+chart->get_Rotation3D()->set_RotationY(30);
+
+auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+verticalAxis->set_IsAutomaticMaxValue(false);
+verticalAxis->set_MaxValue(24);
+
+auto backSlide = presentation->get_Slides()->AddClone(slide);
+auto floorSlide = presentation->get_Slides()->AddClone(slide);
+auto backChart = ExplicitCast<IChart>(backSlide->get_Shape(0));
+auto floorChart = ExplicitCast<IChart>(floorSlide->get_Shape(0));
+
+auto imageBytes = IO::File::ReadAllBytes(u"arrow.png");
+auto arrow = presentation->get_Images()->AddImage(imageBytes);
+
+for (const auto& surface : { chart->get_SideWall(), backChart->get_BackWall(), floorChart->get_Floor() })
+{
+    auto fill = surface->get_Format()->get_Fill();
+    fill->set_FillType(FillType::Picture);
+    auto pictureFill = fill->get_PictureFillFormat();
+    pictureFill->get_Picture()->set_Image(arrow);
+    pictureFill->set_PictureFillMode(PictureFillMode::Stretch);
+    surface->set_PictureType(PictureType::Stretch);
+}
+
+presentation->Save(u"chart-surfaces.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Microsoft PowerPoint wyświetla trzy slajdy w następujący sposób.
+
+| Ściana boczna | Ściana tylna | Podłoga |
+| --- | --- | --- |
+| ![Strzałka wskazująca do wykresu wzdłuż ściany bocznej](side-wall.png) | ![Strzałka wskazująca w prawo wzdłuż ściany tylnej](back-wall.png) | ![Strzałka wskazująca w prawo wzdłuż podłogi między kolumnami](floor.png) |
+
 ## **Dostosuj proporcje wysokości wykresu 3D**
 
 Użyj [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/), aby ustawić wysokość wykresu 3D jako procent jego szerokości. Zmienia to proporcje sceny 3D bez zmiany rozmiaru obiektu wykresu na slajdzie.
 
-Poniższy przykład tworzy wykres [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) używając danych domyślnych: trzy serie i cztery kategorie. Zapisuje trzy prezentacje z proporcjami wysokości 50 %, 100 % i 200 %. Pozycja, szerokość i wysokość wykresu pozostają niezmienione. Dane, rotacja, głębokość, odstępy serii oraz formatowanie są identyczne we wszystkich trzech plikach; zmienia się tylko procent wysokości.
+Poniższy przykład tworzy wykres [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) z domyślnymi danymi: trzy serie i cztery kategorie. Zapisuje trzy prezentacje z proporcjami wysokości 50 %, 100 % i 200 %. Pozycja, szerokość i wysokość wykresu pozostają stałe. Dane, obrót, głębokość, odstępy serii i formatowanie są identyczne we wszystkich trzech plikach; zmienia się tylko procent wysokości.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -135,11 +211,11 @@ for (uint16_t heightPercent : { 50, 100, 200 })
 presentation->Dispose();
 ```
 
-Poniższe obrazy z równoważnego przykładu .NET zostały wyeksportowane przy użyciu Microsoft PowerPoint i ilustrują te same ustawienia wysokości. Mniejszy procent powoduje płaską scenę, natomiast większy procent tworzy wyższą scenę w tym samym obiekcie wykresu. PowerPoint może również dostosować interwały znaczników osi i rozmieszczenie etykiet, aby dopasować scenę.
+Poniższe obrazy pochodzące z odpowiedniego przykładu .NET zostały wyeksportowane przy użyciu Microsoft PowerPoint i ilustrują te same ustawienia wysokości. Mniejszy procent daje płaską scenę, większy procent – wyższą scenę przy tym samym obiekcie wykresu. PowerPoint może także dostosować interwały znaczników osi i rozmieszczenie etykiet, aby dopasować scenę.
 
 | Wysokość: 50% | Wysokość: 100% | Wysokość: 200% |
 | --- | --- | --- |
-| ![Wykres kolumnowy 3D z wysokością ustawioną na 50 percent of its width](height_percent_50.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 100 percent of its width](height_percent_100.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 200 percent of its width](height_percent_200.png) |
+| ![Wykres słupkowy 3D z wysokością ustawioną na 50% jego szerokości](height_percent_50.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 100% jego szerokości](height_percent_100.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 200% jego szerokości](height_percent_200.png) |
 
 Te metody kontrolują różne aspekty wykresu:
 
@@ -148,27 +224,27 @@ Te metody kontrolują różne aspekty wykresu:
 | [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Wysokość sceny 3D jako procent jej szerokości. |
 | [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Wysokość obiektu wykresu na slajdzie, w punktach. |
 | [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Głębokość sceny 3D jako procent jej szerokości. |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Odległość między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
 
-Ustawienie wysokości wpływa na wykresy kolumnowe i słupkowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidowe, a także wykresy 3D liniowe, powierzchniowe, kołowe i powierzchniowe. Powyższe porównanie wykorzystuje zweryfikowany typ `Column3D`. Ustawienie nie zmienia wyglądu wykresu 2D `ClusteredColumn` ani wykresu `BubbleWith3D`; te nazwy są członkami wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Aby uzyskać informacje o innych ustawieniach wyglądu wykresu, zobacz [Chart Formatting](/slides/pl/cpp/chart-formatting/).
+Ustawienie wysokości wpływa na wykresy kolumnowe i słupkowe 3D, w tym warianty cylindryczne, stożkowe i piramidowe, a także wykresy 3D liniowe, powierzchniowe, kołowe i obszarowe. Porównanie powyżej używa zweryfikowanego typu `Column3D`. Ustawienie nie zmienia wyglądu wykresu 2D `ClusteredColumn` ani wykresu `BubbleWith3D`; nazwy te są członkami wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Inne ustawienia wyglądu wykresu znajdują się w sekcji [Chart Formatting](/slides/pl/cpp/chart-formatting/).
 
 ## **Dostosuj odstęp między seriami**
 
-Użyj [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/), aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną jako procent szerokości znacznika. Używaj wartości od **0 do 500**, włącznie: `0` usuwa odstęp, większe wartości zwiększają odległość. Przy stałej głębokości wykresu zwiększenie odstępu powoduje, że znaczniki stają się cieńsze wzdłuż osi głębokości.
+Użyj [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/), aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną jako procent szerokości znacznika. Dozwolone wartości to **0 do 500**, włącznie: `0` usuwa odstęp, większe wartości zwiększają go. Przy stałej głębokości wykresu zwiększanie odstępu powoduje, że znaczniki stają się cieńsze wzdłuż osi głębokości.
 
-Dostęp do grupy uzyskuje się przez [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Ustawienie ma zastosowanie do każdej serii w tej grupie, a nie tylko do serii użytej do uzyskania dostępu. [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) zwraca ustawienie grupy nadrzędnej.
+Dostęp do grupy uzyskuje się przez [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Ustawienie dotyczy każdej serii w tej grupie, nie tylko serii użytej do uzyskania dostępu. [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) zwraca ustawienie grupy nadrzędnej.
 
-To ustawienie wpływa na wykresy kolumnowe i słupkowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidowe, a także wykresy 3D liniowe i powierzchniowe. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Aby uzyskać wyraźne porównanie odstępów między poszczególnymi seriami, użyj `ChartType::Column3D` z wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
+To ustawienie wpływa na wykresy kolumnowe i słupkowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidowe, a także wykresy 3D liniowe i powierzchniowe. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Dla wyraźnego porównania odstępów między oddzielnymi seriami użyj `ChartType::Column3D` z wyliczenia [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
 
 Te metody kontrolują różne aspekty wykresu:
 
 | Metoda | Efekt |
 | --- | --- |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
-| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Odstęp między sąsiadującymi klastrami słupków lub kolumn, jako procent szerokości słupka lub kolumny. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Odległość między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
+| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Odległość między sąsiadującymi grupami słupków lub kolumn, jako procent szerokości słupka lub kolumny. |
 | [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Całkowita głębokość wykresu, jako procent szerokości wykresu. |
 
-Poniższy samodzielny przykład używa domyślnych danych wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwie prezentacje z identycznymi danymi, rotacją, szerokością odstępu i głębokością wykresu; zmienia się tylko głębokość odstępu.
+Poniższy przykład samodzielny wykorzystuje domyślne dane wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwie prezentacje z identycznymi danymi, obrotem, szerokością odstępu i głębokością wykresu; zmienia się tylko głębokość odstępu.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -215,15 +291,15 @@ for (uint16_t gapDepth : { 0, 500 })
 presentation->Dispose();
 ```
 
-Poniższe obrazy z równoważnego przykładu .NET zostały wyeksportowane przy użyciu Microsoft PowerPoint i ilustrują te same ustawienia głębokości odstępu.
+Poniższe obrazy pochodzące z odpowiedniego przykładu .NET zostały wyeksportowane przy użyciu Microsoft PowerPoint i ilustrują te same ustawienia głębokości odstępu.
 
-| Głębokość odstępu: 0% | Głębokość odstępu: 500% |
+| Odstęp między seriami: 0% | Odstęp między seriami: 500% |
 | --- | --- |
-| ![Wykres kolumnowy 3D bez odstępu między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres kolumnowy 3D z odstępem 500 percent between series along the depth axis](gap_depth_500.png) |
+| ![Wykres kolumnowy 3D bez odstępu między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres kolumnowy 3D z odstępem 500% między seriami wzdłuż osi głębokości](gap_depth_500.png) |
 
 ## **Zmień typ serii 3D i kształt słupka**
 
-W wykresie grupowanym cylindrycznym pierwsza seria rozpoczyna się od słupków cylindrycznych. Przykład odczytuje [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) oraz [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) przed i po każdej zmianie.
+W wykresie skumulowanym cylindrycznym pierwsza seria zaczyna się od słupków cylindrycznych. Przykład odczytuje [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) i [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) przed i po każdej zmianie.
 
 ```cpp
 #include <DOM/Chart/ChartShapeType.h>
@@ -272,11 +348,11 @@ presentation->Dispose();
 
 | Zmiana pierwszej serii | `get_Type` | `get_Bar3DShape` |
 | --- | --- | --- |
-| Utwórz wykres | `ClusteredCylinder` | `Cylinder` |
-| Wywołaj [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) z `ClusteredCone` | `ClusteredCone` | `Cone` |
-| Wywołaj [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) z `Box` | `ClusteredColumn3D` | `Box` |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) with `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Call [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) with `Box` | `ClusteredColumn3D` | `Box` |
 
-Ustawienie kształtu na `Box` zmienia także typ serii na `ClusteredColumn3D`. Jeśli Twój kod rozgałęzia się w zależności od typu serii, wywołaj `series->get_Type()` po zmianie kształtu. Wartość zbuforowana przed zmianą nadal wybrałaby gałąź `ClusteredCone`.
+Ustawienie kształtu na `Box` zmienia również typ serii na `ClusteredColumn3D`. Jeśli Twój kod rozgałęzia się w zależności od typu serii, wywołaj `series->get_Type()` po zmianie kształtu. Wartość zapamiętana przed zmianą nadal wybrałaby gałąź `ClusteredCone`.
 
 ![Porównanie w PowerPoint pokazujące pierwszą serię jako cylindry, stożki i prostokątne kolumny od lewej do prawej](series-shapes.png)
 
@@ -284,12 +360,12 @@ Ustawienie kształtu na `Box` zmienia także typ serii na `ClusteredColumn3D`. J
 
 **Jakie typy wykresów obsługują tryb 3D w Aspose.Slides?**
 
-Aspose.Slides obsługuje warianty 3D wykresów kolumnowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D oraz 100 % Stacked Column 3D, wraz z powiązanymi typami 3D udostępnionymi w wyliczeniu [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Aby uzyskać dokładną, aktualną listę, sprawdź członków [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) w dokumentacji API zainstalowanej wersji.
+Aspose.Slides obsługuje warianty 3D wykresów kolumnowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D oraz 100 % Stacked Column 3D, a także powiązane typy 3D udostępniane przez wyliczenie [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Aby uzyskać dokładną, aktualną listę, sprawdź członki [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) w dokumentacji API swojej zainstalowanej wersji.
 
 **Czy mogę uzyskać obraz rastrowy wykresu 3D do raportu lub sieci?**
 
-Tak. Możesz wyeksportować wykres jako obraz za pomocą [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) lub [renderować cały slajd](/slides/pl/cpp/convert-powerpoint-to-png/) do formatów takich jak PNG lub JPEG. Jest to przydatne, gdy potrzebny jest podgląd rastrowy lub chcesz osadzić wykres w dokumentach, pulpitach nawigacyjnych lub stronach internetowych bez wymogu użycia PowerPoint.
+Tak. Możesz wyeksportować wykres do obrazu przy użyciu [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) lub [renderować cały slajd](/slides/pl/cpp/convert-powerpoint-to-png/) do formatów takich jak PNG lub JPEG. Jest to przydatne, gdy potrzebny jest podgląd rastrowy lub chcesz osadzić wykres w dokumentach, dashboardach lub stronach internetowych bez wymogu użycia PowerPointa.
 
 **Jak wydajna jest budowa i renderowanie dużych wykresów 3D?**
 
-Wydajność zależy od wolumenu danych i złożoności wizualnej. Aby uzyskać najlepsze rezultaty, minimalizuj efekty 3D, unikaj ciężkich tekstur na ścianach i obszarach wykresu, ogranicz liczbę punktów danych w serii, gdy to możliwe, oraz renderuj do odpowiednio dobranego rozmiaru wyjścia (rozdzielczość i wymiary), aby dopasować go do docelowego wyświetlacza lub potrzeb drukowania.
+Wydajność zależy od wielkości danych i złożoności wizualnej. Aby uzyskać najlepsze wyniki, ogranicz efekty 3D do niezbędnego minimum, unikaj ciężkich tekstur na ścianach i obszarach wykresu, ogranicz liczbę punktów danych w serii, gdy to możliwe, oraz renderuj do odpowiednio dobranej rozdzielczości i wymiarów, dopasowanych do docelowego wyświetlacza lub potrzeb druku.

@@ -4,7 +4,7 @@ linktitle: Wykres 3D
 type: docs
 url: /pl/nodejs-java/3d-chart/
 keywords:
-- wykres 3D
+- Wykres 3D
 - obrót
 - głębokość
 - PowerPoint
@@ -12,17 +12,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Twórz wykresy 3D w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Node.js via Java. Dostosuj obrót, proporcje wysokości, głębokość wykresu oraz odstępy między seriami przy przykładach JavaScript."
+description: "Twórz wykresy 3D w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Node.js via Java. Reguluj obrót, proporcje wysokości, głębokość wykresu oraz odstępy między seriami przy pomocy przykładów w JavaScript."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Node.js via Java pozwala dostosować widok wykresu 3D przy pomocy metody [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getrotation3d/). Ten artykuł pokazuje, jak regulować obrót, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
+Aspose.Slides for Node.js via Java umożliwia dostosowanie widoku wykresu 3D za pomocą metody [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getrotation3d/). Ten artykuł pokazuje, jak regulować obrót, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
 
 ## **Ustaw obrót i głębokość wykresu 3D**
 
-Poniższy przykład tworzy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i używa [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) do dodania skumulowanego wykresu słupkowego 3D na pierwszym slajdzie. Zastępuje domyślne serie i kategorie dwoma seriami zawierającymi po trzy wartości. Indeks arkusza `0` identyfikuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` etykiety kategorii.
+Poniższy przykład tworzy obiekt [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i używa [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) do dodania wykresu słupkowego 3D skumulowanego na pierwszym slajdzie. Zastępuje domyślne serie i kategorie dwiema seriami, z których każda zawiera trzy wartości. Indeks arkusza `0` identyfikuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` – etykiety kategorii.
 
-Metody [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationx/) i [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationy/) ustawiają obrót wykresu na 40 i 270 stopni. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) ustawia jego głębokość na 150 % szerokości, a [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrightangleaxes/) włącza osie pod kątem prostym zamiast perspektywy. Powstała prezentacja zawiera wykres z tymi ustawieniami widoku 3D.
+Metody [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationx/) i [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationy/) ustawiają obrót wykresu odpowiednio na 40 i 270 stopni. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) ustawia jego głębokość na 150 % szerokości, a [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrightangleaxes/) włącza osie pod kątem prostym zamiast perspektywy. Wynikowa prezentacja zawiera wykres z tymi ustawieniami widoku 3D.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -68,11 +68,65 @@ try {
 }
 ```
 
+## **Zastosuj wypełnienie obrazem na powierzchni wykresu 3D**
+
+Można oddzielnie wypełnić [side wall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getsidewall/), [back wall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getbackwall/) i [floor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getfloor/) wykresu 3D. Ustaw typ wypełnienia powierzchni na [fill type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) `Picture` i przypisz obraz. Ustaw zarówno [picture fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/setpicturefillmode/), jak i [picture type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartwall/setpicturetype/) powierzchni na `Stretch`, aby jedna kopia obrazu rozciągnęła się na całą powierzchnię.
+
+Zapisz plik [arrow.png](arrow.png) w katalogu roboczym. Przykład obraca wykres i podnosi maksymalną wartość na osi pionowej, aby podłoga była widoczna między kolumnami. Następnie klonuje slajd dwukrotnie i nakłada strzałkę na inną powierzchnię w każdym slajdzie. Wszystkie trzy wykresy zachowują te same dane, kąt widzenia i tło.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    
+    const chart = slide.getShapes().addChart(slides.ChartType.Column3D, 20, 30, 680, 480);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX(java.newByte(40));
+    chart.getRotation3D().setRotationY(30);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(24);
+
+    const backSlide = presentation.getSlides().addClone(slide);
+    const floorSlide = presentation.getSlides().addClone(slide);
+    const backChart = backSlide.getShapes().get_Item(0);
+    const floorChart = floorSlide.getShapes().get_Item(0);
+
+    const image = slides.Images.fromFile("arrow.png");
+    try {
+        const arrow = presentation.getImages().addImage(image);
+        const surfaces = [chart.getSideWall(), backChart.getBackWall(), floorChart.getFloor()];
+        for (const surface of surfaces) {
+            const fill = surface.getFormat().getFill();
+            fill.setFillType(java.newByte(slides.FillType.Picture));
+            const pictureFill = fill.getPictureFillFormat();
+            pictureFill.getPicture().setImage(arrow);
+            pictureFill.setPictureFillMode(slides.PictureFillMode.Stretch);
+            surface.setPictureType(slides.PictureType.Stretch);
+        }
+    } finally {
+        image.dispose();
+    }
+
+    presentation.save("chart-surfaces.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Microsoft PowerPoint wyświetla trzy slajdy w następujący sposób.
+
+| Ściana boczna | Ściana tylna | Podłoga |
+| --- | --- | --- |
+| ![Strzałka wskazująca na wykres wzdłuż ściany bocznej](side-wall.png) | ![Strzałka wskazująca w prawo po ścianie tylnej](back-wall.png) | ![Strzałka wskazująca w prawo po podłodze między kolumnami](floor.png) |
+
 ## **Dostosuj proporcje wysokości wykresu 3D**
 
-Użyj [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/), aby ustawić wysokość wykresu 3D jako procent jego szerokości. Zmienia to proporcje sceny 3D bez zmiany rozmiaru obiektu wykresu na slajdzie.
+Użyj [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) aby ustawić wysokość wykresu 3D jako procent jego szerokości. Zmienia to proporcje sceny 3D bez zmiany rozmiaru obiektu wykresu na slajdzie.
 
-Poniższy przykład tworzy wykres [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) z domyślnymi danymi: trzy serie i cztery kategorie. Zapisuje trzy prezentacje z proporcjami wysokości 50 %, 100 % i 200 %. Pozycja, szerokość i wysokość wykresu pozostają niezmienione. Dane, obrót, głębokość, odstępy między seriami i formatowanie są identyczne we wszystkich trzech plikach; zmienia się tylko procent wysokości.
+Poniższy przykład tworzy wykres [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) z domyślnymi danymi: trzy serie i cztery kategorie. Zapisuje trzy prezentacje z proporcjami wysokości 50 %, 100 % i 200 %. Pozycja, szerokość i wysokość wykresu pozostają stałe. Dane, obrót, głębokość, odstępy serii i formatowanie są identyczne we wszystkich trzech plikach; zmienia się jedynie procent wysokości.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -98,40 +152,40 @@ try {
 }
 ```
 
-Poniższe obrazy ilustrują te same ustawienia wysokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint. Mniejszy procent tworzy płaską scenę, większy procent – wyższą scenę w tym samym obiekcie wykresu. PowerPoint może także dostosować interwały podziałek osi i rozmieszczenie etykiet, aby dopasować scenę.
+Poniższe obrazy ilustrują te same ustawienia wysokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint. Mniejszy procent daje płaską scenę, większy – wyższą scenę w tym samym obiekcie wykresu. PowerPoint może także dostosować interwały znaczników osi i położenie etykiet, aby dopasować scenę.
 
-| Wysokość: 50% | Wysokość: 100% | Wysokość: 200% |
+| Wysokość: 50 % | Wysokość: 100 % | Wysokość: 200 % |
 | --- | --- | --- |
-| ![Wykres słupkowy 3D z wysokością ustawioną na 50 % szerokości](height_percent_50.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 100 % szerokości](height_percent_100.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 200 % szerokości](height_percent_200.png) |
+| ![Wykres kolumnowy 3D z wysokością ustawioną na 50 % jego szerokości](height_percent_50.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 100 % jego szerokości](height_percent_100.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 200 % jego szerokości](height_percent_200.png) |
 
 Te metody kontrolują różne aspekty wykresu:
 
 | Metoda | Efekt |
 | --- | --- |
-| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) | Wysokość sceny 3D wyrażona w procentach jej szerokości. |
+| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) | Wysokość sceny 3D jako procent jej szerokości. |
 | [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setheight/) | Wysokość obiektu wykresu na slajdzie, w punktach. |
-| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Głębokość sceny 3D wyrażona w procentach jej szerokości. |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Odstęp między seriami wzdłuż osi głębokości, wyrażony w procentach szerokości znacznika. |
+| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Głębokość sceny 3D jako procent jej szerokości. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości markera. |
 
-Ustawienie wysokości wpływa na wykresy słupkowe i kolumnowe 3D, w tym warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe, powierzchniowe i kołowe 3D. Powyższe porównanie używa zweryfikowanego typu `Column3D`. Ustawienie nie zmienia wyglądu wykresu 2D `ClusteredColumn` ani wykresu `BubbleWith3D`; nazwy te są członkami klasy [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). Inne ustawienia wyglądu wykresu znajdziesz w [Chart Formatting](/slides/pl/nodejs-java/chart-formatting/).
+Ustawienie wysokości wpływa na wykresy słupkowe i kolumnowe 3D, w tym warianty cylinder, stożek i piramida, a także wykresy liniowe, powierzchniowe, kołowe i obszarowe 3D. Powyższe porównanie używa zweryfikowanego typu `Column3D`. Ustawienie nie zmienia wyglądu dwuwymiarowego wykresu `ClusteredColumn` ani wykresu `BubbleWith3D`; te nazwy są członkami klasy [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). Inne ustawienia wyglądu wykresu znajdziesz w sekcji [Chart Formatting](/slides/pl/nodejs-java/chart-formatting/).
 
 ## **Dostosuj odstęp między seriami**
 
-Użyj [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/), aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną w procentach szerokości znacznika. Używaj wartości od **0 do 500**, włącznie: `0` usuwa odstęp, większe wartości zwiększają go. Przy stałej głębokości wykresu zwiększanie odstępu powoduje, że znaczniki są cieńsze wzdłuż osi głębokości.
+Użyj [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną jako procent szerokości markera. Dozwolone wartości to **0 do 500**, włącznie: `0` usuwa odstęp, większe wartości zwiększają go. Przy stałej głębokości wykresu zwiększanie odstępu powoduje, że markery stają się cieńsze wzdłuż osi głębokości.
 
-Uzyskaj grupę poprzez [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). Ustawienie dotyczy każdej serii w tej grupie, nie tylko serii użytej do uzyskania grupy. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getgapdepth/) zwraca aktualny odstęp w głębokości i odzwierciedla ustawienie grupy nadrzędnej.
+Dostęp do grupy uzyskuje się przez [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). Ustawienie dotyczy każdej serii w tej grupie, nie tylko serii użytej do jej pobrania. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getgapdepth/) zwraca aktualny odstęp głębokości i odzwierciedla ustawienie grupy nadrzędnej.
 
-Ustawienie to wpływa na wykresy słupkowe i kolumnowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe i powierzchniowe 3D. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Do wyraźnego porównania odstępów między oddzielnymi seriami użyj `ChartType.Column3D` z klasy [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/).
+Ustawienie wpływa na wykresy słupkowe i kolumnowe 3D, w tym ich warianty cylinder, stożek i piramida, a także wykresy liniowe i powierzchniowe 3D. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Do wyraźnego porównania odstępów między oddzielnymi seriami użyj `ChartType.Column3D` z klasy [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/).
 
 Te metody kontrolują różne aspekty wykresu:
 
 | Metoda | Efekt |
 | --- | --- |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Odstęp między seriami wzdłuż osi głębokości, wyrażony w procentach szerokości znacznika. |
-| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) | Odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony w procentach ich szerokości. |
-| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Całkowita głębokość wykresu, wyrażona w procentach szerokości wykresu. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości markera. |
+| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) | Odstęp między sąsiadującymi grupami słupków lub kolumn, jako procent szerokości słupka lub kolumny. |
+| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Całkowita głębokość wykresu, jako procent szerokości wykresu. |
 
-Poniższy samodzielny przykład używa domyślnych danych wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwie prezentacje z identycznymi danymi, obrotem, szerokością odstępu i głębokością wykresu; zmienia się jedynie odstęp w głębokości.
+Poniższy samodzielny przykład używa domyślnych danych wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwa pliki prezentacji z identycznymi danymi, obrotem, szerokością odstępu i głębokością wykresu; zmienia się tylko głębokość odstępu.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -162,15 +216,15 @@ try {
 }
 ```
 
-Poniższe obrazy ilustrują te same ustawienia odstępu w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint.
+Poniższe obrazy ilustrują te same ustawienia odstępu głębokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint.
 
-| Odstęp w głębokości: 0% | Odstęp w głębokości: 500% |
+| Odstęp głębokości: 0 % | Odstęp głębokości: 500 % |
 | --- | --- |
-| ![Wykres słupkowy 3D bez odstępu między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres słupkowy 3D z 500 % odstępu między seriami wzdłuż osi głębokości](gap_depth_500.png) |
+| ![Wykres kolumnowy 3D bez odstępu między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres kolumnowy 3D z 500 % odstępem między seriami wzdłuż osi głębokości](gap_depth_500.png) |
 
 ## **Zmień typ serii 3D i kształt słupka**
 
-W wykresie skumulowanym cylindrycznym pierwsza seria zaczyna się od kształtu słupka cylindrycznego. Przykład wypisuje wartości całkowite zwrócone przez [ChartSeries.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/gettype/) i [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getbar3dshape/) przed i po każdej zmianie. Tabela podaje odpowiadające nazwy stałych.
+W wykresie grupowanym cylindrycznym pierwsza seria zaczyna się od kształtu słupka cylindrycznego. Przykład wypisuje wartości całkowite zwracane przez [ChartSeries.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/gettype/) i [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getbar3dshape/) przed i po każdej zmianie. Tabela podaje odpowiadające nazwy stałych.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -196,13 +250,13 @@ try {
 }
 ```
 
-| Zmiana w pierwszej serii | Typ serii | Kształt słupka |
+| Zmień pierwszą serię | Typ serii | Kształt słupka |
 | --- | --- | --- |
 | Utwórz wykres | `ClusteredCylinder` | `Cylinder` |
 | Ustaw typ serii na `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Ustaw kształt słupka na `Box` | `ClusteredColumn3D` | `Box` |
 
-Ustawienie kształtu na `Box` zmienia również typ serii na `ClusteredColumn3D`. Jeśli Twój kod rozgałęzia się w zależności od typu serii, wywołaj `series.getType()` po zmianie kształtu. Wartość zbuforowana przed przypisaniem wciąż wybierze gałąź `ClusteredCone`.
+Ustawienie kształtu na `Box` również zmienia typ serii na `ClusteredColumn3D`. Jeśli twój kod rozgałęzia się w zależności od typu serii, wywołaj `series.getType()` po zmianie kształtu. Wartość zbuforowana przed przypisaniem nadal wybrałaby gałąź `ClusteredCone`.
 
 ![Porównanie w PowerPoint pokazujące pierwszą serię jako cylindry, stożki i prostokątne kolumny od lewej do prawej](series-shapes.png)
 
@@ -210,12 +264,12 @@ Ustawienie kształtu na `Box` zmienia również typ serii na `ClusteredColumn3D`
 
 **Jakie typy wykresów obsługują tryb 3D w Aspose.Slides?**
 
-Aspose.Slides obsługuje 3D‑owe warianty wykresów słupkowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D oraz 100 % Stacked Column 3D, a także powiązane typy 3D dostępne w klasie [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). Aby uzyskać dokładną i aktualną listę, sprawdź członków [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) w dokumentacji API swojej wersji.
+Aspose.Slides obsługuje warianty 3D wykresów słupkowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D i 100 % Stacked Column 3D, a także powiązane typy 3D dostępne poprzez klasę [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/). Aktualną, precyzyjną listę znajdziesz w członkach [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) w dokumentacji API swojej zainstalowanej wersji.
 
-**Czy mogę otrzymać rasterowy obraz wykresu 3D do raportu lub sieci?**
+**Czy mogę uzyskać rastrowy obraz wykresu 3D do raportu lub sieci?**
 
-Tak. Możesz wyeksportować wykres jako obraz przy pomocy [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) lub [renderować cały slajd](/slides/pl/nodejs-java/convert-powerpoint-to-png/) do formatów takich jak PNG lub JPEG. Jest to przydatne, gdy potrzebny jest podgląd rastrowy lub chcesz osadzić wykres w dokumentach, pulpitach nawigacyjnych lub stronach internetowych bez konieczności używania PowerPointa.
+Tak. Możesz wyeksportować wykres jako obraz przy użyciu [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) lub [renderować cały slajd](/slides/pl/nodejs-java/convert-powerpoint-to-png/) do formatów takich jak PNG czy JPEG. Jest to przydatne, gdy potrzebny jest podgląd rastrowy lub chcesz osadzić wykres w dokumentach, pulpitach nawigacyjnych lub stronach internetowych bez wymogu użycia PowerPointa.
 
-**Jak wydajna jest budowa i renderowanie dużych wykresów 3D?**
+**Jak wydajne jest budowanie i renderowanie dużych wykresów 3D?**
 
-Wydajność zależy od ilości danych i złożoności wizualnej. Aby uzyskać najlepsze wyniki, ogranicz efekty 3D, unikaj ciężkich tekstur na ścianach i obszarach wykresu, minimalizuj liczbę punktów danych w serii, gdy to możliwe, oraz renderuj do odpowiednio dobranego rozmiaru wyjścia (rozdzielczość i wymiary), aby dopasować się do docelowego wyświetlacza lub wymagań drukarskich.
+Wydajność zależy od ilości danych i złożoności wizualnej. Dla najlepszych rezultatów utrzymuj efekty 3D na minimalnym poziomie, unikaj ciężkich tekstur na ścianach i powierzchniach wykresu, ogranicz liczbę punktów danych w serii, o ile to możliwe, oraz renderuj do odpowiednio dobranej rozdzielczości i wymiarów, dopasowanych do docelowego wyświetlacza lub druku.

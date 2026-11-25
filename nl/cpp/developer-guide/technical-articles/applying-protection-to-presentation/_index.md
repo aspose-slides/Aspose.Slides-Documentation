@@ -17,39 +17,39 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe je vormen in PPTX-presentaties met Aspose.Slides for C++ kunt vergrendelen en ontgrendelen om selectie, verplaatsing, formaat en groeperen te beperken."
+description: "Leer hoe u vormen in PPTX-presentaties met Aspose.Slides voor C++ kunt vergrendelen en ontgrendelen om selectie, verplaatsing, formaatwijziging en groeperen te beperken."
 ---
 ## **Achtergrond**
 
-Een veelvoorkomend gebruik van Aspose.Slides for C++ is het maken, bijwerken en opslaan van PowerPoint (PPTX) presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen om de beoogde lay‑out en inhoud te behouden.
+Een veelvoorkomende toepassing van Aspose.Slides voor C++ is het maken, bijwerken en opslaan van PowerPoint‑presentaties (PPTX) als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay-out en inhoud te behouden.
 
-Dit artikel legt uit hoe vormen zijn georganiseerd op dia’s en hoe je vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen je in staat om specifieke bewerkingsbewerkingen op individuele vormen te beperken.
+Dit artikel legt uit hoe vormen op dia’s zijn georganiseerd en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Met deze vergrendelingen kunt u specifieke bewerkingsacties op individuele vormen beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatiedia bestaat uit componenten zoals auto‑shapes, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingsframes, video‑frames, verbindingslijnen en andere elementen die gebruikt worden om een presentatie op te bouwen. In Aspose.Slides for C++ wordt elk element op een dia weergegeven door een object dat de [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface implementeert of ervan erft.
+Een presentatiedia bestaat uit componenten zoals AutoShapes, tabellen, OLE‑objecten, gegroepeerde vormen, afbeelding‑frames, video‑frames, connectoren en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides voor C++ wordt elk element op een dia weergegeven door een object dat de [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)‑interface implementeert of van een klasse erft die dat doet.
 
-Verschillende vormtypen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) interface is de basisinterface voor vormvergrendelingen. Aspose.Slides for C++ biedt de volgende vergrendelingsinterfaces:
+Verschillende vormtypen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) interface is de basisklasse voor vormvergrendelingen. Aspose.Slides voor C++ levert de volgende vergrendelings‑interfaces:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) vergrendelt auto‑shapes.
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) vergrendelt verbindingsvormen.
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) vergrendelt autosvormen.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) vergrendelt connectorvormen.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) vergrendelt groep‑vormen.
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) vergrendelt afbeeldingsframes.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) vergrendelt gegroepeerde vormen.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) vergrendelt afbeelding‑frames.
 
-Om vergrendelingen toe te passen over een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), itereren door de dia’s en de juiste vergrendelingen instellen op elke ondersteunde vorm.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), doorloopt u de dia’s en stelt u de juiste vergrendelingen in voor elke ondersteunde vorm.
 
-## **Vergrendeling toepassen en verwijderen**
+## **Toepassen en verwijderen van beveiliging**
 
-Compatibele presentatietools gebruiken vormvergrendelingen om individuele bewerkingsbewerkingen te beperken. Bestand‑versleuteling en schrijfbescherming op documentniveau zijn aparte [presentatiebeschermingsinstellingen](/slides/nl/cpp/password-protected-presentation/).
+Compatibele presentatieredacteurs gebruiken vormvergrendelingen om individuele bewerkingsacties te beperken. Bestandversleuteling en document‑niveau schrijfbescherming zijn afzonderlijke [presentatie‑beveiligingsinstellingen](/slides/nl/cpp/password-protected-presentation/).
 
 ### **Bescherming toepassen op PPTX‑vormen**
 
-Aspose.Slides for C++ biedt de [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface om met vormen op een dia te werken.
+Aspose.Slides voor C++ biedt de [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface om met vormen op een dia te werken.
 
-Het voorbeeld geeft `true` door aan [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) en [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) voor auto‑shapes, met equivalente vergrendelingen voor groep‑vormen, verbindingslijnen en afbeeldingsframes. Verbindingslijnen gebruiken [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) voor verplaatsing; groepen gebruiken daarnaast [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) om groeperen te beperken.
+Het voorbeeld geeft `true` door aan [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) en [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) voor autosvormen, met overeenkomstige vergrendelingen voor gegroepeerde vormen, connectoren en afbeelding‑frames. Connectoren gebruiken [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) voor verplaatsing; groepen gebruiken ook [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) om groeperen te beperken.
 
-Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde types blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormcollectie van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier verwerkte typen blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -122,9 +122,9 @@ presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Vergrendeling verwijderen**
+### **Beveiliging verwijderen**
 
-Om een vormvergrendeling te verwijderen, stel je de waarde in op `false`. Het onderstaande voorbeeld laadt een presentatie met vormvergrendelingen en wist de selectie‑, verplaatsings‑ en grootte‑beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Het wist ook [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
+Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het onderstaande voorbeeld laadt een presentatie met vormvergrendelingen en verwijdert de selectie‑, verplaatsings‑ en formaat‑beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Het verwijdert ook [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,9 +197,9 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Een afbeeldingssnede behouden**
+### **Afbeeldingsuitsnede behouden**
 
-Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12 % van de linkerkant en 8 % van de rechterkant af, waarna het [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) aanroept op de afbeeldingsframe‑vergrendeling om de bijsnede te behouden en verdere bijsnijding te beperken.
+Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12 % van de linkerkant en 8 % van de rechterkant bij, en roept daarna [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) aan op de afbeelding‑frame‑vergrendeling om de uitsnede te behouden en verdere bijsnijdingen te beperken.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx` slaat de bijsnijdvergrendeling op als `true`. In PowerPoint is de **Crop**‑opdracht uitgeschakeld wanneer de foto geselecteerd is.
+`PictureLocked.pptx` slaat de uitsnede‑vergrendeling op als `true`. In PowerPoint is de opdracht **Crop** (Uitsnijden) uitgeschakeld wanneer de foto is geselecteerd.
 
 ### **Diagram gegroepeerd houden**
 
-Het voorbeeld groepeert een rechthoek en een pijl, waarna het [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) aanroept op de vergrendeling van de groep om de componenten van het diagram samen te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de opvulling van een component, blijven beschikbaar.
+Het voorbeeld groepeert een rechthoek en een pijl, en roept vervolgens [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) aan op de vergrendeling van de groep om de componenten van het diagram bij elkaar te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de vulling van een component, blijven beschikbaar.
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` slaat de ungroup‑vergrendeling op als `true`. In PowerPoint is de **Ungroup**‑opdracht uitgeschakeld wanneer het hele diagram geselecteerd is.
+`DiagramLocked.pptx` slaat de ontgroeperings‑vergrendeling op als `true`. In PowerPoint is de opdracht **Ungroup** (Degroeperen) uitgeschakeld wanneer het volledige diagram is geselecteerd.
 
-### **Conclusie**
+### **Bestaande vormvergrendelingen rapporteren**
 
-Aspose.Slides for C++ stelt je in staat om specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen over meerdere dia’s toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund en stel hun waarden in op `false` wanneer je die beperkingen wilt verwijderen.
+Om een sjabloon te beoordelen, opent u deze en leest u het vergrendelingsobject voor elke vorm. [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) geeft `true` terug wanneer alle vlaggen op dat object uitgeschakeld zijn en `false` wanneer er ten minste één is ingeschakeld. Een groep en haar onderliggende vormen hebben aparte vergrendelings‑objecten, dus inspecteer de onderliggende vormen zelfs wanneer de groep geen vergrendelingen heeft.
+
+Dit voorbeeld controleert verplaatsing voor autosvormen, afbeelding‑frames en groepen, uitsnijden voor afbeeldingen en ontgroeperen voor groepen. Het rapporteert de vlaggen die het herkent en markeert vormtypen die het niet inspecteert.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+Stel dat dia 1 van `Sample.pptx` een groep met de naam `Layout` bevat waarbij ontgroeperen vergrendeld is, een afbeelding met de naam `Photo` erin waarbij uitsnijden vergrendeld is, en een ontgrendelde rechthoek met de naam `Free`. Het rapport slaat `Free` over en drukt deze twee regels af:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Het rapport leest de opgeslagen vorm‑niveau bewerkingsvlaggen zonder ze te wijzigen of de presentatie op te slaan. Document‑niveau schrijfbescherming is een aparte instelling, en de handhaving van elke vlag hangt af van de editor.
+
+## **Conclusie**
+
+Aspose.Slides voor C++ stelt u in staat specifieke bewerkingsacties op individuele vormen te beperken of dezelfde beperkingen op meerdere dia’s toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund, en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
 
 ## **FAQ**
 
-**Kan ik vormvergrendelingen en wachtwoordbeveiliging combineren in dezelfde presentatie?**
+**Kan ik vormvergrendelingen combineren met wachtwoordbeveiliging in dezelfde presentatie?**
 
-Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [wachtwoordbeveiliging](/slides/nl/cpp/password-protected-presentation/) opening of wijziging van de presentatie kan beperken. Je kunt beide in hetzelfde bestand gebruiken.
+Ja. Vormvergrendelingen beperken specifieke bewerkingsacties, terwijl [wachtwoordbeveiliging](/slides/nl/cpp/password-protected-presentation/) opening of wijziging van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik bewerken beperken op specifieke dia's zonder andere te beïnvloeden?**
+**Kan ik bewerking beperken op specifieke dia’s zonder anderen te beïnvloeden?**
 
-Ja. Pas vergrendelingen alleen toe op vormen in de geselecteerde dia’s. Dit verandert de vergrendelingsinstellingen van andere dia’s niet.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia’s. Dit verandert de vergrendelingsinstellingen op andere dia’s niet.
 
 **Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Itereer door de collectie die wordt geretourneerd door de [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormverzameling van de dia, dus ze stellen geen vergrendelingen in op individuele groepsleden.
+Itereer door de collectie die wordt geretourneerd door de [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor geneste groepen, volgens de doorloop in het rapportage‑voorbeeld.

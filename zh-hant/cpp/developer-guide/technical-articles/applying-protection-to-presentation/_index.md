@@ -1,13 +1,13 @@
 ---
-title: 使用形狀鎖定在 C++ 中限制簡報編輯
+title: 使用形狀鎖限制 C++ 簡報編輯
 linktitle: 限制簡報編輯
 type: docs
 weight: 10
 url: /zh-hant/cpp/applying-protection-to-presentation/
 keywords:
 - 防止編輯
-- 防止被編輯
-- 鎖定圖形
+- 保護免於編輯
+- 鎖定形狀
 - 鎖定位置
 - 鎖定選取
 - 鎖定調整大小
@@ -17,39 +17,39 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 在 PPTX 簡報中鎖定與解鎖圖形，以限制選取、移動、調整大小和群組。"
+description: "了解如何使用 Aspose.Slides for C++ 在 PPTX 簡報中鎖定與解鎖形狀，以限制選取、移動、調整大小和群組。"
 ---
 ## **背景**
 
-Aspose.Slides for C++ 的常見用途是於自動化工作流程中建立、更新與儲存 PowerPoint (PPTX) 簡報。當使用者收到這些簡報時，限制對圖形的變更可協助保留預期的版面配置與內容。
+Aspose.Slides for C++ 的常見用途是於自動化工作流程中建立、更新與儲存 PowerPoint（PPTX）簡報。當使用者收到這些簡報時，限制對形狀的變更可以協助保留預期的版面配置與內容。
 
-本文說明圖形在投影片上的組織方式，以及如何在 PPTX 簡報中套用和移除圖形鎖定。這些鎖定讓您能限制對個別圖形的特定編輯操作。
+本文說明形狀在投影片上的組織方式，以及如何在 PPTX 簡報中套用與移除形狀鎖。這些鎖可讓您限制個別形狀的特定編輯操作。
 
 ## **投影片的組成**
 
-簡報投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建立簡報的元素組成。在 Aspose.Slides for C++ 中，投影片上的每個元素皆由實作 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面或繼承自該類別的物件代表。
+簡報投影片由自動圖形、表格、OLE 物件、群組形狀、圖片框、影片框、連接線以及其他用於建立簡報的元件所組成。在 Aspose.Slides for C++ 中，投影片上的每個元件皆以實作 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面的物件或繼承自該類別的物件表示。
 
-不同的圖形類型提供不同的鎖定選項。[IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) 介面是圖形鎖定的基礎介面。Aspose.Slides for C++ 提供以下鎖定介面：
+不同的形狀類型提供不同的鎖定選項。[IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) 介面是形狀鎖的基礎介面。Aspose.Slides for C++ 提供以下鎖定介面：
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) 鎖定自動圖形。
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 鎖定連接線圖形。
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 鎖定連接形狀。
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) 鎖定圖形物件。
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) 鎖定群組圖形。
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) 鎖定群組形狀。
 - [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 鎖定圖片框。
 
-若要在整個 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 套用鎖定，請遍歷其投影片，並在每個支援的圖形上設定相應的鎖定。
+若要在整個 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 套用鎖定，請遍歷其投影片，並對每個受支援的形狀設定相應的鎖定。
 
 ## **套用與移除保護**
 
-相容的簡報編輯器使用圖形鎖定來限制個別的編輯操作。檔案加密與文件層級的寫入保護是獨立的 [簡報保護設定](/slides/zh-hant/cpp/password-protected-presentation/)。
+相容的簡報編輯器使用形狀鎖來限制個別的編輯操作。檔案加密與文件層級的寫入保護是另行的 [簡報保護設定](/slides/zh-hant/cpp/password-protected-presentation/)。
 
-### **對 PPTX 圖形套用保護**
+### **套用 PPTX 形狀的保護**
 
-Aspose.Slides for C++ 提供 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面，以在投影片上操作圖形。
+Aspose.Slides for C++ 提供 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面，以在投影片上操作形狀。
 
-範例將 `true` 傳遞給自動圖形的 [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)、[set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) 與 [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/)，以及對群組圖形、連接線和圖片框使用等效的鎖定。連接線使用 [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) 以限制移動；群組亦使用 [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) 以限制分組。
+範例對自動圖形呼叫 `true` 給 [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)、[set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/)、[set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/)，對群組形狀、連接線與圖片框亦使用等效的鎖定。連接線使用 [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) 以限制移動；群組則使用 [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) 以限制群組化。
 
-範例載入現有的 PPTX 簡報，檢查每張投影片的圖形集合，並儲存套用這些限制的副本。未屬於上述四種處理類型的圖形將保持不變。此迴圈不會遍歷群組內的子圖形。
+範例載入現有的 PPTX 簡報，檢查每張投影片的形狀集合，並儲存套用此限制的副本。未屬於上述四種處理類型的形狀保持不變。此迴圈不會遍歷群組內的子形狀。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ### **移除保護**
 
-若要移除圖形鎖定，將其值設為 `false`。以下範例載入含有圖形鎖定的簡報，並透過 [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 與 [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 清除選取、移動與調整大小的限制。它同時清除 [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) 並儲存簡報的副本。其他鎖定設定則保持不變。
+若要移除形狀鎖，將其值設為 `false`。以下範例載入具有形狀鎖的簡報，並透過 [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 解除選取、移動與調整大小的限制。它亦會清除 [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)，並儲存簡報的副本。其他鎖定設定保持不變。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -199,7 +199,7 @@ presentation->Dispose();
 
 ### **保留圖片裁切**
 
-將檔名為 `photo.jpg` 的照片放置於工作目錄中。範例將左側裁切 12%，右側裁切 8%，然後對圖片框鎖定呼叫 [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) 以保留裁切並限制再次裁切。
+在工作目錄中放置名為 `photo.jpg` 的相片。範例將左側裁切 12%、右側裁切 8%，然後對圖片框鎖呼叫 [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) 以保留裁切並限制後續的裁切。
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx` 將裁切鎖定儲存為 `true`。在 PowerPoint 中，當選取照片時，**Crop** 命令會被停用。
+`PictureLocked.pptx` 將裁切鎖儲存為 `true`。在 PowerPoint 中，選取相片時 **Crop** 指令會被停用。
 
-### **保持圖表群組**
+### **保持圖表群組化**
 
-範例將矩形與箭頭群組，然後對該群組的鎖定呼叫 [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) 以保持圖表的組件在一起。其他編輯，例如移動群組或變更元件的填色，仍然可用。
+範例將矩形與箭頭群組，然後對群組的鎖呼叫 [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) 以保持圖表的元件在一起。其他編輯（例如移動群組或變更元件的填色）仍可使用。
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` 將取消群組鎖定儲存為 `true`。在 PowerPoint 中，當選取整個圖表時，**Ungroup** 命令會被停用。
+`DiagramLocked.pptx` 將解除群組鎖儲存為 `true`。在 PowerPoint 中，選取整個圖表時 **Ungroup** 指令會被停用。
+
+### **報告現有形狀鎖**
+
+若要檢閱範本，請開啟它並讀取每個形狀的鎖定物件。[get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) 在該物件的所有旗標皆停用時回傳 `true`，只要有任一旗標啟用則回傳 `false`。群組與其子項擁有各自的鎖定物件，因此即使群組沒有鎖定，也需檢查其子項。
+
+此範例檢查自動圖形、圖片框與群組的移動、圖片的裁切，以及群組的解除群組。它會報告已識別的旗標，並標示未檢查的形狀類型。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+假設 `Sample.pptx` 的第 1 張投影片包含一個名為 `Layout`、已鎖定解除群組的群組，裡面有一個名為 `Photo`、已鎖定裁切的圖片，以及一個未鎖定的矩形 `Free`。報告會略過 `Free`，僅列印以下兩行：
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+報告會讀取已儲存的形狀層級編輯旗標，且不會更改或儲存簡報。文件層級的寫入保護是另一項設定，且每個旗標的執行取決於編輯器。
 
 ### **結論**
 
-Aspose.Slides for C++ 讓您能限制個別圖形的特定編輯操作，或在整個投影片中套用相同的限制。選擇每種圖形類型支援的鎖定，並在需要移除限制時將其值設為 `false`。
+Aspose.Slides for C++ 讓您能限制個別形狀的特定編輯操作，或在所有投影片上套用相同的限制。請依各形狀類型支援的鎖定項目進行選擇，並在需要移除限制時將其值設為 `false`。
 
 ## **常見問題**
 
-**我可以在同一簡報中同時結合圖形鎖定與密碼保護嗎？**
+**我可以在同一個簡報中同時結合形狀鎖與密碼保護嗎？**
 
-是。圖形鎖定會限制特定的編輯操作，而 [密碼保護](/slides/zh-hant/cpp/password-protected-presentation/) 能限制開啟或修改簡報。您可以在同一檔案中同時使用兩者。
+是的。形狀鎖限制特定的編輯操作，而 [密碼保護](/slides/zh-hant/cpp/password-protected-presentation/) 可以限制開啟或修改簡報。您可以在同一檔案中同時使用兩者。
 
-**我可以只限制特定投影片的編輯而不影響其他投影片嗎？**
+**我可以只限制特定投影片的編輯，而不影響其他投影片嗎？**
 
-是。僅對所選投影片上的圖形套用鎖定。這不會更改其他投影片的鎖定設定。
+是的。只對所選投影片上的形狀套用鎖定。這不會更改其他投影片的鎖定設定。
 
-**我如何對群組內的個別圖形套用鎖定？**
+**我要如何對群組內的個別形狀套用鎖定？**
 
-遍歷群組的 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 方法回傳的集合，並對每個子圖形套用適當的鎖定。對任何巢狀群組重複此動作。上述範例僅處理投影片的圖形集合，因而未對個別群組成員設定鎖定。
+遍歷群組的 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 方法回傳的集合，並對每個子形狀套用適當的鎖定。對任何巢狀群組重複此操作，遵循報告範例中的遍歷方式。

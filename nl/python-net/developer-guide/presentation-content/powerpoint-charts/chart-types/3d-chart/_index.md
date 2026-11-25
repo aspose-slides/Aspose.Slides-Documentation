@@ -1,27 +1,27 @@
 ---
-title: 3D-diagrammen aanpassen in presentaties met Python
-linktitle: 3D-diagram
+title: Pas 3D-grafieken aan in presentaties met Python
+linktitle: 3D-grafiek
 type: docs
 url: /nl/python-net/3d-chart/
 keywords:
-- 3D-diagram
+- 3D-grafiek
 - rotatie
 - diepte
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Maak 3D-diagrammen in PowerPoint-presentaties met Aspose.Slides voor Python via .NET. Pas rotatie, hoogteratio's, diagramdiepte en de afstand tussen reeksen aan met Python-voorbeelden."
+description: "Maak 3D-grafieken in PowerPoint-presentaties met Aspose.Slides voor Python via .NET. Pas rotatie, hoogteverhoudingen, grafiekdiepte en de afstand tussen series aan met Python-voorbeelden."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Python via .NET laat u de weergave van een 3D-diagram aanpassen via de [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) eigenschap. Dit artikel laat zien hoe u rotatie, hoogteratio’s, diepte, rechthoekige assen en de afstand tussen reeksen kunt aanpassen, en vervolgens de presentatie opslaat in PPTX-formaat.
+Aspose.Slides for Python via .NET stelt u in staat de weergave van een 3D‑grafiek aan te passen via de [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) eigenschap. Dit artikel laat zien hoe u rotatie, hoogteverhoudingen, diepte, haakse assen en de afstand tussen series kunt aanpassen, en vervolgens de presentatie opslaat in PPTX‑formaat.
 
-## **Stel de rotatie en diepte van een 3D-diagram in**
+## **Stel de rotatie en diepte van een 3D‑grafiek in**
 
-Het voorbeeld hieronder maakt een [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) en gebruikt [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een gestapeld 3D-kolomdiagram toe te voegen aan de eerste dia. Het vervangt de standaardreeksen en -categorieën door twee reeksen met elk drie waarden. Werkblad‑index `0` identificeert het eerste gegevenswerkblad van het diagram; rij `0` bevat de reeksnamen, en kolom `0` bevat de categorie‑labels.
+Het onderstaande voorbeeld maakt een [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) en gebruikt [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een gestapelde 3D‑kolomgrafiek toe te voegen aan de eerste dia. Het vervangt de standaard series en categorieën door twee series met elk drie waarden. Werkblad‑index `0` identificeert het eerste gegevenswerkblad van de grafiek; rij `0` bevat de serienamen, en kolom `0` de categorielabels.
 
-De [rotation_x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_x/)‑ en [rotation_y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_y/)‑eigenschappen stellen de rotatie van het diagram in op respectievelijk 40 en 270 graad. [depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) stelt de diepte in op 150 % van de breedte, terwijl [right_angle_axes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/right_angle_axes/) rechthoekige assen inschakelt in plaats van perspectief. De resulterende presentatie bevat het gevulde diagram met deze 3D‑weergave‑instellingen.
+De eigenschappen [rotation_x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_x/) en [rotation_y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_y/) stellen de rotatie van de grafiek in op respectievelijk 40 en 270 graden. [depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) zet de diepte op 150 % van de breedte, terwijl [right_angle_axes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/right_angle_axes/) haakse assen inschakelt in plaats van perspectief. De resulterende presentatie bevat de gevulde grafiek met deze 3D‑weergave‑instellingen.
 
 ```python
 import aspose.slides as slides
@@ -60,11 +60,56 @@ with slides.Presentation() as presentation:
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Pas de hoogteratio’s van een 3D-diagram aan**
+## **Pas een afbeeldingsvulling toe op een 3D‑grafiekoppervlak**
 
-Gebruik [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) om de hoogte van een 3D-diagram in te stellen als een percentage van de breedte. Hiermee verandert u de verhoudingen van de 3D‑scene zonder de diagramobjectgrootte op de dia te wijzigen.
+U kunt de [side wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/side_wall/), [back wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) en [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) van een 3D‑grafiek onafhankelijk vullen. Stel het [fill type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) van het oppervlak in op `PICTURE` en wijs een afbeelding toe. Om één kopie van de afbeelding over het oppervlak te passen, stelt u zowel de [picture fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) als het [picture type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartwall/picture_type/) van het oppervlak in op `STRETCH`.
 
-Het volgende voorbeeld maakt een [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) diagram met de standaardgegevens: drie reeksen en vier categorieën. Het slaat drie presentaties op met hoogteratio’s van 50 %, 100 % en 200 %. De positie, breedte en hoogte van het diagram blijven gelijk. De gegevens, rotatie, diepte, reeksen­afstand en opmaak zijn identiek in alle drie de bestanden; alleen het hoogte‑percentage verandert.
+Sla [arrow.png](arrow.png) op in de werkmap. Het voorbeeld roteert de grafiek en verhoogt de maximale waarde op de verticale as zodat de vloer zichtbaar is tussen de kolommen. Het dupliceert de dia twee keer en past de pijl toe op een ander oppervlak op elke dia. Alle drie de grafieken delen dezelfde gegevens, kijkhoek en achtergrond.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 20, 30, 680, 480)
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.rotation_x = 40
+    chart.rotation_3d.rotation_y = 30
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 24
+
+    back_slide = presentation.slides.add_clone(slide)
+    floor_slide = presentation.slides.add_clone(slide)
+    back_chart = back_slide.shapes[0]
+    floor_chart = floor_slide.shapes[0]
+
+    with open("arrow.png", "rb") as image_file:
+        image_bytes = image_file.read()
+    arrow = presentation.images.add_image(image_bytes)
+
+    for surface in (chart.side_wall, back_chart.back_wall, floor_chart.floor):
+        fill = surface.format.fill
+        fill.fill_type = slides.FillType.PICTURE
+        fill.picture_fill_format.picture.image = arrow
+        fill.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        surface.picture_type = charts.PictureType.STRETCH
+
+    presentation.save("chart-surfaces.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Microsoft PowerPoint toont de drie dia’s als volgt.
+
+| Zijkant | Achterwand | Vloer |
+| --- | --- | --- |
+| ![Pijl die naar de grafiek wijst langs de zijkant](side-wall.png) | ![Pijl die naar rechts wijst over de achterwand](back-wall.png) | ![Pijl die naar rechts wijst over de vloer tussen de kolommen](floor.png) |
+
+## **Pas de hoogteverhoudingen van een 3D‑grafiek aan**
+
+Gebruik [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) om de hoogte van een 3D‑grafiek in te stellen als een percentage van de breedte. Dit wijzigt de verhoudingen van de 3D‑scene zonder het grafiekobject op de dia te herschalen.
+
+Het volgende voorbeeld maakt een [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) grafiek met de standaardgegevens: drie series en vier categorieën. Het slaat drie presentaties op met hoogteverhoudingen van 50 %, 100 % en 200 %. De positie, breedte en hoogte van de grafiek blijven gelijk. De gegevens, rotatie, diepte, seriesafstand en opmaak zijn in alle drie de bestanden identiek; alleen het hoogte‑percentage wijzigt.
 
 ```python
 import aspose.slides as slides
@@ -85,40 +130,40 @@ with slides.Presentation() as presentation:
         presentation.save(f"chart_height_{height_percent}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De volgende afbeeldingen zijn geëxporteerd uit de gegenereerde presentaties met Microsoft PowerPoint. Een lager percentage levert een plattere scène op, een hoger percentage een hogere scène binnen hetzelfde diagramobject. PowerPoint kan ook de interval­instellingen van de assen en de plaatsing van labels aanpassen om de scène te laten passen.
+De onderstaande afbeeldingen zijn geëxporteerd uit de gegenereerde presentaties met Microsoft PowerPoint. Een kleiner percentage levert een plattere scène op, terwijl een groter percentage een hogere scène oplevert binnen hetzelfde grafiekobject. PowerPoint kan ook de intervalwaarde van de as‑tikken en de plaatsing van de labels aanpassen om de scène te laten passen.
 
-| Hoogte: 50% | Hoogte: 100% | Hoogte: 200% |
+| Hoogte: 50 % | Hoogte: 100 % | Hoogte: 200 % |
 | --- | --- | --- |
-| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+| ![3D‑kolomgrafiek met een hoogte van 50 % van de breedte](height_percent_50.png) | ![3D‑kolomgrafiek met een hoogte van 100 % van de breedte](height_percent_100.png) | ![3D‑kolomgrafiek met een hoogte van 200 % van de breedte](height_percent_200.png) |
 
-Deze eigenschappen regelen verschillende aspecten van het diagram:
-
-| Eigenschap | Effect |
-| --- | --- |
-| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | Hoogte van de 3D‑scene als percentage van de breedte. |
-| [Chart.height](https://reference.aspose.com/slides/python-net/aspose.slides/shape/height/) | Hoogte van het diagramobject op de dia, in points. |
-| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Diepte van de 3D‑scene als percentage van de breedte. |
-| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Afstand tussen reeksen langs de diepte‑as, als percentage van de markerbreedte. |
-
-De hoogte‑instelling beïnvloedt 3D‑kolom‑ en staafdiagrammen, inclusief cilindrische, kegel‑ en piramidevarianten, evenals 3D‑lijn‑, gebieds‑, taart‑ en oppervlakteschema’s. De vergelijking hierboven maakt gebruik van het geverifieerde `COLUMN_3D`‑type. De instelling verandert niet het uiterlijk van een 2D `CLUSTERED_COLUMN`‑diagram of een `BUBBLE_WITH_3D`‑diagram; deze namen zijn leden van de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie. Zie voor andere diagram‑opmaak‑instellingen [Chart Formatting](/slides/nl/python-net/chart-formatting/).
-
-## **Pas de afstand tussen reeksen aan**
-
-Gebruik [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) om de afstand tussen gegevensreeksen langs de diepte‑as van een 3D-diagram te regelen, uitgedrukt als percentage van de markerbreedte. Gebruik waarden van **0 tot 500**, inclusief: `0` verwijdert de kloof, terwijl hogere waarden de afstand vergroten. Bij een vaste diagramdiepte maakt een grotere kloof de markers dunner langs de diepte‑as.
-
-Toegang tot de groep gebeurt via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/). De instelling geldt voor elke reeks in die groep, niet alleen voor de reeks die wordt gebruikt om toegang te krijgen. [ChartSeries.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_depth/) is alleen‑lezen en geeft de instelling van de bovenliggende groep weer.
-
-Deze instelling beïnvloedt 3D‑kolom‑ en staafdiagrammen, inclusief hun cilindrische, kegel‑ en piramidevarianten, evenals 3D‑lijn‑ en gebiedsdiagrammen. Het uiterlijk hangt af van of de reeksen in diepte, gegroepeerd of gestapeld zijn. Voor een duidelijke vergelijking van kloven tussen afzonderlijke reeksen, gebruik `ChartType.COLUMN_3D` uit de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie.
-
-Deze eigenschappen regelen verschillende aspecten van het diagram:
+Deze eigenschappen regelen verschillende aspecten van de grafiek:
 
 | Eigenschap | Effect |
 | --- | --- |
-| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Afstand tussen reeksen langs de diepte‑as, als percentage van de markerbreedte. |
-| [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) | Afstand tussen aangrenzende staaf‑ of kolomclusters, als percentage van de staaf‑ of kolombreedte. |
-| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Totale diagramdiepte, als percentage van de diagrambreedte. |
+| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | Hoogte van de 3D‑scene als een percentage van de breedte. |
+| [Chart.height](https://reference.aspose.com/slides/python-net/aspose.slides/shape/height/) | Hoogte van het grafiekobject op de dia, in punten. |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Diepte van de 3D‑scene als een percentage van de breedte. |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Ruimte tussen series langs de diepte‑as, als een percentage van de marker‑breedte. |
 
-Het volgende zelf‑containende voorbeeld gebruikt de standaarddiagramgegevens, die drie reeksen en vier categorieën bevatten. Het slaat twee presentaties op met identieke gegevens, rotatie, kloofbreedte en diagramdiepte; alleen de kloofdiepte wijzigt.
+De hoogte‑instelling beïnvloedt 3D‑kolom‑ en staafgrafieken, inclusief cilindrische, kegel‑ en piramide‑varianten, evenals 3D‑lijn‑, vlak‑, taart‑ en oppervlakgrafieken. De vergelijking hierboven gebruikt het geverifieerde type `COLUMN_3D`. De instelling verandert de weergave van een 2D‑`CLUSTERED_COLUMN`‑grafiek of een `BUBBLE_WITH_3D`‑grafiek; deze namen zijn leden van de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie. Voor andere grafiek‑opmaak‑instellingen, zie [Grafiekopmaak](/slides/nl/python-net/chart-formatting/).
+
+## **Pas de ruimte tussen series aan**
+
+Gebruik [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) om de afstand tussen dataseries langs de diepte‑as van een 3D‑grafiek te regelen, uitgedrukt als een percentage van de marker‑breedte. Gebruik waarden van **0 tot 500**, inclusief: `0` verwijdert de ruimte, terwijl grotere waarden de afstand vergroten. Bij een vaste grafiekdiepte maakt een grotere ruimte de markers dunner langs de diepte‑as.
+
+Benader de groep via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/). De instelling geldt voor elke serie in die groep, niet alleen voor de serie waarmee u toegang kreeg. [ChartSeries.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_depth/) is alleen-lezen en weerspiegelt de instelling van de bovenliggende groep.
+
+Deze instelling beïnvloedt 3D‑kolom‑ en staafgrafieken, inclusief hun cilindrische, kegel‑ en piramide‑varianten, evenals 3D‑lijn‑ en vlakgrafieken. Het uiterlijk hangt af van of de series in diepte, gegroepeerd of gestapeld zijn. Voor een duidelijke vergelijking van ruimtes tussen afzonderlijke series, gebruik `ChartType.COLUMN_3D` uit de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie.
+
+Deze eigenschappen regelen verschillende aspecten van de grafiek:
+
+| Eigenschap | Effect |
+| --- | --- |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Ruimte tussen series langs de diepte‑as, als een percentage van de marker‑breedte. |
+| [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) | Ruimte tussen aangrenzende staaf‑ of kolomclusters, als een percentage van de staaf‑ of kolombreedte. |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Totale grafiekdiepte, als een percentage van de grafiekbreedte. |
+
+Het volgende zelfstandige voorbeeld gebruikt de standaardgrafiekgegevens, die drie series en vier categorieën bevatten. Het slaat twee presentaties op met identieke gegevens, rotatie, breedte‑ruimte en grafiekdiepte; alleen de ruimte‑diepte wijzigt.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +188,15 @@ with slides.Presentation() as presentation:
         presentation.save(file_name, slides.export.SaveFormat.PPTX)
 ```
 
-De volgende afbeeldingen zijn geëxporteerd uit de gegenereerde presentaties met Microsoft PowerPoint.
+De onderstaande afbeeldingen zijn geëxporteerd uit de gegenereerde presentaties met Microsoft PowerPoint.
 
-| Kloofdiepte: 0% | Kloofdiepte: 500% |
+| Ruimte‑diepte: 0 % | Ruimte‑diepte: 500 % |
 | --- | --- |
-| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
+| ![3D‑kolomgrafiek zonder ruimte tussen series langs de diepte‑as](gap_depth_0.png) | ![3D‑kolomgrafiek met een ruimte van 500 % tussen series langs de diepte‑as](gap_depth_500.png) |
 
-## **Wijzig het 3D‑reeks‑type en de staafvorm**
+## **Wijzig het 3D‑serietype en de staafvorm**
 
-In een gegroepeerd cilindrisch diagram begint de eerste reeks met cilindrische staven. Het voorbeeld leest [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) en [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) vóór en na elke wijziging.
+In een gegroepeerde cilindergrafiek start de eerste serie met cilindrische staafjes. Het voorbeeld leest [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) en [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) vóór en na elke wijziging.
 
 ```python
 import aspose.slides as slides
@@ -174,26 +219,26 @@ with slides.Presentation() as presentation:
     presentation.save("series_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-| Wijziging voor de eerste reeks | `type` | `bar_3d_shape` |
+| Wijzig voor de eerste serie | `type` | `bar_3d_shape` |
 | --- | --- | --- |
-| Maak het diagram | `CLUSTERED_CYLINDER` | `CYLINDER` |
+| Maak de grafiek | `CLUSTERED_CYLINDER` | `CYLINDER` |
 | Stel `type` in op `CLUSTERED_CONE` | `CLUSTERED_CONE` | `CONE` |
 | Stel `bar_3d_shape` in op `BOX` | `CLUSTERED_COLUMN_3D` | `BOX` |
 
-Het instellen van de vorm op `BOX` wijzigt ook het reekstype naar `CLUSTERED_COLUMN_3D`. Als uw code vertakt op het reekstype, lees dan `series.type` na het wijzigen van de vorm. Een waarde die vóór de toewijzing is gecached, zou nog steeds de `CLUSTERED_CONE`‑tak selecteren.
+Het instellen van de vorm op `BOX` wijzigt ook het serietype naar `CLUSTERED_COLUMN_3D`. Als uw code vertakt op basis van het serietype, lees dan `series.type` nadat u de vorm heeft veranderd. Een waarde die vóór de toewijzing is gecached, zou nog steeds de `CLUSTERED_CONE`‑tak selecteren.
 
-![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+![PowerPoint‑vergelijking die de eerste serie toont als cilinders, kegels en rechthoekige kolommen van links naar rechts](series-shapes.png)
 
 ## **FAQ**
 
-**Welke grafiektype ondersteunen de 3D‑modus in Aspose.Slides?**
+**Welke grafiektypen ondersteunen 3D‑modus in Aspose.Slides?**
 
-Aspose.Slides ondersteunt 3D‑varianten van kolomdiagrammen, inclusief Column 3D, Clustered Column 3D, Stacked Column 3D en 100 % Stacked Column 3D, naast gerelateerde 3D‑typen die worden blootgelegd via de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie. Voor een exacte, up‑to‑date lijst, controleer de leden van [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) in de API‑referentie van uw geïnstalleerde versie.
+Aspose.Slides ondersteunt 3D‑varianten van kolomgrafieken, inclusief Column 3D, Clustered Column 3D, Stacked Column 3D en 100 % Stacked Column 3D, evenals verwante 3D‑typen die beschikbaar zijn via de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie. Voor een exacte, up‑to‑date lijst, controleer de leden van [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) in de API‑referentie van uw geïnstalleerde versie.
 
-**Kan ik een rasterafbeelding van een 3D‑diagram krijgen voor een rapport of het web?**
+**Kan ik een rasterafbeelding van een 3D‑grafiek verkrijgen voor een rapport of het web?**
 
-Ja. U kunt een diagram exporteren naar een afbeelding met [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) of [render the entire slide](/slides/nl/python-net/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is nuttig wanneer u een raster‑preview nodig heeft of het diagram wilt insluiten in documenten, dashboards of webpagina’s zonder dat PowerPoint vereist is.
+Ja. U kunt een grafiek exporteren naar een afbeelding met [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) of [render the entire slide](/slides/nl/python-net/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is handig wanneer u een raster‑preview nodig heeft of de grafiek wilt insluiten in documenten, dashboards of webpagina’s zonder dat PowerPoint vereist is.
 
-**Hoe presteert het bouwen en renderen van grote 3D‑diagrammen?**
+**Hoe presteert het genereren en renderen van grote 3D‑grafieken?**
 
-De prestaties hangen af van de hoeveelheid gegevens en de visuele complexiteit. Voor optimale resultaten houdt u 3D‑effecten minimaal, vermijdt zware texturen op wanden en plot‑gebieden, beperkt het aantal gegevenspunten per reeks waar mogelijk, en rendert naar een geschikt formaat (resolutie en afmetingen) dat aansluit bij de beoogde weergave‑ of afdrukbehoeften.
+De prestaties hangen af van de gegevensomvang en visuele complexiteit. Voor optimale resultaten houdt u 3D‑effecten tot een minimum, vermijdt u zware texturen op wanden en plot‑gebieden, beperkt u het aantal datapunten per serie waar mogelijk, en rendert u naar een passend geschaalde uitvoer (resolutie en afmetingen) die aansluit bij het beoogde beeldscherm‑ of afdrukdoel.

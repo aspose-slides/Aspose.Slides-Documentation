@@ -1,6 +1,6 @@
 ---
-title: Restringir la edición de presentaciones con bloqueos de forma en PHP
-linktitle: Restringir la edición de presentaciones
+title: Restringir ediciones de la presentación con bloqueos de forma en PHP
+linktitle: Restringir ediciones de la presentación
 type: docs
 weight: 60
 url: /es/php-java/applying-protection-to-presentation/
@@ -11,7 +11,7 @@ keywords:
 - bloquear posición
 - bloquear selección
 - bloquear cambio de tamaño
-- bloquear agrupamiento
+- bloquear agrupación
 - PowerPoint
 - PPTX
 - presentación
@@ -21,35 +21,35 @@ description: "Aprenda cómo bloquear y desbloquear formas en presentaciones PPTX
 ---
 ## **Visión general**
 
-Un uso frecuente de Aspose.Slides for PHP via Java es crear, actualizar y guardar presentaciones PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Cuando los usuarios reciben estas presentaciones, restringir los cambios en las formas puede ayudar a preservar el diseño y el contenido previstos.
+Un uso común de Aspose.Slides for PHP via Java es crear, actualizar y guardar presentaciones de PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Cuando los usuarios reciben estas presentaciones, restringir los cambios en las formas puede ayudar a preservar el diseño y el contenido previstos.
 
-Este artículo explica cómo se organizan las formas en las diapositivas y cómo aplicar y eliminar bloqueos de forma en una presentación PPTX. Estos bloqueos le permiten restringir operaciones de edición específicas en formas individuales.
+Este artículo explica cómo se organizan las formas en las diapositivas y cómo aplicar y quitar bloqueos de forma en una presentación PPTX. Estos bloqueos le permiten restringir operaciones de edición específicas en formas individuales.
 
 ## **Composición de una diapositiva**
 
-Una diapositiva de una presentación se compone de componentes como autoformas, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de vídeo, conectores y otros elementos utilizados para construir una presentación. En Aspose.Slides for PHP via Java, cada elemento de una diapositiva está representado por un objeto que hereda de la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
+Una diapositiva de presentación se compone de componentes como formas automáticas, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de video, conectores y otros elementos utilizados para crear una presentación. En Aspose.Slides for PHP via Java, cada elemento de una diapositiva está representado por un objeto que hereda de la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
 
-Los distintos tipos de forma exponen diferentes opciones de bloqueo. La clase [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) es la clase base para los bloqueos de forma. Aspose.Slides for PHP via Java proporciona las siguientes clases de bloqueo:
+Diferentes tipos de forma exponen distintas opciones de bloqueo. La clase [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) es la clase base para los bloqueos de forma. Aspose.Slides for PHP via Java proporciona las siguientes clases de bloqueo:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) bloquea autoformas.  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) bloquea formas automáticas.  
 - [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) bloquea formas de conector.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) bloquea objetos gráficos.  
-- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) bloquea formas grupales.  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) bloquea formas agrupadas.  
 - [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) bloquea marcos de imagen.  
 
 Para aplicar bloqueos en una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), recorra sus diapositivas y establezca los bloqueos apropiados en cada forma compatible.
 
-## **Aplicar y eliminar la protección**
+## **Aplicar y eliminar protección**
 
-Los editores de presentaciones compatibles utilizan bloqueos de forma para restringir operaciones de edición individuales. El cifrado de archivos y la protección de escritura a nivel de documento son ajustes de [configuración de protección de presentaciones](/slides/es/php-java/password-protected-presentation/) separados.
+Los editores de presentaciones compatibles utilizan bloqueos de forma para restringir operaciones de edición individuales. El cifrado de archivos y la protección contra escritura a nivel de documento son configuraciones de [configuraciones de protección de presentación](/slides/es/php-java/password-protected-presentation/) independientes.
 
 ### **Aplicar protección a formas PPTX**
 
 Aspose.Slides for PHP via Java proporciona la clase [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) para trabajar con formas en una diapositiva.
 
-El ejemplo llama a [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) y [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` para autoformas, con bloqueos equivalentes para formas grupales, conectores y marcos de imagen. Los conectores usan [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) para el movimiento; los grupos también usan [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) para restringir la agrupación.
+El ejemplo llama a [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) y [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` para las formas automáticas, con bloqueos equivalentes para formas agrupadas, conectores y marcos de imagen. Los conectores utilizan [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) para el movimiento; los grupos también utilizan [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) para restringir la agrupación.
 
-El ejemplo carga una presentación PPTX existente, verifica las formas en la colección de formas de cada diapositiva y guarda una copia con estas restricciones aplicadas. Las formas que no pertenecen a los cuatro tipos manejados se dejan sin cambios. El bucle no recorre las formas hijas dentro de un grupo.
+El ejemplo carga una presentación PPTX existente, verifica las formas en la colección de formas de cada diapositiva y guarda una copia con estas restricciones aplicadas. Las formas que no pertenecen a los cuatro tipos manejados se dejan sin cambios. El bucle no recorre las formas secundarias dentro de un grupo.
 
 ```php
 use aspose\slides\Presentation;
@@ -92,7 +92,7 @@ try {
 
 ### **Eliminar protección**
 
-Para eliminar un bloqueo de forma, establezca su valor a `false`. El siguiente ejemplo carga una presentación con bloqueos de forma y elimina las restricciones de selección, movimiento y cambio de tamaño mediante [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) y [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). También elimina la restricción de agrupación pasando `false` a [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) y guarda una copia de la presentación. Otras configuraciones de bloqueo se mantienen sin cambios.
+Para eliminar un bloqueo de forma, establezca su valor a `false`. El siguiente ejemplo carga una presentación con bloqueos de forma y elimina las restricciones de selección, movimiento y redimensionado mediante [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) y [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). También elimina la restricción de agrupación pasando `false` a [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) y guarda una copia de la presentación. Otras configuraciones de bloqueo se mantienen sin cambios.
 
 ```php
 use aspose\slides\Presentation;
@@ -133,7 +133,7 @@ try {
 }
 ```
 
-### **Conservar un recorte de imagen**
+### **Conservar recorte de imagen**
 
 Coloque una foto llamada `photo.jpg` en el directorio de trabajo. El ejemplo recorta un 12% por la izquierda y un 8% por la derecha, luego llama a [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) en el bloqueo del marco de imagen. Pasar `true` restringe recortes posteriores y conserva el recorte existente.
 
@@ -168,7 +168,7 @@ try {
 }
 ```
 
-`PictureLocked.pptx` almacena el bloqueo de recorte como `true`. En PowerPoint, el comando **Crop** está deshabilitado cuando la foto está seleccionada.
+`PictureLocked.pptx` almacena el bloqueo de recorte como `true`. En PowerPoint, el comando **Recortar** está deshabilitado cuando la foto está seleccionada.
 
 ### **Mantener un diagrama agrupado**
 
@@ -196,9 +196,76 @@ try {
 
 `DiagramLocked.pptx` almacena el bloqueo de desagrupación como `true`. En PowerPoint, el comando **Ungroup** está deshabilitado cuando todo el diagrama está seleccionado.
 
-### **Conclusión**
+### **Informar bloqueos de forma existentes**
 
-Aspose.Slides for PHP via Java le permite restringir operaciones de edición específicas en formas individuales o aplicar las mismas restricciones a lo largo de las diapositivas. Elija los bloqueos compatibles con cada tipo de forma y establezca sus valores a `false` cuando necesite eliminar esas restricciones.
+Para revisar una plantilla, ábrala y lea el objeto de bloqueo de cada forma. El método [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) devuelve `true` cuando todas las banderas de ese objeto están desactivadas y `false` cuando al menos una está habilitada. Un grupo y sus hijos tienen objetos de bloqueo separados, por lo que debe inspeccionar los hijos incluso cuando el grupo no tiene bloqueos.
+
+Este ejemplo verifica el movimiento de formas automáticas, marcos de imagen y grupos. También verifica el recorte de imágenes y la desagrupación de los grupos. El informe enumera las banderas habilitadas que reconoce y marca los tipos de forma que no inspecciona.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Supongamos que la diapositiva 1 de `Sample.pptx` contiene un grupo llamado `Layout` con la desagrupación bloqueada, una foto llamada `Photo` dentro de él con el recorte bloqueado, y un rectángulo desbloqueado llamado `Free`. El informe omite `Free` y muestra estas dos líneas:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+El informe lee las banderas de edición a nivel de forma almacenadas sin modificarlas ni guardar la presentación. La protección contra escritura a nivel de documento es una configuración independiente, y la aplicación de cada bandera depende del editor.
+
+## **Conclusión**
+
+Aspose.Slides for PHP via Java le permite restringir operaciones de edición específicas en formas individuales o aplicar las mismas restricciones en todas las diapositivas. Elija los bloqueos compatibles con cada tipo de forma y establezca sus valores a `false` cuando necesite eliminar esas restricciones.
 
 ## **Preguntas frecuentes**
 
@@ -208,8 +275,8 @@ Sí. Los bloqueos de forma restringen operaciones de edición específicas, mien
 
 **¿Puedo restringir la edición en diapositivas específicas sin afectar a otras?**
 
-Sí. Aplique bloqueos solo a las formas en las diapositivas seleccionadas. Esto no cambia la configuración de bloqueos en otras diapositivas.
+Sí. Aplique los bloqueos solo a las formas en las diapositivas seleccionadas. Esto no modifica la configuración de bloqueos en otras diapositivas.
 
 **¿Cómo puedo aplicar bloqueos a formas individuales dentro de un grupo?**
 
-Recorra la colección devuelta por el método [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) del grupo y aplique los bloqueos apropiados a cada forma hija. Repita esto para cualquier grupo anidado. Los ejemplos anteriores procesan solo la colección de formas de la diapositiva, por lo que no establecen bloqueos en los miembros individuales del grupo.
+Recorra la colección devuelta por el método [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) del grupo y aplique los bloqueos apropiados a cada forma hija. Repita esto para cualquier grupo anidado, siguiendo el recorrido del ejemplo de informe.

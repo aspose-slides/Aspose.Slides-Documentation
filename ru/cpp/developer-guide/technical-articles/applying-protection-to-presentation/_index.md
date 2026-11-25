@@ -1,53 +1,53 @@
 ---
-title: Ограничить правки презентации с помощью блокировок фигур в C++
-linktitle: Ограничить правки презентации
+title: Ограничение редактирования презентации с помощью блокировок фигур в C++
+linktitle: Ограничить редактирование презентации
 type: docs
 weight: 10
 url: /ru/cpp/applying-protection-to-presentation/
 keywords:
-- предотвращение правок
-- защита от редактирования
-- блокировать фигуру
-- блокировать позицию
-- блокировать выбор
-- блокировать изменение размера
-- блокировать группировку
+- предотвратить редактирование
+- защитить от редактирования
+- заблокировать фигуру
+- заблокировать позицию
+- заблокировать выбор
+- заблокировать изменение размера
+- заблокировать группировку
 - PowerPoint
 - PPTX
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как блокировать и разблокировать фигуры в презентациях PPTX с помощью Aspose.Slides for C++, чтобы ограничить выбор, перемещение, изменение размера и группировку."
+description: "Узнайте, как блокировать и разблокировать фигуры в презентациях PPTX с помощью Aspose.Slides for C++ для ограничения выбора, перемещения, изменения размера и группировки."
 ---
 ## **Предыстория**
 
-Распространённое применение Aspose.Slides for C++ — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур может помочь сохранить задуманную компоновку и содержимое.
+Обычное применение Aspose.Slides for C++ — создавать, обновлять и сохранять презентации PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур помогает сохранить задуманный макет и содержимое.
 
-Эта статья объясняет, как фигуры организованы на слайдах и как применить и удалить блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить определённые операции редактирования отдельными фигурами.
+Эта статья объясняет, как фигурные объекты организованы на слайдах и как применять и удалять блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить конкретные операции редактирования отдельных фигур.
 
 ## **Состав слайда**
 
-Слайд презентации состоит из компонентов, таких как автофигуры, таблицы, объекты OLE, сгруппированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for C++ каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) или наследующимся от класса, реализующего его.
+Слайд презентации состоит из компонентов, таких как автофигуры, таблицы, объекты OLE, сгруппированные фигуры, рамки изображений, видеокадры, соединители и другие элементы, используемые при построении презентации. В Aspose.Slides for C++ каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) или наследующимся от класса, реализующего его.
 
 Разные типы фигур предоставляют разные варианты блокировок. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) является базовым интерфейсом для блокировок фигур. Aspose.Slides for C++ предоставляет следующие интерфейсы блокировок:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) блокирует автофигуры.
 - [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) блокирует соединительные фигуры.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) блокирует графические объекты.
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) блокирует сгруппированные фигуры.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) блокирует группы фигур.
 - [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) блокирует рамки изображений.
 
-Чтобы применить блокировки к всему объекту [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), пройдитесь по его слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
+Чтобы применить блокировки к [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), пройдите по её слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
 
 ## **Применение и удаление защиты**
 
-Совместимые редакторы презентаций используют блокировки фигур для ограничения отдельных операций редактирования. Шифрование файлов и защита записи на уровне документа являются отдельными [настройками защиты презентаций](/slides/ru/cpp/password-protected-presentation/).
+Совместимые редакторы презентаций используют блокировки фигур для ограничения отдельных операций редактирования. Шифрование файлов и защита записи на уровне документа являются отдельными [настройками защиты презентации](/slides/ru/cpp/password-protected-presentation/).
 
 ### **Применение защиты к фигурам PPTX**
 
 Aspose.Slides for C++ предоставляет интерфейс [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) для работы с фигурами на слайде.
 
-В примере `true` передаётся методам [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) и [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) для автофигур, а аналогичные блокировки применяются к сгруппированным фигурам, соединителям и рамкам изображений. Соединители используют [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) для перемещения; группы также используют [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) для ограничения группировки.
+В примере в методы [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) и [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) передаётся значение `true` для автофигур, аналогичные блокировки применяются к группам фигур, соединителям и рамкам изображений. Соединители используют [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) для перемещения; группы также используют [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) для ограничения группировки.
 
 Пример загружает существующую PPTX‑презентацию, проверяет фигуры в коллекции фигур каждого слайда и сохраняет копию с применёнными ограничениями. Фигуры, не относящиеся к четырём обрабатываемым типам, остаются без изменений. Цикл не проходит по дочерним фигурам внутри группы.
 
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ### **Удаление защиты**
 
-Чтобы удалить блокировку фигуры, установите её значение в `false`. В следующем примере загружается презентация с блокировками фигур и снимаются ограничения выбора, перемещения и изменения размеров через [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) и [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Также снимается [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) и сохраняется копия презентации. Другие параметры блокировок остаются без изменений.
+Чтобы удалить блокировку фигуры, установите её значение в `false`. В следующем примере загружается презентация с блокировками фигур и снимаются ограничения выбора, перемещения и изменения размеров через [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) и [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Также очищается [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) и сохраняется копия презентации. Другие параметры блокировок остаются без изменений.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -199,7 +199,7 @@ presentation->Dispose();
 
 ### **Сохранение обрезки изображения**
 
-Поместите фотографию с именем `photo.jpg` в рабочий каталог. Пример обрезает 12 % слева и 8 % справа, затем вызывает [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) на блокировке рамки изображения, чтобы сохранить обрезку и запретить дальнейшее её изменение.
+Поместите фотографию с именем `photo.jpg` в рабочий каталог. Пример обрезает 12 % слева и 8 % справа, затем вызывает [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) у блокировки рамки изображения, чтобы сохранить обрезку и запретить дальнейшее её изменение.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx` сохраняет блокировку обрезки как `true`. В PowerPoint команда **Crop** отключена, когда выбрано изображение.
+`PictureLocked.pptx` сохраняет блокировку обрезки как `true`. В PowerPoint команда **Crop** отключена, когда выбранное изображение.
 
-### **Сохранение группировки диаграммы**
+### **Сохранение диаграммы в группе**
 
-Пример группирует прямоугольник и стрелку, затем вызывает [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) на блокировке группы, чтобы сохранить компоненты диаграммы вместе. Другие правки, такие как перемещение группы или изменение заливки компонента, остаются доступными.
+В примере прямоугольник и стрелка объединяются в группу, после чего вызывается [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) у блокировки группы, чтобы сохранить компоненты диаграммы вместе. Другие правки, такие как перемещение группы или изменение заливки компонента, остаются доступными.
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` сохраняет блокировку разгруппировки как `true`. В PowerPoint команда **Ungroup** отключена, когда выбран весь diagram.
+`DiagramLocked.pptx` сохраняет блокировку разгруппировки как `true`. В PowerPoint команда **Ungroup** отключена, когда выбрана вся диаграмма.
+
+### **Отчет о текущих блокировках фигур**
+
+Чтобы проанализировать шаблон, откройте его и прочитайте объект блокировки для каждой фигуры. Метод [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) возвращает `true`, когда все флаги в этом объекте отключены, и `false`, когда хотя бы один включён. У группы и её дочерних элементов есть отдельные объекты блокировок, поэтому проверяйте дочерние элементы, даже если у группы нет блокировок.
+
+Этот пример проверяет перемещение у автофигур, рамок изображений и групп, обрезку у изображений и разгруппировку у групп. Он выводит распознанные флаги и помечает типы фигур, которые не проверяются.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+Предположим, что слайд 1 файла `Sample.pptx` содержит группу с именем `Layout`, у которой включена блокировка разгруппировки, изображение с именем `Photo` внутри неё с блокировкой обрезки и разблокированный прямоугольник с именем `Free`. Отчёт пропускает `Free` и выводит две строки:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Отчёт читает сохранённые флаги редактирования на уровне фигур без их изменения и без сохранения презентации. Защита записи на уровне документа — отдельная настройка, а применение каждого флага зависит от редактора.
 
 ### **Заключение**
 
-Aspose.Slides for C++ позволяет ограничить определённые операции редактирования отдельными фигурами или применить одинаковые ограничения ко всем слайдам. Выбирайте поддерживаемые каждой фигурой блокировки и устанавливайте их значения в `false`, когда необходимо снять ограничения.
+Aspose.Slides for C++ позволяет ограничить конкретные операции редактирования отдельных фигур или применить одинаковые ограничения ко всем слайдам. Выбирайте блокировки, поддерживаемые типом фигуры, и устанавливайте их значения в `false`, когда нужно снять ограничения.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Могу ли я комбинировать блокировки фигур и защиту паролем в одной презентации?**
+**Могу ли я одновременно использовать блокировки фигур и защиту паролем в одной презентации?**
 
-Да. Блокировки фигур ограничивают определённые операции редактирования, тогда как [защиту паролем](/slides/ru/cpp/password-protected-presentation/) может ограничить открытие или изменение презентации. Вы можете использовать обе функции в одном файле.
+Да. Блокировки фигур ограничивают определённые операции редактирования, тогда как [password protection](/slides/ru/cpp/password-protected-presentation/) может ограничивать открытие или изменение презентации. Оба метода можно использовать в одном файле.
 
-**Могу ли я ограничить редактирование на отдельных слайдах, не затрагивая остальные?**
+**Можно ли ограничить редактирование только на отдельных слайдах, не затрагивая другие?**
 
-Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не изменит параметры блокировок на остальных слайдах.
+Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не меняет настройки блокировок на остальных слайдах.
 
 **Как применить блокировки к отдельным фигурам внутри группы?**
 
-Пройдитесь по коллекции, возвращаемой методом группы [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/), и примените соответствующие блокировки к каждой дочерней фигуре. Повторите это для любых вложенных групп. Приведённые выше примеры обрабатывают только коллекцию фигур слайда, поэтому они не устанавливают блокировки отдельным членам группы.
+Пройдите по коллекции, возвращаемой методом группы [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/), и примените соответствующие блокировки к каждой дочерней фигуре. Повторите процесс для любых вложенных групп, следуя обходу из примера отчёта.

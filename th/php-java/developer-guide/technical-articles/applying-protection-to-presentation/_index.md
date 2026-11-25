@@ -1,35 +1,35 @@
 ---
-title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน PHP
-linktitle: จำกัดการแก้ไขงานนำเสนอ
+title: "จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน PHP"
+linktitle: "จำกัดการแก้ไขงานนำเสนอ"
 type: docs
 weight: 60
 url: /th/php-java/applying-protection-to-presentation/
 keywords:
-- ป้องกันการแก้ไข
-- ปกป้องจากการแก้ไข
-- ล็อกรูปทรง
-- ล็อกตำแหน่ง
-- ล็อกการเลือก
-- ล็อกการปรับขนาด
-- ล็อกการจัดกลุ่ม
-- PowerPoint
-- PPTX
-- งานนำเสนอ
-- PHP
-- Aspose.Slides
-description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for PHP via Java เพื่อจำกัดการเลือก, การเคลื่อนที่, การปรับขนาด, และการจัดกลุ่ม."
+- "ป้องกันการแก้ไข"
+- "ปกป้องจากการแก้ไข"
+- "ล็อกรูปทรง"
+- "ล็อกตำแหน่ง"
+- "ล็อกการเลือก"
+- "ล็อกการปรับขนาด"
+- "ล็อกการจัดกลุ่ม"
+- "PowerPoint"
+- "PPTX"
+- "งานนำเสนอ"
+- "PHP"
+- "Aspose.Slides"
+description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for PHP via Java เพื่อจำกัดการเลือก, การเคลื่อนย้าย, การปรับขนาดและการจัดกลุ่ม."
 ---
 ## **ภาพรวม**
 
-การใช้ Aspose.Slides for PHP via Java อย่างทั่วไปคือการสร้าง, ปรับปรุง และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาตามที่ตั้งใจได้
+การใช้ทั่วไปสำหรับ Aspose.Slides for PHP via Java คือการสร้าง, อัปเดต, และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของเวิร์กโฟลว์อัตโนมัติ เมื่อผู้ใช้ได้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาที่ตั้งใจไว้ได้
 
-บทความนี้อธิบายว่า รูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการเพิ่มและลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ทำให้คุณสามารถจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละรายการได้
+บทความนี้อธิบายว่า รูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการใช้และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
 
-## **โครงสร้างของสไลด์**
+## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนประกอบเช่น autoshapes, ตาราง, วัตถุ OLE, รูปทรงที่จัดกลุ่ม, กรอบภาพ, กรอบวีดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่นๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for PHP via Java แต่ละองค์ประกอบบนสไลด์จะแทนด้วยอ็อบเจกต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 
+สไลด์ของงานนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น autoshapes, ตาราง, วัตถุ OLE, รูปร่างที่จัดกลุ่ม, กรอบรูปภาพ, กรอบวิดีโอ, ตัวเชื่อม, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for PHP via Java แต่ละองค์ประกอบบนสไลด์จะถูกแทนด้วยอ็อบเจกต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 
 
-รูปทรงประเภทต่างๆ มีตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) เป็นคลาสฐานสำหรับการล็อกรูปทรง Aspose.Slides for PHP via Java มีคลาสการล็อกต่อไปนี้:
+รูปทรงประเภทต่าง ๆ แสดงตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) คือคลาสพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for PHP via Java มีคลาสล็อกต่อไปนี้:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) ล็อก autoshapes.  
 - [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) ล็อก connector shapes.  
@@ -37,19 +37,19 @@ description: "เรียนรู้วิธีการล็อกและ
 - [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) ล็อก group shapes.  
 - [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) ล็อก picture frames.  
 
-เพื่อใช้การล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ให้วนลูปผ่านสไลด์ของมันและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละรายการ
+เพื่อทำการล็อกทั่ว [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), ให้วนซ้ำสไลด์ของมันและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละรูปทรง
 
-## **เพิ่มและลบการปกป้อง**
+## **ใช้และลบการป้องกัน**
 
-โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละรายการ การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [การตั้งค่าการปกป้องงานนำเสนอ](/slides/th/php-java/password-protected-presentation/) ที่แยกจากกัน
+โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละรายการ การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [การตั้งค่าการป้องกันงานนำเสนอ](/slides/th/php-java/password-protected-presentation/) ที่แยกต่างหาก
 
-### **เพิ่มการปกป้องให้กับรูปทรง PPTX**
+### **นำการป้องกันไปใช้กับรูปทรง PPTX**
 
 Aspose.Slides for PHP via Java มีคลาส [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) และ [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) ด้วยค่า `true` สำหรับ autoshapes, พร้อมการล็อกที่เทียบเท่าสำหรับรูปทรงกลุ่ม, ตัวเชื่อมต่อ, และกรอบภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) สำหรับการเคลื่อนที่; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) และ [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) ด้วยค่า `true` สำหรับ autoshapes, พร้อมด้วยล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames ตัวเชื่อมใช้ [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) สำหรับการเคลื่อนย้าย; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่แล้ว, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, แล้วบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะไม่ได้รับการเปลี่ยนแปลง ลูปจะไม่เดินทางผ่านรูปทรงย่อยภายในกลุ่ม
+ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, แล้วบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่อยู่นอกสี่ประเภทที่รองรับจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่วนผ่านรูปทรงลูกภายในกลุ่ม
 
 ```php
 use aspose\slides\Presentation;
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-### **ลบการปกป้อง**
+### **ลบการป้องกัน**
 
-เพื่อทำการลบการล็อกรูปทรง ให้ตั้งค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) นอกจากนี้ยังลบข้อจำกัดการจัดกลุ่มโดยส่ง `false` ไปยัง [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่นๆ จะคงเดิม
+เพื่อทำการลบการล็อกรูปทรง, ตั้งค่าค่าของมันเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) นอกจากนี้ยังลบการจำกัดการจัดกลุ่มโดยส่ง `false` ไปยัง [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงอยู่โดยไม่มีการเปลี่ยนแปลง
 
 ```php
 use aspose\slides\Presentation;
@@ -133,9 +133,9 @@ try {
 }
 ```
 
-### **รักษาการครอบภาพ**
+### **รักษาการครอบรูปภาพ**
 
-วางภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างจะครอบ 12% จากด้านซ้ายและ 8% จากด้านขวา, แล้วเรียกใช้ [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) บนล็อกของกรอบภาพ การส่งค่ `true` จะจำกัดการครอบเพิ่มเติมและรักษาการครอบที่มีอยู่
+วางรูปภาพชื่อ `photo.jpg` ในไดเรกทอรีทำงาน ตัวอย่างครอบ 12% จากด้านซ้ายและ 8% จากด้านขวา, แล้วเรียก [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) บนล็อกของกรอบรูปภาพ การส่ง `true` จะจำกัดการครอบต่อไปและรักษาการครอบที่มีอยู่
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` จัดเก็บการล็อกการครอบเป็น `true`. ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกรูปภาพ
+`PictureLocked.pptx` เก็บล็อกการครอบเป็น `true` ใน PowerPoint คำสั่ง **Crop** จะถูกปิดการใช้งานเมื่อรูปภาพถูกเลือก
 
-### **คงการจัดกลุ่มไดอะแกรม**
+### **รักษาแผนภาพให้เป็นกลุ่ม**
 
-ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร, แล้วเรียกใช้ [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) บนล็อกของกลุ่มเพื่อคงส่วนประกอบของไดอะแกรมไว้ด้วยกัน การแก้ไขอื่นๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงใช้ได้
+ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร, แล้วเรียก [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) บนล็อกของกลุ่มเพื่อรักษาองค์ประกอบของแผนภาพให้คงอยู่ด้วยกัน การแก้ไขอื่น ๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมขององค์ประกอบยังคงใช้ได้
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` จัดเก็บการล็อกการยกเลิกการจัดกลุ่มเป็น `true`. ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกไดอะแกรมทั้งหมด
+`DiagramLocked.pptx` เก็บล็อกการแยกกลุ่มเป็น `true` ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดการใช้งานเมื่อแผนภาพทั้งหมดถูกเลือก
+
+### **รายงานการล็อกรูปทรงที่มีอยู่**
+
+เพื่อทบทวนเทมเพลต, เปิดมันและอ่านอ็อบเจกต์ล็อกของแต่ละรูปทรง วิธี [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) จะคืนค่า `true` เมื่อฟล็กทั้งหมดบนอ็อบเจกต์นั้นถูกปิดและคืนค่า `false` เมื่อมีอย่างน้อยหนึ่งฟล็กเปิด กลุ่มและลูกของมันมีอ็อบเจกต์ล็อกแยกกัน ดังนั้นให้ตรวจสอบลูกแม้ว่าในกลุ่มจะไม่มีล็อกใด ๆ
+
+ตัวอย่างนี้ตรวจสอบการเคลื่อนที่สำหรับ autoshapes, picture frames, และ groups รวมทั้งตรวจสอบการครอบสำหรับรูปภาพและการแยกกลุ่มสำหรับ groups รายงานจะแสดงฟล็กที่เปิดอยู่ที่มันรู้จักและทำเครื่องหมายประเภทรูปทรงที่ไม่ได้ตรวจสอบ
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+สมมติว่า สไลด์ 1 ของ `Sample.pptx` มีกลุ่มชื่อ `Layout` ที่ล็อกการแยกกลุ่ม, รูปภาพชื่อ `Photo` ภายในที่ล็อกการครอบ, และสี่เหลี่ยมที่ไม่ได้ล็อกชื่อ `Free` รายงานจะข้าม `Free` และพิมพ์บรรทัดสองบรรทัดต่อไปนี้:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+รายงานอ่านฟล็กการแก้ไขระดับรูปทรงที่จัดเก็บไว้โดยไม่เปลี่ยนแปลงหรือบันทึกงานนำเสนอ การป้องกันการเขียนระดับเอกสารเป็นการตั้งค่าแยกต่างหาก และการบังคับใช้แต่ละฟล็กขึ้นอยู่กับโปรแกรมแก้ไข
 
 ### **สรุป**
 
-Aspose.Slides for PHP via Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละรายการหรือใช้ข้อจำกัดเดียวกันข้ามหลายสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทรูปทรง และตั้งค่าของมันเป็น `false` เมื่อคุณต้องการลบข้อจำกัดเหล่านั้น
+Aspose.Slides for PHP via Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้การจำกัดเดียวกันทั่วสไลด์ เลือกล็อกที่รองรับโดยแต่ละประเภทรูปทรงและตั้งค่าของมันเป็น `false` เมื่อคุณต้องการลบการจำกัดเหล่านั้น
 
 ## **คำถามที่พบบ่อย**
 
 **ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
 
-ได้. การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะ ส่วน [การป้องกันด้วยรหัสผ่าน](/slides/th/php-java/password-protected-presentation/) สามารถจำกัดการเปิดหรือการแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างพร้อมกันในไฟล์เดียวกัน
+Yes. Shape locks restrict specific editing operations, while [การป้องกันด้วยรหัสผ่าน](/slides/th/php-java/password-protected-presentation/) can restrict opening or modifying the presentation. You can use both in the same file.
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่ส่งผลต่อสไลด์อื่นได้หรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่ส่งผลต่อสไลด์อื่น ๆ ได้หรือไม่?**
 
-ได้. เพียงทำการล็อกบนรูปทรงในสไลด์ที่เลือกเท่านั้น การทำเช่นนี้จะไม่เปลี่ยนแปลงการตั้งค่าล็อกบนสไลด์อื่น
+Yes. Apply locks only to shapes on the selected slides. This does not change the lock settings on other slides.
 
-**ฉันจะทำอย่างไรเพื่อใส่การล็อกให้กับรูปทรงแต่ละรูปภายในกลุ่ม?**
+**ฉันจะนำการล็อกไปใช้กับรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
 
-วนลูปผ่านคอลเลกชันที่คืนค่ามาจากเมธอด [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) ของกลุ่มและใส่การล็อกที่เหมาะสมกับแต่ละรูปทรงลูก ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์ ดังนั้นจึงไม่ได้ตั้งค่าล็อกบนสมาชิกกลุ่มแต่ละราย.
+Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups, following the traversal in the reporting example.

@@ -1,5 +1,5 @@
 ---
-title: 3D diagramok testreszabása bemutatókban PHP-val
+title: 3D diagramok testreszabása prezentációkban PHP használatával
 linktitle: 3D diagram
 type: docs
 url: /hu/php-java/3d-chart/
@@ -8,20 +8,20 @@ keywords:
 - forgás
 - mélység
 - PowerPoint
-- bemutató
+- prezentáció
 - PHP
 - Aspose.Slides
-description: "3D diagramokat hozhat létre PowerPoint bemutatókban az Aspose.Slides for PHP via Java segítségével. A forgást, a magasságarányokat, a diagram mélységét és a sorozatok közti távolságot állíthatja PHP példákkal."
+description: "Készíts 3D diagramokat PowerPoint prezentációkban az Aspose.Slides for PHP via Java segítségével. Állítsd be a forgást, a magasságarányokat, a diagram mélységét és a sorozatok közti távolságot PHP példákkal."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi, hogy testreszabja egy 3D diagram nézetét a [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D) metódus segítségével. Ez a cikk bemutatja, hogyan állítható be a forgatás, a magasság arányai, a mélység, a derékszögű tengelyek és a sorozatok közötti távolság, majd hogyan menthető a bemutató PPTX formátumban.
+Aspose.Slides for PHP via Java lehetővé teszi, hogy testreszabd egy 3D diagram nézetét a [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D) metódus segítségével. Ez a cikk bemutatja, hogyan állítható be a forgatás, a magasság arányai, a mélység, a derékszögű tengelyek és a sorok közti távolság, majd hogyan menthető a prezentáció PPTX formátumban.
 
-## **A 3D diagram forgatásának és mélységének beállítása**
+## **Állítsd be a forgást és a mélységet egy 3D diagramon**
 
-Az alábbi példa létrehoz egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) és a [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) segítségével hozzáad egy halmozott 3D oszlopdiagramot az első diájához. Lecseréli az alapértelmezett sorozatokat és kategóriákat két, három értéket tartalmazó sorozatra. A `0` munkalap‑index azonosítja a diagram első adatmunkalapját; a `0` sor a sorozatneveket, az `0` oszlop a kategóriacímkéket tartalmazza.
+Az alábbi példa létrehoz egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) és a [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) segítségével egy halmozott 3D oszlopdiagramot ad hozzá az első diájához. Lecseréli az alapértelmezett sorozatokat és kategóriákat két sorozatra, amelyek mindegyike három értéket tartalmaz. A `0` munkalap-index a diagram első adatmunkalapját jelöli; a `0` sor a sorozatneveket, a `0` oszlop pedig a kategóriacímkéket tartalmazza.
 
-A [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) és a [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) metódusok a diagram forgását 40 és 270 fokra állítják. A [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) a mélységet a szélesség 150%-ára állítja, míg a [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) jobb szögű tengelyeket engedélyez a perspektíva helyett. Az eredményül kapott bemutató a feltöltött diagramot tartalmazza ezekkel a 3D nézeti beállításokkal.
+A [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) és a [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) metódusok a diagram forgását 40 illetve 270 fokra állítják. A [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) beállítja a mélységet a szélesség 150%-ára, míg a [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) engedélyezi a derékszögű tengelyeket a perspektíva helyett. Az eredményül kapott prezentáció a kitöltött diagramot ezeket a 3D nézetbeállításokat tartalmazza.
 
 ```php
 use aspose\slides\ChartType;
@@ -67,11 +67,74 @@ try {
     $presentation->dispose();
 }
 ```
-## **A 3D diagram magasságarányainak beállítása**
 
-A [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) segítségével állítható be egy 3D diagram magassága a szélesség százalékában. Ez megváltoztatja a 3D jelenet arányait anélkül, hogy átméretezné a dián lévő diagram objektumot.
+## **Alkalmazz képkitöltést egy 3D diagram felületére**
 
-Az alábbi példa egy [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) diagramot hoz létre az alapértelmezett adatokkal: három sorozat és négy kategória. Három bemutatót ment 50%, 100% és 200% magasságarányokkal. A diagram pozíciója, szélessége és magassága változatlan marad. Az adatok, a forgatás, a mélység, a sorozatok közti távolság és a formázás minden három fájlban azonos; csak a magasság százaléka változik.
+A 3D diagram [oldalfal](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getsidewall/), [háttérfal](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/), és [padló](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) felületét külön-külön töltheted ki. Állítsd be a felület [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) értékét `Picture`-re, és rendelj hozzá egy képet. Állítsd be a [picture fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setpicturefillmode/) és a felület [picture type](https://reference.aspose.com/slides/php-java/aspose.slides/chartwall/setpicturetype/) értékét is `Stretch`-re, hogy a kép egy példánya illeszkedjen a felülethez.
+
+Mentsd el az [arrow.png](arrow.png) fájlt a PHP szkript mellé. A példa elforgatja a diagramot és megnöveli a függőleges tengely maximális értékét, hogy a padló látható legyen az oszlopok között. Ezután kétszer lemásolja a diát, és minden dián más felületre alkalmazza a nyilat. A három diagram ugyanazt az adatot, nézeti szöget és hátteret tartja meg.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\PictureType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 20, 30, 680, 480);
+    $chart->getRotation3D()->setRightAngleAxes(true);
+    $chart->getRotation3D()->setRotationX(40);
+    $chart->getRotation3D()->setRotationY(30);
+    
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->setAutomaticMaxValue(false);
+    $verticalAxis->setMaxValue(24);
+
+    $backSlide = $presentation->getSlides()->addClone($slide);
+    $floorSlide = $presentation->getSlides()->addClone($slide);
+    $backChart = $backSlide->getShapes()->get_Item(0);
+    $floorChart = $floorSlide->getShapes()->get_Item(0);
+
+    $image = Images::fromFile(__DIR__ . "/arrow.png");
+    try {
+        $arrow = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $surfaces = [$chart->getSideWall(), $backChart->getBackWall(), $floorChart->getFloor()];
+    foreach ($surfaces as $surface) {
+        $fill = $surface->getFormat()->getFill();
+        $fill->setFillType(FillType::Picture);
+        $pictureFill = $fill->getPictureFillFormat();
+        $pictureFill->getPicture()->setImage($arrow);
+        $pictureFill->setPictureFillMode(PictureFillMode::Stretch);
+        $surface->setPictureType(PictureType::Stretch);
+    }
+
+    $presentation->save(__DIR__ . "/chart-surfaces.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A Microsoft PowerPoint a három diát a következőképpen jeleníti meg.
+
+| Oldalfal | Háttérfal | Padló |
+| --- | --- | --- |
+| ![Nyíl, amely a diagramra mutat az oldalfalon](side-wall.png) | ![Nyíl, amely jobbra mutat a háttérfalon](back-wall.png) | ![Nyíl, amely jobbra mutat a padlón az oszlopok között](floor.png) |
+
+## **Állítsd be a magasság arányait egy 3D diagramnál**
+
+Használd a [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) metódust, hogy a 3D diagram magasságát a szélességének százalékában állítsd be. Ez megváltoztatja a 3D jelenet arányait a diagram objektum átméretezése nélkül a dián.
+
+Az alábbi példa létrehoz egy [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) diagramot az alapértelmezett adatokkal: három sorozattal és négy kategóriával. Három prezentációt ment 50%, 100% és 200% magasság arányokkal. A diagram pozíciója, szélessége és magassága változatlan marad. Az adatok, forgatás, mélység, sorozatok közti távolság és formázás minden három fájlban azonos; csak a magasság százaléka változik.
 
 ```php
 use aspose\slides\ChartType;
@@ -98,40 +161,40 @@ try {
 }
 ```
 
-Az alábbi képek bemutatják ugyanazokat a magasságbeállításokat az ekvivalens .NET példában, és a Microsoft PowerPoint segítségével exportálták. Egy kisebb százaléklaposabb jelenetet eredményez, míg egy nagyobb százalék magasabb jelenetet hoz létre az ugyanazon diagramobjektumban. A PowerPoint ezenkívül módosíthatja a tengelyjelölések intervallumát és a címkék elhelyezését, hogy illeszkedjen a jelenethez.
+Az alábbi képek bemutatják ugyanazt a magasságbeállítást a megfelelő .NET példában, és a Microsoft PowerPoint segítségével exportálták. A kisebb százalék laposabb jelenetet eredményez, míg a nagyobb százalék magasabb jelenetet a ugyanabban a diagram objektumban. A PowerPoint esetleg módosíthatja a tengelyjelölések intervallumát és a feliratok elhelyezését, hogy a jelenethez illeszkedjen.
 
 | Magasság: 50% | Magasság: 100% | Magasság: 200% |
 | --- | --- | --- |
-| ![3D oszlopdiagram, melynek magassága a szélesség 50 százalékára van beállítva](height_percent_50.png) | ![3D oszlopdiagram, melynek magassága a szélesség 100 százalékára van beállítva](height_percent_100.png) | ![3D oszlopdiagram, melynek magassága a szélesség 200 százalékára van beállítva](height_percent_200.png) |
+| ![3D oszlopdiagram, amelynek magassága a szélesség 50%-a](height_percent_50.png) | ![3D oszlopdiagram, amelynek magassága a szélesség 100%-a](height_percent_100.png) | ![3D oszlopdiagram, amelynek magassága a szélesség 200%-a](height_percent_200.png) |
 
 Ezek a metódusok a diagram különböző aspektusait szabályozzák:
 
 | Metódus | Hatás |
 | --- | --- |
-| [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) | A 3D jelenet magassága a szélesség százalékában. |
-| [Chart::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setHeight) | A diagram objektum magassága a dián, pontban. |
-| [Rotation3D::setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | A 3D jelenet mélysége a szélesség százalékában. |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | A sorozatok közti távolság a mélységi tengely mentén, a jelölő szélességének százalékában. |
+| [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) | A 3D jelenet magassága a szélességének százalékában. |
+| [Chart::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setHeight) | A diagram objektum magassága a dián pontban. |
+| [Rotation3D::setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | A 3D jelenet mélysége a szélességének százalékában. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | A sorozatok közti távolság a mélységi tengelyen, a jelölő szélességének százalékában. |
 
-A magasságbeállítás hatással van 3D oszlop- és sávdiagramokra, beleértve a henger-, kúp- és piramisvariánsokat, valamint a 3D vonal-, terület-, kör- és felületi diagramokra. A fenti összehasonlítás a hitelesített `Column3D` típust használja. A beállítás nem változtatja meg egy 2D `ClusteredColumn` diagram vagy egy `BubbleWith3D` diagram megjelenését; ezek a nevek a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztály tagjai. Más diagrammegjelenítési beállításokért lásd a [Diagramformázás](/slides/hu/php-java/chart-formatting/) oldalt.
+A magasság beállítás a 3D oszlop- és oszlopdiagramokat érinti, beleértve a henger, kúp és piramis változatokat, valamint a 3D vonal-, terület-, torta- és felületdiagramokat. A fenti összehasonlítás a vérifikált `Column3D` típust használja. A beállítás nem változtatja meg a 2D `ClusteredColumn` diagram vagy a `BubbleWith3D` diagram megjelenését; ezek a nevek a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztály tagjai. Más diagram megjelenítési beállításokért lásd a [Diagram formázása](/slides/hu/php-java/chart-formatting/) oldalt.
 
-## **A sorozatok közti rés beállítása**
+## **Állítsd be a sorozatok közti hézagot**
 
-Használja a [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) metódust a 3D diagram adat-sorozatai közti távolság szabályozásához a mélységi tengely mentén, a jelölő szélességének százalékában kifejezve. Használjon értékeket **0-500**, beleértve: `0` eltávolítja a rést, míg a nagyobb értékek növelik a távolságot. Rögzített diagrammélység esetén a rés növelése a jelölőket vékonyabbá teszi a mélységi tengelyen.
+Használd a [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) metódust a 3D diagram mélységi tengelyén lévő adat sorozatok közti távolság vezérléséhez, a jelölő szélességének százalékában kifejezve. Használj értékeket **0 és 500** között, beleértve: a `0` eltávolítja a hézagot, míg a nagyobb értékek növelik a távolságot. Fix diagrammélységnél a hézag növelése a jelölőket vékonyabbá teszi a mélységi tengelyen.
 
-A csoportot a [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) segítségével érheti el. A beállítás az adott csoport minden sorozatára vonatkozik, nem csak arra, amelyen keresztül elérte. A [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) visszaadja a mélységi rést, és tükrözi a szülőcsoport beállítását.
+A csoporthoz a [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) segítségével férhetsz hozzá. A beállítás az adott csoport minden sorozatára vonatkozik, nem csak arra, amelyen keresztül elérted. A [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) visszaadja a mélységi hézagot és tükrözi a szülőcsoport beállítását.
 
-Ez a beállítás 3D oszlop- és sávdiagramokra, beleértve a henger-, kúp- és piramisvariánsokat, valamint a 3D vonal- és területdiagramokra hat. A megjelenés attól függ, hogy a sorozatok mélységben, kluszterben vagy halmozottan vannak-e rendezve. A különböző sorozatok közti rés tiszta összehasonlításához használja a `ChartType::Column3D` típust a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztályból.
+Ez a beállítás a 3D oszlop- és oszlopdiagramokat érinti, beleértve a henger, kúp és piramis változatokat, valamint a 3D vonal- és területdiagramokat. A megjelenés attól függ, hogy a sorozatok mélységben, csoportosítva vagy halmozva vannak-e elrendezve. A különálló sorozatok közti hézagok tiszta összehasonlításához használd a `ChartType::Column3D` típust a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztályból.
 
 Ezek a metódusok a diagram különböző aspektusait szabályozzák:
 
 | Metódus | Hatás |
 | --- | --- |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | A sorozatok közti távolság a mélységi tengely mentén, a jelölő szélességének százalékában. |
-| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | A szomszédos sávok vagy oszlopcsoportok közti távolság, a sáv vagy oszlop szélességének százalékában. |
-| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | A diagram teljes mélysége, a diagram szélességének százalékában. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | A sorozatok közti távolság a mélységi tengelyen, a jelölő szélességének százalékában. |
+| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | A szomszédos oszlop- vagy oszlopcsoportok közti távolság a sáv vagy oszlop szélességének százalékában. |
+| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | A diagram teljes mélysége a diagram szélességének százalékában. |
 
-Az alábbi önálló példa az alapértelmezett diagramadatokat használja, amelyek három sorozatot és négy kategóriát tartalmaznak. Két bemutatót ment azonos adat, forgatás, részszélesség és diagrammélység mellett; csak a résmélység változik.
+Az alábbi önálló példa az alapértelmezett diagramadatokat használja, amelyek három sorozatot és négy kategóriát tartalmaznak. Két prezentációt ment, amelyek adatai, forgatása, hézag szélessége és diagrammélysége azonos; csak a hézag mélysége változik.
 
 ```php
 use aspose\slides\ChartType;
@@ -163,15 +226,15 @@ try {
 }
 ```
 
-Az alábbi képek bemutatják ugyanazt a réstmélység-beállítást az ekvivalens .NET példában, és a Microsoft PowerPoint segítségével exportálták.
+Az alábbi képek bemutatják ugyanazt a hézagmélység beállítást a megfelelő .NET példában, és a Microsoft PowerPoint segítségével exportálták.
 
-| Rés mélysége: 0% | Rés mélysége: 500% |
+| Hézag mélység: 0% | Hézag mélység: 500% |
 | --- | --- |
-| ![3D oszlopdiagram, amelynek nincs rés a sorozatok között a mélységi tengely mentén](gap_depth_0.png) | ![3D oszlopdiagram, amelynek 500 százalékos rés van a sorozatok között a mélységi tengely mentén](gap_depth_500.png) |
+| ![3D oszlopdiagram, amelynek nincs hézag a sorozatok között a mélységi tengelyen](gap_depth_0.png) | ![3D oszlopdiagram, amelynek 500 százalékos hézagja van a sorozatok között a mélységi tengelyen](gap_depth_500.png) |
 
-## **A 3D sorozattípus és sávalak megváltoztatása**
+## **Módosítsd a 3D sorozat típusát és az oszlop alakját**
 
-Egy csoportos hengerdiagram első sorozata henger alakú sávval kezdődik. A példa kiírja a [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) és a [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) által visszaadott egész értékeket a módosítások előtt és után. A táblázat a megfelelő állandó neveket adja meg.
+Egy csoportosított henger diagram esetén az első sorozat hengeres oszlop alakjával kezdődik. A példa kiírja a [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) és a [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) által visszaadott egész értékeket minden módosítás előtt és után. A táblázat a megfelelő állandó neveket mutatja.
 
 ```php
 use aspose\slides\ChartShapeType;
@@ -200,26 +263,26 @@ try {
 }
 ```
 
-| Változtatás az első sorozaton | Sorozattípus | Sáv alak |
+| Változás az első sorozatra | Sorozat típusa | Bar alak |
 | --- | --- | --- |
 | Create the chart | `ClusteredCylinder` | `Cylinder` |
 | Set the series type to `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Set the bar shape to `Box` | `ClusteredColumn3D` | `Box` |
 
-A `Box` alakra való beállítás szintén megváltoztatja a sorozattípust `ClusteredColumn3D`‑re. Ha a kódja a sorozattípustól függ, hívja meg a [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) metódust a forma megváltoztatása után. A hozzárendelés előtt cache‑elt érték továbbra is a `ClusteredCone` ágat választaná.
+A `Box` alak beállítása a sorozat típusát is `ClusteredColumn3D`-re módosítja. Ha a kódod a sorozat típusán alapuló elágazást tartalmaz, hívd meg a [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) metódust a forma módosítása után. A hozzárendelés előtt tárolt érték továbbra is a `ClusteredCone` ágat választaná.
 
-![PowerPoint összehasonlítás, amely balról jobbra mutatja az első sorozatot henger, kúp és téglalap alakú oszlopként](series-shapes.png)
+![PowerPoint összehasonlítás, amely az első sorozatot hengerként, kúpként és téglalap alakú oszlopként mutatja balról jobbra](series-shapes.png)
 
-## **GYIK**
+## **Gyakran Ismételt Kérdések**
 
-**Mely diagramtípusok támogatják a 3D módot az Aspose.Slides-ben?**
+**Mely diagramtípusok támogatják a 3D módot az Aspose.Slides-ban?**
 
-Az Aspose.Slides támogatja a 3D oszlopdiagram változatokat, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és 100 % Stacked Column 3D típusokat, valamint a kapcsolódó 3D típusokat, amelyeket a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztály tesz elérhetővé. A pontos, naprakész lista megtekintéséhez ellenőrizze a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) tagjait az API‑referenciában a telepített verzióhoz.
+Az Aspose.Slides támogatja a oszlopdiagramok 3D változatait, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és 100% Stacked Column 3D típusokat, valamint a kapcsolódó 3D típusokat, amelyeket a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) osztály tesz elérhetővé. A pontos, naprakész lista számára ellenőrizd a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) tagjait a telepített verziód API hivatkozásában.
 
 **Kaphatok raszteres képet egy 3D diagramról jelentéshez vagy a webhez?**
 
-Igen. Exportálhatja a diagramot képként a [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) vagy a [render the entire slide](/slides/hu/php-java/convert-powerpoint-to-png/) segítségével PNG vagy JPEG formátumban. Ez akkor hasznos, ha raszteres előnézetre van szüksége, vagy a diagramot be szeretné ágyazni dokumentumokba, műszerfalakba vagy weboldalakba anélkül, hogy a PowerPointra lenne szükség.
+Igen. A diagramot exportálhatod képként a [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) vagy a [az egész dia renderelése](/slides/hu/php-java/convert-powerpoint-to-png/) segítségével PNG vagy JPEG formátumba. Ez akkor hasznos, ha raszteres előnézetre van szükséged, vagy a diagramot dokumentumokba, műszerfalakba vagy weboldalakba szeretnéd beágyazni anélkül, hogy a PowerPointra lenne szükség.
 
-**Mennyire teljesítményhatékony nagy 3D diagramok felépítése és renderelése?**
+**Mennyire hatékony a nagy 3D diagramok felépítése és renderelése?**
 
-A teljesítmény az adatmennyiségtől és a vizuális komplexitástól függ. A legjobb eredmény érdekében tartsa minimalizáltan a 3D hatásokat, kerüljön el nehéz textúrákat a falakon és a diagramterületen, korlátozza sorozatonként a pontok számát, ahol lehetséges, és rendereljen a célnak megfelelő felbontású és méretű kimenetre, legyen szó képernyőn megjelenítésről vagy nyomtatásról.
+A teljesítmény az adatmennyiségtől és a vizuális összetettségtől függ. A legjobb eredmény érdekében tartsd minimálisra a 3D hatásokat, kerüld a nehéz textúrákat a falakon és a diagramterületeken, korlátozd a sorozatonkénti adatpontok számát, amennyiben lehetséges, és renderelj megfelelő méretű (felbontású és dimenziós) kimenetre, hogy megfeleljen a célkijelző vagy nyomtatási igényeknek.

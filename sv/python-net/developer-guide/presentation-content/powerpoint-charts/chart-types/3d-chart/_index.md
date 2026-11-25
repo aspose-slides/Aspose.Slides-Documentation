@@ -11,17 +11,17 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Skapa 3D-diagram i PowerPoint-presentationer med Aspose.Slides för Python via .NET. Justera rotation, höjdförhållanden, diagramdjup och avstånd mellan serier med Python‑exempel."
+description: "Skapa 3D-diagram i PowerPoint-presentationer med Aspose.Slides för Python via .NET. Justera rotation, höjdförhållanden, diagramdjup och avstånd mellan serier med Python-exempel."
 ---
 ## **Översikt**
 
-Aspose.Slides för Python via .NET låter dig anpassa visningen av ett 3D-diagram via egenskapen [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) . Denna artikel visar hur du justerar rotation, höjdförhållanden, djup, vinkelräta axlar och avstånd mellan serier, och sedan sparar presentationen i PPTX-format.
+Aspose.Slides för Python via .NET låter dig anpassa vyn av ett 3D-diagram via egenskapen [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/). Denna artikel visar hur du justerar rotation, höjdförhållanden, djup, vinkelräta axlar och avstånd mellan serier, och sedan sparar presentationen i PPTX‑format.
 
 ## **Ställ in rotation och djup för ett 3D-diagram**
 
-Exemplet nedan skapar en [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) och använder [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att lägga till ett staplat 3D-kolumndiagram på dess första bildspel. Det ersätter standardserierna och -kategorierna med två serier som innehåller tre värden vardera. Arbetsbladsindex `0` identifierar diagrammets första datakalkylblad; rad `0` innehåller serienamn, och kolumn `0` innehåller kategorietiketter.
+Exemplet nedan skapar en [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) och använder [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att lägga till ett staplat 3D‑kolumndiagram på dess första bild. Det ersätter standardserierna och -kategorierna med två serier som innehåller tre värden vardera. Arbetsbladsindex `0` identifierar diagrammets första datakalkylblad; rad `0` innehåller serienamn, och kolumn `0` innehåller kategorimärken.
 
-[rotation_x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_x/) och [rotation_y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_y/) egenskaperna ställer in diagrammets rotation till 40 respektive 270 grader. [depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) sätter dess djup till 150 % av dess bredd, medan [right_angle_axes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/right_angle_axes/) möjliggör vinkelräta axlar istället för perspektiv. Den resulterande presentationen innehåller det ifyllda diagrammet med dessa 3D-vyinställningar.
+Egenskaperna [rotation_x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_x/) och [rotation_y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_y/) sätter diagrammets rotation till 40 respektive 270 grader. [depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) anger dess djup till 150 % av dess bredd, medan [right_angle_axes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/right_angle_axes/) aktiverar vinkelräta axlar istället för perspektiv. Den resulterande presentationen innehåller diagrammet med dessa 3D‑visningsinställningar.
 
 ```python
 import aspose.slides as slides
@@ -60,11 +60,56 @@ with slides.Presentation() as presentation:
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Applicera bildfyllning på en 3D-diagramyta**
+
+Du kan fylla [side wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/side_wall/), [back wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) och [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) på ett 3D‑diagram oberoende av varandra. Ställ in ytan’s [fill type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) till `PICTURE` och tilldela en bild. För att få en kopia av bilden att sträcka sig över ytan, sätt både [picture fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) och ytan’s [picture type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartwall/picture_type/) till `STRETCH`.
+
+Spara [arrow.png](arrow.png) i arbetskatalogen. Exemplet roterar diagrammet och höjer det maximala värdet på den vertikala axeln så att golvet syns mellan kolumnerna. Det klonar bilden två gånger och applicerar sedan pilen på en annan yta i varje bild. Alla tre diagrammen delar samma data, vyvinkel och bakgrund.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 20, 30, 680, 480)
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.rotation_x = 40
+    chart.rotation_3d.rotation_y = 30
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 24
+
+    back_slide = presentation.slides.add_clone(slide)
+    floor_slide = presentation.slides.add_clone(slide)
+    back_chart = back_slide.shapes[0]
+    floor_chart = floor_slide.shapes[0]
+
+    with open("arrow.png", "rb") as image_file:
+        image_bytes = image_file.read()
+    arrow = presentation.images.add_image(image_bytes)
+
+    for surface in (chart.side_wall, back_chart.back_wall, floor_chart.floor):
+        fill = surface.format.fill
+        fill.fill_type = slides.FillType.PICTURE
+        fill.picture_fill_format.picture.image = arrow
+        fill.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        surface.picture_type = charts.PictureType.STRETCH
+
+    presentation.save("chart-surfaces.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Microsoft PowerPoint visar de tre bilderna enligt följande.
+
+| Sidovägg | Bakvägg | Golv |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Justera höjdförhållandena för ett 3D-diagram**
 
-Använd [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) för att sätta höjden på ett 3D-diagram som en procentandel av dess bredd. Detta ändrar proportionerna i 3D‑scenen utan att ändra storleken på diagramobjektet på bilden.
+Använd [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) för att sätta diagrammets höjd som en procent av dess bredd. Detta ändrar proportionerna i 3D‑scenen utan att ändra storlek på diagramobjektet på bilden.
 
-Följande exempel skapar ett [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) diagram med standarddata: tre serier och fyra kategorier. Det sparar tre presentationer med höjdförhållanden på 50 %, 100 % och 200 %. Diagrammets position, bredd och höjd förblir oförändrade. Data, rotation, djup, serievärden och formatering är identiska i alla tre filerna; bara höjdpromillen förändras.
+Följande exempel skapar ett [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑diagram med standarddata: tre serier och fyra kategorier. Det sparar tre presentationer med höjdförhållanden på 50 %, 100 % och 200 %. Diagrammets position, bredd och höjd förblir oförändrade. Data, rotation, djup, seriemellanrum och formatering är identiska i samtliga filer; endast höjdpct‑värdet varierar.
 
 ```python
 import aspose.slides as slides
@@ -85,40 +130,40 @@ with slides.Presentation() as presentation:
         presentation.save(f"chart_height_{height_percent}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Följande bilder exporterades från de genererade presentationerna med Microsoft PowerPoint. En lägre procentandel ger en plattare scen, medan en högre procentandel ger en högre scen inom samma diagramobjekt. PowerPoint kan också justera axelns tick‑intervall och etikettplacering för att passa scenen.
+Följande bilder exporterades från de genererade presentationerna med Microsoft PowerPoint. En lägre procent ger en plattare scen, medan en högre procent ger en högre scen inom samma diagramobjekt. PowerPoint kan också justera axelns tick‑intervall och etikettplacering för att passa scenen.
 
-| Höjd: 50% | Höjd: 100% | Höjd: 200% |
+| Höjd: 50 % | Höjd: 100 % | Höjd: 200 % |
 | --- | --- | --- |
-| ![3D-kolumndiagram med höjden inställd på 50 procent av dess bredd](height_percent_50.png) | ![3D-kolumndiagram med höjden inställd på 100 procent av dess bredd](height_percent_100.png) | ![3D-kolumndiagram med höjden inställd på 200 procent av dess bredd](height_percent_200.png) |
+| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
 
 Dessa egenskaper styr olika aspekter av diagrammet:
 
 | Egenskap | Effekt |
 | --- | --- |
-| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | Höjden på 3D‑scenen som en procentandel av dess bredd. |
+| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | Höjden på 3D‑scenen som en procent av dess bredd. |
 | [Chart.height](https://reference.aspose.com/slides/python-net/aspose.slides/shape/height/) | Höjden på diagramobjektet på bilden, i punkter. |
-| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Djupet på 3D‑scenen som en procentandel av dess bredd. |
-| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Avstånd mellan serier längs djupaxeln, som en procentandel av markörens bredd. |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Djupet på 3D‑scenen som en procent av dess bredd. |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Avstånd mellan serier längs djupaxeln, som en procent av markörens bredd. |
 
-Höjdinställningen påverkar 3D‑stapel- och stapeldiagram, inklusive cylinder-, kon‑ och pyramidalvarianter, samt 3D‑linje-, area‑, paj‑ och ytdiagram. Jämförelsen ovan använder den verifierade `COLUMN_3D`-typen. Inställningen förändrar inte utseendet på ett 2D-`CLUSTERED_COLUMN`‑diagram eller ett `BUBBLE_WITH_3D`‑diagram; dessa namn är medlemmar i uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). För andra diagramformatinställningar, se [Chart Formatting](/slides/sv/python-net/chart-formatting/).
+Höjdinställningen påverkar 3D‑stapel‑ och stapeldiagram, inklusive cylinder-, kon‑ och pyramidvarianter, samt 3D‑linje-, yta‑ och pajdiagram. Jämförelsen ovan använder den verifierade `COLUMN_3D`‑typen. Inställningen ändrar inte utseendet på ett 2D‑`CLUSTERED_COLUMN`‑diagram eller ett `BUBBLE_WITH_3D`‑diagram; dessa namn är medlemmar i uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). För andra diagramutseendeinställningar, se [Chart Formatting](/slides/sv/python-net/chart-formatting/).
 
-## **Justera avståndet mellan serier**
+## **Justera mellanrummet mellan serier**
 
-Använd [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) för att kontrollera avståndet mellan dataserier längs djupaxeln i ett 3D-diagram, uttryckt som en procentandel av markörens bredd. Använd värden från **0 till 500**, inklusive: `0` tar bort gapet, medan större värden ökar avståndet. Med ett fast diagramdjup gör ett större gap att markörerna blir tunnare längs djupaxeln.
+Använd [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) för att kontrollera avståndet mellan dataserier längs djupaxeln i ett 3D‑diagram, uttryckt som en procent av markörens bredd. Använd värden från **0 till 500**, inklusive: `0` tar bort gapet, medan högre värden ökar avståndet. Med ett fast diagramdjup gör ett större gap markörerna tunnare längs djupaxeln.
 
-Få åtkomst till gruppen via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/). Inställningen gäller för varje serie i den gruppen, inte bara för den serie som används för åtkomst. [ChartSeries.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_depth/) är skrivskyddad och reflekterar gruppens inställning.
+Kom åt gruppen via [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/). Inställningen gäller för varje serie i den gruppen, inte bara för serien som användes för åtkomst. [ChartSeries.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_depth/) är skrivskyddad och speglar föräldragruppens inställning.
 
-Denna inställning påverkar 3D‑stapel‑ och stapeldiagram, inklusive deras cylinder-, kon‑ och pyramidalvarianter, samt 3D‑linje- och area‑diagram. Utseendet beror på om serierna är arrangerade i djup, grupperade eller staplade. För en tydlig jämförelse av gap mellan separata serier, använd `ChartType.COLUMN_3D` från uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/).
+Denna inställning påverkar 3D‑stapel‑ och stapeldiagram, inklusive deras cylinder-, kon- och pyramidvarianter, samt 3D‑linje‑ och ytdiagram. Utseendet beror på om serierna är ordnade i djup, grupperade eller staplade. För en tydlig jämförelse av gap mellan separata serier, använd `ChartType.COLUMN_3D` från uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/).
 
 Dessa egenskaper styr olika aspekter av diagrammet:
 
 | Egenskap | Effekt |
 | --- | --- |
-| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Avstånd mellan serier längs djupaxeln, som en procentandel av markörens bredd. |
-| [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) | Avstånd mellan intilliggande stapel‑ eller kolumnkluster, som en procentandel av stapel‑ eller kolumnbredden. |
-| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Totalt diagramdjup, som en procentandel av diagrammens bredd. |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | Avstånd mellan serier längs djupaxeln, som en procent av markörens bredd. |
+| [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) | Avstånd mellan intilliggande stapel‑ eller kolumnkluster, som en procent av stapel‑ eller kolumnbredden. |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | Totalt diagramdjup, som en procent av diagrambredden. |
 
-Följande fristående exempel använder standarddiagramdata som innehåller tre serier och fyra kategorier. Det sparar två presentationer med identiska data, rotation, gapbredd och diagramdjup; endast gapdjupet ändras.
+Följande självständiga exempel använder standarddiagramdata, som innehåller tre serier och fyra kategorier. Det sparar två presentationer med identiska data, rotation, gap‑bredd och diagramdjup; endast gap‑djupet varierar.
 
 ```python
 import aspose.slides as slides
@@ -145,13 +190,13 @@ with slides.Presentation() as presentation:
 
 Följande bilder exporterades från de genererade presentationerna med Microsoft PowerPoint.
 
-| Gappdjup: 0% | Gappdjup: 500% |
+| Gap djup: 0 % | Gap djup: 500 % |
 | --- | --- |
-| ![3D-kolumndiagram utan gap mellan serier längs djupaxeln](gap_depth_0.png) | ![3D-kolumndiagram med ett 500 procent gap mellan serier längs djupaxeln](gap_depth_500.png) |
+| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
 ## **Ändra 3D-serietyp och stapelform**
 
-I ett grupperat cylinder‑diagram börjar den första serien med cylindriska staplar. Exemplet läser [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) och [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) före och efter varje förändring.
+I ett grupperat cylinder‑diagram börjar den första serien med cylindriska staplar. Exemplet läser [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) och [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) före och efter varje ändring.
 
 ```python
 import aspose.slides as slides
@@ -174,26 +219,26 @@ with slides.Presentation() as presentation:
     presentation.save("series_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-| Ändring på den första serien | `type` | `bar_3d_shape` |
+| Ändring för första serien | `type` | `bar_3d_shape` |
 | --- | --- | --- |
 | Skapa diagrammet | `CLUSTERED_CYLINDER` | `CYLINDER` |
-| Ställ in `type` till `CLUSTERED_CONE` | `CLUSTERED_CONE` | `CONE` |
-| Ställ in `bar_3d_shape` till `BOX` | `CLUSTERED_COLUMN_3D` | `BOX` |
+| Sätt `type` till `CLUSTERED_CONE` | `CLUSTERED_CONE` | `CONE` |
+| Sätt `bar_3d_shape` till `BOX` | `CLUSTERED_COLUMN_3D` | `BOX` |
 
-Att sätta formen till `BOX` ändrar också serietypen till `CLUSTERED_COLUMN_3D`. Om din kod har villkor baserade på serietyp, läs `series.type` efter att formen har ändrats. Ett värde som cachets före tilldelningen skulle fortfarande välja `CLUSTERED_CONE`‑grenen.
+Att ställa in formen till `BOX` ändrar också serietypen till `CLUSTERED_COLUMN_3D`. Om din kod gör grenval baserat på serietypen, läs `series.type` efter att formen har ändrats. Ett värde som cachats före tilldelningen skulle fortfarande välja grenen `CLUSTERED_CONE`.
 
-![PowerPoint-jämförelse som visar den första serien som cylindrar, koner och rektangulära kolumner från vänster till höger](series-shapes.png)
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vilka diagramtyper stödjer 3D-läge i Aspose.Slides?**
+**Vilka diagramtyper stödjer 3D‑läge i Aspose.Slides?**
 
-Aspose.Slides stödjer 3D‑varianter av stapeldiagram, inklusive Column 3D, Clustered Column 3D, Stacked Column 3D och 100 % Stacked Column 3D, samt relaterade 3D‑typer som exponeras genom uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). För en exakt, uppdaterad lista, kontrollera medlemmarna i [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) i API‑referensen för den installerade versionen.
+Aspose.Slides stödjer 3D‑varianter av stapeldiagram, inklusive Column 3D, Clustered Column 3D, Stacked Column 3D och 100 % Stacked Column 3D, samt relaterade 3D‑typer som exponeras via uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/). För en exakt och uppdaterad lista, kontrollera medlemmarna i [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) i API‑referensen för din installerade version.
 
-**Kan jag få en rasterbild av ett 3D-diagram för en rapport eller webb?**
+**Kan jag få en rasterbild av ett 3D‑diagram för en rapport eller webben?**
 
-Ja. Du kan exportera ett diagram till en bild med [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) eller [rendera hela bilden](/slides/sv/python-net/convert-powerpoint-to-png/) till format som PNG eller JPEG. Detta är användbart när du behöver en rasterförhandsgranskning eller vill bädda in diagrammet i dokument, instrumentpaneler eller webbplatser utan att kräva PowerPoint.
+Ja. Du kan exportera ett diagram till en bild med [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) eller [rendera hela bilden](/slides/sv/python-net/convert-powerpoint-to-png/) till format som PNG eller JPEG. Detta är praktiskt när du behöver en raster‑förhandsgranskning eller vill bädda in diagrammet i dokument, instrumentpaneler eller webbsidor utan att kräva PowerPoint.
 
-**Hur presterar byggning och rendering av stora 3D-diagram?**
+**Hur presterar byggande och rendering av stora 3D‑diagram?**
 
-Prestandan beror på datavolym och visuell komplexitet. För bästa resultat, håll 3D‑effekter minimala, undvik tunga texturer på väggar och plotområden, begränsa antalet datapunkter per serie när det är möjligt, och rendera till en lämplig storlek på utdata (upplösning och dimensioner) för att matcha målskärmen eller utskriftsbehoven.
+Prestanda beror på datamängd och visuell komplexitet. För bästa resultat, håll 3D‑effekterna minimala, undvik tunga texturer på väggar och plotområden, begränsa antalet datapunkter per serie när det är möjligt, och rendera till en lämplig upplösning och dimension som matchar måldisplayen eller utskriftsbehovet.

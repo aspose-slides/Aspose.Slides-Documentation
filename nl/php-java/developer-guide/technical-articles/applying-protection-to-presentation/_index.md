@@ -10,46 +10,46 @@ keywords:
 - vorm vergrendelen
 - positie vergrendelen
 - selectie vergrendelen
-- formaat vergrendelen
+- grootte wijzigen vergrendelen
 - groeperen vergrendelen
 - PowerPoint
 - PPTX
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u vormen in PPTX‑presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides for PHP via Java om selectie, verplaatsing, formaat en groepering te beperken."
+description: "Leer hoe u vormen in PPTX‑presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides voor PHP via Java om selectie, verplaatsing, groottewijziging en groeperen te beperken."
 ---
 ## **Overzicht**
 
-Een veelvoorkomend gebruik van Aspose.Slides for PHP via Java is het maken, bijwerken en opslaan van PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay‑out en inhoud te behouden.
+Een veelvoorkomend gebruik van Aspose.Slides voor PHP via Java is het maken, bijwerken en opslaan van PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay‑out en inhoud te behouden.
 
-Dit artikel legt uit hoe vormen op dia's zijn georganiseerd en hoe vormvergrendelingen toe te passen en te verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken.
+Dit artikel legt uit hoe vormen zijn georganiseerd op dia's en hoe je vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen je in staat specifieke bewerkingsacties op individuele vormen te beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingskaders, video‑kaders, verbindingslijnen en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for PHP via Java wordt elk element op een dia gerepresenteerd door een object dat erft van de klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
+Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingsframes, videoframes, connectoren en andere elementen die worden gebruikt om een presentatie te bouwen. In Aspose.Slides voor PHP via Java wordt elk element op een dia weergegeven door een object dat erft van de [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑klasse.
 
-Verschillende vormtypen bieden verschillende vergrendelingsopties. De klasse [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) is de basisklasse voor vormvergrendelingen. Aspose.Slides for PHP via Java biedt de volgende vergrendelingsklassen:
+Verschillende vormtypes bieden verschillende vergrendelingsopties. De [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/)‑klasse is de basisklasse voor vormvergrendelingen. Aspose.Slides voor PHP via Java biedt de volgende vergrendelingsklassen:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) vergrendelt autovormen.  
-- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) vergrendelt verbindingsvormen.  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) vergrendelt connectorvormen.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) vergrendelt grafische objecten.  
 - [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) vergrendelt gegroepeerde vormen.  
-- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) vergrendelt afbeeldingskaders.  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) vergrendelt afbeeldingsframes.  
 
-Om vergrendelingen toe te passen over een [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), doorloop je de dia's en stel je de juiste vergrendelingen in op elke ondersteunde vorm.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), doorloop je de dia's en stel je de juiste vergrendelingen in op elke ondersteunde vorm.
 
-## **Vergrendeling toepassen en verwijderen**
+## **Toepassen en verwijderen van bescherming**
 
-Compatibele presentatietools gebruiken vormvergrendelingen om individuele bewerkingsbewerkingen te beperken. Bestandscodering en schrijfbescherming op documentniveau zijn afzonderlijke [presentatiebeschermingsinstellingen](/slides/nl/php-java/password-protected-presentation/) .
+Compatibele presentatieredacteurs gebruiken vormvergrendelingen om individuele bewerkingsacties te beperken. Bestandsversleuteling en schrijfbescherming op documentniveau zijn afzonderlijke [presentatiebeschermingsinstellingen](/slides/nl/php-java/password-protected-presentation/).
 
 ### **Bescherming toepassen op PPTX‑vormen**
 
-Aspose.Slides for PHP via Java biedt de klasse [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) om te werken met vormen op een dia.
+Aspose.Slides voor PHP via Java biedt de [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)‑klasse om te werken met vormen op een dia.
 
-Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) en [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) aan met `true` voor autovormen, met overeenkomstige vergrendelingen voor gegroepeerde vormen, verbindingslijnen en afbeeldingskaders. Verbindingslijnen gebruiken [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) voor verplaatsing; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) om groeperen te beperken.
+Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) en [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) aan met `true` voor autovormen, met equivalente vergrendelingen voor gegroepeerde vormen, connectoren en afbeeldingsframes. Connectoren gebruiken [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) voor verplaatsing; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) om groeperen te beperken.
 
-Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier verwerkte typen blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia, en slaat een kopie op met deze toegepaste beperkingen. Vormen buiten de vier behandelde typen blijven ongewijzigd. De lus doorloopt de onderliggende vormen binnen een groep niet.
 
 ```php
 use aspose\slides\Presentation;
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-### **Vergrendeling verwijderen**
+### **Bescherming verwijderen**
 
-Om een vormvergrendeling te verwijderen, stel je de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de selectie‑, verplaatsings‑ en formaatbeperkingen via [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) en [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
+Om een vormvergrendeling te verwijderen, stel je de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en verwijdert de selectie‑, verplaatsings‑ en formaatbeperkingen via [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) en [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```php
 use aspose\slides\Presentation;
@@ -133,9 +133,9 @@ try {
 }
 ```
 
-### **Een afbeelding bijsnijden behouden**
+### **Bijsnijden van afbeelding behouden**
 
-Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12 % van de linkerkant en 8 % van de rechterkant bij, en roept daarna [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) aan op de vergrendeling van het afbeeldingskader. Het doorgeven van `true` beperkt verder bijsnijden en behoudt de bestaande bijsnijding.
+Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12 % van links en 8 % van rechts bij, en roept vervolgens [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) aan op de vergrendeling van het afbeeldingsframe. Het doorgeven van `true` beperkt verder bijsnijden en behoudt de bestaande bijsnijding.
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` slaat de bijsnijdvergrendeling op als `true`. In PowerPoint is de **Crop**‑opdracht uitgeschakeld wanneer de foto is geselecteerd.
+`PictureLocked.pptx` slaat de bijsnijdingsvergrendeling op als `true`. In PowerPoint is het **Crop**‑commando uitgeschakeld wanneer de foto is geselecteerd.
 
 ### **Diagram gegroepeerd houden**
 
-Het voorbeeld groepeert een rechthoek en een pijl, en roept daarna [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) aan op de vergrendeling van de groep om de componenten van het diagram bij elkaar te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de vulling van een component, blijven beschikbaar.
+Het voorbeeld groepeert een rechthoek en een pijl, en roept vervolgens [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) aan op de vergrendeling van de groep om de componenten van het diagram bij elkaar te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de vulling van een component, blijven beschikbaar.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` slaat de ungroup‑vergrendeling op als `true`. In PowerPoint is de **Ungroup**‑opdracht uitgeschakeld wanneer het volledige diagram is geselecteerd.
+`DiagramLocked.pptx` slaat de de‑groeperingsvergrendeling op als `true`. In PowerPoint is het **Ungroup**‑commando uitgeschakeld wanneer het volledige diagram is geselecteerd.
+
+### **Bestaande vormvergrendelingen rapporteren**
+
+Om een sjabloon te beoordelen, open je het en lees je het vergrendelingsobject voor elke vorm. De [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks)‑methode retourneert `true` wanneer alle vlaggen op dat object zijn uitgeschakeld en `false` wanneer er minstens één is ingeschakeld. Een groep en zijn onderliggende vormen hebben afzonderlijke vergrendelingsobjecten, dus inspecteer de onderliggende vormen zelfs wanneer de groep geen vergrendelingen heeft.
+
+Dit voorbeeld controleert de verplaatsing voor autovormen, afbeeldingsframes en groepen. Het controleert ook bijsnijden voor afbeeldingen en de‑groeperen voor groepen. Het rapport geeft de ingeschakelde vlaggen die het herkent weer en markeert vormtypen die niet worden geïnspecteerd.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Stel dat dia 1 van `Sample.pptx` een groep bevat met de naam `Layout` waarvan de de‑groepering vergrendeld is, een afbeelding met de naam `Photo` erin met bijsnijden vergrendeld, en een niet‑vergrendelde rechthoek met de naam `Free`. Het rapport slaat `Free` over en drukt deze twee regels af:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Het rapport leest de opgeslagen bewerkingsvlaggen op vormniveau zonder ze te wijzigen of de presentatie op te slaan. Schrijfbescherming op documentniveau is een afzonderlijke instelling, en de handhaving van elke vlag hangt af van de editor.
 
 ### **Conclusie**
 
-Aspose.Slides for PHP via Java stelt u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen over dia's toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund, en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
+Aspose.Slides voor PHP via Java stelt je in staat specifieke bewerkingsacties op individuele vormen te beperken of dezelfde beperkingen toe te passen op meerdere dia's. Kies de vergrendelingen die worden ondersteund door elk vormtype, en stel hun waarden in op `false` wanneer je die beperkingen wilt verwijderen.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Kan ik vormvergrendelingen en wachtwoordbeveiliging combineren in dezelfde presentatie?**
 
-Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [wachtwoordbeveiliging](/slides/nl/php-java/password-protected-presentation/) opening of wijziging van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
+Ja. Vormvergrendelingen beperken specifieke bewerkingsacties, terwijl [wachtwoordbeveiliging](/slides/nl/php-java/password-protected-presentation/) het openen of wijzigen van de presentatie kan beperken. Je kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik bewerking beperken op specifieke dia's zonder andere te beïnvloeden?**
+**Kan ik bewerken beperken op specifieke dia's zonder andere te beïnvloeden?**
 
-Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Dit verandert de vergrendelingsinstellingen op andere dia's niet.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Hierdoor worden de vergrendelingsinstellingen op andere dia's niet gewijzigd.
 
 **Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Loop door de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor eventuele geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormverzameling van de dia, dus ze stellen geen vergrendelingen in op individuele groepsleden.
+Doorloop de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor geneste groepen, volgens de doorloop in het rapportage‑voorbeeld.

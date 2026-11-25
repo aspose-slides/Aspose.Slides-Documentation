@@ -1,11 +1,11 @@
 ---
-title: Prezentáció szerkesztésének korlátozása alakzatzárlakkal Node.js-ben
-linktitle: Prezentáció szerkesztésének korlátozása
+title: Prezentációs szerkesztések korlátozása alakzatzárolásokkal Node.js-ben
+linktitle: Prezentációs szerkesztések korlátozása
 type: docs
 weight: 60
 url: /hu/nodejs-java/applying-protection-to-presentation/
 keywords:
-- szerkesztés megakadályozása
+- szerkesztések megakadályozása
 - védés a szerkesztéstől
 - alakzat zárolása
 - pozíció zárolása
@@ -18,39 +18,39 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet zárolni és feloldani alakzatokat PPTX prezentációkban az Aspose.Slides for Node.js via Java segítségével, hogy korlátozza a kiválasztást, mozgást, átméretezést és a csoportosítást."
+description: "Ismerje meg, hogyan lehet zárolni és feloldani az alakzatokat PPTX prezentációkban az Aspose.Slides for Node.js via Java segítségével, hogy korlátozza a kiválasztást, mozgatást, átméretezést és a csoportosítást."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via Java gyakori felhasználása, hogy PowerPoint (PPTX) prezentációkat hozzunk létre, frissítsünk és mentsünk egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni a szándékolt elrendezést és tartalmat.
+Az Aspose.Slides for Node.js via Java gyakori felhasználása PowerPoint (PPTX) prezentációk létrehozása, frissítése és mentése egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni a kívánt elrendezést és tartalmat.
 
-Ez a cikk elmagyarázza, hogyan szerveződnek az alakzatok a diákon, és hogyan lehet alkalmazni és eltávolítani az alakzatzárakat egy PPTX prezentációban. Ezek a zárak lehetővé teszik, hogy egyes alakzatokra vonatkozó szerkesztési műveleteket korlátozzunk.
+Ez a cikk ismerteti, hogy az alakzatok hogyan vannak elrendezve a diákon, és hogyan lehet alkalmazni és eltávolítani az alakzatzárolásokat egy PPTX prezentációban. Ezek a zárolások lehetővé teszik, hogy egyedi alakzatoknál meghatározott szerkesztési műveleteket korlátozzunk.
 
-## **Dia összetétele**
+## **Dia felépítése**
 
-Egy prezentációs dia olyan összetevőkből áll, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított alakzatok, képkockák, videokockák, csatlakozók és egyéb elemek, amelyek a prezentáció építésére szolgálnak. Az Aspose.Slides for Node.js via Java-ban a dia minden eleme egy olyan objektum által van reprezentálva, amely a [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) osztályból származik.
+Egy prezentáció dia alkotóelemei közé tartoznak az autóalakzatok, táblázatok, OLE objektumok, csoportosított alakzatok, képkeretek, videókeretek, csatlakozók és egyéb elemek, amelyeket a prezentáció felépítéséhez használnak. Az Aspose.Slides for Node.js via Java‑ban a dia minden eleme egy olyan objektummal van reprezentálva, amely a [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) osztályból származik.
 
-A különböző alakzattípusok különböző zárolási lehetőségeket kínálnak. A [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) osztály az alakzatzárak alaposztálya. Az Aspose.Slides for Node.js via Java a következő zárolási osztályokat biztosítja:
+A különböző alakzat típusok eltérő zárolási lehetőségeket biztosítanak. A [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) osztály az alakzatzárolások alaposztálya. Az Aspose.Slides for Node.js via Java a következő zárolási osztályokat kínálja:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) zárolja az automatikus alakzatokat.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) zárolja a csatlakozó alakzatokat.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) zárolja a grafikus objektumokat.  
-- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) zárolja a csoportos alakzatokat.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) zárolja a képkockákat.  
+- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) locks autoshapes.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) locks connector shapes.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) locks graphical objects.  
+- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) locks group shapes.  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) locks picture frames.  
 
-A zárak alkalmazásához egy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) során iteráljon a diáknál, és állítsa be a megfelelő zárakat minden támogatott alakzatra.
+A [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) egészére vonatkozó zárolások alkalmazásához iteráljon a diákon, és állítsa be a megfelelő zárolásokat minden támogatott alakzatra.
 
-## **Zárolás alkalmazása és eltávolítása**
+## **Védelem alkalmazása és eltávolítása**
 
-A kompatibilis prezentációs szerkesztők alakzatzárakat használnak az egyedi szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írásvédelmet külön [prezentációvédelmi beállítások](/slides/hu/nodejs-java/password-protected-presentation/) tartalmazza.
+A kompatibilis prezentációs szerkesztők alakzatzárolásokat használnak az egyedi szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írásvédelmi beállítások különálló [prezentációvédelmi beállítások](/slides/hu/nodejs-java/password-protected-presentation/) beállítások.
 
-### **Alkalmazás védelem PPTX alakzatokra**
+### **Védelem alkalmazása PPTX alakzatokra**
 
-Az Aspose.Slides for Node.js via Java biztosítja a [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) osztályt az alakzatokkal való munkához egy dián.
+Az Aspose.Slides for Node.js via Java a [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) osztályt biztosítja a dián lévő alakzatokkal való munkához.
 
-A példa a [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), a [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) és a [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) metódusokat hívja `true` értékkel az automatikus alakzatok esetén, valamint az ekvivalens zárakat a csoportos alakzatok, csatlakozók és képkockák esetén. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) metódust használják a mozgatáshoz; a csoportok a [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) metódust is használják a csoportosítás korlátozásához.
+A példa meghívja a [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) és [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) metódusokat `true` értékkel az autóalakzatokhoz, illetve megfelelő zárolásokat a csoportos alakzatokhoz, csatlakozókhoz és képkeretekhez. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) metódust használják a mozgatáshoz; a csoportok pedig a [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) metódust a csoportosítás korlátozásához.
 
-A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az alakzatokat minden dia alakzatgyűjteményében, és egy másolatot ment el ezekkel a korlátozásokkal. A négy kezelt típuson kívüli alakzatok változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekalakzatokat.
+A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az egyes diák alakzatgyűjteményét, és egy másolatot ment az alkalmazott korlátozásokkal. A négy kezelt típuson kívüli alakzatok változatlanul maradnak. A ciklus nem járja be egy csoporton belüli gyermek alakzatokat.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,7 +95,7 @@ try {
 
 ### **Védelem eltávolítása**
 
-Az alakzatzár eltávolításához állítsa az értékét `false`-ra. A következő példa betölt egy prezentációt alakzatzárral, és törli a kiválasztási, mozgási és átméretezési korlátozásokat a [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), a [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), a [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) és a [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) segítségével. A csoportosítási korlátozást is eltávolítja, ha `false`-t ad a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) metódusnak, majd egy másolatot ment a prezentációról. A többi zárolási beállítás változatlan marad.
+Az alakzatzárolás eltávolításához állítsa az értékét `false`‑ra. A következő példa betölt egy prezentációt alakzatzárolásokkal, és törli a kiválasztási, mozgási és átméretezési korlátozásokat az [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) és [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) segítségével. Emellett a csoportosítási korlátozást is eltávolítja a `false` átadásával a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) metódushoz, és ment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,7 +140,7 @@ try {
 
 ### **Képvágás megőrzése**
 
-Tegyen egy `photo.jpg` nevű fényképet a munkakönyvtárba. A példa 12%-ot vág le balról és 8%-ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) metódust a képkocka zárolásán. A `true` érték átadása további vágást korlátoz, és megőrzi a már meglévő vágást.
+Helyezzen egy `photo.jpg` nevű fotót a munkakönyvtárba. A példa 12 %-ot vág le balról és 8 %-ot jobb oldalról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) metódust a képkeret zárolásán. A `true` átadása további vágást korlátoz és megőrzi a meglévő vágást.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -172,11 +172,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` a vágászárat `true` értékként tárolja. PowerPointban a **Crop** parancs le van tiltva, ha a fénykép ki van jelölve.
+`PictureLocked.pptx` a vágás zárolást `true`‑ként tárolja. PowerPointban a **Crop** (Vágás) parancs le van tiltva, ha a fotó ki van választva.
 
 ### **Diagram csoportosítva tartása**
 
-A példa egy téglalapot és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) metódust a csoport zárolásán, hogy a diagram elemei együtt maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása továbbra is elérhetők.
+A példa egy téglalapot és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) metódust a csoport zárolásán, hogy a diagram elemei együtt maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének változtatása, továbbra elérhetők.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,22 +196,88 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` a csoportbontás zárolását `true` értékként tárolja. PowerPointban a **Ungroup** parancs le van tiltva, ha a teljes diagram ki van jelölve.
+`DiagramLocked.pptx` az ungrouping (csoport bontása) zárolást `true`‑ként tárolja. PowerPointban a **Ungroup** (Csoport bontása) parancs le van tiltva, ha az egész diagram ki van választva.
+
+### **Létező alakzatzárolások jelentése**
+
+Egy sablon áttekintéséhez nyissa meg, és olvassa ki az egyes alakzatok zárolási objektumát. A [getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks) metódus `true`‑t ad vissza, ha az objektum összes jelzője le van tiltva, és `false`‑t, ha legalább egy engedélyezve van. Egy csoport és annak gyermekei külön zárolási objektumokkal rendelkeznek, ezért ellenőrizze a gyermekeket akkor is, ha a csoportnak nincs zárolása.
+
+Ez a példa ellenőrzi a mozgást autóalakzatoknál, képkereteknél és csoportoknál. Ezen felül a képek vágását és a csoportok csoport bontását is vizsgálja. A jelentés felsorolja az észlelt engedélyezett jelzőket és megjelöli azokat az alakzattípusokat, amelyeket nem vizsgál.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tegyük fel, hogy a `Sample.pptx` első diáján egy `Layout` nevű csoport van, amelynek a csoport bontása zárolva van, egy benne lévő `Photo` nevű kép, amelynek a vágása zárolva van, és egy `Free` nevű, zárolás nélküli téglalap. A jelentés kihagyja a `Free` elemet, és ezt a két sort írja ki:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+A jelentés a tárolt alakzatszintű szerkesztési jelzőket olvassa anélkül, hogy módosítaná őket vagy mentené a prezentációt. A dokumentumszintű írásvédelmet külön beállításként kell kezelni, és a jelzők érvényesítését az adott szerkesztő határozza meg.
 
 ### **Összegzés**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy egyes alakzatokra vonatkozó specifikus szerkesztési műveleteket korlátozzon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon át. Válassza ki az adott alakzattípus által támogatott zárakat, és állítsa az értéküket `false`-ra, ha el szeretné távolítani ezeket a korlátozásokat.
+Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy egyedi alakzatoknál meghatározott szerkesztési műveleteket korlátozzon, vagy ugyanazokat a korlátozásokat az összes dián alkalmazza. Válassza ki az egyes alakzattípusok által támogatott zárolásokat, és állítsa értéküket `false`‑ra, ha el szeretné távolítani ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Kombinálhatok alakzatzárakat és jelszóvédelmet ugyanabban a prezentációban?**
+**Kombinálhatok alakzatzárolásokat és jelszóvédelmet ugyanabban a prezentációban?**
 
-Igen. Az alakzatzárak a specifikus szerkesztési műveleteket korlátozzák, míg a [jelszóvédelem](/slides/hu/nodejs-java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
+Igen. Az alakzatzárolások meghatározott szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/nodejs-java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
 
-**Korlátozhatom a szerkesztést adott diákon anélkül, hogy a többit befolyásolnám?**
+**Korlátozhatom a szerkesztést bizonyos diákon anélkül, hogy másokat befolyásolnék?**
 
-Igen. Csak a kiválasztott diák alakzataira alkalmazzon zárakat. Ez nem változtatja meg a többi dia zárbeállításait.
+Igen. Csak a kijelölt diák alakzataira alkalmazzon zárolásokat. Ez nem változtatja meg a többi dia zárolási beállításait.
 
-**Hogyan alkalmazhatok zárakat egyes alakzatokra egy csoporton belül?**
+**Hogyan alkalmazhatok zárolásokat egy csoporton belüli egyedi alakzatokra?**
 
-Iteráljon a csoport által visszaadott [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) metódus gyűjteményén, és alkalmazza a megfelelő zárakat minden gyermekalakzatra. Ismételje meg ezt minden beágyazott csoportra. A fenti példák csak a dia alakzatgyűjteményét dolgozzák fel, ezért nem állítanak be zárakat az egyes csoporttagokra.
+Iteráljon a csoport által visszaadott gyűjteményen a [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) metódus segítségével, és alkalmazza a megfelelő zárolásokat minden gyermek alakzatra. Ismételje meg ezt a beágyazott csoportok esetén, a jelentéspéldában bemutatott bejárást követve.

@@ -1,27 +1,27 @@
 ---
-title: Pas 3D-diagrammen aan in presentaties met Java
-linktitle: 3D-diagram
+title: Aanpassen van 3D-grafieken in presentaties met Java
+linktitle: 3D-grafiek
 type: docs
 url: /nl/java/3d-chart/
 keywords:
-- 3D-diagram
+- 3D-grafiek
 - rotatie
 - diepte
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Maak 3D-diagrammen in PowerPoint-presentaties met Aspose.Slides voor Java. Pas rotatie, hoogteverhoudingen, diagramdiepte en de tussenruimte tussen series aan met Java-voorbeelden."
+description: "Maak 3D-grafieken in PowerPoint-presentaties met Aspose.Slides voor Java. Pas rotatie, hoogteverhoudingen, grafiekdiepte en afstand tussen series aan met Java-voorbeelden."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Java stelt je in staat om de weergave van een 3D-diagram aan te passen via de [IChart.getRotation3D](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getRotation3D--) methode. Dit artikel laat zien hoe je rotatie, hoogteverhoudingen, diepte, assen onder een rechte hoek en de tussenruimte tussen series kunt aanpassen, en vervolgens de presentatie opslaat in PPTX-formaat.
+Aspose.Slides for Java laat u de weergave van een 3D-grafiek aanpassen via de [IChart.getRotation3D](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getRotation3D--) methode. Dit artikel toont hoe u rotatie, hoogtegraden, diepte, rechthoeken assen en afstand tussen series kunt aanpassen, en vervolgens de presentatie opslaat in PPTX-formaat.
 
-## **Stel de rotatie en diepte van een 3D-diagram in**
+## **Stel de rotatie en diepte van een 3D-grafiek in**
 
-Het voorbeeld hieronder maakt een [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) aan en gebruikt [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een gestapeld 3D-kolomdiagram toe te voegen aan de eerste dia. Het vervangt de standaard series en categorieën door twee series met elk drie waarden. Werkblad‑index `0` identificeert het eerste gegevens‑werkblad van het diagram; rij `0` bevat de namen van de series en kolom `0` bevat de categorielabels.
+Het onderstaande voorbeeld maakt een [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) aan en gebruikt [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) om een gestapelde 3D-kolomgrafiek aan de eerste dia toe te voegen. Het vervangt de standaard series en categorieën door twee series met elk drie waarden. Werkblad-index `0` identificeert het eerste gegevens-werkblad van de grafiek; rij `0` bevat de serienaam, en kolom `0` bevat de categorielabels.
 
-De [setRotationX](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationX-byte-) en [setRotationY](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationY-int-) methoden stellen de rotatie van het diagram in op respectievelijk 40 en 270 graden. [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) stelt de diepte in op 150 % van de breedte, terwijl [setRightAngleAxes](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRightAngleAxes-boolean-) rechte‑hoeken‑assen inschakelt in plaats van perspectief. De resulterende presentatie bevat het gevulde diagram met deze 3D‑weergave‑instellingen.
+De methoden [setRotationX](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationX-byte-) en [setRotationY](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationY-int-) stellen de rotatie van de grafiek in op respectievelijk 40 en 270 graden. [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) zet de diepte op 150% van de breedte, terwijl [setRightAngleAxes](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRightAngleAxes-boolean-) rechthoeken assen inschakelt in plaats van perspectief. De resulterende presentatie bevat de gevulde grafiek met deze 3D-weergave-instellingen.
 
 ```java
 import com.aspose.slides.*;
@@ -66,11 +66,62 @@ try {
 }
 ```
 
-## **Pas de hoogteverhoudingen van een 3D-diagram aan**
+## **Pas een afbeelding-vulling toe op een 3D-grafiekoppervlak**
 
-Gebruik [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) om de hoogte van een 3D-diagram in te stellen als percentage van de breedte. Dit verandert de verhoudingen van de 3D‑scene zonder de grootte van het diagramobject op de dia te wijzigen.
+Een 3D-grafiek heeft drie oppervlakken die u onafhankelijk kunt vullen: de [side wall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getSideWall--), [back wall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) en de [floor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--). Stel het [fill type](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) van het oppervlak in op `Picture` en wijs een afbeelding toe. Stel zowel de [picture fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) als het [picture type](https://reference.aspose.com/slides/java/com.aspose.slides/ichartwall/#setPictureType-int-) van het oppervlak in op `Stretch` om één exemplaar van de afbeelding over het oppervlak te laten passen.
 
-Het volgende voorbeeld maakt een [Column3D](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) diagram met de standaardgegevens: drie series en vier categorieën. Het slaat drie presentaties op met hoogteverhoudingen van 50 %, 100 % en 200 %. De positie, breedte en hoogte van het diagram blijven vast. De gegevens, rotatie, diepte, serietussenruimte en opmaak zijn identiek in alle drie de bestanden; alleen het hoogteppercentage wijzigt.
+Sla [arrow.png](arrow.png) op in de werkmap. Het voorbeeld roteert de grafiek en verhoogt de maximale waarde op de verticale as zodat de vloer tussen de kolommen zichtbaar is. Daarna klont het de dia tweemaal en past de pijl toe op een ander oppervlak op elke dia. Alle drie de grafieken behouden dezelfde gegevens, kijkhoek en achtergrond.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 20, 30, 680, 480);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX((byte) 40);
+    chart.getRotation3D().setRotationY(30);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(24);
+
+    ISlide backSlide = presentation.getSlides().addClone(slide);
+    ISlide floorSlide = presentation.getSlides().addClone(slide);
+    IChart backChart = (IChart) backSlide.getShapes().get_Item(0);
+    IChart floorChart = (IChart) floorSlide.getShapes().get_Item(0);
+
+    byte[] imageBytes = Files.readAllBytes(Paths.get("arrow.png"));
+    IPPImage arrow = presentation.getImages().addImage(imageBytes);
+
+    IChartWall[] surfaces = { chart.getSideWall(), backChart.getBackWall(), floorChart.getFloor() };
+    for (IChartWall surface : surfaces) {
+        IFillFormat fill = surface.getFormat().getFill();
+        fill.setFillType(FillType.Picture);
+        fill.getPictureFillFormat().getPicture().setImage(arrow);
+        fill.getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+        surface.setPictureType(PictureType.Stretch);
+    }
+
+    presentation.save("chart-surfaces.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Microsoft PowerPoint toont de drie dia’s als volgt.
+
+| Zijwand | Achterwand | Vloer |
+| --- | --- | --- |
+| ![Pijl die naar het diagram wijst langs de zijwand](side-wall.png) | ![Pijl die naar rechts wijst over de achterwand](back-wall.png) | ![Pijl die naar rechts wijst over de vloer tussen de kolommen](floor.png) |
+
+## **Pas de hoogtegraden van een 3D-grafiek aan**
+
+Gebruik [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) om de hoogte van een 3D-grafiek in te stellen als percentage van de breedte. Hiermee verandert u de verhoudingen van de 3D-scene zonder het grafiekobject op de dia te wijzigen.
+
+Het volgende voorbeeld maakt een [Column3D](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) grafiek met de standaardgegevens: drie series en vier categorieën. Het slaat drie presentaties op met hoogtegraden van 50%, 100% en 200%. De positie, breedte en hoogte van de grafiek blijven gelijk. De gegevens, rotatie, diepte, series-afstand en opmaak zijn identiek in alle drie de bestanden; alleen het hoogte-percentage wijzigt.
 
 ```java
 import com.aspose.slides.*;
@@ -95,38 +146,40 @@ try {
 }
 ```
 
-De volgende afbeeldingen illustreren dezelfde hoogte‑instellingen in het equivalente .NET‑voorbeeld en zijn geëxporteerd met Microsoft PowerPoint. Een kleiner percentage levert een plattere scene op, terwijl een groter percentage een hogere scene binnen hetzelfde diagramobject oplevert. PowerPoint kan tevens de as‑tick‑intervallen en labelplaatsing aanpassen om de scene passend te maken.
+De volgende afbeeldingen illustreren dezelfde hoogte-instellingen in het equivalente .NET-voorbeeld en zijn geëxporteerd met Microsoft PowerPoint. Een kleiner percentage levert een plattere scene op, een groter percentage een hogere scene binnen hetzelfde grafiekobject. PowerPoint kan ook de as-tikintervallen en labelplaatsing aanpassen om de scene te laten passen.
 
 | Hoogte: 50% | Hoogte: 100% | Hoogte: 200% |
 | --- | --- | --- |
-| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+| ![3D-kolomgrafiek met hoogte ingesteld op 50% van de breedte](height_percent_50.png) | ![3D-kolomgrafiek met hoogte ingesteld op 100% van de breedte](height_percent_100.png) | ![3D-kolomgrafiek met hoogte ingesteld op 200% van de breedte](height_percent_200.png) |
 
-Deze methoden beheersen verschillende aspecten van het diagram:
-
-| Methode | Effect |
-| --- | --- |
-| [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) | Hoogte van de 3D‑scene als percentage van de breedte. |
-| [IChart.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setHeight-float-) | Hoogte van het diagramobject op de dia, in punten. |
-| [IRotation3D.setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Diepte van de 3D‑scene als percentage van de breedte. |
-| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Tussenruimte tussen series langs de diepte‑as, als percentage van de markerbreedte. |
-
-De hoogte‑instelling beïnvloedt 3D‑kolom‑ en staafdiagrammen, inclusief cylinder‑, kegel‑ en piramidevarianten, evenals 3D‑lijn‑, gebieds‑, taart‑ en oppervlakdiagrammen. De bovenstaande vergelijking gebruikt het geverifieerde type `Column3D`. De instelling verandert niet het uiterlijk van een 2D `ClusteredColumn` diagram of een `BubbleWith3D` diagram; deze namen zijn leden van de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) klasse. Voor andere diagramopmaakinstellingen, zie [Diagramopmaak](/slides/nl/java/chart-formatting/).
-
-## **Pas de ruimte tussen series aan**
-
-Gebruik [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) om de afstand tussen dataseries langs de diepte‑as van een 3D-diagram te regelen, uitgedrukt als een percentage van de markerbreedte. Gebruik waarden van **0 tot 500**, inclusief: `0` verwijdert de opening, terwijl grotere waarden de tussenruimte vergroten. Met een vaste diagramdiepte maakt een grotere opening de markers dunner langs de diepte‑as.
-
-Toegang tot de groep krijg je via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--). De instelling geldt voor elke serie in die groep, niet alleen voor de serie die gebruikt wordt om er toegang toe te krijgen. [IChartSeries.getGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getGapDepth--) geeft de diepte‑opening terug en weerspiegelt de instelling van de bovenliggende groep.
-
-Deze instelling beïnvloedt 3D‑kolom‑ en staafdiagrammen, inclusief hun cylinder‑, kegel‑ en piramidevarianten, evenals 3D‑lijn‑ en gebiedsdiagrammen. Het uiterlijk hangt af van of de series in diepte, gegroepeerd of gestapeld zijn. Voor een duidelijk vergelijk van openingen tussen afzonderlijke series, gebruik `ChartType.Column3D` uit de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) klasse.
+Deze methoden sturen verschillende aspecten van de grafiek aan:
 
 | Methode | Effect |
 | --- | --- |
-| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Tussenruimte tussen series langs de diepte‑as, als percentage van de markerbreedte. |
-| [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) | Tussenruimte tussen aangrenzende staaf‑ of kolomclusters, als percentage van de staaf‑ of kolombreedte. |
-| [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Algemene diagramdiepte, als percentage van de diagrambreedte. |
+| [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) | Hoogte van de 3D-scene als percentage van de breedte. |
+| [IChart.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setHeight-float-) | Hoogte van het grafiekobject op de dia, in points. |
+| [IRotation3D.setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Diepte van de 3D-scene als percentage van de breedte. |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Afstand tussen series langs de diepte-as, als percentage van de marker-breedte. |
 
-Het volgende zelfstandige voorbeeld gebruikt de standaarddiagramgegevens, die drie series en vier categorieën bevatten. Het slaat twee presentaties op met identieke gegevens, rotatie, opening‑breedte en diagramdiepte; alleen de opening‑diepte wijzigt.
+De hoogte-instelling beïnvloedt 3D-kolom- en staafgrafieken, inclusief cilindrische, kegel- en piramidevarianten, evenals 3D-lijn-, gebieds-, taart- en oppervlakgrafieken. De bovenstaande vergelijking maakt gebruik van het gecontroleerde `Column3D`-type. De instelling verandert de weergave van een 2D-`ClusteredColumn`-grafiek of een `BubbleWith3D`-grafiek; deze namen zijn leden van de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑klasse. Voor andere grafiek-opmaakopties, zie [Chart Formatting](/slides/nl/java/chart-formatting/).
+
+## **Pas de afstand tussen series aan**
+
+Gebruik [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) om de afstand tussen dataseries langs de diepte-as van een 3D-grafiek te regelen, uitgedrukt als percentage van de marker-breedte. Gebruik waarden van **0 tot 500**, inclusief: `0` verwijdert de afstand, terwijl hogere waarden de ruimte vergroten. Bij een vaste grafiekdiepte maakt een grotere afstand de markers dunner langs de diepte-as.
+
+Benader de groep via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--). De instelling geldt voor elke serie in die groep, niet alleen voor de serie die u gebruikt om er toegang toe te krijgen. [IChartSeries.getGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getGapDepth--) retourneert de diepte-gap en weerspiegelt de instelling van de bovenliggende groep.
+
+Deze instelling beïnvloedt 3D-kolom- en staafgrafieken, inclusief hun cilindrische, kegel- en piramidevarianten, evenals 3D-lijn- en gebiedsgrafieken. Het uiterlijk hangt af of de series in diepte, gegroepeerd of gestapeld zijn. Voor een duidelijke vergelijking van gaten tussen afzonderlijke series, gebruik `ChartType.Column3D` uit de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑klasse.
+
+Deze methoden sturen verschillende aspecten van de grafiek aan:
+
+| Methode | Effect |
+| --- | --- |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Afstand tussen series langs de diepte-as, als percentage van de marker-breedte. |
+| [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) | Afstand tussen aangrenzende staaf- of kolomclusters, als percentage van de staaf- of kolombreedte. |
+| [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Totale grafiekdiepte, als percentage van de grafiekbreedte. |
+
+Het volgende zelfstandige voorbeeld gebruikt de standaardgrafiekgegevens, met drie series en vier categorieën. Het slaat twee presentaties op met identieke gegevens, rotatie, gat-breedte en grafiekdiepte; alleen de gat-diepte wijzigt.
 
 ```java
 import com.aspose.slides.*;
@@ -156,15 +209,15 @@ try {
 }
 ```
 
-De volgende afbeeldingen illustreren dezelfde opening‑diepte‑instellingen in het equivalente .NET‑voorbeeld en zijn geëxporteerd met Microsoft PowerPoint.
+De volgende afbeeldingen illustreren dezelfde gat-diepte-instellingen in het equivalente .NET-voorbeeld en zijn geëxporteerd met Microsoft PowerPoint.
 
-| Openingsdiepte: 0% | Openingsdiepte: 500% |
+| Gat-diepte: 0% | Gat-diepte: 500% |
 | --- | --- |
-| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
+| ![3D-kolomgrafiek zonder gat tussen series langs de diepte-as](gap_depth_0.png) | ![3D-kolomgrafiek met een gat van 500% tussen series langs de diepte-as](gap_depth_500.png) |
 
-## **Wijzig het 3D serietype en de staafvorm**
+## **Wijzig het 3D-serietype en de staafvorm**
 
-In een gegroepeerd cilinderschijf‑diagram begint de eerste serie met een cilindrische staafvorm. Het voorbeeld drukt de geheel‑getalwaarden af die worden geretourneerd door [IChartSeries.getType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getType--) en [IChartSeries.getBar3DShape](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getBar3DShape--) vóór en na elke wijziging. De tabel geeft de bijbehorende constante namen.
+In een gegroepeerde cilindergrafiek start de eerste serie met een cilindrische staafvorm. Het voorbeeld drukt de gehele waarden af die worden geretourneerd door [IChartSeries.getType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getType--) en [IChartSeries.getBar3DShape](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getBar3DShape--) vóór en na elke wijziging. De tabel geeft de overeenkomstige constante namen.
 
 ```java
 import com.aspose.slides.*;
@@ -192,24 +245,24 @@ try {
 
 | Wijziging van de eerste serie | Serietype | Staafvorm |
 | --- | --- | --- |
-| Maak het diagram | `ClusteredCylinder` | `Cylinder` |
+| Maak de grafiek | `ClusteredCylinder` | `Cylinder` |
 | Stel het serietype in op `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Stel de staafvorm in op `Box` | `ClusteredColumn3D` | `Box` |
 
-Het instellen van de vorm op `Box` verandert ook het serietype in `ClusteredColumn3D`. Als je code vertakt op basis van het serietype, roep dan `series.getType()` aan nadat je de vorm hebt gewijzigd. Een vóór de toewijzing gecachte waarde zou nog steeds de `ClusteredCone`‑tak selecteren.
+Het instellen van de vorm op `Box` wijzigt ook het serietype naar `ClusteredColumn3D`. Als uw code van het serietype afhankelijk is, roep dan `series.getType()` aan na het wijzigen van de vorm. Een waarde die vóór de toewijzing is gecached, zou nog steeds de `ClusteredCone`-tak selecteren.
 
 ![PowerPoint-vergelijking die de eerste serie toont als cilinders, kegels en rechthoekige kolommen van links naar rechts](series-shapes.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Welke diagramtypen ondersteunen 3D-modus in Aspose.Slides?**
+**Welke grafiektype's ondersteunen 3D-modus in Aspose.Slides?**
 
-Aspose.Slides ondersteunt 3D‑varianten van kolomdiagrammen, waaronder Column 3D, Clustered Column 3D, Stacked Column 3D en 100 % Stacked Column 3D, evenals gerelateerde 3D‑typen die beschikbaar worden gesteld via de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) klasse. Voor een exacte, actuele lijst, raadpleeg de leden van de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) in de API‑referentie van jouw geïnstalleerde versie.
+Aspose.Slides ondersteunt 3D-varianten van kolomgrafieken, waaronder Column 3D, Clustered Column 3D, Stacked Column 3D en 100% Stacked Column 3D, evenals gerelateerde 3D-typen die beschikbaar zijn via de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑klasse. Voor een exacte, up-to-date lijst, raadpleeg de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑leden in de API-referentie van uw geïnstalleerde versie.
 
-**Kan ik een rasterafbeelding van een 3D-diagram krijgen voor een rapport of het web?**
+**Kan ik een raster-afbeelding van een 3D-grafiek krijgen voor een rapport of het web?**
 
-Ja. Je kunt een diagram exporteren naar een afbeelding met [Shape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) of [render the entire slide](/slides/nl/java/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is handig wanneer je een raster‑preview nodig hebt of het diagram wilt insluiten in documenten, dashboards of webpagina’s zonder PowerPoint te vereisen.
+Ja. U kunt een grafiek exporteren naar een afbeelding met [Shape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) of [render de volledige dia](/slides/nl/java/convert-powerpoint-to-png/) naar formaten zoals PNG of JPEG. Dit is handig wanneer u een raster-preview nodig heeft of de grafiek wilt insluiten in documenten, dashboards of webpagina's zonder dat PowerPoint vereist is.
 
-**Hoe presteert het maken en renderen van grote 3D-diagrammen?**
+**Hoe presteert het bouwen en renderen van grote 3D-grafieken?**
 
-De prestaties hangen af van de gegevens‑omvang en de visuele complexiteit. Voor optimale resultaten, houd 3D‑effecten minimaal, vermijd zware texturen op wanden en plot‑gebieden, beperk het aantal gegevenspunten per serie waar mogelijk, en render naar een output met een passende resolutie en afmetingen voor het beoogde scherm of afdruk.
+De prestatie hangt af van het gegevensvolume en de visuele complexiteit. Voor de beste resultaten, houd 3D-effecten minimaal, vermijd zware texturen op muren en plot-gebieden, beperk het aantal gegevenspunten per serie waar mogelijk, en render naar een passend formaat (resolutie en afmetingen) afgestemd op de beoogde weergave- of afdrukbehoefte.

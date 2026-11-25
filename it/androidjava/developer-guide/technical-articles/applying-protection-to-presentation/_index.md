@@ -1,56 +1,56 @@
 ---
-title: Limita le modifiche alla presentazione con blocchi di forma su Android
-linktitle: Limita le modifiche alla presentazione
+title: Limitare le modifiche alla presentazione con i blocchi delle forme su Android
+linktitle: Limitare le modifiche alla presentazione
 type: docs
 weight: 60
 url: /it/androidjava/applying-protection-to-presentation/
 keywords:
-- impedire modifiche
-- proteggere da modifiche
-- blocca forma
-- blocca posizione
-- blocca selezione
-- blocca ridimensionamento
-- blocca raggruppamento
+- impedire le modifiche
+- proteggere dalla modifica
+- bloccare forma
+- bloccare posizione
+- bloccare selezione
+- bloccare ridimensionamento
+- bloccare raggruppamento
 - PowerPoint
 - PPTX
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX con Aspose.Slides per Android via Java per limitare la selezione, lo spostamento, il ridimensionamento e il raggruppamento."
+description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX con Aspose.Slides per Android tramite Java per limitare la selezione, lo spostamento, il ridimensionamento e il raggruppamento."
 ---
 ## **Panoramica**
 
-Un utilizzo comune di Aspose.Slides for Android via Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) come parte di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsti.
+Un uso comune di Aspose.Slides per Android tramite Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) all'interno di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsto.
 
 Questo articolo spiega come le forme sono organizzate nelle diapositive e come applicare e rimuovere i blocchi delle forme in una presentazione PPTX. Questi blocchi consentono di limitare operazioni di modifica specifiche su forme individuali.
 
 ## **Composizione di una diapositiva**
 
-Una diapositiva di una presentazione è composta da componenti come autoshape, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi usati per costruire una presentazione. In Aspose.Slides for Android via Java, ogni elemento su una diapositiva è rappresentato da un oggetto che implementa l'interfaccia [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) o eredita da una classe che lo fa.
+Una diapositiva di una presentazione è composta da componenti come forme automatiche, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi utilizzati per costruire una presentazione. In Aspose.Slides per Android tramite Java, ogni elemento su una diapositiva è rappresentato da un oggetto che implementa l'interfaccia [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) oppure eredita da una classe che lo fa.
 
-I diversi tipi di forma espongono diverse opzioni di blocco. L'interfaccia [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) è l'interfaccia di base per i blocchi delle forme. Aspose.Slides for Android via Java fornisce le seguenti interfacce di blocco:
+I diversi tipi di forma espongono opzioni di blocco differenti. L'interfaccia [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) è l'interfaccia di base per i blocchi delle forme. Aspose.Slides per Android tramite Java fornisce le seguenti interfacce di blocco:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) blocca le autoshape.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) blocca le forme automatiche.  
 - [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) blocca le forme connettore.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) blocca gli oggetti grafici.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) blocca le forme di gruppo.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) blocca le forme raggruppate.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) blocca le cornici immagine.  
 
 Per applicare i blocchi a una [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), scorrere le sue diapositive e impostare i blocchi appropriati su ciascuna forma supportata.
 
-## **Applica e rimuovi protezione**
+## **Applicare e rimuovere la protezione**
 
-Gli editor di presentazioni compatibili utilizzano i blocchi delle forme per limitare operazioni di modifica individuali. La crittografia dei file e la protezione in scrittura a livello di documento sono impostazioni di [impostazioni di protezione della presentazione](/slides/it/androidjava/password-protected-presentation/) separate.
+Gli editor di presentazioni compatibili usano i blocchi delle forme per limitare operazioni di modifica individuali. La crittografia dei file e la protezione di scrittura a livello di documento sono impostazioni separate di [presentation protection settings](/slides/it/androidjava/password-protected-presentation/).
 
-### **Applica protezione alle forme PPTX**
+### **Applicare la protezione alle forme PPTX**
 
-Aspose.Slides for Android via Java fornisce l'interfaccia [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) per lavorare con le forme su una diapositiva.
+Aspose.Slides per Android tramite Java fornisce l'interfaccia [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) per lavorare con le forme su una diapositiva.
 
-L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) e [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) con `true` per le autoshape, con blocchi equivalenti per le forme di gruppo, i connettori e le cornici immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) per il movimento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) per limitare il raggruppamento.
+L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) e [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) con `true` per le forme automatiche, con blocchi equivalenti per le forme raggruppate, i connettori e le cornici immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) per il movimento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) per limitare il raggruppamento.
 
-L'esempio carica una presentazione PPTX esistente, controlla le forme nella raccolta forme di ciascuna diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono inalterate. Il ciclo non percorre le forme figlie all'interno di un gruppo.
+L'esempio carica una presentazione PPTX esistente, controlla le forme nella collezione di forme di ciascuna diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono inalterate. Il ciclo non attraversa le forme figlio all'interno di un gruppo.
 
 ```java
 import com.aspose.slides.*;
@@ -94,9 +94,9 @@ try {
 }
 ```
 
-### **Rimuovi protezione**
+### **Rimuovere la protezione**
 
-Per rimuovere un blocco di forma, impostare il suo valore a `false`. Il seguente esempio carica una presentazione con blocchi di forma e cancella le restrizioni di selezione, movimento e ridimensionamento tramite [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) e [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Rimuove inoltre la restrizione di raggruppamento passando `false` a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) e salva una copia della presentazione. Altre impostazioni di blocco rimangono inalterate.
+Per rimuovere un blocco di forma, impostarne il valore a `false`. L'esempio seguente carica una presentazione con blocchi di forma e cancella le restrizioni di selezione, movimento e ridimensionamento tramite [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) e [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Rimuove inoltre la restrizione di raggruppamento passando `false` a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) e salva una copia della presentazione. Le altre impostazioni di blocco rimangono inalterate.
 
 ```java
 import com.aspose.slides.*;
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-### **Preserva il ritaglio dell'immagine**
+### **Conservare il ritaglio di un'immagine**
 
-Posizionare una foto chiamata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12% a sinistra e l'8% a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) sul blocco della cornice immagine. Passare `true` limita ulteriori ritagli e preserva il ritaglio esistente.
+Posizionare una foto denominata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12 % a sinistra e l'8 % a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) sul blocco della cornice immagine. Impostare `true` limita ulteriori ritagli e preserva il ritaglio esistente.
 
 ```java
 import com.aspose.slides.*;
@@ -171,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` memorizza il blocco del ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
+`PictureLocked.pptx` memorizza il blocco di ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
 
-### **Mantieni un diagramma raggruppato**
+### **Mantenere un diagramma raggruppato**
 
-L'esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) sul blocco del gruppo per mantenere insieme i componenti del diagramma. Altre modifiche, come spostare il gruppo o cambiare il riempimento di un componente, rimangono disponibili.
+L'esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) sul blocco del gruppo per mantenere insieme le componenti del diagramma. Altre modifiche, come lo spostamento del gruppo o la variazione di riempimento di una componente, rimangono disponibili.
 
 ```java
 import com.aspose.slides.*;
@@ -195,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` memorizza il blocco di sgrouping come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+`DiagramLocked.pptx` memorizza il blocco di separazione come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+
+### **Segnalare i blocchi di forma esistenti**
+
+Per esaminare un modello, aprirlo e leggere l'oggetto blocco per ciascuna forma. Il metodo [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) restituisce `true` quando tutte le flag su quell'oggetto sono disabilitate e `false` quando almeno una è abilitata. Un gruppo e i suoi figli hanno oggetti blocco separati, quindi è necessario ispezionare i figli anche quando il gruppo non ha blocchi.
+
+Questo esempio controlla il movimento per forme automatiche, cornici immagine e gruppi. Controlla inoltre il ritaglio per le immagini e la separazione per i gruppi. Il report elenca le flag abilitate riconosciute e segnala i tipi di forma non analizzati.
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Supponiamo che la diapositiva 1 di `Sample.pptx` contenga un gruppo denominato `Layout` con la separazione bloccata, una foto denominata `Photo` all'interno con il ritaglio bloccato, e un rettangolo non bloccato denominato `Free`. Il report ignora `Free` e stampa queste due righe:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Il report legge le flag di modifica a livello di forma memorizzate senza modificarle né salvare la presentazione. La protezione di scrittura a livello di documento è un'impostazione separata, e l'applicazione di ciascuna flag dipende dall'editor.
 
 ### **Conclusione**
 
-Aspose.Slides for Android via Java ti consente di limitare operazioni di modifica specifiche su forme individuali o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori a `false` quando devi rimuovere tali restrizioni.
+Aspose.Slides per Android tramite Java consente di limitare operazioni di modifica specifiche su forme individuali o di applicare le stesse restrizioni su più diapositive. Scegliere i blocchi supportati da ciascun tipo di forma e impostare i valori a `false` quando è necessario rimuovere tali restrizioni.
 
 ## **FAQ**
 
-**Posso combinare i blocchi delle forme e la protezione con password nella stessa presentazione?**
+**Posso combinare i blocchi di forma e la protezione con password nella stessa presentazione?**
 
-Sì. I blocchi delle forme limitano operazioni di modifica specifiche, mentre la [protezione con password](/slides/it/androidjava/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
+Sì. I blocchi di forma limitano operazioni di modifica specifiche, mentre la [password protection](/slides/it/androidjava/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambe nello stesso file.
 
-**Posso limitare la modifica su diapositive specifiche senza influire su altre?**
+**Posso limitare la modifica su diapositive specifiche senza influire sulle altre?**
 
-Sì. Applica i blocchi solo alle forme delle diapositive selezionate. Questo non modifica le impostazioni di blocco sulle altre diapositive.
+Sì. Applica i blocchi solo alle forme delle diapositive selezionate. Ciò non modifica le impostazioni di blocco delle altre diapositive.
 
 **Come posso applicare i blocchi a forme individuali all'interno di un gruppo?**
 
-Itera attraverso la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) del gruppo e applica i blocchi appropriati a ciascuna forma figlia. Ripeti l'operazione per eventuali gruppi annidati. Gli esempi sopra elaborano solo la collezione di forme della diapositiva, quindi non impostano blocchi sui membri individuali del gruppo.
+Scorri la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) del gruppo e applica i blocchi appropriati a ciascuna forma figlia. Ripeti l'operazione per eventuali gruppi nidificati, seguendo il percorso di attraversamento mostrato nell'esempio di report.

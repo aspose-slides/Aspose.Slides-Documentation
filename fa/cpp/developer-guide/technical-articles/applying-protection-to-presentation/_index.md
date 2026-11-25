@@ -1,55 +1,55 @@
 ---
 title: محدود کردن ویرایش‌های ارائه با قفل‌های شکل در C++
-linktitle: محدود کردن ویرایت‌های ارائه
+linktitle: محدود کردن ویرایش‌های ارائه
 type: docs
 weight: 10
 url: /fa/cpp/applying-protection-to-presentation/
 keywords:
-- جلوگیری از ویرایت
-- محافظت در برابر ویرایت
+- جلوگیری از ویرایش
+- حفاظت در برابر ویرایش
 - قفل کردن شکل
-- قفل موقعیت
-- قفل انتخاب
-- قفل تغییر اندازه
-- قفل گروه‌بندی
+- قفل کردن موقعیت
+- قفل کردن انتخاب
+- قفل کردن تغییر اندازه
+- قفل کردن گروه‌بندی
 - PowerPoint
 - PPTX
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال را در ارائه‌های PPTX با Aspose.Slides برای C++ قفل و آزاد کنید تا انتخاب، جابجایی، تغییر اندازه و گروه‌بندی را محدود کنید."
+description: "یاد بگیرید چگونه با Aspose.Slides برای C++ اشکال را در ارائه‌های PPTX قفل و بازقفل کنید تا انتخاب، حرکت، تغییر اندازه و گروه‌بندی محدود شوند."
 ---
 ## **پیش‌زمینه**
 
-یک استفاده رایج از Aspose.Slides for C++ ایجاد، به‌روزرسانی و ذخیرهٔ ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک جریان کار خودکار است. هنگامی که کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات در اشکال می‌تواند به حفظ چینش و محتوای مورد نظر کمک کند.
+یک استفاده رایج از Aspose.Slides برای C++ ایجاد، به‌روزرسانی و ذخیره ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک جریان کار خودکار است. وقتی کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات روی اشکال می‌تواند به حفظ چیدمان و محتوای مورد نظر کمک کند.
 
-این مقاله توضیح می‌دهد که چگونه اشکال روی اسلایدها سازماندهی می‌شوند و چگونه قفل‌های اشکال را در یک ارائه PPTX اعمال و حذف کنید. این قفل‌ها به شما امکان می‌دهند عملیات ویرایشی خاصی را روی اشکال منفرد محدود کنید.
+این مقاله توضیح می‌دهد که اشکال چگونه در اسلایدها سازماندهی می‌شوند و چگونه می‌توان قفل‌های اشکال را در یک ارائه PPTX اعمال و حذف کرد. این قفل‌ها به شما امکان می‌دهند عملیات ویرایشی خاصی را روی هر شکل محدود کنید.
 
-## **ترکیب یک اسلاید**
+## **ساختار یک اسلاید**
 
-یک اسلاید ارائه از اجزائی مانند اشکال خودکار، جداول، اشیای OLE، اشکال گروه‌بندی‌شده، قاب‌های تصویر، قاب‌های ویدئو, اتصال‌ها و سایر عناصر استفاده‌شده برای ساخت یک ارائه تشکیل شده است. در Aspose.Slides for C++، هر عنصر روی یک اسلاید توسط شیئی نمایان می‌شود که رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که این رابط را ارث می‌برد، مشتق شده است.
+یک اسلاید ارائه شامل اجزایی مانند اشکال خودکار، جدول‌ها، اشیاء OLE، اشکال گروهی، چارچوب‌های تصویر، چارچوب‌های ویدیو، اتصالات و عناصر دیگر برای ساخت ارائه است. در Aspose.Slides برای C++، هر عنصر روی اسلاید توسط شیئی که رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که از آن ارث می‌برد، نشان داده می‌شود.
 
-انواع مختلف اشکال گزینه‌های قفل‌گذاری متفاوتی را ارائه می‌دهند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) رابط پایه برای قفل‌های اشکال است. Aspose.Slides for C++ رابط‌های قفل زیر را فراهم می‌کند:
+انواع مختلف اشکال گزینه‌های قفل‌گذاری متفاوتی ارائه می‌دهند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) پایه‌ای برای قفل‌های اشکال است. Aspose.Slides برای C++ رابط‌های قفل زیر را ارائه می‌دهد:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) اشکال خودکار را قفل می‌کند.
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) اشکال کانکتور را قفل می‌کند.
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) اشیای گرافیکی را قفل می‌کند.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) اشکال اتصال را قفل می‌کند.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) اشیاء گرافیکی را قفل می‌کند.
 - [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) اشکال گروهی را قفل می‌کند.
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) قاب‌های تصویر را قفل می‌کند.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) چارچوب‌های تصویر را قفل می‌کند.
 
-برای اعمال قفل‌ها بر روی یک [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را روی هر شکل پشتیبانی‌شده تنظیم کنید.
+برای اعمال قفل‌ها بر روی یک [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)، اسلایدهای آن را مرور کرده و قفل‌های مناسب را روی هر شکل پشتیبانی‌شده تنظیم کنید.
 
-## **اعمال و حذف حفاظت**
+## **اعمال و حذف محافظت**
 
-ویرایشگرهای ارائه سازگار از قفل‌های اشکال برای محدود کردن عملیات ویرایشی جداگانه استفاده می‌کنند. رمزنگاری فایل و حفاظت نوشتاری سطح سند تنظیمات جداگانه‌ای تحت عنوان [تنظیمات حفاظت ارائه](/slides/fa/cpp/password-protected-presentation/) دارند.
+ویرایشگرهای ارائه سازگار از قفل‌های اشکال برای محدود کردن عملیات ویرایشی فردی استفاده می‌کنند. رمزنگاری فایل و محافظت نوشتاری در سطح سند تنظیمات جداگانه‌ای برای [presentation protection settings](/slides/fa/cpp/password-protected-presentation/) دارند.
 
-### **اعمال حفاظت بر روی اشکال PPTX**
+### **اعمال محافظت بر روی اشکال PPTX**
 
-Aspose.Slides for C++ رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را برای کار با اشکال روی یک اسلاید فراهم می‌کند.
+Aspose.Slides برای C++ رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را برای کار با اشکال روی یک اسلاید فراهم می‌کند.
 
-در مثال مقدار `true` به متدهای [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), و [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) برای اشکال خودکار ارسال می‌شود، به‌طوری‌که قفل‌های معادل برای اشکال گروهی, کانکتورها و قاب‌های تصویر نیز اعمال می‌شوند. کانکتورها برای جابجایی از [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) استفاده می‌کنند؛ گروه‌ها نیز از [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) برای محدود کردن گروه‌بندی استفاده می‌کنند.
+در مثال مقدار `true` به متدهای [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)، [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) و [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) برای اشکال خودکار پاس می‌شود و قفل‌های معادل برای اشکال گروهی، اتصالات و چارچوب‌های تصویر اعمال می‌شود. برای اتصالات از [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) برای حرکت استفاده می‌شود؛ گروه‌ها نیز از [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) برای محدود کردن گروه‌بندی بهره می‌برند.
 
-مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال هر مجموعهٔ اشکال اسلاید را بررسی می‌کند و یک نسخه با این محدودیت‌ها ذخیره می‌کند. اشکالی که جزو چهار نوع پردازش شده نیستند بدون تغییر می‌مانند. این حلقه اشکال فرزندی داخل یک گروه را پیمایش نمی‌کند.
+مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال موجود در مجموعه اشکال هر اسلاید را بررسی می‌کند و یک کپی با این محدودیت‌ها ذخیره می‌کند. اشکالی که در چهار نوع مدیریت‌شده نیستند تغییر نمی‌کنند. حلقه اشکال فرزند داخل یک گروه را پیمایش نمی‌کند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -122,9 +122,9 @@ presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **حذف حفاظت**
+### **حذف محافظت**
 
-برای حذف یک قفل شکل، مقدار آن را به `false` تنظیم کنید. مثال زیر یک ارائه با قفل‌های شکل را بارگذاری می‌کند و محدودیت‌های انتخاب، جابجایی و تغییر اندازه را از طریق [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), و [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) پاک می‌سازد. همچنین [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) را پاک می‌کند و یک نسخه از ارائه را ذخیره می‌نماید. تنظیمات قفل دیگر بدون تغییر می‌مانند.
+برای حذف قفل یک شکل، مقدار آن را به `false` تنظیم کنید. مثال زیر یک ارائه با قفل‌های اشکال را بارگذاری می‌کند و محدودیت‌های انتخاب، حرکت و تغییر اندازه را با استفاده از [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) و [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) پاک می‌سازد. همچنین [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) را پاک کرده و یک کپی از ارائه را ذخیره می‌کند. سایر تنظیمات قفل بدون تغییر می‌مانند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -199,7 +199,7 @@ presentation->Dispose();
 
 ### **حفظ برش تصویر**
 
-یک تصویر با نام `photo.jpg` را در پوشهٔ کاری قرار دهید. مثال ۱۲٪ از سمت چپ و ۸٪ از سمت راست را برش می‌دهد، سپس متد [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) را بر روی قفل قاب تصویر فراخوانی می‌کند تا برش حفظ شود و برش‌های بعدی محدود شوند.
+یک عکس به نام `photo.jpg` را در پوشه کاری قرار دهید. مثال 12٪ از سمت چپ و 8٪ از سمت راست را برش می‌دهد، سپس با فراخوانی [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) بر روی قفل چارچوب تصویر، برش را محافظت کرده و از برش بیشتر جلوگیری می‌کند.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx` قفل برش را به مقدار `true` ذخیره می‌کند. در PowerPoint، فرمان **Crop** هنگام انتخاب تصویر غیرفعال است.
+فایل `PictureLocked.pptx` مقدار قفل برش را به `true` ذخیره می‌کند. در PowerPoint، فرمان **Crop** وقتی عکس انتخاب شده باشد غیرفعال است.
 
-### **نگهداری گروه‌بندی نمودار**
+### **نگهداری گروه‌بندی دیاگرام**
 
-مثال یک مستطیل و یک پیکان را گروه می‌کند، سپس متد [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) را بر روی قفل گروه فراخوانی می‌کند تا اجزای نمودار با هم باقی بمانند. ویرایش‌های دیگر، مانند جابجایی گروه یا تغییر رنگ پرکردن یک جزء، همچنان قابل استفاده هستند.
+مثال یک مستطیل و یک پیکان را گروه‌بندی می‌کند، سپس با فراخوانی [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) بر روی قفل گروه، اجزای دیاگرام را به‌هم متصل نگه می‌دارد. سایر ویرایش‌ها مانند جابه‌جایی گروه یا تغییر پر کردن یک جزء همچنان در دسترس هستند.
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` قفل جداسازی را به مقدار `true` ذخیره می‌کند. در PowerPoint، فرمان **Ungroup** هنگام انتخاب تمام نمودار غیرفعال است.
+فایل `DiagramLocked.pptx` مقدار قفل جداسازی را به `true` ذخیره می‌کند. در PowerPoint، فرمان **Ungroup** وقتی تمام دیاگرام انتخاب شده باشد غیرفعال می‌شود.
+
+### **گزارش قفل‌های اشکال موجود**
+
+برای بررسی یک الگو، آن را باز کنید و شیء قفل هر شکل را بخوانید. متد [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) زمانی که همه پرچم‌های شیء `true` باشند `true` و وقتی حداقل یک پرچم فعال باشد `false` برمی‌گرداند. یک گروه و فرزندان آن اشیای قفل جداگانه دارند، بنابراین حتی زمانی که گروه قفل نداشته باشد، باید فرزندان را بررسی کنید.
+
+این مثال حرکت اشکال خودکار، چارچوب‌های تصویر و گروه‌ها، برش برای تصاویر و جداسازی برای گروه‌ها را بررسی می‌کند. پرچم‌هایی که شناسایی می‌کند گزارش می‌دهد و انواع اشکالی که بررسی نمی‌کند را علامت‌گذاری می‌کند.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+فرض کنید اسلاید 1 از `Sample.pptx` شامل یک گروه به نام `Layout` با قفل جداسازی، عکسی به نام `Photo` داخل آن با قفل برش، و یک مستطیل بدون قفل به نام `Free` باشد. گزارش `Free` را نادیده می‌گیرد و این دو خط را چاپ می‌کند:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+گزارش پرچم‌های سطح شکل ذخیره‌شده را می‌خواند بدون اینکه آن‌ها را تغییر دهد یا ارائه را ذخیره کند. محافظت نوشتاری در سطح سند تنظیم جداگانه‌ای است و اعمال هر پرچم به ویرایشگر بستگی دارد.
 
 ### **نتیجه‌گیری**
 
-Aspose.Slides for C++ به شما امکان می‌دهد عملیات ویرایشی خاصی را روی اشکال منفرد محدود کنید یا همان محدودیت‌ها را بر روی اسلایدهای مختلف اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و مقادیر آن‌ها را به `false` تنظیم کنید هنگامی که نیاز به حذف این محدودیت‌ها دارید.
+Aspose.Slides برای C++ به شما امکان می‌دهد عملیات ویرایشی خاصی را روی اشکال فردی محدود کنید یا همان محدودیت‌ها را بر روی اسلایدهای مختلف اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و مقادیر آن‌ها را به `false` تنظیم نمایید وقتی نیاز به حذف این محدودیت‌ها دارید.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم قفل‌های شکل و حفاظت با رمز عبور را در یک ارائه ترکیب کنم؟**
+**آیا می‌توانم قفل‌های اشکال و حفاظت با رمز عبور را در همان ارائه ترکیب کنم؟**
 
-بله. قفل‌های شکل عملیات ویرایشی خاصی را محدود می‌کنند، در حالی که [حفاظت با رمز عبور](/slides/fa/cpp/password-protected-presentation/) می‌تواند باز کردن یا ویرایش ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
+بله. قفل‌های اشکال عملیات ویرایشی خاصی را محدود می‌کنند، در حالی که [password protection](/slides/fa/cpp/password-protected-presentation/) می‌تواند باز کردن یا تغییر ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
 
-**آیا می‌توانم ویرایش را بر روی اسلایدهای خاص محدود کنم بدون اینکه بر سایر اسلایدها تأثیر بگذارد؟**
+**آیا می‌توانم ویرایش را فقط روی اسلایدهای خاصی محدود کنم بدون اینکه بر دیگر اسلایدها تأثیر بگذارد؟**
 
-بله. قفل‌ها را فقط بر روی اشکال اسلایدهای انتخابی اعمال کنید. این کار تنظیمات قفل را بر روی اسلایدهای دیگر تغییر نمی‌دهد.
+بله. قفل‌ها را فقط روی اشکال اسلایدهای منتخب اعمال کنید. این کار تنظیمات قفل روی اسلایدهای دیگر را تغییر نمی‌دهد.
 
-**چگونه می‌توانم قفل‌ها را بر روی اشکال منفرد داخل یک گروه اعمال کنم؟**
+**چگونه می‌توانم قفل‌ها را روی اشکال فردی داخل یک گروه اعمال کنم؟**
 
-از مجموعه‌ای که توسط متد [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) گروه برگردانده می‌شود عبور کنید و قفل‌های مناسب را بر هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید. مثال‌های فوق تنها مجموعهٔ اشکال اسلاید را پردازش می‌کنند، بنابراین قفل‌ها را بر روی اعضای منفرد گروه تنظیم نمی‌کنند.
+در مجموعه‌ای که توسط متد [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) گروه برگردانده شده است پیمایش کنید و قفل‌های مناسب را روی هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در توی دیگری تکرار کنید، همان‌طور که در مثال گزارش‌گیری آمده است.

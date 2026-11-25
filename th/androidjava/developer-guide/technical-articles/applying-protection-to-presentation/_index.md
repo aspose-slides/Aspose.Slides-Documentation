@@ -6,7 +6,7 @@ weight: 60
 url: /th/androidjava/applying-protection-to-presentation/
 keywords:
 - ป้องกันการแก้ไข
-- ป้องกันไม่ให้แก้ไข
+- ปกป้องจากการแก้ไข
 - ล็อกรูปทรง
 - ล็อกตำแหน่ง
 - ล็อกการเลือก
@@ -18,38 +18,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for Android ผ่าน Java เพื่อจำกัดการเลือก, การเคลื่อนย้าย, การปรับขนาด, และการจัดกลุ่ม."
+description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for Android via Java เพื่อจำกัดการเลือก, การเคลื่อนย้าย, การปรับขนาด, และการจัดกลุ่ม."
 ---
 ## **ภาพรวม**
 
-การใช้งานทั่วไปของ Aspose.Slides for Android via Java คือการสร้าง, อัปเดต และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้ได้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาตามที่ตั้งใจได้
+การใช้ Aspose.Slides for Android via Java อย่างทั่วไปคือการสร้าง, ปรับปรุงและบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของเวิร์กโฟลว์อัตโนมัติ เมื่อผู้ใช้ได้รับงานนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาที่ตั้งใจไว้
 
-บทความนี้อธิบายวิธีการจัดรูปทรงบนสไลด์และวิธีการใช้และลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการแก้ไขบางอย่างบนรูปทรงแต่ละอัน
+บทความนี้อธิบายว่าแบบรูปทรงถูกจัดระเบียบบนสไลด์อย่างไรและวิธีการใช้และลบการล็อกแบบรูปในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
 
 ## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น autoshapes, ตาราง, วัตถุ OLE, รูปทรงที่จัดกลุ่ม, กรอบภาพ, กรอบวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Android via Java แต่ละองค์ประกอบบนสไลด์จะเป็นอ็อบเจ็กต์ที่ดำเนินการตามอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
+สไลด์งานนำเสนอประกอบด้วยส่วนต่าง ๆ เช่น autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Android via Java แต่ละองค์ประกอบบนสไลด์จะถูกแทนด้วยออบเจ็กต์ที่ทำงานตามอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) หรือสืบทอดจากคลาสที่ทำเช่นนั้น
 
-ประเภทรูปทรงที่แตกต่างกันมีตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) คืออินเทอร์เฟซฐานสำหรับการล็อกรูปทรง Aspose.Slides for Android via Java มีอินเทอร์เฟซการล็อกต่อไปนี้:
+ประเภทรูปทรงที่แตกต่างกันเผยตัวเลือกการล็อกที่แตกต่างกัน อินเทอร์เฟซ [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) คืออินเทอร์เฟซฐานสำหรับการล็อกรูปทรง Aspose.Slides for Android via Java มีอินเทอร์เฟซการล็อกต่อไปนี้:
+
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) ล็อก autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) ล็อกรูปทรงตัวเชื่อมต่อ.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) ล็อกวัตถุกราฟิก.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) ล็อกรูปทรงที่จัดกลุ่ม.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) ล็อกกรอบภาพ.  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) ล็อก connector shapes.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) ล็อก graphical objects.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) ล็อก group shapes.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) ล็อก picture frames.  
 
-เพื่อใช้การล็อกบน [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) ให้วนซ้ำผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละอัน
+เพื่อใช้การล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), ทำการวนผ่านสไลด์แต่ละอันและกำหนดการล็อกที่เหมาะสมให้กับรูปทรงที่สนับสนุนแต่ละประเภท
 
-## **ใช้และลบการป้องกัน**
+## **การใช้และลบการป้องกัน**
 
-โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละอย่าง การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นส่วนของ [การตั้งค่าการป้องกันการนำเสนอ](/slides/th/androidjava/password-protected-presentation/) ที่แยกต่างหาก
+โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละอย่าง การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [presentation protection settings](/slides/th/androidjava/password-protected-presentation/) ที่แยกจากกัน
 
 ### **ใช้การป้องกันกับรูปทรง PPTX**
 
 Aspose.Slides for Android via Java มีอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) และ [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) พร้อมค่า `true` สำหรับ autoshapes, พร้อมการล็อกที่เทียบเท่าสำหรับรูปทรงที่จัดกลุ่ม, ตัวเชื่อมต่อ, และกรอบภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) สำหรับการเคลื่อนย้าย; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างเรียกใช้เมธอด [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), และ [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) ด้วยค่า `true` สำหรับ autoshapes พร้อมล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames. Connectors ใช้เมธอด [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) สำหรับการเคลื่อนที่; กลุ่มยังใช้เมธอด [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) เพื่อล็อกการจัดกลุ่ม
 
-ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่, ตรวจสอบรูปทรงในชุดรูปทรงของแต่ละสไลด์, และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่นอกสี่ประเภทที่จัดการจะไม่ได้รับการเปลี่ยนแปลง ลูปไม่เดินทางผ่านรูปทรงย่อยภายในกลุ่ม
+ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่แล้ว ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์ และบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่ไม่ได้อยู่ในสี่ประเภทที่จัดการจะถูกปล่อยให้คงสภาพเหมือนเดิม ลูปจะไม่เดินทางไปยังรูปทรงลูกภายในกลุ่ม
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +96,7 @@ try {
 
 ### **ลบการป้องกัน**
 
-เพื่อเอาการล็อกรูปทรงออก ให้ตั้งค่าเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการจำกัดการเลือก, การเคลื่อนย้าย, และการปรับขนาดผ่าน [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), และ [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) นอกจากนี้ยังลบการจำกัดการจัดกลุ่มโดยส่งค่า `false` ไปยัง [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะคงไว้โดยไม่เปลี่ยนแปลง
+เพื่อทำการลบการล็อกรูปทรง เพียงตั้งค่าค่าเป็น `false` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการล็อกการเลือก, การเคลื่อนที่และการปรับขนาดผ่านอินเทอร์เฟซ [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), และ [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) รวมถึงลบการล็อกการจัดกลุ่มโดยส่งค่า `false` ไปยังเมธอด [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) แล้วบันทึกสำเนาของงานนำเสนอ การตั้งค่าการล็อกอื่น ๆ จะคงไว้โดยไม่เปลี่ยนแปลง
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +140,9 @@ try {
 }
 ```
 
-### **รักษาการครอปภาพ**
+### **รักษาการตัดรูปภาพ**
 
-วางภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างทำการครอป 12% จากด้านซ้ายและ 8% จากด้านขวา แล้วเรียก [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) บนการล็อกของกรอบภาพ การส่งค่า `true` จะจำกัดการครอปเพิ่มเติมและรักษาการครอปที่มีอยู่
+วางไฟล์รูปภาพชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างจะตัด 12% จากด้านซ้ายและ 8% จากด้านขวา จากนั้นเรียกเมธอด [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) บนล็อกของ picture frame การส่งค่า `true` จะจำกัดการตัดต่อเพิ่มเติมและรักษาการตัดที่มีอยู่
 
 ```java
 import com.aspose.slides.*;
@@ -170,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` เก็บค่าการล็อกการครอปเป็น `true` ใน PowerPoint คำสั่ง **Crop** จะถูกปิดใช้งานเมื่อเลือกภาพ
+`PictureLocked.pptx` เก็บค่าล็อกการตัดเป็น `true`. ใน PowerPoint คำสั่ง **Crop** จะไม่พร้อมใช้งานเมื่อเลือกภาพ
 
-### **รักษาแผนภาพเป็นกลุ่ม**
+### **ทำให้ไดอะแกรมรวมเป็นกลุ่ม**
 
-ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียก [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) บนการล็อกของกลุ่มเพื่อรักษาองค์ประกอบของแผนภาพให้คงอยู่ การแก้ไขอื่น ๆ เช่นการย้ายกลุ่มหรือการเปลี่ยนสีเติมขององค์ประกอบยังคงทำได้
+ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียกเมธอด [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) บนล็อกของกลุ่มเพื่อให้ส่วนประกอบของไดอะแกรมอยู่ด้วยกัน การแก้ไขอื่น ๆ เช่น การย้ายกลุ่มหรือการเปลี่ยนสีเติมของส่วนประกอบยังคงทำได้
 
 ```java
 import com.aspose.slides.*;
@@ -194,22 +195,95 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` เก็บค่าการล็อกการยกเลิกการจัดกลุ่มเป็น `true` ใน PowerPoint คำสั่ง **Ungroup** จะถูกปิดใช้งานเมื่อเลือกแผนภาพทั้งหมด
+`DiagramLocked.pptx` เก็บค่าล็อกการยกเลิกการจัดกลุ่มเป็น `true`. ใน PowerPoint คำสั่ง **Ungroup** จะไม่พร้อมใช้งานเมื่อเลือกไดอะแกรมทั้งหมด
 
-### **สรุป**
+### **รายงานการล็อกรูปทรงที่มีอยู่**
 
-Aspose.Slides for Android via Java ให้คุณจำกัดการดำเนินการแก้ไขบางอย่างบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันบนหลายสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทของรูปทรงและตั้งค่าของพวกมันเป็น `false` เมื่อคุณต้องการเอาข้อจำกัดเหล่านั้นออก
+เพื่อรีวิวเทมเพลต ให้เปิดและอ่านอ็อบเจ็กต์ล็อกของแต่ละรูปทรง เมธอด [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) จะคืนค่า `true` เมื่อทั้งหมดของแฟล็กบนอ็อบเจ็กต์นั้นถูกปิดและคืนค่า `false` เมื่ออย่างน้อยหนึ่งแฟล็กเปิด กลุ่มและลูกของมันมีอ็อบเจ็กต์ล็อกแยกกัน ดังนั้นจึงต้องตรวจสอบลูกแม้ในขณะที่กลุ่มไม่มีล็อก
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ตัวอย่างนี้ตรวจสอบการเคลื่อนที่สำหรับ autoshapes, picture frames, และ groups รวมถึงการตรวจสอบการตัดสำหรับภาพและการยกเลิกการจัดกลุ่มสำหรับกลุ่ม รายงานจะแสดงรายการแฟล็กที่เปิดใช้งานที่รู้จักและจะทำเครื่องหมายประเภทรูปทรงที่ไม่ได้ตรวจสอบ
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+สมมติว่าหนังสือสไลด์ที่ 1 ของ `Sample.pptx` มี group ชื่อ `Layout` ที่ล็อกการยกเลิกการจัดกลุ่ม, ภาพชื่อ `Photo` อยู่ภายในที่ล็อกการตัด, และสี่เหลี่ยมที่ไม่มีการล็อกชื่อ `Free`. รายงานจะข้าม `Free` และพิมพ์บรรทัดสองบรรทัดต่อไปนี้:
+
+{{...}}
+
+รายงานอ่านแฟล็กการแก้ไขระดับรูปทรงที่จัดเก็บไว้โดยไม่เปลี่ยนแปลงหรือบันทึกงานนำเสนอ การป้องกันการเขียนระดับเอกสารเป็นการตั้งค่าแยกต่างหาก และการบังคับใช้แต่ละแฟล็กขึ้นอยู่กับโปรแกรมแก้ไข
+
+## **สรุป**
+
+Aspose.Slides for Android via Java ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันข้ามสไลด์ เลือกการล็อกที่สนับสนุนโดยแต่ละประเภทของรูปทรงและตั้งค่าตามที่ต้องการเป็น `false` เมื่อต้องการลบข้อจำกัดเหล่านั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถผสมการล็อกรูปทรงกับการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
 
-ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขบางอย่าง ในขณะที่ [password protection](/slides/th/androidjava/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
+ได้ การล็อกรูปทรงจำกัดการดำเนินการแก้ไขเฉพาะบางอย่าง ขณะที่ [password protection](/slides/th/androidjava/password-protected-presentation/) สามารถจำกัดการเปิดหรือการแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกันได้
 
 **ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่นได้หรือไม่?**
 
-ได้ ให้ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือก นี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
+ได้ ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือก การทำเช่นนี้จะไม่เปลี่ยนแปลงการตั้งค่าล็อกบนสไลด์อื่น
 
 **ฉันจะใช้การล็อกกับรูปทรงแต่ละอันภายในกลุ่มอย่างไร?**
 
-วนซ้ำผ่านคอลเลกชันที่เมธอด [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มส่งกลับและใช้การล็อกที่เหมาะสมกับรูปทรงย่อยแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์เท่านั้น ดังนั้นไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละอัน
+วนผ่านคอลเลกชันที่คืนค่าจากเมธอด [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มและกำหนดการล็อกที่เหมาะสมให้กับรูปทรงลูกแต่ละอัน ทำซ้ำสำหรับกลุ่มซ้อนกันตามการเดินทางในตัวอย่างการรายงาน

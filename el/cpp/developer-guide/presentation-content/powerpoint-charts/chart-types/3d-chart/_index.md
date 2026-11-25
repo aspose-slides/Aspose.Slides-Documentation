@@ -1,27 +1,27 @@
 ---
-title: Προσαρμογή 3Δ Διαγραμμάτων σε Παρουσιάσεις με C++
-linktitle: 3Δ Διάγραμμα
+title: Προσαρμογή 3D Διαγραμμάτων σε Παρουσιάσεις Χρησιμοποιώντας C++
+linktitle: 3D Διάγραμμα
 type: docs
 url: /el/cpp/3d-chart/
 keywords:
-- 3Δ διάγραμμα
+- 3D Διάγραμμα
 - περιστροφή
 - βάθος
 - PowerPoint
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Δημιουργήστε 3Δ διαγράμματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για C++. Προσαρμόστε την περιστροφή, τις αναλογίες ύψους, το βάθος του διαγράμματος και την απόσταση μεταξύ σειρών με παραδείγματα C++."
+description: "Δημιουργήστε 3D διαγράμματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για C++. Ρυθμίστε την περιστροφή, τις αναλογίες ύψους, το βάθος του διαγράμματος και το διάστημα μεταξύ των σειρών με παραδείγματα C++."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for C++ σάς επιτρέπει να προσαρμόσετε την προβολή ενός 3Δ διαγράμματος μέσω [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Αυτό το άρθρο δείχνει πώς να ρυθμίσετε την περιστροφή, τις αναλογίες ύψους, το βάθος, τους άξονες ορθής γωνίας και την απόσταση μεταξύ σειρών, και στη συνέχεια να αποθηκεύσετε την παρουσίαση σε μορφή PPTX.
+Aspose.Slides for C++ σας επιτρέπει να προσαρμόσετε την προβολή ενός 3D διαγράμματος μέσω [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Αυτό το άρθρο δείχνει πώς να ρυθμίσετε την περιστροφή, τις αναλογίες ύψους, το βάθος, τους άξονες ορθής γωνίας και το διάστημα μεταξύ των σειρών, και στη συνέχεια να αποθηκεύσετε την παρουσίαση σε μορφή PPTX.
 
-## **Ορισμός της Περιστροφής και του Βάθους ενός 3Δ Διαγράμματος**
+## **Ορισμός της Περιστροφής και του Βάθους ενός 3D Διαγράμματος**
 
-Το παρακάτω παράδειγμα δημιουργεί ένα [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) και χρησιμοποιεί το [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να προσθέσει ένα στοίβαγμα 3Δ στήλης στο πρώτο του slide. Αντικαθιστά τις προεπιλεγμένες σειρές και κατηγορίες με δύο σειρές που περιέχουν τρία τιμές η καθεμία. Ο δείκτης φύλλου εργασίας `0` προσδιορίζει το πρώτο φύλλο δεδομένων του διαγράμματος· η γραμμή `0` κρατά τα ονόματα των σειρών, και η στήλη `0` κρατά τις ετικέτες κατηγοριών.
+Το παρακάτω παράδειγμα δημιουργεί μια [Παρουσίαση](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) και χρησιμοποιεί [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να προσθέσει ένα στοιβαγμένο 3D διακριτικό στήλης στη πρώτη διαφάνειά του. Αντικαθιστά τις προεπιλεγμένες σειρές και κατηγορίες με δύο σειρές που περιέχουν τρεις τιμές η καθεμία. Ο δείκτης φύλλου εργασίας `0` προσδιορίζει το πρώτο φύλλο δεδομένων του διαγράμματος· η γραμμή `0` περιέχει τα ονόματα των σειρών και η στήλη `0` περιέχει τις ετικέτες κατηγορίας.
 
-Οι μέθοδοι [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) και [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ορίζουν την περιστροφή του διαγράμματος στα 40 και 270 μοίρες, αντίστοιχα. Η μέθοδος [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) θέτει το βάθος του στο 150 % του πλάτους του, ενώ η [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) ενεργοποιεί άξονες ορθής γωνίας αντί για προοπτική. Η προκύπτουσα παρουσίαση περιέχει το γεμισμένο διάγραμμα με αυτές τις ρυθμίσεις 3Δ προβολής.
+Οι μέθοδοι [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) και [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ορίζουν την περιστροφή του διαγράμματος στα 40 και 270 μοίρες, αντίστοιχα. Η μέθοδος [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) θέτει το βάθος στο 150 % του πλάτους του, ενώ η [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) ενεργοποιεί άξονες ορθής γωνίας αντί για προοπτική. Η προκύπτουσα παρουσίαση περιέχει το γεμισμένο διάγραμμα με αυτές τις ρυθμίσεις 3D προβολής.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -88,11 +88,87 @@ presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ρύθμιση των Αναλογιών Ύψους ενός 3Δ Διαγράμματος**
+## **Εφαρμογή Εικόνας ως Γέμιση στην Επιφάνεια ενός 3D Διαγράμματος**
 
-Χρησιμοποιήστε το [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) για να ορίσετε το ύψος ενός 3Δ διαγράμματος ως ποσοστό του πλάτους του. Αυτό αλλάζει τις αναλογίες της 3Δ σκηνής χωρίς να αλλάζει το μέγεθος του αντικειμένου διαγράμματος στο slide.
+Μπορείτε να γεμίσετε ανεξάρτητα τον [πλευρικό τοίχο](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_sidewall/), τον [οπίσθιο τοίχο](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) και το [πάτωμα](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) ενός 3D διαγράμματος. Ορίστε τον [τύπο γέμισης](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) της επιφάνειας σε `Picture` και εκχωρήστε μια εικόνα. Για να τοποθετήσετε ένα αντίγραφο της εικόνας σε όλη την επιφάνεια, ορίστε τόσο τη [λειτουργία γέμισης εικόνας](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) όσο και τον [τύπο εικόνας](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartwall/set_picturetype/) του τοίχου σε `Stretch`.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) με τα προεπιλεγμένα δεδομένα: τρεις σειρές και τέσσερις κατηγορίες. Αποθηκεύει τρεις παρουσιάσεις με αναλογίες ύψους 50 %, 100 % και 200 %. Η θέση, το πλάτος και το ύψος του διαγράμματος παραμένουν σταθερά. Τα δεδομένα, η περιστροφή, το βάθος, η απόσταση σειρών και η μορφοποίηση είναι τα ίδια και στα τρία αρχεία· μόνο το ποσοστό ύψους αλλάζει.
+Αποθηκεύστε το αρχείο [arrow.png](arrow.png) στον τρέχοντα φάκελο. Το παράδειγμα περιστρέφει το διάγραμμα και αυξάνει τη μέγιστη τιμή του κάθετου άξονα ώστε το πάτωμα να φαίνεται ανάμεσα στις στήλες. Στη συνέχεια κλωνοποιεί τη διαφάνεια δύο φορές και εφαρμόζει το βέλος σε διαφορετική επιφάνεια σε κάθε διαφάνεια. Και τα τρία διαγράμματα διατηρούν τα ίδια δεδομένα, γωνία θέασης και φόντο.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartWall.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/Chart/PictureType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/shared_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 20, 30, 680, 480);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_RotationX(40);
+chart->get_Rotation3D()->set_RotationY(30);
+
+auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+verticalAxis->set_IsAutomaticMaxValue(false);
+verticalAxis->set_MaxValue(24);
+
+auto backSlide = presentation->get_Slides()->AddClone(slide);
+auto floorSlide = presentation->get_Slides()->AddClone(slide);
+auto backChart = ExplicitCast<IChart>(backSlide->get_Shape(0));
+auto floorChart = ExplicitCast<IChart>(floorSlide->get_Shape(0));
+
+auto imageBytes = IO::File::ReadAllBytes(u"arrow.png");
+auto arrow = presentation->get_Images()->AddImage(imageBytes);
+
+for (const auto& surface : { chart->get_SideWall(), backChart->get_BackWall(), floorChart->get_Floor() })
+{
+    auto fill = surface->get_Format()->get_Fill();
+    fill->set_FillType(FillType::Picture);
+    auto pictureFill = fill->get_PictureFillFormat();
+    pictureFill->get_Picture()->set_Image(arrow);
+    pictureFill->set_PictureFillMode(PictureFillMode::Stretch);
+    surface->set_PictureType(PictureType::Stretch);
+}
+
+presentation->Save(u"chart-surfaces.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Το Microsoft PowerPoint εμφανίζει τις τρεις διαφάνειες ως εξής.
+
+| Πλευρικός τοίχος | Οπίσθιος τοίχος | Πάτωμα |
+| --- | --- | --- |
+| ![Βέλος που δείχνει μέσα στο διάγραμμα κατά μήκος του πλευρικού τοίχου](side-wall.png) | ![Βέλος που δείχνει δεξιά κατά μήκος του οπίσθιου τοίχου](back-wall.png) | ![Βέλος που δείχνει δεξιά κατά μήκος του πατώματος μεταξύ των στηλών](floor.png) |
+
+## **Ρύθμιση των Αναλογιών Ύψους ενός 3D Διαγράμματος**
+
+Χρησιμοποιήστε την [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) για να ορίσετε το ύψος ενός 3D διαγράμματος ως ποσοστό του πλάτους του. Αυτό αλλάζει τις αναλογίες της 3D σκηνής χωρίς να αλλάζει το μέγεθος του αντικειμένου διαγράμματος στη διαφάνεια.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) με τα προεπιλεγμένα δεδομένα: τρεις σειρές και τέσσερις κατηγορίες. Αποθηκεύει τρεις παρουσιάσεις με αναλογίες ύψους 50 %, 100 % και 200 %. Η θέση, το πλάτος και το ύψος του διαγράμματος παραμένουν σταθερά. Τα δεδομένα, η περιστροφή, το βάθος, το διάστημα σειρών και η μορφοποίηση είναι πανομοιότυπα σε όλα τα τρία αρχεία· μόνο το ποσοστό ύψους αλλάζει.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -135,40 +211,40 @@ for (uint16_t heightPercent : { 50, 100, 200 })
 presentation->Dispose();
 ```
 
-Οι παρακάτω εικόνες από το αντίστοιχο παράδειγμα .NET εξήχθησαν με το Microsoft PowerPoint και δείχνουν τις ίδιες ρυθμίσεις ύψους. Ένα μικρότερο ποσοστό παράγει πιο επίπεδη σκηνή, ενώ ένα μεγαλύτερο ποσοστό παράγει πιο ψηλή σκηνή εντός του ίδιου αντικειμένου διαγράμματος. Το PowerPoint μπορεί επίσης να προσαρμόσει τα διαστήματα των γραμμών των αξόνων και τη θέση των ετικετών ώστε να ταιριάζουν στη σκηνή.
+Οι παρακάτω εικόνες από το ισοδύναμο .NET παράδειγμα εξήχθησαν με το Microsoft PowerPoint και απεικονίζουν τις ίδιες ρυθμίσεις ύψους. Ένα μικρότερο ποσοστό παράγει μια πιο επίπεδη σκηνή, ενώ ένα μεγαλύτερο ποσοστό δημιουργεί μια πιο ψηλή σκηνή μέσα στο ίδιο αντικείμενο διαγράμματος. Το PowerPoint ενδέχεται επίσης να προσαρμόσει τα διαστήματα των αξόνων και τη θέση των ετικετών ώστε να ταιριάζουν με τη σκηνή.
 
-| Ύψος: 50% | Ύψος: 100% | Ύψος: 200% |
+| Ύψος: 50 % | Ύψος: 100 % | Ύψος: 200 % |
 | --- | --- | --- |
-| ![3Δ στήλη με ύψος 50 % του πλάτους της](height_percent_50.png) | ![3Δ στήλη με ύψος 100 % του πλάτους της](height_percent_100.png) | ![3Δ στήλη με ύψος 200 % του πλάτους της](height_percent_200.png) |
+| ![3D διάγραμμα στήλης με ύψος στο 50 % του πλάτους του](height_percent_50.png) | ![3D διάγραμμα στήλης με ύψος στο 100 % του πλάτους του](height_percent_100.png) | ![3D διάγραμμα στήλης με ύψος στο 200 % του πλάτους του](height_percent_200.png) |
 
 Αυτές οι μέθοδοι ελέγχουν διαφορετικές πτυχές του διαγράμματος:
 
 | Μέθοδος | Αποτέλεσμα |
 | --- | --- |
-| [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Ύψος της 3Δ σκηνής ως ποσοστό του πλάτους της. |
-| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Ύψος του αντικειμένου διαγράμματος στο slide, σε points. |
-| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Βάθος της 3Δ σκηνής ως ποσοστό του πλάτους της. |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Απόσταση μεταξύ σειρών κατά τον άξονα βάθους, ως ποσοστό του πλάτους του δείκτη. |
+| [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Ύψος της 3D σκηνής ως ποσοστό του πλάτους της. |
+| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Ύψος του αντικειμένου διαγράμματος στη διαφάνεια, σε μονάδες σημείων. |
+| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Βάθος της 3D σκηνής ως ποσοστό του πλάτους της. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Απόσταση μεταξύ σειρών κατά τον άξονα βάθους, ως ποσοστό του πλάτους του σημείου. |
 
-Η ρύθμιση του ύψους επηρεάζει διαγράμματα 3Δ στήλης και ράβδου, συμπεριλαμβανομένων των κυλινδρικών, κωνικών και πυραμιδικών παραλλαγών, καθώς και διαγράμματα 3Δ γραμμής, περιοχής, πίτας και επιφάνειας. Η σύγκριση παραπάνω χρησιμοποιεί τον επαληθευμένο τύπο `Column3D`. Η ρύθμιση δεν αλλάζει την εμφάνιση ενός 2Δ διαγράμματος `ClusteredColumn` ή ενός διαγράμματος `BubbleWith3D`; αυτά τα ονόματα είναι μέλη της αρίθμησης [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Για άλλες ρυθμίσεις εμφάνισης διαγράμματος, δείτε το [Chart Formatting](/slides/el/cpp/chart-formatting/).
+Η ρύθμιση του ύψους επηρεάζει τα 3D διαγράμματα στήλης και μπάρας, συμπεριλαμβανομένων των κυλινδρικών, κωνικών και πυραμιδικών παραλλαγών, καθώς και τα 3D διαγράμματα γραμμής, περιοχής, πίτας και επιφάνειας. Η σύγκριση παραπάνω χρησιμοποιεί τον επαληθευμένο τύπο `Column3D`. Η ρύθμιση δεν αλλάζει την εμφάνιση ενός 2D διαγράμματος `ClusteredColumn` ή ενός διαγράμματος `BubbleWith3D`; αυτά τα ονόματα είναι μέλη της απαρίθμησης [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Για άλλες ρυθμίσεις εμφάνισης διαγράμματος, δείτε [Chart Formatting](/slides/el/cpp/chart-formatting/).
 
-## **Ρύθμιση της Απόστασης μεταξύ Σειρών**
+## **Ρύθμιση του Κενού μεταξύ Σειρών**
 
-Χρησιμοποιήστε το [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) για να ελέγξετε την απόσταση μεταξύ δεδομένων σειρών κατά τον άξονα βάθους ενός 3Δ διαγράμματος, εκφρασμένη ως ποσοστό του πλάτους του δείκτη. Χρησιμοποιήστε τιμές από **0 μέχρι 500**, συμπεριλαμβανομένων: το `0` αφαιρεί το κενό, ενώ μεγαλύτερες τιμές αυξάνουν την απόσταση. Με σταθερό βάθος διαγράμματος, η αύξηση του κενό κάνει τα δείκτες πιο λεπτά κατά τον άξονα βάθους.
+Χρησιμοποιήστε την [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) για να ελέγξετε την απόσταση μεταξύ σειρών δεδομένων κατά τον άξονα βάθους ενός 3D διαγράμματος, εκφρασμένη ως ποσοστό του πλάτους του σημείου. Χρησιμοποιήστε τιμές από **0 to 500**, inclusive: `0` αφαιρεί το κενό, ενώ μεγαλύτερες τιμές αυξάνουν το διάστημα. Με σταθερό βάθος διαγράμματος, η αύξηση του κενού κάνει τα σημεία πιο λεπτά κατά τον άξονα βάθους.
 
-Αποκτήστε την ομάδα μέσω του [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Η ρύθμιση εφαρμόζεται σε κάθε σειρά της ομάδας, όχι μόνο στη σειρά που χρησιμοποιήθηκε για την πρόσβαση. Η [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) επιστρέφει τη ρύθμιση της ομάδας-γονέα.
+Πρόσβαση στη ομάδα μέσω του [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Η ρύθμιση επηρεάζει κάθε σειρά σε αυτήν την ομάδα, όχι μόνο τη σειρά που χρησιμοποιήθηκε για την πρόσβαση. Η [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) επιστρέφει τη ρύθμιση της γονικής ομάδας.
 
-Αυτή η ρύθμιση επηρεάζει διαγράμματα 3Δ στήλης και ράβδου, συμπεριλαμβανομένων των κυλινδρικών, κωνικών και πυραμιδικών παραλλαγών, καθώς και διαγράμματα 3Δ γραμμής και περιοχής. Η εμφάνιση εξαρτάται από το αν οι σειρές είναι διατεταγμένες σε βάθος, ομαδοποιημένες ή στοίβαγμενες. Για σαφή σύγκριση των κενών μεταξύ ξεχωριστών σειρών, χρησιμοποιήστε το `ChartType::Column3D` από την αρίθμηση [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
+Αυτή η ρύθμιση επηρεάζει τα 3D διαγράμματα στήλης και μπάρας, συμπεριλαμβανομένων των κυλινδρικών, κωνικών και πυραμιδικών παραλλαγών, καθώς και τα 3D διαγράμματα γραμμής και περιοχής. Η εμφάνιση εξαρτάται από το αν οι σειρές είναι τοποθετημένες σε βάθος, ομαδοποιημένες ή στοιβαγμένες. Για σαφή σύγκριση των κενών μεταξύ ξεχωριστών σειρών, χρησιμοποιήστε το `ChartType::Column3D` από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
 
 Αυτές οι μέθοδοι ελέγχουν διαφορετικές πτυχές του διαγράμματος:
 
 | Μέθοδος | Αποτέλεσμα |
 | --- | --- |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Απόσταση μεταξύ σειρών κατά τον άξονα βάθους, ως ποσοστό του πλάτους του δείκτη. |
-| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Απόσταση μεταξύ γειτονικών ομάδων ράβδων ή στηλών, ως ποσοστό του πλάτους της ράβδου ή στήλης. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Απόσταση μεταξύ σειρών κατά τον άξονα βάθους, ως ποσοστό του πλάτους του σημείου. |
+| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Απόσταση μεταξύ γειτονικών ομάδων μπάρας ή στήλης, ως ποσοστό του πλάτους της μπάρας ή της στήλης. |
 | [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Συνολικό βάθος διαγράμματος, ως ποσοστό του πλάτους του διαγράμματος. |
 
-Το παρακάτω παράδειγμα αυτόνομο χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος, που περιέχουν τρεις σειρές και τέσσερις κατηγορίες. Αποθηκεύει δύο παρουσιάσεις με πανομοιότυπα δεδομένα, περιστροφή, πλάτος κενών και βάθος διαγράμματος· μόνο το βάθος κενών αλλάζει.
+Το παρακάτω αυτόνομο παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του διαγράμματος, τα οποία περιέχουν τρεις σειρές και τέσσερις κατηγορίες. Αποθηκεύει δύο παρουσιάσεις με ταυτόχρονα δεδομένα, περιστροφή, πλάτος κενού και βάθος διαγράμματος· μόνο το βάθος κενού αλλάζει.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -215,15 +291,15 @@ for (uint16_t gapDepth : { 0, 500 })
 presentation->Dispose();
 ```
 
-Οι παρακάτω εικόνες από το αντίστοιχο παράδειγμα .NET εξήχθησαν με το Microsoft PowerPoint και δείχνουν τις ίδιες ρυθμίσεις βάθους κενών.
+Οι παρακάτω εικόνες από το ισοδύναμο .NET παράδειγμα εξήχθησαν με το Microsoft PowerPoint και απεικονίζουν τις ίδιες ρυθμίσεις κενού βάθους.
 
-| Βάθος κενών: 0% | Βάθος κενών: 500% |
+| Κενό βάθους: 0 % | Κενό βάθους: 500 % |
 | --- | --- |
-| ![3Δ στήλη χωρίς κενό μεταξύ σειρών κατά τον άξονα βάθους](gap_depth_0.png) | ![3Δ στήλη με κενό 500 % μεταξύ σειρών κατά τον άξονα βάθους](gap_depth_500.png) |
+| ![3D διάγραμμα στήλης χωρίς κενό μεταξύ σειρών κατά τον άξονα βάθους](gap_depth_0.png) | ![3D διάγραμμα στήλης με κενό 500 % μεταξύ σειρών κατά τον άξονα βάθους](gap_depth_500.png) |
 
-## **Αλλαγή του Τύπου Σειράς 3Δ και του Σχήματος Ράβδου**
+## **Αλλαγή του Τύπου Σειράς 3D και του Σχήματος Μπάρας**
 
-Σε ένα ομαδοποιημένο κυλινδρικό διάγραμμα, η πρώτη σειρά ξεκινά με κυλινδρικές ράβδους. Το παράδειγμα διαβάζει [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) και [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) πριν και μετά από κάθε αλλαγή.
+Σε ένα ομαδοποιημένο κυλινδρικό διάγραμμα, η πρώτη σειρά ξεκινά με κυλινδρικές μπάρες. Το παράδειγμα διαβάζει τα [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) και [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) πριν και μετά από κάθε αλλαγή.
 
 ```cpp
 #include <DOM/Chart/ChartShapeType.h>
@@ -272,24 +348,24 @@ presentation->Dispose();
 
 | Αλλαγή στην πρώτη σειρά | `get_Type` | `get_Bar3DShape` |
 | --- | --- | --- |
-| Δημιουργία του διαγράμματος | `ClusteredCylinder` | `Cylinder` |
+| Δημιουργία διαγράμματος | `ClusteredCylinder` | `Cylinder` |
 | Κλήση του [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) με `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Κλήση του [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) με `Box` | `ClusteredColumn3D` | `Box` |
 
-Ο ορισμός του σχήματος σε `Box` αλλάζει επίσης τον τύπο σειράς σε `ClusteredColumn3D`. Εάν ο κώδικάς σας ελέγχει τον τύπο σειράς, καλέστε `series->get_Type()` μετά την αλλαγή του σχήματος. Μια τιμή που έχει αποθηκευτεί πριν την αλλαγή θα εξακολουθήσει να οδηγεί στην ακμή `ClusteredCone`.
+Ο ορισμός του σχήματος σε `Box` αλλάζει επίσης τον τύπο σειράς σε `ClusteredColumn3D`. Εάν ο κώδικάς σας κάνει διακλαδώσεις βάσει του τύπου σειράς, καλέστε `series->get_Type()` μετά την αλλαγή του σχήματος. Μια τιμή που είχε αποθηκευτεί πριν την αλλαγή θα εξακολουθεί να επιλέγει τη διακλάδωση `ClusteredCone`.
 
 ![Σύγκριση PowerPoint που δείχνει την πρώτη σειρά ως κυλίνδρους, κώνοι και ορθογώνιες στήλες από αριστερά προς δεξιά](series-shapes.png)
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζουν λειτουργία 3Δ στο Aspose.Slides;**
+**Ποιοι τύποι διαγραμμάτων υποστηρίζουν λειτουργία 3D στο Aspose.Slides;**
 
-Το Aspose.Slides υποστηρίζει 3Δ παραλλαγές διαγραμμάτων στηλών, συμπεριλαμβανομένων των Column 3D, Clustered Column 3D, Stacked Column 3D και 100 % Stacked Column 3D, καθώς και σχετικούς 3Δ τύπους που εκτίθενται μέσω της αρίθμησης [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Για μια ακριβή, ενημερωμένη λίστα, ελέγξτε τα μέλη του [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) στην τεκμηρίωση API της εγκατεστημένης έκδοσής σας.
+Το Aspose.Slides υποστηρίζει 3D παραλλαγές των διαγραμμάτων στήλης, συμπεριλαμβανομένων των Column 3D, Clustered Column 3D, Stacked Column 3D και 100 % Stacked Column 3D, καθώς και συναφή 3D είδη που εκτίθενται μέσω της απαρίθμησης [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Για μια ακριβή, ενημερωμένη λίστα, ελέγξτε τα μέλη του [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) στην τεκμηρίωση του API της εγκατεστημένης έκδοσής σας.
 
-**Μπορώ να λάβω μια ραστερ εικόνα ενός 3Δ διαγράμματος για αναφορά ή το διαδίκτυο;**
+**Μπορώ να λάβω μια ραστερική εικόνα ενός 3D διαγράμματος για αναφορά ή το web;**
 
-Ναι. Μπορείτε να εξάγετε ένα διάγραμμα σε εικόνα με την [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) ή να [αποδώσετε ολόκληρη τη διαφάνεια](/slides/el/cpp/convert-powerpoint-to-png/) σε μορφές όπως PNG ή JPEG. Αυτό είναι χρήσιμο όταν χρειάζεστε μια ραστερ προεπισκόπηση ή θέλετε να ενσωματώσετε το διάγραμμα σε έγγραφα, πίνακες ελέγχου ή ιστοσελίδες χωρίς να απαιτείται το PowerPoint.
+Ναι. Μπορείτε να εξαχθεί ένα διάγραμμα σε εικόνα με τη [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) ή να [αποδώσετε ολόκληρη τη διαφάνεια](/slides/el/cpp/convert-powerpoint-to-png/) σε μορφές όπως PNG ή JPEG. Αυτό είναι χρήσιμο όταν χρειάζεστε μια ραστερική προεπισκόπηση ή θέλετε να ενσωματώσετε το διάγραμμα σε έγγραφα, πίνακες εργαλείων ή ιστοσελίδες χωρίς να απαιτείται το PowerPoint.
 
-**Πόσο αποδοτική είναι η δημιουργία και απόδοση μεγάλων 3Δ διαγραμμάτων;**
+**Πόσο αποδοτική είναι η δημιουργία και η απόδοση μεγάλων 3D διαγραμμάτων;**
 
-Η απόδοση εξαρτάται από τον όγκο των δεδομένων και τη οπτική πολυπλοκότητα. Για βέλτιστα αποτελέσματα, κρατήστε τα 3Δ εφέ στα ελάχιστα, αποφύγετε βαριά υφάσματα σε τοίχους και περιοχές σχεδίασης, περιορίστε τον αριθμό των σημείων δεδομένων ανά σειρά όταν είναι δυνατόν, και αποδώστε σε ένα κατάλληλο μέγεθος εξόδου (ανάλυση και διαστάσεις) ώστε να ταιριάζει με την απαιτούμενη προβολή ή εκτύπωση.
+Η απόδοση εξαρτάται από τον όγκο των δεδομένων και την οπτική πολυπλοκότητα. Για βέλτιστα αποτελέσματα, κρατήστε τα 3D εφέ στο ελάχιστο, αποφύγετε βαριές υφές στους τοίχους και τις περιοχές σχεδίασης, περιορίστε τον αριθμό σημείων δεδομένων ανά σειρά όπου είναι δυνατόν, και αποδώστε σε κατάλληλο μέγεθος εξόδου (ανάλυση και διαστάσεις) ώστε να ταιριάζει με την προβλεπόμενη οθόνη ή εκτύπωση.

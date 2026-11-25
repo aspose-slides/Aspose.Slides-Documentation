@@ -1,55 +1,55 @@
 ---
-title: Limitare le modifiche alla presentazione con blocchi di forma in PHP
-linktitle: Limitare le modifiche alla presentazione
+title: Limita le modifiche alla presentazione con i blocchi di forma in PHP
+linktitle: Limita le modifiche alla presentazione
 type: docs
 weight: 60
 url: /it/php-java/applying-protection-to-presentation/
 keywords:
 - impedire modifiche
 - proteggere dalla modifica
-- bloccare forma
-- bloccare posizione
-- bloccare selezione
-- bloccare ridimensionamento
-- bloccare raggruppamento
+- blocca forma
+- blocca posizione
+- blocca selezione
+- blocca ridimensionamento
+- blocca raggruppamento
 - PowerPoint
 - PPTX
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX con Aspose.Slides per PHP via Java per limitare la selezione, lo spostamento, il ridimensionamento e il raggruppamento."
+description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX con Aspose.Slides per PHP tramite Java per limitare selezione, spostamento, ridimensionamento e raggruppamento."
 ---
 ## **Panoramica**
 
-Un uso comune di Aspose.Slides for PHP via Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) come parte di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto originali.
+Un uso comune di Aspose.Slides per PHP tramite Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) all'interno di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsti.
 
 Questo articolo spiega come le forme sono organizzate nelle diapositive e come applicare e rimuovere i blocchi delle forme in una presentazione PPTX. Questi blocchi consentono di limitare operazioni di modifica specifiche su singole forme.
 
 ## **Composizione di una diapositiva**
 
-Una diapositiva di una presentazione è composta da componenti come autoshape, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi utilizzati per creare una presentazione. In Aspose.Slides for PHP via Java, ogni elemento su una diapositiva è rappresentato da un oggetto che eredita dalla classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
+Una diapositiva di una presentazione è composta da componenti come autoshapes, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi utilizzati per costruire una presentazione. In Aspose.Slides per PHP tramite Java, ogni elemento su una diapositiva è rappresentato da un oggetto che eredita dalla classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
 
-I diversi tipi di forma espongono diverse opzioni di blocco. La classe [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) è la classe base per i blocchi delle forme. Aspose.Slides for PHP via Java fornisce le seguenti classi di blocco:
+I diversi tipi di forma espongono diverse opzioni di blocco. La classe [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) è la classe base per i blocchi delle forme. Aspose.Slides per PHP tramite Java fornisce le seguenti classi di blocco:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) blocca le autoshape.  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) blocca gli autoshapes.  
 - [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) blocca le forme connettore.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) blocca gli oggetti grafici.  
 - [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) blocca le forme raggruppate.  
 - [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) blocca le cornici immagine.  
 
-Per applicare i blocchi a una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), scorrere le sue diapositive e impostare i blocchi appropriati su ciascuna forma supportata.
+Per applicare i blocchi a una [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), iterare attraverso le sue diapositive e impostare i blocchi appropriati su ciascuna forma supportata.
 
-## **Applicare e Rimuovere la protezione**
+## **Applicare e rimuovere la protezione**
 
-Gli editor di presentazione compatibili utilizzano i blocchi delle forme per limitare operazioni di modifica individuali. La crittografia dei file e la protezione in scrittura a livello di documento sono impostazioni di [impostazioni di protezione della presentazione](/slides/it/php-java/password-protected-presentation/) separate.
+Gli editor di presentazioni compatibili utilizzano i blocchi delle forme per limitare operazioni di modifica individuali. La crittografia dei file e la protezione in scrittura a livello di documento sono impostazioni di [impostazioni di protezione della presentazione](/slides/it/php-java/password-protected-presentation/) separate.
 
 ### **Applicare la protezione alle forme PPTX**
 
-Aspose.Slides for PHP via Java fornisce la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) per lavorare con le forme su una diapositiva.
+Aspose.Slides per PHP tramite Java fornisce la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) per lavorare con le forme su una diapositiva.
 
-L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) e [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` per le autoshape, con blocchi equivalenti per le forme raggruppate, i connettori e le cornici immagine. I connettori utilizzano [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) per lo spostamento; i gruppi utilizzano anche [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) per limitare il raggruppamento.
+L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) e [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` per gli autoshapes, con blocchi equivalenti per le forme gruppo, i connettori e le cornici immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) per lo spostamento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) per limitare il raggruppamento.
 
-L'esempio carica una presentazione PPTX esistente, controlla le forme nella collezione di forme di ciascuna diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono invariate. Il ciclo non attraversa le forme figlio all'interno di un gruppo.
+L'esempio carica una presentazione PPTX esistente, controlla le forme nella raccolta di forme di ogni diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono invariate. Il ciclo non attraversa le forme figlie all'interno di un gruppo.
 
 ```php
 use aspose\slides\Presentation;
@@ -133,9 +133,9 @@ try {
 }
 ```
 
-### **Conservare un ritaglio immagine**
+### **Mantenere il ritaglio di un'immagine**
 
-Posizionare una foto chiamata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12% a sinistra e l'8% a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) sul blocco della cornice immagine. Passare `true` limita ulteriori ritagli e conserva il ritaglio esistente.
+Posizionare una foto denominata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12% a sinistra e l'8% a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) sul blocco della cornice immagine. Passare `true` limita ulteriori ritagli e preserva il ritaglio esistente.
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` memorizza il blocco di ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
+`PictureLocked.pptx` memorizza il blocco del ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
 
 ### **Mantenere un diagramma raggruppato**
 
-L'esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) sul blocco del gruppo per mantenere i componenti del diagramma insieme. Altre modifiche, come spostare il gruppo o cambiare il riempimento di un componente, rimangono disponibili.
+L'esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) sul blocco del gruppo per mantenere insieme i componenti del diagramma. Altre modifiche, come lo spostamento del gruppo o la modifica del riempimento di un componente, rimangono disponibili.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` memorizza il blocco di separazione come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+`DiagramLocked.pptx` memorizza il blocco di annullamento raggruppamento come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+
+### **Segnalare i blocchi di forma esistenti**
+
+Per revisionare un modello, aprirlo e leggere l'oggetto di blocco per ogni forma. Il metodo [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) restituisce `true` quando tutte le flag su quell'oggetto sono disabilitate e `false` quando almeno una è abilitata. Un gruppo e i suoi figli hanno oggetti di blocco separati, quindi ispezionare i figli anche quando il gruppo non ha blocchi.
+
+Questo esempio verifica lo spostamento per gli autoshapes, le cornici immagine e i gruppi. Controlla anche il ritaglio per le immagini e l'annullamento raggruppamento per i gruppi. Il report elenca le flag abilitate che riconosce e contrassegna i tipi di forma che non ispeziona.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Supponiamo che la diapositiva 1 di `Sample.pptx` contenga un gruppo denominato `Layout` con l'annullamento raggruppamento bloccato, un'immagine denominata `Photo` al suo interno con il ritaglio bloccato, e un rettangolo sbloccato denominato `Free`. Il report ignora `Free` e stampa queste due righe:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Il report legge le flag di modifica a livello di forma memorizzate senza modificarle o salvare la presentazione. La protezione in scrittura a livello di documento è un'impostazione separata, e l'applicazione di ogni flag dipende dall'editor.
 
 ### **Conclusione**
 
-Aspose.Slides for PHP via Java consente di limitare operazioni di modifica specifiche su singole forme o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori su `false` quando è necessario rimuovere tali restrizioni.
+Aspose.Slides per PHP tramite Java consente di limitare operazioni di modifica specifiche su forme individuali o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori su `false` quando è necessario rimuovere tali restrizioni.
 
-## **Domande frequenti**
+## **FAQ**
 
-**Posso combinare i blocchi delle forme e la protezione con password nella stessa presentazione?**
+**Posso combinare i blocchi di forma e la protezione con password nella stessa presentazione?**
 
-Sì. I blocchi delle forme limitano operazioni di modifica specifiche, mentre la [protezione con password](/slides/it/php-java/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
+Sì. I blocchi di forma limitano operazioni di modifica specifiche, mentre la [protezione con password](/slides/it/php-java/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
 
-**Posso limitare la modifica su diapositive specifiche senza influire sulle altre?**
+**Posso limitare la modifica su diapositive specifiche senza influenzare le altre?**
 
-Sì. Applicare i blocchi solo alle forme delle diapositive selezionate. Questo non modifica le impostazioni di blocco delle altre diapositive.
+Sì. Applicare i blocchi solo alle forme delle diapositive selezionate. Questo non cambia le impostazioni di blocco sulle altre diapositive.
 
-**Come posso applicare i blocchi a forme individuali all'interno di un gruppo?**
+**Come posso applicare blocchi a forme individuali all'interno di un gruppo?**
 
-Scorrere la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) del gruppo e applicare i blocchi appropriati a ciascuna forma figlia. Ripetere l'operazione per eventuali gruppi annidati. Gli esempi sopra elaborano solo la collezione di forme della diapositiva, quindi non impostano blocchi sui singoli membri del gruppo.
+Iterare attraverso la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) del gruppo e applicare i blocchi appropriati a ciascuna forma figlia. Ripetere l'operazione per eventuali gruppi annidati, seguendo il percorso nell'esempio di report.

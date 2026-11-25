@@ -1,12 +1,12 @@
 ---
-title: PHP でシェイプ ロックを使用したプレゼンテーション編集の制限
-linktitle: プレゼンテーション編集の制限
+title: PHP でシェイプ ロックを使用してプレゼンテーションの編集を制限する
+linktitle: プレゼンテーションの編集を制限
 type: docs
 weight: 60
 url: /ja/php-java/applying-protection-to-presentation/
 keywords:
-- 編集防止
-- 編集から保護
+- 編集の防止
+- 編集からの保護
 - シェイプのロック
 - 位置のロック
 - 選択のロック
@@ -17,38 +17,39 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して PPTX プレゼンテーションのシェイプをロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
+description: "Aspose.Slides for PHP via Java を使用して PPTX プレゼンテーションのシェイプをロック・アンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for PHP via Java の一般的な使用方法は、PowerPoint (PPTX) プレゼンテーションを自動化されたワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、シェイプへの変更を制限することで、意図したレイアウトとコンテンツを保護できます。
+Aspose.Slides for PHP via Java の一般的な使用例は、自動化されたワークフローの一環として PowerPoint (PPTX) プレゼンテーションを作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、形状の変更を制限することで、意図されたレイアウトやコンテンツを保護できます。
 
-この記事では、スライド上でシェイプがどのように構成されているか、そして PPTX プレゼンテーションでシェイプ ロックを適用および削除する方法について説明します。これらのロックを使用すると、個々のシェイプに対する特定の編集操作を制限できます。
+本記事では、スライド上で形状がどのように構成されているか、そして PPTX プレゼンテーションで形状ロックを適用および解除する方法を説明します。これらのロックを使用すると、個々の形状に対する特定の編集操作を制限できます。
 
 ## **スライドの構成**
 
-プレゼンテーション スライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ シェイプ、ピクチャ フレーム、ビデオ フレーム、コネクタ、およびプレゼンテーションの作成に使用されるその他の要素で構成されています。Aspose.Slides for PHP via Java では、スライド上の各要素は [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスを継承したオブジェクトとして表されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化された形状、画像フレーム、ビデオフレーム、コネクタ、その他の要素などで構成されます。Aspose.Slides for PHP via Java では、スライド上の各要素は[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)クラスを継承したオブジェクトとして表現されます。
 
-シェイプの種類に応じて異なるロック オプションが公開されます。[BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) クラスはシェイプ ロックの基底クラスです。Aspose.Slides for PHP via Java は以下のロック クラスを提供します:
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) オートシェイプをロックします。
-- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) コネクタ シェイプをロックします。
-- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) グラフィック オブジェクトをロックします。
-- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) グループ シェイプをロックします。
-- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) ピクチャ フレームをロックします。
+形状の種類によってロックできるオプションが異なります。[BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/)クラスは形状ロックの基底クラスです。Aspose.Slides for PHP via Java は以下のロッククラスを提供します：
 
-ロックを [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 全体に適用するには、スライドを反復処理し、サポートされている各シェイプに適切なロックを設定します。
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/)はオートシェイプをロックします。  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/)はコネクタ形状をロックします。  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/)はグラフィカルオブジェクトをロックします。  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/)はグループ形状をロックします。  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/)は画像フレームをロックします。  
 
-## **保護の適用と解除**
+[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)全体にロックを適用するには、スライドを順に処理し、各サポート対象の形状に適切なロックを設定します。
 
-対応するプレゼンテーション エディタはシェイプ ロックを使用して個々の編集操作を制限します。ファイル暗号化およびドキュメント レベルの書き込み保護は、別の [プレゼンテーション保護設定](/slides/ja/php-java/password-protected-presentation/) です。
+## **保護の適用と削除**
 
-### **PPTX シェイプへの保護の適用**
+互換性のあるプレゼンテーション エディタは形状ロックを使用して個別の編集操作を制限します。ファイルの暗号化やドキュメントレベルの書き込み保護は、別の[presentation protection settings](/slides/ja/php-java/password-protected-presentation/)です。
 
-Aspose.Slides for PHP via Java はスライド上のシェイプを操作するための [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) クラスを提供します。
+### **PPTX 形状への保護の適用**
 
-この例では、オートシェイプに対して `true` を指定して [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked)、[setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) を呼び出し、グループ シェイプ、コネクタ、ピクチャ フレームにも同等のロックを設定します。コネクタは移動のために [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) を使用し、グループはグループ化を制限するために [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) も使用します。
+Aspose.Slides for PHP via Java はスライド上の形状を操作するために[Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/)クラスを提供します。
 
-この例は既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプ コレクション内のシェイプをチェックし、これらの制限が適用されたコピーを保存します。扱われる 4 種類以外のシェイプは変更されません。ループはグループ内の子シェイプを走査しません。
+この例では、オートシェイプに対して `true` を指定して[setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked)、[setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) を呼び出し、グループ形状、コネクタ、画像フレームにも同等のロックを設定します。コネクタは移動に[setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) を使用し、グループは[setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) を使用してグループ化を制限します。
+
+この例は既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプコレクション内の形状をチェックし、これらの制限を適用したコピーを保存します。扱われる 4 つのタイプ以外の形状は変更されません。ループはグループ内の子シェイプは走査しません。
 
 ```php
 use aspose\slides\Presentation;
@@ -91,7 +92,7 @@ try {
 
 ### **保護の解除**
 
-シェイプ ロックを解除するには、その値を `false` に設定します。以下の例では、シェイプ ロックが設定されたプレゼンテーションを読み込み、[AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/)、[PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、[GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) に `false` を渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
+形状ロックを解除するには、その値を `false` に設定します。以下の例では、ロックされた形状を含むプレゼンテーションを読み込み、[AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/)、[PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、[GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) に `false` を渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。その他のロック設定は変更されません。
 
 ```php
 use aspose\slides\Presentation;
@@ -134,7 +135,9 @@ try {
 
 ### **画像のクロップを保持**
 
-`photo.jpg` という名前の写真を作業ディレクトリに配置します。この例では左から 12%、右から 8% をクロップし、ピクチャ フレームのロックに対して [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) を呼び出します。`true` を渡すとさらにクロップできなくなり、既存のクロップが保持されます。
+作業ディレクトリに `photo.jpg` という名前の写真を置きます。例では左側を 12%、右側を 8% クロップし、画像フレームのロックに対して[setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) を呼び出します。`true` を渡すことで、以降のクロップが制限され、既存のクロップが保持されます。
+
+`PictureLocked.pptx` はクロップロックを `true` として保存します。PowerPoint では、写真が選択されていると **Crop** コマンドが無効になります。
 
 ```php
 use aspose\slides\Images;
@@ -167,11 +170,13 @@ try {
 }
 ```
 
-`PictureLocked.pptx` はクロップ ロックを `true` として保存します。PowerPoint では、写真が選択されていると **Crop** コマンドが無効になります。
-
 ### **図表をグループ化したまま保持**
 
-この例では矩形と矢印をグループ化し、グループのロックに対して [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) を呼び出して図表のコンポーネントをまとめたままにします。グループの移動やコンポーネントの塗りつぶしの変更など、他の編集は引き続き可能です。
+この例では矩形と矢印をグループ化し、グループのロックに対して[setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) を呼び出して図の構成要素を一緒に保ちます。グループの移動や構成要素の塗りの変更など、その他の編集は引き続き可能です。
+
+`DiagramLocked.pptx` はアン
+
+グループ解除ロックを `true` として保存します。PowerPoint では、図全体が選択されていると **Ungroup** コマンドが無効になります。
 
 ```php
 use aspose\slides\Presentation;
@@ -193,22 +198,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` はアングループ ロックを `true` として保存します。PowerPoint では、図全体が選択されていると **Ungroup** コマンドが無効になります。
+### **既存の形状ロックのレポート**
 
-### **結論**
+テンプレートを確認するには、開いて各形状のロックオブジェクトを取得します。[getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) メソッドは、オブジェクト上のすべてのフラグが無効な場合に `true`、少なくとも1つが有効な場合に `false` を返します。グループとその子は別々のロックオブジェクトを持つため、グループにロックがなくても子を検査します。
 
-Aspose.Slides for PHP via Java を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。各シェイプ タイプでサポートされているロックを選択し、制限を解除する必要がある場合はその値を `false` に設定してください。
+この例では、オートシェイプ、画像フレーム、グループの移動をチェックします。また、画像のクロップとグループのアン
+
+レポートは認識した有効なフラグを一覧表示し、検査しない形状タイプにはマークを付けます。
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+`Sample.pptx` のスライド 1 には、アン
+
+レポートは `Free` をスキップし、次の 2 行を出力します：
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+レポートは保存された形状レベルの編集フラグを読み取りますが、変更したりプレゼンテーションを保存したりはしません。ドキュメントレベルの書き込み保護は別の設定であり、各フラグの適用はエディタに依存します。
+
+## **結論**
+
+Aspose.Slides for PHP via Java を使用すると、個々の形状に対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。各形状タイプがサポートするロックを選択し、制限を解除したい場合は値を `false` に設定します。
 
 ## **よくある質問**
 
-**プレゼンテーションでシェイプ ロックとパスワード保護を同時に組み合わせることはできますか？**
+**同じプレゼンテーションで形状ロックとパスワード保護を組み合わせることはできますか？**
 
-はい。シェイプ ロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/php-java/password-protected-presentation/) はプレゼンテーションの開封または変更を制限できます。両方を同一ファイルで使用可能です。
+はい。形状ロックは特定の編集操作を制限し、[password protection](/slides/ja/php-java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同じファイルで併用できます。
 
-**特定のスライドだけの編集を制限し、他のスライドには影響させないことはできますか？**
+**特定のスライドだけの編集制限を、他のスライドに影響させずに行えますか？**
 
-はい。選択したスライド上のシェイプにのみロックを適用します。これにより、他のスライドのロック設定は変更されません。
+はい。対象のスライド上の形状にのみロックを適用すれば、他のスライドのロック設定は変更されません。
 
-**グループ内の個々のシェイプにロックを適用するにはどうすればよいですか？**
+**グループ内の個々の形状にロックを適用するにはどうすればよいですか？**
 
-グループの [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) メソッドが返すコレクションを反復処理し、各子シェイプに適切なロックを適用します。入れ子になったグループについても同様に繰り返します。上記の例はスライドのシェイプ コレクションのみを処理しているため、個々のグループ メンバーへのロックは設定されません。
+グループの[getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) メソッドが返すコレクションを走査し、各子形状に適切なロックを適用します。入れ子になったグループがある場合も同様に、レポート例の走査方法に従って処理します。

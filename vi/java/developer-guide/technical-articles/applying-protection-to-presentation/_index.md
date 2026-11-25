@@ -1,6 +1,6 @@
 ---
-title: Hạn chế chỉnh sửa bản trình chiếu bằng khóa hình dạng trong Java
-linktitle: Hạn chế chỉnh sửa bản trình chiếu
+title: Hạn chế chỉnh sửa bản thuyết trình bằng khóa hình dạng trong Java
+linktitle: Hạn chế chỉnh sửa bản thuyết trình
 type: docs
 weight: 60
 url: /vi/java/applying-protection-to-presentation/
@@ -14,42 +14,42 @@ keywords:
 - khóa nhóm
 - PowerPoint
 - PPTX
-- bản trình chiếu
+- bản thuyết trình
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản trình chiếu PPTX bằng Aspose.Slides cho Java để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm."
+description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản thuyết trình PPTX bằng Aspose.Slides cho Java để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm."
 ---
-## **Nền tảng**
+## **Bối cảnh**
 
-Một cách sử dụng phổ biến của Aspose.Slides for Java là tạo, cập nhật và lưu các bản trình chiếu PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bản trình chiếu này, việc hạn chế thay đổi các hình dạng có thể giúp bảo toàn bố cục và nội dung dự định.
+Một cách sử dụng phổ biến của Aspose.Slides for Java là tạo, cập nhật và lưu các bản thuyết trình PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bản thuyết trình này, việc hạn chế thay đổi các hình dạng có thể giúp bảo vệ bố cục và nội dung dự định.
 
-Bài viết này giải thích cách các hình dạng được tổ chức trên các slide và cách áp dụng và xóa các khóa hình dạng trong một bản trình chiếu PPTX. Các khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ.
+Bài viết này giải thích cách các hình dạng được tổ chức trên slide và cách áp dụng và loại bỏ khóa hình dạng trong một bản thuyết trình PPTX. Những khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng.
 
-## **Thành phần của một Slide**
+## **Cấu trúc của một Slide**
 
-Một slide trình chiếu được cấu thành từ các thành phần như autoshape, bảng, đối tượng OLE, nhóm hình dạng, khung hình ảnh, khung video, connector và các yếu tố khác được dùng để xây dựng bản trình chiếu. Trong Aspose.Slides for Java, mỗi yếu tố trên slide được biểu diễn bằng một đối tượng thực thi giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
+Một slide trong bản thuyết trình được tạo nên từ các thành phần như autoshape, bảng, đối tượng OLE, các hình dạng nhóm, khung ảnh, khung video, connector và các yếu tố khác được sử dụng để xây dựng bản thuyết trình. Trong Aspose.Slides for Java, mỗi yếu tố trên slide được biểu diễn bằng một đối tượng triển khai giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
 
 Các loại hình dạng khác nhau cung cấp các tùy chọn khóa khác nhau. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) là giao diện cơ sở cho các khóa hình dạng. Aspose.Slides for Java cung cấp các giao diện khóa sau:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) khóa autoshape.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) khóa connector.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) khóa đối tượng đồ họa.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) khóa nhóm hình dạng.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) khóa khung hình ảnh.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) khóa các autoshape.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) khóa các shape connector.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) khóa các shape nhóm.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) khóa các khung ảnh.  
 
-Để áp dụng khóa trên toàn bộ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), duyệt qua các slide và đặt các khóa phù hợp trên mỗi hình dạng được hỗ trợ.
+Để áp dụng các khóa trên toàn bộ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), hãy lặp qua các slide của nó và đặt các khóa phù hợp cho mỗi shape được hỗ trợ.
 
-## **Áp dụng và Xóa Bảo vệ**
+## **Áp dụng và Xóa bảo vệ**
 
-Các trình chỉnh sửa bản trình chiếu tương thích sử dụng khóa hình dạng để hạn chế các thao tác chỉnh sửa riêng lẻ. Mã hóa tệp và bảo vệ ghi ở mức tài liệu là các [cài đặt bảo vệ bản trình chiếu](/slides/vi/java/password-protected-presentation/).
+Các trình chỉnh sửa bản thuyết trình tương thích sử dụng khóa hình dạng để hạn chế các thao tác chỉnh sửa cá nhân. Mã hóa tệp và bảo vệ ghi ở mức tài liệu là các [cài đặt bảo vệ bản thuyết trình](/slides/vi/java/password-protected-presentation/) riêng biệt.
 
-### **Áp dụng Bảo vệ cho Các Hình dạng PPTX**
+### **Áp dụng bảo vệ cho các Shape PPTX**
 
-Aspose.Slides for Java cung cấp giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) để làm việc với các hình dạng trên slide.
+Aspose.Slides for Java cung cấp giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) để làm việc với các shape trên slide.
 
-Ví dụ gọi [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) và [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) với giá trị `true` cho autoshape, và các khóa tương đương cho nhóm hình dạng, connector và khung hình ảnh. Connectors sử dụng [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) để di chuyển; các nhóm cũng sử dụng [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) để hạn chế việc nhóm.
+Ví dụ gọi [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), và [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) với `true` cho autoshape, với các khóa tương đương cho shape nhóm, connector và picture frame. Connectors sử dụng [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) để di chuyển; các nhóm cũng sử dụng [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) để hạn chế việc nhóm.
 
-Ví dụ tải một bản trình chiếu PPTX hiện có, kiểm tra các hình dạng trong bộ sưu tập hình dạng của mỗi slide, và lưu một bản sao với các hạn chế này được áp dụng. Các hình dạng không thuộc bốn loại được xử lý sẽ không bị thay đổi. Vòng lặp không duyệt các hình dạng con trong một nhóm.
+Ví dụ tải một bản thuyết trình PPTX hiện có, kiểm tra các shape trong bộ sưu tập shape của mỗi slide, và lưu một bản sao với các hạn chế này đã được áp dụng. Các shape không thuộc bốn loại được xử lý sẽ được để nguyên. Vòng lặp không duyệt qua các shape con bên trong một nhóm.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Xóa Bảo vệ**
+### **Xóa bảo vệ**
 
-Để xóa một khóa hình dạng, đặt giá trị của nó thành `false`. Ví dụ sau tải một bản trình chiếu có khóa hình dạng và xóa các hạn chế lựa chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) và [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Nó cũng loại bỏ hạn chế nhóm bằng cách truyền `false` vào [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) và lưu một bản sao của bản trình chiếu. Các cài đặt khóa khác sẽ không thay đổi.
+Để xóa một khóa shape, đặt giá trị của nó thành `false`. Ví dụ sau tải một bản thuyết trình có các khóa shape và xóa các hạn chế lựa chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), và [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Nó cũng xóa hạn chế nhóm bằng cách truyền `false` vào [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) và lưu một bản sao của bản thuyết trình. Các cài đặt khóa khác sẽ được giữ nguyên.
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-### **Bảo toàn Crop hình ảnh**
+### **Bảo tồn việc Cắt Ảnh**
 
-Đặt một ảnh có tên `photo.jpg` trong thư mục làm việc. Ví dụ cắt 12% từ bên trái và 8% từ bên phải, sau đó gọi [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) trên khóa của khung hình ảnh. Truyền `true` sẽ hạn chế việc crop thêm và **bảo toàn crop hiện có**.
+Đặt một bức ảnh có tên `photo.jpg` trong thư mục làm việc. Ví dụ cắt 12% từ bên trái và 8% từ bên phải, sau đó gọi [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) trên khóa của picture frame. Truyền `true` sẽ hạn chế việc cắt thêm và bảo tồn crop hiện có.
 
 ```java
 import com.aspose.slides.*;
@@ -171,9 +171,9 @@ try {
 
 `PictureLocked.pptx` lưu khóa crop dưới dạng `true`. Trong PowerPoint, lệnh **Crop** bị vô hiệu hoá khi ảnh được chọn.
 
-### **Giữ một Sơ đồ Được Nhóm**
+### **Giữ biểu đồ được nhóm**
 
-Ví dụ nhóm một hình chữ nhật và một mũi tên, sau đó gọi [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) trên khóa của nhóm để giữ các thành phần của sơ đồ luôn ở cùng nhau. Các chỉnh sửa khác, chẳng hạn di chuyển nhóm hoặc thay đổi màu nền của thành phần, vẫn khả dụng.
+Ví dụ nhóm một hình chữ nhật và một mũi tên, sau đó gọi [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) trên khóa của nhóm để giữ các thành phần của biểu đồ lại với nhau. Các thao tác chỉnh sửa khác, như di chuyển nhóm hoặc thay đổi màu nền của thành phần, vẫn khả dụng.
 
 ```java
 import com.aspose.slides.*;
@@ -193,22 +193,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` lưu khóa ungrouping dưới dạng `true`. Trong PowerPoint, lệnh **Ungroup** bị vô hiệu hoá khi toàn bộ sơ đồ được chọn.
+`DiagramLocked.pptx` lưu khóa ungrouping dưới dạng `true`. Trong PowerPoint, lệnh **Ungroup** bị vô hiệu hoá khi toàn bộ biểu đồ được chọn.
+
+### **Báo cáo các Khóa Shape hiện có**
+
+Để xem xét một mẫu, mở nó và đọc đối tượng khóa cho mỗi shape. Phương thức [getNoLocks](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/#getNoLocks--) trả về `true` khi tất cả các cờ trên đối tượng đó bị tắt và `false` khi có ít nhất một cờ được bật. Một nhóm và các phần tử con của nó có các đối tượng khóa riêng, vì vậy hãy kiểm tra các phần tử con ngay cả khi nhóm không có khóa.
+
+Ví dụ này kiểm tra việc di chuyển cho autoshape, picture frame và nhóm. Nó cũng kiểm tra việc crop cho ảnh và ungrouping cho nhóm. Báo cáo liệt kê các cờ được bật mà nó nhận biết và đánh dấu các loại shape mà nó không kiểm tra.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            StringJoiner flags = new StringJoiner(", ");
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = flags.length() > 0 ? flags.toString() : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giả sử slide 1 của `Sample.pptx` chứa một nhóm có tên `Layout` với khóa ungrouping, một ảnh có tên `Photo` bên trong đó với khóa cropping, và một hình chữ nhật không khóa có tên `Free`. Báo cáo bỏ qua `Free` và in ra hai dòng sau:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Báo cáo đọc các cờ chỉnh sửa ở mức shape đã lưu mà không thay đổi chúng hoặc lưu bản thuyết trình. Bảo vệ ghi ở mức tài liệu là một cài đặt riêng, và việc thực thi mỗi cờ phụ thuộc vào trình chỉnh sửa.
 
 ### **Kết luận**
 
-Aspose.Slides for Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ hoặc áp dụng cùng một nhóm hạn chế trên nhiều slide. Chọn các khóa được hỗ trợ bởi từng loại hình dạng, và đặt giá trị của chúng thành `false` khi bạn cần gỡ bỏ các hạn chế đó.
+Aspose.Slides for Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng shape hoặc áp dụng cùng một hạn chế trên toàn bộ slide. Chọn các khóa được hỗ trợ bởi mỗi loại shape, và đặt giá trị của chúng thành `false` khi bạn cần xóa các hạn chế đó.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể kết hợp khóa hình dạng và bảo vệ bằng mật khẩu trong cùng một bản trình chiếu không?**
+**Tôi có thể kết hợp khóa shape và bảo vệ bằng mật khẩu trong cùng một bản thuyết trình không?**
 
-Có. Khóa hình dạng hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/java/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản trình chiếu. Bạn có thể sử dụng cả hai trong cùng một tệp.
+Có. Khóa shape hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/java/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản thuyết trình. Bạn có thể sử dụng cả hai trong cùng một tệp.
 
-**Tôi có thể hạn chế việc chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
+**Tôi có thể hạn chế chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
 
-Có. Áp dụng khóa chỉ cho các hình dạng trên các slide đã chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
+Có. Chỉ áp dụng các khóa cho các shape trên các slide đã chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
 
-**Làm thế nào tôi có thể áp dụng khóa cho các hình dạng riêng lẻ bên trong một nhóm?**
+**Làm thế nào tôi có thể áp dụng khóa cho các shape riêng lẻ bên trong một nhóm?**
 
-Duyệt qua bộ sưu tập trả về bởi phương thức [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) của nhóm và áp dụng các khóa phù hợp cho từng hình dạng con. Lặp lại quá trình này cho bất kỳ nhóm lồng nhau nào. Các ví dụ trên chỉ xử lý bộ sưu tập hình dạng của slide, vì vậy chúng không đặt khóa cho các thành viên riêng lẻ trong nhóm.
+Lặp qua bộ sưu tập trả về bởi phương thức [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) của nhóm và áp dụng các khóa phù hợp cho từng shape con. Lặp lại quá trình này cho bất kỳ nhóm lồng nhau nào, theo thứ tự duyệt trong ví dụ báo cáo.

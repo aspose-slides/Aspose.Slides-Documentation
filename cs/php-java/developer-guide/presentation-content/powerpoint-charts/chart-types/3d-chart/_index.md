@@ -11,17 +11,17 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vytvořte 3D grafy v prezentacích PowerPoint pomocí Aspose.Slides pro PHP přes Java. Nastavte rotaci, výškové poměry, hloubku grafu a rozestupy mezi sériemi s příklady v PHP."
+description: "Vytvářejte 3D grafy v prezentacích PowerPoint pomocí Aspose.Slides pro PHP přes Java. Upravit rotaci, výškové proporce, hloubku grafu a mezery mezi řadami s příklady v PHP."
 ---
 ## **Přehled**
 
-Aspose.Slides for PHP via Java vám umožňuje přizpůsobit pohled 3D grafu pomocí metody [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). Tento článek ukazuje, jak upravit rotaci, výškové poměry, hloubku, pravoúhlé osy a rozestupy mezi sériemi a poté uložit prezentaci ve formátu PPTX.
+Aspose.Slides pro PHP přes Java vám umožňuje přizpůsobit zobrazení 3D grafu pomocí metody [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). Tento článek ukazuje, jak upravit rotaci, výškové proporce, hloubku, pravouhlé osy a mezery mezi řadami a poté uložit prezentaci ve formátu PPTX.
 
 ## **Nastavení rotace a hloubky 3D grafu**
 
-Níže uvedený příklad vytváří [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a pomocí [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) přidává do jeho prvního snímku seskupený 3D sloupcový graf. Nahrazuje výchozí série a kategorie dvěma sériemi obsahujícími po třech hodnotách. Index listu `0` určuje první datový list grafu; řádek `0` obsahuje názvy sérií a sloupec `0` obsahuje popisky kategorií.
+Příklad níže vytvoří [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a použije [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) k přidání vrstveného 3D sloupcového grafu na první snímek. Nahradí výchozí řady a kategorie dvěma řadami, z nichž každá obsahuje tři hodnoty. Index listu `0` identifikuje první datový list grafu; řádek `0` obsahuje názvy řad a sloupec `0` obsahuje štítky kategorií.
 
-Metody [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) a [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) nastavují rotaci grafu na 40 ° a 270 °. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) nastavuje jeho hloubku na 150 % šířky, zatímco [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) povoluje pravoúhlé osy místo perspektivy. Výsledná prezentace obsahuje vyplněný graf s těmito nastaveními 3D zobrazení.
+Metody [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) a [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) nastaví rotaci grafu na 40 ° a 270 °. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) nastaví jeho hloubku na 150 % šířky, zatímco [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) povolí pravouhlé osy místo perspektivy. Výsledná prezentace obsahuje naplněný graf s těmito nastaveními 3D zobrazení.
 
 ```php
 use aspose\slides\ChartType;
@@ -68,11 +68,73 @@ try {
 }
 ```
 
-## **Úprava výškových poměrů 3D grafu**
+## **Použití výplně obrázkem na povrchu 3D grafu**
 
-Použijte [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) k nastavení výšky 3D grafu jako procenta jeho šířky. Tím změníte poměry 3D scény, aniž byste měnili velikost objektu grafu na snímku.
+Možná je vyplnit [boční stěna](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getsidewall/), [zadní stěna](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) a [podlaha](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) 3D grafu nezávisle. Nastavte [typ výplně](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) povrchu na `Picture` a přiřaďte obrázek. Nastavte jak [režim výplně obrázkem](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setpicturefillmode/), tak [typ obrázku](https://reference.aspose.com/slides/php-java/aspose.slides/chartwall/setpicturetype/) povrchu na `Stretch`, aby se jedna kopie obrázku roztáhla přes celý povrch.
 
-Následující příklad vytváří graf typu [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) s výchozími daty: tři série a čtyři kategorie. Uloží tři prezentace s výškovými poměry 50 %, 100 % a 200 %. Pozice, šířka a výška grafu zůstávají pevné. Data, rotace, hloubka, mezery mezi sériemi a formátování jsou ve všech třech souborech identické; mění se pouze procento výšky.
+Uložte [arrow.png](arrow.png) vedle PHP skriptu. Příklad otočí graf a zvýší maximální hodnotu na svislé ose, aby byla podlaha viditelná mezi sloupci. Pak duplikuje snímek dvakrát a na každý snímek aplikuje šipku na jiný povrch. Všechny tři grafy zachovávají stejná data, úhel pohledu i pozadí.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\PictureType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 20, 30, 680, 480);
+    $chart->getRotation3D()->setRightAngleAxes(true);
+    $chart->getRotation3D()->setRotationX(40);
+    $chart->getRotation3D()->setRotationY(30);
+    
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->setAutomaticMaxValue(false);
+    $verticalAxis->setMaxValue(24);
+
+    $backSlide = $presentation->getSlides()->addClone($slide);
+    $floorSlide = $presentation->getSlides()->addClone($slide);
+    $backChart = $backSlide->getShapes()->get_Item(0);
+    $floorChart = $floorSlide->getShapes()->get_Item(0);
+
+    $image = Images::fromFile(__DIR__ . "/arrow.png");
+    try {
+        $arrow = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $surfaces = [$chart->getSideWall(), $backChart->getBackWall(), $floorChart->getFloor()];
+    foreach ($surfaces as $surface) {
+        $fill = $surface->getFormat()->getFill();
+        $fill->setFillType(FillType::Picture);
+        $pictureFill = $fill->getPictureFillFormat();
+        $pictureFill->getPicture()->setImage($arrow);
+        $pictureFill->setPictureFillMode(PictureFillMode::Stretch);
+        $surface->setPictureType(PictureType::Stretch);
+    }
+
+    $presentation->save(__DIR__ . "/chart-surfaces.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Microsoft PowerPoint zobrazuje tři snímky následovně.
+
+| Boční stěna | Zadní stěna | Podlaha |
+| --- | --- | --- |
+| ![Šipka směřující do grafu podél boční stěny](side-wall.png) | ![Šipka směřující doprava přes zadní stěnu](back-wall.png) | ![Šipka směřující doprava přes podlahu mezi sloupci](floor.png) |
+
+## **Úprava výškových proporcí 3D grafu**
+
+Použijte [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) k nastavení výšky 3D grafu jako procenta jeho šířky. Tím se změní proporce 3D scény, aniž by se měnil rozměr objektu grafu na snímku.
+
+Následující příklad vytvoří graf [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) s výchozími daty: tři řady a čtyři kategorie. Uloží tři prezentace s výškovými proporcemi 50 %, 100 % a 200 %. Pozice, šířka a výška grafu zůstávají pevné. Data, rotace, hloubka, mezery mezi řadami a formátování jsou ve všech třech souborech identické; mění se pouze procento výšky.
 
 ```php
 use aspose\slides\ChartType;
@@ -99,40 +161,40 @@ try {
 }
 ```
 
-Následující obrázky ilustrují stejné nastavení výšky v ekvivalentním .NET příkladu a byly exportovány pomocí Microsoft PowerPoint. Menší procento vytváří plošší scénu, větší procento vyšší scénu ve stejném objektu grafu. PowerPoint může také upravit intervaly osy a umístění popisků, aby scénu přizpůsobil.
+Následující obrázky ilustrují stejná nastavení výšky v ekvivalentním .NET příkladu a byly exportovány pomocí Microsoft PowerPoint. Menší procento vytváří plošší scénu, zatímco větší procento vytváří vyšší scénu ve stejném objektu grafu. PowerPoint může také upravit intervaly značek os a umístění popisků, aby scéna lépe zapadla.
 
-| Výška: 50% | Výška: 100% | Výška: 200% |
+| Výška: 50 % | Výška: 100 % | Výška: 200 % |
 | --- | --- | --- |
-| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+| ![3D sloupcový graf s výškou nastavenou na 50 % šířky](height_percent_50.png) | ![3D sloupcový graf s výškou nastavenou na 100 % šířky](height_percent_100.png) | ![3D sloupcový graf s výškou nastavenou na 200 % šířky](height_percent_200.png) |
 
 Tyto metody řídí různé aspekty grafu:
 
-| Metoda | Efekt |
+| Metoda | Účinek |
 | --- | --- |
 | [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) | Výška 3D scény jako procento její šířky. |
-| [Chart::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setHeight) | Výška objektu grafu na snímku v bodech. |
+| [Chart::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setHeight) | Výška objektu grafu na snímku, v bodech. |
 | [Rotation3D::setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Hloubka 3D scény jako procento její šířky. |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Rozestup mezi sériemi podél osy hloubky jako procento šířky značky. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Mezery mezi řadami podél osy hloubky, jako procento šířky značky. |
 
-Nastavení výšky ovlivňuje 3D sloupcové a pruhové grafy, včetně válec, kužel a pyramida, stejně jako 3D čárové, plošné, koláčové a povrchové grafy. Porovnání výše používá ověřený typ `Column3D`. Nastavení nemění vzhled 2D grafu `ClusteredColumn` ani grafu `BubbleWith3D`; tyto názvy jsou součástí třídy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Pro další nastavení vzhledu grafu viz [Chart Formatting](/slides/cs/php-java/chart-formatting/).
+Nastavení výšky ovlivňuje 3D sloupcové a pruhové grafy, včetně variant válec, kužel a pyramida, stejně jako 3D čárové, plošné, koláčové a povrchové grafy. Srovnání výše používá ověřený typ `Column3D`. Nastavení nemění vzhled 2D grafu `ClusteredColumn` ani grafu `BubbleWith3D`; tyto názvy jsou členy třídy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Pro další nastavení vzhledu grafu viz [Chart Formatting](/slides/cs/php-java/chart-formatting/).
 
-## **Úprava mezery mezi sériemi**
+## **Úprava mezery mezi řadami**
 
-Použijte [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) ke kontrole vzdálenosti mezi datovými sériemi podél osy hloubky 3D grafu, vyjádřené jako procento šířky značky. Používejte hodnoty od **0 do 500**, včetně: `0` odstraní mezeru, vyšší hodnoty zvětší rozestup. Při pevné hloubce grafu zvětšuje se mezera, což ztenčuje značky podél osy hloubky.
+Použijte [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) k řízení vzdálenosti mezi datovými řadami podél osy hloubky 3D grafu, vyjádřené jako procento šířky značky. Používejte hodnoty od **0 do 500**, včetně: `0` odstraní mezeru, vyšší hodnoty mezeru zvětší. Při pevné hloubce grafu zvětšení mezery ztenčuje značky podél osy hloubky.
 
-Přístup ke skupině získáte přes [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Nastavení se vztahuje na každou sérii v této skupině, nejen na sérii, přes kterou byl přístup získán. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) vrací mezery v hloubce a odráží nastavení nadřazené skupiny.
+Přístup ke skupině získáte přes [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Nastavení se vztahuje na všechny řady ve skupině, nejen na řadu, která byla použita k jejímu získání. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) vrací mezery v hloubce a odráží nastavení nadřazené skupiny.
 
-Toto nastavení ovlivňuje 3D sloupcové a pruhové grafy, včetně jejich variant válcových, kuželových a pyramidových, stejně jako 3D čárové a plošné grafy. Vzhled závisí na tom, zda jsou série uspořádány v hloubce, seskupeny nebo nasčítány. Pro přehledné srovnání mezer mezi samostatnými sériemi použijte `ChartType::Column3D` ze třídy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+Toto nastavení ovlivňuje 3D sloupcové a pruhové grafy, včetně jejich variant válec, kužel a pyramida, stejně jako 3D čárové a plošné grafy. Vzhled závisí na tom, zda jsou řady uspořádány v hloubce, seskupeny nebo vrstveny. Pro jasné srovnání mezer mezi samostatnými řadami použijte `ChartType::Column3D` z třídy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
 
 Tyto metody řídí různé aspekty grafu:
 
-| Metoda | Efekt |
+| Metoda | Účinek |
 | --- | --- |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Rozestup mezi sériemi podél osy hloubky jako procento šířky značky. |
-| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Rozestup mezi sousedními shluky pruhů nebo sloupců jako procento šířky pruhu nebo sloupce. |
-| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Celková hloubka grafu jako procento šířky grafu. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Mezery mezi řadami podél osy hloubky, jako procento šířky značky. |
+| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Mezery mezi sousedními shluky sloupců nebo pruhů, jako procento šířky sloupce nebo pruhu. |
+| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Celková hloubka grafu, jako procento šířky grafu. |
 
-Následující samostatný příklad používá výchozí data grafu, která obsahují tři série a čtyři kategorie. Uloží dvě prezentace se stejnými daty, rotací, šířkou mezery a hloubkou grafu; mění se pouze hloubka mezery.
+Následující samostatný příklad používá výchozí data grafu, která obsahují tři řady a čtyři kategorie. Uloží dvě prezentace se stejnými daty, rotací, šířkou mezery a hloubkou grafu; mění se jen hloubka mezery.
 
 ```php
 use aspose\slides\ChartType;
@@ -164,15 +226,15 @@ try {
 }
 ```
 
-Následující obrázky ilustrují stejné nastavení mezery v hloubce v ekvivalentním .NET příkladu a byly exportovány pomocí Microsoft PowerPoint.
+Následující obrázky ilustrují stejná nastavení mezery v hloubce v ekvivalentním .NET příkladu a byly exportovány pomocí Microsoft PowerPoint.
 
-| Mezera v hloubce: 0% | Mezera v hloubce: 500% |
+| Mezery v hloubce: 0 % | Mezery v hloubce: 500 % |
 | --- | --- |
-| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
+| ![3D sloupcový graf bez mezery mezi řadami podél osy hloubky](gap_depth_0.png) | ![3D sloupcový graf s 500 % mezerou mezi řadami podél osy hloubky](gap_depth_500.png) |
 
-## **Změna typu 3D série a tvaru pruhu**
+## **Změna typu 3D řady a tvaru pruhu**
 
-V seskupeném válcovém grafu první série začíná válcovým tvarem pruhu. Příklad vypisuje celočíselné hodnoty vrácené metodami [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) a [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) před a po každé změně. Tabulka uvádí odpovídající názvy konstant.
+V seskupeném válcovém grafu první řada začíná s válcovým tvarem pruhu. Příklad vypisuje celočíselné hodnoty vrácené metodami [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) a [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) před a po každé změně. Tabulka uvádí odpovídající názvy konstant.
 
 ```php
 use aspose\slides\ChartShapeType;
@@ -201,26 +263,26 @@ try {
 }
 ```
 
-| Změna první série | Typ série | Tvar pruhu |
+| Změna první řady | Typ řady | Tvar pruhu |
 | --- | --- | --- |
-| Create the chart | `ClusteredCylinder` | `Cylinder` |
-| Set the series type to `ClusteredCone` | `ClusteredCone` | `Cone` |
-| Set the bar shape to `Box` | `ClusteredColumn3D` | `Box` |
+| Vytvořit graf | `ClusteredCylinder` | `Cylinder` |
+| Nastavit typ řady na `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Nastavit tvar pruhu na `Box` | `ClusteredColumn3D` | `Box` |
 
-Nastavení tvaru na `Box` také mění typ série na `ClusteredColumn3D`. Pokud váš kód podmíněně rozhoduje podle typu série, zavolejte [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) po změně tvaru. Hodnota načtená před přiřazením by stále vedla k větvi `ClusteredCone`.
+Nastavení tvaru na `Box` také mění typ řady na `ClusteredColumn3D`. Pokud váš kód větví podle typu řady, zavolejte [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) po změně tvaru. Hodnota uložená před přiřazením by stále vybrala větev `ClusteredCone`.
 
-![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+![Srovnání v PowerPointu ukazující první řadu jako válce, kužely a obdélníkové sloupce zleva doprava](series-shapes.png)
 
-## **Časté dotazy**
+## **FAQ**
 
 **Které typy grafů podporují 3D režim v Aspose.Slides?**
 
-Aspose.Slides podporuje 3D varianty sloupcových grafů, včetně Column 3D, Clustered Column 3D, Stacked Column 3D a 100 % Stacked Column 3D, spolu s příbuznými 3D typy vystavenými třídou [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Pro přesný a aktuální seznam zkontrolujte členy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) v referenční dokumentaci API vaší nainstalované verze.
+Aspose.Slides podporuje 3D varianty sloupcových grafů, včetně Column 3D, Clustered Column 3D, Stacked Column 3D a 100 % Stacked Column 3D, spolu s příbuznými 3D typy vystavenými třídou [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Pro přesný a aktuální seznam zkontrolujte členy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) v referenci API nainstalované verze.
 
 **Mohu získat rastrový obrázek 3D grafu pro zprávu nebo web?**
 
-Ano. Graf můžete exportovat jako obrázek pomocí [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) nebo [render the entire slide](/slides/cs/php-java/convert-powerpoint-to-png/) do formátů jako PNG nebo JPEG. To je užitečné, když potřebujete rastrový náhled nebo chcete graf vložit do dokumentů, dashboardů či webových stránek bez nutnosti PowerPointu.
+Ano. Můžete exportovat graf jako obrázek pomocí [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) nebo [renderovat celý snímek](/slides/cs/php-java/convert-powerpoint-to-png/) do formátů jako PNG nebo JPEG. To je užitečné, když potřebujete rastrový náhled nebo chcete graf vložit do dokumentů, dashboardů či webových stránek bez nutnosti PowerPointu.
 
-**Jak výkonná je tvorba a vykreslování velkých 3D grafů?**
+**Jaký je výkon při vytváření a renderování velkých 3D grafů?**
 
-Výkon závisí na objemu dat a vizuální složitosti. Pro nejlepší výsledky udržujte 3D efekty na minima, vyhýbejte se těžkým texturám na stěnách a ploše grafu, omezte počet datových bodů na sérii, pokud je to možné, a renderujte do vhodně dimenzovaného výstupu (rozlišení a rozměry) odpovídajícího cílovému zobrazení nebo tisku.
+Výkon závisí na objemu dat a vizuální složitosti. Pro nejlepší výsledky udržujte 3D efekty na minimu, vyhněte se těžkým texturám na zdech a plošných plochách, omezte počet datových bodů v řadě, pokud je to možné, a renderujte do vhodně velkého výstupu (rozlišení a rozměry), který odpovídá cílovému zobrazení či tisku.

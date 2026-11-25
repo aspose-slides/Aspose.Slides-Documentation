@@ -1,27 +1,27 @@
 ---
-title: Sesuaikan Diagram 3D dalam Presentasi Menggunakan C++
-linktitle: Diagram 3D
+title: Sesuaikan Grafik 3D dalam Presentasi Menggunakan C++
+linktitle: Grafik 3D
 type: docs
 url: /id/cpp/3d-chart/
 keywords:
-- diagram 3D
+- grafik 3D
 - rotasi
 - kedalaman
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Buat diagram 3D dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Sesuaikan rotasi, proporsi tinggi, kedalaman diagram, dan jarak antar seri dengan contoh C++."
+description: "Buat grafik 3D dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Sesuaikan rotasi, proporsi tinggi, kedalaman grafik, dan jarak antar seri dengan contoh C++."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for C++ memungkinkan Anda menyesuaikan tampilan diagram 3D melalui [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Artikel ini menunjukkan cara mengatur rotasi, proporsi tinggi, kedalaman, sumbu sudut kanan, dan jarak antar seri, lalu menyimpan presentasi dalam format PPTX.
+Aspose.Slides for C++ memungkinkan Anda menyesuaikan tampilan grafik 3D melalui [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). Artikel ini menunjukkan cara mengatur rotasi, proporsi tinggi, kedalaman, sumbu sudut kanan, dan jarak antar seri, kemudian menyimpan presentasi dalam format PPTX.
 
-## **Mengatur Rotasi dan Kedalaman Diagram 3D**
+## **Atur Rotasi dan Kedalaman Grafik 3D**
 
-Contoh di bawah ini membuat sebuah [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan menggunakan [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk menambahkan diagram kolom 3D bertumpuk ke slide pertama. Ia menggantikan seri dan kategori bawaan dengan dua seri yang masing‑masing berisi tiga nilai. Indeks lembar kerja `0` mengidentifikasi lembar data pertama diagram; baris `0` berisi nama seri, dan kolom `0` berisi label kategori.
+Contoh di bawah membuat sebuah [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan menggunakan [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk menambahkan grafik kolom 3D bertumpuk ke slide pertamanya. Ini menggantikan seri dan kategori default dengan dua seri yang masing‑masing berisi tiga nilai. Indeks lembar kerja `0` mengidentifikasi lembar data pertama grafik; baris `0` berisi nama seri, dan kolom `0` berisi label kategori.
 
-Metode [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) dan [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) mengatur rotasi diagram menjadi 40 dan 270 derajat masing‑masing. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) menetapkan kedalamannya menjadi 150 % dari lebar, sementara [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) mengaktifkan sumbu sudut kanan alih‑alih perspektif. Presentasi yang dihasilkan berisi diagram yang telah diisi dengan pengaturan tampilan 3D ini.
+Metode [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) dan [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) mengatur rotasi grafik menjadi 40 dan 270 derajat masing‑masing. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) menetapkan kedalaman menjadi 150 % dari lebar, sementara [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) mengaktifkan sumbu sudut kanan alih‑alih perspektif. Presentasi yang dihasilkan berisi grafik yang telah diisi dengan pengaturan tampilan 3D ini.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -88,11 +88,87 @@ presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Mengatur Proporsi Tinggi Diagram 3D**
+## **Terapkan Isian Gambar pada Permukaan Grafik 3D**
 
-Gunakan [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) untuk menentukan tinggi diagram 3D sebagai persentase lebar. Ini mengubah proporsi adegan 3D tanpa mengubah ukuran objek diagram pada slide.
+Anda dapat mengisi [side wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_sidewall/), [back wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/), dan [floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) grafik 3D secara terpisah. Atur [fill type](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) permukaan menjadi `Picture` dan tetapkan gambar. Agar satu salinan gambar menutupi seluruh permukaan, atur baik [picture fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) maupun [picture type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartwall/set_picturetype/) menjadi `Stretch`.
 
-Contoh berikut membuat diagram [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dengan data bawaan: tiga seri dan empat kategori. Ia menyimpan tiga presentasi dengan proporsi tinggi 50 %, 100 %, dan 200 %. Posisi, lebar, dan tinggi diagram tetap tetap. Data, rotasi, kedalaman, jarak seri, dan pemformatan identik dalam ketiga berkas; hanya persentase tinggi yang berubah.
+Simpan [arrow.png](arrow.png) di direktori kerja. Contoh ini memutar grafik dan menaikkan nilai maksimum pada sumbu vertikal sehingga lantai terlihat di antara kolom. Kemudian contoh menyalin slide dua kali dan menerapkan panah pada permukaan yang berbeda di setiap slide. Semua tiga grafik mempertahankan data, sudut pandang, dan latar belakang yang sama.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartWall.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/Chart/PictureType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/shared_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 20, 30, 680, 480);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_RotationX(40);
+chart->get_Rotation3D()->set_RotationY(30);
+
+auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+verticalAxis->set_IsAutomaticMaxValue(false);
+verticalAxis->set_MaxValue(24);
+
+auto backSlide = presentation->get_Slides()->AddClone(slide);
+auto floorSlide = presentation->get_Slides()->AddClone(slide);
+auto backChart = ExplicitCast<IChart>(backSlide->get_Shape(0));
+auto floorChart = ExplicitCast<IChart>(floorSlide->get_Shape(0));
+
+auto imageBytes = IO::File::ReadAllBytes(u"arrow.png");
+auto arrow = presentation->get_Images()->AddImage(imageBytes);
+
+for (const auto& surface : { chart->get_SideWall(), backChart->get_BackWall(), floorChart->get_Floor() })
+{
+    auto fill = surface->get_Format()->get_Fill();
+    fill->set_FillType(FillType::Picture);
+    auto pictureFill = fill->get_PictureFillFormat();
+    pictureFill->get_Picture()->set_Image(arrow);
+    pictureFill->set_PictureFillMode(PictureFillMode::Stretch);
+    surface->set_PictureType(PictureType::Stretch);
+}
+
+presentation->Save(u"chart-surfaces.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Microsoft PowerPoint menampilkan tiga slide sebagai berikut.
+
+| Dinding samping | Dinding belakang | Lantai |
+| --- | --- | --- |
+| ![Panah menunjuk ke dalam grafik di sepanjang dinding samping](side-wall.png) | ![Panah menunjuk ke kanan melintasi dinding belakang](back-wall.png) | ![Panah menunjuk ke kanan melintasi lantai antara kolom](floor.png) |
+
+## **Atur Proporsi Tinggi Grafik 3D**
+
+Gunakan [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) untuk mengatur tinggi grafik 3D sebagai persentase lebar. Ini mengubah proporsi adegan 3D tanpa mengubah ukuran objek grafik pada slide.
+
+Contoh berikut membuat grafik [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dengan data default: tiga seri dan empat kategori. Ia menyimpan tiga presentasi dengan proporsi tinggi 50 %, 100 %, dan 200 %. Posisi, lebar, dan tinggi grafik tetap tetap. Data, rotasi, kedalaman, jarak seri, dan format tetap identik pada ketiga berkas; hanya persentase tinggi yang berubah.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -135,40 +211,40 @@ for (uint16_t heightPercent : { 50, 100, 200 })
 presentation->Dispose();
 ```
 
-Gambar‑gambar berikut dari contoh .NET yang setara diekspor menggunakan Microsoft PowerPoint dan menggambarkan pengaturan tinggi yang sama. Persentase yang lebih kecil menghasilkan adegan yang lebih datar, sementara persentase yang lebih besar menghasilkan adegan yang lebih tinggi dalam objek diagram yang sama. PowerPoint juga dapat menyesuaikan interval tick sumbu dan penempatan label agar sesuai dengan adegan.
+Gambar‑gambar berikut dari contoh .NET setara diekspor menggunakan Microsoft PowerPoint dan menggambarkan pengaturan tinggi yang sama. Persentase yang lebih kecil menghasilkan adegan yang lebih datar, sementara persentase yang lebih besar menghasilkan adegan yang lebih tinggi dalam objek grafik yang sama. PowerPoint juga dapat menyesuaikan interval tanda sumbu dan penempatan label agar sesuai dengan adegan.
 
 | Tinggi: 50% | Tinggi: 100% | Tinggi: 200% |
 | --- | --- | --- |
-| ![3D column chart with height set to 50 percent of its width](height_percent_50.png) | ![3D column chart with height set to 100 percent of its width](height_percent_100.png) | ![3D column chart with height set to 200 percent of its width](height_percent_200.png) |
+| ![Grafik kolom 3D dengan tinggi diatur ke 50 persen dari lebarnya](height_percent_50.png) | ![Grafik kolom 3D dengan tinggi diatur ke 100 persen dari lebarnya](height_percent_100.png) | ![Grafik kolom 3D dengan tinggi diatur ke 200 persen dari lebarnya](height_percent_200.png) |
 
-Metode‑metode ini mengontrol aspek‑aspek berbeda dari diagram:
+Metode‑metode berikut mengontrol aspek yang berbeda dari grafik:
 
 | Metode | Efek |
 | --- | --- |
-| [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Tinggi adegan 3D sebagai persentase lebar. |
-| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Tinggi objek diagram pada slide, dalam poin. |
-| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Kedalaman adegan 3D sebagai persentase lebar. |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Jarak antar seri pada sumbu kedalaman, sebagai persentase lebar penanda. |
+| [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | Tinggi adegan 3D sebagai persentase dari lebarnya. |
+| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | Tinggi objek grafik pada slide, dalam poin. |
+| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Kedalaman adegan 3D sebagai persentase dari lebarnya. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Jarak antar seri sepanjang sumbu kedalaman, sebagai persentase lebar penanda. |
 
-Pengaturan tinggi memengaruhi diagram kolom dan batang 3D, termasuk varian silinder, kerucut, dan piramida, serta diagram garis, area, pai, dan permukaan 3D. Perbandingan di atas menggunakan tipe terverifikasi `Column3D`. Pengaturan ini tidak mengubah tampilan diagram 2D `ClusteredColumn` atau diagram `BubbleWith3D`; nama‑nama tersebut merupakan anggota enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Untuk pengaturan tampilan diagram lainnya, lihat [Chart Formatting](/slides/id/cpp/chart-formatting/).
+Pengaturan tinggi memengaruhi grafik kolom dan batang 3D, termasuk varian silinder, kerucut, dan piramida, serta grafik 3D garis, area, pai, dan permukaan. Perbandingan di atas menggunakan tipe `Column3D` yang telah diverifikasi. Pengaturan ini tidak mengubah tampilan grafik 2D `ClusteredColumn` atau grafik `BubbleWith3D`; nama‑nama tersebut merupakan anggota enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Untuk pengaturan tampilan grafik lainnya, lihat [Pemformatan Grafik](/slides/id/cpp/chart-formatting/).
 
-## **Mengatur Jarak Antar Seri**
+## **Atur Celah Antara Seri**
 
-Gunakan [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) untuk mengontrol jarak antar seri data pada sumbu kedalaman diagram 3D, yang dinyatakan sebagai persentase lebar penanda. Gunakan nilai **0 hingga 500**, inklusif: `0` menghilangkan jarak, sementara nilai yang lebih besar meningkatkan ruang. Dengan kedalaman diagram yang tetap, meningkatkan jarak membuat penanda lebih tipis pada sumbu kedalaman.
+Gunakan [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) untuk mengontrol jarak antar seri data sepanjang sumbu kedalaman grafik 3D, dinyatakan sebagai persentase lebar penanda. Gunakan nilai dari **0 hingga 500**, inklusif: `0` menghilangkan celah, sedangkan nilai yang lebih besar meningkatkan jarak. Dengan kedalaman grafik yang tetap, meningkatkan celah membuat penanda menjadi lebih tipis sepanjang sumbu kedalaman.
 
 Akses grup melalui [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Pengaturan ini berlaku untuk setiap seri dalam grup tersebut, bukan hanya seri yang digunakan untuk mengaksesnya. [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) mengembalikan pengaturan grup induk.
 
-Pengaturan ini memengaruhi diagram kolom dan batang 3D, termasuk varian silinder, kerucut, dan piramida, serta diagram garis dan area 3D. Penampilannya tergantung pada apakah seri‑seri disusun dalam kedalaman, berkelompok, atau bertumpuk. Untuk perbandingan jelas mengenai jarak antar seri terpisah, gunakan `ChartType::Column3D` dari enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
+Pengaturan ini memengaruhi grafik kolom dan batang 3D, termasuk varian silinder, kerucut, dan piramida, serta grafik 3D garis dan area. Penampilan tergantung pada apakah seri disusun dalam kedalaman, berkelompok, atau ditumpuk. Untuk perbandingan jelas celah antar seri terpisah, gunakan `ChartType::Column3D` dari enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
 
-Metode‑metode ini mengontrol aspek‑aspek berbeda dari diagram:
+Metode‑metode berikut mengontrol aspek yang berbeda dari grafik:
 
 | Metode | Efek |
 | --- | --- |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Jarak antar seri pada sumbu kedalaman, sebagai persentase lebar penanda. |
-| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Jarak antar kelompok batang atau kolom yang berdekatan, sebagai persentase lebar batang atau kolom. |
-| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Kedalaman keseluruhan diagram, sebagai persentase lebar diagram. |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | Jarak antar seri sepanjang sumbu kedalaman, sebagai persentase lebar penanda. |
+| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | Jarak antara kelompok batang atau kolom yang berdekatan, sebagai persentase lebar batang atau kolom. |
+| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | Kedalaman keseluruhan grafik, sebagai persentase lebar grafik. |
 
-Contoh mandiri berikut menggunakan data diagram bawaan, yang berisi tiga seri dan empat kategori. Ia menyimpan dua presentasi dengan data, rotasi, lebar celah, dan kedalaman diagram yang sama; hanya kedalaman celah yang berubah.
+Contoh mandiri berikut menggunakan data grafik default, yang berisi tiga seri dan empat kategori. Ia menyimpan dua presentasi dengan data, rotasi, lebar celah, dan kedalaman grafik yang identik; hanya kedalaman celah yang berubah.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -215,15 +291,15 @@ for (uint16_t gapDepth : { 0, 500 })
 presentation->Dispose();
 ```
 
-Gambar‑gambar berikut dari contoh .NET yang setara diekspor menggunakan Microsoft PowerPoint dan menggambarkan pengaturan kedalaman celah yang sama.
+Gambar‑gambar berikut dari contoh .NET setara diekspor menggunakan Microsoft PowerPoint dan menggambarkan pengaturan kedalaman celah yang sama.
 
 | Kedalaman celah: 0% | Kedalaman celah: 500% |
 | --- | --- |
-| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
+| ![Grafik kolom 3D tanpa celah antara seri sepanjang sumbu kedalaman](gap_depth_0.png) | ![Grafik kolom 3D dengan celah 500 persen antara seri sepanjang sumbu kedalaman](gap_depth_500.png) |
 
-## **Mengubah Tipe Seri 3D dan Bentuk Batang**
+## **Ubah Tipe Seri 3D dan Bentuk Batang**
 
-Pada diagram silinder berkelompok, seri pertama dimulai dengan batang silindris. Contoh membaca [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) dan [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) sebelum dan sesudah setiap perubahan.
+Dalam grafik silinder berkelompok, seri pertama dimulai dengan batang silinder. Contoh membaca [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) dan [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) sebelum dan sesudah setiap perubahan.
 
 ```cpp
 #include <DOM/Chart/ChartShapeType.h>
@@ -270,26 +346,26 @@ presentation->Save(u"series_shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-| Perubahan pada seri pertama | `get_Type` | `get_Bar3DShape` |
+| Ubah pada seri pertama | `get_Type` | `get_Bar3DShape` |
 | --- | --- | --- |
-| Buat diagram | `ClusteredCylinder` | `Cylinder` |
+| Buat grafik | `ClusteredCylinder` | `Cylinder` |
 | Panggil [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) dengan `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Panggil [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) dengan `Box` | `ClusteredColumn3D` | `Box` |
 
-Menetapkan bentuk ke `Box` juga mengubah tipe seri menjadi `ClusteredColumn3D`. Jika kode Anda bercabang berdasarkan tipe seri, panggil `series->get_Type()` setelah mengubah bentuk. Nilai yang disimpan sebelum perubahan masih akan memilih cabang `ClusteredCone`.
+Mengatur bentuk menjadi `Box` juga mengubah tipe seri menjadi `ClusteredColumn3D`. Jika kode Anda memiliki percabangan berdasarkan tipe seri, panggil `series->get_Type()` setelah mengubah bentuk. Nilai yang disimpan sebelum perubahan masih akan memilih percabangan `ClusteredCone`.
 
-![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+![Perbandingan PowerPoint yang menampilkan seri pertama sebagai silinder, kerucut, dan kolom persegi panjang dari kiri ke kanan](series-shapes.png)
 
 ## **FAQ**
 
-**Tipe diagram apa yang mendukung mode 3D di Aspose.Slides?**
+**Jenis grafik apa yang mendukung mode 3D di Aspose.Slides?**
 
-Aspose.Slides mendukung varian 3D dari diagram kolom, termasuk Column 3D, Clustered Column 3D, Stacked Column 3D, dan 100 % Stacked Column 3D, serta tipe 3D terkait yang disajikan melalui enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Untuk daftar yang tepat dan terbaru, periksa anggota [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dalam referensi API versi yang Anda instal.
+Aspose.Slides mendukung varian 3D dari grafik kolom, termasuk Column 3D, Clustered Column 3D, Stacked Column 3D, dan 100 % Stacked Column 3D, serta tipe 3D terkait yang tersedia melalui enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). Untuk daftar yang tepat dan terkini, periksa anggota [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dalam referensi API versi yang Anda instal.
 
-**Bisakah saya mendapatkan gambar raster diagram 3D untuk laporan atau web?**
+**Apakah saya dapat memperoleh gambar raster dari grafik 3D untuk laporan atau web?**
 
-Ya. Anda dapat mengekspor diagram ke gambar dengan [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) atau [men-render seluruh slide](/slides/id/cpp/convert-powerpoint-to-png/) ke format seperti PNG atau JPEG. Ini berguna ketika Anda memerlukan pratinjau raster atau ingin menyisipkan diagram ke dokumen, dasbor, atau halaman web tanpa memerlukan PowerPoint.
+Ya. Anda dapat mengekspor grafik ke gambar dengan [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) atau [render seluruh slide](/slides/id/cpp/convert-powerpoint-to-png/) ke format seperti PNG atau JPEG. Ini berguna bila Anda memerlukan pratinjau raster atau ingin menyisipkan grafik ke dokumen, dasbor, atau halaman web tanpa memerlukan PowerPoint.
 
-**Seberapa performa pembuatan dan rendering diagram 3D yang besar?**
+**Seberapa baik kinerja pembuatan dan perenderan grafik 3D besar?**
 
-Kinerja tergantung pada volume data dan kompleksitas visual. Untuk hasil optimal, minimalkan efek 3D, hindari tekstur berat pada dinding dan area plot, batasi jumlah titik data per seri bila memungkinkan, dan render ke output berukuran sesuai (resolusi dan dimensi) untuk mencocokkan kebutuhan tampilan atau cetak target.
+Kinerja bergantung pada volume data dan kompleksitas visual. Untuk hasil optimal, pertahankan efek 3D seminimal mungkin, hindari tekstur berat pada dinding dan area plot, batasi jumlah titik data per seri bila memungkinkan, dan render ke ukuran output yang sesuai (resolusi dan dimensi) untuk memenuhi kebutuhan tampilan atau cetak.

@@ -1,6 +1,6 @@
 ---
-title: Περιορισμός Επεξεργασιών Παρουσίασης με Κλειδώσεις Σχημάτων σε PHP
-linktitle: Περιορισμός Επεξεργασιών Παρουσίασης
+title: Περιορισμός επεξεργασιών παρουσίασης με κλειδώματα σχήματος σε PHP
+linktitle: Περιορισμός επεξεργασιών παρουσίασης
 type: docs
 weight: 60
 url: /el/php-java/applying-protection-to-presentation/
@@ -17,19 +17,19 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for PHP via Java, ώστε να περιορίζετε την επιλογή, τη μετακίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
+description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for PHP μέσω Java για να περιορίσετε την επιλογή, τη μετακίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
 ---
 ## **Επισκόπηση**
 
-Μια συνηθισμένη χρήση του Aspose.Slides for PHP via Java είναι η δημιουργία, ενημέρωση και αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός των αλλαγών σε σχήματα μπορεί να βοηθήσει στη διατήρηση της προοριζόμενης διάταξης και του περιεχομένου.
+Μια κοινή χρήση του Aspose.Slides for PHP μέσω Java είναι η δημιουργία, ενημέρωση και αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός αλλαγών σε σχήματα μπορεί να βοηθήσει στη διατήρηση της προβλεπόμενης διάταξης και του περιεχομένου.
 
-Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα στις διαφάνειες και πώς να εφαρμόζετε και να αφαιρείτε κλειδαριές σχήματος σε μια παρουσίαση PPTX. Αυτές οι κλειδαριές σας επιτρέπουν να περιορίζετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα.
+Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα στις διαφάνειες και πώς να εφαρμόσετε και να αφαιρέσετε κλειδώματα σχήματος σε μια παρουσίαση PPTX. Αυτά τα κλειδώματα σας επιτρέπουν να περιορίζετε συγκεκριμένες ενέργειες επεξεργασίας σε μεμονωμένα σχήματα.
 
 ## **Σύνθεση μιας Διαφάνειας**
 
-Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνας, πλαίσια βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides for PHP via Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που κληρονομεί από την κλάση [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
+Μια διαφάνεια παρουσίασης αποτελείται από συστατικά όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνας, πλαίσια βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides for PHP μέσω Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που κληρονομεί από την κλάση [Σχήμα](https://reference.aspose.com/slides/php-java/aspose.slides/shape/).
 
-Διαφορετικοί τύποι σχημάτων εκθέτουν διαφορετικές επιλογές κλειδώματος. Η κλάση [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) είναι η βασική κλάση για κλειδώσεις σχημάτων. Το Aspose.Slides for PHP via Java παρέχει τις ακόλουθες κλάσεις κλειδώματος:
+Διαφορετικοί τύποι σχήματος εκθέτουν διάφορες επιλογές κλειδώματος. Η κλάση [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) είναι η βασική κλάση για κλειδώματα σχήματος. Aspose.Slides for PHP μέσω Java παρέχει τις ακόλουθες κλάσεις κλειδ ωμάτων:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) κλειδώνει αυτόματα σχήματα.  
 - [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) κλειδώνει σχήματα συνδέσμων.  
@@ -37,19 +37,19 @@ description: "Μάθετε πώς να κλειδώνετε και να ξεκλ
 - [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) κλειδώνει ομαδοποιημένα σχήματα.  
 - [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) κλειδώνει πλαίσια εικόνας.  
 
-Για να εφαρμόσετε κλειδώσεις σε όλη την [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τις κατάλληλες κλειδώσεις σε κάθε υποστηριζόμενο σχήμα.
+Για να εφαρμόσετε κλειδώματα σε μια [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τα κατάλληλα κλειδώματα σε κάθε υποστηριζόμενο σχήμα.
 
-## **Εφαρμογή και Αφαίρεση Προστασίας**
+## **Εφαρμογή και Απαλοιφή Προστασίας**
 
-Συμβατοί επεξεργαστές παρουσιάσεων χρησιμοποιούν κλειδώσεις σχημάτων για να περιορίζουν μεμονωμένες λειτουργίες επεξεργασίας. Η κρυπτογράφηση αρχείων και η προστασία εγγραφής σε επίπεδο εγγράφου είναι ξεχωριστές [ρυθμίσεις προστασίας παρουσίασης](/slides/el/php-java/password-protected-presentation/).
+Συμβατικοί επεξεργαστές παρουσιάσεων χρησιμοποιούν κλειδώματα σχήματος για να περιορίσουν μεμονωμένες ενέργειες επεξεργασίας. Η κρυπτογράφηση αρχείων και η προστασία εγγράφου σε επίπεδο εγγραφής είναι ξεχωριστές [ρυθμίσεις προστασίας παρουσίασης](/slides/el/php-java/password-protected-presentation/).
 
 ### **Εφαρμογή Προστασίας σε Σχήματα PPTX**
 
-Το Aspose.Slides for PHP via Java παρέχει την κλάση [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) για εργασία με σχήματα σε μια διαφάνεια.
+Aspose.Slides for PHP μέσω Java παρέχει την κλάση [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) για εργασία με σχήματα σε μια διαφάνεια.
 
-Το παράδειγμα καλεί τις μεθόδους [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) και [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) με `true` για αυτόματα σχήματα, με ισοδύναμες κλειδώσεις για ομαδοποιημένα σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν τη [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) για κίνηση· οι ομάδες επίσης χρησιμοποιούν τη [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) για να περιορίσουν την ομαδοποίηση.
+Το παράδειγμα καλεί τις μεθόδους [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) και [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) με τιμή `true` για αυτόματα σχήματα, με αντίστοιχα κλειδώματα για ομαδοποιημένα σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν τη μέθοδο [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) για κίνηση· οι ομάδες χρησιμοποιούν επίσης τη μέθοδο [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) για περιορισμό ομαδοποίησης.
 
-Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχημάτων κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με τις εφαρμοσμένες περιορισμούς. Τα σχήματα εκτός των τεσσάρων επεξεργαζόμενων τύπων παραμένουν αμετάβλητα. Ο βρόχος δεν διέρχεται από τα παιδικά σχήματα μέσα σε μια ομάδα.
+Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχήματος κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με τις περιοριστικές ρυθμίσεις εφαρμόσμένες. Σχήματα εκτός των τεσσάρων επεξεργαζόμενων τύπων παραμένουν αμετάβλητα. Ο βρόχος δεν διασχίζει τα παιδικά σχήματα μέσα σε μια ομάδα.
 
 ```php
 use aspose\slides\Presentation;
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-### **Αφαίρεση Προστασίας**
+### **Απαλοιφή Προστασίας**
 
-Για να αφαιρέσετε μια κλείδωση σχήματος, ορίστε την τιμή του σε `false`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώσεις σχημάτων και καθαρίζει τους περιορισμούς επιλογής, κίνησης και αλλαγής μεγέθους μέσω των [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) και [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Αφαιρεί επίσης τον περιορισμό ομαδοποίησης περνώντας `false` στη μέθοδο [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked), και αποθηκεύει ένα αντίγραφο της παρουσίασης. Οι άλλες ρυθμίσεις κλειδώματος παραμένουν αμετάβλητες.
+Για να αφαιρέσετε ένα κλείδωμα σχήματος, ορίστε την τιμή του σε `false`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώματα σχήματος και καθαρίζει τις περιοριστικές ρυθμίσεις επιλογής, κίνησης και αλλαγής μεγέθους μέσω των [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) και [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Επιπλέον αφαιρεί τον περιορισμό ομαδοποίησης περνώντας `false` στη μέθοδο [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) και αποθηκεύει ένα αντίγραφο της παρουσίασης. Άλλες ρυθμίσεις κλειδώματος παραμένουν αμετάβλητες.
 
 ```php
 use aspose\slides\Presentation;
@@ -135,7 +135,7 @@ try {
 
 ### **Διατήρηση Κοπής Εικόνας**
 
-Τοποθετήστε μια φωτογραφία με όνομα `photo.jpg` στον τρέχοντα φάκελο εργασίας. Το παράδειγμα κόβει 12% από την αριστερή πλευρά και 8% από τη δεξιά, και στη συνέχεια καλεί τη μέθοδο [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) στην κλείδωση του πλαισίου εικόνας. Η μετάδοση της τιμής `true` περιορίζει περαιτέρω την κοπή και διατηρεί την υπάρχουσα κοπή.
+Τοποθετήστε μια φωτογραφία με όνομα `photo.jpg` στον κατάλογο εργασίας. Το παράδειγμα κόβει 12 % από αριστερά και 8 % από δεξιά, στη συνέχεια καλεί τη μέθοδο [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) στο κλείδωμα του πλαισίου εικόνας. Η διόδωση `true` περιορίζει περαιτέρω την κοπή και διατηρεί την υπάρχουσα κοπή.
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` αποθηκεύει την κλείδωση της κοπής ως `true`. Στο PowerPoint, η εντολή **Crop** είναι απενεργοποιημένη όταν η φωτογραφία είναι επιλεγμένη.
+`PictureLocked.pptx` αποθηκεύει το κλείδωμα κοπής ως `true`. Στο PowerPoint, η εντολή **Crop** είναι απενεργοποιημένη όταν η φωτογραφία είναι επιλεγμένη.
 
-### **Διατήρηση Διάγραμμα Σε Ομάδα**
+### **Διατήρηση Διαγράμματος Ομαδοποιημένου**
 
-Το παράδειγμα ομαδοποιεί ένα ορθογώνιο και ένα βέλος, και στη συνέχεια καλεί τη μέθοδο [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) στην κλείδωση της ομάδας για να κρατήσει τα στοιχεία του διαγράμματος μαζί. Άλλες επεξεργασίες, όπως η μετακίνηση της ομάδας ή η αλλαγή του γεμίσματος ενός στοιχείου, παραμένουν διαθέσιμες.
+Το παράδειγμα ομαδοποιεί ένα ορθογώνιο και ένα βέλος, στη συνέχεια καλεί τη μέθοδο [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) στο κλείδωμα της ομάδας για να διατηρήσει τα στοιχεία του διαγράμματος μαζί. Άλλες επεμβάσεις, όπως η μετακίνηση της ομάδας ή η αλλαγή γεμίσματος ενός στοιχείου, παραμένουν διαθέσιμες.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` αποθηκεύει την κλείδωση διαχωρισμού ως `true`. Στο PowerPoint, η εντολή **Ungroup** είναι απενεργοποιημένη όταν όλο το διάγραμμα είναι επιλεγμένο.
+`DiagramLocked.pptx` αποθηκεύει το κλείδωμα αποομαδοποίησης ως `true`. Στο PowerPoint, η εντολή **Ungroup** είναι απενεργοποιημένη όταν ολόκληρο το διάγραμμα είναι επιλεγμένο.
 
-### **Συμπέρασμα**
+### **Αναφορά Υπάρχων Κλειδ ωμάτων Σχημάτων**
 
-Το Aspose.Slides for PHP via Java σας επιτρέπει να περιορίζετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα ή να εφαρμόζετε τις ίδιες περιοριστικές ρυθμίσεις σε όλες τις διαφάνειες. Επιλέξτε τις κλειδώσεις που υποστηρίζονται από κάθε τύπο σχήματος και ορίστε τις τιμές τους σε `false` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
+Για να εξετάσετε ένα πρότυπο, ανοίξτε το και διαβάστε το αντικείμενο κλειδώματος για κάθε σχήμα. Η μέθοδος [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) επιστρέφει `true` όταν όλες οι σημαίες στο αντικείμενο είναι απενεργοποιημένες και `false` όταν τουλάχιστον μία είναι ενεργή. Μια ομάδα και τα παιδιά της έχουν ξεχωριστά αντικείμενα κλειδώματος, επομένως ελέγξτε τα παιδιά ακόμη και όταν η ομάδα δεν έχει κλειδώματα.
 
-## **Συχνές Ερωτήσεις**
+Αυτό το παράδειγμα ελέγχει κίνηση για αυτόματα σχήματα, πλαίσια εικόνας και ομάδες. Επίσης ελέγχει την κοπή για εικόνες και την αποομαδοποίηση για ομάδες. Η αναφορά καταγράφει τις ενεργοποιημένες σημαίες που αναγνωρίζει και σημειώνει τύπους σχήματος που δεν ελέγχει.
 
-**Μπορώ να συνδυάσω κλειδώσεις σχημάτων και προστασία με κωδικό στην ίδια παρουσίαση;**
+```php
+use aspose\slides\Presentation;
 
-Ναι. Οι κλειδώσεις σχημάτων περιορίζουν συγκεκριμένες λειτουργίες επεξεργασίας, ενώ η [προστασία με κωδικό](/slides/el/php-java/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Υποθέστε ότι η διαφάνεια 1 του `Sample.pptx` περιέχει μια ομάδα με όνομα `Layout` με κλείδωμα αποομαδοποίησης, μια εικόνα με όνομα `Photo` μέσα της με κλείδωμα κοπής, και ένα μη κλειδωμένο ορθογώνιο με όνομα `Free`. Η αναφορά παραλείπει το `Free` και εκτυπώνει τις δύο αυτές γραμμές:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Η αναφορά διαβάζει τις αποθηκευμένες σημαίες επεξεργασίας σε επίπεδο σχήματος χωρίς να τις αλλάξει ή να αποθηκεύσει την παρουσίαση. Η προστασία εγγραφής σε επίπεδο εγγράφου είναι ξεχωριστή ρύθμιση, και η επιβολή κάθε σημαίας εξαρτάται από τον επεξεργαστή.
+
+## **Συμπέρασμα**
+
+Aspose.Slides for PHP μέσω Java σας επιτρέπει να περιορίζετε συγκεκριμένες ενέργειες επεξεργασίας σε μεμονωμένα σχήματα ή να εφαρμόζετε τους ίδιους περιορισμούς σε όλες τις διαφάνειες. Επιλέξτε τα κλειδώματα που υποστηρίζονται από κάθε τύπο σχήματος και ορίστε τις τιμές τους σε `false` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
+
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+
+**Μπορώ να συνδυάσω κλειδώματα σχήματος και προστασία με κωδικό σε μια ίδια παρουσίαση;**
+
+Ναι. Τα κλειδώματα σχήματος περιορίζουν συγκεκριμένες ενέργειες επεξεργασίας, ενώ η [προστασία με κωδικό](/slides/el/php-java/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
 
 **Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω τις άλλες;**
 
-Ναι. Εφαρμόστε κλειδώσεις μόνο σε σχήματα στις επιλεγμένες διαφάνειες. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδώματος στις άλλες διαφάνειες.
+Ναι. Εφαρμόστε κλειδώματα μόνο στα σχήματα των επιλεγμένων διαφανειών. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδώματος στις άλλες διαφάνειες.
 
-**Πώς μπορώ να εφαρμόσω κλειδώσεις σε μεμονωμένα σχήματα μέσα σε μια ομάδα;**
+**Πώς μπορώ να εφαρμόσω κλειδώματα σε μεμονωμένα σχήματα μέσα σε μια ομάδα;**
 
-Περιηγηθείτε στη συλλογή που επιστρέφει η μέθοδος [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) της ομάδας και εφαρμόστε τις κατάλληλες κλειδώσεις σε κάθε παιδικό σχήμα. Επαναλάβετε τη διαδικασία για τυχόν ενσωματωμένες ομάδες. Τα παραδείγματα παραπάνω επεξεργάζονται μόνο τη συλλογή σχημάτων της διαφάνειας, επομένως δεν ορίζουν κλειδώσεις σε μεμονωμένα μέλη της ομάδας.
+Διέλθετε τη συλλογή που επιστρέφει η μέθοδος [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) της ομάδας και εφαρμόστε τα κατάλληλα κλειδώματα σε κάθε παιδικό σχήμα. Επαναλάβετε τη διαδικασία για τυχόν ένθετες ομάδες, ακολουθώντας τη διαδρομή στο παράδειγμα αναφοράς.

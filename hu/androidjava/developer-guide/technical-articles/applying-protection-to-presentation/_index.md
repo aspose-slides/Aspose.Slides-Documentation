@@ -1,56 +1,56 @@
 ---
-title: Alkalmazás szerkesztésének korlátozása alakzatzárakkal Androidon
-linktitle: Prezentáció szerkesztésének korlátozása
+title: Korlátozza a bemutató szerkesztését formázárolásokkal Androidon
+linktitle: Korlátozza a bemutató szerkesztését
 type: docs
 weight: 60
 url: /hu/androidjava/applying-protection-to-presentation/
 keywords:
-- szerkesztés megakadályozása
-- védelem a szerkesztés ellen
-- alakzat zárolása
+- szerkesztések megakadályozása
+- védje a szerkesztéstől
+- forma zárolása
 - pozíció zárolása
 - kijelölés zárolása
 - átméretezés zárolása
 - csoportosítás zárolása
 - PowerPoint
 - PPTX
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet alakzatokat zárolni és feloldani PPTX prezentációkban az Aspose.Slides for Android via Java használatával, a kijelölés, mozgatás, átméretezés és csoportosítás korlátozása érdekében."
+description: "Ismerje meg, hogyan lehet zárolni és feloldani a formákat PPTX bemutatókban az Aspose.Slides for Android via Java segítségével, hogy korlátozza a kijelölést, mozgatást, átméretezést és csoportosítást."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Android via Java gyakori felhasználása PowerPoint (PPTX) prezentációk létrehozása, frissítése és mentése automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
+Az Aspose.Slides for Android via Java gyakori felhasználása, hogy PowerPoint (PPTX) bemutatókat hozzon létre, frissítsen és mentse automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a bemutatókat, a formák módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
 
-Ez a cikk elmagyarázza, hogyan szerveződnek az alakzatok a diákon, és hogyan alkalmazhatók és távolíthatók el az alakzatzárak egy PPTX prezentációban. Ezek a zárolások lehetővé teszik, hogy bizonyos szerkesztési műveleteket korlátozzunk egyes alakzatokon.
+Ez a cikk elmagyarázza, hogyan vannak a formák elrendezve a diákon, valamint hogyan alkalmazhatók és távolíthatók el a formazárolások egy PPTX bemutatóban. Ezek a zárolások lehetővé teszik, hogy egyes formákra vonatkozó szerkesztési műveleteket korlátozzunk.
 
 ## **Dia összetétele**
 
-Egy prezentációs dia olyan összetevőkből áll, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított alakzatok, képkeretek, videokeretek, csatlók és más elemek, amelyeket a prezentáció építéséhez használnak. Az Aspose.Slides for Android via Java-ban a dia minden eleme egy olyan objektum által van képviselve, amely megvalósítja az [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interfészt, vagy egy olyan osztályból származik, amely megvalósítja azt.
+Egy bemutató dia komponensekből áll, mint például automatikus alakzatok, táblázatok, OLE objektumok, csoportosított formák, képkockák, videókockák, csatlakozók és egyéb elemek, amelyeket a bemutató építéséhez használnak. Az Aspose.Slides for Android via Java-ban a dia minden eleme egy olyan objektummal van reprezentálva, amely megvalósítja a [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interfészt, vagy egy olyan osztályból származik, amely megvalósítja.
 
-A különböző alakzat típusok különböző zárolási lehetőségeket kínálnak. Az [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) interfész az alakzatzárak alap interfésze. Az Aspose.Slides for Android via Java a következő zárolási interfészeket biztosítja:
+A különböző formatípusok eltérő zárolási lehetőségeket kínálnak. Az [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) interfész a formazárolások alapinterfésze. Az Aspose.Slides for Android via Java a következő zárolási interfészeket biztosítja:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) az automatikus alakzatokat zárolja.  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) a csatló alakzatokat zárolja.  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) a csatlakozó alakzatokat zárolja.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) a grafikus objektumokat zárolja.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) a csoportosított alakzatokat zárolja.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) a képkereteket zárolja.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) a csoportos alakzatokat zárolja.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) a képkockákat zárolja.  
 
-A zárolások egy [Prezentáció](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) alkalmazásához iteráljon a diákon, és állítsa be a megfelelő zárolásokat minden támogatott alakzatra.
+A zárolások alkalmazásához egy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) során iterálja végig a diákon, és állítsa be a megfelelő zárolásokat minden támogatott formen.
 
 ## **Védelem alkalmazása és eltávolítása**
 
-A kompatibilis prezentációs szerkesztők alakzatzárakat használnak az egyedi szerkesztési műveletek korlátozására. A fájl titkosítás és a dokumentumszintű írásvédelem külön [prezentációvédelmi beállítások](/slides/hu/androidjava/password-protected-presentation/).
+Az kompatibilis bemutató szerkesztők a formazárolásokat használják egyedi szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írásvédelme külön [bemutató védelmi beállításai](/slides/hu/androidjava/password-protected-presentation/).
 
-### **Védelem alkalmazása PPTX alakzatokra**
+### **Védelem alkalmazása PPTX formákra**
 
-Az Aspose.Slides for Android via Java biztosítja az [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interfészt az alakzatok kezeléséhez egy dián.
+Az Aspose.Slides for Android via Java biztosítja a [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interfészt a dián lévő formákkal való munkához.
 
-A példa meghívja a [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) a [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) és a [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) metódusokat `true` értékkel az automatikus alakzatokhoz, valamint a csoportosított alakzatok, csatlók és képkeretek megfelelő zárolásait. A csatlók a [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) metódust használják a mozgáshoz; a csoportok a [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódussal korlátozzák a csoportosítást.
+A példa a [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), a [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) és a [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) metódusokat hívja `true` értékkel az automatikus alakzatoknál, valamint a csoportos formák, csatlakozók és képkockák esetén az ekvivalens zárolásokat. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) metódust használják a mozgáshoz; a csoportok a [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódust is alkalmazzák a csoportosítás korlátozására.
 
-A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az egyes diák alakzatgyűjteményét, és elment egy másolatot a felhasznált korlátozásokkal. A négy kezelt típustól eltérő alakzatok változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekalakzatokat.
+A példa betölt egy meglévő PPTX bemutatót, ellenőrzi a formákat minden dia forma-gyűjteményében, és egy másolatot ment el a rá alkalmazott korlátozásokkal. A négy kezelt típuson kívüli formák változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekformákat.
 
 ```java
 import com.aspose.slides.*;
@@ -96,7 +96,7 @@ try {
 
 ### **Védelem eltávolítása**
 
-Az alakzatzár eltávolításához állítsa az értékét `false`‑ra. A következő példa betölt egy prezentációt alakzatzárral, és törli a kijelölés, a mozgás és az átméretezés korlátozásait az [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) segítségével. A csoportosítási korlátozást is eltávolítja, ha `false`‑t ad át az [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódusnak, majd elment egy másolatot a prezentációról. A többi zár beállítás változatlan marad.
+A formazárolás eltávolításához állítsa az értékét `false`-ra. A következő példa betölt egy bemutatót formazárolásokkal, és törli a kijelölés, mozgatás és átméretezés korlátozásait az [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) segítségével. A csoportosítási korlátozást is eltávolítja, ha `false`-t ad át az [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódusnak, és egy másolatot ment a bemutatóról. A többi zárolási beállítás változatlan marad.
 
 ```java
 import com.aspose.slides.*;
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-### **Kép vágásának megőrzése**
+### **Kép vágás megőrzése**
 
-Helyezzen el egy `photo.jpg` nevű fényképet a munkakönyvtárban. A példa 12%-ot vág le balról és 8%-ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) metódust a képkeret zárolásán. Ha `true`‑t ad át, korlátozza a további vágást és megőrzi a meglévő vágást.
+Helyezzen el egy `photo.jpg` nevű fényképet a munkakönyvtárban. A példa 12%-ot vág le balról és 8%-ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) metódust a képkocka zárolásán. `true` átadása tovább korlátozza a vágást és megőrzi a meglévő vágást.
 
 ```java
 import com.aspose.slides.*;
@@ -171,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` a vágászárat `true`‑ként tárolja. PowerPointban a **Crop** (Vágás) parancs le van tiltva, ha a fénykép ki van választva.
+`PictureLocked.pptx` a vágászárolást `true` értékkel tárolja. PowerPointban a **Vágás** parancs le van tiltva, amikor a fénykép ki van jelölve.
 
-### **Diagram csoportosítva tartása**
+### **Diagram csoportos állapotának megtartása**
 
-A példa egy téglalapot és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) metódust a csoport zárolásán, hogy a diagram elemei együttesen maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy elem kitöltésének módosítása, továbbra is elérhetők.
+A példa egy négyzetet és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) metódust a csoport zárolásán, hogy a diagram elemei együtt maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása, továbbra is elérhetők.
 
 ```java
 import com.aspose.slides.*;
@@ -195,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` a csoportosítás feloldásának zárolását `true`‑ként tárolja. PowerPointban a **Ungroup** (Csoport feloldása) parancs le van tiltva, ha az egész diagram ki van választva.
+`DiagramLocked.pptx` az ungrouping (csoport felbontása) zárolást `true`-ként tárolja. PowerPointban a **Csoport felbontása** parancs le van tiltva, amikor a teljes diagram ki van jelölve.
 
-### **Következtetés**
+### **Meglévő formazárolások jelentése**
 
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy korlátozza a specifikus szerkesztési műveleteket egyes alakzatokon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon keresztül. Válassza ki az egyes alakzat típusok által támogatott zárolásokat, és állítsa értéküket `false`‑ra, ha el szeretné távolítani ezeket a korlátozásokat.
+Egy sablon áttekintéséhez nyissa meg, és olvassa ki a zárolás objektumot minden formához. A [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) metódus `true` értéket ad, ha az objektumon lévő összes jelző ki van kapcsolva, és `false`-t, ha legalább egy engedélyezve van. Egy csoport és annak gyermekei külön zárolási objektumokkal rendelkeznek, ezért vizsgálja meg a gyermekeket akkor is, ha a csoportnak nincs zárolása.
+
+Ez a példa ellenőrzi a mozgást az automatikus alakzatoknál, a képkockáknál és a csoportoknál. Emellett ellenőrzi a képek vágását és a csoportok felbontását. A jelentés felsorolja a felismert engedélyezett jelzőket, és megjelöli azokat a forma típusokat, amelyeket nem ellenőriz.
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Feltételezzük, hogy a `Sample.pptx` 1. diája egy `Layout` nevű csoportot tartalmaz, amelynek a csoport felbontása zárolva van, egy `Photo` nevű képet, amelynek a vágása zárolva van, és egy `Free` nevű feloldott négyzetet. A jelentés kihagyja a `Free` elemet és ezt a két sort írja ki:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+A jelentés a tárolt forma-szintű szerkesztési jelzőket olvassa ki anélkül, hogy megváltoztatná őket vagy mentené a bemutatót. A dokumentumszintű írásvédelmet külön beállítás jelenti, és az egyes jelzők érvényesítése a szerkesztőtől függ.
+
+## **Következtetés**
+
+Az Aspose.Slides for Android via Java lehetővé teszi, hogy egyes formákra vonatkozó szerkesztési műveleteket korlátozzon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon keresztül. Válassza ki az egyes forma típusok által támogatott zárolásokat, és állítsa értéküket `false`-ra, ha el szeretné távolítani ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Kombinálhatok alakzatzárakat és jelszóvédelmet ugyanabban a prezentációban?**
+**Kombinálhatok formazárolásokat és jelszóvédelmet ugyanabban a bemutatóban?**
 
-Igen. Az alakzatzárak bizonyos szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/androidjava/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
+Igen. A formazárolások bizonyos szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/androidjava/password-protected-presentation/) a bemutató megnyitását vagy módosítását korlátozhatja. Mindkettőt használhatja ugyanabban a fájlban.
 
-**Korlátozhatom a szerkesztést konkrét diákon anélkül, hogy a többit érinteném?**
+**Korlátozhatom a szerkesztést egyes diákon anélkül, hogy másokat befolyásolnám?**
 
-Igen. Csak a kiválasztott diák alakzataira alkalmazzon zárolásokat. Ez nem módosítja a többi dia zárbeállításait.
+Igen. Csak a kiválasztott diákon lévő formákra alkalmazza a zárolásokat. Ez nem módosítja a többi dia zárolási beállításait.
 
-**Hogyan alkalmazhatok zárolásokat egyes alakzatokra egy csoporton belül?**
+**Hogyan alkalmazhatok zárolásokat egy csoporton belüli egyedi formákra?**
 
-Iteráljon a csoport [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) metódusa által visszaadott gyűjteményen, és alkalmazza a megfelelő zárolásokat minden gyermekalakzatra. Ismételje meg ezt minden beágyazott csoportnál. A fenti példák csak a dia alakzatgyűjteményét dolgozzák fel, így nem állítanak be zárolásokat az egyes csoporttagokra.
+Iterálja végig a csoport [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) metódusa által visszaadott gyűjteményt, és alkalmazza a megfelelő zárolásokat minden gyermekformára. Ismételje meg ezt minden egymásba ágyazott csoportnál, a jelentési példában bemutatott bejárás szerint.

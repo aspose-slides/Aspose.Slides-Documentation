@@ -1,27 +1,27 @@
 ---
-title: ปรับแต่งแผนภูมิ 3D ในงานนำเสนอด้วย C++
-linktitle: แผนภูมิ 3D
+title: ปรับแต่งแผนภูมิ 3 มิติในงานนำเสนอโดยใช้ C++
+linktitle: แผนภูมิ 3 มิติ
 type: docs
 url: /th/cpp/3d-chart/
 keywords:
-- แผนภูมิ 3D
+- แผนภูมิ 3 มิติ
 - การหมุน
 - ความลึก
 - PowerPoint
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "สร้างแผนภูมิ 3D ในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++. ปรับการหมุน, สัดส่วนความสูง, ความลึกของแผนภูมิ, และระยะห่างระหว่างชุดข้อมูลด้วยตัวอย่าง C++."
+description: "สร้างแผนภูมิ 3 มิติในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++. ปรับการหมุน, อัตราส่วนความสูง, ความลึกของแผนภูมิ, และช่องว่างระหว่างซีรีส์ด้วยตัวอย่างโค้ด C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for C++ ช่วยให้คุณปรับแต่งมุมมองของแผนภูมิ 3 มิติผ่าน [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). บทความนี้แสดงวิธีปรับการหมุน, สัดส่วนความสูง, ความลึก, แกนมุมฉาก, และระยะห่างระหว่างชุดข้อมูล, จากนั้นบันทึกงานนำเสนอเป็นรูปแบบ PPTX.
+Aspose.Slides for C++ ให้คุณปรับแต่งมุมมองของแผนภูมิ 3 มิติผ่าน [IChart::get_Rotation3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_rotation3d/). บทความนี้แสดงวิธีปรับการหมุน, อัตราส่วนความสูง, ความลึก, แกนมุมฉาก, และช่องว่างระหว่างซีรีส์, จากนั้นบันทึกงานนำเสนอในรูปแบบ PPTX.
 
 ## **ตั้งค่าการหมุนและความลึกของแผนภูมิ 3 มิติ**
 
-ตัวอย่างด้านล่างสร้าง [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) และใช้ [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่มแผนภูมิคอลัมน์ 3 มิติแบบสแต็กบนสไลด์แรกของมัน. ตัวอย่างนี้แทนที่ชุดข้อมูลและประเภทเริ่มต้นด้วยสองชุดข้อมูลที่แต่ละชุดมีค่า 3 ค่า. ดัชนีแผ่นงาน `0` ระบุแผ่นงานข้อมูลแรกของแผนภูมิ; แถว `0` เก็บชื่อชุดข้อมูล, และคอลัมน์ `0` เก็บป้ายชื่อประเภท.
+ตัวอย่างด้านล่างสร้าง [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) และใช้ [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่มแผนภูมิคอลัมน์ 3 มิติแบบ stacked ไปยังสไลด์แรกของมัน. มันจะแทนที่ซีรีส์และประเภทเริ่มต้นด้วยสองซีรีส์ที่แต่ละซีรีส์มีสามค่า. ดัชนีเวิร์กชีต `0` ระบุเวิร์กชีตข้อมูลแรกของแผนภูมิ; แถว `0` เก็บชื่อซีรีส์, และคอลัมน์ `0` เก็บป้ายชื่อประเภท.
 
-[set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) และ [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ตั้งค่าการหมุนของแผนภูมเป็น 40 และ 270 องศาตามลำดับ. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) ตั้งค่าความลึกเป็น 150% ของความกว้าง, ขณะเดียวกัน [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) เปิดใช้งานแกนมุมฉากแทนการมองแบบมุมมอง. งานนำเสนอที่ได้จะมีแผนภูมิที่เติมข้อมูลโดยใช้การตั้งค่ามุมมอง 3 มิติเหล่านี้.
+เมธอด [set_RotationX](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationx/) และ [set_RotationY](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rotationy/) ตั้งค่าการหมุนของแผนภูมิเป็น 40 และ 270 องศาตามลำดับ. [set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) ตั้งค่าความลึกเป็น 150% ของความกว้าง, ในขณะที่ [set_RightAngleAxes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_rightangleaxes/) เปิดใช้งานแกนมุมฉากแทนการมองในมุมมองเชิงมิติ. งานนำเสนอที่ได้จะมีแผนภูมิที่เติมข้อมูลพร้อมการตั้งค่ามุมมอง 3 มิติเหล่านี้.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -88,11 +88,87 @@ presentation->Save(u"Rotation3D_out.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ปรับสัดส่วนความสูงของแผนภูมิ 3 มิติ**
+## **ใช้การเติมรูปภาพบนพื้นผิวแผนภูมิ 3 มิติ**
 
-ใช้ [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) เพื่อตั้งค่าความสูงของแผนภูมิ 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง. วิธีนี้เปลี่ยนสัดส่วนของฉาก 3 มิติโดยไม่ต้องปรับขนาดวัตถุแผนภูมิบนสไลด์.
+คุณสามารถเติม [side wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_sidewall/), [back wall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/), และ [floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) ของแผนภูมิ 3 มิติได้แบบอิสระ. ตั้งค่า [fill type](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) ของพื้นผิวเป็น `Picture` แล้วกำหนดรูปภาพ. เพื่อให้รูปภาพหนึ่งสำเนาครอบคลุมพื้นผิวทั้งหมด, ตั้งค่า [picture fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) และ [picture type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartwall/set_picturetype/) ของพื้นผิวเป็น `Stretch`.
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ด้วยข้อมูลเริ่มต้น: สามชุดข้อมูลและสี่ประเภท. ตัวอย่างบันทึกงานนำเสนอสามไฟล์โดยใช้สัดส่วนความสูง 50%, 100% และ 200%. ตำแหน่ง, ความกว้างและความสูงของแผนภูมิคงที่. ข้อมูล, การหมุน, ความลึก, ระยะห่างระหว่างชุดข้อมูลและการจัดรูปแบบเหมือนกันในไฟล์ทั้งสาม; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยน.
+บันทึกไฟล์ [arrow.png](arrow.png) ไว้ในโฟลเดอร์ทำงาน. ตัวอย่างจะหมุนแผนภูมิและเพิ่มค่ามากที่สุดบนแกนตั้งเพื่อให้เห็นพื้นระหว่างคอลัมน์. จากนั้นทำสำเนาสไลด์สองครั้งและใส่ลูกศรบนพื้นผิวที่แตกต่างกันของแต่ละสไลด์. ทั้งสามแผนภูมิจะรักษาข้อมูล, มุมมอง, และพื้นหลังเดิมไว้.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartWall.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IRotation3D.h>
+#include <DOM/Chart/PictureType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/shared_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Column3D, 20, 30, 680, 480);
+chart->get_Rotation3D()->set_RightAngleAxes(true);
+chart->get_Rotation3D()->set_RotationX(40);
+chart->get_Rotation3D()->set_RotationY(30);
+
+auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
+verticalAxis->set_IsAutomaticMaxValue(false);
+verticalAxis->set_MaxValue(24);
+
+auto backSlide = presentation->get_Slides()->AddClone(slide);
+auto floorSlide = presentation->get_Slides()->AddClone(slide);
+auto backChart = ExplicitCast<IChart>(backSlide->get_Shape(0));
+auto floorChart = ExplicitCast<IChart>(floorSlide->get_Shape(0));
+
+auto imageBytes = IO::File::ReadAllBytes(u"arrow.png");
+auto arrow = presentation->get_Images()->AddImage(imageBytes);
+
+for (const auto& surface : { chart->get_SideWall(), backChart->get_BackWall(), floorChart->get_Floor() })
+{
+    auto fill = surface->get_Format()->get_Fill();
+    fill->set_FillType(FillType::Picture);
+    auto pictureFill = fill->get_PictureFillFormat();
+    pictureFill->get_Picture()->set_Image(arrow);
+    pictureFill->set_PictureFillMode(PictureFillMode::Stretch);
+    surface->set_PictureType(PictureType::Stretch);
+}
+
+presentation->Save(u"chart-surfaces.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Microsoft PowerPoint แสดงสไลด์สามสไลด์ดังนี้.
+
+| ผนังด้านข้าง | ผนังด้านหลัง | พื้น |
+| --- | --- | --- |
+| ![ลูกศรชี้เข้าสู่แผนภูมิด้านผนังด้านข้าง](side-wall.png) | ![ลูกศรชี้ขวาผ่านผนังด้านหลัง](back-wall.png) | ![ลูกศรชี้ขวาผ่านพื้นระหว่างคอลัมน์](floor.png) |
+
+## **ปรับอัตราส่วนความสูงของแผนภูมิ 3 มิติ**
+
+ใช้ [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) เพื่อตั้งค่าความสูงของแผนภูมิ 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง. วิธีนี้เปลี่ยนอัตราส่วนของฉาก 3 มิติโดยไม่ต้องปรับขนาดวัตถุแผนภูมิบนสไลด์.
+
+ตัวอย่างต่อไปสร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ด้วยข้อมูลเริ่มต้น: สามซีรีส์และสี่ประเภท. มันบันทึกงานนำเสนอสามไฟล์ที่อัตราส่วนความสูง 50%, 100%, และ 200%. ตำแหน่ง, ความกว้าง, และความสูงของแผนภูมิก็ยังคงที่. ข้อมูล, การหมุน, ความลึก, ช่องว่างระหว่างซีรีส์, และการจัดรูปแบบเหมือนกันในทุกไฟล์; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยน.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -135,40 +211,40 @@ for (uint16_t heightPercent : { 50, 100, 200 })
 presentation->Dispose();
 ```
 
-ภาพต่อไปนี้มาจากตัวอย่าง .NET ที่เทียบเท่า ซึ่งส่งออกโดย Microsoft PowerPoint และแสดงการตั้งค่าความสูงเดียวกัน. ค่าเปอร์เซ็นต์ที่เล็กกว่าจะทำให้ฉากแบนลง, ในขณะที่ค่าเปอร์เซ็นต์ที่ใหญ่กว่าจะทำให้ฉากสูงขึ้นภายในวัตถุแผนภูมิเดียวกัน. PowerPoint อาจปรับช่วงของตารางแกนและตำแหน่งป้ายชื่อเพื่อให้พอดีกับฉากด้วย.
+ภาพต่อไปนี้จากตัวอย่าง .NET ที่เทียบเท่าถูกส่งออกด้วย Microsoft PowerPoint เพื่อแสดงการตั้งค่าความสูงเดียวกัน. เปอร์เซ็นต์ที่น้อยกว่าจะทำให้ฉากแบนลง, ส่วนเปอร์เซ็นต์ที่มากจะทำให้ฉากสูงขึ้นภายในวัตถุแผนภูมิเดียวกัน. PowerPoint อาจปรับช่วงการทำเครื่องหมายแกนและตำแหน่งป้ายเพื่อให้พอดีกับฉาก.
 
 | ความสูง: 50% | ความสูง: 100% | ความสูง: 200% |
 | --- | --- | --- |
-| ![แผนภูมิคอลัมน์ 3 มิติที่มีความสูงตั้งค่าเป็น 50% ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีความสูงตั้งค่าเป็น 100% ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีความสูงตั้งค่าเป็น 200% ของความกว้าง](height_percent_200.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 50% ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 100% ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 200% ของความกว้าง](height_percent_200.png) |
 
-เมธอดเหล่านี้ควบคุมแง่มุมต่างๆ ของแผนภูมิ:
+วิธีเหล่านี้ควบคุมแง่มุมที่ต่างกันของแผนภูมิ:
 
-| เมธอด | ผลลัพธ์ |
+| วิธีการ | ผล |
 | --- | --- |
 | [IRotation3D::set_HeightPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_heightpercents/) | ความสูงของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
-| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | ความสูงของวัตถุแผนภูมบนสไลด์, หน่วยเป็นพอยต์ |
+| [IShape::set_Height](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_height/) | ความสูงของวัตถุแผนภูมิบนสไลด์, หน่วยเป็นพอยต์ |
 | [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | ความลึกของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | ระยะห่างระหว่างชุดข้อมูลตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์ |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์ |
 
-การตั้งค่าความสูงส่งผลต่อแผนภูมิคอลัมน์และแผนภูมิบาร์ 3 มิติ รวมถึงรูปแบบกระบอก, ปริซึมและพีระมิด, รวมถึงแผนภูมิเส้น, พื้นที่, พายและพื้นผิว 3 มิติ. การเปรียบเทียบด้านบนใช้ประเภท `Column3D` ที่ตรวจสอบแล้ว. การตั้งค่านี้ไม่เปลี่ยนลักษณะของแผนภูมิ 2 มิติ `ClusteredColumn` หรือแผนภูมิ `BubbleWith3D`; ชื่อเหล่านี้เป็นสมาชิกของ enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). สำหรับการตั้งค่าลักษณะอื่นของแผนภูมิ, ดู [การจัดรูปแบบแผนภูมิ](/slides/th/cpp/chart-formatting/).
+การตั้งค่าความสูงมีผลกับแผนภูมิคอลัมน์และแถบ 3 มิติ, รวมถึงรูปแบบกระบอก, กรวย, และพีระมิด, รวมถึงแผนภูมิ 3 มิติแบบเส้น, พื้นที่, พาย, และผิว. การเปรียบเทียบด้านบนใช้ประเภท `Column3D` ที่ได้รับการตรวจสอบแล้ว. การตั้งค่านี้ไม่เปลี่ยนลักษณะของแผนภูมิ 2 มิติ `ClusteredColumn` หรือแผนภูมิ `BubbleWith3D`; ชื่อเหล่านี้เป็นสมาชิกของ enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). สำหรับการตั้งค่าลักษณะอื่น ๆ ของแผนภูมิ, ดู [Chart Formatting](/slides/th/cpp/chart-formatting/).
 
-## **ปรับช่องว่างระหว่างชุดข้อมูล**
+## **ปรับช่องว่างระหว่างซีรีส์**
 
-ใช้ [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) เพื่อควบคุมระยะห่างระหว่างชุดข้อมูลตามแกนความลึกของแผนภูมิ 3 มิติ, แสดงเป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์. ใช้ค่าตั้งแต่ **0 ถึง 500**, รวมทั้งสองค่า: `0` จะลบช่องว่าง, ขณะที่ค่าที่ใหญ่กว่าจะเพิ่มระยะห่าง. หากความลึกของแผนภูมิคงที่, การเพิ่มช่องว่างทำให้มาร์คเกอร์บางลงตามแกนความลึก.
+ใช้ [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) เพื่อควบคุมระยะทางระหว่างซีรีส์ข้อมูลตามแกนความลึกของแผนภูมิ 3 มิติ, แสดงเป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์. ใช้ค่าตั้งแต่ **0 ถึง 500**, รวม: `0` จะลบช่องว่าง, ค่ามากกว่าเพิ่มช่องว่าง. เมื่อความลึกของแผนภูมิคงที่, การเพิ่มช่องว่างจะทำให้มาร์คเกอร์บางลงตามแกนความลึก.
 
-เข้าถึงกลุ่มผ่าน [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). การตั้งค่านี้ใช้กับทุกชุดข้อมูลในกลุ่มนั้น, ไม่ได้จำกัดแค่ชุดข้อมูลที่ใช้เข้าถึง. [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) ส่งคืนค่าการตั้งค่าของกลุ่มแม่.
+เข้าถึงกลุ่มผ่าน [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). การตั้งค่านี้ใช้กับทุกซีรีส์ในกลุ่มนั้น, ไม่ใช่แค่ซีรีส์ที่ใช้เข้าถึง. [IChartSeries::get_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_gapdepth/) จะคืนค่าการตั้งค่าของกลุ่มแม่.
 
-การตั้งค่านี้ส่งผลต่อแผนภูมิคอลัมน์และบาร์ 3 มิติ รวมถึงรูปแบบกระบอก, ปริซึมและพีระมิด, รวมถึงแผนภูมิเส้นและพื้นที่ 3 มิติ. การแสดงผลขึ้นอยู่กับว่าชุดข้อมูลถูกจัดเรียงตามความลึก, เป็นกลุ่มหรือเป็นสแต็ก. เพื่อเปรียบเทียบช่องว่างระหว่างชุดข้อมูลที่แยกจากกันอย่างชัดเจน, ใช้ `ChartType::Column3D` จาก enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
+การตั้งค่านี้มีผลกับแผนภูมิคอลัมน์และแถบ 3 มิติ, รวมถึงรูปแบบกระบอก, กรวย, และพีระมิด, รวมถึงแผนภูมิ 3 มิติแบบเส้นและพื้นที่. ลักษณะการแสดงผลขึ้นอยู่กับว่าซีรีส์ถูกจัดเรียงตามความลึก, แบบจัดกลุ่ม, หรือแบบ stacked. เพื่อเปรียบเทียบช่องว่างระหว่างซีรีส์แยกกันอย่างชัดเจน, ใช้ `ChartType::Column3D` จาก enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/).
 
-เมธอดเหล่านี้ควบคุมแง่มุมต่างๆ ของแผนภูมิ:
+วิธีเหล่านี้ควบคุมแง่มุมที่ต่างกันของแผนภูมิ:
 
-| เมธอด | ผลลัพธ์ |
+| วิธีการ | ผล |
 | --- | --- |
-| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | ระยะห่างระหว่างชุดข้อมูลตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์ |
-| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | ระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน, เป็นเปอร์เซ็นต์ของความกว้างของแท่งหรือคอลัมน์ |
-| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | ความลึกโดยรวมของแผนภูมิ, เป็นเปอร์เซ็นต์ของความกว้างของแผนภูมิ |
+| [IChartSeriesGroup::set_GapDepth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapdepth/) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์ |
+| [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) | ช่องว่างระหว่างกลุ่มคอลลัมน์หรือแถบที่อยู่ติดกัน, เป็นเปอร์เซ็นต์ของความกว้างคอลลัมน์หรือแถบ |
+| [IRotation3D::set_DepthPercents](https://reference.aspose.com/slides/cpp/aspose.slides.charts/irotation3d/set_depthpercents/) | ความลึกรวมของแผนภูมิ, เป็นเปอร์เซ็นต์ของความกว้างแผนภูมิ |
 
-ตัวอย่างต่อไปนี้เป็นตัวอย่างแบบอิสระที่ใช้ข้อมูลแผนภูมิเริ่มต้นซึ่งมีสามชุดข้อมูลและสี่ประเภท. ตัวอย่างบันทึกงานนำเสนอสองไฟล์โดยมีข้อมูล, การหมุน, ความกว้างของช่องว่างและความลึกของแผนภูมิเหมือนกัน; มีเพียงความลึกของช่องว่างที่เปลี่ยน.
+ตัวอย่างต่อไปนี้เป็นแบบอิสระที่ใช้ข้อมูลแผนภูมิเบื้องต้น ซึ่งประกอบด้วยสามซีรีส์และสี่ประเภท. มันบันทึกงานนำเสนอสองไฟล์ที่มีข้อมูล, การหมุน, ความกว้างช่องว่าง, และความลึกของแผนภูมิเดียวกัน; มีเพียงความลึกช่องว่างที่เปลี่ยน.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -215,15 +291,15 @@ for (uint16_t gapDepth : { 0, 500 })
 presentation->Dispose();
 ```
 
-ภาพต่อไปนี้มาจากตัวอย่าง .NET ที่เทียบเท่า ซึ่งส่งออกโดย Microsoft PowerPoint และแสดงการตั้งค่าความลึกของช่องว่างเดียวกัน.
+ภาพต่อไปนี้จากตัวอย่าง .NET ที่เทียบเท่าถูกส่งออกด้วย Microsoft PowerPoint เพื่อแสดงการตั้งค่าช่องว่างความลึกเดียวกัน.
 
-| ความลึกของช่องว่าง: 0% | ความลึกของช่องว่าง: 500% |
+| ความลึกช่องว่าง: 0% | ความลึกช่องว่าง: 500% |
 | --- | --- |
-| ![แผนภูมิคอลัมน์ 3 มิติที่ไม่มีช่องว่างระหว่างชุดข้อมูลตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีช่องว่าง 500% ระหว่างชุดข้อมูลตามแกนความลึก](gap_depth_500.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ไม่มีช่องว่างระหว่างซีรีส์ตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีช่องว่าง 500% ระหว่างซีรีส์ตามแกนความลึก](gap_depth_500.png) |
 
-## **เปลี่ยนประเภทชุดข้อมูล 3D และรูปร่างของแท่ง**
+## **เปลี่ยนประเภทซีรีส์ 3 มิติและรูปร่างแท่ง**
 
-ในแผนภูมิกระบอกสแต็ก, ชุดข้อมูลแรกเริ่มด้วยแท่งทรงกระบอก. ตัวอย่างอ่าน [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) และ [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) ก่อนและหลังการเปลี่ยนแต่ละครั้ง.
+ในแผนภูมิกระบอกแบบจัดกลุ่ม, ซีรีส์แรกเริ่มต้นด้วยแท่งแบบกระบอก. ตัวอย่างอ่านค่า [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) และ [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) ก่อนและหลังการเปลี่ยนแต่ละครั้ง.
 
 ```cpp
 #include <DOM/Chart/ChartShapeType.h>
@@ -270,26 +346,26 @@ presentation->Save(u"series_shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-| เปลี่ยนสำหรับชุดข้อมูลแรก | `get_Type` | `get_Bar3DShape` |
+| การเปลี่ยนแปลงในซีรีส์แรก | `get_Type` | `get_Bar3DShape` |
 | --- | --- | --- |
 | สร้างแผนภูมิ | `ClusteredCylinder` | `Cylinder` |
 | เรียก [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) ด้วย `ClusteredCone` | `ClusteredCone` | `Cone` |
 | เรียก [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) ด้วย `Box` | `ClusteredColumn3D` | `Box` |
 
-การตั้งรูปร่างเป็น `Box` ยังทำให้ประเภทชุดข้อมูลเปลี่ยนเป็น `ClusteredColumn3D`. หากโค้ดของคุณสาขาตามประเภทชุดข้อมูล, เรียก `series->get_Type()` หลังจากเปลี่ยนรูปร่าง. ค่าที่เก็บไว้ก่อนการเปลี่ยนจะยังคงเลือกสาขา `ClusteredCone`.
+การตั้งค่าให้รูปร่างเป็น `Box` จะเปลี่ยนประเภทซีรีส์เป็น `ClusteredColumn3D` ด้วย. หากโค้ดของคุณทำสาขาตามประเภทซีรีส์, ให้เรียก `series->get_Type()` หลังจากเปลี่ยนรูปร่าง. ค่าที่เก็บไว้ก่อนการเปลี่ยนจะยังคงเลือกสาขา `ClusteredCone`.
 
-![การเปรียบเทียบ PowerPoint แสดงชุดข้อมูลแรกเป็นแท่งทรงกระบอก, รูกระบอก, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
+![การเปรียบเทียบ PowerPoint แสดงซีรีส์แรกเป็นกระบอก, กรวย, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Aspose.Slides รองรับประเภทแผนภูมิใดบ้างที่มีโหมด 3D?**
+**แผนภูมิประเภทใดบ้างที่รองรับโหมด 3 มิติใน Aspose.Slides?**
 
-Aspose.Slides รองรับรูปแบบ 3 มิติของแผนภูมิคอลัมน์, ได้แก่ Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100% Stacked Column 3D, พร้อมประเภท 3 มิติที่เกี่ยวข้องที่เปิดให้ใช้ผ่าน enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). สำหรับรายการที่แม่นยำและอัปเดตล่าสุด, ตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ในเอกสาร API ของรุ่นที่คุณติดตั้ง.
+Aspose.Slides รองรับรูปแบบ 3 มิติของแผนภูมิคอลัมน์, รวมถึง Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100% Stacked Column 3D, พร้อมประเภท 3 มิติที่เกี่ยวข้องที่เปิดผ่าน enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/). เพื่อดูรายการที่แม่นยำและอัปเดตล่าสุด, ตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ในเอกสาร API ของเวอร์ชันที่คุณติดตั้ง.
 
-**ฉันสามารถรับภาพเรสเตอร์ของแผนภูมิ 3D สำหรับรายงานหรือเว็บได้หรือไม่?**
+**ฉันสามารถรับภาพเรสเตอร์ของแผนภูมิ 3 มิติสำหรับรายงานหรือเว็บได้หรือไม่?**
 
-ได้. คุณสามารถส่งออกแผนภูมิเป็นภาพด้วย [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) หรือ [เรนเดอร์สไลด์ทั้งหมด](/slides/th/cpp/convert-powerpoint-to-png/) ไปเป็นรูปแบบเช่น PNG หรือ JPEG. วิธีนี้เป็นประโยชน์เมื่อคุณต้องการพรีวิวแบบเรสเตอร์หรือฝังแผนภูมิในเอกสาร, แดชบอร์ด หรือหน้าเว็บโดยไม่ต้องพึ่งพา PowerPoint.
+ได้. คุณสามารถส่งออกแผนภูมิเป็นภาพด้วย [Shape::GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/shape/getimage/) หรือ [เรนเดอร์สไลด์ทั้งหมด](/slides/th/cpp/convert-powerpoint-to-png/) ไปเป็นรูปแบบเช่น PNG หรือ JPEG. นี้มีประโยชน์เมื่อคุณต้องการพรีวิวแบบเรสเตอร์หรือฝังแผนภูมิลงในเอกสาร,แดชบอร์ด, หรือหน้าเว็บโดยไม่ต้องใช้ PowerPoint.
 
-**ประสิทธิภาพของการสร้างและเรนเดอร์แผนภูมิ 3D ขนาดใหญ่เป็นอย่างไร?**
+**ประสิทธิภาพการสร้างและเรนเดอร์แผนภูมิ 3 มิติที่ใหญ่เป็นอย่างไร?**
 
-ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของภาพ. เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด, ควรลดเอฟเฟกต์ 3D ให้น้อยที่สุด, หลีกเลี่ยงพื้นผิวที่มีเท็กซ์เจอร์หนักบนผนังและพื้นที่พล็อต, จำกัดจำนวนจุดข้อมูลต่อชุดข้อมูลเมื่อเป็นไปได้, และเรนเดอร์เป็นขนาดเอาต์พุตที่เหมาะสม (ความละเอียดและมิติ) ให้ตรงกับการแสดงผลหรือการพิมพ์ที่ต้องการ.
+ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของกราฟิก. เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด, ควรลดเอฟเฟกต์ 3 มิติให้น้อยที่สุด, อย่าใช้พื้นผิวหรือพื้นที่พล็อตที่มีพื้นผิวซับซ้อนมาก, จำกัดจำนวนจุดข้อมูลต่อซีรีส์เมื่อเป็นไปได้, และเรนเดอร์เป็นขนาดเอาต์พุตที่เหมาะสม (ความละเอียดและมิติ) เพื่อให้ตรงกับการแสดงผลหรือการพิมพ์ที่ต้องการ.
