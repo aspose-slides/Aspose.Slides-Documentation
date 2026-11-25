@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Εφέ Σχήματος σε Παρουσιάσεις Χρησιμοποιώντας C++
+title: Εφαρμογή Εφέ Σχήματος στις Παρουσιάσεις Χρησιμοποιώντας C++
 linktitle: Εφέ Σχήματος
 type: docs
 weight: 30
@@ -15,27 +15,27 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προηγμένα εφέ σχήματος χρησιμοποιώντας το Aspose.Slides για C++ — δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
+description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προχωρημένα εφέ σχήματος χρησιμοποιώντας την Aspose.Slides για C++ — δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
 ---
 ## **Εισαγωγή**
 
-Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να αναδείξουν ένα σχήμα, διαφέρουν από [γέμισμα](/slides/el/cpp/shape-formatting/#gradient-fill) ή περιγραμμάτιση. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαστέλλετε το φως του σχήματος, κ.λπ.
+Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνουν ένα σχήμα να ξεχωρίζει, διαφέρουν από [γέμιση](/slides/el/cpp/shape-formatting/#gradient-fill) ή περιγράμματα. Με τη χρήση εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαχέσετε τη λάμψη ενός σχήματος, κ.λπ.
 
 ![Εφέ σχήματος](shape-effect.png)
 
 Το PowerPoint παρέχει έξι εφέ που μπορούν να εφαρμοστούν σε σχήματα. Μπορείτε να εφαρμόσετε ένα ή περισσότερα εφέ σε ένα σχήμα.
 
-Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για αυτό το λόγο, το PowerPoint διαθέτει επιλογές στο **Preset**. Οι επιλογές Preset είναι ουσιαστικά ένας συνδυασμός δύο ή περισσότερων εφέ που είναι γνωστό ότι φαίνονται καλά μαζί. Με αυτόν τον τρόπο, επιλέγοντας ένα preset, δεν χρειάζεται να σπαταλήσετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν ωραίο συνδυασμό.
+Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για αυτόν τον λόγο, το PowerPoint διαθέτει επιλογές στην **Preset**. Οι επιλογές Preset είναι ουσιαστικά ένας συνδυασμός δύο ή περισσότερων εφέ που γνωρίζεται ότι ταιριάζουν καλά μαζί. Με αυτόν τον τρόπο, επιλέγοντας ένα preset, δεν χρειάζεται να σπαταλήσετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
 
-Το Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) που σας επιτρέπουν να εφαρμόζετε τα ίδια εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
+Η Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) που επιτρέπουν την εφαρμογή των ίδιων εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
 
 ## **Εφαρμογή Εφέ Σκιάς**
 
-Το Aspose.Slides για C++ υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με το σχέδιο της παρουσίασής σας.
+Η Aspose.Slides για C++ υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζει με το σχεδιασμό της παρουσίασής σας.
 
 ### **Εφαρμογή Εξωτερικής Σκιάς**
 
-Χρησιμοποιήστε μια εξωτερική σκιά για να ξεχωρίσει μια κάρτα ή ένα πάνελ από το φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζουν με το φωτισμό και το στυλ του προτύπου σας.
+Χρησιμοποιήστε μια εξωτερική σκιά για να κάνετε μια κάρτα ή πίνακα να ξεχωρίζει από το παρασκήνιο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζει με το φωτισμό και το στυλ του προτύπου σας.
 
 Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε το [εφέ εξωτερικής σκιάς](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) σε ένα ορθογώνιο:
 
@@ -73,11 +73,11 @@ presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 
 ### **Εφαρμογή Εσωτερικής Σκιάς**
 
-Όταν αναπαράγετε το οπτικό στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή ένα πάνελ μια εσοχή. Μια εξωτερική σκιά εκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά σκιάζει το εσωτερικό των άκρων του.
+Κατά την αναπαραγωγή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα μια εσοπτική εμφάνιση. Μια εξωτερική σκιά εκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά σκιαγραφεί το εσωτερικό των άκρων του.
 
-Καλέστε το [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), έπειτα ρυθμίστε το [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Μεγαλύτερες τιμές ακτίνας θολώματος παράγουν πιο απαλοί άκρες.
+Καλέστε [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), στη συνέχεια διαμορφώστε το [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Μεγαλύτερες τιμές ακτίνας θόλωσης παράγουν πιο απαλή άκρα.
 
-Αυτό το παράδειγμα C++ δημιουργεί μια ανοιχτό μπλε κάρτα με μια σκούρο γκρίζα εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX:
+Αυτό το παράδειγμα C++ δημιουργεί μια ανοιχτή μπλε κάρτα με σκούρο γκρι εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -116,13 +116,88 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Ορθογώνιο ανοιχτό μπλε με εσωτερική σκιά](inner_shadow_effect.png)
+![Ανοιχτό μπλε ορθογώνιο με εσωτερική σκιά](inner_shadow_effect.png)
 
 Για να αφαιρέσετε την εσωτερική σκιά, καλέστε το [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) στη μορφή εφέ του σχήματος.
 
+### **Εφαρμογή, Αλλαγή και Αφαίρεση Προεπιλεγμένης Σκιάς**
+
+Καλέστε το [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) και χρησιμοποιήστε το [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) για να επιλέξετε έναν [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε το [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) για να αφαιρέσετε τη σκιά διατηρώντας τη γεμιστική και την περίγραμμα.
+
+Αυτό το παράδειγμα διατηρεί ένα αντίγραφο του ορθογωνίου σε κάθε στάδιο. Και οι δύο σκιές μετατοπίζονται κατά 10 σημεία. Μία κατεύθυνση 225° τοποθετεί την πρώτη σκιά πάνω και αριστερά του ορθογωνίου, ενώ η 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
+
+```cpp
+#include <DOM/Effects/IPresetShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetShadowType.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/enum.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(800, 120, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+auto outline = shape->get_LineFormat()->get_FillFormat();
+outline->set_FillType(FillType::Solid);
+outline->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+auto textFrame = shape->get_TextFrame();
+textFrame->set_Text(u"No shadow");
+textFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(14);
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+auto effectFormat = shape->get_EffectFormat();
+effectFormat->EnablePresetShadowEffect();
+auto shadow = effectFormat->get_PresetShadowEffect();
+shadow->set_Preset(PresetShadowType::TopLeftDropShadow);
+shadow->set_Distance(10);
+shadow->set_Direction(225);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+shadow->set_Preset(PresetShadowType::BottomRightDropShadow);
+shadow->set_Direction(45);
+textFrame->set_Text(System::Enum<PresetShadowType>::GetName(shadow->get_Preset()));
+shapes->AddClone(shape);
+
+shape->set_X(shape->get_X() + 200);
+effectFormat->DisablePresetShadowEffect();
+textFrame->set_Text(u"No shadow");
+
+presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
+```
+
+| Αρχικό | Πρώτο preset | Δεύτερο preset | Μετά την αφαίρεση |
+| :---: | :---: | :---: | :---: |
+| ![Χωρίς σκιά](preset_shadow_original.png) | ![Σκιά Πάνω-Αριστερά](preset_shadow_top_left.png) | ![Σκιά Κάτω-Δεξιά](preset_shadow_bottom_right.png) | ![Χωρίς σκιά μετά την αφαίρεση](preset_shadow_removed.png) |
+
 ## **Εφαρμογή Εφέ Αντανάκλασης**
 
-Για να εφαρμόσετε ένα εφέ αντανάκλασης στο Aspose.Slides για C++, μπορείτε να προσθέσετε μια καθρέφτη-όμοια αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο γυαλιστερή και εκλεπτυσμένη εμφάνιση. Είναι εύκολο στην υλοποίηση με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλαπλά στοιχεία για ένα συνεκτικό σχέδιο.
+Για να εφαρμόσετε ένα εφέ αντανάκλασης στην Aspose.Slides για C++, μπορείτε να προσθέσετε μια καθρεφτική αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο γυαλιστερή και εκλεπτυσμένη εμφάνιση. Είναι εύκολο στην υλοποίηση με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για συνεπές σχέδιο.
 
 Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε το [εφέ αντανάκλασης](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) σε ένα σχήμα:
 
@@ -155,11 +230,11 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Εφέ ανtanάκλασης](reflection_effect.png)
+![Εφέ αντανάκλασης](reflection_effect.png)
 
 ## **Εφαρμογή Εφέ Λάμψης**
 
-Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στο Aspose.Slides για C++, μπορείτε να προσθέσετε μια ήπια, φωτεινή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο στην υλοποίηση με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών.
+Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στην Aspose.Slides για C++, μπορείτε να προσθέσετε μια απαλό, φωτεινό αέρινο γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο στην υλοποίηση με ελάχιστο κώδικα, βελτιώνοντας την συνολική εμφάνιση των διαφανειών.
 
 Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε το [εφέ λάμψης](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) σε ένα σχήμα:
 
@@ -196,9 +271,9 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ## **Εφαρμογή Εφέ Μαλακών Άκρων**
 
-Για να εφαρμόσετε ένα εφέ μαλακών άκρων στο Aspose.Slides για C++, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που χρειάζονται μια ήπια, πιο απαλή εμφάνιση. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να επιτύχετε το επιθυμητό εφέ σε διάφορα σχήματα στην παρουσίασή σας.
+Για να εφαρμόσετε ένα εφέ μαλακών άκρων στην Aspose.Slides για C++, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που χρειάζονται ήπια, πιο μαλακή όψη. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να επιτύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα στην παρουσίασή σας.
 
-Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε τα [μαλακά άκρα](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) σε ένα σχήμα:
+Αυτός ο κώδικας C++ δείχνει πώς να εφαρμόσετε το [μαλακά άκρα](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) σε ένα σχήμα:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -227,17 +302,17 @@ presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 
 ![Εφέ μαλακών άκρων](soft_edges_effect.png)
 
-## **Εφαρμογή Εφέ Θολώματος**
+## **Εφαρμογή Εφέ Θόλωσης**
 
-Χρησιμοποιήστε το θόλωμα σχήματος για να μαλακώσετε τη γέμιση και το περίγραμμα ενός σχήματος, διατηρώντας το σχήμα επεξεργάσιμο. Καλέστε το [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) στη μορφή εφέ του σχήματος. Η ακτίνα μετριέται σε μονάδες (points) (1/72 ίντσας): χρησιμοποιήστε μια μη αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν πιο έντονο θόλωμα. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
+Χρησιμοποιήστε θόλωση σχήματος για να απαλύντε τη γέμιση και το περίγραμμα ενός σχήματος ενώ το διατηρείτε επεξεργάσιμο. Καλέστε το [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) στη μορφή εφέ του σχήματος. Η ακτίνα μετράται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μη-αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν ισχυρότερη θόλωση. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
 
-Η ρύθμιση [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) ελέγχει τα ορατά όρια του εφέ. Με `false`, το θόλωμα περικόπτεται στα αρχικά βαμμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, το θόλωμα μπορεί να επεκταθεί πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
+Η ρύθμιση [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) ελέγχει τα ορατά όρια του εφέ. Με `false`, η θόλωση περιγράφεται στα αρχικά σχεδιασμένα όρια, περιλαμβανομένου του περιγράμματος. Με `true`, η θόλωση μπορεί να εκτείνεται πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
 
-Η σύγκριση παρακάτω χρησιμοποιεί την ίδια γέμιση, το ίδιο περίγραμμα και τις ίδιες διαστάσεις σχήματος σε όλη τη διάρκεια. Η πρώτη σειρά χρησιμοποιεί `grow = false`; η δεύτερη σειρά χρησιμοποιεί `grow = true`.
+Η σύγκριση παρακάτω χρησιμοποιεί την ίδια γέμιση, περίγραμμα και διαστάσεις σχήματος σε όλη τη διάρκεια. Η πρώτη σειρά χρησιμοποιεί `grow = false`; η δεύτερη σειρά χρησιμοποιεί `grow = true`.
 
-![Αρχικό ορθογώνιο συγκριμένο με ακτίνες θολώματος 5 και 15 μονάδες, με το grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
+![Αρχικό ορθογώνιο συγκριμένο με ακτίνες θόλωσης 5 και 15 σημείων, με το grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
 
-Αυτό το παράδειγμα C++ δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωμα 5 μονάδων, και μετά το ενημερώνει σε θόλωμα 15 μονάδων καλώντας ξανά το [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/). Αποθηκεύει και τις δύο καταστάσεις με θόλωμα, στη συνέχεια καλεί το [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) και αποθηκεύει το σχήμα χωρίς θόλωμα.
+Αυτό το παράδειγμα C++ δημιουργεί ένα πορτοκαλί ορθογώνιο με σκοτεινό μπλε περίγραμμα, εφαρμόζει θόλωση 5 σημείων και στη συνέχεια το ενημερώνει σε θόλωση 15 σημείων καλώντας ξανά το [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/). Αποθηκεύει και τις δύο καταστάσεις με θόλωση, μετά καλεί το [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) και αποθηκεύει το σχήμα χωρίς θόλωση.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -277,9 +352,9 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Το θόλωμα σχήματος επηρεάζει τη γέμιση και το περίγραμμα μαζί. Ένα εφέ μαλακών άκρων χαμώνει τις άκρες του σχήματος, ενώ το θόλωμα σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωμα απευθείας στη μορφή εφέ του σχήματος χωρίς να μετατρέπει το σ shape σε εικόνα.
+Η θόλωση σχήματος επηρεάζει τη γέμιση και το περίγραμμα μαζί. Ένα εφέ μαλακών άκρων αθροίζει τις άκρες του σχήματος, ενώ η θόλωση σκιάς απαλύνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση άμεσα στη μορφή εφέ του σχήματος χωρίς να μετατρέπει το σχήμα σε εικόνα.
 
-## **Συχνές ερωτήσεις**
+## **FAQ**
 
 **Μπορώ να εφαρμόσω πολλαπλά εφέ στο ίδιο σχήμα;**
 
@@ -287,7 +362,7 @@ presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 
 **Σε ποια σχήματα μπορώ να εφαρμόσω εφέ;**
 
-Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων των αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE κ.λπ.
+Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE και άλλα.
 
 **Μπορώ να εφαρμόσω εφέ σε ομαδοποιημένα σχήματα;**
 

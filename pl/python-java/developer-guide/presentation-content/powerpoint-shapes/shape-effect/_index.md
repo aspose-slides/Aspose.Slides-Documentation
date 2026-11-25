@@ -1,5 +1,5 @@
 ---
-title: Zastosuj efekty kształtów w prezentacjach przy użyciu Pythona via Java
+title: Zastosowanie efektów kształtów w prezentacjach przy użyciu Pythona via Java
 linktitle: Efekt kształtu
 type: docs
 weight: 30
@@ -16,29 +16,29 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Przekształć swoje pliki PPT i PPTX za pomocą zaawansowanych efektów kształtów, używając Aspose.Slides dla Pythona via Java — twórz efektowne, profesjonalne slajdy w kilka sekund."
+description: "Przekształć swoje pliki PPT i PPTX za pomocą zaawansowanych efektów kształtu wykorzystując Aspose.Slides for Python via Java — twórz efektowne, profesjonalne slajdy w kilka sekund."
 ---
 ## **Wstęp**
 
-Chociaż efekty w programie PowerPoint mogą być używane, aby wyróżnić kształt, różnią się od [wypełnień](/slides/pl/python-java/shape-formatting/#gradient-fill) lub konturów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia na kształcie, rozprzestrzeniać poświatę kształtu itp.
+Podczas gdy efekty w PowerPoint mogą być używane, aby wyróżnić kształt, różnią się od [wypełnień](/slides/pl/python-java/shape-formatting/#gradient-fill) lub konturów. Korzystając z efektów PowerPoint, możesz tworzyć przekonujące odbicia na kształcie, rozpraszać poświatę kształtu itp.
 
 ![Efekt kształtu](shape-effect.png)
 
 PowerPoint udostępnia sześć efektów, które można zastosować do kształtów. Możesz zastosować jeden lub więcej efektów do kształtu.
 
-Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint oferuje opcje w sekcji **Preset**. Opcje Preset to kombinacje dwóch lub więcej efektów, które są uznawane za dobrze wyglądające. Dzięki temu, wybierając preset, nie będziesz musiał marnować czasu na testowanie lub łączenie różnych efektów w poszukiwaniu odpowiedniej kombinacji.
+Niektóre kombinacje efektów wyglądają lepiej niż inne. Z tego powodu PowerPoint oferuje opcje w sekcji **Preset**. Opcje Preset to kombinacje dwóch lub więcej efektów, które są uznawane za atrakcyjne. Dzięki temu, wybierając preset, nie musisz marnować czasu na testowanie lub łączenie różnych efektów w celu znalezienia dobrej kombinacji.
 
 Aspose.Slides udostępnia właściwości i metody w klasie [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/), które pozwalają zastosować te same efekty do kształtów w prezentacjach PowerPoint.
 
-## **Zastosuj efekt cienia**
+## **Zastosowanie efektu cienia**
 
-Aspose.Slides for Python via Java obsługuje zewnętrzne i wewnętrzne cienie dla kształtów. Możesz dostosować ich kolor, kierunek, odległość i promień rozmycia, aby pasowały do projektu Twojej prezentacji.
+Aspose.Slides for Python via Java obsługuje cienie zewnętrzne i wewnętrzne dla kształtów. Możesz dostosować ich kolor, kierunek, odległość i promień rozmycia, aby dopasować je do projektu prezentacji.
 
-### **Zastosuj zewnętrzny cień**
+### **Zastosowanie cienia zewnętrznego**
 
-Użyj zewnętrznego cienia, aby karta lub panel wyróżniały się na tle slajdu. Cień wykracza poza krawędzie kształtu, tworząc wrażenie, że kształt jest podniesiony nad slajd. Dostosuj jego kolor, kierunek, odległość i promień rozmycia, aby pasowały do oświetlenia i stylizacji szablonu.
+Użyj cienia zewnętrznego, aby karta lub panel wyróżniały się na tle slajdu. Cień rozciąga się poza krawędzie kształtu, tworząc wrażenie, że kształt jest uniesiony nad slajdem. Dostosuj jego kolor, kierunek, odległość i promień rozmycia, aby pasowały do oświetlenia i stylu szablonu.
 
-Ten kod w Pythonie pokazuje, jak zastosować [efekt zewnętrznego cienia](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) do prostokąta:
+Ten kod Pythona pokazuje, jak zastosować [efekt cienia zewnętrznego](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) do prostokąta:
 
 ```python
 import jpype
@@ -67,13 +67,13 @@ finally:
 
 ![Efekt cienia](shadow_effect.png)
 
-### **Zastosuj wewnętrzny cień**
+### **Zastosowanie cienia wewnętrznego**
 
-Podczas odtwarzania wizualnego stylu szablonu użyj wewnętrznego cienia, aby nadać karcie lub panelowi wklęsły wygląd. Zewnętrzny cień rozciąga się poza kształt i sprawia, że wydaje się podniesiony, podczas gdy wewnętrzny cień zacienia wewnętrzną stronę krawędzi.
+Podczas odtwarzania wizualnego stylu szablonu użyj cienia wewnętrznego, aby nadać karcie lub panelowi wpuszczony wygląd. Cień zewnętrzny rozciąga się poza kształt i sprawia, że wygląda na podniesiony, podczas gdy cień wewnętrzny zacienia wewnętrzne krawędzie.
 
-Wywołaj [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), a następnie skonfiguruj cień zwrócony przez [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Większe wartości promienia rozmycia dają miększe krawędzie.
+Wywołaj [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), a następnie skonfiguruj cień zwrócony przez [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Większe wartości promienia rozmycia dają łagodniejsze krawędzie.
 
-Ten przykład w Pythonie tworzy jasnoniebieską kartę z ciemnoszarym wewnętrznym cieniem i zapisuje ją jako plik PPTX. Kierunek cienia to 225 stopni, odległość wynosi 7 punktów, a promień rozmycia 6 punktów:
+Ten przykład w Pythonie tworzy jasnoniebieską kartę z ciemnoszarym cieniem wewnętrznym i zapisuje ją jako plik PPTX. Kierunek cienia wynosi 225 stopni, jego odległość to 7 punktów, a promień rozmycia to 6 punktów:
 
 ```python
 import jpype
@@ -106,15 +106,75 @@ finally:
     presentation.dispose()
 ```
 
-![Jasnoniebieski prostokąt z wewnętrznym cieniem](inner_shadow_effect.png)
+![Jasnoniebieski prostokąt z cieniem wewnętrznym](inner_shadow_effect.png)
 
-Aby usunąć wewnętrzny cień, wywołaj [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formacie efektu kształtu.
+Aby usunąć cień wewnętrzny, wywołaj [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formacie efektów kształtu.
 
-## **Zastosuj efekt odbicia**
+### **Zastosowanie, zmiana i usunięcie cienia Preset**
 
-Aby zastosować efekt odbicia w Aspose.Slides for Python via Java, możesz dodać lustrzane odbicie do kształtów, dostosowując parametry takie jak odległość, przezroczystość i rozmiar. Ten efekt podnosi estetykę Twoich prezentacji, nadając kształtom bardziej wypolerowany i wyrafinowany wygląd. Jest łatwy do wdrożenia za pomocą prostego kodu, co umożliwia szybkie zastosowanie na wielu elementach w celu uzyskania spójnego projektu.
+Wywołaj [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), a następnie użyj [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset), aby wybrać [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Aby zmienić style, zmień preset na tym samym kształcie. Wywołaj [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect), aby usunąć cień, zachowując wypełnienie i kontur.
 
-Ten kod w Pythonie pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) do kształtu:
+Przykład klonuje prostokąt na każdym etapie, abyś mógł porównać wszystkie cztery stany obok siebie na jednym slajdzie. Oba cienie są przesunięte o 10 punktów. Kierunek 225° umieszcza pierwszy cień powyżej i po lewej stronie prostokąta. Kierunek 45° umieszcza drugi cień poniżej i po prawej stronie.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, PresetShadowType, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    text_frame = shape.getTextFrame()
+    text_frame.setText("No shadow")
+    paragraph_format = text_frame.getParagraphs().get_Item(0).getParagraphFormat()
+    paragraph_format.getDefaultPortionFormat().setFontHeight(14)
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().enablePresetShadowEffect()
+    shadow = shape.getEffectFormat().getPresetShadowEffect()
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow)
+    shadow.setDistance(10)
+    shadow.setDirection(225)
+    text_frame.setText("TopLeftDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow)
+    shadow.setDirection(45)
+    text_frame.setText("BottomRightDropShadow")
+    shapes.addClone(shape)
+
+    shape.setX(shape.getX() + 200)
+    shape.getEffectFormat().disablePresetShadowEffect()
+    text_frame.setText("No shadow")
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Oryginalny | Pierwszy preset | Drugi preset | Po usunięciu |
+| :---: | :---: | :---: | :---: |
+| ![Brak cienia](preset_shadow_original.png) | ![Cień w lewym górnym rogu](preset_shadow_top_left.png) | ![Cień w prawym dolnym rogu](preset_shadow_bottom_right.png) | ![Brak cienia po usunięciu](preset_shadow_removed.png) |
+
+## **Zastosowanie efektu odbicia**
+
+Aby zastosować efekt odbicia w Aspose.Slides for Python via Java, możesz dodać lustrzane odbicie do kształtów, regulując parametry takie jak odległość, przezroczystość i rozmiar. Efekt ten podnosi estetykę prezentacji, nadając kształtom bardziej wyrafinowany i dopracowany wygląd. Jest łatwy do wdrożenia przy użyciu prostego kodu, umożliwiając szybkie zastosowanie na wielu elementach dla spójnego projektu.
+
+Ten kod Pythona pokazuje, jak zastosować [efekt odbicia](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) do kształtu:
 
 ```python
 import jpype
@@ -143,11 +203,11 @@ finally:
 
 ![Efekt odbicia](reflection_effect.png)
 
-## **Zastosuj efekt poświaty**
+## **Zastosowanie efektu poświaty**
 
-Aby zastosować efekt poświaty do kształtu w Aspose.Slides for Python via Java, możesz dodać miękką, świetlistą aurę wokół kształtów, dostosowując właściwości takie jak kolor i rozmiar. Ten efekt pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający wzrok element wizualny do Twojej prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, podnosząc ogólny wygląd slajdów.
+Aby zastosować efekt poświaty do kształtu w Aspose.Slides for Python via Java, możesz dodać miękką, świetlną aurę wokół kształtów, regulując właściwości takie jak kolor i rozmiar. Efekt ten pomaga wyróżnić kształty i dodaje atrakcyjny, przyciągający wzrok element wizualny do Twojej prezentacji. Jest łatwy do wdrożenia przy minimalnym kodzie, podnosząc ogólny wygląd slajdów.
 
-Ten kod w Pythonie pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) do kształtu:
+Ten kod Pythona pokazuje, jak zastosować [efekt poświaty](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) do kształtu:
 
 ```python
 import jpype
@@ -175,11 +235,11 @@ finally:
 
 ![Efekt poświaty](glow_effect.png)
 
-## **Zastosuj efekt miękkich krawędzi**
+## **Zastosowanie efektu miękkich krawędzi**
 
-Aby zastosować efekt miękkich krawędzi w Aspose.Slides for Python via Java, możesz stworzyć płynne, rozmyte przejście wokół krawędzi kształtu. Ten efekt nadaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów wymagających delikatnego, łagodniejszego wyglądu. Możesz łatwo dostosować parametry, takie jak promień, aby osiągnąć pożądany efekt w różnych kształtach w swojej prezentacji.
+Aby zastosować efekt miękkich krawędzi w Aspose.Slides for Python via Java, możesz stworzyć płynne, rozmazane przejście wokół krawędzi kształtu. Efekt ten dodaje subtelniejszy i bardziej wyrafinowany wygląd, idealny dla projektów wymagających delikatnego, łagodniejszego wyglądu. Możesz łatwo dostosować parametry, takie jak promień, aby uzyskać pożądany efekt w różnych kształtach w prezentacji.
 
-Ten kod w Pythonie pokazuje, jak zastosować [efekt miękkich krawędzi](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) do kształtu:
+Ten kod Pythona pokazuje, jak zastosować [efekt miękkich krawędzi](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) do kształtu:
 
 ```python
 import jpype
@@ -205,17 +265,17 @@ finally:
 
 ![Efekt miękkich krawędzi](soft_edges_effect.png)
 
-## **Zastosuj efekt rozmycia**
+## **Zastosowanie efektu rozmycia**
 
-Użyj rozmycia kształtu, aby złagodzić wypełnienie i kontur kształtu, zachowując możliwość edycji. Wywołaj [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) na formacie efektu kształtu. Promień jest mierzony w punktach (1/72 cala): użyj nieujemnej wartości, przy czym większe wartości powodują silniejsze rozmycie. Promień równy zero nie zmienia wyglądu.
+Użyj rozmycia kształtu, aby zmiękczyć wypełnienie i kontur kształtu, zachowując możliwość edycji kształtu. Wywołaj [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) na formacie efektów kształtu. Promień jest mierzony w punktach (1/72 cala): użyj wartości nieujemnej, przy czym większe wartości powodują silniejsze rozmycie. Promień równy zero pozostawia wygląd niezmieniony.
 
-Ustawienie [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) kontroluje widoczne granice efektu. Przy `False` rozmycie jest przycięte do oryginalnych narysowanych granic, łącznie z konturem. Przy `True` rozmycie może wykraczać poza te granice. Żadne z ustawień nie zmienia pozycji ani wymiarów kształtu.
+Ustawienie [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) kontroluje widoczne granice efektu. Przy `False` rozmycie jest przycinane do pierwotnych malowanych granic, włącznie z konturem. Przy `True` rozmycie może wykraczać poza te granice. Żadne z ustawień nie zmienia pozycji ani wymiarów kształtu.
 
-Poniższe porównanie używa tego samego wypełnienia, konturu i wymiarów kształtu w każdej części. Górny wiersz używa `grow = False`; dolny wiersz używa `grow = True`.
+Porównanie poniżej używa tego samego wypełnienia, konturu i wymiarów kształtu w całej demonstracji. Górny wiersz używa `grow = False`; dolny wiersz używa `grow = True`.
 
-![Oryginalny prostokąt porównany z promieniami rozmycia 5 i 15 punktów, z wyłączonym i włączonym grow](shape_blur_comparison.png)
+![Oryginalny prostokąt porównany z promieniami rozmycia 5 i 15 punktów, przy wyłączonym i włączonym grow](shape_blur_comparison.png)
 
-Ten przykład w Pythonie tworzy pomarańczowy prostokąt z ciemnoniebieskim konturem, stosuje rozmycie 5 punktów, a następnie aktualizuje je do rozmycia 15 punktów, wywołując ponownie [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Zapisuje oba stany rozmycia, a następnie wywołuje [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) i zapisuje kształt bez rozmycia.
+Ten przykład w Pythonie tworzy pomarańczowy prostokąt z ciemnoniebieskim konturem, nakłada rozmycie o promieniu 5 punktów, a następnie aktualizuje je do rozmycia 15 punktów, ponownie wywołując [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Zapisuje oba stany rozmyte, następnie wywołuje [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) i zapisuje kształt bez rozmycia.
 
 ```python
 import jpype
@@ -250,7 +310,7 @@ finally:
     presentation.dispose()
 ```
 
-Rozmycie kształtu wpływa jednocześnie na wypełnienie i kontur. Efekt miękkich krawędzi przyciemnia krawędzie kształtu, podczas gdy rozmycie cienia miękcza tylko cień. Efekty przekształcania obrazu działają na zawartość obrazu; ten przykład stosuje rozmycie bezpośrednio do formatu efektu kształtu, bez konwertowania kształtu na obraz.
+Rozmycie kształtu wpływa jednocześnie na wypełnienie i kontur. Efekt miękkich krawędzi przyciemnia krawędzie kształtu, podczas gdy rozmycie cienia zmiękcza tylko cień. Efekty przekształcenia obrazu działają na zawartość obrazu; ten przykład stosuje rozmycie bezpośrednio do formatu efektów kształtu, bez konwertowania go na obraz.
 
 ## **FAQ**
 
@@ -260,8 +320,8 @@ Tak, możesz łączyć różne efekty, takie jak cień, odbicie i poświata, na 
 
 **Jakie kształty mogę poddać efektom?**
 
-Możesz zastosować efekty do różnych kształtów, w tym autokształtów, wykresów, tabel, obrazów, obiektów SmartArt, obiektów OLE i innych.
+Możesz stosować efekty do różnych kształtów, w tym autokształtów, wykresów, tabel, obrazów, obiektów SmartArt, obiektów OLE i innych.
 
-**Czy mogę zastosować efekty do grupowanych kształtów?**
+**Czy mogę stosować efekty do grupowanych kształtów?**
 
-Tak, możesz zastosować efekty do grupowanych kształtów. Efekt będzie stosowany do całej grupy.
+Tak, możesz stosować efekty do grupowanych kształtów. Efekt zostanie zastosowany do całej grupy.

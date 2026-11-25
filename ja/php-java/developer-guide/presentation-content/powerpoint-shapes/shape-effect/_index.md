@@ -1,43 +1,44 @@
 ---
-title: PHP を使用したプレゼンテーションでシェイプエフェクトを適用する
-linktitle: シェイプエフェクト
+title: PHP を使用したプレゼンテーションでの図形効果の適用
+linktitle: 図形効果
 type: docs
 weight: 30
 url: /ja/php-java/shape-effect/
 keywords:
-- シェイプエフェクト
-- 影エフェクト
-- 反射エフェクト
-- 光彩エフェクト
-- ソフトエッジエフェクト
-- エフェクト形式
+- 図形効果
+- 影効果
+- 反射効果
+- 光彩効果
+- ソフトエッジ効果
+- エフェクトフォーマット
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して高度なシェイプエフェクトで PPT と PPTX ファイルを変換し、数秒で印象的でプロフェッショナルなスライドを作成します。"
+description: "Aspose.Slides for PHP via Java を使用して、PPT および PPTX ファイルに高度な図形効果を適用し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
-## **イントロダクション**
+## **導入**
 
-PowerPoint のエフェクトはシェイプを目立たせるために使用できますが、[塗りつぶし](/slides/ja/php-java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPoint のエフェクトを使用すると、シェイプにリアルな反射を作成したり、シェイプのグロウを広げたりできます。
+PowerPoint の効果は図形を際立たせるために使用できますが、[塗りつぶし](/slides/ja/php-java/shape-formatting/#gradient-fill)や枠線とは異なります。PowerPoint の効果を使用すると、図形にリアルな反射を作成したり、図形の光彩を広げたりすることができます。
 
-![シェイプ エフェクト](shape-effect.png)
+![図形効果](shape-effect.png)
 
-PowerPoint はシェイプに適用できる 6 つのエフェクトを提供しています。シェイプに 1 つまたは複数のエフェクトを適用できます。
+PowerPoint には図形に適用できる 6 つの効果が用意されています。1 つまたは複数の効果を図形に適用できます。
 
-エフェクトの組み合わせの中には他より見栄えが良いものがあります。このため、PowerPoint は **Preset** の下にオプションを提供しています。Preset オプションは、見栄えが良いと判明している 2 つ以上のエフェクトの組み合わせです。これにより、プリセットを選択するだけで、さまざまなエフェクトをテストしたり組み合わせたりして良い組み合わせを探す時間を無駄にしません。
+効果の組み合わせの中には、他より見栄えが良いものがあります。そのため、PowerPoint では **プリセット** のオプションを提供しています。プリセットオプションは、見栄えが良いとされる 2 つ以上の効果の組み合わせです。プリセットを選択すれば、さまざまな効果を試したり組み合わせたりして最適な組み合わせを探す手間が省けます。
 
-Aspose.Slides は、PowerPoint プレゼンテーションのシェイプに同じエフェクトを適用できるようにする、[EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供しています。
+Aspose.Slides は、PowerPoint プレゼンテーションの図形に同じ効果を適用できるよう、[EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供します。
 
-## **影エフェクトの適用**
+## **影効果の適用**
 
-Aspose.Slides for PHP via Java はシェイプに対する外部影と内部影をサポートしています。プレゼンテーションのデザインに合わせて、影の色、方向、距離、ぼかし半径をカスタマイズできます。
+Aspose.Slides for PHP via Java は、図形に対し外側と内側の影をサポートします。色、方向、距離、ぼかし半径をカスタマイズしてプレゼンテーションのデザインに合わせることができます。
 
-### **外部影の適用**
+### **外側の影を適用**
 
-外部影を使用すると、カードやパネルがスライドの背景に対して際立ちます。影はシェイプのエッジの外側まで広がり、シェイプがスライド上に浮き上がっているように見えます。テンプレートの照明やスタイルに合わせて、影の色、方向、距離、ぼかし半径を調整してください。
+外側の影を使用すると、カードやパネルがスライドの背景に対して際立ちます。影は図形のエッジの外側に広がり、図形がスライド上に浮き上がっているように見えます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせます。
 
-この PHP コードは、矩形に [外部影エフェクト](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) を適用する方法を示しています:
+この PHP コードは、矩形に[外側の影効果](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect)を適用する方法を示しています。
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -60,15 +61,16 @@ try {
 }
 ```
 
-![影エフェクト](shadow_effect.png)
+![影効果](shadow_effect.png)
 
-### **内部影の適用**
+### **内側の影を適用**
 
-テンプレートのビジュアルスタイルを再現する際は、カードやパネルに凹んだ外観を与えるために内部影を使用します。外部影はシェイプの外側に広がり、浮き上がっているように見せますが、内部影はエッジの内側に影を付けます。
+テンプレートのビジュアルスタイルを再現する際は、内側の影を使用してカードやパネルにくぼんだ外観を付けます。外側の影は図形の外側に広がり、浮き上がって見えるのに対し、内側の影はエッジの内部を影付けし、くぼんだ印象を与えます。
 
-まず [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) が返す影を構成します。ぼかし半径の値が大きいほど、エッジが柔らかくなります。
+[enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) が返す影を設定します。ぼかし半径の値を大きくすると、エッジがより柔らかくなります。
 
-この PHP の例は、薄い青のカードに濃いグレーの内部影を作成し、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです:
+この PHP の例は、ライトブルーのカードにダークグレーの内側の影を付け、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです。
+
 ```php
 use aspose\slides\FillType;
 use aspose\slides\Presentation;
@@ -99,15 +101,78 @@ try {
 }
 ```
 
-![内部影付きのライトブルー矩形](inner_shadow_effect.png)
+![内側の影が付いたライトブルーの矩形](inner_shadow_effect.png)
 
-内部影を削除するには、シェイプの EffectFormat で [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) を呼び出します。
+内側の影を削除するには、図形の effect format で [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) を呼び出します。
 
-## **反射エフェクトの適用**
+### **プリセット影の適用、変更、削除**
 
-Aspose.Slides for PHP via Java で反射エフェクトを適用するには、シェイプに鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整します。このエフェクトはシェイプに洗練された外観を与え、プレゼンテーションの美しさを高めます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用してデザインの一貫性を保てます。
+[enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) を呼び出してプリセット影を有効にします。[setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) を使用して [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) を選択するか、同じ図形上で別のスタイルに切り替えます。[disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) を呼び出すと、塗りつぶしと枠線は保持したまま影を削除できます。
 
-この PHP コードは、シェイプに [反射エフェクト](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) を適用する方法を示しています:
+この PHP の例は、最初の 3 段階のそれぞれの後に矩形を複製し、4 段階すべてを 1 つのスライドで横並びで比較できるようにしています。両方の影は 10 ポイントオフセットされています。方向が 225° の場合、最初の影は矩形の左上に、45° の場合、2 番目の影は右下に配置されます。
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\PresetShadowType;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(800, 120, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $shape = $shapes->addAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $lineFill = $shape->getLineFormat()->getFillFormat();
+    $lineFill->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $lineFill->getSolidFillColor()->setColor($lineColor);
+    $shape->getTextFrame()->setText("No shadow");
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(14);
+    $shapes->addClone($shape);
+
+    $shape->setX(215);
+    $effects = $shape->getEffectFormat();
+    $effects->enablePresetShadowEffect();
+    $shadow = $effects->getPresetShadowEffect();
+    $shadow->setPreset(PresetShadowType::TopLeftDropShadow);
+    $shadow->setDistance(10);
+    $shadow->setDirection(225);
+    $shape->getTextFrame()->setText("TopLeftDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(415);
+    $shadow->setPreset(PresetShadowType::BottomRightDropShadow);
+    $shadow->setDirection(45);
+    $shape->getTextFrame()->setText("BottomRightDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(615);
+    $effects->disablePresetShadowEffect();
+    $shape->getTextFrame()->setText("No shadow");
+
+    $presentation->save("preset_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| オリジナル | 最初のプリセット | 2番目のプリセット | 削除後 |
+| :---: | :---: | :---: | :---: |
+| ![影なし](preset_shadow_original.png) | ![左上ドロップシャドウ](preset_shadow_top_left.png) | ![右下ドロップシャドウ](preset_shadow_bottom_right.png) | ![削除後の影なし](preset_shadow_removed.png) |
+
+## **反射効果の適用**
+
+Aspose.Slides for PHP via Java で反射効果を適用するには、形状に鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整します。この効果は、形状に洗練された外観を与えることでプレゼンテーションの美しさを高めます。シンプルなコードで簡単に実装でき、複数の要素に迅速に適用してデザインの一貫性を保てます。
+
+この PHP コードは、形状に[反射効果](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) を適用する方法を示しています。
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\RectangleAlignment;
@@ -131,13 +196,14 @@ try {
 }
 ```
 
-![反射エフェクト](reflection_effect.png)
+![反射効果](reflection_effect.png)
 
-## **光彩エフェクトの適用**
+## **光彩効果の適用**
 
-Aspose.Slides for PHP via Java でシェイプに光彩エフェクトを適用するには、シェイプの周囲に柔らかく光るオーラを付加し、色やサイズなどのプロパティを調整します。このエフェクトはシェイプを際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の見た目を向上させます。
+Aspose.Slides for PHP via Java で形状に光彩効果を適用するには、形状の周囲に柔らかく輝くオーラを追加し、色やサイズなどのプロパティを調整します。この効果は形状を目立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の外観を向上させます。
 
-この PHP コードは、シェイプに [光彩エフェクト](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) を適用する方法を示しています:
+この PHP コードは、形状に[光彩効果](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) を適用する方法を示しています。
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -158,13 +224,14 @@ try {
 }
 ```
 
-![光彩エフェクト](glow_effect.png)
+![光彩効果](glow_effect.png)
 
-## **ソフトエッジエフェクトの適用**
+## **ソフトエッジ効果の適用**
 
-Aspose.Slides for PHP via Java でソフトエッジエフェクトを適用するには、シェイプのエッジ周辺に滑らかでぼかされたトランジションを作成します。このエフェクトは、より繊細で洗練された外観を加え、柔らかく穏やかな外観が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまなシェイプに目的のエフェクトを適用できます。
+Aspose.Slides for PHP via Java でソフトエッジ効果を適用すると、形状のエッジ周辺に滑らかでぼやけた転換を作り出せます。この効果は、より微妙で洗練された外観を加え、柔らかい印象が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな形状に目的の効果を適用できます。
 
-この PHP コードは、シェイプに [ソフトエッジエフェクト](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) を適用する方法を示しています:
+この PHP コードは、形状に[ソフトエッジ効果](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) を適用する方法を示しています。
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -184,19 +251,20 @@ try {
 }
 ```
 
-![ソフトエッジエフェクト](soft_edges_effect.png)
+![ソフトエッジ効果](soft_edges_effect.png)
 
-## **ぼかしエフェクトの適用**
+## **ぼかし効果の適用**
 
-シェイプのぼかしを使用すると、シェイプの塗りつぶしと輪郭をソフトにしながら、シェイプを編集可能なままにできます。シェイプの EffectFormat で [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) を呼び出します。半径はポイント単位（1/72 インチ）で測定され、負の値は使用できません。値が大きいほどぼかしが強くなります。半径を 0 にすると外観は変わりません。
+形状ぼかしを使用すると、形状を編集可能なまま塗りつぶしと枠線を柔らかくできます。形状の effect format で [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) を呼び出します。半径はポイント (1/72 インチ) で測定され、非負の値を使用し、値が大きいほど強いぼかしになります。半径が 0 の場合、外観は変わりません。
 
-[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) 設定はエフェクトの表示範囲を制御します。`false` の場合、ぼかしは元の描画領域（輪郭を含む）にクリップされます。`true` の場合、ぼかしはその領域を超えて拡張できます。どちらの設定もシェイプの位置やサイズは変更しません。
+[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) 設定は効果の可視領域を制御します。`false` の場合、ぼかしは元の描画領域（枠線を含む）にクリップされます。`true` の場合、ぼかしはその領域を超えて広がります。どちらの設定も形状の位置やサイズは変更しません。
 
-以下の比較は、全体で同じ塗りつぶし、輪郭、シェイプのサイズを使用しています。上段は `grow = false`、下段は `grow = true` を使用しています。
+以下の比較では、塗りつぶし、枠線、形状のサイズはすべて同じです。上段は `grow = false`、下段は `grow = true` を使用しています。
 
-![ぼかし半径 5 ポイントと 15 ポイント、grow 無効・有効の比較（元の矩形）](shape_blur_comparison.png)
+![ぼかし半径 5 と 15 ポイント、grow 無効・有効 の比較](shape_blur_comparison.png)
 
-この PHP の例は、オレンジの矩形に濃い青の輪郭を付け、5 ポイントのぼかしを適用し、再度 [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) を呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存し、次に [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) を呼び出してぼかしのないシェイプを保存します。
+この PHP の例は、オレンジの矩形にダークブルーの枠線を付け、5 ポイントのぼかしを適用し、次に [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) を再度呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存し、その後 [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) を呼び出してぼかしのない形状を保存します。
+
 ```php
 use aspose\slides\FillType;
 use aspose\slides\Presentation;
@@ -229,18 +297,18 @@ try {
 }
 ```
 
-シェイプのぼかしは塗りつぶしと輪郭の両方に影響します。ソフトエッジエフェクトはシェイプのエッジをフェードさせ、影のぼかしは影だけをソフトにします。画像変換エフェクトは画像コンテンツに対して作用しますが、この例はシェイプを画像に変換せずに、シェイプの EffectFormat に直接ぼかしを適用しています。
+形状ぼかしは塗りつぶしと枠線の両方に影響します。ソフトエッジ効果は形状のエッジをフェードさせ、影ぼかしは影だけを柔らかくします。画像変換効果は画像コンテンツに対して動作しますが、この例は形状を画像に変換せず、直接 shape の effect format にぼかしを適用しています。
 
 ## **よくある質問**
 
-**同じシェイプに複数のエフェクトを適用できますか？**
+**同じ図形に複数の効果を適用できますか？**
 
-はい、影、反射、光彩などの異なるエフェクトを単一のシェイプに組み合わせて、より動的な外観を作成できます。
+はい、影、反射、光彩などの異なる効果を組み合わせて、単一の図形に適用し、よりダイナミックな外観を作り出すことができます。
 
-**どのシェイプにエフェクトを適用できますか？**
+**どのような図形に効果を適用できますか？**
 
-自動シェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプにエフェクトを適用できます。
+自動図形、グラフ、表、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな図形に効果を適用できます。
 
-**グループ化されたシェイプにエフェクトを適用できますか？**
+**グループ化した図形に効果を適用できますか？**
 
-はい、グループ化されたシェイプにもエフェクトを適用できます。エフェクトはグループ全体に適用されます。
+はい、グループ化した図形にも効果を適用できます。その効果はグループ全体に適用されます。

@@ -1,6 +1,6 @@
 ---
-title: "تطبيق تأثيرات الأشكال في العروض التقديمية باستخدام بايثون"
-linktitle: "تأثير الشكل"
+title: تطبيق تأثيرات الشكل في العروض التقديمية باستخدام Python
+linktitle: تأثير الشكل
 type: docs
 weight: 30
 url: /ar/python-net/shape-effect
@@ -16,29 +16,29 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "حوّل ملفات PPT و PPTX و ODP الخاصة بك باستخدام تأثيرات الأشكال المتقدمة عبر Aspose.Slides for Python—أنشئ شرائح جذابة واحترافية في ثوانٍ."
+description: "حوّل ملفات PPT و PPTX و ODP الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides for Python—أنشئ شرائح جذابة ومهنية في ثوانٍ."
 ---
 ## **المقدمة**
 
-في حين يمكن استخدام التأثيرات في PowerPoint لجعل شكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/python-net/shape-formatting/#gradient-fill) أو الخطوط الخارجية. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
+في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فهي تختلف عن [الملء](/slides/ar/python-net/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، وإضفاء توهج على الشكل، إلخ.
 
 ![تأثير الشكل](shape-effect.png)
 
-يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل.
+PowerPoint يوفر ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات تحت **Preset**. خيارات Preset هي أساسًا تركيبة معروفة ذات مظهر جيد تتكون من اثنين أو أكثر من التأثيرات. بهذه الطريقة، باختيار Preset، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة جميلة.
+بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات تحت **Preset**. خيارات Preset هي في الأساس تركيبة معروفة ذات مظهر جيد مكونة من اثنين أو أكثر من التأثيرات. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
 
-توفر Aspose.Slides الخصائص والطرق ضمن الفئة [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
+توفر Aspose.Slides خصائص وأساليب ضمن الفئة [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
 
 ## **تطبيق تأثير الظل**
 
-يدعم Aspose.Slides for Python عبر .NET الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها واتجاهها والمسافة نصف قطر التشويش لتتناسب مع تصميم عرضك التقديمي.
+يدعم Aspose.Slides for Python عبر .NET الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها واتجاهها والمسافة ونصف قطر الضبابية لتتناسب مع تصميم عرضك التقديمي.
 
-### **تطبيق الظل الخارجي**
+### **تطبيق ظل خارجي**
 
-استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يخلق انطباعًا بأن الشكل مرتفع فوق الشريحة. اضبط لونه واتجاهه ومسافته ونصف قطر التشويش ليتوافق مع الإضاءة وتنسيق القالب الخاص بك.
+استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حدود الشكل، مما يخلق الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه واتجاهه والمسافة ونصف قطر الضبابية لتتناسب مع الإضاءة وتنسيق القالب.
 
-يعرض هذا الكود Python كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) على مستطيل:
+هذا الكود Python يوضح كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) على مستطيل:
 
 ```python
 import aspose.slides as slides
@@ -57,13 +57,13 @@ with slides.Presentation() as presentation:
 
 ![تأثير الظل](shadow_effect.png)
 
-### **تطبيق الظل الداخلي**
+### **تطبيق ظل داخلي**
 
-عند تكرار النمط البصري للقالب، استخدم ظلًا داخليًا لإعطاء بطاقة أو لوحة مظهرًا مغمورًا. يمتد الظل الخارجي خارج الشكل ويجعلها تبدو مرتفعة، بينما يظلل الظل الداخلي داخل حواف الشكل.
+عند إعادة إنتاج نمط بصري للقالب، استخدم ظلًا داخليًا لإعطاء بطاقة أو لوحة مظهرًا متجعدًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرتفعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
 
-استدعِ [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/)، ثم قم بتكوين [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). القيم الأكبر لنصف قطر التشويش تنتج حوافًا أكثر نعومة.
+استدعِ [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/) ثم قم بتهيئة [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). القيم الأكبر لنصف قطر الضبابية تنتج حوافًا أكثر نعومة.
 
-إن مثال Python هذا ينشئ بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX:
+هذا المثال Python ينشئ بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX:
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,59 @@ with slides.Presentation() as presentation:
 
 لإزالة الظل الداخلي، استدعِ [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) على تنسيق تأثير الشكل.
 
+### **تطبيق، تغيير، وإزالة ظل مسبق**
+
+استدعِ [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) وحدد خاصية [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) للظل إلى قيمة من نوع [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/). لتبديل الأنماط، غير الإعداد المسبق على نفس الشكل. استدعِ [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) لإزالة الظل مع الحفاظ على الملء والحدود.
+
+هذا المثال يُظهر أربع مراحل جنبًا إلى جنب على شريحة واحدة. ينسخ المستطيل قبل كل تغيير لتتمكن من مقارنة النتائج. كلا الظليلين مُزاحان بمقدار 10 نقاط. اتجاه 225° يضع الظل الأول فوق ويسار المستطيل، و45° يضع الظل الثاني أسفل ويسر.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(800, 120, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    shape = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 15, 30, 170, 60)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.text_frame.text = "No shadow"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 14
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.enable_preset_shadow_effect()
+    shadow = shape.effect_format.preset_shadow_effect
+    shadow.preset = slides.PresetShadowType.TOP_LEFT_DROP_SHADOW
+    shadow.distance = 10
+    shadow.direction = 225
+    shape.text_frame.text = "TopLeftDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shadow.preset = slides.PresetShadowType.BOTTOM_RIGHT_DROP_SHADOW
+    shadow.direction = 45
+    shape.text_frame.text = "BottomRightDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.disable_preset_shadow_effect()
+    shape.text_frame.text = "No shadow"
+
+    presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| الأصل | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
+| :---: | :---: | :---: | :---: |
+| ![بدون ظل](preset_shadow_original.png) | ![ظل إسقاط أعلى-يسار](preset_shadow_top_left.png) | ![ظل إسقاط أسفل-يمين](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
+
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير الانعكاس في Aspose.Slides for Python عبر .NET، يمكنك إضافة انعكاس يشبه المرآة إلى الأشكال، مع ضبط معلمات مثل المسافة والشفافية والحجم. يحسن هذا التأثير الجمالية لعروضك التقديمية من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تطبيقه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم متسق.
+لتطبيق تأثير الانعكاس في Aspose.Slides for Python عبر .NET، يمكنك إضافة انعكاس يشبه المرآة إلى الأشكال، مع ضبط معلمات مثل المسافة والشفافية والحجم. هذا التأثير يعزز جمالية عروضك التقديمية من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم متسق.
 
-يعرض هذا الكود Python كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) على شكل:
+هذا الكود Python يوضح كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) على شكل:
 
 ```python
 import aspose.slides as slides
@@ -116,9 +164,9 @@ with slides.Presentation() as presentation:
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير التوهج على شكل في Aspose.Slides for Python عبر .NET، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا ولافتًا للانتباه إلى عرضك التقديمي. من السهل تنفيذه بكمية قليلة من الكود، مما يعزز المظهر العام لشرائحك.
+لتطبيق تأثير التوهج على شكل في Aspose.Slides for Python عبر .NET، يمكنك إضافة هالة ناعمة مضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير في إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا إلى عرضك التقديمي. من السهل تنفيذه بكود قليل، مما يحسن المظهر العام لشرائحك.
 
-يعرض هذا الكود Python كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) على شكل:
+هذا الكود Python يوضح كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) على شكل:
 
 ```python
 import aspose.slides as slides
@@ -138,9 +186,9 @@ with slides.Presentation() as presentation:
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides for Python عبر .NET، يمكنك إنشاء انتقال ناعم ومشوش حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر دقة ورقيًا، مثاليًا للتصاميم التي تحتاج إلى مظهر هادئ وأكثر نعومة. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المرجو عبر مختلف الأشكال في عرضك التقديمي.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides for Python عبر .NET، يمكنك إنشاء انتقال سلس ومُطمس حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، مثالي للتصاميم التي تحتاج إلى مظهر لطيف وأقل حدة. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر مختلف الأشكال في عرضك.
 
-يعرض هذا الكود Python كيفية تطبيق [الحواف الناعمة](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) على شكل:
+هذا الكود Python يوضح كيفية تطبيق [الحواف الناعمة](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) على شكل:
 
 ```python
 import aspose.slides as slides
@@ -159,15 +207,15 @@ with slides.Presentation() as presentation:
 
 ## **تطبيق تأثير الضبابية**
 
-استخدم ضبابية الشكل لتنعيم ملء الشكل وخطه مع الحفاظ على إمكانية تحرير الشكل. استدعِ [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث تنتج القيم الأكبر ضبابية أقوى. نصف القطر صفر يبقى المظهر دون تغيير.
+استخدم ضبابية الشكل لتنعيم ملء الشكل وحدوده مع الحفاظ على قابلية تحرير الشكل. استدعِ [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بوحدات النقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث تُنتج القيم الأكبر ضبابية أقوى. نصف القطر صفر يترك المظهر دون تغيير.
 
-إعداد [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) يتحكم في الحد المرئي للتأثير. عندما يكون `False`، يتم قص الضبابية إلى الحدود الأصلية المرسومة، بما في ذلك الخط الخارجي. عندما يكون `True`، يمكن أن تمتد الضبابية إلى ما خارج تلك الحدود. لا يغيّر أي من الإعدادين موضع الشكل أو أبعاده.
+إعداد [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) يتحكم في حدود التأثير المرئية. عند `False`، تُقصر الضبابية على الحدود المرسومة الأصلية، بما في ذلك الحدود. عند `True`، يمكن للضبابية أن تمتد خارج تلك الحدود. لا يغيّر أي من الإعدادين موضع الشكل أو أبعاده.
 
-المقارنة أدناه تستخدم نفس الملء والخط والقياسات الشكلية طوال الوقت. الصف العلوي يستخدم `grow = False`؛ الصف السفلي يستخدم `grow = True`.
+المقارنة أدناه تستخدم نفس الملء والحدود وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = False`؛ والصف السفلي يستخدم `grow = True`.
 
-![مقارنة المستطيل الأصلي مع أنصاف قطر الضبابية 5 و15 نقطة، مع تعطيل وتمكين grow](shape_blur_comparison.png)
+![مستطيل أصلي مقارنةً بنصف قطر الضبابية 5 و 15 نقطة، مع تعطيل وتمكين خاصية النمو](shape_blur_comparison.png)
 
-إن مثال Python هذا ينشئ مستطيلًا برتقاليًا مع خط خارجي أزرق داكن، يطبق ضبابية ب5 نقاط، ثم يحدّثها إلى ضبابية ب15 نقطة عبر استدعاء [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) مرة أخرى. يحفظ كلا الحالةين الضبابيتين، ثم يستدعي [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) ويحفظ الشكل بدون ضبابية.
+هذا المثال Python ينشئ مستطيلًا برتقاليًا بحدود زرقاء داكنة، يطبق ضبابية 5 نقاط، ثم يحدّثها إلى 15 نقطة باستدعاء [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) مرة أخرى. يحفظ الحالتين الضبابيتين، ثم يستدعي [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) ويحفظ الشكل بدون ضبابية.
 
 ```python
 import aspose.slides as slides
@@ -192,17 +240,17 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تؤثر ضبابية الشكل على الملء والخط معًا. يخفّض تأثير الحواف الناعمة حواف الشكل، بينما يعمل ضباب الظل على تليين الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ يطبق هذا المثال الضبابية مباشرة على تنسيق تأثير الشكل دون تحويل الشكل إلى صورة.
+تؤثر ضبابية الشكل على الملء والحدود معًا. يخفّف تأثير الحواف الناعمة حواف الشكل، بينما يخفّف ضبابية الظل الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرة على تنسيق تأثير الشكل دون تحويله إلى صورة.
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
+**هل يمكنني تطبيق تأثيرات متعددة على الشكل نفسه؟**
 
-نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل والانعكاس والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، والانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
 
-**ما الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
 
-يمكنك تطبيق التأثيرات على أشكال مختلفة، بما في ذلك الأشكال التلقائية، والرسوم البيانية، والجداول، والصور، وكائنات SmartArt، وكائنات OLE، وغير ذلك.
+يمكنك تطبيق التأثيرات على أشكال متعددة، بما في ذلك الأشكال التلقائية، والرسوم البيانية، والجداول، والصور، وكائنات SmartArt، وكائنات OLE، وغيرها.
 
 **هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
 

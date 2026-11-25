@@ -7,37 +7,38 @@ url: /fa/java/shape-effect/
 keywords:
 - افکت شکل
 - افکت سایه
-- افکت انعکاس
-- افکت تاب
+- افکت بازتاب
+- افکت نورانی
 - افکت لبه‌های نرم
-- قالب افکت
+- فرمت افکت
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل در Aspose.Slides برای جاوا—در چند ثانیه اسلایدهای چشم‌نواز و حرفه‌ای ایجاد کنید."
+description: "فایل‌های PPT و PPTX خود را با افکت‌های پیشرفته شکل با استفاده از Aspose.Slides برای جاوا تبدیل کنید—در عرض ثانیه‌ها اسلایدهای حرفه‌ای و چشم‌گیر ایجاد کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته‌سازی یک شکل استفاده شوند، آنها متفاوت از [پرکننده‌ها](/slides/fa/java/shape-formatting/#gradient-fill) یا خطوط حاشیه‌ای هستند. با استفاده از افکت‌های PowerPoint می‌توانید انعکاس‌های قانع‌کننده بر روی یک شکل ایجاد کنید، تابش شکل را گسترش دهید و غیره.
+در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها متفاوت از [پرکننده‌ها](/slides/fa/java/shape-formatting/#gradient-fill) یا خطوط حاشیه هستند. با استفاده از افکت‌های PowerPoint می‌توانید بازتاب‌های قانع‌کننده‌ای بر روی یک شکل ایجاد کنید، نورانی‌سازی شکل را گسترش دهید و غیره.
 
 ![اثر شکل](shape-effect.png)
 
-PowerPoint شش افکت ارائه می‌دهد که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
+PowerPoint شش افکت ارائه می‌دهد که می‌توانند به اشکال اعمال شوند. می‌توانید یک یا چند افکت را به یک شکل اعمال کنید.
 
-برخی ترکیب‌های افکت بهتر از سایرین به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** فراهم می‌کند. گزینه‌های Preset ترکیبی از دو یا چند افکت هستند که به‌طور واضح خوب به نظر می‌آیند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی نیست وقت خود را در تست یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب صرف کنید.
+برخی ترکیبات افکت بهتر از سایرین به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **پیش‌تنظیم** ارائه می‌دهد. گزینه‌های پیش‌تنظیم ترکیبی از دو یا چند افکت هستند که شناخته شده است که ظاهر خوبی دارند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب نخواهید داشت.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) فراهم می‌کند که به شما امکان می‌دهد همان افکت‌ها را روی اشکال در ارائه‌های PowerPoint اعمال کنید.
+Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) فراهم می‌کند که به شما اجازه می‌دهد همان افکت‌ها را به اشکال در ارائه‌های PowerPoint اعمال کنید.
 
 ## **اعمال افکت سایه**
 
-Aspose.Slides برای Java از سایه‌های خارجی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع محو شدن آن‌ها را طوری تنظیم کنید که با طراحی ارائه شما سازگار باشد.
+Aspose.Slides for Java از سایه‌های بیرونی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع محو شدن آن‌ها را برای هماهنگی با طرح ارائه‌تان سفارشی کنید.
 
 ### **اعمال سایه خارجی**
 
-از سایه خارجی برای برجسته‌کردن یک کارت یا پنل در برابر پس‌زمینه اسلاید استفاده کنید. سایه فراتر از لبه‌های شکل گسترش می‌یابد و حس اینکه شکل بالای اسلاید قرار دارد را ایجاد می‌کند. رنگ، جهت، فاصله و شعاع محو شدن آن را طوری تنظیم کنید که با نورپردازی و سبک قالب شما هماهنگ باشد.
+از سایه خارجی برای برجسته کردن یک کارت یا پنل در مقابل پس‌زمینه اسلاید استفاده کنید. سایه خارج از لبه‌های شکل گسترش می‌یابد و این حس را می‌دهد که شکل بر روی اسلاید بالا آمده است. رنگ، جهت، فاصله و شعاع محو شدن آن را برای مطابقت با نورپردازی و سبک الگوی خود تنظیم کنید.
 
-این کد Java نشان می‌دهد چگونه [اثر سایه خارجی](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) را بر روی یک مستطیل اعمال کنید:
+این کد Java نشان می‌دهد چگونه می‌توان [اثر سایه خارجی](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) را به یک مستطیل اعمال کرد:
+
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
@@ -62,11 +63,12 @@ try {
 
 ### **اعمال سایه داخلی**
 
-وقتی می‌خواهید استایل بصری یک قالب را بازآفرینی کنید، از سایه داخلی برای ایجاد ظاهر فرو رفته یک کارت یا پنل استفاده کنید. سایه خارجی بیرون شکل گسترش می‌یابد و آن را بالا نمایان می‌کند، در حالی که سایه داخلی داخل لبه‌های آن را سایه‌دار می‌کند.
+هنگام بازآفرینی سبک بصری یک الگو، از سایه داخلی استفاده کنید تا به یک کارت یا پنل ظاهر فرو رفته بدهید. یک سایه خارجی خارج از شکل گسترش می‌یابد و آن را بلند نشان می‌دهد، در حالی که یک سایه داخلی داخل لبه‌هایش را سایه‌دار می‌کند.
 
-متد [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) را فراخوانی کنید، سپس سایه‌ای که توسط [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) برگشت داده می‌شود را پیکربندی کنید. مقادیر بزرگتر شعاع محو شدن لبه‌های نرم‌تری تولید می‌کند.
+متد [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) را فراخوانی کنید، سپس سایه برگردانده شده توسط [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) را پیکربندی کنید. مقادیر بزرگتر شعاع محو شدن لبه‌های نرم‌تری تولید می‌کند.
 
-این مثال Java یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به عنوان فایل PPTX ذخیره می‌نماید. جهت سایه ۲۲۵ درجه است، فاصله آن ۷ پوینت و شعاع محو شدن ۶ پوینت می‌باشد:
+این مثال Java یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به صورت فایل PPTX ذخیره می‌سازد. جهت سایه ۲۲۵ درجه است، فاصله آن ۷ نقطه و شعاع محو شدن ۶ نقطه است:
+
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
@@ -95,13 +97,67 @@ try {
 
 ![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
 
-برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) را بر روی فرمت افکت شکل فراخوانی کنید.
+برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) را بر روی فرمت افکت شکل صدا بزنید.
 
-## **اعمال افکت انعکاس**
+### **اعمال، تغییر و حذف سایه پیش‌تنظیم شده**
 
-برای اعمال افکت انعکاس در Aspose.Slides برای Java، می‌توانید یک انعکاس شبیه آینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیشرفته به اشکال افزایش می‌دهد. پیاده‌سازی آن با کد ساده آسان است و امکان اعمال سریع بر روی عناصر متعدد برای یک طراحی یکپارچه را فراهم می‌کند.
+متد [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) را فراخوانی کنید و از [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-) برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/) استفاده کنید. برای تغییر سبک، پیش‌تنظیم را بر همان شکل تغییر دهید. برای حذف سایه در حالی که پرکننده و خطوط حاشیه حفظ می‌شوند، متد [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) را صدا بزنید.
 
-این کد Java نشان می‌دهد چگونه [اثر انعکاس](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) را بر روی یک شکل اعمال کنید:
+این مثال چهار مرحله را به‌صورت کنار هم در یک اسلاید نشان می‌دهد. هر دو سایه ۱۰ نقطه جابجا شده‌اند. جهت ۲۲۵° سایه اول را در بالا‑چپ مستطیل قرار می‌دهد و ۴۵° سایه دوم را در پایین‑راست.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(800, 120, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape shape = shapes.addAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(70, 130, 180));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+    shape.getTextFrame().setText("No shadow");
+    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(14);
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().enablePresetShadowEffect();
+    IPresetShadow shadow = shape.getEffectFormat().getPresetShadowEffect();
+    shadow.setPreset(PresetShadowType.TopLeftDropShadow);
+    shadow.setDistance(10);
+    shadow.setDirection(225);
+    shape.getTextFrame().setText("TopLeftDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shadow.setPreset(PresetShadowType.BottomRightDropShadow);
+    shadow.setDirection(45);
+    shape.getTextFrame().setText("BottomRightDropShadow");
+    shapes.addClone(shape);
+
+    shape.setX(shape.getX() + 200);
+    shape.getEffectFormat().disablePresetShadowEffect();
+    shape.getTextFrame().setText("No shadow");
+
+    presentation.save("preset_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| اصلی | پیش‌تنظیم اول | پیش‌تنظیم دوم | پس از حذف |
+| :---: | :---: | :---: | :---: |
+| ![بدون سایه](preset_shadow_original.png) | ![سایه‌سقوط بالا‑چپ](preset_shadow_top_left.png) | ![سایه‌سقوط پایین‑راست](preset_shadow_bottom_right.png) | ![بدون سایه پس از حذف](preset_shadow_removed.png) |
+
+## **اعمال اثر بازتاب**
+
+برای اعمال یک اثر بازتاب در Aspose.Slides for Java، می‌توانید بازتابی مشابه آینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این اثر زیبایی ارائه‌های شما را افزایش می‌دهد و ظاهر شکل‌ها را صیقلی و براق می‌کند. پیاده‌سازی آن با کد ساده‌ای آسان است و امکان اعمال سریع در عناصر متعدد برای یک طراحی یکپارچه را فراهم می‌کند.
+
+این کد Java نشان می‌دهد چگونه می‌توان [اثر بازتاب](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) را به یک شکل اعمال کرد:
+
 ```java
 import com.aspose.slides.*;
 
@@ -122,13 +178,14 @@ try {
 }
 ```
 
-![اثر انعکاس](reflection_effect.png)
+![اثر بازتاب](reflection_effect.png)
 
-## **اعمال افکت تاب**
+## **اعمال اثر نورانی**
 
-برای اعمال افکت تاب به یک شکل در Aspose.Slides برای Java، می‌توانید یک هاله نرم و درخشانی در دور اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته‌سازی اشکال کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. پیاده‌سازی آن با کد کمینه آسان است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
+برای اعمال یک اثر نورانی به یک شکل در Aspose.Slides for Java، می‌توانید یک هاله نرم و درخشان اطراف شکل‌ها اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این اثر به برجسته شدن شکل‌ها کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. پیاده‌سازی آن با کد کمینه‌ای آسان است و ظاهر کلی اسلایدهای شما را ارتقا می‌بخشد.
 
-این کد Java نشان می‌دهد چگونه [اثر تاب](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) را بر روی یک شکل اعمال کنید:
+این کد Java نشان می‌دهد چگونه می‌توان [اثر نورانی](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) را به یک شکل اعمال کرد:
+
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
@@ -148,13 +205,14 @@ try {
 }
 ```
 
-![اثر تاب](glow_effect.png)
+![اثر نورانی](glow_effect.png)
 
-## **اعمال افکت لبه‌های نرم**
+## **اعمال اثر لبه‌های نرم**
 
-برای اعمال افکت لبه‌های نرم در Aspose.Slides برای Java، می‌توانید انتقالی صاف و محو در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهری لطیف‌تر و برازندتر می‌افزاید که برای طرح‌هایی که به ظاهر ملایم و نرم نیاز دارند ایده‌آل است. می‌توانید به‌راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت دلخواه را بر روی اشکال مختلف ارائه خود به‌دست آورید.
+برای اعمال یک اثر لبه‌های نرم در Aspose.Slides for Java، می‌توانید انتقالی صاف و محو در اطراف لبه‌های یک شکل ایجاد کنید. این اثر ظاهر ملایم‌تری می‌دهد که برای طرح‌هایی که به ظاهر نرم و ظریف نیاز دارند، ایده‌آل است. می‌توانید به‌راحتی پارامترهایی مانند شعاع را تنظیم کنید تا به اثر مطلوب بر روی اشکال مختلف در ارائه‌تان برسید.
 
-این کد Java نشان می‌دهد چگونه [اثر لبه‌های نرم](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) را بر روی یک شکل اعمال کنید:
+این کد Java نشان می‌دهد چگونه می‌توان [اثر لبه‌های نرم](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) را به یک شکل اعمال کرد:
+
 ```java
 import com.aspose.slides.*;
 
@@ -174,17 +232,18 @@ try {
 
 ![اثر لبه‌های نرم](soft_edges_effect.png)
 
-## **اعمال افکت محو**
+## **اعمال افکت تار شدن**
 
-از محو شدن شکل برای نرم کردن پرکننده و حاشیه یک شکل استفاده کنید در حالی که شکل قابل ویرایش می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) را بر روی فرمت افکت شکل فراخوانی کنید. شعاع بر حسب پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگتر محو شدن قوی‌تری تولید می‌کنند. شعاع صفر ظاهر را تغییری نمی‌دهد.
+از تار شدن شکل برای ملایم کردن پرکننده و خط حاشیه شکل استفاده کنید در حالی که شکل قابل ویرایش می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) را بر روی فرمت افکت شکل صدا بزنید. شعاع بر حسب نقطه (1/72 اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگتر تاری قوی‌تری تولید می‌کنند. شعاع صفر ظاهر را تغییر نمی‌دهد.
 
-تنظیم [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) مرزهای قابل مشاهده افکت را کنترل می‌کند. با مقدار `false`، محو شدن به مرزهای اولیه رنگ‌آمیزی، شامل حاشیه، محدود می‌شود. با مقدار `true`، محو می‌تواند خارج از آن مرزها گسترش یابد. هیچکدام از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
+تنظیم [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) حاکم بر مرزهای دیداری اثر است. با `false`، تاری به مرزهای اصلی نقاشی‌شده، شامل خط حاشیه، محدود می‌شود. با `true`، تاری می‌تواند فراتر از آن مرزها گسترش یابد. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
 
-مقایسه زیر از یک پرکننده، حاشیه و ابعاد شکل ثابت در تمام نمونه‌ها استفاده می‌کند. ردیف بالا از `grow = false` استفاده می‌کند؛ ردیف پایین از `grow = true` استفاده می‌کند.
+مقایسه زیر از همان پرکننده، خط حاشیه و ابعاد شکل در تمام حالت‌ها استفاده می‌کند. ردیف بالا `grow = false` و ردیف پایین `grow = true` است.
 
-![مستطیل اصلی مقایسه‌شده با شعاع‌های محو 5 و 15 پوینت، با غیرفعال و فعال بودن grow](shape_blur_comparison.png)
+![مستطیل اصلی مقایسه‌شده با شعاع‌های تاری ۵ و ۱۵ نقطه، با grow غیرفعال و فعال](shape_blur_comparison.png)
 
-این مثال Java یک مستطیل نارنجی با حاشیه آبی تیره ایجاد می‌کند، محو 5 پوینت اعمال می‌نماید و سپس با فراخوانی دوباره [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) به محو 15 پوینت به‌روزرسانی می‌کند. هر دو وضعیت محو را ذخیره می‌کند، سپس متد [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) را فراخوانی می‌کند و شکل را بدون محو ذخیره می‌کند.
+این مثال Java یک مستطیل نارنجی با خط حاشیه آبی تیره ایجاد می‌کند، تاری ۵ نقطه‌ای اعمال می‌کند و سپس با فراخوانی دوباره [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) آن را به ۱۵ نقطه ارتقا می‌دهد. هر دو وضعیت تار شده را ذخیره می‌کند، سپس متد [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) را صدا می‌زند و شکل بدون تاری ذخیره می‌شود.
+
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
@@ -213,18 +272,18 @@ try {
 }
 ```
 
-محو شدن شکل هم‌زمان بر پرکننده و حاشیه تأثیر می‌گذارد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که محو شدن سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر عمل می‌کنند؛ این مثال محو را مستقیماً بر فرمت افکت شکل بدون تبدیل شکل به تصویر اعمال می‌کند.
+تار شدن شکل همزمان بر پرکننده و خط حاشیه تأثیر می‌گذارد. اثر لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تار شدن سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر کار می‌کنند؛ این مثال تار شدن را مستقیماً بر فرمت افکت شکل بدون تبدیل به تصویر اعمال می‌کند.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا می‌توانم چندین افکت را بر روی یک شکل اعمال کنم؟**
+**آیا می‌توانم چندین اثر را به یک شکل اعمال کنم؟**
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و تاب را بر روی یک شکل ترکیب کنید تا ظاهر پویا‌تری به دست آورید.
+بله، می‌توانید ترکیبی از افکت‌های مختلف مانند سایه، بازتاب و نورانی را بر روی یک شکل اعمال کنید تا ظاهر پویا‌تری به دست آورید.
 
-**به کدام شکل‌ها می‌توانم افکت‌ها را اعمال کنم؟**
+**به چه شکل‌هایی می‌توانم اثر اعمال کنم؟**
 
-می‌توانید افکت‌ها را بر روی انواع شکل‌ها اعمال کنید، از جمله Autoshapeها، نمودارها، جدول‌ها، تصاویر، اشیاء SmartArt، اشیاء OLE و موارد دیگر.
+می‌توانید افکت‌ها را به انواع شکل‌ها شامل اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیاء SmartArt، اشیاء OLE و موارد دیگر اعمال کنید.
 
-**آیا می‌توانم افکت‌ها را بر روی شکل‌های گروه‌بندی‌شده اعمال کنم؟**
+**آیا می‌توانم اثرها را به اشکال گروهی اعمال کنم؟**
 
-بله، می‌توانید افکت‌ها را بر روی شکل‌های گروه‌بندی‌شده اعمال کنید. افکت بر کل گروه اعمال خواهد شد.
+بله، می‌توانید اثرها را به اشکال گروهی اعمال کنید. اثر بر کل گروه اعمال خواهد شد.

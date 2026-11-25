@@ -8,7 +8,7 @@ keywords:
 - şekil efekti
 - gölge efekti
 - yansıma efekti
-- parıltı efekti
+- parlama efekti
 - yumuşak kenarlar efekti
 - efekt formatı
 - PowerPoint
@@ -19,26 +19,25 @@ description: "Aspose.Slides for PHP via Java kullanarak gelişmiş şekil efektl
 ---
 ## **Giriş**
 
-PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, bunlar [doldurmalardan](/slides/tr/php-java/shape-formatting/#gradient-fill) veya kenar çizgilerinden farklıdır. PowerPoint efektlerini kullanarak bir şekil üzerinde ikna edici yansımalar oluşturabilir, şeklin parıltısını yayabilir vb.
+PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, doldurmalara [doldurmalara](/slides/tr/php-java/shape-formatting/#gradient-fill) veya kenarlıklardan farklıdır. PowerPoint efektlerini kullanarak bir şeklin üzerinde ikna edici yansımalar oluşturabilir, şeklin parlaklığını yayabilir vb.
 
 ![Şekil efekti](shape-effect.png)
 
 PowerPoint, şekillere uygulanabilen altı efekt sağlar. Bir şekle bir veya daha fazla efekt uygulayabilirsiniz.
 
-Bazı efekt kombinasyonları diğerlerinden daha iyidir. Bu nedenle PowerPoint, **Preset** altında seçenekler sunar. Preset seçenekleri iki veya daha fazla efektin bir araya getirildiği, iyi görüneceği bilinen kombinasyonlardır. Böylece bir preset seçerek, güzel bir kombinasyon bulmak için farklı efektleri deneme veya birleştirme zahmetine girmezsiniz.
+Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle PowerPoint, **Preset** altında seçenekler sunar. Ön tanımlı seçenekler, iyi göründüğü bilinen iki ya da daha fazla efektin kombinasyonlarıdır. Böylece bir ön tanımlı seçerek farklı efektleri deneme veya birleştirme konusunda zaman kaybetmezsiniz.
 
-Aspose.Slides, [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) sınıfı altında bulunan özellikler ve yöntemler aracılığıyla PowerPoint sunumlarındaki şekillere aynı efektleri uygulamanıza olanak tanır.
+Aspose.Slides, PowerPoint sunumlarındaki şekillere aynı efektleri uygulamanızı sağlayan [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) sınıfı altında özellikler ve yöntemler sunar.
 
 ## **Gölge Efekti Uygulama**
 
-Aspose.Slides for PHP via Java, şekiller için dış ve iç gölgeleri destekler. Renklerini, yönünü, mesafesini ve bulanıklaştırma yarıçapını sunum tasarımınıza uygun şekilde özelleştirebilirsiniz.
+Aspose.Slides for PHP via Java, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklaştırma yarıçapını sunum tasarımınıza göre özelleştirebilirsiniz.
 
-### **Dış Gölge Uygulama**
+### **Dış Gölge Uygula**
 
-Bir kartı veya paneli slayt arka planına karşı öne çıkarmak için dış gölge kullanın. Gölge, şeklin kenarlarının ötesine uzanır ve şeklin slayt üzerinde yükseltilmiş izlenimini verir. Renk, yön, mesafe ve bulanıklaştırma yarıçapını şablonun aydınlatması ve stiline göre ayarlayın.
+Dış gölge, bir kartın ya da panelin slayt arka planına karşı öne çıkmasını sağlar. Gölge, şeklin kenarlarının ötesine uzanarak şeklin slayt üzerinde yükselmiş izlenimini verir. Renk, yön, mesafe ve bulanıklaştırma yarıçapını şablonunuzun aydınlatması ve stiline göre ayarlayın.
 
-Bu PHP kodu, bir dikdörtgene [dış gölge efektini](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) uygulamayı gösterir:
-
+Bu PHP kodu bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) nasıl uygulanacağını gösterir:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -63,14 +62,13 @@ try {
 
 ![Gölge efekti](shadow_effect.png)
 
-### **İç Gölge Uygulama**
+### **İç Gölge Uygula**
 
-Bir şablonun görsel stilini yeniden üretirken, bir kart veya panele geri çekilmiş bir görünüm vermek için iç gölge kullanın. Dış gölge şeklin dışına uzanarak yükselmiş gibi görünürken, iç gölge kenarların iç kısmını gölgeler.
+Bir şablonun görsel stilini yeniden üretirken, bir kartın ya da panelin gömülü bir görünüm kazanması için iç gölge kullanın. Dış gölge şeklin dışına uzanarak yükselmiş görünürken, iç gölge kenarların iç kısmını gölgeler.
 
 [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) metodunu çağırın, ardından [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) tarafından döndürülen gölgeyi yapılandırın. Daha büyük bulanıklaştırma yarıçapı değerleri daha yumuşak kenarlar üretir.
 
-Bu PHP örneği, açık mavi bir kartı koyu gri bir iç gölgeyle oluşturur ve PPTX dosyası olarak kaydeder. Gölge yönü 225 derecedir, mesafesi 7 puan, bulanıklaştırma yarıçapı ise 6 puandır:
-
+Bu PHP örneği, açık mavi bir kartı koyu gri bir iç gölge ile oluşturur ve bir PPTX dosyası olarak kaydeder. Gölge yönü 225 derecedir, mesafesi 7 puan, bulanıklaştırma yarıçapı 6 puandır:
 ```php
 use aspose\slides\FillType;
 use aspose\slides\Presentation;
@@ -101,16 +99,76 @@ try {
 }
 ```
 
-![İç gölgeli açık mavi dikdörtgen](inner_shadow_effect.png)
+![İç gölgelikli açık mavi dikdörtgen](inner_shadow_effect.png)
 
-İç gölgeyi kaldırmak için şeklin effect formatı üzerinde [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) metodunu çağırın.
+İç gölgeyi kaldırmak için şeklin efekt formatı üzerinde [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) metodunu çağırın.
+
+### **Ön Tanımlı Gölge Uygula, Değiştir ve Kaldır**
+
+[enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) metodunu çağırarak bir ön tanımlı gölgeyi etkinleştirin. [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) metodunu kullanarak bir [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) seçin veya aynı şekil üzerinde farklı bir stile geçiş yapın. Gölgeyi doldurma ve kenarlığı koruyarak kaldırmak için [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) metodunu çağırın.
+
+Bu PHP örneği, ilk üç aşamadan sonra dikdörtgeni klonlayarak dört aşamayı aynı slaytta yan yana karşılaştırmanızı sağlar. Her iki gölge de 10 puan kaydırılmıştır. 225° yön, ilk gölgeyi dikdörtgenin üst soluna yerleştirirken, 45° yön ikinci gölgeyi alt sağa yerleştirir.
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\PresetShadowType;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(800, 120, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $shape = $shapes->addAutoShape(ShapeType::Rectangle, 15, 30, 170, 60);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $lineFill = $shape->getLineFormat()->getFillFormat();
+    $lineFill->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $lineFill->getSolidFillColor()->setColor($lineColor);
+    $shape->getTextFrame()->setText("No shadow");
+    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(14);
+    $shapes->addClone($shape);
+
+    $shape->setX(215);
+    $effects = $shape->getEffectFormat();
+    $effects->enablePresetShadowEffect();
+    $shadow = $effects->getPresetShadowEffect();
+    $shadow->setPreset(PresetShadowType::TopLeftDropShadow);
+    $shadow->setDistance(10);
+    $shadow->setDirection(225);
+    $shape->getTextFrame()->setText("TopLeftDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(415);
+    $shadow->setPreset(PresetShadowType::BottomRightDropShadow);
+    $shadow->setDirection(45);
+    $shape->getTextFrame()->setText("BottomRightDropShadow");
+    $shapes->addClone($shape);
+
+    $shape->setX(615);
+    $effects->disablePresetShadowEffect();
+    $shape->getTextFrame()->setText("No shadow");
+
+    $presentation->save("preset_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Orijinal | İlk ön tanımlı | İkinci ön tanımlı | Kaldırma sonrası |
+| :---: | :---: | :---: | :---: |
+| ![Gölge yok](preset_shadow_original.png) | ![Üst Sol Düşen Gölge](preset_shadow_top_left.png) | ![Alt Sağ Düşen Gölge](preset_shadow_bottom_right.png) | ![Kaldırma sonrası gölge yok](preset_shadow_removed.png) |
 
 ## **Yansıma Efekti Uygulama**
 
-Aspose.Slides for PHP via Java'da yansıma efekti uygulamak için şekillere bir ayna benzeri yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm kazandırarak sunumların estetiğini artırır. Basit kodla uygulanması kolaydır ve tutarlı bir tasarım için birden çok öğeye hızlıca uygulanabilir.
+Aspose.Slides for PHP via Java'da yansıma efekti uygulamak için şekillere ayna benzeri bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha şık ve sofistike bir görünüm kazandırarak sunumlarınızın estetiğini artırır. Basit kod ile kolayca uygulanabilir ve birden çok öğeye tutarlı bir tasarım uygulanmasını sağlar.
 
-Bu PHP kodu, bir şekle [yansıma efektini](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) uygulamayı gösterir:
-
+Bu PHP kodu bir şekle [yansıma efekti](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) nasıl uygulanacağını gösterir:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\RectangleAlignment;
@@ -136,12 +194,11 @@ try {
 
 ![Yansıma efekti](reflection_effect.png)
 
-## **Parıltı Efekti Uygulama**
+## **Parlama Efekti Uygulama**
 
-Aspose.Slides for PHP via Java'da bir şekle parıltı efekti uygulamak için şekillerin etrafına yumuşak, ışıldayan bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarmaya yardımcı olur ve sunumunuza çekici bir görsel öge ekler. Minimum kodla uygulanması kolaydır ve slaytların genel görünümünü iyileştirir.
+Aspose.Slides for PHP via Java'da bir şekle parlama efekti eklemek için şeklin etrafına yumuşak, ışıldayan bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarmaya yardımcı olur ve sunumunuza çekici bir görsel öğe ekler. Az kodla kolayca uygulanır ve slaytlarınızın genel görünümünü iyileştirir.
 
-Bu PHP kodu, bir şekle [parıltı efektini](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) uygulamayı gösterir:
-
+Bu PHP kodu bir şekle [parlama efekti](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) nasıl uygulanacağını gösterir:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -162,14 +219,13 @@ try {
 }
 ```
 
-![Parıltı efekti](glow_effect.png)
+![Parlama efekti](glow_effect.png)
 
 ## **Yumuşak Kenarlar Efekti Uygulama**
 
-Aspose.Slides for PHP via Java'da yumuşak kenarlar efekti uygulamak için bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve rafine bir görünüm ekleyerek nazik bir tasarım gerektiren durumlarda mükemmeldir. İstediğiniz etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
+Aspose.Slides for PHP via Java'da yumuşak kenarlar efekti uygulamak için bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve rafine bir görünüm ekler; özellikle nazik ve yumuşak bir görünüm gerektiren tasarımlar için idealdir. Çeşitli şekillerde istenen etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
 
-Bu PHP kodu, bir şekle [yumuşak kenarlar efektini](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) uygulamayı gösterir:
-
+Bu PHP kodu bir şekle [yumuşak kenarlar efekti](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) nasıl uygulanacağını gösterir:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -193,16 +249,15 @@ try {
 
 ## **Bulanıklaştırma Efekti Uygulama**
 
-Şekil bulanıklaştırma, şeklin doldurmasını ve kenar çizgisini yumuşatarak şekli düzenlenebilir tutar. Şeklin effect formatı üzerinde [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metodunu çağırın. Yarıçap puan cinsindendir (1/72 inç): negatif olmayan bir değer kullanın; daha büyük değerler daha güçlü bulanıklaştırma üretir. Yarıçap sıfır olduğunda görünüm değişmez.
+Şekil bulanıklaştırma, şeklin doldurma ve kenarlığını yumuşatarak şekli düzenlenebilir tutar. Şeklin efekt formatı üzerinde [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metodunu çağırın. Yarıçap, puan cinsinden ölçülür (1/72 inç): negatif olmayan bir değer kullanın; daha yüksek değerler daha güçlü bulanıklık üretir. Yarıçap sıfır olduğunda görünüm değişmez.
 
-[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) ayarı, etkinin görünür sınırlarını kontrol eder. `false` olduğunda, bulanıklaştırma orijinal boyanmış sınırlarla, kenar çizgisi dahil, sınırlanır. `true` olduğunda, bulanıklaştırma bu sınırların dışına uzanabilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
+[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) ayarı, etkinin görünen sınırlarını kontrol eder. `false` olduğunda bulanıklık, orijinal boyanmış sınırlarla (kenarlık dahil) sınırlanır. `true` olduğunda bulanıklık bu sınırların dışına uzanabilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
 
-Aşağıdaki karşılaştırma, aynı doldurma, kenar çizgisi ve şekil boyutları kullanılarak yapılmıştır. Üst satır `grow = false`; alt satır `grow = true` olarak ayarlanmıştır.
+Aşağıdaki karşılaştırma, aynı doldurma, kenarlık ve şekil boyutlarını tüm boyunca kullanır. Üst satır `grow = false`; alt satır `grow = true` kullanır.
 
-![Orijinal dikdörtgen, 5 ve 15 puanlık bulanıklaştırma yarıçaplarıyla, grow devre dışı ve etkin olarak karşılaştırma](shape_blur_comparison.png)
+![Orijinal dikdörtgen, 5 ve 15 puan bulanıklık yarıçaplarıyla, büyütme devre dışı ve etkin durumlarla karşılaştırılmıştır](shape_blur_comparison.png)
 
-Bu PHP örneği, turuncu bir dikdörtgeni koyu mavi bir kenar çizgisiyle oluşturur, 5 puanlık bir bulanıklaştırma uygular, ardından [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) metodunu tekrar çağırarak 15 puanlık bir bulanıklaştırmaya yükseltir. Her iki bulanıklaştırılmış durumu kaydeder, ardından [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) metodunu çağırarak gölgesiz şekli kaydeder.
-
+Bu PHP örneği, turuncu bir dikdörtgeni koyu mavi bir kenarlıkla oluşturur, 5 puan bulanıklık uygular, ardından [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) tekrar çağrılarak 15 puana yükseltir. Her iki bulanıklı durumu kaydeder, ardından [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) çağrısıyla bulanıklaştırması kaldırılmış şekli kaydeder.
 ```php
 use aspose\slides\FillType;
 use aspose\slides\Presentation;
@@ -235,13 +290,13 @@ try {
 }
 ```
 
-Şekil bulanıklaştırma, doldurma ve kenar çizgisini birlikte etkiler. Yumuşak kenarlar efekti şeklin kenarlarını solgunlaştırırken, gölge bulanıklaştırması yalnızca gölgeyi yumuşatır. Görüntü dönüşüm efektleri görüntü içeriği üzerinde çalışır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin effect formatına bulanıklaştırma uygular.
+Şekil bulanıklaştırması, doldurma ve kenarlığı birlikte etkiler. Yumuşak kenarlar efekti, şeklin kenarlarını siler; gölge bulanıklığı ise yalnızca gölgeyi yumuşatır. Görüntü dönüşüm efektleri görüntü içeriği üzerinde çalışır; bu örnek şekli bir görüntüye dönüştürmeden doğrudan şeklin efekt formatına bulanıklık uygular.
 
 ## **SSS**
 
-**Aynı şekle birden çok efekt uygulayabilir miyim?**
+**Aynı şekle birden fazla efekt uygulayabilir miyim?**
 
-Evet, bir şekle gölge, yansıma ve parıltı gibi farklı efektleri birleştirerek daha dinamik bir görünüm elde edebilirsiniz.
+Evet, aynı şekle gölge, yansıma ve parlama gibi farklı efektleri birleştirerek daha dinamik bir görünüm elde edebilirsiniz.
 
 **Hangi şekillere efekt uygulayabilirim?**
 
@@ -249,4 +304,4 @@ Otomatik şekiller, grafikler, tablolar, resimler, SmartArt nesneleri, OLE nesne
 
 **Gruplandırılmış şekillere efekt uygulayabilir miyim?**
 
-Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerine uygulanır.
+Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerinde uygulanır.

@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 在演示文稿中应用形状效果
+title: 在演示文稿中使用 Python 应用形状效果
 linktitle: 形状效果
 type: docs
 weight: 30
@@ -8,7 +8,7 @@ keywords:
 - 形状效果
 - 阴影效果
 - 反射效果
-- 光晕效果
+- 发光效果
 - 柔化边缘效果
 - 效果格式
 - PowerPoint
@@ -16,29 +16,29 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python 将 PPT、PPTX 和 ODP 文件转换为高级形状效果——在几秒钟内创建引人注目、专业的幻灯片。"
+description: "使用 Aspose.Slides for Python 将高级形状效果应用于您的 PPT、PPTX 和 ODP 文件——几秒钟内创建惊艳、专业的幻灯片。"
 ---
-## **简介**
+## **介绍**
 
-在 PowerPoint 中，效果可用于突出显示形状，但它们不同于 [填充](/slides/zh/python-net/shape-formatting/#gradient-fill) 或轮廓。使用 PowerPoint 效果，您可以在形状上创建逼真的反射、扩散形状的光晕等。
+虽然 PowerPoint 中的效果可用于让形状突出，但它们不同于 [填充](/slides/zh/python-net/shape-formatting/#gradient-fill) 或轮廓。使用 PowerPoint 效果，您可以在形状上创建逼真的反射、扩展形状的发光等。
 
 ![形状效果](shape-effect.png)
 
-PowerPoint 提供六种可应用于形状的效果。您可以对形状应用一种或多种效果。
+PowerPoint 提供六种可应用于形状的效果。您可以对一个形状应用一个或多个效果。
 
-某些效果组合比其他组合更好看。为此，PowerPoint 在 **预设** 下提供选项。预设选项本质上是两种或多种效果的已知好看组合。这样，选择预设后，您无需花时间测试或组合不同的效果来找到合适的组合。
+某些效果组合看起来比其他组合更好。因此，PowerPoint 在 **Preset** 下提供选项。Preset 选项本质上是一组已知的好看组合，两种或多种效果的组合。通过选择预设，您无需花时间测试或组合不同的效果来寻找合适的组合。
 
-Aspose.Slides 在 [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) 类中提供属性和方法，允许您在 PowerPoint 演示文稿中对形状应用相同的效果。
+Aspose.Slides 在 [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) 类下提供属性和方法，允许您在 PowerPoint 演示文稿中对形状应用相同的效果。
 
 ## **应用阴影效果**
 
-Aspose.Slides for Python via .NET 支持形状的外部和内部阴影。您可以自定义其颜色、方向、距离和模糊半径，以匹配演示文稿的设计。
+Aspose.Slides for Python via .NET 支持形状的外部和内部阴影。您可以自定义它们的颜色、方向、距离和模糊半径，以匹配演示文稿的设计。
 
 ### **应用外部阴影**
 
-使用外部阴影使卡片或面板在幻灯片背景上更突出。阴影延伸到形状边缘之外，营造形状悬浮在幻灯片上的感觉。调整其颜色、方向、距离和模糊半径，以匹配模板的光照和样式。
+使用外部阴影使卡片或面板在幻灯片背景下突出。阴影延伸超出形状的边缘，营造形状在幻灯片上方的提升感。调整其颜色、方向、距离和模糊半径，以匹配模板的光照和样式。
 
-此 Python 代码演示如何对矩形应用 [外部阴影效果](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/)：
+此 Python 代码展示了如何将 [外部阴影效果](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) 应用于矩形：
 
 ```python
 import aspose.slides as slides
@@ -59,9 +59,7 @@ with slides.Presentation() as presentation:
 
 ### **应用内部阴影**
 
-在复现模板的视觉样式时，使用内部阴影为卡片或面板提供凹陷外观。外部阴影延伸到形状外部，使其看起来凸起，而内部阴影则给边缘内部着色。
-
-调用 [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/)，然后配置 [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/)。更大的模糊半径值会产生更柔和的边缘。
+在复制模板的视觉样式时，使用内部阴影为卡片或面板提供凹陷外观。外部阴影向形状外部延伸，使其看起来凸起，而内部阴影则在其边缘内部着色。调用 [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/)，然后配置 [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/)。较大的模糊半径值会产生更柔和的边缘。
 
 此 Python 示例创建一个浅蓝色卡片，带深灰色内部阴影，并将其保存为 PPTX 文件：
 
@@ -88,13 +86,61 @@ with slides.Presentation() as presentation:
 
 ![带内部阴影的浅蓝色矩形](inner_shadow_effect.png)
 
-要移除内部阴影，请在形状的 EffectFormat 上调用 [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/)。
+要移除内部阴影，请对形状的 EffectFormat 调用 [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/)。
+
+### **应用、更改和移除预设阴影**
+
+调用 [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) 并将阴影的 [预设](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) 属性设置为 [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/) 值。要切换样式，可在同一形状上更改预设。调用 [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) 可在保留填充和轮廓的同时移除阴影。
+
+此示例在一张幻灯片上并排显示四个阶段。它在每次更改前克隆矩形，以便您比较结果。两个阴影均偏移 10 点。225° 的方向使第一个阴影位于矩形的上方左侧，45° 的方向使第二个阴影位于右下方。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(800, 120, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    shape = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 15, 30, 170, 60)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.text_frame.text = "No shadow"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 14
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.enable_preset_shadow_effect()
+    shadow = shape.effect_format.preset_shadow_effect
+    shadow.preset = slides.PresetShadowType.TOP_LEFT_DROP_SHADOW
+    shadow.distance = 10
+    shadow.direction = 225
+    shape.text_frame.text = "TopLeftDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shadow.preset = slides.PresetShadowType.BOTTOM_RIGHT_DROP_SHADOW
+    shadow.direction = 45
+    shape.text_frame.text = "BottomRightDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.disable_preset_shadow_effect()
+    shape.text_frame.text = "No shadow"
+
+    presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| 原始 | 第一个预设 | 第二个预设 | 移除后 |
+| :---: | :---: | :---: | :---: |
+| ![无阴影](preset_shadow_original.png) | ![左上投影阴影](preset_shadow_top_left.png) | ![右下投影阴影](preset_shadow_bottom_right.png) | ![移除后无阴影](preset_shadow_removed.png) |
 
 ## **应用反射效果**
 
-要在 Aspose.Slides for Python via .NET 中应用反射效果，您可以为形状添加类似镜面的反射，并调整距离、透明度和大小等参数。此效果通过为形状提供更精致、专业的外观来提升演示文稿的美感。使用简短代码即可轻松实现，可快速在多个元素上统一应用，实现一致的设计。
+要在 Aspose.Slides for Python via .NET 中应用反射效果，您可以向形状添加镜面反射，调整距离、透明度和大小等参数。此效果通过提供更光滑、更精致的外观来提升演示文稿的美感。实现简单，只需少量代码即可在多个元素上快速应用，实现一致的设计。
 
-此 Python 代码演示如何对形状应用 [reflection effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/)：
+此 Python 代码展示了如何将 [反射效果](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) 应用于形状：
 
 ```python
 import aspose.slides as slides
@@ -114,11 +160,11 @@ with slides.Presentation() as presentation:
 
 ![反射效果](reflection_effect.png)
 
-## **应用光晕效果**
+## **应用发光效果**
 
-要在 Aspose.Slides for Python via .NET 中对形状应用光晕效果，您可以在形状周围添加柔和的发光光环，并调整颜色和大小等属性。此效果帮助形状突出显示，并为您的演示文稿增添吸引人的视觉元素。实现起来代码极少，可提升整体幻灯片外观。
+要在 Aspose.Slides for Python via .NET 中对形状应用发光效果，您可以在形状周围添加柔和的光晕，调整颜色和大小等属性。此效果有助于使形状突出，并为演示文稿添加吸引人的视觉元素。实现简便，仅需少量代码，即可提升幻灯片的整体外观。
 
-此 Python 代码演示如何对形状应用 [glow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/)：
+此 Python 代码展示了如何将 [发光效果](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) 应用于形状：
 
 ```python
 import aspose.slides as slides
@@ -134,13 +180,13 @@ with slides.Presentation() as presentation:
     presentation.save("glow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![光晕效果](glow_effect.png)
+![发光效果](glow_effect.png)
 
 ## **应用柔化边缘效果**
 
-在 Aspose.Slides for Python via .NET 中应用柔化边缘效果，您可以在形状的边缘周围创建平滑、模糊的过渡。此效果增添更细腻、精致的外观，适用于需要柔和外观的设计。您可以轻松调整半径等参数，以在演示文稿中的各种形状上实现期望的效果。
+要在 Aspose.Slides for Python via .NET 中应用柔化边缘效果，您可以在形状的边缘周围创建平滑、模糊的过渡。此效果提供更细腻、精致的外观，适用于需要柔和外观的设计。您可以轻松调整半径等参数，以在演示文稿中的各种形状上实现所需效果。
 
-此 Python 代码演示如何对形状应用 [柔化边缘](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/)：
+此 Python 代码展示了如何将 [柔化边缘](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) 应用于形状：
 
 ```python
 import aspose.slides as slides
@@ -159,15 +205,15 @@ with slides.Presentation() as presentation:
 
 ## **应用模糊效果**
 
-使用形状模糊可在保持形状可编辑的前提下柔化其填充和轮廓。调用 [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) 在形状的 EffectFormat 上。半径以点为单位（1/72 英寸）：使用非负值，较大值产生更强的模糊。半径为零则保持外观不变。
+使用形状模糊可以在保持形状可编辑的同时柔化形状的填充和轮廓。对形状的 EffectFormat 调用 [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/)。半径以点（1/72 英寸）为单位：使用非负值，较大的值会产生更强的模糊。半径为零时外观保持不变。
 
-[Grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) 设置控制效果的可见范围。设为 `False` 时，模糊被裁剪到原始绘制范围（包括轮廓）。设为 `True` 时，模糊可以超出该范围。两种设置均不会改变形状的位置或尺寸。
+[ grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) 设置控制效果的可见范围。设置为 `False` 时，模糊被裁剪到原始绘制范围（包括轮廓）。设置为 `True` 时，模糊可超出该范围。两种设置均不改变形状的位置或尺寸。
 
-下面的比较使用了相同的填充、轮廓和形状尺寸。顶部行使用 `grow = False`；底部行使用 `grow = True`。
+下面的比较使用了相同的填充、轮廓和形状尺寸。上排使用 `grow = False`；下排使用 `grow = True`。
 
-![原始矩形与模糊半径为 5 和 15 点的比较，grow 为关闭和开启状态](shape_blur_comparison.png)
+![原始矩形与模糊半径为 5 和 15 点的比较，分别在禁用和启用 grow 情况下](shape_blur_comparison.png)
 
-此 Python 示例创建一个橙色矩形，带深蓝色轮廓，先应用 5 点模糊，然后再次调用 [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) 将模糊提升至 15 点。它保存了两个模糊状态，然后调用 [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) 并保存无模糊的形状。
+此 Python 示例创建一个橙色矩形，带深蓝色轮廓，先应用 5 点模糊，然后再次调用 [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) 将模糊半径改为 15 点。它保存了两种模糊状态，然后调用 [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) 保存无模糊的形状。
 
 ```python
 import aspose.slides as slides
@@ -192,18 +238,18 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-形状模糊同时影响填充和轮廓。柔化边缘效果淡化形状的边缘，而阴影模糊仅软化阴影。图像变换效果作用于图像内容；本例直接在形状的 EffectFormat 上应用模糊，而不将形状转换为图像。
+形状模糊同时影响填充和轮廓。柔化边缘效果仅淡化形状的边缘，而阴影模糊仅软化阴影。图像转换效果作用于图像内容；本例直接对形状的 EffectFormat 应用模糊，无需将形状转换为图像。
 
 ## **常见问题**
 
-**我可以对同一形状应用多个效果吗？**
+**我可以对同一个形状应用多个效果吗？**
 
-是的，您可以在单个形状上组合不同的效果，如阴影、反射和光晕，以创建更具动感的外观。
+是的，您可以在单个形状上组合不同的效果，如阴影、反射和发光，以获得更具动感的外观。
 
 **我可以对哪些形状应用效果？**
 
-您可以对各种形状应用效果，包括自动形状、图表、表格、图片、SmartArt 对象、OLE 对象等。
+您可以对包括自动形状、图表、表格、图片、SmartArt 对象、OLE 对象等在内的各种形状应用效果。
 
 **我可以对组合形状应用效果吗？**
 
-可以，您可以对组合形状应用效果。效果将作用于整个组合。
+是的，您可以对组合形状应用效果。该效果将作用于整个组合。

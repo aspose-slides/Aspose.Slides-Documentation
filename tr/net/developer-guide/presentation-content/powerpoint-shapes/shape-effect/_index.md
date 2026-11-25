@@ -1,6 +1,6 @@
 ---
-title: ".NET'te Sunumlarda Şekil Efektlerini Uygulama"
-linktitle: "Şekil Efekti"
+title: PowerPoint Sunumlarında Şekil Efektlerini Uygulama .NET
+linktitle: Şekil Efekti
 type: docs
 weight: 30
 url: /tr/net/shape-effect/
@@ -16,29 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak gelişmiş şekil efektleriyle PPT ve PPTX dosyalarınızı dönüştürün—saniyeler içinde etkileyici, profesyonel slaytlar oluşturun."
+description: "Aspose.Slides for .NET kullanarak gelişmiş şekil efektleriyle PPT ve PPTX dosyalarınızı dönüştürün—saniyeler içinde çarpıcı, profesyonel slaytlar oluşturun."
 ---
 ## **Giriş**
 
-PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, [dolgu](/slides/tr/net/shape-formatting/#gradient-fill) veya konturlardan farklıdır. PowerPoint efektlerini kullanarak bir şekil üzerinde ikna edici yansımalar oluşturabilir, şeklin parıltısını yayabilirsiniz, vb.
+PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, [dolgular](/slides/tr/net/shape-formatting/#gradient-fill) veya kenarlıklardan farklıdır. PowerPoint efektlerini kullanarak bir şekil üzerinde ikna edici yansımalar oluşturabilir, şeklin parlaklığını yayabilirsiniz, vb.
 
-![Şekil efekti](shape-effect.png)
+![Shape effect](shape-effect.png)
 
-PowerPoint, şekillere uygulanabilen altı efekt sağlar. Bir şekle bir veya daha fazla efekt uygulayabilirsiniz.
+PowerPoint, şekillere uygulanabilen altı efekt sağlar. Bir şekle bir veya birden fazla efekt uygulayabilirsiniz.
 
-Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle PowerPoint, **Preset** altında seçenekler sunar. Preset seçenekleri, temelde iki veya daha fazla efektin iyi bir kombinasyonudur. Böylece bir preset seçerek, güzel bir kombinasyon bulmak için farklı efektleri deneme veya birleştirme süresini harcamazsınız.
+Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle, PowerPoint **Preset** altında seçenekler sunar. Preset seçenekleri aslında iki veya daha fazla efektin güzel görünen bilinen bir kombinasyonudur. Böylece, bir preset seçerek, güzel bir kombinasyon bulmak için farklı efektleri deneme veya birleştirme konusunda zaman kaybetmezsiniz.
 
 Aspose.Slides, PowerPoint sunumlarındaki şekillere aynı efektleri uygulamanızı sağlayan [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) sınıfı altında özellikler ve yöntemler sunar.
 
 ## **Gölge Efekti Uygulama**
 
-Aspose.Slides for .NET, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklık yarıçapını sunumunuzun tasarımına uyacak şekilde özelleştirebilirsiniz.
+Aspose.Slides for .NET, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklaştırma yarıçapını sunum tasarımınıza uygun şekilde özelleştirebilirsiniz.
 
 ### **Dış Gölge Uygulama**
 
-Dış gölge, bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlar. Gölge, şeklin kenarlarının ötesine uzanır ve şeklin slayt üzerinde yükselmiş izlenimini yaratır. Renk, yön, mesafe ve bulanıklık yarıçapını şablonunuzun aydınlatması ve stiline uyacak şekilde ayarlayın.
+Dış gölgeyi, bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlamak için kullanın. Gölge, şeklin kenarlarının ötesine uzanarak şeklin slayt üzerinde yükselmiş izlenimini yaratır. Renk, yön, mesafe ve bulanıklaştırma yarıçapını şablonunuzun ışıklandırması ve stiline uyacak şekilde ayarlayın.
 
-Bu C# kodu, bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) uygulamayı gösterir:
+Bu C# kodu, bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) nasıl uygulanacağını gösterir:
 
 ```c#
 using System.Drawing;
@@ -57,13 +57,13 @@ shape.EffectFormat.OuterShadowEffect.Direction = 45;
 presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Gölge efekti](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
 ### **İç Gölge Uygulama**
 
-Bir şablonun görsel stilini yeniden oluştururken, bir kartın veya panelin gömülü bir görünüm kazanması için iç gölge kullanın. Dış gölge, şeklin dışına uzanarak yükselmiş görünürken, iç gölge kenarların içini karartır.
+Bir şablonun görsel stilini yeniden üretirken, bir kartın veya panelin gömülü bir görünüm alması için iç gölge kullanın. Dış gölge şeklin dışına uzanarak yükselmiş görünürken, iç gölge kenarların iç kısmını gölgelendirir.
 
-[EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) çağırın, ardından [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) yapılandırın. Daha büyük değerler daha yumuşak kenarlar üretir.
+[EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) yöntemini çağırın, ardından [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) yapılandırın. Daha büyük değerler daha yumuşak kenarlar üretir.
 
 Bu C# örneği, açık mavi bir kart oluşturur, koyu gri bir iç gölge ekler ve PPTX dosyası olarak kaydeder:
 
@@ -90,15 +90,65 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![İç gölge ile açık mavi dikdörtgen](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-İç gölgeyi kaldırmak için şeklin efekt formatında [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) çağırın.
+İç gölgeyi kaldırmak için, şeklin effect formatında [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) yöntemini çağırın.
+
+### **Preset Gölge Uygulama, Değiştirme ve Kaldırma**
+
+[EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) yöntemini çağırın ve [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) değerini adlandırılmış bir [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) olarak ayarlayın. Stilleri değiştirmek için aynı şekildeki preset'i değiştirin. Gölgeyi doldurma ve kenarlığı koruyarak kaldırmak için [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) yöntemini çağırın.
+
+Bu örnek, her aşamada dikdörtgenin bir kopyasını tutar. Her iki gölge de 10 puan kaydırılmıştır. 225° yönü ilk gölgeyi dikdörtgenin üstüne ve soluna, 45° yönü ise ikinci gölgeyi altına ve sağına yerleştirir.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(800, 120, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var shape = shapes.AddAutoShape(ShapeType.Rectangle, 15, 30, 170, 60);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+shape.TextFrame.Text = "No shadow";
+shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 14;
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.EnablePresetShadowEffect();
+var shadow = shape.EffectFormat.PresetShadowEffect;
+shadow.Preset = PresetShadowType.TopLeftDropShadow;
+shadow.Distance = 10;
+shadow.Direction = 225;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shadow.Preset = PresetShadowType.BottomRightDropShadow;
+shadow.Direction = 45;
+shape.TextFrame.Text = shadow.Preset.ToString();
+shapes.AddClone(shape);
+
+shape.X += 200;
+shape.EffectFormat.DisablePresetShadowEffect();
+shape.TextFrame.Text = "No shadow";
+
+presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
+```
+
+| Orijinal | İlk preset | İkinci preset | Kaldırma sonrası |
+| :---: | :---: | :---: | :---: |
+| ![Gölge yok](preset_shadow_original.png) | ![Sol Üst Düşen Gölge](preset_shadow_top_left.png) | ![Sağ Alt Düşen Gölge](preset_shadow_bottom_right.png) | ![Kaldırma sonrası gölge yok](preset_shadow_removed.png) |
 
 ## **Yansıma Efekti Uygulama**
 
-Aspose.Slides for .NET'te yansıma efekti uygulamak için şekillere aynalı bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm kazandırarak sunumunuzun estetiğini artırır. Basit kodla kolayca uygulanabilir ve tutarlı bir tasarım için birden çok öğeye hızlıca uygulanabilir.
+Aspose.Slides for .NET'de bir yansıma efekti uygulamak için, şekillere ayna benzeri bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm kazandırarak sunumlarınızın estetiğini artırır. Basit bir kodla uygulanması kolaydır ve tutarlı bir tasarım için birden fazla öğeye hızlı uygulama sağlar.
 
-Bu C# kodu, bir şekle [yansıma efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) uygulamayı gösterir:
+Bu C# kodu, bir şekle [yansıma efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) nasıl uygulanacağını gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -121,9 +171,9 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ## **Parıltı Efekti Uygulama**
 
-Aspose.Slides for .NET'te bir şekle parıltı efekti uygulamak için şekillerin etrafına yumuşak, ışıklı bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri ön plana çıkarır ve sunumunuza çekici, göz alıcı bir görsel öğe ekler. Minimum kodla uygulanabilir ve slaytlarınızın genel görünümünü iyileştirir.
+Aspose.Slides for .NET'te bir şekle parıltı efekti uygulamak için, şekillerin etrafına yumuşak, ışıklı bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarmaya yardımcı olur ve sunumunuza çekici, göz alıcı bir görsel öğe ekler. Minimum kodla uygulanması kolaydır ve slaytlarınızın genel görünümünü geliştirir.
 
-Bu C# kodu, bir şekle [parıltı efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) uygulamayı gösterir:
+Bu C# kodu, bir şekle [parıltı efekti](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) nasıl uygulanacağını gösterir:
 
 ```c#
 using System.Drawing;
@@ -145,9 +195,9 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **Yumuşak Kenarlar Efekti Uygulama**
 
-Aspose.Slides for .NET'te yumuşak kenarlar efekti uygulamak için bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve rafine bir görünüm katar; yumuşak, daha nazik bir görünüm gereken tasarımlar için mükemmeldir. Çeşitli şekillerde istenen etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
+Aspose.Slides for .NET'te bir şekle yumuşak kenarlar efekti uygulamak için, şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve zarif bir görünüm ekler, hafif ve yumuşak bir görünüm gerektiren tasarımlar için mükemmeldir. Çeşitli şekillerde istenen etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
 
-Bu C# kodu, bir şekle [yumuşak kenarlar](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) uygulamayı gösterir:
+Bu C# kodu, bir şekle [yumuşak kenarlar](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) nasıl uygulanacağını gösterir:
 
 ```c#
 using Aspose.Slides;
@@ -165,17 +215,17 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ![Yumuşak kenarlar efekti](soft_edges_effect.png)
 
-## **Bulanıklık Efekti Uygulama**
+## **Bulanıklaştırma Efekti Uygulama**
 
-Bir şekil bulanıklığı, şeklin dolgusunu ve konturunu yumuşatarak şeklin düzenlenebilirliğini korur. Şeklin efekt formatında [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) çağırın. Yarıçap, puan cinsinden ölçülür (1/72 inç): negatif olmayan bir değer kullanın; daha büyük değerler daha güçlü bulanıklık üretir. Yarıçap sıfır olduğunda görünüm değişmez.
+Şekil bulanıklığını kullanarak bir şeklin doldurma ve kenarlığını yumuşatabilir, şeklin düzenlenebilirliğini koruyabilirsiniz. Şeklin effect formatında [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) yöntemini çağırın. Yarıçap, nokta cinsinden ölçülür (1/72 inç): negatif olmayan bir değer kullanın; daha büyük değerler daha güçlü bir bulanıklık üretir. Sıfır yarıçap görünümü değiştirmez.
 
-[Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ayarı, etkinin görünür sınırlarını kontrol eder. `false` olduğunda bulanıklık, konturu da içeren orijinal boyanmış sınırlara kırpılır. `true` olduğunda bulanıklık bu sınırların ötesine uzanabilir. Hiçbir ayar, şeklin konumunu veya boyutlarını değiştirmez.
+[Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ayarı efektin görünür sınırlarını kontrol eder. `false` ile bulanıklık, kenarlık dahil olmak üzere orijinal boyalı sınırlara kırpılır. `true` ile bulanıklık bu sınırların dışına genişleyebilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
 
-Aşağıdaki karşılaştırma, aynı dolgu, kontur ve şekil boyutları kullanılarak yapılmıştır. Üst satır `grow = false`; alt satır `grow = true` kullanır.
+Aşağıdaki karşılaştırma, aynı doldurma, kenarlık ve şekil boyutları kullanılarak yapılmıştır. Üst satır `grow = false`; alt satır `grow = true` kullanır.
 
-![Orijinal dikdörtgen, 5 ve 15 puanlık bulanıklık yarıçaplarıyla, grow devre dışı ve etkin olarak karşılaştırma](shape_blur_comparison.png)
+![Orijinal dikdörtgen, 5 ve 15 puanlık bulanıklaştırma yarıçaplarıyla, grow devre dışı ve etkin halde karşılaştırması](shape_blur_comparison.png)
 
-Bu C# örneği, turuncu bir dikdörtgen oluşturur, koyu mavi bir kontur ekler, 5 puanlık bir bulanıklık uygular ve ardından aynı şekle tekrar [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) çağırarak 15 puanlık bir bulanıklık verir. Her iki bulanık durumu kaydeder, ardından [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) çağırır ve şekli bulanıklık olmadan kaydeder.
+Bu C# örneği, turuncu bir dikdörtgen oluşturur, koyu mavi bir kenarlık ekler, 5 puanlık bir bulanıklık uygular ve ardından [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) tekrar çağırarak 15 puanlık bir bulanıklığa günceller. Her iki bulanıklaştırılmış durumu kaydeder, ardından [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) çağırıp şekli bulanıksız olarak kaydeder.
 
 ```csharp
 using System.Drawing;
@@ -202,18 +252,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-Şekil bulanıklığı, dolgu ve konturu birlikte etkiler. Yumuşak kenarlar efekti, şeklin kenarlarını solarken, gölge bulanıklığı yalnızca gölgeyi yumuşatır. Görüntü dönüşüm efektleri, görüntü içeriği üzerinde çalışır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin efekt formatına bulanıklık uygular.
+Şekil bulanıklığı, doldurma ve kenarlığı birlikte etkiler. Yumuşak kenarlar efekti şeklin kenarlarını soldururken, gölge bulanıklığı yalnızca gölgeyi yumuşatır. Görüntü dönüşüm efektleri görsel içeriğe uygulanır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin effect formatına bulanıklık uygular.
 
 ## **SSS**
 
-**Aynı şekle birden fazla efekt uygulayabilir miyim?**
+**Aynı şekle birden fazla efekti uygulayabilir miyim?**
 
-Evet, gölge, yansıma ve parıltı gibi farklı efektleri tek bir şekle birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
+Evet, bir şekle gölge, yansıma ve parıltı gibi farklı efektleri birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
 
 **Hangi şekillere efekt uygulayabilirim?**
 
-Şekil, grafik, tablo, resim, SmartArt nesnesi, OLE nesnesi ve daha fazlası dahil olmak üzere çeşitli şekillere efekt uygulayabilirsiniz.
+Autoshape’ler, grafikler, tablolar, resimler, SmartArt nesneleri, OLE nesneleri ve daha fazlası dahil olmak üzere çeşitli şekillere efekt uygulayabilirsiniz.
 
-**Gruplanmış şekillere efekt uygulayabilir miyim?**
+**Gruplama yapılmış şekillere efekt uygulayabilir miyim?**
 
-Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt, tüm grup üzerindeki şekillere uygulanır.
+Evet, gruplama yapılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerinde uygulanır.
