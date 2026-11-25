@@ -1,10 +1,11 @@
 ---
-title: Support For Interruptable Library
+title: Interrupt Long-Running Presentation Operations in C++
+linktitle: Interrupt Presentation Operations
 type: docs
 weight: 150
 url: /cpp/support-for-interruptable-library/
 keywords:
-- interruptable library
+- interruptible operations
 - interruption token
 - cancellation token
 - long-running task
@@ -14,23 +15,18 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Make long-running tasks cancelable with Aspose.Slides for C++. Interrupt rendering and conversions for PowerPoint and OpenDocument safely, with examples."
+description: "Learn how to cancel long-running presentation operations in Aspose.Slides for C++ and return a partial result when exporting slides in a loop."
 ---
 
 ## **Overview**
 
-Aspose.Slides provides an interruptible processing mechanism for long-running presentation tasks, such as deserialization, serialization, and rendering. This mechanism is based on the `InterruptionToken` and `InterruptionTokenSource` classes.
+Aspose.Slides for C++ can interrupt long-running operations such as loading, saving, and rendering presentations. Your application can use the same interruption token to stop a loop before it starts processing the next slide.
 
-An `InterruptionToken` can be assigned to `LoadOptions` and passed to the `Presentation` constructor. When `InterruptionTokenSource::Interrupt()` is called, the associated long-running task is interrupted.
+## **Interrupt a Presentation Operation**
 
-## **Interruptable Library**
+Create an [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/), retrieve its token with [get_Token](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/get_token/), pass the token to [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/), and pass the load options to the [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/). To request cancellation, call [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) on the source. An interruptible operation stops when it observes the request.
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/), we introduced the [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) classes. They allow you to interrupt long-running tasks such as deserialization, serialization, and rendering.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) is the source of the token(s) passed to [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/).
-- When [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) is set and the [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) instance is passed to the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) constructor, invoking [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) interrupts any long-running task associated with that [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-
-The following code snippet demonstrates interrupting a running task:
+The example starts converting `sample.pptx` to `sample.ppt` in a background task and requests cancellation if the task is still running after 10 seconds. If the conversion finishes earlier, the output is already complete.
 
 ```cpp
 #include <DOM/InterruptionTokenSource.h>
@@ -38,54 +34,184 @@ The following code snippet demonstrates interrupting a running task:
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <IInterruptionToken.h>
-#include <system/smart_ptr.h>
-#include <system/threading/thread.h>
+#include <system/exceptions.h>
+#include <chrono>
+#include <future>
+#include <iostream>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto tokenSource = MakeObject<InterruptionTokenSource>();
-SharedPtr<IInterruptionToken> token = tokenSource->get_Token();
-
-// The conversion runs in a separate thread so that it can be interrupted.
-auto threadFunction = Threading::ThreadStart([token]() -> void
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto conversion = std::async(std::launch::async, [token]()
 {
     auto options = MakeObject<LoadOptions>();
     options->set_InterruptionToken(token);
-
     auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
     presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
 });
 
-auto thread = MakeObject<Threading::Thread>(threadFunction);
-thread->Start();
+if (conversion.wait_for(std::chrono::seconds(10)) == std::future_status::timeout)
+    source->Interrupt();
 
-Threading::Thread::Sleep(10000); // timeout
-tokenSource->Interrupt();        // stop the conversion
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
 ```
+
+## **Connect Application Cancellation to Aspose.Slides**
+
+If your application uses a [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/), use [Register](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/register/) to forward cancellation requests to [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/). The example exports `sample.pptx` to `sample.pdf` in a background task. If the export is still running after 20 seconds, the application calls [CancellationTokenSource::Cancel](https://reference.aspose.com/slides/cpp/system.threading/cancellationtokensource/cancel/), which invokes the registered callback.
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <system/threading/cancellation_token.h>
+#include <system/threading/cancellation_token_source.h>
+#include <chrono>
+#include <future>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto cancellation = MakeObject<Threading::CancellationTokenSource>();
+auto cancellationToken = cancellation->get_Token();
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto interrupt = Action<>([source]() { source->Interrupt(); });
+auto registration = cancellationToken.Register(interrupt);
+
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.pdf", Export::SaveFormat::Pdf);
+});
+
+if (conversion.wait_for(std::chrono::seconds(20)) == std::future_status::timeout)
+    cancellation->Cancel();
+
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
+registration.Dispose();
+```
+
+## **Stop Before Processing the Next Slide**
+
+Use the same [IInterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/) for both the presentation and the loop that exports its slides. Check [get_IsInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/get_isinterruptionrequested/) before starting each export. If the caller can use a partial result, return the slide numbers for the exports that completed successfully.
+
+Use a presentation named `sample.pptx` with at least two slides. The example requests cancellation immediately after it records the first successful export.
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <DOM/ISlideCollection.h>
+#include <system/array.h>
+#include <iostream>
+#include <vector>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto exportSlides = [](String path, SharedPtr<InterruptionTokenSource> source)
+{
+    std::vector<int32_t> completed;
+    auto token = source->get_Token();
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(path, options);
+    auto slideCount = presentation->get_Slides()->get_Count();
+
+    for (auto number = 1; number <= slideCount; ++number)
+    {
+        if (token->get_IsInterruptionRequested())
+            break;
+
+        std::cout << "Starting slide " << number << '\n';
+        auto filename = String::Format(u"slide-{0}.pdf", number);
+        auto slides = MakeArray<int32_t>({number});
+        try
+        {
+            presentation->Save(filename, slides, Export::SaveFormat::Pdf);
+        }
+        catch (const OperationCanceledException&)
+        {
+            if (!token->get_IsInterruptionRequested())
+                throw;
+            break;
+        }
+
+        completed.push_back(number);
+        if (number == 1)
+            source->Interrupt();
+    }
+    return completed;
+};
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto completed = exportSlides(u"sample.pptx", source);
+std::cout << "Completed: [";
+for (size_t i = 0; i < completed.size(); ++i)
+    std::cout << (i == 0 ? "" : ", ") << completed[i];
+std::cout << "]\n";
+```
+
+The example writes `slide-1.pdf` and prints `Starting slide 1` followed by `Completed: [1]`. The loop sees the request before it starts slide 2. If cancellation instead interrupts [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) during an export, the `catch` block exits the loop before the code records the current slide as complete.
+
+If the caller needs to handle cancellation, replace the `if` check and its `break` at the top of the loop with a call to [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) on the token. Remove the `try`/`catch` around the export so cancellation during a save also reaches the caller. With the same input, the example prints only `Starting slide 1` and writes `slide-1.pdf`. At the start of the second iteration, the caller receives an [System::OperationCanceledException](https://reference.aspose.com/slides/cpp/system/details_operationcanceledexception/) before the export begins. The caller receives no list of completed slides.
 
 ## **FAQ**
 
-### What is the purpose of the Aspose.Slides interrupt library?
+**When should I request cancellation?**
 
-It provides a mechanism to interrupt long-running operations—such as loading, saving, or rendering presentations—before they complete. This is useful when processing time must be limited or the task is no longer needed.
+Request cancellation when an operation exceeds your time limit or when your application no longer needs the result.
 
-### What is the difference between [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?
+**What is the difference between [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` is passed to the Aspose.Slides API and checked during long-running operations.
-- `InterruptionTokenSource` is used in your code to create tokens and trigger interruptions by calling `Interrupt()`.
+The source lets your application request cancellation. The token lets Aspose.Slides and your application check for that request.
 
-### What tasks can be interrupted?
+**Can I use a [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) with Aspose.Slides?**
 
-Any Aspose.Slides task that accepts an [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/)—such as loading a presentation with `Presentation(path, loadOptions)` or saving with `Presentation::Save(...)`—can be interrupted.
+Yes. When your application token signals cancellation, call [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) on the source associated with the presentation.
 
-### Does interruption happen immediately?
+**Which operations can I interrupt?**
 
-No. Interruption is cooperative: the operation periodically checks the token and stops as soon as it detects that [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) has been called.
+You can interrupt loading, saving, and rendering. Pass the token to the [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/) through [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/). The presentation can then observe cancellation during subsequent operations such as [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
-### What happens if I call [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) after a task has already completed?
+**Does an operation stop immediately?**
 
-Nothing—the call has no effect if the corresponding task has already completed.
+Cancellation is cooperative. An operation checks the token periodically and stops when it observes the request.
 
-### Can I reuse the same [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) for multiple tasks?
+**What happens if I call [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) after an operation finishes?**
 
-Yes—but after you call [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) on that source, all tasks using its tokens will be interrupted. Use separate token sources to manage tasks independently.
+The completed operation keeps its result.
+
+**Can multiple operations share an [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
+
+Yes. Calling [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) requests cancellation for every operation that uses a token from that source. Use a separate source for each operation you want to cancel independently.
