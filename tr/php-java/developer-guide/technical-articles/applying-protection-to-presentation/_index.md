@@ -1,5 +1,5 @@
 ---
-title: Şekil Kilitleri ile PHP'de Sunum Düzenlemelerini Kısıtlama
+title: PHP'de Şekil Kilitleriyle Sunum Düzenlemelerini Kısıtlama
 linktitle: Sunum Düzenlemelerini Kısıtlama
 type: docs
 weight: 60
@@ -17,39 +17,39 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PPTX sunumlarındaki şekilleri kilitleme ve kilidini açma, seçim, hareket, yeniden boyutlandırma ve gruplamayı kısıtlama konusunda bilgi edinin."
+description: "Aspose.Slides for PHP via Java ile PPTX sunumlarındaki şekilleri kilitleyip kilidini açmayı, seçim, hareket, yeniden boyutlandırma ve gruplamayı kısıtlamayı öğrenin."
 ---
 ## **Genel Bakış**
 
 Aspose.Slides for PHP via Java için yaygın bir kullanım, otomatik bir iş akışının parçası olarak PowerPoint (PPTX) sunumlarını oluşturmak, güncellemek ve kaydetmektir. Kullanıcılar bu sunumları aldıklarında, şekillerdeki değişiklikleri kısıtlamak, amaçlanan düzeni ve içeriği korumaya yardımcı olabilir.
 
-Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklar. Bu kilitler, tek tek şekiller üzerinde belirli düzenleme işlemlerini kısıtlamanıza olanak tanır.
+Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklar. Bu kilitler, bireysel şekillerde belirli düzenleme işlemlerini kısıtlamanızı sağlar.
 
-## **Slayt Bileşimi**
+## **Bir Slaytın Bileşimi**
 
-Bir sunum slaytı, autoshape'ler, tablolar, OLE nesneleri, gruplanmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for PHP via Java'da bir slayttaki her öğe, [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) sınıfından türeyen bir nesneyle temsil edilir.
+Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, gruplandırılmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve bir sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for PHP via Java'da, bir slayttaki her öğe, [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) sınıfından türeten bir nesneyle temsil edilir.
 
-Farklı şekil türleri farklı kilitleme seçenekleri sunar. [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) sınıfı şekil kilitlerinin temel sınıfıdır. Aspose.Slides for PHP via Java aşağıdaki kilit sınıflarını sağlar:
+Farklı şekil türleri farklı kilitleme seçenekleri sunar. [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) sınıfı, şekil kilitleri için temel sınıftır. Aspose.Slides for PHP via Java aşağıdaki kilit sınıflarını sağlar:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) autoshape'leri kilitler.  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) otomatik şekilleri kilitler.  
 - [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) bağlayıcı şekilleri kilitler.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) grafik nesneleri kilitler.  
 - [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) grup şekillerini kilitler.  
 - [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) resim çerçevelerini kilitler.  
 
-Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) üzerinde kilitleri uygulamak için slaytları döngüyle gezip her desteklenen şekil üzerinde uygun kilitleri ayarlayın.
+Bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) içinde kilitleri uygulamak için, slaytlarını döngüyle gezerek her desteklenen şekil üzerinde uygun kilitleri ayarlayın.
 
 ## **Koruma Uygulama ve Kaldırma**
 
-Uyumlu sunum editörleri, bireysel düzenleme işlemlerini kısıtlamak için şekil kilitlerini kullanır. Dosya şifrelemesi ve belge düzeyinde yazma koruması ayrı [sunum koruma ayarları](/slides/tr/php-java/password-protected-presentation/)dır.
+Uyumlu sunum editörleri, bireysel düzenleme işlemlerini kısıtlamak için şekil kilitlerini kullanır. Dosya şifreleme ve belge düzeyinde yazma koruması ayrı [sunum koruma ayarları](/slides/tr/php-java/password-protected-presentation/) dir.
 
 ### **PPTX Şekillerine Koruma Uygulama**
 
-Aspose.Slides for PHP via Java, slayttaki şekillerle çalışmak için [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) sınıfını sağlar.
+Aspose.Slides for PHP via Java, bir slayttaki şekillerle çalışmak için [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) sınıfını sağlar.
 
-Örnek, autoshape'ler için `true` ile [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) ve [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) metodlarını, grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitleri çağırır. Bağlayıcılar hareket için [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) metodunu, gruplar ise gruplamayı kısıtlamak için [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metodunu kullanır.
+Örnek, otoshapes için `true` ile [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) ve [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) metodlarını çağırır; grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitler kullanılır. Bağlayıcılar hareket için [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) metodunu kullanır; gruplar ayrıca gruplamayı kısıtlamak için [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metodunu kullanır.
 
-Örnek, mevcut bir PPTX sunumunu yükler, her slaytın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopyayı kaydeder. Dört işlenen tür dışındaki şekiller değiştirilmez. Döngü, bir grup içindeki alt şekilleri dolaşmaz.
+Örnek, mevcut bir PPTX sunumunu yükler, her slaydın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopyasını kaydeder. Dört işlenen tip dışındaki şekiller değişmeden bırakılır. Döngü, bir grup içindeki alt şekilleri dolaşmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -92,7 +92,7 @@ try {
 
 ### **Koruma Kaldırma**
 
-Bir şekil kilidini kaldırmak için değerini `false` olarak ayarlayın. Aşağıdaki örnek, şekil kilitli bir sunumu yükler ve seçim, hareket ve yeniden boyutlandırma kısıtlamalarını [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) ve [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) üzerinden temizler. Ayrıca, [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metoduna `false` geçerek grup kısıtlamasını da kaldırır ve bir kopyasını kaydeder. Diğer kilit ayarları değişmeden kalır.
+Bir şekil kilidini kaldırmak için değerini `false` olarak ayarlayın. Aşağıdaki örnek, şekil kilitleri içeren bir sunumu yükler ve [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) ve [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) aracılığıyla seçim, hareket ve yeniden boyutlandırma kısıtlamalarını temizler. Ayrıca, [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metoduna `false` geçirerek gruplama kısıtlamasını kaldırır ve sunumun bir kopyasını kaydeder. Diğer kilit ayarları değişmeden bırakılır.
 
 ```php
 use aspose\slides\Presentation;
@@ -135,7 +135,7 @@ try {
 
 ### **Resim Kırpmasını Korumak**
 
-Çalışma dizinine `photo.jpg` adlı bir fotoğraf yerleştirin. Örnek, soldan %12 ve sağdan %8 kırpar, ardından resim çerçevesinin kilidine [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) metodunu çağırır. `true` geçirilmesi, daha fazla kırpmayı kısıtlar ve mevcut kırpmayı korur.
+Çalışma dizinine `photo.jpg` adlı bir fotoğraf yerleştirin. Örnek, soldan %12 ve sağdan %8 kırpar, ardından resim çerçevesinin kilidi üzerinde [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) metodunu çağırır. `true` geçirilmesi, daha fazla kırpmayı kısıtlar ve mevcut kırpmayı korur.
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` kırpma kilidini `true` olarak saklar. PowerPoint'te fotoğraf seçildiğinde **Crop** komutu devre dışı bırakılır.
+`PictureLocked.pptx` kırpma kilidini `true` olarak depolar. PowerPoint'te fotoğraf seçildiğinde **Crop** komutu devre dışı bırakılır.
 
 ### **Bir Diyagramı Gruplu Tutmak**
 
-Örnek bir dikdörtgen ve bir ok gruplar, ardından grubun kilidine [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) metodunu çağırarak diyagram bileşenlerinin birlikte kalmasını sağlar. Grubu taşıma veya bir bileşenin dolgusunu değiştirme gibi diğer düzenlemeler kullanılabilir durumdadır.
+Örnek, bir dikdörtgen ve bir ok gruplar ve ardından grubun kilidi üzerinde [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) metodunu çağırarak diyagram bileşenlerinin bir arada kalmasını sağlar. Grubu taşımak veya bir bileşenin doldurmasını değiştirmek gibi diğer düzenlemeler kullanılabilir durumda kalır.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` gruptan çıkarma kilidini `true` olarak saklar. PowerPoint'te tüm diyagram seçildiğinde **Ungroup** komutu devre dışı bırakılır.
+`DiagramLocked.pptx` gruplamadan çıkma kilidini `true` olarak depolar. PowerPoint'te tüm diyagram seçildiğinde **Ungroup** komutu devre dışı bırakılır.
+
+### **Mevcut Şekil Kilitlerini Raporlama**
+
+Bir şablonu incelemek için açın ve her şekil için kilit nesnesini okuyun. [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) yöntemi, nesnedeki tüm bayraklar devre dışı olduğunda `true`, en az biri etkin olduğunda `false` döndürür. Bir grup ve alt öğeleri ayrı kilit nesnelerine sahiptir; bu nedenle grup kilidi olmasa bile alt öğeleri inceleyin.
+
+Bu örnek, otoshapes, resim çerçeveleri ve gruplar için hareketi kontrol eder. Ayrıca resimler için kırpmayı ve gruplar için gruptan çıkmayı kontrol eder. Rapor, tanıdığı etkin bayrakları listeler ve incelemediği şekil türlerini işaretler.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+`Sample.pptx` dosyasının 1. slaytında, `Layout` adlı bir grup, gruptan çıkma kilitli, içinde `Photo` adlı bir resim kırpma kilitli ve `Free` adlı kilitsiz bir dikdörtgen olduğunu varsayalım. Rapor, `Free` öğesini atlar ve şu iki satırı yazar:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Rapor, depolanmış şekil seviyesi düzenleme bayraklarını değiştirilmeksizin veya sunum kaydedilmeden okur. Belge düzeyinde yazma koruması ayrı bir ayardır ve her bayrağın uygulanması editöre bağlıdır.
 
 ### **Sonuç**
 
-Aspose.Slides for PHP via Java, tek tek şekiller üzerinde belirli düzenleme işlemlerini kısıtlamanıza veya aynı kısıtlamaları slaytlar arasında uygulamanıza olanak tanır. Her şekil türü tarafından desteklenen kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `false` olarak ayarlayın.
+Aspose.Slides for PHP via Java, bireysel şekillerde belirli düzenleme işlemlerini kısıtlamanızı veya aynı kısıtlamaları tüm slaytlara uygulamanızı sağlar. Her şekil türü tarafından desteklenen kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `false` olarak ayarlayın.
 
 ## **SSS**
 
-**Aynı sunumda şekil kilitlerini ve şifre korumasını birleştirebilir miyim?**
+**Aynı sunumda şekil kilitlerini ve parola korumasını birleştirebilir miyim?**
 
-Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [password protection](/slides/tr/php-java/password-protected-presentation/) sunumun açılmasını veya değiştirilmesini kısıtlayabilir. İkisini aynı dosyada kullanabilirsiniz.
+Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [parola koruması](/slides/tr/php-java/password-protected-presentation/) sunumun açılmasını veya değiştirilmesini kısıtlayabilir. İkisini aynı dosyada kullanabilirsiniz.
 
-**Belirli slaytlarda düzenlemeyi kısıtlayabilir, diğerlerini etkilemez miyim?**
+**Belirli slaytlarda düzenlemeyi etkilenmeyen diğer slaytlara dokunmadan kısıtlayabilir miyim?**
 
-Evet. Kilitleri yalnızca seçilen slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
+Evet. Kilitleri sadece seçili slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
 
-**Bir grup içindeki tek tek şekillere nasıl kilit uygulayabilirim?**
+**Bir grup içindeki bireysel şekillere kilitleri nasıl uygulayabilirim?**
 
-Grubun [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) metodunun döndürdüğü koleksiyonu döngüyle gezerek her alt şekle uygun kilitleri uygulayın. Bu işlemi iç içe gruplar için de tekrarlayın. Yukarıdaki örnekler yalnızca slaytın şekil koleksiyonunu işler, bu nedenle bireysel grup üyelerinin kilitlerini ayarlamaz.
+Grubun [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) metodunun döndürdüğü koleksiyonu döngüyle gezerek her alt şekle uygun kilitleri uygulayın. İç içe gruplar için bu işlemi yineleyin; raporlama örneğindeki yürütmeyi izleyin.

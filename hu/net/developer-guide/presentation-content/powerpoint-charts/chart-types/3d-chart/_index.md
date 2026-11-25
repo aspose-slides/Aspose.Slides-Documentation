@@ -1,6 +1,6 @@
 ---
 title: 3D diagramok testreszabása prezentációkban .NET-ben
-linktitle: 3D Diagram
+linktitle: 3D diagram
 type: docs
 url: /hu/net/3d-chart/
 keywords:
@@ -12,17 +12,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Készítsen 3D diagramokat PowerPoint prezentációkban az Aspose.Slides for .NET segítségével. Állítsa be a forgatást, a magasság arányait, a diagram mélységét és a sorozatok közti távolságot C# példákkal."
+description: "3D diagramok létrehozása PowerPoint prezentációkban az Aspose.Slides for .NET segítségével. Forgatás, magasságarányok, diagrammélység és a sorozatok közötti távolság beállítása C# példákkal."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy a 3D diagram nézetét a [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) tulajdonság segítségével testreszabja. Ez a cikk bemutatja, hogyan állítható be a forgatás, a magasság arányai, a mélység, a derékszögű tengelyek és a sorok közti távolság, majd hogyan menthető a prezentáció PPTX formátumban.
+Az Aspose.Slides for .NET lehetővé teszi a 3D diagram nézetének testreszabását az [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) tulajdonsággal. Ez a cikk bemutatja, hogyan állítható be a forgatás, a magasságarányok, a mélység, a derékszögű tengelyek és a sorozatok közötti távolság, majd hogyan menthető a prezentáció PPTX formátumban.
 
 ## **A 3D diagram forgatásának és mélységének beállítása**
 
-Az alábbi példa létrehoz egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) objektumot, és a [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) segítségével egy halmozott 3D oszlopdiagramot ad hozzá az első diájához. Lecseréli az alapértelmezett sorozatokat és kategóriákat két sorozatra, amelyek mindegyike három értéket tartalmaz. A `0` munkalap-index a diagram első adatlapját jelöli; a `0` sor a sorozatneveket, az `0` oszlop pedig a kategória címkéket tartalmazza.
+Az alábbi példa létrehoz egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) és a [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) segítségével hozzáad egy rétegezett 3D oszlopdiagramot az első diájához. Lecseréli az alapértelmezett sorozatokat és kategóriákat két sorozatra, amelyek mindegyike három értéket tartalmaz. A munkalap indexe `0` azonosítja a diagram első adatmunkalapját; a `0`‑s sor tartalmazza a sorozatneveket, a `0`‑s oszlop pedig a kategóriacímkéket.
 
-A [RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) és a [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) tulajdonságok a diagram forgatását állítják be 40 és 270 fokra. A [DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) a szélesség 150 %-ára állítja be a mélységet, míg a [RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) a perspektíva helyett derékszögű tengelyeket aktiválja. Az eredményül kapott prezentáció a feltöltött diagramot tartalmazza ezekkel a 3D nézetbeállításokkal.
+A [RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) és a [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) tulajdonságok a diagram forgatását 40‑re és 270‑re fokra állítják. A [DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) a mélységét a szélesség 150 %-ára állítja, míg a [RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) derékszögű tengelyeket kapcsol be perspektíva helyett. Az eredményül kapott prezentáció a kitöltött diagramot tartalmazza ezekkel a 3D‑nézetbeállításokkal.
 
 ```csharp
 using Aspose.Slides;
@@ -68,11 +68,59 @@ chart.Rotation3D.DepthPercents = 150;
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 
-## **A 3D diagram magasságarányának beállítása**
+## **Képtöltés alkalmazása egy 3D diagram felületére**
 
-Használja a [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) tulajdonságot a 3D diagram magasságának a szélességéhez viszonyított százalékos beállításához. Ez a 3D jelenet arányait változtatja meg anélkül, hogy a diagram objektum méretét a dián átméretezné.
+Egy 3D diagram három felülettel rendelkezik, amelyeket függetlenül tölthetünk ki: a [side wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/sidewall/), a [back wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) és a [floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/). Állítsa a kiválasztott felület [fill type](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) tulajdonságát `Picture`‑ra, és rendelje hozzá a képet. Állítsa mind a [picture fill mode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/)‑t, mind a felület [picture type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartwall/picturetype/)‑t `Stretch`‑re, hogy a kép egy példánya kitöltse a felületet.
 
-A következő példa létrehoz egy [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) diagramot az alapértelmezett adatokkal: három sorozat és négy kategória. Három prezentációt ment 50 %, 100 % és 200 % magasságarányokkal. A diagram pozíciója, szélessége és magassága állandó marad. Az adatok, forgatás, mélység, sorok közti távolság és formázás minden három fájlban azonos; csak a magasság százalékos értéke változik.
+Mentse el az [arrow.png](arrow.png) fájlt a munkakönyvtárba. A példa elforgatja a diagramot, és növeli a függőleges tengely maximális értékét, hogy a padló látható legyen az oszlopok között. Ezután kétszer klónozza a diát, mielőtt az nyilat különböző felületeken helyezné el. Mindhárom diagram ugyanolyan adatot, nézeti szöget és hátteret tartalmaz.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 20, 30, 680, 480);
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.RotationX = 40;
+chart.Rotation3D.RotationY = 30;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 24;
+
+var backSlide = presentation.Slides.AddClone(slide);
+var floorSlide = presentation.Slides.AddClone(slide);
+var backChart = (IChart)backSlide.Shapes[0];
+var floorChart = (IChart)floorSlide.Shapes[0];
+
+var imageBytes = File.ReadAllBytes("arrow.png");
+var arrow = presentation.Images.AddImage(imageBytes);
+
+foreach (var surface in new[] { chart.SideWall, backChart.BackWall, floorChart.Floor })
+{
+    var fill = surface.Format.Fill;
+    fill.FillType = FillType.Picture;
+    fill.PictureFillFormat.Picture.Image = arrow;
+    fill.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    surface.PictureType = PictureType.Stretch;
+}
+
+presentation.Save("chart-surfaces.pptx", SaveFormat.Pptx);
+```
+
+A Microsoft PowerPoint a három diát az alábbi módon jeleníti meg.
+
+| Oldalfal | Hátfal | Alap |
+| --- | --- | --- |
+| ![Nyíl, amely a diagram felé mutat az oldal falán](side-wall.png) | ![Nyíl, amely jobbra mutat a hátfalon](back-wall.png) | ![Nyíl, amely jobbra mutat a oszlopok közti alapon](floor.png) |
+
+## **A 3D diagram magasságarányainak módosítása**
+
+Használja a [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) tulajdonságot, hogy a 3D diagram magasságát a szélesség százalékában adja meg. Ez megváltoztatja a 3D jelenet arányait anélkül, hogy átméretezné a diagram objektumot a dián.
+
+A következő példa egy [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) diagramot hoz létre az alapértelmezett adatokkal: három sorozat és négy kategória. Három prezentációt ment 50 %, 100 % és 200 % magasságarányokkal. A diagram pozíciója, szélessége és magassága változatlan marad. Az adatok, a forgatás, a mélység, a sorozatok távolsága és a formázás minden fájlban azonos; csak a magasság százalékos értéke változik.
 
 ```csharp
 using Aspose.Slides;
@@ -96,40 +144,34 @@ foreach (ushort heightPercent in new ushort[] { 50, 100, 200 })
 }
 ```
 
-Az alábbi képek a generált prezentációkból lettek exportálva a Microsoft PowerPoint használatával. A kisebb százalék laposabb jelenetet eredményez, míg a nagyobb százalék a ugyanazon diagramobjektumban magasabb jelenetet hoz létre. A PowerPoint esetleg a tengelyek jelölőinek intervallumát és a címkék elhelyezését is módosíthatja a jelenethez igazodva.
+Az alábbi képeket a generált prezentációkból exportálta a Microsoft PowerPoint. A kisebb százalék laposabb jelenetet eredményez, míg a nagyobb százalék magasabb jelenetet a diagram objektumon belül. A PowerPoint akár a tengelyjelölők intervallumát és a címkék elhelyezését is módosíthatja a jelenethez igazodva.
 
 | Magasság: 50% | Magasság: 100% | Magasság: 200% |
 | --- | --- | --- |
-| ![3D oszlopdiagram, amelynek magassága a szélességének 50%-a](height_percent_50.png) | ![3D oszlopdiagram, amelynek magassága a szélességének 100%-a](height_percent_100.png) | ![3D oszlopdiagram, amelynek magassága a szélességének 200%-a](height_percent_200.png) |
-
-Ezek a tulajdonságok a diagram különböző aspektusait szabályozzák:
+| ![3D oszlopdiagram, amelynek magassága a szélesség 50 százaléka](height_percent_50.png) | ![3D oszlopdiagram, amelynek magassága a szélesség 100 százaléka](height_percent_100.png) | ![3D oszlopdiagram, amelynek magassága a szélesség 200 százaléka](height_percent_200.png) |
 
 | Tulajdonság | Hatás |
 | --- | --- |
 | [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | A 3D jelenet magassága a szélességének százalékában. |
-| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | A diagram objektum magassága a dián pontban. |
+| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | A diagram objektum magassága a dián, pontokban. |
 | [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | A 3D jelenet mélysége a szélességének százalékában. |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | A sorok közti távolság a mélységi tengely mentén, a jelölő szélességének százalékában. |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | A sorozatok közötti távolság a mélységi tengelyen, a jelölő szélességének százalékában. |
 
-A magasság beállítása a 3D oszlop- és sávdiagramokra hat, beleértve a henger-, kúp- és piramisváltozatokat, valamint a 3D vonal-, terület-, kör- és felületdiagramokat. A fenti összehasonlítás a hitelesített `Column3D` típust használja. A beállítás nem változtatja meg a 2D `ClusteredColumn` vagy a `BubbleWith3D` diagram megjelenését; ezek a nevek a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolás tagjai. Egyéb diagram megjelenési beállításokért lásd a [Chart Formatting](/slides/hu/net/chart-formatting/) oldalt.
+A magasságbeállítás hatással van a 3D oszlop- és sávdiagramokra, beleértve a henger, kúp és piramis változatokat, valamint a 3D vonal-, terület-, kör- és felületdiagramokra. A fenti összehasonlítás a hitelesített `Column3D` típust használja. A beállítás nem változtatja meg a 2D `ClusteredColumn` vagy a `BubbleWith3D` diagram megjelenését; ezek a nevek a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolás elemei. Egyéb diagramformázási beállításokért lásd a [Chart Formatting](/slides/hu/net/chart-formatting/) cikket.
 
-## **A sorok közti rés (gap) beállítása**
+## **A sorozatok közötti hézag módosítása**
 
-Használja a [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) tulajdonságot a 3D diagram adat‑sorai közti távolság szabályozásához a mélységi tengelyen, a jelölő szélességének százalékában kifejezve. Az értékek **0‑tól 500‑ig** terjednek, zárólagos: a `0` eltávolítja a részt, míg a nagyobb értékek növelik a távolságot. Fix diagrammélység mellett a rés növelése vékonyabb jelölőket eredményez a mélységi tengelyen.
+Használja a [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) tulajdonságot a 3D diagram adat-sorozatai közötti távolság szabályozására a mélységi tengely mentén, a jelölő szélességének százalékában kifejezve. Használjon **0‑tól 500‑ig** terjedő értékeket, beleértve a 0‑t: `0` eltávolítja a hézagot, a nagyobb értékek pedig növelik a távolságot. Fix diagrammélység esetén a hézag növelése a jelölőket vékonyabbá teszi a mélységi tengelyen.
 
-A csoportot a [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) segítségével érheti el. A beállítás a csoport összes sorozatára érvényes, nem csak arra, amelyen keresztül hozzáfér. Az [IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) csak olvasható, és a szülőcsoport beállítását tükrözi.
+A csoportot a [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) segítségével érheti el. A beállítás a csoport minden sorozatára vonatkozik, nem csak arra, amelyiken keresztül elérte. Az [IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) csak olvasható, és a szülőcsoport beállítását tükrözi.
 
-Ez a beállítás a 3D oszlop- és sávdiagramokra hat, beleértve azok henger-, kúp- és piramisváltozatait, valamint a 3D vonal‑ és területdiagramokra. A megjelenés attól függ, hogy a sorozatok a mélység mentén, csoportosítva vagy halmozva vannak‑e. A különálló sorozatok közti rés könnyű összehasonlításához használja a `ChartType.Column3D` típusú diagramot a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolásból.
-
-Ezek a tulajdonságok a diagram különböző aspektusait szabályozzák:
+Ez a beállítás hatással van a 3D oszlop- és sávdiagramokra, beleértve henger, kúp és piramis változataikat, valamint a 3D vonal‑ és területdiagramokra. A megjelenés attól függ, hogy a sorozatok mélységben, csoportosítva vagy rétegezve vannak-e. A sorozatok közötti hézagok világos összehasonlításához használja a `ChartType.Column3D` típust a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolásból.
 
 | Tulajdonság | Hatás |
 | --- | --- |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | A sorok közti távolság a mélységi tengelyen, a jelölő szélességének százalékában. |
-| [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | A szomszédos sáv‑ vagy oszlopcsoportok közti távolság, a sáv vagy oszlop szélességének százalékában. |
-| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | A diagram összes mélysége, a diagram szélességének százalékában. |
-
-Az alábbi önálló példa az alapértelmezett diagramadatokat használja, amelyek három sorozatot és négy kategóriát tartalmaznak. Két prezentációt ment azonos adatokkal, forgatással, rés szélességgel és diagrammélységgel; csak a rés mélysége változik.
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | A sorozatok közötti távolság a mélységi tengelyen, a jelölő szélességének százalékában. |
+| [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | A szomszédos sáv‑ vagy oszlopklaszterek közötti távolság, a sáv vagy oszlop szélességének százalékában. |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | A diagram teljes mélysége, a diagram szélességének százalékában. |
 
 ```csharp
 using Aspose.Slides;
@@ -159,15 +201,15 @@ foreach (ushort gapDepth in new ushort[] { 0, 500 })
 }
 ```
 
-Az alábbi képek a generált prezentációkból lettek exportálva a Microsoft PowerPoint segítségével.
+Az alábbi képeket a generált prezentációkból exportálta a Microsoft PowerPoint.
 
-| Réstűlés: 0% | Réstűlés: 500% |
+| Hézag mélység: 0% | Hézag mélység: 500% |
 | --- | --- |
-| ![3D oszlopdiagram, amelyiknek nincs része a sorok között a mélységi tengely mentén](gap_depth_0.png) | ![3D oszlopdiagram, amelyiknek 500 százalékos része van a sorok között a mélységi tengely mentén](gap_depth_500.png) |
+| ![3D oszlopdiagram, ahol nincs hézag a sorozatok között a mélységi tengelyen](gap_depth_0.png) | ![3D oszlopdiagram, amelynek 500 százalékos hézagja van a sorozatok között a mélységi tengelyen](gap_depth_500.png) |
 
-## **A 3D sorozattípus és a sáv alakjának módosítása**
+## **A 3D sorozattípus és a sávforma módosítása**
 
-Egy csoportosított hengerdiagram esetén az első sorozat henger alakú sávval indul. A példa beolvassa az [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) és az [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) értékeket minden változtatás előtt és után.
+Egy csoportosított henger diagram első sorozata henger alakú sávval indul. A példa a [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) és a [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) értékét olvassa minden módosítás előtt és után.
 
 ```cs
 using System;
@@ -192,26 +234,26 @@ Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
 presentation.Save("series_shape.pptx", SaveFormat.Pptx);
 ```
 
-| Változtatás az első sorozaton | `Type` | `Bar3DShape` |
+| Módosítás az első sorozatra | `Type` | `Bar3DShape` |
 | --- | --- | --- |
 | Diagram létrehozása | `ClusteredCylinder` | `Cylinder` |
-| `Type` beállítása `ClusteredCone`‑ra | `ClusteredCone` | `Cone` |
-| `Bar3DShape` beállítása `Box`‑ra | `ClusteredColumn3D` | `Box` |
+| Állítsa a `Type`‑t `ClusteredCone`‑ra | `ClusteredCone` | `Cone` |
+| Állítsa a `Bar3DShape`‑t `Box`‑ra | `ClusteredColumn3D` | `Box` |
 
-A `Box` alakra történő beállítás a sorozat típusát is `ClusteredColumn3D`‑ra módosítja. Ha a kódban a sorozattípus alapján elágazik, olvassa a `series.Type` értékét a forma módosítása után. A hozzárendelés előtt cache‑elt érték még mindig a `ClusteredCone` ágat választaná.
+A sávforma `Box`‑ra állítása szintén a sorozattípust `ClusteredColumn3D`‑ra változtatja. Ha a kód a sorozattípus alapján ágazik, olvassa a `series.Type`‑t a forma módosítása után. A hozzárendelés előtt tárolt érték továbbra is a `ClusteredCone` ágat választhatja.
 
-![PowerPoint összehasonlítás, amely az első sorozatot hengerként, kónként és téglalapos oszlopként mutatja balról jobbra](series-shapes.png)
+![PowerPoint összehasonlítás, amely balról jobbra az első sorozatot henger, kúp és téglalap alakú oszlopokként mutatja](series-shapes.png)
 
 ## **GYIK**
 
 **Mely diagramtípusok támogatják a 3D módot az Aspose.Slides‑ben?**
 
-Az Aspose.Slides támogatja a 3D oszlopdiagramok változatait, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és 100 % Stacked Column 3D típusokat, valamint a kapcsolódó 3D típusokat, amelyeket a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolás biztosít. A pontos, naprakész lista megtekintéséhez ellenőrizze a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) tagjait az adott verzió API referenciájában.
+Az Aspose.Slides támogatja a 3D változatokat az oszlopdiagramoknál, beleértve a Column 3D, Clustered Column 3D, Stacked Column 3D és 100 % Stacked Column 3D típusokat, valamint a kapcsolódó 3D típusokat, amelyeket a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolás definiál. A pontos, naprakész lista megtekinthető a telepített verzió API‑referenciájában a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) elemei között.
 
-**Kaphatok raster képet egy 3D diagramról jelentéshez vagy a webhez?**
+**Kaphatok raszteres képet egy 3D diagramról jelentéshez vagy a webhez?**
 
-Igen. Exportálhatja a diagramot képként a [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) vagy a [diák teljes renderelésével](/slides/hu/net/convert-powerpoint-to-png/) PNG vagy JPEG formátumban. Ez hasznos, ha raszteres előnézetre van szüksége, vagy a diagramot dokumentumokba, műszerfalakba vagy weboldalakba szeretné beágyazni PowerPoint igénylése nélkül.
+Igen. A diagramot exportálhatja képként a [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) vagy a teljes dia [renderelése](/slides/hu/net/convert-powerpoint-to-png/) PNG vagy JPEG formátumba. Ez akkor hasznos, ha raszteres előnézetre van szükség, vagy be szeretné ágyazni a diagramot dokumentumokba, irányítópultokra vagy weboldalakra anélkül, hogy a PowerPointot igényelné.
 
-**Milyen teljesítményű a nagy 3D diagramok építése és renderelése?**
+**Mennyire magas a teljesítmény nagy 3D diagramok építése és renderelése esetén?**
 
-A teljesítmény az adat mennyiségétől és a vizuális komplexitástól függ. A legjobb eredmény érdekében tartsa a 3D hatásokat minimális szinten, kerülje a nehéz textúrákat a falakon és a diagramterületeken, korlátozza sorozatonkénti adatpontok számát, és rendereljen megfelelő méretű kimenetre (felbontás és méretek) a célkijelző vagy nyomtatási igényeknek megfelelően.
+A teljesítmény az adatmennyiségtől és a vizuális komplexitástól függ. A legjobb eredmény érdekében tartsa a 3D‑effekteket minimális szinten, kerüljön el nehéz textúrákat a falakon és a plot területeken, korlátozza a sorozatonkénti adatpontok számát, amennyiben lehetséges, és rendereljen a célnak megfelelő felbontású és méretű kimenetre, hogy megfeleljen a megjelenítési vagy nyomtatási igényeknek.

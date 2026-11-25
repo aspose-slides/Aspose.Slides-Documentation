@@ -1,12 +1,12 @@
 ---
-title: Präsentationsbearbeitungen mit Form‑Sperren in Java einschränken
-linktitle: Präsentationsbearbeitungen einschränken
+title: Einschränken von Präsentationsbearbeitungen mit Form‑Sperren in Java
+linktitle: Einschränken von Präsentationsbearbeitungen
 type: docs
 weight: 60
 url: /de/java/applying-protection-to-presentation/
 keywords:
 - Bearbeitungen verhindern
-- vor Bearbeitung schützen
+- Vor Bearbeitung schützen
 - Form sperren
 - Position sperren
 - Auswahl sperren
@@ -17,39 +17,39 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formen in PPTX‑Präsentationen mit Aspose.Slides for Java sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung zu beschränken."
+description: "Erfahren Sie, wie Sie Formen in PPTX‑Präsentationen mit Aspose.Slides for Java sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung einzuschränken."
 ---
 ## **Hintergrund**
 
-Ein häufiger Anwendungsfall für Aspose.Slides for Java ist das Erstellen, Aktualisieren und Speichern von PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen helfen, das beabsichtigte Layout und den Inhalt zu bewahren.
+Ein häufiges Einsatzszenario von Aspose.Slides for Java ist das Erstellen, Aktualisieren und Speichern von PowerPoint‑(PPTX‑)Präsentationen im Rahmen eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen dabei helfen, das beabsichtigte Layout und den Inhalt zu erhalten.
 
-Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie man Form‑Sperren in einer PPTX‑Präsentation anwendet und entfernt. Diese Sperren ermöglichen es, bestimmte Bearbeitungsvorgänge für einzelne Formen einzuschränken.
+Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie Form‑Sperren in einer PPTX‑Präsentation angewendet und entfernt werden. Diese Sperren ermöglichen es, bestimmte Bearbeitungsoperationen für einzelne Formen zu beschränken.
 
 ## **Zusammensetzung einer Folie**
 
-Eine Folie einer Präsentation besteht aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, gruppierten Formen, Bildrahmen, Videorahmen, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides for Java wird jedes Element einer Folie durch ein Objekt repräsentiert, das das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface implementiert oder von einer Klasse erbt, die dies tut.
+Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides for Java wird jedes Element einer Folie durch ein Objekt repräsentiert, das das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface implementiert oder von einer Klasse erbt, die dies tut.
 
 Verschiedene Formtypen bieten unterschiedliche Sperroptionen. Das [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/)‑Interface ist das Basisschnittstelle für Form‑Sperren. Aspose.Slides for Java stellt die folgenden Sperr‑Interfaces bereit:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) sperrt Autoformen.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) sperrt Verbindungsformen.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) sperrt Connector‑Formen.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) sperrt grafische Objekte.  
 - [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) sperrt Gruppenformen.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) sperrt Bildrahmen.  
 
-Um Sperren für eine [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
+Um Sperren über eine [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) hinweg anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
 
-## **Anwenden und Entfernen von Schutz**
+## **Schutz anwenden und entfernen**
 
-Kompatible Präsentations‑Editoren verwenden Form‑Sperren, um einzelne Bearbeitungsvorgänge einzuschränken. Dateiverschlüsselung und schreibgeschützte Dokumentebene sind separate [Kennwortschutz](/slides/de/java/password-protected-presentation/).
+Kompatible Präsentationseditoren verwenden Form‑Sperren, um einzelne Bearbeitungsoperationen zu beschränken. Dateiverschlüsselung und schreibgeschützte Dokumentebene sind separate [Präsentationsschutz‑Einstellungen](/slides/de/java/password-protected-presentation/).
 
-### **Schutz auf PPTX‑Formen anwenden**
+### **Schutz auf PPTX-Formen anwenden**
 
-Aspose.Slides for Java stellt das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface zur Arbeit mit Formen auf einer Folie bereit.
+Aspose.Slides for Java stellt das [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑Interface bereit, um mit Formen auf einer Folie zu arbeiten.
 
-Das Beispiel ruft [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), und [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) mit `true` für Autoformen auf, mit entsprechenden Sperren für Gruppenformen, Verbinder und Bildrahmen. Verbinder verwenden [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) für die Bewegung; Gruppen verwenden zudem [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-), um das Gruppieren einzuschränken.
+Das Beispiel ruft [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) und [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) mit `true` für Autoformen auf, mit entsprechenden Sperren für Gruppenformen, Connectoren und Bildrahmen. Connectoren verwenden [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) für Bewegungen; Gruppen nutzen zudem [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-), um das Gruppieren zu beschränken.
 
-Das Beispiel lädt eine vorhandene PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Formen außerhalb der vier behandelten Typen bleiben unverändert. Die Schleife durchläuft nicht die Unterformen innerhalb einer Gruppe.
+Das Beispiel lädt eine vorhandene PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Formen außerhalb der vier behandelten Typen bleiben unverändert. Die Schleife durchläuft nicht die untergeordneten Formen innerhalb einer Gruppe.
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +95,7 @@ try {
 
 ### **Schutz entfernen**
 
-Um eine Form‑Sperre zu entfernen, setzen Sie ihren Wert auf `false`. Das nachfolgende Beispiel lädt eine Präsentation mit Form‑Sperren und löst die Auswahl‑, Bewegungs‑ und Größenänderungs‑Einschränkungen über [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), und [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Außerdem wird die Gruppierungs‑Einschränkung entfernt, indem `false` an [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) übergeben wird, und eine Kopie der Präsentation gespeichert. Andere Sperreinstellungen bleiben unverändert.
+Um eine Form‑Sperre zu entfernen, setzen Sie deren Wert auf `false`. Das folgende Beispiel lädt eine Präsentation mit Form‑Sperren und löscht die Auswahl‑, Bewegungs‑ und Größenänderungs‑Einschränkungen über [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) und [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Es entfernt außerdem die Gruppierungs‑Einschränkung, indem `false` an [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) übergeben wird, und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-### **Bild‑Zuschneiden beibehalten**
+### **Bildausschnitt erhalten**
 
-Platzieren Sie ein Foto mit dem Namen `photo.jpg` im Arbeitsverzeichnis. Das Beispiel schneidet 12% von links und 8% von rechts zu und ruft anschließend [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) auf der Sperre des Bildrahmens auf. Das Übergeben von `true` verhindert weiteres Zuschneiden und bewahrt das vorhandene Zuschneiden.
+Legen Sie ein Foto mit dem Namen `photo.jpg` im Arbeitsverzeichnis ab. Das Beispiel schneidet 12 % von links und 8 % von rechts ab und ruft dann [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) auf der Sperre des Bildrahmens auf. Die Übergabe von `true` verhindert weitere Zuschnitte und bewahrt den vorhandenen Zuschnitt.
 
 ```java
 import com.aspose.slides.*;
@@ -169,7 +169,7 @@ try {
 }
 ```
 
-`PictureLocked.pptx` speichert die Zuschneide‑Sperre als `true`. In PowerPoint ist der Befehl **Crop** deaktiviert, wenn das Foto ausgewählt ist.
+`PictureLocked.pptx` speichert die Zuschnitt‑Sperre als `true`. In PowerPoint ist der **Crop**‑Befehl deaktiviert, wenn das Foto ausgewählt ist.
 
 ### **Diagramm gruppiert halten**
 
@@ -193,22 +193,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` speichert die Entgruppierungs‑Sperre als `true`. In PowerPoint ist der Befehl **Ungroup** deaktiviert, wenn das gesamte Diagramm ausgewählt ist.
+`DiagramLocked.pptx` speichert die Auflösung‑Sperre als `true`. In PowerPoint ist der **Ungroup**‑Befehl deaktiviert, wenn das gesamte Diagramm ausgewählt ist.
+
+### **Vorhandene Form‑Sperren melden**
+
+Um eine Vorlage zu prüfen, öffnen Sie sie und lesen das Sperr‑Objekt jeder Form aus. Die Methode [getNoLocks](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/#getNoLocks--) gibt `true` zurück, wenn alle Flags dieses Objekts deaktiviert sind, und `false`, wenn mindestens eines aktiviert ist. Eine Gruppe und ihre Kinder besitzen separate Sperr‑Objekte, daher sollten Sie die Kinder prüfen, selbst wenn die Gruppe keine Sperren hat.
+
+Dieses Beispiel prüft die Bewegung von Autoformen, Bildrahmen und Gruppen. Es prüft außerdem den Zuschnitt von Bildern und das Auflösen von Gruppen. Der Bericht listet die erkannten aktivierten Flags auf und markiert Formtypen, die nicht geprüft werden.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            StringJoiner flags = new StringJoiner(", ");
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = flags.length() > 0 ? flags.toString() : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Angenommen, Folie 1 von `Sample.pptx` enthält eine Gruppe namens `Layout` mit gesperrtem Auflösen, ein Bild namens `Photo` darin mit gesperrtem Zuschnitt und ein entsperrtes Rechteck namens `Free`. Der Bericht überspringt `Free` und gibt diese beiden Zeilen aus:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Der Bericht liest die gespeicherten, formbezogenen Bearbeitungsflags, ohne sie zu ändern oder die Präsentation zu speichern. Der schreibgeschützte Dokumentenschutz ist eine separate Einstellung, und die Durchsetzung jedes Flags hängt vom Editor ab.
 
 ### **Fazit**
 
-Aspose.Slides for Java ermöglicht es, bestimmte Bearbeitungsvorgänge für einzelne Formen einzuschränken oder dieselben Einschränkungen für alle Folien anzuwenden. Wählen Sie die für jeden Formtyp unterstützten Sperren aus und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen möchten.
+Aspose.Slides for Java ermöglicht es, bestimmte Bearbeitungsoperationen für einzelne Formen zu beschränken oder dieselben Einschränkungen über Folien hinweg anzuwenden. Wählen Sie die von jedem Formtyp unterstützten Sperren und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen möchten.
 
 ## **FAQ**
 
-**Kann ich Form‑Sperren und Kennwortschutz in derselben Präsentation kombinieren?**
+**Kann ich Form‑Sperren und Passwortschutz in derselben Präsentation kombinieren?**
 
-Ja. Form‑Sperren beschränken bestimmte Bearbeitungsvorgänge, während [Kennwortschutz](/slides/de/java/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beides in derselben Datei verwenden.
+Ja. Form‑Sperren beschränken bestimmte Bearbeitungsoperationen, während [Passwortschutz](/slides/de/java/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beide in derselben Datei verwenden.
 
-**Kann ich die Bearbeitung bestimmter Folien einschränken, ohne andere zu beeinflussen?**
+**Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
 
-Ja. Wenden Sie Sperren nur auf die Formen der ausgewählten Folien an. Dies ändert die Sperreinstellungen auf anderen Folien nicht.
+Ja. Sie wenden Sperren nur auf die Formen der ausgewählten Folien an. Dadurch werden die Sperreinstellungen anderer Folien nicht geändert.
 
 **Wie kann ich Sperren auf einzelne Formen innerhalb einer Gruppe anwenden?**
 
-Iterieren Sie über die von der Gruppe zurückgegebene Sammlung via [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--)‑Methode und wenden die entsprechenden Sperren auf jede Unterform an. Wiederholen Sie dies für beliebig verschachtelte Gruppen. Die obigen Beispiele verarbeiten nur die Form‑Sammlung der Folie, sodass sie keine Sperren für einzelne Gruppenmitglieder setzen.
+Iterieren Sie über die Sammlung, die von der Gruppe über die Methode [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) zurückgegeben wird, und wenden Sie die entsprechenden Sperren auf jede untergeordnete Form an. Wiederholen Sie dies für verschachtelte Gruppen und folgen Sie dabei der Durchlauf‑Logik im Bericht‑Beispiel.

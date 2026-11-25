@@ -1,11 +1,11 @@
 ---
-title: تقييد تعديلات العرض باستخدام أقفال الشكل في Node.js
-linktitle: تقييد تعديلات العرض
+title: تقييد تحرير العروض باستخدام أقفال الشكل في Node.js
+linktitle: تقييد تحرير العرض
 type: docs
 weight: 60
 url: /ar/nodejs-java/applying-protection-to-presentation/
 keywords:
-- منع التعديلات
+- منع التحرير
 - حماية من التحرير
 - قفل الشكل
 - قفل الموقع
@@ -14,43 +14,43 @@ keywords:
 - قفل التجميع
 - PowerPoint
 - PPTX
-- عرض تقديمي
+- العرض
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides for Node.js عبر Java لتقييد الاختيار، التحريك، تغيير الحجم، والتجميع."
+description: "تعرّف على كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides for Node.js عبر Java لتقييد الاختيار والحركة وتغيير الحجم والتجميع."
 ---
 ## **نظرة عامة**
 
-استخدام شائع لـ Aspose.Slides for Node.js عبر Java هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل آلي. عندما يتلقى المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
+استخدام شائع لـ Aspose.Slides for Node.js via Java هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل آلي. عندما يتلقى المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
 
-تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تسمح لك هذه الأقفال بتقييد عمليات التحرير المحددة على الأشكال الفردية.
+تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تسمح لك هذه الأقفال بتقييد عمليات تحرير محددة على كل شكل على حدة.
 
-## **تكوين الشريحة**
+## **تركيب الشريحة**
 
-تتكون شريحة العرض من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء عرض تقديمي. في Aspose.Slides for Node.js عبر Java، يُمثل كل عنصر على الشريحة ككائن يرث من الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) .
+تتكون شريحة العرض من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for Node.js via Java، يُمثَّل كل عنصر على الشريحة ككائن يرث من الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) .
 
-تُظهر أنواع الأشكال المختلفة خيارات قفل مختلفة. الفئة [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) هي الفئة الأساسية لأقفال الأشكال. تُوفر Aspose.Slides for Node.js عبر Java الفئات القفلية التالية:
+تكشف أنواع الأشكال المختلفة عن خيارات قفل مختلفة. الفئة [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) هي الفئة الأساسية لأقفال الأشكال. توفر Aspose.Slides for Node.js via Java الفئات القفلية التالية:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) قفل الأشكال التلقائية.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) قفل أشكال الموصل.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) قفل الكائنات الرسومية.  
-- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) قفل الأشكال المجموعة.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) قفل إطارات الصورة.  
+- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) يقفل الأشكال التلقائية.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) يقفل أشكال الموصل.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) يقفل الكائنات الرسومية.  
+- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) يقفل الأشكال المجمعة.  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) يقفل إطارات الصور.  
 
-لتطبيق الأقفال عبر [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، قم بالتكرار عبر شرائحها واضبط الأقفال المناسبة على كل شكل مدعوم.
+لتطبيق الأقفال عبر الـ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، قم بالتكرار عبر شرائحه واضبط الأقفال المناسبة على كل شكل مدعوم.
 
 ## **تطبيق وإزالة الحماية**
 
-تستخدم محررات العروض المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. تشفير الملفات وحماية الكتابة على مستوى المستند هي إعدادات [إعدادات حماية العرض](/slides/ar/nodejs-java/password-protected-presentation/) منفصلة.
+تستخدم محررات العروض المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. تشفير الملفات وحماية الكتابة على مستوى المستند هي إعدادات [presentation protection settings](/slides/ar/nodejs-java/password-protected-presentation/) منفصلة.
 
 ### **تطبيق الحماية على أشكال PPTX**
 
-توفر Aspose.Slides for Node.js عبر Java الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) للعمل مع الأشكال على الشريحة.
+توفر Aspose.Slides for Node.js via Java الفئة [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) للعمل مع الأشكال على الشريحة.
 
-تستدعي المثال الدوال [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)، [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked)، و[setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) بقيمة `true` للأشكال التلقائية، وبأقفال مماثلة لأشكال المجموعة، الموصلات، وإطارات الصورة. تستخدم الموصلات [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) للتحريك؛ كما تستخدم المجموعات [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) لتقييد التجميع.
+تستدعي العينة الدوال [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)، [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked)، و[setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) مع `true` للأشكال التلقائية، مع أقفال مكافئة لأشكال المجموعات، الموصلات، وإطارات الصور. تستخدم الموصلات [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) للحركة؛ المجموعات تستخدم أيضًا [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) لتقييد التجميع.
 
-يقوم المثال بتحميل عرض PPTX موجود، يتحقق من الأشكال في مجموعة أشكال كل شريحة، ويحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال التي خارج الأنواع الأربعة المعالجة دون تغيير. لا يتجاوز الحلقة الأشكال الفرعية داخل المجموعة.
+تقوم العينة بتحميل عرض PPTX موجود، وتفحص الأشكال في مجموعة أشكال كل شريحة، وتحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المعالجة دون تغيير. لا يتجول الحلقة عبر الأشكال الفرعية داخل مجموعة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,7 +95,7 @@ try {
 
 ### **إزالة الحماية**
 
-لإزالة قفل الشكل، اضبط قيمته على `false`. يحمل المثال التالي عرضًا يحتوي على أقفال الأشكال ويزيل قيود التحديد، التحريك، وتغيير الحجم من خلال [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/)، [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/)، و[PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). كما يزيل قيود التجميع بتمرير `false` إلى [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) ويحفظ نسخة...
+لإزالة قفل الشكل، اضبط قيمته إلى `false`. تقوم العينة التالية بتحميل عرض يحتوي على أقفال أشكال وتزيل قيود الاختيار والحركة وتغيير الحجم عبر [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/)، [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/)، و[PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). كما أنها تزيل قيد التجميع بتمرير `false` إلى [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked)، وتحفظ نسخة من العرض. تظل إعدادات الأقفال الأخرى دون تغيير.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,7 +140,7 @@ try {
 
 ### **الحفاظ على قص الصورة**
 
-ضع صورة باسم `photo.jpg` في دليل العمل. يقطع المثال 12٪ من اليسار و8٪ من اليمين، ثم يستدعي [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) على قفل إطار الصورة. تمرير `true` يقيّد أي قص إضافي ويحافظ على القص الحالي.
+ضع صورة باسم `photo.jpg` في دليل العمل. تقص العينة 12% من اليسار و8% من اليمين، ثم تستدعي [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) على قفل إطار الصورة. تمرير `true` يقيّد القص الإضافي ويحافظ على القص الحالي.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -172,11 +172,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` يخزن قفل القص كـ `true`. في PowerPoint، يصبح أمر **Crop** معطلاً عندما تُحدد الصورة.
+`PictureLocked.pptx` يخزن قفل القص كـ `true`. في PowerPoint، يُعطَّل أمر **Crop** عند تحديد الصورة.
 
-### **الحفاظ على تجميع المخطط**
+### **إبقاء المخطط مجمعًا**
 
-يقوم المثال بتجميع مستطيل وسهم، ثم يستدعي [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) على قفل المجموعة للحفاظ على مكونات المخطط معًا. تبقى التعديلات الأخرى، مثل تحريك المجموعة أو تغيير تعبئة مكوّن، متاحة.
+تقوم العينة بتجميع مستطيل وسهم، ثم تستدعي [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) على قفل المجموعة للحفاظ على مكونات المخطط معًا. تظل التعديلات الأخرى، مثل نقل المجموعة أو تغيير تعبئة مكون، متاحة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,22 +196,88 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` يخزن قفل إلغاء التجميع كـ `true`. في PowerPoint، يصبح أمر **Ungroup** معطلاً عندما يُحدد المخطط بالكامل.
+`DiagramLocked.pptx` يخزن قفل فك التجميع كـ `true`. في PowerPoint، يُعطَّل أمر **Ungroup** عند تحديد المخطط بالكامل.
+
+### **تقرير أقفال الأشكال الموجودة**
+
+لمراجعة قالب، افتحه واقرأ كائن القفل لكل شكل. تُعيد الطريقة [getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks) القيمة `true` عندما تكون جميع العلامات على ذلك الكائن غير مفعَّلة و`false` عندما يكون على الأقل واحدة مفعَّلة. للمجموعة وأطفاله كائنات قفل منفصلة، لذا افحص الأطفال حتى عندما لا تحتوي المجموعة على أقفال.
+
+تتحقق هذه العينة من الحركة للأشكال التلقائية، إطارات الصور، والمجموعات. كما تتحقق من القص للصور وفك التجميع للمجموعات. يسرد التقرير العلامات المفعَّلة التي يتعرف عليها ويُعلِّم أنواع الأشكال التي لا يفحصها.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+افترض أن الشريحة 1 من `Sample.pptx` تحتوي على مجموعة تسمى `Layout` بقفل فك التجميع، وصورة تسمى `Photo` داخلها بقفل القص، ومستطيل غير مقفل باسم `Free`. يتخطى التقرير `Free` ويطبع هذين السطرين:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+يقرأ التقرير العلامات التحريرية على مستوى الشكل المخزنة دون تغييرها أو حفظ العرض. حماية الكتابة على مستوى المستند هي إعداد منفصل، وتعتمد فرضية كل علامة على المحرر.
 
 ### **الخلاصة**
 
-تتيح لك Aspose.Slides for Node.js عبر Java تقييد عمليات التحرير المحددة على الأشكال الفردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، واضبط قيمها على `false` عندما تحتاج إلى إزالة تلك القيود.
+تُتيح لك Aspose.Slides for Node.js via Java تقييد عمليات تحرير محددة على أشكال فردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، واضبط قيمتها إلى `false` عندما تحتاج إلى إزالة تلك القيود.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني الجمع بين أقفال الأشكال وحماية كلمة المرور في نفس العرض التقديمي؟**
+**هل يمكنني دمج أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
 
-نعم. أقفال الأشكال تقيد عمليات التحرير المحددة، بينما [حماية كلمة المرور](/slides/ar/nodejs-java/password-protected-presentation/) يمكن أن تقيد فتح أو تعديل العرض التقديمي. يمكنك استخدام كليهما في نفس الملف.
+نعم. تقيد أقفال الأشكال عمليات تحرير محددة، بينما يمكن لحماية [password protection](/slides/ar/nodejs-java/password-protected-presentation/) تقييد فتح أو تعديل العرض. يمكنك استخدام كليهما في نفس الملف.
 
-**هل يمكنني تقييد التحرير على شرائح معينة دون التأثير على الآخرين؟**
+**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على غيرها؟**
 
-نعم. قم بتطبيق الأقفال فقط على الأشكال في الشرائح المحددة. هذا لا يغيّر إعدادات الأقفال في الشرائح الأخرى.
+نعم. قم بتطبيق الأقفال فقط على الأشكال في الشرائح المختارة. هذا لا يغيّر إعدادات الأقفال في الشرائح الأخرى.
 
 **كيف يمكنني تطبيق الأقفال على الأشكال الفردية داخل مجموعة؟**
 
-قم بالتكرار عبر المجموعة التي تُرجعها طريقة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) الخاصة بالمجموعة وطبق الأقفال المناسبة على كل شكل فرعي. كرر ذلك لأي مجموعات متداخلة. الأمثلة أعلاه تعالج فقط مجموعة أشكال الشريحة، لذا لا تقوم بتعيين أقفال على أعضاء المجموعة الفرديين.
+قم بالتكرار عبر المجموعة التي تُرجعها طريقة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) للمجموعة وطبق الأقفال المناسبة على كل شكل فرعي. كرّر ذلك لأي مجموعات متداخلة، متبعًا عملية التجوال في مثال التقرير.

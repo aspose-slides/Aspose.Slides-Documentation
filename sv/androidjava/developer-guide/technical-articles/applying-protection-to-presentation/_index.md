@@ -1,6 +1,6 @@
 ---
-title: Begränsa redigering av presentationer med formlås på Android
-linktitle: Begränsa presentationens redigering
+title: "Begränsa redigering av presentationer med formlås på Android"
+linktitle: "Begränsa redigering av presentationer"
 type: docs
 weight: 60
 url: /sv/androidjava/applying-protection-to-presentation/
@@ -22,35 +22,35 @@ description: "Lär dig hur du låser och låser upp former i PPTX-presentationer
 ---
 ## **Översikt**
 
-En vanlig användning av Aspose.Slides för Android via Java är att skapa, uppdatera och spara PowerPoint‑presentationer (PPTX) som en del av ett automatiserat arbetsflöde. När användare får dessa presentationer kan begränsning av ändringar av former hjälpa till att bevara den avsedda layouten och innehållet.
+En vanlig användning av Aspose.Slides for Android via Java är att skapa, uppdatera och spara PowerPoint (PPTX)-presentationer som en del av ett automatiserat arbetsflöde. När användare tar emot dessa presentationer kan begränsning av ändringar av former hjälpa till att bevara den avsedda layouten och innehållet.
 
-Denna artikel förklarar hur former organiseras på bilder och hur man tillämpar och tar bort lås på former i en PPTX‑presentation. Dessa lås låter dig begränsa specifika redigeringsåtgärder på enskilda former.
+Den här artikeln förklarar hur former organiseras på bilder och hur man tillämpar och tar bort lås på former i en PPTX-presentation. Dessa lås gör att du kan begränsa specifika redigeringsåtgärder för enskilda former.
 
 ## **Komposition av en bild**
 
-En presentationsbild består av komponenter såsom autogestalter, tabeller, OLE‑objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides för Android via Java representeras varje element på en bild av ett objekt som implementerar gränssnittet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) eller ärver från en klass som gör det.
+En presentationsbild består av komponenter såsom autoshapes, tabeller, OLE-objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides for Android via Java representeras varje element på en bild av ett objekt som implementerar gränssnittet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) eller ärver från en klass som gör det.
 
-Olika formtyper erbjuder olika låsalternativ. Gränssnittet [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) är basgränssnittet för lås på former. Aspose.Slides för Android via Java tillhandahåller följande låsgränssnitt:
+Olika formtyper exponerar olika låsalternativ. Gränssnittet [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) är basgränssnittet för formlås. Aspose.Slides for Android via Java tillhandahåller följande låsgränssnitt:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) låser autoshapes.  
 - [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) låser anslutningsformer.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) låser grafiska objekt.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) låser gruppformer.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) låser grupperade former.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) låser bildramar.  
 
-För att tillämpa lås på en [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), itererar du genom dess bilder och sätter lämpliga lås på varje stödd form.
+För att tillämpa lås i en [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), iterera genom dess bilder och ange lämpliga lås på varje stödjande form.
 
-## **Tillämpa och ta bort skydd**
+## **Applicera och ta bort skydd**
 
-Kompatibla presentationsredigerare använder lås på former för att begränsa enskilda redigeringsåtgärder. Filkryptering och dokumentnivå skrivskydd är separata [presentationskyddinställningar](/slides/sv/androidjava/password-protected-presentation/).
+Kompatibla presentationsredigerare använder formlås för att begränsa enskilda redigeringsåtgärder. Filkryptering och dokumentnivå‑skrivskydd är separata [presentation protection settings](/slides/sv/androidjava/password-protected-presentation/).
 
-### **Tillämpa skydd på PPTX‑former**
+### **Applicera skydd på PPTX-former**
 
-Aspose.Slides för Android via Java tillhandahåller gränssnittet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) för att arbeta med former på en bild.
+Aspose.Slides for Android via Java tillhandahåller gränssnittet [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) för att arbeta med former på en bild.
 
-Exemplet anropar [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) och [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) med `true` för autoshapes, med motsvarande lås för gruppformer, anslutningar och bildramar. Anslutningar använder [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) för rörelse; grupper använder också [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) för att begränsa gruppering.
+Exemplet anropar [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) , [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) och [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) med `true` för autoshapes, med motsvarande lås för grupperade former, anslutningar och bildramar. Anslutningar använder [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) för rörelse; grupper använder också [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) för att begränsa gruppering.
 
-Exemplet laddar en befintlig PPTX‑presentation, kontrollerar formerna i varje bilds formsamling och sparar en kopia med dessa restriktioner tillämpade. Former utanför de fyra hanterade typerna lämnas oförändrade. Loopen traverserar inte underordnade former i en grupp.
+Exemplet laddar en befintlig PPTX-presentation, kontrollerar formerna i varje bilds formsamling och sparar en kopia med dessa begränsningar tillämpade. Former utanför de fyra hanterade typerna lämnas oförändrade. Loopen traverserar inte underordnade former i en grupp.
 
 ```java
 import com.aspose.slides.*;
@@ -96,7 +96,7 @@ try {
 
 ### **Ta bort skydd**
 
-För att ta bort ett lås på en form, sätt dess värde till `false`. Följande exempel laddar en presentation med lås på former och rensar urval, rörelse och storleksändringsrestriktioner via [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) och [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Det tar också bort grupperingstillståndet genom att skicka `false` till [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) och sparar en kopia av presentationen. Andra låsinställningar lämnas oförändrade.
+För att ta bort ett formlås, sätt dess värde till `false`. Följande exempel laddar en presentation med formlås och rensar selektions‑, rörelse‑ och storleksbegränsningarna via [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) och [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). Det tar också bort grupperingens begränsning genom att skicka `false` till [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) och sparar en kopia av presentationen. Andra låsinställningar lämnas oförändrade.
 
 ```java
 import com.aspose.slides.*;
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-### **Bevara en bildbeskärning**
+### **Bevara bildbeskärning**
 
-Placera ett foto med namnet `photo.jpg` i arbetskatalogen. Exemplet beskär 12 % från vänster och 8 % från höger, och anropar sedan [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) på bildramens lås. Att skicka `true` begränsar ytterligare beskärning och bevarar den befintliga beskärningen.
+Placera en bild med namnet `photo.jpg` i arbetskatalogen. Exemplet beskär 12 % från vänster och 8 % från höger, och anropar sedan [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) på bildramens lås. Att skicka `true` begränsar vidare beskärning och bevarar den befintliga beskärningen.
 
 ```java
 import com.aspose.slides.*;
@@ -171,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` lagrar beskärningslåset som `true`. I PowerPoint är kommandot **Crop** inaktiverat när fotot är markerat.
+`PictureLocked.pptx` lagrar beskärningslåset som `true`. I PowerPoint är **Crop**‑kommandot inaktiverat när bilden är markerad.
 
 ### **Behåll ett diagram grupperat**
 
-Exemplet grupperar en rektangel och en pil, och anropar sedan [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) på gruppens lås för att hålla diagrammets komponenter ihop. Andra redigeringar, såsom att flytta gruppen eller ändra en komponents fyllning, förblir tillgängliga.
+Exemplet grupperar en rektangel och en pil, och anropar sedan [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) på gruppens lås för att hålla diagrammets komponenter tillsammans. Andra redigeringar, såsom att flytta gruppen eller ändra en komponents fyllning, förblir möjliga.
 
 ```java
 import com.aspose.slides.*;
@@ -195,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` lagrar avgrupperingslåset som `true`. I PowerPoint är kommandot **Ungroup** inaktiverat när hela diagrammet är markerat.
+`DiagramLocked.pptx` lagrar avgrupperingslåset som `true`. I PowerPoint är **Ungroup**‑kommandot inaktiverat när hela diagrammet är markerat.
+
+### **Rapportera befintliga formlås**
+
+För att granska en mall, öppna den och läs låsobjektet för varje form. Metoden [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) returnerar `true` när alla flaggor på det objektet är inaktiverade och `false` när minst en är aktiverad. En grupp och dess underordnade har separata låsobjekt, så inspektera underordnade även när gruppen saknar lås.
+
+Detta exempel kontrollerar rörelse för autoshapes, bildramar och grupper. Det kontrollerar också beskärning för bilder och avgruppering för grupper. Rapporten listar de flaggor den känner igen och markerar formtyper den inte inspekterar.
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Anta att bild 1 i `Sample.pptx` innehåller en grupp med namn `Layout` där avgruppering är låst, en bild med namn `Photo` i gruppen där beskärning är låst, och en olåst rektangel med namn `Free`. Rapporten hoppar över `Free` och skriver ut dessa två rader:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Rapporten läser de lagrade form‑nivå‑redigeringsflaggan utan att ändra dem eller spara presentationen. Dokumentnivå‑skrivskydd är en separat inställning, och verkställandet av varje flagga beror på redigeraren.
 
 ### **Slutsats**
 
-Aspose.Slides för Android via Java låter dig begränsa specifika redigeringsåtgärder på enskilda former eller tillämpa samma restriktioner över bilder. Välj de lås som stöds av varje formtyp, och sätt deras värden till `false` när du behöver ta bort dessa restriktioner.
+Aspose.Slides for Android via Java låter dig begränsa specifika redigeringsåtgärder för enskilda former eller tillämpa samma begränsningar över flera bilder. Välj de lås som stöds av varje formtyp och sätt deras värden till `false` när du behöver ta bort dessa begränsningar.
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag kombinera lås på former och lösenordsskydd i samma presentation?**
+**Kan jag kombinera formlås och lösenordsskydd i samma presentation?**
 
-Ja. Lås på former begränsar specifika redigeringsåtgärder, medan [lösenordsskydd](/slides/sv/androidjava/password-protected-presentation/) kan begränsa öppning eller ändring av presentationen. Du kan använda båda i samma fil.
+Ja. Formlås begränsar specifika redigeringsåtgärder, medan [password protection](/slides/sv/androidjava/password-protected-presentation/) kan begränsa öppning eller ändring av presentationen. Du kan använda båda i samma fil.
 
 **Kan jag begränsa redigering på specifika bilder utan att påverka andra?**
 
-Ja. Tilldela lås endast till former på de valda bilderna. Detta ändrar inte låsinställningarna på andra bilder.
+Ja. Tillämpa lås endast på former på de valda bilderna. Detta ändrar inte låsinställningarna på andra bilder.
 
 **Hur kan jag tillämpa lås på enskilda former i en grupp?**
 
-Iterera genom samlingen som returneras av gruppens [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)‑metod och tillämpa lämpliga lås på varje underordnad form. Upprepa detta för eventuella nästlade grupper. Exemplen ovan bearbetar endast bildens formsamling, så de sätter inte lås på enskilda gruppmedlemmar.
+Iterera genom samlingen som returneras av gruppens [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)‑metod och tillämpa lämpliga lås på varje underform. Upprepa detta för eventuella nästlade grupper, enligt traverseringen i rapportexemplet.

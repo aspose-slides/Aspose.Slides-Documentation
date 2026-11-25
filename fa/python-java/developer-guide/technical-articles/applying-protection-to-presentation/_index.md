@@ -5,52 +5,52 @@ type: docs
 weight: 60
 url: /fa/python-java/applying-protection-to-presentation/
 keywords:
-- جلوگیری از ویرایش
+- جلوگیری از ویرایش‌ها
 - حفاظت در برابر ویرایش
-- قفل کردن شکل
-- قفل کردن موقعیت
-- قفل کردن انتخاب
-- قفل کردن تغییر اندازه
-- قفل کردن گروه‌بندی
+- قفل شکل
+- قفل موقعیت
+- قفل انتخاب
+- قفل تغییر اندازه
+- قفل گروه‌بندی
 - PowerPoint
 - PPTX
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه شکل‌ها را در ارائه‌های PPTX با Aspose.Slides برای Python از طریق Java قفل و بازقفل کنید تا انتخاب، جابه‌جایی، تغییر اندازه و گروه‌بندی را محدود کنید."
+description: "یاد بگیرید چگونه شکل‌ها را در ارائه‌های PPTX با Aspose.Slides for Python via Java قفل و بازقفل کنید تا انتخاب، جابجایی، تغییر اندازه و گروه‌بندی را محدود کنید."
 ---
-## **پس‌زمینه**
+## **پیش‌زمینه**
 
-یک کاربرد رایج Aspose.Slides برای Python از طریق Java ایجاد، به‌روزرسانی و ذخیرهٔ ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک جریان کاری خودکار است. زمانی که کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات شکل‌ها می‌تواند به حفظ چیدمان و محتوای مورد نظر کمک کند.
+یک کاربرد رایج Aspose.Slides for Python via Java، ایجاد، به‌روزرسانی و ذخیره‌سازی ارائه‌های PowerPoint (PPTX) به‌عنوان بخشی از یک گردش کار خودکار است. وقتی کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات شکل‌ها می‌تواند به حفظ طرح و محتوای موردنظر کمک کند.
 
-این مقاله توضیح می‌دهد که شکل‌ها چطور در اسلایدها سازماندهی می‌شوند و چگونه می‌توان قفل‌های شکل را در یک ارائه PPTX اعمال و حذف کرد. این قفل‌ها به شما امکان می‌دهند عملیات ویرایشی خاصی را برای هر شکل به‌صورت جداگانه محدود کنید.
+این مقاله توضیح می‌دهد که شکل‌ها چگونه در اسلایدها سازماندهی می‌شوند و چگونه می‌توانید قفل‌های شکل‌ها را در یک ارائه PPTX اعمال و حذف کنید. این قفل‌ها به شما امکان می‌دهند عملیات ویرایش خاصی را بر روی شکل‌های جداگانه محدود کنید.
 
-## **ترکیب یک اسلاید**
+## **ساختار یک اسلاید**
 
-یک اسلاید ارائه از اجزایی مانند اشکال خودکار، جدول‌ها، اشیاء OLE، شکل‌های گروهی، فریم‌های تصویر، فریم‌های ویدئو، اتصال‌کننده‌ها و سایر عناصر مورد استفاده برای ساخت یک ارائه تشکیل شده است. در Aspose.Slides برای Python از طریق Java، هر عنصر روی یک اسلاید توسط شیئی نمایش داده می‌شود که از کلاس [شکل](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) ارث‌بری می‌کند.
+یک اسلاید ارائه شامل اجزایی مانند اشکال خودکار، جدول‌ها، اشیاء OLE، گروه‌های شکل، قاب‌های تصویر، قاب‌های ویدئو، کانکتورها و سایر عناصر مورد استفاده برای ساخت ارائه است. در Aspose.Slides for Python via Java، هر عنصر روی اسلاید توسط یک شیء که از کلاس [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) ارث‌بری می‌کند، نمایش داده می‌شود.
 
-انواع مختلف شکل‌ها گزینه‌های قفل‌گذاری متفاوتی ارائه می‌دهند. کلاس [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) پایهٔ قفل‌های شکل است. Aspose.Slides برای Python از طریق Java کلاس‌های قفل زیر را فراهم می‌کند:
+انواع مختلف شکل‌ها گزینه‌های قفل‌گذاری متفاوتی را ارائه می‌دهند. کلاس [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) پایه‌ای برای قفل‌های شکل است. Aspose.Slides for Python via Java کلاس‌های قفل زیر را فراهم می‌کند:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) قفل‌های اشکال خودکار را فعال می‌کند.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) قفل‌های اتصال‌کننده‌ها را فعال می‌کند.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) قفل‌های اشیاء گرافیکی را فعال می‌کند.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) قفل‌های شکل‌های گروهی را فعال می‌کند.  
-- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) قفل‌های فریم‌های تصویر را فعال می‌کند.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) قفل‌های اشکال خودکار را اعمال می‌کند.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) قفل‌های کانکتور را اعمال می‌کند.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) قفل‌های اشیاء گرافیکی را اعمال می‌کند.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) قفل‌های گروه‌های شکل را اعمال می‌کند.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) قفل‌های قاب‌های تصویر را اعمال می‌کند.  
 
-برای اعمال قفل‌ها بر روی یک [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل پشتیبانی‌شده تنظیم کنید.
+برای اعمال قفل‌ها در سرتاسر یک [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل پشتیبانی‌شده تنظیم کنید.
 
 ## **اعمال و حذف حفاظت**
 
-ویرایشگرهای سازگار ارائه از قفل‌های شکل برای محدود کردن عملیات ویرایشی فردی استفاده می‌کنند. رمزگذاری فایل و حفاظت نوشتن در سطح سند تنظیمات جداگانه‌ای از [تنظیمات حفاظت ارائه](/slides/fa/python-java/password-protected-presentation/) هستند.
+ویرایشگرهای ارائه سازگار از قفل‌های شکل برای محدود کردن عملیات ویرایشی فردی استفاده می‌کنند. رمزنگاری فایل و حفاظت نوشتن در سطح سند تنظیمات جداگانه‌ای تحت عنوان [presentation protection settings](/slides/fa/python-java/password-protected-presentation/) دارند.
 
-### **اعمال حفاظت بر روی شکل‌های PPTX**
+### **اعمال حفاظت بر روی اشکال PPTX**
 
-Aspose.Slides برای Python از طریق Java کلاس [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) را برای کار با شکل‌ها بر روی اسلاید فراهم می‌کند.
+Aspose.Slides for Python via Java کلاس [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) را برای کار با اشکال روی اسلاید فراهم می‌کند.
 
-مثال متدهای [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked)، [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) و [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) را با مقدار `True` برای اشکال خودکار فراخوانی می‌کند، با قفل‌های معادل برای گروه‌های شکل، اتصال‌کننده‌ها و فریم‌های تصویر. اتصال‌کننده‌ها از [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) برای جابه‌جایی استفاده می‌کنند؛ گروه‌ها نیز از [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) برای محدود کردن گروه‌بندی استفاده می‌کنند.
+مثال، متدهای [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked)، [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) و [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) را برای اشکال خودکار با مقدار `True` فراخوانی می‌کند و قفل‌های مساوی را برای گروه‌ها، کانکتورها و قاب‌های تصویر اعمال می‌کند. کانکتورها از [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) برای جابجایی استفاده می‌کنند؛ گروه‌ها نیز از [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) برای محدود کردن گروه‌بندی بهره می‌برند.
 
-مثال یک ارائه PPTX موجود را بارگذاری می‌کند، شکل‌ها را در مجموعهٔ شکل هر اسلاید بررسی می‌کند و نسخه‌ای با این محدودیت‌ها ذخیره می‌نماید. شکل‌هایی که در چهار نوع پشتیبانی‌شده نیستند بدون تغییر می‌مانند. حلقه به شکل‌های فرزند داخل یک گروه پیمایشی انجام نمی‌دهد.
+مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال موجود در مجموعهٔ شکل هر اسلاید را بررسی می‌کند و یک نسخهٔ کپی با این محدودیت‌ها ذخیره می‌شود. شکل‌هایی که جزو چهار نوع پردازش‌شده نیستند بدون تغییر باقی می‌مانند. حلقهٔ پیمایش به شکل‌های فرزند داخل یک گروه نمی‌پردازد.
 
 ```python
 import jpype
@@ -94,7 +94,7 @@ finally:
 
 ### **حذف حفاظت**
 
-برای حذف یک قفل شکل، مقدار آن را به `False` تنظیم کنید. مثال زیر یک ارائه دارای قفل‌های شکل را بارگذاری کرده و محدودیت‌های انتخاب، جابه‌جایی و تغییر اندازه را از طریق [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), و [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) پاک می‌کند. همچنین با ارسال `False` به [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) محدودیت گروه‌بندی را حذف کرده و نسخه‌ای از ارائه ذخیره می‌شود. سایر تنظیمات قفل دست‌نخورده می‌مانند.
+برای حذف قفل یک شکل، مقدار آن را به `False` تنظیم کنید. مثال زیر یک ارائه حاوی قفل‌های شکل را بارگذاری کرده و محدودیت‌های انتخاب، جابجایی و تغییر اندازه را از طریق [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/)، [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) و [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) پاک می‌کند. همچنین محدودیت گروه‌بندی را با ارسال `False` به [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) حذف کرده و یک نسخهٔ کپی از ارائه ذخیره می‌شود. سایر تنظیمات قفل دست نخورده می‌مانند.
 
 ```python
 import jpype
@@ -138,7 +138,7 @@ finally:
 
 ### **حفظ برش تصویر**
 
-یک تصویر به نام `photo.jpg` را در پوشهٔ کاری قرار دهید. مثال 12٪ از سمت چپ و 8٪ از سمت راست برش می‌دهد، سپس [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) را با مقدار `True` فراخوانی می‌کند تا برش حفظ شود.
+یک عکس به نام `photo.jpg` را در پوشهٔ کاری قرار دهید. مثال 12٪ از سمت چپ و 8٪ از سمت راست را برش می‌دهد، سپس با فراخوانی [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) مقدار `True` را تنظیم می‌کند تا برش حفظ شود.
 
 ```python
 from pathlib import Path
@@ -171,11 +171,11 @@ finally:
     presentation.dispose()
 ```
 
-در فایل `PictureLocked.pptx`، PowerPoint فرمان **Crop** را هنگامی که تصویر را انتخاب می‌کنید غیرفعال می‌کند.
+در فایل `PictureLocked.pptx`، PowerPoint فرمان **Crop** را هنگام انتخاب عکس غیرفعال می‌کند.
 
-### **نگهداری یک نمودار به صورت گروه‌بندی شده**
+### **دست‌ن‌های یک نمودار را گروه‌بندی نگه دارید**
 
-مثال یک مستطیل و یک فلش را گروه‌بندی می‌کند، سپس [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) را با مقدار `True` فراخوانی می‌کند تا دو شکل با هم بمانند. همچنان می‌توانید گروه را جابه‌جا کنید یا پر رنگ یک مؤلفه را تغییر دهید.
+مثال یک مستطیل و یک پیکان را گروه‌بندی می‌کند و سپس با فراخوانی [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) مقدار `True` را تنظیم می‌کند تا دو شکل با هم باقی بمانند. همچنان می‌توانید گروه را جابجا کنید یا رنگ پر جزء را تغییر دهید.
 
 ```python
 import jpype
@@ -200,22 +200,85 @@ finally:
     presentation.dispose()
 ```
 
-در فایل `DiagramLocked.pptx`، PowerPoint فرمان **Ungroup** را هنگامی که کل نمودار را انتخاب می‌کنید غیرفعال می‌کند.
+در فایل `DiagramLocked.pptx`، PowerPoint فرمان **Ungroup** را هنگام انتخاب کل نمودار غیرفعال می‌کند.
+
+### **گزارش قفل‌های شکل موجود**
+
+برای بررسی یک الگو، آن را باز کنید و شیء قفل هر شکل را بخوانید. متد [getNoLocks](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/#getNoLocks) زمانی که همه پرچم‌های آن شیء غیرفعال باشند مقدار `True` و در غیر این صورت مقدار `False` برمی‌گرداند. یک گروه و فرزندان آن اشیاء قفل جداگانه‌ای داشته‌اند، بنابراین حتی اگر گروه قفل نداشته باشد، باید فرزندان را نیز بررسی کنید.
+
+این مثال حرکت اشکال خودکار، قاب‌های تصویر و گروه‌ها را بررسی می‌کند. همچنین برش تصاویر و رفع گروه‌بندی برای گروه‌ها را چک می‌کند. گزارش پرچم‌های فعال شناسایی‌شده را فهرست می‌کند و انواع شکل‌هایی که بررسی نمی‌کند را علامت‌گذاری می‌نماید.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, GroupShape, PictureFrame, Presentation
+
+
+def inspect_shapes(shapes, slide_number, prefix=""):
+    for shape in shapes:
+        path = f"{prefix}{shape.getName()}"
+        label = f"Slide {slide_number} | {path} | {shape.getClass().getSimpleName()}"
+        flags = []
+
+        if isinstance(shape, GroupShape):
+            shape_lock = shape.getGroupShapeLock()
+            if shape_lock.getUngroupingLocked():
+                flags.append("UngroupingLocked")
+        elif isinstance(shape, PictureFrame):
+            shape_lock = shape.getPictureFrameLock()
+            if shape_lock.getCropLocked():
+                flags.append("CropLocked")
+        elif isinstance(shape, AutoShape):
+            shape_lock = shape.getAutoShapeLock()
+        else:
+            print(f"{label} | Uninspected")
+            continue
+
+        if shape_lock.getPositionLocked():
+            flags.append("PositionLocked")
+        if not shape_lock.getNoLocks():
+            restrictions = ", ".join(flags) if flags else "Active flag not identified"
+            print(f"{label} | {restrictions}")
+
+        if isinstance(shape, GroupShape):
+            inspect_shapes(shape.getShapes(), slide_number, f"{path}/")
+
+
+presentation = Presentation("Sample.pptx")
+try:
+    for slide in presentation.getSlides():
+        inspect_shapes(slide.getShapes(), slide.getSlideNumber())
+finally:
+    presentation.dispose()
+```
+
+فرض کنید اسلاید 1 از `Sample.pptx` شامل یک گروه به نام `Layout` باشد که رفع گروه‌بندی قفل‌گذاری شده است، تصویری به نام `Photo` داخل آن با برش قفل‌گذاری شده داشته باشد و یک مستطیل بدون قفل به نام `Free` داشته باشد. گزارش `Free` را نادیده می‌گیرد و دو خط زیر را چاپ می‌کند:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+گزارش پرچم‌های ویرایشی سطح شکل ذخیره‌شده را می‌خواند بدون اینکه آنها را تغییر دهد یا ارائه را ذخیره کند. حفاظت نوشتن در سطح سند تنظیم جداگانه‌ای است و اعمال هر پرچم به ویرایشگر بستگی دارد.
 
 ### **نتیجه‌گیری**
 
-Aspose.Slides برای Python از طریق Java به شما اجازه می‌دهد عملیات ویرایشی خاصی را برای هر شکل به‌صورت جداگانه محدود کنید یا همان محدودیت‌ها را بر تمام اسلایدها اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و هنگام نیاز به حذف این محدودیت‌ها مقدار آن‌ها را به `False` تنظیم کنید.
+Aspose.Slides for Python via Java به شما امکان می‌دهد عملیات ویرایشی خاصی را بر روی اشکال جداگانه محدود کنید یا همان محدودیت‌ها را بر روی اسلایدهای مختلف اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و برای حذف این محدودیت‌ها مقدار آنها را به `False` تنظیم کنید.
 
 ## **سوالات متداول**
 
 **آیا می‌توانم قفل‌های شکل و حفاظت با رمز عبور را در یک ارائه ترکیب کنم؟**
 
-بله. قفل‌های شکل عملیات ویرایشی خاصی را محدود می‌کنند، در حالی که [حفاظت با رمز عبور](/slides/fa/python-java/password-protected-presentation/) می‌تواند باز کردن یا تغییر ارائه را محدود نماید. می‌توانید هر دو را در یک فایل استفاده کنید.
+بله. قفل‌های شکل عملیات ویرایشی خاصی را محدود می‌کنند، در حالی که [password protection](/slides/fa/python-java/password-protected-presentation/) می‌تواند باز کردن یا تغییر ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
 
-**آیا می‌توانم ویرایش را فقط در اسلایدهای خاصی محدود کنم بدون اینکه بر دیگران تأثیر بگذارد؟**
+**آیا می‌توانم ویرایش را فقط بر روی اسلایدهای خاصی محدود کنم بدون اینکه به دیگران اثر بگذارد؟**
 
-بله. قفل‌ها را فقط بر روی شکل‌های اسلایدهای انتخابی اعمال کنید. این کار تنظیمات قفل در اسلایدهای دیگر را تغییر نمی‌دهد.
+بله. قفل‌ها را فقط بر روی اشکال اسلایدهای انتخابی اعمال کنید. این کار تنظیمات قفل در اسلایدهای دیگر را تغییر نمی‌دهد.
 
-**چگونه می‌توانم قفل‌ها را بر روی شکل‌های منفرد داخل یک گروه اعمال کنم؟**
+**چگونه می‌توانم قفل‌ها را بر روی اشکال جداگانه داخل یک گروه اعمال کنم؟**
 
-مجموعه‌ای که توسط متد [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) گروه بازگردانده می‌شود را پیمایش کنید و قفل‌های مناسب را بر هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید. مثال‌های بالا تنها مجموعهٔ شکل‌های اسلاید را پردازش می‌کنند، بنابراین قفل‌ها را بر اعضای فردی گروه تنظیم نمی‌کنند.
+مجموعه‌ای که توسط متد [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) گروه برگردانده می‌شود را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید، همان‌طور که در مثال گزارش‌گیری نشان داده شده است.

@@ -1,36 +1,36 @@
 ---
-title: Sunum Düzenlemelerini Android'de Şekil Kilitleriyle Kısıtla
-linktitle: Sunum Düzenlemelerini Kısıtla
+title: Android'de Şekil Kilitleriyle Sunum Düzenlemelerini Kısıtlama
+linktitle: Sunum Düzenlemelerini Kısıtlama
 type: docs
 weight: 60
 url: /tr/androidjava/applying-protection-to-presentation/
 keywords:
-- düzenlemeleri önle
-- düzenlemeden koru
-- şekli kilitle
-- konumu kilitle
-- seçimi kilitle
-- boyutlandırmayı kilitle
-- gruplamayı kilitle
+- düzenlemeleri önleme
+- düzenlemeden koruma
+- şekil kilitleme
+- konum kilitleme
+- seçimi kilitleme
+- yeniden boyutlandırmayı kilitleme
+- gruplamayı kilitleme
 - PowerPoint
 - PPTX
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak PPTX sunumlarındaki şekilleri nasıl kilitleyeceğinizi ve kilidini açacağınızı öğrenin; seçim, hareket, yeniden boyutlandırma ve gruplamayı kısıtlamak için."
+description: "Aspose.Slides for Android via Java kullanarak PPTX sunumlarında şekilleri kilitlemeyi ve kilidini kaldırmayı, seçim, hareket, yeniden boyutlandırma ve gruplamayı kısıtlamayı öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java’ın yaygın bir kullanımı, otomatik bir iş akışının parçası olarak PowerPoint (PPTX) sunumlarını oluşturmak, güncellemek ve kaydetmektir. Kullanıcılar bu sunumları aldığında, şekillerdeki değişiklikleri kısıtlamak, istenen düzenin ve içeriğin korunmasına yardımcı olabilir.
+Aspose.Slides for Android via Java için yaygın bir kullanım, otomatik bir iş akışının parçası olarak PowerPoint (PPTX) sunumları oluşturmak, güncellemek ve kaydetmektir. Kullanıcılar bu sunumları aldıklarında, şekillerdeki değişiklikleri kısıtlamak, amaçlanan düzeni ve içeriği korumaya yardımcı olabilir.
 
-Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklamaktadır. Bu kilitler, bireysel şekiller üzerinde belirli düzenleme işlemlerini kısıtlamanızı sağlar.
+Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklar. Bu kilitler, bireysel şekillerde belirli düzenleme işlemlerini kısıtlamanızı sağlar.
 
-## **Bir Slaytın Bileşimi**
+## **Bir Slaydın Bileşimi**
 
-Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, gruplanmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for Android via Java’da, bir slayttaki her öğe, [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) arabirimini uygulayan veya bu arabirimden türeyen bir nesneyle temsil edilir.
+Bir sunum slaydı, otomatik şekiller, tablolar, OLE nesneleri, gruplandırılmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve bir sunumu oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for Android via Java'da, bir slayttaki her öğe, [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) arayüzünü uygulayan veya bu arayüzü miras alan bir nesneyle temsil edilir.
 
-Farklı şekil tipleri farklı kilitleme seçenekleri sunar. [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) arabirimi, şekil kilitlerinin temel arabirimidir. Aspose.Slides for Android via Java aşağıdaki kilit arabirimlerini sağlar:
+Farklı şekil türleri farklı kilitleme seçenekleri sunar. [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) arayüzü, şekil kilitleri için temel arayüzdür. Aspose.Slides for Android via Java aşağıdaki kilit arayüzlerini sağlar:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) otomatik şekilleri kilitler.  
 - [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) bağlayıcı şekilleri kilitler.  
@@ -38,19 +38,19 @@ Farklı şekil tipleri farklı kilitleme seçenekleri sunar. [IBaseShapeLock](ht
 - [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) grup şekillerini kilitler.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) resim çerçevelerini kilitler.  
 
-Bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) üzerindeki tüm slaytları döngüye alarak ve desteklenen her şekil için uygun kilitleri ayarlayarak kilitleri uygulayabilirsiniz.
+Bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) üzerindeki kilitleri uygulamak için, slaytlarını yineleyin ve desteklenen her şekil üzerinde uygun kilitleri ayarlayın.
 
 ## **Koruma Uygulama ve Kaldırma**
 
-Uyumlu sunum düzenleyicileri, bireysel düzenleme işlemlerini kısıtlamak için şekil kilitlerini kullanır. Dosya şifrelemesi ve belge‑seviye yazma koruması ayrı [presentation protection settings](/slides/tr/androidjava/password-protected-presentation/) olarak bulunur.
+Uyumlu sunum editörleri, bireysel düzenleme işlemlerini kısıtlamak için şekil kilitlerini kullanır. Dosya şifrelemesi ve belge düzeyinde yazma koruması ayrı [parola koruması](/slides/tr/androidjava/password-protected-presentation/) olarak bulunur.
 
 ### **PPTX Şekillerine Koruma Uygulama**
 
-Aspose.Slides for Android via Java, bir slayttaki şekillerle çalışmak için [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) arabirimini sağlar.
+Aspose.Slides for Android via Java, slayttaki şekillerle çalışmak için [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) arayüzünü sağlar.
 
-Örnek, otomatik şekiller için `true` ile [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) ve [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) metodlarını çağırır; grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitler kullanılır. Bağlayıcılar hareket için [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) metodunu; gruplar ise gruplayı kısıtlamak için [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metodunu kullanır.
+Örnek, otomatik şekiller için `true` değeriyle [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), ve [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) çağırır; grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitler kullanılır. Bağlayıcılar hareket için [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) kullanır; gruplar da gruplamayı kısıtlamak için [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) kullanır.
 
-Örnek, mevcut bir PPTX sunumunu yükler, her slaytın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopya olarak kaydeder. Dört işlenen tip dışındaki şekiller değişmeden bırakılır. Döngü, bir grup içindeki alt şekilleri dolaşmaz.
+Örnek, mevcut bir PPTX sunumunu yükler, her slaydın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopya kaydeder. Dört işlenen tip dışındaki şekiller değişmeden bırakılır. Döngü, bir grup içindeki alt şekilleri dolaşmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -96,7 +96,7 @@ try {
 
 ### **Koruma Kaldırma**
 
-Bir şekil kilidini kaldırmak için değerini `false` olarak ayarlayın. Aşağıdaki örnek, şekil kilitli bir sunumu yükler ve [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) ve [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) aracılığıyla seçim, hareket ve yeniden boyutlandırma kısıtlamalarını temizler. Ayrıca, [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metoduna `false` geçirerek grup oluşturma kısıtlamasını da kaldırır ve sunumun bir kopyasını kaydeder. Diğer kilit ayarları aynı kalır.
+Bir şekil kilidini kaldırmak için değerini `false` yapın. Aşağıdaki örnek, şekil kilitli bir sunumu yükler ve seçim, hareket ve yeniden boyutlandırma kısıtlamalarını [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), ve [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) aracılığıyla temizler. Ayrıca, `false` geçirerek [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) üzerinden grup sınırlamasını da kaldırır ve sunumun bir kopyasını kaydeder. Diğer kilit ayarları değişmeden bırakılır.
 
 ```java
 import com.aspose.slides.*;
@@ -142,7 +142,7 @@ try {
 
 ### **Resim Kırpmasını Korumak**
 
-Çalışma dizinine `photo.jpg` adlı bir fotoğraf yerleştirin. Örnek, soldan %12 ve sağdan %8 kırpar, ardından resim çerçevesinin kilidinde [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) metodunu çağırır. `true` geçirilmesi, ileri kırpmayı kısıtlar ve mevcut kırpmayı korur.
+`photo.jpg` adlı bir fotoğrafı çalışma dizinine yerleştirin. Örnek, soldan %12 ve sağdan %8 kırpar, ardından resim çerçevesinin kilidi üzerinde [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) çağırır. `true` geçirmek, daha fazla kırpmayı kısıtlar ve mevcut kırpmayı korur.
 
 ```java
 import com.aspose.slides.*;
@@ -171,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` dosyası kırpma kilidini `true` olarak saklar. PowerPoint’te fotoğraf seçili olduğunda **Crop** komutu devre dışı kalır.
+`PictureLocked.pptx` kırpma kilidini `true` olarak depolar. PowerPoint'te fotoğraf seçildiğinde **Crop** komutu devre dışı bırakılır.
 
-### **Bir Diyagramı Gruplu Tutmak**
+### **Bir Diyagramı Gruplu Tutma**
 
-Örnek bir dikdörtgen ve bir ok gruplar, ardından grubun kilidinde [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) metodunu çağırarak diyagramın bileşenlerinin bir arada kalmasını sağlar. Grubu hareket ettirme veya bir bileşenin dolgusunu değiştirme gibi diğer düzenlemeler hâlâ mümkündür.
+Örnek, bir dikdörtgen ve bir ok gruplar, ardından grup kilidi üzerinde [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) çağırarak diyagram bileşenlerinin bir arada kalmasını sağlar. Grubu hareket ettirmek veya bir bileşenin dolgusunu değiştirmek gibi diğer düzenlemeler kullanılabilir durumda kalır.
 
 ```java
 import com.aspose.slides.*;
@@ -195,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` dosyası çözülme kilidini `true` olarak saklar. PowerPoint’te tüm diyagram seçili olduğunda **Ungroup** komutu devre dışı kalır.
+`DiagramLocked.pptx` grup çözme kilidini `true` olarak depolar. PowerPoint'te tüm diyagram seçildiğinde **Ungroup** komutu devre dışı bırakılır.
 
-### **Sonuç**
+### **Mevcut Şekil Kilitlerini Raporlama**
 
-Aspose.Slides for Android via Java, bireysel şekiller üzerinde belirli düzenleme işlemlerini kısıtlamanıza veya aynı kısıtlamaları slaytlar arasında uygulamanıza olanak tanır. Her şekil tipi tarafından desteklenen kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `false` olarak ayarlayın.
+Bir şablonu incelemek için, onu açın ve her şekil için kilit nesnesini okuyun. [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) metodu, nesnedeki tüm bayraklar devre dışı olduğunda `true`, en az bir bayrak etkin olduğunda `false` döndürür. Bir grup ve onun alt öğeleri ayrı kilit nesnelerine sahiptir; bu nedenle grup kilidi olmasa bile alt öğeleri inceleyin.
+
+Bu örnek, otomatik şekiller, resim çerçeveleri ve gruplar için hareketi kontrol eder. Ayrıca resimler için kırpmayı ve gruplar için grup çözmeyi kontrol eder. Rapor, tanıdığı etkin bayrakları listeler ve incelemediği şekil türlerini işaretler.
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+`Sample.pptx` dosyasının 1. slaytının, grup çözme kilitli `Layout` adlı bir grup, içinde kırpma kilitli `Photo` adlı bir resim ve kilidi olmayan `Free` adlı bir dikdörtgen içerdiğini varsayalım. Rapor, `Free` öğesini atlar ve şu iki satırı yazdırır:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Rapor, saklanan şekil düzeyindeki düzenleme bayraklarını değiştirmeden veya sunumu kaydetmeden okur. Belge düzeyinde yazma koruması ayrı bir ayardır ve her bayrağın uygulanması editöre bağlıdır.
+
+## **Sonuç**
+
+Aspose.Slides for Android via Java, bireysel şekillerde belirli düzenleme işlemlerini kısıtlamanıza veya aynı kısıtlamaları slaytlar arasında uygulamanıza olanak tanır. Her şekil türünün desteklediği kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `false` olarak ayarlayın.
 
 ## **SSS**
 
-**Şekil kilitlerini ve parola korumasını aynı sunumda birleştirebilir miyim?**
+**Bir sunumda şekil kilitlerini ve parola korumasını birleştirebilir miyim?**
 
-Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [password protection](/slides/tr/androidjava/password-protected-presentation/) sunumu açmayı veya değiştirmeyi kısıtlayabilir. Her ikisini de aynı dosyada kullanabilirsiniz.
+Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [parola koruması](/slides/tr/androidjava/password-protected-presentation/) sunumun açılmasını veya değiştirilmesini kısıtlayabilir. İkisini aynı dosyada kullanabilirsiniz.
 
-**Belirli slaytlarda düzenlemeyi kısıtlayıp diğerlerini etkilemeden yapabilir miyim?**
+**Belirli slaytlarda düzenlemeyi diğerlerini etkilemeden kısıtlayabilir miyim?**
 
-Evet. Kilitleri yalnızca seçili slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
+Evet. Kilitleri yalnızca seçilen slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
 
-**Bir grup içindeki bireysel şekillere kilit uygulayabilir miyim?**
+**Bir grup içindeki bireysel şekillere nasıl kilit uygulayabilirim?**
 
-Grubun [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) metodundan dönen koleksiyonu döngüye alarak her alt şekle uygun kilitleri uygulayın. İç içe gruplar için aynı işlemi tekrarlayın. Yukarıdaki örnekler yalnızca slaytın şekil koleksiyonunu işler, bu yüzden bireysel grup üyelerine kilit koymaz.
+Grubun [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) metodunun döndürdüğü koleksiyonu yineleyin ve her alt şekle uygun kilitleri uygulayın. Raporlama örneğindeki geçişi izleyerek, iç içe gruplar için de aynı işlemi tekrarlayın.

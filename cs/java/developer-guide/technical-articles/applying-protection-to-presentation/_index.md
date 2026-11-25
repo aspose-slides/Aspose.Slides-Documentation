@@ -1,5 +1,5 @@
 ---
-title: Omezit úpravy prezentace pomocí zámků tvarů v Javě
+title: Omezte úpravy prezentace zamčením tvarů v Javě
 linktitle: Omezit úpravy prezentace
 type: docs
 weight: 60
@@ -8,7 +8,7 @@ keywords:
 - zabránit úpravám
 - chránit před úpravami
 - zamknout tvar
-- zamknout pozici
+- zamknout polohu
 - zamknout výběr
 - zamknout změnu velikosti
 - zamknout seskupování
@@ -17,39 +17,39 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Zjistěte, jak zamykat a odemykat tvary v PPTX prezentacích pomocí Aspose.Slides pro Java, aby bylo omezeno vybírání, pohyb, změna velikosti a seskupování."
+description: "Zjistěte, jak zamykat a odemykat tvary v PPTX prezentacích pomocí Aspose.Slides for Java, abyste omezili výběr, pohyb, změnu velikosti a seskupování."
 ---
 ## **Pozadí**
 
-Běžné využití Aspose.Slides pro Java je vytváření, aktualizace a ukládání prezentací PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezování změn tvarů může pomoci zachovat zamýšlené rozvržení a obsah.
+Běžné využití Aspose.Slides for Java je vytvářet, aktualizovat a ukládat prezentace PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezení změn tvarů může pomoci zachovat zamýšlené rozvržení a obsah.
 
-Tento článek vysvětluje, jak jsou tvary uspořádány na snímcích a jak aplikovat a odebrat zámky tvarů v prezentaci PPTX. Tyto zámky vám umožňují omezit konkrétní úpravy na jednotlivých tvarech.
+Tento článek popisuje, jak jsou tvary na snímcích organizovány a jak v PPTX prezentaci použít a odebrat zamykání tvarů. Tato zamknutí vám umožňují omezit konkrétní operace úprav na jednotlivých tvarech.
 
 ## **Složení snímku**
 
-Prezentace snímku se skládá z komponent, jako jsou automatické tvary, tabulky, OLE objekty, seskupené tvary, rámce obrázků, video rámečky, konektory a další prvky používané k tvorbě prezentace. V Aspose.Slides pro Java je každý prvek na snímku reprezentován objektem, který implementuje rozhraní [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) nebo dědí z třídy, která to dělá.
+Prezentační snímek je složen z komponent, jako jsou automatické tvary, tabulky, OLE objekty, seskupené tvary, rámy obrázků, video rámy, propojení a další prvky používané k vytvoření prezentace. V Aspose.Slides for Java je každý prvek na snímku reprezentován objektem, který implementuje rozhraní [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) nebo dědí z třídy, která to dělá.
 
-Různé typy tvarů nabízejí různé možnosti zamykání. Rozhraní [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) je základní rozhraní pro zámky tvarů. Aspose.Slides pro Java poskytuje následující rozhraní zámků:
+Různé typy tvarů nabízejí různé možnosti zamykání. Rozhraní [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) je základním rozhraním pro zamykání tvarů. Aspose.Slides for Java poskytuje následující rozhraní zamykání:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) uzamyká automatické tvary.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) uzamyká tvary konektorů.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) uzamyká grafické objekty.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) uzamyká seskupené tvary.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) uzamyká rámce obrázků.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) zamyká automatické tvary.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) zamyká tvary propojení.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) zamyká grafické objekty.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) zamyká skupinové tvary.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) zamyká rámy obrázků.  
 
-Pro aplikaci zámků napříč [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterujte přes jeho snímky a nastavte příslušné zámky na každý podporovaný tvar.
+Pro aplikaci zamykání napříč [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) iterujte přes její snímky a nastavte příslušná zamknutí na každý podporovaný tvar.
 
-## **Použití a odebrání ochrany**
+## **Aplikace a odebrání ochrany**
 
-Kompatibilní editory prezentací používají zámky tvarů k omezení individuálních úprav. Šifrování souboru a ochrana zápisu na úrovni dokumentu jsou oddělené [nastavení ochrany prezentace](/slides/cs/java/password-protected-presentation/).
+Kompatibilní editory prezentací používají zamykání tvarů k omezení jednotlivých operací úprav. Šifrování souborů a ochrana zápisu na úrovni dokumentu jsou samostatná [nastavení ochrany prezentace](/slides/cs/java/password-protected-presentation/).
 
-### **Použití ochrany na tvary PPTX**
+### **Aplikace ochrany na PPTX tvary**
 
-Aspose.Slides pro Java poskytuje rozhraní [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) pro práci s tvary na snímku.
+Aspose.Slides for Java poskytuje rozhraní [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) pro práci s tvary na snímku.
 
-Příklad volá [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) a [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) s hodnotou `true` pro automatické tvary, s ekvivalentními zámky pro seskupené tvary, konektory a rámce obrázků. Konektory používají [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) pro pohyb; skupiny také používají [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) k omezení seskupování.
+Příklad volá [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) a [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) s hodnotou `true` pro automatické tvary, s ekvivalentními zamknutími pro skupinové tvary, propojení a rámy obrázků. Propojení používají [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) pro pohyb; skupiny také používají [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) k omezení seskupování.
 
-Příklad načte existující PPTX prezentaci, zkontroluje tvary v kolekci tvarů každého snímku a uloží kopii s těmito omezeními aplikovanými. Tvary mimo čtyři zpracovávané typy zůstávají beze změny. Smyčka neprochází podřízené tvary uvnitř skupiny.
+Příklad načte existující PPTX prezentaci, zkontroluje tvary v kolekci tvarů každého snímku a uloží kopii s těmito omezeními aplikovanými. Tvary mimo čtyři zpracovávané typy zůstávají nezměněny. Smyčka neprochází podřízené tvary uvnitř skupiny.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Odebrat ochranu**
+### **Odebrání ochrany**
 
-Pro odebrání zámku tvaru nastavte jeho hodnotu na `false`. Následující příklad načte prezentaci se zamknutými tvary a vymaže omezení výběru, pohybu a změny velikosti prostřednictvím [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) a [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Také odstraní omezení seskupování předáním `false` metodě [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) a uloží kopii prezentace. Ostatní nastavení zámků zůstávají beze změny.
+Pro odebrání zamknutí tvaru nastavte jeho hodnotu na `false`. Následující příklad načte prezentaci se zamknutími tvarů a vymaže omezení výběru, pohybu a změny velikosti prostřednictvím [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) a [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Také odstraní omezení seskupování předáním `false` metodě [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) a uloží kopii prezentace. Ostatní nastavení zamykání zůstávají nezměněna.
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-### **Zachovat oříznutí obrázku**
+### **Zachování ořezu obrázku**
 
-Umístěte fotografii pojmenovanou `photo.jpg` do pracovního adresáře. Příklad ořízne 12 % zleva a 8 % zprava a následně zavolá [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) na zámku rámce obrázku. Předání `true` omezuje další ořezávání a zachová existující oříznutí.
+Umístěte fotografii s názvem `photo.jpg` do pracovního adresáře. Příklad ořízne 12 % zleva a 8 % zprava, poté zavolá [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) na zamykání rámce obrázku. Předání hodnoty `true` omezuje další ořezávání a zachovává existující ořez.
 
 ```java
 import com.aspose.slides.*;
@@ -169,11 +169,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` ukládá zámek oříznutí jako `true`. V PowerPointu je příkaz **Crop** (Oříznout) zakázán, když je vybrána fotografie.
+`PictureLocked.pptx` ukládá zamknutí ořezu jako `true`. V PowerPointu je příkaz **Crop** vypnutý, když je vybrán obrázek.
 
-### **Udržet diagram seskupený**
+### **Udržení diagramu seskupeného**
 
-Příklad seskupí obdélník a šipku a poté zavolá [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) na zámku skupiny, aby komponenty diagramu zůstaly pohromadě. Ostatní úpravy, jako je přesunutí skupiny nebo změna výplně komponenty, jsou nadále k dispozici.
+Příklad seskupí obdélník a šipku a poté zavolá [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) na zamykání skupiny, aby komponenty diagramu zůstaly pohromadě. Ostatní úpravy, jako je přesunutí skupiny nebo změna výplně komponenty, zůstávají dostupné.
 
 ```java
 import com.aspose.slides.*;
@@ -193,22 +193,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` ukládá zámek rozdělení jako `true`. V PowerPointu je příkaz **Ungroup** (Rozdělit) zakázán, když je vybrán celý diagram.
+`DiagramLocked.pptx` ukládá zamknutí rozdělení jako `true`. V PowerPointu je příkaz **Ungroup** vypnutý, když je vybrán celý diagram.
+
+### **Zpráva o existujících zamknutích tvarů**
+
+Pro přezkoumání šablony ji otevřete a přečtěte objekt zamykání pro každý tvar. Metoda [getNoLocks](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/#getNoLocks--) vrací `true`, když jsou na tomto objektu vypnuté všechny příznaky, a `false`, když je alespoň jeden povolen. Skupina a její podřízené položky mají samostatné objekty zamykání, takže kontrolujte podřízené i když skupina nemá žádná zamknutí.
+
+Tento příklad kontroluje pohyb u automatických tvarů, rámců obrázků a skupin. Také kontroluje ořez u obrázků a rozdělování u skupin. Zpráva uvádí povolené příznaky, které rozpozná, a označuje typy tvarů, které neprozkoumává.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            StringJoiner flags = new StringJoiner(", ");
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = flags.length() > 0 ? flags.toString() : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Předpokládejme, že snímek 1 souboru `Sample.pptx` obsahuje skupinu s názvem `Layout` s uzamčeným rozdělením, obrázek s názvem `Photo` uvnitř ní s uzamčeným ořezem a odemčený obdélník s názvem `Free`. Zpráva přeskočí `Free` a vypíše tyto dva řádky:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Zpráva čte uložené příznaky úprav na úrovni tvaru, aniž by je měnila nebo ukládala prezentaci. Ochrana zápisu na úrovni dokumentu je samostatné nastavení a vynucení každého příznaku závisí na editoru.
 
 ### **Závěr**
 
-Aspose.Slides pro Java vám umožňuje omezit konkrétní úpravy na jednotlivých tvarech nebo aplikovat stejná omezení napříč snímky. Vyberte zámky podporované daným typem tvaru a nastavte jejich hodnoty na `false`, pokud potřebujete tato omezení odebrat.
+Aspose.Slides for Java vám umožňuje omezit konkrétní operace úprav na jednotlivých tvarech nebo aplikovat stejná omezení napříč snímky. Vyberte zamykání podporovaná každým typem tvaru a nastavte jejich hodnoty na `false`, když potřebujete tato omezení odebrat.
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
-**Mohu kombinovat zámky tvarů a ochranu heslem ve stejné prezentaci?**
+**Mohu kombinovat zamykání tvarů a ochranu heslem ve stejné prezentaci?**
 
-Ano. Zámky tvarů omezují konkrétní úpravy, zatímco [password protection](/slides/cs/java/password-protected-presentation/) může omezit otevření nebo úpravu prezentace. Obě můžete použít v jednom souboru.
+Ano. Zamykání tvarů omezuje konkrétní operace úprav, zatímco [ochranu heslem](/slides/cs/java/password-protected-presentation/) může omezit otevírání nebo úpravu prezentace. Obě můžete použít ve stejném souboru.
 
 **Mohu omezit úpravy na konkrétních snímcích, aniž bych ovlivnil ostatní?**
 
-Ano. Aplikujte zámky jen na tvary na vybraných snímcích. Tím se nezmění nastavení zámků na ostatních snímcích.
+Ano. Aplikujte zamykání pouze na tvary na vybraných snímcích. Toto nezmění nastavení zamykání na ostatních snímcích.
 
-**Jak mohu aplikovat zámky na jednotlivé tvary uvnitř skupiny?**
+**Jak mohu aplikovat zamykání na jednotlivé tvary uvnitř skupiny?**
 
-Iterujte přes kolekci vrácenou metodou [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) skupiny a aplikujte příslušné zámky na každý podřízený tvar. Opakujte postup pro jakékoli vnořené skupiny. Ve výše uvedených příkladech se pracuje pouze s kolekcí tvarů snímku, takže nezamykají jednotlivé členy skupiny.
+Projděte kolekci vrácenou metodou [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) skupiny a aplikujte příslušná zamykání na každý podřízený tvar. Opakujte to pro všechny vnořené skupiny podle průchodu v příkladu zprávy.

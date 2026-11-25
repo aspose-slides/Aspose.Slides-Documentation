@@ -1,55 +1,55 @@
 ---
-title: "PHP में शैप लॉक के साथ प्रस्तुतीकरण संपादन को प्रतिबंधित करें"
-linktitle: "प्रस्तुतीकरण संपादन को प्रतिबंधित करें"
+title: "PHP में Shape Locks के साथ प्रस्तुति संपादन को प्रतिबंधित करें"
+linktitle: "प्रस्तुति संपादन को प्रतिबंधित करें"
 type: docs
 weight: 60
 url: /hi/php-java/applying-protection-to-presentation/
 keywords:
-- "संपादन रोकें"
-- "संपादन से सुरक्षा करें"
-- "आकृति लॉक करें"
-- "स्थिति लॉक करें"
-- "चयन लॉक करें"
-- "आकार बदलना लॉक करें"
+- "संपादन को रोकें"
+- "संपादन से सुरक्षित रखें"
+- "आकार को लॉक करें"
+- "स्थिति को लॉक करें"
+- "चयन को लॉक करें"
+- "आकार बदलने को लॉक करें"
 - "समूह बनाना लॉक करें"
 - PowerPoint
 - PPTX
 - "प्रस्तुति"
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ PPTX प्रस्तुतियों में आकृतियों को लॉक और अनलॉक करना सीखें ताकि चयन, गति, आकार बदलना और समूह बनाना प्रतिबंधित किया जा सके।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PPTX प्रस्तुतियों में आकार को लॉक और अनलॉक करना सीखें, जिससे चयन, गति, आकार बदलना और समूह बनाना प्रतिबंधित हो सके।"
 ---
-## **परिचय**
+## **समीक्षा**
 
-Aspose.Slides for PHP via Java का एक आम उपयोग स्वचालित कार्यप्रवाह के हिस्से के रूप में PowerPoint (PPTX) प्रस्तुतियों को बनाना, अपडेट करना और सहेजना है। जब उपयोगकर्ताओं को ये प्रस्तुतियाँ प्राप्त होती हैं, तो आकृतियों में बदलाव को प्रतिबंधित करने से इच्छित लेआउट और सामग्री को संरक्षित रखने में मदद मिलती है।
+Aspose.Slides for PHP via Java का एक सामान्य उपयोग स्वचालित कार्यप्रवाह के हिस्से के रूप में PowerPoint (PPTX) प्रस्तुतियों को बनाना, अद्यतन करना और सहेजना है। जब उपयोगकर्ता इन प्रस्तुतियों को प्राप्त करते हैं, तो आकारों में परिवर्तन को प्रतिबंधित करने से इच्छित लेआउट और सामग्री को संरक्षित करने में मदद मिलती है।
 
-यह लेख बताता है कि स्लाइड्स में आकृतियों को कैसे व्यवस्थित किया जाता है और PPTX प्रस्तुति में आकृति लॉक को कैसे लागू और हटाया जाता है। ये लॉक आपको व्यक्तिगत आकृतियों पर विशिष्ट संपादन कार्यों को प्रतिबंधित करने की अनुमति देते हैं।
+यह लेख समझाता है कि स्लाइडों पर आकार कैसे व्यवस्थित होते हैं और PPTX प्रस्तुति में आकार लॉक को कैसे लागू और हटाया जाता है। ये लॉक आपको व्यक्तिगत आकारों पर विशिष्ट संपादन कार्यों को प्रतिबंधित करने की अनुमति देते हैं।
 
 ## **स्लाइड की संरचना**
 
-एक प्रस्तुति स्लाइड में ऑटोषेप, तालिकाएँ, OLE ऑब्जेक्ट, समूहित आकृतियाँ, पिक्चर फ्रेम, वीडियो फ्रेम, कनेक्टर और अन्य तत्व जैसे घटक होते हैं जो प्रस्तुति बनाने के लिए उपयोग किए जाते हैं। Aspose.Slides for PHP via Java में, स्लाइड पर प्रत्येक तत्व को एक ऑब्जेक्ट द्वारा दर्शाया जाता है जो [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) क्लास से व्युत्पन्न होता है।
+एक प्रस्तुति स्लाइड में ऑटोषेप, तालिका, OLE ऑब्जेक्ट, समूहित आकार, चित्र फ़्रेम, वीडियो फ़्रेम, कनेक्टर, और प्रस्तुति बनाने के लिए उपयोग किए जाने वाले अन्य तत्व जैसे घटक होते हैं। Aspose.Slides for PHP via Java में, स्लाइड पर प्रत्येक तत्व एक ऑब्जेक्ट द्वारा दर्शाया जाता है जो [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) क्लास को विरासत में लेता है।
 
-विभिन्न प्रकार की आकृतियों में विभिन्न लॉक विकल्प उपलब्ध होते हैं। [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) क्लास आकृति लॉक के लिए बेस क्लास है। Aspose.Slides for PHP via Java निम्नलिखित लॉक क्लासें प्रदान करता है:
+विभिन्न आकार प्रकार विभिन्न लॉक विकल्प प्रदान करते हैं। [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) क्लास आकार लॉक के लिए आधार क्लास है। Aspose.Slides for PHP via Java निम्नलिखित लॉक क्लास प्रदान करता है:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) ऑटोशेप्स को लॉक करता है।  
-- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) कनेक्टर आकृतियों को लॉक करता है।  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) ग्राफिकल ऑब्जेक्ट को लॉक करता है।  
-- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) ग्रुप शैप को लॉक करता है।  
-- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) पिक्चर फ्रेम को लॉक करता है।  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) ऑटोषेप को लॉक करता है।  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) कनेक्टर आकार को लॉक करता है।  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) ग्राफ़िकल ऑब्जेक्ट को लॉक करता है।  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) समूह आकार को लॉक करता है।  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) चित्र फ़्रेम को लॉक करता है।  
 
-एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) पर लॉक लागू करने के लिए, उसकी स्लाइड्स पर क्रमबद्ध चलें और प्रत्येक समर्थित आकृति पर उपयुक्त लॉक सेट करें।
+एक [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) के ओवर सभी स्लाइडों पर लॉक लागू करने के लिए, उसके स्लाइडों को क्रमबद्ध करें और प्रत्येक समर्थित आकार पर उपयुक्त लॉक सेट करें।
 
-## **संरक्षा लागू करना और हटाना**
+## **सुरक्षा लागू करना और हटाना**
 
-संगत प्रस्तुति संपादक व्यक्तिगत संपादन कार्यों को प्रतिबंधित करने के लिए आकृति लॉक का उपयोग करते हैं। फ़ाइल एन्क्रिप्शन और दस्तावेज़-स्तर की लिखने की सुरक्षा अलग [प्रेजेंटेशन सुरक्षा सेटिंग्स](/slides/hi/php-java/password-protected-presentation/) हैं।
+संगत प्रस्तुति संपादक आकार लॉक का उपयोग करके व्यक्तिगत संपादन कार्यों को प्रतिबंधित करते हैं। फ़ाइल एन्क्रिप्शन और दस्तावेज़-स्तर लिखने की सुरक्षा अलग [प्रस्तुति संरक्षण सेटिंग्स](/slides/hi/php-java/password-protected-presentation/) हैं।
 
-### **PPTX आकृतियों पर सुरक्षा लागू करें**
+### **PPTX आकारों पर सुरक्षा लागू करना**
 
-Aspose.Slides for PHP via Java स्लाइड पर आकृतियों के साथ काम करने के लिए [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) क्लास प्रदान करता है।
+Aspose.Slides for PHP via Java स्लाइड पर आकारों के साथ काम करने के लिए [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) क्लास प्रदान करता है।
 
-उदाहरण में ऑटोषेप्स के लिए `true` के साथ [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked), और [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) को कॉल किया जाता है, तथा समूह आकृतियों, कनेक्टर और पिक्चर फ्रेम के लिए समतुल्य लॉक का उपयोग किया जाता है। कनेक्टर गति के लिए [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) का उपयोग करते हैं; समूहों के लिए समूह बनाना प्रतिबंधित करने हेतु [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) का भी उपयोग किया जाता है।
+उदाहरण में ऑटोषेप के लिए `true` के साथ [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked), और [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) को कॉल किया जाता है, समूह आकार, कनेक्टर और चित्र फ़्रेम के लिए समान लॉक लागू होते हैं। कनेक्टर गति के लिए [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) का उपयोग करते हैं; समूह भी समूह बनाने को प्रतिबंधित करने के लिए [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) का उपयोग करते हैं।
 
-उदाहरण एक मौजूदा PPTX प्रस्तुति लोड करता है, प्रत्येक स्लाइड के शैप कलेक्शन में आकृतियों की जाँच करता है, और इन प्रतिबंधों के साथ एक कॉपी सहेजता है। चार संभाले गए प्रकारों के बाहर की आकृतियों को अपरिवर्तित छोड़ दिया जाता है। लूप समूह के भीतर की चाइल्ड आकृतियों को पार नहीं करता।
+उदाहरण एक मौजूदा PPTX प्रस्तुति को लोड करता है, प्रत्येक स्लाइड के आकार संग्रह में आकारों की जाँच करता है, और इन प्रतिबंधों के लागू होने के साथ एक कॉपी सहेजता है। चार संभाले गए प्रकारों के बाहर के आकार अपरिवर्तित रहते हैं। लूप समूह के भीतर के चाइल्ड आकारों को पार नहीं करता।
 
 ```php
 use aspose\slides\Presentation;
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-### **सुरक्षा हटाएँ**
+### **सुरक्षा हटाना**
 
-एक आकृति लॉक को हटाने के लिए, उसके मान को `false` सेट करें। निम्नलिखित उदाहरण आकृति लॉक के साथ एक प्रस्तुति लोड करता है और चयन, गति और आकार बदलने के प्रतिबंधों को [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/), और [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) के माध्यम से साफ़ करता है। यह [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) में `false` पास करके समूह बनाना प्रतिबंध भी हटाता है और प्रस्तुति की एक कॉपी सहेजता है। अन्य लॉक सेटिंग्स अपरिवर्तित रहती हैं।
+एक आकार लॉक को हटाने के लिए, उसका मान `false` सेट करें। निम्नलिखित उदाहरण आकार लॉक के साथ एक प्रस्तुति को लोड करता है और चयन, गति, और आकार बदलने की प्रतिबंधों को [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/), और [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) के माध्यम से साफ़ करता है। यह [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) को `false` पास करके समूह बनाने की प्रतिबंध को भी हटाता है और प्रस्तुति की एक कॉपी सहेजता है। अन्य लॉक सेटिंग्स अपरिवर्तित रहती हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -133,9 +133,9 @@ try {
 }
 ```
 
-### **चित्र क्रॉप को संरक्षित रखें**
+### **चित्र कटाव को संरक्षित करना**
 
-कार्य निर्देशिका में `photo.jpg` नाम की फोटो रखें। उदाहरण बाएँ से 12% और दाएँ से 8% क्रॉप करता है, फिर पिक्चर फ्रेम के लॉक पर [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) को कॉल करता है। `true` पास करने से आगे का क्रॉप प्रतिबंधित हो जाता है और मौजूदा क्रॉप संरक्षित रहता है।
+कार्य निर्देशिका में `photo.jpg` नामक फोटो रखें। उदाहरण बाएँ से 12 % और दाएँ से 8 % कटाव करता है, फिर चित्र फ़्रेम के लॉक पर [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) को कॉल करता है। `true` पास करने से आगे के कटाव को प्रतिबंधित किया जाता है और मौजूदा कटाव संरक्षित रहता है।
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` में क्रॉप लॉक `true` के रूप में संग्रहीत होता है। PowerPoint में, जब फोटो चयनित हो तो **Crop** कमांड निष्क्रिय रहता है।
+`PictureLocked.pptx` क्रॉप लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, जब फोटो चयनित होता है तो **Crop** कमांड अक्षम हो जाता है।
 
-### **डायग्राम को समूहित रखें**
+### **डायग्राम को समूहित रखना**
 
-उदाहरण एक आयत और एक तीर को समूहित करता है, फिर समूह के लॉक पर [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) को कॉल करके डायग्राम के घटकों को साथ रखता है। अन्य संपादन, जैसे समूह को स्थानांतरित करना या घटक के भराव को बदलना, उपलब्ध रहते हैं।
+उदाहरण एक आयत और एक तीर को समूहित करता है, फिर समूह के लॉक पर [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) को कॉल करके डायग्राम के घटकों को एक साथ रखता है। समूह को स्थानांतरित करने या किसी घटक के भराव को बदलने जैसी अन्य कार्रवाइयाँ उपलब्ध रहती हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` में अनग्रुपिंग लॉक `true` के रूप में संग्रहीत होता है। PowerPoint में, जब पूरा डायग्राम चयनित हो तो **Ungroup** कमांड निष्क्रिय रहता है।
+`DiagramLocked.pptx` अनग्रुपिंग लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, जब पूरा डायग्राम चयनित होता है तो **Ungroup** कमांड अक्षम हो जाता है।
+
+### **मौजूदा आकार लॉक रिपोर्ट करें**
+
+एक टेम्पलेट की समीक्षा करने के लिए, उसे खोलें और प्रत्येक आकार के लिए लॉक ऑब्जेक्ट पढ़ें। [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) मेथड `true` लौटाता है जब उस ऑब्जेक्ट पर सभी फ़्लैग अक्षम होते हैं और `false` जब कम से कम एक सक्षम हो। एक समूह और उसके बच्चों के पास अलग लॉक ऑब्जेक्ट होते हैं, इसलिए समूह में कोई लॉक न होने पर भी बच्चों की जांच करें।
+
+यह उदाहरण ऑटोषेप, चित्र फ़्रेम, और समूहों के लिए गति की जाँच करता है। यह चित्रों के लिए कटाव और समूहों के लिए अनग्रुपिंग भी जाँचता है। रिपोर्ट उन सक्षम फ़्लैगों को सूचीबद्ध करती है जिन्हें यह पहचानता है और उन आकार प्रकारों को चिह्नित करती है जिन्हें यह जांचता नहीं है।
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+मान लीजिए `Sample.pptx` की स्लाइड 1 में `Layout` नामक एक समूह है जिसका अनग्रुपिंग लॉक है, उसके अंदर `Photo` नामक एक चित्र है जिसका कटाव लॉक है, और `Free` नामक एक अनलॉक आयत है। रिपोर्ट `Free` को छोड़ देती है और ये दो पंक्तियाँ प्रिंट करती है:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+रिपोर्ट संग्रहित आकार-स्तर संपादन फ़्लैग को बदले बिना या प्रस्तुति को सहेजे बिना पढ़ती है। दस्तावेज़-स्तर लिखने की सुरक्षा एक अलग सेटिंग है, और प्रत्येक फ़्लैग का प्रवर्तन संपादक पर निर्भर करता है।
 
 ### **निष्कर्ष**
 
-Aspose.Slides for PHP via Java आपको व्यक्तिगत आकृतियों पर विशिष्ट संपादन कार्यों को प्रतिबंधित करने या स्लाइड्स के पूरे में समान प्रतिबंध लागू करने की अनुमति देता है। प्रत्येक आकृति प्रकार द्वारा समर्थित लॉक चुनें, और जब आपको इन प्रतिबंधों को हटाना हो तो उनके मान को `false` सेट करें।
+Aspose.Slides for PHP via Java आपको व्यक्तिगत आकारों पर विशिष्ट संपादन कार्यों को प्रतिबंधित करने या स्लाइडों के बीच समान प्रतिबंध लागू करने की सुविधा देता है। प्रत्येक आकार प्रकार द्वारा समर्थित लॉक चुनें, और जब आप इन प्रतिबंधों को हटाना चाहते हों तो उनके मान `false` सेट करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं एक ही प्रस्तुति में आकृति लॉक और पासवर्ड सुरक्षा को संयोजित कर सकता हूँ?**
+**क्या मैं एक ही प्रस्तुति में आकार लॉक और पासवर्ड सुरक्षा को मिलाकर उपयोग कर सकता हूँ?**
 
-हां। आकृति लॉक विशिष्ट संपादन कार्यों को प्रतिबंधित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/php-java/password-protected-presentation/) प्रस्तुति को खोलने या संशोधित करने को प्रतिबंधित कर सकता है। आप दोनों का उपयोग एक ही फ़ाइल में कर सकते हैं।
+हाँ। आकार लॉक विशिष्ट संपादन कार्यों को प्रतिबंधित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/php-java/password-protected-presentation/) प्रस्तुति को खोलने या संशोधित करने को प्रतिबंधित कर सकता है। आप दोनों को एक ही फ़ाइल में उपयोग कर सकते हैं।
 
-**क्या मैं विशिष्ट स्लाइड्स पर संपादन को प्रतिबंधित कर सकता हूँ बिना अन्य स्लाइड्स को प्रभावित किए?**
+**क्या मैं विशिष्ट स्लाइडों पर संपादन को प्रतिबंधित कर सकता हूँ बिना अन्य स्लाइडों को प्रभावित किए?**
 
-हां। केवल चयनित स्लाइड्स की आकृतियों पर लॉक लागू करें। इससे अन्य स्लाइड्स की लॉक सेटिंग्स नहीं बदलतीं।
+हाँ। केवल चुनी गई स्लाइडों पर आकारों को लॉक लागू करें। यह अन्य स्लाइडों पर लॉक सेटिंग्स को बदलता नहीं है।
 
-**मैं समूह के भीतर व्यक्तिगत आकृतियों पर लॉक कैसे लागू कर सकता हूँ?**
+**मैं समूह के भीतर व्यक्तिगत आकारों पर लॉक कैसे लागू करूँ?**
 
-समूह की [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) विधि द्वारा लौटाई गई कलेक्शन पर क्रमबद्ध चलें और प्रत्येक चाइल्ड आकृति पर उपयुक्त लॉक लागू करें। किसी भी नेस्टेड समूह के लिए यह प्रक्रिया दोहराएँ। ऊपर के उदाहरण केवल स्लाइड की शैप कलेक्शन को प्रोसेस करते हैं, इसलिए वे व्यक्तिगत समूह सदस्यों पर लॉक सेट नहीं करते।
+समूह की [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) मेथड द्वारा लौटाए गए संग्रह के माध्यम से क्रमबद्ध करें और प्रत्येक चाइल्ड आकार पर उपयुक्त लॉक लागू करें। नेस्टेड समूहों के लिए भी यही प्रक्रिया दोहराएँ, रिपोर्टिंग उदाहरण में देखे गए क्रमबद्धन का पालन करें।

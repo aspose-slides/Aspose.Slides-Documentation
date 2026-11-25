@@ -1,17 +1,17 @@
 ---
-title: C++ でシェイプロックを使用してプレゼンテーションの編集を制限する
-linktitle: プレゼンテーション 編集の制限
+title: C++ のシェイプロックでプレゼンテーションの編集を制限する
+linktitle: プレゼンテーションの編集を制限
 type: docs
 weight: 10
 url: /ja/cpp/applying-protection-to-presentation/
 keywords:
-- 編集の防止
-- 編集からの保護
-- シェイプのロック
-- 位置のロック
-- 選択のロック
-- サイズ変更のロック
-- グループ化のロック
+- 編集防止
+- 編集から保護
+- シェイプをロック
+- 位置をロック
+- 選択をロック
+- サイズ変更をロック
+- グループ化をロック
 - PowerPoint
 - PPTX
 - プレゼンテーション
@@ -21,35 +21,35 @@ description: "Aspose.Slides for C++ を使用して PPTX プレゼンテーシ�
 ---
 ## **背景**
 
-Aspose.Slides for C++ の一般的な使用例は、PowerPoint (PPTX) プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際、シェイプへの変更を制限することで、意図されたレイアウトとコンテンツを保護できます。
+Aspose.Slides for C++ の一般的な使用例は、PowerPoint (PPTX) プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、シェイプへの変更を制限することで、意図したレイアウトとコンテンツを保護できます。
 
-この記事では、スライド上のシェイプの構成方法と、PPTX プレゼンテーションでシェイプロックを適用および削除する方法を説明します。これらのロックにより、個々のシェイプに対する特定の編集操作を制限できます。
+この記事では、スライド上でシェイプがどのように構成されているか、そして PPTX プレゼンテーションでシェイプ ロックを適用および削除する方法を説明します。これらのロックにより、個々のシェイプに対する特定の編集操作を制限できます。
 
 ## **スライドの構成**
 
-プレゼンテーション スライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、その他プレゼンテーション作成に使用される要素で構成されます。Aspose.Slides for C++ では、スライド上の各要素は [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) インターフェイスを実装するオブジェクト、またはそれを継承したクラスとして表現されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、およびプレゼンテーションの作成に使用されるその他の要素で構成されます。Aspose.Slides for C++ では、スライド上の各要素は [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) インターフェイスを実装するオブジェクト、あるいはそのクラスから継承したオブジェクトで表されます。
 
-シェイプの種類により、ロックオプションが異なります。[IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) インターフェイスはシェイプロックの基本インターフェイスです。Aspose.Slides for C++ は以下のロックインターフェイスを提供します:
+シェイプの種類に応じて異なるロックオプションが提供されます。[IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) インターフェイスはシェイプ ロックの基本インターフェイスです。Aspose.Slides for C++ は以下のロックインターフェイスを提供します：
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) オートシェイプをロックします。
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) コネクタシェイプをロックします。
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) グラフィカル オブジェクトをロックします。
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) グループ シェイプをロックします。
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 画像フレームをロックします。
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) はオートシェイプをロックします。
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) はコネクタシェイプをロックします。
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) はグラフィカルオブジェクトをロックします。
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) はグループシェイプをロックします。
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) は画像フレームをロックします。
 
-ロックを [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 全体に適用するには、スライドを反復処理し、各サポート対象シェイプに適切なロックを設定します。
+ロックを [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 全体に適用するには、スライドを順に走査し、サポートされている各シェイプに適切なロックを設定します。
 
-## **保護の適用と削除**
+## **保護の適用と解除**
 
-対応するプレゼンテーション エディタはシェイプロックを使用して個々の編集操作を制限します。ファイルの暗号化やドキュメントレベルの書き込み保護は、別の [プレゼンテーション保護設定](/slides/ja/cpp/password-protected-presentation/) です。
+互換性のあるプレゼンテーションエディタはシェイプ ロックを使用して個別の編集操作を制限します。ファイル暗号化およびドキュメントレベルの書き込み保護は、別個の [プレゼンテーション保護設定](/slides/ja/cpp/password-protected-presentation/) です。
 
 ### **PPTX シェイプへの保護の適用**
 
-Aspose.Slides for C++ は、スライド上のシェイプを操作するための [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) インターフェイスを提供します。
+Aspose.Slides for C++ はスライド上のシェイプを操作するための [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) インターフェイスを提供します。
 
-この例では、オートシェイプに対して `true` を [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)、[set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/)、[set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) に渡し、グループ シェイプ、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動のために [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) を使用し、グループは [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) を使用してグループ化を制限します。
+この例では、オートシェイプに対して `true` を [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)、[set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) および [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) に渡し、グループシェイプ、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動に [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) を使用し、グループはグループ化を制限するために [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) を使用します。
 
-この例は既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプコレクション内のシェイプを確認し、これらの制限が適用されたコピーを保存します。扱われた4種類以外のシェイプは変更されません。ループはグループ内の子シェイプを走査しません。
+この例では既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプコレクション内のシェイプをチェックし、これらの制約が適用されたコピーを保存します。対象の4つのタイプ以外のシェイプは変更されません。ループはグループ内部の子シェイプを走査しません。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -122,9 +122,9 @@ presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **保護の削除**
+### **保護の解除**
 
-シェイプロックを削除するには、その値を `false` に設定します。以下の例では、シェイプロックが設定されたプレゼンテーションを読み込み、[IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) を介して選択、移動、サイズ変更の制限をクリアします。また、[IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) もクリアし、プレゼンテーションのコピーを保存します。その他のロック設定は変更されません。
+シェイプ ロックを解除するには、その値を `false` に設定します。以下の例では、シェイプ ロックが設定されたプレゼンテーションを読み込み、[IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/)、および [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、[IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) をクリアし、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,9 +197,9 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **画像のクロップを保持**
+### **画像の切り抜きの保持**
 
-作業ディレクトリに `photo.jpg` という名前の写真を配置します。この例では左側を 12%、右側を 8% クロップし、画像フレームロックの [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) を呼び出してクロップを保持し、さらにクロップできないようにします。
+作業ディレクトリに `photo.jpg` という名前の写真を配置します。この例では左側から12%、右側から8% を切り抜き、画像フレームロックの [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) を呼び出して切り抜きを保持し、以降の切り抜きを制限します。
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx` はクロップロックを `true` として保存します。PowerPoint では、写真が選択されていると **Crop** コマンドが無効になります。
+`PictureLocked.pptx` は切り抜きロックを `true` として保存します。PowerPoint では、写真が選択されているとき **Crop** コマンドが無効化されます。
 
-### **図のグループ化を維持**
+### **図表をグループ化したままにする**
 
-この例では矩形と矢印をグループ化し、グループのロックに対して [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) を呼び出して図のコンポーネントを一緒に保ちます。グループの移動やコンポーネントの塗りつぶし変更など、他の編集は引き続き可能です。
+この例では矩形と矢印をグループ化し、グループのロックに対して [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) を呼び出して図表の構成要素を一緒に保持します。グループの移動や構成要素の塗りの変更など、他の編集は引き続き可能です。
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` はアン・グループロックを `true` として保存します。PowerPoint では、図全体が選択されていると **Ungroup** コマンドが無効になります。
+`DiagramLocked.pptx` はグループ解除ロックを `true` として保存します。PowerPoint では、図全体が選択されているとき **Ungroup** コマンドが無効化されます。
+
+### **既存シェイプロックの報告**
+
+テンプレートを確認するには、開いて各シェイプのロックオブジェクトを読み取ります。[get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) はそのオブジェクト上のすべてのフラグが無効な場合に `true` を、少なくとも1つが有効な場合に `false` を返します。グループとその子は別々のロックオブジェクトを持つため、グループにロックがなくても子を検査してください。
+
+この例では、オートシェイプ、画像フレーム、グループの移動、画像の切り抜き、グループの解除をチェックします。認識したフラグを報告し、検査しないシェイプタイプはマークします。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+`Sample.pptx` のスライド 1 に、グループ解除がロックされた `Layout` という名前のグループがあり、その中に切り抜きがロックされた `Photo` という画像があり、ロックされていない矩形 `Free` があるとします。レポートは `Free` をスキップし、次の2行を出力します：
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+このレポートは、保存されたシェイプレベルの編集フラグを読み取りますが、変更したりプレゼンテーションを保存したりはしません。ドキュメントレベルの書き込み保護は別個の設定であり、各フラグの適用はエディタに依存します。
 
 ### **結論**
 
-Aspose.Slides for C++ を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。シェイプの種類ごとにサポートされているロックを選択し、制限を解除したい場合はその値を `false` に設定します。
+Aspose.Slides for C++ を使用すると、個々のシェイプに対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。シェイプタイプごとにサポートされているロックを選択し、制限を解除する必要がある場合は値を `false` に設定してください。
 
-## **よくある質問**
+## **FAQ**
 
-**シェイプロックとパスワード保護を同じプレゼンテーションで組み合わせることはできますか？**
+**プレゼンテーションでシェイプロックとパスワード保護を併用できますか？**
 
-はい。シェイプロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/cpp/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同じファイルで使用できます。
+はい。シェイプロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/cpp/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同一ファイルで使用できます。
 
-**特定のスライドだけで編集を制限し、他のスライドには影響しないようにできますか？**
+**特定のスライドだけの編集を制限し、他のスライドに影響を与えませんか？**
 
-はい。選択したスライドのシェイプのみにロックを適用します。これにより、他のスライドのロック設定は変更されません。
+はい。選択したスライドのシェイプにのみロックを適用します。これにより、他のスライドのロック設定は変更されません。
 
-**グループ内の個々のシェイプにロックを適用するにはどうすればよいですか？**
+**グループ内の個別シェイプにロックを適用するにはどうすればよいですか？**
 
-グループの [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) メソッドが返すコレクションを反復処理し、各子シェイプに適切なロックを適用します。入れ子になったグループにも同様に繰り返します。上記の例はスライドのシェイプコレクションのみを処理しているため、個々のグループメンバーにはロックが設定されません。
+グループの [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) メソッドが返すコレクションを走査し、各子シェイプに適切なロックを適用します。入れ子になったグループがある場合は、レポート例の走査方法に従って同様に処理してください。

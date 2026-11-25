@@ -1,5 +1,5 @@
 ---
-title: 使用 Shape Locks 限制 Node.js 中的簡報編輯
+title: 在 Node.js 中使用形狀鎖定限制簡報編輯
 linktitle: 限制簡報編輯
 type: docs
 weight: 60
@@ -7,7 +7,7 @@ url: /zh-hant/nodejs-java/applying-protection-to-presentation/
 keywords:
 - 防止編輯
 - 防止被編輯
-- 鎖定圖形
+- 鎖定形狀
 - 鎖定位置
 - 鎖定選取
 - 鎖定調整大小
@@ -18,39 +18,39 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Node.js via Java 在 PPTX 簡報中鎖定與解除鎖定圖形，以限制選取、移動、調整大小與分組。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java 在 PPTX 簡報中鎖定與解除鎖定形狀，以限制選取、移動、調整大小和分組。"
 ---
-## **概述**
+## **概觀**
 
-在 Aspose.Slides for Node.js via Java 中，一個常見的用途是建立、更新並儲存 PowerPoint (PPTX) 簡報，作為自動化工作流程的一部份。當使用者收到這些簡報時，限制對圖形的變更可以協助保留預期的版面配置與內容。
+Aspose.Slides for Node.js via Java 常用於在自動化工作流程中建立、更新與儲存 PowerPoint (PPTX) 簡報。當使用者收到這些簡報時，限制形狀的變更可協助保留預期的版面配置與內容。
 
-本文說明圖形在投影片中的組織方式以及如何在 PPTX 簡報中套用與移除圖形鎖定。這些鎖定讓您可以限制對單一圖形的特定編輯操作。
+本篇說明形狀在投影片中的組織方式，以及如何在 PPTX 簡報中套用與移除形狀鎖定。這些鎖定讓您能限制對個別形狀的特定編輯操作。
 
 ## **投影片的組成**
 
-簡報投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建立簡報的元素組成。在 Aspose.Slides for Node.js via Java 中，投影片上的每個元素皆以繼承自 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 類別的物件表示。
+簡報投影片由自動圖形、表格、OLE 物件、群組形狀、圖片框、影片框、連接線以及其他用於構建簡報的元素組成。在 Aspose.Slides for Node.js via Java 中，投影片上的每個元素皆以繼承自[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)類別的物件表示。
 
-不同的圖形類型提供不同的鎖定選項。[BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) 類別是圖形鎖定的基礎類別。Aspose.Slides for Node.js via Java 提供以下鎖定類別：
+不同的形狀類型提供不同的鎖定選項。[BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) 類別是形狀鎖定的基底類別。Aspose.Slides for Node.js via Java 提供以下鎖定類別：
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) 鎖定自動圖形。  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) 鎖定連接線圖形。  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) 鎖定連接線形狀。  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) 鎖定圖形物件。  
-- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) 鎖定群組圖形。  
+- [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) 鎖定群組形狀。  
 - [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) 鎖定圖片框。  
 
-若要在 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) 中套用鎖定，請遍歷其投影片，並對每個受支援的圖形設定相應的鎖定。
+若要在整個[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)上套用鎖定，請遍歷其投影片，並對每個支援的形狀設定相應的鎖定。
 
 ## **套用與移除保護**
 
-相容的簡報編輯器使用圖形鎖定來限制個別的編輯操作。檔案加密與文件層級的寫入保護屬於不同的 [簡報保護設定](/slides/zh-hant/nodejs-java/password-protected-presentation/)。
+相容的簡報編輯器使用形狀鎖定來限制個別的編輯操作。檔案加密與文件層級的寫入保護是獨立的[presentation protection settings](/slides/zh-hant/nodejs-java/password-protected-presentation/)。
 
-### **套用 PPTX 圖形的保護**
+### **對 PPTX 形狀套用保護**
 
-Aspose.Slides for Node.js via Java 提供 [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) 類別，以操作投影片上的圖形。
+Aspose.Slides for Node.js via Java 提供[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)類別以在投影片上操作形狀。
 
-範例對自動圖形呼叫 [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) 與 [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) 並傳入 `true`，對群組圖形、連接線與圖片框則使用等效的鎖定。連接線使用 [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) 以限制移動；群組亦使用 [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) 來限制分組。
+範例呼叫[setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked)與[setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked)，對自動圖形傳入 `true`，對群組形狀、連接線與圖片框使用等效的鎖定。連接線使用[setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove)控制移動；群組亦使用[setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked)限制分組。
 
-範例載入現有的 PPTX 簡報，檢查每張投影片的圖形集合，並儲存套用了此等限制的副本。未屬於上述四種處理類型的圖形將保持不變。此迴圈不會遍歷群組內的子圖形。
+範例會載入現有的 PPTX 簡報，檢查每張投影片的形狀集合，並將這些限制儲存為新副本。四種已處理類型之外的形狀保持不變。迴圈不會遍歷群組內的子形狀。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,7 +95,7 @@ try {
 
 ### **移除保護**
 
-若要移除圖形鎖定，請將其值設為 `false`。以下範例載入具有圖形鎖定的簡報，並透過 [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) 與 [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) 解除選取、移動與調整大小的限制。它亦透過將 `false` 傳遞給 [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) 來移除分組限制，並儲存簡報的副本。其他鎖定設定保持不變。
+若要移除形狀鎖定，將其值設為 `false`。以下範例載入包含形狀鎖定的簡報，並透過[AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/)與[PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/)清除選取、移動與調整大小的限制。亦透過將 `false` 傳給[GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked)移除分組限制，並儲存簡報副本。其他鎖定設定保持不變。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,7 +140,7 @@ try {
 
 ### **保留圖片裁切**
 
-在工作目錄中放置名為 `photo.jpg` 的照片。範例將左側裁切 12%、右側裁切 8%，然後在圖片框的鎖定上呼叫 [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked)。傳入 `true` 可限制進一步裁切，並保留現有的裁切。
+將名為 `photo.jpg` 的相片放置於工作目錄。範例會從左側裁切 12%，右側裁切 8%，然後對圖片框的鎖定呼叫[setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked)。傳入 `true` 後會限制進一步的裁切，並保留既有的裁切結果。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -172,11 +172,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` 將裁切鎖定儲存為 `true`。在 PowerPoint 中，選取照片時 **Crop** 指令會被停用。
+`PictureLocked.pptx` 將裁切鎖定儲存為 `true`。在 PowerPoint 中，選取相片時 **Crop** 指令會被停用。
 
 ### **保持圖表群組**
 
-範例將矩形與箭頭群組，然後在群組的鎖定上呼叫 [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) 以保持圖表的組件在一起。其他編輯，如移動群組或變更組件的填色，仍然可用。
+範例將一個矩形與一支箭頭群組，然後對群組的鎖定呼叫[setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked)以保持圖表的元件不被分離。其他編輯操作，例如移動群組或變更元件的填色，仍可使用。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,22 +196,88 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` 將取消群組鎖定儲存為 `true`。在 PowerPoint 中，選取整個圖表時 **Ungroup** 指令會被停用。
+`DiagramLocked.pptx` 將解群組鎖定儲存為 `true`。在 PowerPoint 中，選取整個圖表時 **Ungroup** 指令會被停用。
 
-### **結論**
+### **報告現有形狀鎖定**
 
-Aspose.Slides for Node.js via Java 讓您可以限制單一圖形的特定編輯操作，或在多張投影片上套用相同的限制。依各圖形類型選擇支援的鎖定，並在需要移除限制時將其值設為 `false`。
+若要檢視範本，請開啟它並讀取每個形狀的鎖定物件。[getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks) 方法在所有旗標皆停用時回傳 `true`，只要有任一旗標啟用則回傳 `false`。群組與其子形狀各有獨立的鎖定物件，因此即使群組本身沒有鎖也必須檢查子形狀。
+
+此範例會檢查自動圖形、圖片框與群組的移動限制，亦會檢查圖片的裁切限制與群組的解群組限制。報告會列出已識別的啟用旗標，並標示未檢查的形狀類型。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+假設 `Sample.pptx` 的第 1 張投影片包含一個名為 `Layout`、已鎖定解群組的群組，該群組內有一個已鎖定裁切的圖片 `Photo`，以及一個未鎖定的矩形 `Free`。報告會略過 `Free`，僅輸出以下兩行：
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+報告僅讀取已存儲的形狀層級編輯旗標，並不會修改它們或儲存簡報。文件層級的寫入保護是獨立的設定，各旗標的實際強制執行則取決於編輯器。
+
+## **結論**
+
+Aspose.Slides for Node.js via Java 讓您能對個別形狀限制特定編輯操作，或在多張投影片間套用相同限制。請依形狀類型選擇支援的鎖定，並在需要移除限制時將其值設為 `false`。
 
 ## **常見問題**
 
-**我可以在同一簡報中同時使用圖形鎖定與密碼保護嗎？**
+**我可以在同一個簡報中同時結合形狀鎖定與密碼保護嗎？**
 
-是的。圖形鎖定限制特定的編輯操作，而 [密碼保護](/slides/zh-hant/nodejs-java/password-protected-presentation/) 可限制簡報的開啟或修改。您可以在同一檔案中同時使用兩者。
+可以。形狀鎖定限制特定的編輯操作，而[password protection](/slides/zh-hant/nodejs-java/password-protected-presentation/) 則可限制開啟或修改簡報的權限。兩者可同時使用於同一檔案。
 
-**我能限制特定投影片的編輯而不影響其他投影片嗎？**
+**我可以僅限制特定投影片的編輯而不影響其他投影片嗎？**
 
-可以。僅在選定的投影片上套用鎖定。這不會變更其他投影片的鎖定設定。
+可以。只對所選投影片上的形狀套用鎖定，即不會改變其他投影片的鎖定設定。
 
-**我該如何對群組內的單一圖形套用鎖定？**
+**如何對群組內的個別形狀套用鎖定？**
 
-遍歷群組的 [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) 方法回傳的集合，並對每個子圖形套用適當的鎖定。對任何嵌套的群組重複此操作。上述範例僅處理投影片的圖形集合，因此未對群組內的個別成員設置鎖定。
+遍歷群組的[getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) 方法回傳的集合，對每個子形狀套用相應的鎖定。對任何巢狀群組重複此程序，遵循報告範例中的遍歷方式。

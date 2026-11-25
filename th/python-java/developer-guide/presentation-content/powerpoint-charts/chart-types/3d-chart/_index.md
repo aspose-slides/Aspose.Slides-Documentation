@@ -1,28 +1,28 @@
 ---
-title: ปรับแต่งแผนภูมิ 3D ในงานนำเสนอด้วย Python
-linktitle: แผนภูมิ 3D
+title: ปรับแต่งแผนภูมิ 3 มิติในงานพรีเซนเทชันโดยใช้ Python
+linktitle: แผนภูมิ 3 มิติ
 type: docs
 url: /th/python-java/3d-chart/
 keywords:
-- แผนภูมิ 3D
+- แผนภูมิ 3 มิติ
 - การหมุน
 - ความลึก
 - PowerPoint
-- งานนำเสนอ
+- งานพรีเซนเทชัน
 - Python
 - Java
 - Aspose.Slides
-description: "สร้างแผนภูมิ 3D ในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน Java ปรับการหมุน, สัดส่วนความสูง, ความลึกของแผนภูมิ, และระยะห่างระหว่างซีรีส์ด้วยตัวอย่าง Python."
+description: "สร้างแผนภูมิเชิง 3 มิติในงานพรีเซนเทชัน PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน Java ปรับการหมุน, สัดส่วนความสูง, ความลึกของแผนภูมิ, และระยะห่างระหว่างซีรีส์ด้วยตัวอย่าง Python."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Python via Java ให้คุณปรับแต่งมุมมองของแผนภูมิ 3D ผ่านเมธอด [Chart.getRotation3D](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getRotation3D) บทความนี้แสดงวิธีปรับการหมุน, สัดส่วนความสูง, ความลึก, แกนมุมฉาก, และระยะห่างระหว่างชุดข้อมูล, จากนั้นบันทึกงานนำเสนอเป็นรูปแบบ PPTX
+Aspose.Slides สำหรับ Python ผ่าน Java ให้คุณปรับแต่งมุมมองของแผนภูมิ 3 มิติผ่านเมธอด [Chart.getRotation3D](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getRotation3D) วิธีการนี้ บทความนี้สาธยายวิธีปรับการหมุน, สัดส่วนความสูง, ความลึก, แกนมุมฉาก, และระยะห่างระหว่างซีรีส์, แล้วบันทึกการพรีเซนเทชันเป็นรูปแบบ PPTX
 
-## **ตั้งค่าการหมุนและความลึกของแผนภูมิ 3D**
+## **ตั้งค่าการหมุนและความลึกของแผนภูมิ 3 มิติ**
 
-ตัวอย่างด้านล่างสร้าง [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) และใช้ [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) เพื่อเพิ่มแผนภูมิคอลัมน์ 3D แบบ stacked ไปยังสไลด์แรกของมัน มันแทนที่ซีรีส์และหมวดหมู่เริ่มต้นด้วยสองซีรีส์ที่มีค่าแต่ละค่า 3 ค่า ดัชนี worksheet `0` ระบุ worksheet ข้อมูลแรกของแผนภูมิ; แถว `0` เก็บชื่อซีรีส์, และคอลัมน์ `0` เก็บป้ายกำกับหมวดหมู่
+ตัวอย่างด้านล่างสร้าง [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) และใช้ [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) เพื่อเพิ่มแผนภูมิคอลัมน์ 3 มิติซ้อนบนสไลด์แรกของมัน แทนที่ซีรีส์และประเภทเริ่มต้นด้วยซีรีส์สองชุดที่แต่ละชุดมีค่าถึงสามค่า Worksheet index `0` ระบุ Worksheet ข้อมูลแรกของแผนภูมิ; แถว `0` เก็บชื่อซีรีส์, และคอลัมน์ `0` เก็บป้ายชื่อประเภท
 
-เมธอด [setRotationX](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRotationX) และ [setRotationY](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRotationY) ตั้งการหมุนของแผนภูมิเป็น 40 และ 270 องศาตามลำดับ [setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) ตั้งความลึกเป็น 150% ของความกว้าง, ในขณะที่ [setRightAngleAxes](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRightAngleAxes) เปิดใช้งานแกนมุมฉากแทนการมองแบบ perspective งานนำเสนอที่ได้จะมีแผนภูมิที่เติมข้อมูลพร้อมการตั้งค่ามุมมอง 3D เหล่านี้
+เมธอด [setRotationX](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRotationX) และ [setRotationY](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRotationY) ตั้งค่าการหมุนของแผนภูมิเป็น 40 และ 270 องศาตามลำดับ [setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) ตั้งค่าความลึกเป็น 150% ของความกว้าง, ส่วน [setRightAngleAxes](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setRightAngleAxes) เปิดใช้งานแกนมุมฉากแทนมุมมองเชิงมโนภาพ การพรีเซนเทชันที่ได้จะแสดงแผนภูมิที่เติมข้อมูลพร้อมการตั้งค่ามุมมอง 3 มิติเหล่านี้
 
 ```python
 import jpype
@@ -69,14 +69,71 @@ finally:
     presentation.dispose()
 ```
 
-## **ปรับสัดส่วนความสูงของแผนภูมิ 3D**
+## **ใช้การเติมรูปภาพบนพื้นผิวแผนภูมิ 3 มิติ**
 
-ใช้ [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setHeightPercents) เพื่อตั้งความสูงของแผนภูมิ 3D เป็นเปอร์เซ็นต์ของความกว้าง วิธีนี้เปลี่ยนสัดส่วนของฉาก 3D โดยไม่ต้องปรับขนาดวัตถุแผนภูมิบนสไลด์
+แผนภูมิ 3 มิติมีสามพื้นผิวที่คุณสามารถเติมแยกกันได้: [side wall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getSideWall), [back wall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall), และ [floor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) ตั้งค่า [fill type](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) ของพื้นผิวเป็น `Picture` แล้วกำหนดรูปภาพ ตั้งค่าโหมดการเติมรูปภาพทั้งสอง [picture fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) และ [picture type](https://reference.aspose.com/slides/python-java/aspose.slides/chartwall/#setPictureType) ของพื้นผิวเป็น `Stretch` เพื่อให้รูปภาพเดียวครอบคลุมทั่วพื้นผิว
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) ด้วยข้อมูลเริ่มต้น: สามซีรีส์และสี่หมวดหมู่ มันบันทึกงานนำเสนอสามไฟล์ด้วยสัดส่วนความสูง 50%, 100% และ 200% ความตำแหน่ง, ความกว้าง, และความสูงของแผนภูมิก็ยังคงคงที่ ข้อมูล, การหมุน, ความลึก, ระยะห่างระหว่างซีรีส์, และการจัดรูปแบบทั้งหมดเหมือนกันในทั้งสามไฟล์; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยน
+บันทึกไฟล์ [arrow.png](arrow.png) ลงในไดเรกทอรีทำงาน ตัวอย่างหมุนแผนภูมิและเพิ่มค่าสูงสุดบนแกนตั้งเพื่อให้พื้นมองเห็นระหว่างคอลัมน์ จากนั้นคัดลอกสไลด์สองครั้งและใส่ลูกศรบนพื้นผิวที่แตกต่างกันในแต่ละสไลด์ แผนภูมิทั้งสามคงข้อมูล, มุมมอง, และพื้นหลังเหมือนเดิม
 
 ```python
-import jpide
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, PictureFillMode, PictureType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Column3D, 20, 30, 680, 480)
+    chart.getRotation3D().setRightAngleAxes(True)
+    chart.getRotation3D().setRotationX(jpype.JByte(40))
+    chart.getRotation3D().setRotationY(30)
+    
+    vertical_axis = chart.getAxes().getVerticalAxis()
+    vertical_axis.setAutomaticMaxValue(False)
+    vertical_axis.setMaxValue(24)
+
+    back_slide = presentation.getSlides().addClone(slide)
+    floor_slide = presentation.getSlides().addClone(slide)
+    back_chart = back_slide.getShapes().get_Item(0)
+    floor_chart = floor_slide.getShapes().get_Item(0)
+
+    image_bytes = Path("arrow.png").read_bytes()
+    arrow = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(image_bytes))
+
+    surfaces = (chart.getSideWall(), back_chart.getBackWall(), floor_chart.getFloor())
+    for surface in surfaces:
+        fill = surface.getFormat().getFill()
+        fill.setFillType(FillType.Picture)
+        picture_fill = fill.getPictureFillFormat()
+        picture_fill.getPicture().setImage(arrow)
+        picture_fill.setPictureFillMode(PictureFillMode.Stretch)
+        surface.setPictureType(PictureType.Stretch)
+
+    presentation.save("chart-surfaces.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Microsoft PowerPoint แสดงสไลด์สามสไลด์ดังต่อไปนี้
+
+| ผนังด้านข้าง | ผนังด้านหลัง | พื้น |
+| --- | --- | --- |
+| ![ลูกศรชี้เข้าไปในแผนภูมิตามผนังด้านข้าง](side-wall.png) | ![ลูกศรชี้ไปทางขวาตลอดผนังด้านหลัง](back-wall.png) | ![ลูกศรชี้ไปทางขวาตลอดพื้นระหว่างคอลัมน์](floor.png) |
+
+## **ปรับสัดส่วนความสูงของแผนภูมิ 3 มิติ**
+
+ใช้ [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setHeightPercents) เพื่อกำหนดความสูงของแผนภูมิ 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง วิธีนี้เปลี่ยนสัดส่วนของฉาก 3 มิติโดยไม่ต้องปรับขนาดวัตถุแผนภูมิบนสไลด์
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) ด้วยข้อมูลเริ่มต้น: ซีรีส์สามชุดและประเภทสี่ชุด บันทึกพรีเซนเทชันสามไฟล์ด้วยสัดส่วนความสูง 50%, 100%, และ 200% ตำแหน่ง, ความกว้าง, และความสูงของแผนภูมิก็ยังคงที่ ข้อมูล, การหมุน, ความลึก, ระยะห่างซีรีส์, และการจัดรูปแบบเหมือนกันในทั้งสามไฟล์; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยน
+
+```python
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -102,40 +159,40 @@ finally:
     presentation.dispose()
 ```
 
-ภาพต่อไปนี้แสดงการตั้งค่าสูงเดียวกันในตัวอย่าง .NET ที่เทียบเคียงกันและส่งออกโดย Microsoft PowerPoint ค่าเปอร์เซ็นต์ที่น้อยกว่าจะทำให้ฉากแบนลง, ส่วนค่าที่มากกว่าจะทำให้ฉากสูงขึ้นภายในวัตถุแผนภูมิเดียวกัน PowerPoint อาจปรับช่วงติกของแกนและตำแหน่งป้ายกำกับเพื่อให้พอดีกับฉาก
+ภาพต่อไปนี้แสดงการตั้งค่าสัดส่วนความสูงเดียวกันในตัวอย่าง .NET ที่เทียบเท่าและได้ส่งออกโดยใช้ Microsoft PowerPoint เปอร์เซ็นต์ที่น้อยกว่าจะทำให้ฉากแบนลง, ส่วนเปอร์เซ็นต์ที่มากขึ้นจะทำให้ฉากสูงขึ้นภายในวัตถุแผนภูมิเดียวกัน PowerPoint อาจปรับช่วงจุดแบ่งแกนและการวางตำแหน่งป้ายเพื่อให้พอดีกับฉาก
 
 | ความสูง: 50% | ความสูง: 100% | ความสูง: 200% |
 | --- | --- | --- |
-| ![แผนภูมิคอลัมน์ 3D ที่ความสูงตั้งค่าเป็น 50 เปอร์เซ็นต์ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3D ที่ความสูงตั้งค่าเป็น 100 เปอร์เซ็นต์ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3D ที่ความสูงตั้งค่าเป็น 200 เปอร์เซ็นต์ของความกว้าง](height_percent_200.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 50% ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 100% ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 200% ของความกว้าง](height_percent_200.png) |
 
 เมธอดเหล่านี้ควบคุมแง่มุมต่าง ๆ ของแผนภูมิ:
 
-| เมธอด | ผลลัพธ์ |
+| เมธอด | ผล |
 | --- | --- |
-| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setHeightPercents) | ความสูงของฉาก 3D เป็นเปอร์เซ็นต์ของความกว้าง |
-| [Chart.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHeight) | ความสูงของวัตถุแผนภูมิบนสไลด์, หน่วยเป็นพอยต์ |
-| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) | ความลึกของฉาก 3D เป็นเปอร์เซ็นต์ของความกว้าง |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) | ระยะห่างระหว่างชุดข้อมูลตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างมาร์กเกอร์ |
+| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setHeightPercents) | ความสูงของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
+| [Chart.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHeight) | ความสูงของวัตถุแผนภูมิบนสไลด์ หน่วยเป็นพอยต์ |
+| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) | ความลึกของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) | ระยะห่างระหว่างซีรีส์ตามแกนความลึกเป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์ |
 
-การตั้งค่านี้มีผลกับแผนภูมิคอลัมน์และแผนภูมิแท่ง 3D รวมถึงแบบทรงกระบอก, รูปกรวย, และรูปพีระมิด, รวมถึงแผนภูมิเส้น, พื้นที่, พาย, และพื้นผิว 3D การเปรียบเทียบด้านบนใช้ประเภท `Column3D` ที่ตรวจสอบแล้ว การตั้งค่าไม่เปลี่ยนลักษณะของแผนภูมิ 2D `ClusteredColumn` หรือแผนภูมิ `BubbleWith3D`; ชื่อเหล่านี้เป็นสมาชิกของคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) สำหรับการตั้งค่าลักษณะอื่น ๆ ของแผนภูมิ ดูที่ [Chart Formatting](/slides/th/python-java/chart-formatting/)
+การตั้งค่านี้มีผลต่อแผนภูมิคอลัมน์และแผนภูมิบาร์ 3 มิติ รวมถึงรูปแบบทรงกระบอก, โคน, และพีระมิด, รวมถึงแผนภูมิ 3 มิติด้านเส้น, พื้นที่, พาย, และพื้นผิว การเปรียบเทียบข้างต้นใช้ประเภท `Column3D` ที่ตรวจสอบแล้ว การตั้งค่านี้ไม่เปลี่ยนลักษณะของแผนภูมิ 2 มิติ `ClusteredColumn` หรือแผนภูมิ `BubbleWith3D`; ชื่อเหล่านี้เป็นสมาชิกของคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) สำหรับการตั้งค่าลักษณะแผนภูมิอื่น ๆ ดู [การจัดรูปแบบแผนภูมิ](/slides/th/python-java/chart-formatting/)
 
-## **ปรับช่องว่างระหว่างชุดข้อมูล**
+## **ปรับระยะห่างระหว่างซีรีส์**
 
-ใช้ [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) เพื่อควบคุมระยะทางระหว่างชุดข้อมูลตามแกนความลึกของแผนภูมิ 3D โดยแสดงเป็นเปอร์เซ็นต์ของความกว้างมาร์กเกอร์ ใช้ค่า **0 ถึง 500** รวม: `0` จะลบช่องว่าง, ค่าที่มากกว่าจะเพิ่มระยะห่าง ด้วยความลึกแผนภูมิคงที่ การเพิ่มช่องว่างทำให้มาร์กเกอร์บางลงตามแกนความลึก
+ใช้ [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) เพื่อควบคุมระยะห่างระหว่างซีรีส์ข้อมูลตามแกนความลึกของแผนภูมิ 3 มิติ, แสดงเป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์ ใช้ค่าตั้งแต่ **0 ถึง 500** รวม: `0` จะลบช่องว่าง, ค่าสูงกว่าจะเพิ่มระยะห่าง กับความลึกของแผนภูมิที่คงที่ การเพิ่มช่องว่างทำให้มาร์คเกอร์บางลงตามแกนความลึก
 
-เข้าถึงกลุ่มผ่าน [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) การตั้งค่านี้จะนำไปใช้กับทุกซีรีส์ในกลุ่มนั้น, ไม่ใช่แค่ซีรีส์ที่ใช้เข้าถึงมัน [ChartSeries.getGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getGapDepth) จะคืนค่าช่องว่างความลึกและสะท้อนการตั้งค่าของกลุ่มแม่
+เข้าถึงกลุ่มผ่าน [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) การตั้งค่านี้ใช้กับทุกซีรีส์ในกลุ่มนั้น ไม่ใช่แค่ซีรีส์ที่ใช้เข้าถึงมัน [ChartSeries.getGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getGapDepth) คืนค่าช่องว่างความลึกและสะท้อนการตั้งค่ากลุ่มแม่
 
-การตั้งค่านี้มีผลกับแผนภูมิคอลัมน์และแผนภูมิแท่ง 3D รวมถึงแบบทรงกระบอก, รูปกรวย, และรูปพีระมิด, รวมถึงแผนภูมิเส้นและพื้นที่ รูปแบบขึ้นอยู่กับว่าชุดข้อมูลจัดเรียงตามความลึก, กลุ่ม, หรือ stacked สำหรับการเปรียบเทียบที่ชัดเจนของช่องว่างระหว่างชุดแยกกัน ใช้ `ChartType.Column3D` จากคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)
+การตั้งค่านี้มีผลต่อแผนภูมิคอลัมน์และบาร์ 3 มิติ รวมถึงรูปแบบทรงกระบอก, โคน, และพีระมิด, รวมถึงแผนภูมิเส้นและพื้นที่ 3 มิติ ลักษณะการแสดงผลขึ้นอยู่กับว่าซีรีส์จัดเรียงตามความลึก, กลุ่ม, หรือซ้อนกัน เพื่อเปรียบเทียบช่องว่างระหว่างซีรีส์ที่แยกจากกันอย่างชัดเจน ใช้ `ChartType.Column3D` จากคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)
 
 เมธอดเหล่านี้ควบคุมแง่มุมต่าง ๆ ของแผนภูมิ:
 
-| เมธอด | ผลลัพธ์ |
+| เมธอด | ผล |
 | --- | --- |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) | ระยะห่างระหว่างชุดข้อมูลตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างมาร์กเกอร์ |
-| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) | ระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน, เป็นเปอร์เซ็นต์ของความกว้างของแท่งหรือคอลัมน์ |
-| [setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) | ความลึกรวมของแผนภูมิ, เป็นเปอร์เซ็นต์ของความกว้างแผนภูมิ |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapDepth) | ระยะห่างระหว่างซีรีส์ตามแกนความลึกเป็นเปอร์เซ็นต์ของความกว้างของมาร์คเกอร์ |
+| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) | ระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกันเป็นเปอร์เซ็นต์ของความกว้างของแท่งหรือคอลัมน์ |
+| [setDepthPercents](https://reference.aspose.com/slides/python-java/aspose.slides/rotation3d/#setDepthPercents) | ความลึกโดยรวมของแผนภูมิเป็นเปอร์เซ็นต์ของความกว้างของแผนภูมิ |
 
-ตัวอย่างแบบอิสระต่อไปนี้ใช้ข้อมูลแผนภูมิดิฟอลต์ที่มีสามซีรีส์และสี่หมวดหมู่ มันบันทึกงานนำเสนอสองไฟล์ด้วยข้อมูล, การหมุน, ความกว้างช่อง, และความลึกของแผนภูมิที่เหมือนกัน; มีเพียงความลึกช่องที่เปลี่ยน
+ตัวอย่างต่อไปนี้เป็นตัวอย่างที่สมบูรณ์โดยใช้ข้อมูลแผนภูมิเบื้องต้น ซึ่งมีซีรีส์สามชุดและประเภทสี่ชุด บันทึกพรีเซนเทชันสองไฟล์โดยข้อมูล, การหมุน, ความกว้างช่องว่าง, และความลึกของแผนภูมิเหมือนกัน; มีเพียงความลึกช่องว่างที่เปลี่ยน
 
 ```python
 import jpype
@@ -169,18 +226,18 @@ finally:
     presentation.dispose()
 ```
 
-ภาพต่อไปนี้แสดงการตั้งค่าความลึกช่องเดียวกันในตัวอย่าง .NET ที่เทียบเคียงกันและส่งออกโดย Microsoft PowerPoint
+ภาพต่อไปนี้แสดงการตั้งค่าความลึกช่องว่างเดียวกันในตัวอย่าง .NET ที่เทียบเท่าและได้ส่งออกโดยใช้ Microsoft PowerPoint
 
-| ความลึกของช่องว่าง: 0% | ความลึกของช่องว่าง: 500% |
+| ความลึกช่องว่าง: 0% | ความลึกช่องว่าง: 500% |
 | --- | --- |
-| ![แผนภูมิคอลัมน์ 3D ที่ไม่มีช่องว่างระหว่างชุดข้อมูลตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3D ที่มีช่องว่าง 500 เปอร์เซ็นต์ระหว่างชุดข้อมูลตามแกนความลึก](gap_depth_500.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ไม่มีช่องว่างระหว่างซีรีส์ตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีช่องว่าง 500% ระหว่างซีรีส์ตามแกนความลึก](gap_depth_500.png) |
 
-## **เปลี่ยนประเภทซีรีส์ 3D และรูปแบบแท่ง**
+## **เปลี่ยนประเภทซีรีส์ 3 มิติและรูปแบบแท่ง**
 
-ในแผนภูมิสกุลทรงกระบอกแบบ clustered, ซีรีส์แรกเริ่มด้วยรูปแบบแท่งทรงกระบอก ตัวอย่างพิมพ์ค่าจำนวนเต็มที่คืนจาก [ChartSeries.getType](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getType) และ [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getBar3DShape) ก่อนและหลังการเปลี่ยนแต่ละครั้ง ตารางให้ชื่อคอนสแตนท์ที่สอดคล้อง
+ในแผนภูมิทรงกระบอกแบบกลุ่ม, ซีรีส์แรกเริ่มด้วยรูปแบบแท่งทรงกระบอก ตัวอย่างพิมพ์ค่าจำนวนเต็มที่ [ChartSeries.getType](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getType) และ [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getBar3DShape) คืนค่า ก่อนและหลังการเปลี่ยนแปลงแต่ละครั้ง ตารางแสดงชื่อคอนสแตนต์ที่สอดคล้อง
 
 ```python
-import jpade
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -208,26 +265,26 @@ finally:
     presentation.dispose()
 ```
 
-| การเปลี่ยนแปลงในชุดแรก | ประเภทซีรีส์ | รูปร่างแท่ง |
+| เปลี่ยนที่ซีรีส์แรก | ประเภทซีรีส์ | รูปแบบแท่ง |
 | --- | --- | --- |
 | สร้างแผนภูมิ | `ClusteredCylinder` | `Cylinder` |
 | ตั้งค่าประเภทซีรีส์เป็น `ClusteredCone` | `ClusteredCone` | `Cone` |
-| ตั้งค่ารูปร่างแท่งเป็น `Box` | `ClusteredColumn3D` | `Box` |
+| ตั้งค่ารูปแบบแท่งเป็น `Box` | `ClusteredColumn3D` | `Box` |
 
-การตั้งค่ารูปร่างเป็น `Box` ยังทำให้ประเภทซีรีส์เปลี่ยนเป็น `ClusteredColumn3D` หากโค้ดของคุณตรวจสอบประเภทซีรีส์, เรียก `series.getType()` หลังจากเปลี่ยนรูปร่าง ค่าที่แคชไว้ก่อนการกำหนดจะยังคงเลือกสาขา `ClusteredCone`
+การตั้งค่ารูปแบบเป็น `Box` จะเปลี่ยนประเภทซีรีส์เป็น `ClusteredColumn3D` ด้วย หากโค้ดของคุณตรวจสอบประเภทซีรีส์, ให้เรียก `series.getType()` หลังจากเปลี่ยนรูปแบบ ค่าใดที่ถูกแคชก่อนการกำหนดค่าจะยังคงเลือกสาขา `ClusteredCone`
 
-![การเปรียบเทียบ PowerPoint แสดงชุดแรกเป็นทรงกระบอก, รูปกรวย, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
+![เปรียบเทียบ PowerPoint แสดงซีรีส์แรกเป็นทรงกระบอก, โคน, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ประเภทแผนภูมิใดที่รองรับโหมด 3D ใน Aspose.Slides?**
+**แผนภูมิประเภทใดที่รองรับโหมด 3 มิติใน Aspose.Slides?**
 
-Aspose.Slides รองรับรูปแบบ 3D ของแผนภูมิคอลัมน์ รวมถึง Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100% Stacked Column 3D พร้อมประเภท 3D ที่เกี่ยวข้องซึ่งเปิดให้เข้าถึงผ่านคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) สำหรับรายการที่แม่นยำและอัปเดตล่าสุด ตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) ในเอกสาร API ของเวอร์ชันที่คุณติดตั้ง
+Aspose.Slides รองรับรูปแบบ 3 มิติของแผนภูมิคอลัมน์รวมถึง Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100% Stacked Column 3D พร้อมประเภท 3 มิติที่เกี่ยวข้องที่เปิดให้เข้าถึงผ่านคลาส [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) สำหรับรายการที่แม่นยำและอัพเดตล่าสุด ให้ตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) ในเอกสารอ้างอิง API ของเวอร์ชันที่คุณติดตั้ง
 
-**ฉันสามารถรับภาพเรสเตอร์ของแผนภูมิ 3D เพื่อใช้ในรายงานหรือเว็บได้หรือไม่?**
+**ฉันสามารถรับภาพราสเตอร์ของแผนภูมิ 3 มิติสำหรับรายงานหรือเว็บได้หรือไม่?**
 
-ได้ คุณสามารถส่งออกแผนภูมิเป็นภาพด้วย [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) หรือ [render the entire slide](/slides/th/python-java/convert-powerpoint-to-png/) เป็นรูปแบบเช่น PNG หรือ JPEG สิ่งนี้มีประโยชน์เมื่อคุณต้องการภาพแสดงตัวอย่างแบบเรสเตอร์หรือฝังแผนภูมิลงในเอกสาร, แดชบอร์ด, หรือหน้าเว็บโดยไม่ต้องใช้ PowerPoint
+ได้ คุณสามารถส่งออกแผนภูมิเป็นภาพด้วย [Shape.getImage](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getImage) หรือ [render the entire slide](/slides/th/python-java/convert-powerpoint-to-png/) ไปเป็นรูปแบบเช่น PNG หรือ JPEG วิธีนี้มีประโยชน์เมื่อคุณต้องการตัวอย่างราสเตอร์หรือฝังแผนภูมิลงในเอกสาร, แดชบอร์ด, หรือหน้าเว็บโดยไม่ต้องใช้ PowerPoint
 
-**ประสิทธิภาพการสร้างและเรนเดอร์แผนภูมิ 3D ขนาดใหญ่เป็นอย่างไร?**
+**ประสิทธิภาพการสร้างและการเรนเดอร์แผนภูมิ 3 มิติขนาดใหญ่เป็นอย่างไร?**
 
-ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของภาพ สำหรับผลลัพธ์ที่ดีที่สุด ควรลดเอฟเฟกต์ 3D ให้น้อยที่สุด, อย่าใช้พื้นผิวที่มีเทกซ์เจอร์หนักบนผนังและพื้นที่พล็อต, จำกัดจำนวนจุดข้อมูลต่อซีรีส์เมื่อต้องทำได้, และเรนเดอร์เป็นเอาต์พุตขนาดที่เหมาะสม (ความละเอียดและมิติ) เพื่อให้ตรงกับการแสดงผลหรือการพิมพ์ที่ต้องการ
+ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของภาพ สำหรับผลลัพธ์ที่ดีที่สุด ควรใช้เอฟเฟ็กต์ 3 มิติน้อยที่สุด, หลีกเลี่ยงพื้นผิวที่มีเท็กซ์เจอร์หนัก, จำกัดจำนวนจุดข้อมูลต่อซีรีส์เมื่อเป็นไปได้, และเรนเดอร์เป็นขนาดเอาต์พุตที่เหมาะสม (ความละเอียดและมิติ) เพื่อให้ตรงกับอุปกรณ์แสดงผลหรือความต้องการพิมพ์.

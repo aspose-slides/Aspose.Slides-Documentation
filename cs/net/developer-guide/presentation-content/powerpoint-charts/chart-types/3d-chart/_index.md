@@ -12,17 +12,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvořte 3D grafy v PowerPoint prezentacích pomocí Aspose.Slides pro .NET. Nastavte rotaci, výškové proporce, hloubku grafu a mezery mezi řadami pomocí příkladů v jazyce C#."
+description: "Vytvořte 3D grafy v prezentacích PowerPoint pomocí Aspose.Slides pro .NET. Upravit rotaci, výškové poměry, hloubku grafu a rozestupy mezi řadami pomocí příkladů v C#."
 ---
 ## **Přehled**
 
-Aspose.Slides pro .NET vám umožňuje přizpůsobit zobrazení 3D grafu pomocí vlastnosti [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/). Tento článek ukazuje, jak upravit rotaci, výškové proporce, hloubku, pravouhlé osy a mezery mezi sériemi a poté uložit prezentaci ve formátu PPTX.
+Aspose.Slides for .NET vám umožňuje přizpůsobit zobrazení 3D grafu pomocí vlastnosti [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) . Tento článek ukazuje, jak upravit rotaci, výškové poměry, hloubku, pravouhlé osy a rozestupy mezi sériemi a poté uložit prezentaci ve formátu PPTX.
 
 ## **Nastavení rotace a hloubky 3D grafu**
 
-Ukázkový kód níže vytvoří [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a použije [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k přidání vrstveného 3D sloupcového grafu na první snímek. Nahradí výchozí řady a kategorie dvěma řadami, z nichž každá obsahuje tři hodnoty. Index listu `0` určuje první datový list grafu; řádek `0` obsahuje názvy řad a sloupec `0` obsahuje štítky kategorií.
+Příklad níže vytvoří [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) a pomocí [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) přidá na první snímek seskupený 3D sloupcový graf. Nahradí výchozí řady a kategorie dvěma řadami, z nichž každá obsahuje tři hodnoty. Index listu `0` určuje první datový list grafu; řádek `0` obsahuje názvy řad a sloupec `0` obsahuje popisky kategorií.
 
-Vlastnosti [RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) a [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) nastaví rotaci grafu na 40 a 270 stupňů. [DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) nastaví jeho hloubku na 150 % jeho šířky, zatímco [RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) povolí pravouhlé osy namísto perspektivy. Výsledná prezentace obsahuje vyplněný graf s těmito nastaveními 3D zobrazení.
+[RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) a [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) vlastnosti nastaví rotaci grafu na 40 a 270 stupňů. [DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) nastaví jeho hloubku na 150 % šířky, zatímco [RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) povolí pravouhlé osy místo perspektivy. Výsledná prezentace obsahuje vyplněný graf s těmito nastaveními 3D zobrazení.
 
 ```csharp
 using Aspose.Slides;
@@ -68,11 +68,59 @@ chart.Rotation3D.DepthPercents = 150;
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Aplikace obrázkové výplně na povrch 3D grafu**
+
+3D graf má tři povrchy, které můžete vyplnit nezávisle: [side wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/sidewall/), [back wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) a [floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/). Vyberte povrch a nastavte jeho [fill type](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) na `Picture` a přiřaďte obrázek. Nastavte jak [picture fill mode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) tak [picture type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartwall/picturetype/) povrchu na `Stretch`, aby se jeden exemplář obrázku rozprostřel po celém povrchu.
+
+Uložte [arrow.png](arrow.png) do pracovního adresáře. Příklad otáčí graf a zvyšuje maximální hodnotu na svislé ose, aby byl podlaha viditelná mezi sloupci. Poté duplikuje snímek dvakrát, než na každém snímku použije šipku na jiný povrch. Všechny tři grafy zachovávají stejná data, úhel pohledu i pozadí.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 20, 30, 680, 480);
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.RotationX = 40;
+chart.Rotation3D.RotationY = 30;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 24;
+
+var backSlide = presentation.Slides.AddClone(slide);
+var floorSlide = presentation.Slides.AddClone(slide);
+var backChart = (IChart)backSlide.Shapes[0];
+var floorChart = (IChart)floorSlide.Shapes[0];
+
+var imageBytes = File.ReadAllBytes("arrow.png");
+var arrow = presentation.Images.AddImage(imageBytes);
+
+foreach (var surface in new[] { chart.SideWall, backChart.BackWall, floorChart.Floor })
+{
+    var fill = surface.Format.Fill;
+    fill.FillType = FillType.Picture;
+    fill.PictureFillFormat.Picture.Image = arrow;
+    fill.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    surface.PictureType = PictureType.Stretch;
+}
+
+presentation.Save("chart-surfaces.pptx", SaveFormat.Pptx);
+```
+
+Microsoft PowerPoint zobrazuje tři snímky následovně.
+
+| Bočnice | Zadní stěna | Podlaha |
+| --- | --- | --- |
+| ![Šipka ukazující do grafu podél bočnice](side-wall.png) | ![Šipka ukazující doprava podél zadní stěny](back-wall.png) | ![Šipka ukazující doprava podél podlahy mezi sloupci](floor.png) |
+
 ## **Úprava výškových proporcí 3D grafu**
 
-Použijte [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) k nastavení výšky 3D grafu jako procenta jeho šířky. Tím se změní proporce 3D scény, aniž by se změnily rozměry objektu grafu na snímku.
+Použijte [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) , abyste nastavili výšku 3D grafu jako procento jeho šířky. Tím změníte proporce 3D scény, aniž byste měnili velikost objektu grafu na snímku.
 
-Následující příklad vytvoří graf [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) s výchozími daty: tři řady a čtyři kategorie. Uloží tři prezentace s výškovými proporcemi 50 %, 100 % a 200 %. Pozice, šířka a výška grafu zůstávají pevné. Data, rotace, hloubka, mezery mezi řadami a formátování jsou ve všech třech souborech shodné; mění se pouze procento výšky.
+Následující příklad vytvoří graf [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) , který používá výchozí data: tři řady a čtyři kategorie. Uloží tři prezentace s výškovými proporcemi 50 %, 100 % a 200 %. Pozice, šířka a výška grafu zůstávají pevné. Data, rotace, hloubka, rozestupy řad a formátování jsou ve všech třech souborech identické; mění se pouze procento výšky.
 
 ```csharp
 using Aspose.Slides;
@@ -96,40 +144,40 @@ foreach (ushort heightPercent in new ushort[] { 50, 100, 200 })
 }
 ```
 
-Následující obrázky byly exportovány z vygenerovaných prezentací pomocí Microsoft PowerPoint. Nižší procento vytváří plošší scénu, zatímco vyšší procento vytváří vyšší scénu ve stejném objektu grafu. PowerPoint může také upravit intervaly značek os a umístění popisků, aby scénu přizpůsobil.
+Následující obrázky byly exportovány z vygenerovaných prezentací pomocí Microsoft PowerPoint. Menší procento vytváří plošší scénu, zatímco větší procento vytváří vyšší scénu ve stejném objektu grafu. PowerPoint může také upravit intervaly značek os a umístění popisků tak, aby scéna zapadla.
 
-| Výška: 50% | Výška: 100% | Výška: 200% |
+| Výška: 50 % | Výška: 100 % | Výška: 200 % |
 | --- | --- | --- |
-| ![3D sloupcový graf s výškou nastavenou na 50 procent jeho šířky](height_percent_50.png) | ![3D sloupcový graf s výškou nastavenou na 100 procent jeho šířky](height_percent_100.png) | ![3D sloupcový graf s výškou nastavenou na 200 procent jeho šířky](height_percent_200.png) |
+| ![3D sloupcový graf s výškou nastavenou na 50 % jeho šířky](height_percent_50.png) | ![3D sloupcový graf s výškou nastavenou na 100 % jeho šířky](height_percent_100.png) | ![3D sloupcový graf s výškou nastavenou na 200 % jeho šířky](height_percent_200.png) |
 
 Tyto vlastnosti řídí různé aspekty grafu:
 
 | Vlastnost | Efekt |
 | --- | --- |
 | [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | Výška 3D scény jako procento její šířky. |
-| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | Výška objektu grafu na snímku, v bodech. |
+| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | Výška objektu grafu na snímku v bodech. |
 | [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | Hloubka 3D scény jako procento její šířky. |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Mezera mezi řadami podél osy hloubky, jako procento šířky značky. |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Rozestup mezi řadami podél osy hloubky jako procento šířky značky. |
 
-Nastavení výšky ovlivňuje 3D sloupcové a pruhové grafy, včetně variant válec, kužel a pyramida, stejně jako 3D čárové, plošné, výsečové a povrchové grafy. Výše uvedené srovnání používá ověřený typ `Column3D`. Nastavení nemění vzhled 2D grafu `ClusteredColumn` ani grafu `BubbleWith3D`; tyto názvy jsou členy výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Pro další nastavení vzhledu grafu viz [Chart Formatting](/slides/cs/net/chart-formatting/).
+Nastavení výšky ovlivňuje 3D sloupcové a pruhové grafy, včetně variant válec, kužel a pyramida, stejně jako 3D čárové, plošné, koláčové a povrchové grafy. Výše uvedené srovnání používá ověřený typ `Column3D`. Nastavení nemění vzhled 2D grafu `ClusteredColumn` ani grafu `BubbleWith3D`; tyto názvy jsou členy výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Pro další nastavení vzhledu grafu viz [Chart Formatting](/slides/cs/net/chart-formatting/).
 
 ## **Úprava mezery mezi řadami**
 
-Použijte [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) k řízení vzdálenosti mezi datovými řadami podél osy hloubky 3D grafu, vyjádřené jako procento šířky značky. Používejte hodnoty od **0 do 500**, včetně: `0` odstraňuje mezeru, vyšší hodnoty mezery zvětšují. Při pevné hloubce grafu zvětšení mezery způsobí, že značky jsou podél osy hloubky tenčí.
+Použijte [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) , abyste řídili vzdálenost mezi datovými řadami podél osy hloubky 3D grafu, vyjádřenou jako procento šířky značky. Používejte hodnoty od **0 do 500**, včetně: `0` odstraní mezeru, vyšší hodnoty zvětší rozestup. Při pevné hloubce grafu zvětšení mezery ztenčuje značky podél osy hloubky.
 
-Přístup ke skupině získáte přes [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/). Nastavení se vztahuje na každou řadu v této skupině, nikoli jen na řadu, pomocí které je přistupováno. [IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) je pouze pro čtení a odráží nastavení nadřazené skupiny.
+Skupinu získáte přes [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/). Nastavení se vztahuje na všechny řady v této skupině, ne jen na řadu, přes kterou byl přístup získán. [IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) je pouze pro čtení a odráží nastavení nadřazené skupiny.
 
-Nastavení ovlivňuje 3D sloupcové a pruhové grafy, včetně jejich variant válec, kužel a pyramida, stejně jako 3D čárové a plošné grafy. Vzhled závisí na tom, zda jsou řady uspořádány v hloubce, seskupeně nebo vrstveně. Pro jasné srovnání mezer mezi samostatnými řadami použijte `ChartType.Column3D` z výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+Nastavení ovlivňuje 3D sloupcové a pruhové grafy, včetně jejich variant válec, kužel a pyramida, stejně jako 3D čárové a plošné grafy. Vzhled závisí na tom, zda jsou řady uspořádány v hloubce, seskupeny nebo vrstveny. Pro jasné srovnání mezer mezi jednotlivými řadami použijte `ChartType.Column3D` z výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
 
 Tyto vlastnosti řídí různé aspekty grafu:
 
 | Vlastnost | Efekt |
 | --- | --- |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Mezera mezi řadami podél osy hloubky, jako procento šířky značky. |
-| [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | Mezera mezi sousedními seskupeními sloupců nebo pruhů, jako procento šířky sloupce nebo pruhu. |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Rozestup mezi řadami podél osy hloubky jako procento šířky značky. |
+| [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | Rozestup mezi sousedními shluky sloupců či pruhů jako procento šířky sloupce či pruhu. |
 | [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | Celková hloubka grafu jako procento šířky grafu. |
 
-Následující samostatný příklad používá výchozí data grafu, která obsahují tři řady a čtyři kategorie. Uloží dvě prezentace s identickými daty, rotací, šířkou mezery a hloubkou grafu; mění se pouze hloubka mezery.
+Následující samostatný příklad používá výchozí data grafu, která obsahují tři řady a čtyři kategorie. Uloží dva prezentace se stejnými daty, rotací, šířkou mezery a hloubkou grafu; mění se pouze hloubka mezery.
 
 ```csharp
 using Aspose.Slides;
@@ -161,13 +209,13 @@ foreach (ushort gapDepth in new ushort[] { 0, 500 })
 
 Následující obrázky byly exportovány z vygenerovaných prezentací pomocí Microsoft PowerPoint.
 
-| Hloubka mezery: 0% | Hloubka mezery: 500% |
+| Hloubka mezery: 0 % | Hloubka mezery: 500 % |
 | --- | --- |
-| ![3D sloupcový graf bez mezery mezi řadami podél osy hloubky](gap_depth_0.png) | ![3D sloupcový graf s 500% mezerou mezi řadami podél osy hloubky](gap_depth_500.png) |
+| ![3D sloupcový graf bez mezery mezi řadami podél osy hloubky](gap_depth_0.png) | ![3D sloupcový graf s mezerou 500 % mezi řadami podél osy hloubky](gap_depth_500.png) |
 
-## **Změna 3D typu řady a tvaru sloupce**
+## **Změna typu 3D řady a tvaru pruhu**
 
-V seskupeném válcovém grafu první řada začíná s válcovým tvarem sloupce. Příklad čte [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) a [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) před a po každé změně.
+V seskupeném válecovém grafu začíná první řada s válcovým tvarem pruhu. Příklad načte [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) a [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) před a po každé změně.
 
 ```cs
 using System;
@@ -198,20 +246,20 @@ presentation.Save("series_shape.pptx", SaveFormat.Pptx);
 | Nastavit `Type` na `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Nastavit `Bar3DShape` na `Box` | `ClusteredColumn3D` | `Box` |
 
-Nastavení tvaru na `Box` také mění typ řady na `ClusteredColumn3D`. Pokud váš kód větví podle typu řady, přečtěte `series.Type` po změně tvaru. Hodnota načtená před přiřazením by stále vedla k větvi `ClusteredCone`.
+Nastavení tvaru na `Box` také mění typ řady na `ClusteredColumn3D`. Pokud váš kód rozvětvuje podle typu řady, přečtěte `series.Type` po změně tvaru. Hodnota uložená před přiřazením by stále vedla k větvi `ClusteredCone`.
 
-![PowerPoint srovnání zobrazující první řadu jako válce, kužele a pravoúhlé sloupce zleva doprava](series-shapes.png)
+![Porovnání v PowerPointu ukazující první řadu jako válcové, kuželové a obdélníkové sloupce zleva doprava](series-shapes.png)
 
 ## **Často kladené otázky**
 
 **Které typy grafů podporují 3D režim v Aspose.Slides?**
 
-Aspose.Slides podporuje 3D varianty sloupcových grafů, včetně Column 3D, Clustered Column 3D, Stacked Column 3D a 100 % Stacked Column 3D, spolu s souvisejícími 3D typy vystavenými prostřednictvím výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Pro přesný, aktuální seznam zkontrolujte členy [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) v referenci API vaší nainstalované verze.
+Aspose.Slides podporuje 3D varianty sloupcových grafů, včetně Column 3D, Clustered Column 3D, Stacked Column 3D a 100 % Stacked Column 3D, spolu s souvisejícími 3D typy vystavenými prostřednictvím výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Pro přesný a aktuální seznam zkontrolujte členy [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) v API referenci vaší nainstalované verze.
 
 **Mohu získat rastrový obrázek 3D grafu pro zprávu nebo web?**
 
-Ano. Můžete exportovat graf jako obrázek pomocí [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) nebo [render the entire slide](/slides/cs/net/convert-powerpoint-to-png/) do formátů jako PNG nebo JPEG. To je užitečné, pokud potřebujete rastrový náhled nebo chcete vložit graf do dokumentů, řídicích panelů nebo webových stránek bez potřeby PowerPointu.
+Ano. Graf můžete exportovat jako obrázek pomocí [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) nebo [vyrenderovat celý snímek](/slides/cs/net/convert-powerpoint-to-png/) do formátů jako PNG nebo JPEG. To je užitečné, pokud potřebujete rastrový náhled nebo chcete vložit graf do dokumentů, dashboardů či webových stránek bez potřeby PowerPointu.
 
 **Jak výkonná je tvorba a vykreslování velkých 3D grafů?**
 
-Výkon závisí na objemu dat a vizuální složitosti. Pro nejlepší výsledky držte 3D efekty na minimu, vyhněte se těžkým texturám na stěnách a plochách, omezte počet datových bodů na řadu, když je to možné, a renderujte do vhodně velkého výstupu (rozlišení a rozměry), aby odpovídal cílovému zobrazení nebo tisku.
+Výkon závisí na objemu dat a vizuální složitosti. Pro nejlepší výsledky udržujte 3D efekty na minimu, vyhněte se těžkým texturám na stěnách a ploše grafu, omezte počet datových bodů na řadu, pokud je to možné, a vykreslujte do výstupu s vhodnou velikostí (rozlišení a rozměry), aby odpovídal cílovému displeji nebo tisku.

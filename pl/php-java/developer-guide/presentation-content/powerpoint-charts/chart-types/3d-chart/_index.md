@@ -11,17 +11,17 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Twórz wykresy 3D w prezentacjach PowerPoint za pomocą Aspose.Slides dla PHP poprzez Java. Dostosuj obrót, proporcje wysokości, głębokość wykresu oraz odstępy między seriami przy użyciu przykładów w PHP."
+description: "Twórz wykresy 3D w prezentacjach PowerPoint przy użyciu Aspose.Slides for PHP via Java. Dostosuj obrót, proporcje wysokości, głębokość wykresu oraz odstępy między seriami, korzystając z przykładów w PHP."
 ---
 ## **Przegląd**
 
-Aspose.Slides for PHP via Java umożliwia dostosowanie widoku wykresu 3D przy użyciu metody [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). Ten artykuł pokazuje, jak dostosować obrót, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
+Aspose.Slides for PHP via Java umożliwia dostosowanie widoku wykresu 3D za pomocą metody [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). Ten artykuł pokazuje, jak dostosować obrót, proporcje wysokości, głębokość, osie pod kątem prostym oraz odstępy między seriami, a następnie zapisać prezentację w formacie PPTX.
 
-## **Ustawienie obrotu i głębokości wykresu 3D**
+## **Ustaw obrót i głębokość wykresu 3D**
 
-Poniższy przykład tworzy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i używa [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart), aby dodać skumulowany wykres kolumnowy 3D do pierwszego slajdu. Zastępuje domyślne serie i kategorie dwiema seriami zawierającymi po trzy wartości. Indeks arkusza `0` identyfikuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` zawiera etykiety kategorii.
+Poniższy przykład tworzy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) i używa [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart), aby dodać skumulowany wykres słupkowy 3D do pierwszego slajdu. Zastępuje domyślne serie i kategorie dwoma seriami zawierającymi po trzy wartości. Indeks arkusza `0` identyfikuje pierwszy arkusz danych wykresu; wiersz `0` zawiera nazwy serii, a kolumna `0` – etykiety kategorii.
 
-Metody [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) i [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) ustawiają obrót wykresu na odpowiednio 40 i 270 stopni. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) ustawia jego głębokość na 150% szerokości, a [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) włącza osie pod kątem prostym zamiast perspektywy. Powstała prezentacja zawiera wykres wypełniony danymi z tymi ustawieniami widoku 3D.
+Metody [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) i [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) ustawiają obrót wykresu odpowiednio na 40 i 270 stopni. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) ustawia jego głębokość na 150 % szerokości, natomiast [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) włącza osie pod kątem prostym zamiast perspektywy. Wynikowa prezentacja zawiera wykres z tymi ustawieniami widoku 3D.
 
 ```php
 use aspose\slides\ChartType;
@@ -68,7 +68,69 @@ try {
 }
 ```
 
-## **Dostosowanie proporcji wysokości wykresu 3D**
+## **Zastosuj wypełnienie obrazem na powierzchni wykresu 3D**
+
+Możesz wypełnić [side wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getsidewall/), [back wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) i [floor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) wykresu 3D niezależnie. Ustaw typ wypełnienia powierzchni na `Picture` za pomocą [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) i przypisz obraz. Ustaw zarówno [picture fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setpicturefillmode/), jak i [picture type](https://reference.aspose.com/slides/php-java/aspose.slides/chartwall/setpicturetype/) na `Stretch`, aby dopasować jedną kopię obrazu do całej powierzchni.
+
+Zapisz [arrow.png](arrow.png) obok skryptu PHP. Przykład obraca wykres i podnosi maksymalną wartość na osi pionowej, aby podłoga była widoczna pomiędzy słupkami. Następnie dwukrotnie klonuje slajd i nakłada strzałkę na inną powierzchnię w każdym slajdzie. Wszystkie trzy wykresy zachowują te same dane, kąt widzenia i tło.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\PictureType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 20, 30, 680, 480);
+    $chart->getRotation3D()->setRightAngleAxes(true);
+    $chart->getRotation3D()->setRotationX(40);
+    $chart->getRotation3D()->setRotationY(30);
+    
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->setAutomaticMaxValue(false);
+    $verticalAxis->setMaxValue(24);
+
+    $backSlide = $presentation->getSlides()->addClone($slide);
+    $floorSlide = $presentation->getSlides()->addClone($slide);
+    $backChart = $backSlide->getShapes()->get_Item(0);
+    $floorChart = $floorSlide->getShapes()->get_Item(0);
+
+    $image = Images::fromFile(__DIR__ . "/arrow.png");
+    try {
+        $arrow = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $surfaces = [$chart->getSideWall(), $backChart->getBackWall(), $floorChart->getFloor()];
+    foreach ($surfaces as $surface) {
+        $fill = $surface->getFormat()->getFill();
+        $fill->setFillType(FillType::Picture);
+        $pictureFill = $fill->getPictureFillFormat();
+        $pictureFill->getPicture()->setImage($arrow);
+        $pictureFill->setPictureFillMode(PictureFillMode::Stretch);
+        $surface->setPictureType(PictureType::Stretch);
+    }
+
+    $presentation->save(__DIR__ . "/chart-surfaces.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Microsoft PowerPoint wyświetla trzy slajdy w następujący sposób.
+
+| Ściana boczna | Ściana tylna | Podłoga |
+| --- | --- | --- |
+| ![Strzałka wskazująca na wykres wzdłuż ściany bocznej](side-wall.png) | ![Strzałka wskazująca w prawo na ścianie tylnej](back-wall.png) | ![Strzałka wskazująca w prawo na podłodze między kolumnami](floor.png) |
+
+## **Dostosuj proporcje wysokości wykresu 3D**
 
 Użyj [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents), aby ustawić wysokość wykresu 3D jako procent jego szerokości. Zmienia to proporcje sceny 3D bez zmiany rozmiaru obiektu wykresu na slajdzie.
 
@@ -99,11 +161,11 @@ try {
 }
 ```
 
-Poniższe obrazy ilustrują te same ustawienia wysokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint. Mniejszy procent daje płaską scenę, natomiast większy procent powoduje wyższą scenę w ramach tego samego obiektu wykresu. PowerPoint może także dostosować przedziały znaków osi i rozmieszczenie etykiet, aby dopasować scenę.
+Poniższe obrazy ilustrują te same ustawienia wysokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint. Mniejszy procent daje płaską scenę, większy – wyższą scenę w obrębie tego samego obiektu wykresu. PowerPoint może także dostosować interwały znaczników osi i rozmieszczenie etykiet, aby dopasować scenę.
 
 | Wysokość: 50% | Wysokość: 100% | Wysokość: 200% |
 | --- | --- | --- |
-| ![Wykres słupkowy 3D z wysokością ustawioną na 50% jego szerokości](height_percent_50.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 100% jego szerokości](height_percent_100.png) | ![Wykres słupkowy 3D z wysokością ustawioną na 200% jego szerokości](height_percent_200.png) |
+| ![Wykres kolumnowy 3D z wysokością ustawioną na 50% jego szerokości](height_percent_50.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 100% jego szerokości](height_percent_100.png) | ![Wykres kolumnowy 3D z wysokością ustawioną na 200% jego szerokości](height_percent_200.png) |
 
 Te metody kontrolują różne aspekty wykresu:
 
@@ -114,23 +176,25 @@ Te metody kontrolują różne aspekty wykresu:
 | [Rotation3D::setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Głębokość sceny 3D jako procent jej szerokości. |
 | [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
 
-Ustawienie wysokości wpływa na wykresy kolumnowe i słupkowe 3D, w tym warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe, obszarowe, kołowe i powierzchniowe 3D. Powyższe porównanie wykorzystuje zweryfikowany typ `Column3D`. Ustawienie nie zmienia wyglądu 2D wykresu `ClusteredColumn` ani wykresu `BubbleWith3D`; te nazwy są członkami klasy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Aby uzyskać informacje o innych ustawieniach wyglądu wykresu, zobacz [Formatowanie wykresu](/slides/pl/php-java/chart-formatting/).
+Ustawienie wysokości wpływa na wykresy słupkowe i kolumnowe 3D, w tym warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe, powierzchniowe i kołowe 3D. Powyższe porównanie używa zweryfikowanego typu `Column3D`. Ustawienie nie zmienia wyglądu wykresu 2D `ClusteredColumn` ani wykresu `BubbleWith3D`; są to członkowie klasy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Inne ustawienia wyglądu wykresu znajdziesz w [Chart Formatting](/slides/pl/php-java/chart-formatting/).
 
-## **Dostosowanie odstępu między seriami**
+## **Dostosuj odstęp między seriami**
 
-Użyj [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth), aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną jako procent szerokości znacznika. Używaj wartości od **0 do 500**, włącznie: `0` usuwa odstęp, natomiast większe wartości zwiększają odległość. Przy stałej głębokości wykresu zwiększanie odstępu powoduje cieńsze znaczniki wzdłuż osi głębokości.
+Użyj [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth), aby kontrolować odległość między seriami danych wzdłuż osi głębokości wykresu 3D, wyrażoną jako procent szerokości znacznika. Dozwolone wartości to **0 do 500**, włącznie: `0` usuwa przerwę, wyższe wartości zwiększają odstęp. Przy stałej głębokości wykresu zwiększanie przerwy powoduje, że markery są cieńsze wzdłuż osi głębokości.
 
-Uzyskaj dostęp do grupy za pomocą [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Ustawienie dotyczy każdej serii w tej grupie, nie tylko serii użytej do jej uzyskania. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) zwraca odstęp głębokości i odzwierciedla ustawienie grupy nadrzędnej.
+Dostęp do grupy uzyskuje się przez [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Ustawienie dotyczy każdej serii w tej grupie, a nie tylko serii użytej do jej pobrania. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) zwraca aktualny odstęp w głębokości i odzwierciedla ustawienie grupy nadrzędnej.
 
-To ustawienie wpływa na wykresy kolumnowe i słupkowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe i obszarowe 3D. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Aby uzyskać wyraźne porównanie odstępów między oddzielnymi seriami, użyj `ChartType::Column3D` z klasy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+Ustawienie wpływa na wykresy słupkowe i kolumnowe 3D, w tym ich warianty cylindryczne, stożkowe i piramidalne, a także wykresy liniowe i powierzchniowe 3D. Wygląd zależy od tego, czy serie są rozmieszczone w głębokości, grupowane czy skumulowane. Do wyraźnego porównania przerw między oddzielnymi seriami użyj `ChartType::Column3D` z klasy [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+
+Te metody kontrolują różne aspekty wykresu:
 
 | Metoda | Efekt |
 | --- | --- |
 | [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Odstęp między seriami wzdłuż osi głębokości, jako procent szerokości znacznika. |
-| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Odstęp między sąsiadującymi grupami słupków lub kolumn, jako procent szerokości słupka lub kolumny. |
+| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Odstęp między sąsiadującymi grupami słupków lub kolumn, jako procent ich szerokości. |
 | [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Całkowita głębokość wykresu, jako procent szerokości wykresu. |
 
-Poniższy samodzielny przykład używa domyślnych danych wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwie prezentacje z identycznymi danymi, obrotem, szerokością odstępu i głębokością wykresu; zmienia się tylko odstęp głębokości.
+Poniższy, samodzielny przykład używa domyślnych danych wykresu, które zawierają trzy serie i cztery kategorie. Zapisuje dwie prezentacje z identycznymi danymi, obrotem, szerokością przerwy i głębokością wykresu; zmienia się tylko głębokość przerwy.
 
 ```php
 use aspose\slides\ChartType;
@@ -162,15 +226,13 @@ try {
 }
 ```
 
-Poniższe obrazy ilustrują te same ustawienia odstępu głębokości w równoważnym przykładzie .NET i zostały wyeksportowane przy użyciu Microsoft PowerPoint.
-
-| Odstęp głębokości: 0% | Odstęp głębokości: 500% |
+| Głębokość przerwy: 0% | Głębokość przerwy: 500% |
 | --- | --- |
-| ![Wykres kolumnowy 3D bez odstępu między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres kolumnowy 3D z odstępem 500 procent między seriami wzdłuż osi głębokości](gap_depth_500.png) |
+| ![Wykres kolumnowy 3D bez przerwy między seriami wzdłuż osi głębokości](gap_depth_0.png) | ![Wykres kolumnowy 3D z przerwą 500 % między seriami wzdłuż osi głębokości](gap_depth_500.png) |
 
-## **Zmienianie typu serii 3D i kształtu słupka**
+## **Zmień typ serii 3D i kształt słupka**
 
-W wykresie grupowanym cylinder, pierwsza seria zaczyna się od cylindrycznego kształtu słupka. Przykład wypisuje wartości całkowite zwracane przez [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) i [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) przed i po każdej zmianie. Tabela podaje odpowiadające nazwy stałych.
+W wykresie skumulowanym cylindrycznym pierwsza seria zaczyna się od słupka o kształcie cylindrycznym. Przykład wypisuje wartości całkowite zwracane przez [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) i [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) przed i po każdej zmianie. Tabela podaje odpowiadające nazwy stałych.
 
 ```php
 use aspose\slides\ChartShapeType;
@@ -205,7 +267,7 @@ try {
 | Ustaw typ serii na `ClusteredCone` | `ClusteredCone` | `Cone` |
 | Ustaw kształt słupka na `Box` | `ClusteredColumn3D` | `Box` |
 
-Ustawienie kształtu na `Box` zmienia także typ serii na `ClusteredColumn3D`. Jeśli Twój kod rozgałęzia się w zależności od typu serii, wywołaj [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) po zmianie kształtu. Wartość zbuforowana przed przypisaniem wciąż wybiera gałąź `ClusteredCone`.
+Ustawienie kształtu na `Box` zmienia także typ serii na `ClusteredColumn3D`. Jeśli twój kod rozgałęzia się w zależności od typu serii, wywołaj [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) po zmianie kształtu. Wartość pobrana przed przypisaniem nadal wybierałaby gałąź `ClusteredCone`.
 
 ![Porównanie w PowerPoint pokazujące pierwszą serię jako cylindry, stożki i prostokątne kolumny od lewej do prawej](series-shapes.png)
 
@@ -213,12 +275,12 @@ Ustawienie kształtu na `Box` zmienia także typ serii na `ClusteredColumn3D`. J
 
 **Jakie typy wykresów obsługują tryb 3D w Aspose.Slides?**
 
-Aspose.Slides obsługuje warianty 3D wykresów kolumnowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D oraz 100 % Stacked Column 3D, wraz z powiązanymi typami 3D udostępnionymi poprzez klasę [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Aby uzyskać dokładną, aktualną listę, sprawdź członków [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) w dokumentacji API swojej zainstalowanej wersji.
+Aspose.Slides obsługuje warianty 3D wykresów słupkowych, w tym Column 3D, Clustered Column 3D, Stacked Column 3D i 100 % Stacked Column 3D, a także powiązane typy 3D udostępniane przez klasę [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Aktualną, dokładną listę znajdziesz w członkach [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) w dokumentacji API swojej wersji.
 
-**Czy mogę uzyskać rastrowy obraz wykresu 3D do raportu lub sieci?**
+**Czy mogę uzyskać obraz rastrowy wykresu 3D do raportu lub internetu?**
 
-Tak. Możesz wyeksportować wykres jako obraz za pomocą [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) lub [renderowanie całego slajdu](/slides/pl/php-java/convert-powerpoint-to-png/) do formatów takich jak PNG lub JPEG. Jest to przydatne, gdy potrzebujesz rastrowego podglądu lub chcesz osadzić wykres w dokumentach, pulpitach nawigacyjnych lub stronach internetowych bez konieczności używania PowerPoint.
+Tak. Możesz wyeksportować wykres do obrazu przy użyciu [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) lub [renderować cały slajd](/slides/pl/php-java/convert-powerpoint-to-png/) do formatów takich jak PNG czy JPEG. Jest to przydatne, gdy potrzebny jest podgląd rastrowy lub chcesz osadzić wykres w dokumentach, pulpitach nawigacyjnych czy stronach internetowych bez wymogu posiadania PowerPointa.
 
-**Jak wydajna jest budowa i renderowanie dużych wykresów 3D?**
+**Jak wydajne jest budowanie i renderowanie dużych wykresów 3D?**
 
-Wydajność zależy od wielkości danych i złożoności wizualnej. Aby uzyskać najlepsze rezultaty, zachowaj efekty 3D na minimalnym poziomie, unikaj ciężkich tekstur na ścianach i obszarach wykresu, ogranicz liczbę punktów danych na serię, gdy to możliwe, oraz renderuj do wyjścia o odpowiednich rozmiarach (rozdzielczość i wymiary), aby dopasować je do docelowego wyświetlacza lub wymagań drukowania.
+Wydajność zależy od objętości danych i złożoności wizualnej. Dla najlepszych rezultatów ogranicz efekty 3D, unikaj ciężkich tekstur na ścianach i obszarach wykresu, redukuj liczbę punktów danych w serii, kiedy to możliwe, oraz renderuj do odpowiednio dobranej rozdzielczości i rozmiaru, aby dopasować się do docelowego wyświetlacza lub wymagań drukarskich.

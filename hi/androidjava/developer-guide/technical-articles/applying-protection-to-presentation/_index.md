@@ -1,12 +1,12 @@
 ---
-title: Android पर Shape Locks के साथ प्रस्तुति संपादन को प्रतिबंधित करें
-linktitle: प्रस्तुति संपादन प्रतिबंधित करें
+title: Android पर आकार लॉक के साथ प्रस्तुति संपादनों को प्रतिबंधित करें
+linktitle: प्रस्तुति संपादन को प्रतिबंधित करें
 type: docs
 weight: 60
 url: /hi/androidjava/applying-protection-to-presentation/
 keywords:
 - संपादन रोकें
-- संपादन से सुरक्षित रखें
+- संपादन से सुरक्षा
 - आकार लॉक करें
 - स्थिति लॉक करें
 - चयन लॉक करें
@@ -18,39 +18,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java के साथ PPTX प्रस्तुतियों में आकारों को लॉक और अनलॉक करना सीखें ताकि चयन, गति, आकार बदलना और समूह बनाना प्रतिबंधित किया जा सके।"
+description: "Aspose.Slides for Android via Java के साथ PPTX प्रस्तुतियों में आकारों को लॉक और अनलॉक करना सीखें ताकि चयन, आंदोलन, आकार बदलना और समूह बनाना प्रतिबंधित किया जा सके।"
 ---
-## **परिचय**
+## **सारांश**
 
-Aspose.Slides for Android via Java का एक सामान्य उपयोग PowerPoint (PPTX) प्रस्तुतियों को बनाना, अपडेट करना और सहेजना है, जो स्वचालित कार्यप्रवाह का हिस्सा होते हैं। जब उपयोगकर्ता इन प्रस्तुतियों को प्राप्त करते हैं, तो आकारों में बदलाव को सीमित करने से इच्छित लेआउट और सामग्री को बनाए रखने में मदद मिलती है।
+Aspose.Slides for Android via Java का एक सामान्य उपयोग स्वचालित कार्यप्रवाह के हिस्से के रूप में PowerPoint (PPTX) प्रस्तुतियों को बनाना, अपडेट करना और सहेजना है। जब उपयोगकर्ता इन प्रस्तुतियों को प्राप्त करते हैं, तो आकारों में बदलाव को सीमित करने से इच्छित लेआउट और सामग्री को संरक्षित करने में मदद मिलती है।
 
-यह लेख बताता है कि स्लाइड्स पर आकार कैसे व्यवस्थित होते हैं और PPTX प्रस्तुति में आकार लॉक कैसे लागू और हटाए जाते हैं। ये लॉक आपको व्यक्तिगत आकारों पर विशिष्ट संपादन संचालन को प्रतिबंधित करने की अनुमति देते हैं।
+यह लेख समझाता है कि स्लाइडों पर आकार कैसे व्यवस्थित होते हैं और PPTX प्रस्तुति में आकार लॉक कैसे लागू और हटाए जाएँ। ये लॉक आपको व्यक्तिगत आकारों पर विशिष्ट संपादन संचालन को प्रतिबंधित करने की अनुमति देते हैं।
 
 ## **स्लाइड की संरचना**
 
-एक प्रस्तुति स्लाइड को ऑटोशेप, तालिकाएँ, OLE ऑब्जेक्ट, समूहित आकार, चित्र फ़्रेम, वीडियो फ़्रेम, कनेक्टर और अन्य तत्वों जैसे घटकों द्वारा बनाया जाता है, जो प्रस्तुति बनाने में उपयोग होते हैं। Aspose.Slides for Android via Java में, स्लाइड पर प्रत्येक तत्व को उस ऑब्जेक्ट द्वारा दर्शाया जाता है जो [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) इंटरफ़ेस को लागू करता है या उस क्लास से विरासत में प्राप्त करता है।
+एक प्रस्तुति स्लाइड ऑटोषेप्स, तालिकाएं, OLE ऑब्जेक्ट्स, समूहित आकार, चित्र फ्रेम, वीडियो फ्रेम, कनेक्टर, और अन्य तत्वों जैसे घटकों से बनी होती है जो प्रस्तुति बनाने के लिए उपयोग होते हैं। Aspose.Slides for Android via Java में, स्लाइड में प्रत्येक तत्व को एक ऑब्जेक्ट द्वारा दर्शाया जाता है जो [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) इंटरफ़ेस को लागू करता है या उस क्लास से विरासत में लेता है।
 
-विभिन्न आकार प्रकार अलग-अलग लॉक विकल्प प्रदान करते हैं। [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) इंटरफ़ेस आकार लॉक के लिए आधार इंटरफ़ेस है। Aspose.Slides for Android via Java निम्नलिखित लॉक इंटरफ़ेस प्रदान करता है:
+विभिन्न आकार प्रकार विभिन्न लॉक विकल्प उजागर करते हैं। [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) इंटरफ़ेस आकार लॉक के लिए बुनियादी इंटरफ़ेस है। Aspose.Slides for Android via Java निम्नलिखित लॉक इंटरफ़ेस प्रदान करता है:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) ऑटोशेप को लॉक करता है।  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) कनेक्टर आकार को लॉक करता है।  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) ग्राफ़िकल ऑब्जेक्ट को लॉक करता है।  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) समूह आकार को लॉक करता है।  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) चित्र फ़्रेम को लॉक करता है।  
+- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) ऑटोषेप्स को लॉक करता है।  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) कनेक्टर आकारों को लॉक करता है।  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) ग्राफ़िकल ऑब्जेक्ट्स को लॉक करता है।  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) समूह आकारों को लॉक करता है।  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) चित्र फ्रेम को लॉक करता है।  
 
-एक [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) के भीतर लॉक लागू करने के लिए, उसकी स्लाइड्स पर इटररेट करें और प्रत्येक समर्थित आकार पर उपयुक्त लॉक सेट करें।
+एक [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) में लॉक लागू करने के लिए, उसकी स्लाइड्स पर इटररेट करें और प्रत्येक समर्थित आकार पर उचित लॉक सेट करें।
 
-## **सुरक्षा लागू करना और हटाना**
+## **सुरक्षा लागू करें और हटाएँ**
 
-संगत प्रस्तुति संपादक आकार लॉक का उपयोग व्यक्तिगत संपादन संचालन को प्रतिबंधित करने के लिए करते हैं। फ़ाइल एन्क्रिप्शन और दस्तावेज़-स्तर लिखने की सुरक्षा अलग [प्रेजेंटेशन सुरक्षा सेटिंग्स](/slides/hi/androidjava/password-protected-presentation/) हैं।
+अनुकूल प्रस्तुति संपादक आकार लॉक का उपयोग व्यक्तिगत संपादन संचालन को प्रतिबंधित करने के लिए करते हैं। फ़ाइल एन्क्रिप्शन और दस्तावेज़‑स्तरीय लिखने की सुरक्षा अलग [प्रेजेंटेशन सुरक्षा सेटिंग्स](/slides/hi/androidjava/password-protected-presentation/) हैं।
 
-### **PPTX आकारों पर सुरक्षा लागू करना**
+### **PPTX आकारों पर सुरक्षा लागू करें**
 
-Aspose.Slides for Android via Java स्लाइड पर आकारों के साथ काम करने के लिए [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) इंटरफ़ेस प्रदान करता है।
+Aspose.Slides for Android via Java आकारों के साथ काम करने के लिए [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) इंटरफ़ेस प्रदान करता है।
 
-उदाहरण में ऑटोशेप के लिए `true` के साथ [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), और [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) को कॉल किया जाता है, तथा समूह आकार, कनेक्टर और चित्र फ़्रेम के लिए समकक्ष लॉक का उपयोग किया जाता है। कनेक्टर गति के लिए [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) का उपयोग करते हैं; समूह भी समूह बनाने को प्रतिबंधित करने के लिए [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) का उपयोग करते हैं।
+उदाहरण में ऑटोषेप्स के लिए `true` के साथ [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), और [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) को कॉल किया जाता है, और समूह आकार, कनेक्टर और चित्र फ्रेम के लिए समान लॉक लागू किए जाते हैं। कनेक्टर आंदोलन के लिए [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) का उपयोग करते हैं; समूह ग्रुपिंग को सीमित करने के लिए भी [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) का उपयोग करते हैं।
 
-उदाहरण एक मौजूदा PPTX प्रस्तुति को लोड करता है, प्रत्येक स्लाइड की shape collection में आकारों को जांचता है, और इन प्रतिबंधों के साथ एक कॉपी सहेजता है। चार संभाले गए प्रकारों के बाहर के आकार अपरिवर्तित रहते हैं। लूप समूह के भीतर की चाइल्ड आकारों को पार नहीं करता।
+उदाहरण एक मौजूदा PPTX प्रस्तुति को लोड करता है, प्रत्येक स्लाइड के आकार संग्रह में आकारों की जाँच करता है, और इन प्रतिबंधों के साथ एक प्रतिलिपि सहेजता है। चार संभाले गए प्रकारों के बाहर के आकार अपरिवर्तित छोड़ दिए जाते हैं। लूप समूह के अंदर के चाइल्ड आकारों को पार नहीं करता।
 
 ```java
 import com.aspose.slides.*;
@@ -94,9 +94,9 @@ try {
 }
 ```
 
-### **सुरक्षा हटाना**
+### **सुरक्षा हटाएँ**
 
-एक आकार लॉक को हटाने के लिए, उसका मान `false` सेट करें। निम्नलिखित उदाहरण आकार लॉक वाली एक प्रस्तुति को लोड करता है और चयन, गति और आकार बदलने के प्रतिबंधों को [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), और [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) के माध्यम से साफ़ करता है। यह [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) को `false` पास करके समूह बनाने के प्रतिबंध को भी हटाता है और प्रस्तुति की एक कॉपी सहेजता है। अन्य लॉक सेटिंग्स अपरिवर्तित रहती हैं।
+एक आकार लॉक को हटाने के लिए, उसका मान `false` सेट करें। निम्नलिखित उदाहरण आकार लॉक के साथ एक प्रस्तुति को लोड करता है और चयन, आंदोलन, और आकार बदलने की प्रतिबंधों को [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), और [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) के माध्यम से साफ़ करता है। यह [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) को `false` पास करके ग्रुपिंग प्रतिबंध भी हटाता है और प्रस्तुति की एक प्रतिलिपि सहेजता है। अन्य लॉक सेटिंग्स अपरिवर्तित रहती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-### **चित्र क्रॉप को संरक्षित करना**
+### **चित्र क्रॉप को संरक्षित रखें**
 
-`photo.jpg` नाम की एक फोटो को कार्य निर्देशिका में रखें। उदाहरण बाएँ से 12% और दाएँ से 8% क्रॉप करता है, फिर चित्र फ़्रेम के लॉक पर [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) को कॉल करता है। `true` पास करने से आगे का क्रॉप प्रतिबंधित हो जाता है और मौजूदा क्रॉप संरक्षित रहता है।
+कार्यशील निर्देशिका में `photo.jpg` नामक फ़ोटो रखें। उदाहरण बाएँ से 12 % और दाएँ से 8 % क्रॉप करता है, फिर चित्र फ्रेम के लॉक पर [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) को कॉल करता है। `true` पास करने से आगे के क्रॉप को प्रतिबंधित किया जाता है और मौजूदा क्रॉप संरक्षित रहता है।
 
 ```java
 import com.aspose.slides.*;
@@ -171,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` क्रॉप लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, फोटो चयनित होने पर **Crop** कमांड अक्षम हो जाता है।
+`PictureLocked.pptx` क्रॉप लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, जब फोटो चयनित हो, तो **क्रॉप** कमांड निष्क्रिय हो जाता है।
 
-### **डायाग्राम को समूहित रखें**
+### **आरेख को समूहित रखें**
 
-उदाहरण एक आयत और एक तीर को समूहित करता है, फिर समूह के लॉक पर [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) को कॉल करके डायाग्राम के घटकों को एक साथ रखता है। समूह को स्थानांतरित करने या घटक की भराव को बदलने जैसी अन्य संपादन उपलब्ध रहती हैं।
+उदाहरण एक आयत और एक तीर को समूहित करता है, फिर समूह के लॉक पर [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) को कॉल करके आरेख के घटकों को साथ रखता है। समूह को स्थानांतरित करने या किसी घटक के फ़िल को बदलने जैसे अन्य संपादन उपलब्ध रहते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -195,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` अनग्रुपिंग लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, पूरी डायाग्राम चयनित होने पर **Ungroup** कमांड अक्षम हो जाता है।
+`DiagramLocked.pptx` अनग्रुपिंग लॉक को `true` के रूप में संग्रहीत करता है। PowerPoint में, जब पूरा आरेख चयनित हो, तो **अलग करें** कमांड निष्क्रिय हो जाता है।
 
-### **निष्कर्ष**
+### **मौजूदा आकार लॉक की रिपोर्ट**
 
-Aspose.Slides for Android via Java आपको व्यक्तिगत आकारों पर विशिष्ट संपादन संचालन को प्रतिबंधित करने या स्लाइड्स पर एक ही प्रतिबंध लागू करने की सुविधा देता है। प्रत्येक आकार प्रकार द्वारा समर्थित लॉक चुनें, और जब आपको उन प्रतिबंधों को हटाने की आवश्यकता हो तो उनके मान `false` सेट करें।
+एक टेम्पलेट की समीक्षा करने के लिए, उसे खोलें और प्रत्येक आकार के लिए लॉक ऑब्जेक्ट पढ़ें। [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) मेथड `true` लौटाता है जब उस ऑब्जेक्ट पर सभी फ्लैग निष्क्रिय होते हैं और `false` जब कम से कम एक सक्रिय हो। एक समूह और उसके चाइल्ड के पास अलग लॉक ऑब्जेक्ट होते हैं, इसलिए समूह के पास कोई लॉक न होने पर भी चाइल्ड का निरीक्षण करें।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+यह उदाहरण ऑटोषेप्स, चित्र फ़्रेम और समूहों के आंदोलन की जाँच करता है। यह चित्रों के क्रॉपिंग और समूहों के अनग्रुपिंग की भी जाँच करता है। रिपोर्ट उन सक्षम फ्लैगों को सूचीबद्ध करती है जिन्हें यह पहचानता है और उन आकार प्रकारों को चिह्नित करती है जिन्हें यह जांचता नहीं है।
 
-**क्या मैं एक ही प्रस्तुति में आकार लॉक और पासवर्ड सुरक्षा को संयोजित कर सकता हूँ?**
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
 
-हाँ। आकार लॉक विशिष्ट संपादन संचालन को प्रतिबंधित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/androidjava/password-protected-presentation/) प्रस्तुति को खोलने या संशोधित करने को प्रतिबंधित कर सकती है। आप दोनों का एक ही फ़ाइल में उपयोग कर सकते हैं।
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
 
-**क्या मैं विशिष्ट स्लाइड्स पर संपादन को प्रतिबंधित कर सकता हूँ बिना अन्य स्लाइड्स को प्रभावित किए?**
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
 
-हाँ। केवल चयनित स्लाइड्स पर आकारों को लॉक लागू करें। इससे अन्य स्लाइड्स पर लॉक सेटिंग्स नहीं बदलतीं।
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
 
-**मैं समूह के भीतर व्यक्तिगत आकारों पर लॉक कैसे लागू करूं?**
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
 
-समूह की [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) विधि द्वारा लौटाए गए संग्रह पर इटररेट करें और प्रत्येक चाइल्ड आकार पर उपयुक्त लॉक लागू करें। किसी भी नेस्टेड समूह के लिए इसे दोहराएँ। ऊपर के उदाहरण केवल स्लाइड की shape collection को प्रक्रिया करते हैं, इसलिए वे व्यक्तिगत समूह सदस्यों पर लॉक सेट नहीं करते।
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+मान लें कि `Sample.pptx` की स्लाइड 1 में `Layout` नाम का एक समूह है जिसमें अनग्रुपिंग लॉक है, उसके अंदर `Photo` नाम की एक तस्वीर है जिसमें क्रॉपिंग लॉक है, और एक अनलॉक्ड आयत `Free` है। रिपोर्ट `Free` को छोड़ देती है और इन दो पंक्तियों को प्रिंट करती है:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+रिपोर्ट संग्रहित आकार‑स्तर के संपादन फ्लैग को बिना बदले या प्रस्तुति सहेजे पढ़ती है। दस्तावेज़‑स्तर की लिखने की सुरक्षा एक अलग सेटिंग है, और प्रत्येक फ्लैग का प्रवर्तन संपादक पर निर्भर करता है।
+
+## **निष्कर्ष**
+
+Aspose.Slides for Android via Java आपको व्यक्तिगत आकारों पर विशिष्ट संपादन संचालन को प्रतिबंधित करने या स्लाइडों के पार समान प्रतिबंध लागू करने की अनुमति देता है। प्रत्येक आकार प्रकार द्वारा समर्थित लॉक चुनें, और जब आपको उन प्रतिबंधों को हटाने की आवश्यकता हो तो उनके मान `false` सेट करें।
+
+## **FAQ**
+
+**क्या मैं एक ही प्रस्तुति में आकार लॉक और पासवर्ड सुरक्षा को जोड़ सकता हूँ?**
+
+हाँ। आकार लॉक विशिष्ट संपादन संचालन को प्रतिबंधित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/androidjava/password-protected-presentation/) प्रस्तुति के खोलने या संशोधित करने को सीमित कर सकती है। आप दोनों को एक ही फ़ाइल में उपयोग कर सकते हैं।
+
+**क्या मैं अन्य स्लाइडों को प्रभावित किए बिना विशिष्ट स्लाइडों पर संपादन को प्रतिबंधित कर सकता हूँ?**
+
+हाँ। केवल चयनित स्लाइडों पर आकारों पर लॉक लागू करें। इससे अन्य स्लाइडों पर लॉक सेटिंग नहीं बदलती।
+
+**मैं समूह के अंदर व्यक्तिगत आकारों पर लॉक कैसे लागू करूँ?**
+
+समूह की [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) मेथड द्वारा लौटाए गए संग्रह में इटररेट करें और प्रत्येक चाइल्ड आकार पर उपयुक्त लॉक लागू करें। किसी भी नेस्टेड समूह के लिए यह प्रक्रिया दोहराएँ, जैसा कि रिपोर्ट उदाहरण में दर्शाया गया है।

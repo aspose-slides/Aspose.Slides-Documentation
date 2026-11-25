@@ -1,12 +1,12 @@
 ---
-title: จำกัดการแก้ไขงานนำเสนอด้วยการล็อกรูปทรงใน Python
-linktitle: จำกัดการแก้ไขงานนำเสนอ
+title: จำกัดการแก้ไขการนำเสนอด้วยการล็อกรูปทรงใน Python
+linktitle: จำกัดการแก้ไขการนำเสนอ
 type: docs
 weight: 60
 url: /th/python-java/applying-protection-to-presentation/
 keywords:
 - ป้องกันการแก้ไข
-- ปกป้องจากการแก้ไข
+- ป้องกันจากการแก้ไข
 - ล็อกรูปทรง
 - ล็อกตำแหน่ง
 - ล็อกการเลือก
@@ -14,42 +14,43 @@ keywords:
 - ล็อกการจัดกลุ่ม
 - PowerPoint
 - PPTX
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีการล็อกและปลดล็อกรูปทรงในงานนำเสนอ PPTX ด้วย Aspose.Slides for Python via Java เพื่อจำกัดการเลือก การเคลื่อนย้าย การปรับขนาดและการจัดกลุ่ม"
+description: "เรียนรู้วิธีล็อกและปลดล็อกรูปทรงในไฟล์การนำเสนอ PPTX ด้วย Aspose.Slides for Python via Java เพื่อจำกัดการเลือก การเคลื่อนที่ การปรับขนาด และการจัดกลุ่ม"
 ---
 ## **พื้นหลัง**
 
-การใช้งานทั่วไปของ Aspose.Slides for Python via Java คือการสร้าง ปรับปรุง และบันทึกงานนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้รับงานนำเสนอนี้ การจำกัดการเปลี่ยนแปลงรูปทรงช่วยรักษาการจัดวางและเนื้อหาตามที่ตั้งใจไว้
+การใช้งานทั่วไปของ Aspose.Slides for Python via Java คือการสร้าง, อัปเดตและบันทึกการนำเสนอ PowerPoint (PPTX) เป็นส่วนหนึ่งของกระบวนการทำงานอัตโนมัติ เมื่อผู้ใช้รับการนำเสนอเหล่านี้ การจำกัดการเปลี่ยนแปลงรูปทรงสามารถช่วยรักษาการจัดวางและเนื้อหาที่ตั้งใจไว้ได้
 
-บทความนี้อธิบายถึงวิธีการจัดรูปทรงบนสไลด์และวิธีการตั้งค่าและลบการล็อกรูปทรงในงานนำเสนอ PPTX การล็อกเหล่านี้ช่วยให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอัน
+บทความนี้อธิบายวิธีการจัดระเบียบรูปทรงบนสไลด์และวิธีการใช้และลบการล็อกรูปทรงในไฟล์ PPTX การล็อกเหล่านี้ทำให้คุณสามารถจำกัดการทำงานแก้ไขเฉพาะบนรูปทรงแต่ละรูปได้
 
 ## **ส่วนประกอบของสไลด์**
 
-สไลด์งานนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น รูปร่างอัตโนมัติ (autoshapes), ตาราง, วัตถุ OLE, รูปร่างที่จัดกลุ่ม, เฟรมรูปภาพ, เฟรมวิดีโอ, ตัวเชื่อมต่อ, และองค์ประกอบอื่น ๆ ที่ใช้สร้างงานนำเสนอ ใน Aspose.Slides for Python via Java แต่ละองค์ประกอบบนสไลด์จะแทนด้วยอ็อบเจกต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) 
+สไลด์การนำเสนอประกอบด้วยส่วนประกอบต่าง ๆ เช่น autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors และองค์ประกอบอื่น ๆ ที่ใช้สร้างการนำเสนอ ใน Aspose.Slides for Python via Java แต่ละองค์ประกอบบนสไลด์จะแสดงเป็นอ็อบเจ็กต์ที่สืบทอดจากคลาส [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) 
 
-แต่ละประเภทของรูปทรงมีตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) เป็นคลาสฐานสำหรับการล็อกรูปทรง Aspose.Slides for Python via Java มีคลาสล็อกต่อไปนี้:
-- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) ล็อกรูปทรงอัตโนมัติ.  
-- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) ล็อกรูปทรงเชื่อมต่อ.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) ล็อกวัตถุกราฟิก.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) ล็อกรูปทรงที่จัดกลุ่ม.  
-- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) ล็อกเฟรมรูปภาพ.  
+ประเภทรูปทรงที่แตกต่างกันจะเปิดเผยตัวเลือกการล็อกที่แตกต่างกัน คลาส [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) เป็นคลาสพื้นฐานสำหรับการล็อกรูปทรง Aspose.Slides for Python via Java มีคลาสล็อกต่อไปนี้:
 
-เพื่อทำการล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละอัน
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) ล็อก autoshapes.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) ล็อก connector shapes.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) ล็อก graphical objects.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) ล็อก group shapes.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) ล็อก picture frames.  
 
-## **ตั้งค่าและลบการป้องกัน**
+เพื่อใช้การล็อกทั่วทั้ง [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), ให้วนลูปผ่านสไลด์ทั้งหมดและตั้งค่าการล็อกที่เหมาะสมบนรูปทรงที่รองรับแต่ละรูปทรง
 
-โปรแกรมแก้ไขงานนำเสนอที่เข้ากันได้ใช้การล็อกรูปทรงเพื่อจำกัดการดำเนินการแก้ไขแต่ละอัน การเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็นการตั้งค่า [presentation protection settings](/slides/th/python-java/password-protected-presentation/) ที่แยกจากกัน
+## **ใช้และลบการป้องกัน**
 
-### **ตั้งค่าการป้องกันให้กับรูปทรง PPTX**
+โปรแกรมแก้ไขการนำเสนอที่รองรับจะใช้การล็อกรูปทรงเพื่อจำกัดการทำงานแก้ไขเฉพาะ รายการเข้ารหัสไฟล์และการป้องกันการเขียนระดับเอกสารเป็น [การตั้งค่าการป้องกันการนำเสนอ](/slides/th/python-java/password-protected-presentation/) ที่แยกจากกัน
+
+### **ใช้การป้องกันกับรูปทรง PPTX**
 
 Aspose.Slides for Python via Java มีคลาส [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) เพื่อทำงานกับรูปทรงบนสไลด์
 
-ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) และ [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) โดยกำหนดค่า `True` สำหรับรูปทรงอัตโนมัติ พร้อมด้วยการล็อกที่เทียบเท่าสำหรับรูปทรงกลุ่ม, ตัวเชื่อมต่อ, และเฟรมรูปภาพ ตัวเชื่อมต่อใช้ [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) เพื่อการเคลื่อนที่; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
+ตัวอย่างเรียกใช้ [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) และ [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) ด้วยค่า `True` สำหรับ autoshapes, พร้อมการล็อกที่เทียบเท่าสำหรับ group shapes, connectors, และ picture frames. Connectors ใช้ [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) สำหรับการเคลื่อนที่; กลุ่มยังใช้ [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) เพื่อจำกัดการจัดกลุ่ม
 
-ตัวอย่างโหลดงานนำเสนอ PPTX ที่มีอยู่แล้ว ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์ และบันทึกสำเนาที่มีการจำกัดเหล่านี้ตั้งค่าไว้ รูปร่างที่ไม่อยู่ในสี่ประเภทที่จัดการจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่ไล่ผ่านรูปทรงย่อยภายในกลุ่ม
+ตัวอย่างโหลดไฟล์ PPTX ที่มีอยู่แล้ว, ตรวจสอบรูปทรงในคอลเลกชันรูปทรงของแต่ละสไลด์, แล้วบันทึกสำเนาที่มีการจำกัดเหล่านี้ถูกนำไปใช้ รูปทรงที่อยู่นอกสี่ประเภทที่จัดการจะไม่ถูกเปลี่ยนแปลง ลูปจะไม่วนลูปผ่านรูปทรงย่อยภายในกลุ่ม
 
 ```python
 import jpype
@@ -93,7 +94,7 @@ finally:
 
 ### **ลบการป้องกัน**
 
-เพื่อเอาการล็อกรูปทรงออก ให้ตั้งค่าของมันเป็น `False` ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีการล็อกรูปทรงและล้างการจำกัดการเลือก, การเคลื่อนย้าย, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) อีกทั้งยังลบการจำกัดการจัดกลุ่มโดยส่งค่า `False` ไปยัง [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) และบันทึกสำเนาของงานนำเสนอ การตั้งค่าล็อกอื่น ๆ จะไม่ถูกเปลี่ยนแปลง
+เพื่อเอาการล็อกรูปทรงออก, ให้ตั้งค่ามันเป็น `False` ตัวอย่างต่อไปนี้โหลดการนำเสนอที่มีการล็อกรูปทรงและล้างข้อจำกัดการเลือก, การเคลื่อนที่, และการปรับขนาดผ่าน [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), และ [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) นอกจากนี้ยังลบข้อจำกัดการจัดกลุ่มโดยส่งค่า `False` ให้กับ [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) แล้วบันทึกสำเนาของการนำเสนอ การตั้งค่าล็อกอื่น ๆ จะคงไว้ตามเดิม
 
 ```python
 import jpype
@@ -135,9 +136,9 @@ finally:
     presentation.dispose()
 ```
 
-### **คงสภาพการครอปรูปภาพ**
+### **รักษาการครอบรูปภาพ**
 
-วางรูปภาพที่ชื่อ `photo.jpg` ไว้ในไดเรกทอรีทำงาน ตัวอย่างจะครอปรูป 12% จากด้านซ้ายและ 8% จากด้านขวา แล้วเรียกใช้ [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) ด้วยค่า `True` เพื่อคงการครอปไว้
+วางรูปภาพชื่อ `photo.jpg` ในไดเรกทอรีทำงาน ตัวอย่างทำการครอบ 12% จากด้านซ้ายและ 8% จากด้านขวา, แล้วเรียกใช้ [setCropLocked](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/#setCropLocked) ด้วยค่า `True` เพื่อรักษาการครอบนั้น
 
 ```python
 from pathlib import Path
@@ -170,11 +171,11 @@ finally:
     presentation.dispose()
 ```
 
-ในไฟล์ `PictureLocked.pptx` PowerPoint จะปิดการใช้งานคำสั่ง **Crop** เมื่อคุณเลือกรูปภาพ
+ใน `PictureLocked.pptx`, PowerPoint จะปิดการใช้งานคำสั่ง **Crop** เมื่อคุณเลือกรูปภาพ
 
-### **รักษาแผนภาพให้จัดกลุ่ม**
+### **รักษา Diagram ให้เป็นกลุ่ม**
 
-ตัวอย่างจัดกลุ่มสี่เหลี่ยมและลูกศร แล้วเรียกใช้ [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) ด้วยค่า `True` เพื่อให้สองรูปทรงอยู่ด้วยกัน คุณยังสามารถย้ายกลุ่มหรือเปลี่ยนสีเติมของส่วนประกอบได้
+ตัวอย่างทำการจัดกลุ่มสี่เหลี่ยมและลูกศร, แล้วเรียกใช้ [setUngroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setUngroupingLocked) ด้วยค่า `True` เพื่อให้สองรูปทรงคงอยู่ด้วยกัน คุณยังสามารถย้ายกลุ่มหรือเปลี่ยนสีเติมของส่วนประกอบได้
 
 ```python
 import jpype
@@ -199,22 +200,85 @@ finally:
     presentation.dispose()
 ```
 
-ในไฟล์ `DiagramLocked.pptx` PowerPoint จะปิดการใช้งานคำสั่ง **Ungroup** เมื่อคุณเลือกแผนภาพทั้งหมด
+ใน `DiagramLocked.pptx`, PowerPoint จะปิดการใช้งานคำสั่ง **Ungroup** เมื่อคุณเลือกไดอะแกรมทั้งหมด
 
-### **สรุป**
+### **รายงานการล็อกรูปทรงที่มีอยู่**
 
-Aspose.Slides for Python via Java ให้คุณจำกัดการดำเนินการแก้ไขเฉพาะบนรูปทรงแต่ละอันหรือใช้ข้อจำกัดเดียวกันบนสไลด์ทั้งหมด เลือกการล็อกที่รองรับโดยแต่ละประเภทของรูปทรงและตั้งค่าของมันเป็น `False` เมื่อคุณต้องการเอาข้อจำกัดเหล่านั้นออก
+ในการตรวจสอบเทมเพลต, เปิดไฟล์และอ่านอ็อบเจ็กต์ล็อกสำหรับแต่ละรูปทรง วิธีการ [getNoLocks](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/#getNoLocks) จะคืนค่า `True` เมื่อทุกแฟล็กบนอ็อบเจ็กต์นั้นถูกปิดและคืนค่า `False` เมื่ออย่างน้อยหนึ่งแฟล็กเปิด กลุ่มและลูกของมันมีอ็อบเจ็กต์ล็อกแยกกัน ดังนั้นให้ตรวจสอบลูกแม้ในขณะที่กลุ่มไม่มีล็อก
+
+ตัวอย่างนี้ตรวจสอบการเคลื่อนที่สำหรับ autoshapes, picture frames, และ groups. นอกจากนี้ยังตรวจสอบการครอบสำหรับรูปภาพและการยกเลิกการจัดกลุ่มสำหรับกลุ่ม รายงานจะแสดงแฟล็กที่เปิดอยู่ที่มันรับรู้และทำเครื่องหมายประเภทรูปทรงที่ไม่ได้ตรวจสอบ
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, GroupShape, PictureFrame, Presentation
+
+
+def inspect_shapes(shapes, slide_number, prefix=""):
+    for shape in shapes:
+        path = f"{prefix}{shape.getName()}"
+        label = f"Slide {slide_number} | {path} | {shape.getClass().getSimpleName()}"
+        flags = []
+
+        if isinstance(shape, GroupShape):
+            shape_lock = shape.getGroupShapeLock()
+            if shape_lock.getUngroupingLocked():
+                flags.append("UngroupingLocked")
+        elif isinstance(shape, PictureFrame):
+            shape_lock = shape.getPictureFrameLock()
+            if shape_lock.getCropLocked():
+                flags.append("CropLocked")
+        elif isinstance(shape, AutoShape):
+            shape_lock = shape.getAutoShapeLock()
+        else:
+            print(f"{label} | Uninspected")
+            continue
+
+        if shape_lock.getPositionLocked():
+            flags.append("PositionLocked")
+        if not shape_lock.getNoLocks():
+            restrictions = ", ".join(flags) if flags else "Active flag not identified"
+            print(f"{label} | {restrictions}")
+
+        if isinstance(shape, GroupShape):
+            inspect_shapes(shape.getShapes(), slide_number, f"{path}/")
+
+
+presentation = Presentation("Sample.pptx")
+try:
+    for slide in presentation.getSlides():
+        inspect_shapes(slide.getShapes(), slide.getSlideNumber())
+finally:
+    presentation.dispose()
+```
+
+สมมติว่า สไลด์ 1 ของ `Sample.pptx` มีชุดชื่อ `Layout` ที่ล็อกการยกเลิกการจัดกลุ่ม, ภาพชื่อ `Photo` ภายในชุดที่ล็อกการครอบ, และสี่เหลี่ยมปลดล็อกชื่อ `Free`. รายงานจะข้าม `Free` และพิมพ์สองบรรทัดต่อไปนี้:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+รายงานอ่านแฟล็กการแก้ไขระดับรูปทรงที่จัดเก็บไว้โดยไม่เปลี่ยนแปลงหรือบันทึกการนำเสนอ การป้องกันการเขียนระดับเอกสารเป็นการตั้งค่าแยกต่างหากและการบังคับใช้แต่ละแฟล็กขึ้นอยู่กับโปรแกรมแก้ไข
+
+## **สรุป**
+
+Aspose.Slides for Python via Java ให้คุณจำกัดการทำงานแก้ไขเฉพาะบนรูปทรงแต่ละรูปหรือใช้ข้อจำกัดเดียวกันทั่วทั้งสไลด์ เลือกการล็อกที่รองรับโดยแต่ละประเภทรูปทรงและตั้งค่าเป็น `False` เมื่อคุณต้องการลบข้อจำกัดเหล่านั้น
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในงานนำเสนอเดียวกันได้หรือไม่?**
+**ฉันสามารถรวมการล็อกรูปทรงและการป้องกันด้วยรหัสผ่านในการนำเสนอเดียวกันได้หรือไม่?**
 
-ได้ การล็อกรูปทรงจะจำกัดการดำเนินการแก้ไขเฉพาะส่วนหนึ่ง ในขณะเดียวกัน [password protection](/slides/th/python-java/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขงานนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกัน
+ใช่ การล็อกรูปทรงจำกัดการทำงานแก้ไขเฉพาะในขณะที่ [password protection](/slides/th/python-java/password-protected-presentation/) สามารถจำกัดการเปิดหรือแก้ไขการนำเสนอได้ คุณสามารถใช้ทั้งสองอย่างในไฟล์เดียวกัน
 
-**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบต่อสไลด์อื่นได้หรือไม่?**
+**ฉันสามารถจำกัดการแก้ไขบนสไลด์เฉพาะโดยไม่กระทบสไลด์อื่นได้หรือไม่?**
 
-ได้ ให้ตั้งค่าการล็อกเฉพาะรูปทรงบนสไลด์ที่เลือกเท่านั้น การทำเช่นนี้จะไม่เปลี่ยนการตั้งค่าการล็อกบนสไลด์อื่น
+ใช่ ให้ใช้การล็อกเฉพาะกับรูปทรงบนสไลด์ที่เลือก วิธีนี้จะไม่เปลี่ยนแปลงการตั้งค่าการล็อกบนสไลด์อื่น
 
-**ฉันจะตั้งค่าการล็อกให้กับรูปทรงแต่ละอันภายในกลุ่มได้อย่างไร?**
+**ฉันจะใช้การล็อกกับรูปทรงแต่ละรูปภายในกลุ่มอย่างไร?**
 
-วนลูปผ่านคอลเลกชันที่เมธอด [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) ของกลุ่มคืนค่าและตั้งค่าการล็อกที่เหมาะสมให้กับรูปทรงย่อยแต่ละอัน ทำซ้ำสำหรับกลุ่มที่ซ้อนกัน ตัวอย่างข้างต้นประมวลผลเฉพาะคอลเลกชันรูปทรงของสไลด์เท่านั้น ดังนั้นจึงไม่ได้ตั้งค่าการล็อกบนสมาชิกกลุ่มแต่ละอัน
+ให้วนลูปผ่านคอลเลกชันที่ได้จากเมธอด [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) ของกลุ่มและใช้การล็อกที่เหมาะสมกับรูปทรงลูกแต่ละรูป ทำซ้ำสำหรับกลุ่มที่ซ้อนกันตามการเดินทางในตัวอย่างการรายงาน

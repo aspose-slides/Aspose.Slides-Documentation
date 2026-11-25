@@ -1,55 +1,56 @@
 ---
-title: "تقييد تعديل العروض باستخدام أقفال الأشكال على Android"
-linktitle: "تقييد تعديل العروض"
+title: تقييد تعديل العروض باستخدام أقفال الشكل على Android
+linktitle: تقييد تعديل العرض
 type: docs
 weight: 60
 url: /ar/androidjava/applying-protection-to-presentation/
 keywords:
-- "منع التعديلات"
-- "حماية من التحرير"
-- "قفل الشكل"
-- "قفل الموضع"
-- "قفل التحديد"
-- "قفل تغيير الحجم"
-- "قفل التجميع"
-- "PowerPoint"
-- "PPTX"
-- "presentation"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "تعلم كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides for Android عبر Java لتقييد التحديد والحركة وتغيير الحجم والتجميع."
+- منع التعديلات
+- حماية من التعديل
+- قفل الشكل
+- قفل الموقع
+- قفل الاختيار
+- قفل تغيير الحجم
+- قفل التجميع
+- PowerPoint
+- PPTX
+- عرض
+- Android
+- Java
+- Aspose.Slides
+description: "تعلم كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides للـ Android عبر Java لتقييد الاختيار، الحركة، تغيير الحجم، والتجميع."
 ---
 ## **نظرة عامة**
 
-استخدام شائع لـ Aspose.Slides for Android عبر Java هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل مؤتمت. عندما يتلقى المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
+استخدام شائع لـ Aspose.Slides for Android via Java هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل مؤتمت. عندما يستلم المستخدمون هذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
 
-تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تتيح لك هذه الأقفال تقييد عمليات التحرير المحددة على الأشكال الفردية.
+تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تسمح هذه الأقفال لك بتقييد عمليات التحرير المحددة على كل شكل على حدة.
 
-## **تكوين شريحة**
+## **تكوين الشريحة**
 
-تتكون شريحة العرض من مكونات مثل الأشكال الذاتية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for Android عبر Java، يمثل كل عنصر على الشريحة كائنًا يطبق واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
+تتكون شريحة العرض من مكوّنات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجموعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for Android via Java، يُمثَّل كل عنصر على الشريحة بكيان يطبق واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) أو يرث منها.
 
-أنواع الأشكال المختلفة تعرض خيارات قفل مختلفة. واجهة [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) هي الواجهة الأساسية لأقفال الأشكال. يوفر Aspose.Slides for Android عبر Java الواجهات القفل التالية:
-- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) يقفل الأشكال الذاتية.  
-- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) يقفل أشكال الموصل.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) يقفل الكائنات الرسومية.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) يقفل الأشكال المجمعة.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) يقفل إطارات الصور.  
+أنواع الأشكال المختلفة تُظهر خيارات قفل مختلفة. واجهة [IBaseShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/) هي الواجهة الأساسية لأقفال الأشكال. توفر Aspose.Slides for Android via Java واجهات القفل التالية:
+
+- [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/) تقفل الأشكال التلقائية.  
+- [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/) تقفل أشكال الموصلات.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igraphicalobjectlock/) تقفل الكائنات الرسومية.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/) تقفل الأشكال المجموعة.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/) تقفل إطارات الصور.  
 
 لتطبيق الأقفال عبر [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)، قم بالتكرار عبر شرائحه واضبط الأقفال المناسبة على كل شكل مدعوم.
 
 ## **تطبيق وإزالة الحماية**
 
-تستخدم محررات العروض المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. تشفير الملفات وحماية الكتابة على مستوى المستند هي إعدادات [إعدادات حماية العرض](/slides/ar/androidjava/password-protected-presentation/) منفصلة.
+تستخدم محررات العروض المتوافقة أقفال الأشكال لتقييد عمليات التحرير الفردية. تشفير الملفات وحماية الكتابة على مستوى المستند هي إعدادات [حماية العرض](/slides/ar/androidjava/password-protected-presentation/) منفصلة.
 
 ### **تطبيق الحماية على أشكال PPTX**
 
-يوفر Aspose.Slides for Android عبر Java واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
+توفر Aspose.Slides for Android via Java واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
 
-تستدعي العينة [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), و [setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) مع `true` للأشكال الذاتية، مع أقفال مكافئة لأشكال المجموعات، الموصلات، وإطارات الصور. تستخدم الموصلات [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) للتحرك؛ كما تستخدم المجموعات [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) لتقييد التجميع.
+تستدعي المثال [setSelectLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) و[setPositionLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) و[setSizeLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) بـ`true` للأشكال التلقائية، مع أقفال مكافئة لأشكال المجموعات، الموصلات، وإطارات الصور. تستخدم الموصلات [setPositionMove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) للتحرك؛ وتستخدم المجموعات أيضًا [setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) لتقييد التجميع.
 
-تقوم العينة بتحميل عرض PPTX موجود، وتفحص الأشكال في مجموعة أشكال كل شريحة، ثم تُحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المعالجة دون تغيير. لا يتجول الحلقة عبر الأشكال الفرعية داخل مجموعة.
+يقوم المثال بتحميل عرض PPTX موجود، يتحقق من الأشكال في مجموعة أشكال كل شريحة، ويحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المعالجة دون تغيير. لا يتجول الحلقة داخل الأشكال الفرعية داخل مجموعة.
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +96,7 @@ try {
 
 ### **إزالة الحماية**
 
-لإزالة قفل الشكل، اضبط قيمته على `false`. تقوم العينة التالية بتحميل عرض يحتوي على أقفال الأشكال وتزيل قيود الاختيار، الحركة، وتغيير الحجم عبر [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/), و[IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). كما يزيل قيود التجميع بتمرير `false` إلى [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-)، ويحفظ نسخة من العرض. تُترك إعدادات الأقفال الأخرى دون تغيير.
+لإزالة قفل الشكل، اضبط قيمته إلى `false`. يحمل المثال التالي عرضًا يحتوي على أقفال أشكال ويزيل قيود التحديد، الحركة، وتغيير الحجم عبر [IAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iconnectorlock/)، و[IPictureFrameLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/). كما يزيل قيد التجميع بتمرير `false` إلى [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) ويحفظ نسخة من العرض. تُترك إعدادات الأقفال الأخرى دون تغيير.
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +140,9 @@ try {
 }
 ```
 
-### **الحفاظ على اقتصاص الصورة**
+### **الحفاظ على قص الصورة**
 
-ضع صورة باسم `photo.jpg` في دليل العمل. تقوم العينة باقتصاص 12% من اليسار و8% من اليمين، ثم تستدعي [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) على قفل إطار الصورة. تمرير `true` يقيد المزيد من القص ويحافظ على القص الحالي.
+ضع صورة باسم `photo.jpg` في دليل العمل. يقتطع المثال 12٪ من اليسار و8٪ من اليمين، ثم يستدعي [setCropLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) على قفل إطار الصورة. تمرير `true` يقيّد المزيد من القص ويحافظ على القص الحالي.
 
 ```java
 import com.aspose.slides.*;
@@ -170,11 +171,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` يخزن قفل القص كـ `true`. في PowerPoint، أمر **Crop** معطل عندما يتم تحديد الصورة.
+`PictureLocked.pptx` يخزن قفل القص كـ`true`. في PowerPoint، يصبح أمر **Crop** مُعطَّلًا عندما تُحدَّد الصورة.
 
-### **حافظ على تجميع المخطط**
+### **إبقاء المخطط مجموعًا**
 
-تقوم العينة بتجميع مستطيل وسهم، ثم تستدعي [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) على قفل المجموعة لتبقي مكونات المخطط معًا. تظل التعديلات الأخرى، مثل تحريك المجموعة أو تغيير تعبئة مكون، متاحة.
+يقوم المثال بتجميع مستطيل وسهم، ثم يستدعي [setUngroupingLocked](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) على قفل المجموعة لإبقاء مكوّنات المخطط معًا. تظل عمليات تحرير أخرى، مثل تحريك المجموعة أو تغيير تعبئة مكوّن، متاحة.
 
 ```java
 import com.aspose.slides.*;
@@ -194,22 +195,93 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` يخزن قفل فك التجميع كـ `true`. في PowerPoint، أمر **Ungroup** معطل عندما يتم تحديد المخطط بالكامل.
+`DiagramLocked.pptx` يخزن قفل فك التجميع كـ`true`. في PowerPoint، يصبح أمر **Ungroup** مُعطَّلًا عندما يُحدَّد المخطط بالكامل.
 
-### **الخلاصة**
+### **الإبلاغ عن أقفال الأشكال الموجودة**
 
-يتيح لك Aspose.Slides for Android عبر Java تقييد عمليات التحرير المحددة على الأشكال الفردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع من الأشكال، واضبط قيمها على `false` عندما تحتاج إلى إزالة تلك القيود.
+لمراجعة قالب، افتحه واقرأ كائن القفل لكل شكل. تُعيد طريقة [getNoLocks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseshapelock/#getNoLocks--) القيمة `true` عندما تكون جميع العلامات في ذلك الكائن غير مفعلة و`false` عندما تكون على الأقل إحداها مفعلة. للمجموعة وأطفالها كائنات قفل منفصلة، لذا فحص الأطفال حتى عندما لا تحتوي المجموعة على أقفال.
+
+يفحص هذا المثال الحركة للأشكال التلقائية، إطارات الصور، والمجموعات. كما يفحص القص للصور وفك التجميع للمجموعات. تُدرج التقرير العلامات المفعلة التي يتعرف عليها وتُميّز أنواع الأشكال التي لا يتم فحصها.
+
+```java
+import com.aspose.slides.*;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            List<String> flags = new ArrayList<>();
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = !flags.isEmpty() ? TextUtils.join(", ", flags) : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+افترض أن الشريحة 1 من `Sample.pptx` تحتوي على مجموعة باسم `Layout` بقفل فك التجميع، وصورة باسم `Photo` داخلها بقفل القص، ومستطيل غير مقفل باسم `Free`. يتخطى التقرير `Free` ويطبع السطرين التاليين:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+يقرأ التقرير علامات تعديل المستوى الشكلية المخزنة دون تغييرها أو حفظ العرض. حماية الكتابة على مستوى المستند هي إعداد منفصل، وتطبيق كل علامة يعتمد على المحرر.
+
+### **الاستنتاج**
+
+تمكنك Aspose.Slides for Android via Java من تقييد عمليات تحرير محددة على أشكال فردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، واضبط قيمها إلى `false` عندما تحتاج إلى إزالة تلك القيود.
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني الجمع بين أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
+**هل يمكنني دمج قفل الأشكال وحماية كلمة المرور في نفس العرض التقديمي؟**
 
-نعم. أقفال الأشكال تقيد عمليات التحرير المحددة، بينما [حماية كلمة المرور](/slides/ar/androidjava/password-protected-presentation/) يمكن أن تقيد فتح أو تعديل العرض. يمكنك استخدام كلاهما في نفس الملف.
+نعم. قفل الأشكال يقيّد عمليات تحرير محددة، بينما [حماية كلمة المرور](/slides/ar/androidjava/password-protected-presentation/) يمكنها تقييد فتح أو تعديل العرض. يمكنك استخدام الاثنين في نفس الملف.
 
-**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على الأخرى؟**
+**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على غيرها؟**
 
-نعم. قم بتطبيق الأقفال فقط على الأشكال في الشرائح المحددة. هذا لا يغيّر إعدادات الأقفال في الشرائح الأخرى.
+نعم. طبق الأقفال فقط على الأشكال في الشرائح المختارة. هذا لا يغير إعدادات الأقفال على الشرائح الأخرى.
 
-**كيف يمكنني تطبيق الأقفال على الأشكال الفردية داخل مجموعة؟**
+**كيف يمكنني تطبيق أقفال على أشكال فردية داخل مجموعة؟**
 
-قم بالتكرار عبر المجموعة التي تُرجعها طريقة [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) للمجموعة، وطبق الأقفال المناسبة على كل شكل فرعي. كرّر ذلك لأي مجموعات متداخلة. الأمثلة أعلاه تعالج فقط مجموعة أشكال الشريحة، لذا لا تقوم بتعيين أقفال على أعضاء المجموعة الفردية.
+قم بالتكرار عبر المجموعة باستخدام طريقة [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) وطبق الأقفال المناسبة على كل شكل فرعي. كرر ذلك لأي مجموعات متداخلة، متبعًا طريقة التجول في مثال التقرير.

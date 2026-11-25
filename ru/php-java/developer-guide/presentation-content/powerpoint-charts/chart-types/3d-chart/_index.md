@@ -1,27 +1,27 @@
 ---
-title: Настройка 3D-диаграмм в презентациях с помощью PHP
-linktitle: 3D-диаграмма
+title: Настройка 3D‑диаграмм в презентациях с использованием PHP
+linktitle: 3D Диаграмма
 type: docs
 url: /ru/php-java/3d-chart/
 keywords:
-- 3D-диаграмма
+- 3D диаграмма
 - вращение
 - глубина
 - PowerPoint
 - презентация
 - PHP
 - Aspose.Slides
-description: "Создавайте 3D-диаграммы в презентациях PowerPoint с помощью Aspose.Slides для PHP через Java. Регулируйте вращение, пропорции высоты, глубину диаграммы и расстояние между сериями в примерах на PHP."
+description: "Создавайте 3D‑диаграммы в презентациях PowerPoint с помощью Aspose.Slides for PHP via Java. Регулируйте вращение, пропорции высоты, глубину диаграммы и расстояние между рядами с примерами на PHP."
 ---
 ## **Обзор**
 
-Aspose.Slides for PHP via Java позволяет настраивать вид 3D‑диаграммы с помощью метода [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). В этой статье показано, как изменить вращение, пропорции высоты, глубину, оси под прямым углом и расстояние между сериями, а затем сохранить презентацию в формате PPTX.
+Aspose.Slides for PHP via Java позволяет настраивать вид 3D‑диаграммы с помощью метода [Chart::getRotation3D](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getRotation3D). Эта статья демонстрирует, как изменить вращение, пропорции высоты, глубину, оси под прямым углом и расстояние между рядами, а затем сохранить презентацию в формате PPTX.
 
 ## **Установить вращение и глубину 3D‑диаграммы**
 
-В приведённом ниже примере создаётся объект [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и с помощью [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) добавляется сложенная 3D‑столбчатая диаграмма на первый слайд. Он заменяет серии и категории по умолчанию двумя сериями, каждая из которых содержит три значения. Индекс листа `0` указывает на первый лист данных диаграммы; строка `0` содержит имена серий, а столбец `0` — подписи категорий.
+Пример ниже создает [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) и использует [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) для добавления сложенной 3D‑колоночной диаграммы на первый слайд. Он заменяет серии и категории по умолчанию двумя сериями, каждая из которых содержит три значения. Индекс листа `0` указывает на первый лист данных диаграммы; строка `0` содержит имена серий, а столбец `0` — метки категорий.
 
-Методы [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) и [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) устанавливают вращение диаграммы соответственно на 40 и 270 градусов. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) задаёт её глубину как 150 % от ширины, а [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) включает оси под прямым углом вместо перспективы. Получившаяся презентация содержит заполненную диаграмму с этими настройками 3D‑вида.
+Методы [setRotationX](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationX) и [setRotationY](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRotationY) задают вращение диаграммы соответственно 40 и 270 градусов. [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) устанавливает её глубину на 150 % от ширины, а [setRightAngleAxes](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setRightAngleAxes) включает оси под прямым углом вместо перспективы. Получившаяся презентация содержит заполненную диаграмму с этими настройками 3D‑вида.
 
 ```php
 use aspose\slides\ChartType;
@@ -68,11 +68,73 @@ try {
 }
 ```
 
-## **Регулировка пропорций высоты 3D‑диаграммы**
+## **Применить заливку изображением к поверхности 3D‑диаграммы**
 
-Используйте [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) для задания высоты 3D‑диаграммы в процентах от её ширины. Это изменяет пропорции 3D‑сцены без изменения размеров объекта диаграммы на слайде.
+Вы можете независимо заполнить [side wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getsidewall/), [back wall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) и [floor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) 3D‑диаграммы. Установите для поверхности [fill type](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) значение `Picture` и задайте изображение. Установите как [picture fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/setpicturefillmode/), так и [picture type](https://reference.aspose.com/slides/php-java/aspose.slides/chartwall/setpicturetype/) поверхности в `Stretch`, чтобы одна копия изображения покрывала всю поверхность.
 
-В следующем примере создаётся диаграмма [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) с данными по умолчанию: три серии и четыре категории. Он сохраняет три презентации с пропорциями высоты 50 %, 100 % и 200 %. Позиция, ширина и высота диаграммы остаются фиксированными. Данные, вращение, глубина, расстояние между сериями и форматирование одинаковы во всех трёх файлах; меняется только процент высоты.
+Сохраните [arrow.png](arrow.png) рядом со скриптом PHP. Пример вращает диаграмму и повышает максимальное значение вертикальной оси, чтобы пол был виден между столбцами. Затем он дважды клонирует слайд и применяет стрелку к разной поверхности на каждом слайде. Все три диаграммы сохраняют одинаковые данные, угол обзора и фон.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\PictureType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Column3D, 20, 30, 680, 480);
+    $chart->getRotation3D()->setRightAngleAxes(true);
+    $chart->getRotation3D()->setRotationX(40);
+    $chart->getRotation3D()->setRotationY(30);
+    
+    $verticalAxis = $chart->getAxes()->getVerticalAxis();
+    $verticalAxis->setAutomaticMaxValue(false);
+    $verticalAxis->setMaxValue(24);
+
+    $backSlide = $presentation->getSlides()->addClone($slide);
+    $floorSlide = $presentation->getSlides()->addClone($slide);
+    $backChart = $backSlide->getShapes()->get_Item(0);
+    $floorChart = $floorSlide->getShapes()->get_Item(0);
+
+    $image = Images::fromFile(__DIR__ . "/arrow.png");
+    try {
+        $arrow = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
+
+    $surfaces = [$chart->getSideWall(), $backChart->getBackWall(), $floorChart->getFloor()];
+    foreach ($surfaces as $surface) {
+        $fill = $surface->getFormat()->getFill();
+        $fill->setFillType(FillType::Picture);
+        $pictureFill = $fill->getPictureFillFormat();
+        $pictureFill->getPicture()->setImage($arrow);
+        $pictureFill->setPictureFillMode(PictureFillMode::Stretch);
+        $surface->setPictureType(PictureType::Stretch);
+    }
+
+    $presentation->save(__DIR__ . "/chart-surfaces.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Microsoft PowerPoint показывает три слайда следующим образом.
+
+| Боковая стена | Задняя стена | Пол |
+| --- | --- | --- |
+| ![Стрелка, указывающая в диаграмму вдоль боковой стены](side-wall.png) | ![Стрелка, указывающая вправо по задней стене](back-wall.png) | ![Стрелка, указывающая вправо по полу между столбцами](floor.png) |
+
+## **Регулировать пропорции высоты 3D‑диаграммы**
+
+Используйте [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) для установки высоты 3D‑диаграммы в процентах от её ширины. Это меняет пропорции 3D‑сцены без изменения размеров объекта диаграммы на слайде.
+
+Следующий пример создает диаграмму [Column3D](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) с данными по умолчанию: три серии и четыре категории. Он сохраняет три презентации с пропорциями высоты 50 %, 100 % и 200 %. Позиция, ширина и высота диаграммы остаются фиксированными. Данные, вращение, глубина, интервал между сериями и форматирование одинаковы во всех трёх файлах; меняется только процент высоты.
 
 ```php
 use aspose\slides\ChartType;
@@ -99,11 +161,11 @@ try {
 }
 ```
 
-Следующие изображения иллюстрируют одинаковые настройки высоты в эквивалентном примере .NET и были экспортированы с помощью Microsoft PowerPoint. Меньший процент создаёт более плоскую сцену, а больший процент — более высокую сцену внутри того же объекта диаграммы. PowerPoint может также корректировать интервалы делений осей и размещение меток, чтобы подогнать сцену.
+Следующие изображения иллюстрируют те же настройки высоты в эквивалентном примере .NET и были экспортированы с помощью Microsoft PowerPoint. Меньший процент создаёт более плоскую сцену, а больший — более высокую сцену внутри того же объекта диаграммы. PowerPoint также может корректировать интервалы делений осей и расположение подписей для вписывания сцены.
 
 | Высота: 50% | Высота: 100% | Высота: 200% |
 | --- | --- | --- |
-| ![3D‑столбчатая диаграмма с высотой, установленной в 50 % от её ширины](height_percent_50.png) | ![3D‑столбчатая диаграмма с высотой, установленной в 100 % от её ширины](height_percent_100.png) | ![3D‑столбчатая диаграмма с высотой, установленной в 200 % от её ширины](height_percent_200.png) |
+| ![3D‑колоночная диаграмма с высотой, установленной в 50 % от её ширины](height_percent_50.png) | ![3D‑колоночная диаграмма с высотой, установленной в 100 % от её ширины](height_percent_100.png) | ![3D‑колоночная диаграмма с высотой, установленной в 200 % от её ширины](height_percent_200.png) |
 
 Эти методы управляют различными аспектами диаграммы:
 
@@ -112,27 +174,27 @@ try {
 | [Rotation3D::setHeightPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setHeightPercents) | Высота 3D‑сцены в процентах от её ширины. |
 | [Chart::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setHeight) | Высота объекта диаграммы на слайде в пунктах. |
 | [Rotation3D::setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Глубина 3D‑сцены в процентах от её ширины. |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Расстояние между сериями вдоль оси глубины в процентах от ширины маркера. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Расстояние между сериями по оси глубины в процентах от ширины маркера. |
 
-Настройка высоты влияет на 3D‑столбчатые и 3D‑гистограммные диаграммы, включая варианты цилиндр, конус и пирамида, а также 3D‑линейные, 3D‑плоские, 3D‑круговые и 3D‑поверхностные диаграммы. Приведённое сравнение использует проверенный тип `Column3D`. Эта настройка не меняет внешний вид 2D‑диаграммы `ClusteredColumn` или диаграммы `BubbleWith3D`; эти имена являются членами класса [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Для других настроек внешнего вида диаграмм см. [Chart Formatting](/slides/ru/php-java/chart-formatting/).
+Настройка высоты влияет на 3D‑колоночные и 3D‑барные диаграммы, включая варианты цилиндр, конус и пирамида, а также 3D‑линейные, 3D‑площадные, 3D‑круговые и 3D‑поверхностные диаграммы. Сравнение выше использует проверенный тип `Column3D`. Эта настройка не меняет внешний вид 2D‑диаграммы `ClusteredColumn` или `BubbleWith3D`; эти имена являются членами класса [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/). Для других настроек внешнего вида диаграмм см. [Chart Formatting](/slides/ru/php-java/chart-formatting/).
 
-## **Регулировка промежутка между serиями**
+## **Регулировать промежуток между сериями**
 
-Используйте [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) для управления расстоянием между данными сериями вдоль оси глубины 3D‑диаграммы, выраженным в процентах от ширины маркера. Допускаются значения от **0 до 500**, включительно: `0` удаляет промежуток, а большие значения увеличивают расстояние. При фиксированной глубине диаграммы увеличение промежутка делает маркеры более тонкими вдоль оси глубины.
+Используйте [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) для управления расстоянием между сериями данных по оси глубины 3D‑диаграммы, выраженным в процентах от ширины маркера. Используйте значения от **0 до 500**, включительно: `0` убирает промежуток, большие значения увеличивают расстояние. При фиксированной глубине диаграммы увеличение промежутка делает маркеры тоньше вдоль оси глубины.
 
-Получить группу можно через [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Эта настройка применяется ко всем сериям в группе, а не только к серии, через которую был выполнен доступ. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) возвращает значение промежутка по глубине и отражает настройку родительской группы.
+Получите доступ к группе через [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup). Эта настройка применяется ко всем сериям в группе, а не только к серии, через которую был получен доступ. [ChartSeries::getGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getGapDepth) возвращает промежуток по глубине и отражает настройку родительской группы.
 
-Эта настройка влияет на 3D‑столбчатые и 3D‑гистограммные диаграммы, включая их варианты цилиндр, конус и пирамида, а также 3D‑линейные и 3D‑плоские диаграммы. Вид зависит от того, расположены ли серии по глубине, сгруппированы или сложены. Для наглядного сравнения промежутков между отдельными сериями используйте `ChartType::Column3D` из класса [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
+Эта настройка влияет на 3D‑колоночные и 3D‑барные диаграммы, включая их варианты цилиндр, конус и пирамида, а также 3D‑линейные и 3D‑площадные диаграммы. Внешний вид зависит от того, расположены ли серии по глубине, сгруппированы или сложены. Для ясного сравнения промежутков между отдельными сериями используйте `ChartType::Column3D` из класса [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/).
 
 Эти методы управляют различными аспектами диаграммы:
 
 | Метод | Эффект |
 | --- | --- |
-| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Расстояние между сериями вдоль оси глубины в процентах от ширины маркера. |
-| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Расстояние между соседними группами столбцов или гистограмм в процентах от ширины столбца или гистограммы. |
-| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Общая глубина диаграммы в процентах от её ширины. |
+| [ChartSeriesGroup::setGapDepth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapDepth) | Расстояние между сериями по оси глубины, в процентах от ширины маркера. |
+| [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) | Расстояние между соседними кластерами столбцов или полос, в процентах от их ширины. |
+| [setDepthPercents](https://reference.aspose.com/slides/php-java/aspose.slides/rotation3d/#setDepthPercents) | Общая глубина диаграммы, в процентах от ширины диаграммы. |
 
-В приведённом ниже автономном примере используются данные диаграммы по умолчанию, содержащие три серии и четыре категории. Он сохраняет две презентации с одинаковыми данными, вращением, шириной промежутка и глубиной диаграммы; меняется только глубина промежутка.
+Следующий независимый пример использует данные диаграммы по умолчанию, содержащие три серии и четыре категории. Он сохраняет две презентации с одинаковыми данными, вращением, шириной промежутка и глубиной диаграммы; меняется только глубина промежутка.
 
 ```php
 use aspose\slides\ChartType;
@@ -164,15 +226,15 @@ try {
 }
 ```
 
-Следующие изображения иллюстрируют одинаковые настройки глубины промежутка в эквивалентном примере .NET и были экспортированы с помощью Microsoft PowerPoint.
+Следующие изображения иллюстрируют те же настройки глубины промежутка в эквивалентном примере .NET и были экспортированы с помощью Microsoft PowerPoint.
 
 | Глубина промежутка: 0% | Глубина промежутка: 500% |
 | --- | --- |
-| ![3D‑столбчатая диаграмма без промежутка между сериями вдоль оси глубины](gap_depth_0.png) | ![3D‑столбчатая диаграмма с промежутком 500 % между сериями вдоль оси глубины](gap_depth_500.png) |
+| ![3D‑колоночная диаграмма без промежутка между сериями по оси глубины](gap_depth_0.png) | ![3D‑колоночная диаграмма с промежутком 500 % между сериями по оси глубины](gap_depth_500.png) |
 
-## **Изменение типа серии 3D и формы столбца**
+## **Изменить тип 3D‑сериa и форму столбца**
 
-В сгруппированной цилиндрической диаграмме первая серия начинается с цилиндрической формы столбца. В примере выводятся целочисленные значения, возвращаемые [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) и [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/) до и после каждого изменения. Таблица содержит соответствующие имена констант.
+В сгруппированной цилиндрической диаграмме первая серия начинается с цилиндрической формы столбца. Пример выводит целочисленные значения, возвращаемые [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) и [ChartSeries::getBar3DShape](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getbar3dshape/), до и после каждого изменения. Таблица содержит соответствующие имена констант.
 
 ```php
 use aspose\slides\ChartShapeType;
@@ -204,12 +266,12 @@ try {
 | Изменение первой серии | Тип серии | Форма столбца |
 | --- | --- | --- |
 | Создать диаграмму | `ClusteredCylinder` | `Cylinder` |
-| Установить тип серии `ClusteredCone` | `ClusteredCone` | `Cone` |
-| Установить форму столбца `Box` | `ClusteredColumn3D` | `Box` |
+| Установить тип серии в `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Установить форму столбца в `Box` | `ClusteredColumn3D` | `Box` |
 
-Установка формы `Box` также изменяет тип серии на `ClusteredColumn3D`. Если ваш код ветвится по типу серии, вызовите [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) после изменения формы. Значение, кэшированное до присваивания, всё равно будет выбирать ветку `ClusteredCone`.
+Установка формы `Box` также меняет тип серии на `ClusteredColumn3D`. Если ваш код ветвится по типу серии, вызывайте [ChartSeries::getType](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/gettype/) после изменения формы. Значение, кэшированное до присвоения, всё равно выберет ветку `ClusteredCone`.
 
-![Сравнение PowerPoint, показывающее первую серию как цилиндры, конусы и прямоугольные столбцы слева направо](series-shapes.png)
+![Сравнение в PowerPoint, показывающее первую серию в виде цилиндров, конусов и прямоугольных столбцов слева направо](series-shapes.png)
 
 ## **FAQ**
 
@@ -219,8 +281,8 @@ Aspose.Slides поддерживает 3D‑варианты столбчаты�
 
 **Могу ли я получить растровое изображение 3D‑диаграммы для отчёта или веба?**
 
-Да. Вы можете экспортировать диаграмму в изображение с помощью [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) или [render the entire slide](/slides/ru/php-java/convert-powerpoint-to-png/) в форматы PNG или JPEG. Это полезно, когда нужен растровый превью или необходимо встроить диаграмму в документы, панели мониторинга или веб‑страницы без использования PowerPoint.
+Да. Вы можете экспортировать диаграмму в изображение с помощью [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage) или [отрисовать весь слайд](/slides/ru/php-java/convert-powerpoint-to-png/) в форматы PNG или JPEG. Это полезно, когда нужен растровый превью или требуется встроить диаграмму в документы, информационные панели или веб‑страницы без необходимости использования PowerPoint.
 
-**Насколько производительно построение и рендеринг больших 3D‑диаграмм?**
+**Насколько эффективно построение и рендеринг больших 3D‑диаграмм?**
 
-Производительность зависит от объёма данных и визуальной сложности. Для лучшего результата минимизируйте 3D‑эффекты, избегайте тяжёлых текстур на стенах и областях построения, по возможности ограничивайте количество точек данных в каждой серии и рендерите в вывод подходящего размера (разрешения и размеров), соответствующего целевому дисплею или печати.
+Производительность зависит от объёма данных и визуальной сложности. Для лучшего результата держите 3D‑эффекты минимальными, избегайте тяжёлых текстур на стенах и областях построения, по возможности ограничивайте количество точек данных в серии и рендерьте в выходной файл подходящего размера (разрешение и размеры), соответствующего целевому дисплею или печати.

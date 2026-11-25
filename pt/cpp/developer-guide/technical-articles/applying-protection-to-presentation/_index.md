@@ -1,6 +1,6 @@
 ---
-title: Restringir Edições de Apresentação com Bloqueios de Forma em C++
-linktitle: Restringir Edições de Apresentação
+title: Restringir edições de apresentação com bloqueios de forma em C++
+linktitle: Restringir edições de apresentação
 type: docs
 weight: 10
 url: /pt/cpp/applying-protection-to-presentation/
@@ -21,7 +21,7 @@ description: "Aprenda como bloquear e desbloquear formas em apresentações PPTX
 ---
 ## **Contexto**
 
-Um uso comum do Aspose.Slides for C++ é criar, atualizar e salvar apresentações PowerPoint (PPTX) como parte de um fluxo de trabalho automatizado. Quando os usuários recebem essas apresentações, restringir alterações nas formas pode ajudar a preservar o layout e o conteúdo pretendidos.
+Um uso comum do Aspose.Slides for C++ é criar, atualizar e salvar apresentações PowerPoint (PPTX) como parte de um fluxo de trabalho automatizado. Quando os usuários recebem essas apresentações, restringir alterações nas formas pode ajudar a preservar o layout e o conteúdo desejados.
 
 Este artigo explica como as formas são organizadas nos slides e como aplicar e remover bloqueios de forma em uma apresentação PPTX. Esses bloqueios permitem restringir operações de edição específicas em formas individuais.
 
@@ -32,16 +32,16 @@ Um slide de apresentação é composto por componentes como autoshapes, tabelas,
 Diferentes tipos de forma expõem diferentes opções de bloqueio. A interface [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) é a interface base para bloqueios de forma. O Aspose.Slides for C++ fornece as seguintes interfaces de bloqueio:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) bloqueia autoshapes.
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) bloqueia formas de conector.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) bloqueia formas de conectores.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) bloqueia objetos gráficos.
 - [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) bloqueia formas agrupadas.
 - [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) bloqueia quadros de imagem.
 
-Para aplicar bloqueios em uma [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), itere pelos seus slides e defina os bloqueios apropriados em cada forma suportada.
+Para aplicar bloqueios em uma [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), percorra seus slides e defina os bloqueios apropriados em cada forma suportada.
 
 ## **Aplicar e Remover Proteção**
 
-Editores de apresentação compatíveis usam bloqueios de forma para restringir operações de edição individuais. A criptografia de arquivos e a proteção de gravação ao nível do documento são [configurações de proteção de apresentação](/slides/pt/cpp/password-protected-presentation/) separadas.
+Editores de apresentação compatíveis usam bloqueios de forma para restringir operações de edição individuais. Criptografia de arquivo e proteção contra gravação em nível de documento são configurações separadas de [presentation protection settings](/slides/pt/cpp/password-protected-presentation/).
 
 ### **Aplicar Proteção a Formas PPTX**
 
@@ -49,7 +49,7 @@ O Aspose.Slides for C++ fornece a interface [IShape](https://reference.aspose.co
 
 O exemplo passa `true` para [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) e [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) para autoshapes, com bloqueios equivalentes para formas agrupadas, conectores e quadros de imagem. Conectores usam [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) para movimento; grupos também usam [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) para restringir o agrupamento.
 
-O exemplo carrega uma apresentação PPTX existente, verifica as formas na coleção de formas de cada slide e salva uma cópia com essas restrições aplicadas. Formas fora dos quatro tipos tratados ficam inalteradas. O loop não percorre as formas filhas dentro de um grupo.
+O exemplo carrega uma apresentação PPTX existente, verifica as formas na coleção de formas de cada slide e salva uma cópia com essas restrições aplicadas. Formas fora dos quatro tipos tratados permanecem inalteradas. O loop não percorre as formas filhas dentro de um grupo.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -197,9 +197,9 @@ presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Preservar Recorte de Imagem**
+### **Preservar um Recorte de Imagem**
 
-Coloque uma foto chamada `photo.jpg` no diretório de trabalho. O exemplo recorta 12% da esquerda e 8% da direita, então chama [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) no bloqueio do quadro de imagem para preservar o recorte e restringir novos recortes.
+Coloque uma foto chamada `photo.jpg` no diretório de trabalho. O exemplo recorta 12 % da esquerda e 8 % da direita, então chama [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/) no bloqueio do quadro de imagem para preservar o recorte e restringir novos recortes.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -239,7 +239,7 @@ presentation->Dispose();
 
 `PictureLocked.pptx` armazena o bloqueio de recorte como `true`. No PowerPoint, o comando **Crop** fica desabilitado quando a foto está selecionada.
 
-### **Manter Diagrama Agrupado**
+### **Manter um Diagrama Agrupado**
 
 O exemplo agrupa um retângulo e uma seta, então chama [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/) no bloqueio do grupo para manter os componentes do diagrama juntos. Outras edições, como mover o grupo ou alterar o preenchimento de um componente, permanecem disponíveis.
 
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx` armazena o bloqueio de desagrupamento como `true`. No PowerPoint, o comando **Ungroup** fica desabilitado quando o diagrama inteiro está selecionado.
+`DiagramLocked.pptx` armazena o bloqueio de desagrupamento como `true`. No PowerPoint, o comando **Ungroup** fica desabilitado quando todo o diagrama está selecionado.
+
+### **Relatar Bloqueios de Forma Existentes**
+
+Para analisar um modelo, abra-o e leia o objeto de bloqueio de cada forma. [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) retorna `true` quando todas as flags nesse objeto estão desativadas e `false` quando ao menos uma está ativada. Um grupo e seus filhos possuem objetos de bloqueio separados, portanto inspecione os filhos mesmo quando o grupo não tem bloqueios.
+
+Este exemplo verifica movimento para autoshapes, quadros de imagem e grupos, recorte para imagens e desagrupamento para grupos. Ele relata as flags reconhecidas e marca tipos de forma que não são inspecionados.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+Suponha que o slide 1 de `Sample.pptx` contenha um grupo chamado `Layout` com desagrupamento bloqueado, uma imagem chamada `Photo` dentro dele com recorte bloqueado e um retângulo desbloqueado chamado `Free`. O relatório ignora `Free` e imprime estas duas linhas:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+O relatório lê as flags de edição armazenadas no nível da forma sem alterá‑las ou salvar a apresentação. A proteção contra gravação em nível de documento é uma configuração separada, e a aplicação de cada flag depende do editor.
 
 ### **Conclusão**
 
 O Aspose.Slides for C++ permite restringir operações de edição específicas em formas individuais ou aplicar as mesmas restrições em vários slides. Escolha os bloqueios suportados por cada tipo de forma e defina seus valores como `false` quando precisar remover essas restrições.
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **Posso combinar bloqueios de forma e proteção por senha na mesma apresentação?**
 
-Sim. Os bloqueios de forma restringem operações de edição específicas, enquanto a [proteção por senha](/slides/pt/cpp/password-protected-presentation/) pode restringir a abertura ou modificação da apresentação. Você pode usar ambos no mesmo arquivo.
+Sim. Os bloqueios de forma restringem operações de edição específicas, enquanto a [password protection](/slides/pt/cpp/password-protected-presentation/) pode restringir a abertura ou modificação da apresentação. Você pode usar ambos no mesmo arquivo.
 
 **Posso restringir a edição em slides específicos sem afetar os demais?**
 
-Sim. Aplique bloqueios apenas às formas nos slides selecionados. Isso não altera as configurações de bloqueio nos outros slides.
+Sim. Aplique bloqueios apenas às formas nos slides selecionados. Isso não altera as configurações de bloqueio nos demais slides.
 
 **Como posso aplicar bloqueios a formas individuais dentro de um grupo?**
 
-Itere pela coleção retornada pelo método [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) do grupo e aplique os bloqueios apropriados a cada forma filha. Repita isso para quaisquer grupos aninhados. Os exemplos acima processam apenas a coleção de formas do slide, portanto não definem bloqueios em membros individuais do grupo.
+Percorra a coleção retornada pelo método [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) do grupo e aplique os bloqueios apropriados a cada forma filha. Repita isso para quaisquer grupos aninhados, seguindo a travessia mostrada no exemplo de relatório.

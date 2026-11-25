@@ -1,5 +1,5 @@
 ---
-title: Limita le modifiche alla presentazione con blocchi di forma in Node.js
+title: Limita le modifiche alla presentazione con i blocchi di forma in Node.js
 linktitle: Limita le modifiche alla presentazione
 type: docs
 weight: 60
@@ -7,11 +7,11 @@ url: /it/nodejs-java/applying-protection-to-presentation/
 keywords:
 - impedire modifiche
 - proteggere dalla modifica
-- blocca forma
-- blocca posizione
-- blocca selezione
-- blocca ridimensionamento
-- blocca raggruppamento
+- bloccare forma
+- bloccare posizione
+- bloccare selezione
+- bloccare ridimensionamento
+- bloccare raggruppamento
 - PowerPoint
 - PPTX
 - presentazione
@@ -22,35 +22,35 @@ description: "Scopri come bloccare e sbloccare le forme nelle presentazioni PPTX
 ---
 ## **Panoramica**
 
-Un uso comune di Aspose.Slides per Node.js tramite Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) come parte di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto desiderati.
+Un uso comune di Aspose.Slides per Node.js via Java è creare, aggiornare e salvare presentazioni PowerPoint (PPTX) come parte di un flusso di lavoro automatizzato. Quando gli utenti ricevono queste presentazioni, limitare le modifiche alle forme può aiutare a preservare il layout e il contenuto previsti.
 
-Questo articolo spiega come le forme sono organizzate nelle diapositive e come applicare e rimuovere i blocchi delle forme in una presentazione PPTX. Questi blocchi consentono di limitare operazioni di editing specifiche su forme individuali.
+Questo articolo spiega come le forme sono organizzate nelle diapositive e come applicare e rimuovere i blocchi di forma in una presentazione PPTX. Questi blocchi consentono di limitare operazioni di modifica specifiche su singole forme.
 
 ## **Composizione di una diapositiva**
 
-Una diapositiva di una presentazione è composta da componenti come autoshapes, tabelle, oggetti OLE, forme raggruppate, cornici immagine, cornici video, connettori e altri elementi utilizzati per costruire una presentazione. In Aspose.Slides per Node.js tramite Java, ogni elemento su una diapositiva è rappresentato da un oggetto che eredita dalla classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) .
+Una diapositiva di una presentazione è composta da componenti come forme automatiche, tabelle, oggetti OLE, forme raggruppate, riquadri immagine, riquadri video, connettori e altri elementi usati per costruire una presentazione. In Aspose.Slides per Node.js via Java, ogni elemento su una diapositiva è rappresentato da un oggetto che eredita dalla classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
 
-I diversi tipi di forma espongono diverse opzioni di blocco. La classe [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) è la classe base per i blocchi delle forme. Aspose.Slides per Node.js tramite Java fornisce le seguenti classi di blocco:
+Tipi di forma diversi espongono opzioni di blocco differenti. La classe [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/) è la classe base per i blocchi di forma. Aspose.Slides per Node.js via Java fornisce le seguenti classi di blocco:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) blocca le autoshape.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) blocca le forme connettore.  
+- [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) blocca le forme automatiche.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) blocca le forme di collegamento.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) blocca gli oggetti grafici.  
 - [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) blocca le forme di gruppo.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) blocca le cornici immagine.  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) blocca i riquadri immagine.  
 
-Per applicare i blocchi a una [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), itera attraverso le sue diapositive e imposta i blocchi appropriati su ogni forma supportata.
+Per applicare i blocchi su un'intera [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), itera attraverso le sue diapositive e imposta i blocchi appropriati su ogni forma supportata.
 
-## **Applica e Rimuovi Protezione**
+## **Applica e rimuovi la protezione**
 
-Gli editor di presentazioni compatibili usano i blocchi delle forme per limitare operazioni di editing individuali. La crittografia dei file e la protezione in scrittura a livello di documento sono impostazioni di [impostazioni di protezione della presentazione](/slides/it/nodejs-java/password-protected-presentation/) separate.
+Gli editor di presentazioni compatibili usano i blocchi di forma per limitare operazioni di modifica individuali. La crittografia dei file e la protezione della scrittura a livello di documento sono impostazioni di [presentation protection settings](/slides/it/nodejs-java/password-protected-presentation/) separate.
 
-### **Applica protezione alle forme PPTX**
+### **Apply Protection to PPTX Shapes**
 
-Aspose.Slides per Node.js tramite Java fornisce la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) per lavorare con le forme su una diapositiva.
+Aspose.Slides per Node.js via Java fornisce la classe [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) per lavorare con le forme su una diapositiva.
 
-L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) e [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` per le autoshape, con blocchi equivalenti per forme di gruppo, connettori e cornici immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) per lo spostamento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) per limitare il raggruppamento.
+L'esempio chiama [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) e [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) con `true` per le forme automatiche, con blocchi equivalenti per forme di gruppo, connettori e riquadri immagine. I connettori usano [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) per il movimento; i gruppi usano anche [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) per limitare il raggruppamento.
 
-L'esempio carica una presentazione PPTX esistente, verifica le forme nella collezione delle forme di ogni diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono inalterate. Il ciclo non attraversa le forme figlie all'interno di un gruppo.
+L'esempio carica una presentazione PPTX esistente, controlla le forme nella collezione di forme di ogni diapositiva e salva una copia con queste restrizioni applicate. Le forme al di fuori dei quattro tipi gestiti rimangono inalterate. Il ciclo non attraversa le forme figlie all'interno di un gruppo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Rimuovi protezione**
+### **Rimuovere la protezione**
 
-Per rimuovere un blocco di forma, impostare il suo valore a `false`. Il seguente esempio carica una presentazione con blocchi di forma e cancella le restrizioni di selezione, spostamento e ridimensionamento tramite [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) e [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Rimuove anche la restrizione di raggruppamento passando `false` a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) e salva una copia della presentazione. Altre impostazioni di blocco rimangono inalterate.
+Per rimuovere un blocco di forma, imposta il suo valore su `false`. L'esempio seguente carica una presentazione con blocchi di forma e cancella le restrizioni di selezione, movimento e ridimensionamento tramite [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) e [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Rimuove inoltre la restrizione di raggruppamento passando `false` a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) e salva una copia della presentazione. Altri blocchi rimangono invariati.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,9 +138,9 @@ try {
 }
 ```
 
-### **Preserva un ritaglio immagine**
+### **Preservare il ritaglio dell'immagine**
 
-Posiziona una foto chiamata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12% a sinistra e l'8% a destra, quindi chiama [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) sul blocco della cornice immagine. Impostando `true` si limita ulteriori ritagli e si preserva il ritaglio esistente.
+Posiziona una foto denominata `photo.jpg` nella directory di lavoro. L'esempio ritaglia il 12 % a sinistra e l'8 % a destra, poi chiama [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) sul blocco del riquadro immagine. Impostare `true` limita ulteriori ritagli e preserva il ritaglio esistente.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -172,11 +172,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` memorizza il blocco di ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
+`PictureLocked.pptx` memorizza il blocco del ritaglio come `true`. In PowerPoint, il comando **Crop** è disabilitato quando la foto è selezionata.
 
-### **Mantieni un diagramma raggruppato**
+### **Mantenere un diagramma raggruppato**
 
-L'esempio raggruppa un rettangolo e una freccia, quindi chiama [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) sul blocco del gruppo per mantenere insieme i componenti del diagramma. Altre modifiche, come spostare il gruppo o cambiare il riempimento di un componente, rimangono disponibili.
+L'esempio raggruppa un rettangolo e una freccia, poi chiama [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) sul blocco del gruppo per mantenere insieme i componenti del diagramma. Altre modifiche, come lo spostamento del gruppo o la modifica del riempimento di un componente, rimangono disponibili.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,22 +196,88 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` memorizza il blocco di separazione come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+`DiagramLocked.pptx` memorizza il blocco di annullamento del raggruppamento come `true`. In PowerPoint, il comando **Ungroup** è disabilitato quando l'intero diagramma è selezionato.
+
+### **Segnalare i blocchi di forma esistenti**
+
+Per esaminare un modello, aprilo e leggi l'oggetto di blocco per ogni forma. Il metodo [getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks) restituisce `true` quando tutte le bandiere di quell'oggetto sono disattivate e `false` quando almeno una è attiva. Un gruppo e i suoi figli hanno oggetti di blocco separati, quindi ispeziona i figli anche quando il gruppo non ha blocchi.
+
+Questo esempio verifica il movimento per forme automatiche, riquadri immagine e gruppi. Controlla inoltre il ritaglio per le immagini e l'annullamento del raggruppamento per i gruppi. Il rapporto elenca le bandiere abilitate che riconosce e segnala i tipi di forma che non ispeziona.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Supponiamo che la diapositiva 1 di `Sample.pptx` contenga un gruppo chiamato `Layout` con l'annullamento del raggruppamento bloccato, una foto chiamata `Photo` all'interno con il ritaglio bloccato e un rettangolo sbloccato chiamato `Free`. Il rapporto salta `Free` e stampa queste due righe:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Il rapporto legge le bandiere di modifica a livello di forma memorizzate senza modificarle né salvare la presentazione. La protezione della scrittura a livello di documento è un'impostazione separata, e l'applicazione di ciascuna bandiera dipende dall'editor.
 
 ### **Conclusione**
 
-Aspose.Slides per Node.js tramite Java consente di limitare operazioni di editing specifiche su forme individuali o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori a `false` quando è necessario rimuovere tali restrizioni.
+Aspose.Slides per Node.js via Java ti consente di limitare operazioni di modifica specifiche su singole forme o di applicare le stesse restrizioni su più diapositive. Scegli i blocchi supportati da ciascun tipo di forma e imposta i loro valori su `false` quando è necessario rimuovere tali restrizioni.
 
-## **Domande frequenti**
+## **FAQ**
 
-**Posso combinare i blocchi delle forme e la protezione con password nella stessa presentazione?**
+**Posso combinare i blocchi di forma e la protezione con password nella stessa presentazione?**
 
-Sì. I blocchi delle forme limitano operazioni di editing specifiche, mentre la [protezione con password](/slides/it/nodejs-java/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
+Sì. I blocchi di forma limitano operazioni di modifica specifiche, mentre la [protezione con password](/slides/it/nodejs-java/password-protected-presentation/) può limitare l'apertura o la modifica della presentazione. È possibile utilizzare entrambi nello stesso file.
 
-**Posso limitare l'editing su diapositive specifiche senza influenzare le altre?**
+**Posso limitare la modifica su diapositive specifiche senza influenzare le altre?**
 
-Sì. Applica i blocchi solo alle forme nelle diapositive selezionate. Questo non modifica le impostazioni di blocco sulle altre diapositive.
+Sì. Applica i blocchi solo alle forme sulle diapositive selezionate. Questo non cambia le impostazioni di blocco sulle altre diapositive.
 
 **Come posso applicare i blocchi a forme individuali all'interno di un gruppo?**
 
-Itera attraverso la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) del gruppo e applica i blocchi appropriati a ciascuna forma figlia. Ripeti questo per tutti i gruppi annidati. Gli esempi sopra elaborano solo la collezione delle forme della diapositiva, quindi non impostano blocchi sui singoli membri del gruppo.
+Itera attraverso la collezione restituita dal metodo [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) del gruppo e applica i blocchi appropriati a ciascuna forma figlia. Ripeti questo per eventuali gruppi nidificati, seguendo il percorso di attraversamento nell'esempio di segnalazione.

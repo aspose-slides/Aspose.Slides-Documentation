@@ -1,6 +1,6 @@
 ---
-title: Beperk presentatie-bewerkingen met vormvergrendelingen in Node.js
-linktitle: Beperk presentatie-bewerkingen
+title: Beperk presentatiebewerkingen met vormvergrendelingen in Node.js
+linktitle: Beperk presentatiebewerkingen
 type: docs
 weight: 60
 url: /nl/nodejs-java/applying-protection-to-presentation/
@@ -10,47 +10,47 @@ keywords:
 - vorm vergrendelen
 - positie vergrendelen
 - selectie vergrendelen
-- grootte wijzigen vergrendelen
-- groeperen vergrendelen
+- grootte vergrendelen
+- groepering vergrendelen
 - PowerPoint
 - PPTX
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe u vormen in PPTX-presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides for Node.js via Java om selectie, verplaatsing, grootte-aanpassing en groeperen te beperken."
+description: "Leer hoe u vormen in PPTX-presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides voor Node.js via Java om selectie, verplaatsing, formaatwijziging en groepering te beperken."
 ---
 ## **Overzicht**
 
-Een veelvoorkomende toepassing van Aspose.Slides for Node.js via Java is het maken, bijwerken en opslaan van PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay‑out en inhoud te behouden.
+Een veelvoorkomend gebruik van Aspose.Slides voor Node.js via Java is het maken, bijwerken en opslaan van PowerPoint‑presentaties (PPTX) als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay‑out en inhoud te behouden.
 
-Dit artikel legt uit hoe vormen zijn georganiseerd op dia’s en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen u in staat om specifieke bewerkingsacties op individuele vormen te beperken.
+Dit artikel legt uit hoe vormen zijn georganiseerd op dia's en hoe je vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen je in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatie‑dia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingsframes, video‑frames, connectoren en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for Node.js via Java wordt elk element op een dia weergegeven door een object dat erft van de [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) class.
+Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingskaders, video‑kaders, verbindingslijnen en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides voor Node.js via Java wordt elk element op een dia weergegeven door een object dat erft van de [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)‑klasse.
 
-Verschillende vormtypen bieden verschillende vergrendelingsopties. De [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/)‑klasse is de basisklasse voor vormvergrendelingen. Aspose.Slides for Node.js via Java biedt de volgende vergrendelingsklassen:
+Verschillende vormtypen bieden verschillende vergrendelingsopties. De [BaseShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/)‑klasse is de basisklasse voor vormvergrendelingen. Aspose.Slides voor Node.js via Java biedt de volgende vergrendelingsklassen:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/) vergrendelt autovormen.  
-- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) vergrendelt connectorvormen.  
+- [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) vergrendelt verbindingsvormen.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/graphicalobjectlock/) vergrendelt grafische objecten.  
 - [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/) vergrendelt gegroepeerde vormen.  
-- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) vergrendelt afbeeldingsframes.  
+- [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/) vergrendelt afbeeldingskaders.  
 
-Om vergrendelingen toe te passen over een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), iterate door de dia's en stel de juiste vergrendelingen in voor elke ondersteunde vorm.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), doorloop je de dia's en stel je de juiste vergrendelingen in op elke ondersteunde vorm.
 
-## **Toepassen en Verwijderen van Bescherming**
+## **Bescherming toepassen en verwijderen**
 
-Compatibele presentatie‑editors gebruiken vormvergrendelingen om individuele bewerkingsacties te beperken. Bestandversleuteling en schrijfbescherming op documentniveau zijn afzonderlijke [presentatiebeschermingsinstellingen](/slides/nl/nodejs-java/password-protected-presentation/).
+Compatibele presentatieredacteurs gebruiken vormvergrendelingen om individuele bewerkingsbewerkingen te beperken. Bestandversleuteling en schrijfbeveiliging op documentniveau zijn afzonderlijke [presentatiebeveiligingsinstellingen](/slides/nl/nodejs-java/password-protected-presentation/).
 
 ### **Bescherming toepassen op PPTX‑vormen**
 
-Aspose.Slides for Node.js via Java biedt de [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)‑klasse om te werken met vormen op een dia.
+Aspose.Slides voor Node.js via Java biedt de [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/)‑klasse om met vormen op een dia te werken.
 
-Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) en [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) aan met `true` voor autovormen, met gelijkwaardige vergrendelingen voor gegroepeerde vormen, connectoren en afbeeldingsframes. Connectoren gebruiken [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) voor verplaatsing; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) om groeperen te beperken.
+Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setPositionLocked) en [setSizeLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/#setSizeLocked) aan met `true` voor autovormen, met equivalente vergrendelingen voor gegroepeerde vormen, verbindingslijnen en afbeeldingskaders. Verbindingslijnen gebruiken [setPositionMove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/#setPositionMove) voor verplaatsing; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) om groepering te beperken.
 
-Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormcollectie van elke dia, en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde types blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde types blijven ongewijzigd. De lus doorloopt de onderliggende vormen binnen een groep niet.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -93,9 +93,9 @@ try {
 }
 ```
 
-### **Bescherming verwijderen**
+### **Vergrendeling verwijderen**
 
-Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de beperkingen voor selectie, verplaatsing en grootte‑aanpassing via [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) en [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked), en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
+Om een vormvergrendeling te verwijderen, stel je de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de selectie‑, verplaatsings‑ en vergrootingsbeperkingen via [AutoShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connectorlock/) en [PictureFrameLock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setGroupingLocked) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -138,9 +138,9 @@ try {
 }
 ```
 
-### **Beeldbijsnede behouden**
+### **Beeldbijsnijding behouden**
 
-Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld snijdt 12 % van de linkerkant en 8 % van de rechterkant bij, en roept daarna [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) aan op de vergrendeling van het afbeeldingsframe. Het doorgeven van `true` beperkt verdere bijsnijden en behoudt de bestaande bijsnijding.
+Plaats een foto met de naam `photo.jpg` in de werkmap. Het voorbeeld bijsnijdt 12 % van de linkerkant en 8 % van de rechterkant, en roept vervolgens [setCropLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setCropLocked) aan op de vergrendeling van het afbeeldingskader. Het doorgeven van `true` beperkt verdere bijsnijding en behoudt de bestaande bijsnijding.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -176,7 +176,7 @@ try {
 
 ### **Diagram gegroepeerd houden**
 
-Het voorbeeld groepeert een rechthoek en een pijl, en roept vervolgens [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) aan op de vergrendeling van de groep om de componenten van het diagram samen te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de opvulling van een component, blijven beschikbaar.
+Het voorbeeld groepeert een rechthoek en een pijl, en roept vervolgens [setUngroupingLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshapelock/#setUngroupingLocked) aan op de vergrendeling van de groep om de componenten van het diagram samen te houden. Andere bewerkingen, zoals het verplaatsen van de groep of het wijzigen van de vulling van een component, blijven beschikbaar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,22 +196,88 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` slaat de de‑groeperen‑vergrendeling op als `true`. In PowerPoint is de **Ungroup**‑opdracht uitgeschakeld wanneer het volledige diagram is geselecteerd.
+`DiagramLocked.pptx` slaat de ontgroeperingsvergrendeling op als `true`. In PowerPoint is de **Ungroup**‑opdracht uitgeschakeld wanneer het volledige diagram is geselecteerd.
 
-### **Conclusie**
+### **Bestaande vormvergrendelingen rapporteren**
 
-Aspose.Slides for Node.js via Java stelt u in staat om specifieke bewerkingsacties op individuele vormen te beperken of dezelfde beperkingen over dia's toe te passen. Kies de vergrendelingen die worden ondersteund door elk vormtype, en zet hun waarden op `false` wanneer u die beperkingen wilt verwijderen.
+Om een sjabloon te beoordelen, open je deze en lees je het vergrendelingsobject voor elke vorm. De [getNoLocks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseshapelock/#getNoLocks)‑methode geeft `true` terug wanneer alle vlaggen op dat object zijn uitgeschakeld en `false` wanneer er minstens één is ingeschakeld. Een groep en zijn onderliggende vormen hebben afzonderlijke vergrendelingsobjecten, dus inspecteer de onderliggende vormen zelfs als de groep geen vergrendelingen heeft.
+
+Dit voorbeeld controleert de verplaatsing voor autovormen, afbeeldingskaders en groepen. Het controleert ook de bijsnijding voor afbeeldingen en de ontgroepering voor groepen. Het rapport vermeldt de ingeschakelde vlaggen die het herkent en markeert vormtypen die het niet inspecteert.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function inspectShapes(shapes, slideNumber, prefix) {
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const path = prefix + shape.getName();
+        const type = shape.getClass().getSimpleName();
+        const label = `Slide ${slideNumber} | ${path} | ${type}`;
+        const flags = [];
+        const isGroup = java.instanceOf(shape, "com.aspose.slides.IGroupShape");
+        let shapeLock;
+
+        if (isGroup) {
+            shapeLock = shape.getGroupShapeLock();
+            if (shapeLock.getUngroupingLocked()) flags.push("UngroupingLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            shapeLock = shape.getPictureFrameLock();
+            if (shapeLock.getCropLocked()) flags.push("CropLocked");
+        } else if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shapeLock = shape.getAutoShapeLock();
+        } else {
+            console.log(`${label} | Uninspected`);
+            continue;
+        }
+
+        if (!shapeLock.getNoLocks()) {
+            if (shapeLock.getPositionLocked()) flags.push("PositionLocked");
+            const restrictions = flags.length ? flags.join(", ") : "Active flag not identified";
+            console.log(`${label} | ${restrictions}`);
+        }
+
+        if (isGroup) {
+            inspectShapes(shape.getShapes(), slideNumber, path + "/");
+        }
+    }
+}
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let i = 0; i < slides.size(); i++) {
+        const slide = slides.get_Item(i);
+        inspectShapes(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Stel dat dia 1 van `Sample.pptx` een groep bevat met de naam `Layout` waarvan de ontgroepering vergrendeld is, een afbeelding met de naam `Photo` erin waarvan de bijsnijding vergrendeld is, en een niet‑vergrendelde rechthoek met de naam `Free`. Het rapport slaat `Free` over en drukt deze twee regels af:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+Het rapport leest de opgeslagen bewerkingsvlaggen op vormniveau zonder ze te wijzigen of de presentatie op te slaan. Schrijfbeveiliging op documentniveau is een aparte instelling, en de handhaving van elke vlag hangt af van de editor.
+
+## **Conclusie**
+
+Aspose.Slides voor Node.js via Java stelt je in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen op meerdere dia's toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund, en stel hun waarden in op `false` wanneer je die beperkingen wilt verwijderen.
 
 ## **FAQ**
 
 **Kan ik vormvergrendelingen en wachtwoordbeveiliging combineren in dezelfde presentatie?**
 
-Ja. Vormvergrendelingen beperken specifieke bewerkingsacties, terwijl [wachtwoordbeveiliging](/slides/nl/nodejs-java/password-protected-presentation/) de toegang of wijziging van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
+Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [wachtwoordbeveiliging](/slides/nl/nodejs-java/password-protected-presentation/) het openen of wijzigen van de presentatie kan beperken. Je kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik bewerking op specifieke dia's beperken zonder andere te beïnvloeden?**
+**Kan ik bewerken beperken op specifieke dia's zonder andere te beïnvloeden?**
 
-Ja. Pas vergrendelingen alleen toe op de vormen op de geselecteerde dia's. Dit verandert de vergrendelingsinstellingen op andere dia's niet.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Dit verandert de vergrendelingsinstellingen op andere dia's niet.
 
 **Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Itereer door de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor alle geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormcollectie van de dia, dus ze stellen geen vergrendelingen in voor individuele groepsleden.
+Doorloop de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor eventuele geneste groepen, volgens de doorloop in het rapportage‑voorbeeld.

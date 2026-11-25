@@ -1,28 +1,28 @@
 ---
-title: .NET のプレゼンテーションで 3D チャートをカスタマイズする
+title: .NET でプレゼンテーションの 3D チャートをカスタマイズする
 linktitle: 3D チャート
 type: docs
 url: /ja/net/3d-chart/
 keywords:
 - 3D チャート
 - 回転
-- 深さ
+- 奥行き
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションに 3D チャートを作成します。C# のサンプルで回転、高さの比率、チャートの深さ、シリーズ間の間隔を調整できます。"
+description: "Aspose.Slides for .NET を使用して PowerPoint のプレゼンテーションに 3D チャートを作成します。C# のサンプルで回転、高さの割合、チャートの奥行き、系列間の間隔を調整できます。"
 ---
 ## **概要**
 
-Aspose.Slides for .NET を使用すると、[IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) プロパティを介して 3D チャートの表示をカスタマイズできます。本記事では、回転、高さの比率、深さ、直角軸、シリーズ間の間隔を調整し、プレゼンテーションを PPTX 形式で保存する方法を示します。
+Aspose.Slides for .NET では、[IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) プロパティを使用して 3D チャートの表示をカスタマイズできます。この記事では、回転、高さの割合、奥行き、直角軸、系列間の間隔を調整し、プレゼンテーションを PPTX 形式で保存する方法を示します。
 
-## **3D チャートの回転と深さの設定**
+## **3D チャートの回転と奥行きを設定する**
 
-以下の例は [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) を作成し、[IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) を使用して最初のスライドにスタック 3D 列チャートを追加します。デフォルトのシリーズとカテゴリを、各 3 つの値を持つ 2 つのシリーズに置き換えます。ワークシートインデックス `0` はチャートの最初のデータワークシートを示し、行 `0` がシリーズ名、列 `0` がカテゴリラベルを保持します。
+以下の例では、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) を作成し、[IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) を使用して最初のスライドに積み上げ 3D 縦棒チャートを追加します。デフォルトの系列とカテゴリを、各 3 つの値を持つ 2 つの系列に置き換えます。ワークシート インデックス `0` はチャートの最初のデータ ワークシートを示し、行 `0` には系列名、列 `0` にはカテゴリ ラベルが格納されます。
 
-[RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) と [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) プロパティはそれぞれチャートの回転を 40 度と 270 度に設定します。[DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) は幅の 150% に深さを設定し、[RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) は遠近法の代わりに直角軸を有効にします。結果のプレゼンテーションには、これらの 3D 表示設定が適用されたチャートが含まれます。
+[RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) と [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) プロパティは、それぞれチャートの回転を 40 度および 270 度に設定します。[DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) は幅の 150% の深さに設定し、[RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) は透視投影の代わりに直角軸を有効にします。結果として得られるプレゼンテーションには、これらの 3D 表示設定が適用されたチャートが含まれます。
 
 ```csharp
 using Aspose.Slides;
@@ -68,11 +68,59 @@ chart.Rotation3D.DepthPercents = 150;
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 
-## **3D チャートの高さ比率の調整**
+## **3D チャートの表面に画像塗りつぶしを適用する**
 
-[IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) を使用して、3D チャートの高さを幅のパーセンテージで設定します。これにより、スライド上のチャートオブジェクトのサイズを変更せずに 3D シーンの比率が変わります。
+3D チャートには、独立して塗りつぶすことのできる 3 つの表面があります: [side wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/sidewall/)、[back wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/)、[floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)。選択した表面の [fill type](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) を `Picture` に設定し、画像を割り当てます。[picture fill mode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) と表面の [picture type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartwall/picturetype/) の両方を `Stretch` に設定して、画像を表面全体に 1 枚でフィットさせます。
 
-以下の例はデフォルトデータ（3 つのシリーズと 4 つのカテゴリ）を持つ [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) チャートを作成し、高さ比率が 50%、100%、200% の 3 つのプレゼンテーションを保存します。チャートの位置、幅、高さは固定されたままです。データ、回転、深さ、シリーズ間隔、書式設定はすべてのファイルで同一で、高さのパーセンテージだけが変わります。
+[arrow.png](arrow.png) を作業ディレクトリに保存します。例では、チャートを回転させ、垂直軸の最大値を上げて列間に床が見えるようにします。その後、スライドを 2 回複製し、各スライドの別の表面に矢印を適用します。3 つのチャートはすべて同じデータ、視点、背景を保持します。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 20, 30, 680, 480);
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.RotationX = 40;
+chart.Rotation3D.RotationY = 30;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 24;
+
+var backSlide = presentation.Slides.AddClone(slide);
+var floorSlide = presentation.Slides.AddClone(slide);
+var backChart = (IChart)backSlide.Shapes[0];
+var floorChart = (IChart)floorSlide.Shapes[0];
+
+var imageBytes = File.ReadAllBytes("arrow.png");
+var arrow = presentation.Images.AddImage(imageBytes);
+
+foreach (var surface in new[] { chart.SideWall, backChart.BackWall, floorChart.Floor })
+{
+    var fill = surface.Format.Fill;
+    fill.FillType = FillType.Picture;
+    fill.PictureFillFormat.Picture.Image = arrow;
+    fill.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    surface.PictureType = PictureType.Stretch;
+}
+
+presentation.Save("chart-surfaces.pptx", SaveFormat.Pptx);
+```
+
+Microsoft PowerPoint は、次のように 3 つのスライドを表示します。
+
+| 側壁 | 背面壁 | 床 |
+| --- | --- | --- |
+| ![側壁に沿ってチャート内に向かう矢印](side-wall.png) | ![背面壁を横切って右向きの矢印](back-wall.png) | ![列間の床を横切って右向きの矢印](floor.png) |
+
+## **3D チャートの高さの割合を調整する**
+
+[IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) を使用して、3D チャートの高さを幅のパーセンテージで設定します。これにより、スライド上のチャート オブジェクトのサイズを変更せずに 3D シーンの比例が変わります。
+
+以下の例では、デフォルト データ（3 系列、4 カテゴリ）を持つ [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) チャートを作成します。高さの割合を 50%、100%、200% に設定した 3 つのプレゼンテーションを保存します。チャートの位置、幅、高さは固定されたままです。データ、回転、奥行き、系列間隔、書式設定はすべてのファイルで同一で、高さのパーセンテージだけが変わります。
 
 ```csharp
 using Aspose.Slides;
@@ -96,40 +144,40 @@ foreach (ushort heightPercent in new ushort[] { 50, 100, 200 })
 }
 ```
 
-以下の画像は Microsoft PowerPoint を使用して生成されたプレゼンテーションからエクスポートしたものです。小さいパーセンテージはフラットなシーンを、 大きいパーセンテージは同じチャートオブジェクト内で高いシーンを生成します。PowerPoint はシーンに合わせて軸目盛間隔やラベル配置を自動調整することがあります。
+以下の画像は、Microsoft PowerPoint を使用して生成されたプレゼンテーションからエクスポートしたものです。割合が小さいほど平坦なシーンになり、割合が大きいほど同じチャートオブジェクト内でより高いシーンになります。PowerPoint はシーンに合わせて軸目盛りの間隔やラベルの配置を調整することがあります。
 
 | 高さ: 50% | 高さ: 100% | 高さ: 200% |
 | --- | --- | --- |
-| ![幅の 50% に設定された高さの 3D 列チャート](height_percent_50.png) | ![幅の 100% に設定された高さの 3D 列チャート](height_percent_100.png) | ![幅の 200% に設定された高さの 3D 列チャート](height_percent_200.png) |
+| ![幅の 50% に設定された高さの 3D 縦棒チャート](height_percent_50.png) | ![幅の 100% に設定された高さの 3D 縦棒チャート](height_percent_100.png) | ![幅の 200% に設定された高さの 3D 縦棒チャート](height_percent_200.png) |
 
-これらのプロパティは、チャートのさまざまな側面を制御します:
+これらのプロパティはチャートのさまざまな側面を制御します：
 
-| プロパティ | 効果 |
+| Property | Effect |
 | --- | --- |
-| [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | 幅に対する 3D シーンの高さのパーセンテージ。 |
-| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | スライド上のチャートオブジェクトの高さ（ポイント）。 |
-| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | 幅に対する 3D シーンの深さのパーセンテージ。 |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | マーカー幅のパーセンテージで表した、深さ軸に沿ったシリーズ間の間隔。 |
+| [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | 3D シーンの高さを幅のパーセンテージで表したもの。 |
+| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | スライド上のチャートオブジェクトの高さ（ポイント単位）。 |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | 3D シーンの深さを幅のパーセンテージで表したもの。 |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | 深さ軸に沿った系列間の間隔（マーカー幅のパーセンテージ）。 |
 
-高さ設定は、シリンダー、コーン、ピラミッド バリエーションを含む 3D 列および棒チャート、ならびに 3D 折れ線、面、円、サーフェス チャートに影響します。上記比較は検証済みの `Column3D` タイプを使用しています。この設定は 2D の `ClusteredColumn` チャートや `BubbleWith3D` チャートの外観は変更しません。これらは [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体のメンバーです。その他のチャート外観設定については、[チャートの書式設定](/slides/ja/net/chart-formatting/) を参照してください。
+高さ設定は、シリンダー、コーン、ピラミッド バリエーションを含む 3D 縦棒および横棒チャート、ならびに 3D ライン、エリア、円、サーフェス チャートに影響します。上記の比較は検証済みの `Column3D` タイプを使用しています。この設定は 2D の `ClusteredColumn` チャートや `BubbleWith3D` チャートの外観は変更しません。これらの名前は [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体のメンバーです。その他のチャート外観設定については、[Chart Formatting](/slides/ja/net/chart-formatting/) を参照してください。
 
-## **シリーズ間のギャップの調整**
+## **系列間のギャップを調整する**
 
-[IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) を使用して、3D チャートの深さ軸に沿ったデータシリーズ間の距離をマーカー幅のパーセンテージで制御します。**0 から 500**（含む）の値を使用できます：`0` はギャップを削除し、値が大きくなるほど間隔が広がります。チャートの深さが固定されている場合、ギャップを増やすと深さ軸に沿ったマーカーが細くなります。
+[IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) を使用して、3D チャートの深さ軸に沿ったデータ系列間の距離をマーカー幅のパーセンテージで制御します。**0 から 500**（両端含む）の値を使用します：`0` はギャップをなくし、値が大きくなるほど間隔が広がります。チャートの奥行きを固定したままギャップを増やすと、深さ軸に沿ったマーカーが細くなります。
 
-[IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) を通じてグループにアクセスします。この設定はそのグループ内のすべてのシリーズに適用され、アクセスに使用したシリーズだけに限定されません。[IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) は読み取り専用で、親グループの設定を反映します。
+[IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) を介してグループにアクセスします。この設定は、そのグループ内のすべての系列に適用され、アクセスに使用した系列だけに限られません。[IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) は読み取り専用で、親グループの設定を反映します。
 
-この設定は、シリンダー、コーン、ピラミッド バリエーションを含む 3D 列および棒チャート、ならびに 3D 折れ線および面チャートに影響します。外観はシリーズが深さ方向に配置されているか、クラスター化されているか、スタックされているかによって変わります。個別シリーズ間のギャップを明確に比較するには、[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体の `ChartType.Column3D` を使用してください。
+この設定は、シリンダー、コーン、ピラミッド バリエーションを含む 3D 縦棒・横棒チャート、および 3D ライン・エリアチャートに影響します。外観は系列が深さ方向に配置されているか、クラスター化されているか、積み上げられているかによって変わります。別々の系列間のギャップを明確に比較するには、[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体の `ChartType.Column3D` を使用してください。
 
-これらのプロパティは、チャートのさまざまな側面を制御します:
+これらのプロパティはチャートのさまざまな側面を制御します：
 
-| プロパティ | 効果 |
+| Property | Effect |
 | --- | --- |
-| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | 深さ軸に沿ったシリーズ間の間隔（マーカー幅のパーセンテージ）。 |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | 深さ軸に沿った系列間の間隔（マーカー幅のパーセンテージ）。 |
 | [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | 隣接する棒または列クラスター間の間隔（棒または列幅のパーセンテージ）。 |
-| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | チャート幅に対する全体的な深さのパーセンテージ。 |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | チャート全体の奥行き（チャート幅のパーセンテージ）。 |
 
-以下の例はデフォルトのチャートデータ（3 つのシリーズと 4 つのカテゴリ）を使用し、データ、回転、ギャップ幅、チャート深さが同一の 2 つのプレゼンテーションを保存します。ギャップ深さだけが変わります。
+以下の自己完結型例は、3 系列 4 カテゴリを含むデフォルトのチャート データを使用します。データ、回転、ギャップ幅、チャートの奥行きが同一の 2 つのプレゼンテーションを保存し、ギャップの深さだけが変わります。
 
 ```csharp
 using Aspose.Slides;
@@ -159,15 +207,15 @@ foreach (ushort gapDepth in new ushort[] { 0, 500 })
 }
 ```
 
-以下の画像は Microsoft PowerPoint を使用して生成されたプレゼンテーションからエクスポートしたものです。
+以下の画像は、Microsoft PowerPoint を使用して生成されたプレゼンテーションからエクスポートしたものです。
 
 | ギャップ深さ: 0% | ギャップ深さ: 500% |
 | --- | --- |
-| ![深さ軸に沿ったシリーズ間にギャップがない 3D 列チャート](gap_depth_0.png) | ![深さ軸に沿ったシリーズ間に 500% のギャップがある 3D 列チャート](gap_depth_500.png) |
+| ![深さ軸に沿った系列間にギャップがない 3D 縦棒チャート](gap_depth_0.png) | ![深さ軸に沿った系列間に 500% のギャップがある 3D 縦棒チャート](gap_depth_500.png) |
 
-## **3D シリーズ タイプとバー形状の変更**
+## **3D 系列タイプと棒形状を変更する**
 
-クラスター化シリンダーチャートでは、最初のシリーズはシリンダー形状のバーで開始します。例では、各変更前後に [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) と [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) を読み取ります。
+クラスター化シリンダー チャートでは、最初の系列はシリンダー形状の棒で始まります。例では、各変更前後に [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) と [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) を読み取ります。
 
 ```cs
 using System;
@@ -192,26 +240,26 @@ Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
 presentation.Save("series_shape.pptx", SaveFormat.Pptx);
 ```
 
-| 最初のシリーズへの変更 | `Type` | `Bar3DShape` |
+| 最初の系列への変更 | `Type` | `Bar3DShape` |
 | --- | --- | --- |
-| チャートを作成 | `ClusteredCylinder` | `Cylinder` |
-| `Type` を `ClusteredCone` に設定 | `ClusteredCone` | `Cone` |
-| `Bar3DShape` を `Box` に設定 | `ClusteredColumn3D` | `Box` |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Set `Type` to `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Set `Bar3DShape` to `Box` | `ClusteredColumn3D` | `Box` |
 
-`Box` に形状を設定すると、シリーズタイプも `ClusteredColumn3D` に変更されます。コードがシリーズタイプで分岐している場合、形状変更後に `series.Type` を読み取ってください。代入前にキャッシュされた値は依然として `ClusteredCone` 分岐を選択します。
+`Box` に形状を設定すると、系列タイプも `ClusteredColumn3D` に変更されます。コードが系列タイプで分岐している場合は、形状を変更した後に `series.Type` を読み取ってください。代入前にキャッシュされた値は依然として `ClusteredCone` の分岐を選択します。
 
-![左から右へ、シリンダー、コーン、矩形列として表示された最初のシリーズの PowerPoint 比較](series-shapes.png)
+![PowerPoint の比較画像。左から右へ、最初の系列がシリンダー、コーン、矩形列として表示されています](series-shapes.png)
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides がサポートする 3D モードのチャート タイプはどれですか？**
+**Aspose.Slides がサポートする 3D モード対応のチャートタイプはどれですか？**
 
-Aspose.Slides は列チャートの 3D バリエーション（Column 3D、Clustered Column 3D、Stacked Column 3D、100% Stacked Column 3D）をサポートし、関連する 3D タイプは [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体で公開されています。正確な最新リストは、インストール済みバージョンの API リファレンスで [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) のメンバーをご確認ください。
+Aspose.Slides は、Column 3D、Clustered Column 3D、Stacked Column 3D、100% Stacked Column 3D などの列チャートの 3D バリエーションと、[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体で公開されている関連 3D タイプをサポートします。正確で最新の一覧については、インストール済みバージョンの API リファレンスにある [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) のメンバーを確認してください。
 
-**レポートや Web 用に 3D チャートのラスター画像を取得できますか？**
+**レポートやウェブ用に 3D チャートのラスタ画像を取得できますか？**
 
-はい。[Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) を使用してチャートを画像としてエクスポートするか、[スライド全体をレンダリング](/slides/ja/net/convert-powerpoint-to-png/) して PNG や JPEG 形式で保存できます。これにより、ラスター プレビューが必要な場合や、PowerPoint を必要とせずに文書、ダッシュボード、Web ページにチャートを埋め込むことが容易になります。
+はい。チャートを [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) で画像にエクスポートしたり、[render the entire slide](/slides/ja/net/convert-powerpoint-to-png/) を使用して PNG や JPEG などの形式に変換できます。ラスタ プレビューが必要な場合や、PowerPoint を使用せずに文書、ダッシュボード、ウェブページにチャートを埋め込む場合に便利です。
 
-**大規模な 3D チャートの構築とレンダリングのパフォーマンスはどうですか？**
+**大規模な 3D チャートの構築とレンダリングのパフォーマンスはどの程度ですか？**
 
-パフォーマンスはデータ量とビジュアルの複雑さに依存します。ベストプラクティスとして、3D 効果は最小限に抑え、壁やプロット領域への重いテクスチャを避け、可能な限りシリーズあたりのデータポイント数を制限し、ターゲット表示または印刷要件に合わせた解像度とサイズで出力することを推奨します。
+パフォーマンスはデータ量とビジュアルの複雑さに依存します。最適な結果を得るには、3D 効果を最小限に抑え、壁やプロット領域への重いテクスチャを避け、可能な限り系列ごとのデータポイント数を制限し、対象の表示や印刷要件に合わせた適切な解像度とサイズで出力をレンダリングしてください。

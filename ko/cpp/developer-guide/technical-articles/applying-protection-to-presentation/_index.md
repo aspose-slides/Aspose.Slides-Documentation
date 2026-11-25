@@ -1,5 +1,5 @@
 ---
-title: C++에서 도형 잠금으로 프레젠테이션 편집 제한
+title: C++에서 형상 잠금으로 프레젠테이션 편집 제한
 linktitle: 프레젠테이션 편집 제한
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /ko/cpp/applying-protection-to-presentation/
 keywords:
 - 편집 방지
 - 편집으로부터 보호
-- 도형 잠금
+- 형상 잠금
 - 위치 잠금
 - 선택 잠금
 - 크기 조정 잠금
@@ -17,39 +17,39 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PPTX 프레젠테이션에서 도형을 잠그고 해제하는 방법을 배우고, 선택, 이동, 크기 조정 및 그룹화를 제한합니다."
+description: "Aspose.Slides for C++를 사용하여 PPTX 프리젠테이션의 형상을 잠그고 해제하는 방법을 배우고, 선택, 이동, 크기 조정 및 그룹화를 제한하세요."
 ---
 ## **배경**
 
-Aspose.Slides for C++의 일반적인 사용 사례는 자동화된 워크플로의 일환으로 PowerPoint(PPTX) 프레젠테이션을 만들고, 업데이트하고, 저장하는 것입니다. 사용자가 이러한 프레젠테이션을 받을 때, 도형에 대한 변경을 제한하면 의도된 레이아웃과 콘텐츠를 보존하는 데 도움이 됩니다.
+Aspose.Slides for C++의 일반적인 사용 사례는 자동화된 워크플로의 일부로 PowerPoint(PPTX) 프리젠테이션을 생성, 업데이트 및 저장하는 것입니다. 사용자가 이러한 프리젠테이션을 받을 때 형상의 변경을 제한하면 의도된 레이아웃과 콘텐츠를 보존하는 데 도움이 됩니다.
 
-이 문서에서는 슬라이드에서 도형이 어떻게 구성되는지와 PPTX 프레젠테이션에서 도형 잠금을 적용하고 제거하는 방법을 설명합니다. 이러한 잠금은 개별 도형에 대해 특정 편집 작업을 제한할 수 있게 합니다.
+이 문서는 슬라이드에 형상이 어떻게 구성되는지 및 PPTX 프리젠테이션에서 형상 잠금을 적용하고 제거하는 방법을 설명합니다. 이러한 잠금은 개별 형상에 대한 특정 편집 작업을 제한할 수 있게 합니다.
 
 ## **슬라이드 구성**
 
-프레젠테이션 슬라이드는 자동 도형, 표, OLE 개체, 그룹 도형, 그림 프레임, 비디오 프레임, 연결선 및 프레젠테이션을 구성하는 데 사용되는 기타 요소와 같은 구성 요소로 이루어집니다. Aspose.Slides for C++에서 슬라이드의 각 요소는 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 인터페이스를 구현하거나 해당 클래스를 상속하는 객체로 표시됩니다.
+프리젠테이션 슬라이드는 자동 도형, 표, OLE 개체, 그룹 형상, 그림 프레임, 비디오 프레임, 커넥터 및 프리젠테이션을 구축하는 데 사용되는 기타 요소와 같은 구성 요소로 이루어집니다. Aspose.Slides for C++에서 슬라이드의 각 요소는 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 인터페이스를 구현하거나 해당 클래스를 상속하는 객체로 표현됩니다.
 
-도형 유형에 따라 노출되는 잠금 옵션이 다릅니다. [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) 인터페이스는 도형 잠금의 기본 인터페이스입니다. Aspose.Slides for C++는 다음 잠금 인터페이스를 제공합니다:
+다양한 형상 유형은 서로 다른 잠금 옵션을 제공합니다. [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) 인터페이스는 형상 잠금의 기본 인터페이스이며, Aspose.Slides for C++는 다음과 같은 잠금 인터페이스를 제공합니다.
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) 자동 도형을 잠급니다.
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 연결선 도형을 잠급니다.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 커넥터 형상을 잠급니다.
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) 그래픽 개체를 잠급니다.
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) 그룹 도형을 잠급니다.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) 그룹 형상을 잠급니다.
 - [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 그림 프레임을 잠급니다.
 
-[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 전반에 걸쳐 잠금을 적용하려면 슬라이드를 순회하면서 각 지원 도형에 적절한 잠금을 설정합니다.
+[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 전반에 잠금을 적용하려면 슬라이드를 순회하면서 지원되는 각 형상에 적절한 잠금을 설정하면 됩니다.
 
 ## **보호 적용 및 제거**
 
-호환되는 프레젠테이션 편집기는 도형 잠금을 사용하여 개별 편집 작업을 제한합니다. 파일 암호화 및 문서 수준 쓰기 보호는 별도의 [프레젠테이션 보호 설정](/slides/ko/cpp/password-protected-presentation/)입니다.
+호환 가능한 프리젠테이션 편집기는 형상 잠금을 사용해 개별 편집 작업을 제한합니다. 파일 암호화 및 문서 수준 쓰기 보호는 별도의 [프레젠테이션 보호 설정](/slides/ko/cpp/password-protected-presentation/)입니다.
 
 ### **PPTX 도형에 보호 적용**
 
-Aspose.Slides for C++는 슬라이드의 도형을 다루기 위해 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 인터페이스를 제공합니다.
+Aspose.Slides for C++는 슬라이드의 형상을 다루기 위해 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 인터페이스를 제공합니다.
 
-예제는 자동 도형에 대해 `true`를 [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/)에 전달하고, 그룹 도형, 연결선 및 그림 프레임에도 동일한 잠금을 적용합니다. 연결선은 이동을 위해 [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/)을 사용하고, 그룹은 그룹화를 제한하기 위해 [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)을 사용합니다.
+예제에서는 자동 도형에 대해 `true` 값을 [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/)에 전달하고, 그룹 형상, 커넥터 및 그림 프레임에 대해 동등한 잠금을 적용합니다. 커넥터는 이동을 위해 [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/)을 사용하고, 그룹은 [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)을 사용해 그룹화를 제한합니다.
 
-예제는 기존 PPTX 프레젠테이션을 로드하고, 각 슬라이드의 도형 컬렉션을 확인한 뒤 이러한 제한이 적용된 복사본을 저장합니다. 네 가지 처리 유형 외의 도형은 변경되지 않은 채로 남습니다. 루프는 그룹 내부의 자식 도형을 순회하지 않습니다.
+예제는 기존 PPTX 프리젠테이션을 로드하고 각 슬라이드의 형상 컬렉션에서 형상을 검사한 뒤 이러한 제한이 적용된 사본을 저장합니다. 네 가지 처리 유형에 해당하지 않는 형상은 변경되지 않은 채로 남습니다. 루프는 그룹 내부의 자식 형상을 순회하지 않습니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,7 +124,7 @@ presentation->Dispose();
 
 ### **보호 제거**
 
-도형 잠금을 제거하려면 값을 `false`로 설정합니다. 다음 예제는 도형 잠금이 적용된 프레젠테이션을 로드하고 [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/)을 통해 선택, 이동 및 크기 조정 제한을 해제합니다. 또한 [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)을 해제하고 프레젠테이션의 복사본을 저장합니다. 다른 잠금 설정은 그대로 유지됩니다.
+형상 잠금을 제거하려면 해당 값을 `false`로 설정합니다. 다음 예제는 형상 잠금이 적용된 프리젠테이션을 로드하고 [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/)을 통해 선택, 이동 및 크기 조정 제한을 해제합니다. 또한 [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)을 해제하고 프리젠테이션 사본을 저장합니다. 다른 잠금 설정은 변경되지 않은 채로 남습니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -199,7 +199,7 @@ presentation->Dispose();
 
 ### **그림 자르기 보존**
 
-작업 디렉터리에 `photo.jpg`라는 사진을 배치합니다. 예제는 왼쪽에서 12%, 오른쪽에서 8%를 잘라낸 뒤 그림 프레임 잠금의 [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/)을 호출하여 자르기를 보존하고 추가 자르기를 제한합니다.
+작업 디렉터리에 `photo.jpg`라는 사진을 배치합니다. 예제는 왼쪽에서 12%, 오른쪽에서 8%를 잘라낸 뒤 그림 프레임 잠금의 [set_CropLocked](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/set_croplocked/)을 호출해 자르기를 보존하고 추가 자르기를 제한합니다.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -237,11 +237,11 @@ presentation->Save(u"PictureLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`PictureLocked.pptx`는 자르기 잠금을 `true`로 저장합니다. PowerPoint에서 사진을 선택하면 **Crop** 명령이 비활성화됩니다.
+`PictureLocked.pptx`는 자르기 잠금을 `true`로 저장합니다. PowerPoint에서는 사진이 선택된 경우 **잘라내기** 명령이 비활성화됩니다.
 
 ### **다이어그램 그룹 유지**
 
-예제는 사각형과 화살표를 그룹화한 뒤 그룹 잠금의 [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/)을 호출하여 다이어그램 구성 요소가 함께 유지되도록 합니다. 그룹 이동이나 구성 요소 채우기 변경과 같은 다른 편집은 여전히 가능합니다.
+예제는 사각형과 화살표를 그룹화한 뒤 그룹 잠금의 [set_UngroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_ungroupinglocked/)을 호출해 다이어그램 구성 요소가 함께 유지되도록 합니다. 그룹 이동이나 구성 요소 채우기 변경과 같은 다른 편집은 여전히 가능하합니다.
 
 ```cpp
 #include <DOM/IGroupShape.h>
@@ -269,22 +269,109 @@ presentation->Save(u"DiagramLocked.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`DiagramLocked.pptx`는 그룹 해제 잠금을 `true`로 저장합니다. PowerPoint에서 전체 다이어그램을 선택하면 **Ungroup** 명령이 비활성화됩니다.
+`DiagramLocked.pptx`는 그룹 해제 잠금을 `true`로 저장합니다. PowerPoint에서는 전체 다이어그램이 선택된 경우 **그룹 해제** 명령이 비활성화됩니다.
+
+### **기존 도형 잠금 보고**
+
+템플릿을 검토하려면 열어 각 형상의 잠금 객체를 읽습니다. [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/)은 해당 객체의 모든 플래그가 비활성화된 경우 `true`를 반환하고, 하나라도 활성화된 경우 `false`를 반환합니다. 그룹 및 그 자식은 별도의 잠금 객체를 가지므로 그룹에 잠금이 없더라도 자식을 검사해야 합니다.
+
+이 예제는 자동 도형, 그림 프레임 및 그룹에 대한 이동, 그림에 대한 자르기, 그룹에 대한 그룹 해제를 검사합니다. 인식된 플래그를 보고하고 검사하지 않은 형상 유형은 표시합니다.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+예를 들어 `Sample.pptx`의 슬라이드 1에 그룹 `Layout`이 있고 그룹 해제가 잠겨 있으며, 그 안에 있는 사진 `Photo`에 자르기가 잠겨 있고, 잠금이 해제된 사각형 `Free`가 있다고 가정합니다. 보고서는 `Free`를 건너뛰고 다음 두 줄을 출력합니다:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+보고서는 형상 수준 편집 플래그를 저장된 그대로 읽으며 프리젠테이션을 변경하거나 저장하지 않습니다. 문서 수준 쓰기 보호는 별도의 설정이며 각 플래그의 적용 여부는 편집기에 따라 다릅니다.
 
 ### **결론**
 
-Aspose.Slides for C++를 사용하면 개별 도형에 대해 특정 편집 작업을 제한하거나 슬라이드 전반에 걸쳐 동일한 제한을 적용할 수 있습니다. 각 도형 유형에서 지원되는 잠금을 선택하고, 제한을 제거해야 할 경우 값을 `false`로 설정하십시오.
+Aspose.Slides for C++를 사용하면 개별 형상에 대한 특정 편집 작업을 제한하거나 슬라이드 전체에 동일한 제한을 적용할 수 있습니다. 각 형상 유형이 지원하는 잠금을 선택하고, 제한을 해제해야 할 경우 값을 `false`로 설정하십시오.
 
 ## **FAQ**
 
-**도형 잠금과 비밀번호 보호를 동일한 프레젠테이션에 결합할 수 있나요?**
+**프레젠테이션에서 도형 잠금과 비밀번호 보호를 동시에 사용할 수 있나요?**
 
-예. 도형 잠금은 특정 편집 작업을 제한하고, [비밀번호 보호](/slides/ko/cpp/password-protected-presentation/)는 프레젠테이션을 열거나 수정하는 것을 제한할 수 있습니다. 두 가지를 같은 파일에서 모두 사용할 수 있습니다.
+예. 도형 잠금은 특정 편집 작업을 제한하고, [비밀번호 보호](/slides/ko/cpp/password-protected-presentation/)는 프레젠테이션 열기나 수정 등을 제한할 수 있습니다. 두 가지를 동일 파일에서 함께 사용할 수 있습니다.
 
-**특정 슬라이드만 편집 제한을 적용하고 다른 슬라이드에는 영향을 주지 않으려면 어떻게 해야 하나요?**
+**특정 슬라이드만 편집을 제한하고 다른 슬라이드에는 영향을 주지 않으려면 어떻게 해야 하나요?**
 
-예. 선택한 슬라이드의 도형에만 잠금을 적용하면 다른 슬라이드의 잠금 설정은 변경되지 않습니다.
+예. 선택한 슬라이드의 형상에만 잠금을 적용하면 다른 슬라이드의 잠금 설정은 변경되지 않습니다.
 
-**그룹 내 개별 도형에 잠금을 적용하려면 어떻게 해야 하나요?**
+**그룹 내부의 개별 형상에 잠금을 적용하려면 어떻게 해야 하나요?**
 
-그룹의 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 메서드가 반환하는 컬렉션을 순회하면서 각 자식 도형에 적절한 잠금을 적용합니다. 중첩된 그룹에 대해서도 이 과정을 반복합니다. 위 예제는 슬라이드의 도형 컬렉션만 처리하므로 개별 그룹 구성원에 잠금을 설정하지 않습니다.
+그룹의 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 메서드가 반환하는 컬렉션을 순회하면서 각 자식 형상에 적절한 잠금을 적용합니다. 중첩된 그룹이 있는 경우에도 보고 예제에서와 같은 순회를 반복합니다.

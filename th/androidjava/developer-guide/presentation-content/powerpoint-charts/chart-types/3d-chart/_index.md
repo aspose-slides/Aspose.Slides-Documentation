@@ -1,28 +1,28 @@
 ---
-title: ปรับแต่งแผนภูมิ 3 มิติในพรีเซนเทชันบน Android
+title: ปรับแต่งแผนภูมิ 3 มิติในงานนำเสนอบน Android
 linktitle: แผนภูมิ 3 มิติ
 type: docs
 url: /th/androidjava/3d-chart/
 keywords:
-- แผนภูมิ 3 มิติ
+- 3D chart
 - การหมุน
 - ความลึก
 - PowerPoint
-- พรีเซนเทชัน
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "สร้างแผนภูมิ 3 มิติในพรีเซนเทชัน PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java. ปรับการหมุน, สัดส่วนความสูง, ความลึกของแผนภูมิ, และช่องว่างระหว่างซีรีส์ด้วยตัวอย่าง Java."
+description: "สร้างแผนภูมิ 3 มิติในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Android via Java. ปรับการหมุน, สัดส่วนความสูง, ความลึกของแผนภูมิ, และช่องว่างระหว่างซีรีส์ด้วยตัวอย่าง Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Android via Java ให้คุณปรับแต่งมุมมองของแผนภูมิ 3 มิติผ่านเมธอด [IChart.getRotation3D](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getRotation3D--) วิธีการนี้จะแสดงวิธีการปรับการหมุน, สัดส่วนความสูง, ความลึก, แกนมุมฉาก, และช่องว่างระหว่างซีรีส์, จากนั้นบันทึกพรีเซนเทชันเป็นรูปแบบ PPTX
+Aspose.Slides for Android via Java ให้คุณกำหนดมุมมองของแผนภูมิ 3 มิติผ่านเมธอด [IChart.getRotation3D](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getRotation3D--) วิธีการนี้แสดงวิธีปรับการหมุน, สัดส่วนความสูง, ความลึก, แกนมุมฉาก, และช่องว่างระหว่างซีรีส์, จากนั้นบันทึกงานนำเสนอในรูปแบบ PPTX.
 
 ## **ตั้งค่าการหมุนและความลึกของแผนภูมิ 3 มิติ**
 
-ตัวอย่างด้านล่างสร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และใช้ [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อเพิ่มแผนภูมิคอลัมน์ 3 มิติแบบ stacked ลงในสไลด์แรกของมัน — มันแทนที่ซีรีส์และหมวดหมู่เริ่มต้นด้วยสองซีรีส์ที่มีค่าทั้งชุดละสามค่า ดัชนี worksheet `0` ระบุ worksheet ข้อมูลแรกของแผนภูมิ — แถว `0` เก็บชื่อซีรีส์และคอลัมน์ `0` เก็บป้ายชื่อหมวดหมู่
+ตัวอย่างด้านล่างจะสร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และใช้ [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อเพิ่มแผนภูมิคอลัมน์ 3 มิติแบบซ้อนบนสไลด์แรกของมัน. มันแทนที่ซีรีส์และหมวดหมู่เริ่มต้นด้วยสองซีรีส์ที่มีค่าต่าง ๆ แต่ละซีรีส์มีสามค่า. ดัชนี Worksheet `0` ระบุแผ่นงานข้อมูลแรกของแผนภูมิ; แถว `0` เก็บชื่อซีรีส์, และคอลัมน์ `0` เก็บป้ายชื่อหมวดหมู่.
 
-เมธอด [setRotationX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRotationX-byte-) และ [setRotationY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRotationY-int-) ตั้งค่าการหมุนของแผนภูมิเป็น 40 และ 270 องศาตามลำดับ — เมธอด [setDepthPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setDepthPercents-int-) กำหนดความลึกเป็น 150 % ของความกว้าง, ในขณะที่ [setRightAngleAxes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRightAngleAxes-boolean-) เปิดใช้งานแกนมุมฉากแทนมุมมองเชิงมิติ. การตั้งค่าเหล่านี้ทำให้การนำเสนอที่ได้ประกอบด้วยแผนภูมิที่เติมข้อมูลแล้วพร้อมการมองเห็น 3 มิติที่กำหนด
+เมธอด [setRotationX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRotationX-byte-) และ [setRotationY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRotationY-int-) กำหนดการหมุนของแผนภูมิเป็น 40 และ 270 องศาตามลำดับ. [setDepthPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setDepthPercents-int-) ตั้งค่าความลึกเป็น 150% ของความกว้าง, ส่วน [setRightAngleAxes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setRightAngleAxes-boolean-) เปิดใช้งานแกนมุมฉากแทนมุมมองเชิงลึก. งานนำเสนอที่ได้จะมีแผนภูมิที่เติมข้อมูลพร้อมการตั้งค่ามุมมอง 3 มิติเหล่านี้.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,60 @@ try {
 }
 ```
 
+## **ใช้การเติมรูปภาพบนพื้นผิวแผนภูมิ 3 มิติ**
+
+แผนภูมิ 3 มิติมีสามพื้นผิวที่คุณสามารถเติมแยกกันได้: [side wall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getSideWall--), [back wall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--), และ [floor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--). ตั้งค่า [fill type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) ของพื้นผิวเป็น `Picture` และกำหนดภาพ. ตั้งค่า [picture fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) และ [picture type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartwall/#setPictureType-int-) ของพื้นผิวเป็น `Stretch` เพื่อให้ภาพหนึ่งสำเนาครอบคลุมพื้นผิวทั้งหมด.
+
+บันทึก [arrow.png](arrow.png) ไว้ในไดเรกทอรีทำงาน. ตัวอย่างจะหมุนแผนภูมิและเพิ่มค่ามากสุดบนแกนแนวตั้งเพื่อให้พื้นมองเห็นระหว่างคอลัมน์. จากนั้นจะคัดลอกสไลด์สองครั้งและใส่ลูกศรลงบนพื้นผิวที่แตกต่างกันในแต่ละสไลด์. ทั้งสามแผนภูมิจะรักษาข้อมูล, มุมมอง, และพื้นหลังเดียวกัน.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation();
+try (FileInputStream image = new FileInputStream("arrow.png")) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 20, 30, 680, 480);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX((byte) 40);
+    chart.getRotation3D().setRotationY(30);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(24);
+
+    ISlide backSlide = presentation.getSlides().addClone(slide);
+    ISlide floorSlide = presentation.getSlides().addClone(slide);
+    IChart backChart = (IChart) backSlide.getShapes().get_Item(0);
+    IChart floorChart = (IChart) floorSlide.getShapes().get_Item(0);
+
+    IPPImage arrow = presentation.getImages().addImage(image);
+
+    IChartWall[] surfaces = { chart.getSideWall(), backChart.getBackWall(), floorChart.getFloor() };
+    for (IChartWall surface : surfaces) {
+        IFillFormat fill = surface.getFormat().getFill();
+        fill.setFillType(FillType.Picture);
+        fill.getPictureFillFormat().getPicture().setImage(arrow);
+        fill.getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+        surface.setPictureType(PictureType.Stretch);
+    }
+
+    presentation.save("chart-surfaces.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Microsoft PowerPoint แสดงสไลด์สามสไลด์ดังต่อไปนี้.
+
+| ผนังด้านข้าง | ผนังด้านหลัง | พื้น |
+| --- | --- | --- |
+| ![ลูกศรชี้เข้าสู่แผนภูมิตามผนังด้านข้าง](side-wall.png) | ![ลูกศรชี้ไปทางขวาข้ามผนังด้านหลัง](back-wall.png) | ![ลูกศรชี้ไปทางขวาข้ามพื้นระหว่างคอลัมน์](floor.png) |
+
 ## **ปรับสัดส่วนความสูงของแผนภูมิ 3 มิติ**
 
-ใช้ [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setHeightPercents-int-) เพื่อตั้งค่าความสูงของแผนภูมิ 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง วิธีนี้เปลี่ยนสัดส่วนของฉาก 3 มิติโดยไม่ต้องปรับขนาดวัตถุแผนภูมิบนสไลด์
+ใช้ [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setHeightPercents-int-) เพื่อตั้งค่าความสูงของแผนภูมิ 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง. สิ่งนี้จะเปลี่ยนสัดส่วนของฉาก 3 มิติโดยไม่ต้องปรับขนาดของออบเจ็กต์แผนภูมิบนสไลด์.
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ด้วยข้อมูลเริ่มต้น: สามซีรีส์และสี่หมวดหมู่. มันบันทึกพรีเซนเทชันสามไฟล์พร้อมสัดส่วนความสูง 50 %, 100 % และ 200 %. ตำแหน่ง, ความกว้าง, และความสูงของแผนภูมิก็ยังคงคงที่. ข้อมูล, การหมุน, ความลึก, ช่องว่างของซีรีส์, และการจัดรูปแบบทั้งหมดเหมือนกันในทั้งสามไฟล์; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยนไป
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ [Column3D](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ด้วยข้อมูลเริ่มต้น: สามซีรีส์และสี่หมวดหมู่. มันบันทึกงานนำเสนอสามไฟล์พร้อมสัดส่วนความสูง 50%, 100% และ 200%. ตำแหน่ง, ความกว้าง, และความสูงของแผนภูมิคงที่. ข้อมูล, การหมุน, ความลึก, ช่องว่างระหว่างซีรีส์, และการจัดรูปแบบเหมือนกันในทั้งสามไฟล์; มีเพียงเปอร์เซ็นต์ความสูงที่เปลี่ยน.
 
 ```java
 import com.aspose.slides.*;
@@ -96,40 +145,38 @@ try {
 }
 ```
 
-ภาพต่อไปนี้แสดงการตั้งค่าสัดส่วนความสูงเดียวกันในตัวอย่าง .NET ที่เทียบได้และถูกส่งออกโดย Microsoft PowerPoint. ค่าที่น้อยกว่าจะทำให้ฉากแบนลง, ขณะที่ค่าที่มากจะทำให้ฉากสูงขึ้นภายในวัตถุแผนภูมิเดียวกัน. PowerPoint อาจปรับช่วงติ๊กแกนและตำแหน่งป้ายฉลากให้พอดีกับฉากด้วย
+ภาพต่อไปนี้แสดงการตั้งค่าความสูงเดียวกันในตัวอย่าง .NET ที่เทียบเท่าและถูกส่งออกโดยใช้ Microsoft PowerPoint. เปอร์เซ็นต์ที่น้อยกว่าจะทำให้ฉากแบนลง, ขณะที่เปอร์เซ็นต์ที่มากจะทำให้ฉากสูงขึ้นภายในออบเจ็กต์แผนภูมิเดียวกัน. PowerPoint อาจปรับช่วงการแบ่งติ๊กแกนและการวางป้ายชื่อให้เหมาะกับฉากด้วย.
 
 | ความสูง: 50% | ความสูง: 100% | ความสูง: 200% |
 | --- | --- | --- |
-| ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 50 เปอร์เซ็นต์ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 100 เปอร์เซ็นต์ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 200 เปอร์เซ็นต์ของความกว้าง](height_percent_200.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 50% ของความกว้าง](height_percent_50.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 100% ของความกว้าง](height_percent_100.png) | ![แผนภูมิคอลัมน์ 3 มิติที่ความสูงตั้งเป็น 200% ของความกว้าง](height_percent_200.png) |
 
 เมธอดเหล่านี้ควบคุมแง่มุมต่าง ๆ ของแผนภูมิ:
 
 | เมธอด | ผล |
 | --- | --- |
 | [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setHeightPercents-int-) | ความสูงของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
-| [IChart.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setHeight-float-) | ความสูงของวัตถุแผนภูมิบนสไลด์, หน่วยจุด |
+| [IChart.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setHeight-float-) | ความสูงของออบเจ็กต์แผนภูมิบนสไลด์, หน่วยเป็นพอยท์ |
 | [IRotation3D.setDepthPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setDepthPercents-int-) | ความลึกของฉาก 3 มิติเป็นเปอร์เซ็นต์ของความกว้าง |
-| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์ |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างของมาร์กเกอร์ |
 
-การตั้งค่าสูงต่ำนี้ส่งผลต่อแผนภูมิคอลัมน์และบาร์ 3 มิติ รวมถึงรูปแบบทรงกระบอก, รูปมุม, และรูปพีระมิด, รวมถึงแผนภูมิ 3 มิติแบบเส้น, พื้นที่, พาย, และพื้นผิว. การเปรียบเทียบด้านบนใช้ประเภท `Column3D` ที่ได้รับการตรวจสอบแล้ว. การตั้งค่านี้ไม่ได้เปลี่ยนลักษณะของแผนภูมิ 2 มิติ `ClusteredColumn` หรือแผนภูมิ `BubbleWith3D`; ชื่อเหล่านี้เป็นสมาชิกของคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). สำหรับการตั้งค่าอื่น ๆ ของลักษณะแผนภูมิ, ดู [Chart Formatting](/slides/th/androidjava/chart-formatting/)
+การตั้งค่าความสูงมีผลต่อแผนภูมิคอลัมน์และแท่ง 3 มิติ รวมถึงรูปแบบทรงกระบอก, รูปโคน, และปิรามิด, รวมถึงแผนภูมิเส้น, พื้นที่, พาย, และพื้นผิว 3 มิติ. การเปรียบเทียบข้างต้นใช้ประเภท `Column3D` ที่ตรวจสอบแล้ว. การตั้งค่านี้ไม่ทำให้ลักษณะของแผนภูมิ 2 มิติ `ClusteredColumn` หรือ `BubbleWith3D` เปลี่ยน; ชื่อเหล่านี้เป็นสมาชิกของคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). สำหรับการตั้งค่าลักษณะแผนภูมิอื่น ๆ ให้ดูที่ [Chart Formatting](/slides/th/androidjava/chart-formatting/).
 
 ## **ปรับช่องว่างระหว่างซีรีส์**
 
-ใช้ [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) เพื่อควบคุมระยะห่างระหว่างซีรีส์ข้อมูลตามแกนความลึกของแผนภูมิ 3 มิติ, แสดงเป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์. ใช้ค่าตั้งแต่ **0 ถึง 500**, รวม: `0` ลบช่องว่างออก, ค่ามากกว่าจะเพิ่มช่องว่าง. เมื่อความลึกของแผนภูมิคงที่, การเพิ่มช่องว่างจะทำให้มาร์คเกอร์บางลงตามแกนความลึก
+ใช้ [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) เพื่อควบคุมระยะห่างระหว่างซีรีส์ข้อมูลตามแกนความลึกของแผนภูมิ 3 มิติ, แสดงเป็นเปอร์เซ็นต์ของความกว้างมาร์กเกอร์. ใช้ค่าจาก **0 ถึง 500**, รวม: `0` จะลบช่องว่าง, ขณะที่ค่าที่ใหญ่ขึ้นจะเพิ่มช่องว่าง. เมื่อความลึกของแผนภูมิคงที่, การเพิ่มช่องว่างทำให้มาร์กเกอร์บางลงตามแกนความลึก.
 
-เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--). การตั้งค่านี้ใช้กับทุกซีรีส์ในกลุ่มนั้น, ไม่ได้ใช้แค่ซีรีส์ที่ใช้ในการเข้าถึง. เมธอด [IChartSeries.getGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getGapDepth--) คืนค่าช่องว่างความลึกและสะท้อนการตั้งค่าของกลุ่มพาเรนท์
+เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--). การตั้งค่านี้ใช้กับทุกซีรีส์ในกลุ่มนั้น, ไม่ใช่แค่ซีรีส์ที่ใช้เข้าถึง. [IChartSeries.getGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getGapDepth--) จะคืนค่าช่องว่างความลึกและสะท้อนการตั้งค่ากลุ่มพาเรนท์.
 
-การตั้งค่านี้ส่งผลต่อแผนภูมิคอลัมน์และบาร์ 3 มิติ, รวมถึงรูปแบบกระบอก, รูปสcones, และรูปพีระมิด, รวมถึงแผนภูมิ 3 มิติแบบเส้นและพื้นที่. ลักษณะการแสดงผลขึ้นอยู่กับว่าซีรีส์จัดเรียงตามความลึก, เป็นกลุ่ม, หรือเป็นซ้อนกัน. เพื่อเปรียบเทียบช่องว่างระหว่างซีรีส์แยกกันอย่างชัดเจน, ใช้ `ChartType.Column3D` จากคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)
-
-เมธอดเหล่านี้ควบคุมแง่มุมต่าง ๆ ของแผนภูมิ:
+การตั้งค่านี้มีผลต่อแผนภูมิคอลัมน์และแท่ง 3 มิติ รวมถึงรูปแบบทรงกระบอก, โคน, และปิรามิด, รวมถึงแผนภูมิเส้นและพื้นที่ 3 มิติ. รูปแบบขึ้นอยู่กับว่าซีรีส์จัดเรียงเป็นความลึก, กลุ่ม, หรือซ้อนกัน. เพื่อเปรียบเทียบช่องว่างระหว่างซีรีส์แยกกันอย่างชัดเจน, ใช้ `ChartType.Column3D` จากคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/).
 
 | เมธอด | ผล |
 | --- | --- |
-| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างมาร์คเกอร์ |
-| [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) | ช่องว่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน, เป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ |
-| [setDepthPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setDepthPercents-int-) | ความลึกรวมของแผนภูมิ, เป็นเปอร์เซ็นต์ของความกว้างแผนภูมิ |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | ช่องว่างระหว่างซีรีส์ตามแกนความลึก, เป็นเปอร์เซ็นต์ของความกว้างของมาร์กเกอร์ |
+| [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) | ช่องว่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน, เป็นเปอร์เซ็นต์ของความกว้างของแท่งหรือคอลัมน์ |
+| [setDepthPercents](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irotation3d/#setDepthPercents-int-) | ความลึกรวมของแผนภูมิ, เป็นเปอร์เซ็นต์ของความกว้างของแผนภูมิ |
 
-ตัวอย่างต่อไปนี้ใช้ข้อมูลแผนภูมิเริ่มต้นที่มีสามซีรีส์และสี่หมวดหมู่. มันบันทึกพรีเซนเทชันสองไฟล์ที่มีข้อมูล, การหมุน, ความกว้างช่องว่าง, และความลึกของแผนภูมิเท่ากัน; มีเพียงช่องว่างความลึกที่เปลี่ยน
+ตัวอย่างที่เป็นอิสระต่อไปนี้ใช้ข้อมูลแผนภูมิเริ่มต้น ซึ่งประกอบด้วยสามซีรีส์และสี่หมวดหมู่. มันบันทึกงานนำเสนอสองไฟล์ที่มีข้อมูล, การหมุน, ความกว้างช่องว่าง, และความลึกของแผนภูมิเท่ากัน; มีเพียงความลึกช่องว่างที่เปลี่ยน.
 
 ```java
 import com.aspose.slides.*;
@@ -159,15 +206,15 @@ try {
 }
 ```
 
-ภาพต่อไปนี้แสดงการตั้งค่าช่องว่างความลึกเดียวกันในตัวอย่าง .NET ที่เทียบได้และถูกส่งออกโดย Microsoft PowerPoint.
+ภาพต่อไปนี้แสดงการตั้งค่าความลึกช่องว่างเดียวกันในตัวอย่าง .NET ที่เทียบเท่าและถูกส่งออกโดยใช้ Microsoft PowerPoint.
 
-| ช่องว่างความลึก: 0% | ช่องว่างความลึก: 500% |
+| ความลึกช่องว่าง: 0% | ความลึกช่องว่าง: 500% |
 | --- | --- |
-| ![แผนภูมิคอลัมน์ 3 มิติที่ไม่มีช่องว่างระหว่างซีรีส์ตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีช่องว่าง 500 เปอร์เซ็นต์ระหว่างซีรีส์ตามแกนความลึก](gap_depth_500.png) |
+| ![แผนภูมิคอลัมน์ 3 มิติที่ไม่มีช่องว่างระหว่างซีรีส์ตามแกนความลึก](gap_depth_0.png) | ![แผนภูมิคอลัมน์ 3 มิติที่มีช่องว่าง 500% ระหว่างซีรีส์ตามแกนความลึก](gap_depth_500.png) |
 
-## **เปลี่ยนประเภทซีรีส์ 3 มิติและรูปร่างบาร์**
+## **เปลี่ยนประเภทซีรีส์ 3D และรูปร่างแท่ง**
 
-ในแผนภูมิโบล cylinder แบบจัดกลุ่ม, ซีรีส์แรกเริ่มต้นด้วยรูปร่างบาร์ทรงกระบอก. ตัวอย่างพิมพ์ค่าเต็มจำนวนที่คืนจาก [IChartSeries.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getType--) และ [IChartSeries.getBar3DShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getBar3DShape--) ก่อนและหลังการเปลี่ยนแต่ละครั้ง. ตารางให้ชื่อคอนสแตนท์ที่สอดคล้องกัน
+ในแผนภูมิทรงกระบอกแบบกลุ่ม, ซีรีส์แรกเริ่มด้วยรูปร่างแท่งทรงกระบอก. ตัวอย่างพิมพ์ค่าจำนวนเต็มที่คืนจาก [IChartSeries.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getType--) และ [IChartSeries.getBar3DShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getBar3DShape--) ก่อนและหลังการเปลี่ยนแต่ละครั้ง. ตารางแสดงชื่อคอนสแตนต์ที่สอดคล้องกัน.
 
 ```java
 import com.aspose.slides.*;
@@ -193,26 +240,26 @@ try {
 }
 ```
 
-| การเปลี่ยนแปลงที่ซีรีส์แรก | ประเภทซีรีส์ | รูปร่างบาร์ |
+| การเปลี่ยนแปลงในซีรีส์แรก | ประเภทซีรีส์ | รูปร่างแท่ง |
 | --- | --- | --- |
 | สร้างแผนภูมิ | `ClusteredCylinder` | `Cylinder` |
 | ตั้งค่าประเภทซีรีส์เป็น `ClusteredCone` | `ClusteredCone` | `Cone` |
-| ตั้งค่ารูปร่างบาร์เป็น `Box` | `ClusteredColumn3D` | `Box` |
+| ตั้งรูปร่างแท่งเป็น `Box` | `ClusteredColumn3D` | `Box` |
 
-การตั้งค่ารูปร่างเป็น `Box` จะเปลี่ยนประเภทซีรีส์เป็น `ClusteredColumn3D` ด้วย. หากโค้ดของคุณใช้เงื่อนไขตามประเภทซีรีส์, ให้เรียก `series.getType()` หลังจากเปลี่ยนรูปร่าง. ค่าที่เก็บไว้ก่อนการกำหนดจะยังคงส่งผลให้เลือกเงื่อนไข `ClusteredCone` อยู่
+การตั้งรูปร่างเป็น `Box` ยังทำให้ประเภทซีรีส์เปลี่ยนเป็น `ClusteredColumn3D`. หากโค้ดของคุณทำสาขาตามประเภทซีรีส์, ให้เรียก `series.getType()` หลังจากเปลี่ยนรูปร่าง. ค่าที่เก็บไว้ก่อนการกำหนดค่าจะยังเลือกสาขา `ClusteredCone`.
 
-![การเปรียบเทียบ PowerPoint แสดงซีรีส์แรกเป็น cylinder, cone, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
+![การเปรียบเทียบ PowerPoint แสดงซีรีส์แรกเป็นทรงกระบอก, โคน, และคอลัมน์สี่เหลี่ยมจากซ้ายไปขวา](series-shapes.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ประเภทแผนภูมิใดบ้างที่สนับสนุนโหมด 3 มิติใน Aspose.Slides?**
+**ประเภทแผนภูมิใดที่รองรับโหมด 3D ใน Aspose.Slides?**
 
-Aspose.Slides สนับสนุนรูปแบบ 3 มิติของแผนภูมิคอลัมน์, รวมถึง Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100 % Stacked Column 3D, พร้อมประเภท 3 มิติที่เกี่ยวข้องที่เปิดให้เข้าถึงผ่านคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). สำหรับรายการที่ถูกต้องและเป็นปัจจุบัน, โปรดตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ในอ้างอิง API ของรุ่นที่คุณติดตั้ง
+Aspose.Slides รองรับรูปแบบ 3D ของแผนภูมิคอลัมน์, รวมถึง Column 3D, Clustered Column 3D, Stacked Column 3D, และ 100% Stacked Column 3D, พร้อมกับประเภท 3D ที่เกี่ยวข้องที่เปิดเผยผ่านคลาส [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/). สำหรับรายการที่แม่นยำและอัปเดต, ตรวจสอบสมาชิกของ [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ในเอกสาร API ของรุ่นที่คุณติดตั้ง.
 
-**ฉันสามารถรับภาพแรสเตอร์ของแผนภูมิ 3 มิติเพื่อใช้ในรายงานหรือเว็บได้หรือไม่?**
+**สามารถรับภาพราสเตอร์ของแผนภูมิ 3D สำหรับรายงานหรือเว็บได้หรือไม่?**
 
-ได้. คุณสามารถส่งออกแผนภูมิเพื่อเป็นภาพด้วย [Shape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage--) หรือ [เรนเดอร์สไลด์ทั้งหมด](/slides/th/androidjava/convert-powerpoint-to-png/) ไปเป็นรูปแบบเช่น PNG หรือ JPEG. วิธีนี้เป็นประโยชน์เมื่อคุณต้องการตัวอย่างแรสเตอร์หรือฝังแผนภูมิในเอกสาร, แดชบอร์ด, หรือหน้าเว็บโดยไม่ต้องพึ่ง Microsoft PowerPoint
+ใช่. คุณสามารถส่งออกแผนภูมิเป็นภาพด้วย [Shape.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage--) หรือ [render the entire slide](/slides/th/androidjava/convert-powerpoint-to-png/) ไปเป็นรูปแบบเช่น PNG หรือ JPEG. สิ่งนี้มีประโยชน์เมื่อคุณต้องการตัวอย่างรูปแบบราสเตอร์หรือฝังแผนภูมิลงในเอกสาร, แดชบอร์ด, หรือหน้าเว็บโดยไม่ต้องการ PowerPoint.
 
-**ประสิทธิภาพของการสร้างและเรนเดอร์แผนภูมิ 3 มิติขนาดใหญ่เป็นอย่างไร?**
+**ประสิทธิภาพของการสร้างและเรนเดอร์แผนภูมิ 3D ขนาดใหญ่เป็นอย่างไร?**
 
-ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของภาพ. เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด, ควรลดเอฟเฟ็กต์ 3 มิติให้เหลือน้อยที่สุด, หลีกเลี่ยงพื้นผิวที่มีลายรายละเอียดหนักบนผนังและพื้นที่กราฟ, จำกัดจำนวนจุดข้อมูลต่อซีรีส์เมื่อเป็นไปได้, และเรนเดอร์เป็นขนาดเอาต์พุตที่เหมาะสม (ความละเอียดและมิติ) เพื่อให้ตรงกับการแสดงผลหรือการพิมพ์ที่ต้องการ
+ประสิทธิภาพขึ้นอยู่กับปริมาณข้อมูลและความซับซ้อนของภาพ. เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด, ควรใช้เอฟเฟกต์ 3D อย่างน้อยที่สุด, หลีกเลี่ยงพื้นผิวที่มีเท็กซ์เจอร์หนาบนผนังและพื้นที่วาด, จำกัดจำนวนจุดข้อมูลต่อซีรีส์เมื่อเป็นไปได้, และเรนเดอร์เป็นผลลัพธ์ขนาดที่เหมาะสม (ความละเอียดและมิติ) เพื่อให้ตรงกับการแสดงผลหรือการพิมพ์ที่ต้องการ.

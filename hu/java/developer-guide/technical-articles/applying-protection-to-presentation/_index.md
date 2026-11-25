@@ -1,12 +1,12 @@
 ---
-title: Alakzatzárolásokkal a prezentáció szerkesztésének korlátozása Java-ban
-linktitle: Prezentáció szerkesztésének korlátozása
+title: Prezentációs szerkesztések korlátozása alakzatzárakkal Java-ban
+linktitle: Prezentációs szerkesztések korlátozása
 type: docs
 weight: 60
 url: /hu/java/applying-protection-to-presentation/
 keywords:
 - szerkesztés megelőzése
-- védelem a szerkesztés ellen
+- szerkesztéstől védett
 - alakzat zárolása
 - pozíció zárolása
 - kijelölés zárolása
@@ -17,39 +17,39 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet zárolni és feloldani az alakzatokat PPTX prezentációkban az Aspose.Slides for Java-val, hogy korlátozza a kijelölést, mozgatást, átméretezést és a csoportosítást."
+description: "Ismerje meg, hogyan zárolhatja és feloldhatja az alakzatokat PPTX prezentációkban az Aspose.Slides for Java használatával, hogy korlátozza a kijelölést, a mozgást, az átméretezést és a csoportosítást."
 ---
 ## **Háttér**
 
-Az Aspose.Slides for Java gyakori felhasználási módja, hogy automatikus munkafolyamat részeként PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni az eredeti elrendezést és tartalmat.
+Az Aspose.Slides for Java gyakori felhasználása, hogy PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, az alakzatok módosításának korlátozása segíthet megőrizni a szándékos elrendezést és tartalmat.
 
-Ez a cikk elmagyarázza, hogyan vannak szervezve az alakzatok a diákon, valamint hogyan lehet alkalmazni és eltávolítani az alakzatzárolásokat egy PPTX prezentációban. Ezek a zárolások lehetővé teszik, hogy egyedi alakzatokon specifikus szerkesztési műveleteket korlátozzunk.
+Ez a cikk elmagyarázza, hogyan vannak az alakzatok elrendezve a diákon, és hogyan alkalmazhatók és távolíthatók el az alakzatzárak egy PPTX prezentációban. Ezek a zárak lehetővé teszik, hogy meghatározott szerkesztési műveleteket korlátozzunk az egyes alakzatokon.
 
-## **Dia összetétele**
+## **Dia felépítése**
 
-Egy prezentációs dia olyan komponensekből áll, mint az automatikus alakzatok, táblázatok, OLE‑objektumok, csoportos alakzatok, képkockák, videókockák, csatlakozók és egyéb elemek, amelyek a prezentáció felépítéséhez szükségesek. Az Aspose.Slides for Java‑ban minden egyes elem egy olyan objektummal van reprezentálva, amely implementálja a [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interfészt, vagy ebből egy osztályból származik.
+Egy prezentációs dia olyan komponensekből áll, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított alakzatok, képkeretek, videokeretek, összekötők és egyéb elemek, amelyek a prezentáció felépítéséhez szükségesek. Az Aspose.Slides for Java‑ban a dia minden eleme egy olyan objektummal van reprezentálva, amely megvalósítja az [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interfészt, vagy ebből származó osztályt.
 
-A különböző alakzattípusok különböző zárolási lehetőségeket biztosítanak. Az [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) interfész a formazárolások alapinterfésze. Az Aspose.Slides for Java a következő zárolási interfészeket kínálja:
+A különböző alakzat típusok különböző zárolási lehetőségeket biztosítanak. Az [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) interfész a alakzatzárak alapeszköze. Az Aspose.Slides for Java a következő zárolási interfészeket biztosítja:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) automatikus alakzatok zárolása.  
-- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) csatlakozó alakzatok zárolása.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) grafikus objektumok zárolása.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) csoportos alakzatok zárolása.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) képkockák zárolása.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) az automatikus alakzatokat zárolja.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) a csatlakozó alakzatokat zárolja.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) a grafikus objektumokat zárolja.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) a csoportosított alakzatokat zárolja.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) a képkereteket zárolja.  
 
-A zárolások alkalmazásához egy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) esetén iterálja végig a diákat, és állítsa be a megfelelő zárolásokat minden támogatott alakzaton.
+A [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) során történő zárolások alkalmazásához iteráljon a diákon, és állítsa be a megfelelő zárolásokat az egyes támogatott alakzatokra.
 
-## **Védelem alkalmazása és eltávolítása**
+## **Zárolás alkalmazása és eltávolítása**
 
-A kompatibilis prezentációs szerkesztők az alakzatzárolásokat használják egyedi szerkesztési műveletek korlátozására. A fájl titkosítás és a dokumentumszintű írásvédelem külön [presentation protection settings](/slides/hu/java/password-protected-presentation/) beállítások.
+A kompatibilis prezentációs szerkesztők alakzatzárakat használnak az egyes szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írásvédelem különálló [prezentációvédelmi beállítások](/slides/hu/java/password-protected-presentation/) beállítás.
 
-### **Védelem alkalmazása PPTX alakzatokra**
+### **Zárolás alkalmazása PPTX alakzatokra**
 
-Az Aspose.Slides for Java biztosítja a [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interfészt az alakzatokkal való munkához.
+Az Aspose.Slides for Java biztosítja az [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) interfészt az alakzatokkal való munkához a diákon.
 
-A példa meghívja a [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), a [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), valamint a [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) metódusokat `true` értékkel automatikus alakzatoknál, és a megfelelő zárolásokat csoportos alakzatok, csatlakozók és képkockák esetén. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) metódust használják a mozgáshoz; a csoportok pedig a [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódust a csoportosítás korlátozásához.
+A példa a [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), a [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) és a [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) metódusokat hívja meg `true` értékkel az automatikus alakzatoknál, illetve megfelelő zárakat a csoportos alakzatoknál, csatlakozóknál és képkereteknél. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) metódust használják a mozgáshoz; a csoportok a [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) metódust is használják a csoportosítás korlátozásához.
 
-A példa betölti a meglévő PPTX prezentációt, ellenőrzi az egyes diák alakzatgyűjteményét, és egy másolatot ment el a beállított korlátozásokkal. Az a négy kezelt típuson kívüli alakzatok változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekalakzatokat.
+A példa betölt egy meglévő PPTX prezentációt, ellenőrzi az egyes diák alakzatgyűjteményét, és elment egy másolatot a beállított korlátozásokkal. A négy kezelt típuson kívüli alakzatok változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermek alakzatokat.
 
 ```java
 import com.aspose.slides.*;
@@ -95,7 +95,7 @@ try {
 
 ### **Védelem eltávolítása**
 
-A formazárolás eltávolításához állítsa az értékét `false`‑ra. Az alábbi példa betölt egy olyan prezentációt, amelyben alakzatzárolások vannak, és törli a kijelölés, a mozgatás és az átméretezés korlátozásait az [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) segítségével. A csoportosítási korlátot is eltávolítja a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) `false` paraméterrel, majd egy másolatot ment a prezentációról. A többi zárolási beállítás változatlan marad.
+Az alakzatzár eltávolításához állítsa az értékét `false`-ra. A következő példa betölt egy prezentációt alakzatzárakkal, és törli a kijelölés, a mozgatás és az átméretezés korlátozásait az [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) és [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) segítségével. A csoportosítási korlátozást is eltávolítja a `false` értékkel a [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) meghívásával, majd elment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
 
 ```java
 import com.aspose.slides.*;
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-### **Kép vágásának megőrzése**
+### **Képvágás megőrzése**
 
-Helyezzen egy `photo.jpg` nevű fényképet a munkakönyvtárba. A példa 12 %‑ot vág le balról, 8 %‑ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) metódust a képkocka zárolásán. A `true` érték átadása korlátozza a további vágást, és megőrzi a meglévő vágást.
+Helyezzen egy `photo.jpg` nevű fotót a munkakönyvtárba. A példa 12 %-ot vágt el balról és 8 %-ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/#setCropLocked-boolean-) metódust a képkeret zárolásán. A `true` átadása további vágást korlátoz, és megőrzi a meglévő vágást.
 
 ```java
 import com.aspose.slides.*;
@@ -169,11 +169,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` a vágászárolást `true`‑ként tárolja. PowerPointban a **Crop** (Vágás) parancs le van tiltva, ha a fénykép ki van választva.
+`PictureLocked.pptx` a vágási zárat `true` értékkel tárolja. PowerPointban a **Crop** (Vágás) parancs le van tiltva, amikor a fotó ki van választva.
 
-### **Diagram csoportos állapotának megtartása**
+### **Diagram csoportosítva tartása**
 
-A példa egy téglalapot és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) metódust a csoport zárolásán, hogy a diagram elemei együtt maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása továbbra is elérhetők.
+A példa egy téglalapot és egy nyílt csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setUngroupingLocked-boolean-) metódust a csoport zárolásán, hogy a diagram komponensei együtt maradjanak. Más szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása továbbra is elérhetők.
 
 ```java
 import com.aspose.slides.*;
@@ -193,22 +193,91 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` az ungrouping (csoport felbontás) zárolást `true`‑ként tárolja. PowerPointban a **Ungroup** (Csoport felbontása) parancs le van tiltva, ha a teljes diagram ki van választva.
+`DiagramLocked.pptx` az csoportbontás zárat `true` értékkel tárolja. PowerPointban a **Ungroup** (Csoport bontása) parancs le van tiltva, amikor az egész diagram ki van választva.
 
-### **Összegzés**
+### **Meglévő alakzatzárak jelentése**
 
-Az Aspose.Slides for Java lehetővé teszi, hogy specifikus szerkesztési műveleteket korlátozzunk egyedi alakzatokon, vagy ugyanazokat a korlátozásokat alkalmazzuk a diákon át. Válassza ki az egyes alakzattípusok által támogatott zárolásokat, és állítsa értéküket `false`‑ra, amikor el kell távolítani a korlátozásokat.
+Egy sablon áttekintéséhez nyissa meg, és olvassa ki minden alakzat zárolási objektumát. A [getNoLocks](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/#getNoLocks--) metódus `true` értéket ad, ha az objektum összes jelzője le van tiltva, és `false`-t, ha legalább egy engedélyezve van. Egy csoport és annak gyermekei külön zárolási objektummal rendelkeznek, ezért vizsgálja meg a gyermekeket is akkor is, ha a csoport nem rendelkezik zárakkal.
+
+Ez a példa az automatikus alakzatok, képkeretek és csoportok mozgását ellenőrzi. Emellett a képek vágását és a csoportok csoportbontását is ellenőrzi. A jelentés felsorolja a felismert engedélyezett jelzőket, és megjelöli azokat az alakzat típusokat, amelyeket nem vizsgál.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+class ShapeLockReport {
+    void inspect(IShapeCollection shapes, int slideNumber, String prefix) {
+        for (IShape shape : shapes) {
+            String path = prefix + shape.getName();
+            String label = "Slide " + slideNumber + " | " + path + " | " + shape.getClass().getSimpleName();
+            StringJoiner flags = new StringJoiner(", ");
+            IBaseShapeLock shapeLock;
+
+            if (shape instanceof IGroupShape) {
+                IGroupShapeLock groupLock = ((IGroupShape) shape).getGroupShapeLock();
+                shapeLock = groupLock;
+                if (groupLock.getUngroupingLocked()) flags.add("UngroupingLocked");
+                if (groupLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrameLock pictureLock = ((IPictureFrame) shape).getPictureFrameLock();
+                shapeLock = pictureLock;
+                if (pictureLock.getCropLocked()) flags.add("CropLocked");
+                if (pictureLock.getPositionLocked()) flags.add("PositionLocked");
+            } else if (shape instanceof IAutoShape) {
+                IAutoShapeLock autoShapeLock = ((IAutoShape) shape).getAutoShapeLock();
+                shapeLock = autoShapeLock;
+                if (autoShapeLock.getPositionLocked()) flags.add("PositionLocked");
+            } else {
+                System.out.println(label + " | Uninspected");
+                continue;
+            }
+
+            if (!shapeLock.getNoLocks()) {
+                String restrictions = flags.length() > 0 ? flags.toString() : "Active flag not identified";
+                System.out.println(label + " | " + restrictions);
+            }
+
+            if (shape instanceof IGroupShape) {
+                inspect(((IGroupShape) shape).getShapes(), slideNumber, path + "/");
+            }
+        }
+    }
+}
+
+ShapeLockReport report = new ShapeLockReport();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        report.inspect(slide.getShapes(), slide.getSlideNumber(), "");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tegyük fel, hogy a `Sample.pptx` 1. diája egy `Layout` nevű csoportot tartalmaz, amelynek a csoportbontása zárva van, egy `Photo` nevű képet, amelynek a vágása zárva van, és egy `Free` nevű, záratlan téglalapot. A jelentés kihagyja a `Free` elemet és ezt a két sort írja ki:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+A jelentés a tárolt alakzatszintű szerkesztési jelzőket olvassa el anélkül, hogy módosítaná vagy mentené a prezentációt. A dokumentumszintű írásvédelem egy külön beállítás, és az egyes jelzők érvényesítése a szerkesztőtől függ.
+
+## **Összegzés**
+
+Az Aspose.Slides for Java lehetővé teszi, hogy meghatározott szerkesztési műveleteket korlátozzon az egyes alakzatokon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon. Válassza ki az egyes alakzat típusok által támogatott zárakat, és állítsa értéküket `false`-ra, ha el szeretné távolítani ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Kombinálhatok alakzatzárolást és jelszóvédelmet ugyanabban a bemutatóban?**
+**Kombinálhatom-e az alakzatzárakat és a jelszóvédelmet ugyanabban a prezentációban?**
 
-Igen. Az alakzatzárolások specifikus szerkesztési műveleteket korlátoznak, míg a [password protection](/slides/hu/java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja egy fájlban.
+Igen. Az alakzatzárak meghatározott szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
 
-**Korlátozhatom a szerkesztést bizonyos diákon anélkül, hogy másokon változna?**
+**Korlátozhatom-e a szerkesztést egyes diákon anélkül, hogy a többit befolyásolnám?**
 
-Igen. Csak a kijelölt diák alakzataira alkalmazza a zárolásokat. Ez nem módosítja a többi dia zárolási beállításait.
+Igen. A zárakat csak a kiválasztott diák alakzataira alkalmazza. Ez nem módosítja a többi dia zárolási beállításait.
 
-**Hogyan alkalmazhatok zárakat egy csoporton belüli egyedi alakzatokra?**
+**Hogyan alkalmazhatok zárakat az egyes csoporton belüli alakzatokra?**
 
-Iteráljon a csoport által visszaadott [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) gyűjteményen, és alkalmazza a megfelelő zárolásokat minden gyermekalakzatra. Ismételje meg ezt minden beágyazott csoportra. A fenti példák csak a dia alakzatgyűjteményét dolgozzák fel, így nem állítanak be zárolásokat az egyedi csoporttagokon.
+Iteráljon a csoport [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) metódusa által visszaadott gyűjteményen, és alkalmazza a megfelelő zárakat minden gyermek alakzatra. Ismételje meg ezt minden beágyazott csoport esetén, a jelentési példában bemutatott bejárás szerint.

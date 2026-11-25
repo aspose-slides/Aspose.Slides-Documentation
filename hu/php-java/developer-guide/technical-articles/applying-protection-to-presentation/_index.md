@@ -1,55 +1,55 @@
 ---
-title: Prezentáció szerkesztésének korlátozása alakzatzárakkal PHP-ben
+title: Prezentáció szerkesztésének korlátozása formazárakkal PHP-ben
 linktitle: Prezentáció szerkesztésének korlátozása
 type: docs
 weight: 60
 url: /hu/php-java/applying-protection-to-presentation/
 keywords:
-- szerkesztés megelőzése
-- védés a szerkesztéstől
-- alakzat zárolása
+- szerkesztés megakadályozása
+- védelem a szerkesztéstől
+- forma zárolása
 - pozíció zárolása
-- kiválasztás zárolása
-- átméretezés zárolása
+- kijelölés zárolása
+- méretezés zárolása
 - csoportosítás zárolása
 - PowerPoint
 - PPTX
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet zárolni és feloldani az alakzatokat PPTX prezentációkban az Aspose.Slides for PHP via Java segítségével a kiválasztás, mozgatás, átméretezés és csoportosítás korlátozásához."
+description: "Ismerje meg, hogyan lehet zárolni és feloldani a formákat PPTX prezentációkban az Aspose.Slides for PHP via Java segítségével, hogy korlátozza a kijelölést, mozgatást, méretezést és a csoportosítást."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for PHP via Java gyakori felhasználása, hogy PowerPoint (PPTX) bemutatókat hozzon létre, frissítsen és mentse egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a bemutatókat, az alakzatok módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
+Az Aspose.Slides for PHP via Java gyakori felhasználása a PowerPoint (PPTX) prezentációk létrehozása, frissítése és mentése egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, a formák módosításának korlátozása segíthet megőrizni a kívánt elrendezést és tartalmat.
 
-Ez a cikk elmagyarázza, hogyan vannak az alakzatok szervezve a diákon, és hogyan alkalmazhatók és távolíthatók el az alakzatzárak egy PPTX bemutatóban. Ezek a zárak lehetővé teszik, hogy egyes alakzatok specifikus szerkesztési műveleteit korlátozzuk.
+Ez a cikk elmagyarázza, hogyan vannak szervezve a formák a diákon, valamint hogyan lehet alkalmazni és eltávolítani a formazárakat egy PPTX prezentációban. Ezek az zárak lehetővé teszik, hogy egyes szerkesztési műveleteket korlátozzunk az egyedi formákon.
 
-## **Dia felépítése**
+## **A dia összetétele**
 
-Egy prezentációs dia olyan összetevőkből áll, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított alakzatok, képkeretek, videókeretek, összekötők és más elemek, amelyeket a bemutató felépítéséhez használnak. Az Aspose.Slides for PHP via Java esetén a dia minden eleme egy olyan objektummal van reprezentálva, amely a [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) osztályból származik.
+Egy prezentációs dia alkotóelemei közé tartoznak az autóformák, táblázatok, OLE‑objektumok, csoportosított formák, képkockák, videokockák, összekötők és egyéb elemek, amelyek a prezentáció építésére szolgálnak. Az Aspose.Slides for PHP via Java‑ban a dia minden elemét egy olyan objektum képviseli, amely a [Alak](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) osztályból származik.
 
-A különböző alakzattípusok különböző zárolási lehetőségeket biztosítanak. A [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) osztály az alakzatzárak alaposztálya. Az Aspose.Slides for PHP via Java a következő zárolási osztályokat biztosítja:
+A különböző forma típusok különféle zárolási lehetőségeket biztosítanak. A [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) osztály a formazárak alaposztálya. Az Aspose.Slides for PHP via Java a következő zárolási osztályokat kínálja:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) zárolja az automatikus alakzatokat.  
-- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) zárolja a csatlakozó alakzatokat.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) zárolja a grafikus objektumokat.  
-- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) zárolja a csoportos alakzatokat.  
-- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) zárolja a képkereteket.  
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) autóformák zárolásához.  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) összekötőformák zárolásához.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) grafikus objektumok zárolásához.  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) csoportosított formák zárolásához.  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) képkockák zárolásához.  
 
-A zárak alkalmazásához egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) során iteráljon a diákkal, és állítsa be a megfelelő zárakat minden támogatott alakzaton.
+A zárolások alkalmazásához egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objektumban iterálja végig a diákat, és a támogatott formákon állítsa be a megfelelő zárolásokat.
 
-## **Védelem alkalmazása és eltávolítása**
+## **Zárolás alkalmazása és eltávolítása**
 
-A kompatibilis prezentációs szerkesztők alakzatzárakat használnak az egyedi szerkesztési műveletek korlátozására. A fájl titkosítás és a dokumentumszintű írásvédelme különálló [prezentációvédelmi beállítások](/slides/hu/php-java/password-protected-presentation/).
+A kompatibilis prezentációs szerkesztők a formazárakat használják egyedi szerkesztési műveletek korlátozására. A fájl titkosítása és a dokumentumszintű írásvédettség külön [prezentációvédelmi beállítások](/slides/hu/php-java/password-protected-presentation/).
 
-### **Védelem alkalmazása PPTX alakzatokra**
+### **Zárolás alkalmazása PPTX formákra**
 
-Az Aspose.Slides for PHP via Java biztosítja a [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) osztályt a dia alakzataival való munkához.
+Az Aspose.Slides for PHP via Java biztosítja a [Alak](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) osztályt a diáknapokon lévő formákkal való munka érdekében.
 
-A példa meghívja a [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), a [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) és a [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) metódusokat `true` értékkel az automatikus alakzatoknál, valamint a megfelelő zárakat a csoportos alakzatok, csatlakozók és képkeretek esetén. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) metódust használják a mozgatáshoz; a csoportok pedig a [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metódust a csoportosítás korlátozásához.
+A példa meghívja a [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), a [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) és a [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) metódusokat `true` értékkel az autóformákra, valamint a megfelelő zárolásokat a csoportosított formákra, összekötőkre és képkockákra. Az összekötők a [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) metódust használják a mozgatáshoz; a csoportok továbbá a [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metódust alkalmazzák a csoportosítás korlátozására.
 
-A példa betölt egy meglévő PPTX bemutatót, ellenőrzi az egyes diák alakzatgyűjteményét, és egy másolatot ment el ezekkel a korlátozásokkal. A négy kezelt típuson kívüli alakzatok változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekalakzatokat.
+A példa betölti a meglévő PPTX prezentációt, ellenőrzi a formákat minden dia forma‑gyűjteményében, és egy másolatot ment a beállított korlátozásokkal. A négy kezelt típuson kívüli formák változatlanul maradnak. A ciklus nem járja be a csoporton belüli gyermekformákat.
 
 ```php
 use aspose\slides\Presentation;
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-### **Védelem eltávolítása**
+### **Zárolás eltávolítása**
 
-Az alakzatzár eltávolításához állítsa az értékét `false`-ra. A következő példa betölt egy prezentációt alakzatzárakkal, és törli a kiválasztás, mozgatás és átméretezés korlátozásait a [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), a [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), a [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) és a [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) segítségével. A csoportosítás korlátozását is eltávolítja, ha `false`-t ad át a [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) metódusnak, majd ment egy másolatot a prezentációról. A többi zár beállítás változatlan marad.
+A formazár eltávolításához állítsa az értékét `false`‑ra. Az alábbi példa betölt egy formazárral ellátott prezentációt, és törli a kiválasztási, mozgási és méretezési korlátozásokat a [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), a [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), a [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) és a [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) segítségével. A csoportosítás korlátozást szintén eltávolítja a [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) `false` argumentummal, majd ment egy másolatot a prezentációból. A többi zárolási beállítás változatlan marad.
 
 ```php
 use aspose\slides\Presentation;
@@ -133,9 +133,9 @@ try {
 }
 ```
 
-### **Kép vágásának megőrzése**
+### **Képvágás megőrzése**
 
-Helyezzen egy `photo.jpg` nevű fényképet a munkakönyvtárba. A példa 12%-ot vág le balról és 8%-ot jobbról, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) metódust a képkeret zárolásán. `true` átadása korlátozza a további vágást és megőrzi a meglévő vágást.
+Helyezze a `photo.jpg` nevű képet a munkakönyvtárba. A példa a bal oldalról 12 %‑ot, a jobb oldalról 8 %‑ot vág le, majd meghívja a [setCropLocked](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/#setCropLocked) metódust a képkocka zárolásán. A `true` érték további vágást korlátoz, és megőrzi a már meglévő vágást.
 
 ```php
 use aspose\slides\Images;
@@ -168,11 +168,11 @@ try {
 }
 ```
 
-`PictureLocked.pptx` a vágászárat `true` értékként tárolja. PowerPointban a **Vágás** parancs le van tiltva, amikor a fénykép ki van választva.
+A `PictureLocked.pptx` fájlban a vágászár `true` értéken van tárolva. PowerPointban a **Crop** (Vágás) parancs le van tiltva, amikor a képet kijelölik.
 
 ### **Diagram csoportosítva tartása**
 
-A példa egy téglalapot és egy nyilat csoportosít, majd meghívja a [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) metódust a csoport zárolásán, hogy a diagram komponensei együtt maradjanak. A többi szerkesztés, például a csoport mozgatása vagy egy komponens kitöltésének módosítása, továbbra is elérhető.
+A példa egy téglalapot és egy nyilat csoportosít, majd a csoport zárolásán a [setUngroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setUngroupingLocked) metódust hívja, hogy a diagram elemei együtt maradjanak. Egyéb szerkesztések, például a csoport mozgatása vagy egy komponens kitöltésének módosítása továbbra is elérhetők.
 
 ```php
 use aspose\slides\Presentation;
@@ -194,22 +194,89 @@ try {
 }
 ```
 
-`DiagramLocked.pptx` a csoportosítás felbontásának zárolását `true` értékként tárolja. PowerPointban a **Csoport felbontása** parancs le van tiltva, amikor az egész diagram ki van választva.
+A `DiagramLocked.pptx` fájlban az egyesítés feloldása zárolva van (`true`). PowerPointban a **Ungroup** (Csoport felbontása) parancs le van tiltva, amikor az egész diagram ki van jelölve.
 
-### **Összefoglalás**
+### **Meglévő formazárak jelentése**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi, hogy egyes alakzatok specifikus szerkesztési műveleteit korlátozza, vagy ugyanazokat a korlátozásokat alkalmazza a diákon át. Válassza ki az egyes alakzattípusok által támogatott zárakat, és állítsa az értéküket `false`-ra, ha el kell távolítani ezeket a korlátozásokat.
+Egy sablon áttekintéséhez nyissa meg, és olvassa ki a zárolási objektumot minden egyes formához. A [getNoLocks](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/#getNoLocks) metódus `true`‑t ad vissza, ha az objektum összes jelzője le van tiltva, és `false`‑t, ha legalább egy be van kapcsolva. Egy csoport és annak gyermekei külön zárolási objektummal rendelkeznek, ezért a gyermekeket is ellenőrizze, még ha a csoportnak nincsenek zárjai is.
+
+Ez a példa ellenőrzi a mozgást autóformákon, képkockákon és csoportokon. Emellett ellenőrzi a képek vágását és a csoportok egyesítés feloldását. A jelentés felsorolja a felismert engedélyezett jelzőket, és megjelöli azokat a forma típusokat, amelyeket nem vizsgál.
+
+```php
+use aspose\slides\Presentation;
+
+function reportShapeLocks($shapes, $slideNumber, $prefix = "") {
+    foreach ($shapes->toArray() as $shape) {
+        $path = $prefix . java_values($shape->getName());
+        $type = java_values($shape->getClass()->getSimpleName());
+        $label = "Slide $slideNumber | $path | $type";
+        $flags = [];
+        $isGroup = java_instanceof($shape, java("com.aspose.slides.IGroupShape"));
+
+        if ($isGroup) {
+            $lock = $shape->getGroupShapeLock();
+            if (java_values($lock->getUngroupingLocked())) {
+                $flags[] = "UngroupingLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IPictureFrame"))) {
+            $lock = $shape->getPictureFrameLock();
+            if (java_values($lock->getCropLocked())) {
+                $flags[] = "CropLocked";
+            }
+        } elseif (java_instanceof($shape, java("com.aspose.slides.IAutoShape"))) {
+            $lock = $shape->getAutoShapeLock();
+        } else {
+            echo "$label | Uninspected", PHP_EOL;
+            continue;
+        }
+
+        if (java_values($lock->getPositionLocked())) {
+            $flags[] = "PositionLocked";
+        }
+        if (!java_values($lock->getNoLocks())) {
+            $restrictions = $flags ? implode(", ", $flags) : "Active flag not identified";
+            echo "$label | $restrictions", PHP_EOL;
+        }
+
+        if ($isGroup) {
+            reportShapeLocks($shape->getShapes(), $slideNumber, $path . "/");
+        }
+    }
+}
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        reportShapeLocks($slide->getShapes(), java_values($slide->getSlideNumber()));
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Tegyük fel, hogy a `Sample.pptx` első diáján egy `Layout` nevű csoport van, amelynek a csoportfeloldás zárolva van, a csoporton belül egy `Photo` nevű kép van, amelynek a vágás zárolva van, és egy `Free` nevű, zárolás nélküli téglalap. A jelentés kihagyja a `Free` elemet, és a következő két sort írja ki:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+A jelentés a tárolt forma‑szintű szerkesztési jelzőket olvassa be anélkül, hogy módosítaná vagy mentené a prezentációt. A dokumentumszintű írásvédelem egy külön beállítás, és minden jelző érvényesülését a szerkesztő határozza meg.
+
+### **Összegzés**
+
+Az Aspose.Slides for PHP via Java lehetővé teszi, hogy egyedi szerkesztési műveleteket korlátozzunk egyedi formákon, vagy ugyanazokat a korlátozásokat alkalmazzuk a diákon át. Válassza ki a formatípusonként támogatott zárakat, és állítsa azok értékét `false`‑ra, ha el szeretné távolítani a korlátozásokat.
 
 ## **GYIK**
 
-**Össze tudom-e kombinálni az alakzatzárakat és a jelszóvédelmet ugyanabban a bemutatóban?**
+**Kombinálhatom a formazárakat és a jelszóvédelmet ugyanabban a prezentációban?**
 
-Igen. Az alakzatzárak specifikus szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/php-java/password-protected-presentation/) szabályozhatja a bemutató megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
+Igen. A formazárak bizonyos szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/php-java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja egy fájlban.
 
-**Korlátozhatom-e a szerkesztést konkrét diákon anélkül, hogy másokat befolyásolnék?**
+**Korlátozhatom a szerkesztést bizonyos diáknál anélkül, hogy a többi érintett lenne?**
 
-Igen. Csak a kiválasztott diákon lévő alakzatokra alkalmazza a zárakat. Ez nem módosítja a többi dia zárbeállításait.
+Igen. Csak a kiválasztott diák formáira alkalmazza a zárolásokat. Ez nem módosítja a többi dia zárolási beállításait.
 
-**Hogyan alkalmazhatok zárakat egyes alakzatokra egy csoporton belül?**
+**Hogyan alkalmazhatok zárakat egyedi formákra egy csoporton belül?**
 
-Iteráljon a csoport [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) metódusa által visszaadott gyűjteményen, és alkalmazza a megfelelő zárakat minden gyermekalakzatra. Ismételje meg ezt a beágyazott csoportok esetén is. A fenti példák csak a dia alakzatgyűjjtőén dolgozzák fel, ezért nem állítanak be zárakat az egyes csoporttagokra.
+Iteráljon a csoport [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) metódusa által visszaadott gyűjteményen, és minden gyermekformára alkalmazza a megfelelő zárakat. Ismételje meg ezt minden beágyazott csoport esetén, a jelentési példában bemutatott bejárás szerint.
