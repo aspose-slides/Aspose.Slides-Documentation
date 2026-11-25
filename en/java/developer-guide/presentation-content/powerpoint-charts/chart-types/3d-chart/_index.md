@@ -67,6 +67,57 @@ try {
 }
 ```
 
+## **Apply a Picture Fill to a 3D Chart Surface**
+
+A 3D chart has three surfaces you can fill independently: the [side wall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getSideWall--), [back wall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--), and [floor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--). Set the surface's [fill type](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to `Picture` and assign an image. Set both the [picture fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) and the surface's [picture type](https://reference.aspose.com/slides/java/com.aspose.slides/ichartwall/#setPictureType-int-) to `Stretch` to fit one copy of the image across the surface.
+
+Save [arrow.png](arrow.png) in the working directory. The example rotates the chart and raises the maximum value on the vertical axis so the floor is visible between the columns. It then clones the slide twice and applies the arrow to a different surface on each slide. All three charts keep the same data, viewing angle, and background.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 20, 30, 680, 480);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setRotationX((byte) 40);
+    chart.getRotation3D().setRotationY(30);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setMaxValue(24);
+
+    ISlide backSlide = presentation.getSlides().addClone(slide);
+    ISlide floorSlide = presentation.getSlides().addClone(slide);
+    IChart backChart = (IChart) backSlide.getShapes().get_Item(0);
+    IChart floorChart = (IChart) floorSlide.getShapes().get_Item(0);
+
+    byte[] imageBytes = Files.readAllBytes(Paths.get("arrow.png"));
+    IPPImage arrow = presentation.getImages().addImage(imageBytes);
+
+    IChartWall[] surfaces = { chart.getSideWall(), backChart.getBackWall(), floorChart.getFloor() };
+    for (IChartWall surface : surfaces) {
+        IFillFormat fill = surface.getFormat().getFill();
+        fill.setFillType(FillType.Picture);
+        fill.getPictureFillFormat().getPicture().setImage(arrow);
+        fill.getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+        surface.setPictureType(PictureType.Stretch);
+    }
+
+    presentation.save("chart-surfaces.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Microsoft PowerPoint shows the three slides as follows.
+
+| Side wall | Back wall | Floor |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Adjust the Height Proportions of a 3D Chart**
 
 Use [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.

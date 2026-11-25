@@ -61,6 +61,51 @@ with slides.Presentation() as presentation:
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Apply a Picture Fill to a 3D Chart Surface**
+
+You can fill the [side wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/side_wall/), [back wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/), and [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) of a 3D chart independently. Set the surface's [fill type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to `PICTURE` and assign an image. To fit one copy of the image across the surface, set both the [picture fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) and the surface's [picture type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartwall/picture_type/) to `STRETCH`.
+
+Save [arrow.png](arrow.png) in the working directory. The example rotates the chart and raises the maximum value on the vertical axis so the floor is visible between the columns. It clones the slide twice, then applies the arrow to a different surface on each slide. All three charts share the same data, viewing angle, and background.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 20, 30, 680, 480)
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.rotation_x = 40
+    chart.rotation_3d.rotation_y = 30
+    chart.axes.vertical_axis.is_automatic_max_value = False
+    chart.axes.vertical_axis.max_value = 24
+
+    back_slide = presentation.slides.add_clone(slide)
+    floor_slide = presentation.slides.add_clone(slide)
+    back_chart = back_slide.shapes[0]
+    floor_chart = floor_slide.shapes[0]
+
+    with open("arrow.png", "rb") as image_file:
+        image_bytes = image_file.read()
+    arrow = presentation.images.add_image(image_bytes)
+
+    for surface in (chart.side_wall, back_chart.back_wall, floor_chart.floor):
+        fill = surface.format.fill
+        fill.fill_type = slides.FillType.PICTURE
+        fill.picture_fill_format.picture.image = arrow
+        fill.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        surface.picture_type = charts.PictureType.STRETCH
+
+    presentation.save("chart-surfaces.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Microsoft PowerPoint shows the three slides as follows.
+
+| Side wall | Back wall | Floor |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Adjust the Height Proportions of a 3D Chart**
 
 Use [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.

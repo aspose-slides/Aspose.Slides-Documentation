@@ -69,6 +69,54 @@ chart.Rotation3D.DepthPercents = 150;
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Apply a Picture Fill to a 3D Chart Surface**
+
+A 3D chart has three surfaces that you can fill independently: the [side wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/sidewall/), [back wall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/), and [floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/). Set the selected surface's [fill type](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to `Picture` and assign an image. Set both the [picture fill mode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) and the surface's [picture type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartwall/picturetype/) to `Stretch` to fit one copy of the image across the surface.
+
+Save [arrow.png](arrow.png) in the working directory. The example rotates the chart and raises the maximum value on the vertical axis so the floor is visible between the columns. It then clones the slide twice before applying the arrow to a different surface on each slide. All three charts keep the same data, viewing angle, and background.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 20, 30, 680, 480);
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.RotationX = 40;
+chart.Rotation3D.RotationY = 30;
+chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+chart.Axes.VerticalAxis.MaxValue = 24;
+
+var backSlide = presentation.Slides.AddClone(slide);
+var floorSlide = presentation.Slides.AddClone(slide);
+var backChart = (IChart)backSlide.Shapes[0];
+var floorChart = (IChart)floorSlide.Shapes[0];
+
+var imageBytes = File.ReadAllBytes("arrow.png");
+var arrow = presentation.Images.AddImage(imageBytes);
+
+foreach (var surface in new[] { chart.SideWall, backChart.BackWall, floorChart.Floor })
+{
+    var fill = surface.Format.Fill;
+    fill.FillType = FillType.Picture;
+    fill.PictureFillFormat.Picture.Image = arrow;
+    fill.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    surface.PictureType = PictureType.Stretch;
+}
+
+presentation.Save("chart-surfaces.pptx", SaveFormat.Pptx);
+```
+
+Microsoft PowerPoint shows the three slides as follows.
+
+| Side wall | Back wall | Floor |
+| --- | --- | --- |
+| ![Arrow pointing into the chart along the side wall](side-wall.png) | ![Arrow pointing right across the back wall](back-wall.png) | ![Arrow pointing right across the floor between the columns](floor.png) |
+
 ## **Adjust the Height Proportions of a 3D Chart**
 
 Use [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
